@@ -1,7 +1,7 @@
 # arxiv digest (quant-ph + cond-mat) — 2026-04-24
 
-*78 papers · 4 highlighted*  
-_⏳ in progress: 78/95 papers processed (file updates after each one)_
+*86 papers · 4 highlighted*  
+_⏳ in progress: 86/95 papers processed (file updates after each one)_
 
 
 ## ⭐ Highlighted (4)
@@ -14,7 +14,7 @@ _⏳ in progress: 78/95 papers processed (file updates after each one)_
 - ⭐ [Quantum jump correlations in long-range dissipative spin systems](http://arxiv.org/abs/2604.21513v1) — Rosario Fazio
 
 
-## quantum information and computing (31)
+## quantum information and computing (33)
 
 ### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
 
@@ -2601,6 +2601,150 @@ Fast qubit reset is essential for qubit reuse in the noisy intermediate-scale qu
 
 </details>
 
+### [Monitoring photon entanglement in coupled cavities](http://arxiv.org/abs/2604.21208v1)
+
+**Authors:** Moises Acero, Jeremiah Harrington, Oleg L. Berman, K. Ziegler  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21208v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21208_figures/2604.21208_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Two optical cavities coupled by an optical fiber are subject to repeated projective measurements in the left cavity.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21208_figures/2604.21208_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Unitary evolution: pe = 2|c0||cN| (left column) and the difference ∆= 2|c0||cN| cos ϕ of the probabilities of N00N states (right column) for N = 2, 10, 20. The time is given in units of ¯h/J.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21208_figures/2604.21208_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Monitored evolution: Probabilities of the return to the initial state |N, 0⟩(left) and the transition to the state |0, N⟩(right) for N = 100.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21208_figures/2604.21208_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Probabilities of the monitored transition to a N00N state for N = 10 photons: fidelity |(⟨0, N| + ⟨N, 0|)|Ψt⟩|2/2 (left column) and the difference ∆of the N00N states (right column) for different time steps τ = 0.5, 1, 5.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21208_figures/2604.21208_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Time-periodic entanglement entropy for a unitary evolution in two coupled cavities with N = 20 photons. The time is given in units of ¯h/J.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21208_figures/2604.21208_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Entanglement entropy for N = 20 photons in two coupled cavities with Jτ/¯h = π/10.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21208_figures/2604.21208_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Entanglement entropy under a unitary evolution of photons, coupled to a single qubit with coupling strength Ω/ω = 0.1. The initial state is the superposition ρ0 = P15 n=1 | ↓, n⟩⟨↓, n|/15. The time is given in units of the inverse cavity frequency 1/ω.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21208_figures/2604.21208_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Entanglement entropy under a monitored evolution of photons, coupled to a single qubit with coupling strength Ω/ω = 0.1 for different time steps τ/ω between measurements. The initial state is the superposition ρ0 = P15 n=1 | ↓, n⟩⟨↓, n|/15.</sub>
+
+</details>
+
+**Main problem.** Investigating how repeated projective measurements (monitoring) can control, enhance, or stabilize photon entanglement in coupled cavity and cavity-qubit systems.
+
+**Main result.** The study finds that entanglement is highly sensitive to the monitoring protocol, which can be used as a control mechanism; specifically, periodic measurements can increase entanglement entropy for large N and stabilize it at a stationary value.
+
+**Method.** A monitored quantum walk approach involving periodic unitary evolution followed by projective measurements, using density matrix evolution and Rényi entanglement entropy calculations.
+
+**Summary.** This paper explores how repeated projective measurements can be used to manipulate photon entanglement in coupled cavities and cavity-qubit systems. The authors demonstrate that the monitoring protocol can act as a control mechanism to enhance or stabilize entanglement entropy. They specifically analyze the formation of N00N states and the dynamics of the Jaynes-Cummings model under periodic measurement. The results suggest that the specific timing and nature of measurements can significantly alter the quantum state evolution.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Two optical cavities coupled by an optical fiber (Hamiltonian with coupling strength J) and the Jaynes-Cummings model (single cavity coupled to a single qubit).
+
+**Key observables.** Fidelity and phase sensitivity of N00N states, Rényi entanglement entropy, transition and return probabilities (c0 and cN), and the pseudo N00N state probability (pe).
+
+**Important parameters / regimes.** Number of photons (N), coupling strength (J or Omega), measurement time step (tau), and energy level spacing.
+
+**Assumptions / limitations.** Assumes N is even for certain calculations and focuses on the dynamics of N photons in a Fock state with indirect photon-photon interaction.
+
+**Figures summary.** Figure 1 shows the experimental schematic; Figure 2 compares unitary vs. monitored evolution for different photon numbers; Figure 3 shows return/transition probabilities for large N.
+
+**Paper structure.** The paper introduces the monitoring protocol, analyzes the coupled cavity system (N00N state formation and entanglement entropy), extends the study to the Jaynes-Cummings model, and discusses the practical implications of measurement-induced dynamics.
+
+**Why it may be interesting.** It provides insights into using measurement-induced dynamics as a tool for entanglement control, which is highly relevant for quantum optics, open quantum systems, and the study of measurement-induced phase transitions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study the dynamics of $N$ photons in a Fock state, initially located inside one cavity, and coupled by an optical fiber to a second cavity. The entanglement of the photons is monitored by projective measurements, repeated with a fixed time step. This approach is applied to the formation of a photonic N00N state. We calculate the probability of the transition of $N$ photons from the left to the right cavity and the probability of the return of $N$ photons to the left cavity under repeated projective measurements. The entanglement is analyzed for the N00N state by its fidelity and its phase sensitivity, while for the entanglement between the states in the two cavities the entanglement entropy is calculated. In addition, we study the monitored evolution of photons in a single cavity, which are coupled to a single qubit, using the Jaynes-Cummings model. Photon entanglement is analyzed in terms of the entanglement entropy. In all these cases we find that entanglement is sensitive to the details of monitoring protocol, which can be used to control photon entanglement for specific applications.
+
+</details>
+
+### [Qubit-efficient and gate-efficient encodings of graph partitioning problems for quantum optimization](http://arxiv.org/abs/2604.21123v1)
+
+**Authors:** Tristan Zaborniak, Prashanti Priya Angara, Vikram Khipple Mulligan, Hausi Müller, Ulrike Stege  
+**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21123v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21123_figures/2604.21123_fig1.jpg" width="500"><br>
+<sub>Fig. 1: Small example graph colored improperly (upper row, violating edge colored red) and properly (bottom row). The tables contain bitstring assignments to each vertex under the one-hot and logarithmic encodings. Note that with 4 (|V |) vertices, 4 (|V |) qubits are required per vertex for one-hot encoding, and 2 (⌈log2 |V |⌉) qubits are required for logarithmic encoding. While the bitstrings are colored for visualization purposes, they do not refer to a particular color.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21123_figures/2604.21123_fig2.jpg" width="500"><br>
+<sub>Fig. 2: Upper left: TTS as a function of |V |. Upper right: Post- quadratization logical qubits per encoding; inset: pre-quadratization. Lower left: Physical qubits after minor embedding. Lower right: Chain length variance; inset: average chain length.</sub>
+
+</details>
+
+**Main problem.** The inefficient encoding of k-valued graph partitioning problems (like minimum graph coloring) for quantum optimization, which currently suffers from high qubit and gate overhead using traditional one-hot encodings.
+
+**Main result.** The authors developed a logarithmic HUBO encoding that significantly reduces qubit and gate requirements, achieving one to two orders of magnitude improvement in Time-to-Solution on a quantum annealer.
+
+**Method.** The paper introduces a logarithmic encoding using bitstrings and a novel lexicographic penalty system, compares it against one-hot and other encodings, and provides theoretical proofs for penalty coefficient bounds.
+
+**Summary.** This paper presents a new way to encode complex graph partitioning problems for quantum computers using fewer qubits and gates. By using a logarithmic bit-based encoding instead of the traditional one-hot method, the authors reduce the computational resources needed for problems like graph coloring. Experimental results on a D-Wave quantum annealer show that this method significantly speeds up the time required to find optimal solutions. The approach also improves the stability of the quantum hardware's performance by reducing the variance in chain lengths.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study utilizes a Higher-order Unconstrained Binary Optimization (HUBO) model applied to graph partitioning problems, specifically tested on a D-Wave Advantage2_1.11 quantum annealer.
+
+**Key observables.** Time-to-Solution (TTS), logical and physical qubit counts, chain length variance, and CNOT gate counts.
+
+**Important parameters / regimes.** Number of vertices (|V|), number of edges (|E|), number of available colors (k), and penalty coefficients (A_link, A_adjacency, A_one-hot).
+
+**Assumptions / limitations.** The encoding is primarily designed for label-symmetric, pairwise-decomposable graph partitioning problems.
+
+**Figures summary.** Figures show Time-to-Solution increasing with problem size, comparisons of logical qubit counts (pre- and post-quadratization), and analysis of chain length variance and physical qubit scaling.
+
+**Paper structure.** The paper identifies encoding bottlenecks, introduces the logarithmic HUBO construction, provides mathematical proofs for penalty sufficiency, performs complexity analysis, and validates the approach via quantum annealing benchmarks.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We introduce a qubit- and gate-efficient higher-order unconstrained binary optimization (HUBO) encoding for graph partitioning problems requiring label-count minimization. This widely applicable class of problems includes minimum graph coloring, minimum $k$-cut, and community detection. To the best of our knowledge, this is the first work to address the optimization versions of these problems in a quantum setting, rather than only their decision counterparts. Our construction encodes each $k$-valued vertex variable using $\lceil \log_2 k \rceil$ bits and employs a novel lexicographic penalty system that implicitly minimizes partition count without requiring dedicated indicator variables. We derive provably sufficient conditions on all penalty coefficients, including those arising from Rosenberg quadratization, guaranteeing feasibility and optimality of the lowest-energy solution. Analogous conditions are derived for a one-hot encoding to enable controlled comparison. We also show that our encoding reduces two-qubit gate count per QAOA layer from $Θ(|V||k|^2 + |E||k|)$ for the one-hot encoding to $Θ(|E| \cdot |k| \lceil\log_2 |k|\rceil)$. Benchmarking on a quantum annealer demonstrates that our logarithmic encoding significantly improves solution quality and time-to-solution for minimum graph coloring relative to one-hot encoding, with greater advantage as problem size increases.
+
+</details>
+
 
 ## numerical methods (4)
 
@@ -3061,7 +3205,7 @@ We revisit the quantization of the order parameter, which we refer to as third q
 </details>
 
 
-## statistical mechanics (11)
+## statistical mechanics (13)
 
 ### [Novel dynamics for an inertial polar tracer in an active bath](http://arxiv.org/abs/2604.21762v1)
 
@@ -3825,6 +3969,218 @@ We present a Monte Carlo study of the fractal geometry of clusters formed by dis
 
 </details>
 
+### [Percolation Critical Probability of Aperiodic Smith Hat tile(1, $\sqrt3$)](http://arxiv.org/abs/2604.21165v1)
+
+**Authors:** Haitao Gao, Aaryash Bharadwaj  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21165v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21165_figures/2604.21165_fig1.jpg" width="500"><br>
+<sub>Figure 1: Hat unit</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21165_figures/2604.21165_fig2.jpg" width="500"><br>
+<sub>Figure 2: Metatile in Smith hat tiling: (a) pattern H, (b) pattern T, (c) pattern P, (d) pattern F</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21165_figures/2604.21165_fig3.jpg" width="500"><br>
+<sub>Figure 3: Hat tile: (a) The patch composed by metatiles. (b) The metatiles dissected into multiple copies of the prototile.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21165_figures/2604.21165_fig4.jpg" width="500"><br>
+<sub>Figure 4: Patch 5: The Red Square is the L = 400 centred on the point (200, -100)</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21165_figures/2604.21165_fig5.jpg" width="500"><br>
+<sub>Figure 5 shows the mean critical probability within a 95% confidence interval. It follows the statistical property that when the system size L increases, the 95% confidence interval shrinks.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21165_figures/2604.21165_fig6.jpg" width="500"><br>
+<sub>Figure 5: Monte Carlo simulation: Site and bond percolation critical probability mean ¯pc and 95% confidence interval</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21165_figures/2604.21165_fig7.jpg" width="500"><br>
+<sub>Figure 6: Site Percolation</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21165_figures/2604.21165_fig8.jpg" width="500"><br>
+<sub>Figure 7: Bond Percolation</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21165_figures/2604.21165_fig9.jpg" width="500"><br>
+<sub>Figure 8: Monte Carlo simulation: Site percolation critical probability mean for the tile percolation ¯pc and 95% confidence interval</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21165_figures/2604.21165_fig10.jpg" width="500"><br>
+<sub>Figure 9: Site Percolation of Tile</sub>
+
+</details>
+
+**Main problem.** Determining the percolation critical thresholds (pc) for the Smith Hat tile, the first discovered aperiodic monotile.
+
+**Main result.** The study identifies site and bond percolation thresholds for edge percolation (ps = 0.822725, pb = 0.798161) and site percolation for the dual graph (ps = 0.544247).
+
+**Method.** Monte Carlo simulations using a Union-Find algorithm and Finite-Size Scaling (FSS) analysis with a weighted least squares regression.
+
+**Summary.** This paper provides the first numerical benchmarks for percolation thresholds on the recently discovered Smith Hat aperiodic monotile. Using Monte Carlo simulations and finite-size scaling, the authors calculate specific critical probabilities for both edge and tile-based percolation. The results show higher thresholds than common periodic lattices, likely due to the unique geometric constraints of the hat tile. This work establishes a foundation for studying phase transitions and transport properties in aperiodic systems.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system is the Smith Hat tiling, an aperiodic tiling of the plane using a single 13-sided prototile. The models investigated are Bernoulli site and bond percolation on both the tiling edges and the dual graph (tile percolation).
+
+**Key observables.** Percolation critical thresholds (pc) for site and bond percolation, and the critical exponent (nu).
+
+**Important parameters / regimes.** System size L (ranging from 10 to 400), number of independent trials (T = 1000), and the assumed critical exponent nu = 4/3.
+
+**Assumptions / limitations.** The tiling is assumed to be isotropic at large scales, and the critical exponent is assumed to belong to the 2D percolation universality class (nu = 4/3).
+
+**Figures summary.** Figures illustrate the fundamental hat unit, metatile clusters, the sampling frame, and plots showing the convergence of percolation thresholds and confidence intervals.
+
+**Paper structure.** The paper introduces the Smith Hat tile, describes the construction of the tiling via metatiles, details the Monte Carlo and Finite-Size Scaling methodology, presents numerical results for various percolation types, and discusses the implications of the findings.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The Smith Hat tile is the first known aperiodic monotile, having been discovered in 2023. The simple structure, constructed using only 8 kites, is unique and well motivated for analysis within percolation theory. The primary goal of this paper is to discover the critical threshold $p_c$ in both site and bond Bernoulli structures using Monte Carlo simulation for the Smith hat tile(1,$\sqrt3$). Our findings are site and bond values of $p_c^s = 0.822725 \pm 0.000044$ and $p_c^b = 0.798161 \pm 0.000044$ for edge percolation and $0.544247 \pm 0.000101$ for site percolation on the dual graph.
+
+</details>
+
+### [Studying 3D O(N) Surface CFT on the Fuzzy Sphere](http://arxiv.org/abs/2604.21091v1)
+
+**Authors:** Jiechao Feng, Taige Wang  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21091v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21091_figures/2604.21091_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Schematic realization of an O(N) normal sur- face CFT on the fuzzy sphere. (b)-(f) CFT data for the O(2) normal surface CFT. Conformal multiplets are shown for the surface primaries (b) t, (c) D, and (d) Oo for 10 ≤Ns ≤18. Open symbols are raw dimensions calibrated by ∆D = 3. Solid symbols include the conformal-perturbation-theory cor- rection from the leading irrelevant boundary perturbation as- sociated with D. (e) Finite-size extrapolation of the universal amplitudes aσ and bt. (f) Finite-size scaling of the overlap between the bulk CFT ground state and the polarized state |Φ0⟩, from which cnor is extracted.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21091_figures/2604.21091_fig2.jpg" width="500"><br>
+<sub>FIG. 2. CFT data for the O(3) normal surface CFT. Confor- mal multiplets are shown for (a) t, (b) D, (c) OS=0, and (d) OS=1 for 10 ≤Ns ≤18. (e) Finite-size extrapolation of the universal amplitudes aσ and bt. (f) Finite-size scaling of the overlap between the bulk CFT ground state and the polarized state |Φ0⟩, yielding cnor.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21091_figures/2604.21091_fig3.jpg" width="500"><br>
+<sub>Fig. 1(f) shows the finite-size scaling of the wavefunc- tion overlap between the bulk ground state |I⟩and the polarized state |Φ0⟩that implements the normal bound-</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21091_figures/2604.21091_fig4.jpg" width="500"><br>
+<sub>FIG. 3. CFT data for the O(2) and O(3) ordinary surface CFTs. Conformal multiplets are shown for (a) D and (b) ˆϕ in the O(2) ordinary surface CFT, and for (d) D and (e) ˆϕ in the O(3) ordinary surface CFT. Panels (c) and (f) show finite- size scaling of the overlap between the bulk CFT ground state and the polarized state |Φ0⟩, from which cord is obtained.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21091_figures/2604.21091_fig5.jpg" width="500"><br>
+<sub>FIG. 4. Finite-size extrapolation of bulk O(2) OPE coeffi- cients. (a) fϕϕs and fsss. (b) fϕϕT and fϕϕJ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21091_figures/2604.21091_fig6.jpg" width="500"><br>
+<sub>Fig. 5(b) gives the lowest S = 2 primary in the O(3) normal surface CFT, denoted OS=2, with</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21091_figures/2604.21091_fig7.jpg" width="500"><br>
+<sub>FIG. 5. Additional conformal multiplets for surface primaries discussed in the main text. Open symbols show raw di- mensions calibrated by the protected displacement operator, ∆D = 3. Solid symbols include the leading correction from the irrelevant boundary perturbation associated with D. Pan- els (a) and (b) supplement the normal surface spectra, with (a) the lowest Z2-even primary above D in the O(2) normal surface CFT and (b) the lowest S = 2 primary in the O(3) normal surface CFT. Panels (c) and (d) supplement the ordi- nary surface spectra, with (c) the lowest Z2-odd O(2)-singlet primary and (d) the lowest Z2-even O(3) traceless-tensor pri- mary.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21091_figures/2604.21091_fig8.jpg" width="500"><br>
+<sub>Fig. 5 shows four additional multiplets that are used in the summary tables but are not displayed in the main fig- ures. The purpose is to support the primary assignments by their descendant structure. A boundary primary O with dimension ∆O generates states</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21091_figures/2604.21091_fig9.jpg" width="500"><br>
+<sub>FIG. 6. Conformal multiplets of (a) t and (b) D in the O(3) normal surface CFT obtained from the real-space boundary cut.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21091_figures/2604.21091_fig10.jpg" width="500"><br>
+<sub>Fig. 6 shows the multiplets of t and D for the O(3) normal surface CFT, with states included up to ∆= 5 and lz = 2. The accessible system sizes are smaller than those in the orbital-space calculation, and the raw spec- tra therefore show larger finite-size drifts than in Fig. 2(a) and Fig. 2(b). After the same leading correction from D is included, the integer spacing of the conformal multi- plets is recovered. This supports the conclusion that the real-space and orbital-space boundary cuts flow to the same surface universality class. The orbital-space cut is more efficient numerically because the m &lt; 0 orbitals can be integrated out, which gives access to larger Ns.</sub>
+
+</details>
+
+**Main problem.** Determining the Boundary Conformal Field Theory (BCFT) data, including operator spectra and OPE coefficients, for the normal and ordinary boundary universality classes of 2+1D O(N) Wilson-Fisher fixed points.
+
+**Main result.** The study identifies new boundary primary operators and provides microscopic evidence for the extraordinary-log boundary criticality for N=2 and N=3, with results consistent with Monte Carlo and Conformal Bootstrap benchmarks.
+
+**Method.** The authors use fuzzy-sphere regularization to study 3D CFTs via a finite quantum many-body Hamiltonian, employing the state-operator correspondence and conformal perturbation theory to extract scaling dimensions and OPE data.
+
+**Summary.** This paper investigates the boundary properties of 3D O(N) critical systems using a fuzzy-sphere regularization technique. By studying a bilayer Heisenberg model, the authors successfully extract boundary operator spectra and OPE coefficients for the O(2) and O(3) universality classes. The work provides significant evidence for the existence of the extraordinary-log boundary phase. The results are highly consistent with established Monte Carlo and Conformal Bootstrap data, extending the reach of fuzzy-sphere spectroscopy to continuous symmetries.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A bilayer Heisenberg model on a fuzzy sphere, which can be tuned between O(2) and O(3) symmetries via anisotropic interactions, realized through a quantum many-body Hamiltonian of four-flavor fermions.
+
+**Key observables.** Boundary operator spectra (scaling dimensions), boundary central charges (c_nor, c_ord), universal amplitudes (a_sigma, b_t), and critical exponents (alpha, q).
+
+**Important parameters / regimes.** N=2 and N=3 symmetry sectors, Haldane pseudopotentials (V0, V1), anisotropy parameter (Delta), and system size (Ns).
+
+**Assumptions / limitations.** The boundary speed of light is assumed to be identical to the bulk speed of light, and finite-size errors are treated as estimates of the scaling limit.
+
+**Figures summary.** Figures include schematics of the model, finite-size scaling of wavefunction overlaps, conformal multiplets (spectra) for O(3), OPE data, and comparisons of scaling dimensions for O(2) and O(3) against expected values.
+
+**Paper structure.** The paper introduces the fuzzy-sphere regularization and the physical model, details the numerical methods for extracting BCFT data, presents results for the O(2) and O(3) normal and ordinary boundary conditions, validates the results against existing benchmarks, and discusses the universality of different boundary constructions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Boundary conformal field theory (BCFT) provides a universal framework for critical phenomena in the presence of boundaries. We determine BCFT data for the normal and ordinary boundary universality classes of the $1+1$-dimensional boundaries of the $2+1$-dimensional $O(2)$ and $O(3)$ Wilson-Fisher fixed points, realized microscopically by a bilayer Heisenberg model on the fuzzy sphere. Using the fuzzy-sphere state-operator correspondence, we obtain boundary operator spectra, identify low-lying boundary primary operators, extract operator-product-expansion (OPE) data, and estimate the boundary central charges for both boundary conditions. For the normal boundary condition, the universal amplitudes $a_σ$ and $b_t$ extracted from one- and two-point functions agree quantitatively with Monte Carlo benchmarks where available. For both $N=2$ and $N=3$, we find a positive extraordinary-log exponent $α$, providing independent microscopic evidence for extraordinary-log boundary criticality. Our results extend fuzzy-sphere BCFT spectroscopy beyond the Ising universality class to continuous $O(N)$ symmetry.
+
+</details>
+
 
 ## strongly correlated electrons (10)
 
@@ -4530,7 +4886,7 @@ The impacts of the mass imbalance and Coulomb interaction on the complex phase s
 </details>
 
 
-## disordered systems and neural networks (4)
+## disordered systems and neural networks (6)
 
 ### [Disorder-induced crossover from phase-averaging to mode-mixing regimes in magnetic domain walls of a second-order topological insulator](http://arxiv.org/abs/2604.21702v1)
 
@@ -4916,8 +5272,194 @@ In continuously monitored quantum systems, the feedback protocol of García-Pint
 
 </details>
 
+### [The two-level systems in cryogenic solids, or how to avoid stressful memories](http://arxiv.org/abs/2604.21109v1)
 
-## other (15)
+**Authors:** Vassiliy Lubchenko  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21109v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21109_figures/2604.21109_fig1.jpg" width="500"><br>
+<sub>Figure 1. The equilibrium equation of state (EOS) of a substance in the enthalpy range pertinent to liquid- crystal coexistence. The thick blue line depicts the liquid entropy as a function of enthalpy, the thick black line the entropy of the crystal. The solid portion of the liquid EOS corresponds to the ergodic regime T &gt; Tcr, the dashed portion signiﬁes ergodicity is broken on times less than the structural relaxation time τα. The states between HXtal and Hliq are bypassed during quasi-equilibrium crystallisation but are visited, if the liquid can be supercooled below the melting temperature. The glass transition ordinarily occurs at enthalpy values within the enthalpy gap [HXtal, Hliq]....</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21109_figures/2604.21109_fig2.jpg" width="500"><br>
+<sub>Figure 2. Signatures of depletion in the number of two-level systems in (a) ultrastable glasses [21] and (b) model Lennard-Jones mixtures [22].</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21109_figures/2604.21109_fig3.jpg" width="500"><br>
+<sub>Figure 3. Graphical explanation of ergodicity breaking. p(x) stands for the probability distribution of the variable x. Note that we have not included the additive contribution −Tsvib of the vibrational entropy to the free energies G1, G2, and G, for clarity. This contribution is the same for all three free energies.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21109_figures/2604.21109_fig4.jpg" width="500"><br>
+<sub>Figure 4. Main graph (left): Sketch of the enthalpy dependence of the entropy for a liquid that allows for two low-enthalpy phases that exhibit local ordering; these two phases are labelled “ordered” USG. “USG”=“ultrastable glass”. “EOS”=“equilibrium equation of state.” The corresponding down-scan (blue dashed) and up-scan for DSC are sketched in the auxiliary graph on the right. Note the respective slopes of the two double-tangent lines in the main graph should be much closer to each other, but were drawn this way to avoid cluttering.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21109_figures/2604.21109_fig5.jpg" width="500"><br>
+<sub>Figure 5. Temperature dependence of the degree cooperativity for (a) α-relaxations and (b) β-relaxation. From Ref. [22].</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21109_figures/2604.21109_fig6.jpg" width="500"><br>
+<sub>Figure 6. Diagrams juxtaposing equilibrium and oﬀ-equilibrium behaviours of a liquid.</sub>
+
+</details>
+
+**Main problem.** Resolving the conflict between why ultrastable glasses show a depletion of two-level systems (TLS) while other enthalpically stable solids, like aged amber, do not.
+
+**Main result.** The author proposes that TLS depletion is specifically linked to a reduction in configurational entropy (as seen in ultrastable films), whereas the stability in amber is driven by increased bonding/compression rather than aging-induced entropy reduction.
+
+**Method.** Theoretical analysis using Random First Order Transition (RFOT) theory, thermodynamic scaling, and comparison of different glass preparation protocols (vapor deposition vs. thermal quenching vs. geological aging).
+
+**Summary.** This paper addresses a paradox in glass physics: why some highly stable glasses (ultrastable films) have fewer low-energy excitations (TLS) than standard glasses, while other stable solids (amber) do not. The author argues that TLS depletion is a consequence of reduced configurational entropy, which occurs during the formation of ultrastable films but not necessarily during the chemical maturation of amber. By distinguishing between entropy-driven and enthalpy-driven stability, the paper provides a unified framework for understanding the density of low-energy excitations in different glassy states.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Structural glasses, including bulk-quenched melts, ultrastable glassy films produced via vapor deposition, model Lennard-Jones mixtures, and natural geological amber.
+
+**Key observables.** TLS density of states (DOS), configurational entropy (sc), enthalpy (H), heat capacity (Cp), and glass transition temperature (Tg).
+
+**Important parameters / regimes.** Configurational entropy, cooperativity size (N*), activation barriers, and the distinction between ergodic and non-ergodic regimes.
+
+**Assumptions / limitations.** The use of RFOT theory to relate entropy to TLS density; the assumption that amber's stability is driven by polymerization-induced compression.
+
+**Figures summary.** Figure 1 shows enthalpy vs. entropy for various states; Figure 2 shows TLS depletion in ultrastable glasses and model mixtures; Figure 4 depicts scenarios for USG melting; Figure 5 shows temperature dependence of cooperativity scales; Figure 6 illustrates density and entropy changes during aging.
+
+**Paper structure.** The paper introduces the TLS conflict, analyzes the relationship between stability and entropy in ultrastable glasses, investigates the specific case of aged amber to distinguish between aging and compression, discusses discrepancies in cooperativity predictions, and concludes with experimental suggestions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Structural glasses prepared by bulk quenching a liquid melt universally exhibit puzzling low-energy excitations commonly known as the ``two-level systems'' (TLSs). Recent studies indicate that ultrastable glassy films made by vapor deposition exhibit substantially fewer TLSs and, at the same time, are more stable enthalpically than conventional glasses made by quenching a melt. A similar phenomenon is observed in very stable glasses of model liquid mixtures prepared using swap Monte Carlo sampling. However, in a separate set of enthalpically stable solids, exemplified by amber matured over geological times, the two-level systems persist. In addressing this seeming conflict, we emphasize that a depletion of the TLSs, if any, means the configurational entropy of the material is lower than that of conventional glasses made by bulk-quenching a melt. Ageing does induce reduction in configurational entropy, but amber, we speculate, achieves enthalpic stabilization through increased bonding, not ageing. We separately comment on the discrepancy among existing predictions for the extent of cooperativity of the two-level systems. Several experiments are suggested to test the present picture.
+
+</details>
+
+### [Healing of topological defects while crystallizing nanocrystals](http://arxiv.org/abs/2604.21105v1)
+
+**Authors:** M. I. Dolz, A. B. Kolton, Y. Fasano  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21105v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21105_figures/2604.21105_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Typical temperature-history protocol used in our sim- ulations emulating field-cooling experimental conditions fol- lowed in magnetic decoration experiments. The equilibration and ramp times, teq and trun, as well as the initial Ti, final Tf, and melting Tm temperatures are indicated.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21105_figures/2604.21105_fig2.jpg" width="500"><br>
+<sub>FIG. 3. Total density of defects in the vortex nanocrystal at the final temperature, ρTf , as a function of the temperature sweep-rate followed while cooling, vsweep. Data for a vortex density of 16 G and disk samples with diameters D = 30, 40 and 50 µm. Blue dotted lines are fits to the data with a constant for the slow vsweep regime whereas red dotted lines are algebraic growth fits for the fast sweep-rates.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21105_figures/2604.21105_fig3.jpg" width="500"><br>
+<sub>FIG. 2. (a) Example of a snapshot of a nanocrystal with ∼400 vortices crystallized at Tf after the field-cooling pro- tocol followed in our simulations. Results correspond to the smallest magnetic field studied of 16 G and for a disk with 30 µm diameter. Sixfold-coordinated vortices are shown in black while disclinations (vortices with 5 or 7 neighbors) are highlighted in red. The blue vortices at the edge of the nanocrystal are not considered for the calculation of the defect densities presented in this work. (b) Delaunay triangulation of the vortex nanocrystal with topological defects highlighted in gray. The Burgers vector of one isolated dislocation, b, is indicated.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21105_figures/2604.21105_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Examples of Delaunay triangulations of the snapshots of vortex nanocrystals obtained at the lowest temperature, Tf, after following field-cooling protocols at the slowest sweep-rate of vsweep = 10−7. Columns present data at fixed vortex densities of 16, 32 and 50 G whereas rows show data at fixed sample sizes with diameters D = 30, 40, 50 µm. Sixfold-coordinated vortices are shown in blue while disclinations (vortices with 5 or 7 neighbors) are highlighted in grey with vortices in red. Vortices at the edge of the nanocrystal are not considered for the calculation of the Delaunay triangulation and defect density.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21105_figures/2604.21105_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Radial density of defects in the vortex nanocrystal at the final temperature, ρTf (r), as a function of the radius normalized by the average vortex separation, r/a. (a) Data for a given diameter D of nanocrystals with different number of vortices between 1300 and 4700 tuned by changing the induction B in the range between 16 and 50 G. (b) Data for a vortex density of 16 G and disk samples with diameters D = 30, 40 and 50 µm. Dotted lines are fits to the data with a function that considers a saturation value plus an exponential growth on going towards the edge of the nanocrystals.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21105_figures/2604.21105_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Dependence of the phenomenological healing length α·a with the diameter D of the vortex nanocrystal for vortex densities of (a) 16, (b) 32 and (c) 50 G. Simulation results (open dots) are compared with experimental data (full dots) from Ref. 41. Insert: Parameter α obtained in the simulations for all the studied vortex densities and sample sizes.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21105_figures/2604.21105_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Central density of topological defects as a function of temperature, ρT(r = 0) during the field-cooling process starting at Ti = 0.01 and finishing at Tf = 0.0001. Data for different disk diameters D and vortex densities of (a) 16, (b) 32 and (c) 50 G. The melting temperature Tm at each vortex density is indicated with vertical lines. Insert: Example of the determination of Tm from the abrupt jump in the diffusion coefficient of the vortex structure for the case of B = 16 G.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21105_figures/2604.21105_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Radial density of topological defects as a function of distance from the center of the nanocrystal, ρT(r) for various temperatures while field-cooling through the vortex melting transition at Tm. Data for a disk with D = 40 µm and a vortex density of 16 G. The dashed black line is a fit to the data at the lowest temperature of T/Tm = 0.14 with a function ρbulk + A exp (r −D/2)/(α · a), with ρbulk the density of topological defects in macroscopic crystals found experimentally for the same vortex density (see dotted horizontal line).</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21105_figures/2604.21105_fig9.jpg" width="500"><br>
+<sub>FIG. 9. Variation with temperature of the total density of defects ρT while field cooling vortex nanocrystals with densi- ties of (a) 16, (b) 32 and (c) 50 G. Data for nanocrystals of different sizes with D = 30, 40, 50 µm. Horizontal lines corre- spond to the saturation value of the total density of defects once the vortex structure is frozen. The characteristic freez- ing temperature for the larger disks is indicated with arrows.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21105_figures/2604.21105_fig10.jpg" width="500"><br>
+<sub>FIG. 10. Sequence of snapshots while field-cooling a vortex nanocrystal nucleated at 16 G in a sample with 50 µm diameter for the different T/Tm temperatures indicated in black. The Delaunay triangulations show sixfold (non-sixfold) coordinated vortices in blue (red). Some defects have been highlighted in different colors in order to follow their dynamics on cooling: A turquoise twisted bond located at the edge of the nanocrystal from intermediate to low temperatures, a yellow edge dislocation located at the center and rather static from intermediate and low temperatures, and a pink isolated edge dislocation at the center that seems to detach from a more complex defect at T/Tm ∼0.34.</sub>
+
+</details>
+
+**Main problem.** Investigating how confinement and thermal/deformation history influence the crystallization dynamics and the spatial distribution of topological defects in vortex nanocrystals.
+
+**Main result.** The study identifies a 'healing' effect where the defect density decreases toward the center of the nanocrystal, with a healing length determined by sample size and a freezing temperature that is spatially non-uniform.
+
+**Method.** Overdamped Langevin dynamics simulations using an explicit Euler integration scheme and a double cell-list method.
+
+**Summary.** This paper uses Langevin dynamics simulations to study how the edges of a nanocrystal affect the formation of topological defects during the crystallization of vortex lattices. It demonstrates that the sample boundary induces defects that 'heal' as one moves toward the center, creating a characteristic healing length. The study also reveals that the crystallization process freezes at a specific temperature below the melting point, with the freezing being spatially non-uniform. These results provide a quantitative match to experimental data in high-Tc superconductors and offer insights applicable to other confined interacting particle systems.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A 2D effective phenomenological model of interacting vortices in disk-like geometries, emulating Bi2Sr2CaCu2O8+delta, featuring a modified Bessel function potential, weak point disorder, and a truncated parabolic confinement potential.
+
+**Key observables.** Radial density of defects, total defect density, healing length, freezing temperature, and diffusion coefficient.
+
+**Important parameters / regimes.** Vortex density (magnetic induction B), sample diameter (D), temperature ratio (T/Tm), and sweep rate.
+
+**Assumptions / limitations.** The 2D model is phenomenological and does not capture the full microscopic 3D physics of vortex lines or the layered structure of the superconductor.
+
+**Figures summary.** Figure 1 shows the temperature-history protocol; Figure 2 shows Delaunay triangulation snapshots; Figure 5 displays radial defect density with exponential fits; Figure 10 shows a sequence of snapshots tracking defect dynamics during cooling.
+
+**Paper structure.** The paper introduces the problem of confinement-induced defects, describes the Langevin dynamics model and simulation protocol, presents results on defect density and healing length, discusses the temperature-dependent freezing dynamics, and concludes with the generalizability of the findings.
+
+**Why it may be interesting.** The findings regarding the spatial profile of topological defects and the 'healing' of order at boundaries are highly relevant to the study of many-body dynamics and the stability of order in confined soft condensed matter or trapped particle systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Understanding the role of confinement while crystallizing nanocrystals is very relevant for predicting their structure and physical properties. With this aim we perform Langevin dynamics simulations of nanocrystals of the model system of few hundred vortices nucleated in micron-sized superconductors. We study the crystallization dynamics and the low-temperature structural properties of vortex nanocrystals nucleated in field-cooling conditions when changing vortex density or elasticity of the system and physical size of the samples. The low-temperature snapshots obtained in simulations present a healing effect at the edges that is in quantitative agreement with experimental data in Bi2Sr2CaCu2O8+δ micron-sized samples. We show that the low-temperature radial distribution of topological defects is a stationary profile frozen at a temperature below the melting line tuned by intrinsic properties of the vortex structure and on the confinement effect. These findings on the dynamics and spatial profile of topological defects can be applied to describe the physical properties of confined soft condensed matter nanocrystals in general.
+
+</details>
+
+
+## other (17)
 
 ### [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](http://arxiv.org/abs/2604.21929v1)
 
@@ -6200,5 +6742,221 @@ Magnetic quantum sensors based on trapped ions utilize properties of quantum mec
 <details><summary>Abstract</summary>
 
 The quantum Mpemba effect (ME) in Markovian systems is conventionally explained by a smaller overlap between the initial state and the slowest decay mode (SDM). Such state, initially farther away from equilibrium or steady state, relaxes faster than closer ones, resulting to a crossing of their trajectories. This picture, by neglecting the transient dynamics, holds in the long-time limit. Here we experimentally observe multiple trajectory crossings (multi-ME) in the relaxation dynamics of a trapped ion. Such novel dynamics takes place in a unusual scenario where the initial state instead has a larger overlap with the SDM. We develop a theoretical framework based on relaxation speed to understand the multi-ME. We show that the initial relaxation speed is governed by the fastest decay mode, which together with the SDM overlap gives a phase diagram that reveals both the occurrence and the types of quantum ME observed in our experiment. Our study goes beyond the simple picture based on the long-time limit, tracks continuously the quantum ME dynamics, and establishes a comprehensive framework to describe the transient quantum relaxation.
+
+</details>
+
+### [Magnetic-field control of interactions in alkaline-earth Rydberg atoms and applications to {\it XXZ} models](http://arxiv.org/abs/2604.21206v1)
+
+**Authors:** Masaya Kunimi, Takafumi Tomita  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21206v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21206_figures/2604.21206_fig1.jpg" width="500"><br>
+<sub>FIG. 2. Principal quantum number dependence of the anisotropy parameter δ in the absence of the magnetic field. (a) 88Sr. The green dotted and magenta dashed lines repre- sent δ = −1 and δ = 0, respectively. (b) 174Yb. The green dotted and magenta dashed lines represent δ = 0 and δ = 10, respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21206_figures/2604.21206_fig2.jpg" width="500"><br>
+<sub>FIG. 1. Principal quantum number dependence of the C6 parameters in the absence of the magnetic field for (a) 88Sr with |mJ| = 1, (b) 88Sr with mJ = 0, (c) 174Yb with |mJ| = 1, and (d) 174Yb with mJ = 0. The black solid line represents the n11 scaling as a guide to the eye.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21206_figures/2604.21206_fig3.jpg" width="500"><br>
+<sub>FIG. 5. PR of the distribution of the Förster defects for (a) |mJ| = 1 and (b) mJ = 0. Here, ↑↑, ↑↓, and ↓↓represent the Förster defects ∆EF(n, ↑, ↑), ∆EF(n, ↑, ↓), and ∆EF(n, ↓, ↓), respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21206_figures/2604.21206_fig4.jpg" width="500"><br>
+<sub>FIG. 3. Principal-quantum-number dependence of the energy splittings of the intermediate P states. The energy splittings are evaluated as the maximum energy difference among the 3PJ states for 88Sr, and among the 3PJ and 1P1 states for 174Yb.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21206_figures/2604.21206_fig5.jpg" width="500"><br>
+<sub>FIG. 4. Histogram of Förster defects for (a) 88Sr with |mJ| = 1, (b) a magnified view of panel (a), (c) 174Yb with |mJ| = 1, and (d) a magnified view of panel (c). Here, ↑↑, ↑↓, and ↓↓ represent the Förster defects ∆EF(n, ↑, ↑), ∆EF(n, ↑, ↓), and ∆EF(n, ↓, ↓), respectively. We count the intermediate states satisfying Rc &gt; 0.1 nm to remove narrow resonances. The bin size is 0.1 GHz.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21206_figures/2604.21206_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Magnetic field and principal quantum number dependence of various physical quantities for 88Sr with mJ = +1 at θ = π/2. (a) C↑↑ 6 , (b) C↑↓ 6 , (c) C6, (d) R↑↑ c , (e) R↑↓ c , and (f) anisotropy parameter δ. The white region indicates the absence of data due to strong S–D mixing.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21206_figures/2604.21206_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Magnetic field and principal quantum number dependence of various physical quantities of 88Sr with mJ = 0 at θ = π/2. (a) C↑↑ 6 , (b) C↑↓ 6 , (c) C6, (d) R↑↑ c , (e) R↑↓ c , and (f) anisotropy parameter δ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21206_figures/2604.21206_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Magnetic field and principal quantum number dependence of various physical quantities of 88Sr with mJ = −1 at θ = π/2. (a) C↑↑ 6 , (b) C↑↓ 6 , (c) C6, (d) R↑↑ c , (e) R↑↓ c , and (f) anisotropy parameter δ. The white region indicates the absence of data due to strong S–D mixing.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21206_figures/2604.21206_fig9.jpg" width="500"><br>
+<sub>FIG. 9. Magnetic field and principal quantum number dependence of various physical quantities of 174Yb with mJ = +1 for θ = π/2. (a) C↑↑ 6 , (b) C↑↓ 6 , (c) C6, (d) R↑↑ c , (e) R↑↓ c , and (f) anisotropy parameter δ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21206_figures/2604.21206_fig10.jpg" width="500"><br>
+<sub>FIG. 10. Magnetic field and principal quantum number dependence of various physical quantities of 174Yb with mJ = 0 for θ = π/2. (a) C↑↑ 6 , (b) C↑↓ 6 , (c) C6, (d) R↑↑ c , (e) R↑↓ c , and (f) anisotropy parameter δ.</sub>
+
+</details>
+
+**Main problem.** Investigating how magnetic fields can control the interaction anisotropy in alkaline-earth-like Rydberg atoms to realize tunable XXZ quantum spin models.
+
+**Main result.** The authors demonstrate that 174Yb exhibits significantly larger interaction anisotropy (|delta| >= 10) than alkali atoms due to strong spin-orbit coupling, allowing for the realization of the folded XXZ model and a supersolid phase without fine-tuning.
+
+**Method.** The study uses Multichannel Quantum Defect Theory (MQDT) and second-order perturbation theory to calculate interaction parameters and evaluates many-body phenomena using mean-field theory and projection methods.
+
+**Summary.** This paper explores the use of magnetic fields to tune interactions in alkaline-earth Rydberg atoms. It highlights that 174Yb, due to strong spin-orbit coupling, can achieve much higher interaction anisotropy than traditional alkali atoms. This tunability allows for the implementation of specific many-body models, such as the folded XXZ model in 1D and the emergence of a supersolid phase in 2D square lattices, without the need for precise field fine-tuning.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system consists of alkaline-earth-like Rydberg atoms (88Sr and 174Yb) mapped to an effective spin-1/1/2 XXZ-type quantum spin model.
+
+**Key observables.** Anisotropy parameter (delta), C6 coefficients, Forster defect, and domain-wall number.
+
+**Important parameters / regimes.** Magnetic field strength (B), principal quantum number (n), and the anisotropy parameter (delta).
+
+**Assumptions / limitations.** The model assumes the dipole-dipole interaction is the dominant term and relies on the validity of second-order perturbation theory.
+
+**Figures summary.** Figure 1 shows C6 dependence; Figure 2 compares the anisotropy parameter delta for 88Sr and 174Yb; Figure 3 shows the energy splitting of P manifolds.
+
+**Paper structure.** The paper introduces the alkaline-earth Rydberg system, derives the effective XXZ Hamiltonian using MQDT and perturbation theory, compares 88Sr and 174Yb properties, and explores applications in 1D and 2D many-body systems.
+
+**Why it may be interesting.** It provides a new, robust platform for quantum simulation of complex spin models like the XXZ model and supersolids, specifically highlighting how spin-orbit coupling in Yb enables large anisotropy without the fine-tuning required in alkali-atom systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study the magnetic-field dependence of the interactions between two alkaline-earth(-like) Rydberg atoms, ${}^{88}$Sr and ${}^{174}$Yb. Considering the pair of Rydberg states $|ns,{}^3S_1,m_J\rangle$ and $|(n+1)s,{}^3S_1,m_J\rangle$, we show that the effective Hamiltonian takes the form of an {\it XXZ}-type quantum spin model, as in the alkali-atom case [M. Kunimi and T. Tomita, Phys. Rev. A {\bf 112}, L051301 (2025)]. We find that the behavior of the anisotropy parameter for ${}^{174}$Yb at zero magnetic field is significantly different from that for other atomic species. This behavior originates from the strong spin-orbit coupling in ${}^{174}$Yb. We systematically calculate the interaction parameters of the {\it XXZ} model in the presence of a magnetic field and show that they can be tuned by the field. As applications to quantum many-body problems, we investigate one-dimensional systems in the large-anisotropy regime and show that the folded {\it XXZ} model can be realized in ${}^{174}$Yb systems without fine-tuning of the field. We also investigate two-dimensional square-lattice systems and show that a supersolid phase can emerge in the ground state at the mean-field level.
+
+</details>
+
+### [Multidimensional semiclassical single- and double-quantum spectroscopy of anharmonic molecular polaritons](http://arxiv.org/abs/2604.21158v1)
+
+**Authors:** Michael Reitz, Harsh Bhakta, Wei Xiong, Joel Yuen-Zhou  
+**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21158v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21158_figures/2604.21158_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Schematics. An infrared optical cavity containing an ensemble of molecules (illustrated by W(CO)6 as, e.g., used in Refs. [35, 36]) is driven by a train of three input pulses (two pump, one probe) tagged by phases Φj and separated by time intervals τ and T. The cavity selectively couples to a molecular vibrational mode, which is modeled as a three-level system (3LS) with anharmonic shift ∆of the doubly excited state (see inset, which depicts a 2QC process). The nonlinear cavity transmission as a function of the pulse delay times is used to compute the 2D spectra.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21158_figures/2604.21158_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Overview of the semiclassical perturbative method for multidimensional cavity spectroscopy. (a) Factorizability of light and matter. The many-body system of N molecules described by dipole operators ˆµj coupled to a cavity mode ˆa is reduced to a much simplified mean-field system in the large-N limit under the assumption Hj 0 = H0, ˆµj = ˆµ. (b) Schematic illustration of the self-consistent, semiclassical method. The (single-molecule) matter component is evolved quantum mechanically, from which the molecular polarization feeding into the cavity field α(t) is computed. In turn, the classical cavity field feeds back into the evolution of the molecular density matrix. (c) Sketch of...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21158_figures/2604.21158_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Feynman diagrams for the cavity (left) and molecular density matrix (right) at (a) linear and (b) third order. (a) At linear order, e.g., following the first pulse, the external input field creates a cavity coherence α(1,0,0) Φ1 , which in turn</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21158_figures/2604.21158_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Schematic procedure to obtain phase-cycled 2D cav- ity spectra: Illustration of (a) linear and (b) nonlinear (3rd order) cavity fields (dashed shaded curves) generated by the Gaussian input pulses (solid shaded curves). Displayed is the real part only, with maxima normalized to unity. The DT signal arises from heterodyne detection, namely the interfer- ence between the linear probe (third pulse local oscillator) and 3rd order cavity fields. (c) Fourier transform along τ (T) as well as t gives rise to 1Q (2QC) spectra with frequency axes ω1 (ω2) vs. ω3, respectively. The 1Q spectra can be obtained in the R or NR configurations, corresponding to the phase sequences ±Φ1 ∓Φ2 + Φ3 (shown...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21158_figures/2604.21158_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Comparison between (a) theoretical and (b) exper- imental results for the 2D 1Q spectra at long waiting times T ≫κ−1, for the sum of NR and R contributions. The waiting time was set to T = 18 κ−1 which corresponds to approxi- mately 55 ps. (c) Comparison of the resulting 1D spectra along ω3, obtained by integrating the 2D spectra over ω1. The green dashed lines in all plots indicate the linear polariton frequencies.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21158_figures/2604.21158_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Comparison between (a) theoretical and (b) experi- mental results for the 2D 1Q spectra and (c) corresponding 1D spectra at short waiting times T = 0, for the sum of NR and R contributions. To reproduce these results, EID with β = 10.0 cm−1 was added (see SI S8 for details). All other parameters are the same as in Fig. 5 and Table I.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21158_figures/2604.21158_fig7.jpg" width="500"><br>
+<sub>FIG. 7. 2QC spectra as extracted from the phase combination Φ1 + Φ2 −Φ3 with varying degree of mechanical anharmonicity (a) ∆= −10 cm−1, (b) ∆= −5 cm−1, (c) ∆= 0 cm−1 (harm. limit), (d) ∆= 5 cm−1, (e) ∆= 10 cm−1. Green vertical lines indicate the single-polariton frequencies, while purple horizontal lines indicate the double-polariton frequencies. To isolate the effect of pure mechanical anharmonicity, we set the electrical anharmonicity to zero (δ = 0) and assume pure harmonic dephasing with γϕ = 6 cm−1 (γϕ = γge ϕ = γef ϕ ). All other parameters are identical to those listed in Table I. We chose an excitation time of τ = 26 fs. A movie of the spectra as a function of different excitation...</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21158_figures/2604.21158_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Vertical cuts of the 2QC spectra in Fig. 7 at fixed emission frequencies ω3 corresponding to the lower polariton ωLP and upper polariton ωUP, shown for (a) ∆= −10 cm−1</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21158_figures/2604.21158_fig9.jpg" width="500"><br>
+<sub>FIG. 9. 2QC spectra as extracted from the phase combination Φ1 + Φ2 −Φ3 with varying degree of electrical anharmonicity (a) δ = −0.2, (b) δ = −0.1, (c) δ = 0 (harm. limit), (d) δ = 0.1, (e) δ = 0.2. Green vertical lines indicate the single-polariton frequencies, while purple horizontal lines indicate the double-polariton frequencies. To isolate the effect of pure electrical anharmonicity, we set the mechanical anharmonicity to zero (∆= 0) and assume pure harmonic dephasing with γϕ = 6 cm−1</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21158_figures/2604.21158_fig10.jpg" width="500"><br>
+<sub>FIG. 10. Vertical cuts of the 2QC spectra in Fig. 9 at fixed emission frequencies ω3 corresponding to the lower polariton ωLP and upper polariton ωUP, shown for (a) δ = −0.2 and (b) δ = 0.2. Each curve is normalized to its maximum absolute value. The dashed purple horizontal lines indicate the har- monic double-polariton energies.</sub>
+
+</details>
+
+**Main problem.** Developing an efficient semiclassical framework to compute phase-resolved multidimensional (2D) single- and double-quantum spectra of anharmonic molecular polaritons and explaining the experimental 'polariton bleach' effect.
+
+**Main result.** The authors provide a method to isolate nonlinear pathways in Liouville space using phase-cycling and successfully explain the polariton bleach effect via excitation-induced dephasing (EID).
+
+**Method.** A semiclassical perturbative expansion in both the amplitudes and phases of input fields, utilizing a mean-field approach in the large-N limit to solve coupled equations of motion for the cavity field and molecular density matrix.
+
+**Summary.** This paper presents a new semiclassical method for simulating multidimensional spectroscopy of molecular polaritons. By expanding the response in terms of pulse amplitudes and phases, the authors can efficiently model 2D single- and double-quantum spectra. The framework successfully explains the 'polariton bleach' effect observed in experiments by incorporating excitation-induced dephasing. It also demonstrates how to use double-quantum spectroscopy to probe mechanical and electrical anharmonicities in light-matter coupled systems.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** An ensemble of N molecules (modeled as 3-level anharmonic oscillators) strongly coupled to a single-mode confined photonic mode in an infrared cavity, described by a Hamiltonian including cavity field, molecular states, and light-matter interaction.
+
+**Key observables.** Phase-resolved 2D single-quantum (1Q) and double-quantum (2Q) spectra, 2D differential transmission (DT) spectra, and nonlinear cavity transmission.
+
+**Important parameters / regimes.** Coupling strength (E0), anharmonicity (mechanical delta and electrical delta), cavity decay rate (kappa), molecular dephasing (gamma_phi), and excitation-induced dephasing (EID) strength (beta).
+
+**Assumptions / limitations.** Large-N limit (factorizability of light and matter), Rotating Wave Approximation (RWA), truncation of the vibrational Hilbert space to three levels, and neglect of the ultrastrong-coupling regime.
+
+**Figures summary.** Feynman diagrams for linear and third-order pathways; comparison of theoretical and experimental 1D/2D spectra; and plots showing the dependence of the bleach signal on molecular concentration and cavity length.
+
+**Paper structure.** The paper introduces a new semiclassical perturbative method, details the mathematical framework for phase-resolved expansion, applies it to 1Q and 2Q spectroscopy, validates the model against experimental W(CO)6 data, and investigates the impact of anharmonicity and EID.
+
+**Why it may be interesting.** It provides a powerful tool for interpreting nonlinear spectroscopy in cavity QED, specifically addressing how pulse overlap and cavity-induced dynamics create non-chronological pathways and how anharmonicity manifests in 2D signals.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We present a general and efficient approach to compute phase-resolved multidimensional spectra of anharmonic molecular polaritons, based on a semiclassical evolution of the molecular Hamiltonian and cavity field in the large-$\mathcal{N}$ limit of many molecules coupled to a confined photonic mode. By systematically expanding the response in both amplitudes and phases of the input fields, our method enables a transparent and computationally simple construction of phase-cycled two-dimensional single- and double-quantum polariton spectra from the underlying nonlinear signal components. Here, phase cycling acts as an analogue of phase matching with oblique pulses, allowing for the isolation of the contributing nonlinear pathways in Liouville space. We specialize to vibrational polaritons and benchmark the method through direct comparison with experimentally measured single-quantum spectra, providing an explanation for the longstanding puzzle of the polariton bleach effect observed at short waiting times. Further, we show how the imprint of various types of anharmonicities on the double-excitation manifold can be directly probed and analyzed through double-quantum coherence spectroscopy. Taken together, our results establish a practical and powerful framework for the modeling and interpretation of nonlinear spectroscopic experiments on strongly coupled light-matter platforms and for guiding the design of cavity-enhanced molecular platforms.
 
 </details>
