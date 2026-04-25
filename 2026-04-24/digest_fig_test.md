@@ -1,7 +1,7 @@
 # arxiv digest (quant-ph + cond-mat) — 2026-04-24
 
-*69 papers · 4 highlighted*  
-_⏳ in progress: 69/95 papers processed (file updates after each one)_
+*78 papers · 4 highlighted*  
+_⏳ in progress: 78/95 papers processed (file updates after each one)_
 
 
 ## ⭐ Highlighted (4)
@@ -14,7 +14,7 @@ _⏳ in progress: 69/95 papers processed (file updates after each one)_
 - ⭐ [Quantum jump correlations in long-range dissipative spin systems](http://arxiv.org/abs/2604.21513v1) — Rosario Fazio
 
 
-## quantum information and computing (26)
+## quantum information and computing (31)
 
 ### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
 
@@ -2291,6 +2291,316 @@ In quantum estimation for a $d$-parameter family of density operators on a finit
 
 </details>
 
+### [StabilizerBench: A Benchmark for AI-Assisted Quantum Error Correction Circuit Synthesis](http://arxiv.org/abs/2604.21287v1)
+
+**Authors:** Andres Paz, Christian Tarta, Cordelia Yuqiao Li, Mayee Sun, Sarju Patel, Sylvie Lausier  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21287v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21287_figures/2604.21287_fig1.jpg" width="500"><br>
+<sub>Fig. 2: The pair of CNOT gates from q0 to f, which form this flag gadget act as a bit-parity check for q0. (a) An X fault that occurs on the q0 wire in between this pair of CNOT gates propagates as an X error on f as shown in (b), which can be measured in the Z basis, outputting a 1, which means that q0 has an odd bit-parity with itself across the flag gadget where even parity is expected, indicating the presence of an X fault.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21287_figures/2604.21287_fig2.jpg" width="500"><br>
+<sub>Fig. 3: Agent workflow</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21287_figures/2604.21287_fig3.jpg" width="500"><br>
+<sub>Fig. 4: Difficulty curves for all three tasks: cumulative capability score S(b) cap vs. stabilizer count under the best configuration for b ∈{1, 2, 3}. All models degrade monotonically with circuit complexity; the gray dashed line shows the total benchmark ceiling.</sub>
+
+</details>
+
+**Main problem.** The lack of a specialized, scalable benchmark to evaluate the ability of AI agents to automate the synthesis, optimization, and fault-tolerant design of quantum error correction (QEC) circuits.
+
+**Main result.** The introduction of StabilizerBench, which demonstrates that while frontier AI models perform well at basic state preparation, they struggle significantly with circuit optimization and fault-tolerant synthesis, showing substantial headroom for improvement.
+
+**Method.** The authors developed a benchmark suite of 192 stabilizer codes across 12 families, using the Stim simulator for efficient verification via the Gottesman-Knill theorem and a two-tier scoring system (capability and quality).
+
+**Summary.** This paper introduces StabilizerBench, a new benchmark designed to evaluate AI agents on specialized quantum error correction tasks. It covers state preparation, circuit optimization, and fault-tolerant synthesis using a large suite of stabilizer codes. By leveraging the Gottesman-Knill theorem, the benchmark allows for efficient verification of large-scale circuits. The study reveals that current frontier AI models are capable of basic circuit generation but lack the reasoning required for complex optimization and fault-tolerant design.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The benchmark focuses on stabilizer codes (including Surface, Color, and Steane codes) ranging from 4 to 196 qubits, utilizing the stabilizer formalism and Clifford gate sets.
+
+**Key observables.** Capability score (breadth of success), Quality score (circuit merit), two-qubit gate count reduction, circuit depth, and fault-tolerance threshold (error weight).
+
+**Important parameters / regimes.** Code distance (d) from 2 to 21, number of stabilizer generators, number of qubits, and AI agent configurations (attempt budget and timeout).
+
+**Assumptions / limitations.** The benchmark is limited to stabilizer circuits and Clifford gates; it assumes that performance on stabilizer codes serves as a proxy for general quantum programming tasks.
+
+**Figures summary.** Figure 1 shows error propagation through gates; Figure 2 illustrates flag gadgets for error detection; Figure 3 depicts the AI agent workflow with verification oracles; Figure 4 shows the degradation of model performance as circuit complexity increases.
+
+**Paper structure.** Introduction of the QEC automation gap; description of the StabilizerBench suite and tasks (B1, B2, B3); explanation of the scoring metrics and verification framework; evaluation of frontier AI models; discussion of results, limitations, and future directions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+As quantum hardware scales toward fault tolerant operation, the demand for correct quantum error correction (QEC) circuits far outpaces manual design capacity. AI agents offer a promising path to automating this synthesis, yet no benchmark exists to measure their progress on the specialized task of generating QEC circuits. We introduce StabilizerBench, a benchmark suite of 192 stabilizer codes spanning 12 families, 4-196 qubits, and distances 2-21, organized into three tasks of increasing difficulty: state preparation circuit generation, circuit optimization under semantic constraints, and fault tolerant circuit synthesis. Although motivated by QEC, stabilizer circuits exercise core competencies required for general quantum programming, including gate decomposition, qubit routing, and semantic preserving transformations, while admitting efficient verification via the Gottesman Knill theorem, enabling the benchmark to scale to large codes without the exponential cost of full unitary comparison. We define a unified generator weighted scoring system with two tiers: a capability score measuring breadth of success and a quality score capturing circuit merit. We also introduce continuous fault tolerance and optimization metrics that grade error resilience and circuit improvements beyond binary pass or fail. Following the design of classical benchmarks such as SWE-bench, StabilizerBench specifies inputs, verification oracles, and scoring but leaves prompts and agent strategies open. We evaluate three frontier AI agents and find the benchmark discriminates across models and tasks with substantial headroom for improvement.
+
+</details>
+
+### [Random Access Codes: Explicit Constructions, Optimality, and Classical-Quantum Gaps](http://arxiv.org/abs/2604.21274v1)
+
+**Authors:** Ruho Kondo, Yuki Sato, Hiroshi Yano, Yota Maeda, Kosuke Ito, Naoki Yamamoto  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21274v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21274_figures/2604.21274_fig1.jpg" width="500"><br>
+<sub>Fig. 1. Decoding success probability of RACs and QRACs for L ≤7 and k = 3. Conjectural upper bound of QRAC (Eq. (4)) is included.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21274_figures/2604.21274_fig2.jpg" width="500"><br>
+<sub>Fig. 2. Achievable (conjecturally maximum) success probability of (L, L −1)-RACs and (L, L −1)-QRACs. Note that the maximum average success probability and the maximum worst case success probability are the same for (L, L −1)-QRAC. For clarity, markers are shown only for L ≤10.</sub>
+
+</details>
+
+**Main problem.** The paper seeks to develop explicit constructions for optimal classical and quantum random access codes (RACs and QRACs) and to quantify the performance gap between them in both average- and worst-case decoding regimes.
+
+**Main result.** The authors provide a constructive framework for classical (L,k)-RACs, derive closed-form optimal encoders/decoders for the (L, L-1) case, and demonstrate that a significant classical-quantum gap exists in the worst-case non-asymptotic regime.
+
+**Method.** The study uses optimization frameworks including Mixed-Integer Linear Programming (MILP), bilinear programming, and geometric reductions to directed Chamfer and Hausdorff distances, alongside numerical gradient-based optimization in PyTorch.
+
+**Summary.** This paper addresses the long-standing challenge of explicitly constructing optimal random access codes. By framing the construction of classical RACs as a geometric distance minimization problem, the authors provide new bounds and exact solutions for specific dimensions. Crucially, they reveal that while quantum advantage is minimal for average-case decoding, a substantial gap between classical and quantum performance emerges in the worst-case regime. This provides new insights into the fundamental advantages of quantum information encoding.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The model consists of (L, k)-RACs, which encode L classical bits into k bits, and (L, k)-QRACs, which encode L classical bits into k qubits using density operators and POVMs.
+
+**Key observables.** Average decoding success probability (P_avg) and worst-case decoding success probability (P_worst).
+
+**Important parameters / regimes.** Input bit string length (L), message/qubit length (k), and the distinction between average-case and worst-case decoding criteria in the non-asymptotic regime.
+
+**Assumptions / limitations.** The results rely on specific conjectures regarding the upper bounds of QRAC success probabilities and the assumption that worst-case optimal sets can be chosen from a discrete set.
+
+**Figures summary.** Figure 1 compares decoding success probabilities for RACs and QRACs across different L and k, highlighting the separation in worst-case performance; Figure 2 shows the gap for (L, L-1) codes vanishing as L approaches infinity.
+
+**Paper structure.** The paper introduces the problem of RAC/QRAC optimization, develops a geometric framework for classical RAC construction, provides analytical bounds and closed-form solutions for specific (L, L-1) cases, and concludes with numerical investigations of the classical-quantum gap.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+A random access code (RAC) encodes an $L$-bit string into a $k$-bit $(L>k)$ message from which any designated source bit can be recovered with high probability. Its quantum counterpart, a quantum random access code (QRAC), replaces the $k$-bit message with $k$ qubits. While upper bounds on the decoding success probability have long been studied in both classical and quantum settings, explicit constructions of optimal codes are known only in special cases, even for classical RACs. In this paper, we develop a constructive framework for classical $(L,k)$-RACs under both average- and worst-case criteria. We show that optimal code design reduces to selecting $2^k$ points in $\{0,1\}^L$ and $[0,1]^L$ for the average- and worst-case criteria, respectively, so as to minimize a distance-like objective. This characterization yields explicit constructions for general $(L,k)$. For $k=L-1$, we further obtain closed-form optimal encoders and decoders for both criteria, and show that the resulting classical $(L,L-1)$-RACs attain the corresponding proved upper bounds. We also show that these optimal classical codes induce $(L,L-1)$-QRACs that attain a conjectured upper bound on the decoding success probability. Numerical optimization suggests little difference between RACs and QRACs in the average-case setting, but a potentially large classical-quantum gap in the worst-case nonasymptotic regime.
+
+</details>
+
+### [Structured Quantum State Reconstruction via Physically Motivated Operator Selection](http://arxiv.org/abs/2604.21272v1)
+
+**Authors:** Ayush Chambyal, Brijesh, Rakesh Sharma  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21272v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21272_figures/2604.21272_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Fidelity with respect to the ideal three-qubit GHZ state, (b) agreement with the MLE reconstruction, and (c) observable reconstruction error, shown as a function of mea- surement shots. The results demonstrate weak dependence on shot count and a clear hierarchy across models, with the G3 model achieving high accuracy using a reduced set of phys- ically motivated observables.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21272_figures/2604.21272_fig2.jpg" width="500"><br>
+<sub>FIG. 2. (a) Fidelity with respect to the ideal four-qubit GHZ state, (b) agreement with the MLE reconstruction, and (c) observable reconstruction error as a function of measurement shots.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21272_figures/2604.21272_fig3.jpg" width="500"><br>
+<sub>FIG. 3. (a) Fidelity with respect to the ideal ﬁve-qubit GHZ state, (b) agreement with the MLE reconstruction, and (c) observable reconstruction error as a function of measurement shots.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21272_figures/2604.21272_fig4.jpg" width="500"><br>
+<sub>FIG. 4. (a) Fidelity with respect to the ideal GHZ state, (b) agreement with the MLE reconstruction, (c) observable recon- struction error, and (d) ﬁdelity as a function of the number of model parameters, shown for three-, four-, and ﬁve-qubit systems.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21272_figures/2604.21272_fig5.jpg" width="500"><br>
+<sub>Figure 4(b) shows the agreement with the MLE recon- struction. The PSD method exhibits the highest agree- ment, as it is derived from the same full set of mea- sured observables. The structured models show increas- ing agreement with model complexity, but decreasing agreement with system size, reﬂecting the increasing dif- ﬁculty of reproducing the full reconstructed state within a restricted observable set. Agreement with MLE should be interpreted alongside ﬁdelity to the target state, as it reﬂects consistency with the reconstructed experimental density matrix rather than direct proximity to the ideal GHZ state.</sub>
+
+</details>
+
+**Main problem.** Quantum State Tomography (QST) suffers from exponential scaling in measurement and computational costs, making the full reconstruction of multi-qubit systems impractical.
+
+**Main result.** The SG-QST framework achieves comparable fidelity to full reconstruction methods using significantly fewer parameters by restricting the operator space to physically relevant, hierarchical correlations.
+
+**Method.** The authors develop Structured Gibbs Quantum State Tomography (SG-QST), which uses a Gibbs representation and a systematic hierarchy of models (G1-G4) that progressively include local, nearest-neighbor, and global correlations.
+
+**Summary.** This paper introduces a new method called Structured Gibbs Quantum State Tomography (SG-QST) to overcome the exponential scaling of standard quantum state reconstruction. By using a Gibbs representation and selecting only physically motivated Pauli operators, the method captures the essential features of GHZ states with far fewer parameters than traditional methods. Benchmarks on 3 to 5-qubit systems show that this approach maintains high fidelity while significantly reducing computational and measurement complexity. This makes it a promising tool for characterizing larger, noisy quantum systems in the NISQ era.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study benchmarks the method on GHZ states of 3, 4, and 5 qubits, using a density matrix representation in a Gibbs form: rho = exp(-H)/Tr(exp(-H)), where the effective Hamiltonian is constructed from a restricted set of Pauli operators.
+
+**Key observables.** Pauli strings (including local X, Y, Z, nearest-neighbor correlations, and global multi-qubit operators like X^n and Y^n).
+
+**Important parameters / regimes.** Number of qubits (n=3, 4, 5), number of measurement shots (256 to 2048), and the hierarchy of model complexity (G1 through G4).
+
+**Assumptions / limitations.** The effectiveness of the method assumes the underlying quantum state possesses a discernible, hierarchical correlation structure that can be captured by a restricted set of observables.
+
+**Figures summary.** Figure 1 (3-qubit) shows fidelity, MLE agreement, and observable error across the G1-G3 hierarchy; Figure 2 (4-qubit) shows similar metrics under noise; Figure 3 (5-qubit) presents performance metrics; Figure 4 shows scaling analysis of error and fidelity versus parameter count.
+
+**Paper structure.** The paper introduces the scaling problem of QST, proposes the SG-QST framework based on Gibbs representation, details the hierarchical model construction, presents benchmarking results on 3, 4, and 5-qubit GHZ states, and concludes with a scaling analysis comparing parameter efficiency to full MLE.
+
+**Why it may be interesting.** This is highly relevant for researchers in quantum information and many-body dynamics as it provides a scalable strategy for characterizing multipartite entanglement and large-scale quantum states without the exponential overhead of standard tomography.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Quantum state tomography (QST) scales exponentially in both measurement and computational cost, making full reconstruction impractical for multi-qubit systems. Existing approaches attempt to reduce this complexity, but do not explicitly restrict the operator space based on physically relevant correlations. We develop a structured QST framework in which the density matrix is reconstructed using a restricted set of observables in a Gibbs representation. The Structured Gibbs Quantum State Tomography (SG-QST) is built by progressively including local, nearest-neighbor, and global correlations. Benchmarking on three, four, and five-qubit. GHZ states shows that comparable fidelity can be achieved with significantly fewer parameters by restricting the operator space to physically relevant observables. These results demonstrate that physically motivated operator-space restriction enables efficient and interpretable quantum state reconstruction.
+
+</details>
+
+### [On the importance of hyperparameters in initializing parameterized quantum circuits](http://arxiv.org/abs/2604.21266v1)
+
+**Authors:** Ankit Kulshrestha, Sarvagya Upadhyay  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21266v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21266_figures/2604.21266_fig1.jpg" width="500"><br>
+<sub>Fig. 1: Normalized histogram of gradient magnitude distribution of initial parameters across different layers in a 5 layer, 4 qubit Hardware Efficient Ansatz (HEA). The hyperparameters for the distribution are perturbed by δ = 0.05. The figures show that even a small change in hyperparameters of initializing distribution can lead to drastically different gradient distribution across layers of a quantum circuit.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21266_figures/2604.21266_fig2.jpg" width="500"><br>
+<sub>Fig. 2: VQE Training results for H2 molecule with bondlength ∈[0.5, 1.1]˚ A for Beta and Gaussian Distributions. The results show that searched hyperparameters with the given score functions produce a faster convergence in general.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21266_figures/2604.21266_fig3.jpg" width="500"><br>
+<sub>Fig. 3: Training loss on different QML datasets with different score functions and manually selected hyperparameters for initializing distributions. Inset: convergence dynamics at the end of training. In all the cases, method based on score function leads to faster convergence than manual selection of hyperparameters even if the ansatz converges to the same (local) minima.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21266_figures/2604.21266_fig4.jpg" width="500"><br>
+<sub>Fig. 4: Gradient variance scaling for a two-design exhibiting ansatz for Beta and Gaussian distributions with different score functions.</sub>
+
+</details>
+
+**Main problem.** Finding optimal hyperparameters (such as mean and variance) for the initial parameter distributions in Parameterized Quantum Circuits (PQCs) to improve convergence and performance.
+
+**Main result.** The proposed evolutionary search algorithm for hyperparameter optimization leads to faster convergence and higher accuracy in VQE and QML tasks without worsening the barren plateau phenomenon.
+
+**Method.** An evolutionary search-based algorithm (ES-HyperOpt) that uses score functions based on the Quantum Fisher Information Matrix (QFIM) and gradient statistics to update hyperparameter values.
+
+**Summary.** This paper addresses the challenge of optimizing the hyperparameters used to initialize parameters in quantum circuits. Instead of just choosing a distribution type, the authors propose an evolutionary search algorithm to find the best parameters for any given distribution. Their method significantly improves the convergence speed and accuracy of variational quantum algorithms like VQE and QML. Crucially, the optimization process does not increase the risk of barren plateaus, making it a robust approach for NISQ-era computing.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Parameterized Quantum Circuits (PQCs) including Hardware Efficient Ansatz (HEA) and Strongly Entangling Layers, applied to VQE (H2 molecule) and QML (Wine, Breast Cancer, and Digits datasets).
+
+**Key observables.** Quantum Fisher Information Matrix (QFIM), gradient magnitude distribution, gradient variance scaling, ground state energy, and QML test accuracy.
+
+**Important parameters / regimes.** Hyperparameters of initialization distributions (alpha and beta for Beta distributions; mu and sigma for Gaussian distributions).
+
+**Assumptions / limitations.** Uses a block-diagonal or empirical approximation of the QFIM to manage computational complexity for large parameter sets.
+
+**Figures summary.** Figure 1 shows how small hyperparameter perturbations shift gradient distributions; Figure 2 compares VQE energy convergence; Figure 3 shows training loss across QML datasets; Figure 4 demonstrates stable gradient variance scaling across qubit numbers.
+
+**Paper structure.** The paper introduces the problem of hyperparameter optimization in PQCs, proposes an evolutionary search algorithm with specific scoring functions, evaluates the algorithm on VQE and QML tasks, and analyzes the impact on barren plateaus and computational complexity.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+There has been intensive research on increasing the utility and performance of Parameterized Quantum Circuits (PQCs) in the past couple of years. Owing to this research, there are now several inductive biases available to a quantum algorithms researchers to design a good circuit for their chosen task.   In this paper, we focus on the problem of finding performant initial parameters for a given PQC. Different from previous research that focuses on finding the right \emph{distribution}, we focus on finding the \emph{hyperparameters} for any given distribution. To that end we introduce an evolutionary-search based algorithm that finds optimal hyperparameter given a PQC and quantum task. Our empirical results indicate that our algorithm consistently leads to selection of performant initial parameters tuned specifically to the ansatz and the quantum task leading to faster convergence and performance. More importantly, our algorithm does not \emph{negatively} affect the barren plateau phenomenon. In other words, the initial parameters suggested by algorithm do not worsen the gradient variance scaling for a given initializing distribution.
+
+</details>
+
+### [Time-optimal Qubit Reset via Environmental Spectral Structure](http://arxiv.org/abs/2604.21230v1)
+
+**Authors:** Hong-Bo Huang, Hui Dong  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21230v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21230_figures/2604.21230_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Illustration of the switch–restore–switch scheme for qubit reset using the environmental spectral structure. The qubit exhibits a frequency-dependent decoherence rate, Γ (ω). Initially, to perform a computational task, the qubit operates in the computational configuration (red) at the computation frequency ωcp with low decoherence, Γ (ωcp). After the com- putational task, it is switched over the switching duration τsw to the restoring configuration (green) at the restoring fre- quency ωst with rapid decoherence, Γ (ωst). In this configura- tion, the qubit undergoes strong decoherence and relaxes over the restoring duration, τst. Finally, it is switched back to the computational...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21230_figures/2604.21230_fig2.jpg" width="500"><br>
+<sub>FIG. 2. (a) Optimal control from Eq. (3). (b) Line shapes of four representative decoherence-rate spectra, Γ (ω), for SC- qubits. The blue solid, orange dashed, yellow dotted, and purple dash-dotted lines represent the Lz, prot, mix, and JQF spectra, respectively. The gray arrows indicate that the opti- mal control, ω∗, in (a) aligns with the peak of the spectrum in (b) for the Lz and prot spectra. For the mix and JQF spec- tra, the restoring frequency initially lies at the lower bound before gradually increasing.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21230_figures/2604.21230_fig3.jpg" width="500"><br>
+<sub>FIG. 3. (a) Restoring process as a function of normalized time, t/T1. The blue solid, orange dashed, yellow dotted, and purple dash-dotted lines represent the Lz, prot, mix, and JQF spectra, respectively. The end of each restor- ing process is marked by a circle, hexagon, square, or dia- mond, indicating the order of magnitude of the normalized restoring time, τst/T1. The restoring time is shorter than the coherence time except for the non-engineered mix spec- trum. The precision is set to ϵ = 10−5. (b) Normalized extra work, Wex/ (kBT ln 2), with respect to normalized reset time, Treset/T1, for our switch–restore–switch scheme, com- pared with the lower bound for a constant...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21230_figures/2604.21230_fig4.jpg" width="500"><br>
+<sub>FIG. 4. The fidelity, F, of our restoring process under three types of deviations: (a) population deviations, (b) coherence deviations, and (c) control-time deviations. The blue solid, orange dashed, yellow dotted, and purple dash-dotted lines represent the Lz, prot, mix, and JQF spectra, respectively. In all cases, F &gt; 99.999% over substantial deviation ranges. The reset precision is set to ϵ = 10−5.</sub>
+
+</details>
+
+**Main problem.** How to achieve the fastest possible qubit reset (information erasure) for qubit reuse in the NISQ era without compromising the high fidelity required for computation.
+
+**Main result.** The authors propose a 'switch-restore-switch' strategy that reduces reset time from over 100 ns to approximately 20 ns with a precision of 10^-5, demonstrating that environmental spectral structure can be used as a resource for rapid reset.
+
+**Method.** The problem is formulated as an optimal control problem using Pontryagin's minimum principle to derive an optimal frequency-tuning trajectory.
+
+**Summary.** This paper presents a method to significantly speed up the reset of superconducting qubits by actively tuning their frequency. By moving the qubit to a high-decoherence frequency and then back, the authors reduce reset times by about 80% compared to standard methods. The study shows that the specific structure of the environment's frequency spectrum can be leveraged to achieve high-fidelity reset. This is crucial for NISQ-era processors where reusing qubits quickly is essential for scaling algorithms.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A frequency-tunable superconducting qubit coupled to a structural environment, modeled using a Lindblad master equation where the decoherence rate and equilibrium population are frequency-dependent.
+
+**Key observables.** Excited-state population (pe), decoherence rate (Gamma), total reset time (T_reset), reset precision (epsilon), and extra work (W_ex).
+
+**Important parameters / regimes.** Reset precision of 10^-5, switching duration (tau_sw) of ~10 ns, and four representative environmental spectra (Lz, prot, mix, and JQF).
+
+**Assumptions / limitations.** The study uses a constant-control approximation for small reset precision and assumes the qubit is frequency-tunable within a specific range.
+
+**Figures summary.** Figure 3(a) shows the excited-state population dynamics across different spectra; Figure 4 displays the infidelity of the process under various experimental errors like population, coherence, and control-time deviations.
+
+**Paper structure.** The paper introduces the challenge of fast reset, defines the physical model and optimal control framework, analyzes different environmental spectra, evaluates the thermodynamic cost, and assesses the robustness of the protocol against experimental errors.
+
+**Why it may be interesting.** This work is highly relevant to open quantum systems and quantum optics as it treats the environmental spectral density not just as a source of noise, but as a controllable resource to optimize non-equilibrium dynamics and information erasure.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Fast qubit reset is essential for qubit reuse in the noisy intermediate-scale quantum computing era, yet it conflicts with the weak decoherence required for high-fidelity computation. We solve the time-optimal reset problem for a frequency-tunable qubit coupled to a structural environment under realistic spectral and control constraints. The optimal strategy consists of a switch--restore--switch sequence, where the qubit is moved from a low-decoherence computational configuration to a high-decoherence restoring configuration and then returned for reuse. For superconducting qubits in four representative environments, this strategy reduces the reset time from typically $\gtrsim\SI{100}{\nano\second}$ to $\SI{20}{\nano\second}$, about $40\%$ of a typical two-qubit gate time, while achieving a reset precision of $10^{-5}$. Our results identify environmental spectral structure as a practical resource for rapid, high-fidelity qubit reset and provide a design principle for qubit reuse on qubit-limited processors.
+
+</details>
+
 
 ## numerical methods (4)
 
@@ -2557,7 +2867,7 @@ In recent years, a method for computing spin dynamics at infinite temperature (s
 </details>
 
 
-## quantum gases (2)
+## quantum gases (3)
 
 ### [Collective Excitations and Stability of Nonequilibrium Polariton Supersolids](http://arxiv.org/abs/2604.21353v1)
 
@@ -2681,6 +2991,72 @@ Formation of nonequilibrium counterparts of supersolids, simultaneously characte
 <details><summary>Abstract</summary>
 
 Although neither hardcore bosons nor fermions can occupy the same single-site state, they still obey different statistics, resulting in distinct many-particle quantum states, such as condensate states versus Fermi-liquid states. However, when only pair states are considered, the two can take the same form, since a local hardcore Bose pair and a Fermi pair obey the same statistics. In this work we demonstrate this by studying both Fermi and Bose extended Hubbard ladders, which can be realized experimentally in synthetic atomic ladders. A set of exact condensate-pair eigenstates for the Fermi ladder is constructed under SU(2) symmetry and can then be obtained by the spectrum generating algebra. The corresponding hardcore boson counterpart can be simply obtained by replacing fermionic operators with hardcore bosonic ones. Nevertheless, the boson-pair eigenstates are associated not with symmetry but with the restricted spectrum generating algebra. We also investigate the effect of next-nearest-neighbor hopping on the condensate states through numerical simulations of the dynamic response. The conclusions can be extended to a two-layer system. Our result reveals not only the resemblance of fermions to hardcore bosons, but also a possible mechanism of Hilbert-space fragmentation.
+
+</details>
+
+### [Third Quantization for Order Parameter (I): BCS-BEC crossover with macroscopically coherent state](http://arxiv.org/abs/2604.21288v1)
+
+**Authors:** Guo-Jian Qiao, Miao-Miao Yi, Xin Yue, C. P. Sun  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21288v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21288_figures/2604.21288_fig1.jpg" width="500"><br>
+<sub>Figure 1. Illustration of bound states in two limiting regimes. In the strong-interaction regime, tightly bound diatomic molecules form (left), and the system is in a bosonic coherent state. In the weak-interaction regime, Cooper pairs are spatially extended (right), forming the BCS ground state.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21288_figures/2604.21288_fig2.jpg" width="500"><br>
+<sub>Figure 4. When the Coulomb blockade of Cooper-pair tunneling dominates (2Ec &gt; EJ), each superconducting segment possesses a unified phase order parameter, while the phases differ between segments (upper panel). When Cooper-pair tunneling domain (EJ &gt; 2Ec), the phases bewteen segments become locked, and the order parameters of all segments share a common phase, ϕ1 = ϕ2 = . . . = ϕN ≡ϕ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21288_figures/2604.21288_fig3.jpg" width="500"><br>
+<sub>Figure 5. (a) The energy gap ∆0 with varying interaction strength U. (b)The chemical potential µ with varying interaction strength U. The parameters are set as N = k3 F /(3π2) = 2 × 10−2k3 0, Uc = (4π)/mk0, and</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21288_figures/2604.21288_fig4.jpg" width="500"><br>
+<sub>Figure 6. (a) Phase diagram in the (µ, Ec, G) plane, where µ = 0 marks the boundary between the BCS and BEC regimes for each segment, and EJ = 2Ec determines the boundary between global and local phase coherence (see the color-gradient surface). (b) shows a cross section of (a) at Ec = 50µeV, where the solid line denotes the boundary between the global phase coherence and local phase coherence, and the dashed vertical line at µ = 0 marks the boundary bewteen BCS–BEC state crossover. Parameters used here are the same as in Fig. 5.</sub>
+
+</details>
+
+**Main problem.** The paper investigates whether the commutation relation between the order parameter phase and particle-number operator is a new fundamental postulate or an emergent property of second quantization, while providing a unified macroscopic interpretation of the BCS-BEC crossover.
+
+**Main result.** The authors demonstrate that the macroscopic commutation relation [phi, N] = -i emerges naturally from second quantization in the thermodynamic limit, and they propose that the BCS-BEC crossover can be understood as a phase-locking process between macroscopically separated superconducting segments.
+
+**Method.** The study employs a variational approach using multi-mode coherent states, the thermodynamic limit (M -> infinity), and the Pegg-Barnett phase operator formalism to derive the emergence of the order parameter and its properties.
+
+**Summary.** This paper introduces a 'third quantization' framework to describe the order parameter of many-body systems. It proves that the commutation relation between phase and particle number is not an independent postulate but emerges from second quantization in the thermodynamic limit. By modeling the BCS-BEC crossover as a transition between local and global phase coherence in coupled segments, the authors provide a unified view of BECs and BCS superconductivity. The work establishes a consistent mathematical link between microscopic many-body physics and macroscopic quantum phenomena like Josephson junctions.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The models include Bose-Einstein Condensates (BECs) described by second-quantized Hamiltonians, BCS superconductors, and a model of N macroscopically separated superconducting segments coupled via Cooper-pair tunneling.
+
+**Key observables.** Order parameter phase (phi), particle-number operator (N), Cooper-pair number operator (Nc), chemical potential (mu), and off-diagonal long-range order (ODLRO).
+
+**Important parameters / regimes.** Chemical potential (mu), intra-segment interaction strength (U), inter-segment tunneling strength (g/GJ), charging energy (Ec), and the thermodynamic/large-M limit.
+
+**Assumptions / limitations.** The derivation assumes the system is in the thermodynamic limit and uses a multi-mode coherent state as a variational ground state.
+
+**Figures summary.** Figure 6(a) shows a phase diagram in the (mu, Ec, G) plane depicting boundaries between BCS/BEC and global/local phase coherence, while Figure 6(b) shows a cross-section of this diagram highlighting the crossover line.
+
+**Paper structure.** The paper begins by establishing the mathematical foundation of third quantization via the phase-number commutation relation, moves to the derivation of the BEC and BCS order parameters, then applies this to a model of coupled segments to explain the BCS-BEC crossover, and concludes with the consistency of the results with Josephson junction physics.
+
+**Why it may be interesting.** It provides a unified theoretical framework for both bosonic and fermionic many-body systems, showing that the fundamental phase-number uncertainty relation is an emergent property of the thermodynamic limit, which is highly relevant to many-body dynamics and the study of macroscopic quantum phenomena.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We revisit the quantization of the order parameter, which we refer to as third quantization, from the perspective of the commutation relation between the phase operator of the order parameter and the particle-number operator. We show that this macroscopic commutation relation does not constitute an independent fundamental postulate added to quantum mechanics, but instead emerges naturally from second quantization in the thermodynamic limit for both bosonic and fermionic many-body systems. In this sense, both Bose-Einstein condensates (BECs) and Bardeen-Cooper-Schrieffer (BCS) states can be understood as macroscopic quantum states described by bosonic coherent states: in BEC, bosons condense into a single coherent mode with a well-defined phase, while in BCS systems, collective excitations of Cooper pairs can also acquire an effectively bosonic coherent description. On this basis, we propose a new macroscopic interpretation of the BCS-BEC crossover. To characterize this crossover, we model a conventional superconductor as an assembly of macroscopically separated superconducting segments. As the intra-segment coupling increases, the system evolves from a BCS-like regime toward a BEC-like regime, in which the segments collectively behave as macroscopic coherent states. Inter-segment tunneling then locks their phases, establishes global phase coherence, and gives rise to a bulk Bose-Einstein condensate. The phase diagram of the BCS-BEC crossover can thus be understood as a manifestation of a macroscopic quantum process governed by the coherent-state dynamics of the order parameter. Our results provide a unified perspective on BEC, BCS superconductivity, and the BCS-BEC crossover within the framework of third quantization.
 
 </details>
 
@@ -3450,7 +3826,7 @@ We present a Monte Carlo study of the fractal geometry of clusters formed by dis
 </details>
 
 
-## strongly correlated electrons (9)
+## strongly correlated electrons (10)
 
 ### [Cryogenic shock exfoliation for ultrahigh mobility rhombohedral graphite nanoelectronics](http://arxiv.org/abs/2604.21912v1)
 
@@ -4045,8 +4421,116 @@ We study the two-band model of spinless fermions in which itinerant fermions int
 
 </details>
 
+### [BCS-BEC crossover of polaritonic condensates in mass-imbalanced semimetal/semiconductor microcavities](http://arxiv.org/abs/2604.21244v1)
 
-## disordered systems and neural networks (2)
+**Authors:** Thi-Hau Nguyen, Minh-Tien Tran, Van-Nham Phan  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21244v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21244_figures/2604.21244_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Condensate order parameters as functions of the ex- citation density n for different hole hopping amplitudes th at detuning parameter d = −0.5. The top row shows the exci- tonic ∆eh (solid lines) and the photonic ∆ph (dashed lines), while the bottom row displays their relative weights in the condensates for Coulomb interaction (a) and (c) U = 1 and (b) and (d) U = 4.5. The horizontal dotted and dashed- dotted lines mark the fractions of 20% and 80%, respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21244_figures/2604.21244_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Momentum distributions of the electron-hole pair amplitude dk (red solid lines) and the photon density np k (blue dashed lines) in the first Brillouin zone along the k = (k, 0) direction for three different values of th with n = 0.1 at U = 1 (left column) and U = 4.5 (right column). The triangle symbols indicate the maximum position of dk.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21244_figures/2604.21244_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Wave vector–resolved single-particle spectral func- tions of electrons Ae(k, ω) (red lines) and holes Ah(k, ω) (blue lines) along the k = (k, 0) direction (k &gt; 0) for the parameter set corresponding to the left column of Fig. 2. The spectra highlighted in purple mark the contributions at the Fermi mo- mentum.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21244_figures/2604.21244_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Wave vector–resolved single-particle spectral func- tions of electrons Ae(k, ω) (red lines) and holes Ah(k, ω) (blue lines) along the k = (k, 0) direction (k &gt; 0) for the parameter set corresponding to the right column of Fig. 2. The spec- tra highlighted in purple mark the contributions at the Fermi momentum.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21244_figures/2604.21244_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Intensity plot of the luminescence functions for exci- tonic polarization Aex(k, ω) (top) and for cavity photon mode Bph(k, ω) (bottom) along the k = (k, 0) direction for the pa- rameter set corresponding to the left column of Fig. 2.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21244_figures/2604.21244_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Intensity plot of the luminescence functions for exci- tonic polarization Aex(k, ω) (top) and for cavity photon mode Bph(k, ω) (bottom) along the k = (k, 0) direction for the pa- rameter set corresponding to the right column of Fig. 2.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21244_figures/2604.21244_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Condensate order parameters as functions of the ex- citation density n for different hole hopping amplitudes th at detuning parameter d = 1. The top row shows the excitonic ∆eh (solid lines) and the photonic ∆ph (dashed lines), while the bottom row displays their relative weights in the conden- sates for Coulomb interaction (a) and (c) U = 0.5 and (b) and (d) U = 4.5. The horizontal dotted and dashed-dotted lines mark the fractions of 20% and 80%, respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21244_figures/2604.21244_fig8.jpg" width="500"><br>
+<sub>FIG. 9. Wave-vector-resolved single-particle spectral func- tions of electrons Ae(k, ω) (red lines) and holes Ah(k, ω) (blue lines) along the k = (k, 0) direction (k &gt; 0) for d = 1, n = 0.05 and U = 4.5. The spectra highlighted in purple mark the contributions at the Fermi momentum.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21244_figures/2604.21244_fig9.jpg" width="500"><br>
+<sub>FIG. 8. Wave-vector-resolved single-particle spectral func- tions of electrons Ae(k, ω) (red lines) and holes Ah(k, ω) (blue lines) along the k = (k, 0) direction (k &gt; 0) for d = 1, n = 0.05 and U = 0.5. The spectra highlighted in purple mark the contributions at the Fermi momentum.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21244_figures/2604.21244_fig10.jpg" width="500"><br>
+<sub>FIG. 10. Intensity plot of the luminescence functions for exci- tonic polarization Aex(k, ω) (top) and for cavity photon mode Bph(k, ω) (bottom) along the k = (k, 0) direction at d = 1.0, n = 0.05, and U = 0.5.</sub>
+
+</details>
+
+**Main problem.** Investigating how electron-hole mass imbalance and Coulomb interactions influence the phase structures and the BCS-BEC crossover of polaritonic condensates in semiconductor and semimetal microcavities.
+
+**Main result.** In the semiconducting regime, increasing density or reducing mass imbalance drives a crossover from BEC-type excitonic condensates to BCS-type pairing; in the semimetallic regime, BCS-type pairing dominates, with BEC-type coherence emerging only under strong Coulomb interaction and large mass imbalance.
+
+**Method.** The study employs the Unrestricted Hartree-Fock Approximation (UHFA) within a self-consistent framework to analyze a two-band electron-hole model coupled to a photon mode.
+
+**Summary.** This paper explores the transition between BEC and BCS regimes in polaritonic condensates within mass-imbalanced microcavities. It demonstrates how the balance between Coulomb attraction and light-matter coupling, alongside the mass difference between electrons and holes, dictates the nature of the condensate. The study identifies specific spectroscopic signatures in luminescence that can be used to detect these phase transitions. Ultimately, it offers a way to control the character of polaritons by tuning density, mass imbalance, or the underlying band structure.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A 2D electron-hole-photon system in a planar microcavity, modeled using a square lattice Hamiltonian that includes a Falicov-Kimball-like Coulomb attraction and Dicke-type light-matter coupling.
+
+**Key observables.** Single-particle spectral functions (electrons and holes), luminescence spectra (excitonic polarization and cavity photons), and condensate order parameters (excitonic and photonic components).
+
+**Important parameters / regimes.** Mass imbalance (hole hopping amplitude), Coulomb interaction strength (U), band gap/detuning (d), and excitation density (n).
+
+**Assumptions / limitations.** The system is treated in a quasi-thermal equilibrium state, and the Coulomb interaction is simplified to a momentum-independent coupling constant.
+
+**Figures summary.** Figures show momentum distributions of pairing amplitude and photon density, spectral weight redistribution in spectral functions, and intensity plots of luminescence spectra showing dispersion changes and frequency shifts.
+
+**Paper structure.** The paper introduces the physical system and model, develops the UHFA theoretical framework, analyzes the phase diagrams and BCS-BEC crossover in both semiconductor and semimetal regimes, and concludes with spectroscopic signatures in luminescence.
+
+**Why it may be interesting.** It provides a unified framework for understanding the interplay between light-matter hybridization and many-body correlations, which is highly relevant to the study of hybrid light-matter states and collective excitations in cavity QED and many-body dynamics.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The impacts of the mass imbalance and Coulomb interaction on the complex phase structures of the polaritonic condensates and their Bardeen-Cooper-Schrieffer (BCS)--Bose-Einstein condensation (BEC) crossover in semiconductor and semimetal microcavities are investigated. In the framework of the unrestricted Hartree-Fock approximation, a two-band electron-hole model involving photon mode is analyzed by treating Coulomb attraction and light-matter coupling on equal footing. The single-particle spectral functions and the luminescence properties are then examined. In the semiconducting regime, a positive band gap stabilizes tightly bound excitons and yields predominantly BEC-type excitoniclike polaritonic condensates at low density, while increasing excitation density and reducing mass imbalance drives a continuous crossover toward BCS-type pairing with intermediate and photoniclike polaritonic character. In contrast, the semimetallic regime favors itinerant electron-hole pairing, with BCS-type condensates dominating and BEC excitoniclike coherence emerging only at sufficiently strong Coulomb interaction and large mass imbalance situations. The evolution of luminescence spectra provides clear spectroscopic signatures of these crossover phenomena, offering a unified framework for understanding and controlling polaritonic condensates in microcavity systems.
+
+</details>
+
+
+## disordered systems and neural networks (4)
 
 ### [Disorder-induced crossover from phase-averaging to mode-mixing regimes in magnetic domain walls of a second-order topological insulator](http://arxiv.org/abs/2604.21702v1)
 
@@ -4236,6 +4720,199 @@ We investigate electronic transport across a magnetic domain wall (DW) in a thre
 <details><summary>Abstract</summary>
 
 Layered transition-metal dichalcogenides (TMDs) host competing electronic states that can be tuned by external perturbations, providing a platform to explore the interplay between disorder, electronic structure, and quantum transport. Here we investigate magnetotransport in bulk semiconducting 2H-MoTe2 under hydrostatic pressure. At ambient pressure, transport evolves from high-temperature metallic behavior into activated conduction and ultimately a strongly localized variable-range hopping regime, accompanied by a pronounced magnetotransport anomaly near 45 K and large, nonsaturating magnetoresistance extending up to an unprecedented field of 60 T in semiconducting 2H-MoTe2. Under compression to 15.6 GPa, the insulating state is rapidly suppressed and a low-resistivity regime emerges in which quantum interference dominates, exhibiting a crossover from weak antilocalization (WAL) to weak localization (WL) at low temperatures. A physically motivated phenomenological description captures the magnetoresistance across these regimes and yields a characteristic electronic length scale that remains comparable across the localized and quantum-interference regimes. First-principles calculations reveal a continuous pressure-driven collapse of the bandgap into a semimetallic electronic structure. These results establish a unified picture of pressure-tuned transport spanning hopping and quantum-coherent regimes.
+
+</details>
+
+### [Fate of the Unbound States in Near-infinitely Deep Potential Models](http://arxiv.org/abs/2604.21281v1)
+
+**Authors:** Shujie Cheng, Tong Liu, Gao Xianlong  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21281v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21281_figures/2604.21281_fig1.jpg" width="500"><br>
+<sub>Figure 1. (Color online) The sketch of the near-infinitely deep potential wells (a) V1(n)/V = 1 cos(2παn)2 . (b) V2(n)/V =</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21281_figures/2604.21281_fig2.jpg" width="500"><br>
+<sub>Figure 2. (Color online) The energies E versus V of the deeper potential model. The colors denote the values of the IPR. The two blue solid lines denote the critical energies Ec1 = 2t −V and Ec2 = −2t −V , respectively. Within the energy domain [Ec2, Ec1], there are unbound states. Above Ec1, there are bound states. The system size is L = 1597.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21281_figures/2604.21281_fig3.jpg" width="500"><br>
+<sub>Figure 3. (Color online) Four wave funcitons of the deeper potential model. (a) The unbound state at E = −0.5593t; (b) The unbound state at E = −0.5568t; (c) The bound state at E = 3.1698t; (d) The bound state at E = 12.8646t. The system size is L = 1597.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21281_figures/2604.21281_fig4.jpg" width="500"><br>
+<sub>Figure 4. (Color online) The energies E versus V of the non- Hermitian Liu-Xia model. The colors denote the values of the IPR. The two blue solid lines denote the critical energies ENH1 c1 = 2t and ENH1 c2 = −2t, respectively. The energy domain [Ec2, Ec1] is a mixed region where unbound states and bound states coexist. Above Ec1 and below Ec2, there are bound states. The system size is L = 1597.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21281_figures/2604.21281_fig5.jpg" width="500"><br>
+<sub>Figure 5. (Color online) Four wave functions of the non- Hermitian Liu-Xia model. (a) The unbound state at E = −45.7662t; (b) The unbound state at E = −0.7628t; (c) The bound state at E = −0.7625t; (d) The bound state at E = 1.1534t. The involved parameters are h = 0.1,V = 0.5t, and L = 1597.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21281_figures/2604.21281_fig6.jpg" width="500"><br>
+<sub>Figure 6. (Color online) The real part energies E versus V of the non-Hermitian deeper potential model. The colors de- note the values of the IPR. The two blue solid lines denote the critical energies ENH2 c1 = 2t −V and ENH2 c2 = −2t −V , respectively. The energy domain [Ec2, Ec1] is a mixed region where unbound states and bound states coexist. Above Ec1 and below Ec2, there are bound states. The system size is L = 1597 and h = 0.1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21281_figures/2604.21281_fig7.jpg" width="500"><br>
+<sub>Figure 7. (Color online) Four wave functions of the non- Hermitian deeper potential model. (a) The unbound state at E = −3.1524t; (b) The unbound state at E = −0.7393t; (c) The bound state at E = 0.1940t; (d) The bound state at E = 2.2617t. The involved parameters are h = 0.1, V = t, and L = 1597.</sub>
+
+</details>
+
+**Main problem.** The paper investigates how increasing the depth of a quasi-periodic potential well and introducing non-Hermiticity (gain-loss effects) affect the existence and characteristics of unbound states.
+
+**Main result.** The study finds that while deepening the potential well reduces the energy range of bound states, unbound states persist; furthermore, non-Hermiticity induces a mixed phase where bound and unbound states coexist within specific energy boundaries.
+
+**Method.** The authors use the transfer matrix method, calculation of the Lyapunov exponent, and the Inverse Participation Ratio (IPR) alongside Avila's global theory for analytical proofs.
+
+**Summary.** This paper explores the stability of unbound states in quasi-periodic systems with extremely deep potential wells. It demonstrates that increasing the potential depth does not eliminate extended states but rather shifts their energy domains. When non-Hermiticity is introduced via gain and loss, the system develops a unique mixed phase where localized and extended states coexist. The findings are supported by analytical derivations using Avila's global theory and numerical simulations of the Lyapunov exponent and IPR.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A one-dimensional discrete quasi-periodic model featuring an extended, nearly infinitely deep potential structure, including both Hermitian and non-Hermitian (gain-loss) versions of the Liu-Xia model.
+
+**Key observables.** Lyapunov exponent, Inverse Participation Ratio (IPR), and wave function spatial distribution.
+
+**Important parameters / regimes.** Potential strength (V), hopping parameter (t), non-Hermiticity parameter (h), and the quasi-periodicity constant (alpha).
+
+**Assumptions / limitations.** The model assumes a one-dimensional lattice with a specific quasi-periodic potential structure and focuses on the limit of near-infinite potential depth.
+
+**Figures summary.** Figure 1 compares potential structures; Figure 2 shows a phase diagram of energy vs. potential strength with critical boundaries; Figures 4 and 5 illustrate energy spectra and IPR in non-Hermitian models; Figure 7 visualizes the spatial distribution of wave functions in bound, unbound, and mixed phases.
+
+**Paper structure.** The paper introduces the deeper potential model, analyzes the effect of potential depth on localization in Hermitian systems, extends the study to non-Hermitian systems with gain and loss, and provides analytical proofs using Avila's global theory.
+
+**Why it may be interesting.** This work is relevant for researchers in open quantum systems and many-body dynamics as it explores how non-Hermitian skin effects and gain-loss dynamics can reconstruct the localization-delocalization transition and create new mixed-phase regimes.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Based on the one-dimensional model with quasi-periodicity and nearly infinite depth potential well, this paper studies how the depth of the potential well and non-Hermiticity affects the unbound states. By extending the Liu-Xia model to a deeper structure, we confirm through calculating IPR and based on Avila's global theory, that although the potential well is deeper, there are still unbound states within specific energy intervals. Extending the research to non-Hermitian systems with gain-loss effects, we find that the non-Hermiticity leads to the existence of unbound states in a mixed state form composed of bound states and unbounded states. However, there are clear energy boundaries between the mixed regions with unbound states and the pure bound state regions, which can be proved by Avila's global theory. Our research results provide new insights into the unbound states in extreme potential fields.
+
+</details>
+
+### [The Feedback Hamiltonian is the Score Function: A Diffusion-Model Framework for Quantum Trajectory Reversal](http://arxiv.org/abs/2604.21210v1)
+
+**Authors:** Sagar Dubey, Alan John  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21210v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21210_figures/2604.21210_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21210_figures/2604.21210_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21210_figures/2604.21210_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21210_figures/2604.21210_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21210_figures/2604.21210_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21210_figures/2604.21210_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21210_figures/2604.21210_page8.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 8</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21210_figures/2604.21210_page9.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 9</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21210_figures/2604.21210_page10.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 10</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21210_figures/2604.21210_page11.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 11</sub>
+
+</details>
+
+**Main problem.** The paper seeks to explain the physical mechanism behind the García-Pintos feedback protocol for reversing the arrow of time in continuously monitored quantum systems and to establish a formal link between this protocol and score-based diffusion models in machine learning.
+
+**Main result.** The authors prove that the feedback Hamiltonian is analytically the score function of the quantum trajectory distribution, providing an information-geometric basis for trajectory reversal and enabling the use of machine learning score estimation methods in real-world experiments.
+
+**Method.** The study employs Girsanov's theorem, Fréchet differentiation on trace-class operators, and Kähler geometry on the pure-state projective manifold to compute the functional derivative of the log path probability.
+
+**Summary.** This paper identifies that the specific Hamiltonian used to reverse the arrow of time in monitored quantum systems is mathematically equivalent to the 'score function' used in machine learning diffusion models. By proving this connection, the authors show that quantum trajectory reversal is a continuous process controlled by a feedback gain. This discovery allows researchers to use powerful machine learning techniques, like denoising score matching, to reconstruct quantum dynamics even when experimental conditions like measurement efficiency or noise are imperfect.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The model consists of continuously monitored quantum systems (specifically pure states and multi-qubit systems) undergoing Gaussian measurement of an observable A, described by a Stochastic Master Equation (SME) in Itô form.
+
+**Key observables.** The measurement record (r_t) and the expectation value of the observable (A).
+
+**Important parameters / regimes.** Feedback gain (X), measurement strength (tau), and the measurement outcome (r_t).
+
+**Assumptions / limitations.** The analytic results assume perfect measurement efficiency (eta = 1), zero feedback delay, Gaussian noise, and pure quantum states.
+
+**Paper structure.** The paper begins by defining the problem of time-reversal in quantum trajectories, proceeds to provide a rigorous mathematical proof identifying the feedback Hamiltonian as the score function using functional derivatives and Kähler geometry, extends the result to multi-qubit systems, and concludes by discussing the implications for machine learning-based score estimation in imperfect experimental settings.
+
+**Why it may be interesting.** This paper is highly relevant for researchers in open quantum systems and quantum optics as it provides a fundamental information-theoretic bridge between quantum control (feedback) and generative machine learning (diffusion models), offering a new way to handle experimental noise via score matching.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+In continuously monitored quantum systems, the feedback protocol of García-Pintos, Liu, and Gorshkov reshapes the arrow of time: a Hamiltonian $H_{\mathrm{meas}} = r A / τ$ applied with gain $X$ tilts the distribution of measurement trajectories, with $X < -2$ producing statistically time-reversed outcomes. Why this specific Hamiltonian achieves reversal, and how the mechanism relates to score-based diffusion models in machine learning, has remained unexplained.   We compute the functional derivative of the log path probability of the quantum trajectory distribution directly in density-matrix space. Combining Girsanov's theorem applied to the measurement record, Fréchet differentiation on the Banach space of trace-class operators, and Kähler geometry on the pure-state projective manifold, we prove that $δ\log P_F / δρ= r A / τ= H_{\mathrm{meas}}$. The García-Pintos feedback Hamiltonian is the score function of the quantum trajectory distribution -- exactly the object Anderson's reverse-time diffusion theorem requires for trajectory reversal. The identification extends to multi-qubit systems with independent measurement channels, where the score is a sum of local operators.   Two consequences follow. First, the feedback gain $X$ generates a continuous one-parameter family of path measures (for feedback-active Hamiltonians with $[H, A] \neq 0$), with $X = -2$ recovering the backward process in leading-order linearization -- a structure absent from classical diffusion, where reversal is binary. Second, the score identification enables machine learning (ML) score estimation methods -- denoising score matching, sliced score matching -- to replace the analytic formula when its idealizations (unit efficiency, zero delay, Gaussian noise) fail in real experiments.
 
 </details>
 
