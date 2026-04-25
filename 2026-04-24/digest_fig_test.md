@@ -1,7 +1,7 @@
 # arxiv digest (quant-ph + cond-mat) — 2026-04-24
 
-*47 papers · 4 highlighted*  
-_⏳ in progress: 47/95 papers processed (file updates after each one)_
+*51 papers · 4 highlighted*  
+_⏳ in progress: 51/95 papers processed (file updates after each one)_
 
 
 ## ⭐ Highlighted (4)
@@ -14,7 +14,7 @@ _⏳ in progress: 47/95 papers processed (file updates after each one)_
 - ⭐ [Quantum jump correlations in long-range dissipative spin systems](http://arxiv.org/abs/2604.21513v1) — Rosario Fazio
 
 
-## quantum information and computing (19)
+## quantum information and computing (22)
 
 ### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
 
@@ -1597,6 +1597,328 @@ High-fidelity control of superconducting qubits requires carefully shaped microw
 
 </details>
 
+### [Suppressing the Erasure Error of Fusion Operation in Photonic Quantum Computing](http://arxiv.org/abs/2604.21475v1)
+
+**Authors:** Xiangyu Ren, Yuexun Huang, Zhemin Zhang, Yuchen Zhu, Tsung-Yi Ho, Antonio Barbalace, Zhiding Liang  
+**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21475v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21475_figures/2604.21475_fig1.jpg" width="500"><br>
+<sub>Fig. 3. Optimizing a Max-Cut problem using 6-qubit QAOA program on PQC simulator [24]. We use the RUS boosted fusion method (m = 6), and simulate the fusion erasure at 0, 5% and 10% respectively, while fixing the fusion failure at 25%. Left: Optimization of QAOA expectation value. Right: Quantum circuit execution time per tuning iteration.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21475_figures/2604.21475_fig2.jpg" width="500"><br>
+<sub>Fig. 2. The comparison among different PQC architecture and their corre- sponding graph state generation schemes. The excitation pulses for generating a caterpillar state are demonstrated in the red box of (c). Specifically, longitudinal-acoustic excitation LA( π</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21475_figures/2604.21475_fig3.jpg" width="500"><br>
+<sub>Fig. 4. (a)-(c) Graph state measurement patterns that establish loss-tolerance. (d) Tree-encoded fusion scheme. (e) Preparing tree-encoded logical qubit from caterpillar states. (f) Simulation of the fusion schemes. We compare these schemes with varying encoding parameters (m, b = 1, 2, 4, 8), by performing 103 fusion trials per data point to measure success rates.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21475_figures/2604.21475_fig4.jpg" width="500"><br>
+<sub>Fig. 5. (a) Average number of tree branches that successfully prepared for logical qubit encoding parameter b, when the preparation parameter bprep = 5 and bprep = 6 (by simulation). (b) Photon resource breakdown analysis for parameter bprep, when given the maximum length of caterpillar is 30-qubit. Dashed lines represent the #photon sources used for branch preparation. (c) Execution time analysis for the tree-encoding parameter b, under a noise model that pfail = 2% and peras = 25%.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21475_figures/2604.21475_fig5.jpg" width="500"><br>
+<sub>Fig. 6. Details of our MemTree compiler. (a) The hierarchical generation of target state based on BBT. (b) Our compiler framework for building BBT. (c) The overall pipeline for target state generation, from a time direction prospective. Each slice corresponds to a time step in the cycles.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21475_figures/2604.21475_fig6.jpg" width="500"><br>
+<sub>Fig. 8. Execution time comparison between tree-encoded scheme and baselines.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21475_figures/2604.21475_fig7.jpg" width="500"><br>
+<sub>Fig. 8 and Fig. 9 present the comparison of our tree- encoded fusion scheme with the redundantly-encoded and RUS fusion schemes under the hardware configurations of the quantum spin memory architecture. In this comparison, all fusion schemes are integrated in MemTree with the same compilation algorithm. While fixing the fusion failure rate pfail = 0.25 (thus 1 −pfail = 0.75), we compare the program execution time and the number of required photon sources. The program size (#qubit) varies from 2-qubit to 20- qubit, and the erasure rate during fusion (peras) varies from 0% to 10%. Due to the extremely large simulation overhead when the program size scales up, we truncate the execution time to...</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21475_figures/2604.21475_fig8.jpg" width="500"><br>
+<sub>Fig. 9. Number of required photon sources comparison between tree-encoded scheme and baselines.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21475_figures/2604.21475_fig9.jpg" width="500"><br>
+<sub>Fig. 10. Comparison of MemTree with OneAdapt [74] and OneAdapt-ET. (a) The average execution time of quantum programs, when peras = 0, the results are evaluated on OneAdapt without erasure-tolerance strategy. The error bars represent the value range with a statistical 95% CI (confidence interval), over 1000 times of experiment and each with 2 × 104 shots. (b) Number of required photon sources. (c) Total compilation runtime of compilers.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21475_figures/2604.21475_fig10.jpg" width="500"><br>
+<sub>Fig. 11. Comparison on decoherence errors and CZ errors between OneAdapt [74], RLGS [38] and MemTree.</sub>
+
+</details>
+
+**Main problem.** Addressing the 'fusion erasure' error caused by photon loss in photonic quantum computing, which is often more damaging than fusion failure and neglected by existing compilers.
+
+**Main result.** The proposed MemTree compiler and tree-encoded fusion scheme achieve exponential improvements in execution time and significantly higher fidelity compared to state-of-the-art compilers, with successful proof-of-concept validation on real hardware.
+
+**Method.** A new compilation framework (MemTree) using a hierarchical 'divide-and-conquer' approach with Mixed-Integer Programming and a tree-encoded fusion strategy to suppress erasure errors via redundant branches and indirect measurements.
+
+**Summary.** This paper addresses the critical issue of fusion erasure errors in photonic quantum computing, which arise from photon loss. The authors introduce a new encoding strategy called tree-encoded fusion and a hierarchical compiler named MemTree. This framework optimizes the generation of graph states by balancing fusion success against resource overhead. Simulations and real hardware experiments demonstrate that this approach significantly reduces execution time and improves computational fidelity compared to existing state-of-the-art methods.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A photonic quantum computing architecture based on quantum spin memory (semiconductor quantum dots) that generates caterpillar states (linear graph states) for measurement-based quantum computation (MBQC).
+
+**Key observables.** Execution overhead (time and photon resources), fidelity, fusion success rate, and QAOA performance metrics (PST and IST).
+
+**Important parameters / regimes.** Fusion failure rate (p_fail), fusion erasure rate (p_eras), number of branches (b), and number of preparation attempts (b_prep).
+
+**Assumptions / limitations.** Assumes a realistic hardware noise model for photon loss and fusion failure based on experimental data; assumes the availability of a classical control path for feed-forward operations.
+
+**Figures summary.** Fig 1: Type-II fusion gate mechanics; Fig 2: Comparison of PQC architectures; Fig 3: Impact of erasure rates on QAOA; Fig 4: Tree-encoded fusion mechanism and measurement rules; Fig 5: Scaling of resources and execution time; Fig 6: MemTree compiler pipeline; Fig 11: Fidelity comparison across benchmarks; Fig 13: Hardware performance comparison.
+
+**Paper structure.** The paper introduces the problem of fusion erasure, compares different PQC architectures, proposes the tree-encoded fusion strategy and MemTree compiler, provides a detailed algorithmic breakdown using MIP, evaluates performance through large-scale simulations, and concludes with experimental validation on a real photonic platform.
+
+**Why it may be interesting.** This work is highly relevant to quantum optics and open quantum systems researchers as it addresses the fundamental challenge of photon loss (erasure) in a scalable architecture, proposing a hardware-aware error-mitigation strategy that bridges the gap between theoretical error correction and experimental photonic implementation.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Photonic quantum computing provides a promising route toward quantum computation by naturally supporting the measurement-based quantum computation (MBQC) model. In MBQC, programs are executed through measurements on a pre-generated graph state, whose construction largely depends on probabilistic fusion operations. However, fusion operations in PQC are vulnerable to two major error sources: fusion failure and fusion erasure. As a result, MBQC compilation must account for both error mechanisms to generate reliable and efficient photonic executions. Prior state-of-the-art MBQC compilation, represented by OneAdapt, is designed for all-photonic architectures and mainly focuses on handling fusion failures. Nevertheless, it does not explicitly model fusion erasures induced by photon loss, which can be substantially more damaging than fusion failures.   To mitigate fusion erasure errors, we introduce a new MBQC compilation scheme built upon the spin qubit quantum memory. We propose tree-encoded fusion, an encoding strategy that suppresses erasure errors during graph-state generation. We further incorporate this scheme into a compiler framework with algorithms that reduce the execution overhead of quantum programs. We evaluate the proposed framework using a realistic PQC simulator on six representative quantum algorithm benchmarks across multiple program scales. The results show that tree-encoded fusion achieves better robustness than alternative fusion-encoding strategies, and that our compiler provides exponential improvement over OneAdapt. In addition, we validate the feasibility of our approach through a proof-of-concept demonstration on real PQC hardware.
+
+</details>
+
+### [LightStim: A Framework for QEC Protocol Evaluation and Prototyping with Automated DEM Construction](http://arxiv.org/abs/2604.21472v1)
+
+**Authors:** Xiang Fang, Ming Wang, Yue Wu, Sharanya Prabhu, Dean Tullsen, Narasinga Rao Miniskar, Frank Mueller, Travis Humble, Yufei Ding  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21472v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21472_figures/2604.21472_fig1.jpg" width="500"><br>
+<sub>Figure 1. (a) Dual burden on QEC protocol Compilation: Physical Circuit &amp; DEM. (b) Sample Stim circuit. Physical operations specified by the protocol and the rest are all automated in LightStim.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21472_figures/2604.21472_fig2.jpg" width="500"><br>
+<sub>Figure 3. Physical Circuit and DEM construction for surface code Z memory experiment.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21472_figures/2604.21472_fig3.jpg" width="500"><br>
+<sub>Figure 2. Pauli tableau representation of QEC systems. Stab: stabilizers; Log: logical operators.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21472_figures/2604.21472_fig4.jpg" width="500"><br>
+<sub>Figure 4. Overview of LightStim’s Pauli Tracker workflow. The physical circuit drives a forward update of the record- augmented Pauli tableau, triggering DEM construction upon encountering measurements.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21472_figures/2604.21472_fig5.jpg" width="500"><br>
+<sub>Figure 5. Three realizations of Bell state teleportation cir- cuits: (a) transversal gates, (b,c) 𝑍𝑍/𝑋𝑋lattice surgery.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21472_figures/2604.21472_fig6.jpg" width="500"><br>
+<sub>Figure 6. Cross-code Lattice surgery between surface code and punctured quantum Reed-Muller (PQRM) code.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21472_figures/2604.21472_fig7.jpg" width="500"><br>
+<sub>Figure 7. Evaluation of memory experiments. (a) Surface code family. (b) BB code family. (c) QEC efficiency: LER per physical qubit. (d) Effect of SE circuit design on LER.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21472_figures/2604.21472_fig8.jpg" width="500"><br>
+<sub>Fig. 7 summarizes memory experiments across four axes. 1. Surface code family (Fig. 7a). We evaluate Z-basis mem- ory for the rotated, unrotated, and toric surface codes at 𝑑∈{3, 5, 7} under circuit-level noise. All three variants ex- hibit increasing LER suppression as 𝑑scales, aligned with theoretical results [29, 75]. Notably, at fixed 𝑑, LERrotated &gt; LERunrotated &gt; LERtoric under the threshold (0.8%), reflecting the benefit of increasing qubit redundancy (𝑑2, 2𝑑2−2𝑑+1, and 2𝑑2). The intuition is: when operating below the er- ror threshold, more physical qubits provide more syndrome information that enables more accurate decoding, so the additional redundancy yields lower LER despite the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21472_figures/2604.21472_fig9.jpg" width="500"><br>
+<sub>Figure 8. Comprehensive evaluation of logical operations. (a) Transversal gates and lattice surgery operations of unrotated surface code against the memory baseline; (b) State injection of rotated surface code; (b1)-(b3) Two SE round, full post-selection; (b4) Different post-selection schemes.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21472_figures/2604.21472_fig10.jpg" width="500"><br>
+<sub>Figure 9. LER of Bell-state teleportation circuit implemented in (a) transversal gates and (b,c) lattice surgery.</sub>
+
+</details>
+
+**Main problem.** The manual construction of Detector Error Models (DEM) for complex quantum error correction (QEC) protocols is tedious, error-prone, and unscalable for advanced operations like lattice surgery.
+
+**Main result.** The authors present LightStim, a framework that automates DEM construction concurrently with circuit compilation, enabling efficient prototyping of complex, heterogeneous QEC protocols.
+
+**Method.** The framework uses a Pauli tracker to augment a Pauli tableau with measurement records, employing Clifford conjugation and back-propagation to automatically identify detectors and logical observables.
+
+**Summary.** LightStim is a new automated framework designed to simplify the evaluation of complex quantum error correction protocols. By automatically constructing the necessary error models from physical circuits, it removes the need for manual, error-prone annotations. The framework allows researchers to quickly prototype and simulate advanced operations like lattice surgery and magic state distillation. This capability significantly accelerates the discovery and optimization of new fault-tolerant quantum computing architectures.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The framework operates on stabilizer-based quantum error-correcting codes, including surface, toric, BB, and punctured quantum Reed-Muller (PQRM) codes, using a circuit-level noise model.
+
+**Key observables.** Logical Error Rate (LER), detectors (vertices), logical observables (targets), and post-selection rate.
+
+**Important parameters / regimes.** Code distance (d), physical error rate (p), routing distance (r_inter), and X/Z error asymmetry.
+
+**Assumptions / limitations.** The framework assumes the use of Clifford gates and Pauli-based error models.
+
+**Figures summary.** Figure 1 shows the dual burden of QEC compilation; Figure 2 illustrates the Pauli tableau; Figure 3 maps circuits to DEM components; Figure 4 details the LightStim workflow; Figures 5-6 show lattice surgery and cross-code protocols; Figures 11-12 demonstrate the evolution of the tableau for teleportation.
+
+**Paper structure.** The paper introduces the manual bottleneck in QEC evaluation, presents the LightStim framework and its automated Pauli tracking algorithm, validates it against established benchmarks, demonstrates its utility through complex protocol prototyping (cross-code lattice surgery), and analyzes error scaling in logical operations.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Fault-tolerant quantum computing increasingly demands rigorous, circuit-level evaluation of diverse quantum error correction (QEC) protocols and efficient prototyping of new ones. Such evaluation requires both the physical circuit and its Detector Error Model (DEM) to simulate end-to-end logical error rates. However, DEM construction today is performed by manual annotation, a tedious and error-prone process that effectively limits evaluation to simple memory experiments. We present LightStim, a framework that automates DEM construction concurrently with circuit compilation by maintaining a Pauli tableau augmented with measurement records, with no protocol-specific input required. We benchmark LightStim across protocols from memory experiments to end-to-end distillation circuits; cross-validation against public implementations confirms exact detector and observable counts and consistent logical error rates. LightStim additionally accelerates the exploration of new protocols, which we demonstrate through a novel heterogeneous cross-code lattice surgery design between surface and punctured quantum Reed-Muller codes. These capabilities together make LightStim a unified infrastructure for systematic QEC protocol evaluation and exploration.
+
+</details>
+
+### [Dynamical Regimes of Two Qubits Coupled through a Transmission Line](http://arxiv.org/abs/2604.21463v1)
+
+**Authors:** Fabio Borrelli, Giovanni Miano, Carlo Forestiere  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21463v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21463_figures/2604.21463_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Two identical superconducting qubits capacitively coupled through a transmission line of length d. The qubits, with shunt capacitance C and Josephson energy EJ, are connected symmetrically at the two ends x = 0 and x = d through coupling capacitances Cg.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21463_figures/2604.21463_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Normalized squared coupling strengths g2 n/G2 of the odd (red line) and even (blue line) sectors versus the normalized mode frequency ωn/ωg for three values of the TL mode spacing: (a) ωTL = 10 ωg, (b) ωTL = ωg, and (c) ωTL = 0.1ωg. The insets display a zoom of the interval ωn/ωg ∈[0, 3], highlighting the low frequency modes. The vertical markers denote three representative qubit frequencies: ωq = 0.1 ωTL (square), ωq = ωTL (triangle), and ωq = 10 ωTL (diamond).</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21463_figures/2604.21463_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Schematic classification of the operating regions in the plane spanned by the ratios ωg/ωTL and ωq/ωTL.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21463_figures/2604.21463_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Schematic representation of the long-line (contin- uum) mapping: the transmission line decomposes into two independent reservoir channels (even/odd parity), each char- acterized by a Drude–Lorentz spectral density and coupled to the two-qubit system through the collective operators L± = ˆσ(1) y ± ˆσ(2) y .</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21463_figures/2604.21463_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Real and imaginary parts of the correlation function C(t) at T = 0 for the discrete [Eq. (23)] and continuum [Eq. (28)] models. The left column, panels (a), (c), and (e), shows Re{C(t)}; the right column, panels (b), (d), and (f), shows Im{C(t)}. The three rows correspond to ωTL/ωg = 10, 1, and 0.1, from top to bottom.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21463_figures/2604.21463_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Drude–Lorentz spectral density J(ω) normalized to the reorganization rate λ plotted as a function of frequency for different normalized bath relaxation rates γ/ωq, illustrating the broadening of the spectrum and the shift of the maximum at ω = γ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21463_figures/2604.21463_fig7.jpg" width="500"><br>
+<sub>FIG. 7. BLP non-Markovianity measure N(Φ) for a single qubit capacitively coupled to a finite TL of length d, termi- nated by a short circuit in the long line region ωTL ≪ωg. The measure is shown as a function of the normalized bath temperature kBT/ℏωq (vertical axis) and the normalized bath relaxation rate γ1q/ωq (horizontal axis), over the range 0 ≤ kBT/ℏωq, γ1q/ωq ≤10. The reorganization rate is fixed to λ1q = 0.1 ωq. The white curve marks the condition defined by Eq. (34). The green curves are contour lines of constant N(Φ), highlighting different levels of non-Markovianity.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21463_figures/2604.21463_fig8.jpg" width="500"><br>
+<sub>FIG. 8. BLP non-Markovianity measure N(Φ) for the re- duced dynamics of two qubits coupled through a finite TL in the long-line region ωTL ≪ωg, shown as a function of the normalized bath temperature kBT/ℏωq (vertical axis) and normalized bath relaxation rate γ/ωq (horizontal axis), in the range 0.2 ≤kBT/ℏωq, γ/ωq ≤10. The reorganization rate is fixed at λ = 0.1 ωq. The contour lines indicate constant values of N(Φ) and thus highlight different regions of non- Markovian behavior.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21463_figures/2604.21463_fig9.jpg" width="500"><br>
+<sub>FIG. 9. Comparison between HEOM (solid-line), GKLS (dashed-line) and TCL2 (dash dot line) simulations for the populations of two qubits, shown for kBT/ℏωq = 7 and different values of γ/ωq. The BLP measures are (a) NΦ(γ/ωq = 0.2, kBT/ℏωq = 7) = 1.61, (b) NΦ(3, 7) = 5.6 · 10−4, (c) NΦ(7, 7) = 1.11 · 10−5. The initial state is one of the orthogonal states in the pair that maximizes the BLP measure.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21463_figures/2604.21463_fig10.jpg" width="500"><br>
+<sub>FIG. 10. Comparison between HEOM (solid-line), GKLS (dashed-line) and TCL2 (dash dot line) simulations for the populations of two qubits, shown for γ/ωq = 7 and different values of T, i.e. (a) kBT/ℏωq = 0.2 and (b) kBT/ℏωq = 3. The BLP measures are NΦ(γ/ωq = 7, kBT/ℏωq = 0.2) = 7.8 · 10−2 and NΦ(γ/ωq = 7, kBT/ℏωq = 3) = 4.25 · 10−5. The initial state is one of the orthogonal states in the pair that maximizes the BLP measure.</sub>
+
+</details>
+
+**Main problem.** The paper seeks to establish a unified framework for classifying the dynamical regimes of two superconducting qubits coupled via a finite-length transmission line, specifically determining when the line acts as a continuous reservoir, a multi-mode coupler, or a single-mode cavity.
+
+**Main result.** The authors identify three distinct regimes (long-line continuum, comb-edge discrete, and short-line single-mode) and demonstrate how collective coupling reshapes the non-Markovianity landscape compared to single-qubit systems.
+
+**Method.** The study uses circuit quantization to derive the Hamiltonian and employs the Hierarchical Equations of Motion (HEOM) to numerically solve the non-perturbative dynamics, comparing results against TCL2 and GKLS master equations.
+
+**Summary.** This paper provides a unified description of the dynamics of two superconducting qubits coupled through a finite-length transmission line. By analyzing the hierarchy of frequency scales, the authors classify the system into continuum, multi-mode, and single-mode regimes. They use the HEOM method to show how the transmission line can act as a structured reservoir and how collective coupling affects non-Markovian information backflow. The work also evaluates the accuracy of standard Markovian and perturbative approximations in these complex environments.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Two identical superconducting transmon qubits capacitively coupled symmetrically to a finite-length transmission line, where the line modes are separated into even- and odd-parity sectors.
+
+**Key observables.** Breuer-Laine-Piilo (BLP) measure of non-Markovianity, ground-state population, trace distance, and qubit population evolution.
+
+**Important parameters / regimes.** Qubit frequency (omega_q), transmission line mode spacing (omega_TL), coupling scale (omega_g), temperature (T), and reorganization rate (lambda).
+
+**Assumptions / limitations.** Qubits are treated as two-level systems; the transmission line is modeled as a truncated set of bosonic modes; the continuum limit assumes a Drude-Lorentz spectral density.
+
+**Figures summary.** Schematics of the circuit setup, maps of non-Markovianity (BLP measure) across parameter spaces, comparisons of HEOM, TCL2, and GKLS dynamics, and convergence tests for mode expansion.
+
+**Paper structure.** The paper begins with circuit quantization and Hamiltonian derivation, progresses to the classification of frequency-dependent dynamical regimes, analyzes non-Markovianity using the BLP measure, and concludes with a validation of master equation approximations and mode convergence.
+
+**Why it may be interesting.** It provides a rigorous bridge between circuit-level parameters and open quantum system theory, offering a unified description of memory effects and collective dissipation in cQED architectures.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We investigate the reduced dynamics of two identical superconducting qubits capacitively coupled through a finite-length transmission line. Starting from circuit quantization, we derive a circuit Hamiltonian that naturally separates the line modes into even- and odd-parity sectors coupled to collective qubit operators. Depending on the hierarchy between the qubit frequency $ω_q$, the mode spacing $ω_{TL}$, and the coupling scale $ω_g$, the line acts either as a structured reservoir or as a discrete few-mode coupler. In the long-line continuum limit, each sector is described by a Drude--Lorentz spectral density and the dynamics is solved with the hierarchical equations of motion. Using the Breuer--Laine--Piilo measure, we identify the parameter region in which the reduced dynamics exhibits non-Markovian relaxation. In the short-line limit, the continuum description breaks down and the dynamics becomes respectively multimode or single-mode. This establishes a unified cQED picture of the dynamical regimes of finite-length transmission lines in superconducting-circuit architectures.
+
+</details>
+
 
 ## numerical methods (4)
 
@@ -2441,7 +2763,7 @@ The generalized second laws of quantum thermodynamics are usually formulated in 
 </details>
 
 
-## strongly correlated electrons (6)
+## strongly correlated electrons (7)
 
 ### [Cryogenic shock exfoliation for ultrahigh mobility rhombohedral graphite nanoelectronics](http://arxiv.org/abs/2604.21912v1)
 
@@ -2822,6 +3144,110 @@ Recently, the observation of superconductivity (SC) with $T_c$ $\approx$ 3.6 K i
 <details><summary>Abstract</summary>
 
 The internal low-energy symmetry of the massless Lorentz-invariant Dirac Hamiltonian in $2+1$ dimensions is known to be $O(2N)$, where $N$ is the number of two-component Dirac fermions. Here we point out that there exists an analogous internal symmetry of the single-particle quadratic-band-touching Hamiltonian in two spatial dimensions, and it is the unitary symplectic group, $USp(2N)$. All fermionic bilinears belong to one of the three small irreducible representations of this group. The interacting theory that respects the $USp(2N)$ symmetry and the spatial rotations is constructed and found to allow two independent interaction terms. When these interactions are infrared-relevant the symplectic symmetry either remains preserved or becomes spontaneously broken to $USp(N) \times USp(N)$. The symmetry in the lattices such as honeycomb to infinite order in the dispersion's expansion in powers of local momentum is given by the overlap of the symplectic and the orthogonal groups. We show that this overlap is $O(2N) \bigcap USp(2N) = U(N)$.
+
+</details>
+
+### [Single-crystal growth and magnetic, magnetoelectric, and optical properties of ferroaxial-type SrMn$_2$Ni$_6$Te$_3$O$_{18}$](http://arxiv.org/abs/2604.21460v1)
+
+**Authors:** Ryoya Nakamura, Shinichiro Asai, Yusuke Nambu, Takatsugu Masuda, Kenta Kimura  
+**Type:** experiment · **PDF:** <https://arxiv.org/pdf/2604.21460v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21460_figures/2604.21460_fig1.jpg" width="500"><br>
+<sub>Figure 3(a) displays a transmission optical micrograph of the single crystal used for the EG</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21460_figures/2604.21460_fig2.jpg" width="500"><br>
+<sub>Figure 4(a) shows the T dependence of magnetic susceptibility (defined as χm = M/H), where χm∥c and</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21460_figures/2604.21460_fig3.jpg" width="500"><br>
+<sub>Figure 5(a) displays the NPD patterns recorded at various temperatures between 5 and 300 K. All</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21460_figures/2604.21460_fig4.jpg" width="500"><br>
+<sub>Figure 6(a) presents the refined pattern together with the reliability factors, showing good agreement</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21460_figures/2604.21460_fig5.jpg" width="500"><br>
+<sub>Figure 1. (Color online) Crystal structure of the AB2C6Te3O18-type compound. Green, purple, gray, yellow,</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21460_figures/2604.21460_fig6.jpg" width="500"><br>
+<sub>Figure 2. (Color online) X-ray diffraction profiles of single-crystal and powdered samples, along with the</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21460_figures/2604.21460_fig7.jpg" width="500"><br>
+<sub>Figure 3. (Color online) Distribution of FA domains in a SrMNTO single crystal visualized by the EG effect.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21460_figures/2604.21460_fig8.jpg" width="500"><br>
+<sub>Figure 4. (Color online) Temperature dependence of the magnetic susceptibility of SrMNTO under an</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21460_figures/2604.21460_fig9.jpg" width="500"><br>
+<sub>Figure 5. (Color online) (a) Neutron powder diffraction patterns of SrMNTO at various temperatures</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21460_figures/2604.21460_fig10.jpg" width="500"><br>
+<sub>Figure 6. (Color online) (a) Observed (open circle), Rietveld refined (red curve), and difference (blue curve)</sub>
+
+</details>
+
+**Main problem.** The study investigates the interplay between ferroaxial structural distortion and magnetic order in the newly grown SrMn2Ni6Te3O18 single crystals, specifically focusing on their magnetoelectric and optical properties.
+
+**Main result.** The researchers identified a collinear bidirector-type antiferromagnetic structure with a transition temperature of 83 K and detected all independent magnetoelectric tensor components, including a sign reversal in the chi33 component.
+
+**Method.** Single crystals were grown using the TeO2 self-flux method and characterized via neutron powder diffraction, magnetic susceptibility measurements, electrogyration imaging, and optical spectroscopy.
+
+**Summary.** This paper reports the successful growth and characterization of SrMn2Ni6Te3O18 single crystals. The study reveals a complex antiferromagnetic state that breaks both parity and time-reversal symmetries, leading to a ferrotoroidal state. The researchers demonstrate significant magnetoelectric effects, including a notable sign reversal in the longitudinal magnetoelectric component. The findings show that the ferroaxial and magnetic properties are robust across different A-site cations in this oxide family.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The physical system is the ferroaxial-type magnetic oxide SrMn2Ni6Te3O18 (SrMNTO), which features Mn2+ and Ni2+ magnetic ions and a structural distortion involving the rotation of NiO6 octahedra.
+
+**Key observables.** Magnetic transition temperature (TN), magnetic moments, magnetoelectric tensor components (chi11, chi12, chi33), and nonreciprocal directional dichroism (NDD).
+
+**Important parameters / regimes.** TN = 83 K, effective magnetic moment approx 11.6-11.7 uB/f.u., Weiss temperature approx -113 K.
+
+**Figures summary.** Fig 1: Crystal structure and ferroaxial rotation; Fig 2: XRD profiles and crystal photo; Fig 3: FA domain mapping via EG effect; Fig 4: Magnetic susceptibility and Curie-Weiss fits; Fig 5: Neutron diffraction patterns; Fig 6: Rietveld refinement of magnetic structure; Fig 7: Lattice constants and magnetic moments; Fig 8: Polarization dependence on magnetic field and cooling field; Fig 9: Optical absorption difference spectra.
+
+**Paper structure.** The paper begins with crystal growth and structural characterization, followed by magnetic property analysis via susceptibility and neutron diffraction, then moves to magnetoelectric and electrogyration measurements, and concludes with optical spectroscopy and a comparison with the isostructural Pb-based compound.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Single crystals of SrMn$_2$Ni$_6$Te$_3$O$_{18}$, a member of the ferroaxial-type magnetic oxide family $AB_{2}C_{6}$Te$_3$O$_{18}$ ($A$ = Pb, Sr; $B$ = Mn, Cd; $C$ = Ni, Co), have been successfully grown, and their structural, magnetic, magnetoelectric, and optical properties have been systematically studied. Imaging of the spatial distribution of electric-field-induced optical rotation reveals that the single crystals preferentially form single ferroaxial (FA) domains. Magnetization and neutron diffraction measurements show that Mn$^{2+}$ and Ni$^{2+}$ magnetic moments order antiferromagnetically at $T_{\rm N}$ = 83 K, forming a $c$-axis collinear bidirector-type antiferromagnetic structure. All independent magnetoelectric tensor components allowed by the magnetic point group 6/$m^{\prime}$ have been detected, and the $χ_{33}$ component exhibits a pronounced temperature-dependent anomaly, including a peak and a sign reversal. Preferential formation of single FA domains and a similar $χ_{33}$ anomaly are also observed in the isostructural compound PbMn$_2$Ni$_6$Te$_3$O$_{18}$. These findings suggest that the ferroaxial and magnetic characteristics within this structural framework are robust against Sr-Pb replacement.
 
 </details>
 
