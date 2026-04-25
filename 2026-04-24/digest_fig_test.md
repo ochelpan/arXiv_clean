@@ -1,18 +1,20 @@
 # arxiv digest (quant-ph + cond-mat) — 2026-04-24
 
-*36 papers · 2 highlighted*  
-_⏳ in progress: 36/95 papers processed (file updates after each one)_
+*47 papers · 4 highlighted*  
+_⏳ in progress: 47/95 papers processed (file updates after each one)_
 
 
-## ⭐ Highlighted (2)
+## ⭐ Highlighted (4)
 
 *Papers by authors on your watch list. Full entries appear only once in their normal category below.*
 
 - ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](http://arxiv.org/abs/2604.21919v1) — Sarang Gopalakrishnan
 - ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](http://arxiv.org/abs/2604.21778v1) — Andrii G. Sotnikov, Denys I. Bondar
+- ⭐ [Generalized stochastic spin-wave theory for open quantum spin systems](http://arxiv.org/abs/2604.21574v1) — Rosario Fazio
+- ⭐ [Quantum jump correlations in long-range dissipative spin systems](http://arxiv.org/abs/2604.21513v1) — Rosario Fazio
 
 
-## quantum information and computing (18)
+## quantum information and computing (19)
 
 ### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
 
@@ -1487,8 +1489,116 @@ Systematic control errors remain a primary obstacle to realizing high-fidelity s
 
 </details>
 
+### [Pulse Shaping for Superconducting Qubits](http://arxiv.org/abs/2604.21565v1)
 
-## numerical methods (3)
+**Authors:** Animesh Patra, Ankur Raina  
+**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21565v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21565_figures/2604.21565_fig1.jpg" width="500"><br>
+<sub>Figure 1: The potential energy profile and eigenenergies for the harmonic oscillator (solid red) and the anharmonic oscillator (solid green) in ℏ= 1 units. The energy separation (equivalently, the transition frequency ωh) between the eigenstates of the harmonic oscillator is equal. For the aim of building a transmon qubit, an anharmonic oscillator is considered. Each energy separation (equivalently, the transition frequencies ω01, ω12 and so on) is different. Differing energy separation allows to form a computational subspace from |0⟩and |1⟩. While the rest of the states, like the |2⟩state, form the leakage subspace.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21565_figures/2604.21565_fig2.jpg" width="500"><br>
+<sub>Figure 2: (a)The transition probability of the square and the triangular pulse from Magnus expansion truncated at second order for δ = 0.5, A0 = π. (b) Numerical simulation of exact dynamics shown by RWA Hamiltonian of Eq.5 for square and triangular pulse at δ = 0.5, A0 = π. The simulation is carried out using QuTiP in Python.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21565_figures/2604.21565_fig3.jpg" width="500"><br>
+<sub>Figure 3: (a) The square pulse (green line) and the Gaussian pulse (red line). The square pulse is analytically easier to study however, (b) it’s baseband frequency spectrum has wider sidelobes than the Gaussian pulse.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21565_figures/2604.21565_fig4.jpg" width="500"><br>
+<sub>Figure 4: (a) The solid-green, dashed-red, and dash-dotted blue lines are all Gaussian pulses with decreasing pulse duration. (b) Shorter pulses have a wider frequency spread. Broader frequency support increases the chances of overlap with the unwanted transition frequency.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21565_figures/2604.21565_fig5.jpg" width="500"><br>
+<sub>Figure 5: A schematic of the three-level model. The first two levels form the computational subspace with a transition frequency of ω1. The σx 01 and σy 01 promote transition inside the computational subspace. However, the σy 01 contribution is the unwanted term arising in the first-order Magnus expansion. The DRAG protocol helps eliminate this and the coupling to the leakage state (arrows shown in red). AC Stark effect contributions emerge at the second order in the expansion (σz 01 and σz 12 terms).</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21565_figures/2604.21565_fig6.jpg" width="500"><br>
+<sub>Figure 6: (a)A schematic illustrating the in-phase I(t) and the quadrature Q(t) component for a standard gaussion DRAG pulse. (b) Numerical simulation of exact dynamics shown by RWA Hamiltonian of Eq.21 for Gaussian and Gaussian DRAG pulse for anharmonicity ∆= −450 MHz, peak pulse amplitude A0 = 200 MHz/2π, pulse width (standard deviation) σ = 6.5 and coupling between |0⟩−|1⟩states as λ = √</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21565_figures/2604.21565_fig7.jpg" width="500"><br>
+<sub>Figure 7: Schematic of the hardware essential for pulse generation. The in-phase (I) and quadrature signals (Q) from the arbitrary waveform generator (AWG) combine with the sinusoid from the local oscillator (LO) in the IQ mixer.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21565_figures/2604.21565_fig8.jpg" width="500"><br>
+<sub>Figure 8: Overlap of the discrete Fourier transform Xd(f) images due to improper sampling (fs ≤ 2f).</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21565_figures/2604.21565_fig9.jpg" width="500"><br>
+<sub>Figure 9: Even though aliasing can be used to generate RF signals, the amplitude shows a sinc(πx) roll-off. The alternating shades of grey denote the different higher Nyquist zones.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21565_figures/2604.21565_fig10.jpg" width="500"><br>
+<sub>Figure 10: Schematic of a basic phase-locked loop configuration.</sub>
+
+</details>
+
+**Main problem.** Achieving high-fidelity control of superconducting qubits by mitigating errors such as leakage to higher energy levels, unwanted rotations, and hardware-induced distortions.
+
+**Main result.** The paper provides a unified framework for pulse design, demonstrating that techniques like DRAG, active cancellation, and echo sequences can significantly suppress leakage and crosstalk errors.
+
+**Method.** The authors use the Magnus expansion for analytical error analysis, QuTiP for numerical simulations, and a detailed study of the hardware signal chain (AWG, IQ mixing).
+
+**Summary.** This paper serves as a pedagogical guide to pulse shaping for superconducting transmon qubits. It explains how to design microwave pulses to prevent leakage into non-computational states using the DRAG technique. The authors also bridge the gap between theory and practice by discussing how hardware imperfections like IQ imbalance and LO noise impact qubit fidelity. Finally, it extends these concepts to two-quubit gates, detailing strategies to mitigate crosstalk and ZZ interactions.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study focuses on superconducting transmon qubits, modeled as weakly anharmonic multi-level systems (including at least a three-level model) driven by microwave pulses.
+
+**Key observables.** Transition probabilities (P0->1), gate fidelity, and error coefficients for various Hamiltonian terms (e.g., sigma_x, sigma_z, sigma_z tensor sigma_z).
+
+**Important parameters / regimes.** Pulse envelope (A(t)), detuning (delta), anharmonicity (Delta), pulse duration (T), and hardware parameters like sampling rate (fs) and IQ imbalance.
+
+**Assumptions / limitations.** Initial analysis assumes a two-level system; DRAG assumes pulses start and end at zero; the system is driven resonantly; environmental noise is largely excluded from the scope.
+
+**Figures summary.** Figures illustrate energy level differences between harmonic and anharmonic oscillators, pulse spectral properties (Fourier spectra), DRAG pulse components, the hardware signal chain, and error-mitigation pulse sequences.
+
+**Paper structure.** The paper progresses from a pedagogical introduction to two-level Rabi oscillations, moves to multi-level transmon dynamics and DRAG techniques, addresses hardware-induced signal distortions, and concludes with complex two-qubit gate error mitigation strategies.
+
+**Why it may be interesting.** It provides a rigorous bridge between abstract control theory (Magnus expansion) and the practical engineering of pulse shapes, which is highly relevant for anyone working on the control of open quantum systems or high-fidelity gate implementation.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+High-fidelity control of superconducting qubits requires carefully shaped microwave pulses that account for multiple error channels. In this work, we present a pedagogical introduction to pulse-shaping techniques for transmon qubits, aiming to provide a unified, accessible framework that integrates physical intuition for pulse design, analytical understanding of gate-level descriptions, and practical considerations of hardware. This article further aims to serve as a guide for students and early researchers entering superconducting quantum computing. We begin by examining simple pulse envelopes and their spectral properties, highlighting how finite bandwidth leads to leakage outside the computational subspace. These observations motivate the introduction of the derivative removal by adiabatic gate (DRAG) technique, which uses a quadrature component proportional to the pulse's time derivative to suppress off-resonant excitations. We analyze the single-qubit case using the Magnus expansion, which provides a clear understanding of the order-by-order introduction of error channels. We discuss the practical hardware realities of control pulse generation, focusing on arbitrary waveform generators (AWG), local oscillators (LO), and IQ mixing. Common imperfections are discussed in terms of their impact on the effective pulse shape and qubit Hamiltonian. Finally, we extend the discussion to two-qubit operations, focusing on the cross-resonance gate and the emergence of effective interactions.
+
+</details>
+
+
+## numerical methods (4)
 
 ### ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](http://arxiv.org/abs/2604.21919v1)
 
@@ -1651,8 +1761,109 @@ We present a fast, memory-efficient, unitarity-preserving numerical method beyon
 
 </details>
 
+### [Dynamical mean-field theory for dense spin systems at finite temperature](http://arxiv.org/abs/2604.21563v1)
 
-## statistical mechanics (2)
+**Authors:** Przemysław Bieniek, Timo Gräßer, Götz S. Uhrig  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21563v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21563_figures/2604.21563_fig1.jpg" width="500"><br>
+<sub>Figure 1: Three types of systems used for benchmarking: nearest-neighbor ferro- magnet (a) and antiferromagnet (b) on a 2D square lattice with periodic boundary conditions and (c) infinite-range system with random couplings (number of sites not representative of the system used in numerics). Black dots represent lattice sites and the blue (red) lines negative (positive) couplings which are ferromagnetic (antifer- romagnetic) in character.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21563_figures/2604.21563_fig2.jpg" width="500"><br>
+<sub>Figure 2: Comparison of correlations obtained in spinDMFT (green) and in a ferro- magnet (blue) and antiferromagnet (red) at different temperatures, which are de- picted by different symbols. The considered finite-size systems are a 2D square 4×5 lattice with nearest-neighbor negative/positive couplings, see Fig. 1. Note that there is an incidental overlap of the spinDMFT curve at βJQ = 2.5 and the AFM curve at βJQ = 2. The error bars for spinDMFT and finite-size data are smaller than the width of the curves.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21563_figures/2604.21563_fig3.jpg" width="500"><br>
+<sub>Figure 3: Comparison of correlations obtained in spinDMFT (green) and in an infinite-range system with random couplings (purple) at different temperatures (de- picted by different symbols). The considered finite-size system is 12 spins coupled in a random fashion, the curve is obtained by averaging over 1000 coupling configura- tions. The error bars resulting from the averaging and the spinDMFT error bars are smaller than the width of the curves.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21563_figures/2604.21563_fig4.jpg" width="500"><br>
+<sub>Figure 4: Comparison of correlations obtained in spinDMFT (green) and in a ferro- magnetic system (blue) at different temperatures (signified by the symbols) in the presence of an external magnetic field (Bz/JQ = 0.5). We depict the x x correlation in (a), x y correlation in (b) and zz correlation in (c). Note the very different y-axis scales used for (a) and (c). The considered finite-size system is a 2D square 4 × 5 lattice with nearest-neighbor negative couplings. In (c), note the incidental overlap of the spinDMFT curves at βJQ = 1.5, 2 and the FM curve at βJQ = 2.5. The error bars resulting from time discretization and averaging over the distribution of mean fields for spinDMFT are...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21563_figures/2604.21563_fig5.jpg" width="500"><br>
+<sub>Figure 5: Comparison of correlations obtained in spinDMFT (green) and in an an- tiferromagnetic system (red) at different temperatures (signified by the symbols) in the presence of an external magnetic field (Bz/JQ = 0.5). We depict the x x correla- tion in (a), x y correlation in (b) and zz correlation in (c). The considered finite-size system is a 2D square 4 × 5 lattice with nearest-neighbor positive couplings. The errorbars for spinDMFT and the finite-size data are smaller than the width of the curves.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21563_figures/2604.21563_fig6.jpg" width="500"><br>
+<sub>Figure 6: Comparison of correlations obtained in spinDMFT (green) and in an infinite-range system with random couplings (purple) at different temperatures (sig- nified by the symbols) in the presence of an external magnetic field (Bz/JQ = 0.5). We depict the x x correlation in (a), x y correlation in (b) and zz correlation in (c). The considered finite-size system is 12 spins coupled in a random fashion, the curve was obtained by averaging over 250 coupling configurations. The spinDMFT error bars are smaller than the width of the curves. The finite-size data has noticeable errors due to the averaging over the Gaussian distributed couplings.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21563_figures/2604.21563_fig7.jpg" width="500"><br>
+<sub>Figure 7: Dependence of the spin expectation value on the magnetic field in ferro- magnetic spinDMFT at a range of temperatures.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21563_figures/2604.21563_fig8.jpg" width="500"><br>
+<sub>Figure 8: Dependence of the spin expectation value without an external magnetic field on temperature (blue points) and a numerically obtained spline function fitted to the points(red line).</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21563_figures/2604.21563_fig9.jpg" width="500"><br>
+<sub>Figure 9: Comparison of correlations obtained in spinDMFT (green line) and in a spin glass mean-field theory developed in Ref. [30] (gray crosses) at different tem- peratures (specified above the curves). In the spin glass data, there are errors due to the graphical extraction of the published data; they are roughly of the size of the crosses. The error bars of spinDMFT are smaller than the line widths.</sub>
+
+</details>
+
+**Main problem.** Extending the spinDMFT (dynamical mean-field theory for spins) method from infinite temperature to finite temperature to compute imaginary-time correlations and thermodynamic quantities in dense spin systems.
+
+**Main result.** The authors successfully developed a finite-temperature spinDMFT framework that accurately captures ferromagnetic phase transitions and shows excellent agreement with exact results for random-coupling systems, though it struggles with antiferromagnetic order.
+
+**Method.** A single-site approximation using a time-dependent, Gaussian-distributed mean field, implemented via Monte Carlo sampling and numerical iteration to achieve self-consistency.
+
+**Summary.** This paper presents an extension of the spinDMFT method to finite temperatures, allowing for the calculation of thermodynamic quantities and imaginary-time correlations in dense spin systems. By approximating the environment as a time-dependent Gaussian mean field, the authors bypass the exponential scaling of the Hilbert space. The method is validated against exact results for ferromagnetic and random-coupling models, successfully capturing the reduction of critical temperature due to dynamical fluctuations. However, the current implementation faces challenges in accurately modeling antiferromagnetic order.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Isotropic Heisenberg model for S=1/2 spins in the limit of large coordination number (z -> infinity), including ferromagnetic, antiferromagnetic, and random-coupling (spin glass-like) regimes.
+
+**Key observables.** Spin expectation values, time-ordered imaginary-time spin correlations, and spin autocorrelations.
+
+**Important parameters / regimes.** Inverse temperature (beta), coupling constants (JL, JQ), and external magnetic field (B).
+
+**Assumptions / limitations.** The method assumes the infinite-coordination limit (z -> infinity) allows for a Gaussian-distributed mean field and the use of Wick's theorem, and it assumes site-independent coupling moments for translation-invariant systems.
+
+**Figures summary.** Figures show benchmarks against FM, AFM, and random-coupling systems; magnetization curves vs. magnetic field; and a comparison of spinDMFT correlations against established spin glass mean-field theory.
+
+**Paper structure.** The paper introduces the spinDMFT extension to finite temperature, derives the single-site effective model using the cavity method and Trotterization, details the numerical implementation (Monte Carlo and Chebyshev expansion), benchmarks the method against finite-size and random-coupling systems, and discusses limitations regarding antiferromagnetism.
+
+**Why it may be interesting.** This work provides a powerful numerical tool for studying the dynamics of many-body spin systems at finite temperatures, which is highly relevant for understanding thermalization and phase transitions in many-body dynamics.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+In recent years, a method for computing spin dynamics at infinite temperature (spinDMFT) was developed. It utilizes the ideas of dynamical mean-field theory for fermions: single-site approximation and a self-consistency condition to approximate time-dependent spin correlations. In this work, we develop a crucial extension of the method to systems at finite temperature, able to compute imaginary-time correlations and thermodynamical quantities. We benchmark the method by comparison to results in finite-size systems, obtaining very good agreement with correlations in a random-coupling system, good agreement for a ferromagnetic system and large discrepancies in the case of an antiferromagnet. We note the appearance of ferromagnetic order in the method. We discuss possible extensions and potential applications of the approach.
+
+</details>
+
+
+## statistical mechanics (8)
 
 ### [Novel dynamics for an inertial polar tracer in an active bath](http://arxiv.org/abs/2604.21762v1)
 
@@ -1772,8 +1983,465 @@ Autocatalytic processes underlie diverse systems in which replication is trigger
 
 </details>
 
+### ⭐ [Generalized stochastic spin-wave theory for open quantum spin systems](http://arxiv.org/abs/2604.21574v1)
 
-## strongly correlated electrons (4)
+**Highlighted author(s):** Rosario Fazio  
+**Authors:** Zejian Li, Anna Delmonte, Rosario Fazio  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21574v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21574_figures/2604.21574_fig1.jpg" width="500"><br>
+<sub>Figure 1. Semiclassical representation of driven-dissipative spin dynamics with the generalized framework of spin-wave quantum trajectories (SWQT). (a) Sketch of a variable-range interacting spin model on a two-dimensional (2D) lattice. The spins are driven with an external field h and interact via a variable-range coupling J(α) ij , whose strength decays as a power law of the distance with exponent α. The spins are subjected to local decay (at rate γ), and the dissipative dynamics is unraveled into quantum trajectories via continuous monitoring. (b) In our semiclassical treatment, each spin is bosonized around its classical polarization. Here, Oxyz depicts the lab frame and O˜xi˜yi˜zi is...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21574_figures/2604.21574_fig2.jpg" width="500"><br>
+<sub>Figure 3. Benchmark of the spin-wave quantum trajectories (SWQT) with heterodyne (het.) unraveling for a 2 × 2 spin system with h = 2γ, J = 0.5γ, and nearest-neighbor interactions (α = ∞) for the following physical quantities: (a) single- trajectory expectation values on the first site ⟨ˆσx,y,z 1 ⟩; (b) single-trajectory two-point correlation function X2 [cf. Eq. (33)]; (c) trajectory-averaged and site-averaged spin observables ⟨ˆσx,y,z⟩; (d) trajectory-averaged two-point correlation function X2. They are plotted as a function of time and shown together with the numerically exact solutions (see legend). The simulations are performed with a fixed time step γδt = 10−4 and trajectory averages...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21574_figures/2604.21574_fig3.jpg" width="500"><br>
+<sub>Figure 5. Steady-state results for a system with N = 6 × 6, α = 1 in the steady state, obtained with spin-wave quan- tum trajectories. (a) Magnetization order parameter X2 as a function of the external drive h and the dissipation γ. (b) Trajectory-averaged spin-wave density ϵ. In both panels, the mean-field (MF) phase boundary is marked with a dashed line (see legend).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21574_figures/2604.21574_fig4.jpg" width="500"><br>
+<sub>Figure 4. (a) SWQT heterodyne dynamics for a single trajec- tory with N = 6 × 6, h = J, γ = 0.6J and α = 1 showing the symmetry-breaking behavior. (b) Distribution of mx along trajectories for different values of γ (see legend) showing the bimodality of the trajectory ensemble.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21574_figures/2604.21574_fig5.jpg" width="500"><br>
+<sub>Figure 7. Steady-state magnetization X2 as a function of γ in a 10 × 10 lattice, for different interaction ranges represented by α, shown together with the mean-field result (see legend).</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21574_figures/2604.21574_fig6.jpg" width="500"><br>
+<sub>Figure 6. Steady-state results for the same quantities as in Fig. 5 with α = 1 and h = J, as a function of the dissi- pation γ and system size N = L × L (legend shared across both panels). (a) Magnetization order parameter X2 shown together with the mean-field (MF) result. Inset: finite-size scaling of the results with γc/J = 1.02±0.07, β = 0.46±0.10, ν = 1.00 ± 0.05 extracted from a collapsing analysis, with the vertical dotted line marking the extracted critical point. (b) Trajectory-averaged spin-wave density ϵ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21574_figures/2604.21574_fig7.jpg" width="500"><br>
+<sub>Figure 8. Finite-size scaling parameters as a function of inter- action range represented by 1/α showing the crossover of uni- versality class, where the vertical dotted line marks α = d = 2. (a) Critical point γc, with the mean-field (MF) value γc/J = 1 marked with a horizontal dotted line. (b) Magnetization crit- ical exponent β, with the mean-field value β = 1/2 marked with a horizontal dotted line and the value for 2D Ising uni- versality class β = 1/8 marked with a dash-dotted line. (c) Correlation length critical exponent ν with the horizontal dot- ted line marking the value ν = 1 for both the mean-field and the 2D Ising universality class.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21574_figures/2604.21574_fig8.jpg" width="500"><br>
+<sub>Figure 9. SWQT quantum jump (QJ) benchmark results for a N = 4 × 4 spin lattice with J = 2γ and α = ∞: steady-state average magnetization mx,y,z obtained using SWQT with the QJ unraveling, together with the exact solution (see legend), as a function of the external field h.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21574_figures/2604.21574_fig9.jpg" width="500"><br>
+<sub>Figure 10. SWQT quantum jump (QJ) results for a 2D spin lattice with J = 7γ and α = ∞: steady-state average magne- tization mz as a function of the external field h for different system sizes, shown together with the mean-field solution (see legend).</sub>
+
+</details>
+
+**Main problem.** Developing an efficient semiclassical framework to solve the open quantum dynamics of driven-dissipative spin systems, specifically overcoming the limitations of conventional spin-wave theories in regimes with short-range interactions and local quantum jumps.
+
+**Main result.** The proposed Spin-Wave Quantum Trajectories (SWQT) framework successfully captures phase transitions, including a crossover from Mean-Field to 2D Ising universality classes, and accurately describes symmetry-breaking dynamics and first-order transitions.
+
+**Method.** A semiclassical approach using a Gaussian ansatz, higher-order Holstein-Primakoff expansion, and a quaternion-based non-singular parametrization of local comoving frames to simulate quantum trajectories (heterodyne and quantum-jump).
+
+**Summary.** This paper introduces a new semiclassical method called Spin-Wave Quantum Trajectories (SWQT) for simulating driven-dissipative spin systems. By using local comoving frames and a quaternion formalism, the method avoids coordinate singularities and handles both continuous and discrete quantum measurement processes. The framework is shown to be highly efficient and capable of capturing complex phenomena like universality class crossovers and first-order phase transitions. It is particularly useful for studying large-scale interacting spins where exact methods are computationally impossible.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A 2D periodic lattice of interacting spins subject to Lindblad master equation dynamics, featuring variable-range power-law interactions and local dissipation.
+
+**Key observables.** Local and site-averaged magnetization (sx, sy, sz), two-point correlation functions, and spin-wave density (epsilon).
+
+**Important parameters / regimes.** Interaction exponent (alpha) controlling range, dissipation rate (gamma), external driving field (h), and interaction strength (J).
+
+**Assumptions / limitations.** The state is assumed to remain within a Gaussian manifold, and the approximation is most valid in the low spin-wave density regime.
+
+**Figures summary.** Figure 1 shows the 2D lattice model; Figure 2 illustrates the universality class crossover as a function of interaction range; Figure 3 provides a benchmark comparison against exact solutions for a small system; Figure 4 shows single-trajectory dynamics.
+
+**Paper structure.** The paper introduces the scientific problem, defines the physical models and Lindblad dynamics, details the SWQT mathematical framework (including quaternion formalism and bosonization), presents numerical benchmarks against exact solutions, and demonstrates application to phase transitions and universality crossovers.
+
+**Why it may be interesting.** It provides a powerful, scalable tool for simulating large-scale non-equilibrium many-body dynamics and phase transitions in open quantum systems, bridging the gap between mean-field and short-range regimes.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We propose a semiclassical framework for solving open quantum dynamics in driven-dissipative spin systems. Our method consists of generalized spin-wave approximations tailored to describing quantum trajectories unravelled from the master equation, and generically applies to regimes beyond the reach of conventional spin-wave theories, including short-range interactions and local quantum jumps, enabling the efficient simulation of large-scale interacting spins. We illustrate the versatility of our framework by studying a variable-range driven-dissipative Ising model on a 2D lattice. When the dissipation acts along the drive axis, we find a continuous phase transition breaking the $\mathbb{Z}_2$ symmetry, and demonstrate that the interaction range, when tuned from fully-connected to nearest-neighbour, profoundly alters the universality class of the criticality. With the dissipation along the interaction axis, we show the emergence of a first-order transition. Demonstrated with both state-diffusion and quantum-jump types of trajectory dynamics, our framework provides a powerful toolbox for the efficient semiclassical description of non-equilibrium dynamics and many-body phases in spin systems.
+
+</details>
+
+### [Dean-Kawasaki fluctuating hydrodynamics for backscattering hard rods](http://arxiv.org/abs/2604.21553v1)
+
+**Authors:** Mrinal Jyoti Powdel  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21553v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21553_figures/2604.21553_fig1.jpg" width="500"><br>
+<sub>Figure 1: Mass density, q0(x, t), momentum density, q1(x, t) and energy density, q2(x, t)/2 of a system of backscattering hard rods of length a = 1 at different times. The solid lines represents theory and the circles represent the results from molecular dynamics. Here, the initial positions and velocities are drawn from a gaussian distribution (6) with σx = 5 and T = 1. The numerical results have been obtained after averaging over 5 × 106 realizations.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21553_figures/2604.21553_fig2.jpg" width="500"><br>
+<sub>Figure 2: Unequal space-time correlation of mass densities for a hard rod system consisting of N = 400 backscattering hard rods each of length a = 0.01 for a) γ = 0.0005 and b) γ = 2. Here, we have set x′ = 0, t′ = 0. The black dashed lines represent theory (Eq. (23)) and the colored circles represent results from molecular dynamics for different values of τ = t −t′, where we have also subtracted off fluctuations due to finite size effects. Initially, all the hard rods are distributed uniformly in the region [−10, 10] and the velocities were drawn from a gaussian distribution with temperature or variance, T = 1. The boundary conditions imposed are periodic. On the left, we see that for τ &lt;&lt;...</sub>
+
+</details>
+
+**Main problem.** Understanding how a stochastic velocity-flipping perturbation breaks the integrability of a one-dimensional hard-rod system and changes its transport properties.
+
+**Main result.** The system undergoes a transition from ballistic to diffusive transport, where the correlation of mass densities spreads ballistically for short times (t << 1/gamma) and diffusively for long times (t >> 1/gamma).
+
+**Method.** The study employs the Dean-Kawasaki fluctuating hydrodynamic formulation, mapping the backscattering hard rods to non-interacting run-and-tumble particles and solving the resulting stochastic partial differential equations.
+
+**Summary.** This paper investigates how adding a stochastic flipping mechanism to a 1D hard-rod system breaks its integrability. By using a hydrodynamic approach, the author shows that this perturbation causes the system's transport properties to transition from ballistic to diffusive behavior. The study provides an analytical description of how density correlations evolve over different time scales relative to the flipping rate. The theoretical results are successfully validated using molecular dynamics simulations.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A one-dimensional system of backscattering hard rods (BHR) of length 'a' that undergo elastic collisions and periodic velocity sign flips at a rate 'gamma'.
+
+**Key observables.** Phase space densities (PSDs), conserved densities (mass, momentum, and energy), and two-time density-density correlations.
+
+**Important parameters / regimes.** Flipping rate (gamma), rod length (a), density (rho), temperature (T), and the time scales relative to the inverse flipping rate (1/gamma).
+
+**Assumptions / limitations.** The derivation assumes a Poisson process for flipping events and focuses on the long-time regime where initial fluctuations have decayed.
+
+**Figures summary.** Figure 1 compares theoretical predictions for mass, momentum, and energy densities against molecular dynamics simulations. Figure 2 shows the unequal space-time correlation of mass densities, demonstrating the transition from ballistic to diffusive scaling at different flipping rates.
+
+**Paper structure.** The paper introduces the BHR model, maps it to run-and-tumble particles, derives the hydrodynamic equations using the Dean-Kawasaki framework, provides analytical solutions for correlations in various geometries, and validates results via molecular dynamics simulations.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study a system of backscattering hard rods in one dimension. Contrary to the usual ballistic hard rods, these hard rods flip the sign of their velocities with a rate $γ$. This leads to the decay of the odd moments of velocity while preserving the even moments: the number of conserved quantities in the system becomes half. The introduction of the flipping rate, $γ$, is a kind of integrability-breaking perturbation. One expects a change in the transport properties in the system due to the integrability breaking. We show using a Dean-Kawasaki fluctuating hydrodynamic formulation that for $t \gg 1/γ$, the two-time density density correlation spreads in a diffusive manner, and for $t \ll 1/γ$, the correlation spreads ballistically.
+
+</details>
+
+### [The CriticalSet problem: Identifying Critical Contributors in Bipartite Dependency Networks](http://arxiv.org/abs/2604.21537v1)
+
+**Authors:** Sebastiano A. Piccolo, Andrea Tagarelli  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21537v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21537_figures/2604.21537_fig1.jpg" width="500"><br>
+<sub>Fig. 1. An example of bipartite dependency graph of contributors (𝑐𝑖) and items (𝑖𝑗). The shaded subgraph denotes to the Critical Set of size 3, which corresponds to the set {𝑐1, 𝑐2, 𝑐3}, as their removal causes the isolation of items 𝑖1–𝑖5.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21537_figures/2604.21537_fig2.jpg" width="500"><br>
+<sub>Fig. 2. Coverage curves on real datasets (selection).</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21537_figures/2604.21537_fig3.jpg" width="500"><br>
+<sub>Fig. 3. Zoomed-in comparison between MinCov, ShapleyCov, Forward Greedy and SHC. The letter indicates the synthetic graph configuration (refer to Table 3).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21537_figures/2604.21537_fig4.jpg" width="500"><br>
+<sub>Fig. 4. Running time comparison between MinCov, ShapleyCov, FG, and SHC.</sub>
+
+</details>
+
+**Main problem.** Identifying a subset of critical contributors in a bipartite dependency network whose removal isolates the largest number of items, a problem characterized by supermodular 'all-or-nothing' coverage.
+
+**Main result.** The authors prove the problem is NP-hard and propose two new methods, ShapleyCov and MinCov, which significantly outperform traditional centrality and greedy algorithms in both accuracy and scalability.
+
+**Method.** The paper introduces ShapleyCov, a centrality measure derived from the Shapley value of a coalitional game, and MinCov, a linear-time iterative peeling algorithm that accounts for connection redundancy.
+
+**Summary.** This paper addresses the challenge of finding critical nodes in bipartite networks where dependencies follow an 'all-or-nothing' logic. Unlike standard submodular optimization, this problem is supermodular and computationally difficult. The authors develop a new centrality measure based on the Shapley value and a highly efficient peeling algorithm called MinCov. Their approach scales to massive networks like Wikipedia and provides much more accurate identification of critical nodes than traditional methods like PageRank or betweenness centrality.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study uses a bipartite graph model B = (C, I, E) where C represents contributors, I represents items, and E represents dependency edges. Real-world applications include Wikipedia, open-source software, and supply chains.
+
+**Key observables.** The primary metric is the Area Under the Coverage Curve (AUC), which measures the normalized cumulative number of items covered as the budget k increases.
+
+**Important parameters / regimes.** Key parameters include the budget k, the degree distribution exponent alpha, the maximum degree D, and redundancy metrics such as the fraction of degree-one items (phi_I).
+
+**Assumptions / limitations.** The model assumes a bipartite structure, uniform item importance, and a strict 'all-or-nothing' (AND logic) loss condition where an item is only lost if all its contributors are removed.
+
+**Figures summary.** Figure 1 visually demonstrates the CriticalSet problem in a bipartite graph; other figures show coverage curves and performance comparisons across various datasets.
+
+**Paper structure.** The paper begins by formalizing the CriticalSet problem and proving its NP-hardness, then introduces the game-theoretic ShapleyCov and the MinCov algorithm, followed by extensive experimental validation on large-scale real-world and synthetic networks, and concludes with discussions on limitations and future extensions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Identifying critical nodes in complex networks is a fundamental task in graph mining. Yet, methods addressing an all-or-nothing coverage mechanics in a bipartite dependency network, a graph with two types of nodes where edges represent dependency relationships across the two groups only, remain largely unexplored. We formalize the CriticalSet problem: given an arbitrary bipartite graph modeling dependencies of items on contributors, identify the set of k contributors whose removal isolates the largest number of items. We prove that this problem is NP-hard and requires maximizing a supermodular set function, for which standard forward greedy algorithms provide no approximation guarantees. Consequently, we model CriticalSet as a coalitional game, deriving a closed-form centrality, ShapleyCov, based on the Shapley value. This measure can be interpreted as the expected number of items isolated by a contributor's departure. Leveraging these insights, we propose MinCov, a linear-time iterative peeling algorithm that explicitly accounts for connection redundancy, prioritizing contributors who uniquely support many items. Extensive experiments on synthetic and large-scale real datasets, including a Wikipedia graph with over 250 million edges, reveal that MinCov and ShapleyCov significantly outperform traditional baselines. Notably, MinCov achieves near-optimal performance, within 0.02 AUC of a Stochastic Hill Climbing metaheuristic, while remaining several orders of magnitude faster.
+
+</details>
+
+### ⭐ [Quantum jump correlations in long-range dissipative spin systems](http://arxiv.org/abs/2604.21513v1)
+
+**Highlighted author(s):** Rosario Fazio  
+**Authors:** Giulia Salatino, Anna Delmonte, Zejian Li, Rosario Fazio, Alberto Biella  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21513v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21513_figures/2604.21513_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Sketch of the dissipative phase diagram in the long-range limit: the yellow region corresponds to the mean- field ferromagnetic phase (FM), while the violet region corre- sponds to the mean-field paramagnetic phase (PM), featuring strongly and weakly correlated quantum jumps, respectively. The dashed line represents the shrinking of the FM phase due to an increased α, reflecting the buildup of correlations between spins. Correlations between quantum jumps are cap- tured through (b) a cluster mean-field (cMF) approximation, which fully accounts for short-range correlations, or (c) a cu- mulant expansion approximation, which captures lower-order long-range correlations.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21513_figures/2604.21513_fig2.jpg" width="500"><br>
+<sub>FIG. 3. Probability distribution P(n1, n2) for γtf = 20, Nc = 2, γ/J = 0.5, α = 1.1. (a) Ferromagnetic phase. (b) Paramagnetic phase.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21513_figures/2604.21513_fig3.jpg" width="500"><br>
+<sub>FIG. 2. Evolution of P(n1) in the tilted mean-field approx- imation with Nc = 1 in ferromagnetic (a) and paramagnetic (b) phases. α = 1.1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21513_figures/2604.21513_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Connected joint distribution P(n1, n2) −P(n1)P(n2) with Nc = 2, γ/J = 0.5, γtf = 20, and (a) h = 1.0 (b) h = 2.5. α = 1.1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21513_figures/2604.21513_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Growth rate of the covariance of the number of jumps in time from the cluster mean field approximation with Nc = 2, 4, 6, h = 1.0, γtf = 10, α = 1.1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21513_figures/2604.21513_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Steady-state rate of change of the covariance between the numbers of jumps on sites 1 and 1 + d as a function of the dissipation γ on the periodic spin chain with h = J, obtained with the cumulant expansion approach to the tilted Lindblad equation. (a) Results for α = 0 and different system sizes N (see legend). Due to the infinite-range interaction, the two-site jump correlation is independent of the distance d. (b) Results for α = 1.1 and nearest-neighbor sites (d = 1), for different system sizes N [legend shared with panel (a)]. (c) Results for α = 1.1 and different distances d (see legend), for a fixed system size of N = 30.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21513_figures/2604.21513_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Inverse of (a) average (b) variance of waiting time distribution at α = 1.1 &lt; αC. The dotted line represents mean-field, the vertical dashed lines represent the separation between the two regions predicted by cluster mean-field. Clus- ter mean-field converges and confirms the presence of two dis- tinct regions.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21513_figures/2604.21513_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Inverse of (a) average (b) variance of waiting time distribution at α = 2.0 ≃αC. The dotted line represents the mean-field, the vertical dashed lines represent the separation between the two regions predicted by cluster mean-field. Clus- ter mean-field shrinks more and more the area corresponding to finite variance.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21513_figures/2604.21513_fig9.jpg" width="500"><br>
+<sub>FIG. 9. Cluster mean field results for the steady-state magnetization |⟨ˆσx⟩| as a function of the dissipation rate γ at h = J for different cluster size Nc and interaction range α (see legend).</sub>
+
+</details>
+
+**Main problem.** Characterizing nonequilibrium phase transitions in long-range dissipative spin systems using the statistical properties of quantum jump trajectories rather than standard steady-state order parameters.
+
+**Main result.** The study demonstrates that quantum jump correlations, such as waiting-time distributions and full counting statistics, provide clear signatures of ferromagnetic and paramagnetic phases, with jump correlations exhibiting spatial anti-correlation in the ordered phase.
+
+**Method.** The authors employ a quantum trajectory framework using a tilted Lindbladian approach for full counting statistics, combined with Cluster Mean-Field (cMF) theory and a second-order cumulant expansion to capture short- and long-range correlations.
+
+**Summary.** This paper investigates how the statistics of quantum jumps can be used to identify nonequilibrium phase transitions in long-range dissipative spin systems. By analyzing the spatial and temporal correlations of detection events, the authors show that jump-based observables can distinguish between ferromagnetic and paramagnetic phases. They specifically highlight how the interaction range (alpha) affects the structure of these correlations. The work demonstrates that trajectory-resolved observables serve as powerful probes for collective behavior in open quantum many-body systems.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A 1D periodic spin chain with power-law long-range interactions (parameterized by alpha) and dissipation via spontaneous emission (Lindblad master equation) featuring a transverse field and ferromagnetic coupling.
+
+**Key observables.** Full counting statistics of quantum jumps, waiting-time distributions (WTD), spatial and temporal correlations of detection events, and the covariance of jump counts.
+
+**Important parameters / regimes.** Interaction range (alpha), dissipation rate (gamma), interaction strength (J), and external transverse field (h).
+
+**Assumptions / limitations.** The Cluster Mean-Field approximation assumes translational invariance among unmonitored clusters and relies on convergence with increasing cluster size; the cumulant expansion is a second-order truncation.
+
+**Figures summary.** Figure 1 shows the phase diagram and approximation schemes; Figures 2-4 illustrate the evolution of jump probability distributions and joint distributions showing anti-correlation; Figure 5 shows the growth rate of covariance; Figure 6 shows distance-dependent correlations; Figure 9 shows magnetization vs. dissipation rate.
+
+**Paper structure.** The paper introduces the problem of characterizing dissipative phases via trajectories, defines the long-range spin model, details the tilted Lindbladian and approximation methods (cMF and cumulant expansion), presents results for jump correlations and waiting-time distributions across different interaction ranges, and concludes with convergence and applicability notes.
+
+**Why it may be interesting.** It provides a novel way to identify phase transitions in open many-body systems using monitoring-based information (jumps), which is highly relevant for researchers working on measurement-induced phase transitions and the dynamics of driven-dissipative systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We characterize nonequilibrium phases in long-range dissipative spin systems through the statistical properties of quantum jump trajectories. While the average dynamics governed by the Lindblad master equation provides access to steady-state expectation values of order parameters, the quantum trajectory framework reveals features encoded in the spatial and temporal correlations of detection events. Focusing on a model exhibiting a paramagnetic-to-ferromagnetic phase transition, we investigate the full counting statistics of quantum jumps using a tilted Lindbladian approach. We combine this with cluster mean-field and cumulant expansion techniques, which allow us to capture, respectively, the short- and long-range structure of jump correlations. In addition, we study the waiting-time distributions of detection events. We show that quantum jump correlations display clear signatures of the underlying phases and reveal distinct dynamical features across the transition. Our results highlight the potential of trajectory-resolved observables as probes of collective behavior in open quantum many-body systems and provide new insights into the role of long-range interactions in shaping nonequilibrium dynamics.
+
+</details>
+
+### [How to quantify long-time rotational motion in molecular systems](http://arxiv.org/abs/2604.21512v1)
+
+**Authors:** Romain Simon, Hadrien Bobas, François Villemot, Jean-Louis Barrat, Ludovic Berthier  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21512v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21512_figures/2604.21512_fig1.jpg" width="500"><br>
+<sub>FIG. 3. Test of Euler vector method on (a) a confined and (b) a free angular random walk. In (b) no Fickian regime is reached at large times because the angular displacement is bounded, preventing the definition of Drot using Eq. (1) for the diffusive model.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21512_figures/2604.21512_fig2.jpg" width="500"><br>
+<sub>FIG. 4. Test of integral method on (a) a confined and (b) a free angular random walk. In (a) an erroneous Fickian regime appears due to an accumulation of small errors.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21512_figures/2604.21512_fig3.jpg" width="500"><br>
+<sub>FIG. 5. (a) The time evolution of the amplitude of the to- tal Euler vector |Ω(t, 0)| representing the rotation matrix be- tween times 0 and t leads to a bounded angular displacement 0 ≤θ(t) ≤π. (b) When an angular threshold θT = 1 is in- troduced (horizontal dashed line), the amplitude of the Euler vectors |Ω(Ti−1, Ti)| is now computed in the time intervals between threshold crossings (vertical dashed lines). (c) The accumulated angular displacement |ϕ(t)| defined in Eq. (28) leads to an unbounded angular displacement that no longer saturates to π (dashed line).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21512_figures/2604.21512_fig4.jpg" width="500"><br>
+<sub>FIG. 6. Test of threshold method on (a) a confined and (b) a free angular random walk. The threshold method properly captures both the plateau regime of confined angular motion and the Fickian regime of freely diffusive one.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21512_figures/2604.21512_fig5.jpg" width="500"><br>
+<sub>Fig. 3(a). The conclusion is that the threshold method is in prin- ciple able to capture the correct physical behaviour in both limits of a confined and a free angular random walk, unlike the conventional methods that failed in either one of these two cases. We now demonstrate numerically that this is the case. In the following (Sec. V), a series of mod- els of increasing complexity is considered to test further the applicability of the threshold method in Eq. (28). We use Eq. (28) to measure the mean-squared angular displacement ∆ϕ2(t) in both confined and free angular random walks, see Fig. 6. For the confined random walk in Fig. 6(a) with θc = 0.2, ϵ = 0.05 and τ = 1, we set θT = 2.0....</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21512_figures/2604.21512_fig6.jpg" width="500"><br>
+<sub>FIG. 7. (a) Time dependence of the mean-squared angu- lar displacement for various average escape times τj from τj = 102 to 5 × 106 using the threshold method. (b) The extracted rotational diffusion constant Drot scales inversely with τj (dashed line). The integral method provides correct results for small τj but leads to erroneous estimates of Drot at large τj, reminiscent of literature results.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21512_figures/2604.21512_fig7.jpg" width="500"><br>
+<sub>FIG. 8. (a) Mean-squared angular displacement for the model described in Sec. V B, with intermittent cage escapes de- scribed by the Pareto distribution (29) with α = 1.2. The Fickian regime is reached near t ≈106. The rotational diffu- sion constant is incorrectly estimated by the integral method, and it is not accessible when using the bounded amplitude of the Euler vector. (b, c) Van Hove distributions of angular displacements at two different times. For t = 104 in (b) it is described by the superposition of caged dynamics (vertical dotted lines are ±θc) with exponential tails (dashed lines). For t = 106 in (c) the distribution has nearly converged to its Gaussian limit (dashed line).</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21512_figures/2604.21512_fig8.jpg" width="500"><br>
+<sub>FIG. 9. (a) Mean-squared angular displacement for the model described in Sec. V C, with intermittent cage escapes de- scribed by the Pareto distribution (29) with α = 0.7. A sub- diffusive regime is reached at large times with ∆ϕ2 ∼tα. The integral method predicts an incorrect Fickian regime, while a determination of the sub-diffusive exponent is impossible using the Euler vector. (b, c) Van Hove distributions of an- gular displacements at two different times. For t = 104 in (b) it is described by the superposition of caged dynamics (vertical dotted lines are ±θc) with exponential tails (dashed lines). For t = 106 the distribution has nearly converged to its non-Gaussian asymptotic limit...</sub>
+
+</details>
+
+**Main problem.** Existing methods for quantifying long-time rotational motion in molecular systems fail in complex dynamics (slow, heterogeneous, or intermittent), leading to inconsistent results regarding the glass transition and the Debye-Stokes-Einstein relation.
+
+**Main result.** The authors introduce a new empirical threshold method that accurately captures rotational dynamics from diffusive fluids to arrested solids, resolving the mathematical flaws of previous Euler-vector and integral-based approaches.
+
+**Method.** A novel threshold method that interpolates between the Euler vector and integral methods by resetting the rotation reference frame whenever an angular threshold theta_T is reached.
+
+**Summary.** This paper addresses the failure of standard mathematical techniques to quantify rotational motion in complex molecular systems like supercooled liquids. The authors show that previous methods either saturate prematurely or accumulate errors due to the non-commutative nature of 3D rotations. They propose a new 'threshold method' that resets the rotation frame at specific intervals to maintain accuracy. This method successfully tracks the transition from diffusive to arrested motion and can handle anomalous, non-Gaussian dynamics. This provides a more reliable way to study the decoupling of rotation and translation near the glass transition.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study focuses on 3D rigid bodies in molecular fluids, specifically supercooled liquids approaching the glass transition, using Continuous Time Random Walk (CTRW) models to simulate free, confined, and intermittent rotational dynamics.
+
+**Key observables.** Mean-squared angular displacement (MSAD), rotational diffusion constant (D_rot), and van Hove angular distributions.
+
+**Important parameters / regimes.** Angular threshold (theta_T), confinement angle (theta_c), rotation amplitude (epsilon), and the power-law exponent (alpha) for anomalous diffusion.
+
+**Assumptions / limitations.** The method assumes a separation of scales between short-time dynamics and the threshold parameter; the mathematical derivation uses the Ito interpretation of stochastic differential equations.
+
+**Figures summary.** Figure 1 shows the mathematical conversion between rotation matrices and vectors; Figure 2 displays trajectories of different random walk models; Figure 3 and 4 demonstrate the failure of Euler and integral methods; Figure 5 illustrates the proposed threshold method; Figures 6-9 show the method's success in capturing Fickian, caged, and sub-diffusive regimes.
+
+**Paper structure.** The paper identifies flaws in existing methods, demonstrates their failure in specific regimes, introduces the new threshold method, validates it using various CTRW-based benchmark models, and provides a mathematical derivation of the underlying stochastic process.
+
+**Why it may be interesting.** The paper provides a robust framework for studying non-equilibrium dynamics and anomalous diffusion in rotational degrees of freedom, which is highly relevant to understanding many-body dynamics and the breakdown of standard transport relations in complex systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We show that all existing methods quantifying rotational motion in molecular fluids eventually fail in systems undergoing complex rotational motion characterised by slow, heterogeneous, or intermittent dynamics. This impacts in particular the study of rotational dynamics in molecular supercooled liquids near their glass transition, as well as discussions of the decoupling between rotational and translational motion and violations of the Debye-Stokes-Einstein relation. We present a brief overview of existing methods and explain why none of them can accurately capture the evolution of rotational dynamics from a diffusive fluid to an arrested solid, thus resolving inconsistent literature results. We then introduce an empirical method that efficiently solves all issues. We benchmark our method devising a family of continuous time random walk models for rotational dynamics. Our method correctly quantifies the statistics of free and caged rotational motion, as well as non-Gaussian and non-Fickian rotational dynamics, and should allow a better characterisation of dynamic heterogeneity in the rotational motion of supercooled molecular fluids.
+
+</details>
+
+### [Catalytic quantum thermodynamics beyond additivity and reduced-state monotones](http://arxiv.org/abs/2604.21509v1)
+
+**Authors:** Ali Can Günhan, Onur Pusuluk, Thomas Oikonomou, G. Baris Bagci  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21509v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21509_figures/2604.21509_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Thermo-majorization curves for the common initial product state ρuc SM = ρ β2 S ⊗ρ β1 M (black), the allowed classically correlated final state ρcc SM with χ = 5 × 10−2 (blue), the forbidden classically correlated final state ρcc SM with χ = 6.5 × 10−2 (red), the forbidden discordant final state ρ qc SM with λ = 9.47 × 10−2 (purple dashed), and the common thermal reference state (gray dashed), for Eg = 0, Ee = 2, β1 = 0.1, β2 = 0.2, β3 = 1, and βb = 2. In all three final-state examples, the initial state, the thermal reference state, and the final marginals are identical; only the correlation structure of the final joint state is changed. In particular, ρ qc SM(λ = 9.47 × 10−2) has...</sub>
+
+</details>
+
+**Main problem.** The paper addresses the incompleteness of standard additive Rényi-based frameworks in describing catalytic quantum thermodynamics, specifically regarding how the catalyst's contribution is accounted for and how correlations affect thermodynamic accessibility.
+
+**Main result.** The authors develop a non-additive divergence framework that makes the catalyst's thermodynamic role explicit and proves that in correlated catalysis, reduced-state data and scalar correlation measures are insufficient to characterize thermodynamic accessibility.
+
+**Method.** The study utilizes Quantum Resource Theory (QRT), non-additive (pseudo-additive) divergences, and thermo-majorization analysis, supported by explicit finite-dimensional constructions and perturbation theory.
+
+**Summary.** This paper introduces a new thermodynamic framework based on non-additive divergences to better account for the role of catalysts in quantum thermal transformations. In the uncorrelated regime, this framework makes the catalyst's contribution to the second law explicitly visible and provides tighter constraints for approximate catalysis. In the correlated regime, the authors demonstrate that the specific structure of system-catalyst correlations is crucial, meaning that simple measures like mutual information or marginal states cannot fully predict if a transformation is possible. This work highlights the necessity of a joint-state-sensitive description for complex quantum thermodynamic processes.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The model involves a quantum system (S) and a catalyst (M) undergoing thermal transformations in contact with a heat bath at inverse temperature beta, considering both uncorrelated and correlated (system-catalyst) regimes.
+
+**Key observables.** Non-additive free energies, Rényi divergences, mutual information, work distance, and thermo-majorization verdicts.
+
+**Important parameters / regimes.** Order parameter alpha, trace-distance error epsilon, catalyst dimension d_M, and correlation parameters chi (classical) and lambda (discordant).
+
+**Assumptions / limitations.** The analysis focuses on finite-dimensional regimes and assumes energy-conserving transformations that preserve thermal states.
+
+**Figures summary.** Figure 1 visually demonstrates thermo-majorization curves for various states, showing how different correlation structures (classical vs. discordant) lead to different accessibility verdicts despite identical marginals.
+
+**Paper structure.** The paper introduces the problem of incomplete catalyst accounting, develops a new non-additive divergence framework, applies it to uncorrelated catalysis (including approximate catalysis), extends the analysis to correlated catalysis to show the insufficiency of reduced-state data, and concludes with implications for future compositional principles.
+
+**Why it may be interesting.** This is highly relevant for researchers in open quantum systems and many-body dynamics as it provides new tools for understanding how correlations and finite-size effects fundamentally limit the feasibility of thermodynamic processes.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The generalized second laws of quantum thermodynamics are usually formulated in terms of Rényi divergences and the associated family of generalized free energies. In catalytic thermal transformations, this framework typically certifies the existence of a suitable catalyst but does not make the catalytic contribution explicit in the resulting system-level inequalities. Here we develop a complementary formulation based on non-additive divergences, whose pseudo-additive structure yields a family of generalized free energies with an explicit catalyst-dependent correction term. For uncorrelated catalytic thermal transformations, we show that this leads to non-additive second-law relations that make the catalytic contribution explicit and provide nontrivial constraints on admissible catalysts when the catalyst is returned only approximately. We also analyze correlated catalytic thermal transformations and show, through explicit finite-dimensional examples, that reduced-state data are generally insufficient to characterize thermodynamic accessibility: the thermo-majorization behavior of the joint transformation can change while the system and catalyst marginals remain fixed, and even states with identical marginals and the same mutual information can exhibit different thermo-majorization accessibility. Our results show that non-additivity can be thermodynamically informative in uncorrelated catalysis, whereas correlated catalysis generally requires a genuinely joint-state-sensitive description beyond reduced-state monotones.
+
+</details>
+
+
+## strongly correlated electrons (6)
 
 ### [Cryogenic shock exfoliation for ultrahigh mobility rhombohedral graphite nanoelectronics](http://arxiv.org/abs/2604.21912v1)
 
@@ -2010,6 +2678,153 @@ Excitons are bound states of electrons and holes whose band topology arises from
 
 </details>
 
+### [Pairing mechanism and superconductivity in 1313 phase La$_3$Ni$_2$O$_7$](http://arxiv.org/abs/2604.21533v1)
+
+**Authors:** Cui-Qun Chen, Ming Zhang, Fan Yang, Dao-Xin Yao  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21533v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21533_figures/2604.21533_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Crystal structures of high-pressure I4/mmm phase 2222 La3Ni2O7 and high-pressure P4/mmm phase 1313 La3Ni2O7. The blue, gray, and red balls represent La, Ni, and O atoms, respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21533_figures/2604.21533_fig2.jpg" width="500"><br>
+<sub>FIG. 2. DFT+DMFT calculated momentum-resolved spectral functions A(k, ω) (a), imaginary parts of Matsubara self-energy functions Im P iωn (b) and orbital-resolved spectral functions A(k, ω) (c) at 230 K under 20 GPa. The inner and outer layers are indicated in Fig.1</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21533_figures/2604.21533_fig3.jpg" width="500"><br>
+<sub>FIG. 4. (a) Distribution of the largest eigenvalue of the spin susceptibility matrix χs(q) in the BZ in the TL subsystem for U eff = 0.23 eV and JH = U eff/4. The susceptibility peaks at Q. (b) FS of the TL subsystem in the BZ at 20 GPa. As shown in (b), Q is nesting vector between the ε and γ pockets. (c) The largest pairing eigenvalue λ of the various pairing symmetries as function of the interaction strength U eff with fixed JH = U eff/4. (d) The distributions of the leading s- wave pairing gap function on the FS for U eff = 0.23 eV, exhibiting an s±-pattern.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21533_figures/2604.21533_fig4.jpg" width="500"><br>
+<sub>FIG. 3. Renormalized TL TB band structure (a) and FS (b). The blue-red color bar indicates the orbital weight of Ni- dx2−y2 and dz2 and the purple-yellow color bar represents the relative contributions from Ni atoms in the outer-layer and inner-layer.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21533_figures/2604.21533_fig5.jpg" width="500"><br>
+<sub>FIG. 5. (a) Band structures at different filling level nT L. The bands of the 1313 structure and bulk La4Ni3O10 are indicated by arrows for clarity in the energy window [-0.1,0.1] eV. (b) The critical interaction strength U eff c (red solid line) and the largest pairing eigenvalue λ (blue solid line) as function of doping δ. The orange dashed lines mark the values of U eff c and λ for the 1313 system, while the purple dashed lines indicate those for bulk La4Ni3O10. (c) Schematic of the intrinsic S-N- S Josephson Junction structure of 1313 La3Ni2O7, where the superconducting (S) and the normal (N) layers denote the TL and SL subsystems, respectively. (d) Tc/ρ0 as a function of the anisotropy...</sub>
+
+</details>
+
+**Main problem.** The study aims to determine the pairing mechanism and the origin of the significantly suppressed superconducting transition temperature (Tc approx 3.6 K) in the 1313 phase La3Ni2O7 compared to the bulk La4Ni3O10 phase.
+
+**Main result.** The researchers identify that superconductivity resides in the trilayer (TL) subsystem with s-plus-minus pairing symmetry, and that Tc is suppressed due to both hole-doping in the TL subsystem and the single-layer (SL) subsystem acting as an S-N-S Josephson junction.
+
+**Method.** The study employs Density Functional Theory combined with Dynamical Mean-Field Theory (DFT+DMFT) to investigate electronic correlations and the Random Phase Approximation (RPA) to analyze pairing symmetry.
+
+**Summary.** This paper investigates why the 1313 phase of La3Ni2O7 has a much lower superconducting transition temperature than its bulk counterpart. Using advanced many-body methods, the authors show that superconductivity is primarily hosted in the trilayer subsystem. They find that the lower Tc is caused by hole-doping reducing pairing strength and the single-layer subsystem acting as a weak link that disrupts phase coherence. The study suggests that the higher-temperature superconductivity in this family is likely driven by the 2222 phase.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system is the 1313 phase La3Ni2O7, a hybrid Ruddlesden-Popper nickelate consisting of alternating single-layer (SL) and trilayer (TL) subsystems, modeled using a renormalized Ni-eg orbital tight-binding Hamiltonian with Hubbard interactions.
+
+**Key observables.** Spectral functions, Matsubara self-energy, orbital occupations, Fermi surface pockets (alpha, beta, gamma, epsilon), and pairing eigenvalue.
+
+**Important parameters / regimes.** High pressure (20-23 GPa), Ni-eg orbital occupancy, Hubbard U and V interactions, Hund's coupling J, and the interlayer Josephson coupling strength.
+
+**Assumptions / limitations.** The analysis assumes the validity of the DFT+DMFT and RPA framework for describing the electronic correlations and superconducting instabilities in this nickelate system.
+
+**Figures summary.** Figure 1 shows the crystal structures of the high-pressure 2222 and 1313 phases.
+
+**Paper structure.** The paper introduces the 1313 phase superconductivity, presents DFT+DMFT results regarding the insulating nature of the SL subsystem and metallic nature of the TL subsystem, uses RPA to derive the pairing symmetry, explains the two mechanisms for Tc suppression, and concludes with implications for the 2222 phase.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Recently, the observation of superconductivity (SC) with $T_c$ $\approx$ 3.6 K in the pressurized 1313 La$_3$Ni$_2$O$_7$ has attracted considerable interest. Here, we systematically investigate the electronic properties and superconducting mechanism of 1313 La$_3$Ni$_2$O$_7$ using density functional theory plus dynamical mean-field theory (DFT+DMFT) and random phase approximation (RPA). Our DFT+DMFT calculations reveal that the single-layer (SL) subsystem exhibits nearly insulating behavior, with the $d_{z^2}$ orbital showing Mott physics, while the trilayer (TL) subsystem remains metallic. This indicates that SC primarily resides in the TL subsystem, whose Ni-$e_g$ orbitals are found to be hole-doped relative to bulk La$_4$Ni$_3$O$_{10}$. Based on DFT+DMFT-derived low-energy Hamiltonian, RPA-based analysis yields an $s^{\pm}$-wave pairing symmetry within the TL subsystem. Importantly, we identify two key factors that contribute to the significant suppression of $T_c$ in 1313 La$_3$Ni$_2$O$_7$ compared to bulk La$_4$Ni$_3$O$_{10}$. First, the hole doping in the TL subsystem, as established by DMFT, leads to a decreased pairing strength, as confirmed by RPA calculations -- a trend resembling that in bulk La$_4$Ni$_3$O$_{10}$. Second, the SL subsystem acts as a bridge connecting adjacent superconducting TL subsystems, thereby forming an S-N-S Josephson junction. The resulting interlayer Josephson coupling governs the phase coherence between TL subsystems and further suppresses the global $T_c$. Combinedly, our findings suggest that the high-$T_c$ phase in the RP La$_3$Ni$_2$O$_7$ family should be attributed to the 2222 La$_3$Ni$_2$O$_7$ rather than the 1313 La$_3$Ni$_2$O$_7$.
+
+</details>
+
+### [Symplectic symmetry of quadratic-band-touching Hamiltonians in two dimensions](http://arxiv.org/abs/2604.21524v1)
+
+**Authors:** Igor F. Herbut, Samson C. H. Ling  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21524v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21524_figures/2604.21524_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21524_figures/2604.21524_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21524_figures/2604.21524_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21524_figures/2604.21524_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21524_figures/2604.21524_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21524_figures/2604.21524_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+**Main problem.** The paper aims to identify and classify the internal low-energy symmetry group of two-dimensional Hamiltonians characterized by quadratic-band-touching (QBT).
+
+**Main result.** The authors discover that the internal symmetry of QBT Hamiltonians is the unitary symplectic group USp(2N), and they demonstrate that the overlap of this symmetry with the orthogonal symmetry of Dirac systems is U(N).
+
+**Method.** The study employs group theoretic analysis using a Majorana fermion representation, Lie algebra dimension counting, and Clifford algebra to identify the symmetry group and classify fermion bilinears.
+
+**Summary.** This paper identifies that the internal symmetry of 2D quadratic-band-touching Hamiltonians is the unitary symplectic group USp(2N), contrasting with the O(2N) symmetry of Dirac-like systems. The authors classify all possible fermion bilinears under this group and construct a minimal interacting field theory. They also show that in systems containing both even and odd momentum terms, such as the honeycomb lattice, the symmetry reduces to the intersection U(N). This work provides a fundamental symmetry-based framework for understanding the low-energy physics of semimetals like bilayer graphene.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The model consists of a single-particle quadratic-band-touching Hamiltonian in two spatial dimensions, applicable to systems like Bernal-stacked bilayer graphene, checkerboard, and Kagome lattices.
+
+**Key observables.** Fermion bilinears (masses and nematics), symmetry breaking patterns, and interaction coupling constants.
+
+**Important parameters / regimes.** The number of fermion components (N), momentum-reversal symmetry (even vs. odd), and interaction coupling constants (g1, g2, g3).
+
+**Assumptions / limitations.** The analysis assumes the Hamiltonian is even under momentum reversal for the USp(2N) result and focuses on the low-energy, massless limit.
+
+**Paper structure.** The paper begins by identifying the USp(2N) symmetry for even Hamiltonians, proceeds to classify fermion bilinears and interaction terms, analyzes symmetry breaking patterns, and concludes by calculating the symmetry overlap for lattices like the honeycomb lattice.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The internal low-energy symmetry of the massless Lorentz-invariant Dirac Hamiltonian in $2+1$ dimensions is known to be $O(2N)$, where $N$ is the number of two-component Dirac fermions. Here we point out that there exists an analogous internal symmetry of the single-particle quadratic-band-touching Hamiltonian in two spatial dimensions, and it is the unitary symplectic group, $USp(2N)$. All fermionic bilinears belong to one of the three small irreducible representations of this group. The interacting theory that respects the $USp(2N)$ symmetry and the spatial rotations is constructed and found to allow two independent interaction terms. When these interactions are infrared-relevant the symplectic symmetry either remains preserved or becomes spontaneously broken to $USp(N) \times USp(N)$. The symmetry in the lattices such as honeycomb to infinite order in the dispersion's expansion in powers of local momentum is given by the overlap of the symplectic and the orthogonal groups. We show that this overlap is $O(2N) \bigcap USp(2N) = U(N)$.
+
+</details>
+
 
 ## disordered systems and neural networks (1)
 
@@ -2106,7 +2921,7 @@ We investigate electronic transport across a magnetic domain wall (DW) in a thre
 </details>
 
 
-## other (8)
+## other (9)
 
 ### [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](http://arxiv.org/abs/2604.21929v1)
 
@@ -2796,5 +3611,57 @@ We show that detecting steady-state Coulomb-mediated reduction in the thermal va
 <details><summary>Abstract</summary>
 
 We establish a relation between the exponential decay rates of quantum Markov semigroups with respect to different inner products. More precisely, it was conjectured by Fagnola, Poletti, Sasso and Umanità that for a Gaussian quantum Markov semigroup, the exponential decay rate with respect to the KMS inner product is bounded below by the exponential decay rate for the GNS inner product. We show that this is indeed the case and not limited to Gaussian quantum Markov semigroups, but holds for quantum Markov semigroups with a faithful normal invariant state on arbitrary von Neumann algebras. Additionally, the KMS inner product can be replaced by a whole class of inner products induced by operator monotone functions.
+
+</details>
+
+### [Quantum plasmonics with N emitters: bright hybrid continuum selection](http://arxiv.org/abs/2604.21560v1)
+
+**Authors:** Georgii Semin, Hans-Rudolf Jauslin, Gérard Colas des Francs, Stéphane Guérin  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21560v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21560_figures/2604.21560_fig1.jpg" width="500"><br>
+<sub>FIG. 1. System of a quantum emitter coupled with QPP supported by the dielectric structure.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21560_figures/2604.21560_fig2.jpg" width="500"><br>
+<sub>FIG. 2. System of the N emitters coupled with the QPP supported by the metallic nanostructure.</sub>
+
+</details>
+
+**Main problem.** Developing an efficient, mode-selective effective Hamiltonian for multiple quantum emitters interacting with a complex quantum plasmon-polariton field in finite dielectric media.
+
+**Main result.** The authors prove that the complex double-continuum structure can be reduced to a single hybrid continuum for each emitter, providing a mathematically simpler and more efficient model that is equivalent to the macroscopic Langevin approach.
+
+**Method.** The study uses a Dissipative Born-Markov (DBM) decomposition, Lippmann-Schwinger equations for canonical quantization, and Löwdin orthogonalization to separate bright and dark modes.
+
+**Summary.** This paper addresses the complexity of modeling multiple quantum emitters in plasmonic environments. It demonstrates that instead of dealing with separate electromagnetic and medium-induced continua, one can use a single 'hybrid' continuum for each emitter. This simplification preserves all physical accuracy, including the correct connection to the Green tensor, while significantly reducing the number of modes needed for numerical simulations. The use of Löwdin orthogonalization ensures the method remains stable even as the number of emitters increases.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A system of N quantum emitters (two-state systems) interacting with a quantum plasmon-polariton field supported by a finite-sized, inhomogeneous dielectric medium (such as a metallic nanoparticle).
+
+**Key observables.** Effective coupling strengths, overlap coefficients between emitters, and the Local Density of States (LDOS) via the imaginary part of the Green tensor.
+
+**Important parameters / regimes.** Number of emitters (N), dielectric coefficient (epsilon), uncoupling limit (uc), and the position of the emitters (r0).
+
+**Assumptions / limitations.** Emitters are modeled as two-state systems, the interaction is treated in the dipolar approximation, and the validity of the DBM decomposition is assumed.
+
+**Figures summary.** Figure 1 shows a single quantum emitter coupled to a dielectric structure; Figure 2 illustrates N emitters coupled to a metallic nanostructure.
+
+**Paper structure.** The paper introduces the physical problem, develops the DBM decomposition for single and multiple emitters, compares the double-continuum and hybrid continuum approaches, proves their mathematical equivalence, and discusses numerical stability using Löwdin orthogonalization.
+
+**Why it may be interesting.** It provides a rigorous theoretical bridge between microscopic canonical quantization and macroscopic Langevin models in nanophotonics, while offering a computationally efficient method for simulating many-body quantum plasmonic systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We construct mode-selective effective models describing the interaction of the quantum plasmon-polariton field supported by a finite dielectric medium and one or several quantum emitters. The construction of the effective model is based on the decomposition of the field into bright modes relevant to the interaction with the emitters and dark modes, which do not interact with the emitters. We show that the quantum plasmon-polariton field can be represented equivalently by a double-continuum spectrum or by a single hybrid continuum spectrum for each emitter. The system of the electromagnetic field coupled to a finite medium is composed of two families of continuum modes, each of them with an infinite degeneracy. The two families are deformations of the free electromagnetic field and the free medium, induced by the interaction between them, as described by the Lippmann-Schwinger equations. We show that if there are $N$ emitters interacting with this plasmon-polariton field, the effective interaction involves a much smaller set of bosonic continuum modes: the interacting part of the continuum can be described by $N$ non-degenerate one-dimensional continua, one for each emitter. The representation of the interaction in terms of a single hybrid continuum spectrum coincides with the one within the macroscopic Langevin model with bulk medium. This coincidence is explained by an exact compensation of two terms, one in the coupling term of the Hamiltonian and the other one in a Green tensor identity.
 
 </details>
