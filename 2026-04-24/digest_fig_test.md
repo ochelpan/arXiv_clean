@@ -1,7 +1,7 @@
 # arxiv digest (quant-ph + cond-mat) — 2026-04-24
 
-*51 papers · 4 highlighted*  
-_⏳ in progress: 51/95 papers processed (file updates after each one)_
+*63 papers · 4 highlighted*  
+_⏳ in progress: 63/95 papers processed (file updates after each one)_
 
 
 ## ⭐ Highlighted (4)
@@ -14,7 +14,7 @@ _⏳ in progress: 51/95 papers processed (file updates after each one)_
 - ⭐ [Quantum jump correlations in long-range dissipative spin systems](http://arxiv.org/abs/2604.21513v1) — Rosario Fazio
 
 
-## quantum information and computing (22)
+## quantum information and computing (24)
 
 ### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
 
@@ -1919,6 +1919,180 @@ We investigate the reduced dynamics of two identical superconducting qubits capa
 
 </details>
 
+### [HEOM-in-Calibration-Loop: Exposing Non-Markovian Bath Signatures That Markovian Calibration Elides in Superconducting-Qubit Tune-Up](http://arxiv.org/abs/2604.21458v1)
+
+**Authors:** Jun Ye  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21458v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21458_figures/2604.21458_fig1.jpg" width="500"><br>
+<sub>Fig. 1. DAG Gantt of the RABI→{RAMSEY ∥T1} chain. Parallel execution saves 36.9 s (43 %) over serial; average scheduling latency is 9.62 µs.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21458_figures/2604.21458_fig2.jpg" width="500"><br>
+<sub>Figure 1 shows that scheduler overhead is negligible relative to the HEOM simulation cost. Serial execution takes 84.89 s; with RABI on the critical path and {RAMSEY, T1} in parallel, runtime drops to 48.04 s (saving 36.9 s, 43 %), with overhead fraction 2.4 × 10−5 from the theoretical minimum4 and aver- age scheduling latency 9.62 µs (maximum 10.78 µs). Protocol durations are RABI 6.56 s, RAMSEY 36.85 s, and T1 41.48 s, placing T1 on the critical path.5 With scheduler overhead bounded at the µs level, the discriminative evidence shifts to channel-level dynamics in Sections III-B–III-D.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21458_figures/2604.21458_fig3.jpg" width="500"><br>
+<sub>Fig. 2. Ramsey coherent-channel gap. (a) Three-backend 30-point com- parison: HEOM recovers a revival envelope distinct from the mesolve Markovian tail, whose T ∗ 2 fit saturates at the exponential-model ceiling. (b) HEOM 50-point dense scan (30-point L-convergence audit in §III.B) with physical revival guard cleared: a2/a1 = 3.11 is 31.1× above the lower threshold of 0.1, and t2/t1 = 0.38 is 5.3× below the upper threshold of 2.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21458_figures/2604.21458_fig4.jpg" width="500"><br>
+<sub>Fig. 3. Rabi and T1 composite. (a) Rabi amplitude scan: HEOM pmax drops 2.17 % below mesolve while the π-amplitude shift is sub-resolution. (b) T1 decay: HEOM extrapolates to A = 0.879 at t = 0+, mesolve to A = 1.000; the β = 1 decay shape is identical to machine precision.</sub>
+
+</details>
+
+**Main problem.** Standard superconducting qubit calibration frameworks use Markovian master equations that absorb non-Markovian bath signatures (like 1/f noise) into fitting residuals, thereby obscuring physical noise diagnostics.
+
+**Main result.** Integrating a non-Markovian HEOM solver into the calibration loop allows for the identification of physical revival envelopes in Ramsey data, revealing a T2* discrepancy of at least 13x compared to Markovian models.
+
+**Method.** The study uses a pulse-level simulator to implement a multi-protocol calibration DAG (Rabi, Ramsey, T1) driven by a QuTiP 5.x HEOM solver with a Tier-1 1/f Burkard bath.
+
+**Summary.** This paper proposes a new approach to superconducting qubit calibration by integrating a non-Markovian Hierarchical Equations of Motion (HEOM) solver directly into the calibration loop. By doing so, the authors demonstrate that standard Markovian methods fail to capture critical features like Ramsey revival envelopes and bath-induced initial state contamination. The proposed 'HEOM-in-loop' method transforms bath structure from a hidden fitting error into a quantifiable diagnostic output. This allows researchers to explicitly identify 1/f noise signatures during routine qubit tune-up.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A simulated three-level transmon qubit subject to a non-Markovian 1/f Burkard bath with longitudinal coupling and a high-frequency cutoff of 3 GHz.
+
+**Key observables.** Ramsey T2* decay and revival envelopes, Rabi contrast (p_max), T1 decay shape (beta), and initial occupation amplitude (A).
+
+**Important parameters / regimes.** T1 = 24.8 us, T2 = 34.2 us, temperature = 50 mK, 1/f noise amplitude A0 = 1.8e-6 GHz, and hierarchy depth L=3.
+
+**Assumptions / limitations.** The study is performed on a pulse-level simulator without hardware validation; the bath is modeled using a specific Tier-1 decomposition.
+
+**Figures summary.** The paper likely contains figures showing the comparison of Ramsey revival envelopes, Rabi contrast shifts, and T1 decay shapes across different backends (sesolve, mesolve, HEOM).
+
+**Paper structure.** The paper introduces the problem of Markovian elision, describes the HEOM-in-loop framework and calibration DAG, presents benchmarking results across Rabi, Ramsey, and T1 protocols, and concludes with the implications for calibration reporting.
+
+**Why it may be interesting.** It provides a concrete methodology for using advanced open quantum system solvers (HEOM) to extract physical noise characteristics from standard calibration protocols, moving beyond simple phenomenological fitting.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Closed-loop superconducting-qubit calibration has matured into DAG-orchestrated protocol chains, yet published frameworks treat the bath via a Markovian master equation or a phenomenological likelihood, absorbing bath structure into fit residuals instead of reporting it as a diagnostic. We integrate a QuTiP 5.x hierarchical-equations-of-motion (HEOM) solver driven by a Tier-1 1/f Burkard bath into a multi-protocol calibration DAG (Rabi -> {Ramsey || T1}) and benchmark it against sesolve and mesolve on a frozen platform in a pulse-level simulator (no hardware validation). The Ramsey channel carries the headline: the Markovian fit is censored by its exponential-family numerical ceiling, while HEOM recovers a physical revival envelope whose primary T2* separates from the Markovian reference by at least 13x at 95% independent-bootstrap confidence within the HEOM-feasible budget; the point-estimate ratio reaches >=28x on the 50-point primary-t1 grid and ~72x on the 30-point biexp-family tau_aw pivot at L=5. Rabi contrast falls 2.17% below mesolve on a noise-limited 30-point grid; the paired-bootstrap CI crosses zero, so this channel corroborates rather than independently establishes the non-Markovian signature. T1 decay shape matches across backends (beta=1.000), yet HEOM's initial occupation drops from 1.000 to 0.879 -- a bath-dressed contamination stable under a 16-point densification. The DAG adds 9.62 us average per-protocol scheduling overhead, no meaningful latency penalty at protocol granularity. HEOM-in-loop thereby changes what calibration reports: bath structure appears as a quantifiable residual rather than a hidden confound.
+
+</details>
+
+### [Bayesian Phase Stabilization at the Shot-Noise Limit for Scalable Quantum Networks](http://arxiv.org/abs/2604.21388v1)
+
+**Authors:** Guang-Cheng Liu, Chao-Hui Xue, Fa-Xi Chen, Ming-Yang Zheng, Yi Yang, Li-Bo Li, Bin Wang, Bo-Wen Yang, Hai-Feng Jiang, Yong Wan, Ye Wang, Jiu-Peng Chen, Qiang Zhang, Jian-Wei Pan  
+**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21388v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21388_figures/2604.21388_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Phase stabilization performance comparison. Three-dimensional representation of the residual phase vari- ance as a function of measurement duration τ and photon flux µ for conventional MLE (pink surface) and prior-assisted Bayesian estimation (blue surface). The orange dotted curve represents the phase-diffusion noise floor (∝Dτ), and the pink dotted curve indicates the photon shot-noise limit (∝ (Γτ)−1), which sets the SNL for a static measurement. The black dashed curve shows the SNL for tracking a diffusing phase. The red solid line traces the minimum variance of con- ventional MLE, which scales as µ−1 and diverges as τ →0. In contrast, the blue solid line traces the Bayesian...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21388_figures/2604.21388_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Experimental setup. (a) Blade ion trap with asymmetric electrode spacing designed for high-numerical-aperture fluorescence collection (NA=0.635). Photons are coupled into single-mode fibers (SM300) with nearly 50% coupling efficiency. At each node, the ion is first cooled and initialized in the state |S1/2, mJ = +1/2⟩. A two-step excitation protocol then proceeds as follows: a resonant π-pulse at 729 nm to prepare the metastable state |D5/2, mJ = +5/2⟩; a subsequent nanosecond 854 nm pulse then excites the ion to |P3/2, mJ = +3/2⟩with probability α, after which spontaneous decay emits a 393 nm photon. (b) Timing sequences for the two-step excitation protocol. For 10-km fiber links,...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21388_figures/2604.21388_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Experimental results. (a) Interferometric visibility (blue circles) and parity fringe (pink triangles) as a function of fiber distance (10 km and 100 km). The horizontal blue dashed line indicates the maximum achievable interferometric visibility (98.26%) of the system. Error bars represent ±1 standard deviation from multiple experimental realizations. (b) Residual phase variance (pink circles) and interferometric visibility (blue circles) versus detected photon flux for the 10 km link. The residual variance follows the theoretical SNL prediction (pink line), scaling as µ−1/2, confirming quantum-optimal tracking. (c) Interferometric visibility versus TDM duty cycle for the 10 km...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21388_figures/2604.21388_fig4.jpg" width="500"><br>
+<sub>FIG. 1. Numerical simulation of the phase stabilization algorithm performance. (a) Time series of phase evolution at 10 us integration time. The yellow curve (Phase diffusion) represents uncontrolled free phase diffusion. The red curve (Sta- bilization with conventional MLE) and blue curve (Stabilization with Bayesian estimation) demonstrate the phase stabilization effects of the conventional method and the prior-assisted recursive estimator, respectively. (b) Phase stabilization performance comparison. Scatter points and solid lines show the simulation performance of the conventional MLE (red solid, red circles) and the Bayesian estimation (blue solid, blue inverted triangles). The yellow...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21388_figures/2604.21388_fig5.jpg" width="500"><br>
+<sub>FIG. 2. Performance comparison of phase tracking protocols. We set the measurement window duration to 100 us and residual phase variance (rad2, color scale) as a function of photon flux µ and diffusion rate √</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21388_figures/2604.21388_fig6.jpg" width="500"><br>
+<sub>Fig. 2 presents a systematic comparison of conventional maximum-likelihood estimation versus our prior-assisted method incorporating outlier rejection. The simulations reveal several critical advantages of the prior-assisted ap- proach: Conventional estimation exhibits significant performance degradation at low photon flux , where shot noise gener- ates measurement outliers that destabilize the feedback loop. In contrast, our Bayesian approach maintains robust performance across all flux and diffusion regimes. The nonlinear innovation filter provides adaptive suppression of statistical outliers while preserving responsiveness to genuine phase variations. This advantage is most pronounced in...</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21388_figures/2604.21388_fig7.jpg" width="500"><br>
+<sub>FIG. 3. Determining the optimal range for the threshold parameter κ. We set the residual phase variance (rad2, color scale) as a function of the threshold parameter κ and the measurement window duration τ for two constrained scenarios: (a) with a fixed diffusion coefficient D and (b) with a fixed photon flux µ. The optimal κ value for each condition is traced by the solid black line. The simulations determine the suitable range for κ to be [1, 1.5] in FI advantage region.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21388_figures/2604.21388_fig8.jpg" width="500"><br>
+<sub>FIG. 4. Phase evolution and noise power spectral density (PSD). The measured phase evolution over time (left) and its corresponding PSD (right) are shown for transmission distances of 0 km, 10 km, 50 km, and 100 km. The solid and dashed lines distinguish the results obtained with the wavelength-division stabilization system disabled (w/o WDM) and enabled (w/ WDM), respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21388_figures/2604.21388_fig9.jpg" width="500"><br>
+<sub>FIG. 5. Phase evolution at 0 km (baseline, no additional fiber link). The data presented on a log-log scale exhibits a linear fit with a slope of 0.71, indicating a power-law exponent of σ ∝τ 0.71. The intercept of this fit yields a phase diffusion coefficient of D = (0.15◦/us0.71)2, which used directly to determine the prior parameters for the filter.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21388_figures/2604.21388_fig10.jpg" width="500"><br>
+<sub>FIG. 6. Schematic of the dual-band inter-node phase stabilization system architecture. Schematic of the hierar- chical dual-stabilization scheme for inter-node phase coherence, featuring two independent channels. The left channel (WDM Stabilization) suppresses fast fiber link noise using a Polarization Beam Splitter (PBS), Electrically Polarized Controller (EPC), and superconducting nanowire single-photon detector (SNSPD). The right channel (TDM Stabilization) compensates residual phase offset with an ´etalon, EPCs, and an AOM4/AOM5 cascade for switching between high-efficiency and high-count-rate SNSPDs. Polarization components (PBS/EPC) enable purification. System coordination is...</sub>
+
+</details>
+
+**Main problem.** Achieving high-precision optical phase stabilization in quantum networks is limited by a precision-delay trade-off, where rapid sampling leads to high shot noise and long integration leads to phase diffusion.
+
+**Main result.** The development of a Bayesian phase estimator achieves the shot-noise limit for tracking diffusing phases, enabling high-fidelity (visibility > 97%) entanglement generation between trapped-ion nodes over 10 km and 100 km fiber links.
+
+**Method.** A recursive Bayesian estimation framework with a nonlinear innovation filter for outlier rejection is implemented on an FPGA-based controller using a dual-band (WDM/TDM) stabilization architecture.
+
+**Summary.** This paper presents an integrated Bayesian framework for stabilizing the optical phase in long-distance quantum networks. By using a recursive estimator, the researchers overcome the fundamental trade-off between measurement precision and phase-tracking speed. The system successfully maintains high interference visibility and entanglement fidelity over 100 km of fiber. This approach is critical for scaling quantum repeaters and building practical, large-scale quantum communication networks.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The experimental platform consists of two independent 40Ca+ ion nodes connected via 10 km and 100 km optical fibers. The phase noise is modeled as a stochastic process (approximating a Wiener process) with a diffusion coefficient D.
+
+**Key observables.** Interferometric visibility, parity contrast, residual phase variance, and photon counts at SNSPD ports.
+
+**Important parameters / regimes.** Photon flux of ~1 MHz, duty cycle <= 6.5%, fiber lengths of 10 km and 100 km, and a phase noise power-law exponent of approximately 0.71.
+
+**Assumptions / limitations.** The phase noise is modeled as a Wiener process (though experimental data shows non-Markovian deviations), and measurements follow Poissonian statistics.
+
+**Figures summary.** Figure 1 compares MLE and Bayesian variance; Figure 3 shows visibility and parity contrast vs. fiber distance and photon flux; Figure 7 details the FPGA-based control architecture; Figure 8 shows interference fringes.
+
+**Paper structure.** The paper identifies the precision-delay trade-off, introduces the Bayesian estimator and its mathematical derivation, describes the dual-band hardware architecture, presents experimental results for 10 km and 100 km links, and concludes with an error budget analysis.
+
+**Why it may be interesting.** This work is highly relevant for quantum optics and open quantum systems as it provides a robust method for controlling phase-sensitive quantum states in the presence of non-Markovian environmental noise and photon-starved measurement regimes.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+High-precision optical phase stabilization in quantum networks is fundamentally constrained by the strict photon-flux and duty-cycle limits required to avoid disturbing fragile quantum states. This challenge becomes especially critical when coordinating multiple independent light sources for multi-step quantum protocols. Here, we develop an integrated phase-stabilization framework that incorporates a Bayesian phase estimator to optimally extract information from sparse single-photon detection events. This approach outperforms conventional maximum-likelihood estimation and achieves the shot-noise limit under minimal photon flux. The framework enables real-time correction of combined phase noise from both nodal lasers and transmission fibers, facilitating a two-step excitation protocol for heralded entanglement generation between separate trapped-ion nodes via single-photon interference. Operating with a detected photon rate of approximately 1 MHz and a duty cycle less than or equal to 6.5%, the system maintains interferometric visibility greater than 97% over fiber links of 10 km and 100 km. This phase control yields deterministic ion-ion entanglement with parity contrast exceeding 85% at both distances, enabling device-independent quantum key distribution. Moreover, the resulting memory-memory entanglement at 10 km survives beyond the average time required to establish it -- a fundamental requirement for quantum repeaters. This work establishes a robust and scalable foundation for practical long-distance quantum networks.
+
+</details>
+
 
 ## numerical methods (4)
 
@@ -2185,7 +2359,69 @@ In recent years, a method for computing spin dynamics at infinite temperature (s
 </details>
 
 
-## statistical mechanics (8)
+## quantum gases (1)
+
+### [Collective Excitations and Stability of Nonequilibrium Polariton Supersolids](http://arxiv.org/abs/2604.21353v1)
+
+**Authors:** A. Grudinina, J. Cao, A. Kavokin, N. Voronova, A. Nalitov  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21353v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21353_figures/2604.21353_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Schematic illustration of the system. (a) The nanostructured waveguide with the grating period a. Layers of different colors show embedded QWs; the wavy lines illus- trate fundamental photonic modes of the structure propagat- ing in the x direction, TE±0 (purple) and TE±1 (blue). (b) The real parts of the dispersion laws ε(p) of the 0 branch and E±1(p) of the ±1 branches are shown with the solid purple and blue lines, respectively. The dashed lines correspond to the photonic modes sketched in (a). The thick orange line in- dicates the exciton resonance. (c) Sketch of the condensation at k = 0 of the BiC branch (the dashed purple line) reached after the first threshold. (d) Sketch of...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21353_figures/2604.21353_fig2.jpg" width="500"><br>
+<sub>FIG. 2. (a) Density of the order parameter components n0 (purple) and n1 (blue) vs. the pump power W. The dot- ted gray line indicates the value of W at which the effec- tive interaction changes sign, geff(W) &lt; 0, and the inter- action of negative-mass polaritons effectively becomes repul- sive; the yellow and lilac dashed lines mark the first and sec- ond thresholds. The inset shows phase boundaries for the condensed phase (NESF, yellow) and the supersolid phase (NESS, purple). The black dashed line indicates the value of the 0-mode Hopfield coefficient at which the calculations presented in the paper are performed. The PL intensity in reciprocal space for the NESF (b) and the NESS (c)...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21353_figures/2604.21353_fig3.jpg" width="500"><br>
+<sub>FIG. 3. The excitation spectra Ek as a function of kx. Real (a) and imaginary (b) parts of Ek in the first band for the NESS (the purple, magenta, and lavender lines) and NESF (the yellow lines) phases. The solid lines in panels (a, b) correspond to the NG modes (see text), the dashed lines indi- cate the gapped modes. Parameters above the 2nd threshold: W = 1.05 Wth2, µ = 1 meV, n0 = 520 µm2, n1/n0 = 2×10−4; below the 2nd threshold: W = 2.5 Wth1 = 0.64 Wth2, n0 = 420 µm−2, µ = 0.9 meV. The insets in panels (a) and (b) show the smaller momentum range enlarged. The color-framed insets in (b) show the simulated PL distribu- tions in real space before (yellow) and after (purple) the sec- ond...</sub>
+
+</details>
+
+**Main problem.** The study investigates the collective excitation spectra and dynamical stability of nonequilibrium polariton supersolids, specifically addressing how the system remains stable despite having a negative effective mass.
+
+**Main result.** The authors demonstrate that the interaction between the coherent polariton subsystem and the incoherent reservoir is essential for stabilizing the supersolid phase by renormalizing the effective interaction strength. They also identify the emergence of two gapless Nambu-Goldstone modes as a definitive signature of the nonequilibrium supersolid phase.
+
+**Method.** The study employs a mean-field approach using coupled Gross-Pitaevskii equations, Bogoliubov theory for fluctuation analysis, and numerical simulations of the excitation spectrum and Lyapunov exponents.
+
+**Summary.** This paper explores the stability and excitation properties of a recently reported nonequilibrium polariton supersolid. It demonstrates that while standard gain-dissipative models predict instabilities, the interaction with an incoherent exciton reservoir provides a necessary stabilization mechanism by renormalizing the polariton interactions. The authors show that this phase is characterized by the simultaneous breaking of gauge and translational symmetries, leading to two gapless Nambu-Goldstone modes. This work provides a theoretical foundation for understanding and identifying stable light-matter supersolid phases in semiconductor metasurfaces.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system consists of exciton-polariton condensates in a nanostructured optical waveguide operating in a quasi-bound-in-the-continuum (BiC) state. The model uses a 3x3 effective Hamiltonian and coupled Gross-Pitaevskii equations that include an incoherent exciton reservoir and an Optical Parametric Osculating (OPO) scattering mechanism.
+
+**Key observables.** Collective excitation spectra (real and imaginary parts), Nambu-Goldstone modes, Lyapunov exponents, stationary densities, and the structure factor.
+
+**Important parameters / regimes.** Pump power (W), thresholds for condensation (W_th1) and supersolidity (W_th2), effective interaction strength (g_eff), and gain saturation (eta).
+
+**Assumptions / limitations.** The model assumes a quasi-1D approximation, the adiabatic elimination of the reservoir density, and the truncation of the fluctuation matrix to the first few energy bands.
+
+**Figures summary.** Figure 1 shows the waveguide schematic and energy dispersion branches; Figure 2 illustrates densities vs. pump power; Figure S2-S4 present Lyapunov exponents, excitation spectra, and phase diagrams of stable/unstable regions.
+
+**Paper structure.** The paper introduces the physical platform and the problem of stability, presents the mathematical framework (GPE and Hamiltonian), details the stability analysis via Bogoliubov theory, discusses the role of the reservoir in interaction renormalization, and concludes with the identification of experimental signatures.
+
+**Why it may be interesting.** This paper is highly relevant for researchers in open quantum systems and many-body dynamics as it provides a mechanism (reservoir-mediated interaction) to stabilize a phase with broken continuous symmetries in a non-equilibrium system with negative effective mass.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Formation of nonequilibrium counterparts of supersolids, simultaneously characterized with spontaneous superfluid and crystalline order, was recently reported in incoherently pumped polariton condensates. We investigate collective excitation spectra of this phase and explicitly demonstrate the emergence of gapless Nambu-Goldstone modes due to spontaneously broken continuous phase and translation symmetries. For the recent implementation of the polariton nonequilibrium supersolidity in semiconductor metasurfaces [D. Trypogeorgos et al., Nature 639, 337 (2025)], we demonstrate the key role of attractive polariton interactions, mediated by the excitonic reservoir, for stability of the supersolid phase. Performing a thorough numerical investigation, we identify the conditions for existence of the diagonal and off-diagonal long-range order in negative-mass nonequilibrium supersolids.
+
+</details>
+
+
+## statistical mechanics (11)
 
 ### [Novel dynamics for an inertial polar tracer in an active bath](http://arxiv.org/abs/2604.21762v1)
 
@@ -2762,8 +2998,195 @@ The generalized second laws of quantum thermodynamics are usually formulated in 
 
 </details>
 
+### [Universal Local Roughness from Disorder Crossover in Urban-Front Growth](http://arxiv.org/abs/2604.21437v1)
 
-## strongly correlated electrons (7)
+**Authors:** Martin Hendrick, Maximilian Trique, Gabriele Manoli  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21437v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21437_figures/2604.21437_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Largest connected urbanized area of Bangalore (India) in 1985 (red). Yellow sites indicate areas that remain nonurbanized in 2015 and are identified with diluted sites, while blue sites indicate urbanized patches that are disconnected from the main cluster in 1985 but become absorbed into it by 2015; these are identified with accelera- tion sites. (b) Representative morphologies of the diluted–accelerated Eden model with quenched dilution and quenched acceleration. Black regions denote unoccupied sites, and colored lines show the cluster boundary at successive times.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21437_figures/2604.21437_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Global-width and correlation-length scaling in the dilution-only case q = 0. Data are averaged over 500 realizations for a strip of width L = 5000. (a) Global width W(tmass) for representative p &lt; pc. The clean case p = 0 is consistent with KPZ growth, while increasing dilution extends the disorder-dominated transient. Inset: clock conversion tmass ∼t1/d ct , with fitted exponent d ≃1.108 ≈dmin. (b) Correlation length ξ(tmass) for the same values of p. (c) and (d) Collapses of the width data according to, respectively, Eq. (11) and Eq. (12) for p ≥0.3, p = 0 is shown for reference. a b</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21437_figures/2604.21437_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Local-sector dynamics of the projected front. (a) Time evolution of αloc in the mass clock. The clean case (p, q) = (0, 0) reaches the Brownian value only late in the evolution, close to saturation, whereas a quenched fields with e.g. ρa ≈0.3 drives αloc rapidly toward 1/2 for representative dilution strengths p &lt; pc. (b) Compensated local correlation in the dilution-only case q = 0 for several values of p &lt; pc, colored by p. The gray band marks the fitting window; the emphasized curve corresponds to the largest p. Solid and dashed black lines show the fitted and predicted local-growth laws, respectively. Inset: normalized W(t) and ξ(t) for the same largest-p dataset.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21437_figures/2604.21437_fig4.jpg" width="500"><br>
+<sub>FIG. 4. (a) Effective (βd, 1/zd) values measured in the disorder-dominated regime (pre-KPZ or saturation regime) of the diluted–accelerated Eden model (colored dots) for parameters (p, q) below the thresholds pc and qacc(p), compared with representative cities from Ref. [17] (black points). The bivariate colormap encodes the corresponding model parameters (p, q) for each simulated point. The model generates a broad cloud of apparent dynamical exponents while preserving a common local-roughness sector. The KPZ reference point is marked by the red cross. (b) Empirical proxy phase diagram in the (pemp, qemp) plane for the cities reported in Ref. [17]. Colors encode the pair (1/z, β) through a...</sub>
+
+</details>
+
+**Main problem.** Explaining why urban expansion fronts exhibit a robust, nearly constant local roughness exponent alongside highly variable, nonuniversal growth and dynamic exponents.
+
+**Main result.** The observed nonuniversality is identified as a long-lived crossover regime where growth is controlled by 2D percolation before eventually reaching the KPZ universality class.
+
+**Method.** Numerical simulations of a diluted-accelerated Eden model on a 2D square lattice using scaling analysis and comparison of different time-parameterizations (mass vs. continuous-time clocks).
+
+**Summary.** This paper addresses the mystery of why urban growth fronts show consistent local roughness but wildly different global growth rates. The authors demonstrate that this is not due to a new universality class, but rather a long-lasting crossover regime driven by quenched disorder. By using a modified Eden model with dilution and acceleration, they show that the system transitions from a percolation-dominated state to a KPZ-growth state. This mechanism provides a unified explanation for the 'cloud' of exponents seen in real-world urban expansion data.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A projected-front Eden model on a 2D square lattice incorporating quenched dilution (to mimic geographic barriers) and quenched acceleration (to mimic patch coalescence).
+
+**Key observables.** Local roughness exponent (alpha_loc), global width (W), growth exponent (beta), dynamic exponent (z), and correlation length (xi).
+
+**Important parameters / regimes.** Dilution probability (p), acceleration probability (q), distance from percolation threshold (delta = pc - p), and empirical proxies (p_emp, q_emp).
+
+**Assumptions / limitations.** The urban expansion can be effectively modeled as a stochastic growth process in a heterogeneous medium using a projected-front approximation.
+
+**Figures summary.** Figure 4(a) compares the effective dynamical exponents (beta_d, 1/z_d) of the model to real-world urban data, showing a matching 'exponent cloud'.
+
+**Paper structure.** The paper introduces the problem of nonuniversal urban exponents, describes the diluted-accelerated Eden model, details the simulation methodology and scaling analysis, presents the crossover mechanism from percolation to KPZ, and concludes by mapping model parameters to empirical urban datasets.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Urban expansion fronts display a robust local roughness exponent together with strongly dispersed growth and nonuniversal dynamic exponents. We show that this coexistence can arise from a disorder-controlled crossover in projected-front growth. Introducing a minimal Eden model, in which geographic constraints act as quenched dilution and coalescence as quenched local acceleration, we demonstrate that the resulting front evolves through a long preasymptotic regime controlled by ordinary two-dimensional percolation before crossing over to asymptotic KPZ growth. In this regime, the local roughness remains close to $1/2$, while the large-scale exponents vary broadly with disorder and acceleration. These results provide a minimal explanation of urban-front roughening and suggest a more general mechanism for stochastic growth in heterogeneous media.
+
+</details>
+
+### [Time-Uniform Error Bound for Temporal Coarse Graining in Markovian Open Quantum Systems](http://arxiv.org/abs/2604.21366v1)
+
+**Authors:** Teruhiro Ikeuchi, Takashi Mori  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21366v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21366_figures/2604.21366_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Schematic picture of our result. Error bounds obtained previously increases with 𝑡linearly or exponentially. In contrast, our error bound stays small for an arbitrarily long time.</sub>
+
+</details>
+
+**Main problem.** Establishing rigorous, time-uniform error bounds for approximations (like RWA) used to derive GKSL master equations from the Redfield equation, which previously diverged in the long-time limit.
+
+**Main result.** The authors derive a unified, time-uniform error bound for a general class of 'temporal coarse graining' methods, ensuring the accuracy of the derived GKSL generator for arbitrarily long times.
+
+**Method.** A unified framework called 'temporal coarse graining' that treats slow frequency modes accurately and fast modes less accurately, analyzed using Duhamel expansion and integration by parts.
+
+**Summary.** This paper addresses the critical issue of error divergence in quantum master equation approximations. The authors introduce a unified 'temporal coarse graining' framework that encompasses several common approximation methods like RWA and time-averaging. They prove that for this class of methods, the error between the approximate GKSL dynamics and the true Redfield dynamics remains bounded and uniform even as time approaches infinity. This result is significant for anyone relying on Lindblad-type equations for long-time studies of open quantum systems.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A finite quantum system coupled to a thermal bath, described by a total Hamiltonian with interaction, where the dynamics are initially governed by the Born-Markov Redfield equation.
+
+**Key observables.** Trace norm distance between the trajectories of the Redfield and GKSL dynamics.
+
+**Important parameters / regimes.** Bath correlation time (tau_B), dissipation timescale (tau_D), coarse-graining time (delta t), and the scaling exponent (alpha).
+
+**Assumptions / limitations.** The bath correlation functions must decay exponentially, and the system must be in the weak coupling regime (tau_B much less than tau_D).
+
+**Figures summary.** Figure 1 provides a schematic comparison showing that the new error bound remains constant over time, whereas previous bounds increase linearly or exponentially.
+
+**Paper structure.** The paper introduces the problem of diverging error bounds, defines the unified temporal coarse graining framework, provides a theorem for the time-uniform error bound, and discusses the scaling of various specific approximation schemes.
+
+**Why it may be interesting.** It provides a rigorous mathematical foundation for the long-time validity of standard approximations like the Rotating Wave Approximation, which is essential for the reliable simulation of open quantum systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Several approximation procedures, such as the full or partial rotating-wave, time-averaging, and geometric-arithmetic approximations, have been proposed to derive Gorini-Kossakowski-Sudarshan-Lindblad (GKSL) generators from the Born-Markov quantum master equation (e.g., the Redfield equation). Establishing rigorous error bounds for these approximations is of fundamental and practical importance. However, existing bounds face two major limitations: they are highly specific to individual methods, and, more critically, they diverge in the long-time limit, ensuring the accuracy of the derived GKSL generator only in short-time regimes. In this Letter, we resolve both issues by deriving a unified, rigorous error bound for a general class of approximation methods -- termed temporal coarse graining -- that encompasses all aforementioned schemes. Crucially, our error bound is time-uniform. This guarantees that GKSL generators obtained via temporal coarse graining remain accurate for arbitrarily long times, provided the dissipation timescale is significantly longer than the bath correlation timescale.
+
+</details>
+
+### [Fractals of Simple Random Walks in Two Dimensions: A Monte Carlo Study](http://arxiv.org/abs/2604.21341v1)
+
+**Authors:** Jiang Zhou, Ziru Deng, Pengcheng Hou  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21341v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21341_figures/2604.21341_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Typical sRW trajectory of L2 steps on a periodic L × L square lattice with L = 800, started from the red point (0, 0). The trace is weakly space filling and leaves holes on all length scales.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21341_figures/2604.21341_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Rescaled cluster mass L2/M versus ln L. The large- L data approach a straight line of slope 2/π, consistent with M ∼(π/2)L2/ ln L. The inset shows the approach of aL to π/2.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21341_figures/2604.21341_fig3.jpg" width="500"><br>
+<sub>Figure 3 shows that the data collapse cleanly onto a straight line when w = 2 is used. This is the main em- pirical reason for adopting the (ln L)−2 correction. The inset provides an additional cross-check because Eq. (4) implies π/2 −aL ≃(π/2)−2(ln L)−2, or equivalently</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21341_figures/2604.21341_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Plot of ln L versus ln L. The asymptotic linear behav- ior is consistent with L ∼L4/3. Inset: collapse of the rescaled hull perimeter L/L4/3 versus L−1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21341_figures/2604.21341_fig5.jpg" width="500"><br>
+<sub>FIG. 3. Collapse of aL versus (ln L)−2. The asymptotic lin- earity provides direct graphical support for w = 2. Inset: test of (π/2−aL)−1/2 ∝ln L, consistent with the fitted correction amplitude.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21341_figures/2604.21341_fig6.jpg" width="500"><br>
+<sub>FIG. 5. Finite-size scaling of the chemical distance S. (a) Collapse of s4 ≡(S/L)4 versus ln L. (b) Gap function ∆s4(L) versus ln L. The gap function shows neither clear signs of asymptotic convergence nor evidence of divergence within the accessible range of system sizes.</sub>
+
+</details>
+
+**Main problem.** The study aims to characterize the fractal geometry and scaling properties of clusters formed by 2D simple random walks, specifically investigating mass scaling, hull dimension, and the sharpness of the chemical distance upper bound.
+
+**Main result.** The authors confirm the 'logarithmic fractal' nature of the cluster mass, determine the hull dimension to be 4/3 (consistent with SLE 8/3), and find strong evidence that the chemical distance scales as L(ln L)^(1/4), matching the theoretical bound for 2D GFF level-set percolation.
+
+**Method.** Large-scale Monte Carlo simulations on periodic square lattices up to size L = 2^16, utilizing finite-size scaling analysis, nonlinear least-squares fits, and gap-function analysis to detect logarithmic corrections.
+
+**Summary.** This paper provides a high-precision numerical investigation into the fractal properties of 2D simple random walk clusters. It confirms that these clusters behave as logarithmic fractals and that their external boundaries belong to the SLE 8/3 universality class. Crucially, it finds that the shortest path distance within the cluster scales according to the theoretical upper bound related to the Gaussian Free Field. The study also demonstrates that periodic boundary conditions primarily affect the approach to scaling rather than the fundamental universality classes.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A discrete-time simple random walk (sRW) on a 2D periodic square lattice (discrete torus) with a fixed number of steps N = L^2.
+
+**Key observables.** Cluster mass (M), hull perimeter (L_hull), and spanning chemical distance (S).
+
+**Important parameters / regimes.** Lattice size L, number of steps N = L^2, and the regime of marginal, weakly space-filling walks.
+
+**Assumptions / limitations.** The results are specific to the bond-cluster definition, and the argument regarding the chemical distance bound on a torus is heuristic.
+
+**Figures summary.** Figure 1 visualizes a typical sRW trajectory; Figure 2 shows mass scaling via semi-log plots; Figure 3 presents data collapse for mass corrections; Figure 4 shows power-law scaling for the hull perimeter; Figure 5 shows data collapse for the chemical distance.
+
+**Paper structure.** The paper introduces the problem of sRW fractal geometry, describes the Monte Carlo methodology and lattice setup, presents detailed scaling analysis for mass, hull, and chemical distance, and concludes with a discussion on boundary condition effects and open questions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We present a Monte Carlo study of the fractal geometry of clusters formed by discrete-time simple random walks (sRW) of $L^2$ steps on a periodic square $L\times L$ lattice. We verify with high precision that the asymptotic behavior of the cluster mass follows $M/L^2 \simeq (\ln L)^{-1} [\fracπ{2}+b (\ln L)^{-2}]$, with $b\approx -(π/2)^{-2}$, demonstrating marginal ``logarithmic fractals". We further determine the fractal dimension of the hull to be $d_{\rm hull}=1.333\,29(14)=4/3$, in excellent agreement with the prediction of Schramm-Loewner evolution ($\rm SLE_{8/3}$) for the Brownian frontier universality class. More importantly, we analyze the chemical distance $S$ spanning the cluster and obtain strong evidence that it asymptotically scales as $S\sim L(\ln L)^{1/4}$, lying exactly on the theoretical upper bound for the chemical distance for level-set percolation clusters on the two-dimensional Gaussian free field. Our numerical results show that the sRW cluster exhibits a conformally invariant external frontier and contains highly efficient asymptotically linear connective paths.
+
+</details>
+
+
+## strongly correlated electrons (8)
 
 ### [Cryogenic shock exfoliation for ultrahigh mobility rhombohedral graphite nanoelectronics](http://arxiv.org/abs/2604.21912v1)
 
@@ -3251,6 +3674,63 @@ Single crystals of SrMn$_2$Ni$_6$Te$_3$O$_{18}$, a member of the ferroaxial-type
 
 </details>
 
+### [Decomposing Fractional Quantum Hall Wave Functions via Operator Contraction Multiplication](http://arxiv.org/abs/2604.21434v1)
+
+**Authors:** Dong-Hao Guan, Licheng Wang, Yuan Zhou, Ai-Lei He, Yi-Fei Wang  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21434v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21434_figures/2604.21434_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Schematic Diagram of decomposing ν = 1/2 Laugh- lin state with three particles based on the contraction rule in F −F type. We enumerate all permutations of [2, 1, 0] as σ(210) and add them termwise to λ = [2, 1, 0]. We also cal- culate the corresponding permutation signs(˜ε) and bosonic multiple occupation coeﬃcients(#). Summing over all these terms yields the decomposition of ν = 1/2 Laughlin state.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21434_figures/2604.21434_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Root conﬁgurations of particle occupation and parts of squeezing operation in occupation language from the root conﬁguration for Halperin (2, 2, 1) state with four particles ﬁlling in the “entangled” orbitals. “U” and “V” denote the degree of freedom (such as spin, layer, etc) colored with red and blue, respectively. Two root conﬁgurations are presented in (a) and (b). (c). “U” and “V” orbitals can be entangled each other and lead to “entangled orbtials”, which can be expressed as U ⊗V or V ⊗U. Particles squeezing occurs in (d) intra-color orbitals and (e),(f) inter-color orbitals. (e) U[41]V[30] can be obtained by squeezing particles of U[30]V[41]. Colors of the orbitals indicate...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21434_figures/2604.21434_fig3.jpg" width="500"><br>
+<sub>FIG. 3. (Color online) Orbital entanglement spectra for (a) ν = 1/2 Laughlin and (b) Halperin (2, 2, 1) states with 16 particles in disk geometry. Here, each system is partitioned into two subsystems A and B. The bipartition parameters for (a) ν = 1/2 Laughlin state are N A = 8 and LA = 16, and (b) ν = 1/3 Halperin state are N A u = 4, N A v = 4, LA u = 12 and LA v = 12. N A is the number of particles in A subsystem, and two subspaces are partitioned at angular momentum LA. “u” (“v”) indicates various orbital degree of freedom.</sub>
+
+</details>
+
+**Main problem.** The mathematical difficulty of decomposing multi-component fractional quantum Hall (FQH) wave functions, such as Halperin states, due to the complexity of coupled Jastrow factors and the limitations of existing Jack polynomial methods.
+
+**Main result.** The development of a general algebraic scheme using operator contraction multiplication that achieves the first complete decomposition of Halperin states and reveals the underlying generalized Pauli principle.
+
+**Method.** An algebraic framework introducing fermionic and bosonic operators and three fundamental contraction rules, combined with the use of resultants and elementary symmetric polynomials to factorize coupled Jastrow factors.
+
+**Summary.** This paper introduces a new algebraic method called 'operator contraction multiplication' to decompose complex fractional quantum Hall wave functions. Unlike previous Jack polynomial methods, this approach can handle the coupled Jastron factors found in multi-component Halperin states. The authors successfully applied this to compute entanglement spectra for large-scale systems, matching predictions from chiral Luttinger liquid theory. This provides a powerful new tool for studying the topological order of complex, multi-component quantum Hall and Chern insulator states.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Fractional Quantum Hall (FQH) effect in the lowest Landau level using disk geometry, specifically focusing on Laughlin states and multi-component Halperin states (e.g., Halperin (2,2,1)).
+
+**Key observables.** Orbital entanglement spectra, edge excitation sequences, density profiles, and root configurations.
+
+**Important parameters / regimes.** Filling factors (e.g., nu = 1/2, Halperin (2,2,1)), particle number (up to 16 particles), and decomposition dimensions (exceeding 10^11).
+
+**Assumptions / limitations.** The framework assumes the wave functions can be represented via the operator contraction of bosonic and fermionic operators within the lowest Landau level.
+
+**Figures summary.** Figure 1 shows a schematic of Laughlin state decomposition via contraction rules; Figure 2 illustrates particle occupation and squeezing operations in Halperin (2,2,1) states; Figure 3 displays orbital entanglement spectra for Laughlin and Halperin states.
+
+**Paper structure.** The paper introduces a new algebraic scheme for wave function decomposition, establishes fundamental contraction rules for bosonic and fermionic operators, extends the method to multi-component Halperin states using resultants, validates the method via entanglement spectra and edge excitations, and discusses future applications to Fractional Chern Insulators.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We develop a general algebraic scheme to decompose fractional quantum Hall (FQH) wave functions based on the operator contraction multiplication. By introducing fermionic and bosonic operators and establishing three fundamental contraction rules, we achieve an exact decomposition of Laughlin states. This approach naturally extends to multi-component systems by factorizing coupled Jastrow factors via resultants and elementary symmetric polynomials, enabling the first complete decomposition of Halperin states. For Halperin ($2,2,1$) state, we explicitly derive its basic expansion, identify root configurations, and reveal intra- and inter-color squeezing operators, thereby uncovering the underlying generalized Pauli principle. Using this method, we compute orbital entanglement spectra for up to $16$ particles with decomposition dimensions exceeding $10^{11}$, obtaining edge excitation sequences that precisely match chiral Luttinger liquid theory. Our framework breaks through the longstanding limitations of Jack polynomials, provides a unified decomposition for both single- and multi-component FQH states, and opens a new avenue for exploring wave functions for more complex FQH states.
+
+</details>
+
 
 ## disordered systems and neural networks (1)
 
@@ -3347,7 +3827,7 @@ We investigate electronic transport across a magnetic domain wall (DW) in a thre
 </details>
 
 
-## other (9)
+## other (14)
 
 ### [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](http://arxiv.org/abs/2604.21929v1)
 
@@ -4089,5 +4569,473 @@ We establish a relation between the exponential decay rates of quantum Markov se
 <details><summary>Abstract</summary>
 
 We construct mode-selective effective models describing the interaction of the quantum plasmon-polariton field supported by a finite dielectric medium and one or several quantum emitters. The construction of the effective model is based on the decomposition of the field into bright modes relevant to the interaction with the emitters and dark modes, which do not interact with the emitters. We show that the quantum plasmon-polariton field can be represented equivalently by a double-continuum spectrum or by a single hybrid continuum spectrum for each emitter. The system of the electromagnetic field coupled to a finite medium is composed of two families of continuum modes, each of them with an infinite degeneracy. The two families are deformations of the free electromagnetic field and the free medium, induced by the interaction between them, as described by the Lippmann-Schwinger equations. We show that if there are $N$ emitters interacting with this plasmon-polariton field, the effective interaction involves a much smaller set of bosonic continuum modes: the interacting part of the continuum can be described by $N$ non-degenerate one-dimensional continua, one for each emitter. The representation of the interaction in terms of a single hybrid continuum spectrum coincides with the one within the macroscopic Langevin model with bulk medium. This coincidence is explained by an exact compensation of two terms, one in the coupling term of the Hamiltonian and the other one in a Green tensor identity.
+
+</details>
+
+### [Revisiting the luminescence properties of Pr3+: YAG within the framework of an extended approach of Judd-Ofelt theory](http://arxiv.org/abs/2604.21374v1)
+
+**Authors:** Maxence Lepers, G. Hovhannesyan, Y. Guyot, R. Moncorgé, M. Velazquez  
+**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21374v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21374_figures/2604.21374_fig1.jpg" width="500"><br>
+<sub>Figure 1 : Room temperature absorption (optical density) spectra of a 5.52 mm thick sample of 0.24%Pr :YAG crystal registered (a) in the visible and (b) the near- and mid-infrared spectral domains</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21374_figures/2604.21374_fig2.jpg" width="500"><br>
+<sub>Figure 2 : Time-resolved room temperature emission spectra of Pr3+ :YAG from the 3P0, 3P1 and 1I6 thermalized levels in the visible and near-infrared spectral range</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21374_figures/2604.21374_fig3.jpg" width="500"><br>
+<sub>Figure 3 : Time-resolved room temperature emission spectra of Pr3+ :YAG from the 1D2 emitting level in the visible and near-infrared spectral range</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21374_figures/2604.21374_fig4.jpg" width="500"><br>
+<sub>Figure 4 : Room (300 K) and low (77 K) temperature fluorescence decays (semi-log scale) of the 3P0 and 1D2 emitting levels of a 0.08at%Pr3+ :YAG crystal</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21374_figures/2604.21374_fig5.jpg" width="500"><br>
+<sub>Figure 5 : (a) 3H4  3P0 absorption and 3P0  3H4 emission cross section spectra derived using Reciprocity (RP) and Fuchtbauer-Ladenburg (FL) methods ; (b) Resulting gain cross section spectra for various excitation ratios 𝛽𝑒𝑥</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21374_figures/2604.21374_fig6.jpg" width="500"><br>
+<sub>Figure 6 : Relative standard deviations obtained between experimental and calculated transition (or oscillator) strengths in the case of Pr3+:YAG, by using the two « extended » EXT. 1 and EXT. 2 J.O. approaches, versus the 4f5d energy (lowest energy of the 4f5d excited configuration in the case of EXT. 2)</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21374_figures/2604.21374_fig7.jpg" width="500"><br>
+<sub>Figure 7 : Ratio between calculated and experimentally measured oscillator (or transition) strengths according to the different approaches (« modified » KM and « extended » EXT. 1 and EXT. 2 J.O. approaches) The results are about the same for the absorption transitions to levels 3H6, 3F2, 3F3,4 and 1D2 with an excellent agreement between calculated and measured values for the transitions to 3F2 and 3F3,4. The results are more satisfactory with the « extended » approaches than with the « modified » one in the case of the absorption transitions to the important levels 3P2, 3P0 and 3P1+1I6.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21374_figures/2604.21374_fig8.jpg" width="500"><br>
+<sub>Figure 8 : Comparison of calculated and experimental branching ratios of the 3P0,1+1I6  A and 1D2  B emission transitions with A = 3H4, 3H5, 3H6, 3F2, 3F3,4, 1G4, 1D2 and B = 3H4, 3H5, 3H6, 3F2, 3F3,4, 1G4</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21374_figures/2604.21374_fig9.jpg" width="500"><br>
+<sub>Figure 9. Ratio between calculated and experimentally measured oscillator (or transition) strengths according to the different approaches (« Standard » and « Extended » EXT. 0, EXT. 1 and EXT. 2 J.O. approaches)</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21374_figures/2604.21374_fig10.jpg" width="500"><br>
+<sub>Figure 10 : Emission cross section spectra associated with the main emission transitions originating from the thermalized 3P0,1 and 1I6 energy levels.</sub>
+
+</details>
+
+**Main problem.** The standard Judd-Ofelt theory fails to accurately describe the luminescence properties of Pr3+ doped materials, such as Pr3+:YAG, because it cannot account for the influence of the nearby 4f5d excited electronic configuration and certain forbidden transitions.
+
+**Main result.** An extended Judd-Ofelttheory (EXT models) provides much better agreement with experimental absorption intensities and branching ratios, successfully predicting previously unobserved transitions like 3P0 to 3H5.
+
+**Method.** The study combines time-resolved emission spectroscopy and absorption measurements with an extended theoretical framework that relaxes standard selection rules and incorporates 4f5d configuration effects using Cowan's code.
+
+**Summary.** This paper addresses the inaccuracies of the standard Judd-Ofelt theory in predicting the spectroscopic properties of Pr3+ ions in YAG. By implementing an extended approach that accounts for the 4f5d excited electronic configuration, the authors achieve much better agreement with experimental absorption and emission data. The study successfully predicts previously unmodeled transitions and provides more reliable data for designing new laser wavelengths. This work significantly improves the predictive power of luminescence modeling for rare-earth-doped crystals.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The primary system is Pr3+ doped Yttrium Aluminum Garnet (YAG) crystals, compared against Pr3+:ZBLAN fluoride glass. The theoretical model uses an extended Judd-Ofelt approach (EXT 1 and EXT 2) to account for the 4f5d excited state.
+
+**Key observables.** Absorption intensities, fluorescence lifetimes, branching ratios, emission/gain cross-sections, and quantum emission efficiencies.
+
+**Important parameters / regimes.** Judd-Ofelt parameters (Omega2, Omega4, Omega6), transition strengths (X1, X3, X5), and the energy gap between 4f and 4f5d configurations.
+
+**Assumptions / limitations.** The EXT 1 model assumes a degenerate 4f5d configuration at a fixed energy, while EXT 2 assumes a shifted free-ion 4f5d configuration; the theory also assumes the influence of the 4f5d configuration can be treated via perturbation theory.
+
+**Figures summary.** The paper includes tables of absorption transitions, electric-dipole oscillator strengths, and emission transition rates/branching ratios using the EXT 2 approach.
+
+**Paper structure.** The paper introduces the failure of standard Judd-Ofelt theory, presents the experimental spectroscopic measurements for Pr3+:YAG, details the development of the extended theoretical models (KM, EXT 1, EXT 2), compares these models against experimental data, and concludes with implications for laser operation.
+
+**Why it may be interesting.** This is relevant to quantum optics and atomic physics as it refines the fundamental theoretical tools used to predict transition probabilities and radiative lifetimes in rare-earth-doped systems, which are critical for developing quantum memories and precision lasers.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We show in this article the improvements which can be obtained in the description of the luminescence properties of Pr3+ doped materials by using an extension of the Judd-Ofelt theory in order to relax some strong selection rules and approximations of the standard formalism and to better account for the influence of the 4f5d excited electronic configuration. The demonstration is made by re-examining the case of Pr3+:YAG, a well known luminescent and laser crystal with a very low energy 4f5d absorption band. Our extension thus provides a better agreement between calculated and measured absorption intensities, especially for the hypersensitive 3 H4 $\rightarrow$ 3 P2 transition. A comparison is made with the results obtained in the case of Pr3+:ZBLAN, a laser fluoride glass with much higher 4f5d absorption levels. Our investigation also gives the opportunity, in the case of Pr3+:YAG, to provide more complete and more reliable absorption and emission data than reported in the past literature and to exploit these data to better address the question of laser operation at various emission wavelengths. It is thus demonstrated that laser operation should be possible with improved laser performance at 488 nm, 616 nm and 744 nm, as it was already achieved in the past, but also at 566 nm and 931 nm by using appropriate laser cavities and laser mirrors.
+
+</details>
+
+### [The Geometry Underlying the Quantum Harmonic Oscillator](http://arxiv.org/abs/2604.21373v1)
+
+**Authors:** Alexander D. Popov  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21373v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21373_figures/2604.21373_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21373_figures/2604.21373_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21373_figures/2604.21373_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21373_figures/2604.21373_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21373_figures/2604.21373_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21373_figures/2604.21373_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21373_figures/2604.21373_page8.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 8</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21373_figures/2604.21373_page9.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 9</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21373_figures/2604.21373_page10.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 10</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21373_figures/2604.21373_page11.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 11</sub>
+
+</details>
+
+**Main problem.** Investigating the underlying geometric and algebraic-geometric foundations of the quantum harmonic oscillator to explain the origin of quantum effects like non-commutativity and zero-point energy.
+
+**Main result.** The paper demonstrates that quantum features arise from the curvature of a complex line bundle over phase space, establishing a geometric correspondence between classical Z_n-invariant states and quantum wave functions.
+
+**Method.** The author utilizes geometric quantization, bundle theory (specifically holomorphic line bundles over the Riemann sphere), and Geometric Invariant Theory (GIT) to model the transition from classical to quantum dynamics.
+
+**Summary.** This paper proposes a geometric foundation for quantum mechanics by treating it as a gauge theory on an extended phase space. It shows that the non-commutativity and zero-point energy of the quantum harmonic oscillator are consequences of the curvature of a complex line bundle. By using tools from algebraic geometry, the author links classical Z_n-invariant oscillators to quantum wave functions. The framework also establishes a unified geometric connection between the harmonic oscillator and the hydrogen atom problem.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A two-dimensional isotropic quantum harmonic oscillator modeled in the complex Bargmann-Fock-Segal representation, with the classical phase space treated as the complex plane C^2 or its quotients.
+
+**Key observables.** Energy levels (E_n), angular frequency (omega), Heisenberg uncertainty relations, and Majorana stars (zeros of the wave function).
+
+**Important parameters / regimes.** Planck constant (hbar), mass (m), angular frequency (omega), and the integer weight (n) characterizing the bundle topology.
+
+**Assumptions / limitations.** The dynamics are assumed to be holomorphic (preserving polarization), and the framework focuses on the 'almost quantum' to 'quantum' transition within a fixed background gauge field.
+
+**Paper structure.** The paper progresses from defining the classical phase space and the Bargmann-Fock-Segal representation to constructing a quantum bundle via gauge theory, then explores the geometric relationship between Z_n-invariant classical motion and quantum sections, and finally extends these geometric principles to the Kepler/hydrogen atom problem.
+
+**Why it may be interesting.** This paper provides a deep geometric interpretation of the origin of uncertainty and zero-point energy, which is highly relevant for those interested in the fundamental mathematical foundations of quantum optics and the geometric structure of quantum states.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We consider two-dimensional harmonic oscillator in the complex Bargmann-Fock-Segal representation with $T^*{\mathbb R}^{2}={\mathbb C}^2$ as classical phase space. We show that the eigenfunctions $ψ_n$ of the quantum Hamiltonian correspond to complex radial coordinates in the reduced phase space ${\mathbb C}^2/{\mathbb Z}_n\subset{\mathbb C}^2$. They describe ${\mathbb Z}_n$-invariant motion of particle along a circle $S^1$ in lens space $S^3/{\mathbb Z}_n\subset{\mathbb C}^2/{\mathbb Z}_n$, where ${\mathbb Z}_n$ is the cyclic group of rotation by an angle $2π/n$ on the circle $S^1$, $n=1,2,...\,$. Thus the general solution of the Schrödinger equation carries information about an infinite number of admissible classical states $ψ_n$ that can be mapped to other states after lifting into the quantum bundle. We show that in the Kepler/hydrogen atom problem there is a similar correspondence between classical and quantum states.
+
+</details>
+
+### [Vertical Shuttling Protocols for Trapped Ions in Multi-Rail, Multi-Zone Surface Ion Trap Architectures](http://arxiv.org/abs/2604.21350v1)
+
+**Authors:** Qirat Iqbal, Altaf H. Nizamani  
+**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21350v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21350_figures/2604.21350_fig1.jpg" width="500"><br>
+<sub>Figure 1. Step by step multi-rail trap design (a) Single region trap with RF electrodes of width ‘b=c’ and ground (control) electrode ‘a’ in between, (b) Two trapping region (c) Set of segmented DC electrodes to control ion in z-direction (d) single trapping zone using RF and segemented DC electrodes (e) Dual trapping zones using multi rf electordes (f) Scalable four trapping zones with RF and control electrodes.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21350_figures/2604.21350_fig2.jpg" width="500"><br>
+<sub>Figure 2. (a) Top view of the optimized multi region trap design. (b) Illustrates the pseudo potential along with the local minima generated due to applied VRF to the RF electrodes</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21350_figures/2604.21350_fig3.jpg" width="500"><br>
+<sub>Figure 3. Behavior of the trapping regions when an RF voltage 𝑽𝐑𝐅is applied to the central electrode. The red circle indicates the initial trapping region where ions can be confined. (a) Variation in the heights of two trapping regions as a function of the applied 𝑽𝐑𝐅 . (b) single trapping region illustrating the vertical displacement of the ion position achieved by gradually</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21350_figures/2604.21350_fig4.jpg" width="500"><br>
+<sub>Figure 4. Variation in Trap parameters changed during shuttling in time ‘t’. (a) Change of voltages on the central electrode ‘VCE’. (b) Deviation in ion‘s position (c) Change of radial secular frequency from 1.55MHz to 2.4MHz.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21350_figures/2604.21350_fig5.jpg" width="500"><br>
+<sub>Figure 5. Plot shows significant increase in trap depth upon decrease in ion height. The Ion height has been changed by applying VRF on the central electrode.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21350_figures/2604.21350_fig6.jpg" width="500"><br>
+<sub>Fig. 5 (c) shows a clear increase in the radial frequency as the ion is vertically shuttled over the time interval 𝑡. This increase is attributed to the enhanced confinement arising from the applied DC electrode potential. Despite this change, the secular frequency remains within an acceptable operating range and does not introduce any adverse effects on the trapping performance or experimental stability.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21350_figures/2604.21350_fig7.jpg" width="500"><br>
+<sub>Figure 6. Variation in voltages applied on central electrode depends strongly on the N parameter. Smaller N leads to linear trajectory.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21350_figures/2604.21350_fig8.jpg" width="500"><br>
+<sub>Figure 7. Ion shuttling profile with 1ms time scale and N=10. (a) when voltage was increased from 0V to 100V on central RF electrode during 1ms (b) the ion is decreased from 134µm to 86µm, (c) the gain of K.E as the ion will experience a kick during shuttling so the gain is maximum (d) overlap of (a and c) show sharp rise of energy gain at voltage change duration.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21350_figures/2604.21350_fig9.jpg" width="500"><br>
+<sub>Figure 8. The maximum motional excitation induced during transport. Zoomed in parts show secular frequencies during shuttling while there is a gain in Kinetic energy of ion. (a) Radial frequency at ~2.2MHz (b) axial frequency at 300kHz (c) Total secular frequency with beats show axial while fluctuations refer to the radial frequency.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21350_figures/2604.21350_fig10.jpg" width="500"><br>
+<sub>Figure 9. Comparison of gain in kinetic energy as a function of time ‘t’ with different values of N parameters. It could be observed that N=2.5 gives less gain in motional energy.</sub>
+
+</details>
+
+**Main problem.** Optimizing vertical ion-shuttling protocols in multi-rail surface ion traps to minimize motional heating and kinetic energy gain during transport.
+
+**Main result.** The study identifies an optimal smoothness parameter (N=2.5) and demonstrates that vertical displacement of 86 micrometers can be achieved with motional excitation limited to fewer than eight quanta.
+
+**Method.** The authors use electrostatic modeling with the gapless-plane approximation and compare different trajectory profiles, specifically finding that a hyperbolic tangent (tanh) voltage ramp minimizes heating.
+
+**Summary.** This paper investigates how to move ions vertically in a multi-zone surface trap without causing excessive heating. By using a specific smooth voltage ramp (tanh profile), the researchers found they could transport ions while keeping motional excitation very low. This is crucial for building scalable quantum computers and high-precision quantum sensors that require stable, controlled ion movement.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A microfabricated, multi-rail, multi-zone surface-electrode ion trap architecture featuring RF and segmented DC control electrodes.
+
+**Key observables.** Ion height, radial and axial secular frequencies, kinetic energy gain, and mean motional quanta.
+
+**Important parameters / regimes.** Shuttling duration (T), smoothness parameter (N), ion-surface separation (h), and heating rate.
+
+**Assumptions / limitations.** The use of the gapless-plane approximation for electrostatic calculations and the assumption of a specific scaling for anomalous heating.
+
+**Figures summary.** Figure 1 shows the multi-rail trap design; Figure 2 illustrates the pseudopotential and local minima; Figure 3 shows the shift in trapping regions and ion displacement; Figure 7 illustrates the voltage ramp and ion trajectory; Figure 8 shows secular frequency fluctuations.
+
+**Paper structure.** The paper introduces the multi-rail trap architecture, describes the electrostatic modeling and shuttling mechanism, evaluates different trajectory profiles (linear, sinusoidal, tanh), analyzes the trade-off between transport speed and anomalous heating, and concludes with performance metrics.
+
+**Why it may be interesting.** This work is highly relevant for researchers developing scalable quantum computing architectures, as it provides specific protocols for moving ions between zones without destroying quantum coherence through heating.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We investigate optimized vertical ion-shuttling protocols for trapped-ion applications across a range of ion-trap experiments, including three-dimensional gradient-measurement sensors, on-chip ion fluorescence collection and imaging, improved laser accessibility, and quantum information processing. In this work, we focus on minimizing motional energy gain during ion transport. Our findings indicate that anomalous heating becomes the dominant limiting factor only for shuttling durations exceeding $500~μ\mathrm{s}$, whereas the final motional excitation is strongly dependent on the selected transport protocol. Using a recently measured heating rate of $(3.1 \pm 0.35)$ quanta/ms at an ion--surface separation of $134 \pm 1.5~μ\mathrm{m}$, we demonstrate that the motional excitation can be restricted to fewer than eight quanta when the ion is vertically displaced by $86~μ\mathrm{m}$ from its initial position. These results enable adiabatic shuttling within $0.5~\mathrm{ms}$, thereby meeting the operational requirements for high-fidelity quantum sensing and coherent control.
+
+</details>
+
+### [Ghost Degrees of Freedom Without Quantum Runaway: Exact Moment Bounds from an Operator Conservation Law](http://arxiv.org/abs/2604.21348v1)
+
+**Authors:** Christopher Ewasiuk, Stefano Profumo  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21348v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21348_figures/2604.21348_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Heisenberg-picture Ehrenfest moments for λ = 1/3, RK4, ∆t = 0.02, t = 500 (t cropped to ∈[0, 200]). Mean po- sitions ⟨ˆx⟩(t) (left) and ⟨ˆy⟩(t) (right) overlaid on the classical orbits (dashed); the curves are indistinguishable, confirming that classical stability survives at leading order in ℏ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21348_figures/2604.21348_fig2.jpg" width="500"><br>
+<sub>FIG. 3. Maximum mean squared radius maxt⟨ˆx2 + ˆy2⟩over t ∈[0, 200] as a function of coupling strength λ, obtained from Schr¨odinger-picture propagation on a 128 × 128 grid. Wavepacket confinement persists across the full range λ ∈ [−0.8, +0.8] with no runaway and no sharp transition at the classical Lyapunov boundary |λ| = 1/2 (dashed lines). The maximum remains well below the analytic ceiling ⟨r2⟩(0)+4|λ| of Eq. (7) throughout, confirming that the bound is satisfied but not saturated at these coupling strengths.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21348_figures/2604.21348_fig3.jpg" width="500"><br>
+<sub>FIG. 2. Schr¨odinger-picture confirmation of the moment bound (7) for λ = 1/3, N = 1282, ∆t = 5 × 10−3, T = 200, starting from a Gaussian wavepacket centered at (x0, y0) = (1.0, 0.5) with width σ = 0.7. The mean squared radius ⟨ˆx2 + ˆy2⟩(t) oscillates with no secular growth, remaining well below the analytic ceiling ⟨r2⟩0 + 4|λ| (dashed) throughout the run.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21348_figures/2604.21348_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Energy spectrum of the ghost-coupled oscillator for λ = 1/3, Fock basis with Nmax = 21 (484 states). Top left: all 484 eigenvalues in the complex plane; all lie on the real axis within LAPACK precision. Top center: sorted real eigenvalues for λ = 0 (grey) and λ = 1/3 (red); shifts are ≲10−4, consistent with VI acting perturbatively. Top right: unfolded level-spacing distribution of the intra-multiplet splittings introduced by VI, compared with Poisson P(s) = e−s (dashed) and Wigner-Dyson P(s) ∝se−πs2/4 (solid red). Within each degenerate multiplet the distribution is consistent with Wigner-Dyson, as expected from degenerate perturbation theory; the global inter-multiplet structure...</sub>
+
+</details>
+
+**Main problem.** Investigating whether quantum systems with 'ghost' degrees of freedom (negative kinetic energy) necessarily suffer from 'quantum runaway' instability or unbounded phase-space growth.
+
+**Main result.** The authors prove an exact quantum conservation law that provides a state-independent upper bound on the mean squared phase-space radius, demonstrating that ghost instability depends on interaction structure rather than just the wrong-sign kinetic term.
+
+**Method.** The proof uses canonical commutation relations and the Leibniz rule to establish an exact operator identity, supplemented by Heisenberg, Schrodinger, and Fock-space numerical verifications.
+
+**Summary.** This paper addresses the stability of quantum systems containing 'ghost' degrees of freedom, which are often associated with unbounded energy radiation. By identifying an exact quantum conservation law that lacks hbar corrections, the authors prove that the phase-space expansion of such systems is strictly bounded. This result shows that the presence of a wrong-sign kinetic term does not automatically lead to quantum runaway. The findings are supported by multiple numerical methods confirming wavepacket confinement and integrable-like level statistics.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A two-degree-of-freedom quantum system consisting of a normal harmonic oscillator coupled to a ghost harmonic oscillator via a bounded, non-confining interaction potential.
+
+**Key observables.** Mean squared phase-space radius (sum of mean squared position and momentum for both sectors).
+
+**Important parameters / regimes.** Coupling strength lambda; the limit of hbar approaching zero; the classical Lyapunov boundary at |lambda| = 1/2.
+
+**Assumptions / limitations.** The interaction potential is bounded and vanishes at large separations; the proof does not assume spectral discreteness or the existence of a ground state.
+
+**Figures summary.** Figure 1 shows Heisenberg-picture Ehrenfest moments tracking classical orbits; Figure 2 shows Schrödinger-picture wavepacket confinement; Figure 3 shows the maximum mean squared radius remains bounded across a range of coupling strengths.
+
+**Paper structure.** The paper introduces the ghost instability problem, defines the Hamiltonian and interaction, provides an analytical proof of the conservation law and resulting moment bounds, presents numerical verification across three frameworks, and discusses limitations regarding spectral properties.
+
+**Why it may be interesting.** This is highly relevant for researchers in effective field theory and open quantum systems, as it provides a rigorous mechanism for stability in models that traditionally appear catastrophic due to negative-energy sectors.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We prove an exact quantum conservation law for a harmonic oscillator coupled to a ghost degree of freedom: a second classical conserved quantity lifts to a quantum operator that commutes with the Hamiltonian with no hbar corrections, yielding a rigorous, state-independent upper bound on the mean squared phase-space radius for all time and every quantum state with finite initial second moments. The proof uses only canonical commutation relations and the Leibniz rule; it requires no confining potential, no spectral assumptions, and no perturbative expansion. The interaction studied here is bounded and vanishes at large separations, the generic situation in effective field theory, yet this suffices to guarantee quantum stability in the sense of bounded second moments. Three independent numerical frameworks (Heisenberg picture, Schrodinger picture, and Fock-space diagonalization) confirm wavepacket confinement below the analytic bound, a real energy spectrum, and Poisson level statistics numerically consistent with an integrable structure. The absence of a confining potential means the proof is silent on spectral discreteness and the existence of a ground state; those questions, addressed for polynomial confining interactions in concurrent work, remain open for the interaction class studied here and represent the sharpest targets for future work. Ghost quantum instability is therefore not an inevitable consequence of a wrong-sign kinetic term but depends critically on the interaction structure.
+
+</details>
+
+### [Scalable surface ion trap design for magnetic quantum sensing and gradiometry](http://arxiv.org/abs/2604.21342v1)
+
+**Authors:** Qirat Iqbal, Altaf Hussain Nizamani  
+**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21342v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21342_figures/2604.21342_fig1.jpg" width="500"><br>
+<sub>Fig. 2 demonstrates the trapping potential created above the surface of a flat ion trap configuration. In this illustration, the trapping region, referred to as RF-nil, ideally should possess a potential of zero where the ions can be trapped.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21342_figures/2604.21342_fig2.jpg" width="500"><br>
+<sub>Fig. 2. Cross-sectional representation of the trap potential, also referred to as pseudo-potential, demonstrates the contour plot above the surface area of a singular trap region. This illustration includes the positioning of the ground electrode with a width labeled ’a,’ alongside RF electrodes with widths ’b’ and ’c’ being equal. Additionally, the ion height above the surface is denoted as ’h.’ The potential within this setup is generated through the application of AC voltage (Vrf) to the RF electrodes. The standard electrode widths typically fall within the range of a few hundred micrometers.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21342_figures/2604.21342_fig3.jpg" width="500"><br>
+<sub>Fig. 1. The 171Yb + hyperfine 2S1/2 manifold, that contains four states; the</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21342_figures/2604.21342_fig4.jpg" width="500"><br>
+<sub>Fig. 3. (a) Surface Paul trap design for four trapping regions. The long rails are RF-electrodes and side short rails are modeled as DC (control) electrodes. Whereas, four trapping zones, above the surface of the trap, are highlighted in red. (b) Cross section view of trap potential at one of trapping zones above the surface of the trap. (For interpretation of the references to color in this figure legend, the reader is referred to the Web version of this article.)</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21342_figures/2604.21342_fig5.jpg" width="500"><br>
+<sub>Fig. 4. Illustrating a Multi-Zone Ion Trap Design in Three Dimensions: Demonstrating the trap’s approximate length along the x and z dimensions, while the trapped ions are positioned in the y dimension above the trap’s surface.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21342_figures/2604.21342_fig6.jpg" width="500"><br>
+<sub>Fig. 5. Approximately 6◦rotation of principal axis at the trapping regions due to mutual impact of RF electric field of multi-rails trap geometry.</sub>
+
+</details>
+
+**Main problem.** Designing a scalable surface ion trap architecture capable of high-sensitivity magnetic field detection and high-resolution magnetic field gradient measurement (gradiometry).
+
+**Main result.** The study presents a novel multi-rail surface Paul trap design that enables 2D magnetic field mapping with sub-millimeter spatial resolution and predicted sensitivities in the 1-100 pT/sqrt(Hz) range.
+
+**Method.** A modeling and simulation-based approach using Mathematica and a pseudo-potential approximation to optimize electrode geometry and voltages.
+
+**Summary.** This paper proposes a new design for a scalable surface ion trap intended for use as a highly sensitive magnetic field sensor and gradiometer. By using a multi-rail electrode architecture, the design allows for the transport of ions between multiple trapping zones to map magnetic fields with sub-millimeter resolution. The study uses simulations to optimize electrode widths and voltages to achieve high sensitivity (1-100 pT/sqrt(Hz)) while minimizing heating. This approach could potentially outperform existing technologies like SQUIDs or NV centers in specific gradient-sensing applications.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A scalable surface Paul trap utilizing Ytterbium-171 (171Yb+) ions, featuring a multi-rail architecture with RF and DC electrodes for ion confinement and transport.
+
+**Key observables.** Magnetic field sensitivity, magnetic field gradients, trap depth, secular frequencies, and ion height.
+
+**Important parameters / regimes.** Sensitivity of 1-100 pT/sqrt(Hz), frequency range from DC to 12.6 GHz, ion height h > 120 micrometers, and RF voltage of 200V.
+
+**Assumptions / limitations.** The specific sensing parameters are tailored to 171Yb+ ions, and the study assumes the feasibility of implementing microwave decoupling techniques.
+
+**Figures summary.** Fig 1 shows the 171Yb+ hyperfine manifold; Fig 3 and 4 illustrate the multi-zone trap layout and 3D electrode dimensions; Fig 5 demonstrates the principal axis rotation.
+
+**Paper structure.** The paper introduces the problem of quantum magnetic sensing, presents a novel multi-rail trap design, details the optimization of geometric and voltage parameters via simulation, demonstrates scalability for gradiometry, and compares the design to existing magnetometers.
+
+**Why it may be interesting.** This work is relevant for AMO physicists as it proposes a scalable architecture for quantum sensing using trapped ions, specifically addressing the challenges of decoherence via dressed states and the engineering of multi-zone traps for spatial field mapping.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Magnetic quantum sensors based on trapped ions utilize properties of quantum mechanics which have optimized precision and beat current limits in sensor technology. Trapped ions are highly sensitive in a large span of signal ranging from DC or static B-field to the radiofrequency range in 100s of MHz and can attain the sensitivity in the range of pT to sub pT . They are tuneable to frequencies of interest and can be used as a lock-in frequency detector. This modelling and simulation based study presents an innovative design of Surface Paul Traps, enabling the use of trapped ions as ultra-sensitive sensors for magnetic field detection and precise measurement of magnetic field gradients at a sub-millimeter spatial resolution. The novel design features multiple trapping regions, allowing for the mapping of magnetic fields across various ion-trapping zones. The study demonstrates groundbreaking advancements in ion manipulation and confinement through innovative chip architecture.
 
 </details>
