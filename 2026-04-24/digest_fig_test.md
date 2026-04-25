@@ -1,7 +1,7 @@
 # arxiv digest (quant-ph + cond-mat) — 2026-04-24
 
-*35 papers · 2 highlighted*  
-_⏳ in progress: 35/95 papers processed (file updates after each one)_
+*36 papers · 2 highlighted*  
+_⏳ in progress: 36/95 papers processed (file updates after each one)_
 
 
 ## ⭐ Highlighted (2)
@@ -1652,7 +1652,7 @@ We present a fast, memory-efficient, unitarity-preserving numerical method beyon
 </details>
 
 
-## statistical mechanics (1)
+## statistical mechanics (2)
 
 ### [Novel dynamics for an inertial polar tracer in an active bath](http://arxiv.org/abs/2604.21762v1)
 
@@ -1717,6 +1717,58 @@ We present a fast, memory-efficient, unitarity-preserving numerical method beyon
 <details><summary>Abstract</summary>
 
 A polar tracer immersed in an active bath is known to be propelled forward and therefore activated. Here we report that the induced dynamics of an inertial tracer can be much richer than expected. We investigate a heavy polar tracer immersed in a bath of independent active Brownian particles. Using the projection-operator formalism to integrate out the bath, we show that the tracer's reduced dynamics can be mapped to a stochastic Lorenz equation. According to the attractors in the Lorenz equation, the tracer motion is classified into several different dynamical regimes, including active Brownian motion, chiral active Brownian motion, complex chaotic motion, and zigzag active Brownian motion. For certain regimes, we derive analytical expressions for the propulsion speed, the velocity covariance, and the effective diffusion coefficient. Numerical simulations corroborate these theoretical predictions.
+
+</details>
+
+### [Birth, Death, and Replication at Surfaces: Universal Laws of Autocatalytic Dynamics](http://arxiv.org/abs/2604.21586v1)
+
+**Authors:** Denis S. Grebenkov  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21586v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21586_figures/2604.21586_fig1.jpg" width="500"><br>
+<sub>FIG. 1. A schematic view of autocatalytic reactions on a sur- face partitioned into three subsets (here, M = 2): an absorb- ing region Γ0 (in red) that destroys particles via A+Γ0 →Γ0; an inert region Γ1 (in gray) that reflects particles back into the bulk; and a catalytic region Γ2 (in green) that replicates particles via a binary splitting A + Γ2 →2A + Γ2. Each of three subsets can be composed of multiple pieces. In the shown random realization, a single particle started from x0 diffuses towards the surface and then branches into two copies on Γ2; one of them reaches an absorbing region Γ0 and dis- appears, whereas the other produces two more offsprings on another piece of the catalytic...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21586_figures/2604.21586_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Time evolution of the population size N(t) for a diffusion-reaction system with diffusivity D = 1 in a hol- low cylinder of radii R = 0.2 and L = 1, with the outer perfectly absorbing surface (κ0 = ∞) and the inner au- tocatalytic surface with reactivity κ2. The starting point x0 is on the inner surface. Three regimes are shown for κ2 = 0.9 κc 2 (subcritical, dash-dotted line), κ2 = κc 2 (criti- cal, dashed line), and κ2 = 1.1 κc 2 (supercritical, solid line), with κc 2 = D/(R ln(L/R)) ≈3.11. Arbitrary units are used. (a) Probability 1 −Q0(t|x0) of having at least one particle at time t; (b) Distribution Qk(t|x0) at two times: t = 0.1 (thin lines) and t = 5 (thick lines); (c) Mean...</sub>
+
+</details>
+
+**Main problem.** Understanding the dynamics of surface-mediated autocatalytic processes where replication (branching) and loss (absorption) are triggered at interfaces, specifically predicting the transition between population extinction and explosive growth.
+
+**Main result.** The derivation of a unified theoretical framework consisting of a nonlinear integral equation and an equivalent Fokker-Planck equation with nonlinear Robin-type boundary conditions, which identifies three distinct dynamical regimes (subcritical, critical, and supercritical).
+
+**Method.** A probabilistic approach using a generating function for the population size, combined with renewal-type integral equations and the transformation into backward diffusion equations.
+
+**Summary.** This paper provides a unified mathematical framework to study autocatalytic processes that occur at interfaces. By treating particles as diffusing in a bulk medium and reacting at the boundaries, the author derives equations that describe the full statistics of the population size. The study identifies three universal regimes: subcritical (extinction), critical (steady-state), and supercritical (explosive growth). These findings are applicable to diverse fields including catalysis, biofilm growth, and viral infections.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Particles diffusing in a bulk medium that interact with specific surface regions of a confining domain, where they can undergo absorption, reflection, or branching (replication).
+
+**Key observables.** Probability distribution of population size, statistical moments (mean and second-order), survival probability, and the generating function.
+
+**Important parameters / regimes.** Surface reactivity (kappa), diffusion coefficient (D), and the principal eigenvalue (lambda_0) which determines the asymptotic regime.
+
+**Assumptions / limitations.** Particles undergo ordinary diffusion with constant diffusivity; the boundary is partitioned into a finite number of regions; the initial state is a single particle.
+
+**Figures summary.** Figure 1 shows a schematic of a partitioned surface with different reaction types; Figure 2 illustrates population dynamics (persistence, distribution, and moments) in a hollow cylinder across different reactivity regimes.
+
+**Paper structure.** The paper introduces the problem of surface-mediated autocatalysis, develops a mathematical framework using generating functions and integral equations, establishes an equivalent PDE description with nonlinear boundary conditions, and concludes with numerical illustrations of the identified dynamical regimes.
+
+**Why it may be interesting.** The framework for describing stochastic branching and absorption at boundaries is highly relevant to open quantum systems and non-equilibrium dynamics, particularly for modeling dissipation and particle-interface interactions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Autocatalytic processes underlie diverse systems in which replication is triggered at interfaces, including heterogeneous catalysis on solid substrates, enzyme activity at membranes, viral infections, biofilm growth, and spatially structured ecosystems. In a typical scenario, particles move in a bulk medium and interact with surface regions, where they may either disappear or reproduce through branching, splitting or fission. Here, we develop a general theoretical framework to understand such surface-mediated autocatalytic processes. We show that the interplay between loss and replication at surfaces gives rise to rich population dynamics. For this purpose, we derive a renewal-type nonlinear integral equation for the generating function of the population size, providing access to its full probability distribution and statistical moments. We further establish an equivalent description in terms of a Fokker-Planck equation with nonlinear Robin-type boundary conditions that encode surface reactions. Our results identify distinct dynamical regimes and universal scaling laws, and provide a unified framework to predict when surface activity promotes extinction or explosive growth. These findings offer quantitative insight into catalytic efficiency, metabolic regulation, and population persistence in spatially heterogeneous environments.
 
 </details>
 
