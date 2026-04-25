@@ -1,7 +1,7 @@
 # arxiv digest (quant-ph + cond-mat) — 2026-04-24
 
-*63 papers · 4 highlighted*  
-_⏳ in progress: 63/95 papers processed (file updates after each one)_
+*69 papers · 4 highlighted*  
+_⏳ in progress: 69/95 papers processed (file updates after each one)_
 
 
 ## ⭐ Highlighted (4)
@@ -14,7 +14,7 @@ _⏳ in progress: 63/95 papers processed (file updates after each one)_
 - ⭐ [Quantum jump correlations in long-range dissipative spin systems](http://arxiv.org/abs/2604.21513v1) — Rosario Fazio
 
 
-## quantum information and computing (24)
+## quantum information and computing (26)
 
 ### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
 
@@ -2093,6 +2093,204 @@ High-precision optical phase stabilization in quantum networks is fundamentally 
 
 </details>
 
+### [pygridsynth: A fast numerical tool for ancilla-free Clifford+T synthesis](http://arxiv.org/abs/2604.21333v1)
+
+**Authors:** Shuntaro Yamamoto, Nobuyuki Yoshioka  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21333v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21333_figures/2604.21333_fig1.jpg" width="500"><br>
+<sub>Figure 1: Two-qubit decomposition and absorption of residuals. (1) Three-CNOT template (top): Rz(−ψ) on the target; (C, D) between CNOTs 1–2; Rx(θ) and Rz(ϕ) between CNOTs 2–3; (A, B) after CNOT 3. (2) After magnitude approximation, residual Rz (control) and Rx (target) appear around the Clifford+T core. (3) Residuals commute with CNOTs and merge into C′, D′, A′, B′ and a simpler core.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21333_figures/2604.21333_fig2.jpg" width="500"><br>
+<sub>Figure 2: Partial decomposition of a two-qubit block. Top: the absorbed form from Fig. 1 (bottom), with an additional leading CNOT01; primed blocks C′, D′, A′, B′, three CNOTs in the core, and Clifford+T cores (CT). Middle: C′ and D′ expanded via (20) into Rz and CT layers on each wire; the leading CNOT01 and the rest of the CNOT pattern are unchanged. Bottom: ∆phase (22) absorbs the leading CNOT01, the Rz rotations, and a trailing CNOT01; the Clifford+T suffix (CT pairs, remaining CNOTs, A′, B′) is unchanged.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21333_figures/2604.21333_fig3.jpg" width="500"><br>
+<sub>Figure 3: Example of multiplexed Rz gate decomposition for a 4-qubit unitary: the control qubits (top) determine which Rz rotation is applied to the target qubit (bottom).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21333_figures/2604.21333_fig4.jpg" width="500"><br>
+<sub>Figure 4: Step-by-step decomposition of a 3-qubit unitary.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21333_figures/2604.21333_fig5.jpg" width="500"><br>
+<sub>Figure 5: Recursive absorption of residual diagonal phase matrix for n = 3: (0) recursive circuit; (1) VA partially decomposed to CT and ∆VA; (2) ∆VA commutes left past the right multiplexed Rz; (3) absorbed into V ˜ B, then V ′ ˜ B partially decomposed to CT and ∆V ′ ˜ B; (4) ∆V ′ ˜ B commutes left, absorbed into W ˜ B →W ′ ˜ B; (5) W ′ ˜ B partially decomposed, ∆W ′ ˜ B commutes left; (6) WC fully decomposed (absorbs all accumulated ∆; no residual). CT denotes a two-qubit block approximated by Clifford+T gates.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21333_figures/2604.21333_fig6.jpg" width="500"><br>
+<sub>Figure 6: Unitary synthesis benchmarks: each point corresponds to one synthesis run at a chosen tolerance ϵ. Vertical axis: T-count of the output Clifford+T circuit; horizontal axis: diamond-norm error between the target unitary channel and the implemented channel. (a) All n superposed. (b)– (e) Same quantities for n = 1, 2, 3, 4 only.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21333_figures/2604.21333_fig7.jpg" width="500"><br>
+<sub>Figure 7: Mixed synthesis benchmarks (error vs. T-count). Each panel fixes the number of qubits n; the horizontal axis is the total T-count after mixing and the vertical axis is the diamond-norm distance between the target channel and the optimized mixture. (a) n = 1. (b) n = 2. (c) n = 3. (d) n = 4. Panel (d) omits the smallest-ϵ regime: at n = 4 those mixed-synthesis runs exceeded practical wall- clock limits.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21333_figures/2604.21333_fig8.jpg" width="500"><br>
+<sub>Figure 7 summarizes these tradeoffs. Across the panels (n = 1–4), we find that mixed synthesis in the small error limit halves the T-count of unitary synthesis at comparable diamond-norm error, consistent with Lemma 1: if the candidates form an ϵ-net in diamond norm error, the optimized mixture can achieve O(ϵ2) residual error, so the leading log2(1/ϵ) cost per decade of target error is halved. Mixed synthesis also incurs a larger additive T- cost: the candidates must be synthesized with accuracy well below the perturbation scale ϵ used to generate them, which adds T gates whose contribution is only weakly reduced when ϵ is large. At small ϵ the halved leading term dominates and mixed...</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21333_figures/2604.21333_fig9.jpg" width="500"><br>
+<sub>Figure 8(a) places post-mix well below pre-mix for comparable horizontal values, and on log–log axes the trend is consistent with post-mix error scaling approximately as</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21333_figures/2604.21333_fig10.jpg" width="500"><br>
+<sub>Figure 8: Mixed synthesis (Section 5): each marker is one run at some ϵ and n. Pre-mix is the diamond-norm distance from the target to a typical synthesized perturbed unitary before LP mixing; post-mix is the diamond-norm distance from the target to the optimized mixture channel after mixing. (a) Horizontal axis: pre-mix; vertical axis: post-mix. (b) Horizontal axis: pre-mix; vertical axis: post- mix divided by (pre-mix)2.</sub>
+
+</details>
+
+**Main problem.** The challenge of efficiently approximating arbitrary n-qubit unitary operators using the discrete, fault-tolerant Clifford+T gate set with minimal T-count and high precision.
+
+**Main result.** The introduction of pygridsynth, a Python library that achieves O(log(1/epsilon)) runtime for synthesis and demonstrates quadratic error suppression (from epsilon to epsilon^2/(2n)) using a mixed-synthesis workflow.
+
+**Method.** A recursive decomposition strategy (Block ZXZ) combined with magnitude approximation for X-axis rotations, GridSynth for Z-axis rotations, and a Linear Programming approach to optimize the mixing probabilities of perturbed unitaries.
+
+**Summary.** The paper presents pygridsynth, an open-source Python library designed for high-precision Clifford+T synthesis. It provides efficient algorithms for both single-qubit and multi-qubit unitaries, achieving logarithmic scaling with respect to precision. A key highlight is the 'mixed synthesis' feature, which uses a probabilistic mixture of circuits to quadratically reduce the diamond norm error. This tool is particularly useful for benchmarking gate-set costs and error-suppression strategies in fault-tolerant quantum computing.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The framework operates within the context of fault-tolerant quantum computing using the Clifford+T gate set, specifically addressing n-qubit unitary and quantum channel approximations.
+
+**Key observables.** T-count, diamond norm error, and the ratio of post-mix error to pre-mix error squared.
+
+**Important parameters / regimes.** Error tolerance (epsilon), number of qubits (n), and the number of perturbed unitaries (M) in the mixed synthesis.
+
+**Assumptions / limitations.** The two-qubit decomposition assumes a fixed three-CNOT template; the multi-qubit approach assumes the ability to absorb residual phases; and the current implementation is restricted to the ancilla-free setting.
+
+**Figures summary.** Figure 1 shows two-qubit decomposition and residual rotation absorption; Figure 2-4 illustrate multi-qubit recursive decomposition and Gray code patterns; Figure 6-8 benchmark T-count vs. error and demonstrate the quadratic error suppression of mixed synthesis.
+
+**Paper structure.** The paper introduces the pygridsynth library, details single-qubit synthesis via Euler decomposition and GridSynth, extends the method to multi-qubit unitaries via recursive Block ZXZ decomposition, presents a mixed-synthesis strategy for quantum channels using Linear Programming, and concludes with performance benchmarks.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We present pygridsynth, an open-source Python library for ancilla-free approximate Clifford+$T$ synthesis that runs in $O(\log(1/ε))$ for precision $ε$. For $n=1, 2$ qubits, the library builds upon established efficient and high-precision synthesis routines, such as nearly optimal $Z$-rotation synthesis and magnitude approximation. For $n\ge 3$ qubits, we introduce a partial-decomposition technique that generalizes the magnitude approximation, reducing constant factors in the $T$-count as $(\frac{21}{8}\cdot 4^n - \frac{9}{2}\cdot 2^n + 9)\log_2(1/ε) + o(\log(1/ε))$. The package also exposes a mixed-synthesis workflow that approximates target unitary channels by probabilistic mixtures of Clifford+$T$ circuits, for which we empirically find that the synthesis error is reduced from $ε$ to $ε^2/(2n)$. Taken together, these features make pygridsynth a Python-native platform for high-precision Clifford$+T$ synthesis and for benchmarking unitary and mixed synthesis strategies on multi-qubit instances.
+
+</details>
+
+### [Sufficient support size of measurements for quantum estimation](http://arxiv.org/abs/2604.21323v1)
+
+**Authors:** Koichi Yamagata  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21323v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21323_figures/2604.21323_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21323_figures/2604.21323_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21323_figures/2604.21323_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21323_figures/2604.21323_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21323_figures/2604.21323_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21323_figures/2604.21323_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21323_figures/2604.21323_page8.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 8</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21323_figures/2604.21323_page9.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 9</sub>
+
+</details>
+
+**Main problem.** The optimization of quantum measurements (POVMs) for parameter estimation is difficult because the space of possible measurements is potentially infinite-dimensional due to an unbounded number of outcomes.
+
+**Main result.** The paper provides explicit upper bounds on the number of outcomes required for optimal measurements in both locally unbiased and Bayesian estimation, proving that optimal POVMs can be chosen to be rank-one and have a finite, manageable support size.
+
+**Method.** The author uses a convex-analytic approach, extending Fujiwara's method and utilizing the properties of real Jordan subalgebras, sufficient subspaces, and the monotonicity of Fisher metrics.
+
+**Summary.** This paper addresses the complexity of finding optimal quantum measurements for parameter estimation. It proves that for both local and Bayesian estimation, one does not need to consider an infinite number of measurement outcomes. Instead, the author provides specific, finite bounds on the number of outcomes required, significantly reducing the search space for numerical optimization. Furthermore, the paper shows that the optimal measurements can always be chosen to be rank-one, making the search for optimal estimators much more tractable.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A d-parameter family of density operators acting on a finite-dimensional Hilbert space.
+
+**Key observables.** Classical Fisher information matrix, Symmetric Logarithmic Derivative (SLD) Fisher information matrix, and the weighted trace of the Mean Squared Error (MSE).
+
+**Important parameters / regimes.** Dimension of the Hilbert space (dim H), number of parameters (d), and the dimension of the locally sufficient subspace (dim Ah).
+
+**Assumptions / limitations.** The Hilbert space must be finite-dimensional, and the parameter family must be smooth for the locally unbiased estimation setting.
+
+**Paper structure.** The paper introduces the optimization problem, establishes bounds for locally unbiased estimation, extends these results to Bayesian estimation, utilizes algebraic structures of subalgebras to refine the bounds, and provides a qubit example to demonstrate the reduction in complexity.
+
+**Why it may be interesting.** This is highly relevant for quantum metrology and quantum sensing, as it provides the theoretical justification needed to use numerical optimization to find globally optimal measurement strategies without needing to search an infinite space.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+In quantum estimation for a $d$-parameter family of density operators on a finite-dimensional Hilbert space $\mathcal{H}$, an estimator is specified by a pair $\left(M,\hatθ\right)$, where $M$ is a POVM with a finite outcome set $Ω$ and $\hatθ:Ω\to\mathbb{R}^{d}$ is a classical estimator map. Since the number of outcomes $\left|Ω\right|$ is a priori unbounded, the space of admissible POVMs is vast, which makes the search for optimal estimators difficult. In this paper, for the minimization of the weighted trace of the mean squared error among locally unbiased estimators, we prove that it suffices to consider POVMs with at most $\left({\rm dim}\,\mathcal{H}\right)^{2}+d(d+1)/2-1$ outcomes, and that an optimal measurement can be chosen to be rank-one. For the minimization of the average weighted trace of the mean squared error in Bayesian estimation, we show that it suffices to consider POVMs with at most $\left( {\rm dim}\, \mathcal{H}\right)^{2}$outcomes, and again an optimal POVM can be taken to be rank-one. Furthermore, when the model admits a real sufficient subalgebra, we show that the $\left( {\rm dim}\, \mathcal{H} \right)^{2}$ term in the above support-size bounds can be reduced in both the locally unbiased and Bayesian settings. These bounds substantially reduce the search space for optimal measurements and justify restricting numerical optimization to rank-one POVMs with finitely many outcomes.
+
+</details>
+
 
 ## numerical methods (4)
 
@@ -2359,7 +2557,7 @@ In recent years, a method for computing spin dynamics at infinite temperature (s
 </details>
 
 
-## quantum gases (1)
+## quantum gases (2)
 
 ### [Collective Excitations and Stability of Nonequilibrium Polariton Supersolids](http://arxiv.org/abs/2604.21353v1)
 
@@ -2417,6 +2615,72 @@ In recent years, a method for computing spin dynamics at infinite temperature (s
 <details><summary>Abstract</summary>
 
 Formation of nonequilibrium counterparts of supersolids, simultaneously characterized with spontaneous superfluid and crystalline order, was recently reported in incoherently pumped polariton condensates. We investigate collective excitation spectra of this phase and explicitly demonstrate the emergence of gapless Nambu-Goldstone modes due to spontaneously broken continuous phase and translation symmetries. For the recent implementation of the polariton nonequilibrium supersolidity in semiconductor metasurfaces [D. Trypogeorgos et al., Nature 639, 337 (2025)], we demonstrate the key role of attractive polariton interactions, mediated by the excitonic reservoir, for stability of the supersolid phase. Performing a thorough numerical investigation, we identify the conditions for existence of the diagonal and off-diagonal long-range order in negative-mass nonequilibrium supersolids.
+
+</details>
+
+### [Condensate states in Fermi and Bose-Hubbard ladders](http://arxiv.org/abs/2604.21296v1)
+
+**Authors:** F. X. Liu, E. S. Ma, Z. Song  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21296v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21296_figures/2604.21296_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Comparison of the statistics of fermions and hardcore bosons. (a) Neither hardcore bosons nor fermions can occupy the same single-site state. (b) They obey different statistics when two single particles exchange their positions. (c) How- ever, when only pair states are considered, a local hardcore Bose pair and a Fermi pair obey the same statistics. This suggests that the hardcore boson counterpart of a fermionic model may possess pair eigenstates of the same form.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21296_figures/2604.21296_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Schematic of the lattice structures associated with the Fermi and hardcore Bose Hamiltonians studied in this work. The plaquette corresponding to the Hamiltonians Hl F and Hl B given in Eqs. (16) and (43), respectively. All param- eters, including hopping amplitudes, nearest-neighbor inter- action strengths, and on-site potentials, are indicated in the panel. The complex hopping amplitudes induce a magnetic flux threading the plaquette.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21296_figures/2604.21296_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Schematic illustration of the decomposition of a lad- der structure associated with the Fermi and hardcore Bose Hamiltonians studied in this work. (a) The ladder Hamilto- nians HFL and H BL given in Eqs. (32) and (55 ), respectively, can be expressed as the sum of two types of plaquettes given in Eqs. (34, 35) and (57, 58), respectively. (b) Schematic illustration of the two types of plaquettes, the dotted circle encloses the two combined sites.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21296_figures/2604.21296_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Fidelity dynamics of η-pairing states in the Fermi-Hubbard ladder under quench by next-nearest-neighbor hopping. The initial states are the exact eigenstates ψF n = (ηF)n|0⟩/(n! p</sub>
+
+</details>
+
+**Main problem.** The study investigates whether fermions and hardcore bosons can share identical many-particle condensate-pair eigenstates in ladder geometries and examines the stability of these states against next-nearest-neighbor hopping perturbations.
+
+**Main result.** The authors demonstrate that while single-particle statistics differ, local pair states can be identical, leading to shared condensate character; however, Bose-pair states remain exact eigenstates under next-nearest-neighbor hopping while Fermi-pair states become unstable.
+
+**Method.** The work employs Spectrum Generating Algebra (SGA) and Restricted Spectrum Generating Algebra (RSGA) to construct exact eigenstates, alongside numerical simulations of quantum quench dynamics using exact diagonalization.
+
+**Summary.** This paper explores the relationship between many-particle quantum states in Fermi and Bose-Hubbard ladders. It shows that while fermions and hardcore bosons have different single-particle statistics, they can share identical condensate-pair eigenstates when considering local pairs. Using algebraic construction and numerical simulations, the authors find that these Bose-pair states are robust against next-nearest-neighbor hopping, whereas Fermi-pair states are destabilized. This distinction provides a potential mechanism for Hilbert-space fragmentation in hardcore systems.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study focuses on extended Fermi-Hubbard and hardcore Bose-Hublar ladders, which are physically realizable in synthetic atomic ladders using optical lattices.
+
+**Key observables.** Off-Diagonal Long-Range Order (ODLRO), fidelity (F(t)) during quantum quenches, and the eta-pairing operator.
+
+**Important parameters / regimes.** Next-nearest-neighbor hopping strength (J_x), hopping amplitudes (J_parallel, J_perp), density-density interactions (V_perp), and magnetic flux (Phi).
+
+**Assumptions / limitations.** The analysis assumes the hardcore boson limit (infinite on-site interaction) and focuses on the stability of states under specific local perturbations.
+
+**Figures summary.** Figure 1 illustrates the statistical similarities and differences between fermions and hardcore bosons at the single-site and pair levels; Figure 2 shows the lattice structures and the addition of next-nearest-neighbor links; Figure 3 depicts the decomposition of the ladder into sub-Hamiltonian plaquettes; Figure 4 displays the decay of fidelity for Fermi-Hubbard ladder states under a quench.
+
+**Paper structure.** The paper begins by establishing the statistical equivalence of fermion and boson pairs, proceeds to construct exact eigenstates using algebraic methods (SGA/RSGA), investigates the stability of these states via numerical quench dynamics, and concludes with implications for Hilbert-space fragmentation.
+
+**Why it may be interesting.** This paper is highly relevant for many-body dynamics and AMO physics as it explores the emergence of exact many-body states, the stability of quantum correlations in synthetic lattices, and the mechanism of Hilbert-space fragmentation.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Although neither hardcore bosons nor fermions can occupy the same single-site state, they still obey different statistics, resulting in distinct many-particle quantum states, such as condensate states versus Fermi-liquid states. However, when only pair states are considered, the two can take the same form, since a local hardcore Bose pair and a Fermi pair obey the same statistics. In this work we demonstrate this by studying both Fermi and Bose extended Hubbard ladders, which can be realized experimentally in synthetic atomic ladders. A set of exact condensate-pair eigenstates for the Fermi ladder is constructed under SU(2) symmetry and can then be obtained by the spectrum generating algebra. The corresponding hardcore boson counterpart can be simply obtained by replacing fermionic operators with hardcore bosonic ones. Nevertheless, the boson-pair eigenstates are associated not with symmetry but with the restricted spectrum generating algebra. We also investigate the effect of next-nearest-neighbor hopping on the condensate states through numerical simulations of the dynamic response. The conclusions can be extended to a two-layer system. Our result reveals not only the resemblance of fermions to hardcore bosons, but also a possible mechanism of Hilbert-space fragmentation.
 
 </details>
 
@@ -3186,7 +3450,7 @@ We present a Monte Carlo study of the fractal geometry of clusters formed by dis
 </details>
 
 
-## strongly correlated electrons (8)
+## strongly correlated electrons (9)
 
 ### [Cryogenic shock exfoliation for ultrahigh mobility rhombohedral graphite nanoelectronics](http://arxiv.org/abs/2604.21912v1)
 
@@ -3731,8 +3995,58 @@ We develop a general algebraic scheme to decompose fractional quantum Hall (FQH)
 
 </details>
 
+### [$η$-pairing in a two-band model of spinless fermions](http://arxiv.org/abs/2604.21318v1)
 
-## disordered systems and neural networks (1)
+**Authors:** Igor N. Karnaukhov  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21318v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21318_figures/2604.21318_fig1.jpg" width="500"><br>
+<sub>Figure 1: The one-particle energies of spinless fermions in the 2D model are shown: low-energy</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21318_figures/2604.21318_fig2.jpg" width="500"><br>
+<sub>Figure 2: Effective attractive interaction between two s-fermions, forming a complex,</sub>
+
+</details>
+
+**Main problem.** Investigating whether two-particle hybridization between itinerant and localized fermions can induce an effective attractive interaction to explain eta-pairing and high-temperature superconductivity.
+
+**Main result.** The study demonstrates that strong two-particle hybridization can overcome repulsive intra-band interactions, leading to an effective attraction that realizes p-type superconducting states and eta-pairing.
+
+**Method.** The authors use the Bethe ansatz to find an exact solution for the 1D version of the model and derive the S-matrix to determine effective interactions.
+
+**Summary.** This paper explores a mechanism for superconductivity driven by two-particle hybridization in a two-band model of spinless fermions. It shows that this hybridization can transform repulsive interactions into attractive ones, facilitating p-type superconducting states. The findings are particularly relevant for understanding high-temperature superconductivity in hydrogen-rich materials and hole-doped cuprates. The 1D model is solved exactly using the Bethe ansatz to provide rigorous conditions for eta-pairing and Bose condensation.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A two-band model of spinless fermions consisting of itinerant s-band fermions and localized d-band fermions, featuring two-particle hybridization between nearest neighbors.
+
+**Key observables.** Effective interaction strength (J_eff), eta-pairing energy, pair energy (epsilon_-), and critical temperature (Tc).
+
+**Important parameters / regimes.** Hybridization strength (g), intra-band interactions (J, I), localized fermion energy (epsilon), and Fermi energy (epsilon_F).
+
+**Assumptions / limitations.** The exact solution is derived for a 1D model; the effective interaction is simplified to a constant by considering states near the Fermi energy.
+
+**Figures summary.** Figure 1 shows the energy dispersion of the s-band.
+
+**Paper structure.** The paper progresses from defining the Hamiltonian and energy levels to deriving the S-matrix, identifying eta-pairing and Bose condensation thresholds, and finally discussing implications for cuprates and hydrogen-rich superconductors.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study the two-band model of spinless fermions in which itinerant fermions interact with localized fermions through the two-particle hybridization. In 1D version, the model has exact solution using the Bethe ansatz. It has been shown that accounting for two-particle hybridization reduces the repulsive interaction between itinerant fermions. In the case of strong interaction, the effective interaction between itinerant fermions is attractive, and $η$-pairing of spinless fermions is realized. The proposed pairing mechanism via two-particle hybridization can lead to $p$-superconducting states with $η$-pairing. $η$-pairing of spinless fermions could explain the phenomenon of high-temperature superconductivity experimentally observed in hydrogen-rich materials at high pressures.
+
+</details>
+
+
+## disordered systems and neural networks (2)
 
 ### [Disorder-induced crossover from phase-averaging to mode-mixing regimes in magnetic domain walls of a second-order topological insulator](http://arxiv.org/abs/2604.21702v1)
 
@@ -3826,8 +4140,107 @@ We investigate electronic transport across a magnetic domain wall (DW) in a thre
 
 </details>
 
+### [Pressure-Tuned Competing Electronic States in Layered Tellurides](http://arxiv.org/abs/2604.21336v1)
 
-## other (14)
+**Authors:** Mahmoud Abdel-Hafiez, Govindaraj Lingannan, D. A. Chareev, A. N. Vasiliev, Anas Abutaha, Kadir Can Dogan, Mehmet Yagmurcukardes, Mehmet Egilmez, Hasan Sahin, Sami El-Khatib  
+**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21336v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21336_figures/2604.21336_fig1.jpg" width="500"><br>
+<sub>Fig. 1(c)) reveals a crossing near 45 K. In bulk 2H-MoTe2, this crossover is consistent with the</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21336_figures/2604.21336_fig2.jpg" width="500"><br>
+<sub>Fig. 1(d) shows a clear magnetoresistive response ρ(T) under 0 and 9 T applied parallel to the c-</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21336_figures/2604.21336_fig3.jpg" width="500"><br>
+<sub>Fig. 2(b), revealing a discernible anisotropy, reaching a maximum near 45 K, and gradually</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21336_figures/2604.21336_fig4.jpg" width="500"><br>
+<sub>FIG. 1. (a) X-ray diffraction along the c-axis showing the (00ℓ) reflections. (b) Raman spectrum (514 nm excitation) with characteristic phonon modes; inset: 2H crystal structure. (c) 𝜌𝑐(𝑇) at ambient pressure. Solid lines represent fits to FL, Arrhenius, and 3D Mott VRH regimes; dashed extrapolations intersect near 45 K. Inset: series combination of the FL and VRH. (d) 𝜌𝑐(𝑇) and 𝜌𝑎𝑏(𝑇) at 0 and 9 T (left axis), and corresponding MR(𝑇) for H//c and H//ab (right axis), showing a maximum near 45 K.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21336_figures/2604.21336_fig5.jpg" width="500"><br>
+<sub>FIG. 2. (a) MR(𝐻) measured at selected temperatures for H//c and H//ab up to 60 T. (b) MR(T) at 9 T for H//c and H//ab. The dashed vertical line marks the 45 K crossover. (c) MRc(𝐻) at selected temperatures; inset: ES fit (solid red line) to Eq. (2), and the extracted 𝜉. (d) Low-temperature MR(𝐻) with fits to Eq. (1) in solid red lines. (e-g) Temperature evolution of the 𝑃, 𝐴, and 𝐿loop; solid lines are guides to the eye.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21336_figures/2604.21336_fig6.jpg" width="500"><br>
+<sub>FIG. 3. (a) 𝜌𝑐(𝑇) under listed hydrostatic pressures. (b) 𝜌𝑐(𝑇) at 15.6 GPa, showing FL behavior at high temperatures (red line) and MWL at low temperatures (blue line); inset: low-temperature zoom with MWL fit. Vertical dashed lines mark the crossover near ~4 K. (c) 𝜌𝑐(𝑇) at 15.6 GPa measured under the listed applied magnetic fields; solid blue lines denote MWL fits. (d) MRc(𝐻) at 15.6 GPa in the range ± 5 T at selected temperatures; the 1.9 K curve is fitted to a 3D WAL model (solid red line). (e–j) First-principles electronic band structures including SOC under hydrostatic pressure from 0 to 15 GPa; the energy gap evolution between the conduction-band minimum and valence-band maximum is...</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21336_figures/2604.21336_fig7.jpg" width="500"><br>
+<sub>FIG. 1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21336_figures/2604.21336_fig8.jpg" width="500"><br>
+<sub>FIG. 2.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21336_figures/2604.21336_fig9.jpg" width="500"><br>
+<sub>FIG. 3.</sub>
+
+</details>
+
+**Main problem.** The study aims to understand the pressure-driven evolution of electronic states in bulk 2H-MoTe2, specifically investigating the transition from a localized semiconducting regime to a semimetallic regime and the role of disorder in transport.
+
+**Main result.** The researchers demonstrate a continuous pressure-induced bandgap collapse and a transition from a strongly localized variable-range hopping regime to a semimetallic regime characterized by quantum interference (WAL to WL crossover).
+
+**Method.** The study combines high-pressure transport measurements (up to 15.6 GPa) and high-field magnetotransport (up to 60 T) with first-principles DFT calculations including spin-orbit coupling.
+
+**Summary.** This paper investigates how hydrostatic pressure tunes the electronic landscape of 2H-MoTe2 from an insulator to a semimetal. By using extreme magnetic fields and pressure, the authors show that the system transitions from a regime dominated by variable-range hopping to one dominated by quantum interference. The study reveals that the large magnetoresistance is driven by electronic inhomogeneity rather than pure semimetallicity. Ultimately, the work provides a unified picture of how the bandgap collapses and how disorder-controlled transport evolves under compression.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The physical system is bulk semiconducting 2H-phase Molybdenum ditelluride (MoTe2), a layered transition-metal dichalcogenide. The transport is modeled using frameworks such as Mott variable-range hopping, Nguyen-Spivak-Shklovskii interference, and Weak Antilocalization (WAL) models.
+
+**Key observables.** Out-of-plane resistivity, magnetoresistance (MR), conductance, and bandgap size.
+
+**Important parameters / regimes.** Pressure up to 15.6 GPa, magnetic fields up to 60 T, localization length (~1.99 nm), phase-coherence length, and the 45 K temperature crossover point.
+
+**Assumptions / limitations.** The first-principles calculations do not directly address quantum interference effects, focusing instead on the electronic structure evolution.
+
+**Figures summary.** Fig 1 shows XRD, Raman, and ambient pressure transport/MR; Fig 2 displays high-field MR and temperature evolution of MR parameters; Fig 3 presents resistivity under pressure, 3D WAL, and DFT-calculated band structures.
+
+**Paper structure.** The paper introduces the transport anomalies in 2H-MoTe2, details the experimental high-pressure/high-field setup, analyzes the transport regimes at ambient and high pressure, provides DFT evidence for bandgap collapse, and concludes with a unified transport framework.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Layered transition-metal dichalcogenides (TMDs) host competing electronic states that can be tuned by external perturbations, providing a platform to explore the interplay between disorder, electronic structure, and quantum transport. Here we investigate magnetotransport in bulk semiconducting 2H-MoTe2 under hydrostatic pressure. At ambient pressure, transport evolves from high-temperature metallic behavior into activated conduction and ultimately a strongly localized variable-range hopping regime, accompanied by a pronounced magnetotransport anomaly near 45 K and large, nonsaturating magnetoresistance extending up to an unprecedented field of 60 T in semiconducting 2H-MoTe2. Under compression to 15.6 GPa, the insulating state is rapidly suppressed and a low-resistivity regime emerges in which quantum interference dominates, exhibiting a crossover from weak antilocalization (WAL) to weak localization (WL) at low temperatures. A physically motivated phenomenological description captures the magnetoresistance across these regimes and yields a characteristic electronic length scale that remains comparable across the localized and quantum-interference regimes. First-principles calculations reveal a continuous pressure-driven collapse of the bandgap into a semimetallic electronic structure. These results establish a unified picture of pressure-tuned transport spanning hopping and quantum-coherent regimes.
+
+</details>
+
+
+## other (15)
 
 ### [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](http://arxiv.org/abs/2604.21929v1)
 
@@ -5037,5 +5450,78 @@ We prove an exact quantum conservation law for a harmonic oscillator coupled to 
 <details><summary>Abstract</summary>
 
 Magnetic quantum sensors based on trapped ions utilize properties of quantum mechanics which have optimized precision and beat current limits in sensor technology. Trapped ions are highly sensitive in a large span of signal ranging from DC or static B-field to the radiofrequency range in 100s of MHz and can attain the sensitivity in the range of pT to sub pT . They are tuneable to frequencies of interest and can be used as a lock-in frequency detector. This modelling and simulation based study presents an innovative design of Surface Paul Traps, enabling the use of trapped ions as ultra-sensitive sensors for magnetic field detection and precise measurement of magnetic field gradients at a sub-millimeter spatial resolution. The novel design features multiple trapping regions, allowing for the mapping of magnetic fields across various ion-trapping zones. The study demonstrates groundbreaking advancements in ion manipulation and confinement through innovative chip architecture.
+
+</details>
+
+### [Observation of quantum multi-Mpemba effect in a trapped-ion system](http://arxiv.org/abs/2604.21320v1)
+
+**Authors:** Gang Xia, Yu-Jie Zheng, Jing Huang, Chun-Wang Wu, Yi Xie, Ting Chen, Wei Wu, Weibin Li, Hui Jing, Jie Zhang, Yan-Li Zhou, Ping-Xing Chen  
+**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21320v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21320_figures/2604.21320_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Initial state dependent relaxation process. (b) The overlaps |a1| between the initial states ρ1,2,3 in and the SDM. a1 = 0 corresponds to the strong ME. (c) The quantum ME is witnessed by a single crossing of distance curves: the initial state ρ(2) in starts a greater distance from ρss than the initially closer state ρ(1) in but stabilizes first, for the reason having a smaller overlap |a1|. (d) The multi-ME is witnessed by two crossings and can not be understated by smaller overlap |a1| anymore. (e) Trapped ion setting. One Zeeman sublevel in the ground state and two Zeeman sublevels in D state are coupled by a bichromatic 729 nm laser beam with linewidth about 10 Hz. The two...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21320_figures/2604.21320_fig2.jpg" width="500"><br>
+<sub>FIG. 2. (a) Eigenspectra of L for three-level system and the corresponding time scale. The separation between λ1 and λ2 define a metastable manifold for times τ2 ≪t ≪τ1. (b)-(d) The relaxation speed v (blue lines) of a rotated initial random state as a function of s at time t = 0, τ2, τ1, and the overlap |a8|, |a2|, |a1| (red lines), respectively. The blue dashed line in (c) corresponds to v(τ2) = P5 i=2 aiλieλiτ2Ri , which is a good approximation of the exact speed v(τ2) = P8 i=1 aiλieλiτ2Ri (blue solid line).</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21320_figures/2604.21320_fig3.jpg" width="500"><br>
+<sub>Fig. 3(e-h) presents results for another pair of initial states (s = π and s = 0.85π), which satisfy |af 1| &gt; |ac 1| (’f’ denotes the farther initial states and ’c’ the closer one). In contrast to the previous cases, they exhibit different dynamical behaviors. Although the state s = 0.85π is initially closer to the steady state than s = π, the two quickly reverse order; however, a subsequent crossing oc- curs at a later time, restoring the initial ordering. Thus, in this case, the normal ME is avoided, and the initially closer state relaxes faster [41]. This multi-ME is driven by the overtaking of their relaxation speeds v(t) before the system relaxes into the metastable manifold spanned by...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21320_figures/2604.21320_fig4.jpg" width="500"><br>
+<sub>FIG. 3. (a)-(d) Quantum ME. The distance D(t) (a) and relaxation speed v(t) (b) as functions of time t for different initial states s = 0.75π (initial farther) and s = 0.5π (initial closer). Open circle (◦) in the horizontal axis is the time scale τ2 while the full circle (•) is τ1. (c) The difference in distance ∆D(t) = Df(t)−Dc(t) and speed ∆v(t) = vf(t)−vc(t) between these two states (’f’ denotes the initial farther one and ’c’ the closer one). (d) The overlaps |a1|, |a2|, |a8| of the initial states s = 0.75π and s = 0.5π, respectively. (e)-(h) Quantum multi-ME for different initial states s = π and s = 0.85π. (i)-(l) No quantum ME for different initial states s = 0.65π and |0⟩.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21320_figures/2604.21320_fig5.jpg" width="500"><br>
+<sub>FIG. 4. Phase diagram of the ME and Multi ME. The distri- bution of different types of ME as function of ∆|a8| and ∆|a1| (∆|ai| = |af i | −|ac i|) for (a) single crossing and two cross- ings and (b) no crossing. Here we randomly generate 50000 pairs of arbitrary initial pure states. Here, the ME occurs with approximately 87.7% probability when |af 8| &gt; |ac 8| and |af 1| &lt; |ac 1|, while the multi-ME occurs with approximately 96.8% probability when both |af 8| &gt; |ac 8| and |af 1| &gt; |ac 1| are satisfied.</sub>
+
+</details>
+
+**Main problem.** The study aims to understand and observe the 'quantum multi-Mpemba effect' (multi-ME), where relaxation trajectories of different initial states cross multiple times, and to move beyond the conventional long-time limit explanation.
+
+**Main result.** The researchers experimentally observed the quantum multi-ME in a trapped-ion system and developed a theoretical framework showing that the effect is driven by the competition between initial relaxation speeds (fastest decay modes) and the slowest decay mode (SDM) overlap.
+
+**Method.** The study combines experimental state preparation and tomography of a qutrit system with a theoretical framework based on 'relaxation speed' $v(t)$ and the expansion of the density matrix into Liouvillian eigenmodes.
+
+**Summary.** This paper reports the experimental observation of the quantum multi-Mpemba effect using a single trapped calcium ion. Unlike the standard Mpemba effect, which involves a single crossing of relaxation trajectories, the multi-Mpemba effect involves multiple crossings. The authors demonstrate that this phenomenon is driven by the interplay between the fastest decay modes and the slowest decay mode. They establish a comprehensive phase diagram that can predict the occurrence and type of these anomalous relaxation dynamics based on initial state overlaps.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A single 40Ca+ ion in a blade-shaped linear Paul trap, acting as a three-level qutrit system. The dynamics are described by a Lindblad master equation with Hamiltonian coupling and decay rates controlled by 729 nm and 854 nm lasers.
+
+**Key observables.** Distance curves $D(t)$ (deviation from steady state), relaxation speed $v(t)$, and trace/Hilbert-Schmidt distances.
+
+**Important parameters / regimes.** Decay rates $\gamma_1, \gamma_2$, Rabi frequencies $\Omega_1, \Omega_2$, time scales $	au_1$ (long-time) and $	au_2$ (intermediate), and overlaps with decay modes $|a_1|, |a_2|, |a_8|$.
+
+**Assumptions / limitations.** The system is treated as a Markovian open quantum system.
+
+**Figures summary.** The notes mention figures showing relaxation speed as a function of decay mode overlaps at $t=0$ and $t=	au_1$, and the evolution of relaxation speed at intermediate time scales.
+
+**Paper structure.** The paper introduces the multi-Mpemba effect, describes the experimental setup and qutrit model, presents the theoretical framework of relaxation speed, details the experimental observation of trajectory crossings, and concludes with a phase diagram predicting different types of quantum Mpemba effects.
+
+**Why it may be interesting.** It provides a new way to understand transient non-equilibrium dynamics in open quantum systems by looking at the competition of decay modes rather than just the long-time asymptotic behavior, which is crucial for understanding how quantum information relaxes.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The quantum Mpemba effect (ME) in Markovian systems is conventionally explained by a smaller overlap between the initial state and the slowest decay mode (SDM). Such state, initially farther away from equilibrium or steady state, relaxes faster than closer ones, resulting to a crossing of their trajectories. This picture, by neglecting the transient dynamics, holds in the long-time limit. Here we experimentally observe multiple trajectory crossings (multi-ME) in the relaxation dynamics of a trapped ion. Such novel dynamics takes place in a unusual scenario where the initial state instead has a larger overlap with the SDM. We develop a theoretical framework based on relaxation speed to understand the multi-ME. We show that the initial relaxation speed is governed by the fastest decay mode, which together with the SDM overlap gives a phase diagram that reveals both the occurrence and the types of quantum ME observed in our experiment. Our study goes beyond the simple picture based on the long-time limit, tracks continuously the quantum ME dynamics, and establishes a comprehensive framework to describe the transient quantum relaxation.
 
 </details>
