@@ -1,7 +1,7 @@
 # arxiv digest (quant-ph + cond-mat) — 2026-04-24
 
-*33 papers · 2 highlighted*  
-_⏳ in progress: 33/95 papers processed (file updates after each one)_
+*35 papers · 2 highlighted*  
+_⏳ in progress: 35/95 papers processed (file updates after each one)_
 
 
 ## ⭐ Highlighted (2)
@@ -12,7 +12,7 @@ _⏳ in progress: 33/95 papers processed (file updates after each one)_
 - ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](http://arxiv.org/abs/2604.21778v1) — Andrii G. Sotnikov, Denys I. Bondar
 
 
-## quantum information and computing (17)
+## quantum information and computing (18)
 
 ### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
 
@@ -1386,6 +1386,107 @@ We present a new software package for efficient quantum circuit generation, desi
 
 </details>
 
+### [Composite quantum gates simultaneously compensated for multiple errors](http://arxiv.org/abs/2604.21594v1)
+
+**Authors:** Hristo Tochev, Nikolay Vitanov  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21594v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21594_figures/2604.21594_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (Color online) Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for (a) single π pulse, (b) CORPSE, (c) B3r pulse, (d) B3d pulse. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21594_figures/2604.21594_fig2.jpg" width="500"><br>
+<sub>FIG. 2. (Color online) Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for (a) B5 pulse, (b) BB1 pulse, (c) U5a pulse, (d) U5b pulse. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21594_figures/2604.21594_fig3.jpg" width="500"><br>
+<sub>FIG. 3. (Color online) Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for seven pulses: (a) U7a, (b) U7b, (c) X7a, (d) X7b sequences. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21594_figures/2604.21594_fig4.jpg" width="500"><br>
+<sub>FIG. 4. (Color online) Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for nine pulses: (a) U9a, (b) U9b, (c) X9a, (d) X9b sequences. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21594_figures/2604.21594_fig5.jpg" width="500"><br>
+<sub>FIG. 5. (Color online) Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for eleven pulses: (a) U11a, (b) U11b, (c) X11a, (d) X11b sequences. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21594_figures/2604.21594_fig6.jpg" width="500"><br>
+<sub>FIG. 6. (Color online) Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for thirteen pulses: (a) U13a, (b) U13b, (c) X13a, (d) X13b sequences. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21594_figures/2604.21594_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for non-symmetric CP optimized through Eq. (8). (a) X5c, (b) X7c, (c) X9c, (d) X11c. The pa- rameters of the pulses can be found in Table I. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21594_figures/2604.21594_fig8.jpg" width="500"><br>
+<sub>FIG. 8. (Color online) Infidelity of Hadamard gate versus the detuning error δ and the Rabi frequency error ϵ for CP op- timized through Eq. (8). (a) H3 with length 3, (b) H4 with length 4, (c) H5 with length 5, (d) H6 with length 6. The pa- rameters of the pulses can be found in Table II. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21594_figures/2604.21594_fig9.jpg" width="500"><br>
+<sub>FIG. 9. (Color online) Infidelity of Hadamard gate versus the detuning error δ and the Rabi frequency error ϵ for CP op- timized through Eq. (8). (a) H7, (b) H8, (c) H10, (d) H15. The parameters of the pulses can be found in Table II. The contours depict infidelity of 10−4 (innermost) to 10−1 (outer- most).</sub>
+
+</details>
+
+**Main problem.** Systematic control errors, including Rabi frequency, detuning, and pulse duration, prevent the realization of high-fidelity single-qubit gates.
+
+**Main result.** The authors derived new composite pulse sequences (Xn and Hn families) that simultaneously compensate for amplitude, detuning, and duration errors, outperforming standard universal sequences in broader error domains.
+
+**Method.** The construction uses two strategies: derivative-based cancellation of error terms in the full SU(2) unitary using Cayley-Klein parametrization, and direct numerical minimization of average gate infidelity.
+
+**Summary.** This paper presents a new class of composite pulse sequences designed to implement high-fidelity X and Hadamard gates. Unlike previous methods that target only one type of error, these new sequences simultaneously compensate for Rabi frequency, detuning, and pulse duration errors. By using both analytical derivative cancellation and numerical optimization, the authors provide both closed-form symmetric solutions and optimized asymmetric sequences. The results show that longer sequences can significantly expand the robustness window against systematic control drifts.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A single-qubit quantum system described by a standard Hamiltonian with control parameters for Rabi frequency and detuning, specifically targeting X and Hadamard gates.
+
+**Key observables.** Gate fidelity and average gate infidelity.
+
+**Important parameters / regimes.** Rabi frequency error (epsilon), detuning error (delta), pulse duration (T), and pulse number (N).
+
+**Assumptions / limitations.** The interaction is assumed to be coherent and pulses are modeled as rectangular; the sequences may be more sensitive to non-rectangular pulse shapes compared to universal sequences.
+
+**Figures summary.** Figures compare infidelity contours for various pulse sequences (X and Hadamard gates) against epsilon and delta, demonstrating the robustness windows and the superiority of the new sequences over existing ones.
+
+**Paper structure.** The paper introduces the error problem, presents two construction strategies (derivative-based and minimization), analyzes symmetric and asymmetric pulse sequences for X and Hadamard gates, and discusses the trade-offs between sequence length and robustness.
+
+**Why it may be interesting.** This work provides practical, high-order error suppression techniques for single-qubit control, which is essential for improving gate fidelities in NISQ-era hardware and trapped-ion or superconducting platforms.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Systematic control errors remain a primary obstacle to realizing high-fidelity single-qubit gates. We introduce composite pulse sequences that implement X and Hadamard gates while simultaneously compensating amplitude (Rabi-frequency), detuning (frequency), and duration errors. Our construction uses two complementary strategies: (i) derivative-based cancellation of error terms in the full unitary (not just the transition probability), formulated via the Cayley-Klein parametrization, and (ii) direct minimization of the average gate infidelity over prescribed error ranges. We derive symmetric five-pulse solutions with closed-form phases that cancel all first-order terms (including the mixed derivative), and numerically optimize longer sequences -- up to 15 pulses -- to achieve higher-order suppression. We also show that standard ``universal'' five-pulse sequences (U5a/U5b) emerge as simple phase-shifted instances of our symmetric solutions, yielding broad robustness to both detuning and amplitude errors. Finally, we construct variable-area sequences for $R_x(π/2)$, which, up to virtual Z rotations, benchmark the Hadamard gate. Across all families we observe the expected trade-off between sequence length and robustness window, with substantial boosts in fidelity over large error domains.
+
+</details>
+
 
 ## numerical methods (3)
 
@@ -1953,7 +2054,7 @@ We investigate electronic transport across a magnetic domain wall (DW) in a thre
 </details>
 
 
-## other (7)
+## other (8)
 
 ### [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](http://arxiv.org/abs/2604.21929v1)
 
@@ -2537,5 +2638,111 @@ In this work, we systematically investigate the quantum-information diagnostics 
 <details><summary>Abstract</summary>
 
 We show that detecting steady-state Coulomb-mediated reduction in the thermal variance of the differential motional mode of two nanospheres can bound the Continuous Spontaneous Localization (CSL) parameter ($λ_{\text{CSL}}$). For realistic experimental parameters, the resulting bounds are comparable to those obtained from X-ray emission experiments and surpass those set by bulk-heating ones. Unlike these latter experiments, our bounds are robust against plausible coloured-noise extensions of collapse models. In the short-time regime, we find that a weak Coulomb-induced entanglement-based test between two charged nanospheres initialized in ground state can provide constraints on $λ_{\text{CSL}}$ comparable to limits set by early X-ray experiments.
+
+</details>
+
+### [The KMS and GNS Spectral Gap of Quantum Markov Semigroups](http://arxiv.org/abs/2604.21630v1)
+
+**Authors:** Melchior Wirth  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21630v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21630_figures/2604.21630_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21630_figures/2604.21630_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21630_figures/2604.21630_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21630_figures/2604.21630_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21630_figures/2604.21630_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21630_figures/2604.21630_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21630_figures/2604.21630_page8.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 8</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21630_figures/2604.21630_page9.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 9</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21630_figures/2604.21630_page10.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 10</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21630_figures/2604.21630_page11.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 11</sub>
+
+</details>
+
+**Main problem.** The paper investigates the relationship between different exponential decay rates (spectral gaps) of quantum Markov semigroups when measured with respect to various inner products induced by operator monotone functions.
+
+**Main result.** The author proves that the exponential decay rate for the KMS inner product is bounded below by the decay rate for the GNS inner product, generalizing a previous conjecture for Gaussian systems to all quantum Markov semigroups with a faithful normal invariant state on arbitrary von Neumann algebras.
+
+**Method.** The proof utilizes operator theory tools including operator monotone functions, the operator Jensen inequality, interpolation theory (Donoghue's theorem), and Moreau regularization of quadratic forms.
+
+**Summary.** This paper resolves a conjecture regarding the relationship between different types of spectral gaps in quantum Markov semigroups. It proves that the decay rate in the KMS inner product is always at least as large as the decay rate in the GNS inner product. Crucially, the author shows that this result is not restricted to Gaussian systems but holds for any quantum Markov semigroup with a faithful normal invariant state. The findings also extend to a broad class of inner products defined by operator monotone functions.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study focuses on quantum Markov semigroups (QMS) acting on von Neumann algebras, representing the time evolution of open quantum systems interacting with an environment.
+
+**Key observables.** The spectral gaps (exponential decay rates) associated with different inner products (GNS, KMS, BKM, and f-dependent norms).
+
+**Important parameters / regimes.** The operator monotone functions (f) used to define the inner products, and the modular operator (Delta) of the invariant state.
+
+**Assumptions / limitations.** The results assume the existence of a faithful normal invariant state on the underlying von Neumann algebra.
+
+**Paper structure.** The paper begins by defining the mathematical framework of QMS and various inner products, then presents an interpolation theorem for contractive maps, followed by the proof of the spectral gap inequality and an analysis of the symmetry and monotonicity of decay rates for specific families of functions.
+
+**Why it may be interesting.** This is highly relevant for researchers in open quantum systems and quantum optics, as it provides a rigorous mathematical foundation for comparing dissipation rates and long-time stability across different physical representations of quantum states.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We establish a relation between the exponential decay rates of quantum Markov semigroups with respect to different inner products. More precisely, it was conjectured by Fagnola, Poletti, Sasso and Umanità that for a Gaussian quantum Markov semigroup, the exponential decay rate with respect to the KMS inner product is bounded below by the exponential decay rate for the GNS inner product. We show that this is indeed the case and not limited to Gaussian quantum Markov semigroups, but holds for quantum Markov semigroups with a faithful normal invariant state on arbitrary von Neumann algebras. Additionally, the KMS inner product can be replaced by a whole class of inner products induced by operator monotone functions.
 
 </details>
