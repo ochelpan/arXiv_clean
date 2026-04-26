@@ -1,7 +1,7 @@
 # arxiv digest (quant-ph + cond-mat) — 2026-04-26
 
-*15 papers · 2 relevant · 1 highlighted*  
-_⏳ in progress: 15/95 papers processed (file updates after each one)_
+*18 papers · 2 relevant · 1 highlighted*  
+_⏳ in progress: 18/95 papers processed (file updates after each one)_
 
 
 ## 🔥 Most relevant (2)
@@ -19,7 +19,7 @@ _⏳ in progress: 15/95 papers processed (file updates after each one)_
 - ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](http://arxiv.org/abs/2604.21919v1) — Sarang Gopalakrishnan
 
 
-## quantum information and computing (7)
+## quantum information and computing (9)
 
 ### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
 
@@ -628,6 +628,157 @@ Bosonic quantum error correction enables hardware-efficient protection of quantu
 
 </details>
 
+### [Variance Geometry of Exact Pauli-Detecting Codes: Continuous Landscapes Beyond Stabilizers](http://arxiv.org/abs/2604.21800v1)
+
+**Authors:** Arunaday Gupta, Baisong Sun, Xi He, Bei Zeng  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21800v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21800_figures/2604.21800_fig1.jpg" width="500"><br>
+<sub>FIG. 1: Schematic behavior of the attainable spectrum ΣK(E) = {λ∗(P) : P detects E, rank(P) = K}. In the unrestricted setting studied here, nonempty spectra are observed to be closed intervals. Stabilizer codes occupy only discrete values within these intervals. Under symmetry-compatible restrictions, the attainable set may shrink to a smaller interval, reduce to a singleton, or become empty, while remaining interval-like whenever nonempty.</sub>
+
+</details>
+
+**Main problem.** The paper investigates the geometric structure of the space of exact quantum codes that detect a prescribed set of Pauli errors, specifically determining if these codes form continuous families or isolated solutions.
+
+**Main result.** The authors show that exact Pauli-detecting codes form continuous landscapes (intervals) rather than disjoint sets, and that stabilizer codes are merely a discrete, measure-zero subset of this larger continuum of nonadditive codes.
+
+**Method.** The study uses an operator-theoretic framework linking error detection to joint higher-rank numerical ranges, combined with representation theory, Stiefel-manifold optimization, and analytical constructions of symmetric codewords.
+
+**Summary.** This paper provides a new geometric perspective on quantum error detection by treating the space of valid codes as a continuous landscape. It introduces a scalar parameter, the signature norm, to characterize the variance profile of different code families. The central finding is that stabilizer codes are just a small, discrete part of a much larger, continuous set of nonadditive codes. The work also demonstrates how imposing symmetries can expand or contract the range of achievable error-detection parameters.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The model consists of rank-K quantum code projectors satisfying the Knill-Laflamme detection conditions for various Pauli error models, including distance-based, asymmetric, and symmetry-restricted (cyclic and permutation) error sets.
+
+**Key observables.** The signature norm (lambda*), which is the Euclidean norm of the vector of Pauli expectation values on the maximally mixed code state, and the joint Pauli variance profile.
+
+**Important parameters / regimes.** The code rank K, the number of qubits n, the error set E, and the symmetry groups (cyclic C_n and permutation S_n).
+
+**Assumptions / limitations.** The focus is restricted to exact (rather than approximate) error-detecting codes, and the 'interval property' is presented as a strong empirical observation rather than a universal proof.
+
+**Figures summary.** Figure 1 illustrates the continuous spectrum of attainable lambda* values, showing how stabilizer codes occupy discrete points and how symmetry constraints can shrink or empty the spectrum.
+
+**Paper structure.** The paper progresses from notation and preliminaries to the introduction of variance-based signatures, followed by symmetry analysis, a classification of 2-qubit codes, and numerical optimization for larger systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Exact quantum codes detecting a prescribed set of Pauli errors are approached through algebraic constructions--stabilizer, codeword-stabilized, permutation-invariant, topological, and related families. Geometrically, exact Pauli detection is governed by joint higher-rank numerical ranges of these Pauli operators, whose structure for rank $\geq 2$ is largely uncharted. From this viewpoint, we show that such codes often form connected continuous families rather than collections of disjoint solution regions. These families are characterized by a single scalar derived from the Knill-Laflamme conditions: denoted $λ^*$, it is the Euclidean norm of the signature vector of Pauli expectation values on the maximally mixed code state, and provides a one-parameter summary of the code's joint Pauli variance profile. Within these continuous landscapes, stabilizer codes occupy only discrete, measure-zero subsets of the attainable $λ^*$-spectrum, exposing a largely unexplored continuum of genuinely nonadditive exact codes. We establish this picture by analyzing the geometry of higher-rank operator compressions, and extend it to symmetry-restricted settings where cyclic and permutation symmetries are imposed on both the error model and the code projector. Small-system cases reveal interval, singleton, and empty regimes through eigenvalue interlacing and symmetry-sector decompositions; larger systems are treated numerically via Stiefel-manifold optimization and symmetry-adapted parameterizations. In every unrestricted and symmetry-compatible case analyzed, the attainable $λ^*$-spectrum forms a single closed interval whenever nonempty--although a general proof remains open. These results place stabilizer, symmetric, and nonadditive code families within a unified higher-rank variance framework, suggesting a continuous geometric perspective on the landscape of exact quantum codes.
+
+</details>
+
+### [Rigorous Security Proofs for Practical Quantum Key Distribution](http://arxiv.org/abs/2604.21791v1)
+
+**Authors:** Devashish Tupkary  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21791v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21791_figures/2604.21791_fig1.jpg" width="500"><br>
+<sub>Figure 2.1: Schematic of a beam splitter with two input ports (left and bottom) and two output ports (right and top).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21791_figures/2604.21791_fig2.jpg" width="500"><br>
+<sub>Figure 2.2: Idealized polarizing beam splitter (PBS) that routes the horizontal and vertical polarization components of the input mode into separate spatial output modes.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21791_figures/2604.21791_fig3.jpg" width="500"><br>
+<sub>Figure 2.3: Schematic of a threshold (on/off) detector. In the imperfect model, η denotes the overall detection efficiency and pdc the dark-count probability per detection window.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21791_figures/2604.21791_fig4.jpg" width="500"><br>
+<sub>Figure 3.1: Schematic of a quantum key distribution (QKD) protocol. The task is to establish a shared secret key between two distant parties, Alice and Bob. The protocol relies on trusted quantum devices operated within secure perimeters, access to local true random number generators (TRNGs), an authenticated classical channel, and an insecure quantum channel that may be fully controlled by an adversary. Figure from [52].</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21791_figures/2604.21791_fig5.jpg" width="500"><br>
+<sub>Figure 3.2: Schematic of an active detection setup using threshold detectors.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21791_figures/2604.21791_fig6.jpg" width="500"><br>
+<sub>Figure 3.3: Schematic of the passive detection setup using theshold detectors.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21791_figures/2604.21791_fig7.jpg" width="500"><br>
+<sub>Figure 3.4: Schematic illustrating the use of a source map. A virtual source prepares (ξk)A′′, which is mapped to the real emitted state (σk)A′ by a source map Ψ. Then, one can “give” Eve control over the source map (meaning that she is allowed to perform any operation she wants in place of the source map). The security of the latter implies security of the former, as argued rigorously in Lemma 7.4.1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21791_figures/2604.21791_fig8.jpg" width="500"><br>
+<sub>Figure 3.5: An infinite-dimensional POVM can be modelled as a squashing map Λ followed by a finite-dimensional POVM. Giving the squashing map Λ to Eve allows us to restrict our analysis to the finite-dimensional POVM.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21791_figures/2604.21791_fig9.jpg" width="500"><br>
+<sub>Figure 4.1: Expected key rate for fixed-length protocols eRfixed(t) for various values of t, key rate upon acceptance for fixed-length protocols Rfixed(t) plotted for various values of t, and the expected key rate for variable-length protocol plotted eRvariable, plotted for a fixed honest behaviour of the channel.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21791_figures/2604.21791_fig10.jpg" width="500"><br>
+<sub>Figure 4.2: Expected key rate for fixed-length protocols eRfixed(t) for various values of t, key rate upon acceptance for fixed-length protocols Rfixed(t) plotted for various values of t, and the expected key rate for variable-length protocol plotted eRvariable, for an unpredictable honest behaviour.</sub>
+
+</details>
+
+**Main problem.** The need for rigorous security proofs for practical Quantum Key Distribution (QKD) protocols that account for realistic hardware imperfections like imperfect detectors, variable-length keys, and non-ideal authentication.
+
+**Main result.** The thesis establishes security proofs for variable-length QKD against coherent attacks, develops methods to bound phase error rates with imperfect detectors, and provides a general security framework using the marginal-constrained entropy accumulation theorem.
+
+**Method.** The author utilizes advanced information-theoretic tools including the Entropy Accumulation Theorem (EAT), Entropic Uncertainty Relations (EUR), the postselection technique, and De Finetti reductions.
+
+**Summary.** This thesis provides a rigorous mathematical framework for the security of practical Quantum Key Distribution. It addresses long-standing gaps between idealized security models and real-world implementations, such as imperfect detectors and variable-length key generation. By introducing new bounds and unified proof techniques, the work enables more reliable certification of QKD hardware. Ultimately, it moves the field toward practical, deployment-ready quantum cryptography.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study focuses on Quantum Key Distribution protocols, specifically BB84 and decoy-state BB84, involving quantum optical systems with weak coherent pulses, imperfect detectors, and authenticated classical channels.
+
+**Key observables.** Key rates, phase error rates, photon-number statistics (zero and one-photon), and detection probabilities.
+
+**Important parameters / regimes.** Channel loss (dB), detection efficiency, dark-count probability, basis-efficiency mismatch, and finite-size effects (number of signals sent).
+
+**Assumptions / limitations.** Assumes trusted quantum devices and local true random number generators; focuses on security against IID collective and coherent attacks; assumes a specific model for delayed authentication.
+
+**Figures summary.** Schematics of QKD protocol structures and detection setups; performance plots comparing key rates vs. loss for different protocols and proof techniques; and visualizations of error rate evolution under detector imperfections.
+
+**Paper structure.** The thesis is structured by addressing specific technical challenges: extending proofs to variable-length protocols, applying postselection for coherent attacks, using EUR for imperfect detectors, implementing the MEAT framework, and analyzing authentication security.
+
+**Why it may be interesting.** This work is highly relevant to quantum optics and quantum information as it provides the mathematical foundation for making quantum communication protocols robust against real-world hardware noise and side channels.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+This thesis is concerned with rigorous security analyses of practical Quantum Key Distribution (QKD) protocols, using a variety of modern proof techniques. The main results are as follows. First, we establish a security proof for variable-length QKD protocols against IID collective attacks, and extend this result to coherent attacks using the postselection technique. In doing so, we resolve a long-standing flaw in the application of the postselection technique to QKD, thereby placing it on a rigorous mathematical footing. Second, we develop a method to bound phase error rates in entropic uncertainty relation-based and phase error rate-based proofs, using only the observed statistics of the protocol, even when detectors are imperfect and only approximately characterized. This removes a key assumption of identical detector behaviour and enables these techniques to be applied in realistic settings. Third, we present a very general security analysis based on the marginal-constrained entropy accumulation theorem. The resulting framework can be readily adapted to practical imperfections and side channels, and is suitable for certification efforts. Finally, we show that the security of QKD protocols under realistic authentication assumptions can be reduced to the standard idealized setting, where authentication is assumed to behave honestly, with only minor protocol modifications. A distinctive feature of this thesis is its unified presentation of several major QKD security proof frameworks using consistent protocol descriptions and notation. Consequently, this thesis is intended not only as a collection of new technical results, but also as a useful reference for understanding rigorous security analysis in quantum key distribution.
+
+</details>
+
 
 ## numerical methods (2)
 
@@ -997,7 +1148,7 @@ The recent discovery of Ruddlesden-Popper (RP) nickelate thin-film superconducto
 </details>
 
 
-## other (3)
+## other (4)
 
 ### [Odd Physics Off the Diagonal: Constraining CP-violating SMEFT with Quantum Tomography](http://arxiv.org/abs/2604.21857v1)
 
@@ -1241,5 +1392,111 @@ We quantize a classically stable system of a harmonic oscillator polynomially co
 <details><summary>Abstract</summary>
 
 The Dicke model (DM) serves as a paradigm for understanding collective light-matter interactions. We introduce the chiral Dicke model, a generalization where an atomic ensemble couples to a two-mode cavity via chiral interactions. Unlike the standard DM, the chiral DM is endowed with an inherent continuous $U(1)$ symmetry associated with angular momentum conservation. The ground-state phase diagram and the associated quantum phase transitions are charted out, revealing a $U(1)$-broken superradiant phase that spans a broad parameter space. We demonstrate that the spectrum of quantum fluctuations is highly tunable in both the symmetric and broken phases. Strikingly, our calculations reveal that the system exhibits `multiversality', where distinct universality classes govern the transition between the same two phases. In particular, along a special line in parameter space, the dynamical critical exponent for the normal-superradiant phase transition changes from $zν=1$ to $zν=1/2$. Our work establishes the chiral Dicke model as a powerful platform to realize novel quantum phases and multiversal critical phenomena in light-matter coupled systems.
+
+</details>
+
+### [The clock ambiguity is back with a vengeance](http://arxiv.org/abs/2604.21805v1)
+
+**Authors:** Ovidiu Cristinel Stoica  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21805v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21805_figures/2604.21805_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21805_figures/2604.21805_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21805_figures/2604.21805_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21805_figures/2604.21805_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21805_figures/2604.21805_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21805_figures/2604.21805_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21805_figures/2604.21805_page8.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 8</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21805_figures/2604.21805_page9.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 9</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21805_figures/2604.21805_page10.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 10</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21805_figures/2604.21805_page11.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 11</sub>
+
+</details>
+
+**Main problem.** The paper addresses the 'clock ambiguity' in the Page-Wootters formalism, investigating whether the inability to uniquely identify a clock and its dynamics can be resolved by imposing a non-interaction condition between the clock and the rest of the world.
+
+**Main result.** The author proves a 'maximal ambiguity' theorem, showing that the ambiguity extends to both histories and Hamiltonians and cannot be removed by a non-interaction condition; the ambiguity is only resolved by explicitly assigning physical meanings to operators.
+
+**Method.** The author uses unitary transformation analysis, spectral analysis (Minkowski sum of spectra), and the properties of infinite-dimensional Hilbert spaces (Lebesgue measure and wandering subspaces) to demonstrate the equivalence of different physical setups.
+
+**Summary.** This paper investigates the fundamental problem of 'clock ambiguity' in the Page-Wootters formalism, where different choices of clock subsystems can lead to different perceived dynamics. The author refutes the claim that assuming no interaction between the clock and the world can resolve this issue, instead proving that the ambiguity is even stronger than previously thought, affecting both histories and Hamiltonians. The results show that for ideal clocks, any two physical systems can be rendered indistinguishable via unitary transformations. Ultimately, the author argues that the ambiguity can only be resolved by explicitly assigning physical meanings to operators, rather than relying on purely relational emergence.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The model is the Page-Wootters (PW) framework, consisting of a stationary, timeless global state in a composite Hilbert space (H_c tensor H_r) where time emerges from entanglement between a clock subsystem and the rest of the world.
+
+**Key observables.** Clock observables (time T and energy-like C) and world observables (position X and momentum P).
+
+**Important parameters / regimes.** Continuous and discrete time regimes, bounded and unbounded time, and the dimension of the Hilbert space (specifically infinite-dimensional ideal clocks).
+
+**Assumptions / limitations.** The universe is in a stationary state satisfying a Wheeler-DeWitt-type constraint; the paper assumes separable Hilbert spaces and focuses on ideal clocks.
+
+**Paper structure.** The paper begins by critiquing previous attempts to resolve clock ambiguity via non-interaction, provides a mathematical proof of maximal ambiguity for both discrete and continuous time, explores the implications for the emergence of physical structures, and concludes by proposing that physical meaning must be pre-specified to resolve the ambiguity.
+
+**Why it may be interesting.** This is highly relevant for researchers in quantum foundations and open quantum systems, as it challenges the idea that spacetime and dynamical laws can emerge purely from relational entanglement without pre-existing physical structures.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Page and Wootters (1983) showed how time and dynamics can emerge in a stationary system containing a clock. Albrecht (1995) later showed, for discrete time, that within this framework any dynamical evolution can be obtained simply by choosing a different clock.   Marletto and Vedral (2017) claimed that this ambiguity disappears assuming that the clock and the rest of the world do not interact. I show that their proof relies on an incorrect mathematical assumption. Also, eliminating the ambiguity completely would obstruct spacetime symmetries.   Whereas the original clock ambiguity concerns all possible histories of a discrete-time system evolving under arbitrary Hamiltonians, but not the Hamiltonians themselves, I prove a stronger version for continuous and discrete unbounded time: the ambiguity extends to both histories and Hamiltonians, including noninteracting ones. Only the dimension of the Hilbert space remains.   One might hope to dismiss the ambiguity as merely perspectival, but I show that this would predict incorrect correlations between outcomes and their records, making even knowledge impossible. Purely relational approaches therefore face both the stronger and the original clock ambiguity problems. The ambiguity is removed by taking into account the physical meaning of the operators.
 
 </details>
