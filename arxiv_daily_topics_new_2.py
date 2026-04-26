@@ -85,16 +85,70 @@ CATEGORIES = [
     "other",
 ]
 
-HIGHLIGHT_AUTHORS = [
-    "Sarang Gopalakrishnan",
-    "Andrii G. Sotnikov",
-    "Denys I. Bondar",
-    "Anders S. Sorensen",
-    "Rosario Fazio",
-    "Suzanne Yelin",
-    "Jamir Marino",
-    "Mikhail Lukin",
-]
+# Highlight authors are loaded from an external text file so the same list
+# can be reused across multiple versions of the script. Default location
+# is `highlight_authors.txt` next to this script; override with
+# HIGHLIGHT_AUTHORS_FILE env var if you keep it elsewhere.
+HIGHLIGHT_AUTHORS_FILE = Path(
+    os.environ.get(
+        "HIGHLIGHT_AUTHORS_FILE",
+        Path(__file__).resolve().parent / "highlight_authors.txt",
+    )
+)
+
+
+def _load_highlight_authors(path):
+    """Read author names from a text file. Lines starting with '#' or blank
+    lines are ignored. Returns the list, possibly empty."""
+    if not path.exists():
+        print(f"warn: highlight authors file not found at {path}; nobody will be highlighted.")
+        return []
+    names = []
+    with path.open("r", encoding="utf-8") as f:
+        for raw in f:
+            line = raw.strip()
+            if not line or line.startswith("#"):
+                continue
+            names.append(line)
+    return names
+
+
+HIGHLIGHT_AUTHORS = _load_highlight_authors(HIGHLIGHT_AUTHORS_FILE)
+
+
+# Topics of personal research interest. Each topic is keyed by a short label
+# (used in headings and JSON) and has a one-sentence description that the LLM
+# uses to score relevance from 0 to 5. Edit, add, or remove freely.
+#   0 = unrelated
+#   1 = mentions topic in passing
+#   2 = uses related techniques but not focused on it
+#   3 = relevant; topic is one of several themes
+#   4 = directly studies this topic; main focus
+#   5 = breakthrough/landmark result on exactly this topic
+TOPICS = {
+    "Rydberg arrays":
+        "Experiments or theory using arrays of Rydberg atoms (tweezer arrays, "
+        "programmable quantum simulators, blockade-mediated entanglement).",
+    "free-space correlated emission":
+        "Cooperative or correlated photon emission from atoms in free space "
+        "(Dicke superradiance, subradiance, free-space cooperativity).",
+    "Frenkel-Kontorova":
+        "The Frenkel-Kontorova model and its variants — chains in periodic "
+        "potentials, commensurate/incommensurate transitions, friction.",
+    "Dicke superradiance":
+        "Dicke superradiance, sub/superradiant states, collective spontaneous "
+        "emission, cavity-Dicke physics.",
+    "interference shaping light":
+        "Interference effects (multi-path, structured, quantum) used to shape "
+        "the spectral, spatial, or statistical properties of light sources.",
+    "kinetically constrained dynamics":
+        "Dynamics of kinetically constrained models, including Hilbert-space "
+        "fragmentation, scars, slow thermalization from constraints.",
+}
+
+# Relevance score >= this threshold makes a paper appear in the
+# "Most relevant" top section. 3 means "directly relevant or better".
+RELEVANCE_THRESHOLD = 3
 
 client = ollama.Client(host=OLLAMA_HOST)
 
@@ -810,9 +864,137 @@ def classify_and_summarize(paper, pdf_path=None):
     return cat, typ, result
 
 
+# ---------- relevance scoring ----------
+RELEVANCE_PROMPT = """You are scoring how relevant an arxiv paper is to a researcher's
+specific topics of interest. Use the analysis we already produced for the paper
+(below), not the raw abstract — it's already condensed and accurate.
+
+PAPER ANALYSIS:
+- Title: {title}
+- Category: {category}
+- Type: {type}
+- Main problem: {main_problem}
+- Main result: {main_result}
+- Method: {method}
+- Model or system: {model_or_system}
+- Key observables: {key_observables}
+- Why it may be interesting: {why_interesting}
+
+TOPICS OF INTEREST (each has a key and a description):
+{topic_list}
+
+For each topic, give an integer relevance score from 0 to 5:
+  0 = unrelated
+  1 = mentions topic in passing only
+  2 = uses related techniques but not focused on it
+  3 = directly relevant; topic is one of several themes
+  4 = directly studies this topic; main focus of the paper
+  5 = breakthrough or landmark result on exactly this topic
+
+Be strict: most papers should score 0 on most topics. Reserve 4-5 for papers
+where the topic is the actual subject of the work, not just a tool or
+analogy that happens to be mentioned.
+
+Return ONLY a JSON object mapping each topic key to its integer score, like:
+{{"topic_key_1": 0, "topic_key_2": 3, ...}}
+
+Use the EXACT topic keys shown above."""
+
+
+def score_relevance_topics(paper, analysis, category, paper_type):
+    """
+    Ask the LLM to score the paper's relevance to each topic in TOPICS.
+    Returns dict mapping topic key -> integer score 0..5.
+    Returns {} if TOPICS is empty or if the LLM call fails.
+    """
+    if not TOPICS:
+        return {}
+
+    topic_list = "\n".join(f"- {key}: {desc}" for key, desc in TOPICS.items())
+    prompt = RELEVANCE_PROMPT.format(
+        title=paper.title,
+        category=category,
+        type=paper_type,
+        main_problem=analysis.get("main_problem", "") or "(not extracted)",
+        main_result=analysis.get("main_result", "") or "(not extracted)",
+        method=analysis.get("method", "") or "(not extracted)",
+        model_or_system=analysis.get("model_or_system", "") or "(not extracted)",
+        key_observables=analysis.get("key_observables", "") or "(not extracted)",
+        why_interesting=analysis.get("why_interesting", "") or "(not extracted)",
+        topic_list=topic_list,
+    )
+
+    try:
+        text = chat_ollama(prompt, num_predict=300)
+        data = parse_json_object(text)
+    except Exception as e:
+        print(f"  relevance scoring failed: {e}")
+        return {key: 0 for key in TOPICS}
+
+    scores = {}
+    for key in TOPICS:
+        v = data.get(key, 0)
+        try:
+            score = int(v)
+        except (TypeError, ValueError):
+            score = 0
+        scores[key] = max(0, min(5, score))
+    return scores
+
+
+# ---------- per-paper JSON cache ----------
+def paper_json_path(out_dir, arxiv_id):
+    """Path where this paper's analysis JSON lives. Auto-creates the JSON/ subfolder."""
+    safe_id = arxiv_id.replace("/", "_")
+    json_dir = out_dir / "JSON"
+    json_dir.mkdir(parents=True, exist_ok=True)
+    return json_dir / f"{safe_id}.json"
+
+
+def load_cached_entry(out_dir, arxiv_id):
+    """Return the cached entry dict for this paper, or None if absent or unreadable."""
+    p = paper_json_path(out_dir, arxiv_id)
+    if not p.exists():
+        return None
+    try:
+        with p.open("r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"  warn: could not read cached JSON {p.name}: {e}")
+        return None
+
+
+def save_paper_entry(out_dir, arxiv_id, entry):
+    """
+    Write entry as JSON to {out_dir}/JSON/{arxiv_id}.json. The entry already
+    contains everything needed to re-render the paper's section without
+    rerunning the LLM.
+    """
+    p = paper_json_path(out_dir, arxiv_id)
+    tmp = p.with_suffix(p.suffix + ".tmp")
+    with tmp.open("w", encoding="utf-8") as f:
+        json.dump(entry, f, indent=2, ensure_ascii=False)
+    tmp.replace(p)
+
+
 # ---------- Markdown rendering ----------
+def _entry_anchor_id(e):
+    """Stable anchor id for a paper entry, derived from its arxiv id when
+    available and falling back to a slug of the URL."""
+    raw = e.get("arxiv_id") or e.get("url", "")
+    raw = raw.rsplit("/", 1)[-1]
+    raw = re.sub(r"v\d+$", "", raw)
+    slug = re.sub(r"[^a-zA-Z0-9._-]", "-", raw).strip("-")
+    return f"paper-{slug or 'entry'}"
+
+
 def _render_entry(e, lines):
     """Append one paper's markdown block to lines."""
+    anchor = _entry_anchor_id(e)
+    # Anchor for in-page jumps from the top sections. Empty <a id="..."> works
+    # in GitHub-rendered markdown and VS Code preview alike.
+    lines.append(f'<a id="{anchor}"></a>')
+
     star = "⭐ " if e.get("highlighted") else ""
     lines.append(f"### {star}[{e['title']}]({e['url']})")
     lines.append("")
@@ -824,6 +1006,20 @@ def _render_entry(e, lines):
     lines.append(f"**Authors:** {e['authors']}  ")
     lines.append(f"**Type:** {e['type']} · **PDF:** <{e['pdf']}>  ")
     lines.append(f"**Analysis basis:** {e.get('analysis_basis', 'unknown')}")
+
+    # Topic relevance: only show topics with score >= 1, sorted high to low.
+    topics = e.get("topic_scores") or {}
+    if topics:
+        relevant = sorted(
+            [(k, v) for k, v in topics.items() if v >= 1],
+            key=lambda kv: (-kv[1], kv[0]),
+        )
+        if relevant:
+            badges = []
+            for key, score in relevant:
+                fire = "🔥 " if score >= RELEVANCE_THRESHOLD else ""
+                badges.append(f"{fire}`{key}` **{score}/5**")
+            lines.append("**Topic relevance:** " + " · ".join(badges))
     lines.append("")
 
     if e.get("figures"):
@@ -890,6 +1086,9 @@ def _render_entry(e, lines):
     lines.append("")
     lines.append("</details>")
     lines.append("")
+    # Small "back to top" link so the reader can jump back without scrolling.
+    lines.append("<sub>[↑ back to top](#top)</sub>")
+    lines.append("")
 
 
 def build_markdown_digest(entries_by_cat, date_str, progress=None):
@@ -897,7 +1096,21 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
     all_entries = [e for items in entries_by_cat.values() for e in items]
     highlighted = [e for e in all_entries if e.get("highlighted")]
 
-    header_meta = f"*{total} papers · {len(highlighted)} highlighted*"
+    # Pick papers with at least one topic scoring at or above the threshold.
+    def _max_topic_score(e):
+        scores = e.get("topic_scores") or {}
+        return max(scores.values()) if scores else 0
+
+    # Show every paper with at least one nonzero topic score, sorted by
+    # how strongly its top topic matches.
+    relevant = [e for e in all_entries if _max_topic_score(e) >= 1]
+    relevant.sort(
+        key=lambda e: (-_max_topic_score(e),
+                       -sum((e.get("topic_scores") or {}).values()),
+                       e["title"].lower()),
+    )
+
+    header_meta = f"*{total} papers · {len(relevant)} relevant · {len(highlighted)} highlighted*"
     if progress is not None:
         done, planned = progress
         if done < planned:
@@ -906,22 +1119,57 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
             header_meta += "  \n_⏳ starting up..._"
 
     lines = [
+        '<a id="top"></a>',
         f"# arxiv digest (quant-ph + cond-mat) — {date_str}",
         "",
         header_meta,
         "",
     ]
 
+    if relevant:
+        lines.append("")
+        lines.append(f"## 🔥 Most relevant ({len(relevant)})")
+        lines.append("")
+        lines.append(
+            "*Every paper with at least one nonzero topic score, sorted by best-matching score. "
+            f"🔥 marks scores ≥{RELEVANCE_THRESHOLD}/5. "
+            "Click the title to jump to the full entry below; click [arXiv] to open the paper page.*"
+        )
+        lines.append("")
+        for e in relevant:
+            scores = e.get("topic_scores") or {}
+            shown = sorted(
+                [(k, v) for k, v in scores.items() if v >= 1],
+                key=lambda kv: (-kv[1], kv[0]),
+            )
+            badges = []
+            for key, score in shown:
+                fire = "🔥 " if score >= RELEVANCE_THRESHOLD else ""
+                badges.append(f"{fire}`{key}` **{score}/5**")
+            tags = " · ".join(badges)
+            star = "⭐ " if e.get("highlighted") else ""
+            anchor = _entry_anchor_id(e)
+            lines.append(
+                f"- {star}[{e['title']}](#{anchor}) [[arXiv]]({e['url']}) — {tags}"
+            )
+        lines.append("")
+
     if highlighted:
         lines.append("")
         lines.append(f"## ⭐ Highlighted ({len(highlighted)})")
         lines.append("")
-        lines.append("*Papers by authors on your watch list. Full entries appear only once in their normal category below.*")
+        lines.append(
+            "*Papers by authors on your watch list. "
+            "Click the title to jump to the full entry below; click [arXiv] to open the paper page.*"
+        )
         lines.append("")
 
         for e in highlighted:
             pretty = ", ".join(e.get("highlighted", []))
-            lines.append(f"- ⭐ [{e['title']}]({e['url']}) — {pretty}")
+            anchor = _entry_anchor_id(e)
+            lines.append(
+                f"- ⭐ [{e['title']}](#{anchor}) [[arXiv]]({e['url']}) — {pretty}"
+            )
 
         lines.append("")
 
@@ -994,6 +1242,32 @@ def main():
                     continue
                 processed_arxiv_ids.add(arxiv_id)
 
+                # If we already analyzed this paper, reuse the saved JSON.
+                cached = load_cached_entry(out_dir, arxiv_id)
+                if cached is not None:
+                    cat = cached.get("category") or "other"
+                    if cat not in CATEGORIES:
+                        cat = "other"
+                    # Make sure highlighted reflects the current author list,
+                    # in case it was edited since the cache was written.
+                    cached["highlighted"] = matched
+                    # If TOPICS was added/changed since caching, rescore.
+                    cached_topics = set((cached.get("topic_scores") or {}).keys())
+                    if cached_topics != set(TOPICS):
+                        analysis_for_score = {
+                            k: cached.get(k, "") for k in
+                            ("main_problem", "main_result", "method",
+                             "model_or_system", "key_observables", "why_interesting")
+                        }
+                        cached["topic_scores"] = score_relevance_topics(
+                            paper, analysis_for_score, cat, cached.get("type", "theory"),
+                        )
+                        save_paper_entry(out_dir, arxiv_id, {**cached, "category": cat})
+                    print(f"  cached → category: {cat}")
+                    entries_by_cat[cat].append(cached)
+                    _write_digest_atomic(digest_path, entries_by_cat, date_str, i, len(papers))
+                    continue
+
                 safe_arxiv_id = arxiv_id.replace("/", "_")
                 pdf_path = tmpdir / f"{safe_arxiv_id}.pdf"
 
@@ -1011,36 +1285,51 @@ def main():
                     print(f"  classify failed: {e}")
                     continue
 
+                # Score relevance to your topics (only after we have analysis).
+                topic_scores = score_relevance_topics(paper, analysis, cat, typ)
+                if topic_scores:
+                    top_match = max(topic_scores.values())
+                    print(f"  category: {cat}; top topic score: {top_match}/5")
+                else:
+                    print(f"  category: {cat}")
+
                 figures = []
                 if pdf_path is not None and pdf_path.exists():
                     figures = extract_figures_with_captions_from_pdf(pdf_path, out_dir)
                     pdf_path.unlink(missing_ok=True)
 
-                entries_by_cat[cat].append(
-                    {
-                        "title": paper.title.strip().replace("\n", " "),
-                        "authors": ", ".join(a.name for a in paper.authors),
-                        "abstract": paper.summary.strip().replace("\n", " "),
-                        "url": paper.entry_id,
-                        "pdf": paper.pdf_url,
-                        "type": typ,
-                        "summary": analysis["summary"],
-                        "main_problem": analysis["main_problem"],
-                        "main_result": analysis["main_result"],
-                        "method": analysis["method"],
-                        "model_or_system": analysis.get("model_or_system", ""),
-                        "key_observables": analysis.get("key_observables", ""),
-                        "important_parameters": analysis.get("important_parameters", ""),
-                        "main_assumptions": analysis.get("main_assumptions", ""),
-                        "figures_summary": analysis.get("figures_summary", ""),
-                        "paper_structure": analysis.get("paper_structure", ""),
-                        "why_interesting": analysis.get("why_interesting", ""),
-                        "analysis_basis": analysis["analysis_basis"],
-                        "figures": figures,
-                        "figure": figures[0]["image"] if figures else None,
-                        "highlighted": matched,
-                    }
-                )
+                entry = {
+                    "arxiv_id": arxiv_id,
+                    "category": cat,
+                    "title": paper.title.strip().replace("\n", " "),
+                    "authors": ", ".join(a.name for a in paper.authors),
+                    "abstract": paper.summary.strip().replace("\n", " "),
+                    "url": paper.entry_id,
+                    "pdf": paper.pdf_url,
+                    "type": typ,
+                    "summary": analysis["summary"],
+                    "main_problem": analysis["main_problem"],
+                    "main_result": analysis["main_result"],
+                    "method": analysis["method"],
+                    "model_or_system": analysis.get("model_or_system", ""),
+                    "key_observables": analysis.get("key_observables", ""),
+                    "important_parameters": analysis.get("important_parameters", ""),
+                    "main_assumptions": analysis.get("main_assumptions", ""),
+                    "figures_summary": analysis.get("figures_summary", ""),
+                    "paper_structure": analysis.get("paper_structure", ""),
+                    "why_interesting": analysis.get("why_interesting", ""),
+                    "analysis_basis": analysis["analysis_basis"],
+                    "figures": figures,
+                    "figure": figures[0]["image"] if figures else None,
+                    "highlighted": matched,
+                    "topic_scores": topic_scores,
+                }
+
+                # Save per-paper JSON so this paper can be skipped on rerun
+                # and reused for offline analysis later.
+                save_paper_entry(out_dir, arxiv_id, entry)
+
+                entries_by_cat[cat].append(entry)
 
                 # Refresh the on-disk digest after every successful paper.
                 # Atomic write means a Ctrl+C here cannot leave a corrupt file.
