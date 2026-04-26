@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2604.21867",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Extending Hamiltonian-Adaptive Resolution Simulation to Interfaces: An Updated LAMMPS Implementation and Application to Porous Solids",
+  "authors": "Hari Haran Sudhakar, Alessandra Serva, Rocio Semino",
+  "abstract": "Many natural phenomena involve processes that happen simultaneously at different characteristic length- and timescales. Typically, the region where the process of interest happens is affected by fluctuations in its surroundings. Modeling these systems requires an effective combination of simulation resolutions. The Hamiltonian-Adaptive Resolution Simulation (H-AdResS) method allows to model dual-resolution systems in length- and time-scales compatible with molecular diffusion, by combining atomistic and particle-based coarse graining models in the same simulation box. In this work, a new implementation of H-AdResS is provided in LAMMPS 2023. New features extend the usage to more diverse interaction potentials and simplify the preparation of input files via dedicated lammps input commands, while keeping the efficiency gain of the basis method. The implementation is benchmarked by reproducing water properties from a reference atomistic simulation. Importantly, the new implementation includes changes in compensation routines allowing to simulate systems with fluctuating density. As an example, the method in its new implementation is applied to modeling a porous metal-organic framework and its gas adsorption structure and transport properties. We demonstrate that structural and dynamic properties in the atomistic region of the dual-resolution scheme are unaffected and remain those of the fully atomistic system, while increasing simulation efficiency. This paves the way for using H-AdResS to simulate complex interfaces across applications in energy storage, electrocatalysis, and membrane technologies.",
+  "url": "http://arxiv.org/abs/2604.21867v1",
+  "pdf": "https://arxiv.org/pdf/2604.21867v1",
+  "type": "both",
+  "summary": "This paper presents an updated implementation of the Hamiltonian-Adaptive Resolution Simulation (H-AdResS) method within the LAMMPS molecular dynamics package. It introduces new features to handle density and pressure compensation, allowing the method to be applied to inhomogeneous systems like porous solids for the first time. The authors demonstrate that the new implementation accurately reproduces the structural and dynamic properties of ZIF-8 and CO2 adsorption while providing significant computational speedups. This advancement enables more efficient multiscale modeling of complex interfaces in energy storage and membrane technologies.",
+  "main_problem": "The existing H-AdResS implementation in LAMMPS is obsolete and cannot handle systems with non-homogeneous density, such as porous solids, leading to thermodynamic imbalances.",
+  "main_result": "A new, compatible LAMMPS implementation of H-AdResS is provided, which successfully maintains density and pressure equilibrium in complex interfaces like ZIF-8/CO2 and improves simulation efficiency by 18-25%.",
+  "method": "The authors implemented new LAMMPS pair styles, atom styles, and compensation routines (pressure and density compensation) to stabilize the hybrid region between atomistic and coarse-grained resolutions.",
+  "model_or_system": "The study uses a dual-resolution Hamiltonian-Adaptive Resolution Simulation (H-AdResS) model, applied to liquid water (benchmark) and a porous metal-organic framework (ZIF-8) with CO2 gas adsorption.",
+  "key_observables": "Radial distribution functions (RDFs), density profiles, mean residence time, mean squared displacement (MSD), and simulation efficiency/scaling.",
+  "important_parameters": "Transition function (lambda), AA/CG region sizes, temperature, volume, pressure, and compensation update frequencies.",
+  "main_assumptions": "The coarse-grained potentials are generally not transferable to different environments; the efficiency of the scheme is inherently limited by the size of the atomistic region.",
+  "figures_summary": "Figure 1 shows the H-AdResS setup; Figure 2 summarizes new implementation features; Figure 3 shows the ZIF-8/CO2 system; Figure 4 compares water RDFs; Figure 6 shows ZIF-8 RDFs; Figure 7 shows CO2 density profiles; Figure 8 shows CO2 MSD.",
+  "paper_structure": "The paper introduces the multiscale modeling challenge, details the new LAMMPS implementation and H-AdResS Hamiltonian, validates the method using water benchmarks, demonstrates application to porous ZIF-8/CO2 interfaces, and concludes with performance and scaling analysis.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21867_figures/2604.21867_fig1.jpg",
+      "caption": "FIG. 1. Schematic representation of the Hamiltonian- Adaptive Resolution Simulation setup. Three different re- gions, namely (i) atomistic (AA) (ii) coarse grained (CG) and (iii) hybrid (connecting the first two), are defined. Molecules are allowed to move from one region to another and the in- stantaneous resolution of the particle is given by the transition function according to equation (8) and illustrated in blue.",
+      "page": 2
+    },
+    {
+      "image": "2604.21867_figures/2604.21867_fig2.jpg",
+      "caption": "FIG. 2. Commands and functions highlighted in blue were present in the 2016 implementation and migrated into our implementation. The commands highlighted in red are the new functions introduced in our implementation.",
+      "page": 4
+    },
+    {
+      "image": "2604.21867_figures/2604.21867_fig3.jpg",
+      "caption": "FIG. 4. Radial distribution function, g(r), of the O–O pair in bulk liquid water computed from a full AA simulation (black solid line) used as a reference against the g(r) computed in the AA region of a H-AdResS simulation performed using the 2016 implementation (red long dashes) and our 2023 im- plementation (green dashes). H-AdResS simulations are per- formed with both the compensations active.",
+      "page": 6
+    },
+    {
+      "image": "2604.21867_figures/2604.21867_fig4.jpg",
+      "caption": "FIG. 5. Radial distribution functions, g(r), obtained from the AA region of H-AdResS simulations with no compensations active (blue dashed line), with pressure compensation active (orange dashed line) and density compensation active (green dashed line) and the reference AA simulation (solid black line) of the bulk ZIF-8. g(r) between Zn–Zn and Zn-ligand pairs are reported in the top and bottom panels respectively.",
+      "page": 7
+    },
+    {
+      "image": "2604.21867_figures/2604.21867_fig5.jpg",
+      "caption": "FIG. 6. Radial distribution functions, g(r), of (i) Zn–Zn (ii) Zn–C (iii) C–C interactions, obtained from the AA region of H-AdResS simulations (red long dashes) and the reference AA simulations (solid black lines) of the ZIF-8/CO2 system.",
+      "page": 7
+    },
+    {
+      "image": "2604.21867_figures/2604.21867_fig6.jpg",
+      "caption": "FIG. 7. Density profile of CO2 gas in different simulation set- tings. Blue curve represents H-AdResS scheme with only pres- sure compensation active, green curve represents H-AdResS scheme with only density compensation active, red curve rep- resents both compensations active. The black curve is ob- tained from the reference AA simulation. All these curves are plotted against the direction of the change in resolution (x-direction).",
+      "page": 8
+    },
+    {
+      "image": "2604.21867_figures/2604.21867_fig7.jpg",
+      "caption": "FIG. 8. Mean squared displacement (MSD) of CO2 in the AA region of the ZIF-8/CO2 system computed as a function of time at 300 K.",
+      "page": 8
+    }
+  ],
+  "figure": "2604.21867_figures/2604.21867_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings": 0,
+    "superradiant laser": 0,
+    "correlated dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "quantum phase transition": 0,
+    "new universality class": 0,
+    "dissipative systems": 0,
+    "non-equilibrium physics": 0,
+    "quantum measurements": 0,
+    "interference shaping light": 0,
+    "kinetically constrained dynamics": 0
+  }
+}
