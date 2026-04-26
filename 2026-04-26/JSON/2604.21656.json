@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2604.21656",
+  "category": "quantum information and computing",
+  "title": "Speed-oriented quantum circuit backend",
+  "authors": "Sören Wilkening",
+  "abstract": "We present a new software package for efficient quantum circuit generation, designed to achieve optimal runtime performance. Despite being in an early stage of development, our implementation demonstrates significant advantages over existing tools. Using the quantum Fourier transform (QFT) as a benchmark, we show that our backend can generate circuits for systems with up to 2000 qubits faster than widely used frameworks such as Qiskit and Q#. This improvement is particularly relevant for applications where classical preprocessing time, including circuit generation, must be minimized to not diminish any potential quantum advantage - for example, in combinatorial optimization tasks. Additionally, our software provides high-level primitives for bit- and integer-level manipulations, offering a simplified interface for integration with high-level quantum programming languages.",
+  "url": "http://arxiv.org/abs/2604.21656v1",
+  "pdf": "https://arxiv.org/pdf/2604.21656v1",
+  "type": "theory",
+  "summary": "This paper introduces a new, high-performance software backend designed specifically for the rapid generation of large-scale quantum circuits. By using a low-level C implementation and efficient data structures, the authors demonstrate that they can generate circuits for up to 2000 qubits orders of magnitude faster than industry-standard tools like Qiskit. This efficiency is crucial for preventing classical preprocessing from becoming a bottleneck in large-scale quantum algorithms. The work also provides high-level primitives for bit-level manipulations, making it a potential foundation for future quantum programming languages.",
+  "main_problem": "The increasing classical preprocessing time required for quantum circuit generation (QCG) is becoming a bottleneck for large-scale quantum computing, potentially negating quantum advantage in applications like combinatorial optimization.",
+  "main_result": "The proposed C-based backend (QCB) achieves significantly faster circuit generation and lower memory usage than major frameworks like Qiskit and Q#, with performance improvements reaching up to 1,748,000x compared to Q# for 2000-qubit QFT circuits.",
+  "method": "The authors developed a lightweight C implementation using a layered 2D data structure, lookup tables for O(1) gate insertion, and optimization techniques like gate cancellation, merging, and a depth-reduction swap mechanism.",
+  "model_or_system": "The study focuses on the construction of large-scale quantum circuits, using the Quantum Fourier Transform (QFT) as the primary benchmark algorithm for systems up to 2000 qubits.",
+  "key_observables": "Runtime (generation speed) and memory consumption (RAM usage) during circuit construction.",
+  "important_parameters": "Number of qubits (up to 2000); comparison of peak runtime and memory overhead against existing frameworks.",
+  "main_assumptions": "The implementation is an early-stage prototype; it assumes gates contain a small, constant number of qubits and currently supports only single-parameter gates.",
+  "figures_summary": "Figure 1 and 2 visualize the QFT circuit and the internal layered data structure; Figure 3 shows the gate and qubit lookup tables; Figure 4 presents a log-scale comparison of runtimes across various software packages; Figure 5 shows a log-scale comparison of memory requirements.",
+  "paper_structure": "The paper introduces the problem of classical overhead in QCG, describes the C-based implementation and its data structures, details the optimization algorithms (gate merging and depth reduction), presents benchmarking results against 12 existing tools, and concludes with future work regarding hardware-aware compilation.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21656_figures/2604.21656_fig1.jpg",
+      "caption": "Figure 2: Visualization of the gates array within the circuit_t data structure for a 5-qubit QFT without swaps. The gate indices represent their target/control qubits.",
+      "page": 2
+    },
+    {
+      "image": "2604.21656_figures/2604.21656_fig2.jpg",
+      "caption": "Figure 3: Visualization of gate_index (left) and last_layer_of_qubit (top and bottom right) within the circuit_t data structure for a 5-qubit QFT without swaps. The table on the bottom right shows how the data structure is adjusted after applying an additional Hadamard gate to qubit 4, eliminating the previously applied gate. The thick boxes indicate the current head of the list for the respective qubit. Whenever a gate is to be applied to specific qubits, its potential layer position is read from this array.",
+      "page": 4
+    },
+    {
+      "image": "2604.21656_figures/2604.21656_fig3.jpg",
+      "caption": "Figure 4: Comparison of running times for building the QFT circuit across state-of-the-art software packages. For all instance sizes, our quantum circuit backend generates the QFT circuit faster than any other available package. Furthermore, the improved variant approaches the theoretical limit of generating and storing quantum circuits, suggesting that no significantly faster single- threaded implementation can be achieved.",
+      "page": 5
+    },
+    {
+      "image": "2604.21656_figures/2604.21656_fig4.jpg",
+      "caption": "Figure 5: Comparison of memory requirements for building the QFT circuit across state-of-the-art software packages. Compared to all packages except Ket, our new circuit backend requires less memory. For large instances, Ket achieves a slight advantage; however, we expect this advantage to diminish for larger circuits, as our algorithm approaches the theoretical minimum of the data required for storage. Both variants of our implementation require the same memory, as they use the same underlying data structure.",
+      "page": 6
+    }
+  ],
+  "figure": "2604.21656_figures/2604.21656_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "Rydberg arrays": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "Dicke superradiance": 0,
+    "interference shaping light": 0,
+    "kinetically constrained dynamics": 0
+  }
+}

@@ -1,17 +1,20 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-26
 
-*20 papers · 5 relevant · 2 highlighted*  
-_⏳ in progress: 20/95 papers processed (file updates after each one)_
+*33 papers · 8 relevant · 2 highlighted*  
+_⏳ in progress: 33/95 papers processed (file updates after each one)_
 
 
-## 🔥 Most relevant (5)
+## 🔥 Most relevant (8)
 
 *Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥3/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page.*
 
 - [Loss-biased fault-tolerant quantum error correction](#paper-2604.21876) [[arXiv]](http://arxiv.org/abs/2604.21876v1) — 🔥 `Rydberg arrays` **4/5**
 - [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](#paper-2604.21820) [[arXiv]](http://arxiv.org/abs/2604.21820v1) — 🔥 `Dicke superradiance` **4/5**
+- [Photon Sorting with a Quantum Emitter](#paper-2604.21758) [[arXiv]](http://arxiv.org/abs/2604.21758v1) — 🔥 `interference shaping light` **3/5**
 - [A Universal Quantum Information Preserving Photonic Switch for Scalable Quantum Networks](#paper-2604.21902) [[arXiv]](http://arxiv.org/abs/2604.21902v1) — `interference shaping light` **2/5**
+- [Entanglement of two optical emitters mediated by a terahertz channel](#paper-2604.21723) [[arXiv]](http://arxiv.org/abs/2604.21723v1) — `Dicke superradiance` **2/5**
+- [Spectral Diffusion Mitigation with a Laser Pulse Sequence](#paper-2604.21659) [[arXiv]](http://arxiv.org/abs/2604.21659v1) — `interference shaping light` **2/5**
 - [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](#paper-2604.21929) [[arXiv]](http://arxiv.org/abs/2604.21929v1) — `kinetically constrained dynamics` **2/5**
 - ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](#paper-2604.21778) [[arXiv]](http://arxiv.org/abs/2604.21778v1) — `Dicke superradiance` **2/5**
 
@@ -24,93 +27,314 @@ _⏳ in progress: 20/95 papers processed (file updates after each one)_
 - ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](#paper-2604.21778) [[arXiv]](http://arxiv.org/abs/2604.21778v1) — Andrii G. Sotnikov, Denys I. Bondar
 
 
-## quantum information and computing (10)
+## All papers (9, sorted by relevance)
 
-<a id="paper-2604.21913"></a>
-### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
+*Highlighted papers (⭐) come first, then everything else sorted by topic-relevance score, highest first. Each paper's bucket is shown next to its title.*
 
-**Authors:** Vaibhav Sharma, Yiming Wang, Shouvik Sur  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21913v1>  
+<a id="paper-2604.21778"></a>
+### ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](http://arxiv.org/abs/2604.21778v1)
+
+**Highlighted author(s):** Andrii G. Sotnikov, Denys I. Bondar  
+**Authors:** Roman Ovsiannikov, Kurt Jacobs, Andrii G. Sotnikov, Denys I. Bondar  
+**Type:** theory · **Category:** numerical methods · **PDF:** <https://arxiv.org/pdf/2604.21778v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `Dicke superradiance` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.21913_figures/2604.21913_fig1.jpg" width="500"><br>
-<sub>FIG. 1. The same quantum hardware can serve either as a quantum battery or a quantum sensor because the process of charging a quantum battery generates quantum resources. Here, we demonstrate a concrete protocol where the quantum hardware remains agnostic of its intended use until a time t = t∗where a suitable metrological resource peaks. One can then choose to either time-evolve into a fully charged quantum battery or perform quantum sensing. As a bonus, after sensing, there exists a finite probability to obtain a fully charged battery.</sub>
+<img src="2604.21778_figures/2604.21778_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Evolution of the eigenvalues of the covariance matrix (2) for Holstein–Primakoff approach (orange and blue solid lines), QuTip solver (red and green dashed lines), and our algorithm 1 with method=Linear (light green and brown dotted lines) with parame- ters ωc = 2π × 2.4 GHz, ωs = 2π × 3.6 GHz, g = 2π × 10 MHz, Λ = 2π × 1 GHz and ω = 2π × 6 GHz.</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.21913_figures/2604.21913_fig2.jpg" width="500"><br>
-<sub>FIG. 2. Time-evolution of the variance of the numerically optimized squeezed two-mode operator Xmin. Here, we have fixed (n, ω0, gn) = (4, 1, 1/ √</sub>
+<img src="2604.21778_figures/2604.21778_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Time of the one step evolution for Qutip solver (green line), our algorithm 1 with method=Exp (blue line), and with method=Linear (orange line).</sub>
 
 </details>
 
-<details><summary>📷 Fig 3</summary>
+**Main problem.** Developing an efficient, memory-efficient, and unitarity-preserving numerical method for simulating the time-dependent unitary dynamics of the Tavis-Cummings model, specifically overcoming the quadratic scaling of standard solvers like QuTiP.
 
-<img src="2604.21913_figures/2604.21913_fig3.jpg" width="500"><br>
-<sub>FIG. 3. (a) Protocol combining charging (for time 2t1 with λ(t) = 1) and sensing (for time ts with λ(t) = 0) using the two coupled superconducting LC resonator based quantum battery model in Eq. 6. (b) Bloch sphere representation of the evolution of quantum state during this protocol, starting from a discharged state |ψi⟩to a partially charged state |ψm⟩ while sensing an unknown parameter ϕ for time ts.</sub>
+**Main result.** The authors propose a symplectic split-operator method that achieves linear scaling in both time and memory by exploiting a basis re-indexing trick to transform the Hamiltonian into tridiagonal form. This method remains accurate beyond the rotating-wave approximation and outperforms standard solvers in large Hilbert-space dimensions.
 
-</details>
+**Method.** A second-order symmetric (Strang) Trotter-Suzuki propagation scheme using two realizations: a block-diagonal exponentiation approach and a Cayley/Crank-Nicolson approach using the Thomas algorithm for tridiagonal linear systems.
 
-<details><summary>📷 Fig 4</summary>
-
-<img src="2604.21913_figures/2604.21913_fig4.jpg" width="500"><br>
-<sub>FIG. 4. A schematic portrayal of potential inter-connectivity among standard quantum technologies. Here, X →Y implies Y enabled by X. This work enumerates such relationships between a quantum battery and a quantum sensor. Solid (dashed) arrows indicate established (hypothesized) proto- cols. The hypothetical protocols can be devised by combining the protocols developed here and in Refs. [59, 60].</sub>
-
-</details>
-
-<details><summary>📷 Fig 5</summary>
-
-<img src="2604.21913_figures/2604.21913_fig5.jpg" width="500"><br>
-<sub>FIG. 5. Time evolution of the optimal angles for which the variance of the two-mode quadrature ˆ Xθ,η,ϕ is minimized.</sub>
-
-</details>
-
-<details><summary>📷 Fig 6</summary>
-
-<img src="2604.21913_figures/2604.21913_fig6.jpg" width="500"><br>
-<sub>FIG. 6. Time evolution of the variance of the optimal quadrature ˆ Xθ,η,ϕ for (a) n = 3 and (b) n = 6. The best squeezing is obtained at a finite short time in both cases.</sub>
-
-</details>
-
-<details><summary>📷 Fig 7</summary>
-
-<img src="2604.21913_figures/2604.21913_fig7.jpg" width="500"><br>
-<sub>FIG. 7. Time evolution of the optimal angles for which the variance of the two-mode quadrature ˆ Xθ,η,ϕ is minimized for (a)–(c) n = 3 and (d)–(f) n = 6.</sub>
-
-</details>
-
-**Main problem.** Investigating whether quantum hardware can be designed for dual-use, specifically to simultaneously serve as a quantum battery for energy storage and a quantum sensor for metrology.
-
-**Main result.** The authors demonstrate that protocols for fast generation of resource-rich states (like squeezing or NOON-like states) can simultaneously charge a quantum battery with a collective advantage, allowing hardware to switch between sensing and storage functions.
-
-**Method.** The study uses analytical derivations (short-time expansions, Heisenberg picture) and numerical methods (exact diagonalization) to map state preparation protocols to battery charging processes.
-
-**Summary.** This paper proposes a way to make quantum hardware more efficient by allowing it to perform two tasks at once: storing energy and sensing external parameters. By using non-linear coupling in superconducting resonators, the authors show that the same process that creates useful quantum states for sensing also enables a 'charging advantage' for quantum batteries. This allows for a modular architecture where a single device can switch between being a sensor and a power source without extra hardware cost.
+**Summary.** This paper introduces a new numerical method for simulating the time-dependent Tavis-Cummings model with much higher efficiency than standard tools. By using a split-operator approach and a clever basis re-indexing trick, the authors reduce the computational complexity to linear scaling with the system size. This allows for the simulation of much larger spin ensembles and longer time scales, even when including non-rotating-wave terms. The method is particularly useful for studying driven hybrid quantum systems like NV centers in diamond.
 
 <details><summary>Detailed structure</summary>
 
-**Model / system.** The primary platform is superconducting circuits, specifically two coupled superconducting LC resonators (bosonic modes) coupled via a Josephson junction, modeled by a non-linear Hamiltonian with a time-dependent coupling strength.
+**Model / system.** The closed, undamped, time-dependent Tavis-Cummings model, which describes a multilevel spin ensemble interacting with a single cavity mode, including time-dependent modulation of the spin frequency.
 
-**Key observables.** Quantum Fisher Information (QFI), quantum squeezing (quadrature variance), energy stored (delta E), and charging power (delta E/T).
+**Key observables.** Eigenvalues of the cavity quadrature covariance matrix (representing X and Y quadratures).
 
-**Important parameters / regimes.** Number of excitations (n), coupling strength (g_n), time durations (t_s, t_1), and the non-linear regime (n > 1).
+**Important parameters / regimes.** Cavity frequency, spin frequency, spin-cavity coupling strength, modulation amplitude and frequency, and the Hilbert-space dimension D.
 
-**Assumptions / limitations.** The charging advantage is valid for finite-size systems; in the thermodynamic limit with Kac-normalization, the advantage is lost.
+**Assumptions / limitations.** The method is specifically tailored to Hamiltonians that can be decomposed into diagonal and tridiagonal parts via basis permutation; it assumes a closed (undamped) system.
 
-**Figures summary.** Figure 1 illustrates the dual-use concept of switching between sensing and charging; Figure 3 shows the temporal protocol for sensing and charging; Figure 5 and 6 show the time evolution of optimal quadrature parameters and the peaks in squeezing variance.
+**Figures summary.** Figure 1 compares the time evolution of covariance matrix eigenvalues against QuTiP and the Holstein-Primakoff approximation; Figure 2 compares the runtime per propagation step against the Hilbert-space dimension to demonstrate linear scaling.
 
-**Paper structure.** The paper introduces the dual-use concept, establishes the mapping between state preparation and battery charging, analyzes the scaling of charging power and squeezing in non-linear bosonic models, proposes a specific temporal protocol for integrated sensing/charging, and provides analytical/numerical validation.
+**Paper structure.** The paper identifies the limitations of current solvers, introduces the Hamiltonian decomposition and basis re-indexing technique, presents two implementation realizations (Block-diagonal and Cayley), validates the method against QuTiP and the Holstein-Primakoff approximation, and discusses computational scaling and potential extensions.
 
-**Why it may be interesting.** It provides a unified framework for connecting quantum metrology and quantum thermodynamics, suggesting that the same collective quantum effects (entanglement/squeezing) drive both high-precision sensing and super-extensive energy storage.
+**Why it may be interesting.** It provides a highly scalable tool for simulating large-scale cavity QED systems and spin ensembles, particularly in regimes where the rotating-wave approximation fails, which is crucial for studying driven-dissipative quantum dynamics and many-body effects in hybrid systems.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-Quantum resources such as entanglement form the backbone of quantum technologies and their efficient generation is a central objective of modern quantum platforms. Independently, quantum batteries have emerged as nanoscale devices that utilize collective quantum effects to store energy with a charging advantage over classical strategies. Here, we show that these two pursuits can co-exist: protocols for fast generation of resourceful quantum states can simultaneously charge a quantum battery with a collective advantage, and conversely, a quantum battery protocol with a charging advantage can produce resource-rich states. Using this connection, we propose an integrated hardware protocol on superconducting circuits in which each experimental run can interchangeably accomplish either quantum battery charging, or quantum sensing through generation of metrologically useful states. Our results establish that quantum resources and stored energy are distinct yet co-producable quantities, opening the door to modular quantum architectures that dynamically switch between sensing and energy-storage functions, thereby producing additional functionalities without extra hardware cost.
+We present a fast, memory-efficient, unitarity-preserving numerical method beyond the rotating-wave approximation for the closed Tavis-Cummings model in which a multilevel spin system interacts with a cavity mode. This model can describe the interaction of an ensemble of spins with a cavity mode in which the spin frequency and other parameters are time-dependent. The method exploits the fact that, while the Tavis-Cummings model is not tri-diagonal, it can be brought into tri-diagonal form by a change of basis that can be implemented purely by re-indexing (permuting basis elements), which is a fast operation. By truncating the Fock basis of the cavity mode, the computational complexity of the method is linear in the total dimension of the coupled system, both in time and memory. The method can be employed to simulate any closed quantum system whose Hamiltonian terms can be brought into tri-diagonal form.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21919"></a>
+### ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](http://arxiv.org/abs/2604.21919v1)
+
+**Highlighted author(s):** Sarang Gopalakrishnan  
+**Authors:** Siddhant Midha, Yifan F. Zhang, Daniel Malz, Dmitry A. Abanin, Sarang Gopalakrishnan  
+**Type:** theory · **Category:** numerical methods · **PDF:** <https://arxiv.org/pdf/2604.21919v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21919_figures/2604.21919_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Algorithmic locality in tensor networks: The ef- fect of a perturbation at the center of the network on the fixed-point messages living on edges of the graph decays ex- ponentially with distance from perturbation. Loops (see Eq. (6)) and clusters (see Eq. (7)) built out of the fixed-point mes- sages inherit the locality subsequently. (b) Phase diagram of injective PEPS: Theorem 1 shows existence (for all 0 ≤ε &lt; 1) and uniqueness (for ε &lt; ε∗= O(1/∆)) of fixed points, where ∆is the degree of the graph. Theorem 2 shows convergence of cluster expansion for ε &lt; ε∗∗= O  min{1/D, (D/∆)∆/2} </sub>
+
+</details>
+
+**Main problem.** Establishing rigorous theoretical foundations for Tensor Network Belief Propagation (TN-BP) in higher dimensions, specifically proving the existence, uniqueness, and convergence of fixed points and the validity of cluster expansions.
+
+**Main result.** The authors prove 'algorithmic locality,' demonstrating that local perturbations in strongly injective PEPS lead to exponentially decaying changes in both BP fixed-point messages and local observables, enabling efficient classical simulation.
+
+**Method.** The work utilizes message-passing dynamics, Banach contraction mapping, and cluster expansion techniques from lattice statistical mechanics to analyze the stability and convergence of TN-BP.
+
+**Summary.** This paper provides the first end-to-end theory for Tensor Network Belief Propagation (TN-BP) in higher-dimensional PEPS. It proves that for sufficiently injective states, the BP algorithm converges to a unique fixed point that is stable under local perturbations. The authors introduce 'algorithmic locality,' showing that the impact of a local change decays exponentially with distance. This result justifies the use of local recomputation for efficient classical simulation of many-body quantum systems.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study focuses on Projected Entangled Pair States (PEPS) defined on arbitrary graphs with a maximum degree and bond dimension, specifically focusing on the class of strongly injective tensors.
+
+**Key observables.** Local expectation values, connected correlation functions, and the norm of the state (partition function).
+
+**Important parameters / regimes.** Injectivity parameter (epsilon), bond dimension (D), maximum vertex degree (Delta), and correlation/decay length scales (xi).
+
+**Assumptions / limitations.** The proofs are restricted to a subclass of PEPS satisfying 'strong injectivity' and assume the bond dimension and vertex degree are O(1).
+
+**Figures summary.** Figure 1(a) illustrates the concept of algorithmic locality via decaying influence of perturbations; Figure 1(b) presents a phase diagram showing thresholds for existence, uniqueness, and cluster expansion convergence.
+
+**Paper structure.** The paper begins with preliminaries on PEPS and Schatten norms, moves to proving the existence and uniqueness of BP fixed points, establishes the decay of loop activities, proves the central theorem of algorithmic locality, and concludes with error decomposition analysis.
+
+**Why it may be interesting.** This provides a rigorous bridge between widely used numerical practices (like TN-BP) and provable algorithmic performance, offering a theoretical guarantee for the efficiency of classical simulations of many-body states.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Belief propagation has recently emerged as a powerful framework for evaluating tensor networks in higher dimensions, combining computational efficiency with provable analytical guarantees. In this work, we develop the first end-to-end theory of tensor network belief propagation for a class of projected entangled pair states satisfying \emph{strong injectivity}. We show that when the injectivity parameter exceeds a constant threshold, BP fixed points can be found efficiently, and a cluster-corrected BP algorithm computes physical quantities to $1/\mathrm{poly}(N)$ error in $\mathrm{poly}(N)$ time for an $N$ qubit system. We identify a striking phenomenon we term \emph{algorithmic locality}: local perturbations of the tensor network affect the BP fixed point with an influence decaying rapidly with distance. As a result, updates to the fixed point after a local perturbation can be carried out using only local recomputation. Moreover, through the cluster expansion, this locality extends to observables, implying that local expectation values can be approximated from local data with controlled accuracy. Our results provide the first rigorous guarantee for the effectiveness of tensor-network belief propagation on a wide class of many-body states, bridging a gap between widely used numerical practice and provable algorithmic performance.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21876"></a>
+### [Loss-biased fault-tolerant quantum error correction](http://arxiv.org/abs/2604.21876v1)
+
+**Authors:** Laura Pecorari, Gavin K. Brennen, Stanimir S. Kondov, Guido Pupillo  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21876v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `Rydberg arrays` **4/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21876_figures/2604.21876_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Rotated surface code, stabilizers and logical oper- ators. (b) Stabilizer readout circuit simulated with different success probability of not finding an atom in the Rydberg state before a CZ gate. (c) Surface code logical error proba- bility versus Rydberg decay rate, γ/Ωmax with time-optimal laser pulses. Data are for 100, 90, 75, 50, 0% success proba- bility that an atom is not in the Rydberg state immediately before a the next gate (from dark to light color shading).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21876_figures/2604.21876_fig2.jpg" width="500"><br>
+<sub>FIG. 2. (a) Schematic level structure. (b) Logical error scal- ing ν such that pL ∝γν versus success probability, pdepl., of inter-gate ionization for distance-3 surface codes. Back- to-back gate schedules produce a non-fault-tolerant scaling ⌈d/4⌉, while perfect inter-gate ionization restores the fault- tolerant Pauli scaling of ⌈d/2⌉for Pauli errors. If losses are properly handled in software with a loss-aware decoder, the optimal erasure-like scaling of d can be achieved (light blue). Error bars fall within the marker size.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21876_figures/2604.21876_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Occurrences of hook error strings caused by single decay events that degrade fault tolerance. Number hook er- rors for (a) ionization enforced after each gate with success probabilities ranging from 0% to 100% and (b) perfect ion- ization only enforced at selected circuit locations (see main text). (c) Probability of each hook error string at fixed decay rate γ = 5×10−5Ωmax (far below the surface code threshold).</sub>
+
+</details>
+
+**Main problem.** Shortening QEC cycles in neutral-atom processors leads to non-Markovian, correlated errors caused by Rydberg excitation hopping and residual Rydberg populations. The study investigates if these errors can be mitigated to restore fault-tolerant scaling.
+
+**Main result.** The authors propose 'loss-biasing'—using mid-circuit ionization to convert Rydberg excitations into atom loss—which restores fault-tolerant Pauli error scaling and can achieve optimal erasure-like scaling when paired with loss-aware decoding.
+
+**Method.** The study uses Lindblad master equation dynamics, Monte Carlo trajectory generation, and randomized compiling to derive effective Pauli error models, followed by large-scale surface code simulations using Stim and Pymatching.
+
+**Summary.** This paper addresses the degradation of fault tolerance in neutral-atom quantum computers when QEC cycles are accelerated. It identifies that fast cycles amplify Rydberg-mediated correlated errors. By implementing 'loss-biasing'—converting unwanted Rydberg excitations into detectable atom loss via ionization—the authors show that one can restore fault-tolerant scaling and even approach optimal erasure-based performance. This provides a practical roadmap for achieving sub-millisecond QEC cycles in Rydberg-based architectures.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A neutral-atom processor platform using Rydberg-blockade CZ gates, modeled as a three-level system (|0>, |1>, |r>) in optical tweezers, specifically focusing on alkaline-earth-like atoms.
+
+**Key observables.** Logical error probability, logical error scaling exponent (nu), stabilizer readout success probability, and noise entropy.
+
+**Important parameters / regimes.** Rydberg decay rate to Rabi frequency ratio (gamma/Omega_max), ionization success probability (p_depl), and code distance (d).
+
+**Assumptions / limitations.** Assumes a 'data-ancilla blockade' during ionization and focuses primarily on the rotated surface code architecture.
+
+**Figures summary.** Figure 1 shows the surface code schematic and stabilizer readout success; Figure 2 illustrates the atomic level structure and the logical error scaling exponent versus ionization success probability.
+
+**Paper structure.** The paper identifies the problem of high-speed QEC errors, introduces the loss-biasing mechanism, details the physical model and simulation framework, presents results on error scaling and fault tolerance restoration, and concludes with experimental implementation outlines.
+
+**Why it may be interesting.** It addresses the intersection of open quantum systems (non-Markovian noise and Lindblad dynamics) and quantum computing, providing a physical strategy (ionization) to transform complex correlated noise into manageable erasure noise.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We investigate the limits of quantum error correction (QEC) in neutral-atom processors approaching high-fidelity gates and fast cycle times. We show that shorter QEC cycles amplify platform-specific errors, notably Rydberg excitation hopping, and hinder decay of residual Rydberg population, leading to non-Markovian correlated errors that degrade logical performance. To address this, we introduce loss biasing, where spurious Rydberg excitations are rapidly converted into atom loss via mid-circuit ionization, transforming errors into erasure-like noise and suppressing their propagation. Loss biasing restores the fault-tolerant logical error scaling for intra-cycle Pauli errors; furthermore, we argue that when supported with loss-aware decoding, it can achieve the optimal scaling of erasures while enabling shorter QEC cycles with reduced hardware overhead. We outline an implementation using fast autoionization in alkaline-earth(-like) atoms, establishing loss biasing as a practical route toward fault-tolerant quantum computing with sub-millisecond QEC cycles.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21820"></a>
+### [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](http://arxiv.org/abs/2604.21820v1)
+
+**Authors:** Nikolay Yegovtsev, Sayan Choudhury, W. Vincent Liu  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21820v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `Dicke superradiance` **4/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21820_figures/2604.21820_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (Left: A schematic illustration of chiral Dicke model described in Eq. (1). Right: The ground-state phase diagram of this system showing the existence of the U(1)-symmetric normal phase (white region), and the U(1)-broken superradi- ant phase. The location of the phase boundary is given by Eq. (5).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21820_figures/2604.21820_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Energy spectrum of Gaussian fluctuations above the mean-field ground state across different cuts through the phase diagram. The dashed black line corresponds to the expression in Eq. (9). The ϕ = 3π/8 trajectory shows that the two lower branches are almost degenerate, resulting in a large slope in Eq. (9). Parameters are ωz = 1.5ωc.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21820_figures/2604.21820_fig3.jpg" width="500"><br>
+<sub>FIG. 4. The energy branches for the case ϕ = 0.5 arccos (ωc/ωz), where two of the branches remain degener- ate in the normal phase. The dashed black curve corresponds to Eq. (10). These results correspond to ωz = 1.5ωc.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21820_figures/2604.21820_fig4.jpg" width="500"><br>
+<sub>FIG. 3. The energy of the lower polariton mode ε−from Eq. (8) along the critical line gc = ωzωc for various values of ωz. The top curve (green) is always above zero; the middle (orange) curve approaches zero only at ϕ = π/2, correspond- ing to the anti-Tavis-Cummings limit. The bottom (blue) curve reaches zero when ϕ = 0.5 arccos (ωc/ωz). The open marker corresponds to the energy along the cut ϕ = 3π/8 in Fig. 2.</sub>
+
+</details>
+
+**Main problem.** The study investigates the existence of robust continuous U(1) symmetry breaking and the phenomenon of multiversality in a generalized chiral Dicke model.
+
+**Main result.** The authors demonstrate a robust U(1)-broken superradiant phase and identify 'multiversality,' where the dynamical critical exponent changes from znu=1 to znu=1/2 along a specific line in parameter space.
+
+**Method.** The study employs mean-field theory, Holstein-Primakoff transformation, and Bogoliubov theory to analyze the ground-state phase diagram and the spectrum of quantum fluctuations.
+
+**Summary.** This paper introduces the chiral Dicke model, a generalization of the standard Dicke model with chiral light-matter coupling. It shows that this model possesses a robust U(1) symmetry breaking that does not require fine-tuning. A key discovery is 'multiversality,' where the dynamical critical exponent of the phase transition changes depending on the path taken through the parameter space. The work provides a detailed map of the energy spectrum and the emergence of Goldstone modes in the superradiant phase.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The Chiral Dicke Model (CDM) consists of an ensemble of N two-level atoms coupled to two degenerate cavity modes via chiral interactions, featuring an inherent U(1) symmetry.
+
+**Key observables.** The atomic inversion (order parameter), energy spectrum/branches, energy gap, and the dynamical critical exponent (znu).
+
+**Important parameters / regimes.** Cavity frequency (omega_c), atomic frequency (omega_z), chiral coupling strengths (g1, g2), and the nonlinearity parameter (U).
+
+**Assumptions / limitations.** The analysis focuses on the regime where the ground-state energy is bounded (4omega_c^2 > U^2N^2) and includes specific limits such as U=0 for analytical tractability.
+
+**Figures summary.** Figure 1 provides a schematic of the model and the ground-state phase diagram; Figure 2 shows the evolution of energy branches across different paths in the coupling parameter space.
+
+**Paper structure.** The paper introduces the chiral Dicke model, derives the ground-state phase diagram using mean-field theory, analyzes the excitation spectrum and mode degeneracy using Bogoliubov theory, and discusses the implications of multiversality and nonlinearity.
+
+**Why it may be interesting.** It reveals how the universality class of a quantum phase transition can be tuned by changing the coupling trajectory, offering a new way to control critical phenomena in light-matter systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The Dicke model (DM) serves as a paradigm for understanding collective light-matter interactions. We introduce the chiral Dicke model, a generalization where an atomic ensemble couples to a two-mode cavity via chiral interactions. Unlike the standard DM, the chiral DM is endowed with an inherent continuous $U(1)$ symmetry associated with angular momentum conservation. The ground-state phase diagram and the associated quantum phase transitions are charted out, revealing a $U(1)$-broken superradiant phase that spans a broad parameter space. We demonstrate that the spectrum of quantum fluctuations is highly tunable in both the symmetric and broken phases. Strikingly, our calculations reveal that the system exhibits `multiversality', where distinct universality classes govern the transition between the same two phases. In particular, along a special line in parameter space, the dynamical critical exponent for the normal-superradiant phase transition changes from $zν=1$ to $zν=1/2$. Our work establishes the chiral Dicke model as a powerful platform to realize novel quantum phases and multiversal critical phenomena in light-matter coupled systems.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21758"></a>
+### [Photon Sorting with a Quantum Emitter](http://arxiv.org/abs/2604.21758v1)
+
+**Authors:** Kasper H. Nielsen, Etienne Corminboeuf, Benedikt Tissot, Love A. Pettersson, Sven Scholz, Arne Ludwig, Leonardo Midolo, Anders S. Sørensen, Peter Lodahl, Ying Wang, Stefano Paesani  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21758v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `interference shaping light` **3/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21758_figures/2604.21758_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Photon sorter building blocks. a. Sketch of the photon sorter implementation using a nonlinear photonic in- teraction between two balanced beam splitters (a nonlinear Mach-Zehnder interferometer). Ideally, individual photons will exit through the upper port, whereas the two-photon component will exit through the lower. b. Illustration of an ideal single-mode Kerr nonlinearity where a one-photon state acquires no phase shift, whereas a two-photon state re- ceives a phase shift of π. c. Illustration of the nonlinear response of a two-level system. The photon states receive ap- proximately the same phase as in the ideal Kerr case, but the interaction distorts the two-photon wavepacket...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21758_figures/2604.21758_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Photon sorter performance characterisation. a. Probabilities of detecting the one-photon state in the upper (green) or lower (orange) output port of the photon sorter as a function of the detuning ∆between the input field and the QD, normalised to the QD linewidth Γ/2. The dashed lines correspond to a linear optical beam splitter with a reflectivity matching the one-photon statistics at ∆= 0. b. Probabilities of detecting two photons in the upper mode (orange), two photons in the lower mode (green) or one photon each in both modes (blue) as a function of the detuning ∆. An ideal photon sorter would transfer the two photons into the lower mode completely. The dashed lines correspond...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21758_figures/2604.21758_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Photon sorter for BSMs. a. Illustration of a nonlinear BSMs using photon sorters. The first block (in orange) corresponds to a linear optical |ψ⟩-fusion. Photons from the ψ± states are incident individually on the photon sorter, so a direct measurement follows (yellow). Photons from ϕ± bunch after the first fusion block and are split away by the photon sorters. Consecutively, a reversed-|ψ⟩-fusion (pink) and a |ϕ⟩-basis fusion (green) are performed. We evaluate the performance of photon-sorter-boosted BSMs by analysing their b. success, c. error, and d. failure probabilities. Here, failures denote detected measurement patterns unassociated with any valid state, while errors...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21758_figures/2604.21758_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Advances towards applications. a. Loss thresh- old of the FBQC architecture introduced in Ref. [16], when using photon sorting to boost fusion performance, as a func- tion of β. The two curves assume no pure dephasing, with and without spectral diffusion. The black dashed line de- notes the threshold using linear optical BSMs. b. Perfor- mance of a repeater network for QKD using the DLCZ pro- tocol [4], comparing linear optical BSMs (black dashed line), and photon-sorter-boosted nonlinear BSMs. The latter in- cludes a state-of-the-art scenario achieved solely by improv- ing the β = 0.98 [39] (blue), and an ideal noiseless photon sorter [18] (orange). During initial entanglement...</sub>
+
+</details>
+
+**Main problem.** Linear-optical Bell state measurements (BSMs) are fundamentally limited to a 50% success probability, which increases hardware overhead and reduces noise tolerance in photonic quantum computing and communication architectures.
+
+**Main result.** The authors demonstrate a passive photon-sorting circuit using a quantum dot that achieves a 62% success probability for sorting one- and two-photon components and a 57% post-selected BSM success probability, exceeding the linear-optical limit.
+
+**Method.** The researchers use a nonlinear Mach-Zehnder interferometer (MZI) where photon scattering from a single quantum dot induces a nonlinear phase shift, combined with temporal filtering and input-output theory modeling.
+
+**Summary.** This paper presents an experimental demonstration of a photon sorter that uses a single quantum dot to distinguish between one- and two-photon states. By leveraging the nonlinearity from photon scattering in a nanophotonic waveguide, the device achieves a BSM success rate of 57%, breaking the 50% limit of standard linear optics. This advancement has significant implications for scaling up fusion-based quantum computing and improving the efficiency of quantum repeater networks.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A single semiconductor quantum dot (QD) embedded in a nanobeam waveguide with a photonic crystal mirror to create an effectively chiral, single-sided coupling interface.
+
+**Key observables.** One-photon and two-photon detection probabilities, second-order correlation function g(2)(0), transmission/reflection coefficients, and BSM success/error/failure rates.
+
+**Important parameters / regimes.** Waveguide coupling efficiency (beta-factor), pure dephasing rate, spectral diffusion, pulse duration, and detuning from resonance.
+
+**Assumptions / limitations.** The analysis assumes a two-level system approximation for the emitter and considers the impact of phonon-induced dephasing and spectral diffusion as primary error sources.
+
+**Figures summary.** Figure 1 shows the MZI architecture and the nonlinear response of the emitter; Figure 2 presents photon statistics and detuning-dependent probabilities; Figure 3 compares BSM performance metrics; Figure 4 discusses scalability and loss thresholds in FBQC.
+
+**Paper structure.** The paper introduces the problem of probabilistic BSMs, describes the experimental platform and MZI architecture, presents the experimental results for photon sorting, provides theoretical modeling of noise and scattering, and concludes with applications to FBQC and quantum repeaters.
+
+**Why it may be interesting.** This work is highly relevant for quantum optics and open quantum systems researchers as it demonstrates how controlled light-matter interaction and nonlinearity can be harnessed to surpass fundamental limits of linear-optical quantum information processing.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+High-quality photonic Bell state measurements (BSMs) enable scalable universal quantum computing and long distance quantum communication. However, when implemented with linear optics, BSMs are fundamentally probabilistic, introducing substantial hardware overheads and limiting noise tolerance in photonic quantum computing architectures. Nonlinear interactions at the single-photon level can overcome these limitations by enabling near-deterministic photon-photon gates. Here, we demonstrate a passive photon-sorting circuit based on the induced nonlinearity arising from photon scattering in a solid-state quantum emitter. The scattering is implemented in a directional waveguide-emitter coupling interface and embedded on-chip into a linear optical circuit, through which we demonstrate sorting of one- and two-photon components with a success probability of 62%. We find that the current system can enable BSMs with a 57% post-selected success probability without ancillary photons, exceeding the linear-optical limit of 50%, and can be readily improved to >65% with design optimisations.
 
 </details>
 
@@ -120,7 +344,7 @@ Quantum resources such as entanglement form the backbone of quantum technologies
 ### [A Universal Quantum Information Preserving Photonic Switch for Scalable Quantum Networks](http://arxiv.org/abs/2604.21902v1)
 
 **Authors:** Jiapeng Zhao, Stéphane Vinet, Amir Minoofar, Michael Kilzer, Lucas Wang, Galan Moody, Vijoy Pandey, Ramana Kompella, Reza Nejabati  
-**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21902v1>  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21902v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
 **Topic relevance:** `interference shaping light` **2/5**
 
@@ -207,64 +431,870 @@ Quantum networks are a keystone of the quantum internet. However, existing imple
 
 <sub>[↑ back to top](#top)</sub>
 
-<a id="paper-2604.21876"></a>
-### [Loss-biased fault-tolerant quantum error correction](http://arxiv.org/abs/2604.21876v1)
+<a id="paper-2604.21723"></a>
+### [Entanglement of two optical emitters mediated by a terahertz channel](http://arxiv.org/abs/2604.21723v1)
 
-**Authors:** Laura Pecorari, Gavin K. Brennen, Stanimir S. Kondov, Guido Pupillo  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21876v1>  
+**Authors:** Yanis Le Fur, Diego Martín-Cano, Carlos Sánchez Muñoz  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21723v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `Rydberg arrays` **4/5**
+**Topic relevance:** `Dicke superradiance` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.21876_figures/2604.21876_fig1.jpg" width="500"><br>
-<sub>FIG. 1. (a) Rotated surface code, stabilizers and logical oper- ators. (b) Stabilizer readout circuit simulated with different success probability of not finding an atom in the Rydberg state before a CZ gate. (c) Surface code logical error proba- bility versus Rydberg decay rate, γ/Ωmax with time-optimal laser pulses. Data are for 100, 90, 75, 50, 0% success proba- bility that an atom is not in the Rydberg state immediately before a the next gate (from dark to light color shading).</sub>
+<img src="2604.21723_figures/2604.21723_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Physical system and energy-level landscape. (a) Schematic of the entanglement generation setup, consisting of two quantum emitters driven by carrier (blue) and sideband (green) optical fields, which are coupled to a shared THz channel (here represented by a ring waveguide or cavity). (b) Energy levels of an atom coupled to a carrier-laser. (Left) Bare system basis showing optical transitions in the laboratory frame; (Right) Dressed-state basis highlighting the emerging THz transitions within a Rabi doublet (red). (c) Energy levels of a dressed-atom coupled to a sideband laser: Dressed states split by THz frequencies couple to laser photons (left) developing a secondary dressed...</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.21876_figures/2604.21876_fig2.jpg" width="500"><br>
-<sub>FIG. 2. (a) Schematic level structure. (b) Logical error scal- ing ν such that pL ∝γν versus success probability, pdepl., of inter-gate ionization for distance-3 surface codes. Back- to-back gate schedules produce a non-fault-tolerant scaling ⌈d/4⌉, while perfect inter-gate ionization restores the fault- tolerant Pauli scaling of ⌈d/2⌉for Pauli errors. If losses are properly handled in software with a loss-aware decoder, the optimal erasure-like scaling of d can be achieved (light blue). Error bars fall within the marker size.</sub>
+<img src="2604.21723_figures/2604.21723_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Optimizing entanglement via optical measurements (a) Emission spectrum in the visible regime for each individual emitter, centered at the laser frequency ωL for the case of both optimal and sub-optimal spectral alignments. (Top) Spectra in the absence of sideband drives (Ωsb = 0) obtained in Step 1, resulting in Mollow triplets with THz sideband splittings. (Middle) Zoom of the higher-energy Mollow sideband peaks, aligned symmetrically about ωsb at the end of Step 2. (Bottom) Formation of secondary Mollow spectra upon activation of the sideband drive Ωsb, which should be spectrally overlapping at the end of Step 3. (b) Concurrence C (blue, solid) and Liouvillian gap λ—computed...</sub>
 
 </details>
 
 <details><summary>📷 Fig 3</summary>
 
-<img src="2604.21876_figures/2604.21876_fig3.jpg" width="500"><br>
-<sub>FIG. 3. Occurrences of hook error strings caused by single decay events that degrade fault tolerance. Number hook er- rors for (a) ionization enforced after each gate with success probabilities ranging from 0% to 100% and (b) perfect ion- ization only enforced at selected circuit locations (see main text). (c) Probability of each hook error string at fixed decay rate γ = 5×10−5Ωmax (far below the surface code threshold).</sub>
+<img src="2604.21723_figures/2604.21723_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Maximal stationary concurrence C versus cavity loss rate κ and emitter-cavity coupling χ, found by optimizing the doubly dressed angle ˜θ and the doubly dressed frequency ˜ΩR at every (κ, χ) pair (the rest of parameters are fixed by Conditions 0-2). Calculations were performed using the GRWA framework Eq. (4) and (5) and subsequently veri- fied against the full model from (1). The dash-dotted lines represent the different condition we have imposed for our analytical findings: the adiabatic elimination of the cavity κ ≥2c1s1χ (blue) and the RWA on the dissipation of the cavity ωTHz ≥10κ (red). Panels correspond to cavity fre- quencies of (a) ωTHz/2π = 0.5 THz, (b) ωTHz/2π = 1.0 THz...</sub>
 
 </details>
 
-**Main problem.** Shortening QEC cycles in neutral-atom processors leads to non-Markovian, correlated errors caused by Rydberg excitation hopping and residual Rydberg populations. The study investigates if these errors can be mitigated to restore fault-tolerant scaling.
+<details><summary>📷 Fig 4</summary>
 
-**Main result.** The authors propose 'loss-biasing'—using mid-circuit ionization to convert Rydberg excitations into atom loss—which restores fault-tolerant Pauli error scaling and can achieve optimal erasure-like scaling when paired with loss-aware decoding.
+<img src="2604.21723_figures/2604.21723_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Quantum State tomography (QST) and re- construction Fidelity. (a) Schematic of the QST acquisi- tion protocol for two emitters radiating in the visible regime, based on joint photodetection (b) Reconstructed matrix for the maximally-entangled Bell state |Φ−⟩= |ge⟩−|eg⟩ √</sub>
 
-**Method.** The study uses Lindblad master equation dynamics, Monte Carlo trajectory generation, and randomized compiling to derive effective Pauli error models, followed by large-scale surface code simulations using Stim and Pymatching.
+</details>
 
-**Summary.** This paper addresses the degradation of fault tolerance in neutral-atom quantum computers when QEC cycles are accelerated. It identifies that fast cycles amplify Rydberg-mediated correlated errors. By implementing 'loss-biasing'—converting unwanted Rydberg excitations into detectable atom loss via ionization—the authors show that one can restore fault-tolerant scaling and even approach optimal erasure-based performance. This provides a practical roadmap for achieving sub-millisecond QEC cycles in Rydberg-based architectures.
+**Main problem.** The lack of an efficient coherent interface in the terahertz (THz) spectrum hinders the development of THz-based quantum networks and the scaling of quantum technologies.
+
+**Main result.** The authors demonstrate a method to generate and stabilize high-value steady-state entanglement (concurrence > 0.9) between two optical emitters using a THz channel, controllable entirely via optical means.
+
+**Method.** The study uses the Generalized Rotating Wave Approximation (GRWA) and adiabatic elimination of the cavity mode to derive an effective master equation for dressed-state dynamics.
+
+**Summary.** This paper proposes a way to create stable entanglement between two optical qubits using a terahertz channel. By using strong visible-light driving, the researchers create 'dressed' states that can be controlled and measured using only optical tools, avoiding the need for direct THz detection. The method achieves very high entanglement levels and is robust against various experimental imperfections. This establishes a practical framework for building larger quantum networks that bridge the gap between optical and THz frequencies.
 
 <details><summary>Detailed structure</summary>
 
-**Model / system.** A neutral-atom processor platform using Rydberg-blockade CZ gates, modeled as a three-level system (|0>, |1>, |r>) in optical tweezers, specifically focusing on alkaline-earth-like atoms.
+**Model / system.** The system consists of two non-identical polar quantum emitters (two-level systems) coupled to a lossy single-mode THz resonator in the bad-cavity limit, driven by both a visible-frequency carrier field and a THz-frequency sideband field.
 
-**Key observables.** Logical error probability, logical error scaling exponent (nu), stabilizer readout success probability, and noise entropy.
+**Key observables.** Concurrence (C), Liouvillian gap (lambda), second-order cross-correlation function (g2_12), and reconstructed density matrix fidelity.
 
-**Important parameters / regimes.** Rydberg decay rate to Rabi frequency ratio (gamma/Omega_max), ionization success probability (p_depl), and code distance (d).
+**Important parameters / regimes.** THz frequency (0.5-3.0 THz), Rabi frequencies, cavity decay rate (kappa), emitter decay rate (gamma), and the dressing angle (theta).
 
-**Assumptions / limitations.** Assumes a 'data-ancilla blockade' during ionization and focuses primarily on the rotated surface code architecture.
+**Assumptions / limitations.** The use of GRWA assumes the THz frequency is much larger than the coupling strength (omega_THz >> chi) and that the sideband driving is sufficiently weak.
 
-**Figures summary.** Figure 1 shows the surface code schematic and stabilizer readout success; Figure 2 illustrates the atomic level structure and the logical error scaling exponent versus ionization success probability.
+**Figures summary.** Figures show the non-monotonic dependence of concurrence on the dressing angle, the optimization of parameters for dark state stabilization, and the reconstruction of the density matrix via quantum state tomography.
 
-**Paper structure.** The paper identifies the problem of high-speed QEC errors, introduces the loss-biasing mechanism, details the physical model and simulation framework, presents results on error scaling and fault tolerance restoration, and concludes with experimental implementation outlines.
+**Paper structure.** The paper introduces the THz interface problem, describes the physical model and Hamiltonian, details the parameter optimization for entanglement stabilization, proposes an optical quantum state tomography protocol, and evaluates experimental feasibility and error mitigation.
 
-**Why it may be interesting.** It addresses the intersection of open quantum systems (non-Markovian noise and Lindblad dynamics) and quantum computing, providing a physical strategy (ionization) to transform complex correlated noise into manageable erasure noise.
+**Why it may be interesting.** It presents a novel hybrid visible-THz quantum interface that uses dissipation as a resource to stabilize entanglement, which is highly relevant for researchers working on reservoir engineering and quantum networks.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-We investigate the limits of quantum error correction (QEC) in neutral-atom processors approaching high-fidelity gates and fast cycle times. We show that shorter QEC cycles amplify platform-specific errors, notably Rydberg excitation hopping, and hinder decay of residual Rydberg population, leading to non-Markovian correlated errors that degrade logical performance. To address this, we introduce loss biasing, where spurious Rydberg excitations are rapidly converted into atom loss via mid-circuit ionization, transforming errors into erasure-like noise and suppressing their propagation. Loss biasing restores the fault-tolerant logical error scaling for intra-cycle Pauli errors; furthermore, we argue that when supported with loss-aware decoding, it can achieve the optimal scaling of erasures while enabling shorter QEC cycles with reduced hardware overhead. We outline an implementation using fast autoionization in alkaline-earth(-like) atoms, establishing loss biasing as a practical route toward fault-tolerant quantum computing with sub-millisecond QEC cycles.
+Quantum technologies in the terahertz (THz) require a coherent interface between addressable qubits and THz quantum channels -- a capacity that so far, remains largely underdeveloped. Here, we propose and demonstrate the generation of steady-state entanglement between polar quantum emitters, mediated by THz photons. We exploit strong visible-light driving of the emitters to create Rabi-split dressed eigenstates whose energy separation can be optically tuned into the THz regime. The polar nature of the emitters activates THz transitions within these eigenstates, allowing them to couple to a THz photonic mode that induces collective dissipative dynamics. A coherent driving and control of these effective THz emitters is achieved by using a sideband optical drive with detuning close to the THz transition frequency. The resulting interplay of collective dissipation and driving activates a mechanism to generate steady-state entanglement with high values of the concurrence ($C>0.9$), attainable under experimentally feasible parameters. Crucially, both coherent manipulation and quantum state tomography are implemented entirely through optical means, avoiding direct THz control and detection. This establishes a hybrid visible-THz quantum interface in which a THz channel mediates qubit-qubit entanglement (a key operational requirement for THz quantum technologies) while remaining optically accessible.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21659"></a>
+### [Spectral Diffusion Mitigation with a Laser Pulse Sequence](http://arxiv.org/abs/2604.21659v1)
+
+**Authors:** Kilian Unterguggenberger, Alok Gokhale, Aleksei Tsarapkin, Wentao Zhang, Katja Höflich, Herbert Fotso, Tommaso Pregnolato, Laura Orphal-Kobin, Tim Schröder  
+**Type:** experiment · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21659v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `interference shaping light` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21659_figures/2604.21659_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Simulated light-matter interaction. a. Simpli- fied level scheme. Spectral diffusion is indicated as a time- dependent transition energy from the ground state |g⟩to the excited state |e⟩. b. Control sequence consisting of N π-pulses with interpulse delay τ (top) and accumulation of relative phase (bottom). c. Stimulated emission and direct absorp- tion spectra of a two-level system after a periodic sequence of N = 12 π-pulses. The absorption spectrum without control is a Gaussian with a FWHM of 2 √</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21659_figures/2604.21659_fig2.jpg" width="500"><br>
+<sub>FIG. 3. Effect of the interpulse delay. a. Controlled spectra for different interpulse delays τ. The fits are sums of five to seven Lorentzians. Here, the count rate is normalized to the outermost data points. Individual spectra are offset by 0.05 for visual clarity. b. Satellite feature positions extracted from the fits. The simulated positions of ±n/2τ are shown as gray lines.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21659_figures/2604.21659_fig3.jpg" width="500"><br>
+<sub>FIG. 2. Controlled absorption spectrum of a single NV center. a. Experimental sequence. The control field (red) consists of N = 21 periodic π-pulses. The probe field (blue) is turned on after 11 pulses. Collected photon detection events are inte- grated in time windows (light red and blue). b. Time-resolved fluorescence signal of the NV center for a probe detuning of zero (light red) and -0.25 GHz (light gray). A Master equation fit with an additional decay term is shown as a red line. The time windows are indicated by dashed and dotted lines. Here the interpulse delay τ = 10 ns. c. Controlled spectrum fitted with a sum of seven Lorentzians. Dashed lines indicate ex- pected satellite...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21659_figures/2604.21659_fig4.jpg" width="500"><br>
+<sub>FIG. 5. Temporal evolution of the spectrum. Four spectra (left column) and the corresponding time window (right col- umn, shaded region) are shown. The last spectrum shows the uncontrolled linewidth (blue). The pulse carrier frequency is indicated by the dotted gray line. Here, the interpulse delay τ = 10 ns and the number of control pulses N = 5.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21659_figures/2604.21659_fig5.jpg" width="500"><br>
+<sub>FIG. 4. Detuned pulse carrier frequency. a-b. Controlled spectra with different detunings ∆0 and interpulse delays τ are shown (red). The uncontrolled resonance is shown in blue (centered at the dashed line, FWHM represented by shaded region). A red arrow indicates the spectral shift achieved by the control pulses to the pulse carrier frequency (dotted gray line).</sub>
+
+</details>
+
+**Main problem.** Spectral diffusion in solid-state quantum emitters, caused by electric field noise, leads to inhomogeneous broadening that limits the quality of single-photon sources and entanglement generation.
+
+**Main result.** The researchers experimentally demonstrated that a periodic sequence of optical pi-pulses can mitigate spectral diffusion, reducing the linewidth of an NV center from 104 MHz to 27 MHz and allowing for frequency-tunable absorption.
+
+**Method.** The protocol uses a sequence of N periodic optical pi-pulses to refocus the spectrum. Photoluminescence excitation (PLE) spectroscopy was used to measure the resulting absorption and stimulated emission spectra.
+
+**Summary.** This paper reports the first experimental observation of all-optical spectral control in a solid-state emitter. By applying a periodic sequence of laser pi-pulses to an NV center in diamond, the researchers were able to significantly reduce the inhomogeneously broadened linewidth. The method allows for the 'pinning' of the absorption spectrum to a target frequency, effectively mitigating the effects of spectral diffusion. This approach is universal and applicable to various individual or ensemble quantum emitters.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A single Nitrogen-Vacancy (NV) center in diamond, modeled as a two-level quantum system subject to a periodic control field and stochastic detuning (charge noise).
+
+**Key observables.** Fluorescence count rate, absorption/stimulated emission spectra, and full-width at half-maximum (FWHM) linewidth.
+
+**Important parameters / regimes.** Interpulse delay (tau) of 10 ns, excited state lifetime of 12.3 ns, and pulse sequence length of N = 21 pulses.
+
+**Assumptions / limitations.** The system can be treated as a two-level system due to sufficient cyclicity; the detuning follows a Gaussian random distribution.
+
+**Figures summary.** Figure 1 shows the theoretical simulation of the pulse sequence and resulting satellite features; Figure 2 presents the experimental observation of the effect; Figure 3 shows the dependence of satellite spacing on interpulse delay; Figure 4 demonstrates frequency tuning via the pulse carrier frequency; Figure 5 shows the temporal evolution of the spectrum with increasing pulse number.
+
+**Paper structure.** The paper introduces the problem of spectral diffusion, presents a theoretical simulation of the pi-pulse control protocol, details the experimental implementation on an NV center, demonstrates linewidth reduction and frequency tuning, and concludes with discussion on universality and limitations.
+
+**Why it may be interesting.** This work is highly relevant to quantum optics and open quantum systems as it demonstrates a purely coherent-control method to suppress environmental noise (spectral diffusion) in a solid-state platform without needing external feedback or static fields.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The optical spectrum of a quantum system is jointly determined by the properties of the emitter and the driving field. All-optical spectral control can hence be a promising method to engineer the properties of single photon emitters for quantum technological applications. It was proposed that driving a two-level system with a periodic sequence of optical pi-pulses during the excited state lifetime shifts the emission and absorption maximum to an arbitrarily detuned pulse carrier frequency, enabling the mitigation of spectral diffusion in noisy emitters. In this article, we report on the first experimental observation of this effect. We implement the protocol on a solid-state emitter and reduce its inhomogeneously broadened optical linewidth close to the lifetime limit. By detuning the excitation laser, we are able to concentrate approximately half of the absorption to a freely selectable target frequency. Our approach is solely based on properties of coherently evolving quantum systems, rendering it applicable to a wide range of individual and ensembles of quantum emitters.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21929"></a>
+### [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](http://arxiv.org/abs/2604.21929v1)
+
+**Authors:** MD Nahidul Hasan Sabit  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21929v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `kinetically constrained dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21929_figures/2604.21929_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21929_figures/2604.21929_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21929_figures/2604.21929_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21929_figures/2604.21929_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21929_figures/2604.21929_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21929_figures/2604.21929_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21929_figures/2604.21929_page8.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 8</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21929_figures/2604.21929_page9.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 9</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21929_figures/2604.21929_page10.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 10</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21929_figures/2604.21929_page11.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 11</sub>
+
+</details>
+
+**Main problem.** The global spectrum of a many-body Hamiltonian fails to capture the inherent locality of interactions. The paper seeks to develop a subsystem-resolved spectral framework that organizes spectral data according to the geometry and interaction structure of subsystems.
+
+**Main result.** The authors prove that subsystem Hamiltonians can be locally approximated with exponentially decaying error and that their spectra are stable under such truncations. Furthermore, they show that the spectra of spatially separated subsystems are approximately additive, becoming exact for finite-range interactions.
+
+**Method.** The study uses an operator-algebraic framework, employing interaction norms to measure the decay of interaction strengths and spectral perturbation theory (Hausdorff distance) to relate operator-level approximations to spectral stability.
+
+**Summary.** This paper introduces a new way to study the energy spectra of quantum many-body systems by looking at subsystems rather than just the global Hamiltonian. It demonstrates that the spectrum of a local region can be accurately approximated by looking at a finite neighborhood and that the spectra of two distant regions can be roughly added together. This proves that the locality of physical interactions is directly reflected in the structure of the system's energy levels. The framework provides a mathematical foundation for connecting interaction geometry to spectral behavior.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The framework applies to quantum many-body Hamiltonians acting on a tensor product Hilbert space, where the Hamiltonian is a sum of local interaction terms with exponentially decaying strengths.
+
+**Key observables.** Subsystem spectrum (sigma(H_S)) and the Hausdorff distance between spectra.
+
+**Important parameters / regimes.** Interaction norm (Phi_mu), subsystem radius (r), spatial separation (D), and interaction decay rate (mu).
+
+**Assumptions / limitations.** The system is assumed to have a finite index set and interactions must satisfy a specific exponential decay condition (finite interaction norm).
+
+**Paper structure.** The paper begins by defining a subsystem-based spectral framework and an interaction norm, then moves to proving the local approximability of subsystem Hamiltonians, followed by establishing spectral stability and the approximate additivity of spectra for distant subsystems.
+
+**Why it may be interesting.** This work provides a static analogue to Lieb-Robinson bounds, offering a new way to understand how the geometry of interactions shapes the spectral properties of many-body systems, which is fundamental for understanding correlations and dynamics.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study spectral properties of quantum many-body Hamiltonians through a subsystem-based framework. Given a Hamiltonian of the form $H = \sum_{X \subseteq Λ} Φ(X)$ acting on a tensor product Hilbert space, we associate to each subset $S \subseteq Λ$ a subsystem Hamiltonian $H_S$ and its spectrum $\mathcal{S}(S) = σ(H_S)$. This produces a family of spectra indexed by subsystems, allowing spectral data to be organized according to interaction structure. We show that subsystem Hamiltonians admit local approximations: $H_S$ can be approximated by operators supported on finite neighborhoods with an error bounded by $\|H_S - H_{S,r}\| \le |S| e^{-μr} \|Φ\|_μ$. As a consequence, subsystem spectra are stable under truncation in the sense that $d_H(\mathcal{S}(S), σ(H_{S,r})) \le |S| e^{-μr} \|Φ\|_μ.$ We then prove that for disjoint subsets $S_1, S_2 \subseteq Λ$, the subsystem spectrum is approximately additive: $d_H\big(\mathcal{S}(S_1 \cup S_2), \mathcal{S}(S_1) + \mathcal{S}(S_2)\big) \le (|S_1| + |S_2|) e^{-μD} \|Φ\|_μ,$ where $D = d(S_1, S_2)$. In the finite-range case, this relation becomes exact. The results show that spectral properties reflect the locality of interactions not only at the level of operators, but also at the level of spectra. The framework provides a way to study many-body systems in which interaction geometry directly shapes spectral behavior.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+## Other papers (24)
+
+*Papers without highlighted authors or any topic match. Click to expand.*
+
+<details><summary>Show other papers</summary>
+
+<a id="paper-2604.21899"></a>
+### [$3d_{z^2}$ orbital delocalization and magnetic collapse in superconducting (La,Pr)$_3$Ni$_2$O$_{7-δ}$ films](http://arxiv.org/abs/2604.21899v1)
+
+**Authors:** Xiaoyang Chen, Wenliang Zhang, Fei Peng, Ting Cui, Guangdi Zhou, Zezhong Li, Jaewon Choi, Lizhi Xu, Yiu-Fung Chiu, Stefano Agrestini, Sahil Tippireddy, Haoliang Huang, Heng Wang, Xianfeng Wu, Peng Li, Jin-Feng Jia, Mirian Garcia-Fernandez, Yi Lu, Er-Jia Guo, Qi-Kun Xue, Zhuoyu Chen, Donglai Feng, Ke-Jin Zhou  
+**Type:** experiment · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.21899v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21899_figures/2604.21899_fig1.jpg" width="500"><br>
+<sub>FIG. 1. The O K- and Ni L3- X-ray absorption spec- tra. a,b, Schematic illustration of (La,Pr)3Ni2O7−δ films designed with varying compressive strain (a) and oxygen content (b). The LPNO/SLAO3 is superconducting at low temperature while the other samples are insulating. c,d, O K-XAS measured at σ polarisation (c) and π polarisation (d). e,f, Ni L3-XAS measured at σ polarisation (e) and π polarisation (f). XAS were measured in total fluorescence yield (TFY) mode at 20 K with a grazing incidence angle of 20◦, where π polarization predominantly probes out-of-plane orbital states, while σ polarization probes in-plane orbital states.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21899_figures/2604.21899_fig2.jpg" width="500"><br>
+<sub>Figure 3a shows the momentum-dependent magnetic exci- tations in LNO/LAO, along the two high-symmetrical direc- tions (see Methods). The damped harmonic oscillator (DHO) function was used to fit the magnons. The extracted magnon peaks (ωp) exhibit a dispersion overlapping with that of LNO bulk at ambient pressure (Fig. 3b) [8]. For a detailed com- parison, representative RIXS spectra at q∥= (−0.14, −0.14) (Fig. 3d) and q∥= (−0.06, −0.06) (Fig. 3e) are presented. In contrast to the LNO bulk, the magnons in the thin films are significantly damped. The extracted damping factor (γ) is ∼40 meV in the thin film twice of that in the LNO bulk. With the similar ωp and increased γ, the fitted...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21899_figures/2604.21899_fig3.jpg" width="500"><br>
+<sub>FIG. 2. The electronic excitations in the compressively strained (La,Pr)3Ni2O7−δ films. a,b, TFY XAS and energy-dependent RIXS maps at the Ni L3 edge. The RIXS spectra are normalized by the high-energy dd excitations with integrated intensity over the energy-loss window [0.6 eV, 3.0 eV]. Both XAS and RIXS were measured at a grazing incidence angle of 20◦with π polarization to enhance sensitivity to out-of-plane dz2 orbital states. The RIXS map of LNO bulk is adapted from Ref. [8]. c,d, Zoomed-in views of the RIXS maps shown in (a,b), highlighting the dd3 excitations. e, Integrated RIXS intensity over the incident-energy range [852.5 eV, 853.3 eV], corresponding to the resonance of the dd2...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21899_figures/2604.21899_fig4.jpg" width="500"><br>
+<sub>FIG. 3. Magnetic excitations in the compressively strained (La,Pr)3Ni2O7−δ films. a, Momentum-resolved RIXS intensity maps of the LNO/LAO film along the q∥= (H, H) and (H, 0) directions. The Brillouin zone is defined based on the pseudo-tetragonal lattice [8]. All spectra were measured at 20 K using π-polarized X-rays tuned to the magnon resonance (852.4 eV). Each RIXS spectrum was fitted with a pseudo-Voigt function for the elastic peak and a damped harmonic oscillator (DHO) function for the magnon exci- tation. The green filled circles denote the extracted magnon peak energies (ωp), with error bars representing the fitting uncertainties, which are smaller than the marker size (see details...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21899_figures/2604.21899_fig5.jpg" width="500"><br>
+<sub>FIG. 4. Spin-density-wave behavior in the compressively strained (La,Pr)3Ni2O7−δ films. a–e, SDW peaks of La3Ni2O7−δ bulk single crystals and compressively strained thin films. Spec- tra were measured along the (H, H) direction near the SDW wave vector (−0.25, −0.25) at 20 K with π-polarized X-rays tuned to the SDW resonance (852.4 eV). Intensities were normalized to the dd excitations at 1 eV, and each spectrum was fitted with a Lorentzian function. f,g, Temperature dependence of the SDW intensity (f) and correlation length (ξSDW) (g) for the bulk and thin film samples. The dashed line at 150 K indicates the SDW transition temperature of the bulk sample. The correlation length is defined...</sub>
+
+</details>
+
+**Main problem.** Understanding the microscopic electronic and magnetic evolution from the parent insulating phase to the superconducting phase in Ruddlesden-Popper nickelate thin films.
+
+**Main result.** The study reveals a two-step evolution where both strain and oxygenation drive the delocalization of the Ni 3d_z2 and O 2p_z orbitals, accompanied by the suppression of long-range spin-density-wave order.
+
+**Method.** X-ray absorption spectroscopy (XAS) and resonant inelastic X-ray scattering (RIXS) were used to probe orbital and magnetic excitations in epitaxial thin films.
+
+**Summary.** This paper investigates the transition from an insulating to a superconducting state in bilayer nickelate thin films. By tuning strain and oxygen content, the researchers show that superconductivity is linked to the delocalization of specific orbitals (Ni 3d_z2 and O 2p_z). This process is accompanied by the melting of long-range magnetic spin-density-wave order. The findings provide a roadmap for designing new superconductors by controlling orbital-selective pathways.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The physical system consists of (La,Pr)3Ni2O7-delta (LPNO) bilayer nickelate thin films, which can be tuned via compressive epitaxial strain (using SLAO or LAO substrates) and oxygen stoichiometry.
+
+**Key observables.** Spectral weight transfer in O K-edge XAS, Ni 3d_z2 orbital itinerancy, dd orbital excitations, spin-density-wave (SDW) intensity and correlation length, and magnon dispersion/damping.
+
+**Important parameters / regimes.** Compressive strain (%), oxygen deficiency (delta), temperature, and the interlayer 3d_z2-2p_z-3d_z2 molecular orbital hybridization.
+
+**Figures summary.** Figure 1 shows the strain and oxygen tuning series and XAS spectra; Figure 4 displays SDW peaks, RIXS spectra for SDW intensity, and dd excitations.
+
+**Paper structure.** The paper introduces the problem of nickelate superconductivity, describes the experimental setup for strain and oxygen tuning, presents XAS results showing orbital delocalization, details RIXS results regarding magnetic order suppression and magnon damping, and concludes with a model for orbital-selective superconductivity.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The recent discovery of Ruddlesden-Popper (RP) nickelate thin-film superconductors has opened a new frontier in unconventional superconductivity. Its realization requires both compressive epitaxial strain and highly oxidative growth conditions, yet the microscopic pathway from the parent phase to the superconducting phase remains elusive. Here, X-ray absorption spectroscopy and resonant inelastic X-ray scattering are employed to track this evolution by independently tuning strain and oxygen content in (La,Pr)$_3$Ni$_2$O$_{7-δ}$ thin films. We uncover a remarkable two-step evolution. First, signatures of delocalization emerge in the same way upon two independent tunings: spectral weight transfers from an upper Hubbard-like peak to the hole-like peak associated with the O $2p_z$ state, and in parallel, the initially localized Ni $3d_{z^2}$ orbital becomes more itinerant, accompanied by the broadening and weakening of $dd$ orbital excitations. Second, as itinerancy increases, long-range spin-density-wave (SDW) order is suppressed in both intensity and correlation length, indicating direct competition with superconductivity. Yet, short-range magnons persist: they become damped, but their bandwidth remains unchanged. Our results paint a coherent picture in which both strain and oxygenation drive the RP bilayer nickelates towards superconducting instability, where the O $2p_z$ and Ni $3d_{z^2}$ orbitals become delocalized. Concomitantly, the long-range magnetic order loses coherence and is suppressed. These findings establish an orbital-selective route to RP nickelate superconductivity, in which the delocalization of the interlayer $3d_{z^2}$-$2p_z$-$3d_{z^2}$ molecular orbital and the robust short-range magnons upon the melting of SDW order are prerequisites, providing strong constraints for theory and a roadmap for designing nickelate superconductors.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21692"></a>
+### [Bipartite entanglement under frequency comb pumping in parametric Josephson circuits](http://arxiv.org/abs/2604.21692v1)
+
+**Authors:** Mikael Vartiainen, Ilari Lilja, Ekaterina Mukhanova, Kirill Petrovnin, Gheorghe Sorin Paraoanu, Pertti Hakonen  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21692v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21692_figures/2604.21692_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Schematic of the experimental microwave setup working around 5.8 GHz frequency. The experiment is controlled by a GHz frequency lock-in signal analyzer, which also generates the required parametric pumps. The employed components are denoted in the frame on the right. The detection is performed using digital heterodyning [51]. For details of the operation, see text.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21692_figures/2604.21692_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Illustration of the mode-coupling sequence beyond the two-mode squeezed modes in the case of two parametric pumps. The dotted lines represent two-mode squeezing. We call these the first-order correlations between modes. However, because A and B are squeezed by P1, and B and C are squeezed by P2, there will be a beam-splitter correlation between A and C. Since these correlations grow proportionally to the product of two pump amplitudes, they are called second-order correlations between modes. These correlations are contained within the model and can be seen by expanding the unitary evolution operator generated by the Hamiltonian. In this figure, only first- order correlations are...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21692_figures/2604.21692_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Mode frequencies marked by ±(2m +1), for m = 0,...,21 and a 30-mode subgraph (contains modes denoted by dashed lines) constructed for a system with 15 symmetrically placed pumps. We are investigating the bipartite entanglement of the pair (-1, 1), inside the dashed square. Each edge represents a TMS term in the Hamiltonian. The weight for each edge is specified by the corresponding classical pump amplitude. Edges generated by P0 are indicated by red. We can see that the center pair (-1, 1) has 15 neighbors while the furthest pairs ±27,±29 have only 8 neighbors. This shows that as we traverse the graph further away from the center pair (-1, 1), each new added mode will not entangle...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21692_figures/2604.21692_fig4.jpg" width="500"><br>
+<sub>FIG. 5. Logarithmic negativity (a) and purity (b) of a 1, ..., 15 pump systems. We compare the theoretical predictions for symmetric (solid line, red, green, magenta) and asymmetric (dashed line, blue, yellow, cyan) systems with different parameter values. First, we have put all phases of the pumps equal to 0 and added no noise. Second, we have chosen all phases of the pumps randomly (random φk in the inset pump amplitude) and added no noise. Third, we have chosen all phases randomly and put a constant amount of noise θ = π</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21692_figures/2604.21692_fig5.jpg" width="500"><br>
+<sub>FIG. 4. Building up the asymmetric pump configuration: The basic TMS entanglement sequence is produced by pumps P0 and P2, with their half frequencies denoted by red (P0) and blue (P2) lines. The third pump is placed so that the distance ∆2 to P0 is different from ∆1 between P0 and P2. The dashed lines illustrate the sequence of P-2 added frequencies "Mi" with M referring to the mode frequencies established by pumps P0 and P2: extra mode frequency Mi is entangled with mode M. Below is the graphical description of a system with asymmetric pumps. Red edges represent TMS by P0, blue edges represent TMS by pump P2 and black edges represent TMS by subsequent asymmetric pumps.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21692_figures/2604.21692_fig6.jpg" width="500"><br>
+<sub>FIG. 9. Purity (scale given by the color bar) obtained from a) theory and b) experiment of symmetrically pumped system with first pump fixed at α1 = 0.44κ (αE = 0.15κ). In all configurations, all pumps 2,...,11 have the same pump amplitude that is grows from 0 to 0.44κ (αE = 0...0.15κ). Phases of the pumps were chosen at random. Due to low purity in the experiment, we apply the quantum limited ( ¯n = 1) attenuator channel with θ = 2π/7. The overlaid black curve in (a) is the purity of a system where each pump configuration has the same total power.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21692_figures/2604.21692_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Logarithmic negativity (a) and purity (b) of a 2 pump system where the first pump is fixed at α1 = 1.15κ (αE = 0.28κ) and the second pump grows from 0 to 1.81κ (αE = 0...0.44κ). Phases of the pumps were chosen at random. One can notice that in the case with no noise, even when the second pump is at 0, experimental results show very low purity. To account for this, the quantum limited ( ¯n = 1) attenuator channel with θ = 2π/7 was applied.</sub>
+
+</details>
+
+**Main problem.** Investigating how bipartite entanglement and purity are redistributed and diminished in a Josephson parametric circuit when using multiple pump tones (frequency combs) in symmetric and asymmetric configurations.
+
+**Main result.** Adding additional pumps reduces bipartite entanglement between specific mode pairs by redistributing correlations across a larger network of modes and additional idler frequencies. In symmetric configurations, pump phases significantly affect entanglement, whereas in asymmetric configurations, the effect is minimal.
+
+**Method.** The study combines experimental measurements in a Josephson Parametric Amplifier (JPA) with a theoretical Gaussian conditional-dynamics model using the Riccati equation and a graph-theoretical approach to describe mode couplings.
+
+**Summary.** This paper explores the effects of frequency comb pumping on entanglement in superconducting parametric circuits. It demonstrates that while adding more pump tones can increase the complexity of the mode network, it simultaneously reduces the bipartite entanglement between any two specific modes. The researchers compare symmetric and asymmetric pumping configurations, finding that phase-dependent interference is a key factor in symmetric setups. The results provide insights into the challenges of scaling up continuous-variable cluster states in the microwave domain.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A superconducting microwave circuit featuring a Josephson Parametric Amplifier (JPA) with a SNAIL loop, operating in a three-wave mixing regime driven by a frequency comb of parametric pump tones.
+
+**Key observables.** Logarithmic negativity (EN) for bipartite entanglement and purity (mu) of the quantum state.
+
+**Important parameters / regimes.** Number of pump tones (up to 15), pump amplitudes, pump phases, cavity loss rate (gamma), coupling coefficient (kappa), and noise temperature of the TWPA.
+
+**Assumptions / limitations.** The model assumes random pump phases to account for experimental lack of control, assumes all pump interactions are equally effective regardless of frequency separation, and ignores potential pump-induced mode hybridization.
+
+**Figures summary.** Fig 1 shows the experimental setup; Fig 2-4 illustrate mode-coupling sequences and graph structures for symmetric/asymmetric pumps; Fig 5-6 compare EN and purity across different pump numbers and phase scenarios; Fig 7-9 show amplitude sweeps and power redistribution effects.
+
+**Paper structure.** The paper begins with the experimental setup and hardware, moves to the mathematical framework of Gaussian dynamics and Hamiltonian modeling, compares symmetric vs. asymmetric pumping topologies using graph theory, presents experimental and theoretical results for entanglement and purity, and concludes with a discussion of limitations and stability.
+
+**Why it may be interesting.** This work is highly relevant for researchers in quantum optics and open quantum systems as it explores the complex dynamics of multipartite entanglement generation and the impact of dissipation and measurement backaction on Gaussian bosonic networks.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The creation of high-quality cluster states in superconducting microwave circuits is a relevant ingredient in continuous-variable quantum computing. Although large-scale cluster states have been established in optical systems, dissipation prevents their direct applicability to the microwave realm. Recent improvements in superconducting parametric circuits, in particular Josephson parametric amplifiers (JPA) and traveling wave parametric amplifiers (TWPA), have permitted substantial progress in producing entangled states using microwave photons. In this paper, we examine experimentally and theoretically the effects of numerous parametric pump tones on the degree of two-mode squeezing in a quantum circuit and apply it to the JPA. We find that additional pumps diminish the initial two-mode correlations achieved with a single pump by redistributing it among a larger network of modes and by introducing entanglement with additional idler frequencies. Taking into account the actual heterodyne measurement conditions, the experimental results are consistent with theoretical expectations.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21912"></a>
+### [Cryogenic shock exfoliation for ultrahigh mobility rhombohedral graphite nanoelectronics](http://arxiv.org/abs/2604.21912v1)
+
+**Authors:** Ludwig Holleis, Youngjoon Choi, Canxun Zhang, Jack H. Farrell, Gabriel Bargas, Audrey Hsu, Zexing Chen, Ian Sackin, Wenjie Zhou, Yi Guo, Thibault Charpentier, Yifan Jiang, Benjamin A. Foutty, Aidan Keough, Martin E. Huber, Takashi Taniguchi, Kenji Watanabe, Andrew Lucas, Andrea F. Young  
+**Type:** both · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.21912v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21912_figures/2604.21912_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Cryogenic shock exfoliation of rhombohedral graphene. (a) Step-by-step illustration of the cryogenic shock exfoliation process. (b) Optical micrograph taken in the visible and (c) infrared. Bright regions in the infrared image correspond to rhombohedral stacking order. (d-f) Scanning microwave impedance microscopy images in the regions marked in panel c. Area of select contiguous rhombohedral domains are indicated. (g) Total flake area versus non-Bernal stacking fraction for multilayer graphene flakes. Shaded ovals are centered on the geometric mean for x-axis and arithmetic mean for the y-axis, and spanning one standard deviation. (h) Distribution of single-stacking-order,...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21912_figures/2604.21912_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Real-space characterization of device uniformity. (a) Atomic force micrograph of a 13-layer dual-gated RMG device. Inset: optical micrograph. (b) Penetration field capacitance CP measured across the accessible range of ne and D. (c) Real space magnetization M determined by local magnetometry. A fringe magnetic field image is acquired by modulating the back gate across a phase boundary separating a spin-polarized half-metal (point ‘X’ in panel b) and a non-magnetic phase. Standard Fourier-domain algorithms are then used to reconstruct M from the measured fringe fields (see Methods).</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21912_figures/2604.21912_fig3.jpg" width="500"><br>
+<sub>Fig. 2a shows optical and atomic force micrographs of a dual-graphite gated 13-layer RMG device fabricated from a cryogenic shock exfoliated flake using the methods of the pre-</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21912_figures/2604.21912_fig4.jpg" width="500"><br>
+<sub>FIG. 3. Transverse magnetic focusing. (a) Single-particle band structure of rhombohedral 13-layer graphene at D = 0. The inset shows the Fermi surface at the dashed line (EF = 160 meV), corresponding to ne ≈1013 cm−2. (b) Simulations of the current magnitude |J| for a fully ballistic Boltzmann model with applied magnetic field B = 135 mT, corresponding to the first TMF resonance. (c) TMF data at ne = 1013 cm−2 for four contact configurations along the different edges of the devices. (d) TMF data for the ‘South’ edge as a function of temperature. (e) First TMF peak for at T=2.0K, (f) 78.0K, (g) 138.0K, and (h) 198.0K. The blue shaded region is the peak area Apeak. (i) Temperature-dependence...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21912_figures/2604.21912_fig5.jpg" width="500"><br>
+<sub>FIG. 4. Ballistic, diffusive, and hydrodynamic electron transport regimes in RMG. (a) nSOT Biot–Savart imaging of 10 µA current flow at ne = 1013 cm−2, D = 0 V/nm. (b) Simulation of current flow in the ballistic regime (ℓee = 200 µm, ℓmr = 200 µm), obtained by solving the quantum kinetic equation (see Methods). (c) nSOT image at ne = 0.6 × 1012 cm−2, D = 0 V/nm, close to charge neutrality. (d) Simulation in the diffusive regime (ℓee = 50 nm, ℓmr = 10 µm). (e) nSOT image at ne = 6.5 × 1012 cm−2, D = 0.41 V/nm, in the spin- and valley-unpolarized single-surface regime. (f) Simulation in the hydrodynamic regime (ℓee = 50 nm, ℓmr = 200 µm). Scale bar: 1 µm for all images. (g)...</sub>
+
+</details>
+
+**Main problem.** The utility of rhombohedral multilayer graphene (RMG) for studying correlated electron physics is limited by the scarcity, small size, and structural instability of rhombohedral stacking in natural graphite.
+
+**Main result.** The authors developed 'cryogenic shock exfoliation' and low-pressure assembly to produce large-area, high-yield RMG devices, demonstrating ultrahigh mobility and a crossover between Poiseuille and porous electron hydrodynamic flow.
+
+**Method.** A new cryogenic shock exfoliation method uses rapid cooling in liquid nitrogen to induce shear stress for Bernal-to-rhombohedral conversion, combined with low-pressure van der Waals assembly and nanoSQUID-on-tip imaging.
+
+**Summary.** This paper introduces a new fabrication technique called 'cryogenic shock exfoliation' to overcome the scarcity of rhombohedral graphene. By using rapid temperature changes to induce structural conversion, the authors produce large-area, high-quality rhombohedral flakes with 90% device yield. These high-purity devices allow for the observation of advanced electronic phenomena, including ultrahigh mobility and complex hydrodynamic electron flow. This advancement provides a scalable platform for exploring new correlated phases in 2D nanoelectronics.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The physical system consists of 13-layer rhombohedral multilayer graphene (RMG) heterostructures, analyzed using a tight-binding Hamiltonian and a quantum kinetic Boltzmann model for electron hydrodynamics.
+
+**Key observables.** Transverse magnetic focusing (TMF) peaks, nanoSQUID-on-tip (nSOT) current imaging, magnetization, resistance (including bend resistance), and effective mass.
+
+**Important parameters / regimes.** Disorder mean free path (> 200 um), electron-electron scattering length, Gurzhi length, device area (> 1300 um^2), and fabrication yield (~90%).
+
+**Assumptions / limitations.** The transport model assumes an isotropic 2D electron liquid and uses a two-rate relaxation-time approximation for momentum-relaxing and momentum-conserving scattering.
+
+**Figures summary.** Figure 1 shows the cryogenic shock process and structural uniformity via microscopy; Figure 4/S8/S9 present temperature-dependent resistance, current density maps, and simulations of hydrodynamic vs. diffusive flow regimes.
+
+**Paper structure.** Introduction of the RMG bottleneck, description of the cryogenic shock and low-pressure assembly methods, characterization of structural uniformity, demonstration of ultrahigh mobility via TMF, and analysis of hydrodynamic transport regimes.
+
+**Why it may be interesting.** The paper explores many-body electron-electron interactions and hydrodynamic regimes (Poiseuille vs. porous flow) in a highly tunable 2D system, which is relevant to the study of non-equilibrium dynamics in many-body systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Rhombohedral multilayer graphene (RMG) offers a highly tunable platform for correlated electron physics, featuring field-effect control of magnetic, superconducting, and topological phases[1-24]. The promise of these materials has been held back by the limited abundance of rhombohedral stacking in natural graphite, which constrains both sample yield and useful area. Here we introduce 'cryogenic shock exfoliation' to produce large area rhombohedral graphene flakes which, combined with a low-pressure van der Waals assembly technique that preserves stacking order, enable highly uniform devices exceeding 1300 $μm^2$ with fabrication yields of 90%. Using scanning nanoSQUID-on-tip imaging, we demonstrate uniform spin magnetism over the full central 10 times 10 $μm^2$ area of our devices. Transverse magnetic focusing reveals a disorder mean free path exceeding 200 $μm$ at low temperatures. Within the flat surface bands of RMG[20], we observe a size-driven crossover from Poiseuille to porous electron flow in the intermediate-temperature regime of strong electron-electron hydrodynamics[16, 25], providing a further signature of ultrahigh device quality. Our approach overcomes a key materials bottleneck in the fabrication of mesoscopic rhombohedral graphene devices, paving the way for incorporating strongly correlated phases into two-dimensional nanoelectronics.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21824"></a>
+### [Deterministic generation of grid states with programmable nonlinear bosonic circuits](http://arxiv.org/abs/2604.21824v1)
+
+**Authors:** Yanis Le Fur, Javier Lalueza-Puértolas, Carlos Sánchez Muñoz, Alberto Muñoz de las Heras, Alejandro González-Tudela  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21824v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21824_figures/2604.21824_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Symmetry-enforced state preparation for the 0-logical state. (a) Wigner representations of the initial squeezed vacuum state with r = 6 dB (i), displacement (ii), Kerr evolution (iii), and a final correction displacement ˆUD(iβcorr) (iv). Panel (v) represents the Wigner after applying three cycles of the protocol described in Algorithm 1 with initial squeezing r = 6 dB. (b) Expectation value ⟨ˆQ1⟩[dB] versus correction amplitude βcorr for a single-cycle generated state and for different values of initial squeezing r in different red shades. (c) ⟨ˆQ0⟩[dB] saturation for an increasing number of cycles of the symmetry-enforced states across different squeezing regimes (in red shades)....</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21824_figures/2604.21824_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Wigner distributions and logical state infidelities for phased-comb states. (a) Wigner distributions of the phased-comb logical states |˜0PC,j⟩(ncycles = 1, 2, and 3 cycles, left to right) and |˜1PC,j⟩(ncycles = 0, 1, and 2 cycles, left to right) using a squeezing parameter of r = 10 dB and the protocol described in Algorithm 1, but without the correction step. (b,c) Logical state infidelity Iµ (µ ∈{0, 1}) as a function of the Kerr uncertainty ∆χmax (b) and the boson loss rate normalized to the Kerr strength κ/χ (c). The infidelity is evaluated for a 3-cycle state (µ = 0, blue squares) and a 2-cycle state (µ = 1, red rhombus) at a squeezing of r = 7.8 dB. Data points represent an...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21824_figures/2604.21824_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Performance of QEC codes. (a) Near-optimal channel infidelity ˜Ie = 1−˜Fe as a function of the photon loss probability γ. (b) Channel infidelity versus the number of state legs at a fixed loss probability γ = 10−2. Performance is compared across four encodings: phased-comb (red rhombus), comb (blue rhombus), Gaussian-truncated GKP (red circles), and the trivial encoding {|0⟩, |1⟩} (dashed line). All codes are evaluated with the same number of legs. Parameters: (a) µ = 0 logical states generated with 3 cycles and µ = 1 logical states with 2 cycles. (b) Truncation level of the cavity NR = 500 except for the 5 cycle case where NR = 1200 to ensure convergence. (a,b) Squeezing is fixed...</sub>
+
+</details>
+
+**Main problem.** The difficulty of deterministically generating non-Gaussian bosonic grid states, such as GKP states, which are essential for hardware-efficient quantum error correction.
+
+**Main result.** The discovery of 'phased-comb states' generated by programmable nonlinear bosonic circuits that provide scalable error correction with performance comparable to GKP states and allow for a universal gate set.
+
+**Method.** An iterative 'leg-doubling' protocol using a sequence of squeezing, displacement, and Kerr-type nonlinear operations to generate complex bosonic states.
+
+**Summary.** This paper proposes a way to deterministically create bosonic states for quantum error correction using simple nonlinear circuits. While trying to create standard GKP states, the authors found that these circuits naturally produce a new class of 'phased-comb' states. These states are just as good at protecting information against photon loss and can be used to perform universal quantum logic gates. This approach is scalable and can be implemented in existing microwave or optical platforms.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A platform-agnostic nonlinear bosonic circuit (compatible with photonic or microwave modes) utilizing Kerr nonlinearity, displacement, and squeezing unitaries.
+
+**Key observables.** GKP squeezing operators (Q0 and Q1), Wigner distributions, channel fidelity, and logical state infidelity.
+
+**Important parameters / regimes.** Kerr strength, squeezing amplitude, number of circuit cycles, and boson loss rate.
+
+**Assumptions / limitations.** Boson loss is treated as the dominant decoherence mechanism, and the error correction performance is evaluated against an optimal recovery operation.
+
+**Figures summary.** Figure 1 shows the Wigner evolution of a single cycle and the saturation of symmetry restoration; Figure 3 shows the channel infidelity of phased-comb states versus photon loss probability.
+
+**Paper structure.** The paper introduces the challenge of GKP generation, proposes a programmable circuit protocol, compares symmetry-enforced states versus phased-comb states, analyzes the error-correction performance and robustness of the new states, and demonstrates the implementation of a universal gate set.
+
+**Why it may be interesting.** It provides a new class of error-correcting codes (phased-comb states) and a deterministic generation method that avoids the probabilistic nature of standard GKP protocols, which is highly relevant for scalable bosonic quantum computing.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Bosonic quantum error correction enables hardware-efficient protection of quantum information by encoding logical qubits in harmonic oscillators. Bosonic grid states, such as Gottesman-Kitaev-Preskill (GKP) states, are particularly promising due to their potential to correct small displacements and boson loss. However, their generation remains challenging, typically relying on probabilistic protocols or auxiliary qubit systems. Here, we propose deterministic protocols for generating bosonic grid states using programmable nonlinear bosonic circuits composed solely of squeezing, displacement, and Kerr operations. We show that aiming to enforce GKP symmetries in the output of these circuits yields states with competitive performance with respect to current realizations, but whose quality saturates with increasing circuit depth due to imperfect symmetry restoration. Instead, we find that these bosonic circuits naturally give rise to a distinct class of states, that we label as phased-comb states, which are unitarily related to standard grid states but feature an intrinsic phase structure. We demonstrate that these states define a scalable bosonic quantum error-correcting code with near-optimal performance under boson loss comparable to that of approximate GKP states. We further analyze their logical operations and show how to implement a universal gate set for them. Our results establish programmable nonlinear bosonic circuits as a viable route towards the generation of scalable bosonic quantum error-correcting states beyond standard GKP encodings.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21702"></a>
+### [Disorder-induced crossover from phase-averaging to mode-mixing regimes in magnetic domain walls of a second-order topological insulator](http://arxiv.org/abs/2604.21702v1)
+
+**Authors:** Dong Zhou, Zhe Hou  
+**Type:** theory · **Category:** disordered systems and neural networks · **PDF:** <https://arxiv.org/pdf/2604.21702v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21702_figures/2604.21702_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Cartoon illustration of the AB interferome- ter based on a 3D SOTI nanowire containing a magnetic do- main wall (DW) structure, where a magnetic flux Φ (indi- cated by the orange arrow) is threaded through the DW to tune the two-terminal conductance. Green arrows indicate the propagation of the THSs and TESs. On-site disorder is applied to the central scattering region encompassing the DW (shadowed area). (b) and (c): Schematic diagrams for the PAR at weak disorder and MMR at strong disorder in the magnetic DW. The black and green arrows denote the two co-propagating TESs. In (b), electrons traveling along the upper-right and lower-left arms acquire distinct dynam- ical phases...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21702_figures/2604.21702_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Numerical results for quantum transport across the magnetic DW in a 3D SOTI. (a) Energy band struc- ture of a uniform SOTI nanowire with magnetization vector M = ( √</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21702_figures/2604.21702_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Statistics of conductance G and current density distribution at different disorder strengths: (a)–(c) Weak disorder (W = 0.1E0); (d)–(f) Moderate disorder (W = 2.2E0) at which the PAR occurs; (g)–(i) Strong disorder (W = 9.0E0) at which the MMR occurs. In (a, d, g) the numerically calculated probability distribution PG are present, which exhibit a Gaussian profile, a U-shaped profile, and a flat uniform profile, respectively. These results are in excellent agreement with theoretical predictions shown by red dashed curves. (b, e, h): The 3D visualization of the current density; (c, f, i): Cross-sectional current density plot at z = 0. For all panels, the magnetic flux is fixed at Φ =...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21702_figures/2604.21702_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Global evolution of transport regimes driven by disorder. The colormap illustrates the integrated probability FG of the conductance as a function of the disorder strength W. The magnetic flux is fixed at Φ = 4π/9, the Fermi energy is EF = 0.02E0, and the statistics for each W are obtained from an ensemble of 3000 disorder configurations. The bin width is h = 0.01.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21702_figures/2604.21702_fig5.jpg" width="500"><br>
+<sub>Figure 3(g) displays the numerically calculated prob- ability distribution of the conductance G at strong dis- order (W = 9E0). In this regime, the transport resides in the MMR. The distribution is nearly uniform within [0, 1], in excellent agreement with the analytical predic- tion for PG (see red dashed line). In Fig. 3(h, i), we plot the spatial distribution of the current density Ji at the DW. Under strong disorder (W = 9E0), the 1D nature of the transport is destroyed as pronounced scattering occurs between the THSs, the TESs, and the 3D bulk states. The current is no longer confined to the hinges or the DW interface; instead, it spreads predominantly into the bulk, forming a...</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21702_figures/2604.21702_fig6.jpg" width="500"><br>
+<sub>FIG. 5. Fano factor F as a function of the disorder strength W. The red and brown dashed curve at F = 1/4 and F = 1/3 denote the theoretical Fano factor values in the PAR and MMR, respectively. Here the magnetic flux is fixed at Φ = 4π/9, the Fermi energy is EF = 0.02E0, and the results are averaged over 3000 disorder configurations.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21702_figures/2604.21702_fig7.jpg" width="500"><br>
+<sub>FIG. 6. Effects of surface disorder and hinge disorder on the transport results. (a) Ensemble-averaged conductance ⟨G⟩ and (b) conductance fluctuation σG as functions of disorder strength W for surface disorder and hinge disorder. The red dashed curve denote the theoretical fitting for the hinge disor- der, yielding a fitting parameter χhinge ≈0.117. The magnetic flux is fixed at Φ = 4π/9, the Fermi energy is EF = 0.02E0, and the results for each W are averaged over 3000 disorder configurations.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21702_figures/2604.21702_fig8.jpg" width="500"><br>
+<sub>FIG. 7. Comparison of microscopic transport features under changing spatial locations of disorder at strong disorder (W = 9.0E0). (a)–(c) Surface-only disorder scenario: (a) Probability distribution PG; (b) 3D visualization of the “hollow” current density distribution; (c) Cross-sectional view of current at z = 0. (d)–(f) Hinge-only disorder scenario: (d) Probability distribution PG; (e) 3D visualization of the current density; (f) Cross-sectional view at z = 0. The red dashed curves in (a) and (d) show the analytical results of PG. The magnetic flux is fixed at Φ = 4π/9, the Fermi energy is EF = 0.02E0, and the statistical distributions of PG in (a) and (d) are each obtained from an...</sub>
+
+</details>
+
+**Main problem.** The study investigates the electronic transport properties and the disorder-induced crossover between two distinct transport regimes, the phase-averaging regime (PAR) and the mode-mixing regime (MMR), in the magnetic domain walls of a second-order topological insulator.
+
+**Main result.** The authors demonstrate a clear transition from PAR to MMR driven by increasing Anderson disorder, identified by a two-step plateau structure in conductance fluctuations and the Fano factor, as well as a transition in the conductance probability distribution from U-shaped to uniform.
+
+**Method.** The study uses the Non-Equilibrium Green's Function (NEGF) method and Landauer-Büttiker formalism for numerical simulations, supplemented by analytical frameworks involving the Central Limit Theorem and Random Matrix Theory.
+
+**Summary.** This paper explores how Anderson disorder transforms electronic transport in the magnetic domain walls of a second-order topological insulator. It identifies two specific transport regimes: a phase-averaging regime where topological edge states remain intact but phases are randomized, and a mode-mixing regime where disorder destroys the 1D nature of the states. The transition is uniquely characterized by specific plateaus in conductance fluctuations and the Fano factor. These findings suggest that controlling disorder can be used as a tool to engineer transport in topological devices.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A 3D second-order topological insulator (SOTI) nanowire with a magnetic domain wall, modeled using a four-band tight-binding Hamiltonian on a cubic lattice including Anderson-type disorder and an effective exchange field.
+
+**Key observables.** Ensemble-averaged conductance, conductance fluctuations, conductance probability distribution, Fano factor, and local current density.
+
+**Important parameters / regimes.** Disorder strength (W), magnetic flux (Phi), Fermi energy (Ef), and the distinction between bulk, surface, and hinge disorder types.
+
+**Assumptions / limitations.** The analytical treatment of the phase-averaging regime assumes the dynamical phase difference follows a normal distribution via the Central Limit Theorem.
+
+**Figures summary.** Fig 1 shows the AB interferometer setup; Fig 2 displays band structure and conductance vs. flux; Fig 3 illustrates the evolution of conductance distributions and current density across disorder levels; Fig 4 shows the global evolution of conductance distribution; Fig 5 plots the Fano factor transition; Fig 7 compares surface and hinge disorder effects.
+
+**Paper structure.** The paper introduces the SOTI system and magnetic domain wall, presents numerical results for conductance and fluctuations in the clean and disordered limits, develops analytical theories for the PAR and MMR regimes, investigates the spatial dependence of disorder (bulk vs. surface vs. hinge), and concludes with implications for disorder engineering.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We investigate electronic transport across a magnetic domain wall (DW) in a three-dimensional (3D) second-order topological insulator subject to Anderson disorder. In the clean limit, the DW hosts two co-propagating one-dimensional (1D) topological edge states that act as the two arms of an effective Aharonov-Bohm (AB) interferometer, inducing a sinusoidal conductance oscillation. Upon the introduction of disorder, the AB oscillations are suppressed, while a half-quantized plateau of $0.5 e^2/h$ for the ensemble-averaged conductance emerges. Notably, within this plateau, the conductance fluctuation exhibits a distinctive two-step plateau structure, with values of $\sim 0.35 e^2/h$ at moderate disorder, followed by a second plateau at $\sim0.29 e^2/h$ under strong disorder. By developing theoretical frameworks that account for the random-phase interference and inter-mode mixing of the two arms, we identify the first fluctuation plateau as a signature of the phase-averaging regime (PAR) and the second as a signature of the mode-mixing regime (MMR). Furthermore, we show that, in the PAR the conductance follows a U-shaped beta distribution, while it evolves into a uniform distribution in the MMR. The Fano factor associated with shot noise is also computed, which exhibits a similar two-step plateau structure at $1/4$ and $1/3$, corresponding to the PAR and MMR, respectively. Our work provides a clear demonstration of the disorder-induced crossover from PAR to MMR, and highlights the crucial role of second-order conductance cumulants in identifying these transport regimes. The results suggest disorder-engineering as a powerful route for controlling electronic transport across DW-based devices.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21913"></a>
+### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
+
+**Authors:** Vaibhav Sharma, Yiming Wang, Shouvik Sur  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21913v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21913_figures/2604.21913_fig1.jpg" width="500"><br>
+<sub>FIG. 1. The same quantum hardware can serve either as a quantum battery or a quantum sensor because the process of charging a quantum battery generates quantum resources. Here, we demonstrate a concrete protocol where the quantum hardware remains agnostic of its intended use until a time t = t∗where a suitable metrological resource peaks. One can then choose to either time-evolve into a fully charged quantum battery or perform quantum sensing. As a bonus, after sensing, there exists a finite probability to obtain a fully charged battery.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21913_figures/2604.21913_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Time-evolution of the variance of the numerically optimized squeezed two-mode operator Xmin. Here, we have fixed (n, ω0, gn) = (4, 1, 1/ √</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21913_figures/2604.21913_fig3.jpg" width="500"><br>
+<sub>FIG. 3. (a) Protocol combining charging (for time 2t1 with λ(t) = 1) and sensing (for time ts with λ(t) = 0) using the two coupled superconducting LC resonator based quantum battery model in Eq. 6. (b) Bloch sphere representation of the evolution of quantum state during this protocol, starting from a discharged state |ψi⟩to a partially charged state |ψm⟩ while sensing an unknown parameter ϕ for time ts.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21913_figures/2604.21913_fig4.jpg" width="500"><br>
+<sub>FIG. 4. A schematic portrayal of potential inter-connectivity among standard quantum technologies. Here, X →Y implies Y enabled by X. This work enumerates such relationships between a quantum battery and a quantum sensor. Solid (dashed) arrows indicate established (hypothesized) proto- cols. The hypothetical protocols can be devised by combining the protocols developed here and in Refs. [59, 60].</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21913_figures/2604.21913_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Time evolution of the optimal angles for which the variance of the two-mode quadrature ˆ Xθ,η,ϕ is minimized.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21913_figures/2604.21913_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Time evolution of the variance of the optimal quadrature ˆ Xθ,η,ϕ for (a) n = 3 and (b) n = 6. The best squeezing is obtained at a finite short time in both cases.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21913_figures/2604.21913_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Time evolution of the optimal angles for which the variance of the two-mode quadrature ˆ Xθ,η,ϕ is minimized for (a)–(c) n = 3 and (d)–(f) n = 6.</sub>
+
+</details>
+
+**Main problem.** Investigating whether quantum hardware can be designed for dual-use, specifically to simultaneously serve as a quantum battery for energy storage and a quantum sensor for metrology.
+
+**Main result.** The authors demonstrate that protocols for fast generation of resource-rich states (like squeezing or NOON-like states) can simultaneously charge a quantum battery with a collective advantage, allowing hardware to switch between sensing and storage functions.
+
+**Method.** The study uses analytical derivations (short-time expansions, Heisenberg picture) and numerical methods (exact diagonalization) to map state preparation protocols to battery charging processes.
+
+**Summary.** This paper proposes a way to make quantum hardware more efficient by allowing it to perform two tasks at once: storing energy and sensing external parameters. By using non-linear coupling in superconducting resonators, the authors show that the same process that creates useful quantum states for sensing also enables a 'charging advantage' for quantum batteries. This allows for a modular architecture where a single device can switch between being a sensor and a power source without extra hardware cost.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The primary platform is superconducting circuits, specifically two coupled superconducting LC resonators (bosonic modes) coupled via a Josephson junction, modeled by a non-linear Hamiltonian with a time-dependent coupling strength.
+
+**Key observables.** Quantum Fisher Information (QFI), quantum squeezing (quadrature variance), energy stored (delta E), and charging power (delta E/T).
+
+**Important parameters / regimes.** Number of excitations (n), coupling strength (g_n), time durations (t_s, t_1), and the non-linear regime (n > 1).
+
+**Assumptions / limitations.** The charging advantage is valid for finite-size systems; in the thermodynamic limit with Kac-normalization, the advantage is lost.
+
+**Figures summary.** Figure 1 illustrates the dual-use concept of switching between sensing and charging; Figure 3 shows the temporal protocol for sensing and charging; Figure 5 and 6 show the time evolution of optimal quadrature parameters and the peaks in squeezing variance.
+
+**Paper structure.** The paper introduces the dual-use concept, establishes the mapping between state preparation and battery charging, analyzes the scaling of charging power and squeezing in non-linear bosonic models, proposes a specific temporal protocol for integrated sensing/charging, and provides analytical/numerical validation.
+
+**Why it may be interesting.** It provides a unified framework for connecting quantum metrology and quantum thermodynamics, suggesting that the same collective quantum effects (entanglement/squeezing) drive both high-precision sensing and super-extensive energy storage.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Quantum resources such as entanglement form the backbone of quantum technologies and their efficient generation is a central objective of modern quantum platforms. Independently, quantum batteries have emerged as nanoscale devices that utilize collective quantum effects to store energy with a charging advantage over classical strategies. Here, we show that these two pursuits can co-exist: protocols for fast generation of resourceful quantum states can simultaneously charge a quantum battery with a collective advantage, and conversely, a quantum battery protocol with a charging advantage can produce resource-rich states. Using this connection, we propose an integrated hardware protocol on superconducting circuits in which each experimental run can interchangeably accomplish either quantum battery charging, or quantum sensing through generation of metrologically useful states. Our results establish that quantum resources and stored energy are distinct yet co-producable quantities, opening the door to modular quantum architectures that dynamically switch between sensing and energy-storage functions, thereby producing additional functionalities without extra hardware cost.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21684"></a>
+### [Effect of Mn Substitution on Superconductivity in PrFeAs(O,F): Role of Magnetic Impurities](http://arxiv.org/abs/2604.21684v1)
+
+**Authors:** Priya Singh, Konrad Kwatek, Tatiana Zajarniuk, Taras Palasyuk, Cezariusz Jastrzębski, A. Szewczyk, Michał Wierzbicki, Shiv J. Singh  
+**Type:** both · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.21684v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21684_figures/2604.21684_fig1.jpg" width="500"><br>
+<sub>Figure 5 presents the analysis of thermally activated flux flow (TAFF) behavior</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21684_figures/2604.21684_fig2.jpg" width="500"><br>
+<sub>Figure 7(a) presents a comparative analysis of the suppression of the superconducting transition</sub>
+
+</details>
+
+**Main problem.** Investigating how Mn substitution at the Fe site acts as a magnetic impurity to perturb the electronic and magnetic environment and suppress superconductivity in the Pr-based iron-based superconductor PrFeAs(O,F).
+
+**Main result.** Mn acts as an efficient magnetic pair-breaker that systematically suppresses the superconducting transition temperature and degrades vortex dynamics, though the Pr-based system shows relatively enhanced robustness compared to La- or Sm-based counterparts.
+
+**Method.** A combination of experimental techniques including powder XRD, Raman spectroscopy, transport measurements, and magnetic measurements (VSM) alongside computational DFT calculations.
+
+**Summary.** This paper studies the impact of Mn doping on the superconductivity of PrFeAs(O,F). The researchers found that Mn acts as a strong magnetic impurity that suppresses the superconducting transition temperature and degrades the critical current density. Through structural, vibrational, and transport measurements, they demonstrate that Mn substitution expands the lattice and induces metal-insulator-like behavior. Notably, they highlight that the Pr-based system is more robust against these magnetic impurities than other members of the 1111 family.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The physical system is the 1111-type iron-based superconductor PrFe1-xMnxAsO0.7F0.3, characterized by a tetragonal ZrCuSiAs-type structure where Mn substitutes for Fe in the superconducting planes.
+
+**Key observables.** Superconducting transition temperature (Tc), resistivity (rho), lattice parameters (c-axis), Raman phonon modes (B1g, A1g), upper critical field (Hc2), critical current density (Jc), and vortex activation energy (Ueff).
+
+**Important parameters / regimes.** Mn concentration (x from 0 to 0.1), Ioffe-Regel limit, Pauli paramagnetic regime (Maki parameter alpha), and the Abrikosov-Gor'kov (AG) framework for magnetic impurity scattering.
+
+**Assumptions / limitations.** The system is assumed to reside in the dirty limit, and the suppression of Tc is modeled using the Abrikosov-Gor'kov framework for magnetic impurities.
+
+**Figures summary.** Figure 1 shows XRD patterns and lattice parameter evolution; Figure 2 displays Raman spectra and phonon mode shifts; Figure 3 presents resistivity temperature dependence and RRR; Figure 4 details magnetotransport and H-T phase diagrams.
+
+**Paper structure.** The paper begins with structural and phase purity analysis (XRD/Raman), moves to transport properties (resistivity/RRR), investigates magnetic and superconducting properties (Hc2, Jc), analyzes vortex dynamics (TAFF), and concludes with a comparative study of robustness across different 1111-family members.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We investigate Mn substitution at the Fe site in PrFe1-xMnxAsO0.7F0.3 (0 to 0.1) using structural, Raman, density functional theory (DFT), transport, and magnetic measurements. X-ray diffraction and Raman analyses confirm preferential Mn incorporation into the FeAs planes, accompanied by lattice expansion and suppression of Fe-related vibrational modes. Electrical transport reveals a systematic decrease of the superconducting transition temperature from 48 K (x = 0) to complete suppression at x = 0.1, together with low-temperature resistivity upturns evolving toward insulating-like behavior. Magnetization and magnetotransport measurements show degradation of superconducting coherence, critical current density, upper critical field, and vortex activation energy with increasing Mn content. The results demonstrate that Mn acts as an efficient magnetic impurity, strongly perturbing the electronic and magnetic environment of the FeAs layers. Comparative analysis indicates relatively enhanced robustness of superconductivity in the Pr-based system, highlighting the role of rare-earth-dependent electronic correlations in impurity effects.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21908"></a>
+### [Efficient Classical Simulation of Heuristic Peaked Quantum Circuits](http://arxiv.org/abs/2604.21908v1)
+
+**Authors:** David Kremer, Nicolas Dupuis  
+**Type:** both · **Category:** numerical methods · **PDF:** <https://arxiv.org/pdf/2604.21908v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21908_figures/2604.21908_fig1.jpg" width="500"><br>
+<sub>FIG. 1: The three stages of the iterative contraction method. (a) The transpiled circuit is split at the temporal midpoint into a left circuit CL and a right circuit CR, with an identity MPO inserted between them. (b) The greedy unswapping procedure: qubit pairs in the MPO are ranked by bond dimension, and swaps are applied from the left, right, or both sides. Swaps that reduce the bond dimension are accepted, yielding the decomposition M = PL ˜ MPR. (c) Rewiring: the extracted permutations PL and PR are absorbed into the remaining circuits by removing existing transpilation SWAPs, reindexing qubits, and re-transpiling to linear connectivity.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21908_figures/2604.21908_fig2.jpg" width="500"><br>
+<sub>FIG. 2: Overview of the iterative contraction procedure. Starting from a small MPO between the left and right circuits, the method cycles through three stages: (1) absorption of circuit layers into the MPO, which causes it to grow; (2) unswapping, which extracts permutations PL and PR and reduces the MPO to a smaller ˜ M; and (3) rewiring, which propagates the extracted permutations into the remaining circuits and re-transpiles to linear connectivity.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21908_figures/2604.21908_fig3.jpg" width="500"><br>
+<sub>FIG. 3: Total number of tensor elements in the MPO during contraction. Blue points correspond to the absorption stage and red points to the unswapping stage. (a) MPO size as a function of two-qubit unitaries consumed from the circuit. Three regimes are visible: an initial phase (0–300 unitaries) with rapid absorption–unswapping cycling; a transition phase (300–700) where unswapping becomes progressively more effective; and a final phase (700+) where unswapping reduces the MPO almost completely, allowing long absorption runs. (b) The same quantity plotted against wall-clock time. The full contraction completes in 4,059 seconds on a single Nvidia A100 GPU. The dense cluster of iterations in...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21908_figures/2604.21908_fig4.jpg" width="500"><br>
+<sub>FIG. 4: Frequency of the top 20 most-sampled bitstrings from 1,000 samples drawn from the contracted MPS. The peak bitstring (ID 0) appears approximately 110 times (∼11%), consistent with the designed peak weight of ∼10%. The sharp separation from the remaining bitstrings confirms successful recovery of the peak.</sub>
+
+</details>
+
+**Main problem.** Challenging a recent claim of heuristic quantum advantage by demonstrating that certain 'peaked' quantum circuits, previously thought to be classically intractable, can be efficiently simulated.
+
+**Main result.** The authors developed an efficient tensor network contraction method that simulates a 56-qubit circuit in approximately one hour on a single GPU, outperforming the execution time of the original quantum hardware.
+
+**Method.** An iterative tensor network contraction procedure involving circuit splitting, absorption of gates into a Matrix Product Operator (MPO), and a greedy 'unswapping' heuristic to extract hidden permutations and reduce bond dimension.
+
+**Summary.** This paper refutes a claim of heuristic quantum advantage by showing that 'peaked' quantum circuits can be efficiently simulated classically. By using a new 'unswapping' technique within a tensor network framework, the authors can undo the permutations intended to make the circuits hard to simulate. They successfully simulated a 56-qubit circuit in about an hour, which was faster than the actual quantum hardware execution. This demonstrates that the complexity of these specific circuits arises from artificial structural obfuscation rather than genuine quantum hardness.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Peaked quantum circuits characterized by a mirrored (UU^dagger) structure and permutation-based obfuscation, specifically targeting circuits executed on Quantinuum's 56-qubit H2 trapped-ion processor.
+
+**Key observables.** The peak bitstring (highest probability bitstring) and the peak weight (concentration of the output distribution).
+
+**Important parameters / regimes.** MPO bond dimension, SVD singular value cutoff (epsilon), and the unswapping threshold for triggering contraction updates.
+
+**Assumptions / limitations.** The method assumes the circuit possesses an underlying mirrored structure and that the error introduced by SVD compression is negligible.
+
+**Figures summary.** Figure 1 shows the three stages of the contraction method (splitting, unswapping, rewiring); Figure 2 provides an overview of the iterative cycle; Figure 3 plots MPO size dynamics and wall-clock time across different contraction regimes; Figure 4 shows the frequency of the top 20 sampled bitstrings.
+
+**Paper structure.** The paper introduces the problem of challenging quantum advantage claims, describes the proposed iterative MPO contraction and unswapping method, presents performance benchmarks on 56-qubit circuits, and discusses the limitations and implications for future circuit designs.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Peaked quantum circuits, whose output distribution is sharply concentrated on a single bitstring, have emerged as a promising candidate for verifiable quantum advantage, as the correctness of the quantum output can be checked by simply comparing against the known peak. Recent work by Gharibyan et al. arXiv:2510.25838 claimed heuristic quantum advantage using peaked circuits executed on Quantinuum's 56-qubit H2 processor. These peaked circuits concentrate their output on a single hidden bitstring by training a shallow simulable circuit variationally and inserting an obfuscated permutation to increase the depth to a level that makes classical simulation intractable, with estimated runtimes of years for the largest instances. We show that these circuits can be efficiently simulated classically. We describe a method that efficiently performs a full tensor network contraction, allowing near-exact sampling and extraction of the peaked bitstring. The method exploits the mirrored structure of the circuit and iteratively cancels both halves into a Matrix Product Operator (MPO), and avoids the obfuscated permutation by greedily reducing the MPO bond dimension through a process we call unswapping. The method can fully contract and extract the peak of the largest circuit in approximately one hour on a single GPU, around half the time it took to run on the quantum hardware.
 
 </details>
 
@@ -274,7 +1304,7 @@ We investigate the limits of quantum error correction (QEC) in neutral-atom proc
 ### [Enhancing Coherence of Spin Centers in p-n Diodes via Optimization Algorithms](http://arxiv.org/abs/2604.21874v1)
 
 **Authors:** Jonatan A. Posligua, David E. Stewart, Denis R. Candido  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21874v1>  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21874v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
 
 <details open><summary>📷 Fig 1</summary>
@@ -385,7 +1415,7 @@ Solid-state spin defects hold great promise as building blocks for various quant
 ### [High-performance cellular automaton decoders for quantum repetition and toric code](http://arxiv.org/abs/2604.21866v1)
 
 **Authors:** Don Winter, Thiago L. M. Guedes, Markus Müller  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21866v1>  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21866v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
 
 <details open><summary>📷 Fig 1</summary>
@@ -490,11 +1520,535 @@ Execution of quantum algorithms on large-scale quantum computers will require ex
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21695"></a>
+### [Lagrange: Operating Italy's First Publicly-Accessible Quantum Computer for Research and Education](http://arxiv.org/abs/2604.21695v1)
+
+**Authors:** Paolo Viviani, Fabrizio Bertone, Giacomo Vitali, Emanuele Dri, Federico Stirano, Giuseppe Caragnano, Francesco Lubrano, Antonino Nespola, Olivier Terzo, Matteo Cocuzza, Bartolomeo Montrucchio, Giovanna Turvani, Gianluca Bertaina, Marco Coisson, Davide Calonico, Fabrizio Pirri, Pietro Asinari  
+**Type:** experiment · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21695v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21695_figures/2604.21695_fig1.jpg" width="500"><br>
+<sub>Fig. 1. Conceptual architecture of the Lagrange software stack. The QC Gate- way transparently authorises job submissions based on budget, reservations, and fair access rate limits. A web portal gives the user visibility to these criteria.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21695_figures/2604.21695_fig2.jpg" width="500"><br>
+<sub>Fig. 2. Sequence diagram of the job submission and completion flow.</sub>
+
+</details>
+
+**Main problem.** The lack of administrative, multi-tenant, and resource-management features in vendor-provided software for on-premises quantum computers, making it difficult to manage shared access for diverse research and educational groups.
+
+**Main result.** The development and successful nine-month deployment of the 'Lagrange' software stack, which enables fair, budget-based, and multi-institutional access to an IQM Spark quantum computer with 98% uptime.
+
+**Method.** A modular, Python-based middleware layer acting as a transparent reverse proxy that intercepts API calls to enforce project budgets, user authorization, and concurrency limits without requiring changes to user workflows.
+
+**Summary.** This paper presents the implementation of 'Lagrange,' a software management stack designed to turn a single-user quantum computer into a multi-tenant research and educational resource. By using a transparent proxy architecture, the system allows researchers and students to use standard libraries like Qiskit and Cirq while the platform enforces institutional budgets and fair usage policies. The deployment has successfully managed hundreds of thousands of jobs with high reliability. It serves as a blueprint for institutions looking to host and share on-premises quantum hardware.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The Lagrange infrastructure manages an IQM Spark five-qubit superconducting quantum computer with a star topology, hosted at Politecnico di Torino and managed by the LINKS Foundation.
+
+**Key observables.** QPU execution time, system uptime, qubit fidelity, cryostat diagnostics, and job throughput (over 240,000 jobs).
+
+**Important parameters / regimes.** Budgeting measured in QPU milliseconds, a maximum concurrency limit of 2.5 million shots per user, and a 10 Gbps fiber interface.
+
+**Assumptions / limitations.** The middleware assumes the ability to intercept and proxy the IQM REST API without modifying vendor client software and relies on the availability of a Keycloak instance for identity management.
+
+**Figures summary.** Figure 1 shows the conceptual architecture of the Lagrange software stack and the QC Gateway; Figure 2 provides a sequence diagram of the end-to-end job submission and authorization workflow.
+
+**Paper structure.** The paper introduces the management challenge, describes the hardware and infrastructure, details the middleware architecture and plugin design, reports on operational metrics and educational usage, and concludes with lessons learned.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We describe the design, implementation, and nine-month operational experience of the software management stack for Lagrange, an IQM Spark five-qubit superconducting quantum computer jointly acquired by LINKS Foundation, Politecnico di Torino and the Italian National Institute of Metrological Research (INRiM), and managed by LINKS. Lagrange is, to our knowledge, the first quantum computer in Italy that is fully operational and accessible to students and researchers from multiple institutions under formal service agreements, and to the general public under commercial agreements. When installed in mid-2025, the IQM Spark hardware was delivered by the vendor with authentication only: no billing, project management or fair usage enforcement were provided. We developed a modular middleware layer that filled that gap without modifying any vendor client software, by intercepting API calls through a proxy that enforces project-based budgets, reservation-aware authorisation, and per-user fairness policies. The middleware adopts a plugin architecture that cleanly separates vendor-specific logic from site-specific policies, enabling reuse across different quantum hardware backends and deployment contexts. Since entering production in September 2025, the system has processed over 240,000 quantum jobs totalling more than 1 week of QPU execution time, with greater than 98% uptime. Notably, students at Politecnico di Torino regularly use the machine during both lectures and formal examinations -- a practice we believe to be unique in Europe. We report on the system architecture, the operational lessons learned, and the infrastructure choices that made this deployment possible.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21722"></a>
+### [Near-Term Reduction in Nonlocal Gate Count from Distributed Logical Qubits](http://arxiv.org/abs/2604.21722v1)
+
+**Authors:** Bruno Avritzer, Nathan Sankary  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21722v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21722_figures/2604.21722_fig1.jpg" width="500"><br>
+<sub>Figure 2: The cut which allows an equal partition of the d = 7 4.8.8 color code. In this case, there are two 4.8.8 blocks, each with its own set of stabilizer ancillas, and each split 50-50 across two processors. As indicated by the grey and purple dots, in one of the two logical qubits, one ancilla for one of the green octagon checks is allocated to processor B. Since this stabilizer is split 4 to 4, this does not increase the amount of PNL gates, but allows strict adherence to the qubit requirements. The total number of PNL gates is thus 4*7=28, less than the 31 required if the codes are PL.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21722_figures/2604.21722_fig2.jpg" width="500"><br>
+<sub>Figure 1: Distributed logical qubits require PNL stabilizer measurements as opposed to PNL transversal gate implementations (top). In this work, these PNL gates are mainly implemented by gate teleportation (bottom, |ψ⟩as the control and |ϕ⟩as the target).</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21722_figures/2604.21722_fig3.jpg" width="500"><br>
+<sub>Figure 4: With distribution of a logical qubit block over multiple processors, larger distances (and therefore reductions in PNL CNOTs) may be required to realize advantage if error correction is performed after each logical CNOT. Assuming the logical qubit is cut once per processor resulting in one partition per processor (2 processors require 1 cut resulting in 2 partitions), so that all two-qubit gates are processor-local, the minimum distance threshold required for an overall PNL reduction scales roughly linearly in the number of processors.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21722_figures/2604.21722_fig4.jpg" width="500"><br>
+<sub>Figure 3: In the two processor (two logical qubit) case (top), in the 4.8.8 family distributed codes see advantage at and above d = 7, and the overall trend is in agreement with the scaling behavior previously cited. By contrast, the 6.6.6 family of codes sees advantage only at d = 9 due to the structure of the stabilizers making near-equal bipartitions costly in terms of cut stabilizer weight (bottom).</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21722_figures/2604.21722_fig5.jpg" width="500"><br>
+<sub>Figure 6: In the fully distributed case, split distillation qubits are allocated on the same processors as split computational qubits. This reduces the per-processor qubit requirements for magic factories while keeping distillation and injection operations PL no matter which qubit is postselected. The total number of PNL gates is O(d), resulting from the syndrome extractions within the individual codes.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21722_figures/2604.21722_fig6.jpg" width="500"><br>
+<sub>Figure 5: Two methods of realizing universality in fault-tolerant systems: magic state injection (a) and code switching (b, adapted from[17]). Although these methods differ in their circuit realizations, in both cases there are regimes where they benefit and suffer from distributed execution across processors.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21722_figures/2604.21722_fig7.jpg" width="500"><br>
+<sub>Figure 7: Comparison of overhead between (a) fully distributed, (b) fully local, and (c) partially local magic factories. The fully distributed factory performs best for small circuits, whereas for large circuits, it has a slightly higher total qubit overhead, but the size of each individual processor can be smaller than that of the magic factory in (b) and a lower number of PNL gates is required compared to (b), although this is network topology-dependent. Approach (c) performs worse in terms of PNL gates, but may have some advantages in meeting network topology constraints.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21722_figures/2604.21722_fig8.jpg" width="500"><br>
+<sub>Figure 8: When 3D and 2D codes are both split across processors, code switching may be performed processor-locally. With sufficient connectivity, this can reduce qubit overhead compared to single processors with both codes by allowing multiple logical qubits to interact with the tetrahedral code processor-locally.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21722_figures/2604.21722_fig9.jpg" width="500"><br>
+<sub>Figure 9: Comparison of local vs distributed code switching costs for two different forms of stabilizer measurement.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21722_figures/2604.21722_fig10.jpg" width="500"><br>
+<sub>Figure 10: By swapping (data to data) or teleporting (data to ancilla) the qubits from the split code into local structures, non-Clifford resources can be acquired with significantly fewer PNL gates, assuming there is a long chain of switching or distillation required due to circuit gate structure. This can then be undone or partially undone to execute chains of CNOTs, which can then become local as well.</sub>
+
+</details>
+
+**Main problem.** Minimizing the number of processor-nonlocal (PNL) operations in distributed quantum computing architectures to reduce the overhead caused by noisy or low-speed inter-processor interconnects.
+
+**Main result.** The authors demonstrate that a 10% reduction in PNL gates is achievable in near-term, low-qubit-count devices using distributed logical qubits, with advantages scaling significantly in multi-qubit/multi-processor cases.
+
+**Method.** The study uses qubit allocation techniques via a constraint programming satisfiability (CP-SAT) approach and evaluates various methods for universality, such as magic state distillation, code switching, and logical swaps.
+
+**Summary.** This paper addresses the challenge of reducing expensive inter-processor communication in distributed quantum computing. By optimizing how logical qubits are partitioned across multiple processors using color codes, the authors show that the number of non-local gates can be reduced by 10% in near-term devices. The research also explores how different methods for achieving universal gate sets, such as code switching and magic state distillation, impact the scalability and overhead of these distributed architectures.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A modular, distributed quantum computing architecture utilizing error-correcting color codes, specifically the square-octagon (4.8.8) and 6.6.6 families, partitioned across multiple processors.
+
+**Key observables.** Processor-nonlocal (PNL) gate count, code distance (d), and qubit overhead.
+
+**Important parameters / regimes.** Code distance (d), number of processors, and the ratio of transversal to non-transversal gates.
+
+**Assumptions / limitations.** The study assumes a setting where syndrome extraction occurs after every logical gate and adheres to minimal physical qubit requirements including ancillas.
+
+**Figures summary.** Figure 1 illustrates PNL gate implementation via CNOT teleportation; Figure 2 shows a specific code cut for partitioning; Figure 3 compares PNL advantages across different code families; Figure 4 shows scaling of distance thresholds with processor count; Figures 5-11 detail universality methods, magic factory overheads, and partitioning strategies.
+
+**Paper structure.** The paper introduces the problem of PNL reduction in distributed architectures, presents a qubit allocation method using color codes, evaluates universality approaches (MSI, code switching, swaps), analyzes scaling and architectural trade-offs, and concludes with implications for scalable allocation algorithms.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Modular quantum computing architectures require error correction schemes that remain effective in the presence of noisy inter-processor operations. As such, minimizing the number of such operations on logical circuits partitioned across quantum processors is a primary objective of distributed quantum computing. In this work, we develop basic techniques for qubit allocation using an exemplar color code family and explore generalizations to other color codes. In particular, we show that a 10% reduction in processor-nonlocal gates is achievable in a setting where syndrome extraction occurs after every logical gate, as in today's devices, and that this scales to significantly greater advantages in the multi-qubit case. We also explore methods of achieving universal gate sets efficiently in this distributed logical setting and evaluate the trade-offs of multiple approaches such as magic state distillation, code switching, and a new method based on logical swaps. Finally, we discuss some considerations for an allocation algorithm for these architectures to perform scalably and connect it to existing work on quantum circuit partitions.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21762"></a>
+### [Novel dynamics for an inertial polar tracer in an active bath](http://arxiv.org/abs/2604.21762v1)
+
+**Authors:** Jing-Bo Zeng, Ji-Hui Pei  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21762v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21762_figures/2604.21762_fig1.jpg" width="500"><br>
+<sub>FIG. 1. A chevron-shaped rigid tracer (shown in red) , composed of a collection of beads and immersed in an active bath, is characterized by its opening angle ϕ, length a, and width b. Each bead is coupled to ABPs via the WCA force.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21762_figures/2604.21762_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Typical trajectories of CM from the reduced dynamics in different dynamical regimes: (a) ABP regime; (b) CABP regime; (c)(d) chaotic regime; (e) zigzag ABP. In each column, the figure in the bottom displays trajectories in the presence of noise, while the figure in the top depicts trajectories in the zero-noise limit. As the column changes, r varies, while σ = 10.6 and b = 2.95 are fixed.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21762_figures/2604.21762_fig3.jpg" width="500"><br>
+<sub>FIG. 3. The dependence of the diffusion coefficient on r, with fixed σ = 4.5 and b = 1. For a given r, a larger number of bath particles N corresponds to a lower noise strength, depicted in different colors.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21762_figures/2604.21762_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Comparison of the velocity autocorrelation func- tions between linear approximation of the reduced dynam- ics (shown in orange) and simulations of composite system (shown in blue). (a)-(c) shows for the ABP regime, (d)-(f) are for the CABP-regime.</sub>
+
+</details>
+
+**Main problem.** Investigating the complex, non-equilibrium dynamics of an inertial (underdamped) polar tracer immersed in an active bath of self-propelled particles.
+
+**Main result.** The reduced dynamics of the tracer can be mapped to a stochastic Lorenz equation, revealing multiple dynamical regimes including chiral, chaotic, and zigzag motion.
+
+**Method.** The authors use the projection-operator formalism and a quasi-static expansion to integrate out the bath, followed by a mapping to the Lorenz system and moment-closure methods for analytical predictions.
+
+**Summary.** This paper explores how the inertia of a particle in an active bath leads to much richer dynamics than the standard overdamped case. By mapping the tracer's motion to the stochastic Lorenz equation, the authors identify several distinct states: standard active Brownian motion, chiral motion, chaotic trajectories, and zigzag patterns. They provide analytical tools to calculate diffusion and propulsion in these regimes. This work demonstrates how complex, emergent behaviors like chirality and chaos can arise from simple microscopic interactions.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A heavy, 2D, chevron-shaped rigid polar tracer interacting via WCA potential with a dilute bath of independent, overdamped Active Brownian Particles (ABPs).
+
+**Key observables.** Propulsion speed, velocity covariance, effective diffusion coefficient, and velocity autocorrelation functions.
+
+**Important parameters / regimes.** Lorenz parameters (r, sigma, b), mass (M), moment of inertia (I), and the ratio I/M.
+
+**Assumptions / limitations.** The bath is dilute, the tracer is rigid, and there is a separation of timescales between the fast bath dynamics and slow tracer dynamics.
+
+**Figures summary.** Figure 1 shows the tracer schematic; Figure 2 displays trajectories in different regimes (ABP, CABP, Chaotic, Zigzag); Figure 3 shows the diffusion coefficient dependence on the parameter r.
+
+**Paper structure.** The paper begins with a microscopic description of the tracer-bath system, derives reduced stochastic dynamics using projection operators, maps these dynamics to the Lorenz equations, classifies the resulting dynamical regimes, and provides analytical expressions for transport properties validated by numerical simulations.
+
+**Why it may be interesting.** The mapping of active matter dynamics to the Lorenz system provides a bridge between active matter physics and classical nonlinear dynamics, offering insights into how broken symmetries and chaos emerge in non-equilibrium systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+A polar tracer immersed in an active bath is known to be propelled forward and therefore activated. Here we report that the induced dynamics of an inertial tracer can be much richer than expected. We investigate a heavy polar tracer immersed in a bath of independent active Brownian particles. Using the projection-operator formalism to integrate out the bath, we show that the tracer's reduced dynamics can be mapped to a stochastic Lorenz equation. According to the attractors in the Lorenz equation, the tracer motion is classified into several different dynamical regimes, including active Brownian motion, chiral active Brownian motion, complex chaotic motion, and zigzag active Brownian motion. For certain regimes, we derive analytical expressions for the propulsion speed, the velocity covariance, and the effective diffusion coefficient. Numerical simulations corroborate these theoretical predictions.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21857"></a>
+### [Odd Physics Off the Diagonal: Constraining CP-violating SMEFT with Quantum Tomography](http://arxiv.org/abs/2604.21857v1)
+
+**Authors:** Avalon Roberts, Patrick Dougan, Alexander Oh, Savanna Shaw  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21857v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21857_figures/2604.21857_fig1.jpg" width="500"><br>
+<sub>Figure 1: The ϕtruth distribution at LO for the pro- cess pp →W +Z →e+νeµ+µ−with the inclusive setup of Ref. [25], applying the invariant mass cut 81 GeV &lt; Mµ+µ−&lt; 101 GeV. The upper panel shows the differential cross section dσ/dϕ∗ e in units of fb, comparing the SM prediction (red) with the SM + interference and SM + interference + quadratic contri- butions for ceven = 1.0 (solid) and codd = 1.0 (dashed). The middle and lower panels show the ratio to the SM for the interference and quadratic-only contributions, respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21857_figures/2604.21857_fig2.jpg" width="500"><br>
+<sub>Figure 2: The real component of the spin density mat- rix of the W +Z system in the SM, showing the full spin structure of this process in the helicity basis. The un- physical small negative values along the central diag- onal are due partly to the statistical resolution of this study, and to NLO effects.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21857_figures/2604.21857_fig3.jpg" width="500"><br>
+<sub>Figure 3: The reconstructed SDMs for the interference terms of the CP-even OW (above) and CP-odd Of W (below) operators with the SM, separated into their real (left) and imaginary (right) components. The separ- ation of the off-diagonal structure between the CP-odd and CP-even into the imaginary and real parts of the SDM means that this can be used to set 2D limits on them.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21857_figures/2604.21857_fig4.jpg" width="500"><br>
+<sub>Figure 4: The reconstructed SDMs for the quadratic terms of the CP-even OW operator (left) and the CP-odd Of W operator (right) in the inclusive (top) selection setup and the fiducial (bottom) setup. It can be seen that some entries become falsely split between elements due to the neutrino reconstruction ambiguity. The unphysical small negative values along the central diagonal are due partly to the statistical resolution of this study, and to NLO effects.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21857_figures/2604.21857_fig5.jpg" width="500"><br>
+<sub>Figure 6: The ϕreco distribution at LO in QCD for the process pp →W +Z →e+νeµ+µ−with the fiducial setup of Ref. [25], applying the selections of Eq. (3.2), with the neutrino rapidity solution chosen at random from Eq. (16). The upper panel shows the differential cross section dσ/dϕ∗ e in units of fb, comparing the SM prediction (red) with the SM + interference and SM + interference + quadratic contributions for ceven = 1.0 (solid) and codd = 1.0 (dashed). The middle and lower panels show the ratio to the SM for the interference- only and quadratic contributions, respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21857_figures/2604.21857_fig6.jpg" width="500"><br>
+<sub>Figure 5: A heatmap of the reconstructed azimuthal decay angle ϕreco versus the truth-level ϕtrue for the W boson, with the neutrino rapidity solution chosen at random from Eq. (16). The two diagonal bands reflect the two-fold ambiguity of Eq. (18), with each solution equally likely to be selected.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21857_figures/2604.21857_fig7.jpg" width="500"><br>
+<sub>Figure 7: 1D CL limits on OW and Of W derived with other operator fixed to zero and with the other oper- ator profiled over, for the shape-only and shape-plus- yield configurations of the ϕ, pZ T and SDM observables. The boxes represent 68% CL limit bounds, the lines represent 95% CL limit bounds. The limits are pro- duced within the fiducial selection.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21857_figures/2604.21857_fig8.jpg" width="500"><br>
+<sub>Figure 8: Expected joint confidence regions in the (cW , cf W ) plane derived from the positron azimuthal decay- angle distribution ϕ∗ e+ (top) and the reconstructed spin density matrix (bottom), each in shape-only (left) and shape-plus-yield (right) configurations, for the inclusive setup. The contours correspond to constant ∆χ2 with respect to the SM point at fixed confidence levels. Contour limits are extracted based on both a SM Asimov scenario, but also a set of NP Asimov setups with varying degrees of OW and Of W present in the dataset across the grid. This demonstrates of the SDM-based analysis’s ability to differentiate actual CP-even and CP-odd signatures from each other...</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21857_figures/2604.21857_fig9.jpg" width="500"><br>
+<sub>Figure 9: Expected joint confidence regions in the (cW , cf W ) plane derived from the positron and anti-muon azimuthal decay-angle distributions, ϕ∗ e+ (top) and ϕ∗ µ+ with the fiducial selection of Eq. (14) applied and the neutrino rapidity reconstructed via the on-shell W-mass constraint of Eq. (16). The effect of the fiducial cuts and reconstruction ambiguity on the sensitivity of ϕ∗ e+ can be assessed by comparison with Figures 8a and 8b. Constraints from ϕ∗ µ+ are unaffected by neutrino reconstruction and so slightly exceed the strength of those from ϕ∗ e+.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21857_figures/2604.21857_fig10.jpg" width="500"><br>
+<sub>Figure 10: Expected joint confidence regions in the (cW , cf W ) plane derived from the positron and anti-muon azimuthal decay-angle distributions, pZ T (top) and the SDM (bottom) with the fiducial selection of Eq. (14) applied and the neutrino rapidity reconstructed. The differential nature of the pZ T distribution tail gives strong constraints of the SM Asimov, with a smaller contour area, A95% than achieved by the SDM with the addi- tion of cross-section information. The SDM however performs better by the same metric in the genuine BSM scenarios presented in the off-centre points of the Asimov grid. In these cases the SDM also show clearer differentiation between BSM hypotheses than pZ T...</sub>
+
+</details>
+
+**Main problem.** The difficulty in distinguishing CP-even from CP-odd SMEFT operators in diboson production due to degeneracies in traditional polarization-blind angular observables.
+
+**Main result.** Quantum Tomography of the Spin Density Matrix (SDM) provides superior simultaneous sensitivity to CP-even and CP-odd contributions by exploiting off-diagonal imaginary components and quadratic NP terms.
+
+**Method.** Reconstruction of the Spin Density Matrix using the Generalized Bloch Vector representation and the inverted Wigner-Weyl formalism applied to Monte Carlo simulated $WZ$ production events.
+
+**Summary.** This paper proposes using Quantum Tomography techniques to improve searches for new physics in the electroweak sector. By reconstructing the Spin Density Matrix of $WZ$ production, the authors can distinguish between CP-even and CP-odd operators that otherwise appear degenerate in standard angular distributions. The method specifically exploits the off-diagonal elements of the density matrix to capture the full signature of Beyond-SM physics. This approach provides tighter and less degenerate constraints on SMEFT Wilson coefficients compared to traditional kinematic observables.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The bipartite spin state of a $W$ and $Z$ boson system produced in $pp$ collisions ($pp 	o WZ 	o e^+
+u_e\mu^+\mu^-$) within the Standard Model Effective Field Theory (SMEFT) framework.
+
+**Key observables.** Spin Density Matrix (SDM) elements, Fano coefficients, azimuthal decay angles ($\phi$), and transverse momentum of the $Z$ boson ($p^Z_T$).
+
+**Important parameters / regimes.** SMEFT Wilson coefficients ($c_W$ and $c^f_W$), high-energy electroweak regime, and $140 	ext{ fb}^{-1}$ luminosity.
+
+**Assumptions / limitations.** Leading-order (LO) accuracy, neglect of backgrounds and systematic uncertainties, and the use of the Warsaw basis for dimension-six operators.
+
+**Figures summary.** Figure 1 shows angular distribution degeneracies; Figures 2-4 display reconstructed SDM components and the impact of neutrino reconstruction ambiguity; Figures 7-10 present 1D and 2D confidence intervals for Wilson coefficients.
+
+**Paper structure.** The paper motivates the need for new CP-violation sources, identifies limitations in current SMEFT searches, introduces the Quantum Tomography approach, details the SDM reconstruction method, compares performance against traditional observables, and quantifies statistical sensitivity.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+New sources of charge-parity (CP) violation beyond those described in the Standard Model (SM) are required to explain the observed matter--antimatter asymmetry of the Universe. The Standard Model Effective Field Theory (SMEFT) provides a framework to introduce additional electroweak sources of CP-odd physics in a model-independent manner. However, these CP-violating signatures are mostly degenerate to CP-even SMEFT operators in polarisation-blind observables, distinguishable only in the SM-New Physics (NP) interference using the azimuthal decay angle. Using Quantum Tomography techniques, we present a new approach to constraining these NP effects. Reconstructing the spin density matrix (SDM) of a diboson system, we go beyond `interference resurrection' to exploit the full signature of the Beyond-SM physics, including the pure quadratic NP terms. We show that this approach provides superior simultaneous sensitivity to characteristic features of CP-even and CP-odd contributions, including effects not fully captured by traditional angular observables.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21788"></a>
+### [Partial oracles quantum algorithm framework -- Part I: Analysis of in-place operations](http://arxiv.org/abs/2604.21788v1)
+
+**Authors:** Fintan M. Bolton  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21788v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21788_figures/2604.21788_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Overview of partial oracle iterations. At each iteration stage j, a search is executed to</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21788_figures/2604.21788_fig2.jpg" width="500"><br>
+<sub>FIG. 2. First partial oracle iteration showing: (a) the initial equal superposition state; (b) index</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21788_figures/2604.21788_fig3.jpg" width="500"><br>
+<sub>Figure 2 shows a visualization of the Grover-Long algorithm, implementing the first</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21788_figures/2604.21788_fig4.jpg" width="500"><br>
+<sub>Figure 3 shows a visualization of the modified Grover-Long algorithm, implementing</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21788_figures/2604.21788_fig5.jpg" width="500"><br>
+<sub>FIG. 3. Second (and subsequent) partial oracle iteration: (a) index states remaining after the</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21788_figures/2604.21788_fig6.jpg" width="500"><br>
+<sub>Figure 4 shows the corresponding circuit for the majority oracle function, which requires</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21788_figures/2604.21788_fig7.jpg" width="500"><br>
+<sub>FIG. 6. Reciprocal majority gate</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21788_figures/2604.21788_fig8.jpg" width="500"><br>
+<sub>Figure 7 shows the corresponding circuit for the choose function, which requires just two</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21788_figures/2604.21788_fig9.jpg" width="500"><br>
+<sub>FIG. 7. Circuit for the choose function Ch(a, b, c)</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21788_figures/2604.21788_fig10.jpg" width="500"><br>
+<sub>FIG. 8. Reciprocal choose gate</sub>
+
+</details>
+
+**Main problem.** The paper addresses the lack of an explicit method for constructing the search iteration operator within the 'partial oracles' quantum algorithm framework, which aims to potentially achieve exponential speedup over Grover's algorithm.
+
+**Main result.** The author provides the missing construction for the search iteration operator for in-place oracle functions and introduces the 'reciprocal transform' to reorder Walsh functions in reciprocal space.
+
+**Method.** The method utilizes a new 'reciprocal transform' that obeys a chain rule, allowing complex oracle functions to be decomposed into simple steps, and implements these using the QFrame Python library.
+
+**Summary.** This paper develops a critical component of the partial oracles quantum algorithm framework by providing a method to construct search iteration operators. By introducing the 'reciprocal transform,' the author shows how complex, multi-bit oracle functions can be decomposed and implemented in quantum circuits. While the current focus on in-place operations does not yet prove quantum advantage, the work demonstrates the ability to invert simplified cryptographic primitives like SHA-256 components. The introduction of the QFrame library also provides a tool for automating the generation of these complex quantum circuits.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The framework uses a quantum computing model involving an n-qubit index register, multi-bit oracle functions, and operations in both direct (index) and reciprocal (Walsh function) spaces.
+
+**Key observables.** The success of the algorithm is measured by the probability of finding the target index $x_s$ where all oracle bits satisfy a specific condition (e.g., all zeros).
+
+**Important parameters / regimes.** The paper distinguishes between 'in-place' operations (where results are read from the index qubits) and 'out-of-place' operations; it also focuses on bijective (one-to-one) oracle functions.
+
+**Assumptions / limitations.** The current construction is limited to in-place operations, which are classically reversible and thus do not yet demonstrate quantum advantage; the framework also assumes the oracle function is bijective.
+
+**Figures summary.** Figure 1 shows the nested structure of partial oracle iterations; Figure 2 and 3 visualize the transition through Walsh-Hadamard and reciprocal transforms; Figures 4-12 illustrate specific quantum circuits for cryptographic primitives like Maj, Ch, and modulo addition.
+
+**Paper structure.** The paper introduces the partial oracles framework, defines the reciprocal transform and its chain rule, provides the construction for in-place operators, demonstrates applications to SHA-256 components, and introduces the QFrame automation library.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The partial oracles framework is a quantum search algorithm that has the potential to exceed the quadratic speedup of Grover's algorithm, up to a theoretical maximum of an exponential speedup. Until now, however, the framework has lacked an explicit method for constructing the operator that represents the search iteration. In this paper, we provide the missing construction, for the special case of an oracle function definable using only in-place operations (that is, where the calculated result of the oracle function can be read just from the qubits in the search index). The restriction to in-place operations means that the current work does not yet exhibit quantum advantage: oracle functions constructed using only in-place operations are always classically reversible. To demonstrate quantum advantage, it will be necessary to extend this construction method to include out-of-place operations (part II). As part of the construction of the search iteration operator, we define a new type of transform, the reciprocal transform, which is applied to the oracle function. We show that the reciprocal transform obeys a chain rule, which makes it possible to break down complex transforms into simple steps. To illustrate the practical application of this search method, we apply the reciprocal transform to elementary operations from the SHA-256 hash algorithm: addition modulo $2^n$, the $Maj(a, b, c)$ function, the $Ch(a, b, c)$ function, and the bit shift functions. We also introduce the QFrame python library, which is used to automate the construction of quantum circuits that represent reciprocal transforms.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21755"></a>
+### [Quantum-information diagnostics of cosmological perturbations with nontrivial sound speed in inflation](http://arxiv.org/abs/2604.21755v1)
+
+**Authors:** Shi-Cheng Liu, Lei-Hua Liu, Bichu Li, Hai-Qing Zhang, Peng-Zhang He  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21755v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21755_figures/2604.21755_fig1.jpg" width="500"><br>
+<sub>Figure 1. The numerical results of rk in terms of log10 a for inflation, where we have k = 1 and H0 = 1 for simplicity.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21755_figures/2604.21755_fig2.jpg" width="500"><br>
+<sub>Figure 2. The numerical results of ϕk in terms of log10 a for inflation, where we have k = 1 and H0 = 1 for simplicity.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21755_figures/2604.21755_fig3.jpg" width="500"><br>
+<sub>Figure 3. The numerical results of Purity in terms of log10 a for inflation, where we have set k = 1 and H0 = 1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21755_figures/2604.21755_fig4.jpg" width="500"><br>
+<sub>Figure 4. The numerical results of R´enyi Entropy and Von Neumann entropy in terms of log10 a for inflation, where we have set k = 1 and H0 = 1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21755_figures/2604.21755_fig5.jpg" width="500"><br>
+<sub>Figure 5. The numerical results of Logarithmic negativity in terms of log10 a for inflation, where we have set k = 1 and H0 = 1.</sub>
+
+</details>
+
+**Main problem.** The study investigates how a non-trivial sound speed (specifically via sound-speed resonance) in the early universe affects the quantum-information signatures of cosmological perturbations.
+
+**Main result.** A non-trivial sound speed significantly suppresses purity and enhances entropy production, effectively modulating the decoherence process and postponing the onset of classicality.
+
+**Method.** The authors use an open-system normalized two-mode squeezed-state (OTMSS) framework and introduce a bounded variable x = tanh(rk) to regularize numerically stiff evolution equations.
+
+**Summary.** This paper explores how fluctuations in the speed of sound during inflation leave imprints on the quantum entanglement and entropy of the early universe. By using an open-system framework, the authors show that a non-trivial sound speed enhances the mixedness of the system and alters the transition from quantum to classical behavior. The study provides specific quantum-information signatures, such as modulated logarithmic negativity and suppressed purity, that could potentially distinguish different inflationary models.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system consists of scalar cosmological perturbations during the inflationary epoch within a spatially flat FLRW metric, featuring a sound-speed-resonance (SSR) parametrization.
+
+**Key observables.** Purity, von Neumann entropy, Renyi entropies, and logarithmic negativity.
+
+**Important parameters / regimes.** Sound speed (cs), SSR oscillation amplitude (xi), squeezing amplitude (rk), and squeezing phase (phi_k).
+
+**Assumptions / limitations.** The study assumes the Bunch-Davies vacuum as the initial state and focuses on the inflationary regime due to numerical stability constraints.
+
+**Figures summary.** Figure 1 shows the evolution of squeezing amplitude; Figure 2 shows the reduction in squeezing phase amplitude; Figure 3 illustrates the decrease in purity; Figure 4 and 5 show the enhancement of entropy and oscillations in logarithmic negativity.
+
+**Paper structure.** The paper establishes the background and SSR model, derives the modified Hamiltonian, applies the OTMSS framework, performs numerical simulations using a regularized variable, and analyzes the resulting quantum-information diagnostics.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+In this work, we systematically investigate the quantum-information diagnostics of cosmological perturbations with a nontrivial sound speed, utilizing a normalized open two-mode squeezed-state framework. Rather than introducing new observables, our analysis focuses on how a modified sound speed dynamically reshapes the Schrödinger evolution of the squeezing parameters ($r_k$ and $φ_k$). We demonstrate how these dynamical changes are inherited by the reduced density matrix of the observable sector. By employing a sound-speed-resonance parametrization, we derive and evaluate the purity, von Neumann entropy, Rényi entropies, and logarithmic negativity. To overcome the intrinsic multiscale stiffness of the post-inflationary equations, we introduce a bounded variable $x = \tanh r_k$ as a partial regularization, which enables reliable numerical simulations exclusively within the inflationary regime. Our numerical results reveal that a nontrivial sound speed significantly suppresses the purity of the reduced state, indicating enhanced effective mixedness. Simultaneously, it strongly amplifies and modulates both the entropic and entanglement diagnostics. More precisely, a nontrivial sound speed postpones the onset of classicality by modulating the decoherence process. Ultimately, we show that a nontrivial sound speed leaves distinct and identifiable quantum-information signatures within the entanglement structure of the early universe.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21863"></a>
 ### [Replay-buffer engineering for noise-robust quantum circuit optimization](http://arxiv.org/abs/2604.21863v1)
 
 **Authors:** Akash Kundu, Sebastian Feld  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21863v1>  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21863v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
 
 <details open><summary>📷 Fig 1</summary>
@@ -592,119 +2146,11 @@ Deep reinforcement learning (RL) for quantum circuit optimization faces three fu
 
 <sub>[↑ back to top](#top)</sub>
 
-<a id="paper-2604.21824"></a>
-### [Deterministic generation of grid states with programmable nonlinear bosonic circuits](http://arxiv.org/abs/2604.21824v1)
-
-**Authors:** Yanis Le Fur, Javier Lalueza-Puértolas, Carlos Sánchez Muñoz, Alberto Muñoz de las Heras, Alejandro González-Tudela  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21824v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21824_figures/2604.21824_fig1.jpg" width="500"><br>
-<sub>FIG. 1. Symmetry-enforced state preparation for the 0-logical state. (a) Wigner representations of the initial squeezed vacuum state with r = 6 dB (i), displacement (ii), Kerr evolution (iii), and a final correction displacement ˆUD(iβcorr) (iv). Panel (v) represents the Wigner after applying three cycles of the protocol described in Algorithm 1 with initial squeezing r = 6 dB. (b) Expectation value ⟨ˆQ1⟩[dB] versus correction amplitude βcorr for a single-cycle generated state and for different values of initial squeezing r in different red shades. (c) ⟨ˆQ0⟩[dB] saturation for an increasing number of cycles of the symmetry-enforced states across different squeezing regimes (in red shades)....</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21824_figures/2604.21824_fig2.jpg" width="500"><br>
-<sub>FIG. 2. Wigner distributions and logical state infidelities for phased-comb states. (a) Wigner distributions of the phased-comb logical states |˜0PC,j⟩(ncycles = 1, 2, and 3 cycles, left to right) and |˜1PC,j⟩(ncycles = 0, 1, and 2 cycles, left to right) using a squeezing parameter of r = 10 dB and the protocol described in Algorithm 1, but without the correction step. (b,c) Logical state infidelity Iµ (µ ∈{0, 1}) as a function of the Kerr uncertainty ∆χmax (b) and the boson loss rate normalized to the Kerr strength κ/χ (c). The infidelity is evaluated for a 3-cycle state (µ = 0, blue squares) and a 2-cycle state (µ = 1, red rhombus) at a squeezing of r = 7.8 dB. Data points represent an...</sub>
-
-</details>
-
-<details><summary>📷 Fig 3</summary>
-
-<img src="2604.21824_figures/2604.21824_fig3.jpg" width="500"><br>
-<sub>FIG. 3. Performance of QEC codes. (a) Near-optimal channel infidelity ˜Ie = 1−˜Fe as a function of the photon loss probability γ. (b) Channel infidelity versus the number of state legs at a fixed loss probability γ = 10−2. Performance is compared across four encodings: phased-comb (red rhombus), comb (blue rhombus), Gaussian-truncated GKP (red circles), and the trivial encoding {|0⟩, |1⟩} (dashed line). All codes are evaluated with the same number of legs. Parameters: (a) µ = 0 logical states generated with 3 cycles and µ = 1 logical states with 2 cycles. (b) Truncation level of the cavity NR = 500 except for the 5 cycle case where NR = 1200 to ensure convergence. (a,b) Squeezing is fixed...</sub>
-
-</details>
-
-**Main problem.** The difficulty of deterministically generating non-Gaussian bosonic grid states, such as GKP states, which are essential for hardware-efficient quantum error correction.
-
-**Main result.** The discovery of 'phased-comb states' generated by programmable nonlinear bosonic circuits that provide scalable error correction with performance comparable to GKP states and allow for a universal gate set.
-
-**Method.** An iterative 'leg-doubling' protocol using a sequence of squeezing, displacement, and Kerr-type nonlinear operations to generate complex bosonic states.
-
-**Summary.** This paper proposes a way to deterministically create bosonic states for quantum error correction using simple nonlinear circuits. While trying to create standard GKP states, the authors found that these circuits naturally produce a new class of 'phased-comb' states. These states are just as good at protecting information against photon loss and can be used to perform universal quantum logic gates. This approach is scalable and can be implemented in existing microwave or optical platforms.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** A platform-agnostic nonlinear bosonic circuit (compatible with photonic or microwave modes) utilizing Kerr nonlinearity, displacement, and squeezing unitaries.
-
-**Key observables.** GKP squeezing operators (Q0 and Q1), Wigner distributions, channel fidelity, and logical state infidelity.
-
-**Important parameters / regimes.** Kerr strength, squeezing amplitude, number of circuit cycles, and boson loss rate.
-
-**Assumptions / limitations.** Boson loss is treated as the dominant decoherence mechanism, and the error correction performance is evaluated against an optimal recovery operation.
-
-**Figures summary.** Figure 1 shows the Wigner evolution of a single cycle and the saturation of symmetry restoration; Figure 3 shows the channel infidelity of phased-comb states versus photon loss probability.
-
-**Paper structure.** The paper introduces the challenge of GKP generation, proposes a programmable circuit protocol, compares symmetry-enforced states versus phased-comb states, analyzes the error-correction performance and robustness of the new states, and demonstrates the implementation of a universal gate set.
-
-**Why it may be interesting.** It provides a new class of error-correcting codes (phased-comb states) and a deterministic generation method that avoids the probabilistic nature of standard GKP protocols, which is highly relevant for scalable bosonic quantum computing.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-Bosonic quantum error correction enables hardware-efficient protection of quantum information by encoding logical qubits in harmonic oscillators. Bosonic grid states, such as Gottesman-Kitaev-Preskill (GKP) states, are particularly promising due to their potential to correct small displacements and boson loss. However, their generation remains challenging, typically relying on probabilistic protocols or auxiliary qubit systems. Here, we propose deterministic protocols for generating bosonic grid states using programmable nonlinear bosonic circuits composed solely of squeezing, displacement, and Kerr operations. We show that aiming to enforce GKP symmetries in the output of these circuits yields states with competitive performance with respect to current realizations, but whose quality saturates with increasing circuit depth due to imperfect symmetry restoration. Instead, we find that these bosonic circuits naturally give rise to a distinct class of states, that we label as phased-comb states, which are unitarily related to standard grid states but feature an intrinsic phase structure. We demonstrate that these states define a scalable bosonic quantum error-correcting code with near-optimal performance under boson loss comparable to that of approximate GKP states. We further analyze their logical operations and show how to implement a universal gate set for them. Our results establish programmable nonlinear bosonic circuits as a viable route towards the generation of scalable bosonic quantum error-correcting states beyond standard GKP encodings.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
-<a id="paper-2604.21800"></a>
-### [Variance Geometry of Exact Pauli-Detecting Codes: Continuous Landscapes Beyond Stabilizers](http://arxiv.org/abs/2604.21800v1)
-
-**Authors:** Arunaday Gupta, Baisong Sun, Xi He, Bei Zeng  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21800v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21800_figures/2604.21800_fig1.jpg" width="500"><br>
-<sub>FIG. 1: Schematic behavior of the attainable spectrum ΣK(E) = {λ∗(P) : P detects E, rank(P) = K}. In the unrestricted setting studied here, nonempty spectra are observed to be closed intervals. Stabilizer codes occupy only discrete values within these intervals. Under symmetry-compatible restrictions, the attainable set may shrink to a smaller interval, reduce to a singleton, or become empty, while remaining interval-like whenever nonempty.</sub>
-
-</details>
-
-**Main problem.** The paper investigates the geometric structure of the space of exact quantum codes that detect a prescribed set of Pauli errors, specifically determining if these codes form continuous families or isolated solutions.
-
-**Main result.** The authors show that exact Pauli-detecting codes form continuous landscapes (intervals) rather than disjoint sets, and that stabilizer codes are merely a discrete, measure-zero subset of this larger continuum of nonadditive codes.
-
-**Method.** The study uses an operator-theoretic framework linking error detection to joint higher-rank numerical ranges, combined with representation theory, Stiefel-manifold optimization, and analytical constructions of symmetric codewords.
-
-**Summary.** This paper provides a new geometric perspective on quantum error detection by treating the space of valid codes as a continuous landscape. It introduces a scalar parameter, the signature norm, to characterize the variance profile of different code families. The central finding is that stabilizer codes are just a small, discrete part of a much larger, continuous set of nonadditive codes. The work also demonstrates how imposing symmetries can expand or contract the range of achievable error-detection parameters.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** The model consists of rank-K quantum code projectors satisfying the Knill-Laflamme detection conditions for various Pauli error models, including distance-based, asymmetric, and symmetry-restricted (cyclic and permutation) error sets.
-
-**Key observables.** The signature norm (lambda*), which is the Euclidean norm of the vector of Pauli expectation values on the maximally mixed code state, and the joint Pauli variance profile.
-
-**Important parameters / regimes.** The code rank K, the number of qubits n, the error set E, and the symmetry groups (cyclic C_n and permutation S_n).
-
-**Assumptions / limitations.** The focus is restricted to exact (rather than approximate) error-detecting codes, and the 'interval property' is presented as a strong empirical observation rather than a universal proof.
-
-**Figures summary.** Figure 1 illustrates the continuous spectrum of attainable lambda* values, showing how stabilizer codes occupy discrete points and how symmetry constraints can shrink or empty the spectrum.
-
-**Paper structure.** The paper progresses from notation and preliminaries to the introduction of variance-based signatures, followed by symmetry analysis, a classification of 2-qubit codes, and numerical optimization for larger systems.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-Exact quantum codes detecting a prescribed set of Pauli errors are approached through algebraic constructions--stabilizer, codeword-stabilized, permutation-invariant, topological, and related families. Geometrically, exact Pauli detection is governed by joint higher-rank numerical ranges of these Pauli operators, whose structure for rank $\geq 2$ is largely uncharted. From this viewpoint, we show that such codes often form connected continuous families rather than collections of disjoint solution regions. These families are characterized by a single scalar derived from the Knill-Laflamme conditions: denoted $λ^*$, it is the Euclidean norm of the signature vector of Pauli expectation values on the maximally mixed code state, and provides a one-parameter summary of the code's joint Pauli variance profile. Within these continuous landscapes, stabilizer codes occupy only discrete, measure-zero subsets of the attainable $λ^*$-spectrum, exposing a largely unexplored continuum of genuinely nonadditive exact codes. We establish this picture by analyzing the geometry of higher-rank operator compressions, and extend it to symmetry-restricted settings where cyclic and permutation symmetries are imposed on both the error model and the code projector. Small-system cases reveal interval, singleton, and empty regimes through eigenvalue interlacing and symmetry-sector decompositions; larger systems are treated numerically via Stiefel-manifold optimization and symmetry-adapted parameterizations. In every unrestricted and symmetry-compatible case analyzed, the attainable $λ^*$-spectrum forms a single closed interval whenever nonempty--although a general proof remains open. These results place stabilizer, symmetric, and nonadditive code families within a unified higher-rank variance framework, suggesting a continuous geometric perspective on the landscape of exact quantum codes.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
 <a id="paper-2604.21791"></a>
 ### [Rigorous Security Proofs for Practical Quantum Key Distribution](http://arxiv.org/abs/2604.21791v1)
 
 **Authors:** Devashish Tupkary  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21791v1>  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21791v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
 
 <details open><summary>📷 Fig 1</summary>
@@ -811,807 +2257,176 @@ This thesis is concerned with rigorous security analyses of practical Quantum Ke
 
 <sub>[↑ back to top](#top)</sub>
 
-<a id="paper-2604.21788"></a>
-### [Partial oracles quantum algorithm framework -- Part I: Analysis of in-place operations](http://arxiv.org/abs/2604.21788v1)
+<a id="paper-2604.21656"></a>
+### [Speed-oriented quantum circuit backend](http://arxiv.org/abs/2604.21656v1)
 
-**Authors:** Fintan M. Bolton  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21788v1>  
+**Authors:** Sören Wilkening  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21656v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
 
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.21788_figures/2604.21788_fig1.jpg" width="500"><br>
-<sub>FIG. 1. Overview of partial oracle iterations. At each iteration stage j, a search is executed to</sub>
+<img src="2604.21656_figures/2604.21656_fig1.jpg" width="500"><br>
+<sub>Figure 2: Visualization of the gates array within the circuit_t data structure for a 5-qubit QFT without swaps. The gate indices represent their target/control qubits.</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.21788_figures/2604.21788_fig2.jpg" width="500"><br>
-<sub>FIG. 2. First partial oracle iteration showing: (a) the initial equal superposition state; (b) index</sub>
+<img src="2604.21656_figures/2604.21656_fig2.jpg" width="500"><br>
+<sub>Figure 3: Visualization of gate_index (left) and last_layer_of_qubit (top and bottom right) within the circuit_t data structure for a 5-qubit QFT without swaps. The table on the bottom right shows how the data structure is adjusted after applying an additional Hadamard gate to qubit 4, eliminating the previously applied gate. The thick boxes indicate the current head of the list for the respective qubit. Whenever a gate is to be applied to specific qubits, its potential layer position is read from this array.</sub>
 
 </details>
 
 <details><summary>📷 Fig 3</summary>
 
-<img src="2604.21788_figures/2604.21788_fig3.jpg" width="500"><br>
-<sub>Figure 2 shows a visualization of the Grover-Long algorithm, implementing the first</sub>
+<img src="2604.21656_figures/2604.21656_fig3.jpg" width="500"><br>
+<sub>Figure 4: Comparison of running times for building the QFT circuit across state-of-the-art software packages. For all instance sizes, our quantum circuit backend generates the QFT circuit faster than any other available package. Furthermore, the improved variant approaches the theoretical limit of generating and storing quantum circuits, suggesting that no significantly faster single- threaded implementation can be achieved.</sub>
 
 </details>
 
 <details><summary>📷 Fig 4</summary>
 
-<img src="2604.21788_figures/2604.21788_fig4.jpg" width="500"><br>
-<sub>Figure 3 shows a visualization of the modified Grover-Long algorithm, implementing</sub>
+<img src="2604.21656_figures/2604.21656_fig4.jpg" width="500"><br>
+<sub>Figure 5: Comparison of memory requirements for building the QFT circuit across state-of-the-art software packages. Compared to all packages except Ket, our new circuit backend requires less memory. For large instances, Ket achieves a slight advantage; however, we expect this advantage to diminish for larger circuits, as our algorithm approaches the theoretical minimum of the data required for storage. Both variants of our implementation require the same memory, as they use the same underlying data structure.</sub>
 
 </details>
 
-<details><summary>📷 Fig 5</summary>
+**Main problem.** The increasing classical preprocessing time required for quantum circuit generation (QCG) is becoming a bottleneck for large-scale quantum computing, potentially negating quantum advantage in applications like combinatorial optimization.
 
-<img src="2604.21788_figures/2604.21788_fig5.jpg" width="500"><br>
-<sub>FIG. 3. Second (and subsequent) partial oracle iteration: (a) index states remaining after the</sub>
+**Main result.** The proposed C-based backend (QCB) achieves significantly faster circuit generation and lower memory usage than major frameworks like Qiskit and Q#, with performance improvements reaching up to 1,748,000x compared to Q# for 2000-qubit QFT circuits.
 
-</details>
+**Method.** The authors developed a lightweight C implementation using a layered 2D data structure, lookup tables for O(1) gate insertion, and optimization techniques like gate cancellation, merging, and a depth-reduction swap mechanism.
 
-<details><summary>📷 Fig 6</summary>
-
-<img src="2604.21788_figures/2604.21788_fig6.jpg" width="500"><br>
-<sub>Figure 4 shows the corresponding circuit for the majority oracle function, which requires</sub>
-
-</details>
-
-<details><summary>📷 Fig 7</summary>
-
-<img src="2604.21788_figures/2604.21788_fig7.jpg" width="500"><br>
-<sub>FIG. 6. Reciprocal majority gate</sub>
-
-</details>
-
-<details><summary>📷 Fig 8</summary>
-
-<img src="2604.21788_figures/2604.21788_fig8.jpg" width="500"><br>
-<sub>Figure 7 shows the corresponding circuit for the choose function, which requires just two</sub>
-
-</details>
-
-<details><summary>📷 Fig 9</summary>
-
-<img src="2604.21788_figures/2604.21788_fig9.jpg" width="500"><br>
-<sub>FIG. 7. Circuit for the choose function Ch(a, b, c)</sub>
-
-</details>
-
-<details><summary>📷 Fig 10</summary>
-
-<img src="2604.21788_figures/2604.21788_fig10.jpg" width="500"><br>
-<sub>FIG. 8. Reciprocal choose gate</sub>
-
-</details>
-
-**Main problem.** The paper addresses the lack of an explicit method for constructing the search iteration operator within the 'partial oracles' quantum algorithm framework, which aims to potentially achieve exponential speedup over Grover's algorithm.
-
-**Main result.** The author provides the missing construction for the search iteration operator for in-place oracle functions and introduces the 'reciprocal transform' to reorder Walsh functions in reciprocal space.
-
-**Method.** The method utilizes a new 'reciprocal transform' that obeys a chain rule, allowing complex oracle functions to be decomposed into simple steps, and implements these using the QFrame Python library.
-
-**Summary.** This paper develops a critical component of the partial oracles quantum algorithm framework by providing a method to construct search iteration operators. By introducing the 'reciprocal transform,' the author shows how complex, multi-bit oracle functions can be decomposed and implemented in quantum circuits. While the current focus on in-place operations does not yet prove quantum advantage, the work demonstrates the ability to invert simplified cryptographic primitives like SHA-256 components. The introduction of the QFrame library also provides a tool for automating the generation of these complex quantum circuits.
+**Summary.** This paper introduces a new, high-performance software backend designed specifically for the rapid generation of large-scale quantum circuits. By using a low-level C implementation and efficient data structures, the authors demonstrate that they can generate circuits for up to 2000 qubits orders of magnitude faster than industry-standard tools like Qiskit. This efficiency is crucial for preventing classical preprocessing from becoming a bottleneck in large-scale quantum algorithms. The work also provides high-level primitives for bit-level manipulations, making it a potential foundation for future quantum programming languages.
 
 <details><summary>Detailed structure</summary>
 
-**Model / system.** The framework uses a quantum computing model involving an n-qubit index register, multi-bit oracle functions, and operations in both direct (index) and reciprocal (Walsh function) spaces.
+**Model / system.** The study focuses on the construction of large-scale quantum circuits, using the Quantum Fourier Transform (QFT) as the primary benchmark algorithm for systems up to 2000 qubits.
 
-**Key observables.** The success of the algorithm is measured by the probability of finding the target index $x_s$ where all oracle bits satisfy a specific condition (e.g., all zeros).
+**Key observables.** Runtime (generation speed) and memory consumption (RAM usage) during circuit construction.
 
-**Important parameters / regimes.** The paper distinguishes between 'in-place' operations (where results are read from the index qubits) and 'out-of-place' operations; it also focuses on bijective (one-to-one) oracle functions.
+**Important parameters / regimes.** Number of qubits (up to 2000); comparison of peak runtime and memory overhead against existing frameworks.
 
-**Assumptions / limitations.** The current construction is limited to in-place operations, which are classically reversible and thus do not yet demonstrate quantum advantage; the framework also assumes the oracle function is bijective.
+**Assumptions / limitations.** The implementation is an early-stage prototype; it assumes gates contain a small, constant number of qubits and currently supports only single-parameter gates.
 
-**Figures summary.** Figure 1 shows the nested structure of partial oracle iterations; Figure 2 and 3 visualize the transition through Walsh-Hadamard and reciprocal transforms; Figures 4-12 illustrate specific quantum circuits for cryptographic primitives like Maj, Ch, and modulo addition.
+**Figures summary.** Figure 1 and 2 visualize the QFT circuit and the internal layered data structure; Figure 3 shows the gate and qubit lookup tables; Figure 4 presents a log-scale comparison of runtimes across various software packages; Figure 5 shows a log-scale comparison of memory requirements.
 
-**Paper structure.** The paper introduces the partial oracles framework, defines the reciprocal transform and its chain rule, provides the construction for in-place operators, demonstrates applications to SHA-256 components, and introduces the QFrame automation library.
+**Paper structure.** The paper introduces the problem of classical overhead in QCG, describes the C-based implementation and its data structures, details the optimization algorithms (gate merging and depth reduction), presents benchmarking results against 12 existing tools, and concludes with future work regarding hardware-aware compilation.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-The partial oracles framework is a quantum search algorithm that has the potential to exceed the quadratic speedup of Grover's algorithm, up to a theoretical maximum of an exponential speedup. Until now, however, the framework has lacked an explicit method for constructing the operator that represents the search iteration. In this paper, we provide the missing construction, for the special case of an oracle function definable using only in-place operations (that is, where the calculated result of the oracle function can be read just from the qubits in the search index). The restriction to in-place operations means that the current work does not yet exhibit quantum advantage: oracle functions constructed using only in-place operations are always classically reversible. To demonstrate quantum advantage, it will be necessary to extend this construction method to include out-of-place operations (part II). As part of the construction of the search iteration operator, we define a new type of transform, the reciprocal transform, which is applied to the oracle function. We show that the reciprocal transform obeys a chain rule, which makes it possible to break down complex transforms into simple steps. To illustrate the practical application of this search method, we apply the reciprocal transform to elementary operations from the SHA-256 hash algorithm: addition modulo $2^n$, the $Maj(a, b, c)$ function, the $Ch(a, b, c)$ function, and the bit shift functions. We also introduce the QFrame python library, which is used to automate the construction of quantum circuits that represent reciprocal transforms.
+We present a new software package for efficient quantum circuit generation, designed to achieve optimal runtime performance. Despite being in an early stage of development, our implementation demonstrates significant advantages over existing tools. Using the quantum Fourier transform (QFT) as a benchmark, we show that our backend can generate circuits for systems with up to 2000 qubits faster than widely used frameworks such as Qiskit and Q#. This improvement is particularly relevant for applications where classical preprocessing time, including circuit generation, must be minimized to not diminish any potential quantum advantage - for example, in combinatorial optimization tasks. Additionally, our software provides high-level primitives for bit- and integer-level manipulations, offering a simplified interface for integration with high-level quantum programming languages.
 
 </details>
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21643"></a>
+### [Stable Wave-Function Zeros Indicate Exciton Topology](http://arxiv.org/abs/2604.21643v1)
 
-## numerical methods (3)
-
-<a id="paper-2604.21919"></a>
-### ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](http://arxiv.org/abs/2604.21919v1)
-
-**Highlighted author(s):** Sarang Gopalakrishnan  
-**Authors:** Siddhant Midha, Yifan F. Zhang, Daniel Malz, Dmitry A. Abanin, Sarang Gopalakrishnan  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21919v1>  
+**Authors:** Yoonseok Hwang, Henry Davenport, Frank Schindler  
+**Type:** theory · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.21643v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
 
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.21919_figures/2604.21919_fig1.jpg" width="500"><br>
-<sub>FIG. 1. (a) Algorithmic locality in tensor networks: The ef- fect of a perturbation at the center of the network on the fixed-point messages living on edges of the graph decays ex- ponentially with distance from perturbation. Loops (see Eq. (6)) and clusters (see Eq. (7)) built out of the fixed-point mes- sages inherit the locality subsequently. (b) Phase diagram of injective PEPS: Theorem 1 shows existence (for all 0 ≤ε &lt; 1) and uniqueness (for ε &lt; ε∗= O(1/∆)) of fixed points, where ∆is the degree of the graph. Theorem 2 shows convergence of cluster expansion for ε &lt; ε∗∗= O  min{1/D, (D/∆)∆/2} </sub>
+<img src="2604.21643_figures/2604.21643_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Excitons in a one-dimensional inversion-symmetric lattice model. (a) Exciton spectrum as a function of total momentum p (see SM [38] for model details). The lowest gapped exciton band is shown in black. In this model, the lowest exciton band has Wannier center xexc = 1/2, while the conduction and valence bands have xc/v = 0. (b) EWF intensity |ϕk(p)|2 of the lowest exciton in (a), shown for p = 0 (dark gray) and p = π (red). The stable zero pattern agrees with sc = sv = 1/2 (see Tab. I).</sub>
 
 </details>
 
-**Main problem.** Establishing rigorous theoretical foundations for Tensor Network Belief Propagation (TN-BP) in higher dimensions, specifically proving the existence, uniqueness, and convergence of fixed points and the validity of cluster expansions.
+**Main problem.** The lack of a general, symmetry-based framework to constrain exciton topology and its relationship to the topology of the underlying electronic bands.
 
-**Main result.** The authors prove 'algorithmic locality,' demonstrating that local perturbations in strongly injective PEPS lead to exponentially decaying changes in both BP fixed-point messages and local observables, enabling efficient classical simulation.
+**Main result.** The authors demonstrate that crystalline symmetries enforce stable zeros in the exciton envelope wave function, which act as a diagnostic fingerprint for the relative topology between the exciton and its constituent electronic bands.
 
-**Method.** The work utilizes message-passing dynamics, Banach contraction mapping, and cluster expansion techniques from lattice statistical mechanics to analyze the stability and convergence of TN-BP.
+**Method.** The study uses a 'sewing-matrix' formalism and Wilson-loop formulation to relate symmetry eigenvalues at high-symmetry momenta to topological invariants like Chern numbers and Wannier center shifts.
 
-**Summary.** This paper provides the first end-to-end theory for Tensor Network Belief Propagation (TN-BP) in higher-dimensional PEPS. It proves that for sufficiently injective states, the BP algorithm converges to a unique fixed point that is stable under local perturbations. The authors introduce 'algorithmic locality,' showing that the impact of a local change decays exponentially with distance. This result justifies the use of local recomputation for efficient classical simulation of many-body quantum systems.
+**Summary.** This paper establishes a symmetry-based framework to identify the topological properties of excitons. It shows that crystalline symmetries force the exciton wave function to vanish at certain high-symmetry points. By observing these 'stable zeros' via spectroscopy, researchers can determine the topological invariants of both the exciton and the underlying electronic bands without needing detailed knowledge of microscopic interactions.
 
 <details><summary>Detailed structure</summary>
 
-**Model / system.** The study focuses on Projected Entangled Pair States (PEPS) defined on arbitrary graphs with a maximum degree and bond dimension, specifically focusing on the class of strongly injective tensors.
+**Model / system.** The framework applies to two-band excitons in crystalline solids, specifically focusing on 1D inversion-symmetric systems and 2D rotation-symmetric ($C_n$ for $n=2,3,4,6$) systems.
 
-**Key observables.** Local expectation values, connected correlation functions, and the norm of the state (partition function).
+**Key observables.** Stable zeros in the exciton envelope wave function (EWF) intensity, exciton Chern number, relative band Chern number, and Wannier center shifts.
 
-**Important parameters / regimes.** Injectivity parameter (epsilon), bond dimension (D), maximum vertex degree (Delta), and correlation/decay length scales (xi).
+**Important parameters / regimes.** Symmetry eigenvalues at high-symmetry momenta, rotation order $n$, and the difference between exciton and non-interacting topological invariants.
 
-**Assumptions / limitations.** The proofs are restricted to a subclass of PEPS satisfying 'strong injectivity' and assume the bond dimension and vertex degree are O(1).
+**Assumptions / limitations.** The analysis focuses on gapped, two-band excitons in systems with unitary crystalline symmetries and assumes the Hamiltonian is separately symmetric under space-group operations.
 
-**Figures summary.** Figure 1(a) illustrates the concept of algorithmic locality via decaying influence of perturbations; Figure 1(b) presents a phase diagram showing thresholds for existence, uniqueness, and cluster expansion convergence.
+**Figures summary.** Figure 1 shows the exciton spectrum in a 1D lattice and illustrates the EWF intensity pattern at $p=0$ and $p=\pi$ matching predicted symmetry-enforced zeros.
 
-**Paper structure.** The paper begins with preliminaries on PEPS and Schatten norms, moves to proving the existence and uniqueness of BP fixed points, establishes the decay of loop activities, proves the central theorem of algorithmic locality, and concludes with error decomposition analysis.
-
-**Why it may be interesting.** This provides a rigorous bridge between widely used numerical practices (like TN-BP) and provable algorithmic performance, offering a theoretical guarantee for the efficiency of classical simulations of many-body states.
+**Paper structure.** The paper establishes the mathematical foundation of the exciton formalism and gauge invariance, develops the symmetry-based sewing-matrix framework, and then applies it to 1D inversion and 2D rotation-symmetric systems to derive topological constraints.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-Belief propagation has recently emerged as a powerful framework for evaluating tensor networks in higher dimensions, combining computational efficiency with provable analytical guarantees. In this work, we develop the first end-to-end theory of tensor network belief propagation for a class of projected entangled pair states satisfying \emph{strong injectivity}. We show that when the injectivity parameter exceeds a constant threshold, BP fixed points can be found efficiently, and a cluster-corrected BP algorithm computes physical quantities to $1/\mathrm{poly}(N)$ error in $\mathrm{poly}(N)$ time for an $N$ qubit system. We identify a striking phenomenon we term \emph{algorithmic locality}: local perturbations of the tensor network affect the BP fixed point with an influence decaying rapidly with distance. As a result, updates to the fixed point after a local perturbation can be carried out using only local recomputation. Moreover, through the cluster expansion, this locality extends to observables, implying that local expectation values can be approximated from local data with controlled accuracy. Our results provide the first rigorous guarantee for the effectiveness of tensor-network belief propagation on a wide class of many-body states, bridging a gap between widely used numerical practice and provable algorithmic performance.
+Excitons are bound states of electrons and holes whose band topology arises from an interplay between the topology of the underlying electronic bands and the structure of the electron-hole interaction. In crystalline solids, symmetry representations and topological invariants of the conduction and valence bands constrain the structure of the exciton envelope wave function. In particular, we show that crystalline symmetry can enforce stable zeros in the exciton wave function. These occur at high-symmetry momenta, including the optically accessible total momentum p=0. We work out how the stable zeros constrain both the relative exciton-band topology (the difference of exciton and non-interacting topological invariants) and the relative band topology (the difference of valence and conduction band invariants), all without requiring detailed knowledge of the band structure or interactions. We establish these results for two-band excitons in inversion- and rotation-symmetric systems in one and two dimensions, where the relevant topological invariants are the Berry phase in one dimension and the Chern number (modulo the rotation order) in two dimensions. In two dimensions, the exciton Chern number itself can also be constrained by zero patterns.
 
 </details>
 
 <sub>[↑ back to top](#top)</sub>
 
-<a id="paper-2604.21908"></a>
-### [Efficient Classical Simulation of Heuristic Peaked Quantum Circuits](http://arxiv.org/abs/2604.21908v1)
+<a id="paper-2604.21705"></a>
+### [Testing Spontaneous Collapse Models with Coulomb Mediated Squeezing](http://arxiv.org/abs/2604.21705v1)
 
-**Authors:** David Kremer, Nicolas Dupuis  
-**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21908v1>  
+**Authors:** Suroj Dey, Peter Barker, Animesh Datta  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21705v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
 
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.21908_figures/2604.21908_fig1.jpg" width="500"><br>
-<sub>FIG. 1: The three stages of the iterative contraction method. (a) The transpiled circuit is split at the temporal midpoint into a left circuit CL and a right circuit CR, with an identity MPO inserted between them. (b) The greedy unswapping procedure: qubit pairs in the MPO are ranked by bond dimension, and swaps are applied from the left, right, or both sides. Swaps that reduce the bond dimension are accepted, yielding the decomposition M = PL ˜ MPR. (c) Rewiring: the extracted permutations PL and PR are absorbed into the remaining circuits by removing existing transpilation SWAPs, reindexing qubits, and re-transpiling to linear connectivity.</sub>
+<img src="2604.21705_figures/2604.21705_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Two identical, levitated charged nanospheres of mass m and charges q and ηq, separated by a mean distance d. Both are harmonically trapped at angular frequency ω and coupled via V, the static Coulomb interaction.</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.21908_figures/2604.21908_fig2.jpg" width="500"><br>
-<sub>FIG. 2: Overview of the iterative contraction procedure. Starting from a small MPO between the left and right circuits, the method cycles through three stages: (1) absorption of circuit layers into the MPO, which causes it to grow; (2) unswapping, which extracts permutations PL and PR and reduces the MPO to a smaller ˜ M; and (3) rewiring, which propagates the extracted permutations into the remaining circuits and re-transpiles to linear connectivity.</sub>
+<img src="2604.21705_figures/2604.21705_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Our proposed bounds for parameters in Table 1 and different choices as in II. We include the current best bounds provided by XENONnT [14], and LISA Pathfinder [26, 27]. Previous bounds from X-ray experiments [10, 28] and bulk-heating experiment [11–13].The grey-shaded region cor- responds to the theoretically excluded region [25]. The shaded vertical bars correspond to theoretical suggestions by Adler [29], and the red dot to a suggestion by Ghirardi, Rim- ini, and Weber [30].</sub>
 
 </details>
 
 <details><summary>📷 Fig 3</summary>
 
-<img src="2604.21908_figures/2604.21908_fig3.jpg" width="500"><br>
-<sub>FIG. 3: Total number of tensor elements in the MPO during contraction. Blue points correspond to the absorption stage and red points to the unswapping stage. (a) MPO size as a function of two-qubit unitaries consumed from the circuit. Three regimes are visible: an initial phase (0–300 unitaries) with rapid absorption–unswapping cycling; a transition phase (300–700) where unswapping becomes progressively more effective; and a final phase (700+) where unswapping reduces the MPO almost completely, allowing long absorption runs. (b) The same quantity plotted against wall-clock time. The full contraction completes in 4,059 seconds on a single Nvidia A100 GPU. The dense cluster of iterations in...</sub>
+<img src="2604.21705_figures/2604.21705_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Our bounds at choices of experimental parameters in IV considering a short-time Coulomb entanglement test of collapse models.</sub>
 
 </details>
 
-<details><summary>📷 Fig 4</summary>
+**Main problem.** Finding experimental methods to test and constrain the parameters of Spontaneous Collapse Models (CSL and DP) that are more effective than current bulk-heating tests and robust against colored-noise extensions.
 
-<img src="2604.21908_figures/2604.21908_fig4.jpg" width="500"><br>
-<sub>FIG. 4: Frequency of the top 20 most-sampled bitstrings from 1,000 samples drawn from the contracted MPS. The peak bitstring (ID 0) appears approximately 110 times (∼11%), consistent with the designed peak weight of ∼10%. The sharp separation from the remaining bitstrings confirms successful recovery of the peak.</sub>
+**Main result.** The study shows that detecting steady-state Coulomb-mediated position squeezing in two nanospheres can provide bounds on the CSL parameter that surpass bulk-heating tests and are robust against colored noise. Additionally, short-time entanglement-based tests can provide significant constraints on the collapse rate.
 
-</details>
+**Method.** The authors use a master equation approach to analyze the dynamics of two charged nanospheres, calculating steady-state covariance matrix elements and entanglement measures (logarithmic negativity) under various noise models.
 
-**Main problem.** Challenging a recent claim of heuristic quantum advantage by demonstrating that certain 'peaked' quantum circuits, previously thought to be classically intractable, can be efficiently simulated.
-
-**Main result.** The authors developed an efficient tensor network contraction method that simulates a 56-qubit circuit in approximately one hour on a single GPU, outperforming the execution time of the original quantum hardware.
-
-**Method.** An iterative tensor network contraction procedure involving circuit splitting, absorption of gates into a Matrix Product Operator (MPO), and a greedy 'unswapping' heuristic to extract hidden permutations and reduce bond dimension.
-
-**Summary.** This paper refutes a claim of heuristic quantum advantage by showing that 'peaked' quantum circuits can be efficiently simulated classically. By using a new 'unswapping' technique within a tensor network framework, the authors can undo the permutations intended to make the circuits hard to simulate. They successfully simulated a 56-qubit circuit in about an hour, which was faster than the actual quantum hardware execution. This demonstrates that the complexity of these specific circuits arises from artificial structural obfuscation rather than genuine quantum hardness.
+**Summary.** This paper proposes a new experimental method to test spontaneous collapse models, such as CSL and Diosi-Penrose, using the Coulomb-mediated squeezing of two charged nanospheres. The authors demonstrate that observing the reduction in thermal variance of the differential motional mode can set bounds on the collapse rate that are more robust than current X-ray or bulk-heating experiments. Crucially, these proposed mechanical bounds remain effective even when considering more realistic colored-noise models. The study also suggests that detecting entanglement between the spheres at short times can serve as a powerful witness for these fundamental models.
 
 <details><summary>Detailed structure</summary>
 
-**Model / system.** Peaked quantum circuits characterized by a mirrored (UU^dagger) structure and permutation-based obfuscation, specifically targeting circuits executed on Quantinuum's 56-qubit H2 trapped-ion processor.
+**Model / system.** The system consists of two identical, charged nanospheres of mass m and charge q trapped harmonically in a linear Paul trap, interacting via a static Coulomb potential. The dynamics are modeled using the CSL and Diosi-Penrose (DP) collapse models, incorporating both thermal noise and potential colored-noise extensions.
 
-**Key observables.** The peak bitstring (highest probability bitstring) and the peak weight (concentration of the output distribution).
+**Key observables.** Steady-state position variance of the differential mode, momentum variance, logarithmic negativity (entanglement), and X-ray emission rates.
 
-**Important parameters / regimes.** MPO bond dimension, SVD singular value cutoff (epsilon), and the unswapping threshold for triggering contraction updates.
+**Important parameters / regimes.** CSL collapse rate (lambda_CSL), CSL correlation length (r_CSL), DP length scale (R_0), Coulomb coupling strength (delta^2), thermal occupancy (N), and noise frequency cut-off (Omega).
 
-**Assumptions / limitations.** The method assumes the circuit possesses an underlying mirrored structure and that the error introduced by SVD compression is negligible.
+**Assumptions / limitations.** The particles within each system are treated as part of a rigid body; mass distributions are approximated as Gaussian densities; the analysis assumes the separation d is much larger than the collapse correlation length.
 
-**Figures summary.** Figure 1 shows the three stages of the contraction method (splitting, unswapping, rewiring); Figure 2 provides an overview of the iterative cycle; Figure 3 plots MPO size dynamics and wall-clock time across different contraction regimes; Figure 4 shows the frequency of the top 20 sampled bitstrings.
+**Figures summary.** Figure 2 compares the proposed CSL bounds against existing limits from LISA Pathfinder, XENONnT, and X-ray experiments. Figure 3 shows logarithmic plots of entanglement-based bounds compared to various existing experimental limits.
 
-**Paper structure.** The paper introduces the problem of challenging quantum advantage claims, describes the proposed iterative MPO contraction and unswapping method, presents performance benchmarks on 56-qubit circuits, and discusses the limitations and implications for future circuit designs.
+**Paper structure.** The paper introduces the scientific problem of testing collapse models, describes the physical system and Coulomb interaction, derives the master equations for CSL and DP models, performs steady-state and short-time analysis for squeezing and entanglement, and concludes with a comparison of the proposed bounds against existing experimental literature.
+
+**Why it may be interesting.** This paper is highly relevant to researchers in open quantum systems and quantum optics as it proposes a novel way to use mechanical squeezing and entanglement in trapped systems to probe fundamental decoherence models and non-Markovian noise.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-Peaked quantum circuits, whose output distribution is sharply concentrated on a single bitstring, have emerged as a promising candidate for verifiable quantum advantage, as the correctness of the quantum output can be checked by simply comparing against the known peak. Recent work by Gharibyan et al. arXiv:2510.25838 claimed heuristic quantum advantage using peaked circuits executed on Quantinuum's 56-qubit H2 processor. These peaked circuits concentrate their output on a single hidden bitstring by training a shallow simulable circuit variationally and inserting an obfuscated permutation to increase the depth to a level that makes classical simulation intractable, with estimated runtimes of years for the largest instances. We show that these circuits can be efficiently simulated classically. We describe a method that efficiently performs a full tensor network contraction, allowing near-exact sampling and extraction of the peaked bitstring. The method exploits the mirrored structure of the circuit and iteratively cancels both halves into a Matrix Product Operator (MPO), and avoids the obfuscated permutation by greedily reducing the MPO bond dimension through a process we call unswapping. The method can fully contract and extract the peak of the largest circuit in approximately one hour on a single GPU, around half the time it took to run on the quantum hardware.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
-<a id="paper-2604.21778"></a>
-### ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](http://arxiv.org/abs/2604.21778v1)
-
-**Highlighted author(s):** Andrii G. Sotnikov, Denys I. Bondar  
-**Authors:** Roman Ovsiannikov, Kurt Jacobs, Andrii G. Sotnikov, Denys I. Bondar  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21778v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** `Dicke superradiance` **2/5**
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21778_figures/2604.21778_fig1.jpg" width="500"><br>
-<sub>FIG. 1. Evolution of the eigenvalues of the covariance matrix (2) for Holstein–Primakoff approach (orange and blue solid lines), QuTip solver (red and green dashed lines), and our algorithm 1 with method=Linear (light green and brown dotted lines) with parame- ters ωc = 2π × 2.4 GHz, ωs = 2π × 3.6 GHz, g = 2π × 10 MHz, Λ = 2π × 1 GHz and ω = 2π × 6 GHz.</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21778_figures/2604.21778_fig2.jpg" width="500"><br>
-<sub>FIG. 2. Time of the one step evolution for Qutip solver (green line), our algorithm 1 with method=Exp (blue line), and with method=Linear (orange line).</sub>
-
-</details>
-
-**Main problem.** Developing an efficient, memory-efficient, and unitarity-preserving numerical method for simulating the time-dependent unitary dynamics of the Tavis-Cummings model, specifically overcoming the quadratic scaling of standard solvers like QuTiP.
-
-**Main result.** The authors propose a symplectic split-operator method that achieves linear scaling in both time and memory by exploiting a basis re-indexing trick to transform the Hamiltonian into tridiagonal form. This method remains accurate beyond the rotating-wave approximation and outperforms standard solvers in large Hilbert-space dimensions.
-
-**Method.** A second-order symmetric (Strang) Trotter-Suzuki propagation scheme using two realizations: a block-diagonal exponentiation approach and a Cayley/Crank-Nicolson approach using the Thomas algorithm for tridiagonal linear systems.
-
-**Summary.** This paper introduces a new numerical method for simulating the time-dependent Tavis-Cummings model with much higher efficiency than standard tools. By using a split-operator approach and a clever basis re-indexing trick, the authors reduce the computational complexity to linear scaling with the system size. This allows for the simulation of much larger spin ensembles and longer time scales, even when including non-rotating-wave terms. The method is particularly useful for studying driven hybrid quantum systems like NV centers in diamond.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** The closed, undamped, time-dependent Tavis-Cummings model, which describes a multilevel spin ensemble interacting with a single cavity mode, including time-dependent modulation of the spin frequency.
-
-**Key observables.** Eigenvalues of the cavity quadrature covariance matrix (representing X and Y quadratures).
-
-**Important parameters / regimes.** Cavity frequency, spin frequency, spin-cavity coupling strength, modulation amplitude and frequency, and the Hilbert-space dimension D.
-
-**Assumptions / limitations.** The method is specifically tailored to Hamiltonians that can be decomposed into diagonal and tridiagonal parts via basis permutation; it assumes a closed (undamped) system.
-
-**Figures summary.** Figure 1 compares the time evolution of covariance matrix eigenvalues against QuTiP and the Holstein-Primakoff approximation; Figure 2 compares the runtime per propagation step against the Hilbert-space dimension to demonstrate linear scaling.
-
-**Paper structure.** The paper identifies the limitations of current solvers, introduces the Hamiltonian decomposition and basis re-indexing technique, presents two implementation realizations (Block-diagonal and Cayley), validates the method against QuTiP and the Holstein-Primakoff approximation, and discusses computational scaling and potential extensions.
-
-**Why it may be interesting.** It provides a highly scalable tool for simulating large-scale cavity QED systems and spin ensembles, particularly in regimes where the rotating-wave approximation fails, which is crucial for studying driven-dissipative quantum dynamics and many-body effects in hybrid systems.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-We present a fast, memory-efficient, unitarity-preserving numerical method beyond the rotating-wave approximation for the closed Tavis-Cummings model in which a multilevel spin system interacts with a cavity mode. This model can describe the interaction of an ensemble of spins with a cavity mode in which the spin frequency and other parameters are time-dependent. The method exploits the fact that, while the Tavis-Cummings model is not tri-diagonal, it can be brought into tri-diagonal form by a change of basis that can be implemented purely by re-indexing (permuting basis elements), which is a fast operation. By truncating the Fock basis of the cavity mode, the computational complexity of the method is linear in the total dimension of the coupled system, both in time and memory. The method can be employed to simulate any closed quantum system whose Hamiltonian terms can be brought into tri-diagonal form.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
-
-## statistical mechanics (1)
-
-<a id="paper-2604.21929"></a>
-### [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](http://arxiv.org/abs/2604.21929v1)
-
-**Authors:** MD Nahidul Hasan Sabit  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21929v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** `kinetically constrained dynamics` **2/5**
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21929_figures/2604.21929_page2.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 2</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21929_figures/2604.21929_page3.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 3</sub>
-
-</details>
-
-<details><summary>📷 Fig 3</summary>
-
-<img src="2604.21929_figures/2604.21929_page4.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 4</sub>
-
-</details>
-
-<details><summary>📷 Fig 4</summary>
-
-<img src="2604.21929_figures/2604.21929_page5.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 5</sub>
-
-</details>
-
-<details><summary>📷 Fig 5</summary>
-
-<img src="2604.21929_figures/2604.21929_page6.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 6</sub>
-
-</details>
-
-<details><summary>📷 Fig 6</summary>
-
-<img src="2604.21929_figures/2604.21929_page7.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 7</sub>
-
-</details>
-
-<details><summary>📷 Fig 7</summary>
-
-<img src="2604.21929_figures/2604.21929_page8.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 8</sub>
-
-</details>
-
-<details><summary>📷 Fig 8</summary>
-
-<img src="2604.21929_figures/2604.21929_page9.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 9</sub>
-
-</details>
-
-<details><summary>📷 Fig 9</summary>
-
-<img src="2604.21929_figures/2604.21929_page10.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 10</sub>
-
-</details>
-
-<details><summary>📷 Fig 10</summary>
-
-<img src="2604.21929_figures/2604.21929_page11.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 11</sub>
-
-</details>
-
-**Main problem.** The global spectrum of a many-body Hamiltonian fails to capture the inherent locality of interactions. The paper seeks to develop a subsystem-resolved spectral framework that organizes spectral data according to the geometry and interaction structure of subsystems.
-
-**Main result.** The authors prove that subsystem Hamiltonians can be locally approximated with exponentially decaying error and that their spectra are stable under such truncations. Furthermore, they show that the spectra of spatially separated subsystems are approximately additive, becoming exact for finite-range interactions.
-
-**Method.** The study uses an operator-algebraic framework, employing interaction norms to measure the decay of interaction strengths and spectral perturbation theory (Hausdorff distance) to relate operator-level approximations to spectral stability.
-
-**Summary.** This paper introduces a new way to study the energy spectra of quantum many-body systems by looking at subsystems rather than just the global Hamiltonian. It demonstrates that the spectrum of a local region can be accurately approximated by looking at a finite neighborhood and that the spectra of two distant regions can be roughly added together. This proves that the locality of physical interactions is directly reflected in the structure of the system's energy levels. The framework provides a mathematical foundation for connecting interaction geometry to spectral behavior.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** The framework applies to quantum many-body Hamiltonians acting on a tensor product Hilbert space, where the Hamiltonian is a sum of local interaction terms with exponentially decaying strengths.
-
-**Key observables.** Subsystem spectrum (sigma(H_S)) and the Hausdorff distance between spectra.
-
-**Important parameters / regimes.** Interaction norm (Phi_mu), subsystem radius (r), spatial separation (D), and interaction decay rate (mu).
-
-**Assumptions / limitations.** The system is assumed to have a finite index set and interactions must satisfy a specific exponential decay condition (finite interaction norm).
-
-**Paper structure.** The paper begins by defining a subsystem-based spectral framework and an interaction norm, then moves to proving the local approximability of subsystem Hamiltonians, followed by establishing spectral stability and the approximate additivity of spectra for distant subsystems.
-
-**Why it may be interesting.** This work provides a static analogue to Lieb-Robinson bounds, offering a new way to understand how the geometry of interactions shapes the spectral properties of many-body systems, which is fundamental for understanding correlations and dynamics.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-We study spectral properties of quantum many-body Hamiltonians through a subsystem-based framework. Given a Hamiltonian of the form $H = \sum_{X \subseteq Λ} Φ(X)$ acting on a tensor product Hilbert space, we associate to each subset $S \subseteq Λ$ a subsystem Hamiltonian $H_S$ and its spectrum $\mathcal{S}(S) = σ(H_S)$. This produces a family of spectra indexed by subsystems, allowing spectral data to be organized according to interaction structure. We show that subsystem Hamiltonians admit local approximations: $H_S$ can be approximated by operators supported on finite neighborhoods with an error bounded by $\|H_S - H_{S,r}\| \le |S| e^{-μr} \|Φ\|_μ$. As a consequence, subsystem spectra are stable under truncation in the sense that $d_H(\mathcal{S}(S), σ(H_{S,r})) \le |S| e^{-μr} \|Φ\|_μ.$ We then prove that for disjoint subsets $S_1, S_2 \subseteq Λ$, the subsystem spectrum is approximately additive: $d_H\big(\mathcal{S}(S_1 \cup S_2), \mathcal{S}(S_1) + \mathcal{S}(S_2)\big) \le (|S_1| + |S_2|) e^{-μD} \|Φ\|_μ,$ where $D = d(S_1, S_2)$. In the finite-range case, this relation becomes exact. The results show that spectral properties reflect the locality of interactions not only at the level of operators, but also at the level of spectra. The framework provides a way to study many-body systems in which interaction geometry directly shapes spectral behavior.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
-
-## strongly correlated electrons (2)
-
-<a id="paper-2604.21912"></a>
-### [Cryogenic shock exfoliation for ultrahigh mobility rhombohedral graphite nanoelectronics](http://arxiv.org/abs/2604.21912v1)
-
-**Authors:** Ludwig Holleis, Youngjoon Choi, Canxun Zhang, Jack H. Farrell, Gabriel Bargas, Audrey Hsu, Zexing Chen, Ian Sackin, Wenjie Zhou, Yi Guo, Thibault Charpentier, Yifan Jiang, Benjamin A. Foutty, Aidan Keough, Martin E. Huber, Takashi Taniguchi, Kenji Watanabe, Andrew Lucas, Andrea F. Young  
-**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21912v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21912_figures/2604.21912_fig1.jpg" width="500"><br>
-<sub>FIG. 1. Cryogenic shock exfoliation of rhombohedral graphene. (a) Step-by-step illustration of the cryogenic shock exfoliation process. (b) Optical micrograph taken in the visible and (c) infrared. Bright regions in the infrared image correspond to rhombohedral stacking order. (d-f) Scanning microwave impedance microscopy images in the regions marked in panel c. Area of select contiguous rhombohedral domains are indicated. (g) Total flake area versus non-Bernal stacking fraction for multilayer graphene flakes. Shaded ovals are centered on the geometric mean for x-axis and arithmetic mean for the y-axis, and spanning one standard deviation. (h) Distribution of single-stacking-order,...</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21912_figures/2604.21912_fig2.jpg" width="500"><br>
-<sub>FIG. 2. Real-space characterization of device uniformity. (a) Atomic force micrograph of a 13-layer dual-gated RMG device. Inset: optical micrograph. (b) Penetration field capacitance CP measured across the accessible range of ne and D. (c) Real space magnetization M determined by local magnetometry. A fringe magnetic field image is acquired by modulating the back gate across a phase boundary separating a spin-polarized half-metal (point ‘X’ in panel b) and a non-magnetic phase. Standard Fourier-domain algorithms are then used to reconstruct M from the measured fringe fields (see Methods).</sub>
-
-</details>
-
-<details><summary>📷 Fig 3</summary>
-
-<img src="2604.21912_figures/2604.21912_fig3.jpg" width="500"><br>
-<sub>Fig. 2a shows optical and atomic force micrographs of a dual-graphite gated 13-layer RMG device fabricated from a cryogenic shock exfoliated flake using the methods of the pre-</sub>
-
-</details>
-
-<details><summary>📷 Fig 4</summary>
-
-<img src="2604.21912_figures/2604.21912_fig4.jpg" width="500"><br>
-<sub>FIG. 3. Transverse magnetic focusing. (a) Single-particle band structure of rhombohedral 13-layer graphene at D = 0. The inset shows the Fermi surface at the dashed line (EF = 160 meV), corresponding to ne ≈1013 cm−2. (b) Simulations of the current magnitude |J| for a fully ballistic Boltzmann model with applied magnetic field B = 135 mT, corresponding to the first TMF resonance. (c) TMF data at ne = 1013 cm−2 for four contact configurations along the different edges of the devices. (d) TMF data for the ‘South’ edge as a function of temperature. (e) First TMF peak for at T=2.0K, (f) 78.0K, (g) 138.0K, and (h) 198.0K. The blue shaded region is the peak area Apeak. (i) Temperature-dependence...</sub>
-
-</details>
-
-<details><summary>📷 Fig 5</summary>
-
-<img src="2604.21912_figures/2604.21912_fig5.jpg" width="500"><br>
-<sub>FIG. 4. Ballistic, diffusive, and hydrodynamic electron transport regimes in RMG. (a) nSOT Biot–Savart imaging of 10 µA current flow at ne = 1013 cm−2, D = 0 V/nm. (b) Simulation of current flow in the ballistic regime (ℓee = 200 µm, ℓmr = 200 µm), obtained by solving the quantum kinetic equation (see Methods). (c) nSOT image at ne = 0.6 × 1012 cm−2, D = 0 V/nm, close to charge neutrality. (d) Simulation in the diffusive regime (ℓee = 50 nm, ℓmr = 10 µm). (e) nSOT image at ne = 6.5 × 1012 cm−2, D = 0.41 V/nm, in the spin- and valley-unpolarized single-surface regime. (f) Simulation in the hydrodynamic regime (ℓee = 50 nm, ℓmr = 200 µm). Scale bar: 1 µm for all images. (g)...</sub>
-
-</details>
-
-**Main problem.** The utility of rhombohedral multilayer graphene (RMG) for studying correlated electron physics is limited by the scarcity, small size, and structural instability of rhombohedral stacking in natural graphite.
-
-**Main result.** The authors developed 'cryogenic shock exfoliation' and low-pressure assembly to produce large-area, high-yield RMG devices, demonstrating ultrahigh mobility and a crossover between Poiseuille and porous electron hydrodynamic flow.
-
-**Method.** A new cryogenic shock exfoliation method uses rapid cooling in liquid nitrogen to induce shear stress for Bernal-to-rhombohedral conversion, combined with low-pressure van der Waals assembly and nanoSQUID-on-tip imaging.
-
-**Summary.** This paper introduces a new fabrication technique called 'cryogenic shock exfoliation' to overcome the scarcity of rhombohedral graphene. By using rapid temperature changes to induce structural conversion, the authors produce large-area, high-quality rhombohedral flakes with 90% device yield. These high-purity devices allow for the observation of advanced electronic phenomena, including ultrahigh mobility and complex hydrodynamic electron flow. This advancement provides a scalable platform for exploring new correlated phases in 2D nanoelectronics.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** The physical system consists of 13-layer rhombohedral multilayer graphene (RMG) heterostructures, analyzed using a tight-binding Hamiltonian and a quantum kinetic Boltzmann model for electron hydrodynamics.
-
-**Key observables.** Transverse magnetic focusing (TMF) peaks, nanoSQUID-on-tip (nSOT) current imaging, magnetization, resistance (including bend resistance), and effective mass.
-
-**Important parameters / regimes.** Disorder mean free path (> 200 um), electron-electron scattering length, Gurzhi length, device area (> 1300 um^2), and fabrication yield (~90%).
-
-**Assumptions / limitations.** The transport model assumes an isotropic 2D electron liquid and uses a two-rate relaxation-time approximation for momentum-relaxing and momentum-conserving scattering.
-
-**Figures summary.** Figure 1 shows the cryogenic shock process and structural uniformity via microscopy; Figure 4/S8/S9 present temperature-dependent resistance, current density maps, and simulations of hydrodynamic vs. diffusive flow regimes.
-
-**Paper structure.** Introduction of the RMG bottleneck, description of the cryogenic shock and low-pressure assembly methods, characterization of structural uniformity, demonstration of ultrahigh mobility via TMF, and analysis of hydrodynamic transport regimes.
-
-**Why it may be interesting.** The paper explores many-body electron-electron interactions and hydrodynamic regimes (Poiseuille vs. porous flow) in a highly tunable 2D system, which is relevant to the study of non-equilibrium dynamics in many-body systems.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-Rhombohedral multilayer graphene (RMG) offers a highly tunable platform for correlated electron physics, featuring field-effect control of magnetic, superconducting, and topological phases[1-24]. The promise of these materials has been held back by the limited abundance of rhombohedral stacking in natural graphite, which constrains both sample yield and useful area. Here we introduce 'cryogenic shock exfoliation' to produce large area rhombohedral graphene flakes which, combined with a low-pressure van der Waals assembly technique that preserves stacking order, enable highly uniform devices exceeding 1300 $μm^2$ with fabrication yields of 90%. Using scanning nanoSQUID-on-tip imaging, we demonstrate uniform spin magnetism over the full central 10 times 10 $μm^2$ area of our devices. Transverse magnetic focusing reveals a disorder mean free path exceeding 200 $μm$ at low temperatures. Within the flat surface bands of RMG[20], we observe a size-driven crossover from Poiseuille to porous electron flow in the intermediate-temperature regime of strong electron-electron hydrodynamics[16, 25], providing a further signature of ultrahigh device quality. Our approach overcomes a key materials bottleneck in the fabrication of mesoscopic rhombohedral graphene devices, paving the way for incorporating strongly correlated phases into two-dimensional nanoelectronics.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
-<a id="paper-2604.21899"></a>
-### [$3d_{z^2}$ orbital delocalization and magnetic collapse in superconducting (La,Pr)$_3$Ni$_2$O$_{7-δ}$ films](http://arxiv.org/abs/2604.21899v1)
-
-**Authors:** Xiaoyang Chen, Wenliang Zhang, Fei Peng, Ting Cui, Guangdi Zhou, Zezhong Li, Jaewon Choi, Lizhi Xu, Yiu-Fung Chiu, Stefano Agrestini, Sahil Tippireddy, Haoliang Huang, Heng Wang, Xianfeng Wu, Peng Li, Jin-Feng Jia, Mirian Garcia-Fernandez, Yi Lu, Er-Jia Guo, Qi-Kun Xue, Zhuoyu Chen, Donglai Feng, Ke-Jin Zhou  
-**Type:** experiment · **PDF:** <https://arxiv.org/pdf/2604.21899v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21899_figures/2604.21899_fig1.jpg" width="500"><br>
-<sub>FIG. 1. The O K- and Ni L3- X-ray absorption spec- tra. a,b, Schematic illustration of (La,Pr)3Ni2O7−δ films designed with varying compressive strain (a) and oxygen content (b). The LPNO/SLAO3 is superconducting at low temperature while the other samples are insulating. c,d, O K-XAS measured at σ polarisation (c) and π polarisation (d). e,f, Ni L3-XAS measured at σ polarisation (e) and π polarisation (f). XAS were measured in total fluorescence yield (TFY) mode at 20 K with a grazing incidence angle of 20◦, where π polarization predominantly probes out-of-plane orbital states, while σ polarization probes in-plane orbital states.</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21899_figures/2604.21899_fig2.jpg" width="500"><br>
-<sub>Figure 3a shows the momentum-dependent magnetic exci- tations in LNO/LAO, along the two high-symmetrical direc- tions (see Methods). The damped harmonic oscillator (DHO) function was used to fit the magnons. The extracted magnon peaks (ωp) exhibit a dispersion overlapping with that of LNO bulk at ambient pressure (Fig. 3b) [8]. For a detailed com- parison, representative RIXS spectra at q∥= (−0.14, −0.14) (Fig. 3d) and q∥= (−0.06, −0.06) (Fig. 3e) are presented. In contrast to the LNO bulk, the magnons in the thin films are significantly damped. The extracted damping factor (γ) is ∼40 meV in the thin film twice of that in the LNO bulk. With the similar ωp and increased γ, the fitted...</sub>
-
-</details>
-
-<details><summary>📷 Fig 3</summary>
-
-<img src="2604.21899_figures/2604.21899_fig3.jpg" width="500"><br>
-<sub>FIG. 2. The electronic excitations in the compressively strained (La,Pr)3Ni2O7−δ films. a,b, TFY XAS and energy-dependent RIXS maps at the Ni L3 edge. The RIXS spectra are normalized by the high-energy dd excitations with integrated intensity over the energy-loss window [0.6 eV, 3.0 eV]. Both XAS and RIXS were measured at a grazing incidence angle of 20◦with π polarization to enhance sensitivity to out-of-plane dz2 orbital states. The RIXS map of LNO bulk is adapted from Ref. [8]. c,d, Zoomed-in views of the RIXS maps shown in (a,b), highlighting the dd3 excitations. e, Integrated RIXS intensity over the incident-energy range [852.5 eV, 853.3 eV], corresponding to the resonance of the dd2...</sub>
-
-</details>
-
-<details><summary>📷 Fig 4</summary>
-
-<img src="2604.21899_figures/2604.21899_fig4.jpg" width="500"><br>
-<sub>FIG. 3. Magnetic excitations in the compressively strained (La,Pr)3Ni2O7−δ films. a, Momentum-resolved RIXS intensity maps of the LNO/LAO film along the q∥= (H, H) and (H, 0) directions. The Brillouin zone is defined based on the pseudo-tetragonal lattice [8]. All spectra were measured at 20 K using π-polarized X-rays tuned to the magnon resonance (852.4 eV). Each RIXS spectrum was fitted with a pseudo-Voigt function for the elastic peak and a damped harmonic oscillator (DHO) function for the magnon exci- tation. The green filled circles denote the extracted magnon peak energies (ωp), with error bars representing the fitting uncertainties, which are smaller than the marker size (see details...</sub>
-
-</details>
-
-<details><summary>📷 Fig 5</summary>
-
-<img src="2604.21899_figures/2604.21899_fig5.jpg" width="500"><br>
-<sub>FIG. 4. Spin-density-wave behavior in the compressively strained (La,Pr)3Ni2O7−δ films. a–e, SDW peaks of La3Ni2O7−δ bulk single crystals and compressively strained thin films. Spec- tra were measured along the (H, H) direction near the SDW wave vector (−0.25, −0.25) at 20 K with π-polarized X-rays tuned to the SDW resonance (852.4 eV). Intensities were normalized to the dd excitations at 1 eV, and each spectrum was fitted with a Lorentzian function. f,g, Temperature dependence of the SDW intensity (f) and correlation length (ξSDW) (g) for the bulk and thin film samples. The dashed line at 150 K indicates the SDW transition temperature of the bulk sample. The correlation length is defined...</sub>
-
-</details>
-
-**Main problem.** Understanding the microscopic electronic and magnetic evolution from the parent insulating phase to the superconducting phase in Ruddlesden-Popper nickelate thin films.
-
-**Main result.** The study reveals a two-step evolution where both strain and oxygenation drive the delocalization of the Ni 3d_z2 and O 2p_z orbitals, accompanied by the suppression of long-range spin-density-wave order.
-
-**Method.** X-ray absorption spectroscopy (XAS) and resonant inelastic X-ray scattering (RIXS) were used to probe orbital and magnetic excitations in epitaxial thin films.
-
-**Summary.** This paper investigates the transition from an insulating to a superconducting state in bilayer nickelate thin films. By tuning strain and oxygen content, the researchers show that superconductivity is linked to the delocalization of specific orbitals (Ni 3d_z2 and O 2p_z). This process is accompanied by the melting of long-range magnetic spin-density-wave order. The findings provide a roadmap for designing new superconductors by controlling orbital-selective pathways.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** The physical system consists of (La,Pr)3Ni2O7-delta (LPNO) bilayer nickelate thin films, which can be tuned via compressive epitaxial strain (using SLAO or LAO substrates) and oxygen stoichiometry.
-
-**Key observables.** Spectral weight transfer in O K-edge XAS, Ni 3d_z2 orbital itinerancy, dd orbital excitations, spin-density-wave (SDW) intensity and correlation length, and magnon dispersion/damping.
-
-**Important parameters / regimes.** Compressive strain (%), oxygen deficiency (delta), temperature, and the interlayer 3d_z2-2p_z-3d_z2 molecular orbital hybridization.
-
-**Figures summary.** Figure 1 shows the strain and oxygen tuning series and XAS spectra; Figure 4 displays SDW peaks, RIXS spectra for SDW intensity, and dd excitations.
-
-**Paper structure.** The paper introduces the problem of nickelate superconductivity, describes the experimental setup for strain and oxygen tuning, presents XAS results showing orbital delocalization, details RIXS results regarding magnetic order suppression and magnon damping, and concludes with a model for orbital-selective superconductivity.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-The recent discovery of Ruddlesden-Popper (RP) nickelate thin-film superconductors has opened a new frontier in unconventional superconductivity. Its realization requires both compressive epitaxial strain and highly oxidative growth conditions, yet the microscopic pathway from the parent phase to the superconducting phase remains elusive. Here, X-ray absorption spectroscopy and resonant inelastic X-ray scattering are employed to track this evolution by independently tuning strain and oxygen content in (La,Pr)$_3$Ni$_2$O$_{7-δ}$ thin films. We uncover a remarkable two-step evolution. First, signatures of delocalization emerge in the same way upon two independent tunings: spectral weight transfers from an upper Hubbard-like peak to the hole-like peak associated with the O $2p_z$ state, and in parallel, the initially localized Ni $3d_{z^2}$ orbital becomes more itinerant, accompanied by the broadening and weakening of $dd$ orbital excitations. Second, as itinerancy increases, long-range spin-density-wave (SDW) order is suppressed in both intensity and correlation length, indicating direct competition with superconductivity. Yet, short-range magnons persist: they become damped, but their bandwidth remains unchanged. Our results paint a coherent picture in which both strain and oxygenation drive the RP bilayer nickelates towards superconducting instability, where the O $2p_z$ and Ni $3d_{z^2}$ orbitals become delocalized. Concomitantly, the long-range magnetic order loses coherence and is suppressed. These findings establish an orbital-selective route to RP nickelate superconductivity, in which the delocalization of the interlayer $3d_{z^2}$-$2p_z$-$3d_{z^2}$ molecular orbital and the robust short-range magnons upon the melting of SDW order are prerequisites, providing strong constraints for theory and a roadmap for designing nickelate superconductors.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
-
-## other (4)
-
-<a id="paper-2604.21857"></a>
-### [Odd Physics Off the Diagonal: Constraining CP-violating SMEFT with Quantum Tomography](http://arxiv.org/abs/2604.21857v1)
-
-**Authors:** Avalon Roberts, Patrick Dougan, Alexander Oh, Savanna Shaw  
-**Type:** both · **PDF:** <https://arxiv.org/pdf/2604.21857v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21857_figures/2604.21857_fig1.jpg" width="500"><br>
-<sub>Figure 1: The ϕtruth distribution at LO for the pro- cess pp →W +Z →e+νeµ+µ−with the inclusive setup of Ref. [25], applying the invariant mass cut 81 GeV &lt; Mµ+µ−&lt; 101 GeV. The upper panel shows the differential cross section dσ/dϕ∗ e in units of fb, comparing the SM prediction (red) with the SM + interference and SM + interference + quadratic contri- butions for ceven = 1.0 (solid) and codd = 1.0 (dashed). The middle and lower panels show the ratio to the SM for the interference and quadratic-only contributions, respectively.</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21857_figures/2604.21857_fig2.jpg" width="500"><br>
-<sub>Figure 2: The real component of the spin density mat- rix of the W +Z system in the SM, showing the full spin structure of this process in the helicity basis. The un- physical small negative values along the central diag- onal are due partly to the statistical resolution of this study, and to NLO effects.</sub>
-
-</details>
-
-<details><summary>📷 Fig 3</summary>
-
-<img src="2604.21857_figures/2604.21857_fig3.jpg" width="500"><br>
-<sub>Figure 3: The reconstructed SDMs for the interference terms of the CP-even OW (above) and CP-odd Of W (below) operators with the SM, separated into their real (left) and imaginary (right) components. The separ- ation of the off-diagonal structure between the CP-odd and CP-even into the imaginary and real parts of the SDM means that this can be used to set 2D limits on them.</sub>
-
-</details>
-
-<details><summary>📷 Fig 4</summary>
-
-<img src="2604.21857_figures/2604.21857_fig4.jpg" width="500"><br>
-<sub>Figure 4: The reconstructed SDMs for the quadratic terms of the CP-even OW operator (left) and the CP-odd Of W operator (right) in the inclusive (top) selection setup and the fiducial (bottom) setup. It can be seen that some entries become falsely split between elements due to the neutrino reconstruction ambiguity. The unphysical small negative values along the central diagonal are due partly to the statistical resolution of this study, and to NLO effects.</sub>
-
-</details>
-
-<details><summary>📷 Fig 5</summary>
-
-<img src="2604.21857_figures/2604.21857_fig5.jpg" width="500"><br>
-<sub>Figure 6: The ϕreco distribution at LO in QCD for the process pp →W +Z →e+νeµ+µ−with the fiducial setup of Ref. [25], applying the selections of Eq. (3.2), with the neutrino rapidity solution chosen at random from Eq. (16). The upper panel shows the differential cross section dσ/dϕ∗ e in units of fb, comparing the SM prediction (red) with the SM + interference and SM + interference + quadratic contributions for ceven = 1.0 (solid) and codd = 1.0 (dashed). The middle and lower panels show the ratio to the SM for the interference- only and quadratic contributions, respectively.</sub>
-
-</details>
-
-<details><summary>📷 Fig 6</summary>
-
-<img src="2604.21857_figures/2604.21857_fig6.jpg" width="500"><br>
-<sub>Figure 5: A heatmap of the reconstructed azimuthal decay angle ϕreco versus the truth-level ϕtrue for the W boson, with the neutrino rapidity solution chosen at random from Eq. (16). The two diagonal bands reflect the two-fold ambiguity of Eq. (18), with each solution equally likely to be selected.</sub>
-
-</details>
-
-<details><summary>📷 Fig 7</summary>
-
-<img src="2604.21857_figures/2604.21857_fig7.jpg" width="500"><br>
-<sub>Figure 7: 1D CL limits on OW and Of W derived with other operator fixed to zero and with the other oper- ator profiled over, for the shape-only and shape-plus- yield configurations of the ϕ, pZ T and SDM observables. The boxes represent 68% CL limit bounds, the lines represent 95% CL limit bounds. The limits are pro- duced within the fiducial selection.</sub>
-
-</details>
-
-<details><summary>📷 Fig 8</summary>
-
-<img src="2604.21857_figures/2604.21857_fig8.jpg" width="500"><br>
-<sub>Figure 8: Expected joint confidence regions in the (cW , cf W ) plane derived from the positron azimuthal decay- angle distribution ϕ∗ e+ (top) and the reconstructed spin density matrix (bottom), each in shape-only (left) and shape-plus-yield (right) configurations, for the inclusive setup. The contours correspond to constant ∆χ2 with respect to the SM point at fixed confidence levels. Contour limits are extracted based on both a SM Asimov scenario, but also a set of NP Asimov setups with varying degrees of OW and Of W present in the dataset across the grid. This demonstrates of the SDM-based analysis’s ability to differentiate actual CP-even and CP-odd signatures from each other...</sub>
-
-</details>
-
-<details><summary>📷 Fig 9</summary>
-
-<img src="2604.21857_figures/2604.21857_fig9.jpg" width="500"><br>
-<sub>Figure 9: Expected joint confidence regions in the (cW , cf W ) plane derived from the positron and anti-muon azimuthal decay-angle distributions, ϕ∗ e+ (top) and ϕ∗ µ+ with the fiducial selection of Eq. (14) applied and the neutrino rapidity reconstructed via the on-shell W-mass constraint of Eq. (16). The effect of the fiducial cuts and reconstruction ambiguity on the sensitivity of ϕ∗ e+ can be assessed by comparison with Figures 8a and 8b. Constraints from ϕ∗ µ+ are unaffected by neutrino reconstruction and so slightly exceed the strength of those from ϕ∗ e+.</sub>
-
-</details>
-
-<details><summary>📷 Fig 10</summary>
-
-<img src="2604.21857_figures/2604.21857_fig10.jpg" width="500"><br>
-<sub>Figure 10: Expected joint confidence regions in the (cW , cf W ) plane derived from the positron and anti-muon azimuthal decay-angle distributions, pZ T (top) and the SDM (bottom) with the fiducial selection of Eq. (14) applied and the neutrino rapidity reconstructed. The differential nature of the pZ T distribution tail gives strong constraints of the SM Asimov, with a smaller contour area, A95% than achieved by the SDM with the addi- tion of cross-section information. The SDM however performs better by the same metric in the genuine BSM scenarios presented in the off-centre points of the Asimov grid. In these cases the SDM also show clearer differentiation between BSM hypotheses than pZ T...</sub>
-
-</details>
-
-**Main problem.** The difficulty in distinguishing CP-even from CP-odd SMEFT operators in diboson production due to degeneracies in traditional polarization-blind angular observables.
-
-**Main result.** Quantum Tomography of the Spin Density Matrix (SDM) provides superior simultaneous sensitivity to CP-even and CP-odd contributions by exploiting off-diagonal imaginary components and quadratic NP terms.
-
-**Method.** Reconstruction of the Spin Density Matrix using the Generalized Bloch Vector representation and the inverted Wigner-Weyl formalism applied to Monte Carlo simulated $WZ$ production events.
-
-**Summary.** This paper proposes using Quantum Tomography techniques to improve searches for new physics in the electroweak sector. By reconstructing the Spin Density Matrix of $WZ$ production, the authors can distinguish between CP-even and CP-odd operators that otherwise appear degenerate in standard angular distributions. The method specifically exploits the off-diagonal elements of the density matrix to capture the full signature of Beyond-SM physics. This approach provides tighter and less degenerate constraints on SMEFT Wilson coefficients compared to traditional kinematic observables.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** The bipartite spin state of a $W$ and $Z$ boson system produced in $pp$ collisions ($pp 	o WZ 	o e^+
-u_e\mu^+\mu^-$) within the Standard Model Effective Field Theory (SMEFT) framework.
-
-**Key observables.** Spin Density Matrix (SDM) elements, Fano coefficients, azimuthal decay angles ($\phi$), and transverse momentum of the $Z$ boson ($p^Z_T$).
-
-**Important parameters / regimes.** SMEFT Wilson coefficients ($c_W$ and $c^f_W$), high-energy electroweak regime, and $140 	ext{ fb}^{-1}$ luminosity.
-
-**Assumptions / limitations.** Leading-order (LO) accuracy, neglect of backgrounds and systematic uncertainties, and the use of the Warsaw basis for dimension-six operators.
-
-**Figures summary.** Figure 1 shows angular distribution degeneracies; Figures 2-4 display reconstructed SDM components and the impact of neutrino reconstruction ambiguity; Figures 7-10 present 1D and 2D confidence intervals for Wilson coefficients.
-
-**Paper structure.** The paper motivates the need for new CP-violation sources, identifies limitations in current SMEFT searches, introduces the Quantum Tomography approach, details the SDM reconstruction method, compares performance against traditional observables, and quantifies statistical sensitivity.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-New sources of charge-parity (CP) violation beyond those described in the Standard Model (SM) are required to explain the observed matter--antimatter asymmetry of the Universe. The Standard Model Effective Field Theory (SMEFT) provides a framework to introduce additional electroweak sources of CP-odd physics in a model-independent manner. However, these CP-violating signatures are mostly degenerate to CP-even SMEFT operators in polarisation-blind observables, distinguishable only in the SM-New Physics (NP) interference using the azimuthal decay angle. Using Quantum Tomography techniques, we present a new approach to constraining these NP effects. Reconstructing the spin density matrix (SDM) of a diboson system, we go beyond `interference resurrection' to exploit the full signature of the Beyond-SM physics, including the pure quadratic NP terms. We show that this approach provides superior simultaneous sensitivity to characteristic features of CP-even and CP-odd contributions, including effects not fully captured by traditional angular observables.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
-<a id="paper-2604.21823"></a>
-### [Unitary Time Evolution and Vacuum for a Quantum Stable Ghost](http://arxiv.org/abs/2604.21823v1)
-
-**Authors:** Cédric Deffayet, Atabak Fathe Jalali, Aaron Held, Shinji Mukohyama, Alexander Vikman  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21823v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21823_figures/2604.21823_fig1.jpg" width="500"><br>
-<sub>FIG. 1. Side-view comparisons of probability densities for Ψ0 (solid) and Φ0 (dashed). Thus, for system (1), the ground state of the interacting ghost, Ψ0, is more confining than the ground state Φ0 of two corresponding decoupled oscillators x and y.</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21823_figures/2604.21823_fig2.jpg" width="500"><br>
-<sub>FIG. 2. Top-down view of ground state probability densities: interacting, |Ψ0|2, (left) and decoupled, |Φ0|2, (right), both with imposed contours. This is another way to see that for system (1) the interacting vacuum with a ghost Ψ0 is more confining than the free vacuum Φ0.</sub>
-
-</details>
-
-<details><summary>📷 Fig 3</summary>
-
-<img src="2604.21823_figures/2604.21823_fig3.jpg" width="500"><br>
-<sub>FIG. 3. Overlap c(t) ≡⟨Ψ0(0) | Ψ0(t)⟩of the numerically computed ground state Ψ0 and its time evolution Ψ0(t), with energy E0 ≈−0.162. For comparison, we include the expected dashed curves cos(E0t) and sin(−E0t).</sub>
-
-</details>
-
-<details><summary>📷 Fig 4</summary>
-
-<img src="2604.21823_figures/2604.21823_fig4.jpg" width="500"><br>
-<sub>FIG. 4. The expectation values ⟨x2⟩12(t), ⟨y2⟩12(t), and de- coupled trajectories X2 0(t), Y 2 0 (t). We omit plotting b = 6, as the difference in graphs is visually indistinguishable: max t∈[0,T ]</sub>
-
-</details>
-
-<details><summary>📷 Fig 5</summary>
-
-<img src="2604.21823_figures/2604.21823_fig5.jpg" width="500"><br>
-<sub>FIG. 5. Same as Fig. 4 but with an additional, interaction term δ ˆHI = αx2y2 for coupling constant α = 0.01.</sub>
-
-</details>
-
-**Main problem.** Investigating whether a quantum system containing a 'ghost' (a degree of freedom with negative kinetic energy) can exhibit stable, unitary time evolution and a well-defined vacuum despite having a Hamiltonian unbounded from both above and below.
-
-**Main result.** The authors prove that the system possesses a pure point spectrum and a well-defined, unique vacuum state, with the existence of a positive-definite integral of motion (H_up) ensuring stability and confinement.
-
-**Method.** The study uses analytical mathematical frameworks (spectral theorem, Nelson's theorem, and Dirichlet forms) combined with numerical verification via pseudo-spectral and split-operator methods to solve the Schrödinger equation.
-
-**Summary.** This paper challenges the common belief that 'ghost' particles with negative kinetic energy necessarily lead to physical instabilities and loss of unitarity. By using a specific polynomial coupling, the authors demonstrate that a system with an unbounded Hamiltonian can still have a stable, discrete spectrum and a well-defined vacuum. The stability is guaranteed by a hidden positive-definite integral of motion that confines the system's evolution. This provides a theoretical framework for considering stable quantum systems with indefinite metrics.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** A canonically quantized system consisting of a standard harmonic oscillator coupled to a 'ghost' oscillator with negative kinetic energy via a polynomial interaction potential.
-
-**Key observables.** Ground state wavefunction, energy eigenvalues, expectation values of canonical variables (x^2, y^2, px^2, py^2), and the overlap function c(t).
-
-**Important parameters / regimes.** Coupling constants gamma and c, frequency omega, and the stability regime defined by 2*gamma*c^2 >= |1 - omega^2|.
-
-**Assumptions / limitations.** The proof relies on the specific polynomial form of the interaction potential that allows for the existence of the H_up and H_down integrals of motion.
-
-**Figures summary.** Figure 1 compares probability densities of the interacting vs. decoupled vacuum; Figure 3 shows numerical stability of the ground state; Figure 4 demonstrates the confinement of canonical variables; Figure 5 illustrates stability against perturbations.
-
-**Paper structure.** The paper introduces the problem of ghost instabilities, defines the Hamiltonian and the specific coupling model, provides analytical proofs for unitarity and vacuum existence using the integral of motion, presents numerical simulations to verify these results, and discusses the stability of the spectrum against perturbations.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-We quantize a classically stable system of a harmonic oscillator polynomially coupled to a ghost with negative kinetic energy. We prove that due to an integral of motion with a positive discrete spectrum: i) the Hamiltonian has a pure point spectrum unbounded in both directions, ii) the evolution is manifestly unitary, iii) the vacuum is well-defined, iv) expectation values for squares of canonical variables are bounded. Numerical solutions of the Schrödinger equation confirm these results. We argue that the discrete spectrum of the integral of motion enforces stability for extended interactions.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
-<a id="paper-2604.21820"></a>
-### [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](http://arxiv.org/abs/2604.21820v1)
-
-**Authors:** Nikolay Yegovtsev, Sayan Choudhury, W. Vincent Liu  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21820v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `Dicke superradiance` **4/5**
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21820_figures/2604.21820_fig1.jpg" width="500"><br>
-<sub>FIG. 1. (Left: A schematic illustration of chiral Dicke model described in Eq. (1). Right: The ground-state phase diagram of this system showing the existence of the U(1)-symmetric normal phase (white region), and the U(1)-broken superradi- ant phase. The location of the phase boundary is given by Eq. (5).</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21820_figures/2604.21820_fig2.jpg" width="500"><br>
-<sub>FIG. 2. Energy spectrum of Gaussian fluctuations above the mean-field ground state across different cuts through the phase diagram. The dashed black line corresponds to the expression in Eq. (9). The ϕ = 3π/8 trajectory shows that the two lower branches are almost degenerate, resulting in a large slope in Eq. (9). Parameters are ωz = 1.5ωc.</sub>
-
-</details>
-
-<details><summary>📷 Fig 3</summary>
-
-<img src="2604.21820_figures/2604.21820_fig3.jpg" width="500"><br>
-<sub>FIG. 4. The energy branches for the case ϕ = 0.5 arccos (ωc/ωz), where two of the branches remain degener- ate in the normal phase. The dashed black curve corresponds to Eq. (10). These results correspond to ωz = 1.5ωc.</sub>
-
-</details>
-
-<details><summary>📷 Fig 4</summary>
-
-<img src="2604.21820_figures/2604.21820_fig4.jpg" width="500"><br>
-<sub>FIG. 3. The energy of the lower polariton mode ε−from Eq. (8) along the critical line gc = ωzωc for various values of ωz. The top curve (green) is always above zero; the middle (orange) curve approaches zero only at ϕ = π/2, correspond- ing to the anti-Tavis-Cummings limit. The bottom (blue) curve reaches zero when ϕ = 0.5 arccos (ωc/ωz). The open marker corresponds to the energy along the cut ϕ = 3π/8 in Fig. 2.</sub>
-
-</details>
-
-**Main problem.** The study investigates the existence of robust continuous U(1) symmetry breaking and the phenomenon of multiversality in a generalized chiral Dicke model.
-
-**Main result.** The authors demonstrate a robust U(1)-broken superradiant phase and identify 'multiversality,' where the dynamical critical exponent changes from znu=1 to znu=1/2 along a specific line in parameter space.
-
-**Method.** The study employs mean-field theory, Holstein-Primakoff transformation, and Bogoliubov theory to analyze the ground-state phase diagram and the spectrum of quantum fluctuations.
-
-**Summary.** This paper introduces the chiral Dicke model, a generalization of the standard Dicke model with chiral light-matter coupling. It shows that this model possesses a robust U(1) symmetry breaking that does not require fine-tuning. A key discovery is 'multiversality,' where the dynamical critical exponent of the phase transition changes depending on the path taken through the parameter space. The work provides a detailed map of the energy spectrum and the emergence of Goldstone modes in the superradiant phase.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** The Chiral Dicke Model (CDM) consists of an ensemble of N two-level atoms coupled to two degenerate cavity modes via chiral interactions, featuring an inherent U(1) symmetry.
-
-**Key observables.** The atomic inversion (order parameter), energy spectrum/branches, energy gap, and the dynamical critical exponent (znu).
-
-**Important parameters / regimes.** Cavity frequency (omega_c), atomic frequency (omega_z), chiral coupling strengths (g1, g2), and the nonlinearity parameter (U).
-
-**Assumptions / limitations.** The analysis focuses on the regime where the ground-state energy is bounded (4omega_c^2 > U^2N^2) and includes specific limits such as U=0 for analytical tractability.
-
-**Figures summary.** Figure 1 provides a schematic of the model and the ground-state phase diagram; Figure 2 shows the evolution of energy branches across different paths in the coupling parameter space.
-
-**Paper structure.** The paper introduces the chiral Dicke model, derives the ground-state phase diagram using mean-field theory, analyzes the excitation spectrum and mode degeneracy using Bogoliubov theory, and discusses the implications of multiversality and nonlinearity.
-
-**Why it may be interesting.** It reveals how the universality class of a quantum phase transition can be tuned by changing the coupling trajectory, offering a new way to control critical phenomena in light-matter systems.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-The Dicke model (DM) serves as a paradigm for understanding collective light-matter interactions. We introduce the chiral Dicke model, a generalization where an atomic ensemble couples to a two-mode cavity via chiral interactions. Unlike the standard DM, the chiral DM is endowed with an inherent continuous $U(1)$ symmetry associated with angular momentum conservation. The ground-state phase diagram and the associated quantum phase transitions are charted out, revealing a $U(1)$-broken superradiant phase that spans a broad parameter space. We demonstrate that the spectrum of quantum fluctuations is highly tunable in both the symmetric and broken phases. Strikingly, our calculations reveal that the system exhibits `multiversality', where distinct universality classes govern the transition between the same two phases. In particular, along a special line in parameter space, the dynamical critical exponent for the normal-superradiant phase transition changes from $zν=1$ to $zν=1/2$. Our work establishes the chiral Dicke model as a powerful platform to realize novel quantum phases and multiversal critical phenomena in light-matter coupled systems.
+We show that detecting steady-state Coulomb-mediated reduction in the thermal variance of the differential motional mode of two nanospheres can bound the Continuous Spontaneous Localization (CSL) parameter ($λ_{\text{CSL}}$). For realistic experimental parameters, the resulting bounds are comparable to those obtained from X-ray emission experiments and surpass those set by bulk-heating ones. Unlike these latter experiments, our bounds are robust against plausible coloured-noise extensions of collapse models. In the short-time regime, we find that a weak Coulomb-induced entanglement-based test between two charged nanospheres initialized in ground state can provide constraints on $λ_{\text{CSL}}$ comparable to limits set by early X-ray experiments.
 
 </details>
 
@@ -1621,7 +2436,7 @@ The Dicke model (DM) serves as a paradigm for understanding collective light-mat
 ### [The clock ambiguity is back with a vengeance](http://arxiv.org/abs/2604.21805v1)
 
 **Authors:** Ovidiu Cristinel Stoica  
-**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21805v1>  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21805v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
 
 <details open><summary>📷 Fig 1</summary>
@@ -1725,3 +2540,125 @@ Page and Wootters (1983) showed how time and dynamics can emerge in a stationary
 </details>
 
 <sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21823"></a>
+### [Unitary Time Evolution and Vacuum for a Quantum Stable Ghost](http://arxiv.org/abs/2604.21823v1)
+
+**Authors:** Cédric Deffayet, Atabak Fathe Jalali, Aaron Held, Shinji Mukohyama, Alexander Vikman  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21823v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21823_figures/2604.21823_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Side-view comparisons of probability densities for Ψ0 (solid) and Φ0 (dashed). Thus, for system (1), the ground state of the interacting ghost, Ψ0, is more confining than the ground state Φ0 of two corresponding decoupled oscillators x and y.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21823_figures/2604.21823_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Top-down view of ground state probability densities: interacting, |Ψ0|2, (left) and decoupled, |Φ0|2, (right), both with imposed contours. This is another way to see that for system (1) the interacting vacuum with a ghost Ψ0 is more confining than the free vacuum Φ0.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21823_figures/2604.21823_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Overlap c(t) ≡⟨Ψ0(0) | Ψ0(t)⟩of the numerically computed ground state Ψ0 and its time evolution Ψ0(t), with energy E0 ≈−0.162. For comparison, we include the expected dashed curves cos(E0t) and sin(−E0t).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21823_figures/2604.21823_fig4.jpg" width="500"><br>
+<sub>FIG. 4. The expectation values ⟨x2⟩12(t), ⟨y2⟩12(t), and de- coupled trajectories X2 0(t), Y 2 0 (t). We omit plotting b = 6, as the difference in graphs is visually indistinguishable: max t∈[0,T ]</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21823_figures/2604.21823_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Same as Fig. 4 but with an additional, interaction term δ ˆHI = αx2y2 for coupling constant α = 0.01.</sub>
+
+</details>
+
+**Main problem.** Investigating whether a quantum system containing a 'ghost' (a degree of freedom with negative kinetic energy) can exhibit stable, unitary time evolution and a well-defined vacuum despite having a Hamiltonian unbounded from both above and below.
+
+**Main result.** The authors prove that the system possesses a pure point spectrum and a well-defined, unique vacuum state, with the existence of a positive-definite integral of motion (H_up) ensuring stability and confinement.
+
+**Method.** The study uses analytical mathematical frameworks (spectral theorem, Nelson's theorem, and Dirichlet forms) combined with numerical verification via pseudo-spectral and split-operator methods to solve the Schrödinger equation.
+
+**Summary.** This paper challenges the common belief that 'ghost' particles with negative kinetic energy necessarily lead to physical instabilities and loss of unitarity. By using a specific polynomial coupling, the authors demonstrate that a system with an unbounded Hamiltonian can still have a stable, discrete spectrum and a well-defined vacuum. The stability is guaranteed by a hidden positive-definite integral of motion that confines the system's evolution. This provides a theoretical framework for considering stable quantum systems with indefinite metrics.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A canonically quantized system consisting of a standard harmonic oscillator coupled to a 'ghost' oscillator with negative kinetic energy via a polynomial interaction potential.
+
+**Key observables.** Ground state wavefunction, energy eigenvalues, expectation values of canonical variables (x^2, y^2, px^2, py^2), and the overlap function c(t).
+
+**Important parameters / regimes.** Coupling constants gamma and c, frequency omega, and the stability regime defined by 2*gamma*c^2 >= |1 - omega^2|.
+
+**Assumptions / limitations.** The proof relies on the specific polynomial form of the interaction potential that allows for the existence of the H_up and H_down integrals of motion.
+
+**Figures summary.** Figure 1 compares probability densities of the interacting vs. decoupled vacuum; Figure 3 shows numerical stability of the ground state; Figure 4 demonstrates the confinement of canonical variables; Figure 5 illustrates stability against perturbations.
+
+**Paper structure.** The paper introduces the problem of ghost instabilities, defines the Hamiltonian and the specific coupling model, provides analytical proofs for unitarity and vacuum existence using the integral of motion, presents numerical simulations to verify these results, and discusses the stability of the spectrum against perturbations.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We quantize a classically stable system of a harmonic oscillator polynomially coupled to a ghost with negative kinetic energy. We prove that due to an integral of motion with a positive discrete spectrum: i) the Hamiltonian has a pure point spectrum unbounded in both directions, ii) the evolution is manifestly unitary, iii) the vacuum is well-defined, iv) expectation values for squares of canonical variables are bounded. Numerical solutions of the Schrödinger equation confirm these results. We argue that the discrete spectrum of the integral of motion enforces stability for extended interactions.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21800"></a>
+### [Variance Geometry of Exact Pauli-Detecting Codes: Continuous Landscapes Beyond Stabilizers](http://arxiv.org/abs/2604.21800v1)
+
+**Authors:** Arunaday Gupta, Baisong Sun, Xi He, Bei Zeng  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21800v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21800_figures/2604.21800_fig1.jpg" width="500"><br>
+<sub>FIG. 1: Schematic behavior of the attainable spectrum ΣK(E) = {λ∗(P) : P detects E, rank(P) = K}. In the unrestricted setting studied here, nonempty spectra are observed to be closed intervals. Stabilizer codes occupy only discrete values within these intervals. Under symmetry-compatible restrictions, the attainable set may shrink to a smaller interval, reduce to a singleton, or become empty, while remaining interval-like whenever nonempty.</sub>
+
+</details>
+
+**Main problem.** The paper investigates the geometric structure of the space of exact quantum codes that detect a prescribed set of Pauli errors, specifically determining if these codes form continuous families or isolated solutions.
+
+**Main result.** The authors show that exact Pauli-detecting codes form continuous landscapes (intervals) rather than disjoint sets, and that stabilizer codes are merely a discrete, measure-zero subset of this larger continuum of nonadditive codes.
+
+**Method.** The study uses an operator-theoretic framework linking error detection to joint higher-rank numerical ranges, combined with representation theory, Stiefel-manifold optimization, and analytical constructions of symmetric codewords.
+
+**Summary.** This paper provides a new geometric perspective on quantum error detection by treating the space of valid codes as a continuous landscape. It introduces a scalar parameter, the signature norm, to characterize the variance profile of different code families. The central finding is that stabilizer codes are just a small, discrete part of a much larger, continuous set of nonadditive codes. The work also demonstrates how imposing symmetries can expand or contract the range of achievable error-detection parameters.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The model consists of rank-K quantum code projectors satisfying the Knill-Laflamme detection conditions for various Pauli error models, including distance-based, asymmetric, and symmetry-restricted (cyclic and permutation) error sets.
+
+**Key observables.** The signature norm (lambda*), which is the Euclidean norm of the vector of Pauli expectation values on the maximally mixed code state, and the joint Pauli variance profile.
+
+**Important parameters / regimes.** The code rank K, the number of qubits n, the error set E, and the symmetry groups (cyclic C_n and permutation S_n).
+
+**Assumptions / limitations.** The focus is restricted to exact (rather than approximate) error-detecting codes, and the 'interval property' is presented as a strong empirical observation rather than a universal proof.
+
+**Figures summary.** Figure 1 illustrates the continuous spectrum of attainable lambda* values, showing how stabilizer codes occupy discrete points and how symmetry constraints can shrink or empty the spectrum.
+
+**Paper structure.** The paper progresses from notation and preliminaries to the introduction of variance-based signatures, followed by symmetry analysis, a classification of 2-qubit codes, and numerical optimization for larger systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Exact quantum codes detecting a prescribed set of Pauli errors are approached through algebraic constructions--stabilizer, codeword-stabilized, permutation-invariant, topological, and related families. Geometrically, exact Pauli detection is governed by joint higher-rank numerical ranges of these Pauli operators, whose structure for rank $\geq 2$ is largely uncharted. From this viewpoint, we show that such codes often form connected continuous families rather than collections of disjoint solution regions. These families are characterized by a single scalar derived from the Knill-Laflamme conditions: denoted $λ^*$, it is the Euclidean norm of the signature vector of Pauli expectation values on the maximally mixed code state, and provides a one-parameter summary of the code's joint Pauli variance profile. Within these continuous landscapes, stabilizer codes occupy only discrete, measure-zero subsets of the attainable $λ^*$-spectrum, exposing a largely unexplored continuum of genuinely nonadditive exact codes. We establish this picture by analyzing the geometry of higher-rank operator compressions, and extend it to symmetry-restricted settings where cyclic and permutation symmetries are imposed on both the error model and the code projector. Small-system cases reveal interval, singleton, and empty regimes through eigenvalue interlacing and symmetry-sector decompositions; larger systems are treated numerically via Stiefel-manifold optimization and symmetry-adapted parameterizations. In every unrestricted and symmetry-compatible case analyzed, the attainable $λ^*$-spectrum forms a single closed interval whenever nonempty--although a general proof remains open. These results place stabilizer, symmetric, and nonadditive code families within a unified higher-rank variance framework, suggesting a continuous geometric perspective on the landscape of exact quantum codes.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+</details>

@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2604.21722",
+  "category": "quantum information and computing",
+  "title": "Near-Term Reduction in Nonlocal Gate Count from Distributed Logical Qubits",
+  "authors": "Bruno Avritzer, Nathan Sankary",
+  "abstract": "Modular quantum computing architectures require error correction schemes that remain effective in the presence of noisy inter-processor operations. As such, minimizing the number of such operations on logical circuits partitioned across quantum processors is a primary objective of distributed quantum computing. In this work, we develop basic techniques for qubit allocation using an exemplar color code family and explore generalizations to other color codes. In particular, we show that a 10% reduction in processor-nonlocal gates is achievable in a setting where syndrome extraction occurs after every logical gate, as in today's devices, and that this scales to significantly greater advantages in the multi-qubit case. We also explore methods of achieving universal gate sets efficiently in this distributed logical setting and evaluate the trade-offs of multiple approaches such as magic state distillation, code switching, and a new method based on logical swaps. Finally, we discuss some considerations for an allocation algorithm for these architectures to perform scalably and connect it to existing work on quantum circuit partitions.",
+  "url": "http://arxiv.org/abs/2604.21722v1",
+  "pdf": "https://arxiv.org/pdf/2604.21722v1",
+  "type": "theory",
+  "summary": "This paper addresses the challenge of reducing expensive inter-processor communication in distributed quantum computing. By optimizing how logical qubits are partitioned across multiple processors using color codes, the authors show that the number of non-local gates can be reduced by 10% in near-term devices. The research also explores how different methods for achieving universal gate sets, such as code switching and magic state distillation, impact the scalability and overhead of these distributed architectures.",
+  "main_problem": "Minimizing the number of processor-nonlocal (PNL) operations in distributed quantum computing architectures to reduce the overhead caused by noisy or low-speed inter-processor interconnects.",
+  "main_result": "The authors demonstrate that a 10% reduction in PNL gates is achievable in near-term, low-qubit-count devices using distributed logical qubits, with advantages scaling significantly in multi-qubit/multi-processor cases.",
+  "method": "The study uses qubit allocation techniques via a constraint programming satisfiability (CP-SAT) approach and evaluates various methods for universality, such as magic state distillation, code switching, and logical swaps.",
+  "model_or_system": "A modular, distributed quantum computing architecture utilizing error-correcting color codes, specifically the square-octagon (4.8.8) and 6.6.6 families, partitioned across multiple processors.",
+  "key_observables": "Processor-nonlocal (PNL) gate count, code distance (d), and qubit overhead.",
+  "important_parameters": "Code distance (d), number of processors, and the ratio of transversal to non-transversal gates.",
+  "main_assumptions": "The study assumes a setting where syndrome extraction occurs after every logical gate and adheres to minimal physical qubit requirements including ancillas.",
+  "figures_summary": "Figure 1 illustrates PNL gate implementation via CNOT teleportation; Figure 2 shows a specific code cut for partitioning; Figure 3 compares PNL advantages across different code families; Figure 4 shows scaling of distance thresholds with processor count; Figures 5-11 detail universality methods, magic factory overheads, and partitioning strategies.",
+  "paper_structure": "The paper introduces the problem of PNL reduction in distributed architectures, presents a qubit allocation method using color codes, evaluates universality approaches (MSI, code switching, swaps), analyzes scaling and architectural trade-offs, and concludes with implications for scalable allocation algorithms.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21722_figures/2604.21722_fig1.jpg",
+      "caption": "Figure 2: The cut which allows an equal partition of the d = 7 4.8.8 color code. In this case, there are two 4.8.8 blocks, each with its own set of stabilizer ancillas, and each split 50-50 across two processors. As indicated by the grey and purple dots, in one of the two logical qubits, one ancilla for one of the green octagon checks is allocated to processor B. Since this stabilizer is split 4 to 4, this does not increase the amount of PNL gates, but allows strict adherence to the qubit requirements. The total number of PNL gates is thus 4*7=28, less than the 31 required if the codes are PL.",
+      "page": 2
+    },
+    {
+      "image": "2604.21722_figures/2604.21722_fig2.jpg",
+      "caption": "Figure 1: Distributed logical qubits require PNL stabilizer measurements as opposed to PNL transversal gate implementations (top). In this work, these PNL gates are mainly implemented by gate teleportation (bottom, |ψ⟩as the control and |ϕ⟩as the target).",
+      "page": 2
+    },
+    {
+      "image": "2604.21722_figures/2604.21722_fig3.jpg",
+      "caption": "Figure 4: With distribution of a logical qubit block over multiple processors, larger distances (and therefore reductions in PNL CNOTs) may be required to realize advantage if error correction is performed after each logical CNOT. Assuming the logical qubit is cut once per processor resulting in one partition per processor (2 processors require 1 cut resulting in 2 partitions), so that all two-qubit gates are processor-local, the minimum distance threshold required for an overall PNL reduction scales roughly linearly in the number of processors.",
+      "page": 3
+    },
+    {
+      "image": "2604.21722_figures/2604.21722_fig4.jpg",
+      "caption": "Figure 3: In the two processor (two logical qubit) case (top), in the 4.8.8 family distributed codes see advantage at and above d = 7, and the overall trend is in agreement with the scaling behavior previously cited. By contrast, the 6.6.6 family of codes sees advantage only at d = 9 due to the structure of the stabilizers making near-equal bipartitions costly in terms of cut stabilizer weight (bottom).",
+      "page": 3
+    },
+    {
+      "image": "2604.21722_figures/2604.21722_fig5.jpg",
+      "caption": "Figure 6: In the fully distributed case, split distillation qubits are allocated on the same processors as split computational qubits. This reduces the per-processor qubit requirements for magic factories while keeping distillation and injection operations PL no matter which qubit is postselected. The total number of PNL gates is O(d), resulting from the syndrome extractions within the individual codes.",
+      "page": 4
+    },
+    {
+      "image": "2604.21722_figures/2604.21722_fig6.jpg",
+      "caption": "Figure 5: Two methods of realizing universality in fault-tolerant systems: magic state injection (a) and code switching (b, adapted from[17]). Although these methods differ in their circuit realizations, in both cases there are regimes where they benefit and suffer from distributed execution across processors.",
+      "page": 4
+    },
+    {
+      "image": "2604.21722_figures/2604.21722_fig7.jpg",
+      "caption": "Figure 7: Comparison of overhead between (a) fully distributed, (b) fully local, and (c) partially local magic factories. The fully distributed factory performs best for small circuits, whereas for large circuits, it has a slightly higher total qubit overhead, but the size of each individual processor can be smaller than that of the magic factory in (b) and a lower number of PNL gates is required compared to (b), although this is network topology-dependent. Approach (c) performs worse in terms of PNL gates, but may have some advantages in meeting network topology constraints.",
+      "page": 5
+    },
+    {
+      "image": "2604.21722_figures/2604.21722_fig8.jpg",
+      "caption": "Figure 8: When 3D and 2D codes are both split across processors, code switching may be performed processor-locally. With sufficient connectivity, this can reduce qubit overhead compared to single processors with both codes by allowing multiple logical qubits to interact with the tetrahedral code processor-locally.",
+      "page": 6
+    },
+    {
+      "image": "2604.21722_figures/2604.21722_fig9.jpg",
+      "caption": "Figure 9: Comparison of local vs distributed code switching costs for two different forms of stabilizer measurement.",
+      "page": 6
+    },
+    {
+      "image": "2604.21722_figures/2604.21722_fig10.jpg",
+      "caption": "Figure 10: By swapping (data to data) or teleporting (data to ancilla) the qubits from the split code into local structures, non-Clifford resources can be acquired with significantly fewer PNL gates, assuming there is a long chain of switching or distillation required due to circuit gate structure. This can then be undone or partially undone to execute chains of CNOTs, which can then become local as well.",
+      "page": 7
+    }
+  ],
+  "figure": "2604.21722_figures/2604.21722_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "Rydberg arrays": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "Dicke superradiance": 0,
+    "interference shaping light": 0,
+    "kinetically constrained dynamics": 0
+  }
+}
