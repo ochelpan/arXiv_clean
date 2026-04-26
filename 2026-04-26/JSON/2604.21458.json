@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2604.21458",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "HEOM-in-Calibration-Loop: Exposing Non-Markovian Bath Signatures That Markovian Calibration Elides in Superconducting-Qubit Tune-Up",
+  "authors": "Jun Ye",
+  "abstract": "Closed-loop superconducting-qubit calibration has matured into DAG-orchestrated protocol chains, yet published frameworks treat the bath via a Markovian master equation or a phenomenological likelihood, absorbing bath structure into fit residuals instead of reporting it as a diagnostic. We integrate a QuTiP 5.x hierarchical-equations-of-motion (HEOM) solver driven by a Tier-1 1/f Burkard bath into a multi-protocol calibration DAG (Rabi -> {Ramsey || T1}) and benchmark it against sesolve and mesolve on a frozen platform in a pulse-level simulator (no hardware validation). The Ramsey channel carries the headline: the Markovian fit is censored by its exponential-family numerical ceiling, while HEOM recovers a physical revival envelope whose primary T2* separates from the Markovian reference by at least 13x at 95% independent-bootstrap confidence within the HEOM-feasible budget; the point-estimate ratio reaches >=28x on the 50-point primary-t1 grid and ~72x on the 30-point biexp-family tau_aw pivot at L=5. Rabi contrast falls 2.17% below mesolve on a noise-limited 30-point grid; the paired-bootstrap CI crosses zero, so this channel corroborates rather than independently establishes the non-Markovian signature. T1 decay shape matches across backends (beta=1.000), yet HEOM's initial occupation drops from 1.000 to 0.879 -- a bath-dressed contamination stable under a 16-point densification. The DAG adds 9.62 us average per-protocol scheduling overhead, no meaningful latency penalty at protocol granularity. HEOM-in-loop thereby changes what calibration reports: bath structure appears as a quantifiable residual rather than a hidden confound.",
+  "url": "http://arxiv.org/abs/2604.21458v1",
+  "pdf": "https://arxiv.org/pdf/2604.21458v1",
+  "type": "theory",
+  "summary": "This paper proposes a new approach to superconducting qubit calibration by integrating a non-Markovian Hierarchical Equations of Motion (HEOM) solver into the automated calibration loop. While standard Markovian methods hide 1/f noise signatures within fitting errors, the HEOM-in-loop approach successfully identifies physical revival envelopes and bath-induced initial state changes. The study demonstrates that this method significantly improves the accuracy of dephasing time (T2*) estimation. Ultimately, it turns bath structure into a quantifiable diagnostic rather than a hidden error source.",
+  "main_problem": "Standard superconducting-qubit calibration frameworks use Markovian master equations that mask non-Markovian bath signatures, such as 1/f noise, by absorbing them into fit residuals.",
+  "main_result": "Integrating an HEOM solver into the calibration loop allows for the recovery of physical revival envelopes and identifies bath-induced initial-state contamination that Markovian models elide.",
+  "method": "The study uses a pulse-level simulator to implement a multi-protocol calibration Directed Acyclic Graph (DAG) comparing a QuTiP 5.x HEOM solver against standard mesolve and sesolve backends.",
+  "model_or_system": "A simulated three-level transmon qubit subject to a non-Markovian 1/f (Burkend) bath with longitudinal coupling and a specific frequency-fluctuation spectral density.",
+  "key_observables": "Ramsey T2* decay and revival envelopes, Rabi contrast (p_max), T1 decay shape (beta), and initial occupation (A).",
+  "important_parameters": "1/f noise parameters (A0, cutoffs), hierarchy depth (L=3), and 95% BCa bootstrap confidence intervals.",
+  "main_assumptions": "The study is performed on a pulse-level simulator without hardware validation; the bath is modeled using a specific Tier-1 espira-II decomposition.",
+  "figures_summary": "The figures likely demonstrate the divergence between Markovian and HEOM fits in the Ramsey channel, specifically showing the recovery of the revival envelope and the discrepancy in T2* values.",
+  "paper_structure": "The paper introduces the problem of Markovian elision, describes the HEOM-integrated calibration DAG, presents comparative results across Rabi, Ramsey, and T1 protocols, and concludes with the implications for diagnostic reporting.",
+  "why_interesting": "It provides a concrete methodology for using advanced open quantum system solvers (HEOM) to transform noise from a hidden nuisance into a diagnostic tool for characterizing non-Markovian environments in superconducting circuits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21458_figures/2604.21458_fig1.jpg",
+      "caption": "Fig. 1. DAG Gantt of the RABI→{RAMSEY ∥T1} chain. Parallel execution saves 36.9 s (43 %) over serial; average scheduling latency is 9.62 µs.",
+      "page": 3
+    },
+    {
+      "image": "2604.21458_figures/2604.21458_fig2.jpg",
+      "caption": "Figure 1 shows that scheduler overhead is negligible relative to the HEOM simulation cost. Serial execution takes 84.89 s; with RABI on the critical path and {RAMSEY, T1} in parallel, runtime drops to 48.04 s (saving 36.9 s, 43 %), with overhead fraction 2.4 × 10−5 from the theoretical minimum4 and aver- age scheduling latency 9.62 µs (maximum 10.78 µs). Protocol durations are RABI 6.56 s, RAMSEY 36.85 s, and T1 41.48 s, placing T1 on the critical path.5 With scheduler overhead bounded at the µs level, the discriminative evidence shifts to channel-level dynamics in Sections III-B–III-D.",
+      "page": 3
+    },
+    {
+      "image": "2604.21458_figures/2604.21458_fig3.jpg",
+      "caption": "Fig. 2. Ramsey coherent-channel gap. (a) Three-backend 30-point com- parison: HEOM recovers a revival envelope distinct from the mesolve Markovian tail, whose T ∗ 2 fit saturates at the exponential-model ceiling. (b) HEOM 50-point dense scan (30-point L-convergence audit in §III.B) with physical revival guard cleared: a2/a1 = 3.11 is 31.1× above the lower threshold of 0.1, and t2/t1 = 0.38 is 5.3× below the upper threshold of 2.",
+      "page": 4
+    },
+    {
+      "image": "2604.21458_figures/2604.21458_fig4.jpg",
+      "caption": "Fig. 3. Rabi and T1 composite. (a) Rabi amplitude scan: HEOM pmax drops 2.17 % below mesolve while the π-amplitude shift is sub-resolution. (b) T1 decay: HEOM extrapolates to A = 0.879 at t = 0+, mesolve to A = 1.000; the β = 1 decay shape is identical to machine precision.",
+      "page": 4
+    }
+  ],
+  "figure": "2604.21458_figures/2604.21458_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 3,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 4
+  }
+}

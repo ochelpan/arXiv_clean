@@ -1,11 +1,11 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-26
 
-*48 papers · 25 relevant · 4 highlighted*  
-_⏳ in progress: 48/144 papers processed (file updates after each one)_
+*53 papers · 28 relevant · 4 highlighted*  
+_⏳ in progress: 53/144 papers processed (file updates after each one)_
 
 
-## 🔥 Most relevant (25)
+## 🔥 Most relevant (28)
 
 *Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥3/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page. `(secondary)` marks papers from de-prioritized cond-mat archives.*
 
@@ -26,11 +26,14 @@ _⏳ in progress: 48/144 papers processed (file updates after each one)_
 - [Vertical Shuttling Protocols for Trapped Ions in Multi-Rail, Multi-Zone Surface Ion Trap Architectures](#paper-2604.21350) [[arXiv]](http://arxiv.org/abs/2604.21350v1) — 🔥 `QC/QI experiment` **4/5**
 - [Scalable surface ion trap design for magnetic quantum sensing and gradiometry](#paper-2604.21342) [[arXiv]](http://arxiv.org/abs/2604.21342v1) — 🔥 `QC/QI experiment` **3/5** · `quantum measurements` **2/5** · `spintronics-quantum-optics interface` **2/5**
 - [Enhancing Coherence of Spin Centers in p-n Diodes via Optimization Algorithms](#paper-2604.21874) [[arXiv]](http://arxiv.org/abs/2604.21874v1) — 🔥 `spintronics-quantum-optics interface` **3/5** · `dissipative systems` **2/5**
+- [Structured Quantum State Reconstruction via Physically Motivated Operator Selection](#paper-2604.21272) [[arXiv]](http://arxiv.org/abs/2604.21272v1) — 🔥 `entanglement & information structure` **3/5** · `quantum measurements` **2/5**
 - [Dual-use quantum hardware for quantum resource generation and energy storage](#paper-2604.21913) [[arXiv]](http://arxiv.org/abs/2604.21913v1) — `dissipative systems` **2/5** · `entanglement & information structure` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
 - [Pulse Shaping for Superconducting Qubits](#paper-2604.21565) [[arXiv]](http://arxiv.org/abs/2604.21565v1) — `QC/QI experiment` **2/5** · `dissipative systems` **2/5** · `non-equilibrium dynamics` **2/5**
+- [Random Access Codes: Explicit Constructions, Optimality, and Classical-Quantum Gaps](#paper-2604.21274) [[arXiv]](http://arxiv.org/abs/2604.21274v1) — `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
 - [Rigorous Security Proofs for Practical Quantum Key Distribution](#paper-2604.21791) [[arXiv]](http://arxiv.org/abs/2604.21791v1) — `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
 - [Suppressing the Erasure Error of Fusion Operation in Photonic Quantum Computing](#paper-2604.21475) [[arXiv]](http://arxiv.org/abs/2604.21475v1) — `dissipative systems` **2/5** · `quantum measurements` **2/5**
 - [The clock ambiguity is back with a vengeance](#paper-2604.21805) [[arXiv]](http://arxiv.org/abs/2604.21805v1) — `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
+- [Third Quantization for Order Parameter (I): BCS-BEC crossover with macroscopically coherent state](#paper-2604.21288) [[arXiv]](http://arxiv.org/abs/2604.21288v1) — `Keldysh / 2PI / non-Gaussian methods` **2/5** · `correlated cavity matter` **2/5**
 - ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](#paper-2604.21919) [[arXiv]](http://arxiv.org/abs/2604.21919v1) — `entanglement & information structure` **2/5**
 - [Composite quantum gates simultaneously compensated for multiple errors](#paper-2604.21594) [[arXiv]](http://arxiv.org/abs/2604.21594v1) — `Rydberg arrays` **2/5**
 - [LightStim: A Framework for QEC Protocol Evaluation and Prototyping with Automated DEM Construction](#paper-2604.21472) [[arXiv]](http://arxiv.org/abs/2604.21472v1) — `quantum measurements` **2/5**
@@ -46,7 +49,7 @@ _⏳ in progress: 48/144 papers processed (file updates after each one)_
 - ⭐ [Quantum jump correlations in long-range dissipative spin systems](#paper-2604.21513) [[arXiv]](http://arxiv.org/abs/2604.21513v1) — Rosario Fazio
 
 
-## All papers (27, sorted by relevance)
+## All papers (30, sorted by relevance)
 
 *Papers from quant-ph and your primary cond-mat archives (quant-gas, stat-mech, str-el, dis-nn). Highlighted papers (⭐) come first, then everything else sorted by topic-relevance score, highest first.*
 
@@ -1688,6 +1691,76 @@ Solid-state spin defects hold great promise as building blocks for various quant
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21272"></a>
+### [Structured Quantum State Reconstruction via Physically Motivated Operator Selection](http://arxiv.org/abs/2604.21272v1)
+
+**Authors:** Ayush Chambyal, Brijesh, Rakesh Sharma  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21272v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `entanglement & information structure` **3/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21272_figures/2604.21272_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Fidelity with respect to the ideal three-qubit GHZ state, (b) agreement with the MLE reconstruction, and (c) observable reconstruction error, shown as a function of mea- surement shots. The results demonstrate weak dependence on shot count and a clear hierarchy across models, with the G3 model achieving high accuracy using a reduced set of phys- ically motivated observables.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21272_figures/2604.21272_fig2.jpg" width="500"><br>
+<sub>FIG. 2. (a) Fidelity with respect to the ideal four-qubit GHZ state, (b) agreement with the MLE reconstruction, and (c) observable reconstruction error as a function of measurement shots.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21272_figures/2604.21272_fig3.jpg" width="500"><br>
+<sub>FIG. 3. (a) Fidelity with respect to the ideal ﬁve-qubit GHZ state, (b) agreement with the MLE reconstruction, and (c) observable reconstruction error as a function of measurement shots.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21272_figures/2604.21272_fig4.jpg" width="500"><br>
+<sub>FIG. 4. (a) Fidelity with respect to the ideal GHZ state, (b) agreement with the MLE reconstruction, (c) observable recon- struction error, and (d) ﬁdelity as a function of the number of model parameters, shown for three-, four-, and ﬁve-qubit systems.</sub>
+
+</details>
+
+**Main problem.** Quantum State Tomography (QST) suffers from exponential scaling in measurement and computational costs, making the full reconstruction of multi-qubit systems impractical.
+
+**Main result.** The SG-QST framework achieves high fidelity comparable to full reconstruction using significantly fewer parameters by restricting the operator space to physically relevant, hierarchical correlations.
+
+**Method.** The authors develop Structured Gibbs Quantum State Tomography (SG-QST), which uses a Gibbs representation of the density matrix and a hierarchical inclusion of local, nearest-neighbor, and global observables.
+
+**Summary.** This paper introduces a new method for quantum state reconstruction called SG-QST, which avoids the exponential complexity of standard tomography. By using a Gibbs representation and a hierarchical approach to include only physically relevant correlations, the method can reconstruct GHZ states with high fidelity using far fewer parameters. The study shows that capturing global coherence is the primary driver of accuracy. This approach offers a scalable path for characterizing larger quantum systems where full reconstruction is impossible.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The framework is benchmarked on multi-qubit GHZ states (3, 4, and 5 qubits) using a Gibbs-based Hamiltonian parametrization: rho = e^-H / Tr(e^-H).
+
+**Key observables.** Pauli strings (X, Y, Z), specifically focusing on local, nearest-neighbor, and global coherence operators like X^n and Y^n.
+
+**Important parameters / regimes.** Number of qubits (n=3, 4, 5), number of model parameters, and shot counts (256, 1024, 2048).
+
+**Assumptions / limitations.** The effectiveness of the method assumes that the state's essential information is concentrated within a pre-selected, physically motivated subset of observables.
+
+**Figures summary.** Figures show fidelity, agreement with MLE, and observable error for 3, 4, and 5-qubit systems, demonstrating a clear hierarchy of accuracy (G1 < G2 < G3) and the efficiency of the G3 model.
+
+**Paper structure.** The paper identifies the scalability bottleneck of QST, proposes the SG-QST hierarchical Gibbs framework, benchmarks it against MLE and PSD methods using GHZ states, and analyzes the scaling of error and parameter efficiency.
+
+**Why it may be interesting.** This is highly relevant for researchers in quantum information and many-body dynamics as it provides a scalable strategy for characterizing large-scale entanglement and multipartite correlations without the overhead of full tomography.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Quantum state tomography (QST) scales exponentially in both measurement and computational cost, making full reconstruction impractical for multi-qubit systems. Existing approaches attempt to reduce this complexity, but do not explicitly restrict the operator space based on physically relevant correlations. We develop a structured QST framework in which the density matrix is reconstructed using a restricted set of observables in a Gibbs representation. The Structured Gibbs Quantum State Tomography (SG-QST) is built by progressively including local, nearest-neighbor, and global correlations. Benchmarking on three, four, and five-qubit. GHZ states shows that comparable fidelity can be achieved with significantly fewer parameters by restricting the operator space to physically relevant observables. These results demonstrate that physically motivated operator-space restriction enables efficient and interpretable quantum state reconstruction.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21913"></a>
 ### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
 
@@ -1886,6 +1959,60 @@ Quantum resources such as entanglement form the backbone of quantum technologies
 <details><summary>Abstract</summary>
 
 High-fidelity control of superconducting qubits requires carefully shaped microwave pulses that account for multiple error channels. In this work, we present a pedagogical introduction to pulse-shaping techniques for transmon qubits, aiming to provide a unified, accessible framework that integrates physical intuition for pulse design, analytical understanding of gate-level descriptions, and practical considerations of hardware. This article further aims to serve as a guide for students and early researchers entering superconducting quantum computing. We begin by examining simple pulse envelopes and their spectral properties, highlighting how finite bandwidth leads to leakage outside the computational subspace. These observations motivate the introduction of the derivative removal by adiabatic gate (DRAG) technique, which uses a quadrature component proportional to the pulse's time derivative to suppress off-resonant excitations. We analyze the single-qubit case using the Magnus expansion, which provides a clear understanding of the order-by-order introduction of error channels. We discuss the practical hardware realities of control pulse generation, focusing on arbitrary waveform generators (AWG), local oscillators (LO), and IQ mixing. Common imperfections are discussed in terms of their impact on the effective pulse shape and qubit Hamiltonian. Finally, we extend the discussion to two-qubit operations, focusing on the cross-resonance gate and the emergence of effective interactions.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21274"></a>
+### [Random Access Codes: Explicit Constructions, Optimality, and Classical-Quantum Gaps](http://arxiv.org/abs/2604.21274v1)
+
+**Authors:** Ruho Kondo, Yuki Sato, Hiroshi Yano, Yota Maeda, Kosuke Ito, Naoki Yamamoto  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21274v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21274_figures/2604.21274_fig1.jpg" width="500"><br>
+<sub>Fig. 1. Decoding success probability of RACs and QRACs for L ≤7 and k = 3. Conjectural upper bound of QRAC (Eq. (4)) is included.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21274_figures/2604.21274_fig2.jpg" width="500"><br>
+<sub>Fig. 2. Achievable (conjecturally maximum) success probability of (L, L −1)-RACs and (L, L −1)-QRACs. Note that the maximum average success probability and the maximum worst case success probability are the same for (L, L −1)-QRAC. For clarity, markers are shown only for L ≤10.</sub>
+
+</details>
+
+**Main problem.** The paper seeks to develop explicit constructions for optimal Classical Random Access Codes (RACs) and Quantum Random Access Codes (QRACs) and to quantify the gap between classical and quantum performance in both average- and worst-case decoding regimes.
+
+**Main result.** The authors provide a constructive framework for (L, k)-RACs, derive closed-form optimal encoders/decoders for the (L, L-1) case, and demonstrate that a significant classical-quantum gap exists in the worst-case decoding regime, whereas the gap is minimal in the average-case regime.
+
+**Method.** The problem is framed as a geometric optimization task involving the minimization of directed Chamfer and Hausdorff distances. The authors use Mixed-Integer Linear Programming (MILP) for classical constructions and gradient-based numerical optimization in PyTorch for quantum cases.
+
+**Summary.** This paper addresses the long-standing challenge of constructing optimal random access codes. By mapping the coding problem to geometric distance minimization, the authors provide explicit, closed-form solutions for specific bit-length ratios. A key finding is that quantum advantage is most pronounced in the worst-case decoding scenario, while the advantage vanishes in the average-case limit. This provides new insights into the fundamental limits of quantum communication protocols.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study uses the (L, k)-RAC and (L, k)-QRAC models, where an L-bit string is encoded into k classical bits or k qubits, and the goal is to recover individual source bits via decoding procedures (POVMs for the quantum case).
+
+**Key observables.** Average-case decoding success probability, worst-case decoding success probability, and the classical-quantum gap.
+
+**Important parameters / regimes.** L (original bit string length), k (message length or number of qubits), and the non-asymptotic vs. asymptotic regimes.
+
+**Assumptions / limitations.** The study is restricted to two-level systems (d=2) and does not consider shared randomness or entanglement; it also relies on conjectures regarding the optimality of discrete decoder sets.
+
+**Figures summary.** Figure 1 shows the separation between RAC and QRAC success probabilities for different L and k; Figure 2 illustrates the scaling of the success probability gap for (L, L-1) codes as L increases.
+
+**Paper structure.** The paper introduces the RAC/QRAC problem, establishes an optimization framework based on distance measures, provides explicit constructions for specific (L, k) regimes, performs numerical comparisons to identify the classical-quantum gap, and concludes with discussions on complexity and open conjectures.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+A random access code (RAC) encodes an $L$-bit string into a $k$-bit $(L>k)$ message from which any designated source bit can be recovered with high probability. Its quantum counterpart, a quantum random access code (QRAC), replaces the $k$-bit message with $k$ qubits. While upper bounds on the decoding success probability have long been studied in both classical and quantum settings, explicit constructions of optimal codes are known only in special cases, even for classical RACs. In this paper, we develop a constructive framework for classical $(L,k)$-RACs under both average- and worst-case criteria. We show that optimal code design reduces to selecting $2^k$ points in $\{0,1\}^L$ and $[0,1]^L$ for the average- and worst-case criteria, respectively, so as to minimize a distance-like objective. This characterization yields explicit constructions for general $(L,k)$. For $k=L-1$, we further obtain closed-form optimal encoders and decoders for both criteria, and show that the resulting classical $(L,L-1)$-RACs attain the corresponding proved upper bounds. We also show that these optimal classical codes induce $(L,L-1)$-QRACs that attain a conjectured upper bound on the decoding success probability. Numerical optimization suggests little difference between RACs and QRACs in the average-case setting, but a potentially large classical-quantum gap in the worst-case nonasymptotic regime.
 
 </details>
 
@@ -2225,6 +2352,55 @@ Page and Wootters (1983) showed how time and dynamics can emerge in a stationary
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21288"></a>
+### [Third Quantization for Order Parameter (I): BCS-BEC crossover with macroscopically coherent state](http://arxiv.org/abs/2604.21288v1)
+
+**Authors:** Guo-Jian Qiao, Miao-Miao Yi, Xin Yue, C. P. Sun  
+**Type:** theory · **Category:** quantum gases · **PDF:** <https://arxiv.org/pdf/2604.21288v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `Keldysh / 2PI / non-Gaussian methods` **2/5** · `correlated cavity matter` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21288_figures/2604.21288_fig1.jpg" width="500"><br>
+<sub>Figure 6. (a) Phase diagram in the (µ, Ec, G) plane, where µ = 0 marks the boundary between the BCS and BEC regimes for each segment, and EJ = 2Ec determines the boundary between global and local phase coherence (see the color-gradient surface). (b) shows a cross section of (a) at Ec = 50µeV, where the solid line denotes the boundary between the global phase coherence and local phase coherence, and the dashed vertical line at µ = 0 marks the boundary bewteen BCS–BEC state crossover. Parameters used here are the same as in Fig. 5.</sub>
+
+</details>
+
+**Main problem.** Investigating whether the macroscopic commutation relation between the order parameter's phase and particle-number operator is a new fundamental postulate or an emergent property of second quantization, and providing a unified interpretation of the BCS-BEC crossover.
+
+**Main result.** The authors demonstrate that 'third quantization' (the phase-number commutation relation) emerges naturally from second quantization in the thermodynamic limit, and they propose that the BCS-BEC crossover is a macroscopic quantum process driven by phase locking.
+
+**Method.** The study uses a variational approach with a multi-mode coherent state, field operator expansion, and the Pegg-Barnett phase operator formalism to derive the properties of the order parameter.
+
+**Summary.** This paper proposes a 'third quantization' framework where the order parameter is treated as a macroscopic collective degree of freedom. It proves that the fundamental commutation relation between phase and particle number is an emergent property of second quantization in the thermodynamic limit. By applying this to a model of coupled superconducting segments, the authors reinterpret the BCS-BEC crossover as a transition from local to global phase coherence. This provides a unified description of BECs, BCS superconductivity, and the crossover regime.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The paper models Bose-Einstein Condensates (BECs) and BCS superconductors, specifically treating the BCS-BEC crossover as an assembly of macroscopically separated superconducting segments coupled via tunneling.
+
+**Key observables.** Order parameter phase, particle-number operator, chemical potential, energy gap, and off-diagonal long-range order (ODLRO).
+
+**Important parameters / regimes.** Chemical potential (mu), intra-segment coupling, inter-segment tunneling strength (g), charging energy (Ec), and Josephson energy (Ej).
+
+**Assumptions / limitations.** The derivation assumes the variational ground state is a multi-mode coherent state and utilizes the thermodynamic (large-M) limit to ensure the Hermiticity of the phase operator.
+
+**Figures summary.** Figure 1 illustrates the difference between the strong-interaction (BEC) and weak-interaction (BCS) regimes; Figure 6 shows phase diagrams in the (mu, Ec, G) plane and cross-sections illustrating the boundaries of phase coherence.
+
+**Paper structure.** The paper first establishes the mathematical foundation of third quantization by deriving the phase-number commutation relation from second quantization, then applies this to BECs and BCS systems, and finally uses a model of coupled segments to describe the BCS-BEC crossover and phase locking.
+
+**Why it may be interesting.** It provides a unified theoretical framework that bridges microscopic second quantization with macroscopic circuit quantization, offering a new way to view the transition between bosonic and fermionic many-body states through the lens of coherent-state dynamics.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We revisit the quantization of the order parameter, which we refer to as third quantization, from the perspective of the commutation relation between the phase operator of the order parameter and the particle-number operator. We show that this macroscopic commutation relation does not constitute an independent fundamental postulate added to quantum mechanics, but instead emerges naturally from second quantization in the thermodynamic limit for both bosonic and fermionic many-body systems. In this sense, both Bose-Einstein condensates (BECs) and Bardeen-Cooper-Schrieffer (BCS) states can be understood as macroscopic quantum states described by bosonic coherent states: in BEC, bosons condense into a single coherent mode with a well-defined phase, while in BCS systems, collective excitations of Cooper pairs can also acquire an effectively bosonic coherent description. On this basis, we propose a new macroscopic interpretation of the BCS-BEC crossover. To characterize this crossover, we model a conventional superconductor as an assembly of macroscopically separated superconducting segments. As the intra-segment coupling increases, the system evolves from a BCS-like regime toward a BEC-like regime, in which the segments collectively behave as macroscopic coherent states. Inter-segment tunneling then locks their phases, establishes global phase coherence, and gives rise to a bulk Bose-Einstein condensate. The phase diagram of the BCS-BEC crossover can thus be understood as a manifestation of a macroscopic quantum process governed by the coherent-state dynamics of the order parameter. Our results provide a unified perspective on BEC, BCS superconductivity, and the BCS-BEC crossover within the framework of third quantization.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21594"></a>
 ### [Composite quantum gates simultaneously compensated for multiple errors](http://arxiv.org/abs/2604.21594v1)
 
@@ -2441,7 +2617,7 @@ Fault-tolerant quantum computing increasingly demands rigorous, circuit-level ev
 <sub>[↑ back to top](#top)</sub>
 
 
-## Other papers (21)
+## Other papers (23)
 
 *Papers from primary archives without highlighted authors or any topic match. Click to expand.*
 
@@ -3162,6 +3338,66 @@ New sources of charge-parity (CP) violation beyond those described in the Standa
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21266"></a>
+### [On the importance of hyperparameters in initializing parameterized quantum circuits](http://arxiv.org/abs/2604.21266v1)
+
+**Authors:** Ankit Kulshrestha, Sarvagya Upadhyay  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21266v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21266_figures/2604.21266_fig1.jpg" width="500"><br>
+<sub>Fig. 1: Normalized histogram of gradient magnitude distribution of initial parameters across different layers in a 5 layer, 4 qubit Hardware Efficient Ansatz (HEA). The hyperparameters for the distribution are perturbed by δ = 0.05. The figures show that even a small change in hyperparameters of initializing distribution can lead to drastically different gradient distribution across layers of a quantum circuit.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21266_figures/2604.21266_fig2.jpg" width="500"><br>
+<sub>Fig. 2: VQE Training results for H2 molecule with bondlength ∈[0.5, 1.1]˚ A for Beta and Gaussian Distributions. The results show that searched hyperparameters with the given score functions produce a faster convergence in general.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21266_figures/2604.21266_fig3.jpg" width="500"><br>
+<sub>Fig. 3: Training loss on different QML datasets with different score functions and manually selected hyperparameters for initializing distributions. Inset: convergence dynamics at the end of training. In all the cases, method based on score function leads to faster convergence than manual selection of hyperparameters even if the ansatz converges to the same (local) minima.</sub>
+
+</details>
+
+**Main problem.** Finding optimal hyperparameters (such as mean and variance) for initial parameter distributions in Parameterized Quantum Circuits (PQCs) to improve convergence and performance.
+
+**Main result.** The proposed evolutionary-search algorithm finds hyperparameters that significantly accelerate convergence and improve accuracy in VQE and QML tasks without worsening the barren plateau phenomenon.
+
+**Method.** An evolutionary-search (ES) based algorithm (ES-HyperOpt) that uses score functions based on the Quantum Fisher Information Matrix (QFIM) and gradient statistics to optimize hyperparameters.
+
+**Summary.** This paper addresses the overlooked importance of hyperparameters in the initial parameter distributions of quantum circuits. The authors propose an evolutionary-search algorithm to automatically tune these hyperparameters using metrics derived from the Quantum Fisher Information Matrix. Their method leads to faster convergence in both molecular energy estimation and quantum machine learning tasks. Crucially, the tuning process does not exacerbate the barren plateau problem, making it a practical tool for NISQ-era algorithms.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Parameterized Quantum Circuits (PQCs) including Hardware Efficient Ansatz (HEA) and StronglyEntanglingLayers, applied to VQE (H2 molecule) and QML (Wine, Breast Cancer, and Digits datasets).
+
+**Key observables.** Ground state energy (VQE), test accuracy and training loss (QML), and gradient variance scaling.
+
+**Important parameters / regimes.** Hyperparameters of Beta (alpha, beta) and Gaussian (mu, sigma) distributions; number of qubits (2 to 10); circuit layers.
+
+**Assumptions / limitations.** Uses a block-diagonal or empirical approximation of the QFIM to manage exponential complexity in large parameter sets.
+
+**Figures summary.** Figure 1 shows sensitivity of gradient distributions to hyperparameter perturbations; Figure 2 shows VQE energy convergence; Figure 3 shows QML training loss dynamics; Figure 4 demonstrates that gradient variance scaling remains stable (no induced barren plateaus).
+
+**Paper structure.** The paper introduces the problem of hyperparameter sensitivity, proposes an evolutionary-search algorithm with specific scoring functions, compares it against classical search methods, and validates it through VQE and QML benchmarks, concluding with an analysis of barren plateau implications.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+There has been intensive research on increasing the utility and performance of Parameterized Quantum Circuits (PQCs) in the past couple of years. Owing to this research, there are now several inductive biases available to a quantum algorithms researchers to design a good circuit for their chosen task.   In this paper, we focus on the problem of finding performant initial parameters for a given PQC. Different from previous research that focuses on finding the right \emph{distribution}, we focus on finding the \emph{hyperparameters} for any given distribution. To that end we introduce an evolutionary-search based algorithm that finds optimal hyperparameter given a PQC and quantum task. Our empirical results indicate that our algorithm consistently leads to selection of performant initial parameters tuned specifically to the ansatz and the quantum task leading to faster convergence and performance. More importantly, our algorithm does not \emph{negatively} affect the barren plateau phenomenon. In other words, the initial parameters suggested by algorithm do not worsen the gradient variance scaling for a given initializing distribution.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21788"></a>
 ### [Partial oracles quantum algorithm framework -- Part I: Analysis of in-place operations](http://arxiv.org/abs/2604.21788v1)
 
@@ -3727,6 +3963,52 @@ We show in this article the improvements which can be obtained in the descriptio
 <details><summary>Abstract</summary>
 
 We present a new software package for efficient quantum circuit generation, designed to achieve optimal runtime performance. Despite being in an early stage of development, our implementation demonstrates significant advantages over existing tools. Using the quantum Fourier transform (QFT) as a benchmark, we show that our backend can generate circuits for systems with up to 2000 qubits faster than widely used frameworks such as Qiskit and Q#. This improvement is particularly relevant for applications where classical preprocessing time, including circuit generation, must be minimized to not diminish any potential quantum advantage - for example, in combinatorial optimization tasks. Additionally, our software provides high-level primitives for bit- and integer-level manipulations, offering a simplified interface for integration with high-level quantum programming languages.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21287"></a>
+### [StabilizerBench: A Benchmark for AI-Assisted Quantum Error Correction Circuit Synthesis](http://arxiv.org/abs/2604.21287v1)
+
+**Authors:** Andres Paz, Christian Tarta, Cordelia Yuqiao Li, Mayee Sun, Sarju Patel, Sylvie Lausier  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21287v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21287_figures/2604.21287_fig1.jpg" width="500"><br>
+<sub>Fig. 4: Difficulty curves for all three tasks: cumulative capability score S(b) cap vs. stabilizer count under the best configuration for b ∈{1, 2, 3}. All models degrade monotonically with circuit complexity; the gray dashed line shows the total benchmark ceiling.</sub>
+
+</details>
+
+**Main problem.** The lack of a specialized, scalable benchmark to evaluate the ability of AI agents to automate complex quantum error correction (QEC) tasks like circuit synthesis, optimization, and fault-tolerant design.
+
+**Main result.** The introduction of StabilizerBench, which demonstrates that while frontier AI models can perform basic state preparation, they currently struggle with high-quality circuit optimization and fault-tolerant synthesis.
+
+**Method.** A benchmark suite of 192 stabilizer codes across 12 families, using the Gottesman-Knill theorem and Stim for efficient polynomial-time verification of AI-generated circuits.
+
+**Summary.** This paper introduces StabilizerBench, a new benchmark designed to evaluate AI agents on specialized quantum error correction tasks. It covers circuit synthesis, optimization, and fault-tolerant design using a large suite of stabilizer codes. The authors use efficient classical simulation to verify AI outputs, providing a scalable way to measure progress. Their evaluation shows that while current AI models can handle simple state preparation, they lack the reasoning required for complex fault-tolerant circuit construction.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The benchmark focuses on stabilizer codes (including surface, color, and Steane codes) ranging from 4 to 196 qubits, utilizing the stabilizer formalism and Pauli group operations.
+
+**Key observables.** Capability score (breadth of success), quality score (circuit merit), two-qubit gate count (G2Q), circuit depth (D), and fault-tolerance (FT) score.
+
+**Important parameters / regimes.** Code distance (d), number of stabilizer generators (k), number of attempts/iterations, and timeout duration.
+
+**Assumptions / limitations.** The benchmark assumes the use of stabilizer codes to allow for efficient classical verification via the Gottesman-Knill theorem.
+
+**Figures summary.** Figure 1 shows error propagation through gates; Figure 2 illustrates flag gadgets; Figure 3 depicts the agent-oracle workflow; Figure 4 shows difficulty curves of capability scores versus stabilizer count.
+
+**Paper structure.** Introduction of the QEC automation gap, description of the StabilizerBench suite and tasks, explanation of the verification and scoring framework, evaluation of frontier AI models, and discussion of results and future directions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+As quantum hardware scales toward fault tolerant operation, the demand for correct quantum error correction (QEC) circuits far outpaces manual design capacity. AI agents offer a promising path to automating this synthesis, yet no benchmark exists to measure their progress on the specialized task of generating QEC circuits. We introduce StabilizerBench, a benchmark suite of 192 stabilizer codes spanning 12 families, 4-196 qubits, and distances 2-21, organized into three tasks of increasing difficulty: state preparation circuit generation, circuit optimization under semantic constraints, and fault tolerant circuit synthesis. Although motivated by QEC, stabilizer circuits exercise core competencies required for general quantum programming, including gate decomposition, qubit routing, and semantic preserving transformations, while admitting efficient verification via the Gottesman Knill theorem, enabling the benchmark to scale to large codes without the exponential cost of full unitary comparison. We define a unified generator weighted scoring system with two tiers: a capability score measuring breadth of success and a quality score capturing circuit merit. We also introduce continuous fault tolerance and optimization metrics that grade error resilience and circuit improvements beyond binary pass or fail. Following the design of classical benchmarks such as SWE-bench, StabilizerBench specifies inputs, verification oracles, and scoring but leaves prompts and agent strategies open. We evaluate three frontier AI agents and find the benchmark discriminates across models and tasks with substantial headroom for improvement.
 
 </details>
 

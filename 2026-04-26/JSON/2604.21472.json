@@ -1,0 +1,107 @@
+{
+  "arxiv_id": "2604.21472",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "LightStim: A Framework for QEC Protocol Evaluation and Prototyping with Automated DEM Construction",
+  "authors": "Xiang Fang, Ming Wang, Yue Wu, Sharanya Prabhu, Dean Tullsen, Narasinga Rao Miniskar, Frank Mueller, Travis Humble, Yufei Ding",
+  "abstract": "Fault-tolerant quantum computing increasingly demands rigorous, circuit-level evaluation of diverse quantum error correction (QEC) protocols and efficient prototyping of new ones. Such evaluation requires both the physical circuit and its Detector Error Model (DEM) to simulate end-to-end logical error rates. However, DEM construction today is performed by manual annotation, a tedious and error-prone process that effectively limits evaluation to simple memory experiments. We present LightStim, a framework that automates DEM construction concurrently with circuit compilation by maintaining a Pauli tableau augmented with measurement records, with no protocol-specific input required. We benchmark LightStim across protocols from memory experiments to end-to-end distillation circuits; cross-validation against public implementations confirms exact detector and observable counts and consistent logical error rates. LightStim additionally accelerates the exploration of new protocols, which we demonstrate through a novel heterogeneous cross-code lattice surgery design between surface and punctured quantum Reed-Muller codes. These capabilities together make LightStim a unified infrastructure for systematic QEC protocol evaluation and exploration.",
+  "url": "http://arxiv.org/abs/2604.21472v1",
+  "pdf": "https://arxiv.org/pdf/2604.21472v1",
+  "type": "theory",
+  "summary": "LightStim is a new automated framework designed to bridge the gap between physical circuit compilation and the construction of Detector Error Models for quantum error correction. By tracking the evolution of Pauli operators through a tableau, it eliminates the need for manual annotation of detectors and observables. This allows researchers to rapidly prototype and evaluate complex, non-standard protocols like lattice surgery and magic state distillation. The framework has been validated to match existing simulators and successfully demonstrates high-efficiency error correction in heterogeneous code architectures.",
+  "main_problem": "The manual construction of Detector Error Models (DEMs) for complex quantum error correction (QEC) protocols is tedious, error-prone, and fails to scale with complex operations like lattice surgery or distillation.",
+  "main_result": "The authors present LightStim, a framework that automates DEM construction concurrently with circuit compilation, enabling efficient prototyping and evaluation of complex, heterogeneous QEC protocols.",
+  "method": "The framework uses a Pauli tracker to maintain a Pauli tableau that is augmented with measurement records, utilizing back-propagation of Clifford conjugation and RREF decomposition to identify detectors and logical observables.",
+  "model_or_system": "The framework is applied to stabilizer codes, including surface codes (rotated/unrotated), color codes, BB codes, and punctured quantum Reed-Muller (PQRM) codes, under circuit-level Pauli noise models.",
+  "key_observables": "Logical Error Rate (LER), detectors (vertices), logical observables (targets), and post-selection rates.",
+  "important_parameters": "Code distance (d), physical error rate (p), routing distance (r_inter), and error-type bias (X/Z).",
+  "main_assumptions": "The framework assumes the use of Clifford gates and Pauli-based error models.",
+  "figures_summary": "Figure 1 illustrates the dual burden of QEC evaluation; Figure 2 shows Pauli tableau representation; Figure 4 details the LightStim workflow; Figure 6 shows cross-code lattice surgery; Figures 9-10 present LER scaling and post-selection trade-offs; Figure 12 shows tableau evolution for teleportation.",
+  "paper_structure": "The paper introduces the scalability bottleneck of manual DEM construction, presents the LightStim framework and its automated Pauli tracking mechanics, validates the framework against existing implementations, demonstrates its utility through complex protocol prototyping (lattice surgery and distillation), and concludes with performance analyses of logical operations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21472_figures/2604.21472_fig1.jpg",
+      "caption": "Figure 1. (a) Dual burden on QEC protocol Compilation: Physical Circuit & DEM. (b) Sample Stim circuit. Physical operations specified by the protocol and the rest are all automated in LightStim.",
+      "page": 2
+    },
+    {
+      "image": "2604.21472_figures/2604.21472_fig2.jpg",
+      "caption": "Figure 3. Physical Circuit and DEM construction for surface code Z memory experiment.",
+      "page": 3
+    },
+    {
+      "image": "2604.21472_figures/2604.21472_fig3.jpg",
+      "caption": "Figure 2. Pauli tableau representation of QEC systems. Stab: stabilizers; Log: logical operators.",
+      "page": 3
+    },
+    {
+      "image": "2604.21472_figures/2604.21472_fig4.jpg",
+      "caption": "Figure 4. Overview of LightStim’s Pauli Tracker workflow. The physical circuit drives a forward update of the record- augmented Pauli tableau, triggering DEM construction upon encountering measurements.",
+      "page": 4
+    },
+    {
+      "image": "2604.21472_figures/2604.21472_fig5.jpg",
+      "caption": "Figure 5. Three realizations of Bell state teleportation cir- cuits: (a) transversal gates, (b,c) 𝑍𝑍/𝑋𝑋lattice surgery.",
+      "page": 7
+    },
+    {
+      "image": "2604.21472_figures/2604.21472_fig6.jpg",
+      "caption": "Figure 6. Cross-code Lattice surgery between surface code and punctured quantum Reed-Muller (PQRM) code.",
+      "page": 7
+    },
+    {
+      "image": "2604.21472_figures/2604.21472_fig7.jpg",
+      "caption": "Figure 7. Evaluation of memory experiments. (a) Surface code family. (b) BB code family. (c) QEC efficiency: LER per physical qubit. (d) Effect of SE circuit design on LER.",
+      "page": 9
+    },
+    {
+      "image": "2604.21472_figures/2604.21472_fig8.jpg",
+      "caption": "Fig. 7 summarizes memory experiments across four axes. 1. Surface code family (Fig. 7a). We evaluate Z-basis mem- ory for the rotated, unrotated, and toric surface codes at 𝑑∈{3, 5, 7} under circuit-level noise. All three variants ex- hibit increasing LER suppression as 𝑑scales, aligned with theoretical results [29, 75]. Notably, at fixed 𝑑, LERrotated > LERunrotated > LERtoric under the threshold (0.8%), reflecting the benefit of increasing qubit redundancy (𝑑2, 2𝑑2−2𝑑+1, and 2𝑑2). The intuition is: when operating below the er- ror threshold, more physical qubits provide more syndrome information that enables more accurate decoding, so the additional redundancy yields lower LER despite the...",
+      "page": 9
+    },
+    {
+      "image": "2604.21472_figures/2604.21472_fig9.jpg",
+      "caption": "Figure 8. Comprehensive evaluation of logical operations. (a) Transversal gates and lattice surgery operations of unrotated surface code against the memory baseline; (b) State injection of rotated surface code; (b1)-(b3) Two SE round, full post-selection; (b4) Different post-selection schemes.",
+      "page": 10
+    },
+    {
+      "image": "2604.21472_figures/2604.21472_fig10.jpg",
+      "caption": "Figure 9. LER of Bell-state teleportation circuit implemented in (a) transversal gates and (b,c) lattice surgery.",
+      "page": 10
+    }
+  ],
+  "figure": "2604.21472_figures/2604.21472_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "arxiv_id": "2604.21388",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Bayesian Phase Stabilization at the Shot-Noise Limit for Scalable Quantum Networks",
+  "authors": "Guang-Cheng Liu, Chao-Hui Xue, Fa-Xi Chen, Ming-Yang Zheng, Yi Yang, Li-Bo Li, Bin Wang, Bo-Wen Yang, Hai-Feng Jiang, Yong Wan, Ye Wang, Jiu-Peng Chen, Qiang Zhang, Jian-Wei Pan",
+  "abstract": "High-precision optical phase stabilization in quantum networks is fundamentally constrained by the strict photon-flux and duty-cycle limits required to avoid disturbing fragile quantum states. This challenge becomes especially critical when coordinating multiple independent light sources for multi-step quantum protocols. Here, we develop an integrated phase-stabilization framework that incorporates a Bayesian phase estimator to optimally extract information from sparse single-photon detection events. This approach outperforms conventional maximum-likelihood estimation and achieves the shot-noise limit under minimal photon flux. The framework enables real-time correction of combined phase noise from both nodal lasers and transmission fibers, facilitating a two-step excitation protocol for heralded entanglement generation between separate trapped-ion nodes via single-photon interference. Operating with a detected photon rate of approximately 1 MHz and a duty cycle less than or equal to 6.5%, the system maintains interferometric visibility greater than 97% over fiber links of 10 km and 100 km. This phase control yields deterministic ion-ion entanglement with parity contrast exceeding 85% at both distances, enabling device-independent quantum key distribution. Moreover, the resulting memory-memory entanglement at 10 km survives beyond the average time required to establish it -- a fundamental requirement for quantum repeaters. This work establishes a robust and scalable foundation for practical long-distance quantum networks.",
+  "url": "http://arxiv.org/abs/2604.21388v1",
+  "pdf": "https://arxiv.org/pdf/2604.21388v1",
+  "type": "both",
+  "summary": "This paper presents an integrated framework for stabilizing the optical phase in long-distance quantum networks. By using a Bayesian estimator on an FPGA, the researchers overcome the trade-off between measurement noise and phase diffusion. The system successfully maintains high entanglement fidelity and visibility over 100 km of fiber. This provides a scalable foundation for building practical quantum repeaters and long-distance quantum key distribution.",
+  "main_problem": "Achieving high-precision optical phase stabilization in quantum networks is limited by a precision-delay trade-off, where rapid sampling leads to high shot noise and long integration leads to phase diffusion.",
+  "main_result": "The development of a Bayesian phase estimator that achieves the shot-noise limit even with sparse photon counts, enabling high-visibility entanglement (over 97%) over 10 km and 100 km fiber links.",
+  "method": "A recursive Bayesian estimation framework implemented on an FPGA, utilizing a dual-band (WDM and TDM) stabilization architecture and a nonlinear innovation filter for outlier rejection.",
+  "model_or_system": "A quantum network consisting of two independent 40Ca+ trapped-ion nodes connected via 10 km and 100 km optical fibers, using a two-step excitation protocol and frequency conversion to the telecom C-band.",
+  "key_observables": "Interferometric visibility, parity contrast, residual phase variance, and photon counting statistics.",
+  "important_parameters": "Photon flux (~1 MHz), duty cycle (<= 6.5%), phase diffusion coefficient (D), and fiber distances (10 km and 100 km).",
+  "main_assumptions": "Phase noise is modeled as a Wiener process (though experimental data shows non-white scaling), and photon counting follows Poisson statistics.",
+  "figures_summary": "Figure 1 compares MLE and Bayesian variance scaling; Figure 2 details the ion trap and dual-band architecture; Figure 3 shows visibility and parity contrast over distance and duty cycle; Figure 7 shows the FPGA architecture; Figure 8 shows photon count fits; Figure 9 outlines the experimental sequence.",
+  "paper_structure": "The paper identifies the precision-delay trade-off, describes the dual-band hardware architecture, introduces the Bayesian mathematical framework, presents experimental results for 10 km and 100 km links, and concludes with an error budget analysis.",
+  "why_interesting": "It addresses a fundamental limit in quantum control and estimation theory (the precision-delay trade-off) and demonstrates how Bayesian inference can recover optimal scaling in photon-starved, non-Markovian noise environments.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21388_figures/2604.21388_fig1.jpg",
+      "caption": "FIG. 1. Phase stabilization performance comparison. Three-dimensional representation of the residual phase vari- ance as a function of measurement duration τ and photon flux µ for conventional MLE (pink surface) and prior-assisted Bayesian estimation (blue surface). The orange dotted curve represents the phase-diffusion noise floor (∝Dτ), and the pink dotted curve indicates the photon shot-noise limit (∝ (Γτ)−1), which sets the SNL for a static measurement. The black dashed curve shows the SNL for tracking a diffusing phase. The red solid line traces the minimum variance of con- ventional MLE, which scales as µ−1 and diverges as τ →0. In contrast, the blue solid line traces the Bayesian...",
+      "page": 3
+    },
+    {
+      "image": "2604.21388_figures/2604.21388_fig2.jpg",
+      "caption": "FIG. 2. Experimental setup. (a) Blade ion trap with asymmetric electrode spacing designed for high-numerical-aperture fluorescence collection (NA=0.635). Photons are coupled into single-mode fibers (SM300) with nearly 50% coupling efficiency. At each node, the ion is first cooled and initialized in the state |S1/2, mJ = +1/2⟩. A two-step excitation protocol then proceeds as follows: a resonant π-pulse at 729 nm to prepare the metastable state |D5/2, mJ = +5/2⟩; a subsequent nanosecond 854 nm pulse then excites the ion to |P3/2, mJ = +3/2⟩with probability α, after which spontaneous decay emits a 393 nm photon. (b) Timing sequences for the two-step excitation protocol. For 10-km fiber links,...",
+      "page": 4
+    },
+    {
+      "image": "2604.21388_figures/2604.21388_fig3.jpg",
+      "caption": "FIG. 3. Experimental results. (a) Interferometric visibility (blue circles) and parity fringe (pink triangles) as a function of fiber distance (10 km and 100 km). The horizontal blue dashed line indicates the maximum achievable interferometric visibility (98.26%) of the system. Error bars represent ±1 standard deviation from multiple experimental realizations. (b) Residual phase variance (pink circles) and interferometric visibility (blue circles) versus detected photon flux for the 10 km link. The residual variance follows the theoretical SNL prediction (pink line), scaling as µ−1/2, confirming quantum-optimal tracking. (c) Interferometric visibility versus TDM duty cycle for the 10 km...",
+      "page": 6
+    },
+    {
+      "image": "2604.21388_figures/2604.21388_fig4.jpg",
+      "caption": "FIG. 1. Numerical simulation of the phase stabilization algorithm performance. (a) Time series of phase evolution at 10 us integration time. The yellow curve (Phase diffusion) represents uncontrolled free phase diffusion. The red curve (Sta- bilization with conventional MLE) and blue curve (Stabilization with Bayesian estimation) demonstrate the phase stabilization effects of the conventional method and the prior-assisted recursive estimator, respectively. (b) Phase stabilization performance comparison. Scatter points and solid lines show the simulation performance of the conventional MLE (red solid, red circles) and the Bayesian estimation (blue solid, blue inverted triangles). The yellow...",
+      "page": 13
+    },
+    {
+      "image": "2604.21388_figures/2604.21388_fig5.jpg",
+      "caption": "FIG. 2. Performance comparison of phase tracking protocols. We set the measurement window duration to 100 us and residual phase variance (rad2, color scale) as a function of photon flux µ and diffusion rate √",
+      "page": 14
+    },
+    {
+      "image": "2604.21388_figures/2604.21388_fig6.jpg",
+      "caption": "Fig. 2 presents a systematic comparison of conventional maximum-likelihood estimation versus our prior-assisted method incorporating outlier rejection. The simulations reveal several critical advantages of the prior-assisted ap- proach: Conventional estimation exhibits significant performance degradation at low photon flux , where shot noise gener- ates measurement outliers that destabilize the feedback loop. In contrast, our Bayesian approach maintains robust performance across all flux and diffusion regimes. The nonlinear innovation filter provides adaptive suppression of statistical outliers while preserving responsiveness to genuine phase variations. This advantage is most pronounced in...",
+      "page": 14
+    },
+    {
+      "image": "2604.21388_figures/2604.21388_fig7.jpg",
+      "caption": "FIG. 3. Determining the optimal range for the threshold parameter κ. We set the residual phase variance (rad2, color scale) as a function of the threshold parameter κ and the measurement window duration τ for two constrained scenarios: (a) with a fixed diffusion coefficient D and (b) with a fixed photon flux µ. The optimal κ value for each condition is traced by the solid black line. The simulations determine the suitable range for κ to be [1, 1.5] in FI advantage region.",
+      "page": 15
+    },
+    {
+      "image": "2604.21388_figures/2604.21388_fig8.jpg",
+      "caption": "FIG. 4. Phase evolution and noise power spectral density (PSD). The measured phase evolution over time (left) and its corresponding PSD (right) are shown for transmission distances of 0 km, 10 km, 50 km, and 100 km. The solid and dashed lines distinguish the results obtained with the wavelength-division stabilization system disabled (w/o WDM) and enabled (w/ WDM), respectively.",
+      "page": 16
+    },
+    {
+      "image": "2604.21388_figures/2604.21388_fig9.jpg",
+      "caption": "FIG. 5. Phase evolution at 0 km (baseline, no additional fiber link). The data presented on a log-log scale exhibits a linear fit with a slope of 0.71, indicating a power-law exponent of σ ∝τ 0.71. The intercept of this fit yields a phase diffusion coefficient of D = (0.15◦/us0.71)2, which used directly to determine the prior parameters for the filter.",
+      "page": 16
+    },
+    {
+      "image": "2604.21388_figures/2604.21388_fig10.jpg",
+      "caption": "FIG. 6. Schematic of the dual-band inter-node phase stabilization system architecture. Schematic of the hierar- chical dual-stabilization scheme for inter-node phase coherence, featuring two independent channels. The left channel (WDM Stabilization) suppresses fast fiber link noise using a Polarization Beam Splitter (PBS), Electrically Polarized Controller (EPC), and superconducting nanowire single-photon detector (SNSPD). The right channel (TDM Stabilization) compensates residual phase offset with an ´etalon, EPCs, and an AOM4/AOM5 cascade for switching between high-efficiency and high-count-rate SNSPDs. Polarization components (PBS/EPC) enable purification. System coordination is...",
+      "page": 18
+    }
+  ],
+  "figure": "2604.21388_figures/2604.21388_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 4,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 2,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 4,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 2,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}
