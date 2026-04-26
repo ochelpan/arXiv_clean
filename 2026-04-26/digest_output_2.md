@@ -1,11 +1,10 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-26
 
-*130 papers · 61 relevant · 6 highlighted*  
-_⏳ in progress: 130/144 papers processed (file updates after each one)_
+*144 papers · 66 relevant · 6 highlighted*
 
 
-## 🔥 Most relevant (61)
+## 🔥 Most relevant (66)
 
 *Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥3/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page. `(secondary)` marks papers from de-prioritized cond-mat archives.*
 
@@ -44,11 +43,14 @@ _⏳ in progress: 130/144 papers processed (file updates after each one)_
 - [Novel dynamics for an inertial polar tracer in an active bath](#paper-2604.21762) [[arXiv]](http://arxiv.org/abs/2604.21762v1) — 🔥 `non-equilibrium dynamics` **3/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `dissipative systems` **2/5**
 - [Scalable surface ion trap design for magnetic quantum sensing and gradiometry](#paper-2604.21342) [[arXiv]](http://arxiv.org/abs/2604.21342v1) — 🔥 `QC/QI experiment` **3/5** · `quantum measurements` **2/5** · `spintronics-quantum-optics interface` **2/5**
 - [Enhancing Coherence of Spin Centers in p-n Diodes via Optimization Algorithms](#paper-2604.21874) [[arXiv]](http://arxiv.org/abs/2604.21874v1) — 🔥 `spintronics-quantum-optics interface` **3/5** · `dissipative systems` **2/5**
+- [Modulation of Spin Angular Momentum of Emission in Symmetric 1D Plasmonic Crystals by Cathodoluminescence](#paper-2604.21550) [[arXiv]](http://arxiv.org/abs/2604.21550v1) `(secondary)` — 🔥 `interference shaping light` **3/5** · `quantum optics experiment` **2/5**
 - [Structured Quantum State Reconstruction via Physically Motivated Operator Selection](#paper-2604.21272) [[arXiv]](http://arxiv.org/abs/2604.21272v1) — 🔥 `entanglement & information structure` **3/5** · `quantum measurements` **2/5**
 - [Ansätz Expressivity and Optimization in Variational Quantum Simulations of Transverse-field Ising Model Across System Sizes](#paper-2604.20961) [[arXiv]](http://arxiv.org/abs/2604.20961v1) — 🔥 `entanglement & information structure` **3/5**
 - ⭐ [Cryogenic shock exfoliation for ultrahigh mobility rhombohedral graphite nanoelectronics](#paper-2604.21912) [[arXiv]](http://arxiv.org/abs/2604.21912v1) — 🔥 `non-equilibrium dynamics` **3/5**
 - [Decomposing Fractional Quantum Hall Wave Functions via Operator Contraction Multiplication](#paper-2604.21434) [[arXiv]](http://arxiv.org/abs/2604.21434v1) — 🔥 `entanglement & information structure` **3/5**
 - [Dual-use quantum hardware for quantum resource generation and energy storage](#paper-2604.21913) [[arXiv]](http://arxiv.org/abs/2604.21913v1) — `dissipative systems` **2/5** · `entanglement & information structure` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+- [Physics of Computation and Behavior in Plants](#paper-2604.21763) [[arXiv]](http://arxiv.org/abs/2604.21763v1) `(secondary)` — `dissipative systems` **2/5** · `driven-dissipative phase transition` **2/5** · `non-equilibrium dynamics` **2/5** · `non-equilibrium universality` **2/5**
+- [Shaping nematic order in bacterial films with single-cell resolution patterning](#paper-2604.21655) [[arXiv]](http://arxiv.org/abs/2604.21655v1) `(secondary)` — `dissipative systems` **2/5** · `driven-dissipative phase transition` **2/5** · `non-equilibrium dynamics` **2/5** · `non-equilibrium universality` **2/5**
 - [Nanoscale Fluorescence Thermometry: Probes, Recent Advances and Emerging Directions](#paper-2604.21186) [[arXiv]](http://arxiv.org/abs/2604.21186v1) `(secondary)` — `QC/QI experiment` **2/5** · `quantum optics experiment` **2/5** · `spintronics-quantum-optics interface` **2/5** · `quantum measurements` **1/5**
 - [Pulse Shaping for Superconducting Qubits](#paper-2604.21565) [[arXiv]](http://arxiv.org/abs/2604.21565v1) — `QC/QI experiment` **2/5** · `dissipative systems` **2/5** · `non-equilibrium dynamics` **2/5**
 - [Chaos Gated Tunneling Drives Molecular Reactivity in Astrophysical Environments](#paper-2604.21005) [[arXiv]](http://arxiv.org/abs/2604.21005v1) — `entanglement & information structure` **2/5** · `scars & prethermalization` **2/5** · `non-equilibrium dynamics` **1/5**
@@ -64,11 +66,13 @@ _⏳ in progress: 130/144 papers processed (file updates after each one)_
 - [Analytic Inverse Design of Temporal Metamaterials via Space-Time Duality](#paper-2604.21383) [[arXiv]](http://arxiv.org/abs/2604.21383v1) `(secondary)` — `interference shaping light` **2/5**
 - [Composite quantum gates simultaneously compensated for multiple errors](#paper-2604.21594) [[arXiv]](http://arxiv.org/abs/2604.21594v1) — `Rydberg arrays` **2/5**
 - [Design optimization of flux concentrators for magnetic tunnel junctions-based sensors](#paper-2604.21500) [[arXiv]](http://arxiv.org/abs/2604.21500v1) `(secondary)` — `spintronics-quantum-optics interface` **2/5**
+- [Double circular dichroism high harmonic spectroscopy: An ultrafast probe for topological photocurrents](#paper-2604.21121) [[arXiv]](http://arxiv.org/abs/2604.21121v1) `(secondary)` — `non-equilibrium dynamics` **2/5**
 - [Effect of Mn Substitution on Superconductivity in PrFeAs(O,F): Role of Magnetic Impurities](#paper-2604.21684) [[arXiv]](http://arxiv.org/abs/2604.21684v1) — `Kondo & dissipative impurity` **2/5**
 - [Generative Discovery of Magnetic Insulators under Competing Physical Constraints](#paper-2604.21073) [[arXiv]](http://arxiv.org/abs/2604.21073v1) `(secondary)` — `spintronics-quantum-optics interface` **2/5**
 - [LightStim: A Framework for QEC Protocol Evaluation and Prototyping with Automated DEM Construction](#paper-2604.21472) [[arXiv]](http://arxiv.org/abs/2604.21472v1) — `quantum measurements` **2/5**
 - [Neural surrogates for crystal growth dynamics with variable supersaturation: explicit vs. implicit conditioning](#paper-2604.21753) [[arXiv]](http://arxiv.org/abs/2604.21753v1) `(secondary)` — `methods for driven-dissipative` **2/5**
 - [Optical nonlinear anomalous Hall effect reveals the hidden spin order in antiferromagnets](#paper-2604.21802) [[arXiv]](http://arxiv.org/abs/2604.21802v1) `(secondary)` — `spintronics-quantum-optics interface` **2/5**
+- [Self-phoretic colloids in chiral active fluids](#paper-2604.21701) [[arXiv]](http://arxiv.org/abs/2604.21701v1) `(secondary)` — `non-equilibrium dynamics` **2/5**
 - [Velocity-field characteristics and device performance in nanoscale amorphous oxide Thin-Film-Transistors](#paper-2604.21225) [[arXiv]](http://arxiv.org/abs/2604.21225v1) `(secondary)` — `non-equilibrium dynamics` **1/5**
 
 
@@ -7929,7 +7933,257 @@ Exact quantum codes detecting a prescribed set of Pauli errors are approached th
 *Papers from cond-mat.mtrl-sci, mes-hall, other, soft, supr-con. These archives are de-prioritized — they appear at the end regardless of relevance score.*
 
 
-### Relevant in secondary archives (8)
+### Relevant in secondary archives (13)
+
+<a id="paper-2604.21550"></a>
+### [Modulation of Spin Angular Momentum of Emission in Symmetric 1D Plasmonic Crystals by Cathodoluminescence](http://arxiv.org/abs/2604.21550v1)
+
+**Authors:** Yuxin Yang, Izzah Machfuudzoh, Qiwen Tan, Takumi Sannomiya  
+**Type:** experiment · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21550v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `interference shaping light` **3/5** · `quantum optics experiment` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21550_figures/2604.21550_fig1.jpg" width="500"><br>
+<sub>Figure 1. (a) Illustration of CPL generation through interference of TR and emission induced by</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21550_figures/2604.21550_fig2.jpg" width="500"><br>
+<sub>Figure 2. Results of the large terrace 1D PlC. Dispersion plots for the (a) p-polarized and (b) s-</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21550_figures/2604.21550_fig3.jpg" width="500"><br>
+<sub>Figure 3. Results of the small terrace 1D PlC. Dispersion plots for the (a) p-polarized and (b) s-</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21550_figures/2604.21550_fig4.jpg" width="500"><br>
+<sub>Figure 4. Results of the single groove of small terrace sample. (a) S-polarized energy-scan line</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21550_figures/2604.21550_fig5.jpg" width="500"><br>
+<sub>Figure 5 shows the CL measurement and simulation results in the bottom edge area. To investigate</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21550_figures/2604.21550_fig6.jpg" width="500"><br>
+<sub>Figure 5. Results of the bottom edge of small terrace 1D PlC along x direction. (a) Secondary</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21550_figures/2604.21550_fig7.jpg" width="500"><br>
+<sub>Figure 5 of the main text. Several fringes that are independent of both energy and emission</sub>
+
+</details>
+
+**Main problem.** The challenge of achieving efficient, dynamic, and controllable modulation of circularly polarized light (CPL) and spin angular momentum (SAM) without relying on static, structurally chiral systems.
+
+**Main result.** Demonstrated that symmetric 1D plasmonic crystals can generate and modulate CPL through 'extrinsic chirality' via the interference of transition radiation and surface plasmon polariton modes, allowing for control via excitation position, energy, and angle.
+
+**Method.** 4D STEM-Cathodoluminescence (STEM-CL) spectroscopy was used to perform simultaneous energy- and momentum-resolved measurements of light emission induced by a highly localized electron beam.
+
+**Summary.** This paper demonstrates a method to generate and control circularly polarized light using symmetric, non-chiral 1D plasmonic crystals. By using an electron beam in a STEM setup, the researchers showed that the interference between transition radiation and plasmonic modes can be tuned by changing the excitation position or energy. This 'extrinsic chirality' approach allows for dynamic modulation of light's spin angular momentum at the nanoscale. This provides a new pathway for designing tunable nanophotonic and chiral photonic devices.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system consists of symmetric 1D plasmonic crystals made of silver (Ag) on an indium phosphide (InP) substrate, featuring periodic terrace and groove structures with varying widths.
+
+**Key observables.** Spin angular momentum (SAM), Stokes parameter S3 (CPL handedness), CL intensity, SPP dispersion relations, and phase information.
+
+**Important parameters / regimes.** Photon energy, emission angle, excitation position along the terrace, and terrace width (large vs. small regime).
+
+**Assumptions / limitations.** The interference model assumes the CPL generation is dominated by the interference of two primary components (TR and SPP-induced modes) and treats other terms as constant.
+
+**Figures summary.** Figure 1 shows the experimental setup and schematic of CPL generation; Figure 2 displays dispersion relations and CPL handedness inversion in large terraces; Figure 3 presents energy-scan profiles and S3 parameters for small terraces; Figure 4 details the interference-modulated CPL at structural boundaries.
+
+**Paper structure.** The paper introduces the problem of static chiral structures, describes the 1D plasmonic crystal platform and STEM-CL setup, analyzes the CPL generation mechanism in large and small terrace regimes, investigates boundary interference effects, and concludes with the implications for nanoscale photonic control.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The spin angular momentum (SAM) of light has become a cornerstone of numerous photonic applications, including optical communication and chiral photonics. Because SAM is inherently associated with circularly polarized light (CPL), the ability to modulate CPL in a controlled and efficient manner is essential not only for advancing fundamental studies of light-matter interactions but also for enabling next-generation photonic technologies. However, such modulation is commonly realized by structurally chiral systems, which inherently limits the feasibility of dynamic tuning. Here, we demonstrate that one-dimensional plasmonic crystals (1D PlCs), despite their structural symmetry, can serve as a platform for controllable CPL generation. By employing an electron beam in scanning transmission electron microscopy (STEM), we coherently excite transition radiation and emission from 1D PlC modes. Their interference produces energy- and momentum- (emission angle-) resolved CPL, which clearly reveals its dispersion and spatial dependence at the nanoscale, providing direct guidance for its manipulation and offering insights into the design of plasmonic devices including the phase information. Furthermore, interference with surface plasmon polariton scattering at the structural boundary enables the efficiency modulation of CPL generation via the excitation position along the terrace.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21763"></a>
+### [Physics of Computation and Behavior in Plants](http://arxiv.org/abs/2604.21763v1)
+
+**Authors:** Yasmine Meroz  
+**Type:** both · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21763v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `dissipative systems` **2/5** · `driven-dissipative phase transition` **2/5** · `non-equilibrium dynamics` **2/5** · `non-equilibrium universality` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21763_figures/2604.21763_fig1.jpg" width="500"><br>
+<sub>Figure 1</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21763_figures/2604.21763_fig2.jpg" width="500"><br>
+<sub>Figure 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21763_figures/2604.21763_fig3.jpg" width="500"><br>
+<sub>Figure 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21763_figures/2604.21763_fig4.jpg" width="500"><br>
+<sub>Figure 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21763_figures/2604.21763_fig5.jpg" width="500"><br>
+<sub>Figure 5</sub>
+
+</details>
+
+**Main problem.** How plants achieve complex, coordinated behavior and decentralized computation in the absence of a centralized nervous system.
+
+**Main result.** The paper proposes a unified physical framework where plant behavior emerges from distributed physical computation, embodied mechanical intelligence, and functional stochasticity, mapping species-specific dynamics onto a universal phase-diagram-like structure using a balance number.
+
+**Method.** The study combines analytical modeling (Frenet-Serret frames, linear response theory, and control theory) with experimental measurements of tip-angle dynamics and morphology across 12 different plant genotypes.
+
+**Summary.** This review presents a physical framework for understanding plant behavior as a form of decentralized, embodied computation. It argues that plants use growth-driven dynamics, mechanical properties, and stochasticity to sense and navigate their environment. By treating plant organs as active, slender bodies, the author shows how complex behaviors like tropisms emerge from the integration of biochemical and mechanical signals. The paper provides a unified way to categorize different plant species based on a dimensionless balance number.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system consists of growing plant organs (shoots and roots) treated as active, slender bodies and decentralized active matter. Models include 2D and 3D dynamical equations for curvature, Langevin-type models for interacting disks, and memory kernels modeled via second-order ODEs.
+
+**Key observables.** Curvature (kappa), organ geometry, tip-angle dynamics, growth rate variation, and oscillatory modes of bending.
+
+**Important parameters / regimes.** Balance number (B = Lgz/Lc), gravitropic sensitivity (beta), proprioceptive sensitivity (gamma), and the power-law exponent (alpha) for nonlinear signal transduction.
+
+**Assumptions / limitations.** The integration of the three proposed physical principles is in early stages; the mapping of biological mechanisms to RLC-circuit-like analogies is not yet fully established.
+
+**Figures summary.** Fig 1 shows gravitropic response, gravity sensing via statoliths, and auxin-induced asymmetric growth. Fig 2 illustrates characteristic length scales and different dynamical modes (0, 1, 2) across species. Fig 3 displays the biphasic memory kernel in wheat and spatial integration in sunflowers.
+
+**Paper structure.** The paper progresses from the biological problem of decentralized control to a physical framework of active matter, develops mathematical models for tropisms and spatial/temporal integration, and concludes with the role of stochasticity and mechanical interaction in emergent plant architecture.
+
+**Why it may be interesting.** The paper explores decentralized computation, memory formation in physical systems, and the use of noise as a functional resource, which are highly relevant to non-equilibrium statistical mechanics and the study of information processing in active matter.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Plants solve complex problems without centralized control, relying instead on growth-driven dynamics to sense, navigate, and optimize resource acquisition. This review presents a unified physical framework for understanding plant behavior through three complementary principles: distributed physical computation, embodied mechanical intelligence, and functional stochasticity. Tropic responses and circumnutations are interpreted as spatio-temporal dynamical systems in which information is encoded in biochemical and mechanical fields, integrated over space and time, and translated into differential growth. Mechanical interactions couple morphology to environmental constraints, enabling computation through material properties. Stochastic fluctuations, from molecular to organismal scales, act as functional resources that enhance sensing, exploration, and collective organization. Together, these processes position plants as a model system for decentralized computation in active matter, where behavior and structure emerge from the interplay of growth, transport, mechanics, and noise.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21655"></a>
+### [Shaping nematic order in bacterial films with single-cell resolution patterning](http://arxiv.org/abs/2604.21655v1)
+
+**Authors:** Matthias Le Bec, Guillem Pérez Martín, Cameron Boggon, Yiyao Hu, Leonardo Puggioni, Rosa Heydenreich, Alexander Mathys, Luca Giomi, Eleonora Secchi, Lucio Isa  
+**Type:** both · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21655v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `dissipative systems` **2/5** · `driven-dissipative phase transition` **2/5** · `non-equilibrium dynamics` **2/5** · `non-equilibrium universality` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21655_figures/2604.21655_fig1.jpg" width="500"><br>
+<sub>Fig. 1 Single-cell control of bacteria position and growth orientation using capillarity-driven spore trapping. (A) Scheme of the experimental procedure. Capillarity-Assisted Particle Assembly (CAPA) is performed with a B. subtilis spore suspension over a PDMS surface micropatterned with traps of sizes fitting a single spore. Pouring melted nutritive gel directly onto the spore-loaded surface induces synchronised germination and bacterial outgrowth in 2D between the PDMS and the cured gel. (B) SEM images of spore-loaded PDMS surfaces for 4 µm spaced trap arrays with perpendicular (top) or parallel (bottom) orientations. Inset is a zoom-in on one spore in a trap, the dimensions of this spore...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21655_figures/2604.21655_fig2.jpg" width="500"><br>
+<sub>Fig. 2 Isolated chain buckling and nematic defect creation. (A) Bright-field image of isolated bacteria chains obtained by patterning spores in traps spaced by 100µm exemplifying different buckling modes. Experimental (B) and simulation (C) time-series of an isolated bacteria chain undergoing buckling. The colour scale corresponds to the local curvature, and thus the bending stress, with blue indicating mechanically relaxed regions and red indicating strongly loaded regions. Quantification of the numerical (D) and experimental (E) buckling critical length for isolated bacteria chains. The numerical data are rescaled by the theoretical length scale ξ = (B/f)1/3. (F) Emergence and unbinding...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21655_figures/2604.21655_fig3.jpg" width="500"><br>
+<sub>Fig. 3 Nematic order and collective flows emerging from elongating B. subtilis chains with perpendicular initial orientation. (A) Time-lapse images of growing B. subtilis bacterial chains starting from v 10µm-spaced spore arrays with perpendicular outgrowth orientations at t = 30, 90, 120, 150, 180, 240 and 300 min. The bright-field images are analysed to reconstruct the nematic director field, corresponding to local filament orientation, superimposed in green on the middle part of the images. The director field is used to detect +1/2 (cyan arrow) and -1/2 (red trefoil) topological defects. Time evolution of the mean nematic order (B) and defect density (C) for different trap spacing with...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21655_figures/2604.21655_fig4.jpg" width="500"><br>
+<sub>Fig. 4 Parallel initial orientation influences B. subtilis active nematic by imposing early high nematic order. (A) Time-lapse images of B. subtilis bacterial chains grown from 10µm spaced spore arrays with parallel orientation at t = 30, 90, 120, 150, 180, 240 and 300 min. The nematic director field corresponding bacteria orientation is superimposed in green on the middle part of the images and is used to detect +1/2 (cyan arrow) and -1/2 (red trefoil) topological defects. Collective buckling events are represented by orange arrows and dashed lines, corresponding to the time points 150 min and 290 min. (B) Snapshots from a multi-chain numerical simulation at different times, from the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21655_figures/2604.21655_fig5.jpg" width="500"><br>
+<sub>Fig. 5 Influence of trap spacing on nematic order, defect density and their orientations for parallel initial configurations. (A) Time evolution of the mean nematic order and (C) defect density for parallel orientations. Shaded areas represent ±one standard deviation for three technical replicates. Red dashed line represents the corresponding time evolution for randomly oriented traps with 20µ spacing. (B, D) Corresponding simulation results for the mean nematic order and defect density. (E) Time evolution of the mean nematic orientation for 4, 10, 20 and 30 µm spaced trap with parallel orientations. The larger the spacing the more synchronous buckling events. Lines represent the mean and...</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21655_figures/2604.21655_fig6.jpg" width="500"><br>
+<sub>Fig. 6 Ordered bacteria act as living diffraction gratings: controlling bacterial microstructure allows creating structural colouration patterns. (A) Scheme of the observation geometry of the nematic films, showing the bacterial chains aligned vertically (”Sample”). White light with normal incidence to the sample is diffracted when passing through the bacterial film. Constructive and destructive interferences result in rays of light diverging along the normal plan to the bacteria orientation, with an angle α, which depends on the light wavelength. The diffracted rays correspond to the structural colourations and are imaged with a camera. The camera can be tilted at different angles α and...</sub>
+
+</details>
+
+**Main problem.** Understanding how initial spatial organization and single-cell resolution patterning influence the emergence of nematic order, topological defect dynamics, and mechanical instabilities in growing active nematic bacterial films.
+
+**Main result.** The researchers demonstrated that parallel-oriented spore seeding induces high nematic order and synchronous collective buckling, whereas orthogonal seeding leads to active turbulence; they also showed that this control enables the creation of living diffraction gratings with programmable structural color.
+
+**Method.** The study uses Capillarity-Assisted Particle Assembly (CAPA) for single-cell resolution patterning of B. subtilis spores, combined with time-lapse microscopy, polarized light microscopy, and numerical simulations of interacting, growing filaments.
+
+**Summary.** This paper presents a method to pattern bacterial spores at single-cell resolution to control the macroscopic properties of growing bacterial films. By arranging spores in parallel or perpendicular arrays, the researchers can switch between a state of active turbulence and a state of high nematic order with synchronous buckling. This level of control allows for the creation of 'living materials' that exhibit programmable structural color and light polarization. The work bridges microscopic cell growth mechanics with macroscopic pattern formation in active matter.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system consists of growing Bacillus subtilis colonies forming 2D active nematic films. The numerical model uses a 2D bead-spring framework representing filaments with bending elasticity, growth-driven expansion, self-adhesion, and substrate friction.
+
+**Key observables.** Nematic order parameter, topological defect density (+/- 1/2 disclinations), critical buckling length, structural coloration (diffraction-based), and defect motility.
+
+**Important parameters / regimes.** Trap spacing (4 to 100 micrometers), spore orientation (parallel, perpendicular, random), and the characteristic buckling length scale xi.
+
+**Assumptions / limitations.** The numerical model assumes an overdamped regime with constant friction and uses a simplified 1D rod approximation for the mechanical buckling analysis.
+
+**Figures summary.** Figure 1 shows the CAPA process and spore arrays; Figure 2 quantifies isolated chain buckling; Figure 3 shows active turbulence in perpendicular orientations; Figure 4 illustrates collective buckling and ripplocations; Figure 5 details the diffraction grating model and structural color; Figure 6 demonstrates programmable 2D images like a butterfly.
+
+**Paper structure.** The paper introduces the CAPA patterning method, demonstrates the impact of initial orientation on nematic order and defect dynamics, provides a mechanical model for filament buckling and loop formation, presents numerical simulations validating the experimental findings, and concludes with applications in creating functional living materials.
+
+**Why it may be interesting.** The study explores how prescribed initial conditions and broken rotational symmetry can bypass spontaneous active turbulence to reach highly ordered states, which is conceptually relevant to controlling non-equilibrium phase transitions and pattern formation in driven many-body systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Bacterial colonies composed of elongated cells form active nematic fluids that spontaneously self-organise into ordered domains of aligned cells and exhibit self-generated chaotic flows powered by cell growth. While their dynamics have attracted significant attention, the role of initial conditions remains largely unexplored due to a lack of precise patterning methods. Here, we harness the precision of capillary assembly to pattern Bacillus subtilis endospores into arrays with controlled positions and orientations at single-cell resolution. Upon germination and growth of cell chains, we quantify the dynamics and morphologies of the resulting bacterial films. While orthogonally seeded spores lead to chaotic dynamics, seeding them with parallel orientations yields films with high nematic order across millimetres, which subsequently synchronously buckle upon further growth. Our observations are captured by numerical simulations and a model that describes the buckling dynamics starting from the mechanical properties of individual filaments. By programming local cell orientation with single-cell precision, we finally harness nematic alignment to create macroscopic bacterial films with local optical anisotropy, via structural colouration and light polarisation. Our findings demonstrate that initial conditions play a key role and offer exciting opportunities to control the spatio-temporal organization of bacterial assemblies towards addressing open biological questions and realizing living materials with tailored properties.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
 
 <a id="paper-2604.21186"></a>
 ### [Nanoscale Fluorescence Thermometry: Probes, Recent Advances and Emerging Directions](http://arxiv.org/abs/2604.21186v1)
@@ -8282,6 +8536,116 @@ Miniaturized, ultra-sensitive and easily integrable magnetometers are needed for
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21121"></a>
+### [Double circular dichroism high harmonic spectroscopy: An ultrafast probe for topological photocurrents](http://arxiv.org/abs/2604.21121v1)
+
+**Authors:** Osamah Sufyan, Ofer Neufeld  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21121v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21121_figures/2604.21121_fig1.jpg" width="500"><br>
+<sub>FIG. 1: Illustration of DCD set-up. A pump pulse excites edge currents in a Haldane nanoflake, and a subsequent delayed (∆t) probe pulse generates HHG from the current-carrying state, which can be indicative of the pumped topological bulk/edge photocurrents and their ultrafast evolution. Both pump and probe are circular, allowing four configurations of alternating helicities that map the full double circular dichroism (DCD) response. The inset shows typical HHG emission from trivial and topological states in this pump-probe configuration for a specific choice of helicities. By measuring HHG with different helicities and laser parameters one hopes to separate the bulk and edge contributions...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21121_figures/2604.21121_fig2.jpg" width="500"><br>
+<sub>FIG. 2: (a) Hexagonal 2D flake of size m = 5 showing atomic positions arranged on a honeycomb lattice and edge currents animated in red. The sight size is proportional to its occupation in this illustrated helical TPSS. (b) Energy spectrum eigenmodes for this system vs state index for parameters M = 0.01, t2 = 0.03, and t1 = −0.1. (c) Pump pulse profile with the zero-field region and (d) the resulting edge current with the temporal region where the average edge current is calculated highlighted.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21121_figures/2604.21121_fig3.jpg" width="500"><br>
+<sub>FIG. 3: Laser pump tunable edge photocurrents, Jedge, in different laser-matter conditions. (a,c) Photocurrent generation induced by a circular pump with left circular polarization (LCP) in (a), and right CP (RCP) in (b), calculated vs. different pump field amplitudes, and for various values of the NNN hopping t2. The topological phase arises for t2 = ±0.2 a.u., while a trivial phase emerges for t2 = ±0.02 a.u. (b,d) Similar to (a,c) but vs the t2 parameter and for a few different values of A(pump) 0 .</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21121_figures/2604.21121_fig4.jpg" width="500"><br>
+<sub>FIG. 4: Normalized integrated harmonic yields driven by circularly polarized pump-probe pulses. (a-c) HHG yields driven by right/left circular probe pulses with a fixed LCP helicity for the pump pulse, for t2 = 0.15 a.u. for select harmonic orders. (d-f) Same as (a-c) but for the trivial phase case (t2 = 0.001 a.u.). The harmonics orders 2,5,6 were chosen since in these harmonics the HHG CD for the trivial phase nearly vanishes. All remaining harmonic data can be found in the Supplementary Information (SI).</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21121_figures/2604.21121_fig5.jpg" width="500"><br>
+<sub>Figure 5 presents normalized HHG CD of select har- monics as a function of the pump amplitude for the triv- ial and topological cases. For the trivial case, the CD vanishes for these harmonics, indicating absence of chi- ral asymmetry (expected from Fig. 4 showing similar HHG amplitudes forR/L probe helicities). On the other hand, the topological phase exhibits strong CD in agree- ment with previous predictions [32, 57]. As Apump 0 in- creases, the CD magnitude generally grows, though we note that this behavior is non-monotonic, and is also prone to sign changes for sufficiently intense pumps, in- dicating an intricate highly nonlinear relationship be- tween pump-induced photocurrents and...</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21121_figures/2604.21121_fig6.jpg" width="500"><br>
+<sub>FIG. 5: Corresponding HHG CD and DCD in similar conditions to Fig. 4.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21121_figures/2604.21121_fig7.jpg" width="500"><br>
+<sub>FIG. 6: Corresponding HHG CD and DCD in similar conditions to Fig. 5 for the topological phase, but where (a-c) is bulk-only HHG, and (d-f) is the full bulk+edge response. The edge-only response can be inferred by subtraction.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21121_figures/2604.21121_fig8.jpg" width="500"><br>
+<sub>FIG. 7: Same as Fig. 4 in the main text but for remaining harmonic orders (3,4,7). Each harmonic order is indicated in plot.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21121_figures/2604.21121_fig9.jpg" width="500"><br>
+<sub>FIG. 8: Same as Fig. S1 but for remaining harmonic orders (8,9,10). Each harmonic order is indicated in plot.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21121_figures/2604.21121_fig10.jpg" width="500"><br>
+<sub>FIG. 9: Same as Fig. 5 in the main text but for remaining harmonic orders. Each harmonic order is indicated in the y-axis of each plot.</sub>
+
+</details>
+
+**Main problem.** The difficulty in sensing ultrafast photocurrents and distinguishing between bulk and edge (surface) contributions in topological materials using optical probes.
+
+**Main result.** The introduction of Double Circular Dichroism (DCD) harmonic spectroscopy, an all-optical probe that can disentangle bulk and edge responses because they exhibit opposite signs and different scaling in the DCD signal.
+
+**Method.** Real-time propagation of single-particle eigenstates using a 4th-order Runge-Kutta scheme to solve the time-dependent Schrödinger equation with Peierls substitution.
+
+**Summary.** This paper proposes a new spectroscopic technique called Double Circular Dichroism (DCD) to study ultrafast dynamics in topological materials. By using circularly polarized pump and probe pulses with independently controlled helicities, the authors show that one can isolate the contributions of edge states from bulk states in high-harmonic generation. The method is particularly effective in systems with broken time-reversal symmetry, such as Chern insulators. This provides a powerful tool for disentangling complex photo-responses in quantum matter.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A 2D Haldane nanoflake on a honeycomb lattice, featuring a Hamiltonian with nearest-neighbor, complex next-nearest-neighbor, and staggered on-site potential terms to model Chern insulators.
+
+**Key observables.** High-harmonic generation (HHG) spectra, Circular Dichroism (CD), Double Circular Dichroism (DCD), and edge-resolved photocurrents.
+
+**Important parameters / regimes.** Pump and probe pulse helicity, pump amplitude, laser frequency, pulse delay, and the Haldane model parameters (hopping phase and staggered potential).
+
+**Assumptions / limitations.** The simulation assumes the dipole approximation and neglects dephasing or decoherence channels, assuming long coherence times in the topological insulators.
+
+**Figures summary.** Fig 1: DCD setup illustration; Fig 2: Haldane flake geometry, energy spectrum, and edge current evolution; Fig 3: Edge photocurrents vs. pump amplitude; Fig 4: HHG yields in topological vs. trivial phases; Fig 5: Comparison of CD and DCD; Fig 6: Separation of bulk and edge HHG responses.
+
+**Paper structure.** The paper introduces the scientific problem of distinguishing bulk/edge currents, presents the DCD spectroscopic method, demonstrates the concept using the Haldane model, provides numerical evidence for bulk/edge separation, and discusses the utility of DCD in broken-symmetry systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Understanding optical responses of topological matter is a central problem for enabling optoelectronic applications based on topological physics, which is of fundamental concern for photocurrents control and spectroscopy. Currently, schemes for sensing ultrafast photocurrents and separating their bulk/surface contributions are lacking. We introduce here double circular dichroism (DCD) harmonic spectroscopy as an all-optical probe of ultrafast dynamics in topological materials. In this scheme, pump and probe pulses are circular with helicities that are independently controlled, yielding the circular dichroism of the circular dichroism -- a time-resolved response evaluating how probe-induced dichroism depends on pump helicity. While DCD vanishes in symmetric systems, it survives in broken time-reversal symmetry materials including Chern insulators. We theoretically demonstrate this concept through simulations in a Haldane nanoflake, where a pump laser manipulates chiral current-carrying states, and intense probe pulses drive harmonic emission. We show that DCD originates from both bulk and edge-localized states, but these have opposite signs, similar magnitudes, and a different amplitude scaling. Hence, DCD could allow efficient separation of bulk/edge contributions to photocurrents. Variation of the electronic structure and laser parameters further reveals anomalies that might be useful for probing topological attributes of photocurrents in select harmonics. Overall, our work introduces DCD as a potentially powerful approach for disentangling bulk/boundary photo-responses in broken-symmetry quantum matter, and could also be implemented in other pump-probe spectroscopies based on photoelectrons and absorption, as well as other chiral systems.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21073"></a>
 ### [Generative Discovery of Magnetic Insulators under Competing Physical Constraints](http://arxiv.org/abs/2604.21073v1)
 
@@ -8535,6 +8899,62 @@ Reading antiferromagnetic order remains a central obstacle for antiferromagnetic
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21701"></a>
+### [Self-phoretic colloids in chiral active fluids](http://arxiv.org/abs/2604.21701v1)
+
+**Authors:** Michalis Chatzittofi, Yuto Hosaka, Andrej Vilfan, Ramin Golestanian  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21701v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21701_figures/2604.21701_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Schematic of a self-phoretic Janus particle in a 3D chiral active fluid with even (shear) viscosity ηe and odd viscosity ηo. The Janus swimmer of radius a with a broken fore-aft symmetry in the mobility µ and the activity α moves with translational velocity V = V p and rotational velocity Ω, the latter arising from the odd viscosity. The unit vector e denotes the axis of chirality of the surrounding fluid. Microscopically, its direction can correspond to the axis around which microscopic fluid components spin.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21701_figures/2604.21701_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Two examples of spherical active phoretic colloids with axisymmetric coating (a) Saturn and (b) Janus [14].</sub>
+
+</details>
+
+**Main problem.** Investigating how odd viscosity in 3D chiral active fluids affects the translational and rotational self-propulsion of self-phoretic colloids.
+
+**Main result.** The translational velocity remains independent of odd viscosity, but the rotational velocity is explicitly modified, allowing for spontaneous rotation in axisymmetric particles and inducing complex trajectories like helical motion.
+
+**Method.** The authors use the generalized Lorentz reciprocal theorem for fluids with odd viscosity and expand surface activity and mobility profiles using spherical harmonics.
+
+**Summary.** This paper explores how the 'odd viscosity' found in chiral active fluids influences the movement of self-propelled particles. While the speed of the particles' forward motion is unaffected by this effect, their rotation is significantly altered. This allows particles that normally move in straight lines to spin or move in helical paths. The research provides a theoretical framework for understanding how symmetry breaking in the fluid environment leads to emergent complex dynamics in active matter.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A 3D incompressible Stokes flow characterized by even and odd viscosity, containing spherical phoretic microswimmers (such as Janus or Saturn particles) with asymmetric surface coatings.
+
+**Key observables.** Translational velocity (V), angular velocity (Omega), stresslet tensor (S), and Euler angle dynamics.
+
+**Important parameters / regimes.** Odd-to-even viscosity ratio (lambda), surface activity (alpha), surface mobility (mu), and the axis of chirality (e).
+
+**Assumptions / limitations.** Low Reynolds number (Stokes flow), low Péclet number (diffusion-dominated), and an isotropic continuum fluid with a preferred axis of chirality.
+
+**Figures summary.** Figure 1 shows a schematic of a Janus particle in a chiral fluid; Figure 2 illustrates Saturn and Janus swimmer models; Figure 3 shows non-axisymmetric coatings and the phase-space dynamics of Euler angles.
+
+**Paper structure.** The paper introduces the problem of phoretic transport in chiral fluids, defines the hydrodynamic model with odd viscosity, derives velocity expressions using the reciprocal theorem, analyzes specific particle geometries (Janus and Saturn), and explores the resulting complex trajectories and symmetry breaking.
+
+**Why it may be interesting.** The study of non-equilibrium transport and broken time-reversal/parity symmetries in active fluids provides insights into the fundamental hydrodynamic coupling between particle geometry and dissipative/non-dissipative viscosity components.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Autonomous and driven transport in chiral active fluids have been shown to exhibit features that cannot be accommodated within the classical formulation of fluid mechanics, due to the role of odd viscosity. We generalize the theory of phoretic active matter to fluid environments with odd viscosity and derive expressions for translational and rotational self-propulsion velocities in the case of a spherical swimmer with arbitrary activity and mobility surface profiles. We discuss specific examples of chemically active colloids with axisymmetric and non-axisymmetric coatings and the resulting interplay between symmetry and chirality. Our results can be applied to study the emergent collective dynamics of phoretic particles in fluid media with broken time-reversal and parity symmetries.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21225"></a>
 ### [Velocity-field characteristics and device performance in nanoscale amorphous oxide Thin-Film-Transistors](http://arxiv.org/abs/2604.21225v1)
 
@@ -8599,7 +9019,7 @@ The electron velocity-electric field characteristics in short channel length (50
 <sub>[↑ back to top](#top)</sub>
 
 
-### Other secondary papers (27)
+### Other secondary papers (36)
 
 <details><summary>Show other secondary papers</summary>
 
@@ -8922,6 +9342,194 @@ Chiral spin textures such as skyrmions have attracted considerable attention due
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21448"></a>
+### [Continuum granular flow model with restitution-derived viscoelastic damping](http://arxiv.org/abs/2604.21448v1)
+
+**Authors:** Bodhinanda Chandra, Sachith Dunatunga, Ken Kamrin  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21448v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21448_figures/2604.21448_fig1.jpg" width="500"><br>
+<sub>Figure 1: Schematic illustration of the considered rheological model representing a volume element of a dense granular assembly under confined shearing. The spring elements, K and G, denote the bulk and shear moduli, whereas the linear dashpots, ϑ and η, indicate the bulk and shear viscosities. The frictional plastic elements consist of a static frictional slider and a complex dashpot, denoted µs and µI, respectively. These elements correspond to the rate-independent and rate-dependent frictional resistance, respectively. Furthermore, the no-tension element separates when the granular assembly undergoes tensile loading. Since the plastic elements are arranged in series with the viscoelastic...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21448_figures/2604.21448_fig2.jpg" width="500"><br>
+<sub>Figure 2: (a) A schematic illustration of a spherical assembly with radius a consisting of particles with grain diameter d. The spherical assembly deforms volumetrically under spherical compression impact, characterized by (b) volumetric strain, εv, and (c) volumetric strain rate, ˙εv, which evolve over time. As the granular assembly cannot carry any tension, the contact time (or release time) is considered to be the time at which the volumetric strain rate reaches its maximum value. This contact time is observed to differ for undamped and damped contact, i.e. te c for ϑ = 0 and tve c for ϑ &gt; 0, respectively. For a damped assembly, the grains may lose their contact, which leads to zero...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21448_figures/2604.21448_fig3.jpg" width="500"><br>
+<sub>Figure 3: Comparison between the nonlinear profiles of continuum coefficient of restitution E depending on ˜ϑ. The analytical form (Eq. (37)) is plotted in blue, while the approximate form (Eq. (38)) is plotted in red line. The dashed black line plots the form given in Eq. (41), which was derived considering the limit of high λ/G ratio and small viscosity ˜ϑ (cf. Remark 1).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21448_figures/2604.21448_fig4.jpg" width="500"><br>
+<sub>Figure 4: Schematic illustration of the MPM computational cycle. The continuum body is discretized into Lagrangian material points that store all history-dependent variables. At the beginning of each time step, kinematic quantities are mapped from the material points to the background grid, where the mass and momentum equations are solved at the grid nodes. The updated deformation and kinematic fields are then transferred back to the material points, whose positions are subsequently updated. Because the grid carries no history information, it can be reset after each step, enabling the method to accommodate large deformations without mesh distortion issues.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21448_figures/2604.21448_fig5.jpg" width="500"><br>
+<sub>Figure 5: Compaction of a spherical assembly: (a) cross-section view of the model geometry and the initial radial velocity field, normalized by the velocity at r = a. Here, the plotted points represent continuum material points of the MPM solver, each representing many granular particles with packing fraction ϕ. (b) Normalized initial radial velocity as a function of normalized radial distance, r/a.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21448_figures/2604.21448_fig6.jpg" width="500"><br>
+<sub>Figure 6: Compaction of a spherical assembly: (a) comparison between the derived analytical solution (Eq. (37)) and the measured continuum restitution from numerical tests conducted using MPM for different values of bulk viscosity. The continuum restitution is measured by taking the velocity ratio at the surface of the spherical assembly as given by Eq. (14). (b) Time evolution of the velocity ratio at r = a for several values of bulk viscosity, i.e. ˜ϑ = {0, 0.1, 0.5, 1, 5}.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21448_figures/2604.21448_fig7.jpg" width="500"><br>
+<sub>Figure 7: Flow on an inclined plane: (a) model geometry, tilted gravity, and boundary conditions. (b) Simulated steady-state velocity profile using MPM with Θ = 25◦, e = 1. (c) Steady-state horizontal velocity profile at t = 1500 s and (d) time evolution of the height-average velocity, both shown for two tilt angles Θ = 25◦and 30◦and for different restitution coefficient values.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21448_figures/2604.21448_fig8.jpg" width="500"><br>
+<sub>Figure 8: Flat bottom silo flow: model geometry, boundary conditions, and lithostatic mean stress profile.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21448_figures/2604.21448_fig9.jpg" width="500"><br>
+<sub>Figure 9: Flat-bottom silo flow: (a)–(c) MPM simulation snapshots showing the evolution of the plastic shear strain rate, ˙γp, during silo discharge and subsequent reconsolidation for e = 1. (d) The mass remaining in the silo for different coefficient of restitution values. The total mass measurements are adjusted to the full model with a silo dimension of 2L × H.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21448_figures/2604.21448_fig10.jpg" width="500"><br>
+<sub>Figure 10: Flat-bottom silo flow: snapshots of silo-flow reconsolidation obtained from MPM simulations, showing the formation of a heap at the lower base. Five different coefficients of restitution are plotted for comparison: (a) e = 1, (b) e = 0.5, (c) e = 0.1, (d) e = 0.01, and (e) e = 0.001. Two time instances are shown, (left) t = 1.5 s and (right) t = 6 s, to illustrate the development of the heap. Black arrows highlight unphysical oscillations of material points due to undamped elastic contact. The visualized velocity field is not the direct particle velocity, but is interpolated from the grid velocity.</sub>
+
+</details>
+
+**Main problem.** Developing a unified continuum framework for granular flows that bridges the gap between microscopic particle collisions (coefficient of restitution) and macroscopic viscoelastic damping and plastic flow.
+
+**Main result.** The authors derive an explicit analytical link between the microscopic coefficient of restitution and continuum bulk/shear viscosities, enabling a model that captures wave attenuation, pattern formation in vibrated media, and rate-dependent plastic flow.
+
+**Method.** The framework is implemented using the Material Point Method (MPM) with an 'update-stress-first' scheme, utilizing analytical derivations from spherical compression impacts to calibrate the constitutive parameters.
+
+**Summary.** This paper presents a new continuum mechanics framework for modeling granular materials across solid, liquid, and gas-like regimes. By mathematically linking the microscopic coefficient of restitution to macroscopic viscosity, the authors can simulate complex phenomena like wave attenuation and pattern formation in vibrated grains. The model uses the Material Point Method to handle large deformations and material separation. This provides a more physically consistent way to include collisional energy loss in large-scale granular simulations.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A viscoelastic-viscoplastic continuum model for dry, cohesionless granular media, incorporating $\mu(I)$ rheology for plastic flow and a Kelvin-Voigt-like structure for viscoelastic damping.
+
+**Key observables.** Stress tensor, velocity gradient, pressure evolution, accumulated plastic deviatoric strain, and spatial pattern formation (square/diamond shapes).
+
+**Important parameters / regimes.** Coefficient of restitution ($e$), inertial number ($I$), bulk and shear viscosities ($\zeta, \eta$), packing fraction ($\phi$), and the critical density threshold ($\rho_c$) for material separation.
+
+**Assumptions / limitations.** The material cannot support tension (no-tension condition); the grains are assumed to be spherical, stiff, and incompressible; and the gaseous regime neglects kinetic temperature/granular temperature effects.
+
+**Figures summary.** Figure 1 shows the rheological model schematic; Figure 2 shows the granular assembly; Figure 3 compares analytical vs. approximate restitution forms; Figure 4 illustrates the MPM computational cycle; Figure 15/20 show pressure profiles and pattern formation in vibrated beds.
+
+**Paper structure.** The paper begins by identifying the need for a unified model, moves to the analytical derivation of the viscosity-restitution link, describes the construction of the viscoelastic-viscoplastic constitutive law, details the MPM numerical implementation and stability analysis, and concludes with validation through various granular flow simulations (impact, silo, and vibration).
+
+</details>
+
+<details><summary>Abstract</summary>
+
+This work presents a unified viscoelastic-viscoplastic continuum framework for modeling rate-dependent granular flows across regimes. The formulation incorporates two distinct rate-dependent mechanisms, namely micro-inertia and viscoelastic dissipation, within a single continuum description. A central contribution is an explicit link between the coefficient of restitution and a continuum viscosity, derived from an analysis of wave attenuation in granular assemblies, thereby establishing a direct connection between particle-scale collision physics and macroscopic damping. This relation is introduced while retaining inertia-dependent plastic flow governed by the classical $μ(I)$ rheology. The constitutive model is constructed by meticulously partitioning elastic and viscous responses within the model and corresponding stress-update routine, such that viscous dissipation governs wave propagation and collisional processes without altering the plastic flow rule. The framework is implemented within the material point method to simulate transient processes involving large deformations, material separation, and subsequent reconsolidation. A range of numerical examples, including steady, transient, vibrational, and impact-driven flows, demonstrates that the model captures wave propagation, diffusion, and rate-dependent granular behavior within a unified continuum setting.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21499"></a>
+### [Controlled Manipulation of Intermediate State in a Type-I Superconductor](http://arxiv.org/abs/2604.21499v1)
+
+**Authors:** Xin-Sheng Gao, Qun Wang, Ya-Xun He, Xing-Jian Liu, Jun-Han Zhang, Kang-Hong Yin, Jia-Ying Zhang, Jun-Yi Ge  
+**Type:** experiment · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21499v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21499_figures/2604.21499_fig1.jpg" width="500"><br>
+<sub>Figure 1. (a) Photograph of the sample. Scale bar: 1 mm. (b) XRD pattern of the Ta single crystal. The upper inset shows the Laue back diffraction pattern. (c) Temperature dependence of the DC magnetic susceptibility in a field of 5 Oe. (d) Magnetic hysteresis loop measured at 2 K. (e) Initial magnetization curves at various temperatures. (f) H-T flux phase diagram. The red and blue dots represent Hp and Hc, respectively, both taken from the M-H curves. The purple dots indicate the Hp extracted from the MFM images, where flux appears in the scanned area. The red and blue lines represent the fitting results for Hp and Hc using the empirical formula H(T ) = H(0)[1 − (T/Tc)2].</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21499_figures/2604.21499_fig2.jpg" width="500"><br>
+<sub>Figure 1(b) shows the XRD pattern of the Ta sin- gle crystal, where a sharp diffraction peak indexed by (200) is observed. The crystal quality was further veri- fied by Laue back-reflection measurements (inset of Fig. 1(b)), which display bright diffraction spots, confirming the high crystalline quality. Figure 1(c) shows the tem-</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21499_figures/2604.21499_fig3.jpg" width="500"><br>
+<sub>Figure 2. (a)-(f) MFM images of the Ta single crystal obtained after FC to 1.6 K under magnetic fields of (a) 30 Oe, (b) 70 Oe, (c) 150 Oe, (d) 260 Oe, (e) 400 Oe, and (f) 430 Oe. The bright and dark regions correspond to the normal and superconducting states, respectively. Scale bar: 5 µm. (g)-(l) MFM images obtained after ZFC to 1.6 K, with the applied magnetic field subsequently increased to (g) 375 Oe, (h) 380 Oe, (i) 420 Oe, (j) 480 Oe, (k) 510 Oe, and (l) 560 Oe. (m)-(r) MFM images obtained after FC in a magnetic field close to the critical field Hc, followed by gradually decreasing the applied field to (m) 480 Oe, (n) 380 Oe, (o) 280 Oe, (p) 200 Oe, (q) 100 Oe, and (r) 0 Oe. (s)...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21499_figures/2604.21499_fig4.jpg" width="500"><br>
+<sub>Figure 3. (a) MFM image obtained after field cooling at 1 Oe and 1.6 K. (a–e) Flux tube manipulation demonstrating controlled flux tube merging. Arrows indicate the dragging direction of individual flux tubes. Scale bar: 5 µm. (f) Schematic illustration of the MFM-tip manipulation process, where flux tubes can be dragged at a tip–sample distance of h = 50 nm. (g) Cross-sections of flux tubes after field cooling, suggesting that all of them carry the same amount of flux quantum. (h) Cross-section of a flux tube after merging with different numbers of flux tubes. (i) Peak value of the cross-sectional profiles (dots) and their linear fit (gray line).</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21499_figures/2604.21499_fig5.jpg" width="500"><br>
+<sub>Figure 4. (a) MFM image obtained after field cooling at 220 Oe. (b-e) Images showing controlled manipulation of flux stripes. After being laterally dragged by the MFM tip, the magnetic flux stripes are arranged along the scanned direction. (f) Resulting longitudinal arrangement of flux stripes after dragging. Schematic illustration above each image showing the tip-sample height and moving direction. Scale bar: 5 µm.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21499_figures/2604.21499_fig6.jpg" width="500"><br>
+<sub>Figure 5. (a) MFM image obtained after field cooling at 220 Oe. Scale bar: 5 µm. (b)-(f) Flux patterns obtained after applying a 10 Hz AC current with varying amplitudes for 5 min. (g) Variation of the total phase signal of flux regions under different cooling magnetic fields as a function of the applied alternating current amplitude. (h) Iac-H phase diagram showing the flux topology transition at 10 Hz. (i) Iac-f normal phase diagram showing the flux topology transition at 220 Oe. Here, Ion (Ioff ) represents the threshold AC current amplitude at which the flux-grid state forms (disappears).</sub>
+
+</details>
+
+**Main problem.** The difficulty in directly visualizing and actively controlling the topology and dynamics of flux structures (the intermediate state) in Type-I superconductors.
+
+**Main result.** The researchers achieved local manipulation of flux tubes and stripes using an MFM tip and discovered a reversible stripe-to-grid-to-stripe transition driven by AC excitation.
+
+**Method.** Low-temperature Magnetic Force Microscopy (MFM) was used for high-resolution imaging and local manipulation via tip-sample distance modulation and lateral dragging.
+
+**Summary.** This paper demonstrates the ability to actively manipulate magnetic flux structures in the intermediate state of a Type-I Tantalum superconductor. Using Magnetic Force Microscopy, the authors show they can merge individual flux tubes and reconfigure stripe domains. They also reveal a dynamic, reversible transition between stripe and grid-like patterns under AC current excitation. This work provides a pathway for controlling flux-based superconducting devices.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A high-purity Tantalum (Ta) single crystal, which is a Type-I superconductor exhibiting an intermediate state characterized by competing short-range attractive and long-range repulsive vortex interactions.
+
+**Key observables.** Flux morphology (tubes, stripes, grids, bubbles), MFM phase signal (proportional to flux quanta), magnetic susceptibility, and magnetization loops.
+
+**Important parameters / regimes.** Critical temperature (4.47 K), critical field (872 Oe), demagnetization factor (0.57), AC current amplitude, and AC frequency.
+
+**Figures summary.** Fig 1: Sample quality and phase diagrams; Fig 2: Evolution of flux patterns and topological hysteresis; Fig 3: MFM-driven fusion of flux tubes; Fig 4: Reconfiguration of stripe patterns; Fig 5: AC-induced stripe-to-grid transition and phase diagrams.
+
+**Paper structure.** The paper introduces the problem of flux control, presents the experimental setup and material characterization, details the observation of flux evolution and hysteresis, demonstrates active manipulation techniques, and concludes with the study of AC-driven dynamic transitions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The intermediate state of type-I superconductors presents a classic paradigm of modulated pattern formation, arising from the competition between short-range attractive and long-range repulsive vortex-vortex interactions. However, direct visualization and, more importantly, active control over the topology and dynamics of these flux structures have remained significant challenges, limiting our ability to manipulate them for fundamental studies and potential applications. Here, using low-temperature magnetic force microscopy, we achieve direct imaging and controllable manipulation of the flux structures in a high-purity tantalum single crystal. We systematically track the evolution of flux morphology - from tubes to stripes - during flux penetration and expulsion, revealing a pronounced topological hysteresis originating from the geometric barrier. Furthermore, we demonstrate precise local control by using the magnetic tip to drag and merge individual flux tubes and to reconfigure entire stripe domains. Under global alternating current (AC) excitation, we discover a reversible stripe-grid-stripe transition, a dynamic reorganization driven by current-induced flux penetration and pinning effects. The corresponding phase diagram shows that the threshold current decreases with magnetic field but increases with AC frequency. Our work establishes a pathway for active flux manipulation in type-I superconductors, revealing rich dynamics and paving the way for flux-based superconducting devices.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21842"></a>
 ### [Critical role of phase-dependent properties in modeling photothermal sintering of LiCoO2 cathodes](http://arxiv.org/abs/2604.21842v1)
 
@@ -9058,6 +9666,80 @@ Photothermal (photonic) sintering crystallizes as-deposited amorphous LiCoO2 (LC
 <details><summary>Abstract</summary>
 
 Covalent Organic Frameworks (COFs) are versatile two-dimensional (2D) materials for flexible electronics, catalysis, and sensing, owing to their tunable architectures and large surface areas. However, like most materials, COFs inevitably contain synthesis-induced defects, which-similar to graphene-can strongly influence intrinsic properties, such as thermal transport and mechanical strength. To address this challenge, we have assessed the performance of a set of machine learning interatomic potentials (MLIP) capable of efficient large-scale simulations of COFs with quantum accuracy. In doing so, QCOF models (Quantum COF) were developed by tuning the state-of-the-art MACE architecture on an extensive dataset of non-equilibrium COF conformations generated from high-fidelity density functional theory calculations. The accuracy, computational efficiency, memory footprint, and transferability to unseen chemical environments of these models were benchmarked against general-purpose MACE models and their fine-tuned variants. Our results show that an invariant QCOF model with a small descriptor dimensionality and cutoff outperforms all other models in most validation tasks, including scalability to large systems, force prediction in defective COFs, and phonon dispersion calculations. The best-performing QCOF model was then used to run large-scale simulations of thermal conductivity for defective CTF-1 and COF-LZU1 systems via non-equilibrium MD, revealing a more pronounced sensitivity of CTF-1 to structural defects. Stress-strain curves were also investigated, showing that the mechanical response remains nearly invariant at low defect densities, while asymmetric behaviour emerges at large strains. This work thus provides a foundation for the design of robust quantum-informed MLIP for large-scale property simulations of defective of extended network materials.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21625"></a>
+### [DC Cryogenic Modeling of Open-Source SkyWater 130 nm MOSFETs at 77 K Using BSIM4](http://arxiv.org/abs/2604.21625v1)
+
+**Authors:** F. Beall, A. Rimal, O. Seidel, Y. Mei, A. D. McDonald, I. Parmaksiz, V. A. Chirayath, J. Asaadi, D. Braga, J. B. R. Battat  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21625v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21625_figures/2604.21625_fig1.jpg" width="500"><br>
+<sub>Figure 1: Hardware setup used for I-V measurements: (a) Schematic of the I-V measurement system (b) Wirebonded SKY130 chip mounted on PCB, (c) Chip mounted on copper plate for 77 K measurements.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21625_figures/2604.21625_fig2.jpg" width="500"><br>
+<sub>Figure 2: I-V characteristics measured at 77 K and 300 K for select 𝐼𝐷-𝑉𝐷and 𝐼𝐷-𝑉𝐺(linear and log scale) curves. The absolute value of voltage and current values are displayed. The source and body bias are fixed at ground for all measurements.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21625_figures/2604.21625_fig3.jpg" width="500"><br>
+<sub>Figure 3: Parameter optimization flow chart for isothermal cryogenic model generation:.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21625_figures/2604.21625_fig4.jpg" width="500"><br>
+<sub>Figure 4: Best fit I-V characteristics for 77 K data (hollow circles) and cryo model (solid line) curves: (a)-(b) output and transfer characteristic curves for nMOS of length 0.15𝜇m and width 1.6𝜇m, (c)-(d) output and transfer characteristic curves for pMOS of length 2𝜇m and width 5𝜇m. The 𝐼𝐷-𝑉𝐺plots have both linear and log scale to better observe the subthreshold region. (e)-(h) display the weak and strong inversion of the best fit transfer characteristics for a better assessment of the model fit at these regimes.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21625_figures/2604.21625_fig5.jpg" width="500"><br>
+<sub>Figure 5: Room-temperature and cryogenic model accuracy using relative RMS error (described by Equation 5.1) at (a) 300 K using the 300 K data and model and (b) 77 K using the 77 K data and model. Both plots use the same minimum and maximum RRMS for direct comparison. To highlight variations in the 77 K RRMS, an unadjusted heatmap version is shown in (c).</sub>
+
+</details>
+
+**Main problem.** The lack of accurate, isothermal BSIM4-based compact models for the open-source SkyWater 130nm CMOS process at 77 K, which is necessary for designing low-power readout electronics for high-energy physics applications.
+
+**Main result.** The development of 18 distinct, NGSpice-compatible cryogenic models for nMOS and pMOS transistors that achieve an average relative RMS error of approximately 20% at 77 K.
+
+**Method.** The authors performed DC I-V characterization at 77 K and 300 K and used a physics-based parameter extraction strategy via the Synopsys Mystic optimizer to adjust nominal BSIM4 parameters.
+
+**Summary.** This paper presents the creation of the first accurate, open-source BSIM4-based transistor models for the SkyWater 130nm process at 77 K. By characterizing nMOS and pMOS devices at liquid nitrogen temperatures, the authors provide a tool for designing low-power electronics used in high-energy physics detectors. The models are made publicly available on GitHub to support the democratization of cryogenic circuit design. The resulting models achieve a 20% average error compared to experimental data.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The physical system is the SkyWater 130nm (SKY130) CMOS technology node, and the modeling framework is the BSIM4 (Berkeley Modelary Integrated Circuit Simulation) analytical MOSFET model.
+
+**Key observables.** Threshold voltage (Vth), carrier mobility (mu), subthreshold swing (SS), on-state current (Ion), drain-to-source series resistance (Rsd), and Drain-Induced Barrier Lowering (DIBL).
+
+**Important parameters / regimes.** Temperature regime of 77 K (liquid nitrogen) and 77-89 K (liquid argon); extracted parameters include U0, NFACTOR, VSAT, DELTA, RDSW, and ETA0.
+
+**Assumptions / limitations.** The model assumes gate capacitances do not change significantly at cryogenic temperatures and that the classical thermal trend for subthreshold swing is a reasonable first-order description.
+
+**Figures summary.** Figure 1 shows the experimental measurement setup; Figure 2 compares I-V curves at 300 K and 77 K; Figure 3 illustrates the optimization flowchart; Figure 4 shows best-fit I-V characteristics; Figure 5 displays accuracy heatmaps (RRMS) across device geometries.
+
+**Paper structure.** The paper introduces the need for cryogenic CMOS in HEP, describes the experimental setup and characterization at 77 K, details the BSIM4 parameter extraction strategy using a multi-stage optimization, presents the resulting models and their accuracy, and concludes with limitations and future work.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Cryogenic applications in high-energy physics (HEP) demand reliable, low-power CMOS electronics capable of operating at liquid nitrogen temperatures (77 K). The open-source SkyWater 130nm (SKY130) CMOS process has previously been shown to operate at temperatures as low as 4 K making it a promising candidate for HEP applications. In this work, we characterize and model SKY130 low-threshold voltage transistors at 77 K, which is a temperature commonly used in modeling applications for liquid argon detectors. DC characteristic measurements were performed at both room temperature and liquid nitrogen temperature. We created a cryogenic modeling approach to produce a SPICE-compatible, isothermal BSIM4-based model for select transistor sizes at 77 K. The resulting model agrees with data at 77 K with an average error on the order of 20% (relative RMS) and shows no dependence on drain voltage. Due to the open-source nature of SKY130, we have made our models publicly available on Github. We hope this work will continue the trend for democratizing circuit design at cryogenic temperatures in high-energy physics by enabling open access to accurate cryogenic CMOS device models at 77 K.
 
 </details>
 
@@ -10053,6 +10735,210 @@ These years, kagome materials with 1:1 stoichiometry have garnered increasing at
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21194"></a>
+### [Linking molecular timescales to linear viscoelastic response in dilute and semidilute unentangled wormlike micelle solutions](http://arxiv.org/abs/2604.21194v1)
+
+**Authors:** Avishek Kumar, Rico F Tabor, P. Sunthar, J. Ravi Prakash  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21194v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21194_figures/2604.21194_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Cole–Cole representations of the linear viscoelastic response of unentangled wormlike micellar solutions under different conditions. (a) Comparison between a monodisperse homopolymer solution (HP) at concentration c/c∗= 2.43 with Nb = 30 beads per chain and a wormlike micellar (WLM) solution with effective concentration ceff/c∗= 2.43 and sticker energy ϵst = 7, for the “No Rings” case, under athermal solvent conditions with hydrodynamic interaction strength (h∗= 0.2). (b) Effect of increasing wormlike micellar concentration at fixed sticker energy ϵst for the “No Rings” case. (c) Effect of increasing sticker energy at fixed persistent worm concentration c/c∗ pw = 1 for the “No...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21194_figures/2604.21194_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Bond autocorrelation function Cb(t) for wormlike micelle solutions with and without rings at ϵst = 5 and c/c∗ pw = 0.3.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21194_figures/2604.21194_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Dependence of the bond breakage time τb on the total production run time τrun in (a) the dilute regime (c/c∗ pw = 0.3) and (b) the semidilute regime (c/c∗ pw = 1) for ϵst = 5, 7, and 9, with nondimensional sampling interval τsample = 0.001. Dependence of τb on the nondimensional sampling interval τsample in (c) the dilute regime (c/c∗ pw = 0.3) and (d) the semidilute regime (c/c∗ pw = 1) for ϵst = 5, 7, and 9.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21194_figures/2604.21194_fig4.jpg" width="500"><br>
+<sub>FIG. 4. (a) Effect of bond breakage time τb on the concentration of persistent worm (c/c∗ pw), at different sticker energies (ϵst). (b) Exponential dependence of bond breakage time τb on the sticker energy ϵst for various c/c∗ pw, in the presence and absence of rings and hydrodynamic interactions. (c) Dependence of τb on ϵst for dilute wormlike micellar solutions (c/c∗ pw = 0.3), in the absence of rings and in the presence of hydrodynamic interactions (h∗= 0.2), illustrating that exponential scaling is observed only for ϵst &gt; 5. .</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21194_figures/2604.21194_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Instantaneous velocity fields around bonded stickers illustrating the role of hydrodynamic interactions in the absence of rings. Panels (a) and (b) show the velocity field in the absence of hydrodynamic interactions at dimensionless times t0 and t0 + 10, respectively, where the blue arrows represent a schematic random solvent velocity field illustrating thermal fluctuations. Panels (c) and (d) show the corresponding disturbance velocity field in the presence of hydrodynamic interactions at the same times. The black arrows denote the net forces acting on sticky monomers. Orange (triangle), blue (square), and red (circle) colored stickers correspond to micelles containing mL pw,lin =...</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21194_figures/2604.21194_fig6.jpg" width="500"><br>
+<sub>FIG. 6. (a) Recombination probability distribution Ψ(t) for wormlike micellar solutions at ceff/c∗= 2.43, c/c∗ pw = 1, and ϵst = 7 in the presence of hydrodynamic interactions (h∗= 0.2). At short times (t ≲10), self-recombination dominates and the distribution exhibits a power-law decay, whereas at longer times non-self recombination becomes dominant and the distribution follows an exponential decay. (b) The self-recombination probability distribution Ψs(t) and the non-self recombination probability distribution Ψns(t) are shown separately. The self recombination (diffusion-controlled kinetics) exhibits a power-law decay, while the non-self recombination (mean-field kinetics) follows an...</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21194_figures/2604.21194_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Dependence of recombination probability distributions on the dimensionless sampling interval τsample for wormlike micellar solutions at c/c∗ pw = 1, ceff/c∗= 2, and ϵst = 6, in the presence of hydrodynamic interactions (h∗= 0.2) and in the absence of rings. (a) Self recombination probability distribution Ψs(t) for different sampling intervals, plotted on a log–log scale. For τsample ≤0.1, the distributions collapse onto a single curve, indicating that the measured probability distribution is independent of the sampling interval. (b) Non-self recombination probability distribution Ψns(t) for different sampling intervals, plotted on a semi-log scale. For large sampling intervals...</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21194_figures/2604.21194_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Self-recombination timescales as a function of wormlike micelle concentration, shown for simulations performed (a) without rings and (b) with rings, in both the absence and presence of hydrodynamic interactions.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21194_figures/2604.21194_fig9.jpg" width="500"><br>
+<sub>FIG. 9. Variation of the non-self recombination time with effective monomer concentration (ceff/c∗) in panels (a) and (c) and sticker energy (ϵst) in panels (b) and (d). Panels (a) and (b) correspond to solutions without rings, while panels (c) and (d) correspond to solutions with rings, shown in the presence and absence of hydrodynamic interactions (HI).</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21194_figures/2604.21194_fig10.jpg" width="500"><br>
+<sub>FIG. 10. Variation of the non-self recombination time, τns, normalized by the bond breakage time τb, with the mean length of linear micelles (¯L) for solutions (a) without rings (NR) and (b) with rings (WR), shown for both the presence and absence of hydrodynamic interactions (HI). Filled and open symbols correspond to simulations with and without HI, respectively. Marker shapes represent the concentration c/c∗ pw, with the same shape used consistently across all sticker energies, while colors denote the sticker energy ϵst, with the same color applied consistently across all concentrations. The prefactor ratio is ANR 0 /AWR 0 = 1.12.</sub>
+
+</details>
+
+**Main problem.** The study aims to resolve the relationship between the hierarchy of microscopic molecular timescales (such as bond lifetimes and recombination) and the macroscopic linear viscoelastic response in unentangled wormlike micelle solutions.
+
+**Main result.** The researchers established a direct link between specific micellar timescales and signatures in the dynamic moduli, demonstrating that features like Cole-Cole plot maxima are driven by processes like micelle breakage and recombination.
+
+**Method.** Mesoscopic Brownian dynamics simulations using the HOOMD-Blue toolkit, incorporating the Rotne-Prager-Yamakawa tensor for hydrodynamic interactions and the Green-Kubo relation for viscoelasticity.
+
+**Summary.** This paper provides a comprehensive mapping between the microscopic dynamics of reversible chemical bonds and the macroscopic rheological properties of wormlike micelle solutions. By using Brownian dynamics simulations, the authors show how processes like scission, recombination, and hydrodynamic interactions create unique features in the viscoelastic spectrum. The study identifies universal scaling laws for micelle breakage and relaxation times. Ultimately, it connects individual molecular timescales to the observable frequency-dependent storage and loss moduli.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Dilute and semidilute unentangled wormlike micelle solutions modeled as 'persistent worms' (bead-spring chains with sticky ends) that undergo reversible scission and fusion.
+
+**Key observables.** Storage (G') and loss (G'') moduli, Cole-Cole plots, bond autocorrelation function, zero-shear viscosity, and various microscopic timescales (bond lifetime, breakage time, recombination time).
+
+**Important parameters / regimes.** Sticker strength (epsilon_st), monomer concentration (c/c*_pw), hydrodynamic interaction strength (h*), and micellar topology (linear vs. ring).
+
+**Assumptions / limitations.** The model assumes flexible wormlike micelles (excluding bending potential), restricts sticker functionality to unity (no branching), and uses a coarse-grained surrogate for end-cap energy.
+
+**Figures summary.** Figure 1 compares Cole-Cole responses of homopolymers vs. WLM; Figure 2 shows bond autocorrelation decay; Figure 3 validates timescale stability; Figure 4 shows bond breakage time dependence on concentration and sticker energy; Figure 15 shows the hierarchy of stress relaxation components.
+
+**Paper structure.** The paper introduces the mesoscopic framework and governing equations, presents simulation results regarding timescales and topology, maps these timescales to the viscoelastic spectrum, and concludes with scaling laws and implications for future work.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Unentangled wormlike micelle solutions relax stress through a dynamic interplay of reversible scission and intrachain relaxation involving a hierarchy of molecular timescales whose relationship to linear viscoelastic response remains incompletely resolved. A multiparticle mesoscopic Brownian dynamics framework has been developed in which persistent worms, represented by bead-spring chains with sticky ends, assemble to form wormlike micelles via reversible scission and fusion. Both linear and ring-like micelles are formed across the dilute and semidilute concentration regimes. Accurate predictions of dynamic properties are obtained through inclusion of hydrodynamic interactions using a RPY tensor. We identify and quantify characteristic timescales governing micellar dynamics, including bond lifetimes, self- and non-self-recombination times, breakage times of wormlike micelles of length $L$, relaxation times of various contributions to stress, and the longest relaxation time. The dependence of these timescales on sticker strength, concentration, micellar topology and hydrodynamic interactions is established. The presence of ring micelles is found to moderately prolong recombination and breakage processes, while hydrodynamic interactions are shown to affect some of the timescales by reducing sticker mobility. When appropriately scaled, the dependence on mean length of the non-self-recombination and micelle breakage times collapse onto master curves. Storage and loss moduli exhibit distinctive features in the intermediate-frequency regime that are absent in homopolymer solutions. A clear connection is made between micellar timescales and these signatures in the dynamic moduli at various characteristic frequencies, providing a direct link between microscopic dynamics and macroscopic rheology in unentangled wormlike micellar solutions, in dilute and semidilute concentration regimes.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21562"></a>
+### [Magnetic-flux tunable electronic transport through domain walls in a three-dimensional second-order topological insulator](http://arxiv.org/abs/2604.21562v1)
+
+**Authors:** Zhe Hou, Ai-Min Guo  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21562v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21562_figures/2604.21562_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Schematic diagram of the magnetic SOTI trans- port device, featuring a DW at the interface of two magnetic domains with antiparallel magnetization (indicated by the 3D red arrows). The blue arrows represent the propagation paths of the THSs, with a1(2), b1(2) denoting the THSs, and c1(2) denoting two of the four topological boundary states local- ized at the DW edge. A uniform magnetic field is applied along the z-direction, generating a magnetic flux Φ threading through the DW (see the green arrow). (b) Band structure of an infinitely-long SOTI nanowire with magnetization along the (−1, −1, 0) direction. Here the flux Φ = 0. The two linearly dispersing bands correspond to a1...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21562_figures/2604.21562_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Conductance G through a single DW, as a function of the Fermi energy EF with different magnetic flux Φ in (a), and as a function of the flux Φ at different Fermi energies (in units of E∗) in (b). In (b) the curves have been vertically offset for comparison.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21562_figures/2604.21562_fig3.jpg" width="500"><br>
+<sub>FIG. 3. (a) Schematic illustration of the propagation paths of the THSs and the topological boundary states through the DW, with topologically equivalent structure to Fig. 1(a). The red dots labeled 1 and 2 indicate the different scattering nodes. (b) Unfolded view of the 3D transport device mapped onto a 2D plane (right panel), obtained by cutting along the hinge indicated in the left panel. Here the ± signs in the left panel denotes the direction of the out-of-plane magnetization. (c) Spin texture distribution at the DW. The red arrow in the upper left (lower right) corner indicates the spin polarization of mode a1 (b2). The remaining four out-of-plane red arrows represent the spin...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21562_figures/2604.21562_fig4.jpg" width="500"><br>
+<sub>FIG. 4. (a) Schematic diagram of the double-DW junction in a magnetic SOTI. Blue arrows indicate the propagation paths of the THSs, while 3D arrows represent the magnetiza- tion orientation along diagonal directions in the x −y plane. The notations a1(2)/b1(2) and a3(4)/b3(4) denote the incom- ing/outgoing modes at the left and right DWs, respectively. Green arrows denote the applied uniform magnetic field, or equivalently, the magnetic flux threading through the DW. (b) Fermi energy dependence of the differential conductance G through the double-DW junction, with different magnetic flux Φ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21562_figures/2604.21562_fig5.jpg" width="500"><br>
+<sub>FIG. 5. (a) Length Nc dependence of the conductance G at EF = 0.05E∗with magnetic flux Φ = 0.75Φ0, 0.5Φ0, and 0.25Φ0. The dashed curves represent results fitted using the scattering matrix method, with the fitting parameter φr (the phase of reflection coefficient r) set to 0.11 (in rad). (b) Schematic diagram of the simplified FP scattering paths to il- lustrate the propagation of THSs through a double-DW junc- tion. (c) Minimum conductance Gmin DB (in units of e2/h) of the double-DW junction, and the conductance G through a single DW, plotted as a function of magnetic flux Φ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21562_figures/2604.21562_fig6.jpg" width="500"><br>
+<sub>FIG. 6. (a) and (b) Schematic diagrams of the Bloch wall and the N´eel wall, where the magnetization rotates along the x −y and the (¯110) planes, respectively. Here the blue arrows denote the propagation of the THSs. (c) Con- ductance G through a Bloch(N´eel) wall as a function of the magnetic flux Φ, as shown with the red(black) curve. The inset shows the distribution of the magnetization vec- tors inside the N´eel wall. Here the Fermi energy EF is 0.02E∗and the length of the DW (along z-direction) is 20a. For the Bloch wall the magnetization follows the rela- tion M(r) = M(−(cos θ + sin θ)/ √</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21562_figures/2604.21562_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Distribution of the LDOSs near the DW for an infinitely-long 3DTI nanowire. Here the magnetic flux Φ = 0, and the energy E = 0.02E∗. The coordinate origin has been shifted for clarity.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21562_figures/2604.21562_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Ensemble-averaged conductance ⟨G⟩as functions of the magnetic flux Φ, with different disorder strength W (in units of E∗). The length of the disordered region is set to 10a. The DW exists in the middle of the disordered region.</sub>
+
+</details>
+
+**Main problem.** Investigating how magnetic domain walls (DWs) affect the electronic transport of 1D topological hinge states (THSs) in a 3D second-order topological insulator.
+
+**Main result.** The study reveals that magnetic flux can tune conductance via Aharonov-Bohm oscillations in single-DW junctions and Fabry-Perot oscillations in double-DW junctions, providing a way to detect THSs.
+
+**Method.** The authors use the Non-Equilibrium Green's Function (NEGF) method for numerical transport calculations and a phenomenological scattering matrix approach for analytical interpretation.
+
+**Summary.** This paper explores how the transport of 1D topological hinge states in a 3D second-order topological insulator can be controlled using magnetic flux. It demonstrates that a magnetic domain wall creates a loop that enables Aharonov-Bohm oscillations in conductance. The study also shows that double-DW junctions exhibit Fabry-Perot oscillations. These findings suggest that magnetic flux can act as a precise control knob for topological transport and serve as a diagnostic tool for identifying hinge states.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A 3D second-order topological insulator nanowire with a magnetic domain wall induced by a diagonal Zeeman term, modeled using a real-space tight-binding Hamiltonian on a cubic lattice.
+
+**Key observables.** Two-terminal conductance (G), Aharonov-Bohm oscillations, Fabry-Perot oscillations, and Local Density of States (LDOS).
+
+**Important parameters / regimes.** Magnetic flux (Phi/Phi0), Fermi energy (Ef), magnetization strength (M), and domain wall configuration (Bloch vs. Néel).
+
+**Assumptions / limitations.** The scattering matrix approach assumes certain symmetry-constrained nodes and neglects spin rotation at specific nodes during the unfolding process.
+
+**Figures summary.** Fig 1 shows the device schematic and band structure; Fig 2 shows conductance vs. Fermi energy; Fig 4 shows the double-DW junction schematic and conductance vs. Ef; Fig 5 shows conductance dependence on flux; Fig 6 compares Bloch and Néel wall configurations.
+
+**Paper structure.** The paper introduces the SOTI system and domain wall setup, presents numerical conductance results for single and double DW junctions, provides an analytical scattering matrix explanation for the observed interference, and discusses the impact of different DW types and disorder.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The three-dimensional (3D) topological insulators (TIs), hosting topologically protected helical surface states, can be promoted into second-order TIs when a diagonal Zeeman term, typical of magnetic doping, is introduced. The latter hosts exotic chiral one-dimensional (1D) topological hinge states (THSs). In this paper, we investigate the electronic transport of THSs through a magnetic domain wall (DW) in a 3D TI nanowire. Due to the sign reversal of the out-of-plane magnetization across the DW, four 1D topological boundary states, residing on the edge of the DW, arise and form an enclosed loop mediating the counterpropagating THSs. By applying a uniform magnetic field parallel to the nanowire, we obtain a perfect sinusoidal Aharonov-Bohm oscillation in the two-terminal conductance $G$, formulated by $G=\frac{e^2}{2h} \left[ 1- \cos(πΦ/Φ_0) \right]$, with $Φ$ the magnetic flux through the DW and $Φ_0 = h/2e$ the flux quantum. Applying a phenomenological scattering matrix approach, we explain this novel Aharonov-Bohm oscillation perfectly, and attribute the constructive (destructive) interference of transmission at $Φ= Φ_0$ (0) to the $π$-spin rotation of the THSs traveling through the DW. Extending our study to a double-DW junction, where the central region has antiparallel magnetization to the leads, we observe Fabry-P{é}rot oscillations, in which the conductance minima are tuned by the magnetic flux. Our findings open a new avenue for finely controlling the quantum transport of THSs in magnetic systems using magnetic flux, and provide a faithful way for detecting THSs in experiments.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21807"></a>
 ### [Modeling High Entropy Alloys' Mechanical Property through Natural Language-Derived Descriptors](http://arxiv.org/abs/2604.21807v1)
 
@@ -10553,6 +11439,108 @@ The FAIR principles have transformed how computational data and workflows are sh
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21033"></a>
+### [Orientation Dynamics of Gyrotactic Microswimmers in Turbulent Flows](http://arxiv.org/abs/2604.21033v1)
+
+**Authors:** Suraj Kumar Nayak, Vishwanath Shukla, Akshay Bhatnagar  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21033v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21033_figures/2604.21033_fig1.jpg" width="500"><br>
+<sub>Figure 1: Orientation distribution in pxpypz space. Rod-like microswimmers for (a) ψ = 10 and (b) ψ = 0.5. Spheroids for (c) ψ = 10 and (d) ψ = 0.5. Spheres for (e) ψ = 10 and (f) ψ = 0.5. Swimming number is kept fixed at ϕ = 10. Projections of the orientation vector along ˆx, ˆy and ˆz are given by px ≡p · ˆx, py ≡p · ˆy and pz ≡p · ˆz, respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21033_figures/2604.21033_fig2.jpg" width="500"><br>
+<sub>Figure 2: Probability distribution functions of cos θ3(≡p · ˆz) for swimming numbers: (a) ϕ = 0, (b) ϕ = 1, and (c) ϕ = 10. Behavior is shown for the stability numbers ψ = 0.5 (orange curves), 1 (green curves) and 10 (blue curves). Each (ϕ, ψ) combination is explored for three shapes: rods (γ = 1, square markers), spheroids (γ = 0.5, diamond markers) and spheres (γ = 0, circle markers). The inset shows the magnified part of the peaks of the distributions in the main figure.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21033_figures/2604.21033_fig3.jpg" width="500"><br>
+<sub>Figure 3: Probability distribution functions (PDFs) of the projections of p along the normalized eigenvectors of strain-rate-tensor and the normalized vorticity for ϕ = 1 and γ = 1 with reorientation time: (a) ψ = 0.5, (b) ψ = 1 and (c) ψ = 10. PDFs of p · ei for ϕ = 1, and different values of ψ and γ, ei correspond to: (d) e2, (e) e3, and (f) eω. The eigenvalues of the strain-rate tensor follow the order λ3 &gt; λ2 &gt; λ1. The plots with orange, green and blue color corresponds to ψ = 0.5, ψ = 1 and ψ = 10, respectively. The square, diamond and circle markers corresponds to the three shapes of swimmers: rods (γ = 1), spheroids (γ = 0.5) and spheres (γ = 0), respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21033_figures/2604.21033_fig4.jpg" width="500"><br>
+<sub>Figure 4: Plots of orientation autocorrelation function Ap(t) for different aspect ratios and stability numbers at swimming number ϕ = 10. The analytically predicted decay rate λ = 1/2ψ is indicated by: dashed line (ψ = 0.5), dotted line (ψ = 1) and dot-dashed line (ψ = 10). Inset: Decorrelation time vs stability number ψ for rods (γ = 1), spheroids (γ = 0.5) and spheres (γ = 0). The plots with orange, green and blue color corresponds to ψ = 0.5, ψ = 1 and ψ = 10, respectively. The square, diamond and circle markers corresponds to the three shapes of swimmers: rods (γ = 1), spheroids (γ = 0.5) and spheres (γ = 0), respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21033_figures/2604.21033_fig5.jpg" width="500"><br>
+<sub>Figure 4 suggests that Ap is almost independent of the aspect ratio for any given ψ in our DNS results. Hence, we neglect the last term in the above equation. Also, as the reorientation time is smaller than the vorticity time scale for low values of ψ, the gyrotaxis term dominates. Therefore, the second term can be neglected. The term ⟨p(0) · ˆz⟩</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21033_figures/2604.21033_fig6.jpg" width="500"><br>
+<sub>Figure 5: (a) Trajectories of three randomly chosen swimmers, where and mark the starting and ending posi- tions, respectively. Mean-squared displacement along the vertical direction for swimming numbers: (b) ϕ = 0, (c) ϕ = 1, and (d) ϕ = 10. For each ϕ, following combinations of ψ = (0.5, 1, 10) and aspect ratios γ = (1, 0.5, 0) were considered.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21033_figures/2604.21033_fig7.jpg" width="500"><br>
+<sub>Figure 6: Probability distribution functions of: (a) the vertical displacement ∆z in a fixed time interval of 1.4τη, (b) the time taken to cover a fixed vertical displacement of 1000η. The swimming number ϕ = 10 is held fixed, while the combinations of ψ = (0.5, 1, 10) and γ = (1, 0.5, 0) were considered. The plots with orange, green and blue color corresponds to ψ = 0.5, ψ = 1 and ψ = 10, respectively. The square, diamond and circle markers corresponds to the three shapes of swimmers: rods (γ = 1), spheroids (γ = 0.5) and spheres (γ = 0), respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21033_figures/2604.21033_fig8.jpg" width="500"><br>
+<sub>Figure 7: Reduced model for spherical microswimmers. (a) Probability distribution of orientation about the z-axis P(cos θ2), (b) Orientation autocorrelation and (c) mean-squared displacement along the z-axis for the stability numbers ψ = (0.4, 0.8, 2, 4, 10), while the swimming number is held fixed at ϕ = 10.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21033_figures/2604.21033_fig9.jpg" width="500"><br>
+<sub>Figure 8: Reduced model for spherical microswimmers. Probability distribution functions of: (a) the vertical dis- placement ∆z in a fixed time interval of 1.4τm, (b) the time taken to cover a fixed vertical displacement of 1000ηm for the stability numbers ψ = (0.4, 0.8, 2, 4, 10), while the swimming number is held fixed at ϕ = 10. τm = 1/σ2 θ and ηm = σx/σθ, where σx and σθ are the standard deviations of translational and rotational noise, respectively.</sub>
+
+</details>
+
+**Main problem.** Investigating how the geometry, swimming speed, and gyrotactic strength of microswimmers influence their orientation statistics and transport dynamics in 3D turbulent flows.
+
+**Main result.** Strong gyrotaxis promotes vertical alignment, while weak gyrotaxis leads to isotropic orientation; additionally, rod-shaped swimmers align with the stretching direction of the strain-rate tensor at small stability numbers but prefer the vorticity vector at large stability numbers.
+
+**Method.** Direct Numerical Simulations (DNS) using a pseudospectral method and a simplified 2D stochastic model for comparison.
+
+**Summary.** This paper studies how different shapes of microswimmers (like rods and spheres) behave in turbulent environments. It finds that the strength of their internal steering (gyrotaxis) determines whether they align vertically or randomly. The study also shows that their movement transitions from ballistic to diffusive over time and that their shape significantly impacts how they migrate vertically. These findings are important for understanding how microscopic organisms like phytoplankton form layers in the ocean.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A dilute concentration of bottom-heavy, asymmetric microswimmers (spheres, spheroids, and rods) immersed in a 3D incompressible, homogeneous, and isotropic turbulent fluid governed by Navier-Stokes equations.
+
+**Key observables.** Orientation probability distributions, orientation autocorrelation function, mean-squared displacement (MSD), and vertical migration efficiency (displacement and time distributions).
+
+**Important parameters / regimes.** Aspect ratio (gamma), stability number (psi), swimming number (phi), and Taylor-scale Reynolds number (Re_lambda).
+
+**Assumptions / limitations.** Neglects swimmer inertia, swimmer-swimmer interactions, and the back-reaction of swimmers on the fluid flow.
+
+**Figures summary.** Visualizations of swimmer orientation, plots of orientation autocorrelation decay, MSD plots showing ballistic to diffusive transitions, and probability density functions for orientation and vertical displacement.
+
+**Paper structure.** The paper introduces the physical problem and parameters, describes the DNS and reduced model methodologies, presents results on orientation alignment and shape dependence, analyzes transport dynamics and autocorrelation decay, and concludes with ecological implications.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study the dynamics of gyrotactic microswimmers suspended in homogeneous and isotropic turbulence by using direct numerical simulations (DNS). The swimmers are characterized by three non-dimensional parameters: their aspect ratio ($γ$), a dimensionless swimming speed ($φ$), and a dimensionless reorientation time ($ψ$). Strong gyrotaxis (smaller $ψ$) promotes vertical alignment of the swimmers, while weak gyrotaxis leads to nearly isotropic orientations. At low swimming numbers, the orientation distribution is largely shape-independent with spheres and spheroids showing marginally greater vertical alignment than rods, whereas at higher activity the peaks of the distributions exhibit largely shape-independent behavior and the tails show a clear dependence on particle shape. However, at large $ψ$ rods exhibit a stronger alignment along the vertical. We observe that at small $ψ$ the rod-shaped swimmers respond to shear by aligning with the stretching direction of the strain-rate tensor, while at large $ψ$ the alignment with the vorticity vector is preferred. The orientation autocorrelation is found to decay exponentially, with a decay rate that scales as $1/(2ψ)$. Analysis of the mean-squared displacement (MSD) reveals a transition from a ballistic motion at short times to a diffusive regime at longer times. To assess the efficiency of vertical migration, we compute the probability distributions of vertical displacement over a fixed time interval and the time taken to migrate a specific vertical distance. Furthermore, we use a simplified two-dimensional model for spherical swimmers that qualitatively reproduces the key trends observed in the full three-dimensional (3D) simulations.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21285"></a>
 ### [Room-temperature third-order nonlinear anomalous Hall effect in ferromagnetic metal Fe3GaTe2](http://arxiv.org/abs/2604.21285v1)
 
@@ -10701,6 +11689,191 @@ The Berry connection is a gauge-dependent quantity frequently used to describe t
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21561"></a>
+### [Superconductivity induced by altermagnetic spin fluctuations in high-pressure MnB$_4$](http://arxiv.org/abs/2604.21561v1)
+
+**Authors:** Danylo Radevych, Mercè Roig, Daniel F. Agterberg, Igor I. Mazin  
+**Type:** theory · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.21561v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21561_figures/2604.21561_fig1.jpg" width="500"><br>
+<sub>FIG. 1. P21/c MnB4 primitive cell at 158 GPa viewed from several directions: (a) perspective view, (b) along the y-axis, (c) along the z-axis, and (d) along the x-axis. Cartesian axes: gray arrows; non-orthogonal lattice vectors a, b, and c: black arrows; Mn: purple; B: green; Mn–Mn dimer and inversion (I) centers: blue crosses.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21561_figures/2604.21561_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Electronic band structure and density of states (eDOS) of nonmagnetic P21/c MnB4 at 0 GPa (black) and 158 GPa (purple). The eDOS is shown for both spin channels, with corresponding values at the Fermi level N(εF) indicated near the horizontal dashed gray line.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21561_figures/2604.21561_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Considered magnetic configurations of MnB4: (a) antiferromagnetic 1 (AFM 1), (b) antiferromagnetic 2 (AFM 2), (c) ferromagnetic (FM), and (d) altermagnetic (AM). Primitive-cell edges: black solid lines; Cartesian axes: gray arrows; Mn–Mn dimer and inversion (I) centers: blue crosses; Mn magnetic moments: white arrows.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21561_figures/2604.21561_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Relative energies of magnetic P21/c MnB4 con- figurations with respect to the nonmagnetic (NM) state as a function of the Hubbard U parameter at (a) 0 GPa and (b) 158 GPa. Abbreviations denote antiferromagnetic (AFM 1 and AFM 2), ferromagnetic (FM), and altermag- netic (AM) orders. Note the different energy scales used for 0 and 158 GPa.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21561_figures/2604.21561_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Comparison of the Fermi surfaces obtained from the (a) DFT-calculated electronic structure and (b) minimal tight-binding model.</sub>
+
+</details>
+
+**Main problem.** Explaining the origin of high-temperature superconductivity (Tc ~ 14 K) in nonmagnetic MnB4 under high pressure, which cannot be explained by conventional electron-phonon coupling.
+
+**Main result.** The superconductivity is driven by altermagnetic spin fluctuations, with an extended-s wave pairing symmetry identified as the leading instability.
+
+**Method.** The authors use Density Functional Theory (DFT) and DFT+U to investigate magnetic instabilities, Density Functional Pertpecturbation Theory (DFPT) to rule out phonons, and a two-orbital tight-binding model derived via Wannierization to solve the superconducting gap equation.
+
+**Summary.** This paper investigates why MnB4 exhibits a surprisingly high superconducting transition temperature of 14 K under high pressure. By showing that conventional electron-phonon coupling is too weak to account for this, the authors propose a new mechanism: superconductivity driven by altermagnetic spin fluctuations. They use a tight-binding model to demonstrate that an extended-s wave symmetry is the most likely pairing state. This study presents a potential first instance of superconductivity originating from altermagnetism.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system is MnB4 in the P21/c crystal structure under high pressure (up to 158 GPa). The theoretical model is a minimal two-orbital tight-binding Hamiltonian focusing on Mn-Mn dimer orbitals.
+
+**Key observables.** Critical temperature (Tc), electron-phonon coupling constant (lambda_EPC), electronic density of states (eDOS), and pairing eigenvalues (lambda_s, lambda_d).
+
+**Important parameters / regimes.** Pressure up to 158 GPa, Hubbard U parameter (approx 3.5 eV for AM stability), and Coulomb pseudopotential (mu* = 0.13).
+
+**Assumptions / limitations.** The model integrates out boron states to focus on Mn bands and assumes isotropic Heisenberg altermagnetic spin fluctuations.
+
+**Figures summary.** Figure 1 shows the MnB4 crystal structure; Figure 2 shows electronic band structure and eDOS at 0 and 158 GPa; Figure 5 compares the tight-binding and DFT Fermi surfaces.
+
+**Paper structure.** The paper begins by identifying the discrepancy between experimental Tc and phonon-based predictions, then moves to demonstrating magnetic instability via DFT+U, followed by the construction of a tight-binding model to identify the specific pairing symmetry driven by altermagnetic fluctuations.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Recent experiments found superconductivity in nonmagnetic MnB$_4$ with a high critical temperature ($T_{c}$) reaching 14 K at 158 GPa. However, ab initio calculations of the electron-phonon coupling predict a $T_{c}$ below 1 K, suggesting that a conventional mechanism cannot explain this phenomenon. In this Letter, we find that MnB$_4$ is close to an altermagnetic instability in density-functional theory calculations. We propose that the superconductivity is driven by altermagnetic spin fluctuations. To verify the pairing symmetry, we have constructed a two-orbital tight-binding model, where boron states at the Fermi level are integrated out. Using this model, we identify an extended-$s$ symmetry as the leading pairing instability. If confirmed, this will be the first reported case of superconductivity driven by altermagnetic spin fluctuations.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21732"></a>
+### [Tailoring Germanium Heterostructures for Quantum Devices with Machine Learning](http://arxiv.org/abs/2604.21732v1)
+
+**Authors:** Patrick Del Vecchio, Kevin Rossi, Giordano Scappucci, Stefano Bosco  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21732v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21732_figures/2604.21732_fig1.jpg" width="500"><br>
+<sub>FIG. 1. ML-optimized Ge+ heterostructures. (a)-(b) Energy band alignment against position z of Ge+ with (a) Si bump and (b) Si double spikes for a typical set of parameters. Op- timization parameters are displayed in light gray. (c)-(d) SOI energy Eso of the HH ground state at kx = 0 against ky (black solid lines) for (c) the optimal Si bump and (d) the optimized double spikes. For comparison, we show Eso in unstrained Ge with black dashed lines and in a state-of-the-art 16 nm-wide ε-Ge quantum well with blue dashed-dotted lines (rescaled by 2 orders of magnitude). The parameters used are summarized in Table I. Insets show the energy dispersion E(ky) of the op- timal Ge+ heterostructure.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21732_figures/2604.21732_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Engineering SOI. (a) SOI lengths β2 and (b) HH-LH energy splitting ∆1 against the Si spikes distances d1 and d2 at Fz = 1.5 mV/nm, ε∥= −0.03%, and lz = 30 nm. The star marks the maximal |β2| at d1 = 4.8 nm and d2 = 11.3 nm. (c) Dependence of β2 on the electric field Fz for increasing residual strain in Ge. The black dashed line corresponds to no Si spikes. (d) Dependence of β2 (left axis) and ∆1 (right axis) on the well width lz.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21732_figures/2604.21732_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Ge+ Andreev spin qubits. (a) Schematic of a Joseph- son junction with a semiconducting channel width L, phase difference φ, and superconducting gap ∆. (b) Andreev spin qubit frequency at φ = π/2 against the junction length L. Solid lines are the exact computation of δϵ = ϵ+ −ϵ−, dashed (dotted)lines correspond to the approximate Eq. (4) (Eq. (5)). (c) Fermi velocity difference δv against µ for the optimal Ge+ spiked system (black line) and for the reference Ge and ε-Ge (green and dashed lines). δv ≈0.026 · 104 m/s for ε-Ge at µ = 3 meV. The shadowed region indicates the starting point of the 2nd well subband in the spiked system.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21732_figures/2604.21732_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Ge+ dot spin qubits. (a) Top view of the gates that define the quantum dot. The color palette indicates the applied voltage. (b) Qubit Q-factor rescaled by the driving field amplitude eFac against the B-field in-plane angle ϕ. B = 0.1 T. (c) Spin-dipole moment xso against ϕ using the same color legend as in panel (b).</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21732_figures/2604.21732_fig5.jpg" width="500"><br>
+<sub>FIG. 1. E(ky) dispersion from the full Hamiltonian (black) and from a 2nd order effective Hamiltonian. (a) unstrained Ge. (b) Ge+ with optimized spikes. The A set consists of A = {H1, H2, η1}. (c) ε-Ge with A = {H1, H2, η1, η2}. η2 lies beyond the plot window and is therefore not visible. The lonely black level is H3.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21732_figures/2604.21732_fig6.jpg" width="500"><br>
+<sub>FIG. 2. HH envelope function | ⟨z|f h l ⟩|2 (blue curves) of the lowest two confined levels (which turn out to be HH) in the optimized spiked Ge+ (1st run). Thicker red and blue lines (the latter mostly hidden behind the red lines because of small strains) indicate the bulk band edge energies of the LH and HH bands, respectively. Increasing hole energy points downwards.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21732_figures/2604.21732_fig7.jpg" width="500"><br>
+<sub>FIG. 3. Calculated β2 RSOI parameter as a function of the spike distances d1,2 for gate field strengths from (a) Fz = 1.0 mV/nm to (j) Fz = 2.8 mV/nm in steps of 0.2 mV/nm. All plots share the same x-y-z scale.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21732_figures/2604.21732_fig8.jpg" width="500"><br>
+<sub>FIG. 4. Calculated HH-LH splitting energy as a function of the spike distances d1,2 for gate field strengths from (a) Fz = 1.0 mV/nm to (j) Fz = 2.8 mV/nm in steps of 0.2 mV/nm. All plots share the same x-y-z scale.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21732_figures/2604.21732_fig9.jpg" width="500"><br>
+<sub>FIG. 5. (a) | ⟨φ+ 1,0,0|x|φ− 1,0,0⟩| and (b) | ⟨φ+ 1,0,0|kx|φ− 1,0,0⟩| matrix element for the optimized spikes, unspiked and ε-Ge het- erostructure. B = (0.1 T)ex. Dotted lines are guidelines indicating the values for l = 11.2 nm.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21732_figures/2604.21732_fig10.jpg" width="500"><br>
+<sub>FIG. 6. ε-Ge: Longitudinal (solid lines) and transverse (dashed lines) components of linear and quadratic position operators as a function of the magnetic field in-plane angle ϕ for B = 0.1 T and l = 11.2 nm. Also shown is the Zeeman splitting energy ∆E. Computed with an A-set that includes the first two H spin doublets and the first two η spin doublets.</sub>
+
+</details>
+
+**Main problem.** The weak intrinsic spin-orbit interaction (SOI) in standard compressively strained Germanium (Ge) heterostructures limits efficient spin manipulation and fast qubit control in quantum devices.
+
+**Main result.** By using machine learning to optimize Silicon (Si) concentration gradients (bumps and spikes), the authors demonstrate an SOI enhancement of up to three orders of magnitude and a significant increase in spin qubit quality factors.
+
+**Method.** Multi-objective Bayesian optimization using a Multitask Gaussian Process is applied to optimize structural parameters, combined with 6-band k.p Hamiltonian modeling and Schrieffer-Wolff transformations.
+
+**Summary.** This paper addresses the challenge of weak spin-orbit interaction in standard Germanium quantum wells, which hinders fast qubit control. The authors propose a new class of 'Ge+' heterostructures where Silicon concentration gradients are engineered to boost SOI by up to three orders of magnitude. Using multi-objective Bayesian optimization, they identify optimal 'spike' and 'bump' profiles that maximize SOI while maintaining robustness against noise. The results predict significantly higher qubit quality factors and GHz-scale spin splittings, offering a pathway to more efficient and scalable spin-based quantum and spintronic devices.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system consists of engineered Ge+ heterostructures featuring Si-rich spikes or Si-poor bumps. The physical model uses a 6-band k.p Hamiltonian (Luttinger-Kohn, Bir-Pikus) and an effective 2x2 Hamiltonian to capture spin-orbit effects in quantum dots and Andreev spin qubits.
+
+**Key observables.** Spin-orbit interaction (SOI) coefficients (beta2, beta3), spin-splitting energy, HH-LH energy gap, qubit Q-factor, dephasing time (T2*), and spin-dipole moment.
+
+**Important parameters / regimes.** Si concentration gradients, bump/spike thickness and distance, gate electric field (Fz), in-plane magnetic field, and 1/f charge noise levels.
+
+**Assumptions / limitations.** The model assumes a virtual crystal approximation for Si gradients, neglects atomistic disorder and shear strains, and assumes no spin-flipping upon reflection at S-N interfaces in the Andreev qubit model.
+
+**Figures summary.** Figure 1 shows energy band alignment and spin-splitting energy; Figure 2 shows HH envelope functions; Figure 4 shows quantum dot gate configurations and spin-dipole moments; Figures 7-8 show position operator components; Figures 11-12 show the identified Pareto fronts for the optimized designs.
+
+**Paper structure.** The paper introduces the problem of weak SOI in Ge, presents the proposed Ge+ heterostructure design, details the k.p Hamiltonian and Schrieffer-Wolff modeling, describes the Bayesian optimization framework, presents results for SOI enhancement and qubit performance, and concludes with the potential for scalable quantum applications.
+
+**Why it may be interesting.** The use of machine learning to engineer material interfaces for enhanced spin-orbit coupling provides a blueprint for designing new semiconductor platforms for high-speed, scalable spin-based quantum computing.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Germanium (Ge) quantum wells are emerging as versatile platforms for quantum devices, supporting high-quality spin qubits and integration with superconducting leads. These applications benefit from strong intrinsic spin-orbit interaction (SOI), enabling efficient electrical control and engineering of spin degrees of freedom. The most advanced Ge/SiGe heterostructures to date, based on compressively strained Ge channels within strain-relaxed silicon-germanium (SiGe) barriers, exhibit weak SOI due to the heavy-hole character of the wave function, posing challenges for spin-based quantum devices and requiring complex device designs for fast qubit manipulation. In this work, we demonstrate that concrete heterostructure modifications can overcome these limitations, enhancing SOI by up to three orders of magnitude. Specifically, we propose to enrich unstrained Ge channels by localized, strained silicon spikes. Leveraging a multi-objective Bayesian optimization, we optimize the spike profile to maximize SOI, while ensuring compatibility with current epitaxial growth processes and robustness against realistic variations of growth parameters. Our heterostructure substantially enhances device performance, yielding up to two orders of magnitude higher quantum-dot spin qubit quality factors than state-of-the-art materials. We also predict GHz-scale spin splittings for hybrid superconducting Andreev spin qubits. These novel Ge heterostructures with engineered Si concentration profiles can open pathways to scalable quantum and spintronic applications.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21635"></a>
 ### [Two-gap to Single-gap Transition and Two-dome-like Superconductivity in Alkali-Metal Intercalated Bilayer PdTe2](http://arxiv.org/abs/2604.21635v1)
 
@@ -10784,6 +11957,73 @@ The Berry connection is a gauge-dependent quantity frequently used to describe t
 <details><summary>Abstract</summary>
 
 PdTe2 has been synthesized with controllable thickness down to the monolayer limit. Based on first-principles calculations within the fully anisotropic Migdal-Eliashberg framework, this work reveals that alkali-metal intercalation markedly enhances the weak superconductivity of bilayer PdTe2, boosting the transition temperature from 1.4 K to 5.0 -13.5 K and yielding a two-dome-like evolution of Tc. Rubidium intercalation induces the highest Tc of 13.5 K, which can be further increased to 14.5 K under biaxial tensile strain. The strain-dependent evolution of Tc also exhibits a two-dome-like behavior, reflecting the interplay between strain-induced band structure modifications and electron-phonon coupling (EPC). Moreover, a systematic correlation is identified between interlayer interaction and superconducting gap. Lithium intercalation induces a distinct two-gap state, whereas intercalants with larger atomic radii (Na, K, Rb, and Cs) drive the system into a single-gap character. The two-gap to single-gap transition originates from the modulation of interlayer coupling through intercalation-induced interlayer expansion. In addition, pristine and Li/Na-intercalated bilayers exhibit nontrivial band topology, suggesting that layered PdTe2 provides a promising platform for realizing the coexistence of superconductivity and nontrivial topology. These results provide detailed anisotropic insights into EPC and offer viable pathways for enhancing Tc and achieving diverse properties in layered PdTe2 systems.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21543"></a>
+### [Unified Hydrodynamic Analogue of Aharonov-Bohm and Lense-Thirring Effects](http://arxiv.org/abs/2604.21543v1)
+
+**Authors:** Aditya Singh, Joseph Samuel, Chien-chia Liu, Luiza Angheluta, Andrés Concha, Mahesh Bandi  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21543v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21543_figures/2604.21543_fig1.jpg" width="500"><br>
+<sub>FIG. 1: Traveling waves with wavefront dislocations showing map of η = Re(Ψ) at t = 0 for α = 1: (a) analytics and (b) experiment (also see S1.mov). Standing waves with nodal lines showing map of time-independent part of the η = Re(Ψ) for α = 1: (c) analytics and (d) experiment (also see S2.mov in Supplementary Material).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21543_figures/2604.21543_fig2.jpg" width="500"><br>
+<sub>FIG. 2: Topological representation of the universal cover of the punctured plane has a helicoid geometric shape.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21543_figures/2604.21543_fig3.jpg" width="500"><br>
+<sub>FIG. 3: Schematic of the experimental setup: (a) A water tank 2 m × 1 m in dimensions is filled with water to height H = 0.05 m with a draining vortex generated by a pump that recirculates water back into the tank. Acoustic trans- ducers placed on either side of the vortex generate traveling or standing surface waves. The vortex circulation is measured through Particle Imaging Velocimetry (b) whereas the wave fronts are measured with a Gaussian diffuser on to which sur- face caustics are projected by a backlit display. A high speed camera suspended above the tank provides imaging in both PIV and caustic configurations.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21543_figures/2604.21543_fig4.jpg" width="500"><br>
+<sub>FIG. 4: Phase evolution θ versus time (in units of ν/α) for a pair of nodal lines at α = −0.93 obtained from analytics (dashed lines) and experiment (blue and red crosses) are sep- arated by an azimuthal angle ∆θ = π and rotate rigidly with angular velocity Ω= α/ν.</sub>
+
+</details>
+
+**Main problem.** Demonstrating a unified hydrodynamic analogue for the Aharonov-Bohm effect (topological phase shifts) and the Lense-Thirring effect (frame dragging) within a single classical system.
+
+**Main result.** The researchers show that surface waves in a draining-vortex can realize both wavefront dislocations (AB effect) and rotating nodal patterns (LT effect) through a single circulation-driven geometry.
+
+**Method.** The study uses a theoretical mapping via a static time transformation and an experimental setup involving a large water tank with acoustic transducers, PIV for vortex characterization, and caustic imaging for wave visualization.
+
+**Summary.** This paper demonstrates how classical fluid dynamics can mimic complex relativistic and quantum phenomena. By using surface waves in a draining vortex, the authors create a laboratory platform that simultaneously shows the Aharonov-Bohm effect through wave dislocations and the Lense-Thirring effect through rotating nodal patterns. The study links classical hydrodynamics to the geometric principles of gauge theory and general relativity. This provides a measurable, macroscopic way to study topological phase and inertial effects.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A shallow-water hydrodynamic system consisting of surface waves in a draining-bathtub vortex, modeled by a convected wave equation where the background flow acts as an effective vector potential.
+
+**Key observables.** Surface deformation, wavefront dislocations in traveling waves, and the angular velocity of rotating nodal patterns in standing waves.
+
+**Important parameters / regimes.** Dimensionless circulation parameter (alpha), circulation (Gamma), wave speed (c), and the weak-flow regime (|U| << c).
+
+**Assumptions / limitations.** The flow is assumed to be in a weak-flow regime with slowly varying gradients and is approximately irrotational outside the vortex core; finite-size effects and viscosity/capillarity limit the nodal lines.
+
+**Figures summary.** Figure 1 compares analytical and experimental results for traveling and standing waves; Figure 2 shows a topological representation of the universal cover as a helicoid; Figure 3 depicts the experimental apparatus; Figure 4 plots phase evolution agreement.
+
+**Paper structure.** The paper introduces the unified problem, presents a mathematical mapping of the wave equation to a vector potential model, describes the experimental setup and vortex characterization, demonstrates the emergence of AB and LT analogues, and concludes with limitations and future directions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We show that surface waves in a draining-bathtub vortex provide a hydrodynamic realization of both Aharonov-Bohm phase shifts and Lense-Thirring frame dragging within a single system. A static time transformation maps the flat (2+1)-dimensional wave equation onto the convected shallow-water equation, yielding an effective vector potential set by the background flow. In this geometry, the circulation defines a global phase holonomy that controls wave structure. Traveling waves exhibit wavefront dislocations characteristic of Aharonov-Bohm scattering, while standing-wave superpositions produce nodal patterns that rotate at an angular velocity fixed by the circulation, providing a direct analogue of frame dragging. For noninteger circulation, the problem is naturally defined on the universal cover, ensuring single-valued partial-wave solutions. Experiments on a controlled vortex confirm these predictions and establish a laboratory platform in which topological phase and inertial effects, central to gauge and gravitational physics, emerge from a measurable velocity field.
 
 </details>
 

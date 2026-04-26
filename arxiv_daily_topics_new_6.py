@@ -57,22 +57,37 @@ CHUNK_OVERLAP = 1200
 MAX_CHUNKS_PER_PAPER = 8
 
 # Figure gallery settings.
-# Conservative defaults keep the output folder small.
+# Conservative defaults keep the output folder small. Bump
+# FIGURE_RENDER_ZOOM if labels look fuzzy; bump FIGURE_JPEG_QUALITY if
+# JPEG compression artifacts appear around lines and text.
 MAX_FIGURES_PER_PAPER = int(os.environ.get("MAX_FIGURES_PER_PAPER", "10"))
-FIGURE_RENDER_ZOOM = float(os.environ.get("FIGURE_RENDER_ZOOM", "1.25"))
-FIGURE_JPEG_QUALITY = int(os.environ.get("FIGURE_JPEG_QUALITY", "65"))
-FIGURE_MIN_AREA = int(os.environ.get("FIGURE_MIN_AREA", "40000"))
+FIGURE_RENDER_ZOOM = float(os.environ.get("FIGURE_RENDER_ZOOM", "2.0"))
+FIGURE_JPEG_QUALITY = int(os.environ.get("FIGURE_JPEG_QUALITY", "82"))
+FIGURE_MIN_AREA = int(os.environ.get("FIGURE_MIN_AREA", "12000"))
 
 # Search each archive separately instead of using one long OR query.
-# This reproduces the behavior of your older quant-ph-only script more reliably
-# and avoids losing entries because of API query parsing or max_results ordering.
+# Each entry is (label, query, priority). priority="primary" means papers
+# from that archive are ranked normally; "secondary" means they are pushed
+# to the bottom of the digest regardless of relevance score. Secondary
+# archives are still fetched, classified, and summarized — they just rank
+# below all primary papers in the body of the report.
 ARXIV_QUERIES = [
-    ("quant-ph", "cat:quant-ph"),
-    ("cond-mat.quant-gas", "cat:cond-mat.quant-gas"),
-    ("cond-mat.stat-mech", "cat:cond-mat.stat-mech"),
-    ("cond-mat.str-el", "cat:cond-mat.str-el"),
-    ("cond-mat.dis-nn", "cat:cond-mat.dis-nn"),
+    # Primary archives — your main focus.
+    ("quant-ph",            "cat:quant-ph",            "primary"),
+    ("cond-mat.quant-gas",  "cat:cond-mat.quant-gas",  "primary"),
+    ("cond-mat.stat-mech",  "cat:cond-mat.stat-mech",  "primary"),
+    ("cond-mat.str-el",     "cat:cond-mat.str-el",     "primary"),
+    ("cond-mat.dis-nn",     "cat:cond-mat.dis-nn",     "primary"),
+    # Secondary archives — fetched but de-prioritized to the end.
+    ("cond-mat.mtrl-sci",   "cat:cond-mat.mtrl-sci",   "secondary"),
+    ("cond-mat.mes-hall",   "cat:cond-mat.mes-hall",   "secondary"),
+    ("cond-mat.other",      "cat:cond-mat.other",      "secondary"),
+    ("cond-mat.soft",       "cat:cond-mat.soft",       "secondary"),
+    ("cond-mat.supr-con",   "cat:cond-mat.supr-con",   "secondary"),
 ]
+
+# Build a lookup of primary archive labels for quick membership tests.
+_PRIMARY_ARCHIVES = {label for label, _q, prio in ARXIV_QUERIES if prio == "primary"}
 
 CATEGORIES = [
     "quantum information and computing",
@@ -126,24 +141,128 @@ HIGHLIGHT_AUTHORS = _load_highlight_authors(HIGHLIGHT_AUTHORS_FILE)
 #   4 = directly studies this topic; main focus
 #   5 = breakthrough/landmark result on exactly this topic
 TOPICS = {
+    # ---- HIGH PRIORITY: top-level themes from group description ----
+    "analog quantum simulation":
+        "Analog quantum simulation: using AMO platforms (cold atoms, ions, "
+        "Rydberg arrays, photonic systems, cavity QED) to engineer and study "
+        "many-body Hamiltonians of condensed-matter interest — Hubbard models, "
+        "lattice gauge theories, frustrated magnets, topological models — "
+        "without compiling to gate sequences.",
+    "entanglement & information structure":
+        "Entanglement and information-theoretic structure of many-body states "
+        "— entanglement entropy and its scaling, mutual information, OTOCs, "
+        "operator spreading, information dynamics in many-body systems, "
+        "entanglement spectrum.",
+
+    # ---- experimental platforms / techniques you want to see ----
     "Rydberg arrays":
         "Experiments or theory using arrays of Rydberg atoms (tweezer arrays, "
-        "programmable quantum simulators, blockade-mediated entanglement).",
-    "free-space correlated emission":
-        "Cooperative or correlated photon emission from atoms in free space "
-        "(Dicke superradiance, subradiance, free-space cooperativity).",
-    "Frenkel-Kontorova":
-        "The Frenkel-Kontorova model and its variants — chains in periodic "
-        "potentials, commensurate/incommensurate transitions, friction.",
+        "programmable quantum simulators, blockade-mediated entanglement). "
+        "Includes cavity-coupled Rydberg arrays.",
+    "QC/QI experiment":
+        "Experimental papers on quantum information or quantum computing — "
+        "real hardware (superconducting qubits, trapped ions, neutral atoms, "
+        "photonic chips, NV centers): benchmarking, demonstrations, error "
+        "correction. Theory-only papers score 0.",
+    "quantum optics experiment":
+        "Experimental quantum optics — single/entangled photons, cavity QED "
+        "experiments, parametric sources, photon statistics, homodyne/"
+        "heterodyne detection, Hong-Ou-Mandel, squeezed light, atom-photon "
+        "interfaces. Theory-only papers score 0.",
+
+    # ---- specific models / phenomena ----
+    "Tavis-Cummings & cavity-many-emitter":
+        "Tavis-Cummings model and its variants — N atoms coupled to one or a "
+        "few bosonic modes, including driven-dissipative TC, multi-mode cavity "
+        "QED with many emitters, anisotropic/extended TC, and cavity-engineered "
+        "non-local interactions or dissipation between many emitters.",
+    "superradiant laser":
+        "Superradiant lasers and bad-cavity / steady-state superradiant "
+        "emission — narrow-linewidth lasing on optical-clock transitions, "
+        "collective coherent emission as a laser source.",
+    "correlated / nonlocal dissipation":
+        "Correlated, collective, or spatially-nonlocal dissipation: nonlocal "
+        "Lindblad jump operators, dissipative coupling between subsystems, "
+        "dissipation-engineered entanglement, super/subradiant decay channels "
+        "as tools, power-law decaying dissipation profiles.",
     "Dicke superradiance":
         "Dicke superradiance, sub/superradiant states, collective spontaneous "
         "emission, cavity-Dicke physics.",
+    "free-space correlated emission":
+        "Cooperative or correlated photon emission from atoms in free space "
+        "(no cavity): subradiance, Dicke bursts in free space, free-space "
+        "cooperativity, atom-array selective radiation.",
+    "Kondo & dissipative impurity":
+        "Kondo physics and quantum impurity models, including dissipative or "
+        "driven realizations of Kondo problems — locally dissipated fermions, "
+        "non-Hermitian impurities, Anderson and related impurity models in "
+        "open settings.",
+    "spintronics-quantum-optics interface":
+        "Hybrid systems combining spintronics with quantum optics: magnonics "
+        "coupled to cavity photons, NV ensembles in magnetic environments, "
+        "spin-photon transduction, magnetic fluctuations driving emitters.",
+    "Frenkel-Kontorova":
+        "The Frenkel-Kontorova model — chains in periodic potentials, "
+        "commensurate/incommensurate transitions, friction.",
+
+    # ---- broad concepts you care about ----
+    "driven-dissipative phase transition":
+        "Phase transitions in driven-open or dissipative quantum systems — "
+        "dissipative QPTs, non-equilibrium critical points, parametric "
+        "instabilities, dynamical (DPT-I and DPT-II) transitions, prethermal "
+        "phases, time crystals.",
+    "non-equilibrium universality":
+        "Universal scaling and critical behavior away from equilibrium — "
+        "non-thermal fixed points, scaling in quench dynamics, non-equilibrium "
+        "critical exponents, novel universality classes specific to driven or "
+        "dissipative systems.",
+    "dissipative systems":
+        "Open / dissipative quantum systems generally: Lindblad master "
+        "equations, non-Hermitian dynamics, driven-dissipative steady states. "
+        "(Use phase-transition / universality topics for those specifically.)",
+    "non-equilibrium dynamics":
+        "Quench dynamics, thermalization or its absence, transport in driven "
+        "systems, Floquet engineering, non-equilibrium steady states. "
+        "(General; use the more specific topics where they apply.)",
+    "scars & prethermalization":
+        "Quantum many-body scars, weak ergodicity breaking, slow "
+        "thermalization, prethermal plateaus, Hilbert-space fragmentation, "
+        "kinetically constrained models and slow dynamics from constraints.",
+    "measurement-induced transitions":
+        "Measurement-induced phase transitions, entanglement transitions in "
+        "monitored circuits, scrambling transitions in hybrid quantum circuits, "
+        "information vs. measurement competition.",
+    "quantum measurements":
+        "Quantum measurement theory and practice generally: weak measurements, "
+        "continuous monitoring, back-action, POVMs, quantum trajectories, "
+        "feedback control. (Use 'measurement-induced transitions' for that "
+        "specific subfield.)",
+    "Keldysh / 2PI / non-Gaussian methods":
+        "Field-theoretic and variational methods for open / driven systems — "
+        "Keldysh field theory, 2PI Dyson equations, non-Gaussian variational "
+        "ansatze, semiclassical TWA-type methods for dissipative dynamics.",
     "interference shaping light":
         "Interference effects (multi-path, structured, quantum) used to shape "
         "the spectral, spatial, or statistical properties of light sources.",
-    "kinetically constrained dynamics":
-        "Dynamics of kinetically constrained models, including Hilbert-space "
-        "fragmentation, scars, slow thermalization from constraints.",
+    "correlated cavity matter":
+        "Strongly correlated quantum matter in optical or microwave cavities, "
+        "and analogies between cavity QED and electron-phonon systems — "
+        "cavity-modified electronic structure, polaritonic chemistry, "
+        "polariton condensates as correlated matter, vacuum-induced "
+        "correlations and superconductivity, cavity engineering of "
+        "many-body ground states.",
+    "exotic spin models in light-matter":
+        "Realization or proposal of exotic spin models (spin liquids, spin "
+        "glasses, frustrated magnets, topological spin order) in atomic, "
+        "photonic, or cavity-QED platforms — photon-mediated spin "
+        "interactions producing nontrivial magnetic phases.",
+    "methods for driven-dissipative":
+        "State-of-the-art numerical or analytical methods specifically for "
+        "driven-dissipative or open quantum systems — tensor-network methods "
+        "for Lindbladians (e.g. matrix-product operators for density matrices), "
+        "neural quantum states for open systems, dissipative DMRG, quantum "
+        "trajectories methods, cluster mean-field for Lindbladians, "
+        "Monte Carlo approaches to non-equilibrium steady states.",
 }
 
 # Relevance score >= this threshold makes a paper appear in the
@@ -308,7 +427,7 @@ def fetch_recent_papers(max_papers=None):
             f"  UTC window: {start_utc:%Y-%m-%d %H:%M} to {end_utc:%Y-%m-%d %H:%M}"
         )
 
-    print("  fetching archives separately:", ", ".join(label for label, _ in ARXIV_QUERIES))
+    print("  fetching archives separately:", ", ".join(label for label, _q, _p in ARXIV_QUERIES))
 
     papers = []
     seen = set()
@@ -319,7 +438,7 @@ def fetch_recent_papers(max_papers=None):
         num_retries=ARXIV_NUM_RETRIES,
     )
 
-    for label, query in ARXIV_QUERIES:
+    for label, query, _priority in ARXIV_QUERIES:
         if max_papers is not None and len(papers) >= max_papers:
             break
 
@@ -351,13 +470,29 @@ def fetch_recent_papers(max_papers=None):
                 continue
 
             if start_utc <= r.published < end_utc:
+                # Tag with the archive label and its position in ARXIV_QUERIES
+                # so we can later sort by priority (primaries before secondaries,
+                # in declaration order). The same paper may match multiple
+                # archives; first-match wins because we skip on `seen`.
+                r._archive_label = label
+                r._archive_rank = next(
+                    i for i, (lbl, _q, _p) in enumerate(ARXIV_QUERIES) if lbl == label
+                )
+                r._archive_priority = _priority  # "primary" or "secondary"
                 papers.append(r)
                 seen.add(base_id)
                 count_this_query += 1
 
         print(f"  {label}: {count_this_query} papers")
 
-    papers.sort(key=lambda r: r.published, reverse=True)
+    # Process order: all primary papers first (in ARXIV_QUERIES order), then
+    # all secondary papers. Within each archive, newest first.
+    def _process_key(r):
+        priority_rank = 0 if r._archive_priority == "primary" else 1
+        # Negate timestamp so newest-first within the same archive.
+        return (priority_rank, r._archive_rank, -r.published.timestamp())
+
+    papers.sort(key=_process_key)
     return papers
 
 
@@ -460,35 +595,194 @@ def save_pixmap_as_jpg(pix, img_path, jpeg_quality=FIGURE_JPEG_QUALITY):
         pix.save(str(img_path))
 
 
+def _content_bbox_above_caption(page, caption_bbox, search_band):
+    """
+    Find the actual bounding box of vector drawings + raster images that sit
+    above a caption inside the given horizontal search band. Returns a Rect
+    or None if nothing was found.
+
+    This is much more reliable than blindly cropping a fixed-height rectangle:
+    the bbox shrinks to the actual figure content and excludes empty page
+    margins or stray text blocks.
+    """
+    sx0, sx1 = search_band
+    cap_y0 = caption_bbox.y0
+
+    # Scan a generous vertical window above the caption. We don't know how
+    # tall the figure is; this lets us catch tall figures correctly.
+    scan_top = max(0, cap_y0 - 700)
+
+    candidates = []
+
+    # Vector graphics (lines, curves, fills) — most arxiv physics figures.
+    try:
+        drawings = page.get_drawings()
+    except Exception:
+        drawings = []
+    for d in drawings:
+        rect = d.get("rect")
+        if rect is None:
+            continue
+        # Must sit above the caption and inside the horizontal band.
+        if rect.y1 > cap_y0 - 2:
+            continue
+        if rect.y0 < scan_top:
+            continue
+        # Reject hair-thin slivers (page rules, single-pixel borders, etc.).
+        if rect.width < 8 or rect.height < 8:
+            continue
+        if rect.x1 < sx0 or rect.x0 > sx1:
+            continue
+        candidates.append(rect)
+
+    # Raster images (PNG / JPEG embedded in the PDF) — common for
+    # microscopy panels, photos, schematics with bitmap art.
+    try:
+        infos = page.get_image_info(xrefs=False)
+    except Exception:
+        infos = []
+    for info in infos:
+        bbox = info.get("bbox")
+        if bbox is None:
+            continue
+        rect = fitz.Rect(*bbox)
+        if rect.y1 > cap_y0 - 2:
+            continue
+        if rect.y0 < scan_top:
+            continue
+        if rect.x1 < sx0 or rect.x0 > sx1:
+            continue
+        candidates.append(rect)
+
+    if not candidates:
+        return None
+
+    # Find body-text blocks above the caption inside the band — these mark
+    # the *upper* boundary of the figure. Anything past a continuous body-text
+    # region is presumed to belong to a different figure or to the running
+    # text above it.
+    try:
+        text_blocks = page.get_text("blocks") or []
+    except Exception:
+        text_blocks = []
+    text_rects = []
+    for tb in text_blocks:
+        if len(tb) < 5:
+            continue
+        tx0, ty0, tx1, ty1, ttxt = tb[:5]
+        if not ttxt or not ttxt.strip():
+            continue
+        # Only blocks above the caption and inside the column band.
+        if ty1 > cap_y0 - 2:
+            continue
+        if tx1 < sx0 or tx0 > sx1:
+            continue
+        # Caption-like blocks (other figure captions) shouldn't bound us:
+        # those are handled by separate caption iteration. But for the
+        # purpose of finding where the *current* figure ends, treat them
+        # the same — they sit above their own figure, which sits above
+        # *our* figure, so it's still a valid upper boundary.
+        # Skip very short single-line blocks though (axis tick labels,
+        # in-figure annotations) — they have low text density.
+        if (ty1 - ty0) < 14 and len(ttxt.strip()) < 50:
+            continue
+        text_rects.append(fitz.Rect(tx0, ty0, tx1, ty1))
+
+    # Cluster figure candidates upward from the caption, but stop when we
+    # cross a body-text region. We use a generous gap tolerance because
+    # figures often have whitespace between panels, sub-figures, and
+    # internal annotations. The text-region check is what really keeps us
+    # from accidentally swallowing the body text above.
+    candidates.sort(key=lambda r: -r.y1)
+    union = fitz.Rect(candidates[0])
+    GAP_TOLERANCE = 90  # was 24 — too aggressive, dropped multi-panel figs
+
+    def _crosses_text_region(union_rect, next_rect):
+        """True if any text block sits between `next_rect` and `union_rect`."""
+        gap_top = next_rect.y1
+        gap_bot = union_rect.y0
+        if gap_top >= gap_bot:
+            return False
+        for tr in text_rects:
+            # Text block must be vertically inside the gap and horizontally
+            # overlap the column band of either rect.
+            if tr.y1 < gap_top or tr.y0 > gap_bot:
+                continue
+            if tr.x1 < min(union_rect.x0, next_rect.x0):
+                continue
+            if tr.x0 > max(union_rect.x1, next_rect.x1):
+                continue
+            return True
+        return False
+
+    for r in candidates[1:]:
+        # Stop if the next candidate is far away vertically.
+        if r.y1 < union.y0 - GAP_TOLERANCE:
+            break
+        # Stop if there's a real text block between this candidate and what
+        # we've already merged — that means we've hit body text above the
+        # figure.
+        if _crosses_text_region(union, r):
+            break
+        union |= r
+
+    return union
+
+
 def caption_to_figure_clip(page, caption_bbox):
     """
-    Estimate the figure region belonging to a caption by cropping above it.
+    Estimate the figure region belonging to a caption.
 
-    This captures vector figures, unlike raw embedded-image extraction.
+    Two-step approach:
+      1. Detect the column band (one-column vs two-column layout from
+         caption width and position).
+      2. Use PyMuPDF's drawings + image_info to find the actual content
+         bounding box above the caption inside that band, then add a small
+         padding for axis labels.
+
+    If content detection fails (text-only page, scanned PDF, etc.), fall
+    back to the old fixed-height heuristic so we still produce something.
     """
     page_rect = page.rect
     page_w = page_rect.width
 
     margin_x = 18
     margin_y = 10
+    pad = 6  # padding around detected content
     caption_center_x = 0.5 * (caption_bbox.x0 + caption_bbox.x1)
 
     # Approximate one-column vs two-column layout from caption width.
     if caption_bbox.width < 0.72 * page_w:
         if caption_center_x < page_w / 2:
-            x0 = margin_x
-            x1 = page_w / 2 - 6
+            band_x0 = margin_x
+            band_x1 = page_w / 2 - 6
         else:
-            x0 = page_w / 2 + 6
-            x1 = page_w - margin_x
+            band_x0 = page_w / 2 + 6
+            band_x1 = page_w - margin_x
     else:
-        x0 = margin_x
-        x1 = page_w - margin_x
+        band_x0 = margin_x
+        band_x1 = page_w - margin_x
 
+    # Try content-aware detection first.
+    content_bbox = _content_bbox_above_caption(
+        page, caption_bbox, search_band=(band_x0, band_x1)
+    )
+
+    if content_bbox is not None and content_bbox.height > 30 and content_bbox.width > 30:
+        # Pad slightly to include axis labels / tick marks just outside the
+        # vector geometry, then clip to band and to the caption's top edge.
+        x0 = max(band_x0, content_bbox.x0 - pad)
+        x1 = min(band_x1, content_bbox.x1 + pad)
+        y0 = max(0, content_bbox.y0 - pad)
+        y1 = min(caption_bbox.y0 - 2, content_bbox.y1 + pad)
+        clip = fitz.Rect(x0, y0, x1, y1) & page_rect
+        if clip.width > 30 and clip.height > 30:
+            return clip
+
+    # Fallback: original fixed-height heuristic.
     y1 = max(0, caption_bbox.y0 - margin_y)
     y0 = max(0, y1 - 320)
-
-    return fitz.Rect(x0, y0, x1, y1) & page_rect
+    return fitz.Rect(band_x0, y0, band_x1, y1) & page_rect
 
 
 def extract_figures_with_captions_from_pdf(
@@ -535,6 +829,37 @@ def extract_figures_with_captions_from_pdf(
 
                 if clip.width * clip.height < FIGURE_MIN_AREA:
                     continue
+
+                # Reject crops that look like body text rather than a figure.
+                # A real figure has either vector drawings or embedded images;
+                # a "Figure 1 shows..." mention in running prose has neither.
+                try:
+                    has_drawings = False
+                    for d in page.get_drawings():
+                        r = d.get("rect")
+                        if r is None:
+                            continue
+                        if (r & clip).get_area() > 25:  # any nontrivial overlap
+                            has_drawings = True
+                            break
+                    has_images = False
+                    if not has_drawings:
+                        for info in page.get_image_info(xrefs=False):
+                            bb = info.get("bbox")
+                            if bb is None:
+                                continue
+                            r = fitz.Rect(*bb)
+                            if (r & clip).get_area() > 25:
+                                has_images = True
+                                break
+                    if not has_drawings and not has_images:
+                        # No visual content — skip this caption (likely a
+                        # false positive from text matching "Figure" / "FIG").
+                        continue
+                except Exception:
+                    # On any error in the rejection check, fall through and
+                    # save the figure anyway rather than dropping it.
+                    pass
 
                 try:
                     pix = page.get_pixmap(matrix=mat, clip=clip, alpha=False)
@@ -924,16 +1249,35 @@ def score_relevance_topics(paper, analysis, category, paper_type):
         topic_list=topic_list,
     )
 
+    # Allow ~80 output tokens per topic — enough headroom for keys with spaces,
+    # punctuation, and JSON whitespace. With 24 topics that's ~1900 tokens.
+    # Cap at 4000 to bound runtime.
+    score_budget = min(4000, max(400, 80 * len(TOPICS)))
+
     try:
-        text = chat_ollama(prompt, num_predict=300)
+        text = chat_ollama(prompt, num_predict=score_budget)
         data = parse_json_object(text)
     except Exception as e:
+        # Print first 200 chars of the model's output (if any) to help diagnose
+        # truncation vs. genuine "no JSON" cases.
+        snippet = (text if isinstance(locals().get("text"), str) else "")
+        head = snippet[:200].replace("\n", " ") if snippet else "(no output captured)"
         print(f"  relevance scoring failed: {e}")
+        if snippet:
+            print(f"    output head: {head!r}")
+            print(f"    output length: {len(snippet)} chars (budget was {score_budget} tokens)")
         return {key: 0 for key in TOPICS}
+
+    # The model sometimes rewrites keys with underscores instead of spaces, or
+    # different capitalization. Normalize before lookup so we don't drop scores.
+    def _norm_key(k):
+        return re.sub(r"[\s_]+", " ", str(k)).strip().lower()
+
+    by_norm = {_norm_key(k): v for k, v in data.items()}
 
     scores = {}
     for key in TOPICS:
-        v = data.get(key, 0)
+        v = by_norm.get(_norm_key(key), 0)
         try:
             score = int(v)
         except (TypeError, ValueError):
@@ -1004,7 +1348,9 @@ def _render_entry(e, lines):
         lines.append(f"**Highlighted author(s):** {pretty}  ")
 
     lines.append(f"**Authors:** {e['authors']}  ")
-    lines.append(f"**Type:** {e['type']} · **PDF:** <{e['pdf']}>  ")
+    cat = e.get("category", "")
+    cat_str = f" · **Category:** {cat}" if cat else ""
+    lines.append(f"**Type:** {e['type']}{cat_str} · **PDF:** <{e['pdf']}>  ")
     lines.append(f"**Analysis basis:** {e.get('analysis_basis', 'unknown')}")
 
     # Topic relevance: only show topics with score >= 1, sorted high to low.
@@ -1133,7 +1479,8 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
         lines.append(
             "*Every paper with at least one nonzero topic score, sorted by best-matching score. "
             f"🔥 marks scores ≥{RELEVANCE_THRESHOLD}/5. "
-            "Click the title to jump to the full entry below; click [arXiv] to open the paper page.*"
+            "Click the title to jump to the full entry below; click [arXiv] to open the paper page. "
+            "`(secondary)` marks papers from de-prioritized cond-mat archives.*"
         )
         lines.append("")
         for e in relevant:
@@ -1148,9 +1495,10 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
                 badges.append(f"{fire}`{key}` **{score}/5**")
             tags = " · ".join(badges)
             star = "⭐ " if e.get("highlighted") else ""
+            sec = "" if e.get("is_primary_archive", True) else " `(secondary)`"
             anchor = _entry_anchor_id(e)
             lines.append(
-                f"- {star}[{e['title']}](#{anchor}) [[arXiv]]({e['url']}) — {tags}"
+                f"- {star}[{e['title']}](#{anchor}) [[arXiv]]({e['url']}){sec} — {tags}"
             )
         lines.append("")
 
@@ -1166,25 +1514,109 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
 
         for e in highlighted:
             pretty = ", ".join(e.get("highlighted", []))
+            sec = "" if e.get("is_primary_archive", True) else " `(secondary)`"
             anchor = _entry_anchor_id(e)
             lines.append(
-                f"- ⭐ [{e['title']}](#{anchor}) [[arXiv]]({e['url']}) — {pretty}"
+                f"- ⭐ [{e['title']}](#{anchor}) [[arXiv]]({e['url']}){sec} — {pretty}"
             )
 
         lines.append("")
 
-    for cat in CATEGORIES:
-        items = entries_by_cat[cat]
+    # Body sort: papers from secondary archives (Materials Science, Soft, etc.)
+    # always come AFTER all primary archives, regardless of relevance score.
+    # Within each archive group, sort by:
+    #   1. highlighted papers (your watch-list authors)
+    #   2. max topic score (high to low)
+    #   3. sum of all topic scores (richer match wins ties)
+    #   4. alphabetical by title
+    def _ranked_key(e):
+        is_highlighted = bool(e.get("highlighted"))
+        scores = e.get("topic_scores") or {}
+        max_score = max(scores.values()) if scores else 0
+        sum_score = sum(scores.values())
+        return (
+            0 if is_highlighted else 1,
+            -max_score,
+            -sum_score,
+            e["title"].lower(),
+        )
 
-        if not items:
-            continue
+    def _is_interesting(e):
+        """A paper is 'interesting' if it's highlighted or has any nonzero topic score."""
+        if e.get("highlighted"):
+            return True
+        scores = e.get("topic_scores") or {}
+        return any(v >= 1 for v in scores.values())
 
+    primary_entries = [e for e in all_entries if e.get("is_primary_archive", True)]
+    secondary_entries = [e for e in all_entries if not e.get("is_primary_archive", True)]
+
+    primary_sorted = sorted(primary_entries, key=_ranked_key)
+    secondary_sorted = sorted(secondary_entries, key=_ranked_key)
+
+    primary_interesting = [e for e in primary_sorted if _is_interesting(e)]
+    primary_others = [e for e in primary_sorted if not _is_interesting(e)]
+    secondary_interesting = [e for e in secondary_sorted if _is_interesting(e)]
+    secondary_others = [e for e in secondary_sorted if not _is_interesting(e)]
+
+    # ---- primary archives: ranked list + collapsible Other Papers ----
+    if primary_interesting:
         lines.append("")
-        lines.append(f"## {cat} ({len(items)})")
+        lines.append(f"## All papers ({len(primary_interesting)}, sorted by relevance)")
         lines.append("")
-
-        for e in items:
+        lines.append(
+            "*Papers from quant-ph and your primary cond-mat archives "
+            "(quant-gas, stat-mech, str-el, dis-nn). Highlighted papers (⭐) come first, "
+            "then everything else sorted by topic-relevance score, highest first.*"
+        )
+        lines.append("")
+        for e in primary_interesting:
             _render_entry(e, lines)
+
+    if primary_others:
+        lines.append("")
+        lines.append(f"## Other papers ({len(primary_others)})")
+        lines.append("")
+        lines.append(
+            "*Papers from primary archives without highlighted authors or any topic match. "
+            "Click to expand.*"
+        )
+        lines.append("")
+        lines.append("<details><summary>Show other papers</summary>")
+        lines.append("")
+        for e in primary_others:
+            _render_entry(e, lines)
+        lines.append("</details>")
+        lines.append("")
+
+    # ---- secondary archives: same structure, pushed to the end ----
+    if secondary_interesting or secondary_others:
+        lines.append("")
+        lines.append("## Secondary cond-mat archives")
+        lines.append("")
+        lines.append(
+            "*Papers from cond-mat.mtrl-sci, mes-hall, other, soft, supr-con. "
+            "These archives are de-prioritized — they appear at the end regardless of relevance score.*"
+        )
+        lines.append("")
+
+    if secondary_interesting:
+        lines.append("")
+        lines.append(f"### Relevant in secondary archives ({len(secondary_interesting)})")
+        lines.append("")
+        for e in secondary_interesting:
+            _render_entry(e, lines)
+
+    if secondary_others:
+        lines.append("")
+        lines.append(f"### Other secondary papers ({len(secondary_others)})")
+        lines.append("")
+        lines.append("<details><summary>Show other secondary papers</summary>")
+        lines.append("")
+        for e in secondary_others:
+            _render_entry(e, lines)
+        lines.append("</details>")
+        lines.append("")
 
     return "\n".join(lines)
 
@@ -1210,7 +1642,7 @@ def main():
     date_str = datetime.now().strftime("%Y-%m-%d")
     out_dir = OUTPUT_DIR / date_str
     out_dir.mkdir(parents=True, exist_ok=True)
-    digest_path = out_dir / "digest_fig_test.md"
+    digest_path = out_dir / "digest_output_2.md"
 
     print(f"Fetching quant-ph + cond-mat papers for {date_str}...")
     if MAX_PAPERS_TO_PROCESS is not None:
@@ -1234,7 +1666,8 @@ def main():
             for i, paper in enumerate(papers, 1):
                 matched = paper_highlight_matches(paper)
                 star = "⭐ " if matched else ""
-                print(f"[{i}/{len(papers)}] {star}{paper.title[:90]}")
+                archive_label = getattr(paper, "_archive_label", "?")
+                print(f"[{i}/{len(papers)}] [{archive_label}] {star}{paper.title[:80]}")
 
                 arxiv_id = arxiv_base_id(paper)
                 if arxiv_id in processed_arxiv_ids:
@@ -1251,6 +1684,14 @@ def main():
                     # Make sure highlighted reflects the current author list,
                     # in case it was edited since the cache was written.
                     cached["highlighted"] = matched
+                    # Backfill primary/secondary archive marker on older caches
+                    # that were written before this field existed.
+                    if "is_primary_archive" not in cached:
+                        paper_arxiv_cats = list(paper.categories) if paper.categories else []
+                        cached["arxiv_categories"] = paper_arxiv_cats
+                        cached["is_primary_archive"] = any(
+                            c in _PRIMARY_ARCHIVES for c in paper_arxiv_cats
+                        )
                     # If TOPICS was added/changed since caching, rescore.
                     cached_topics = set((cached.get("topic_scores") or {}).keys())
                     if cached_topics != set(TOPICS):
@@ -1298,9 +1739,17 @@ def main():
                     figures = extract_figures_with_captions_from_pdf(pdf_path, out_dir)
                     pdf_path.unlink(missing_ok=True)
 
+                # Mark whether this paper falls in a primary or secondary
+                # archive, so the markdown builder can sort secondaries to
+                # the very end of the digest.
+                paper_arxiv_cats = list(paper.categories) if paper.categories else []
+                is_primary = any(c in _PRIMARY_ARCHIVES for c in paper_arxiv_cats)
+
                 entry = {
                     "arxiv_id": arxiv_id,
                     "category": cat,
+                    "arxiv_categories": paper_arxiv_cats,
+                    "is_primary_archive": is_primary,
                     "title": paper.title.strip().replace("\n", " "),
                     "authors": ", ".join(a.name for a in paper.authors),
                     "abstract": paper.summary.strip().replace("\n", " "),

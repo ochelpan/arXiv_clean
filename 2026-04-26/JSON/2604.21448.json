@@ -1,0 +1,109 @@
+{
+  "arxiv_id": "2604.21448",
+  "category": "other",
+  "arxiv_categories": [
+    "cond-mat.soft",
+    "math.NA",
+    "physics.flu-dyn"
+  ],
+  "is_primary_archive": false,
+  "title": "Continuum granular flow model with restitution-derived viscoelastic damping",
+  "authors": "Bodhinanda Chandra, Sachith Dunatunga, Ken Kamrin",
+  "abstract": "This work presents a unified viscoelastic-viscoplastic continuum framework for modeling rate-dependent granular flows across regimes. The formulation incorporates two distinct rate-dependent mechanisms, namely micro-inertia and viscoelastic dissipation, within a single continuum description. A central contribution is an explicit link between the coefficient of restitution and a continuum viscosity, derived from an analysis of wave attenuation in granular assemblies, thereby establishing a direct connection between particle-scale collision physics and macroscopic damping. This relation is introduced while retaining inertia-dependent plastic flow governed by the classical $μ(I)$ rheology. The constitutive model is constructed by meticulously partitioning elastic and viscous responses within the model and corresponding stress-update routine, such that viscous dissipation governs wave propagation and collisional processes without altering the plastic flow rule. The framework is implemented within the material point method to simulate transient processes involving large deformations, material separation, and subsequent reconsolidation. A range of numerical examples, including steady, transient, vibrational, and impact-driven flows, demonstrates that the model captures wave propagation, diffusion, and rate-dependent granular behavior within a unified continuum setting.",
+  "url": "http://arxiv.org/abs/2604.21448v1",
+  "pdf": "https://arxiv.org/pdf/2604.21448v1",
+  "type": "theory",
+  "summary": "This paper presents a new continuum mechanics framework for modeling granular materials across solid, liquid, and gas-like regimes. By mathematically linking the microscopic coefficient of restitution to macroscopic viscosity, the authors can simulate complex phenomena like wave attenuation and pattern formation in vibrated grains. The model uses the Material Point Method to handle large deformations and material separation. This provides a more physically consistent way to include collisional energy loss in large-scale granular simulations.",
+  "main_problem": "Developing a unified continuum framework for granular flows that bridges the gap between microscopic particle collisions (coefficient of restitution) and macroscopic viscoelastic damping and plastic flow.",
+  "main_result": "The authors derive an explicit analytical link between the microscopic coefficient of restitution and continuum bulk/shear viscosities, enabling a model that captures wave attenuation, pattern formation in vibrated media, and rate-dependent plastic flow.",
+  "method": "The framework is implemented using the Material Point Method (MPM) with an 'update-stress-first' scheme, utilizing analytical derivations from spherical compression impacts to calibrate the constitutive parameters.",
+  "model_or_system": "A viscoelastic-viscoplastic continuum model for dry, cohesionless granular media, incorporating $\\mu(I)$ rheology for plastic flow and a Kelvin-Voigt-like structure for viscoelastic damping.",
+  "key_observables": "Stress tensor, velocity gradient, pressure evolution, accumulated plastic deviatoric strain, and spatial pattern formation (square/diamond shapes).",
+  "important_parameters": "Coefficient of restitution ($e$), inertial number ($I$), bulk and shear viscosities ($\\zeta, \\eta$), packing fraction ($\\phi$), and the critical density threshold ($\\rho_c$) for material separation.",
+  "main_assumptions": "The material cannot support tension (no-tension condition); the grains are assumed to be spherical, stiff, and incompressible; and the gaseous regime neglects kinetic temperature/granular temperature effects.",
+  "figures_summary": "Figure 1 shows the rheological model schematic; Figure 2 shows the granular assembly; Figure 3 compares analytical vs. approximate restitution forms; Figure 4 illustrates the MPM computational cycle; Figure 15/20 show pressure profiles and pattern formation in vibrated beds.",
+  "paper_structure": "The paper begins by identifying the need for a unified model, moves to the analytical derivation of the viscosity-restitution link, describes the construction of the viscoelastic-viscoplastic constitutive law, details the MPM numerical implementation and stability analysis, and concludes with validation through various granular flow simulations (impact, silo, and vibration).",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21448_figures/2604.21448_fig1.jpg",
+      "caption": "Figure 1: Schematic illustration of the considered rheological model representing a volume element of a dense granular assembly under confined shearing. The spring elements, K and G, denote the bulk and shear moduli, whereas the linear dashpots, ϑ and η, indicate the bulk and shear viscosities. The frictional plastic elements consist of a static frictional slider and a complex dashpot, denoted µs and µI, respectively. These elements correspond to the rate-independent and rate-dependent frictional resistance, respectively. Furthermore, the no-tension element separates when the granular assembly undergoes tensile loading. Since the plastic elements are arranged in series with the viscoelastic...",
+      "page": 4
+    },
+    {
+      "image": "2604.21448_figures/2604.21448_fig2.jpg",
+      "caption": "Figure 2: (a) A schematic illustration of a spherical assembly with radius a consisting of particles with grain diameter d. The spherical assembly deforms volumetrically under spherical compression impact, characterized by (b) volumetric strain, εv, and (c) volumetric strain rate, ˙εv, which evolve over time. As the granular assembly cannot carry any tension, the contact time (or release time) is considered to be the time at which the volumetric strain rate reaches its maximum value. This contact time is observed to differ for undamped and damped contact, i.e. te c for ϑ = 0 and tve c for ϑ > 0, respectively. For a damped assembly, the grains may lose their contact, which leads to zero...",
+      "page": 7
+    },
+    {
+      "image": "2604.21448_figures/2604.21448_fig3.jpg",
+      "caption": "Figure 3: Comparison between the nonlinear profiles of continuum coefficient of restitution E depending on ˜ϑ. The analytical form (Eq. (37)) is plotted in blue, while the approximate form (Eq. (38)) is plotted in red line. The dashed black line plots the form given in Eq. (41), which was derived considering the limit of high λ/G ratio and small viscosity ˜ϑ (cf. Remark 1).",
+      "page": 10
+    },
+    {
+      "image": "2604.21448_figures/2604.21448_fig4.jpg",
+      "caption": "Figure 4: Schematic illustration of the MPM computational cycle. The continuum body is discretized into Lagrangian material points that store all history-dependent variables. At the beginning of each time step, kinematic quantities are mapped from the material points to the background grid, where the mass and momentum equations are solved at the grid nodes. The updated deformation and kinematic fields are then transferred back to the material points, whose positions are subsequently updated. Because the grid carries no history information, it can be reset after each step, enabling the method to accommodate large deformations without mesh distortion issues.",
+      "page": 13
+    },
+    {
+      "image": "2604.21448_figures/2604.21448_fig5.jpg",
+      "caption": "Figure 5: Compaction of a spherical assembly: (a) cross-section view of the model geometry and the initial radial velocity field, normalized by the velocity at r = a. Here, the plotted points represent continuum material points of the MPM solver, each representing many granular particles with packing fraction ϕ. (b) Normalized initial radial velocity as a function of normalized radial distance, r/a.",
+      "page": 16
+    },
+    {
+      "image": "2604.21448_figures/2604.21448_fig6.jpg",
+      "caption": "Figure 6: Compaction of a spherical assembly: (a) comparison between the derived analytical solution (Eq. (37)) and the measured continuum restitution from numerical tests conducted using MPM for different values of bulk viscosity. The continuum restitution is measured by taking the velocity ratio at the surface of the spherical assembly as given by Eq. (14). (b) Time evolution of the velocity ratio at r = a for several values of bulk viscosity, i.e. ˜ϑ = {0, 0.1, 0.5, 1, 5}.",
+      "page": 16
+    },
+    {
+      "image": "2604.21448_figures/2604.21448_fig7.jpg",
+      "caption": "Figure 7: Flow on an inclined plane: (a) model geometry, tilted gravity, and boundary conditions. (b) Simulated steady-state velocity profile using MPM with Θ = 25◦, e = 1. (c) Steady-state horizontal velocity profile at t = 1500 s and (d) time evolution of the height-average velocity, both shown for two tilt angles Θ = 25◦and 30◦and for different restitution coefficient values.",
+      "page": 17
+    },
+    {
+      "image": "2604.21448_figures/2604.21448_fig8.jpg",
+      "caption": "Figure 8: Flat bottom silo flow: model geometry, boundary conditions, and lithostatic mean stress profile.",
+      "page": 18
+    },
+    {
+      "image": "2604.21448_figures/2604.21448_fig9.jpg",
+      "caption": "Figure 9: Flat-bottom silo flow: (a)–(c) MPM simulation snapshots showing the evolution of the plastic shear strain rate, ˙γp, during silo discharge and subsequent reconsolidation for e = 1. (d) The mass remaining in the silo for different coefficient of restitution values. The total mass measurements are adjusted to the full model with a silo dimension of 2L × H.",
+      "page": 19
+    },
+    {
+      "image": "2604.21448_figures/2604.21448_fig10.jpg",
+      "caption": "Figure 10: Flat-bottom silo flow: snapshots of silo-flow reconsolidation obtained from MPM simulations, showing the formation of a heap at the lower base. Five different coefficients of restitution are plotted for comparison: (a) e = 1, (b) e = 0.5, (c) e = 0.1, (d) e = 0.01, and (e) e = 0.001. Two time instances are shown, (left) t = 1.5 s and (right) t = 6 s, to illustrate the development of the heap. Black arrows highlight unphysical oscillations of material points due to undamped elastic contact. The visualized velocity field is not the direct particle velocity, but is interpolated from the grid velocity.",
+      "page": 20
+    }
+  ],
+  "figure": "2604.21448_figures/2604.21448_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}
