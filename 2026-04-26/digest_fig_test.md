@@ -1,24 +1,27 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-26
 
-*20 papers · 2 relevant · 2 highlighted*  
+*20 papers · 5 relevant · 2 highlighted*  
 _⏳ in progress: 20/95 papers processed (file updates after each one)_
 
 
-## 🔥 Most relevant (2)
+## 🔥 Most relevant (5)
 
-*Papers scoring ≥3/5 on at least one of your topics of interest. Sorted by best-matching topic score. Click a title to jump to the full entry below.*
+*Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥3/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page.*
 
-- [Loss-biased fault-tolerant quantum error correction](#paper-2604.21876) — `Rydberg arrays` **4/5**
-- [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](#paper-2604.21820) — `Dicke superradiance` **4/5**
+- [Loss-biased fault-tolerant quantum error correction](#paper-2604.21876) [[arXiv]](http://arxiv.org/abs/2604.21876v1) — 🔥 `Rydberg arrays` **4/5**
+- [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](#paper-2604.21820) [[arXiv]](http://arxiv.org/abs/2604.21820v1) — 🔥 `Dicke superradiance` **4/5**
+- [A Universal Quantum Information Preserving Photonic Switch for Scalable Quantum Networks](#paper-2604.21902) [[arXiv]](http://arxiv.org/abs/2604.21902v1) — `interference shaping light` **2/5**
+- [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](#paper-2604.21929) [[arXiv]](http://arxiv.org/abs/2604.21929v1) — `kinetically constrained dynamics` **2/5**
+- ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](#paper-2604.21778) [[arXiv]](http://arxiv.org/abs/2604.21778v1) — `Dicke superradiance` **2/5**
 
 
 ## ⭐ Highlighted (2)
 
-*Papers by authors on your watch list. Click a title to jump to the full entry below.*
+*Papers by authors on your watch list. Click the title to jump to the full entry below; click [arXiv] to open the paper page.*
 
-- ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](#paper-2604.21919) — Sarang Gopalakrishnan
-- ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](#paper-2604.21778) — Andrii G. Sotnikov, Denys I. Bondar
+- ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](#paper-2604.21919) [[arXiv]](http://arxiv.org/abs/2604.21919v1) — Sarang Gopalakrishnan
+- ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](#paper-2604.21778) [[arXiv]](http://arxiv.org/abs/2604.21778v1) — Andrii G. Sotnikov, Denys I. Bondar
 
 
 ## quantum information and computing (10)
