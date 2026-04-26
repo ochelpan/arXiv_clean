@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2604.21863",
+  "category": "quantum information and computing",
+  "title": "Replay-buffer engineering for noise-robust quantum circuit optimization",
+  "authors": "Akash Kundu, Sebastian Feld",
+  "abstract": "Deep reinforcement learning (RL) for quantum circuit optimization faces three fundamental bottlenecks: replay buffers that ignore the reliability of temporal-difference (TD) targets, curriculum-based architecture search that triggers a full quantum-classical evaluation at every environment step, and the routine discard of noiseless trajectories when retraining under hardware noise. We address all three by treating the replay buffer as a primary algorithmic lever for quantum optimization. We introduce ReaPER$+$, an annealed replay rule that transitions from TD error-driven prioritization early in training to reliability-aware sampling as value estimates mature, achieving $4-32\\times$ gains in sample efficiency over fixed PER, ReaPER, and uniform replay while consistently discovering more compact circuits across quantum compilation and QAS benchmarks; validation on LunarLander-v3 confirms the principle is domain-agnostic. Furthermore we eliminate the quantum-classical evaluation bottleneck in curriculum RL by introducing OptCRLQAS which amortizes expensive evaluations over multiple architectural edits, cutting wall-clock time per episode by up to $67.5\\%$ on a 12-qubit optimization problem without degrading solution quality. Finally we introduce a lightweight replay-buffer transfer scheme that warm-starts noisy-setting learning by reusing noiseless trajectories, without network-weight transfer or $ε$-greedy pretraining. This reduces steps to chemical accuracy by up to $85-90\\%$ and final energy error by up to $90\\%$ over from-scratch baselines on 6-, 8-, and 12-qubit molecular tasks. Together, these results establish that experience storage, sampling, and transfer are decisive levers for scalable, noise-robust quantum circuit optimization.",
+  "url": "http://arxiv.org/abs/2604.21863v1",
+  "pdf": "https://arxiv.org/pdf/2604.21863v1",
+  "type": "theory",
+  "summary": "This paper presents a suite of Reinforcement Learning enhancements designed to make quantum circuit optimization more efficient and robust to noise. By using an annealed replay strategy (ReaPER+), the authors bridge the gap between exploration and stability in training. They also introduce methods to reduce the computational overhead of evaluating quantum circuits and a way to reuse data from perfect simulators to jump-start training on noisy hardware. These improvements significantly accelerate the discovery of high-fidelity, compact quantum circuits for molecular simulations.",
+  "main_problem": "Inefficiencies in Deep Reinforcement Learning for quantum circuit optimization, specifically regarding unreliable TD targets, high computational costs in architecture search, and the loss of useful data when transitioning from noiseless to noisy environments.",
+  "main_result": "The introduction of ReaPER+ achieves 4-32x gains in sample efficiency and significantly reduces the steps to reach chemical accuracy (by 85-90%) while reducing wall-clock time per episode by up to 67.5%.",
+  "method": "The authors propose ReaPER+ (an annealed replay rule transitioning from TD-error prioritization to reliability-aware sampling), OptCRLQAS (an amortized curriculum learning approach), and a lightweight replay-buffer transfer scheme for noise-robustness.",
+  "model_or_system": "The research applies to quantum circuit compilation and Quantum Architecture Search (QAS) for molecular Hamiltonians (e.g., H2O, BeH2) and the Heisenberg model, operating in both noiseless and noisy (depolarizing noise) regimes.",
+  "key_observables": "Success probability, circuit compactness (gate count/depth), energy error (chemical accuracy), and wall-clock time.",
+  "important_parameters": "Annealing exponent (omega), annealing timescale (T_ann), noise strengths (p1, p2), and number of qubits (5, 6, 8, 12).",
+  "main_assumptions": "The study assumes fixed DQN/DDQN backbones and that the buffer transfer scheme requires shared state and action spaces between source and target environments.",
+  "figures_summary": "Figure 1 outlines the three-part framework; Figure 2 shows 1-qubit compiling success/fidelity; Figure 3 compares circuit compactness; Figure 4 shows OptCRLQAS efficiency; Figure 8 shows replay buffer fidelity evolution; Figure 9 validates the method on the classical LunarLander task.",
+  "paper_structure": "The paper introduces the three-part framework (buffer engineering, amortized learning, and noise-aware transfer), provides theoretical justification for the annealing rule, presents experimental results on quantum compilation and QAS tasks, validates the principle on a classical benchmark, and discusses limitations and future work.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21863_figures/2604.21863_fig1.jpg",
+      "caption": "Figure 2: 1-qubit compiling of Haar-random target unitaries with RX, RY, RZ(±π/128) gates. (Left) Suc- cess probability and mean fidelity at tolerances 0.99, 0.999, and 0.9999, where ReaPER+ performs best over- all. (Right) mean circuit length with std. dev. error bars versus tolerance; although all methods require deeper circuits at higher accuracy and exhibit a similar growth rate with tightening tolerance, ReaPER+ maintains a consistently lower circuit-length offset, giving the best accuracy-length tradeoff across all tolerance levels.",
+      "page": 5
+    },
+    {
+      "image": "2604.21863_figures/2604.21863_fig2.jpg",
+      "caption": "Figure 3 compares replay strategies on the smaller-scale systems. ReaPER+ achieves the low- est energy error among prioritized methods with competitive circuit compactness; fixed ReaPER (ω=0.4 for BEH2, ω=0.6 for H2O) produces the most compact circuits, reflecting the longer-horizon credit assignment at larger scale (full ω sensitivity in Appendix I). Uniform replay yields superfi- cially shorter circuits but at substantially higher energy error, indicating early trapping in local min- ima. As shown in Table 2, OptCRLQAS with ReaPER+ (denoted as “OptCRLQAS + ReaPER+”) achieves the lowest energy error across 5-, 6-, and 8-qubit QAS problems, outperforming non-RL baselines such as DQAS [36],...",
+      "page": 6
+    },
+    {
+      "image": "2604.21863_figures/2604.21863_fig3.jpg",
+      "caption": "Figure 3: Replay-buffer design controls circuit compactness in QAS. For 6-BEH2 and 8-H2O, ReaPER+ variants yield the lowest total, CNOT, and rotation gate counts compared to PER and uniform replay (mean ± std over seeds). ω=0 recovers PER; ω=1 gives fully reliability-adjusted replay.",
+      "page": 7
+    },
+    {
+      "image": "2604.21863_figures/2604.21863_fig4.jpg",
+      "caption": "Figure 4: Efficiency and performance on 12-qubit H2O. (Left) OptCRLQAS reduces wall-clock time per episode by 67.5% over CRLQAS [19]. (Right) ReaPER achieves the lowest minimum energy error and fastest convergence across all replay baselines.",
+      "page": 7
+    },
+    {
+      "image": "2604.21863_figures/2604.21863_fig5.jpg",
+      "caption": "Figure 5: Weighted transfer matrix for BEH2 under noiseless and noisy transfer. Buffer transfer reduces steps to chemical accuracy by 47-58% and improves final energy by up to 90.2% across all noise settings, yield- ing composite scores of 19.2-35.8%. The strongest score (35.8%) is driven by the largest energy improvement at p2=0.001.",
+      "page": 8
+    },
+    {
+      "image": "2604.21863_figures/2604.21863_fig6.jpg",
+      "caption": "Figure 6: Weighted transfer matrix for H2O under noiseless and noisy transfer. Step reductions range from 49.8% to 84.8%, and energy improvements reach 46.7% under combined noise (p1=0.001, p2=0.005), yielding the highest score of 28.7%.",
+      "page": 8
+    },
+    {
+      "image": "2604.21863_figures/2604.21863_fig7.jpg",
+      "caption": "Figure 8: ReaPER+ progressively concentrates buffer mass toward higher-fidelity transitions (fidelity ≥0.95) while retaining broader early-training coverage, consistent with its annealed transition from PER-like exploration to ReaPER-like reliability-aware sampling. PER maintains broader low-fidelity coverage through- out training, while ReaPER shows intermediate concentration behavior.",
+      "page": 17
+    },
+    {
+      "image": "2604.21863_figures/2604.21863_fig8.jpg",
+      "caption": "Figure 9: LunarLander-v3 validation of ReaPER+. (Left) rolling success rate (300-episode window). (Middle) ReaPER+ (blue) reaches a higher success rate faster and maintains a higher asymptotic level than fixed ReaPER (red) and PER (green). (Right) normalized cumulative-return AUC. ReaPER+ accumulates +9% more return over the full training run, confirming improved sample efficiency on a dense-reward classical benchmark. All methods use identical DQN agents, only the replay mechanism differs.",
+      "page": 19
+    },
+    {
+      "image": "2604.21863_figures/2604.21863_fig9.jpg",
+      "caption": "Figure 9 summarizes two complementary metrics. Left: the 300-episode rolling success rate (frac- tion of episodes exceeding the +200 solved threshold). ReaPER+ reaches a higher success rate earlier in training and sustains a higher asymptotic level (≈60% at episode 4500) compared with fixed ReaPER (≈50%) and PER (≈55%). Right: the normalized area under the reward curve (AUC), computed as the per-episode running mean of the cumulative return, shifted and normalized to [0, 1]. ReaPER+ achieves a +9% AUC advantage over both baselines by episode 5000, indicating better sample efficiency throughout training.",
+      "page": 20
+    }
+  ],
+  "figure": "2604.21863_figures/2604.21863_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "Rydberg arrays": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "Dicke superradiance": 0,
+    "interference shaping light": 0,
+    "kinetically constrained dynamics": 0
+  }
+}

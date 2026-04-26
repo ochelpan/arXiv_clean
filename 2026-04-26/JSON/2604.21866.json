@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2604.21866",
+  "category": "quantum information and computing",
+  "title": "High-performance cellular automaton decoders for quantum repetition and toric code",
+  "authors": "Don Winter, Thiago L. M. Guedes, Markus Müller",
+  "abstract": "Execution of quantum algorithms on large-scale quantum computers will require extremely low logical error rates, which necessitates the development of scalable decoding architectures. Local decoders are promising candidates for this task, as they avoid the communication and data processing bottlenecks inherent in global decoding strategies. Cellular automaton (CA) decoders represent a distinct class of local decoders, offering a path toward the low-latency, real-time decoding required for practical applications. In this work, we present SCALA (Signaling CA with Local Attraction), a novel non-hierarchical cellular automaton decoder for quantum repetition and toric codes. By evaluating SCALA alongside the hierarchical CA decoder proposed by Harrington, we provide a direct comparison between non-hierarchical and renormalization-group-style local decoding strategies. We characterize SCALA across three key metrics: Performance, scalability, and robustness. Our results show that SCALA achieves a code-capacity threshold of approximately $p_c\\approx 7.5\\%$ and provides strong sub-threshold scaling of about $p_L\\propto p^{d/4}$ on the toric code. In terms of scalability, our non-hierarchical design ensures that the local computational resources remain independent of system size, yielding a modular local architecture suitable for hardware implementation. Finally, SCALA demonstrates strong robustness to qubit measurement errors and noise within the decoder itself, a critical advantage for real-time decoding on noisy hardware. Our results establish SCALA as a high-performance, scalable, and robust local decoder for scalable quantum error correction.",
+  "url": "http://arxiv.org/abs/2604.21866v1",
+  "pdf": "https://arxiv.org/pdf/2604.21866v1",
+  "type": "theory",
+  "summary": "This paper introduces SCALA, a novel non-hierarchical cellular automaton decoder designed for real-time quantum error correction. Unlike previous hierarchical approaches, SCALA uses a decentralized, single-layer architecture that maintains constant local computational resources regardless of system size. The results demonstrate that SCALA provides a higher error threshold and better error suppression scaling than existing local decoders, while also being more resilient to noise within the decoder itself. This makes it a highly promising candidate for implementation in scalable quantum hardware like FPGAs or SFQ circuits.",
+  "main_problem": "The need for scalable, low-latency, and robust decoding architectures for quantum error correction that avoid the communication bottlenecks of global decoding strategies.",
+  "main_result": "The introduction of SCALA, a non-hierarchical cellular automaton decoder that achieves a higher code-capacity threshold (approx 7.5%) and superior sub-threshold scaling compared to hierarchical models.",
+  "method": "The authors present a new class of cellular automaton (CA) decoders (SCALA) and perform comparative Monte Carlo simulations against the hierarchical Harrington decoder and MWPM.",
+  "model_or_system": "The study focuses on quantum error-correcting codes, specifically the 1D quantum repetition code and the 2D toric code, under various noise models including code-capacity, phenomenological, and signaling noise.",
+  "key_observables": "Logical error rate (pL), code-capacity threshold (pc), effective code distance (lambda), and average logical lifetime (T_F).",
+  "important_parameters": "Physical error rate (p), measurement error rate (q), code distance (d), and the hierarchy levels/scales in the comparison baseline.",
+  "main_assumptions": "Assumes logical failures occur as rare, independent events in an absorbing Markov process; assumes a regime where the spectral radius of the transient matrix is less than 1.",
+  "figures_summary": "Figures illustrate logical error rate scaling vs. error rate, the architecture of the toric code and hierarchical decoders, the internal state/logic of CA cells, and the impact of measurement and signaling noise.",
+  "paper_structure": "The paper introduces the SCALA decoder, compares its performance and scaling to hierarchical CA decoders, analyzes its robustness to various noise models, and provides a mathematical framework for understanding logical failure mechanisms.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21866_figures/2604.21866_fig1.jpg",
+      "caption": "Fig. 1 shows the logical error rate pL for various sys- tem sizes. In the sub-threshold regime (p < 0.5), in- creasing the system size provides better protection, as errors are suppressed more effectively with additional physical qubits. This value pc ≡p = 0.5 is called the QEC threshold. In this regime, pL scales with pλ(d), with λ(d) = (d + 1)/2 and d = n, corresponding to the min- imum number of physical errors for which the matching decoder gives a logical error. Another code which, however, is capable to protect against both Z- and X-errors is the toric code [57], shown in Fig. 2. The toric code is defined on a n × n regular square lattice with periodic boundary conditions, i.e., a...",
+      "page": 3
+    },
+    {
+      "image": "2604.21866_figures/2604.21866_fig2.jpg",
+      "caption": "FIG. 2. Illustration of a distance d = 5 toric code with qubits (black circles) on edges of a regular d × d lattice under pe- riodic boundaries. Qubits in parenthesis wrap around the torus. The minimum-weight logical operators X1 L and X2 L are vertical and horizontal strings of single-qubit Pauli-X oper- ators. Logical Z-operators are omitted. The stabilizers of the toric code are either of pure X- (red stars) or Z-type (blue plaquettes). A X-error (red dot) anti-commutes with two Z-stabilizers, causing two defects (blue shades). A Z- error (blue dot) causes the star syndrome (red shades). Any X error configuration which forms a (product of) stabilizer generator(s) commutes with the...",
+      "page": 4
+    },
+    {
+      "image": "2604.21866_figures/2604.21866_fig3.jpg",
+      "caption": "FIG. 1. Analytical logical error rate pL as function of bit- flip error rate p for the ML decoder (Eq. 1) of the repetition code. Different colors correspond to different code distances d (equivalent to number of qubits n making up the repetition code), the dashed red line marks the QEC threshold pc = 0.5.",
+      "page": 4
+    },
+    {
+      "image": "2604.21866_figures/2604.21866_fig4.jpg",
+      "caption": "FIG. 3. Sketch of Harrington’s hierarchical CA decoder. On the left, we show a distance-27 toric code from the perspective of the three hierarchy levels Harrington’s decoder imposes. Error correction is accomplished by moving defects (black circles) which are close towards each other thereby correcting the errors (red lines) which separate them. At the lowest level (0), one- and some two-qubit errors are corrected within at most two CA steps. Defects which have no other defect in their local neighborhood move towards the center of their colony (group of Q × Q cells) marked in thick black lines at the next hierarchy level (1). At level-1, defects located at colony centers communicate by...",
+      "page": 5
+    },
+    {
+      "image": "2604.21866_figures/2604.21866_fig5.jpg",
+      "caption": "FIG. 4. Logical error rate pL as function of bit-flip error rate p for Harrington’s toric code decoder under code capacity noise for different code distances d (color code). The dashed red line marks the QEC threshold pc ≈4.5%. The black dashed line corresponds to fits of the function f(p, d) = A(d)pλ(d). In the inset we show the effective code distance λ(d) as function of code distance d. The purple line in the inset corresponds to the function λ(d) = 2log3(d) ≈d0.631, as discussed in the main text. Numerical data was obtained for 104 to 106 Monte Carlo shots until statistical uncertainty is small relative to the measured values. Standard sampling errors are represented by black error bars.",
+      "page": 8
+    },
+    {
+      "image": "2604.21866_figures/2604.21866_fig6.jpg",
+      "caption": "FIG. 5. Average logical lifetime ⟨TF ⟩as function of phenomenological bit-flip error rate p on data qubits (left panel) and rate q on measurements (right panel) for toric codes of distance d (color code) under corrections by Harrington’s decoder. In the left panel we set q = 0 and in the right p = 0. Dashed black lines correspond to fits of the function g(d, p) = B(d)p−λ(d) with λ(d) shown in the insets. The purple line in the inset corresponds to λ(d) = d0.631 in both panels. Although a non-zero threshold is mathematically guaranteed [1], a precise asymptotic value is not deducible from this data as the crossing points continue to drift toward lower error rates for the simulated distances....",
+      "page": 10
+    },
+    {
+      "image": "2604.21866_figures/2604.21866_fig7.jpg",
+      "caption": "FIG. 6. Average logical lifetimes ⟨TF ⟩as function of data, measurement, and signal noise with respective rates p, q, and psig for Harrington’s decoder on toric codes of distance d (color coded). The lines of less opacity in the background correspond to performance curves under sole data noise, cf., left panel of Fig. 5. The dashed colored lines correspond to data, measurement and CountSignal noise, while the solid lines correspond to data, measurement and CountSignal and FlipSignal noise. The devastating effect of FlipSignal noise becomes apparent when p, q < 10−2. In this regime, larger lattice sizes show worse performance than small ones. Sole CountSignal noise (dashed lines) is less...",
+      "page": 11
+    },
+    {
+      "image": "2604.21866_figures/2604.21866_fig8.jpg",
+      "caption": "FIG. 7. Sketch of Harrington’s decoder confined to one dimension. On the left, we show a distance-27 repetition code from the perspective of the three hierarchy levels Harrington’s decoder imposes. Error correction is accomplished by moving close-by defects (black circles) towards each other, thereby correcting the errors (red and orange lines) which separate them. At the lowest level (0), one- and some two-qubit errors are corrected within at most two time steps, while defects that have no other defect in their neighborhood are moved towards their colony center (marked in black thick lines at the next level). At the next level (1), CountSignals (colored in blue; shade corresponds to amount...",
+      "page": 12
+    },
+    {
+      "image": "2604.21866_figures/2604.21866_fig9.jpg",
+      "caption": "FIG. 8. All possible error configurations of qubits within a block. Data-qubit errors (red bars) generate a syndrome (black circles) between two colony centers C1 and C2. The green arrows indicate the local update prescribed by the cor- rection rule. Configurations with zero or one error (left) are corrected to the trivial configurations with no errors between the centers, whereas configurations with two or three errors (right) are completed to the nontrivial configuration with three errors between the centers.",
+      "page": 12
+    },
+    {
+      "image": "2604.21866_figures/2604.21866_fig10.jpg",
+      "caption": "FIG. 9. Logical error rate pL as function of data qubit error rate p for Harrington’s decoder confined to one dimension under code capacity noise on distance-d repetition codes. The red dashed line marks the QEC threshold at pc = 1/2. The dashed black lines correspond to the (analytical) performance of a global concatenated majority voting (pL = (pmaj)m(p), as explained in the main text). Each data point was obtained from 104 to 106 Monte Carlo shots until statistical uncertainty is small relative to the measured values. Standard errors are represented by black error bars.",
+      "page": 13
+    }
+  ],
+  "figure": "2604.21866_figures/2604.21866_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "Rydberg arrays": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "Dicke superradiance": 0,
+    "interference shaping light": 0,
+    "kinetically constrained dynamics": 0
+  }
+}
