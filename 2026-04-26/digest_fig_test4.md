@@ -1,36 +1,37 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-26
 
-*30 papers · 22 relevant · 3 highlighted*  
-_⏳ in progress: 31/144 papers processed (file updates after each one)_
+*30 papers · 23 relevant · 3 highlighted*  
+_⏳ in progress: 30/144 papers processed (file updates after each one)_
 
 
-## 🔥 Most relevant (22)
+## 🔥 Most relevant (23)
 
 *Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥3/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page. `(secondary)` marks papers from de-prioritized cond-mat archives.*
 
-- ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](#paper-2604.21778) [[arXiv]](http://arxiv.org/abs/2604.21778v1) — 🔥 `Tavis-Cummings` **5/5** · `Dicke superradiance` **2/5** · `non-equilibrium physics` **2/5** · `dissipative systems` **1/5**
-- ⭐ [Generalized stochastic spin-wave theory for open quantum spin systems](#paper-2604.21574) [[arXiv]](http://arxiv.org/abs/2604.21574v1) — 🔥 `dissipative systems` **4/5** · 🔥 `non-equilibrium physics` **4/5** · 🔥 `quantum phase transition` **4/5** · 🔥 `new universality class` **3/5** · 🔥 `quantum measurements` **3/5** · `correlated dissipation` **2/5**
-- [Bipartite entanglement under frequency comb pumping in parametric Josephson circuits](#paper-2604.21692) [[arXiv]](http://arxiv.org/abs/2604.21692v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `dissipative systems` **3/5** · 🔥 `quantum measurements` **3/5** · `correlated dissipation` **2/5** · `non-equilibrium physics` **2/5**
-- [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](#paper-2604.21820) [[arXiv]](http://arxiv.org/abs/2604.21820v1) — 🔥 `Dicke superradiance` **4/5** · 🔥 `new universality class` **4/5** · 🔥 `quantum phase transition` **4/5** · 🔥 `Tavis-Cummings` **3/5** · `superradiant laser` **2/5**
-- [Photon Sorting with a Quantum Emitter](#paper-2604.21758) [[arXiv]](http://arxiv.org/abs/2604.21758v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `interference shaping light` **3/5** · 🔥 `quantum measurements` **3/5** · `dissipative systems` **2/5**
-- [Spectral Diffusion Mitigation with a Laser Pulse Sequence](#paper-2604.21659) [[arXiv]](http://arxiv.org/abs/2604.21659v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · `dissipative systems` **2/5** · `interference shaping light` **2/5** · `non-equilibrium physics` **2/5** · `quantum measurements` **2/5**
-- [A Universal Quantum Information Preserving Photonic Switch for Scalable Quantum Networks](#paper-2604.21902) [[arXiv]](http://arxiv.org/abs/2604.21902v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · `dissipative systems` **2/5** · `interference shaping light` **2/5** · `quantum measurements` **2/5**
-- [Loss-biased fault-tolerant quantum error correction](#paper-2604.21876) [[arXiv]](http://arxiv.org/abs/2604.21876v1) — 🔥 `Rydberg arrays` **4/5** · 🔥 `correlated dissipation` **3/5** · 🔥 `dissipative systems` **3/5** · `non-equilibrium physics` **2/5** · `quantum measurements` **2/5**
-- [Entanglement of two optical emitters mediated by a terahertz channel](#paper-2604.21723) [[arXiv]](http://arxiv.org/abs/2604.21723v1) — 🔥 `correlated dissipation` **4/5** · 🔥 `dissipative systems` **4/5** · 🔥 `non-equilibrium physics` **3/5** · `Tavis-Cummings` **2/5**
-- [Testing Spontaneous Collapse Models with Coulomb Mediated Squeezing](#paper-2604.21705) [[arXiv]](http://arxiv.org/abs/2604.21705v1) — 🔥 `dissipative systems` **4/5** · 🔥 `non-equilibrium physics` **3/5** · 🔥 `quantum measurements` **3/5** · `correlated dissipation` **2/5**
-- [The KMS and GNS Spectral Gap of Quantum Markov Semigroups](#paper-2604.21630) [[arXiv]](http://arxiv.org/abs/2604.21630v1) — 🔥 `dissipative systems` **4/5** · 🔥 `non-equilibrium physics` **3/5** · `correlated dissipation` **2/5**
-- [Lagrange: Operating Italy's First Publicly-Accessible Quantum Computer for Research and Education](#paper-2604.21695) [[arXiv]](http://arxiv.org/abs/2604.21695v1) — 🔥 `QC/QI experiment` **4/5**
-- [Dual-use quantum hardware for quantum resource generation and energy storage](#paper-2604.21913) [[arXiv]](http://arxiv.org/abs/2604.21913v1) — 🔥 `quantum measurements` **3/5** · `non-equilibrium physics` **2/5**
-- [Efficient Classical Simulation of Heuristic Peaked Quantum Circuits](#paper-2604.21908) [[arXiv]](http://arxiv.org/abs/2604.21908v1) — 🔥 `QC/QI experiment` **3/5**
-- [Quantum-information diagnostics of cosmological perturbations with nontrivial sound speed in inflation](#paper-2604.21755) [[arXiv]](http://arxiv.org/abs/2604.21755v1) — `dissipative systems` **2/5** · `non-equilibrium physics` **2/5** · `quantum measurements` **2/5**
-- [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](#paper-2604.21929) [[arXiv]](http://arxiv.org/abs/2604.21929v1) — `quantum phase transition` **2/5** · `non-equilibrium physics` **1/5**
-- ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](#paper-2604.21919) [[arXiv]](http://arxiv.org/abs/2604.21919v1) — `quantum phase transition` **2/5**
+- ⭐ [Generalized stochastic spin-wave theory for open quantum spin systems](#paper-2604.21574) [[arXiv]](http://arxiv.org/abs/2604.21574v1) — 🔥 `Keldysh / 2PI / non-Gaussian methods` **4/5** · 🔥 `driven-dissipative phase transition` **4/5** · 🔥 `non-equilibrium universality` **4/5** · 🔥 `dissipative systems` **3/5** · 🔥 `non-equilibrium dynamics` **3/5** · `correlated / nonlocal dissipation` **2/5** · `quantum measurements` **2/5**
+- [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](#paper-2604.21820) [[arXiv]](http://arxiv.org/abs/2604.21820v1) — 🔥 `Dicke superradiance` **4/5** · 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · 🔥 `non-equilibrium universality` **4/5** · `driven-dissipative phase transition` **2/5** · `non-equilibrium dynamics` **2/5** · `superradiant laser` **2/5**
+- [Bipartite entanglement under frequency comb pumping in parametric Josephson circuits](#paper-2604.21692) [[arXiv]](http://arxiv.org/abs/2604.21692v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `dissipative systems` **3/5** · `correlated / nonlocal dissipation` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+- [Spectral Diffusion Mitigation with a Laser Pulse Sequence](#paper-2604.21659) [[arXiv]](http://arxiv.org/abs/2604.21659v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · `dissipative systems` **2/5** · `interference shaping light` **2/5** · `non-equilibrium dynamics` **2/5** · `spintronics-quantum-optics interface` **2/5**
+- [Photon Sorting with a Quantum Emitter](#paper-2604.21758) [[arXiv]](http://arxiv.org/abs/2604.21758v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `interference shaping light` **3/5** · `dissipative systems` **2/5** · `quantum measurements` **2/5**
+- [Loss-biased fault-tolerant quantum error correction](#paper-2604.21876) [[arXiv]](http://arxiv.org/abs/2604.21876v1) — 🔥 `Rydberg arrays` **4/5** · 🔥 `correlated / nonlocal dissipation` **3/5** · 🔥 `dissipative systems` **3/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+- [A Universal Quantum Information Preserving Photonic Switch for Scalable Quantum Networks](#paper-2604.21902) [[arXiv]](http://arxiv.org/abs/2604.21902v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · `dissipative systems` **2/5** · `interference shaping light` **2/5**
+- [Entanglement of two optical emitters mediated by a terahertz channel](#paper-2604.21723) [[arXiv]](http://arxiv.org/abs/2604.21723v1) — 🔥 `correlated / nonlocal dissipation` **4/5** · 🔥 `Tavis-Cummings & cavity-many-emitter` **3/5** · 🔥 `dissipative systems` **3/5** · `non-equilibrium dynamics` **2/5**
+- [Testing Spontaneous Collapse Models with Coulomb Mediated Squeezing](#paper-2604.21705) [[arXiv]](http://arxiv.org/abs/2604.21705v1) — 🔥 `dissipative systems` **4/5** · 🔥 `correlated / nonlocal dissipation` **3/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+- ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](#paper-2604.21778) [[arXiv]](http://arxiv.org/abs/2604.21778v1) — 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · `Dicke superradiance` **2/5** · `non-equilibrium dynamics` **2/5**
+- [The KMS and GNS Spectral Gap of Quantum Markov Semigroups](#paper-2604.21630) [[arXiv]](http://arxiv.org/abs/2604.21630v1) — 🔥 `dissipative systems` **4/5** · `non-equilibrium dynamics` **2/5**
+- [Enhancing Coherence of Spin Centers in p-n Diodes via Optimization Algorithms](#paper-2604.21874) [[arXiv]](http://arxiv.org/abs/2604.21874v1) — 🔥 `spintronics-quantum-optics interface` **3/5** · `dissipative systems` **2/5**
+- [Dual-use quantum hardware for quantum resource generation and energy storage](#paper-2604.21913) [[arXiv]](http://arxiv.org/abs/2604.21913v1) — `dissipative systems` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+- [Quantum-information diagnostics of cosmological perturbations with nontrivial sound speed in inflation](#paper-2604.21755) [[arXiv]](http://arxiv.org/abs/2604.21755v1) — `dissipative systems` **2/5** · `non-equilibrium dynamics` **2/5**
+- [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](#paper-2604.21929) [[arXiv]](http://arxiv.org/abs/2604.21929v1) — `non-equilibrium dynamics` **2/5** · `scars & prethermalization` **2/5**
+- [The clock ambiguity is back with a vengeance](#paper-2604.21805) [[arXiv]](http://arxiv.org/abs/2604.21805v1) — `dissipative systems` **2/5** · `quantum measurements` **2/5**
 - [Deterministic generation of grid states with programmable nonlinear bosonic circuits](#paper-2604.21824) [[arXiv]](http://arxiv.org/abs/2604.21824v1) — `dissipative systems` **2/5**
-- [Enhancing Coherence of Spin Centers in p-n Diodes via Optimization Algorithms](#paper-2604.21874) [[arXiv]](http://arxiv.org/abs/2604.21874v1) — `dissipative systems` **2/5**
+- [Efficient Classical Simulation of Heuristic Peaked Quantum Circuits](#paper-2604.21908) [[arXiv]](http://arxiv.org/abs/2604.21908v1) — `QC/QI experiment` **2/5**
+- [Lagrange: Operating Italy's First Publicly-Accessible Quantum Computer for Research and Education](#paper-2604.21695) [[arXiv]](http://arxiv.org/abs/2604.21695v1) — `QC/QI experiment` **2/5**
 - [Odd Physics Off the Diagonal: Constraining CP-violating SMEFT with Quantum Tomography](#paper-2604.21857) [[arXiv]](http://arxiv.org/abs/2604.21857v1) — `quantum measurements` **2/5**
 - [Rigorous Security Proofs for Practical Quantum Key Distribution](#paper-2604.21791) [[arXiv]](http://arxiv.org/abs/2604.21791v1) — `quantum measurements` **2/5**
-- [The clock ambiguity is back with a vengeance](#paper-2604.21805) [[arXiv]](http://arxiv.org/abs/2604.21805v1) — `quantum measurements` **2/5**
+- [Variance Geometry of Exact Pauli-Detecting Codes: Continuous Landscapes Beyond Stabilizers](#paper-2604.21800) [[arXiv]](http://arxiv.org/abs/2604.21800v1) — `quantum measurements` **2/5**
+- [Composite quantum gates simultaneously compensated for multiple errors](#paper-2604.21594) [[arXiv]](http://arxiv.org/abs/2604.21594v1) — `Rydberg arrays` **1/5**
 
 
 ## ⭐ Highlighted (3)
@@ -42,66 +43,9 @@ _⏳ in progress: 31/144 papers processed (file updates after each one)_
 - ⭐ [Generalized stochastic spin-wave theory for open quantum spin systems](#paper-2604.21574) [[arXiv]](http://arxiv.org/abs/2604.21574v1) — Rosario Fazio
 
 
-## All papers (22, sorted by relevance)
+## All papers (24, sorted by relevance)
 
 *Papers from quant-ph and your primary cond-mat archives (quant-gas, stat-mech, str-el, dis-nn). Highlighted papers (⭐) come first, then everything else sorted by topic-relevance score, highest first.*
-
-<a id="paper-2604.21778"></a>
-### ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](http://arxiv.org/abs/2604.21778v1)
-
-**Highlighted author(s):** Andrii G. Sotnikov, Denys I. Bondar  
-**Authors:** Roman Ovsiannikov, Kurt Jacobs, Andrii G. Sotnikov, Denys I. Bondar  
-**Type:** theory · **Category:** numerical methods · **PDF:** <https://arxiv.org/pdf/2604.21778v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `Tavis-Cummings` **5/5** · `Dicke superradiance` **2/5** · `non-equilibrium physics` **2/5** · `dissipative systems` **1/5**
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21778_figures/2604.21778_fig1.jpg" width="500"><br>
-<sub>FIG. 1. Evolution of the eigenvalues of the covariance matrix (2) for Holstein–Primakoff approach (orange and blue solid lines), QuTip solver (red and green dashed lines), and our algorithm 1 with method=Linear (light green and brown dotted lines) with parame- ters ωc = 2π × 2.4 GHz, ωs = 2π × 3.6 GHz, g = 2π × 10 MHz, Λ = 2π × 1 GHz and ω = 2π × 6 GHz.</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21778_figures/2604.21778_fig2.jpg" width="500"><br>
-<sub>FIG. 2. Time of the one step evolution for Qutip solver (green line), our algorithm 1 with method=Exp (blue line), and with method=Linear (orange line).</sub>
-
-</details>
-
-**Main problem.** Developing an efficient, memory-efficient, and unitarity-preserving numerical method for simulating the time-dependent unitary dynamics of the Tavis-Cummings model, specifically overcoming the quadratic scaling of standard solvers like QuTiP.
-
-**Main result.** The authors propose a symplectic split-operator method that achieves linear scaling in both time and memory by exploiting a basis re-indexing trick to transform the Hamiltonian into tridiagonal form. This method remains accurate beyond the rotating-wave approximation and outperforms standard solvers in large Hilbert-space dimensions.
-
-**Method.** A second-order symmetric (Strang) Trotter-Suzuki propagation scheme using two realizations: a block-diagonal exponentiation approach and a Cayley/Crank-Nicolson approach using the Thomas algorithm for tridiagonal linear systems.
-
-**Summary.** This paper introduces a new numerical method for simulating the time-dependent Tavis-Cummings model with much higher efficiency than standard tools. By using a split-operator approach and a clever basis re-indexing trick, the authors reduce the computational complexity to linear scaling with the system size. This allows for the simulation of much larger spin ensembles and longer time scales, even when including non-rotating-wave terms. The method is particularly useful for studying driven hybrid quantum systems like NV centers in diamond.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** The closed, undamped, time-dependent Tavis-Cummings model, which describes a multilevel spin ensemble interacting with a single cavity mode, including time-dependent modulation of the spin frequency.
-
-**Key observables.** Eigenvalues of the cavity quadrature covariance matrix (representing X and Y quadratures).
-
-**Important parameters / regimes.** Cavity frequency, spin frequency, spin-cavity coupling strength, modulation amplitude and frequency, and the Hilbert-space dimension D.
-
-**Assumptions / limitations.** The method is specifically tailored to Hamiltonians that can be decomposed into diagonal and tridiagonal parts via basis permutation; it assumes a closed (undamped) system.
-
-**Figures summary.** Figure 1 compares the time evolution of covariance matrix eigenvalues against QuTiP and the Holstein-Primakoff approximation; Figure 2 compares the runtime per propagation step against the Hilbert-space dimension to demonstrate linear scaling.
-
-**Paper structure.** The paper identifies the limitations of current solvers, introduces the Hamiltonian decomposition and basis re-indexing technique, presents two implementation realizations (Block-diagonal and Cayley), validates the method against QuTiP and the Holstein-Primakoff approximation, and discusses computational scaling and potential extensions.
-
-**Why it may be interesting.** It provides a highly scalable tool for simulating large-scale cavity QED systems and spin ensembles, particularly in regimes where the rotating-wave approximation fails, which is crucial for studying driven-dissipative quantum dynamics and many-body effects in hybrid systems.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-We present a fast, memory-efficient, unitarity-preserving numerical method beyond the rotating-wave approximation for the closed Tavis-Cummings model in which a multilevel spin system interacts with a cavity mode. This model can describe the interaction of an ensemble of spins with a cavity mode in which the spin frequency and other parameters are time-dependent. The method exploits the fact that, while the Tavis-Cummings model is not tri-diagonal, it can be brought into tri-diagonal form by a change of basis that can be implemented purely by re-indexing (permuting basis elements), which is a fast operation. By truncating the Fock basis of the cavity mode, the computational complexity of the method is linear in the total dimension of the coupled system, both in time and memory. The method can be employed to simulate any closed quantum system whose Hamiltonian terms can be brought into tri-diagonal form.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
 
 <a id="paper-2604.21574"></a>
 ### ⭐ [Generalized stochastic spin-wave theory for open quantum spin systems](http://arxiv.org/abs/2604.21574v1)
@@ -110,7 +54,7 @@ We present a fast, memory-efficient, unitarity-preserving numerical method beyon
 **Authors:** Zejian Li, Anna Delmonte, Rosario Fazio  
 **Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21574v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `dissipative systems` **4/5** · 🔥 `non-equilibrium physics` **4/5** · 🔥 `quantum phase transition` **4/5** · 🔥 `new universality class` **3/5** · 🔥 `quantum measurements` **3/5** · `correlated dissipation` **2/5**
+**Topic relevance:** 🔥 `Keldysh / 2PI / non-Gaussian methods` **4/5** · 🔥 `driven-dissipative phase transition` **4/5** · 🔥 `non-equilibrium universality` **4/5** · 🔥 `dissipative systems` **3/5** · 🔥 `non-equilibrium dynamics` **3/5** · `correlated / nonlocal dissipation` **2/5** · `quantum measurements` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
@@ -209,6 +153,63 @@ We propose a semiclassical framework for solving open quantum dynamics in driven
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21778"></a>
+### ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](http://arxiv.org/abs/2604.21778v1)
+
+**Highlighted author(s):** Andrii G. Sotnikov, Denys I. Bondar  
+**Authors:** Roman Ovsiannikov, Kurt Jacobs, Andrii G. Sotnikov, Denys I. Bondar  
+**Type:** theory · **Category:** numerical methods · **PDF:** <https://arxiv.org/pdf/2604.21778v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · `Dicke superradiance` **2/5** · `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21778_figures/2604.21778_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Evolution of the eigenvalues of the covariance matrix (2) for Holstein–Primakoff approach (orange and blue solid lines), QuTip solver (red and green dashed lines), and our algorithm 1 with method=Linear (light green and brown dotted lines) with parame- ters ωc = 2π × 2.4 GHz, ωs = 2π × 3.6 GHz, g = 2π × 10 MHz, Λ = 2π × 1 GHz and ω = 2π × 6 GHz.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21778_figures/2604.21778_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Time of the one step evolution for Qutip solver (green line), our algorithm 1 with method=Exp (blue line), and with method=Linear (orange line).</sub>
+
+</details>
+
+**Main problem.** Developing an efficient, memory-efficient, and unitarity-preserving numerical method for simulating the time-dependent unitary dynamics of the Tavis-Cummings model, specifically overcoming the quadratic scaling of standard solvers like QuTiP.
+
+**Main result.** The authors propose a symplectic split-operator method that achieves linear scaling in both time and memory by exploiting a basis re-indexing trick to transform the Hamiltonian into tridiagonal form. This method remains accurate beyond the rotating-wave approximation and outperforms standard solvers in large Hilbert-space dimensions.
+
+**Method.** A second-order symmetric (Strang) Trotter-Suzuki propagation scheme using two realizations: a block-diagonal exponentiation approach and a Cayley/Crank-Nicolson approach using the Thomas algorithm for tridiagonal linear systems.
+
+**Summary.** This paper introduces a new numerical method for simulating the time-dependent Tavis-Cummings model with much higher efficiency than standard tools. By using a split-operator approach and a clever basis re-indexing trick, the authors reduce the computational complexity to linear scaling with the system size. This allows for the simulation of much larger spin ensembles and longer time scales, even when including non-rotating-wave terms. The method is particularly useful for studying driven hybrid quantum systems like NV centers in diamond.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The closed, undamped, time-dependent Tavis-Cummings model, which describes a multilevel spin ensemble interacting with a single cavity mode, including time-dependent modulation of the spin frequency.
+
+**Key observables.** Eigenvalues of the cavity quadrature covariance matrix (representing X and Y quadratures).
+
+**Important parameters / regimes.** Cavity frequency, spin frequency, spin-cavity coupling strength, modulation amplitude and frequency, and the Hilbert-space dimension D.
+
+**Assumptions / limitations.** The method is specifically tailored to Hamiltonians that can be decomposed into diagonal and tridiagonal parts via basis permutation; it assumes a closed (undamped) system.
+
+**Figures summary.** Figure 1 compares the time evolution of covariance matrix eigenvalues against QuTiP and the Holstein-Primakoff approximation; Figure 2 compares the runtime per propagation step against the Hilbert-space dimension to demonstrate linear scaling.
+
+**Paper structure.** The paper identifies the limitations of current solvers, introduces the Hamiltonian decomposition and basis re-indexing technique, presents two implementation realizations (Block-diagonal and Cayley), validates the method against QuTiP and the Holstein-Primakoff approximation, and discusses computational scaling and potential extensions.
+
+**Why it may be interesting.** It provides a highly scalable tool for simulating large-scale cavity QED systems and spin ensembles, particularly in regimes where the rotating-wave approximation fails, which is crucial for studying driven-dissipative quantum dynamics and many-body effects in hybrid systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We present a fast, memory-efficient, unitarity-preserving numerical method beyond the rotating-wave approximation for the closed Tavis-Cummings model in which a multilevel spin system interacts with a cavity mode. This model can describe the interaction of an ensemble of spins with a cavity mode in which the spin frequency and other parameters are time-dependent. The method exploits the fact that, while the Tavis-Cummings model is not tri-diagonal, it can be brought into tri-diagonal form by a change of basis that can be implemented purely by re-indexing (permuting basis elements), which is a fast operation. By truncating the Fock basis of the cavity mode, the computational complexity of the method is linear in the total dimension of the coupled system, both in time and memory. The method can be employed to simulate any closed quantum system whose Hamiltonian terms can be brought into tri-diagonal form.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21919"></a>
 ### ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](http://arxiv.org/abs/2604.21919v1)
 
@@ -216,7 +217,6 @@ We propose a semiclassical framework for solving open quantum dynamics in driven
 **Authors:** Siddhant Midha, Yifan F. Zhang, Daniel Malz, Dmitry A. Abanin, Sarang Gopalakrishnan  
 **Type:** theory · **Category:** numerical methods · **PDF:** <https://arxiv.org/pdf/2604.21919v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** `quantum phase transition` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
@@ -259,13 +259,83 @@ Belief propagation has recently emerged as a powerful framework for evaluating t
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21820"></a>
+### [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](http://arxiv.org/abs/2604.21820v1)
+
+**Authors:** Nikolay Yegovtsev, Sayan Choudhury, W. Vincent Liu  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21820v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `Dicke superradiance` **4/5** · 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · 🔥 `non-equilibrium universality` **4/5** · `driven-dissipative phase transition` **2/5** · `non-equilibrium dynamics` **2/5** · `superradiant laser` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21820_figures/2604.21820_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (Left: A schematic illustration of chiral Dicke model described in Eq. (1). Right: The ground-state phase diagram of this system showing the existence of the U(1)-symmetric normal phase (white region), and the U(1)-broken superradi- ant phase. The location of the phase boundary is given by Eq. (5).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21820_figures/2604.21820_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Energy spectrum of Gaussian fluctuations above the mean-field ground state across different cuts through the phase diagram. The dashed black line corresponds to the expression in Eq. (9). The ϕ = 3π/8 trajectory shows that the two lower branches are almost degenerate, resulting in a large slope in Eq. (9). Parameters are ωz = 1.5ωc.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21820_figures/2604.21820_fig3.jpg" width="500"><br>
+<sub>FIG. 4. The energy branches for the case ϕ = 0.5 arccos (ωc/ωz), where two of the branches remain degener- ate in the normal phase. The dashed black curve corresponds to Eq. (10). These results correspond to ωz = 1.5ωc.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21820_figures/2604.21820_fig4.jpg" width="500"><br>
+<sub>FIG. 3. The energy of the lower polariton mode ε−from Eq. (8) along the critical line gc = ωzωc for various values of ωz. The top curve (green) is always above zero; the middle (orange) curve approaches zero only at ϕ = π/2, correspond- ing to the anti-Tavis-Cummings limit. The bottom (blue) curve reaches zero when ϕ = 0.5 arccos (ωc/ωz). The open marker corresponds to the energy along the cut ϕ = 3π/8 in Fig. 2.</sub>
+
+</details>
+
+**Main problem.** The study investigates the existence of robust continuous U(1) symmetry breaking and the phenomenon of multiversality in a generalized chiral Dicke model.
+
+**Main result.** The authors demonstrate a robust U(1)-broken superradiant phase and identify 'multiversality,' where the dynamical critical exponent changes from znu=1 to znu=1/2 along a specific line in parameter space.
+
+**Method.** The study employs mean-field theory, Holstein-Primakoff transformation, and Bogoliubov theory to analyze the ground-state phase diagram and the spectrum of quantum fluctuations.
+
+**Summary.** This paper introduces the chiral Dicke model, a generalization of the standard Dicke model with chiral light-matter coupling. It shows that this model possesses a robust U(1) symmetry breaking that does not require fine-tuning. A key discovery is 'multiversality,' where the dynamical critical exponent of the phase transition changes depending on the path taken through the parameter space. The work provides a detailed map of the energy spectrum and the emergence of Goldstone modes in the superradiant phase.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The Chiral Dicke Model (CDM) consists of an ensemble of N two-level atoms coupled to two degenerate cavity modes via chiral interactions, featuring an inherent U(1) symmetry.
+
+**Key observables.** The atomic inversion (order parameter), energy spectrum/branches, energy gap, and the dynamical critical exponent (znu).
+
+**Important parameters / regimes.** Cavity frequency (omega_c), atomic frequency (omega_z), chiral coupling strengths (g1, g2), and the nonlinearity parameter (U).
+
+**Assumptions / limitations.** The analysis focuses on the regime where the ground-state energy is bounded (4omega_c^2 > U^2N^2) and includes specific limits such as U=0 for analytical tractability.
+
+**Figures summary.** Figure 1 provides a schematic of the model and the ground-state phase diagram; Figure 2 shows the evolution of energy branches across different paths in the coupling parameter space.
+
+**Paper structure.** The paper introduces the chiral Dicke model, derives the ground-state phase diagram using mean-field theory, analyzes the excitation spectrum and mode degeneracy using Bogoliubov theory, and discusses the implications of multiversality and nonlinearity.
+
+**Why it may be interesting.** It reveals how the universality class of a quantum phase transition can be tuned by changing the coupling trajectory, offering a new way to control critical phenomena in light-matter systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The Dicke model (DM) serves as a paradigm for understanding collective light-matter interactions. We introduce the chiral Dicke model, a generalization where an atomic ensemble couples to a two-mode cavity via chiral interactions. Unlike the standard DM, the chiral DM is endowed with an inherent continuous $U(1)$ symmetry associated with angular momentum conservation. The ground-state phase diagram and the associated quantum phase transitions are charted out, revealing a $U(1)$-broken superradiant phase that spans a broad parameter space. We demonstrate that the spectrum of quantum fluctuations is highly tunable in both the symmetric and broken phases. Strikingly, our calculations reveal that the system exhibits `multiversality', where distinct universality classes govern the transition between the same two phases. In particular, along a special line in parameter space, the dynamical critical exponent for the normal-superradiant phase transition changes from $zν=1$ to $zν=1/2$. Our work establishes the chiral Dicke model as a powerful platform to realize novel quantum phases and multiversal critical phenomena in light-matter coupled systems.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21692"></a>
 ### [Bipartite entanglement under frequency comb pumping in parametric Josephson circuits](http://arxiv.org/abs/2604.21692v1)
 
 **Authors:** Mikael Vartiainen, Ilari Lilja, Ekaterina Mukhanova, Kirill Petrovnin, Gheorghe Sorin Paraoanu, Pertti Hakonen  
 **Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21692v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `dissipative systems` **3/5** · 🔥 `quantum measurements` **3/5** · `correlated dissipation` **2/5** · `non-equilibrium physics` **2/5**
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `dissipative systems` **3/5** · `correlated / nonlocal dissipation` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
@@ -350,153 +420,13 @@ The creation of high-quality cluster states in superconducting microwave circuit
 
 <sub>[↑ back to top](#top)</sub>
 
-<a id="paper-2604.21820"></a>
-### [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](http://arxiv.org/abs/2604.21820v1)
-
-**Authors:** Nikolay Yegovtsev, Sayan Choudhury, W. Vincent Liu  
-**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21820v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `Dicke superradiance` **4/5** · 🔥 `new universality class` **4/5** · 🔥 `quantum phase transition` **4/5** · 🔥 `Tavis-Cummings` **3/5** · `superradiant laser` **2/5**
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21820_figures/2604.21820_fig1.jpg" width="500"><br>
-<sub>FIG. 1. (Left: A schematic illustration of chiral Dicke model described in Eq. (1). Right: The ground-state phase diagram of this system showing the existence of the U(1)-symmetric normal phase (white region), and the U(1)-broken superradi- ant phase. The location of the phase boundary is given by Eq. (5).</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21820_figures/2604.21820_fig2.jpg" width="500"><br>
-<sub>FIG. 2. Energy spectrum of Gaussian fluctuations above the mean-field ground state across different cuts through the phase diagram. The dashed black line corresponds to the expression in Eq. (9). The ϕ = 3π/8 trajectory shows that the two lower branches are almost degenerate, resulting in a large slope in Eq. (9). Parameters are ωz = 1.5ωc.</sub>
-
-</details>
-
-<details><summary>📷 Fig 3</summary>
-
-<img src="2604.21820_figures/2604.21820_fig3.jpg" width="500"><br>
-<sub>FIG. 4. The energy branches for the case ϕ = 0.5 arccos (ωc/ωz), where two of the branches remain degener- ate in the normal phase. The dashed black curve corresponds to Eq. (10). These results correspond to ωz = 1.5ωc.</sub>
-
-</details>
-
-<details><summary>📷 Fig 4</summary>
-
-<img src="2604.21820_figures/2604.21820_fig4.jpg" width="500"><br>
-<sub>FIG. 3. The energy of the lower polariton mode ε−from Eq. (8) along the critical line gc = ωzωc for various values of ωz. The top curve (green) is always above zero; the middle (orange) curve approaches zero only at ϕ = π/2, correspond- ing to the anti-Tavis-Cummings limit. The bottom (blue) curve reaches zero when ϕ = 0.5 arccos (ωc/ωz). The open marker corresponds to the energy along the cut ϕ = 3π/8 in Fig. 2.</sub>
-
-</details>
-
-**Main problem.** The study investigates the existence of robust continuous U(1) symmetry breaking and the phenomenon of multiversality in a generalized chiral Dicke model.
-
-**Main result.** The authors demonstrate a robust U(1)-broken superradiant phase and identify 'multiversality,' where the dynamical critical exponent changes from znu=1 to znu=1/2 along a specific line in parameter space.
-
-**Method.** The study employs mean-field theory, Holstein-Primakoff transformation, and Bogoliubov theory to analyze the ground-state phase diagram and the spectrum of quantum fluctuations.
-
-**Summary.** This paper introduces the chiral Dicke model, a generalization of the standard Dicke model with chiral light-matter coupling. It shows that this model possesses a robust U(1) symmetry breaking that does not require fine-tuning. A key discovery is 'multiversality,' where the dynamical critical exponent of the phase transition changes depending on the path taken through the parameter space. The work provides a detailed map of the energy spectrum and the emergence of Goldstone modes in the superradiant phase.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** The Chiral Dicke Model (CDM) consists of an ensemble of N two-level atoms coupled to two degenerate cavity modes via chiral interactions, featuring an inherent U(1) symmetry.
-
-**Key observables.** The atomic inversion (order parameter), energy spectrum/branches, energy gap, and the dynamical critical exponent (znu).
-
-**Important parameters / regimes.** Cavity frequency (omega_c), atomic frequency (omega_z), chiral coupling strengths (g1, g2), and the nonlinearity parameter (U).
-
-**Assumptions / limitations.** The analysis focuses on the regime where the ground-state energy is bounded (4omega_c^2 > U^2N^2) and includes specific limits such as U=0 for analytical tractability.
-
-**Figures summary.** Figure 1 provides a schematic of the model and the ground-state phase diagram; Figure 2 shows the evolution of energy branches across different paths in the coupling parameter space.
-
-**Paper structure.** The paper introduces the chiral Dicke model, derives the ground-state phase diagram using mean-field theory, analyzes the excitation spectrum and mode degeneracy using Bogoliubov theory, and discusses the implications of multiversality and nonlinearity.
-
-**Why it may be interesting.** It reveals how the universality class of a quantum phase transition can be tuned by changing the coupling trajectory, offering a new way to control critical phenomena in light-matter systems.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-The Dicke model (DM) serves as a paradigm for understanding collective light-matter interactions. We introduce the chiral Dicke model, a generalization where an atomic ensemble couples to a two-mode cavity via chiral interactions. Unlike the standard DM, the chiral DM is endowed with an inherent continuous $U(1)$ symmetry associated with angular momentum conservation. The ground-state phase diagram and the associated quantum phase transitions are charted out, revealing a $U(1)$-broken superradiant phase that spans a broad parameter space. We demonstrate that the spectrum of quantum fluctuations is highly tunable in both the symmetric and broken phases. Strikingly, our calculations reveal that the system exhibits `multiversality', where distinct universality classes govern the transition between the same two phases. In particular, along a special line in parameter space, the dynamical critical exponent for the normal-superradiant phase transition changes from $zν=1$ to $zν=1/2$. Our work establishes the chiral Dicke model as a powerful platform to realize novel quantum phases and multiversal critical phenomena in light-matter coupled systems.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
-<a id="paper-2604.21758"></a>
-### [Photon Sorting with a Quantum Emitter](http://arxiv.org/abs/2604.21758v1)
-
-**Authors:** Kasper H. Nielsen, Etienne Corminboeuf, Benedikt Tissot, Love A. Pettersson, Sven Scholz, Arne Ludwig, Leonardo Midolo, Anders S. Sørensen, Peter Lodahl, Ying Wang, Stefano Paesani  
-**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21758v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `interference shaping light` **3/5** · 🔥 `quantum measurements` **3/5** · `dissipative systems` **2/5**
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21758_figures/2604.21758_fig1.jpg" width="500"><br>
-<sub>FIG. 1. Photon sorter building blocks. a. Sketch of the photon sorter implementation using a nonlinear photonic in- teraction between two balanced beam splitters (a nonlinear Mach-Zehnder interferometer). Ideally, individual photons will exit through the upper port, whereas the two-photon component will exit through the lower. b. Illustration of an ideal single-mode Kerr nonlinearity where a one-photon state acquires no phase shift, whereas a two-photon state re- ceives a phase shift of π. c. Illustration of the nonlinear response of a two-level system. The photon states receive ap- proximately the same phase as in the ideal Kerr case, but the interaction distorts the two-photon wavepacket...</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21758_figures/2604.21758_fig2.jpg" width="500"><br>
-<sub>FIG. 2. Photon sorter performance characterisation. a. Probabilities of detecting the one-photon state in the upper (green) or lower (orange) output port of the photon sorter as a function of the detuning ∆between the input field and the QD, normalised to the QD linewidth Γ/2. The dashed lines correspond to a linear optical beam splitter with a reflectivity matching the one-photon statistics at ∆= 0. b. Probabilities of detecting two photons in the upper mode (orange), two photons in the lower mode (green) or one photon each in both modes (blue) as a function of the detuning ∆. An ideal photon sorter would transfer the two photons into the lower mode completely. The dashed lines correspond...</sub>
-
-</details>
-
-<details><summary>📷 Fig 3</summary>
-
-<img src="2604.21758_figures/2604.21758_fig3.jpg" width="500"><br>
-<sub>FIG. 3. Photon sorter for BSMs. a. Illustration of a nonlinear BSMs using photon sorters. The first block (in orange) corresponds to a linear optical |ψ⟩-fusion. Photons from the ψ± states are incident individually on the photon sorter, so a direct measurement follows (yellow). Photons from ϕ± bunch after the first fusion block and are split away by the photon sorters. Consecutively, a reversed-|ψ⟩-fusion (pink) and a |ϕ⟩-basis fusion (green) are performed. We evaluate the performance of photon-sorter-boosted BSMs by analysing their b. success, c. error, and d. failure probabilities. Here, failures denote detected measurement patterns unassociated with any valid state, while errors...</sub>
-
-</details>
-
-<details><summary>📷 Fig 4</summary>
-
-<img src="2604.21758_figures/2604.21758_fig4.jpg" width="500"><br>
-<sub>FIG. 4. Advances towards applications. a. Loss thresh- old of the FBQC architecture introduced in Ref. [16], when using photon sorting to boost fusion performance, as a func- tion of β. The two curves assume no pure dephasing, with and without spectral diffusion. The black dashed line de- notes the threshold using linear optical BSMs. b. Perfor- mance of a repeater network for QKD using the DLCZ pro- tocol [4], comparing linear optical BSMs (black dashed line), and photon-sorter-boosted nonlinear BSMs. The latter in- cludes a state-of-the-art scenario achieved solely by improv- ing the β = 0.98 [39] (blue), and an ideal noiseless photon sorter [18] (orange). During initial entanglement...</sub>
-
-</details>
-
-**Main problem.** Linear-optical Bell state measurements (BSMs) are fundamentally limited to a 50% success probability, which increases hardware overhead and reduces noise tolerance in photonic quantum computing and communication architectures.
-
-**Main result.** The authors demonstrate a passive photon-sorting circuit using a quantum dot that achieves a 62% success probability for sorting one- and two-photon components and a 57% post-selected BSM success probability, exceeding the linear-optical limit.
-
-**Method.** The researchers use a nonlinear Mach-Zehnder interferometer (MZI) where photon scattering from a single quantum dot induces a nonlinear phase shift, combined with temporal filtering and input-output theory modeling.
-
-**Summary.** This paper presents an experimental demonstration of a photon sorter that uses a single quantum dot to distinguish between one- and two-photon states. By leveraging the nonlinearity from photon scattering in a nanophotonic waveguide, the device achieves a BSM success rate of 57%, breaking the 50% limit of standard linear optics. This advancement has significant implications for scaling up fusion-based quantum computing and improving the efficiency of quantum repeater networks.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** A single semiconductor quantum dot (QD) embedded in a nanobeam waveguide with a photonic crystal mirror to create an effectively chiral, single-sided coupling interface.
-
-**Key observables.** One-photon and two-photon detection probabilities, second-order correlation function g(2)(0), transmission/reflection coefficients, and BSM success/error/failure rates.
-
-**Important parameters / regimes.** Waveguide coupling efficiency (beta-factor), pure dephasing rate, spectral diffusion, pulse duration, and detuning from resonance.
-
-**Assumptions / limitations.** The analysis assumes a two-level system approximation for the emitter and considers the impact of phonon-induced dephasing and spectral diffusion as primary error sources.
-
-**Figures summary.** Figure 1 shows the MZI architecture and the nonlinear response of the emitter; Figure 2 presents photon statistics and detuning-dependent probabilities; Figure 3 compares BSM performance metrics; Figure 4 discusses scalability and loss thresholds in FBQC.
-
-**Paper structure.** The paper introduces the problem of probabilistic BSMs, describes the experimental platform and MZI architecture, presents the experimental results for photon sorting, provides theoretical modeling of noise and scattering, and concludes with applications to FBQC and quantum repeaters.
-
-**Why it may be interesting.** This work is highly relevant for quantum optics and open quantum systems researchers as it demonstrates how controlled light-matter interaction and nonlinearity can be harnessed to surpass fundamental limits of linear-optical quantum information processing.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-High-quality photonic Bell state measurements (BSMs) enable scalable universal quantum computing and long distance quantum communication. However, when implemented with linear optics, BSMs are fundamentally probabilistic, introducing substantial hardware overheads and limiting noise tolerance in photonic quantum computing architectures. Nonlinear interactions at the single-photon level can overcome these limitations by enabling near-deterministic photon-photon gates. Here, we demonstrate a passive photon-sorting circuit based on the induced nonlinearity arising from photon scattering in a solid-state quantum emitter. The scattering is implemented in a directional waveguide-emitter coupling interface and embedded on-chip into a linear optical circuit, through which we demonstrate sorting of one- and two-photon components with a success probability of 62%. We find that the current system can enable BSMs with a 57% post-selected success probability without ancillary photons, exceeding the linear-optical limit of 50%, and can be readily improved to >65% with design optimisations.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
 <a id="paper-2604.21659"></a>
 ### [Spectral Diffusion Mitigation with a Laser Pulse Sequence](http://arxiv.org/abs/2604.21659v1)
 
 **Authors:** Kilian Unterguggenberger, Alok Gokhale, Aleksei Tsarapkin, Wentao Zhang, Katja Höflich, Herbert Fotso, Tommaso Pregnolato, Laura Orphal-Kobin, Tim Schröder  
 **Type:** experiment · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21659v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · `dissipative systems` **2/5** · `interference shaping light` **2/5** · `non-equilibrium physics` **2/5** · `quantum measurements` **2/5**
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · `dissipative systems` **2/5** · `interference shaping light` **2/5** · `non-equilibrium dynamics` **2/5** · `spintronics-quantum-optics interface` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
@@ -567,13 +497,146 @@ The optical spectrum of a quantum system is jointly determined by the properties
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21758"></a>
+### [Photon Sorting with a Quantum Emitter](http://arxiv.org/abs/2604.21758v1)
+
+**Authors:** Kasper H. Nielsen, Etienne Corminboeuf, Benedikt Tissot, Love A. Pettersson, Sven Scholz, Arne Ludwig, Leonardo Midolo, Anders S. Sørensen, Peter Lodahl, Ying Wang, Stefano Paesani  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21758v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `interference shaping light` **3/5** · `dissipative systems` **2/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21758_figures/2604.21758_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Photon sorter building blocks. a. Sketch of the photon sorter implementation using a nonlinear photonic in- teraction between two balanced beam splitters (a nonlinear Mach-Zehnder interferometer). Ideally, individual photons will exit through the upper port, whereas the two-photon component will exit through the lower. b. Illustration of an ideal single-mode Kerr nonlinearity where a one-photon state acquires no phase shift, whereas a two-photon state re- ceives a phase shift of π. c. Illustration of the nonlinear response of a two-level system. The photon states receive ap- proximately the same phase as in the ideal Kerr case, but the interaction distorts the two-photon wavepacket...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21758_figures/2604.21758_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Photon sorter performance characterisation. a. Probabilities of detecting the one-photon state in the upper (green) or lower (orange) output port of the photon sorter as a function of the detuning ∆between the input field and the QD, normalised to the QD linewidth Γ/2. The dashed lines correspond to a linear optical beam splitter with a reflectivity matching the one-photon statistics at ∆= 0. b. Probabilities of detecting two photons in the upper mode (orange), two photons in the lower mode (green) or one photon each in both modes (blue) as a function of the detuning ∆. An ideal photon sorter would transfer the two photons into the lower mode completely. The dashed lines correspond...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21758_figures/2604.21758_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Photon sorter for BSMs. a. Illustration of a nonlinear BSMs using photon sorters. The first block (in orange) corresponds to a linear optical |ψ⟩-fusion. Photons from the ψ± states are incident individually on the photon sorter, so a direct measurement follows (yellow). Photons from ϕ± bunch after the first fusion block and are split away by the photon sorters. Consecutively, a reversed-|ψ⟩-fusion (pink) and a |ϕ⟩-basis fusion (green) are performed. We evaluate the performance of photon-sorter-boosted BSMs by analysing their b. success, c. error, and d. failure probabilities. Here, failures denote detected measurement patterns unassociated with any valid state, while errors...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21758_figures/2604.21758_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Advances towards applications. a. Loss thresh- old of the FBQC architecture introduced in Ref. [16], when using photon sorting to boost fusion performance, as a func- tion of β. The two curves assume no pure dephasing, with and without spectral diffusion. The black dashed line de- notes the threshold using linear optical BSMs. b. Perfor- mance of a repeater network for QKD using the DLCZ pro- tocol [4], comparing linear optical BSMs (black dashed line), and photon-sorter-boosted nonlinear BSMs. The latter in- cludes a state-of-the-art scenario achieved solely by improv- ing the β = 0.98 [39] (blue), and an ideal noiseless photon sorter [18] (orange). During initial entanglement...</sub>
+
+</details>
+
+**Main problem.** Linear-optical Bell state measurements (BSMs) are fundamentally limited to a 50% success probability, which increases hardware overhead and reduces noise tolerance in photonic quantum computing and communication architectures.
+
+**Main result.** The authors demonstrate a passive photon-sorting circuit using a quantum dot that achieves a 62% success probability for sorting one- and two-photon components and a 57% post-selected BSM success probability, exceeding the linear-optical limit.
+
+**Method.** The researchers use a nonlinear Mach-Zehnder interferometer (MZI) where photon scattering from a single quantum dot induces a nonlinear phase shift, combined with temporal filtering and input-output theory modeling.
+
+**Summary.** This paper presents an experimental demonstration of a photon sorter that uses a single quantum dot to distinguish between one- and two-photon states. By leveraging the nonlinearity from photon scattering in a nanophotonic waveguide, the device achieves a BSM success rate of 57%, breaking the 50% limit of standard linear optics. This advancement has significant implications for scaling up fusion-based quantum computing and improving the efficiency of quantum repeater networks.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A single semiconductor quantum dot (QD) embedded in a nanobeam waveguide with a photonic crystal mirror to create an effectively chiral, single-sided coupling interface.
+
+**Key observables.** One-photon and two-photon detection probabilities, second-order correlation function g(2)(0), transmission/reflection coefficients, and BSM success/error/failure rates.
+
+**Important parameters / regimes.** Waveguide coupling efficiency (beta-factor), pure dephasing rate, spectral diffusion, pulse duration, and detuning from resonance.
+
+**Assumptions / limitations.** The analysis assumes a two-level system approximation for the emitter and considers the impact of phonon-induced dephasing and spectral diffusion as primary error sources.
+
+**Figures summary.** Figure 1 shows the MZI architecture and the nonlinear response of the emitter; Figure 2 presents photon statistics and detuning-dependent probabilities; Figure 3 compares BSM performance metrics; Figure 4 discusses scalability and loss thresholds in FBQC.
+
+**Paper structure.** The paper introduces the problem of probabilistic BSMs, describes the experimental platform and MZI architecture, presents the experimental results for photon sorting, provides theoretical modeling of noise and scattering, and concludes with applications to FBQC and quantum repeaters.
+
+**Why it may be interesting.** This work is highly relevant for quantum optics and open quantum systems researchers as it demonstrates how controlled light-matter interaction and nonlinearity can be harnessed to surpass fundamental limits of linear-optical quantum information processing.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+High-quality photonic Bell state measurements (BSMs) enable scalable universal quantum computing and long distance quantum communication. However, when implemented with linear optics, BSMs are fundamentally probabilistic, introducing substantial hardware overheads and limiting noise tolerance in photonic quantum computing architectures. Nonlinear interactions at the single-photon level can overcome these limitations by enabling near-deterministic photon-photon gates. Here, we demonstrate a passive photon-sorting circuit based on the induced nonlinearity arising from photon scattering in a solid-state quantum emitter. The scattering is implemented in a directional waveguide-emitter coupling interface and embedded on-chip into a linear optical circuit, through which we demonstrate sorting of one- and two-photon components with a success probability of 62%. We find that the current system can enable BSMs with a 57% post-selected success probability without ancillary photons, exceeding the linear-optical limit of 50%, and can be readily improved to >65% with design optimisations.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21876"></a>
+### [Loss-biased fault-tolerant quantum error correction](http://arxiv.org/abs/2604.21876v1)
+
+**Authors:** Laura Pecorari, Gavin K. Brennen, Stanimir S. Kondov, Guido Pupillo  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21876v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `Rydberg arrays` **4/5** · 🔥 `correlated / nonlocal dissipation` **3/5** · 🔥 `dissipative systems` **3/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21876_figures/2604.21876_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Rotated surface code, stabilizers and logical oper- ators. (b) Stabilizer readout circuit simulated with different success probability of not finding an atom in the Rydberg state before a CZ gate. (c) Surface code logical error proba- bility versus Rydberg decay rate, γ/Ωmax with time-optimal laser pulses. Data are for 100, 90, 75, 50, 0% success proba- bility that an atom is not in the Rydberg state immediately before a the next gate (from dark to light color shading).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21876_figures/2604.21876_fig2.jpg" width="500"><br>
+<sub>FIG. 2. (a) Schematic level structure. (b) Logical error scal- ing ν such that pL ∝γν versus success probability, pdepl., of inter-gate ionization for distance-3 surface codes. Back- to-back gate schedules produce a non-fault-tolerant scaling ⌈d/4⌉, while perfect inter-gate ionization restores the fault- tolerant Pauli scaling of ⌈d/2⌉for Pauli errors. If losses are properly handled in software with a loss-aware decoder, the optimal erasure-like scaling of d can be achieved (light blue). Error bars fall within the marker size.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21876_figures/2604.21876_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Occurrences of hook error strings caused by single decay events that degrade fault tolerance. Number hook er- rors for (a) ionization enforced after each gate with success probabilities ranging from 0% to 100% and (b) perfect ion- ization only enforced at selected circuit locations (see main text). (c) Probability of each hook error string at fixed decay rate γ = 5×10−5Ωmax (far below the surface code threshold).</sub>
+
+</details>
+
+**Main problem.** Shortening QEC cycles in neutral-atom processors leads to non-Markovian, correlated errors caused by Rydberg excitation hopping and residual Rydberg populations. The study investigates if these errors can be mitigated to restore fault-tolerant scaling.
+
+**Main result.** The authors propose 'loss-biasing'—using mid-circuit ionization to convert Rydberg excitations into atom loss—which restores fault-tolerant Pauli error scaling and can achieve optimal erasure-like scaling when paired with loss-aware decoding.
+
+**Method.** The study uses Lindblad master equation dynamics, Monte Carlo trajectory generation, and randomized compiling to derive effective Pauli error models, followed by large-scale surface code simulations using Stim and Pymatching.
+
+**Summary.** This paper addresses the degradation of fault tolerance in neutral-atom quantum computers when QEC cycles are accelerated. It identifies that fast cycles amplify Rydberg-mediated correlated errors. By implementing 'loss-biasing'—converting unwanted Rydberg excitations into detectable atom loss via ionization—the authors show that one can restore fault-tolerant scaling and even approach optimal erasure-based performance. This provides a practical roadmap for achieving sub-millisecond QEC cycles in Rydberg-based architectures.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A neutral-atom processor platform using Rydberg-blockade CZ gates, modeled as a three-level system (|0>, |1>, |r>) in optical tweezers, specifically focusing on alkaline-earth-like atoms.
+
+**Key observables.** Logical error probability, logical error scaling exponent (nu), stabilizer readout success probability, and noise entropy.
+
+**Important parameters / regimes.** Rydberg decay rate to Rabi frequency ratio (gamma/Omega_max), ionization success probability (p_depl), and code distance (d).
+
+**Assumptions / limitations.** Assumes a 'data-ancilla blockade' during ionization and focuses primarily on the rotated surface code architecture.
+
+**Figures summary.** Figure 1 shows the surface code schematic and stabilizer readout success; Figure 2 illustrates the atomic level structure and the logical error scaling exponent versus ionization success probability.
+
+**Paper structure.** The paper identifies the problem of high-speed QEC errors, introduces the loss-biasing mechanism, details the physical model and simulation framework, presents results on error scaling and fault tolerance restoration, and concludes with experimental implementation outlines.
+
+**Why it may be interesting.** It addresses the intersection of open quantum systems (non-Markovian noise and Lindblad dynamics) and quantum computing, providing a physical strategy (ionization) to transform complex correlated noise into manageable erasure noise.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We investigate the limits of quantum error correction (QEC) in neutral-atom processors approaching high-fidelity gates and fast cycle times. We show that shorter QEC cycles amplify platform-specific errors, notably Rydberg excitation hopping, and hinder decay of residual Rydberg population, leading to non-Markovian correlated errors that degrade logical performance. To address this, we introduce loss biasing, where spurious Rydberg excitations are rapidly converted into atom loss via mid-circuit ionization, transforming errors into erasure-like noise and suppressing their propagation. Loss biasing restores the fault-tolerant logical error scaling for intra-cycle Pauli errors; furthermore, we argue that when supported with loss-aware decoding, it can achieve the optimal scaling of erasures while enabling shorter QEC cycles with reduced hardware overhead. We outline an implementation using fast autoionization in alkaline-earth(-like) atoms, establishing loss biasing as a practical route toward fault-tolerant quantum computing with sub-millisecond QEC cycles.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21902"></a>
 ### [A Universal Quantum Information Preserving Photonic Switch for Scalable Quantum Networks](http://arxiv.org/abs/2604.21902v1)
 
 **Authors:** Jiapeng Zhao, Stéphane Vinet, Amir Minoofar, Michael Kilzer, Lucas Wang, Galan Moody, Vijoy Pandey, Ramana Kompella, Reza Nejabati  
 **Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21902v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · `dissipative systems` **2/5** · `interference shaping light` **2/5** · `quantum measurements` **2/5**
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · `dissipative systems` **2/5** · `interference shaping light` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
@@ -658,76 +721,13 @@ Quantum networks are a keystone of the quantum internet. However, existing imple
 
 <sub>[↑ back to top](#top)</sub>
 
-<a id="paper-2604.21876"></a>
-### [Loss-biased fault-tolerant quantum error correction](http://arxiv.org/abs/2604.21876v1)
-
-**Authors:** Laura Pecorari, Gavin K. Brennen, Stanimir S. Kondov, Guido Pupillo  
-**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21876v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `Rydberg arrays` **4/5** · 🔥 `correlated dissipation` **3/5** · 🔥 `dissipative systems` **3/5** · `non-equilibrium physics` **2/5** · `quantum measurements` **2/5**
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21876_figures/2604.21876_fig1.jpg" width="500"><br>
-<sub>FIG. 1. (a) Rotated surface code, stabilizers and logical oper- ators. (b) Stabilizer readout circuit simulated with different success probability of not finding an atom in the Rydberg state before a CZ gate. (c) Surface code logical error proba- bility versus Rydberg decay rate, γ/Ωmax with time-optimal laser pulses. Data are for 100, 90, 75, 50, 0% success proba- bility that an atom is not in the Rydberg state immediately before a the next gate (from dark to light color shading).</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21876_figures/2604.21876_fig2.jpg" width="500"><br>
-<sub>FIG. 2. (a) Schematic level structure. (b) Logical error scal- ing ν such that pL ∝γν versus success probability, pdepl., of inter-gate ionization for distance-3 surface codes. Back- to-back gate schedules produce a non-fault-tolerant scaling ⌈d/4⌉, while perfect inter-gate ionization restores the fault- tolerant Pauli scaling of ⌈d/2⌉for Pauli errors. If losses are properly handled in software with a loss-aware decoder, the optimal erasure-like scaling of d can be achieved (light blue). Error bars fall within the marker size.</sub>
-
-</details>
-
-<details><summary>📷 Fig 3</summary>
-
-<img src="2604.21876_figures/2604.21876_fig3.jpg" width="500"><br>
-<sub>FIG. 3. Occurrences of hook error strings caused by single decay events that degrade fault tolerance. Number hook er- rors for (a) ionization enforced after each gate with success probabilities ranging from 0% to 100% and (b) perfect ion- ization only enforced at selected circuit locations (see main text). (c) Probability of each hook error string at fixed decay rate γ = 5×10−5Ωmax (far below the surface code threshold).</sub>
-
-</details>
-
-**Main problem.** Shortening QEC cycles in neutral-atom processors leads to non-Markovian, correlated errors caused by Rydberg excitation hopping and residual Rydberg populations. The study investigates if these errors can be mitigated to restore fault-tolerant scaling.
-
-**Main result.** The authors propose 'loss-biasing'—using mid-circuit ionization to convert Rydberg excitations into atom loss—which restores fault-tolerant Pauli error scaling and can achieve optimal erasure-like scaling when paired with loss-aware decoding.
-
-**Method.** The study uses Lindblad master equation dynamics, Monte Carlo trajectory generation, and randomized compiling to derive effective Pauli error models, followed by large-scale surface code simulations using Stim and Pymatching.
-
-**Summary.** This paper addresses the degradation of fault tolerance in neutral-atom quantum computers when QEC cycles are accelerated. It identifies that fast cycles amplify Rydberg-mediated correlated errors. By implementing 'loss-biasing'—converting unwanted Rydberg excitations into detectable atom loss via ionization—the authors show that one can restore fault-tolerant scaling and even approach optimal erasure-based performance. This provides a practical roadmap for achieving sub-millisecond QEC cycles in Rydberg-based architectures.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** A neutral-atom processor platform using Rydberg-blockade CZ gates, modeled as a three-level system (|0>, |1>, |r>) in optical tweezers, specifically focusing on alkaline-earth-like atoms.
-
-**Key observables.** Logical error probability, logical error scaling exponent (nu), stabilizer readout success probability, and noise entropy.
-
-**Important parameters / regimes.** Rydberg decay rate to Rabi frequency ratio (gamma/Omega_max), ionization success probability (p_depl), and code distance (d).
-
-**Assumptions / limitations.** Assumes a 'data-ancilla blockade' during ionization and focuses primarily on the rotated surface code architecture.
-
-**Figures summary.** Figure 1 shows the surface code schematic and stabilizer readout success; Figure 2 illustrates the atomic level structure and the logical error scaling exponent versus ionization success probability.
-
-**Paper structure.** The paper identifies the problem of high-speed QEC errors, introduces the loss-biasing mechanism, details the physical model and simulation framework, presents results on error scaling and fault tolerance restoration, and concludes with experimental implementation outlines.
-
-**Why it may be interesting.** It addresses the intersection of open quantum systems (non-Markovian noise and Lindblad dynamics) and quantum computing, providing a physical strategy (ionization) to transform complex correlated noise into manageable erasure noise.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-We investigate the limits of quantum error correction (QEC) in neutral-atom processors approaching high-fidelity gates and fast cycle times. We show that shorter QEC cycles amplify platform-specific errors, notably Rydberg excitation hopping, and hinder decay of residual Rydberg population, leading to non-Markovian correlated errors that degrade logical performance. To address this, we introduce loss biasing, where spurious Rydberg excitations are rapidly converted into atom loss via mid-circuit ionization, transforming errors into erasure-like noise and suppressing their propagation. Loss biasing restores the fault-tolerant logical error scaling for intra-cycle Pauli errors; furthermore, we argue that when supported with loss-aware decoding, it can achieve the optimal scaling of erasures while enabling shorter QEC cycles with reduced hardware overhead. We outline an implementation using fast autoionization in alkaline-earth(-like) atoms, establishing loss biasing as a practical route toward fault-tolerant quantum computing with sub-millisecond QEC cycles.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
 <a id="paper-2604.21723"></a>
 ### [Entanglement of two optical emitters mediated by a terahertz channel](http://arxiv.org/abs/2604.21723v1)
 
 **Authors:** Yanis Le Fur, Diego Martín-Cano, Carlos Sánchez Muñoz  
 **Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21723v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `correlated dissipation` **4/5** · 🔥 `dissipative systems` **4/5** · 🔥 `non-equilibrium physics` **3/5** · `Tavis-Cummings` **2/5**
+**Topic relevance:** 🔥 `correlated / nonlocal dissipation` **4/5** · 🔥 `Tavis-Cummings & cavity-many-emitter` **3/5** · 🔥 `dissipative systems` **3/5** · `non-equilibrium dynamics` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
@@ -797,7 +797,7 @@ Quantum technologies in the terahertz (THz) require a coherent interface between
 **Authors:** Suroj Dey, Peter Barker, Animesh Datta  
 **Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21705v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `dissipative systems` **4/5** · 🔥 `non-equilibrium physics` **3/5** · 🔥 `quantum measurements` **3/5** · `correlated dissipation` **2/5**
+**Topic relevance:** 🔥 `dissipative systems` **4/5** · 🔥 `correlated / nonlocal dissipation` **3/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
@@ -860,7 +860,7 @@ We show that detecting steady-state Coulomb-mediated reduction in the thermal va
 **Authors:** Melchior Wirth  
 **Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21630v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `dissipative systems` **4/5** · 🔥 `non-equilibrium physics` **3/5** · `correlated dissipation` **2/5**
+**Topic relevance:** 🔥 `dissipative systems` **4/5** · `non-equilibrium dynamics` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
@@ -964,55 +964,113 @@ We establish a relation between the exponential decay rates of quantum Markov se
 
 <sub>[↑ back to top](#top)</sub>
 
-<a id="paper-2604.21695"></a>
-### [Lagrange: Operating Italy's First Publicly-Accessible Quantum Computer for Research and Education](http://arxiv.org/abs/2604.21695v1)
+<a id="paper-2604.21874"></a>
+### [Enhancing Coherence of Spin Centers in p-n Diodes via Optimization Algorithms](http://arxiv.org/abs/2604.21874v1)
 
-**Authors:** Paolo Viviani, Fabrizio Bertone, Giacomo Vitali, Emanuele Dri, Federico Stirano, Giuseppe Caragnano, Francesco Lubrano, Antonino Nespola, Olivier Terzo, Matteo Cocuzza, Bartolomeo Montrucchio, Giovanna Turvani, Gianluca Bertaina, Marco Coisson, Davide Calonico, Fabrizio Pirri, Pietro Asinari  
-**Type:** experiment · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21695v1>  
+**Authors:** Jonatan A. Posligua, David E. Stewart, Denis R. Candido  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21874v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `QC/QI experiment` **4/5**
+**Topic relevance:** 🔥 `spintronics-quantum-optics interface` **3/5** · `dissipative systems` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.21695_figures/2604.21695_fig1.jpg" width="500"><br>
-<sub>Fig. 1. Conceptual architecture of the Lagrange software stack. The QC Gate- way transparently authorises job submissions based on budget, reservations, and fair access rate limits. A web portal gives the user visibility to these criteria.</sub>
+<img src="2604.21874_figures/2604.21874_fig1.jpg" width="500"><br>
+<sub>FIG. 1: (a) Schematic of a 4H-SiC pnn+ diode operated in the reverse bias regime with embedded spin centers, non- depleted charges, and surface traps responsible for the leakage current. (b) Schematic of the multi-variable linewidth optimization algorithm via the scale-gradient descent method. The linewidth is first calculated for an initial set of diode design parameters p, and then autonomously minimized using a scaled gradient descent method. Iterations are performed until convergence of the linewidth is achieved, resulting in a final set of design parameter.</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.21695_figures/2604.21695_fig2.jpg" width="500"><br>
-<sub>Fig. 2. Sequence diagram of the job submission and completion flow.</sub>
+<img src="2604.21874_figures/2604.21874_fig2.jpg" width="500"><br>
+<sub>FIG. 2: Electrostatic properties of a 4H-SiC pnn+ diode: (a) Electric potential along the diode’s z-direction calculated for reverse bias voltages ranging from −50 to −800 V. (b) Same for the electric field. (c) Total charge carrier density as a function of position within the diode’s z-direction calculated using the solution to Poisson’s equation to evaluate ρc in Eq. (2) for reverse voltages ranging from −50 to −400 V. The depletion boundaries ˜dn are shown for each reverse bias value. (d) Same for the optical linewidth as a function of the spin center’s position within the diode’s n-region (i.e., zdef). The doping densities used to generate all the sub-figures are Na = 7×1018cm−3, Nn =...</sub>
 
 </details>
 
-**Main problem.** The lack of administrative, multi-tenant, and resource-management features in vendor-provided software for on-premises quantum computers, making it difficult to manage shared access for diverse research and educational groups.
+<details><summary>📷 Fig 3</summary>
 
-**Main result.** The development and successful nine-month deployment of the 'Lagrange' software stack, which enables fair, budget-based, and multi-institutional access to an IQM Spark quantum computer with 98% uptime.
+<img src="2604.21874_figures/2604.21874_fig3.jpg" width="500"><br>
+<sub>FIG. 3: Single-parameter linewidth optimization with respect to the bias voltage. The initial design parameters are Na = 7 × 1018 cm−3, Nn = 4 × 1015 cm−3, Nd = 1.01 × 1019 cm−3, T = 300 K, V = −5 V, dl = dr = 0.4 µm and d = 10 µm. (a) Electric field and carrier density profiles for the initial parameters. (b) Optical linewidth, reverse bias voltage, and optimal spin center position as a function of iteration number. (c) Final electric field and carrier density profiles for the optimal design parameters.</sub>
 
-**Method.** A modular, Python-based middleware layer acting as a transparent reverse proxy that intercepts API calls to enforce project budgets, user authorization, and concurrency limits without requiring changes to user workflows.
+</details>
 
-**Summary.** This paper presents the implementation of 'Lagrange,' a software management stack designed to turn a single-user quantum computer into a multi-tenant research and educational resource. By using a transparent proxy architecture, the system allows researchers and students to use standard libraries like Qiskit and Cirq while the platform enforces institutional budgets and fair usage policies. The deployment has successfully managed hundreds of thousands of jobs with high reliability. It serves as a blueprint for institutions looking to host and share on-premises quantum hardware.
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21874_figures/2604.21874_fig4.jpg" width="500"><br>
+<sub>FIG. 4: (a) Single-type parameter linewidth optimization with respect to doping densities for small bias voltage of V = −5 V, Nn ≪Na ≈Nd, with Nn = 4 × 1015 cm−3, Na = 7 × 1018 cm−3, and Nd = 1.01 × 1019 cm−3, T = 300 K, dl = dr = 0.4 µm, d = 10 µm. The upper panel shows the reduction in linewidth Γ vs. iteration number, the lower panels show the corresponding doping densities and spin center position. (b) Same as (a), but for Na = Nn = Nd = 1019 cm−3 as initial conditions. (c) Density plot of depletion length within the intrinsic region (dn) as a function of Nn/Na and V .</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21874_figures/2604.21874_fig5.jpg" width="500"><br>
+<sub>FIG. 5: Optimization with respect to the lengths of the diode’s doping layers. The initial parameters for this simulation are Na = 7×1018 cm−3, Nn = 4×1015 cm−3, Nd = 1.01 × 1019 cm−3, T = 300 K, V = −15 V, and dl = dr = d = 1 µm. Upper panel: Linewidth reduction and inset showing spin center’s position as a function of iteration number. Lower panel: Evolution of d, dl, and dr that allows for minimal optical linewidth Γ. The size of the lightly-doped n-region is considerably bigger than that of the bulk p and n+-regions. This is a consequence of both charge conservation and the application of our electric noise model.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21874_figures/2604.21874_fig6.jpg" width="500"><br>
+<sub>FIG. 6: Optimization process for 3 different sets of initial design parameters with displayed iteration-by-iteration behavior of the linewidth Γ, optimal spin center position and the diode’s design parameters Na, Nn, Nd, and V for dl = dr = 0.4 µm and d = 10 µm. The voltages used for “Initial Set 1”, “Initial Set 2”, and “Initial Set 3” are −5 V, −6 V, and −7 V, respectively. (b) Same for dl = dr = 0.04 µm and d = 1 µm. (c) Same for dl = dr = 0.004 µm and d = 0.1 µm.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21874_figures/2604.21874_fig7.jpg" width="500"><br>
+<sub>Fig. 6. The left panels show the behavior of Γ and the spin center position as a function of iteration number, whereas the plots on the right side show the correspond- ing variations of all doping densities and bias voltage. Our optimization with respect to these diode parame- ters shows an overall two-order-of-magnitude decrease in the linewidth. Here, smaller linewidths are achieved by decreasing doping densities, increasing the magnitude of the bias voltage, and placing the spin defect at the center of the diode. Similarly to the results found with respect to a single type of parameters in Secs . V A and V B, optimization was obtained via the decreases in the den- sity of fluctuators and...</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21874_figures/2604.21874_fig8.jpg" width="500"><br>
+<sub>FIG. 7: (a) Optimization process for 3 different sets of initial design parameters with displayed iteration-by-iteration behavior of the linewidth Γ, optimal spin center position and the diode’s design parameters Na, Nn, Nd, and V for dl = dr = 0.04 µm and d = 1 µm. The voltages used for “Initial Set 1”, “Initial Set 2”, and “Initial Set 3” are −5 V, −6 V, and −7 V, respectively. (b) Same as (a) but for d = 0.1 µm.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21874_figures/2604.21874_fig9.jpg" width="500"><br>
+<sub>FIG. 8: Maximum electric field [Emax z ] inside the diode as a function of the iteration. Horizontal lines represent the electric field breakdown value EBD, and a fraction of ΩEBD (Ω&lt; 1) set as the numerical threshold of the elec- tric field. Inset shows ΩEBD −Emax z demonstrating that the maximum value of the electric field never surpasses ΩEBD.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21874_figures/2604.21874_fig10.jpg" width="500"><br>
+<sub>FIG. 9: Cause and effect of leakage current present in a 4H-SiC pnn+ diode. (a) Effective density neff pro- duced by leakage current at thermal equilibrium as a function of depth from the diode’s surface for reverse bias voltages ranging from −500 to −1100 V. The depth- dependence of the densities is modeled as a half-Gaussian profile, where its maximum value occurs at the surface of the diode, and it decays as a function of depth in- side the diode. This is pictorially evidenced in Fig. 1(a). (b) Optical linewidth calculated from electric and mag- netic SND as a function of the spin center’s separation from the volume containing fluctuators. The linewidths are calculated for the same...</sub>
+
+</details>
+
+**Main problem.** Determining the optimal set of diode design parameters (doping, bias, and geometry) to maximize the spin coherence of embedded spin centers by minimizing optical linewidth.
+
+**Main result.** The study demonstrates that a twenty-fold suppression of linewidth can be achieved via voltage optimization, and that noise from leakage current can be mitigated by placing spin defects deeper within the diode.
+
+**Method.** A scaled gradient descent optimization algorithm combined with the numerical solution of the Poisson equation and a new formalism for leakage current-induced noise.
+
+**Summary.** This paper presents an optimization framework to enhance the coherence of spin centers in silicon carbide-based diodes. By using a scaled gradient descent algorithm, the authors identify optimal doping profiles, voltages, and device geometries that minimize optical linewidth. The research specifically addresses how to balance the benefits of carrier depletion against the detrimental effects of leakage current. Ultimately, the work provides a practical guide for designing semiconductor devices for quantum technologies.
 
 <details><summary>Detailed structure</summary>
 
-**Model / system.** The Lagrange infrastructure manages an IQM Spark five-qubit superconducting quantum computer with a star topology, hosted at Politecnico di Torino and managed by the LINKS Foundation.
+**Model / system.** Solid-state spin defects (specifically divacancies) embedded in 4H-SiC p-n or p-i-n diodes operating under reverse bias.
 
-**Key observables.** QPU execution time, system uptime, qubit fidelity, cryostat diagnostics, and job throughput (over 240,000 jobs).
+**Key observables.** Optical linewidth (FWHM), electric potential, electric field, and carrier density profiles.
 
-**Important parameters / regimes.** Budgeting measured in QPU milliseconds, a maximum concurrency limit of 2.5 million shots per user, and a 10 Gbps fiber interface.
+**Important parameters / regimes.** Reverse-bias voltage, doping densities (Na, Nn, Nd), layer thicknesses, temperature, and spin center depth.
 
-**Assumptions / limitations.** The middleware assumes the ability to intercept and proxy the IQM REST API without modifying vendor client software and relies on the availability of a Keycloak instance for identity management.
+**Assumptions / limitations.** The system operates in the slow noise regime where fluctuations are much faster than the coherence time, and the noise is assumed to be isotropic and Gaussian.
 
-**Figures summary.** Figure 1 shows the conceptual architecture of the Lagrange software stack and the QC Gateway; Figure 2 provides a sequence diagram of the end-to-end job submission and authorization workflow.
+**Figures summary.** Figure 1 shows the diode schematic and the optimization algorithm; Figure 2 displays electric potential and field profiles; Figure 3 illustrates the evolution of linewidth suppression and optimal spin center position; Figure 4 and 5 show the results of doping and geometric optimization.
 
-**Paper structure.** The paper introduces the management challenge, describes the hardware and infrastructure, details the middleware architecture and plugin design, reports on operational metrics and educational usage, and concludes with lessons learned.
+**Paper structure.** The paper introduces the problem of spin decoherence in diodes, establishes a mathematical framework for noise sources (charge and leakage), details the gradient descent optimization protocol with physical constraints, presents results for single and multi-parameter optimizations, and concludes with mitigation strategies.
+
+**Why it may be interesting.** This work is relevant for quantum optics and open quantum systems as it provides a systematic way to engineer the environment (the electrical noise spectrum) to protect a quantum emitter from decoherence.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-We describe the design, implementation, and nine-month operational experience of the software management stack for Lagrange, an IQM Spark five-qubit superconducting quantum computer jointly acquired by LINKS Foundation, Politecnico di Torino and the Italian National Institute of Metrological Research (INRiM), and managed by LINKS. Lagrange is, to our knowledge, the first quantum computer in Italy that is fully operational and accessible to students and researchers from multiple institutions under formal service agreements, and to the general public under commercial agreements. When installed in mid-2025, the IQM Spark hardware was delivered by the vendor with authentication only: no billing, project management or fair usage enforcement were provided. We developed a modular middleware layer that filled that gap without modifying any vendor client software, by intercepting API calls through a proxy that enforces project-based budgets, reservation-aware authorisation, and per-user fairness policies. The middleware adopts a plugin architecture that cleanly separates vendor-specific logic from site-specific policies, enabling reuse across different quantum hardware backends and deployment contexts. Since entering production in September 2025, the system has processed over 240,000 quantum jobs totalling more than 1 week of QPU execution time, with greater than 98% uptime. Notably, students at Politecnico di Torino regularly use the machine during both lectures and formal examinations -- a practice we believe to be unique in Europe. We report on the system architecture, the operational lessons learned, and the infrastructure choices that made this deployment possible.
+Solid-state spin defects hold great promise as building blocks for various quantum technologies. Embedding spin centers in $p$-$n$ diodes under reverse bias has proved to be a powerful strategy to narrow the optical linewidth and increase spin coherence, while also enabling control of the photoluminescence wavelength via Stark shift. Given the multitude of parameters influencing spin centers in diodes (e.g., doping densities and profiles, temperature, bias voltage, spin center position), a question that has not yet been answered is: which set of these design parameters maximizes spin center coherence? In this work, we address this question by developing a scaled gradient descent optimization algorithm that minimizes the optical linewidth of spin centers by combining the numerical solution of a diode's Poisson equation with calculated charge noise from the non-depleted regions. Our optimization is performed for both single- and multiple-parameter cases for divacancies in SiC $p$-$i$-$n$ diodes, including reverse-bias voltage, doping density and profile, and diode total length. Importantly, the optimization is subject to realistic physical constraints, such as small operating bias voltages, avoidance of the dielectric breakdown regime and physical thresholds for doping density. Additionally, due to the leakage current at reverse bias voltages, we develop a new formalism to investigate its influence on coherence. We show that the corresponding noise can be mitigated by implanting spin defects away from the diode's surfaces. Our work provides guidance on experimentally relevant diodes for hosting spin centers with the narrowest optical linewidths and longest coherence times.
 
 </details>
 
@@ -1024,7 +1082,7 @@ We describe the design, implementation, and nine-month operational experience of
 **Authors:** Vaibhav Sharma, Yiming Wang, Shouvik Sur  
 **Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21913v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `quantum measurements` **3/5** · `non-equilibrium physics` **2/5**
+**Topic relevance:** `dissipative systems` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
@@ -1109,81 +1167,13 @@ Quantum resources such as entanglement form the backbone of quantum technologies
 
 <sub>[↑ back to top](#top)</sub>
 
-<a id="paper-2604.21908"></a>
-### [Efficient Classical Simulation of Heuristic Peaked Quantum Circuits](http://arxiv.org/abs/2604.21908v1)
-
-**Authors:** David Kremer, Nicolas Dupuis  
-**Type:** both · **Category:** numerical methods · **PDF:** <https://arxiv.org/pdf/2604.21908v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** 🔥 `QC/QI experiment` **3/5**
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21908_figures/2604.21908_fig1.jpg" width="500"><br>
-<sub>FIG. 1: The three stages of the iterative contraction method. (a) The transpiled circuit is split at the temporal midpoint into a left circuit CL and a right circuit CR, with an identity MPO inserted between them. (b) The greedy unswapping procedure: qubit pairs in the MPO are ranked by bond dimension, and swaps are applied from the left, right, or both sides. Swaps that reduce the bond dimension are accepted, yielding the decomposition M = PL ˜ MPR. (c) Rewiring: the extracted permutations PL and PR are absorbed into the remaining circuits by removing existing transpilation SWAPs, reindexing qubits, and re-transpiling to linear connectivity.</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.21908_figures/2604.21908_fig2.jpg" width="500"><br>
-<sub>FIG. 2: Overview of the iterative contraction procedure. Starting from a small MPO between the left and right circuits, the method cycles through three stages: (1) absorption of circuit layers into the MPO, which causes it to grow; (2) unswapping, which extracts permutations PL and PR and reduces the MPO to a smaller ˜ M; and (3) rewiring, which propagates the extracted permutations into the remaining circuits and re-transpiles to linear connectivity.</sub>
-
-</details>
-
-<details><summary>📷 Fig 3</summary>
-
-<img src="2604.21908_figures/2604.21908_fig3.jpg" width="500"><br>
-<sub>FIG. 3: Total number of tensor elements in the MPO during contraction. Blue points correspond to the absorption stage and red points to the unswapping stage. (a) MPO size as a function of two-qubit unitaries consumed from the circuit. Three regimes are visible: an initial phase (0–300 unitaries) with rapid absorption–unswapping cycling; a transition phase (300–700) where unswapping becomes progressively more effective; and a final phase (700+) where unswapping reduces the MPO almost completely, allowing long absorption runs. (b) The same quantity plotted against wall-clock time. The full contraction completes in 4,059 seconds on a single Nvidia A100 GPU. The dense cluster of iterations in...</sub>
-
-</details>
-
-<details><summary>📷 Fig 4</summary>
-
-<img src="2604.21908_figures/2604.21908_fig4.jpg" width="500"><br>
-<sub>FIG. 4: Frequency of the top 20 most-sampled bitstrings from 1,000 samples drawn from the contracted MPS. The peak bitstring (ID 0) appears approximately 110 times (∼11%), consistent with the designed peak weight of ∼10%. The sharp separation from the remaining bitstrings confirms successful recovery of the peak.</sub>
-
-</details>
-
-**Main problem.** Challenging a recent claim of heuristic quantum advantage by demonstrating that certain 'peaked' quantum circuits, previously thought to be classically intractable, can be efficiently simulated.
-
-**Main result.** The authors developed an efficient tensor network contraction method that simulates a 56-qubit circuit in approximately one hour on a single GPU, outperforming the execution time of the original quantum hardware.
-
-**Method.** An iterative tensor network contraction procedure involving circuit splitting, absorption of gates into a Matrix Product Operator (MPO), and a greedy 'unswapping' heuristic to extract hidden permutations and reduce bond dimension.
-
-**Summary.** This paper refutes a claim of heuristic quantum advantage by showing that 'peaked' quantum circuits can be efficiently simulated classically. By using a new 'unswapping' technique within a tensor network framework, the authors can undo the permutations intended to make the circuits hard to simulate. They successfully simulated a 56-qubit circuit in about an hour, which was faster than the actual quantum hardware execution. This demonstrates that the complexity of these specific circuits arises from artificial structural obfuscation rather than genuine quantum hardness.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** Peaked quantum circuits characterized by a mirrored (UU^dagger) structure and permutation-based obfuscation, specifically targeting circuits executed on Quantinuum's 56-qubit H2 trapped-ion processor.
-
-**Key observables.** The peak bitstring (highest probability bitstring) and the peak weight (concentration of the output distribution).
-
-**Important parameters / regimes.** MPO bond dimension, SVD singular value cutoff (epsilon), and the unswapping threshold for triggering contraction updates.
-
-**Assumptions / limitations.** The method assumes the circuit possesses an underlying mirrored structure and that the error introduced by SVD compression is negligible.
-
-**Figures summary.** Figure 1 shows the three stages of the contraction method (splitting, unswapping, rewiring); Figure 2 provides an overview of the iterative cycle; Figure 3 plots MPO size dynamics and wall-clock time across different contraction regimes; Figure 4 shows the frequency of the top 20 sampled bitstrings.
-
-**Paper structure.** The paper introduces the problem of challenging quantum advantage claims, describes the proposed iterative MPO contraction and unswapping method, presents performance benchmarks on 56-qubit circuits, and discusses the limitations and implications for future circuit designs.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-Peaked quantum circuits, whose output distribution is sharply concentrated on a single bitstring, have emerged as a promising candidate for verifiable quantum advantage, as the correctness of the quantum output can be checked by simply comparing against the known peak. Recent work by Gharibyan et al. arXiv:2510.25838 claimed heuristic quantum advantage using peaked circuits executed on Quantinuum's 56-qubit H2 processor. These peaked circuits concentrate their output on a single hidden bitstring by training a shallow simulable circuit variationally and inserting an obfuscated permutation to increase the depth to a level that makes classical simulation intractable, with estimated runtimes of years for the largest instances. We show that these circuits can be efficiently simulated classically. We describe a method that efficiently performs a full tensor network contraction, allowing near-exact sampling and extraction of the peaked bitstring. The method exploits the mirrored structure of the circuit and iteratively cancels both halves into a Matrix Product Operator (MPO), and avoids the obfuscated permutation by greedily reducing the MPO bond dimension through a process we call unswapping. The method can fully contract and extract the peak of the largest circuit in approximately one hour on a single GPU, around half the time it took to run on the quantum hardware.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
 <a id="paper-2604.21755"></a>
 ### [Quantum-information diagnostics of cosmological perturbations with nontrivial sound speed in inflation](http://arxiv.org/abs/2604.21755v1)
 
 **Authors:** Shi-Cheng Liu, Lei-Hua Liu, Bichu Li, Hai-Qing Zhang, Peng-Zhang He  
 **Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21755v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** `dissipative systems` **2/5** · `non-equilibrium physics` **2/5** · `quantum measurements` **2/5**
+**Topic relevance:** `dissipative systems` **2/5** · `non-equilibrium dynamics` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
@@ -1258,7 +1248,7 @@ In this work, we systematically investigate the quantum-information diagnostics 
 **Authors:** MD Nahidul Hasan Sabit  
 **Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21929v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** `quantum phase transition` **2/5** · `non-equilibrium physics` **1/5**
+**Topic relevance:** `non-equilibrium dynamics` **2/5** · `scars & prethermalization` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
@@ -1362,6 +1352,116 @@ We study spectral properties of quantum many-body Hamiltonians through a subsyst
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21805"></a>
+### [The clock ambiguity is back with a vengeance](http://arxiv.org/abs/2604.21805v1)
+
+**Authors:** Ovidiu Cristinel Stoica  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21805v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `dissipative systems` **2/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21805_figures/2604.21805_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21805_figures/2604.21805_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21805_figures/2604.21805_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21805_figures/2604.21805_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21805_figures/2604.21805_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21805_figures/2604.21805_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21805_figures/2604.21805_page8.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 8</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21805_figures/2604.21805_page9.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 9</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21805_figures/2604.21805_page10.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 10</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21805_figures/2604.21805_page11.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 11</sub>
+
+</details>
+
+**Main problem.** The paper addresses the 'clock ambiguity' in the Page-Wootters formalism, investigating whether the inability to uniquely identify a clock and its dynamics can be resolved by imposing a non-interaction condition between the clock and the rest of the world.
+
+**Main result.** The author proves a 'maximal ambiguity' theorem, showing that the ambiguity extends to both histories and Hamiltonians and cannot be removed by a non-interaction condition; the ambiguity is only resolved by explicitly assigning physical meanings to operators.
+
+**Method.** The author uses unitary transformation analysis, spectral analysis (Minkowski sum of spectra), and the properties of infinite-dimensional Hilbert spaces (Lebesgue measure and wandering subspaces) to demonstrate the equivalence of different physical setups.
+
+**Summary.** This paper investigates the fundamental problem of 'clock ambiguity' in the Page-Wootters formalism, where different choices of clock subsystems can lead to different perceived dynamics. The author refutes the claim that assuming no interaction between the clock and the world can resolve this issue, instead proving that the ambiguity is even stronger than previously thought, affecting both histories and Hamiltonians. The results show that for ideal clocks, any two physical systems can be rendered indistinguishable via unitary transformations. Ultimately, the author argues that the ambiguity can only be resolved by explicitly assigning physical meanings to operators, rather than relying on purely relational emergence.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The model is the Page-Wootters (PW) framework, consisting of a stationary, timeless global state in a composite Hilbert space (H_c tensor H_r) where time emerges from entanglement between a clock subsystem and the rest of the world.
+
+**Key observables.** Clock observables (time T and energy-like C) and world observables (position X and momentum P).
+
+**Important parameters / regimes.** Continuous and discrete time regimes, bounded and unbounded time, and the dimension of the Hilbert space (specifically infinite-dimensional ideal clocks).
+
+**Assumptions / limitations.** The universe is in a stationary state satisfying a Wheeler-DeWitt-type constraint; the paper assumes separable Hilbert spaces and focuses on ideal clocks.
+
+**Paper structure.** The paper begins by critiquing previous attempts to resolve clock ambiguity via non-interaction, provides a mathematical proof of maximal ambiguity for both discrete and continuous time, explores the implications for the emergence of physical structures, and concludes by proposing that physical meaning must be pre-specified to resolve the ambiguity.
+
+**Why it may be interesting.** This is highly relevant for researchers in quantum foundations and open quantum systems, as it challenges the idea that spacetime and dynamical laws can emerge purely from relational entanglement without pre-existing physical structures.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Page and Wootters (1983) showed how time and dynamics can emerge in a stationary system containing a clock. Albrecht (1995) later showed, for discrete time, that within this framework any dynamical evolution can be obtained simply by choosing a different clock.   Marletto and Vedral (2017) claimed that this ambiguity disappears assuming that the clock and the rest of the world do not interact. I show that their proof relies on an incorrect mathematical assumption. Also, eliminating the ambiguity completely would obstruct spacetime symmetries.   Whereas the original clock ambiguity concerns all possible histories of a discrete-time system evolving under arbitrary Hamiltonians, but not the Hamiltonians themselves, I prove a stronger version for continuous and discrete unbounded time: the ambiguity extends to both histories and Hamiltonians, including noninteracting ones. Only the dimension of the Hilbert space remains.   One might hope to dismiss the ambiguity as merely perspectival, but I show that this would predict incorrect correlations between outcomes and their records, making even knowledge impossible. Purely relational approaches therefore face both the stronger and the original clock ambiguity problems. The ambiguity is removed by taking into account the physical meaning of the operators.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21824"></a>
 ### [Deterministic generation of grid states with programmable nonlinear bosonic circuits](http://arxiv.org/abs/2604.21824v1)
 
@@ -1425,113 +1525,123 @@ Bosonic quantum error correction enables hardware-efficient protection of quantu
 
 <sub>[↑ back to top](#top)</sub>
 
-<a id="paper-2604.21874"></a>
-### [Enhancing Coherence of Spin Centers in p-n Diodes via Optimization Algorithms](http://arxiv.org/abs/2604.21874v1)
+<a id="paper-2604.21908"></a>
+### [Efficient Classical Simulation of Heuristic Peaked Quantum Circuits](http://arxiv.org/abs/2604.21908v1)
 
-**Authors:** Jonatan A. Posligua, David E. Stewart, Denis R. Candido  
-**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21874v1>  
+**Authors:** David Kremer, Nicolas Dupuis  
+**Type:** both · **Category:** numerical methods · **PDF:** <https://arxiv.org/pdf/2604.21908v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
-**Topic relevance:** `dissipative systems` **2/5**
+**Topic relevance:** `QC/QI experiment` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.21874_figures/2604.21874_fig1.jpg" width="500"><br>
-<sub>FIG. 1: (a) Schematic of a 4H-SiC pnn+ diode operated in the reverse bias regime with embedded spin centers, non- depleted charges, and surface traps responsible for the leakage current. (b) Schematic of the multi-variable linewidth optimization algorithm via the scale-gradient descent method. The linewidth is first calculated for an initial set of diode design parameters p, and then autonomously minimized using a scaled gradient descent method. Iterations are performed until convergence of the linewidth is achieved, resulting in a final set of design parameter.</sub>
+<img src="2604.21908_figures/2604.21908_fig1.jpg" width="500"><br>
+<sub>FIG. 1: The three stages of the iterative contraction method. (a) The transpiled circuit is split at the temporal midpoint into a left circuit CL and a right circuit CR, with an identity MPO inserted between them. (b) The greedy unswapping procedure: qubit pairs in the MPO are ranked by bond dimension, and swaps are applied from the left, right, or both sides. Swaps that reduce the bond dimension are accepted, yielding the decomposition M = PL ˜ MPR. (c) Rewiring: the extracted permutations PL and PR are absorbed into the remaining circuits by removing existing transpilation SWAPs, reindexing qubits, and re-transpiling to linear connectivity.</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.21874_figures/2604.21874_fig2.jpg" width="500"><br>
-<sub>FIG. 2: Electrostatic properties of a 4H-SiC pnn+ diode: (a) Electric potential along the diode’s z-direction calculated for reverse bias voltages ranging from −50 to −800 V. (b) Same for the electric field. (c) Total charge carrier density as a function of position within the diode’s z-direction calculated using the solution to Poisson’s equation to evaluate ρc in Eq. (2) for reverse voltages ranging from −50 to −400 V. The depletion boundaries ˜dn are shown for each reverse bias value. (d) Same for the optical linewidth as a function of the spin center’s position within the diode’s n-region (i.e., zdef). The doping densities used to generate all the sub-figures are Na = 7×1018cm−3, Nn =...</sub>
+<img src="2604.21908_figures/2604.21908_fig2.jpg" width="500"><br>
+<sub>FIG. 2: Overview of the iterative contraction procedure. Starting from a small MPO between the left and right circuits, the method cycles through three stages: (1) absorption of circuit layers into the MPO, which causes it to grow; (2) unswapping, which extracts permutations PL and PR and reduces the MPO to a smaller ˜ M; and (3) rewiring, which propagates the extracted permutations into the remaining circuits and re-transpiles to linear connectivity.</sub>
 
 </details>
 
 <details><summary>📷 Fig 3</summary>
 
-<img src="2604.21874_figures/2604.21874_fig3.jpg" width="500"><br>
-<sub>FIG. 3: Single-parameter linewidth optimization with respect to the bias voltage. The initial design parameters are Na = 7 × 1018 cm−3, Nn = 4 × 1015 cm−3, Nd = 1.01 × 1019 cm−3, T = 300 K, V = −5 V, dl = dr = 0.4 µm and d = 10 µm. (a) Electric field and carrier density profiles for the initial parameters. (b) Optical linewidth, reverse bias voltage, and optimal spin center position as a function of iteration number. (c) Final electric field and carrier density profiles for the optimal design parameters.</sub>
+<img src="2604.21908_figures/2604.21908_fig3.jpg" width="500"><br>
+<sub>FIG. 3: Total number of tensor elements in the MPO during contraction. Blue points correspond to the absorption stage and red points to the unswapping stage. (a) MPO size as a function of two-qubit unitaries consumed from the circuit. Three regimes are visible: an initial phase (0–300 unitaries) with rapid absorption–unswapping cycling; a transition phase (300–700) where unswapping becomes progressively more effective; and a final phase (700+) where unswapping reduces the MPO almost completely, allowing long absorption runs. (b) The same quantity plotted against wall-clock time. The full contraction completes in 4,059 seconds on a single Nvidia A100 GPU. The dense cluster of iterations in...</sub>
 
 </details>
 
 <details><summary>📷 Fig 4</summary>
 
-<img src="2604.21874_figures/2604.21874_fig4.jpg" width="500"><br>
-<sub>FIG. 4: (a) Single-type parameter linewidth optimization with respect to doping densities for small bias voltage of V = −5 V, Nn ≪Na ≈Nd, with Nn = 4 × 1015 cm−3, Na = 7 × 1018 cm−3, and Nd = 1.01 × 1019 cm−3, T = 300 K, dl = dr = 0.4 µm, d = 10 µm. The upper panel shows the reduction in linewidth Γ vs. iteration number, the lower panels show the corresponding doping densities and spin center position. (b) Same as (a), but for Na = Nn = Nd = 1019 cm−3 as initial conditions. (c) Density plot of depletion length within the intrinsic region (dn) as a function of Nn/Na and V .</sub>
+<img src="2604.21908_figures/2604.21908_fig4.jpg" width="500"><br>
+<sub>FIG. 4: Frequency of the top 20 most-sampled bitstrings from 1,000 samples drawn from the contracted MPS. The peak bitstring (ID 0) appears approximately 110 times (∼11%), consistent with the designed peak weight of ∼10%. The sharp separation from the remaining bitstrings confirms successful recovery of the peak.</sub>
 
 </details>
 
-<details><summary>📷 Fig 5</summary>
+**Main problem.** Challenging a recent claim of heuristic quantum advantage by demonstrating that certain 'peaked' quantum circuits, previously thought to be classically intractable, can be efficiently simulated.
 
-<img src="2604.21874_figures/2604.21874_fig5.jpg" width="500"><br>
-<sub>FIG. 5: Optimization with respect to the lengths of the diode’s doping layers. The initial parameters for this simulation are Na = 7×1018 cm−3, Nn = 4×1015 cm−3, Nd = 1.01 × 1019 cm−3, T = 300 K, V = −15 V, and dl = dr = d = 1 µm. Upper panel: Linewidth reduction and inset showing spin center’s position as a function of iteration number. Lower panel: Evolution of d, dl, and dr that allows for minimal optical linewidth Γ. The size of the lightly-doped n-region is considerably bigger than that of the bulk p and n+-regions. This is a consequence of both charge conservation and the application of our electric noise model.</sub>
+**Main result.** The authors developed an efficient tensor network contraction method that simulates a 56-qubit circuit in approximately one hour on a single GPU, outperforming the execution time of the original quantum hardware.
 
-</details>
+**Method.** An iterative tensor network contraction procedure involving circuit splitting, absorption of gates into a Matrix Product Operator (MPO), and a greedy 'unswapping' heuristic to extract hidden permutations and reduce bond dimension.
 
-<details><summary>📷 Fig 6</summary>
-
-<img src="2604.21874_figures/2604.21874_fig6.jpg" width="500"><br>
-<sub>FIG. 6: Optimization process for 3 different sets of initial design parameters with displayed iteration-by-iteration behavior of the linewidth Γ, optimal spin center position and the diode’s design parameters Na, Nn, Nd, and V for dl = dr = 0.4 µm and d = 10 µm. The voltages used for “Initial Set 1”, “Initial Set 2”, and “Initial Set 3” are −5 V, −6 V, and −7 V, respectively. (b) Same for dl = dr = 0.04 µm and d = 1 µm. (c) Same for dl = dr = 0.004 µm and d = 0.1 µm.</sub>
-
-</details>
-
-<details><summary>📷 Fig 7</summary>
-
-<img src="2604.21874_figures/2604.21874_fig7.jpg" width="500"><br>
-<sub>Fig. 6. The left panels show the behavior of Γ and the spin center position as a function of iteration number, whereas the plots on the right side show the correspond- ing variations of all doping densities and bias voltage. Our optimization with respect to these diode parame- ters shows an overall two-order-of-magnitude decrease in the linewidth. Here, smaller linewidths are achieved by decreasing doping densities, increasing the magnitude of the bias voltage, and placing the spin defect at the center of the diode. Similarly to the results found with respect to a single type of parameters in Secs . V A and V B, optimization was obtained via the decreases in the den- sity of fluctuators and...</sub>
-
-</details>
-
-<details><summary>📷 Fig 8</summary>
-
-<img src="2604.21874_figures/2604.21874_fig8.jpg" width="500"><br>
-<sub>FIG. 7: (a) Optimization process for 3 different sets of initial design parameters with displayed iteration-by-iteration behavior of the linewidth Γ, optimal spin center position and the diode’s design parameters Na, Nn, Nd, and V for dl = dr = 0.04 µm and d = 1 µm. The voltages used for “Initial Set 1”, “Initial Set 2”, and “Initial Set 3” are −5 V, −6 V, and −7 V, respectively. (b) Same as (a) but for d = 0.1 µm.</sub>
-
-</details>
-
-<details><summary>📷 Fig 9</summary>
-
-<img src="2604.21874_figures/2604.21874_fig9.jpg" width="500"><br>
-<sub>FIG. 8: Maximum electric field [Emax z ] inside the diode as a function of the iteration. Horizontal lines represent the electric field breakdown value EBD, and a fraction of ΩEBD (Ω&lt; 1) set as the numerical threshold of the elec- tric field. Inset shows ΩEBD −Emax z demonstrating that the maximum value of the electric field never surpasses ΩEBD.</sub>
-
-</details>
-
-<details><summary>📷 Fig 10</summary>
-
-<img src="2604.21874_figures/2604.21874_fig10.jpg" width="500"><br>
-<sub>FIG. 9: Cause and effect of leakage current present in a 4H-SiC pnn+ diode. (a) Effective density neff pro- duced by leakage current at thermal equilibrium as a function of depth from the diode’s surface for reverse bias voltages ranging from −500 to −1100 V. The depth- dependence of the densities is modeled as a half-Gaussian profile, where its maximum value occurs at the surface of the diode, and it decays as a function of depth in- side the diode. This is pictorially evidenced in Fig. 1(a). (b) Optical linewidth calculated from electric and mag- netic SND as a function of the spin center’s separation from the volume containing fluctuators. The linewidths are calculated for the same...</sub>
-
-</details>
-
-**Main problem.** Determining the optimal set of diode design parameters (doping, bias, and geometry) to maximize the spin coherence of embedded spin centers by minimizing optical linewidth.
-
-**Main result.** The study demonstrates that a twenty-fold suppression of linewidth can be achieved via voltage optimization, and that noise from leakage current can be mitigated by placing spin defects deeper within the diode.
-
-**Method.** A scaled gradient descent optimization algorithm combined with the numerical solution of the Poisson equation and a new formalism for leakage current-induced noise.
-
-**Summary.** This paper presents an optimization framework to enhance the coherence of spin centers in silicon carbide-based diodes. By using a scaled gradient descent algorithm, the authors identify optimal doping profiles, voltages, and device geometries that minimize optical linewidth. The research specifically addresses how to balance the benefits of carrier depletion against the detrimental effects of leakage current. Ultimately, the work provides a practical guide for designing semiconductor devices for quantum technologies.
+**Summary.** This paper refutes a claim of heuristic quantum advantage by showing that 'peaked' quantum circuits can be efficiently simulated classically. By using a new 'unswapping' technique within a tensor network framework, the authors can undo the permutations intended to make the circuits hard to simulate. They successfully simulated a 56-qubit circuit in about an hour, which was faster than the actual quantum hardware execution. This demonstrates that the complexity of these specific circuits arises from artificial structural obfuscation rather than genuine quantum hardness.
 
 <details><summary>Detailed structure</summary>
 
-**Model / system.** Solid-state spin defects (specifically divacancies) embedded in 4H-SiC p-n or p-i-n diodes operating under reverse bias.
+**Model / system.** Peaked quantum circuits characterized by a mirrored (UU^dagger) structure and permutation-based obfuscation, specifically targeting circuits executed on Quantinuum's 56-qubit H2 trapped-ion processor.
 
-**Key observables.** Optical linewidth (FWHM), electric potential, electric field, and carrier density profiles.
+**Key observables.** The peak bitstring (highest probability bitstring) and the peak weight (concentration of the output distribution).
 
-**Important parameters / regimes.** Reverse-bias voltage, doping densities (Na, Nn, Nd), layer thicknesses, temperature, and spin center depth.
+**Important parameters / regimes.** MPO bond dimension, SVD singular value cutoff (epsilon), and the unswapping threshold for triggering contraction updates.
 
-**Assumptions / limitations.** The system operates in the slow noise regime where fluctuations are much faster than the coherence time, and the noise is assumed to be isotropic and Gaussian.
+**Assumptions / limitations.** The method assumes the circuit possesses an underlying mirrored structure and that the error introduced by SVD compression is negligible.
 
-**Figures summary.** Figure 1 shows the diode schematic and the optimization algorithm; Figure 2 displays electric potential and field profiles; Figure 3 illustrates the evolution of linewidth suppression and optimal spin center position; Figure 4 and 5 show the results of doping and geometric optimization.
+**Figures summary.** Figure 1 shows the three stages of the contraction method (splitting, unswapping, rewiring); Figure 2 provides an overview of the iterative cycle; Figure 3 plots MPO size dynamics and wall-clock time across different contraction regimes; Figure 4 shows the frequency of the top 20 sampled bitstrings.
 
-**Paper structure.** The paper introduces the problem of spin decoherence in diodes, establishes a mathematical framework for noise sources (charge and leakage), details the gradient descent optimization protocol with physical constraints, presents results for single and multi-parameter optimizations, and concludes with mitigation strategies.
-
-**Why it may be interesting.** This work is relevant for quantum optics and open quantum systems as it provides a systematic way to engineer the environment (the electrical noise spectrum) to protect a quantum emitter from decoherence.
+**Paper structure.** The paper introduces the problem of challenging quantum advantage claims, describes the proposed iterative MPO contraction and unswapping method, presents performance benchmarks on 56-qubit circuits, and discusses the limitations and implications for future circuit designs.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-Solid-state spin defects hold great promise as building blocks for various quantum technologies. Embedding spin centers in $p$-$n$ diodes under reverse bias has proved to be a powerful strategy to narrow the optical linewidth and increase spin coherence, while also enabling control of the photoluminescence wavelength via Stark shift. Given the multitude of parameters influencing spin centers in diodes (e.g., doping densities and profiles, temperature, bias voltage, spin center position), a question that has not yet been answered is: which set of these design parameters maximizes spin center coherence? In this work, we address this question by developing a scaled gradient descent optimization algorithm that minimizes the optical linewidth of spin centers by combining the numerical solution of a diode's Poisson equation with calculated charge noise from the non-depleted regions. Our optimization is performed for both single- and multiple-parameter cases for divacancies in SiC $p$-$i$-$n$ diodes, including reverse-bias voltage, doping density and profile, and diode total length. Importantly, the optimization is subject to realistic physical constraints, such as small operating bias voltages, avoidance of the dielectric breakdown regime and physical thresholds for doping density. Additionally, due to the leakage current at reverse bias voltages, we develop a new formalism to investigate its influence on coherence. We show that the corresponding noise can be mitigated by implanting spin defects away from the diode's surfaces. Our work provides guidance on experimentally relevant diodes for hosting spin centers with the narrowest optical linewidths and longest coherence times.
+Peaked quantum circuits, whose output distribution is sharply concentrated on a single bitstring, have emerged as a promising candidate for verifiable quantum advantage, as the correctness of the quantum output can be checked by simply comparing against the known peak. Recent work by Gharibyan et al. arXiv:2510.25838 claimed heuristic quantum advantage using peaked circuits executed on Quantinuum's 56-qubit H2 processor. These peaked circuits concentrate their output on a single hidden bitstring by training a shallow simulable circuit variationally and inserting an obfuscated permutation to increase the depth to a level that makes classical simulation intractable, with estimated runtimes of years for the largest instances. We show that these circuits can be efficiently simulated classically. We describe a method that efficiently performs a full tensor network contraction, allowing near-exact sampling and extraction of the peaked bitstring. The method exploits the mirrored structure of the circuit and iteratively cancels both halves into a Matrix Product Operator (MPO), and avoids the obfuscated permutation by greedily reducing the MPO bond dimension through a process we call unswapping. The method can fully contract and extract the peak of the largest circuit in approximately one hour on a single GPU, around half the time it took to run on the quantum hardware.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21695"></a>
+### [Lagrange: Operating Italy's First Publicly-Accessible Quantum Computer for Research and Education](http://arxiv.org/abs/2604.21695v1)
+
+**Authors:** Paolo Viviani, Fabrizio Bertone, Giacomo Vitali, Emanuele Dri, Federico Stirano, Giuseppe Caragnano, Francesco Lubrano, Antonino Nespola, Olivier Terzo, Matteo Cocuzza, Bartolomeo Montrucchio, Giovanna Turvani, Gianluca Bertaina, Marco Coisson, Davide Calonico, Fabrizio Pirri, Pietro Asinari  
+**Type:** experiment · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21695v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `QC/QI experiment` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21695_figures/2604.21695_fig1.jpg" width="500"><br>
+<sub>Fig. 1. Conceptual architecture of the Lagrange software stack. The QC Gate- way transparently authorises job submissions based on budget, reservations, and fair access rate limits. A web portal gives the user visibility to these criteria.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21695_figures/2604.21695_fig2.jpg" width="500"><br>
+<sub>Fig. 2. Sequence diagram of the job submission and completion flow.</sub>
+
+</details>
+
+**Main problem.** The lack of administrative, multi-tenant, and resource-management features in vendor-provided software for on-premises quantum computers, making it difficult to manage shared access for diverse research and educational groups.
+
+**Main result.** The development and successful nine-month deployment of the 'Lagrange' software stack, which enables fair, budget-based, and multi-institutional access to an IQM Spark quantum computer with 98% uptime.
+
+**Method.** A modular, Python-based middleware layer acting as a transparent reverse proxy that intercepts API calls to enforce project budgets, user authorization, and concurrency limits without requiring changes to user workflows.
+
+**Summary.** This paper presents the implementation of 'Lagrange,' a software management stack designed to turn a single-user quantum computer into a multi-tenant research and educational resource. By using a transparent proxy architecture, the system allows researchers and students to use standard libraries like Qiskit and Cirq while the platform enforces institutional budgets and fair usage policies. The deployment has successfully managed hundreds of thousands of jobs with high reliability. It serves as a blueprint for institutions looking to host and share on-premises quantum hardware.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The Lagrange infrastructure manages an IQM Spark five-qubit superconducting quantum computer with a star topology, hosted at Politecnico di Torino and managed by the LINKS Foundation.
+
+**Key observables.** QPU execution time, system uptime, qubit fidelity, cryostat diagnostics, and job throughput (over 240,000 jobs).
+
+**Important parameters / regimes.** Budgeting measured in QPU milliseconds, a maximum concurrency limit of 2.5 million shots per user, and a 10 Gbps fiber interface.
+
+**Assumptions / limitations.** The middleware assumes the ability to intercept and proxy the IQM REST API without modifying vendor client software and relies on the availability of a Keycloak instance for identity management.
+
+**Figures summary.** Figure 1 shows the conceptual architecture of the Lagrange software stack and the QC Gateway; Figure 2 provides a sequence diagram of the end-to-end job submission and authorization workflow.
+
+**Paper structure.** The paper introduces the management challenge, describes the hardware and infrastructure, details the middleware architecture and plugin design, reports on operational metrics and educational usage, and concludes with lessons learned.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We describe the design, implementation, and nine-month operational experience of the software management stack for Lagrange, an IQM Spark five-qubit superconducting quantum computer jointly acquired by LINKS Foundation, Politecnico di Torino and the Italian National Institute of Metrological Research (INRiM), and managed by LINKS. Lagrange is, to our knowledge, the first quantum computer in Italy that is fully operational and accessible to students and researchers from multiple institutions under formal service agreements, and to the general public under commercial agreements. When installed in mid-2025, the IQM Spark hardware was delivered by the vendor with authentication only: no billing, project management or fair usage enforcement were provided. We developed a modular middleware layer that filled that gap without modifying any vendor client software, by intercepting API calls through a proxy that enforces project-based budgets, reservation-aware authorisation, and per-user fairness policies. The middleware adopts a plugin architecture that cleanly separates vendor-specific logic from site-specific policies, enabling reuse across different quantum hardware backends and deployment contexts. Since entering production in September 2025, the system has processed over 240,000 quantum jobs totalling more than 1 week of QPU execution time, with greater than 98% uptime. Notably, students at Politecnico di Torino regularly use the machine during both lectures and formal examinations -- a practice we believe to be unique in Europe. We report on the system architecture, the operational lessons learned, and the infrastructure choices that made this deployment possible.
 
 </details>
 
@@ -1760,122 +1870,52 @@ This thesis is concerned with rigorous security analyses of practical Quantum Ke
 
 <sub>[↑ back to top](#top)</sub>
 
-<a id="paper-2604.21805"></a>
-### [The clock ambiguity is back with a vengeance](http://arxiv.org/abs/2604.21805v1)
+<a id="paper-2604.21800"></a>
+### [Variance Geometry of Exact Pauli-Detecting Codes: Continuous Landscapes Beyond Stabilizers](http://arxiv.org/abs/2604.21800v1)
 
-**Authors:** Ovidiu Cristinel Stoica  
-**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21805v1>  
+**Authors:** Arunaday Gupta, Baisong Sun, Xi He, Bei Zeng  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21800v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
 **Topic relevance:** `quantum measurements` **2/5**
 
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.21805_figures/2604.21805_page2.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 2</sub>
+<img src="2604.21800_figures/2604.21800_fig1.jpg" width="500"><br>
+<sub>FIG. 1: Schematic behavior of the attainable spectrum ΣK(E) = {λ∗(P) : P detects E, rank(P) = K}. In the unrestricted setting studied here, nonempty spectra are observed to be closed intervals. Stabilizer codes occupy only discrete values within these intervals. Under symmetry-compatible restrictions, the attainable set may shrink to a smaller interval, reduce to a singleton, or become empty, while remaining interval-like whenever nonempty.</sub>
 
 </details>
 
-<details><summary>📷 Fig 2</summary>
+**Main problem.** The paper investigates the geometric structure of the space of exact quantum codes that detect a prescribed set of Pauli errors, specifically determining if these codes form continuous families or isolated solutions.
 
-<img src="2604.21805_figures/2604.21805_page3.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 3</sub>
+**Main result.** The authors show that exact Pauli-detecting codes form continuous landscapes (intervals) rather than disjoint sets, and that stabilizer codes are merely a discrete, measure-zero subset of this larger continuum of nonadditive codes.
 
-</details>
+**Method.** The study uses an operator-theoretic framework linking error detection to joint higher-rank numerical ranges, combined with representation theory, Stiefel-manifold optimization, and analytical constructions of symmetric codewords.
 
-<details><summary>📷 Fig 3</summary>
-
-<img src="2604.21805_figures/2604.21805_page4.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 4</sub>
-
-</details>
-
-<details><summary>📷 Fig 4</summary>
-
-<img src="2604.21805_figures/2604.21805_page5.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 5</sub>
-
-</details>
-
-<details><summary>📷 Fig 5</summary>
-
-<img src="2604.21805_figures/2604.21805_page6.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 6</sub>
-
-</details>
-
-<details><summary>📷 Fig 6</summary>
-
-<img src="2604.21805_figures/2604.21805_page7.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 7</sub>
-
-</details>
-
-<details><summary>📷 Fig 7</summary>
-
-<img src="2604.21805_figures/2604.21805_page8.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 8</sub>
-
-</details>
-
-<details><summary>📷 Fig 8</summary>
-
-<img src="2604.21805_figures/2604.21805_page9.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 9</sub>
-
-</details>
-
-<details><summary>📷 Fig 9</summary>
-
-<img src="2604.21805_figures/2604.21805_page10.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 10</sub>
-
-</details>
-
-<details><summary>📷 Fig 10</summary>
-
-<img src="2604.21805_figures/2604.21805_page11.jpg" width="500"><br>
-<sub>Low-resolution page preview, page 11</sub>
-
-</details>
-
-**Main problem.** The paper addresses the 'clock ambiguity' in the Page-Wootters formalism, investigating whether the inability to uniquely identify a clock and its dynamics can be resolved by imposing a non-interaction condition between the clock and the rest of the world.
-
-**Main result.** The author proves a 'maximal ambiguity' theorem, showing that the ambiguity extends to both histories and Hamiltonians and cannot be removed by a non-interaction condition; the ambiguity is only resolved by explicitly assigning physical meanings to operators.
-
-**Method.** The author uses unitary transformation analysis, spectral analysis (Minkowski sum of spectra), and the properties of infinite-dimensional Hilbert spaces (Lebesgue measure and wandering subspaces) to demonstrate the equivalence of different physical setups.
-
-**Summary.** This paper investigates the fundamental problem of 'clock ambiguity' in the Page-Wootters formalism, where different choices of clock subsystems can lead to different perceived dynamics. The author refutes the claim that assuming no interaction between the clock and the world can resolve this issue, instead proving that the ambiguity is even stronger than previously thought, affecting both histories and Hamiltonians. The results show that for ideal clocks, any two physical systems can be rendered indistinguishable via unitary transformations. Ultimately, the author argues that the ambiguity can only be resolved by explicitly assigning physical meanings to operators, rather than relying on purely relational emergence.
+**Summary.** This paper provides a new geometric perspective on quantum error detection by treating the space of valid codes as a continuous landscape. It introduces a scalar parameter, the signature norm, to characterize the variance profile of different code families. The central finding is that stabilizer codes are just a small, discrete part of a much larger, continuous set of nonadditive codes. The work also demonstrates how imposing symmetries can expand or contract the range of achievable error-detection parameters.
 
 <details><summary>Detailed structure</summary>
 
-**Model / system.** The model is the Page-Wootters (PW) framework, consisting of a stationary, timeless global state in a composite Hilbert space (H_c tensor H_r) where time emerges from entanglement between a clock subsystem and the rest of the world.
+**Model / system.** The model consists of rank-K quantum code projectors satisfying the Knill-Laflamme detection conditions for various Pauli error models, including distance-based, asymmetric, and symmetry-restricted (cyclic and permutation) error sets.
 
-**Key observables.** Clock observables (time T and energy-like C) and world observables (position X and momentum P).
+**Key observables.** The signature norm (lambda*), which is the Euclidean norm of the vector of Pauli expectation values on the maximally mixed code state, and the joint Pauli variance profile.
 
-**Important parameters / regimes.** Continuous and discrete time regimes, bounded and unbounded time, and the dimension of the Hilbert space (specifically infinite-dimensional ideal clocks).
+**Important parameters / regimes.** The code rank K, the number of qubits n, the error set E, and the symmetry groups (cyclic C_n and permutation S_n).
 
-**Assumptions / limitations.** The universe is in a stationary state satisfying a Wheeler-DeWitt-type constraint; the paper assumes separable Hilbert spaces and focuses on ideal clocks.
+**Assumptions / limitations.** The focus is restricted to exact (rather than approximate) error-detecting codes, and the 'interval property' is presented as a strong empirical observation rather than a universal proof.
 
-**Paper structure.** The paper begins by critiquing previous attempts to resolve clock ambiguity via non-interaction, provides a mathematical proof of maximal ambiguity for both discrete and continuous time, explores the implications for the emergence of physical structures, and concludes by proposing that physical meaning must be pre-specified to resolve the ambiguity.
+**Figures summary.** Figure 1 illustrates the continuous spectrum of attainable lambda* values, showing how stabilizer codes occupy discrete points and how symmetry constraints can shrink or empty the spectrum.
 
-**Why it may be interesting.** This is highly relevant for researchers in quantum foundations and open quantum systems, as it challenges the idea that spacetime and dynamical laws can emerge purely from relational entanglement without pre-existing physical structures.
+**Paper structure.** The paper progresses from notation and preliminaries to the introduction of variance-based signatures, followed by symmetry analysis, a classification of 2-qubit codes, and numerical optimization for larger systems.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-Page and Wootters (1983) showed how time and dynamics can emerge in a stationary system containing a clock. Albrecht (1995) later showed, for discrete time, that within this framework any dynamical evolution can be obtained simply by choosing a different clock.   Marletto and Vedral (2017) claimed that this ambiguity disappears assuming that the clock and the rest of the world do not interact. I show that their proof relies on an incorrect mathematical assumption. Also, eliminating the ambiguity completely would obstruct spacetime symmetries.   Whereas the original clock ambiguity concerns all possible histories of a discrete-time system evolving under arbitrary Hamiltonians, but not the Hamiltonians themselves, I prove a stronger version for continuous and discrete unbounded time: the ambiguity extends to both histories and Hamiltonians, including noninteracting ones. Only the dimension of the Hilbert space remains.   One might hope to dismiss the ambiguity as merely perspectival, but I show that this would predict incorrect correlations between outcomes and their records, making even knowledge impossible. Purely relational approaches therefore face both the stronger and the original clock ambiguity problems. The ambiguity is removed by taking into account the physical meaning of the operators.
+Exact quantum codes detecting a prescribed set of Pauli errors are approached through algebraic constructions--stabilizer, codeword-stabilized, permutation-invariant, topological, and related families. Geometrically, exact Pauli detection is governed by joint higher-rank numerical ranges of these Pauli operators, whose structure for rank $\geq 2$ is largely uncharted. From this viewpoint, we show that such codes often form connected continuous families rather than collections of disjoint solution regions. These families are characterized by a single scalar derived from the Knill-Laflamme conditions: denoted $λ^*$, it is the Euclidean norm of the signature vector of Pauli expectation values on the maximally mixed code state, and provides a one-parameter summary of the code's joint Pauli variance profile. Within these continuous landscapes, stabilizer codes occupy only discrete, measure-zero subsets of the attainable $λ^*$-spectrum, exposing a largely unexplored continuum of genuinely nonadditive exact codes. We establish this picture by analyzing the geometry of higher-rank operator compressions, and extend it to symmetry-restricted settings where cyclic and permutation symmetries are imposed on both the error model and the code projector. Small-system cases reveal interval, singleton, and empty regimes through eigenvalue interlacing and symmetry-sector decompositions; larger systems are treated numerically via Stiefel-manifold optimization and symmetry-adapted parameterizations. In every unrestricted and symmetry-compatible case analyzed, the attainable $λ^*$-spectrum forms a single closed interval whenever nonempty--although a general proof remains open. These results place stabilizer, symmetric, and nonadditive code families within a unified higher-rank variance framework, suggesting a continuous geometric perspective on the landscape of exact quantum codes.
 
 </details>
 
 <sub>[↑ back to top](#top)</sub>
-
-
-## Other papers (8)
-
-*Papers from primary archives without highlighted authors or any topic match. Click to expand.*
-
-<details><summary>Show other papers</summary>
 
 <a id="paper-2604.21594"></a>
 ### [Composite quantum gates simultaneously compensated for multiple errors](http://arxiv.org/abs/2604.21594v1)
@@ -1883,6 +1923,7 @@ Page and Wootters (1983) showed how time and dynamics can emerge in a stationary
 **Authors:** Hristo Tochev, Nikolay Vitanov  
 **Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21594v1>  
 **Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `Rydberg arrays` **1/5**
 
 <details open><summary>📷 Fig 1</summary>
 
@@ -1980,6 +2021,13 @@ Systematic control errors remain a primary obstacle to realizing high-fidelity s
 </details>
 
 <sub>[↑ back to top](#top)</sub>
+
+
+## Other papers (6)
+
+*Papers from primary archives without highlighted authors or any topic match. Click to expand.*
+
+<details><summary>Show other papers</summary>
 
 <a id="paper-2604.21866"></a>
 ### [High-performance cellular automaton decoders for quantum repetition and toric code](http://arxiv.org/abs/2604.21866v1)
@@ -2546,52 +2594,6 @@ We present a new software package for efficient quantum circuit generation, desi
 <details><summary>Abstract</summary>
 
 We quantize a classically stable system of a harmonic oscillator polynomially coupled to a ghost with negative kinetic energy. We prove that due to an integral of motion with a positive discrete spectrum: i) the Hamiltonian has a pure point spectrum unbounded in both directions, ii) the evolution is manifestly unitary, iii) the vacuum is well-defined, iv) expectation values for squares of canonical variables are bounded. Numerical solutions of the Schrödinger equation confirm these results. We argue that the discrete spectrum of the integral of motion enforces stability for extended interactions.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
-<a id="paper-2604.21800"></a>
-### [Variance Geometry of Exact Pauli-Detecting Codes: Continuous Landscapes Beyond Stabilizers](http://arxiv.org/abs/2604.21800v1)
-
-**Authors:** Arunaday Gupta, Baisong Sun, Xi He, Bei Zeng  
-**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21800v1>  
-**Analysis basis:** full PDF text, analyzed in chunks
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.21800_figures/2604.21800_fig1.jpg" width="500"><br>
-<sub>FIG. 1: Schematic behavior of the attainable spectrum ΣK(E) = {λ∗(P) : P detects E, rank(P) = K}. In the unrestricted setting studied here, nonempty spectra are observed to be closed intervals. Stabilizer codes occupy only discrete values within these intervals. Under symmetry-compatible restrictions, the attainable set may shrink to a smaller interval, reduce to a singleton, or become empty, while remaining interval-like whenever nonempty.</sub>
-
-</details>
-
-**Main problem.** The paper investigates the geometric structure of the space of exact quantum codes that detect a prescribed set of Pauli errors, specifically determining if these codes form continuous families or isolated solutions.
-
-**Main result.** The authors show that exact Pauli-detecting codes form continuous landscapes (intervals) rather than disjoint sets, and that stabilizer codes are merely a discrete, measure-zero subset of this larger continuum of nonadditive codes.
-
-**Method.** The study uses an operator-theoretic framework linking error detection to joint higher-rank numerical ranges, combined with representation theory, Stiefel-manifold optimization, and analytical constructions of symmetric codewords.
-
-**Summary.** This paper provides a new geometric perspective on quantum error detection by treating the space of valid codes as a continuous landscape. It introduces a scalar parameter, the signature norm, to characterize the variance profile of different code families. The central finding is that stabilizer codes are just a small, discrete part of a much larger, continuous set of nonadditive codes. The work also demonstrates how imposing symmetries can expand or contract the range of achievable error-detection parameters.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.** The model consists of rank-K quantum code projectors satisfying the Knill-Laflamme detection conditions for various Pauli error models, including distance-based, asymmetric, and symmetry-restricted (cyclic and permutation) error sets.
-
-**Key observables.** The signature norm (lambda*), which is the Euclidean norm of the vector of Pauli expectation values on the maximally mixed code state, and the joint Pauli variance profile.
-
-**Important parameters / regimes.** The code rank K, the number of qubits n, the error set E, and the symmetry groups (cyclic C_n and permutation S_n).
-
-**Assumptions / limitations.** The focus is restricted to exact (rather than approximate) error-detecting codes, and the 'interval property' is presented as a strong empirical observation rather than a universal proof.
-
-**Figures summary.** Figure 1 illustrates the continuous spectrum of attainable lambda* values, showing how stabilizer codes occupy discrete points and how symmetry constraints can shrink or empty the spectrum.
-
-**Paper structure.** The paper progresses from notation and preliminaries to the introduction of variance-based signatures, followed by symmetry analysis, a classification of 2-qubit codes, and numerical optimization for larger systems.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-Exact quantum codes detecting a prescribed set of Pauli errors are approached through algebraic constructions--stabilizer, codeword-stabilized, permutation-invariant, topological, and related families. Geometrically, exact Pauli detection is governed by joint higher-rank numerical ranges of these Pauli operators, whose structure for rank $\geq 2$ is largely uncharted. From this viewpoint, we show that such codes often form connected continuous families rather than collections of disjoint solution regions. These families are characterized by a single scalar derived from the Knill-Laflamme conditions: denoted $λ^*$, it is the Euclidean norm of the signature vector of Pauli expectation values on the maximally mixed code state, and provides a one-parameter summary of the code's joint Pauli variance profile. Within these continuous landscapes, stabilizer codes occupy only discrete, measure-zero subsets of the attainable $λ^*$-spectrum, exposing a largely unexplored continuum of genuinely nonadditive exact codes. We establish this picture by analyzing the geometry of higher-rank operator compressions, and extend it to symmetry-restricted settings where cyclic and permutation symmetries are imposed on both the error model and the code projector. Small-system cases reveal interval, singleton, and empty regimes through eigenvalue interlacing and symmetry-sector decompositions; larger systems are treated numerically via Stiefel-manifold optimization and symmetry-adapted parameterizations. In every unrestricted and symmetry-compatible case analyzed, the attainable $λ^*$-spectrum forms a single closed interval whenever nonempty--although a general proof remains open. These results place stabilizer, symmetric, and nonadditive code families within a unified higher-rank variance framework, suggesting a continuous geometric perspective on the landscape of exact quantum codes.
 
 </details>
 
