@@ -1,0 +1,92 @@
+{
+  "arxiv_id": "2604.21850",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "OptiMat Alloys: A FAIR End-to-End Agent with Living Database for Computational Multi-Principal Alloy Exploration",
+  "authors": "Yang Hu, Vladyslav Turlo",
+  "abstract": "The FAIR principles have transformed how computational data and workflows are shared in materials research, yet existing repositories can only serve pre-computed entries -- broad coverage is perpetually incomplete and cannot adapt to new questions on demand. To address these challenges, we present OptiMat Alloys, a large language model-powered conversational agent for multi-principal element alloy exploration built on three pillars: a living database that stores every calculation with provenance, low-barrier accessibility through a web interface requiring zero programming expertise, and built-in uncertainty quantification via cross-potential and cross-configuration validation (see demo here https://youtu.be/lQzuorkzPMc). Coupling foundational machine learning interatomic potentials covering near-all periodic table of elements with natural-language interaction, OptiMat Alloys enables targeted, on-demand computation guided by the user's domain knowledge-extending FAIR from pre-computed repositories to on-demand knowledge generation and making computational alloy screening accessible to any materials scientist.",
+  "url": "http://arxiv.org/abs/2604.21850v1",
+  "pdf": "https://arxiv.org/pdf/2604.21850v1",
+  "type": "both",
+  "summary": "OptiMat Alloys is an AI-driven research agent designed to automate the discovery of complex multi-principal element alloys. By using Large Language Models to interface with machine learning interatomic potentials, it allows scientists to explore vast alloy design spaces using natural language. Unlike static databases, it features a 'living database' that accumulates new data from every user query. The framework also incorporates built-in uncertainty quantification to ensure the reliability of the predicted mechanical and thermodynamic properties.",
+  "main_problem": "Existing materials databases are limited to pre-computed entries and cannot handle the combinatorial explosion of multi-principal element alloys (MPEAs). Additionally, current AI agents for materials science lack persistent data storage, high accessibility for non-programmers, and built-in uncertainty quantification.",
+  "main_result": "The authors developed OptiMat Alloys, an LLM-powered agent that enables on-demand alloy exploration, creating a 'living database' that grows with every query. The system achieves massive computational speedups using Universal ML Interatomic Potentials (U-MLIPs) and provides automated uncertainty quantification through cross-potential and cross-configuration validation.",
+  "method": "The framework uses an AutoGen-based 'Scientist agent' to orchestrate a five-layer architecture (Interaction, Agent, Tools, Computation, Data). It integrates Software 1.0 (VASP, LAMMPS), Software 2.0 (U-MLIPs like MACE, ORB, NequIP), and Software 3.0 (LLMs) to automate structure generation (SQS), relaxation, and property prediction.",
+  "model_or_system": "The primary physical system is multi-principal element alloys (MPEAs), specifically focusing on chemically disordered, quasi-random substitutional alloys (e.g., CoCrFeNi). The computational models rely on Universal Machine Learning Interatomic Potentials (U-MLIPs) and Special Quasi-random Structures (SQS).",
+  "key_observables": "Formation energy, mixing enthalpy, lattice parameters, mass density, elastic tensors (Voigt-Reuss-Hill moduli), and quasi-harmonic approximation properties (Gibbs free energy, heat capacity, thermal expansion).",
+  "important_parameters": "Compositional resolution of 1%, temperature range of 0-600 K, and various crystal structures (FCC, BCC, HCP, SC, diamond).",
+  "main_assumptions": "The system's accuracy is limited by the underlying PBE-GGA training data of the MLIPs; the tool is intended for screening and trends rather than definitive phase diagram prediction; structural stability assumes a PTM match threshold of >= 90%.",
+  "figures_summary": "Figure 1 shows the collapse of database coverage as element count increases and the compositional explosion of MPEAs. Figure 3 illustrates the five-layer system architecture. Figure 4 shows the cumulative growth of the living database and the distribution of alloy complexity.",
+  "paper_structure": "The paper introduces the limitations of current FAIR repositories, proposes the OptiMat Alloys framework (the three pillars), details the multi-layer agentic architecture, presents benchmarking of LLM backends and U-MLIP performance/scaling, and concludes with validation against experimental and DFT data.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21850_figures/2604.21850_fig1.jpg",
+      "caption": "Figure 1: The alloy design space dwarfs what is captured in thermodynamic databases and experiments. (a) Theoretical number of alloy systems grows combinatorially, while Thermo-Calc coverage collapses be- yond ternaries (see Supplementary Section S1.1). (b) At 1% granularity, compositional candidates become astronomically large, whereas experimental reports span ˜1k compositions across 4–10 elements (see Sup- plementary Section S1.2).",
+      "page": 3
+    },
+    {
+      "image": "2604.21850_figures/2604.21850_fig2.jpg",
+      "caption": "Figure 2: Paradigm evolution from algorithmic to agentic computing. Embedded in traditional simulation and workflow management codes (Software 1.0), U-MLIPs enable calculations for random alloys in realistic supercells at near-DFT fidelity on commodity hardware, while an AI agent (Software 3.0) wrap datasets with computation, provenance, and conversational workflows. OptiMat Alloys operationalizes this by retrieving prior knowledge, running new calculations when needed, and writing results back into a living database that grows through use.",
+      "page": 4
+    },
+    {
+      "image": "2604.21850_figures/2604.21850_fig3.jpg",
+      "caption": "Figure 3: OptiMat Alloys’ five-layer system architecture. The demo is available at https://youtu.be/lQzuorkzPMc.",
+      "page": 6
+    },
+    {
+      "image": "2604.21850_figures/2604.21850_fig4.jpg",
+      "caption": "Figure 4: Database growth and composition statistics from OptiMat Alloys’s living database (491 structures, October 2025 to April 2026). (a) Cumulative database growth during development and testing, showing bursty accumulation across 54 active days. (b) Composition complexity distribution; 6+ component sys- tems constitute the largest single category (34%), with substantial quaternary and binary populations. (c) Element frequency showing Cu and Ni as the most explored elements, reflecting Cu–Ni–X test systems and noble-metal alloys. (d) Structure type distribution showing FCC dominance (73%) consistent with MPEA research focus.",
+      "page": 12
+    },
+    {
+      "image": "2604.21850_figures/2604.21850_fig5.jpg",
+      "caption": "Figure 5: Gibbs free energy versus temperature for two compositions from Wang et al.’s thin-film library [56], computed via QHA with the MACE omat-0 calculator. (a) W/Mo-rich composition: BCC is clearly preferred over FCC at all temperatures. (b) Co/Ni-rich composition: FCC is consistently lower in energy than HCP by ∼3 kJ/mol/atom. Solid lines show the ensemble mean and shaded bands indicate ±1 standard deviation over 15 independent SQS configurations.",
+      "page": 15
+    },
+    {
+      "image": "2604.21850_figures/2604.21850_fig6.jpg",
+      "caption": "Figure 6: OptiMat Alloys interface demonstrating knowledge retrieval from the living database. The user issues a natural-language query requesting comparison of elastic properties between BCC Co4Cr10Fe5Mo11Ni5W19 and equiatomic FCC CoCrFeNi. The agent (1) searches the database for matching entries, (2) retrieves and averages elastic properties over 10 cached SQS configurations per composition, and (3) provides scientific interpretation of the comparison—all without triggering new calculations.",
+      "page": 17
+    },
+    {
+      "image": "2604.21850_figures/2604.21850_fig7.jpg",
+      "caption": "Figure 7: The four Vs of big data applied to computational alloy discovery. Each quadrant maps a current limitation of existing databases and agentic systems (left) to the corresponding OptiMat Alloys contribution (right). The framework addresses all four dimensions identified by Scheffler et al. [2] as limiting current materials data infrastructure.",
+      "page": 18
+    }
+  ],
+  "figure": "2604.21850_figures/2604.21850_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

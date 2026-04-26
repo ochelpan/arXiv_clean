@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2604.21073",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cs.AI"
+  ],
+  "is_primary_archive": false,
+  "title": "Generative Discovery of Magnetic Insulators under Competing Physical Constraints",
+  "authors": "Qiulin Zeng, Tahiya Chowdhury, Md Shafayat Hossain",
+  "abstract": "Discovering materials that must simultaneously satisfy multiple competing constraints remains a central challenge in computational materials design, particularly in data-scarce regimes where conventional data-driven approaches are least effective. Magnetic insulators represent a stringent example: the electronic conditions that favor magnetic order often also promote metallicity, while insulating behavior suppresses the interactions that stabilize magnetism. As a result, experimentally viable magnetic insulators are rare and difficult to identify through conventional screening. Here, we introduce MagMatLLM, a constraint-guided generative discovery framework that integrates language-model-based crystal generation with evolutionary selection, surrogate screening, and first-principles validation to target simultaneous stability, magnetism, and insulating behavior. Unlike stability-first approaches, the framework enforces functional constraints during generation and selection, steering the search toward sparsely populated regions of materials space defined by competing physical requirements. Using this workflow, we identify twelve previously unreported candidate magnetic insulators, including Tm$_4$Co$_2$Cr$_2$O$_{12}$ and Cr$_4$Nb$_2$O$_{12}$. Of these, ten are dynamically stable by phonon analysis and exhibit finite band gaps and nonzero magnetic moments in spin-polarized density functional theory calculations. Beyond the specific compounds identified here, this work establishes a general constraint-guided paradigm for multi-objective materials discovery in sparse chemical spaces and provides a transferable strategy for the design of quantum materials under competing physical constraints.",
+  "url": "http://arxiv.org/abs/2604.21073v1",
+  "pdf": "https://arxiv.org/pdf/2604.21073v1",
+  "type": "theory",
+  "summary": "This paper introduces MagMatLLM, a new generative framework for discovering materials with complex, competing properties. Unlike traditional methods that filter for properties after generating stable structures, this approach embeds functional constraints like magnetism and insulating behavior directly into the generation loop. By using a Large Language Model paired with evolutionary algorithms and surrogate models, the researchers identified several previously unknown magnetic insulators. This 'constraint-first' paradigm offers a more efficient way to explore sparse chemical spaces for quantum materials.",
+  "main_problem": "Discovering materials that simultaneously satisfy multiple, competing physical constraints (stability, magnetism, and insulating behavior) is difficult in data-scarce regimes where conventional post-hoc filtering is inefficient.",
+  "main_result": "The MagMatLLM framework successfully identified 12 new candidate magnetic insulators, 10 of which were confirmed via DFT to be dynamically stable with finite band gaps and non-zero magnetic moments.",
+  "method": "A constraint-guided, closed-loop evolutionary discovery framework that integrates LLM-based crystal generation with multi-stage screening using surrogate models (CHGNet) and first-principles DFT validation.",
+  "model_or_system": "The target physical system is magnetic insulators, characterized by the simultaneous presence of long-range magnetic order and an electronic band gap.",
+  "key_observables": "Formation energy (Ed), distance to the thermodynamic convex hull (Ec), total magnetic moment (Mtot), electronic band gap (Eg), and phonon dispersion (for dynamical stability).",
+  "important_parameters": "Stability threshold (tau_E), band gap threshold (Eg >= 0.025 eV), and magnetic moment threshold (Mtot > 0).",
+  "main_assumptions": "The effectiveness of the discovery process is bounded by the accuracy of the machine-learning surrogate models used for initial screening.",
+  "figures_summary": "Figure 1 shows the MagMatLLM architecture and closed-loop workflow; Figure 2 illustrates the modified search loop with the objective module; Figure 3 visualizes feasible regions in the objective space; Figure 5 displays crystal structures, phonon dispersions, and spin-polarized band structures/DOS for identified candidates.",
+  "paper_structure": "The paper introduces the challenge of competing constraints, presents the MagMatLLM framework (generation, screening, and selection), details the multi-objective optimization strategies, reports the discovery and DFT validation of new magnetic insulators, and discusses the efficiency and scalability of the approach.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21073_figures/2604.21073_fig1.jpg",
+      "caption": "Figure 1: MagMatLLMSearch Framework. Schematic illustration of the large language model (LLM)- assisted crystal materials discovery framework. (a) Crystal structure data from The Materials Project are converted to standardized formats (e.g., JSON/CIF), cleaned, and augmented to generate over 4,500 samples for model training. (b) The trained LLM target function predictor is combined with a genetic algorithm and DFT calculations to generate and evaluate new candidate materials. (c) (c) A funnel-based screening strategy progressively narrows the search space from 2.2 million crystals to 900+ crystals and 4,500+ crys- tals, ultimately identifying high-quality candidate materials. The funnel...",
+      "page": 4
+    },
+    {
+      "image": "2604.21073_figures/2604.21073_fig2.jpg",
+      "caption": "Figure 2: LLM-driven materials search loop with objective scoring. Light-gray boxes depict the original LLM materials search loop (Initialization →Reproduction →Selection →Final DFT). Our additions are the red modules: Objective (normalizing Ed, Mtot, and b to rank candidates), which unified multi-criteria selection.",
+      "page": 6
+    },
+    {
+      "image": "2604.21073_figures/2604.21073_fig3.jpg",
+      "caption": "Figure 3: Feasible regions in two-dimensional objective spaces. (a) Distribution of candidates in reversed convex hull distance and bulk modulus. (b) Distribution in reversed convex hull distance and total magnetic moment. The horizontal axis shows the reversed convex hull distance, where smaller Ehull values (i.e., points toward the right side) correspond to more thermodynamically stable structures. The dashed vertical line indicates the stability threshold τE. Candidates located to the right of this threshold (Ehull ≤τE) constitute the feasible region, while those on the left are considered unstable. Red points denote candidates that fail to satisfy the stability constraint, whereas the...",
+      "page": 7
+    },
+    {
+      "image": "2604.21073_figures/2604.21073_fig4.jpg",
+      "caption": "Figure 4: Computational workflow for spin-polarized DFT calculations including dynamical stability and electronic structure analysis. Schematic workflow of the spin-polarized density func- tional theory (DFT) calculations performed using Quantum ESPRESSO. Starting from the crystal structure (input CIF/POSCAR), structural optimization (vc-relax/relax) is carried out, followed by spin-polarized self-consistent field (SCF) calculations (pw.x, nspin = 2). The converged charge density is used for two subsequent branches: (i) phonon calculations (ph.x) to evaluate the dynamical matrix and identify possible imaginary frequencies for stability assessment, and (ii) non-self-consistent field (NSCF)...",
+      "page": 11
+    },
+    {
+      "image": "2604.21073_figures/2604.21073_fig5.jpg",
+      "caption": "Figure 5: Lattice dynamics and electronic structure of representative candidate materials. Crys- tal structures of Tm4Co2Cr2O12, Cr4Nb2Cr2O12, Sm4Mn2Ir2O12, and B2HoO6V are shown in panels (a), (d), (g), and (j), respectively (ball-and-stick representation with crystallographic axes). Phonon dispersions along high-symmetry q paths are shown in (b), (e), (h), and (k), where the absence of imaginary modes confirms dynamical stability at 0 K. Spin-polarized electronic band structures and the corresponding density of states (DOS) are presented in (c), (f), (i), and (l), with the dashed horizontal line indicating the Fermi level EF . The band structures and DOS near EF enable comparison of...",
+      "page": 12
+    }
+  ],
+  "figure": "2604.21073_figures/2604.21073_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 2,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

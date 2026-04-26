@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2604.21494",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Data-Driven Thermal and Mechanical Modeling of Defective Covalent Organic Frameworks",
+  "authors": "Aleksander Szewczyk, Leonardo Medrano Sandonas, David Bodesheim, Bohayra Mortazavi, Gianaurelio Cuniberti",
+  "abstract": "Covalent Organic Frameworks (COFs) are versatile two-dimensional (2D) materials for flexible electronics, catalysis, and sensing, owing to their tunable architectures and large surface areas. However, like most materials, COFs inevitably contain synthesis-induced defects, which-similar to graphene-can strongly influence intrinsic properties, such as thermal transport and mechanical strength. To address this challenge, we have assessed the performance of a set of machine learning interatomic potentials (MLIP) capable of efficient large-scale simulations of COFs with quantum accuracy. In doing so, QCOF models (Quantum COF) were developed by tuning the state-of-the-art MACE architecture on an extensive dataset of non-equilibrium COF conformations generated from high-fidelity density functional theory calculations. The accuracy, computational efficiency, memory footprint, and transferability to unseen chemical environments of these models were benchmarked against general-purpose MACE models and their fine-tuned variants. Our results show that an invariant QCOF model with a small descriptor dimensionality and cutoff outperforms all other models in most validation tasks, including scalability to large systems, force prediction in defective COFs, and phonon dispersion calculations. The best-performing QCOF model was then used to run large-scale simulations of thermal conductivity for defective CTF-1 and COF-LZU1 systems via non-equilibrium MD, revealing a more pronounced sensitivity of CTF-1 to structural defects. Stress-strain curves were also investigated, showing that the mechanical response remains nearly invariant at low defect densities, while asymmetric behaviour emerges at large strains. This work thus provides a foundation for the design of robust quantum-informed MLIP for large-scale property simulations of defective of extended network materials.",
+  "url": "http://arxiv.org/abs/2604.21494v1",
+  "pdf": "https://arxiv.org/pdf/2604.21494v1",
+  "type": "both",
+  "summary": "This paper presents QCOF, a new machine learning interatomic potential designed for large-scale simulations of Covalent Organic Frameworks. By training on a massive dataset of DFT-calculated configurations, the model achieves quantum accuracy while remaining computationally efficient enough to simulate systems with over 100,000 atoms. The study demonstrates how structural defects significantly impact the breaking strength and thermal conductivity of these 2D materials. This work provides a robust foundation for the data-driven design and property prediction of complex, defective organic frameworks.",
+  "main_problem": "The challenge of accurately and efficiently modeling the thermal and mechanical properties of Covalent Organic Frameworks (COFs) containing synthesis-induced structural defects.",
+  "main_result": "The development of the QCOF machine learning interatomic potential (MLIP) provides a scalable, quantum-accurate method that outperforms general-purpose models in predicting phonon dispersion, thermal conductivity, and mechanical response in defective 2D networks.",
+  "method": "The authors trained a MACE-based equivariant graph neural network on a large DFT dataset (>36,000 configurations) and performed large-scale non-equilibrium molecular dynamics (NEMD) and uniaxial tensile tests.",
+  "model_or_system": "The study focuses on 2D Covalent Organic Frameworks, specifically CTF-1 and COF-LZU1, including various structural defects like Stone-Wales, grain boundaries, and missing linkers.",
+  "key_observables": "Thermal conductivity, Young's modulus, breaking strength, phonon dispersion, and phonon group velocities.",
+  "important_parameters": "Defect density, interaction cutoff radius (4 Å), descriptor dimensionality (48), and temperature (300 K).",
+  "main_assumptions": "The model currently lacks van der Waals interactions for stacked structures and does not account for dangling linkers or oxygen-containing chemical environments.",
+  "figures_summary": "Figure 1 shows COF architecture and the computational workflow; Figure 2 presents a Pareto front analysis of model efficiency vs. accuracy; Figure 3 compares model generalization and phonon dispersion accuracy; Supplementary figures detail error distributions and stress-strain curves.",
+  "paper_structure": "The paper introduces the problem of COF defects, describes the QCOF model development and training, benchmarks the model against existing MLIPs, validates it using phonon and thermal transport simulations, and concludes with mechanical property analysis and limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21494_figures/2604.21494_fig1.jpg",
+      "caption": "Figure 1 a) Covalent organic frameworks (COFs) consist of cores and/or linkers arranged in specific geometries. Their properties can be readily tuned by modifying these secondary building units, as illustrated here for COF-LZU1 and CTF-1. b) Principal component analysis (PCA) of the 36,000 COF conformations in the training dataset. Compounds with different chemical compositions form distinct clusters, as indicated by the color coding (23 carbon nitride nanosheets). c) Schematic of the computational workflow used in this work, from the quantum-mechanical database, via training of a machine learning interatomic potential (MLIP), to the prediction of thermal and mechanical properties.",
+      "page": 2
+    },
+    {
+      "image": "2604.21494_figures/2604.21494_fig2.jpg",
+      "caption": "Figure 2 Memory efficiency, expressed as the maximum number of atoms that a model can simulate on a single GPU, versus force prediction accuracy on validation data. Model speed is indicated by color, see lateral colorbar. Marker shapes denote the model type: circles represent models trained from scratch on the reference dataset, squares indicate general-purpose MACE models, and stars denote their fine-tuned variants. Inference speed was measured for simulations containing 5,000 atoms. The hyperparameters of the QCOF model lie on the Pareto front with respect to inference speed, memory footprint, and force prediction accuracy.",
+      "page": 4
+    },
+    {
+      "image": "2604.21494_figures/2604.21494_fig3.jpg",
+      "caption": "Figure 3 Generalisability of different MLIP models. a) Distribution of force errors on validation data and chemical compounds previously withdrawn from training dataset. Points over three standard deviations are omitted for better visibility. The validation dataset contains 500 structures, while the unseen dataset contains 4500. Distributions are rescaled such that maximum width of each is constant. Fine-tuned models show superior generalisability. b) Generalisability of the 48-0-4 architecture to different defects of COF-LZU1 and CTF-1. Both models perform unexpectedly well generalising to unseen defects, retaining almost full accuracy. Structural defects related to pore size seem to not...",
+      "page": 5
+    },
+    {
+      "image": "2604.21494_figures/2604.21494_fig4.jpg",
+      "caption": "Figure 4 a) Model validation to thermal transport prediction. Thermal conductivity of C2N was measured in the zigzag direction at different lengths fitted to Eq. 3. b) Dependence of thermal conductivity on defects (in order: Stone-Wales, 585 defect, grain boundary type 1, grain boundary type 2) in CTF-1 and COF-LZU1. Missing data for the ReaxFF simulation is caused by simulation crashing due to numerical instabilities. c) Root-mean-square atomic displacement of defective CTF-1 and COF-LZU1 during a heat transport simulation. The influence of the defect (in the middle) is much larger in CTF-1 compared to COF-LZU1.",
+      "page": 7
+    },
+    {
+      "image": "2604.21494_figures/2604.21494_fig5.jpg",
+      "caption": "Figure 5 Uniaxial tensile strain tests for pristine and defective a) CTF-1 and b) COF-LZU1. Markers indicate the fracture points for each COF configuration. Stress values (in GPa) are calculated assuming a monolayer thickness of 3.35 Å. c) Zoomed-in view of COF-LZU1 containing a 585 point defect under tensile strain along the zigzag and armchair directions.",
+      "page": 8
+    }
+  ],
+  "figure": "2604.21494_figures/2604.21494_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "arxiv_id": "2604.21660",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Self-consistent evaluation of the Berry connection for Wannier functions",
+  "authors": "Martin Thümmler, Alexander Croy, Thomas Lettau, Ulf Peschel, Stefanie Gräfe",
+  "abstract": "The Berry connection is a gauge-dependent quantity frequently used to describe the optical response of solids. Its evaluation requires a k-derivative with respect to the cell periodic-part of the Bloch-functions and is commonly calculated in the Wannier basis by using overlap matrices of cell-periodic parts of Bloch-functions at neighboring k-points. So far, all proposed interpolation schemes for the Berry connection do not account for the matrix structure of the overlap matrices explicitly but treat the matrix elements as independent, or only distinguish between diagonal and off-diagonal entries. In this work, we propose a self-consistent interpolation scheme based on the matrix logarithm resulting in a strongly improved accuracy. Furthermore, we discuss how the basis set incompleteness of the bands used in the ab-initio calculation imposes constraints on the accuracy. We quantify the basis incompleteness based on the singular values of the overlap matrices and relate it to the invariant part of the spread functional $Ω_\\mathrm{I}$ of the Wannier functions. Numerical calculations for monolayer MoS2 and bulk Si demonstrate that the proposed interpolation scheme is much less sensitive to the Wannierization details and leads to an improved quality of the velocity matrix and the optical conductivity.",
+  "url": "http://arxiv.org/abs/2604.21660v1",
+  "pdf": "https://arxiv.org/pdf/2604.21660v1",
+  "type": "theory",
+  "summary": "This paper addresses the numerical inaccuracy in interpolating the Berry connection using Wannier functions. By treating the Berry connection as the generator of the overlap matrix via a matrix logarithm and a self-consistent Magnus expansion, the authors develop a much more accurate interpolation scheme. This new method significantly improves the prediction of the velocity operator and optical conductivity in materials like MoS2 and Silicon. The work also provides a way to quantify errors arising from basis set incompleteness.",
+  "main_problem": "Existing interpolation schemes for the Berry connection in Wannier-based calculations fail to account for the full matrix structure of overlap matrices, leading to inaccuracies in the velocity operator and optical conductivity.",
+  "main_result": "The authors propose a new self-consistent logarithmic (sclog) interpolation scheme that significantly improves the accuracy of the velocity matrix and optical conductivity, reducing errors in MoS2 from 26% to less than 0.3%.",
+  "method": "A self-consistent interpolation scheme based on the matrix logarithm and a 4th-order Magnus expansion to evaluate path-ordered integrals.",
+  "model_or_system": "The method is applied to ab-initio electronic structures of solids, specifically demonstrated on monolayer MoS2 and bulk Silicon using Quantum Espresso and Wannier90.",
+  "key_observables": "Berry connection, velocity operator, optical conductivity, and Wannier function spread (invariant part).",
+  "important_parameters": "Overlap matrices (M_kb), basis set incompleteness (basis spill), and k-point grid density.",
+  "main_assumptions": "The validity of the scheme assumes a nearly complete basis set in the energy region of interest and relies on a 4-order Magnus expansion approximation.",
+  "figures_summary": "Figure 1 compares band structures; Figure 2 shows BZ-resolved Berry connections and velocities; Figure 3 displays velocity operator mismatch across different schemes; Figure 4 quantifies basis spill; Figure 5 compares optical conductivity; Figure 6 shows relative error in peak height versus k-grid size.",
+  "paper_structure": "The paper introduces the problem of Berry connection interpolation inaccuracy, reviews existing schemes (MV, Lihm, sym), proposes the new logarithmic and self-consistent logarithmic schemes, validates them using MoS2 and Si, quantifies basis set incompleteness via singular values, and discusses error scaling and physical impact on optical properties.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21660_figures/2604.21660_fig1.jpg",
+      "caption": "Figure 1. Band structure for a) monolayer MoS2 (8 × 8 × 1 k-grid) and b) bulk silicon (8×8×8 k-grid). The DFT calcula- tion performed with Quantum Espresso is depicted with thick black dots. The gray and orange lines denote the Wannier- interpolated band structure. For gray, the maximally local- ized Wannier functions (MLWFs) are used whereas for orange the conduction and valence bands (CB-VB) Wannierizations are stitched together. The dashed line in b) depicts the upper limit of the frozen window used for the disentanglement of the Wannier functions.",
+      "page": 7
+    },
+    {
+      "image": "2604.21660_figures/2604.21660_fig2.jpg",
+      "caption": "Figure 2. a) BZ-resolved magnitude of the Berry connec- tions Ax/y (first and second row) and velocities vx/y (third and forth row) for the different interpolation schemes (one per column) between two Wannier functions for monolayer MoS2 (8 × 8 × 1 k-grid) of the CB-VB Wannierization. The corresponding matrix elements of the interpolated ab-initio velocities vabi x and vabi y are depicted in row three and four on the right side, respectively. The iso-surfaces of the two Wan- nier functions are displayed in b) and c), which are conduction and valence band only Wannierized, respectively. d) Location of the rhombic BZ used in a).",
+      "page": 8
+    },
+    {
+      "image": "2604.21660_figures/2604.21660_fig3.jpg",
+      "caption": "Figure 3. Mismatch M, see Eq. (52), of the velocity operator for different schemes and ab-initio grid sizes calculated for MoS2: a) MLWF, b) CB-VB, Si: c) MLWF, and d) CB-VB. The dashed lines are guide for the eyes and indicate power scalings.",
+      "page": 9
+    },
+    {
+      "image": "2604.21660_figures/2604.21660_fig4.jpg",
+      "caption": "Figure 4. Quantification of basis spill of the MLWF Wannier- izations for different ab-initio grid sizes for a), b) MoS2 and c), d) Si. a) and c) kernel density estimation (Gaussian width 0.1 ˚A) of the singular values of the infinitesimal spill. b) and d) Invariant part of the Wannier function spread as function of the ab-initio grid size for only conduction bands (CB, black cross), conduction and valence bands (Both, big black dot), and valence bands only (VB, black star). Note that d) is coin- cides with the CB-VB Wannierization as no disentanglement for MoS2 was performed.",
+      "page": 9
+    },
+    {
+      "image": "2604.21660_figures/2604.21660_fig5.jpg",
+      "caption": "Figure 5. Real part of the optical conductivity for MoS2 (a-d) and Si (e-h) obtained using the velocity matrix elements of different Berry connection interpolations schemes (colored lines) and Wannierizations. The spectra obtained from the ab-initio computed velocity matrix elements (thick black lines) are normalized. MoS2: a) Nk = 8 MLWF, b) Nk = 8 CB-VB, c) Nk = 25 MLWF, d) Nk = 25 CB-VB. Si: e) Nk = 8 MLWF, f) Nk = 8 CB-VB, g) Nk = 15 MLWF, h) Nk = 15 CB-VB.",
+      "page": 10
+    },
+    {
+      "image": "2604.21660_figures/2604.21660_fig6.jpg",
+      "caption": "Figure 6. Scheme-dependent relative maximal peak height of the real part of the optical conductivity for different grid sizes and Wannierizations compared to the one computed from the ab-initio velocity operator. MoS2: a) MLWF, b) CB-VB, Si: c) MLWF, and d) CB-VB.",
+      "page": 10
+    }
+  ],
+  "figure": "2604.21660_figures/2604.21660_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

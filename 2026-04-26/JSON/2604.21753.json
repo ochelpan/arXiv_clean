@@ -1,0 +1,105 @@
+{
+  "arxiv_id": "2604.21753",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.mes-hall",
+    "cs.CE",
+    "cs.LG"
+  ],
+  "is_primary_archive": false,
+  "title": "Neural surrogates for crystal growth dynamics with variable supersaturation: explicit vs. implicit conditioning",
+  "authors": "Matteo Rigoni, Daniele Lanzoni, Francesco Montalenti, Roberto Bergamaschini",
+  "abstract": "Simulations of crystal growth are performed by using Convolutional Recurrent Neural Network surrogate models, trained on a dataset of time sequences computed by numerical integration of Allen-Cahn dynamics including faceting via kinetic anisotropy. Two network architectures are developed to take into account the effects of a variable supersaturation value. The first infers it implicitly by processing an input mini-sequence of a few evolution frames and then returns a consistent continuation of the evolution. The second takes the supersaturation parameter as an explicit input along with a single initial frame and predicts the entire sequence. The two models are systematically tested to establish strengths and weaknesses, comparing the prediction performance for models trained on datasets of different size and, in the first architecture, different lengths of input mini-sequence. The analysis of point-wise and mean absolute errors shows how the explicit parameter conditioning guarantees the best results, reproducing with high-fidelity the ground-truth profiles. Comparable results are achievable by the mini-sequence approach only when using larger training datasets. The trained models show strong conditioning by the supersaturation parameter, consistently reproducing its overall impact on growth rates as well as its local effect on the faceted morphology. Moreover, they are perfectly scalable even on 256 times larger domains and can be successfully extended to more than 10 times longer sequences with limited error accumulation. The analysis highlights the potential and limits of these approaches in view of their general exploitation for crystal growth simulations.",
+  "url": "http://arxiv.org/abs/2604.21753v1",
+  "pdf": "https://arxiv.org/pdf/2604.21753v1",
+  "type": "theory",
+  "summary": "This paper investigates how to best use neural networks to accelerate phase-field simulations of crystal growth. By comparing models that explicitly receive physical parameters versus those that must infer them from previous frames, the authors show that explicit conditioning is far more data-efficient and accurate. The resulting surrogate models can predict complex morphological changes and scale to much larger simulation domains with high fidelity. This work provides a blueprint for developing robust machine learning surrogates for non-equilibrium growth processes.",
+  "main_problem": "Comparing the efficiency and accuracy of explicit versus implicit conditioning in Convolutional Recurrent Neural Network (CRNN) surrogates for simulating crystal growth with variable supersaturation.",
+  "main_result": "Explicitly providing the supersaturation parameter as an input (NNpar) significantly outperforms the implicit approach (NNseq), achieving higher fidelity with much smaller training datasets and demonstrating excellent scalability to larger domains.",
+  "method": "The researchers trained CRNN architectures using datasets generated from numerical integration of the Allen-Cahn equation and compared prediction performance using Mean Absolute Error (MAE) across different architectures, dataset sizes, and extrapolation regimes.",
+  "model_or_system": "The physical system is 2D crystal growth under isothermal conditions featuring faceted morphologies, modeled using the Allen-Cahn phase-field approach with a Ginzburg-Landau energy functional and kinetic anisotropy.",
+  "key_observables": "Morphological evolution, growth rates, faceted profiles, Mean Absolute Error (MAE), and pixel-wise error maps.",
+  "important_parameters": "Supersaturation (delta_mu), initial surface coverage (theta_0), kinetic anisotropy, and input sequence length (s).",
+  "main_assumptions": "The model assumes 2D dynamics, all crystal seeds share the same crystallographic axis (mimicking epitaxial growth), and the training is restricted to specific ranges of supersaturation and coverage.",
+  "figures_summary": "Figures illustrate evolution sequences for different supersaturation levels, schematics of the CRRNN architectures, error distributions via violin and box plots, and demonstrations of model scalability to much larger spatial domains.",
+  "paper_structure": "The paper introduces the problem of crystal growth simulation, describes the phase-field model and the two neural network architectures, presents a systematic comparison of prediction accuracy and data efficiency, evaluates generalization to larger domains and longer time sequences, and discusses limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21753_figures/2604.21753_fig1.jpg",
+      "caption": "FIG. 1. Example of evolution sequences from the same initial configuration for the two limiting values of ∆µ, i.e. 0.2 and 0.8 considered in our training set. Each time unit τ corresponds to 25 time steps.",
+      "page": 2
+    },
+    {
+      "image": "2604.21753_figures/2604.21753_fig2.jpg",
+      "caption": "FIG. 2. (a) Schematics of the used convolutional recurrent neural network (CRNN) internal architecture. (b,c) NNseq and NNpar schematics, showing the difference in the input handling. The internal architecture of the CRNN block is the one reported in panel (b).",
+      "page": 3
+    },
+    {
+      "image": "2604.21753_figures/2604.21753_fig3.jpg",
+      "caption": "FIG. 3. Training and validation losses during training for the mini-sequence model NNseq (a) and the parameter model NNpar (b). The cases for smaller and larger dataset sizes are shown for both.",
+      "page": 4
+    },
+    {
+      "image": "2604.21753_figures/2604.21753_fig4.jpg",
+      "caption": "FIG. 4. Evolution sequence for a representative case (∆µ = 0.6) in the test set comparing the ground-truth PF solution (a) with the corresponding predictions from both NNseq (b,c) and NNpar (d,e). The pixel-by-pixel error δ is superimposed on the predicted images by colour bar. (f) Time evolution of the MAE between NN predictions and the true PF solution.",
+      "page": 5
+    },
+    {
+      "image": "2604.21753_figures/2604.21753_fig5.jpg",
+      "caption": "FIG. 5. Evolution sequence for a representative case (∆µ = 0.3) in the test set comparing the ground-truth PF solution (a) with the corresponding predictions from both NNseq (b,c) and NNpar (d,e). The pixel-by-pixel error δ is superimposed on the predicted images by colour bar. (f) Time evolution of the MAE between NN predictions and the true PF solution.",
+      "page": 6
+    },
+    {
+      "image": "2604.21753_figures/2604.21753_fig6.jpg",
+      "caption": "FIG. 6. Distribution of the maximum of MAE for the predic- tions of time evolutions in a test set of 2500 sequences con- formal to the training dataset for the different NN models. The full distribution is shown in colour by violin plots. The boxes correspond to the interquartile range (IQR). The me- dian value and the [0.1, 0.9] percentile range are also shown.",
+      "page": 7
+    },
+    {
+      "image": "2604.21753_figures/2604.21753_fig7.jpg",
+      "caption": "FIG. 7. (a) Dependency of the maximum of MAE distribu- tion on the supersaturation value ∆µ for both NN7.5k 5 and NN5k ∆µ. Each box represents the interquartile range (IQR) of the error distribution on a dataset of 100 sequences starting from the same initial profiles and evolving according to the corresponding supersaturation ∆µ up to complete filling of the domain. The median value and the [0.1, 0.9] percentile range are also shown. The shaded areas represent ∆µ values outside the range of the training set. (b-d) Comparison be- tween true PF and NN-predicted profiles, for an equivalent growth stage from the same initial configuration of Fig. 1 and different ∆µ. The pixel-by-pixel error δ...",
+      "page": 8
+    },
+    {
+      "image": "2604.21753_figures/2604.21753_fig8.jpg",
+      "caption": "FIG. 8. Evolution sequence for crystal growth under the same conditions of training set but on a 2048 × 2048 domain (∆µ = 0.318) as obtained by models (a) NN7.5k 5 and (b) NN5k ∆µ. Pixel-by-pixel errors δ are superimposed on the evolution frames by colour map. Insets provide a magnification of the 128 × 128 left-bottom corner. (c) Time evolution of MAE or the sequences in (a) and (b). (d) Analysis of the distribution of MAE maxima across 50 evolution sequences for different domain sizes L by both violin plot and box plots showing the median, interquartile range (IQR), and [0.1, 0.9] percentile range.",
+      "page": 9
+    },
+    {
+      "image": "2604.21753_figures/2604.21753_fig9.jpg",
+      "caption": "FIG. 9. Evolution sequence for crystal growth starting from a low coverage configuration of θ0 = 0.023 on a 512 × 512 domain, with ∆µ = 0.5, as obtained by the models (a) NN7.5k 5 and (b) NN5k ∆µ. Pixel-wise errors δ are superimposed on the evolution frames by colour map. (c) Time evolution of MAE for the sequences in (a) and (b). (d) Dependence of the MAE maxima distribution as a function of the initial profile coverage. Box-plots show the median, interquartile range (IQR) and [0.1, 0.9] percentile range for 50 evolution sequences with ∆µ = 0.5. The gray shaded area corresponds to the training set coverage range.",
+      "page": 10
+    }
+  ],
+  "figure": "2604.21753_figures/2604.21753_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  }
+}
