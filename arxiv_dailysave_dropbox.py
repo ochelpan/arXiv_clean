@@ -159,22 +159,27 @@ def previous_arxiv_workday(day):
 
 def compute_arxiv_submission_window(now=None):
     """
-    Compute the arXiv submission window corresponding to the latest visible
-    arXiv "new" papers.
+    Compute the arXiv submission window for the day this script is run on.
 
-    Important convention:
-      Papers displayed as "today's new papers" were usually submitted during
-      the PREVIOUS completed submission window.
+    Submission cutoffs are 14:00 US Eastern Time (= 18:00 UTC in EDT,
+    19:00 UTC in EST). The window is the (start_day 14:00, end_day 14:00)
+    pair we want to fetch papers from.
 
-    Therefore, if the most recent cutoff is today at 14:00 ET, we move one
-    arXiv workday back and use:
+    Mapping by weekday of the run (per user spec):
 
-        previous_previous_workday 14:00 ET <= submitted < previous_workday 14:00 ET
+        Mon  ->  Thu 14:00 ET  -> Fri 14:00 ET
+        Tue  ->  Fri 14:00 ET  -> Mon 14:00 ET
+        Wed  ->  Mon 14:00 ET  -> Tue 14:00 ET
+        Thu  ->  Tue 14:00 ET  -> Wed 14:00 ET
+        Fri  ->  Wed 14:00 ET  -> Thu 14:00 ET
+        Sat  ->  Wed 14:00 ET  -> Thu 14:00 ET   (same as Friday)
+        Sun  ->  Wed 14:00 ET  -> Thu 14:00 ET   (same as Friday)
 
-    Example:
-      If today is 2026-04-24 and the not-yet-visible window is
-      2026-04-23 14:00 ET to 2026-04-24 14:00 ET, this function instead uses
-      2026-04-22 14:00 ET to 2026-04-23 14:00 ET.
+    Friday/Saturday/Sunday all see the same Wed->Thu window because the next
+    arXiv mailing (announcing Thu->Fri papers) goes out Sunday evening.
+
+    Override with ARXIV_LOOKBACK_HOURS env var (legacy behavior — picks the
+    last N hours from now), but the default uses the explicit table above.
     """
     eastern = ZoneInfo("America/New_York")
 
@@ -186,23 +191,33 @@ def compute_arxiv_submission_window(now=None):
     today = now_et.date()
     cutoff_time = datetime.strptime("14:00", "%H:%M").time()
 
-    # First find the latest completed cutoff day.
-    if now_et.time() < cutoff_time:
-        latest_completed_cutoff_day = previous_arxiv_workday(today)
-    else:
-        latest_completed_cutoff_day = today
+    # weekday(): Mon=0, Tue=1, Wed=2, Thu=3, Fri=4, Sat=5, Sun=6
+    # For each run weekday, give (start_offset, end_offset) in days from `today`
+    # — both offsets are negative (in the past) and end_offset > start_offset.
+    # Numbers are chosen so that, for example:
+    #   Mon (today): end_day = Fri = today-3, start_day = Thu = today-4
+    #   Tue (today): end_day = Mon = today-1, start_day = Fri = today-4
+    weekday_to_offsets = {
+        0: (-4, -3),  # Mon: Thu -> Fri
+        1: (-4, -1),  # Tue: Fri -> Mon
+        2: (-2, -1),  # Wed: Mon -> Tue
+        3: (-2, -1),  # Thu: Tue -> Wed
+        4: (-2, -1),  # Fri: Wed -> Thu
+        5: (-3, -2),  # Sat: Wed -> Thu
+        6: (-4, -3),  # Sun: Wed -> Thu
+    }
 
-    while latest_completed_cutoff_day.weekday() >= 5:
-        latest_completed_cutoff_day = previous_arxiv_workday(latest_completed_cutoff_day)
-
-    # Move one full arXiv workday back to match the currently visible "new" list.
-    end_day = previous_arxiv_workday(latest_completed_cutoff_day)
-    start_day = previous_arxiv_workday(end_day)
+    start_offset, end_offset = weekday_to_offsets[now_et.weekday()]
+    start_day = today + timedelta(days=start_offset)
+    end_day = today + timedelta(days=end_offset)
 
     start_et = datetime.combine(start_day, cutoff_time, tzinfo=eastern)
     end_et = datetime.combine(end_day, cutoff_time, tzinfo=eastern)
 
-    return start_et.astimezone(timezone.utc), end_et.astimezone(timezone.utc), start_et, end_et
+    return (start_et.astimezone(timezone.utc),
+            end_et.astimezone(timezone.utc),
+            start_et,
+            end_et)
 
 
 def arxiv_base_id(result):
