@@ -1,38 +1,150 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-26
 
-*26 papers · 11 relevant · 2 highlighted*  
-_⏳ in progress: 26/144 papers processed (file updates after each one)_
+*33 papers · 15 relevant · 4 highlighted*  
+_⏳ in progress: 33/144 papers processed (file updates after each one)_
 
 
-## 🔥 Most relevant (11)
+## 🔥 Most relevant (15)
 
 *Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥3/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page. `(secondary)` marks papers from de-prioritized cond-mat archives.*
 
+- ⭐ [Quantum jump correlations in long-range dissipative spin systems](#paper-2604.21513) [[arXiv]](http://arxiv.org/abs/2604.21513v1) — 🔥 `correlated / nonlocal dissipation` **4/5** · 🔥 `dissipative systems` **4/5** · 🔥 `driven-dissipative phase transition` **4/5** · 🔥 `methods for driven-dissipative` **4/5** · 🔥 `quantum measurements` **4/5** · 🔥 `non-equilibrium dynamics` **3/5** · 🔥 `non-equilibrium universality` **3/5** · `measurement-induced transitions` **2/5**
 - [Bipartite entanglement under frequency comb pumping in parametric Josephson circuits](#paper-2604.21692) [[arXiv]](http://arxiv.org/abs/2604.21692v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `entanglement & information structure` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `dissipative systems` **3/5** · `correlated / nonlocal dissipation` **2/5** · `methods for driven-dissipative` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
 - [Spectral Diffusion Mitigation with a Laser Pulse Sequence](#paper-2604.21659) [[arXiv]](http://arxiv.org/abs/2604.21659v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `dissipative systems` **3/5** · 🔥 `spintronics-quantum-optics interface` **3/5** · `interference shaping light` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
 - [Entanglement of two optical emitters mediated by a terahertz channel](#paper-2604.21723) [[arXiv]](http://arxiv.org/abs/2604.21723v1) — 🔥 `correlated / nonlocal dissipation` **4/5** · 🔥 `Tavis-Cummings & cavity-many-emitter` **3/5** · 🔥 `dissipative systems` **3/5** · 🔥 `entanglement & information structure` **3/5** · `methods for driven-dissipative` **2/5** · `non-equilibrium dynamics` **2/5**
 - [Loss-biased fault-tolerant quantum error correction](#paper-2604.21876) [[arXiv]](http://arxiv.org/abs/2604.21876v1) — 🔥 `Rydberg arrays` **4/5** · 🔥 `correlated / nonlocal dissipation` **3/5** · 🔥 `dissipative systems` **3/5** · `methods for driven-dissipative` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+- [Quantum plasmonics with N emitters: bright hybrid continuum selection](#paper-2604.21560) [[arXiv]](http://arxiv.org/abs/2604.21560v1) — 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · 🔥 `correlated / nonlocal dissipation` **3/5** · 🔥 `dissipative systems` **3/5** · `Dicke superradiance` **2/5** · `correlated cavity matter` **2/5** · `methods for driven-dissipative` **2/5**
 - [Photon Sorting with a Quantum Emitter](#paper-2604.21758) [[arXiv]](http://arxiv.org/abs/2604.21758v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `interference shaping light` **3/5** · `dissipative systems` **2/5** · `quantum measurements` **2/5**
 - [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](#paper-2604.21820) [[arXiv]](http://arxiv.org/abs/2604.21820v1) — 🔥 `Dicke superradiance` **4/5** · 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · 🔥 `non-equilibrium universality` **4/5** · 🔥 `correlated cavity matter` **3/5**
 - [Enhancing Coherence of Spin Centers in p-n Diodes via Optimization Algorithms](#paper-2604.21874) [[arXiv]](http://arxiv.org/abs/2604.21874v1) — 🔥 `spintronics-quantum-optics interface` **3/5** · `dissipative systems` **2/5**
 - [Dual-use quantum hardware for quantum resource generation and energy storage](#paper-2604.21913) [[arXiv]](http://arxiv.org/abs/2604.21913v1) — `dissipative systems` **2/5** · `entanglement & information structure` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+- [Pulse Shaping for Superconducting Qubits](#paper-2604.21565) [[arXiv]](http://arxiv.org/abs/2604.21565v1) — `QC/QI experiment` **2/5** · `dissipative systems` **2/5** · `non-equilibrium dynamics` **2/5**
 - [Rigorous Security Proofs for Practical Quantum Key Distribution](#paper-2604.21791) [[arXiv]](http://arxiv.org/abs/2604.21791v1) — `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
 - [The clock ambiguity is back with a vengeance](#paper-2604.21805) [[arXiv]](http://arxiv.org/abs/2604.21805v1) — `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
 - ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](#paper-2604.21919) [[arXiv]](http://arxiv.org/abs/2604.21919v1) — `entanglement & information structure` **2/5**
+- [Composite quantum gates simultaneously compensated for multiple errors](#paper-2604.21594) [[arXiv]](http://arxiv.org/abs/2604.21594v1) — `Rydberg arrays` **2/5**
 
 
-## ⭐ Highlighted (2)
+## ⭐ Highlighted (4)
 
 *Papers by authors on your watch list. Click the title to jump to the full entry below; click [arXiv] to open the paper page.*
 
 - ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](#paper-2604.21919) [[arXiv]](http://arxiv.org/abs/2604.21919v1) — Sarang Gopalakrishnan
 - ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](#paper-2604.21778) [[arXiv]](http://arxiv.org/abs/2604.21778v1) — Andrii G. Sotnikov, Denys I. Bondar
+- ⭐ [Generalized stochastic spin-wave theory for open quantum spin systems](#paper-2604.21574) [[arXiv]](http://arxiv.org/abs/2604.21574v1) — Rosario Fazio
+- ⭐ [Quantum jump correlations in long-range dissipative spin systems](#paper-2604.21513) [[arXiv]](http://arxiv.org/abs/2604.21513v1) — Rosario Fazio
 
 
-## All papers (12, sorted by relevance)
+## All papers (17, sorted by relevance)
 
 *Papers from quant-ph and your primary cond-mat archives (quant-gas, stat-mech, str-el, dis-nn). Highlighted papers (⭐) come first, then everything else sorted by topic-relevance score, highest first.*
+
+<a id="paper-2604.21513"></a>
+### ⭐ [Quantum jump correlations in long-range dissipative spin systems](http://arxiv.org/abs/2604.21513v1)
+
+**Highlighted author(s):** Rosario Fazio  
+**Authors:** Giulia Salatino, Anna Delmonte, Zejian Li, Rosario Fazio, Alberto Biella  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21513v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `correlated / nonlocal dissipation` **4/5** · 🔥 `dissipative systems` **4/5** · 🔥 `driven-dissipative phase transition` **4/5** · 🔥 `methods for driven-dissipative` **4/5** · 🔥 `quantum measurements` **4/5** · 🔥 `non-equilibrium dynamics` **3/5** · 🔥 `non-equilibrium universality` **3/5** · `measurement-induced transitions` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21513_figures/2604.21513_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Sketch of the dissipative phase diagram in the long-range limit: the yellow region corresponds to the mean- field ferromagnetic phase (FM), while the violet region corre- sponds to the mean-field paramagnetic phase (PM), featuring strongly and weakly correlated quantum jumps, respectively. The dashed line represents the shrinking of the FM phase due to an increased α, reflecting the buildup of correlations between spins. Correlations between quantum jumps are cap- tured through (b) a cluster mean-field (cMF) approximation, which fully accounts for short-range correlations, or (c) a cu- mulant expansion approximation, which captures lower-order long-range correlations.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21513_figures/2604.21513_fig2.jpg" width="500"><br>
+<sub>FIG. 3. Probability distribution P(n1, n2) for γtf = 20, Nc = 2, γ/J = 0.5, α = 1.1. (a) Ferromagnetic phase. (b) Paramagnetic phase.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21513_figures/2604.21513_fig3.jpg" width="500"><br>
+<sub>FIG. 2. Evolution of P(n1) in the tilted mean-field approx- imation with Nc = 1 in ferromagnetic (a) and paramagnetic (b) phases. α = 1.1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21513_figures/2604.21513_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Connected joint distribution P(n1, n2) −P(n1)P(n2) with Nc = 2, γ/J = 0.5, γtf = 20, and (a) h = 1.0 (b) h = 2.5. α = 1.1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21513_figures/2604.21513_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Growth rate of the covariance of the number of jumps in time from the cluster mean field approximation with Nc = 2, 4, 6, h = 1.0, γtf = 10, α = 1.1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21513_figures/2604.21513_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Steady-state rate of change of the covariance between the numbers of jumps on sites 1 and 1 + d as a function of the dissipation γ on the periodic spin chain with h = J, obtained with the cumulant expansion approach to the tilted Lindblad equation. (a) Results for α = 0 and different system sizes N (see legend). Due to the infinite-range interaction, the two-site jump correlation is independent of the distance d. (b) Results for α = 1.1 and nearest-neighbor sites (d = 1), for different system sizes N [legend shared with panel (a)]. (c) Results for α = 1.1 and different distances d (see legend), for a fixed system size of N = 30.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21513_figures/2604.21513_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Inverse of (a) average (b) variance of waiting time distribution at α = 1.1 &lt; αC. The dotted line represents mean-field, the vertical dashed lines represent the separation between the two regions predicted by cluster mean-field. Clus- ter mean-field converges and confirms the presence of two dis- tinct regions.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21513_figures/2604.21513_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Inverse of (a) average (b) variance of waiting time distribution at α = 2.0 ≃αC. The dotted line represents the mean-field, the vertical dashed lines represent the separation between the two regions predicted by cluster mean-field. Clus- ter mean-field shrinks more and more the area corresponding to finite variance.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21513_figures/2604.21513_fig9.jpg" width="500"><br>
+<sub>FIG. 9. Cluster mean field results for the steady-state magnetization |⟨ˆσx⟩| as a function of the dissipation rate γ at h = J for different cluster size Nc and interaction range α (see legend).</sub>
+
+</details>
+
+**Main problem.** Characterizing nonequilibrium phase transitions in long-range dissipative spin systems using the statistical properties of quantum jump trajectories rather than standard steady-state order parameters.
+
+**Main result.** The study demonstrates that quantum jump correlations (spatial and temporal) and waiting-time distributions serve as effective diagnostics for identifying paramagnetic and ferromagnetic phases, revealing distinct dynamical signatures like anti-correlated jumps in the FM phase.
+
+**Method.** The authors employ a quantum trajectory framework using a tilted Lindbladian approach for full counting statistics, combined with cluster mean-field theory and second-order cumulant expansion to capture short- and long-range correlations.
+
+**Summary.** This paper investigates how the statistics of quantum jumps can be used to identify phase transitions in long-range dissipative spin systems. By analyzing spatial and temporal correlations of detection events, the authors show that the ferromagnetic phase exhibits distinct anti-correlated jump patterns compared to the paramagnetic phase. They use a hierarchy of approximations, including cluster mean-field and cumulant expansion, to study how the interaction range affects these dynamics. The results highlight that trajectory-resolved observables are powerful probes for collective behavior in many-body open quantum systems.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A one-dimensional periodic spin chain with power-law decaying long-range interactions (parameterized by alpha) and dissipation via spontaneous emission, described by a Lindblad master equation.
+
+**Key observables.** Quantum jump correlations (spatial and temporal), full counting statistics (FCS), waiting-time distributions (WTD), magnetization, and the covariance of jump counts.
+
+**Important parameters / regimes.** Interaction range (alpha), dissipation rate (gamma), transverse field (h), interaction strength (J), and cluster size (Nc).
+
+**Assumptions / limitations.** The cluster mean-field approximation assumes translational invariance among unmonitored clusters, and the cumulant expansion is a second-order truncation that may not be strictly controlled.
+
+**Figures summary.** Figure 1 shows the phase diagram and the effectiveness of cMF and cumulant expansion; Figure 2 and 3 illustrate the evolution of jump probability distributions and joint distributions in different phases; Figure 6 and 7 show the covariance growth rate and waiting-time statistics across different interaction ranges.
+
+**Paper structure.** The paper introduces the problem of characterizing dissipative phases via trajectories, defines the long-range spin model and Lindblad dynamics, presents the theoretical framework (tilted Lindbladian, cMF, and cumulant expansion), analyzes results for different interaction ranges (alpha=0, 1.1, 2.0), and concludes with a discussion on the utility of trajectory-resolved observables.
+
+**Why it may be interesting.** It provides a new way to probe many-body physics and phase transitions in open quantum systems by looking at the statistics of measurement events (jumps) rather than just steady-state averages, which is highly relevant for continuous monitoring and measurement-induced dynamics.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We characterize nonequilibrium phases in long-range dissipative spin systems through the statistical properties of quantum jump trajectories. While the average dynamics governed by the Lindblad master equation provides access to steady-state expectation values of order parameters, the quantum trajectory framework reveals features encoded in the spatial and temporal correlations of detection events. Focusing on a model exhibiting a paramagnetic-to-ferromagnetic phase transition, we investigate the full counting statistics of quantum jumps using a tilted Lindbladian approach. We combine this with cluster mean-field and cumulant expansion techniques, which allow us to capture, respectively, the short- and long-range structure of jump correlations. In addition, we study the waiting-time distributions of detection events. We show that quantum jump correlations display clear signatures of the underlying phases and reveal distinct dynamical features across the transition. Our results highlight the potential of trajectory-resolved observables as probes of collective behavior in open quantum many-body systems and provide new insights into the role of long-range interactions in shaping nonequilibrium dynamics.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
 
 <a id="paper-2604.21919"></a>
 ### ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](http://arxiv.org/abs/2604.21919v1)
@@ -79,6 +191,111 @@ _⏳ in progress: 26/144 papers processed (file updates after each one)_
 <details><summary>Abstract</summary>
 
 Belief propagation has recently emerged as a powerful framework for evaluating tensor networks in higher dimensions, combining computational efficiency with provable analytical guarantees. In this work, we develop the first end-to-end theory of tensor network belief propagation for a class of projected entangled pair states satisfying \emph{strong injectivity}. We show that when the injectivity parameter exceeds a constant threshold, BP fixed points can be found efficiently, and a cluster-corrected BP algorithm computes physical quantities to $1/\mathrm{poly}(N)$ error in $\mathrm{poly}(N)$ time for an $N$ qubit system. We identify a striking phenomenon we term \emph{algorithmic locality}: local perturbations of the tensor network affect the BP fixed point with an influence decaying rapidly with distance. As a result, updates to the fixed point after a local perturbation can be carried out using only local recomputation. Moreover, through the cluster expansion, this locality extends to observables, implying that local expectation values can be approximated from local data with controlled accuracy. Our results provide the first rigorous guarantee for the effectiveness of tensor-network belief propagation on a wide class of many-body states, bridging a gap between widely used numerical practice and provable algorithmic performance.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21574"></a>
+### ⭐ [Generalized stochastic spin-wave theory for open quantum spin systems](http://arxiv.org/abs/2604.21574v1)
+
+**Highlighted author(s):** Rosario Fazio  
+**Authors:** Zejian Li, Anna Delmonte, Rosario Fazio  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21574v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21574_figures/2604.21574_fig1.jpg" width="500"><br>
+<sub>Figure 1. Semiclassical representation of driven-dissipative spin dynamics with the generalized framework of spin-wave quantum trajectories (SWQT). (a) Sketch of a variable-range interacting spin model on a two-dimensional (2D) lattice. The spins are driven with an external field h and interact via a variable-range coupling J(α) ij , whose strength decays as a power law of the distance with exponent α. The spins are subjected to local decay (at rate γ), and the dissipative dynamics is unraveled into quantum trajectories via continuous monitoring. (b) In our semiclassical treatment, each spin is bosonized around its classical polarization. Here, Oxyz depicts the lab frame and O˜xi˜yi˜zi is...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21574_figures/2604.21574_fig2.jpg" width="500"><br>
+<sub>Figure 3. Benchmark of the spin-wave quantum trajectories (SWQT) with heterodyne (het.) unraveling for a 2 × 2 spin system with h = 2γ, J = 0.5γ, and nearest-neighbor interactions (α = ∞) for the following physical quantities: (a) single- trajectory expectation values on the first site ⟨ˆσx,y,z 1 ⟩; (b) single-trajectory two-point correlation function X2 [cf. Eq. (33)]; (c) trajectory-averaged and site-averaged spin observables ⟨ˆσx,y,z⟩; (d) trajectory-averaged two-point correlation function X2. They are plotted as a function of time and shown together with the numerically exact solutions (see legend). The simulations are performed with a fixed time step γδt = 10−4 and trajectory averages...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21574_figures/2604.21574_fig3.jpg" width="500"><br>
+<sub>Figure 5. Steady-state results for a system with N = 6 × 6, α = 1 in the steady state, obtained with spin-wave quan- tum trajectories. (a) Magnetization order parameter X2 as a function of the external drive h and the dissipation γ. (b) Trajectory-averaged spin-wave density ϵ. In both panels, the mean-field (MF) phase boundary is marked with a dashed line (see legend).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21574_figures/2604.21574_fig4.jpg" width="500"><br>
+<sub>Figure 4. (a) SWQT heterodyne dynamics for a single trajec- tory with N = 6 × 6, h = J, γ = 0.6J and α = 1 showing the symmetry-breaking behavior. (b) Distribution of mx along trajectories for different values of γ (see legend) showing the bimodality of the trajectory ensemble.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21574_figures/2604.21574_fig5.jpg" width="500"><br>
+<sub>Figure 7. Steady-state magnetization X2 as a function of γ in a 10 × 10 lattice, for different interaction ranges represented by α, shown together with the mean-field result (see legend).</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21574_figures/2604.21574_fig6.jpg" width="500"><br>
+<sub>Figure 6. Steady-state results for the same quantities as in Fig. 5 with α = 1 and h = J, as a function of the dissi- pation γ and system size N = L × L (legend shared across both panels). (a) Magnetization order parameter X2 shown together with the mean-field (MF) result. Inset: finite-size scaling of the results with γc/J = 1.02±0.07, β = 0.46±0.10, ν = 1.00 ± 0.05 extracted from a collapsing analysis, with the vertical dotted line marking the extracted critical point. (b) Trajectory-averaged spin-wave density ϵ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21574_figures/2604.21574_fig7.jpg" width="500"><br>
+<sub>Figure 8. Finite-size scaling parameters as a function of inter- action range represented by 1/α showing the crossover of uni- versality class, where the vertical dotted line marks α = d = 2. (a) Critical point γc, with the mean-field (MF) value γc/J = 1 marked with a horizontal dotted line. (b) Magnetization crit- ical exponent β, with the mean-field value β = 1/2 marked with a horizontal dotted line and the value for 2D Ising uni- versality class β = 1/8 marked with a dash-dotted line. (c) Correlation length critical exponent ν with the horizontal dot- ted line marking the value ν = 1 for both the mean-field and the 2D Ising universality class.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21574_figures/2604.21574_fig8.jpg" width="500"><br>
+<sub>Figure 9. SWQT quantum jump (QJ) benchmark results for a N = 4 × 4 spin lattice with J = 2γ and α = ∞: steady-state average magnetization mx,y,z obtained using SWQT with the QJ unraveling, together with the exact solution (see legend), as a function of the external field h.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21574_figures/2604.21574_fig9.jpg" width="500"><br>
+<sub>Figure 10. SWQT quantum jump (QJ) results for a 2D spin lattice with J = 7γ and α = ∞: steady-state average magne- tization mz as a function of the external field h for different system sizes, shown together with the mean-field solution (see legend).</sub>
+
+</details>
+
+**Main problem.** Developing an efficient semiclassical framework to simulate the open quantum dynamics of large-scale driven-dissipative spin systems, specifically overcoming the limitations of conventional spin-wave theories in regimes with short-range interactions and local quantum jumps.
+
+**Main result.** The proposed Generalized Stochastic Spin-Wave Theory (SWQT) successfully captures universality class crossovers (from Mean-Field to 2D Ising) and symmetry-breaking phase transitions, providing a scalable method that remains accurate even in the presence of local dissipation.
+
+**Method.** A semiclassical approach using a Gaussian ansatz for quantum trajectories unraveled from the Lindblad master equation, utilizing a quaternion formalism for non-singular local comoving frames and a higher-order Holstein-Primakoff expansion.
+
+**Summary.** This paper introduces a new semiclassical method called Generalized Stochastic Spin-Wave Theory (SWQT) to simulate large-scale open quantum spin systems. By using a quaternion-based approach to avoid coordinate singularities, the method can efficiently track quantum trajectories under both continuous monitoring and discrete quantum jumps. The authors demonstrate that the theory accurately captures the transition between different universality classes, such as the crossover from Mean-Field to 2D Ising behavior. This framework is particularly useful for studying driven-dissipative many-body physics where traditional spin-wave theories fail.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A 2D lattice of interacting spins with power-law interactions (tunable via exponent alpha) subject to Lindblad dissipation (local spin decay) and external driving, including both Z2-symmetric and non-symmetric models.
+
+**Key observables.** Steady-state magnetization (m_x, m_y, m_z), two-point correlation functions (X2), spin-wave density (epsilon), and critical exponents (beta, nu).
+
+**Important parameters / regimes.** Interaction range (alpha), dissipation rate (gamma), external driving strength (h), and system size (N).
+
+**Assumptions / limitations.** The framework assumes the system can be adequately described by a Gaussian ansatz for the bosonic modes and is most effective in regimes of low spin-wave density.
+
+**Figures summary.** Figure 1 illustrates the lattice and local comoving frames; Figure 2 shows the universality crossover as a function of interaction range; Figure 3 benchmarks the theory against exact small-system solutions; Figure 4 demonstrates symmetry breaking and bimodal magnetization distributions; Figure 8 presents finite-size scaling analysis.
+
+**Paper structure.** The paper introduces the scientific problem and the SWQT framework, details the mathematical derivation using quaternions and Holstein-Primakoff mapping, presents numerical benchmarks against exact solutions, applies the method to study phase transitions and universality crossovers in variable-range models, and discusses the implementation of quantum-jump dynamics.
+
+**Why it may be interesting.** It provides a powerful, scalable toolbox for studying non-equilibrium many-body phases and dissipative phase transitions in large-scale spin systems, bridging the gap between mean-field theory and full quantum simulations.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We propose a semiclassical framework for solving open quantum dynamics in driven-dissipative spin systems. Our method consists of generalized spin-wave approximations tailored to describing quantum trajectories unravelled from the master equation, and generically applies to regimes beyond the reach of conventional spin-wave theories, including short-range interactions and local quantum jumps, enabling the efficient simulation of large-scale interacting spins. We illustrate the versatility of our framework by studying a variable-range driven-dissipative Ising model on a 2D lattice. When the dissipation acts along the drive axis, we find a continuous phase transition breaking the $\mathbb{Z}_2$ symmetry, and demonstrate that the interaction range, when tuned from fully-connected to nearest-neighbour, profoundly alters the universality class of the criticality. With the dissipation along the interaction axis, we show the emergence of a first-order transition. Demonstrated with both state-diffusion and quantum-jump types of trajectory dynamics, our framework provides a powerful toolbox for the efficient semiclassical description of non-equilibrium dynamics and many-body phases in spin systems.
 
 </details>
 
@@ -441,6 +658,62 @@ We investigate the limits of quantum error correction (QEC) in neutral-atom proc
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21560"></a>
+### [Quantum plasmonics with N emitters: bright hybrid continuum selection](http://arxiv.org/abs/2604.21560v1)
+
+**Authors:** Georgii Semin, Hans-Rudolf Jauslin, Gérard Colas des Francs, Stéphane Guérin  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21560v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · 🔥 `correlated / nonlocal dissipation` **3/5** · 🔥 `dissipative systems` **3/5** · `Dicke superradiance` **2/5** · `correlated cavity matter` **2/5** · `methods for driven-dissipative` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21560_figures/2604.21560_fig1.jpg" width="500"><br>
+<sub>FIG. 1. System of a quantum emitter coupled with QPP supported by the dielectric structure.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21560_figures/2604.21560_fig2.jpg" width="500"><br>
+<sub>FIG. 2. System of the N emitters coupled with the QPP supported by the metallic nanostructure.</sub>
+
+</details>
+
+**Main problem.** The paper seeks to develop an efficient, mode-selective effective model for the interaction between multiple quantum emitters and a quantum plasmon-polariton field in a finite dielectric medium, specifically reconciling the double-continuum structure with the single hybrid continuum used in macroscopic models.
+
+**Main result.** The authors prove that the complex interaction with two separate continua can be reduced to a single, non-degenerate hybrid continuum for each emitter, and that this hybrid representation is mathematically equivalent to the macroscopic Langevin model.
+
+**Method.** The study employs a Dark and Bright Mode (DBM) decomposition, utilizing the Lippmann-Schwinger equations, Green tensor formalism, and Löwdin orthogonalization to simplify the Hamiltonian.
+
+**Summary.** This paper addresses the theoretical complexity of modeling multiple quantum emitters interacting with plasmonic fields in finite media. By using a bright/dark mode decomposition, the authors show that the interaction can be simplified from a complex double-continuum structure into a much simpler single hybrid continuum. They demonstrate that this simplified model is exactly consistent with established macroscopic Langevin approaches. This result provides a more efficient mathematical framework for simulating the dynamics of many emitters in nanophotonic structures.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system consists of N two-level quantum emitters located in a finite, inhomogeneous dielectric medium (such as a metallic nanoparticle) interacting with a quantum plasmon-polariton field.
+
+**Key observables.** The effective coupling strength and the Local Density of States (LDOS) related to the imaginary part of the Green tensor.
+
+**Important parameters / regimes.** The number of emitters (N), the dielectric coefficient epsilon(x, nu), and the uncoupling limit (uc) where the medium-associated field vanishes.
+
+**Assumptions / limitations.** The emitters are modeled as two-level systems, the interaction is treated within the dipolar approximation, and the coupling strength is assumed to be real and positive.
+
+**Figures summary.** Figure 1 shows a schematic of a quantum emitter coupled to a plasmonic field in a dielectric structure; Figure 2 illustrates N emitters coupled to a metallic nanostructure.
+
+**Paper structure.** The paper introduces the physical problem, develops the DBM decomposition for single and multiple emitters, compares the double-continuum and hybrid continuum approaches, proves the equivalence to the Langevin model via Green tensor identities, and discusses numerical implementation via Löwdin orthogonalization.
+
+**Why it may be interesting.** It provides a rigorous theoretical bridge between microscopic canonical quantization and macroscopic Langevin models in nanophotonics, offering a computationally efficient way to model many-body interactions in complex plasmonic environments.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We construct mode-selective effective models describing the interaction of the quantum plasmon-polariton field supported by a finite dielectric medium and one or several quantum emitters. The construction of the effective model is based on the decomposition of the field into bright modes relevant to the interaction with the emitters and dark modes, which do not interact with the emitters. We show that the quantum plasmon-polariton field can be represented equivalently by a double-continuum spectrum or by a single hybrid continuum spectrum for each emitter. The system of the electromagnetic field coupled to a finite medium is composed of two families of continuum modes, each of them with an infinite degeneracy. The two families are deformations of the free electromagnetic field and the free medium, induced by the interaction between them, as described by the Lippmann-Schwinger equations. We show that if there are $N$ emitters interacting with this plasmon-polariton field, the effective interaction involves a much smaller set of bosonic continuum modes: the interacting part of the continuum can be described by $N$ non-degenerate one-dimensional continua, one for each emitter. The representation of the interaction in terms of a single hybrid continuum spectrum coincides with the one within the macroscopic Langevin model with bulk medium. This coincidence is explained by an exact compensation of two terms, one in the coupling term of the Hamiltonian and the other one in a Green tensor identity.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21758"></a>
 ### [Photon Sorting with a Quantum Emitter](http://arxiv.org/abs/2604.21758v1)
 
@@ -784,6 +1057,118 @@ Quantum resources such as entanglement form the backbone of quantum technologies
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21565"></a>
+### [Pulse Shaping for Superconducting Qubits](http://arxiv.org/abs/2604.21565v1)
+
+**Authors:** Animesh Patra, Ankur Raina  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21565v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `QC/QI experiment` **2/5** · `dissipative systems` **2/5** · `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21565_figures/2604.21565_fig1.jpg" width="500"><br>
+<sub>Figure 1: The potential energy profile and eigenenergies for the harmonic oscillator (solid red) and the anharmonic oscillator (solid green) in ℏ= 1 units. The energy separation (equivalently, the transition frequency ωh) between the eigenstates of the harmonic oscillator is equal. For the aim of building a transmon qubit, an anharmonic oscillator is considered. Each energy separation (equivalently, the transition frequencies ω01, ω12 and so on) is different. Differing energy separation allows to form a computational subspace from |0⟩and |1⟩. While the rest of the states, like the |2⟩state, form the leakage subspace.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21565_figures/2604.21565_fig2.jpg" width="500"><br>
+<sub>Figure 2: (a)The transition probability of the square and the triangular pulse from Magnus expansion truncated at second order for δ = 0.5, A0 = π. (b) Numerical simulation of exact dynamics shown by RWA Hamiltonian of Eq.5 for square and triangular pulse at δ = 0.5, A0 = π. The simulation is carried out using QuTiP in Python.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21565_figures/2604.21565_fig3.jpg" width="500"><br>
+<sub>Figure 3: (a) The square pulse (green line) and the Gaussian pulse (red line). The square pulse is analytically easier to study however, (b) it’s baseband frequency spectrum has wider sidelobes than the Gaussian pulse.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21565_figures/2604.21565_fig4.jpg" width="500"><br>
+<sub>Figure 4: (a) The solid-green, dashed-red, and dash-dotted blue lines are all Gaussian pulses with decreasing pulse duration. (b) Shorter pulses have a wider frequency spread. Broader frequency support increases the chances of overlap with the unwanted transition frequency.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21565_figures/2604.21565_fig5.jpg" width="500"><br>
+<sub>Figure 5: A schematic of the three-level model. The first two levels form the computational subspace with a transition frequency of ω1. The σx 01 and σy 01 promote transition inside the computational subspace. However, the σy 01 contribution is the unwanted term arising in the first-order Magnus expansion. The DRAG protocol helps eliminate this and the coupling to the leakage state (arrows shown in red). AC Stark effect contributions emerge at the second order in the expansion (σz 01 and σz 12 terms).</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21565_figures/2604.21565_fig6.jpg" width="500"><br>
+<sub>Figure 6: (a)A schematic illustrating the in-phase I(t) and the quadrature Q(t) component for a standard gaussion DRAG pulse. (b) Numerical simulation of exact dynamics shown by RWA Hamiltonian of Eq.21 for Gaussian and Gaussian DRAG pulse for anharmonicity ∆= −450 MHz, peak pulse amplitude A0 = 200 MHz/2π, pulse width (standard deviation) σ = 6.5 and coupling between |0⟩−|1⟩states as λ = √</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21565_figures/2604.21565_fig7.jpg" width="500"><br>
+<sub>Figure 7: Schematic of the hardware essential for pulse generation. The in-phase (I) and quadrature signals (Q) from the arbitrary waveform generator (AWG) combine with the sinusoid from the local oscillator (LO) in the IQ mixer.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21565_figures/2604.21565_fig8.jpg" width="500"><br>
+<sub>Figure 8: Overlap of the discrete Fourier transform Xd(f) images due to improper sampling (fs ≤ 2f).</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21565_figures/2604.21565_fig9.jpg" width="500"><br>
+<sub>Figure 9: Even though aliasing can be used to generate RF signals, the amplitude shows a sinc(πx) roll-off. The alternating shades of grey denote the different higher Nyquist zones.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21565_figures/2604.21565_fig10.jpg" width="500"><br>
+<sub>Figure 10: Schematic of a basic phase-locked loop configuration.</sub>
+
+</details>
+
+**Main problem.** Achieving high-fidelity control of superconducting qubits by mitigating errors such as leakage to higher energy states, AC Stark effect-induced phase errors, and hardware-induced pulse distortions.
+
+**Main result.** The paper provides a unified framework for pulse shaping, demonstrating that techniques like DRAG and active cancellation can significantly suppress leakage and crosstalk, while also identifying how hardware imperfections like IQ imbalance and LO instability degrade gate fidelity.
+
+**Method.** The authors use the Magnus expansion for analytical error analysis, the Rotating Wave Approximation (RWA) for Hamiltonian simplification, and QuTiP-based numerical simulations to validate pulse-shaping protocols.
+
+**Summary.** This paper serves as a pedagogical guide to pulse-shaping techniques for superconducting transmon qubits. It bridges the gap between abstract quantum gate theory and the practical realities of microwave hardware. The authors detail how techniques like DRAG and active cancellation mitigate errors like leakage and AC Stark shifts. Furthermore, it addresses how hardware imperfections like IQ imbalance and LO noise impact gate fidelity. Ultimately, it provides a roadmap for designing high-fidelity control pulses in the presence of multi-level dynamics and hardware constraints.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study focuses on superconducting transmon qubits, modeled as weakly anharmonic multi-level systems (including a leakage state |2>), and explores two-qubit interactions via the Cross-Resonance (CR) gate.
+
+**Key observables.** Transition probabilities (P0->1), gate fidelity, leakage rates, and qubit dephasing rates.
+
+**Important parameters / regimes.** Anharmonicity (delta), detuning (delta), pulse duration (T), drive amplitude (A), and hardware parameters like sampling rate (fs) and IQ imbalance.
+
+**Assumptions / limitations.** The analysis assumes pulse boundary conditions where the envelope starts and ends at zero, and neglects higher-order Magnus expansion terms and certain environmental noise sources.
+
+**Figures summary.** Figures compare energy profiles of harmonic vs. anharmonic oscillators, illustrate Fourier spectra of different pulse shapes, show the effectiveness of DRAG in suppressing leakage, and depict the hardware signal chain from AWG to the qubit.
+
+**Paper structure.** The paper follows a pedagogical progression: starting with basic two-level dynamics and pulse spectral properties, moving to multi-level leakage and the DRAG protocol, analyzing error channels via the Magnus expansion, discussing hardware-induced distortions (IQ mixing, DAC roll-off), and concluding with complex two-qubit gate error mitigation.
+
+**Why it may be interesting.** It provides deep analytical insight into how control-field engineering (pulse shaping) can be used to suppress non-adiabatic transitions and leakage in multi-level systems, which is highly relevant to anyone working on the control of open quantum systems or cavity QED.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+High-fidelity control of superconducting qubits requires carefully shaped microwave pulses that account for multiple error channels. In this work, we present a pedagogical introduction to pulse-shaping techniques for transmon qubits, aiming to provide a unified, accessible framework that integrates physical intuition for pulse design, analytical understanding of gate-level descriptions, and practical considerations of hardware. This article further aims to serve as a guide for students and early researchers entering superconducting quantum computing. We begin by examining simple pulse envelopes and their spectral properties, highlighting how finite bandwidth leads to leakage outside the computational subspace. These observations motivate the introduction of the derivative removal by adiabatic gate (DRAG) technique, which uses a quadrature component proportional to the pulse's time derivative to suppress off-resonant excitations. We analyze the single-qubit case using the Magnus expansion, which provides a clear understanding of the order-by-order introduction of error channels. We discuss the practical hardware realities of control pulse generation, focusing on arbitrary waveform generators (AWG), local oscillators (LO), and IQ mixing. Common imperfections are discussed in terms of their impact on the effective pulse shape and qubit Hamiltonian. Finally, we extend the discussion to two-qubit operations, focusing on the cross-resonance gate and the emergence of effective interactions.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21791"></a>
 ### [Rigorous Security Proofs for Practical Quantum Key Distribution](http://arxiv.org/abs/2604.21791v1)
 
@@ -1006,8 +1391,113 @@ Page and Wootters (1983) showed how time and dynamics can emerge in a stationary
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21594"></a>
+### [Composite quantum gates simultaneously compensated for multiple errors](http://arxiv.org/abs/2604.21594v1)
 
-## Other papers (14)
+**Authors:** Hristo Tochev, Nikolay Vitanov  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21594v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `Rydberg arrays` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21594_figures/2604.21594_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (Color online) Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for (a) single π pulse, (b) CORPSE, (c) B3r pulse, (d) B3d pulse. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21594_figures/2604.21594_fig2.jpg" width="500"><br>
+<sub>FIG. 2. (Color online) Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for (a) B5 pulse, (b) BB1 pulse, (c) U5a pulse, (d) U5b pulse. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21594_figures/2604.21594_fig3.jpg" width="500"><br>
+<sub>FIG. 3. (Color online) Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for seven pulses: (a) U7a, (b) U7b, (c) X7a, (d) X7b sequences. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21594_figures/2604.21594_fig4.jpg" width="500"><br>
+<sub>FIG. 4. (Color online) Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for nine pulses: (a) U9a, (b) U9b, (c) X9a, (d) X9b sequences. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21594_figures/2604.21594_fig5.jpg" width="500"><br>
+<sub>FIG. 5. (Color online) Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for eleven pulses: (a) U11a, (b) U11b, (c) X11a, (d) X11b sequences. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21594_figures/2604.21594_fig6.jpg" width="500"><br>
+<sub>FIG. 6. (Color online) Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for thirteen pulses: (a) U13a, (b) U13b, (c) X13a, (d) X13b sequences. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21594_figures/2604.21594_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Infidelity of X gate versus the detuning error δ and the Rabi frequency error ϵ for non-symmetric CP optimized through Eq. (8). (a) X5c, (b) X7c, (c) X9c, (d) X11c. The pa- rameters of the pulses can be found in Table I. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21594_figures/2604.21594_fig8.jpg" width="500"><br>
+<sub>FIG. 8. (Color online) Infidelity of Hadamard gate versus the detuning error δ and the Rabi frequency error ϵ for CP op- timized through Eq. (8). (a) H3 with length 3, (b) H4 with length 4, (c) H5 with length 5, (d) H6 with length 6. The pa- rameters of the pulses can be found in Table II. The contours depict infidelity of 10−4 (innermost) to 10−1 (outermost).</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21594_figures/2604.21594_fig9.jpg" width="500"><br>
+<sub>FIG. 9. (Color online) Infidelity of Hadamard gate versus the detuning error δ and the Rabi frequency error ϵ for CP op- timized through Eq. (8). (a) H7, (b) H8, (c) H10, (d) H15. The parameters of the pulses can be found in Table II. The contours depict infidelity of 10−4 (innermost) to 10−1 (outer- most).</sub>
+
+</details>
+
+**Main problem.** Systematic control errors, specifically Rabi frequency (amplitude), detuning (frequency), and pulse duration errors, prevent the realization of high-fidelity single-qubit gates.
+
+**Main result.** The authors derived new composite pulse sequences (Xn) that simultaneously compensate for amplitude, detuning, and duration errors, providing broader robustness windows than existing universal or single-error-compensating sequences.
+
+**Method.** Two strategies were used: derivative-based cancellation of error terms in the full SU(2) unitary using Cayley-Klein parametrization, and direct numerical minimization of average gate infidelity over prescribed error ranges.
+
+**Summary.** This paper presents a new class of composite pulse sequences designed to protect single-qubit gates against simultaneous amplitude, detuning, and duration errors. By using both analytical derivative-based cancellation and numerical optimization, the authors developed sequences that outperform standard 'universal' pulses. The results show that longer, asymmetric sequences can significantly expand the robustness window for X and Hadamard gates. This work provides a practical tool for improving gate fidelity in the presence of systematic control drifts.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A single qubit interacting with an external electromagnetic field, modeled by a standard two-level Hamiltonian with Rabi frequency (Omega), detuning (Delta), and pulse duration (T).
+
+**Key observables.** Gate fidelity and average gate infidelity.
+
+**Important parameters / regimes.** Rabi frequency error (epsilon), detuning error (delta), pulse phases, and pulse areas.
+
+**Assumptions / limitations.** Pulses are assumed to be rectangular with constant detuning; the error model assumes systematic, coherent errors.
+
+**Figures summary.** Figure 1 compares infidelity contours of single pulses and known sequences (CORPSE, B3r, B3d); Figure 2 and 3 show that the new Xn sequences provide broader high-fidelity domains compared to B5, BB1, and U5 sequences; Figure 7 and 8 show infidelity for optimized asymmetric X and Hadamard gates.
+
+**Paper structure.** The paper introduces the problem of multi-error compensation, presents two construction strategies (analytical and numerical), compares new symmetric and asymmetric sequences against existing literature, and demonstrates performance for X and Hadamard gates.
+
+**Why it may be interesting.** This is highly relevant for quantum optics and AMO physicists as it provides a robust control framework for implementing high-fidelity gates in systems like trapped ions or Rydberg atoms where systematic frequency and amplitude drifts are common.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Systematic control errors remain a primary obstacle to realizing high-fidelity single-qubit gates. We introduce composite pulse sequences that implement X and Hadamard gates while simultaneously compensating amplitude (Rabi-frequency), detuning (frequency), and duration errors. Our construction uses two complementary strategies: (i) derivative-based cancellation of error terms in the full unitary (not just the transition probability), formulated via the Cayley-Klein parametrization, and (ii) direct minimization of the average gate infidelity over prescribed error ranges. We derive symmetric five-pulse solutions with closed-form phases that cancel all first-order terms (including the mixed derivative), and numerically optimize longer sequences -- up to 15 pulses -- to achieve higher-order suppression. We also show that standard ``universal'' five-pulse sequences (U5a/U5b) emerge as simple phase-shifted instances of our symmetric solutions, yielding broad robustness to both detuning and amplitude errors. Finally, we construct variable-area sequences for $R_x(π/2)$, which, up to virtual Z rotations, benchmark the Hadamard gate. Across all families we observe the expected trade-off between sequence length and robustness window, with substantial boosts in fidelity over large error domains.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+## Other papers (16)
 
 *Papers from primary archives without highlighted authors or any topic match. Click to expand.*
 
@@ -1898,6 +2388,73 @@ Deep reinforcement learning (RL) for quantum circuit optimization faces three fu
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21656"></a>
+### [Speed-oriented quantum circuit backend](http://arxiv.org/abs/2604.21656v1)
+
+**Authors:** Sören Wilkening  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21656v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21656_figures/2604.21656_fig1.jpg" width="500"><br>
+<sub>Figure 2: Visualization of the gates array within the circuit_t data structure for a 5-qubit QFT without swaps. The gate indices represent their target/control qubits.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21656_figures/2604.21656_fig2.jpg" width="500"><br>
+<sub>Figure 3: Visualization of gate_index (left) and last_layer_of_qubit (top and bottom right) within the circuit_t data structure for a 5-qubit QFT without swaps. The table on the bottom right shows how the data structure is adjusted after applying an additional Hadamard gate to qubit 4, eliminating the previously applied gate. The thick boxes indicate the current head of the list for the respective qubit. Whenever a gate is to be applied to specific qubits, its potential layer position is read from this array.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21656_figures/2604.21656_fig3.jpg" width="500"><br>
+<sub>Figure 4: Comparison of running times for building the QFT circuit across state-of-the-art software packages. For all instance sizes, our quantum circuit backend generates the QFT circuit faster than any other available package. Furthermore, the improved variant approaches the theoretical limit of generating and storing quantum circuits, suggesting that no significantly faster single- threaded implementation can be achieved.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21656_figures/2604.21656_fig4.jpg" width="500"><br>
+<sub>Figure 5: Comparison of memory requirements for building the QFT circuit across state-of-the-art software packages. Compared to all packages except Ket, our new circuit backend requires less memory. For large instances, Ket achieves a slight advantage; however, we expect this advantage to diminish for larger circuits, as our algorithm approaches the theoretical minimum of the data required for storage. Both variants of our implementation require the same memory, as they use the same underlying data structure.</sub>
+
+</details>
+
+**Main problem.** The increasing classical preprocessing time required for quantum circuit generation (QCG) is becoming a bottleneck for large-scale quantum computing, potentially negating quantum advantage in applications like combinatorial optimization.
+
+**Main result.** The proposed C-based backend (QCB) achieves significantly faster circuit generation and lower memory usage than major frameworks like Qiskit and Q#, with performance improvements reaching up to 1,748,000x compared to Q# for 2000-qubit QFT circuits.
+
+**Method.** The authors developed a lightweight C implementation using a layered 2D data structure, lookup tables for O(1) gate insertion, and optimization techniques like gate cancellation, merging, and a depth-reduction swap mechanism.
+
+**Summary.** This paper introduces a new, high-performance software backend designed specifically for the rapid generation of large-scale quantum circuits. By using a low-level C implementation and efficient data structures, the authors demonstrate that they can generate circuits for up to 2000 qubits orders of magnitude faster than industry-standard tools like Qiskit. This efficiency is crucial for preventing classical preprocessing from becoming a bottleneck in large-scale quantum algorithms. The work also provides high-level primitives for bit-level manipulations, making it a potential foundation for future quantum programming languages.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study focuses on the construction of large-scale quantum circuits, using the Quantum Fourier Transform (QFT) as the primary benchmark algorithm for systems up to 2000 qubits.
+
+**Key observables.** Runtime (generation speed) and memory consumption (RAM usage) during circuit construction.
+
+**Important parameters / regimes.** Number of qubits (up to 2000); comparison of peak runtime and memory overhead against existing frameworks.
+
+**Assumptions / limitations.** The implementation is an early-stage prototype; it assumes gates contain a small, constant number of qubits and currently supports only single-parameter gates.
+
+**Figures summary.** Figure 1 and 2 visualize the QFT circuit and the internal layered data structure; Figure 3 shows the gate and qubit lookup tables; Figure 4 presents a log-scale comparison of runtimes across various software packages; Figure 5 shows a log-scale comparison of memory requirements.
+
+**Paper structure.** The paper introduces the problem of classical overhead in QCG, describes the C-based implementation and its data structures, details the optimization algorithms (gate merging and depth reduction), presents benchmarking results against 12 existing tools, and concludes with future work regarding hardware-aware compilation.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We present a new software package for efficient quantum circuit generation, designed to achieve optimal runtime performance. Despite being in an early stage of development, our implementation demonstrates significant advantages over existing tools. Using the quantum Fourier transform (QFT) as a benchmark, we show that our backend can generate circuits for systems with up to 2000 qubits faster than widely used frameworks such as Qiskit and Q#. This improvement is particularly relevant for applications where classical preprocessing time, including circuit generation, must be minimized to not diminish any potential quantum advantage - for example, in combinatorial optimization tasks. Additionally, our software provides high-level primitives for bit- and integer-level manipulations, offering a simplified interface for integration with high-level quantum programming languages.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21929"></a>
 ### [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](http://arxiv.org/abs/2604.21929v1)
 
@@ -2064,6 +2621,115 @@ We study spectral properties of quantum many-body Hamiltonians through a subsyst
 <details><summary>Abstract</summary>
 
 We show that detecting steady-state Coulomb-mediated reduction in the thermal variance of the differential motional mode of two nanospheres can bound the Continuous Spontaneous Localization (CSL) parameter ($λ_{\text{CSL}}$). For realistic experimental parameters, the resulting bounds are comparable to those obtained from X-ray emission experiments and surpass those set by bulk-heating ones. Unlike these latter experiments, our bounds are robust against plausible coloured-noise extensions of collapse models. In the short-time regime, we find that a weak Coulomb-induced entanglement-based test between two charged nanospheres initialized in ground state can provide constraints on $λ_{\text{CSL}}$ comparable to limits set by early X-ray experiments.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21630"></a>
+### [The KMS and GNS Spectral Gap of Quantum Markov Semigroups](http://arxiv.org/abs/2604.21630v1)
+
+**Authors:** Melchior Wirth  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21630v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21630_figures/2604.21630_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21630_figures/2604.21630_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21630_figures/2604.21630_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21630_figures/2604.21630_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21630_figures/2604.21630_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21630_figures/2604.21630_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21630_figures/2604.21630_page8.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 8</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21630_figures/2604.21630_page9.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 9</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21630_figures/2604.21630_page10.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 10</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21630_figures/2604.21630_page11.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 11</sub>
+
+</details>
+
+**Main problem.** The paper investigates the relationship between the exponential decay rates (spectral gaps) of quantum Markov semigroups when measured using different inner products, specifically comparing the GNS and KMS inner products.
+
+**Main result.** The author proves that the spectral gap for the KMS inner product is always bounded below by the GNS spectral gap, generalizing a previous conjecture for Gaussian systems to all quantum Markov semigroups with a faithful normal invariant state on arbitrary von Neumann algebras.
+
+**Method.** The proof employs operator theory tools including operator monotone functions, the operator Jensen inequality, interpolation theory (Donoghue's theorem), and Lieb's concavity theorem.
+
+**Summary.** This paper resolves a conjecture regarding the relationship between different spectral gaps in quantum Markov semigroups. It proves that the decay rate measured via the KMS inner product is at least as large as the decay rate measured via the GNS inner product. Crucially, the author shows this property holds for any quantum Markov semigroup with a faithful normal invariant state, not just for Gaussian models. The work also extends this relationship to a wide class of inner products defined by operator monotone functions.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study focuses on Quantum Markov Semigroups (QMS) and quantum Dirichlet forms acting on von Neumann algebras, which model the time evolution of open quantum systems.
+
+**Key observables.** The spectral gaps (exponential decay rates) associated with different inner products (GNS, KMS, and $f$-inner products).
+
+**Important parameters / regimes.** The class of operator monotone functions $f \in OM_1$ and the parameter $\alpha$ for the family of functions $f_\alpha(t) = t^\alpha$.
+
+**Assumptions / limitations.** The results assume the existence of a faithful normal invariant state on the von Neumann algebra.
+
+**Paper structure.** The paper begins by addressing a specific conjecture for Gaussian QMS, then generalizes the result to arbitrary von Neumann algebras. It explores the properties of a broader class of inner products induced by operator monotone functions, analyzes the symmetry and monotonicity of spectral gaps for power-law functions, and concludes by noting the lack of a reverse inequality.
+
+**Why it may be interesting.** This is highly relevant for researchers in open quantum systems and quantum optics, as it provides a fundamental mathematical guarantee regarding the convergence rates of dissipative dynamics across different physical representations (GNS vs KMS).
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We establish a relation between the exponential decay rates of quantum Markov semigroups with respect to different inner products. More precisely, it was conjectured by Fagnola, Poletti, Sasso and Umanità that for a Gaussian quantum Markov semigroup, the exponential decay rate with respect to the KMS inner product is bounded below by the exponential decay rate for the GNS inner product. We show that this is indeed the case and not limited to Gaussian quantum Markov semigroups, but holds for quantum Markov semigroups with a faithful normal invariant state on arbitrary von Neumann algebras. Additionally, the KMS inner product can be replaced by a whole class of inner products induced by operator monotone functions.
 
 </details>
 
