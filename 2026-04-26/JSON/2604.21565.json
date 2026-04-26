@@ -1,0 +1,103 @@
+{
+  "arxiv_id": "2604.21565",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "eess.SP"
+  ],
+  "is_primary_archive": true,
+  "title": "Pulse Shaping for Superconducting Qubits",
+  "authors": "Animesh Patra, Ankur Raina",
+  "abstract": "High-fidelity control of superconducting qubits requires carefully shaped microwave pulses that account for multiple error channels. In this work, we present a pedagogical introduction to pulse-shaping techniques for transmon qubits, aiming to provide a unified, accessible framework that integrates physical intuition for pulse design, analytical understanding of gate-level descriptions, and practical considerations of hardware. This article further aims to serve as a guide for students and early researchers entering superconducting quantum computing. We begin by examining simple pulse envelopes and their spectral properties, highlighting how finite bandwidth leads to leakage outside the computational subspace. These observations motivate the introduction of the derivative removal by adiabatic gate (DRAG) technique, which uses a quadrature component proportional to the pulse's time derivative to suppress off-resonant excitations. We analyze the single-qubit case using the Magnus expansion, which provides a clear understanding of the order-by-order introduction of error channels. We discuss the practical hardware realities of control pulse generation, focusing on arbitrary waveform generators (AWG), local oscillators (LO), and IQ mixing. Common imperfections are discussed in terms of their impact on the effective pulse shape and qubit Hamiltonian. Finally, we extend the discussion to two-qubit operations, focusing on the cross-resonance gate and the emergence of effective interactions.",
+  "url": "http://arxiv.org/abs/2604.21565v1",
+  "pdf": "https://arxiv.org/pdf/2604.21565v1",
+  "type": "both",
+  "summary": "This paper serves as a pedagogical guide to pulse-shaping techniques for superconducting transmon qubits. It bridges the gap between abstract quantum gate theory and the practical realities of microwave hardware. The authors detail how techniques like DRAG and active cancellation mitigate errors like leakage and AC Stark shifts. Furthermore, it addresses how hardware imperfections like IQ imbalance and LO noise impact gate fidelity. Ultimately, it provides a roadmap for designing high-fidelity control pulses in the presence of multi-level dynamics and hardware constraints.",
+  "main_problem": "Achieving high-fidelity control of superconducting qubits by mitigating errors such as leakage to higher energy states, AC Stark effect-induced phase errors, and hardware-induced pulse distortions.",
+  "main_result": "The paper provides a unified framework for pulse shaping, demonstrating that techniques like DRAG and active cancellation can significantly suppress leakage and crosstalk, while also identifying how hardware imperfections like IQ imbalance and LO instability degrade gate fidelity.",
+  "method": "The authors use the Magnus expansion for analytical error analysis, the Rotating Wave Approximation (RWA) for Hamiltonian simplification, and QuTiP-based numerical simulations to validate pulse-shaping protocols.",
+  "model_or_system": "The study focuses on superconducting transmon qubits, modeled as weakly anharmonic multi-level systems (including a leakage state |2>), and explores two-qubit interactions via the Cross-Resonance (CR) gate.",
+  "key_observables": "Transition probabilities (P0->1), gate fidelity, leakage rates, and qubit dephasing rates.",
+  "important_parameters": "Anharmonicity (delta), detuning (delta), pulse duration (T), drive amplitude (A), and hardware parameters like sampling rate (fs) and IQ imbalance.",
+  "main_assumptions": "The analysis assumes pulse boundary conditions where the envelope starts and ends at zero, and neglects higher-order Magnus expansion terms and certain environmental noise sources.",
+  "figures_summary": "Figures compare energy profiles of harmonic vs. anharmonic oscillators, illustrate Fourier spectra of different pulse shapes, show the effectiveness of DRAG in suppressing leakage, and depict the hardware signal chain from AWG to the qubit.",
+  "paper_structure": "The paper follows a pedagogical progression: starting with basic two-level dynamics and pulse spectral properties, moving to multi-level leakage and the DRAG protocol, analyzing error channels via the Magnus expansion, discussing hardware-induced distortions (IQ mixing, DAC roll-off), and concluding with complex two-qubit gate error mitigation.",
+  "why_interesting": "It provides deep analytical insight into how control-field engineering (pulse shaping) can be used to suppress non-adiabatic transitions and leakage in multi-level systems, which is highly relevant to anyone working on the control of open quantum systems or cavity QED.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21565_figures/2604.21565_fig1.jpg",
+      "caption": "Figure 1: The potential energy profile and eigenenergies for the harmonic oscillator (solid red) and the anharmonic oscillator (solid green) in ℏ= 1 units. The energy separation (equivalently, the transition frequency ωh) between the eigenstates of the harmonic oscillator is equal. For the aim of building a transmon qubit, an anharmonic oscillator is considered. Each energy separation (equivalently, the transition frequencies ω01, ω12 and so on) is different. Differing energy separation allows to form a computational subspace from |0⟩and |1⟩. While the rest of the states, like the |2⟩state, form the leakage subspace.",
+      "page": 2
+    },
+    {
+      "image": "2604.21565_figures/2604.21565_fig2.jpg",
+      "caption": "Figure 2: (a)The transition probability of the square and the triangular pulse from Magnus expansion truncated at second order for δ = 0.5, A0 = π. (b) Numerical simulation of exact dynamics shown by RWA Hamiltonian of Eq.5 for square and triangular pulse at δ = 0.5, A0 = π. The simulation is carried out using QuTiP in Python.",
+      "page": 5
+    },
+    {
+      "image": "2604.21565_figures/2604.21565_fig3.jpg",
+      "caption": "Figure 3: (a) The square pulse (green line) and the Gaussian pulse (red line). The square pulse is analytically easier to study however, (b) it’s baseband frequency spectrum has wider sidelobes than the Gaussian pulse.",
+      "page": 6
+    },
+    {
+      "image": "2604.21565_figures/2604.21565_fig4.jpg",
+      "caption": "Figure 4: (a) The solid-green, dashed-red, and dash-dotted blue lines are all Gaussian pulses with decreasing pulse duration. (b) Shorter pulses have a wider frequency spread. Broader frequency support increases the chances of overlap with the unwanted transition frequency.",
+      "page": 7
+    },
+    {
+      "image": "2604.21565_figures/2604.21565_fig5.jpg",
+      "caption": "Figure 5: A schematic of the three-level model. The first two levels form the computational subspace with a transition frequency of ω1. The σx 01 and σy 01 promote transition inside the computational subspace. However, the σy 01 contribution is the unwanted term arising in the first-order Magnus expansion. The DRAG protocol helps eliminate this and the coupling to the leakage state (arrows shown in red). AC Stark effect contributions emerge at the second order in the expansion (σz 01 and σz 12 terms).",
+      "page": 8
+    },
+    {
+      "image": "2604.21565_figures/2604.21565_fig6.jpg",
+      "caption": "Figure 6: (a)A schematic illustrating the in-phase I(t) and the quadrature Q(t) component for a standard gaussion DRAG pulse. (b) Numerical simulation of exact dynamics shown by RWA Hamiltonian of Eq.21 for Gaussian and Gaussian DRAG pulse for anharmonicity ∆= −450 MHz, peak pulse amplitude A0 = 200 MHz/2π, pulse width (standard deviation) σ = 6.5 and coupling between |0⟩−|1⟩states as λ = √",
+      "page": 9
+    },
+    {
+      "image": "2604.21565_figures/2604.21565_fig7.jpg",
+      "caption": "Figure 7: Schematic of the hardware essential for pulse generation. The in-phase (I) and quadrature signals (Q) from the arbitrary waveform generator (AWG) combine with the sinusoid from the local oscillator (LO) in the IQ mixer.",
+      "page": 10
+    },
+    {
+      "image": "2604.21565_figures/2604.21565_fig8.jpg",
+      "caption": "Figure 8: Overlap of the discrete Fourier transform Xd(f) images due to improper sampling (fs ≤ 2f).",
+      "page": 11
+    },
+    {
+      "image": "2604.21565_figures/2604.21565_fig9.jpg",
+      "caption": "Figure 9: Even though aliasing can be used to generate RF signals, the amplitude shows a sinc(πx) roll-off. The alternating shades of grey denote the different higher Nyquist zones.",
+      "page": 11
+    },
+    {
+      "image": "2604.21565_figures/2604.21565_fig10.jpg",
+      "caption": "Figure 10: Schematic of a basic phase-locked loop configuration.",
+      "page": 12
+    }
+  ],
+  "figure": "2604.21565_figures/2604.21565_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 2,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0
+  }
+}
