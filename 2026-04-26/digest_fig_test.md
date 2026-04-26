@@ -1,26 +1,29 @@
+<a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-26
 
-*18 papers · 2 relevant · 1 highlighted*  
-_⏳ in progress: 18/95 papers processed (file updates after each one)_
+*20 papers · 2 relevant · 2 highlighted*  
+_⏳ in progress: 20/95 papers processed (file updates after each one)_
 
 
 ## 🔥 Most relevant (2)
 
-*Papers scoring ≥3/5 on at least one of your topics of interest. Sorted by best-matching topic score. Full entries also appear in their normal category below.*
+*Papers scoring ≥3/5 on at least one of your topics of interest. Sorted by best-matching topic score. Click a title to jump to the full entry below.*
 
-- [Loss-biased fault-tolerant quantum error correction](http://arxiv.org/abs/2604.21876v1) — `Rydberg arrays` **4/5**
-- [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](http://arxiv.org/abs/2604.21820v1) — `Dicke superradiance` **4/5**
-
-
-## ⭐ Highlighted (1)
-
-*Papers by authors on your watch list. Full entries appear only once in their normal category below.*
-
-- ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](http://arxiv.org/abs/2604.21919v1) — Sarang Gopalakrishnan
+- [Loss-biased fault-tolerant quantum error correction](#paper-2604.21876) — `Rydberg arrays` **4/5**
+- [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](#paper-2604.21820) — `Dicke superradiance` **4/5**
 
 
-## quantum information and computing (9)
+## ⭐ Highlighted (2)
 
+*Papers by authors on your watch list. Click a title to jump to the full entry below.*
+
+- ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](#paper-2604.21919) — Sarang Gopalakrishnan
+- ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](#paper-2604.21778) — Andrii G. Sotnikov, Denys I. Bondar
+
+
+## quantum information and computing (10)
+
+<a id="paper-2604.21913"></a>
 ### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
 
 **Authors:** Vaibhav Sharma, Yiming Wang, Shouvik Sur  
@@ -108,6 +111,9 @@ Quantum resources such as entanglement form the backbone of quantum technologies
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21902"></a>
 ### [A Universal Quantum Information Preserving Photonic Switch for Scalable Quantum Networks](http://arxiv.org/abs/2604.21902v1)
 
 **Authors:** Jiapeng Zhao, Stéphane Vinet, Amir Minoofar, Michael Kilzer, Lucas Wang, Galan Moody, Vijoy Pandey, Ramana Kompella, Reza Nejabati  
@@ -196,6 +202,9 @@ Quantum networks are a keystone of the quantum internet. However, existing imple
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21876"></a>
 ### [Loss-biased fault-tolerant quantum error correction](http://arxiv.org/abs/2604.21876v1)
 
 **Authors:** Laura Pecorari, Gavin K. Brennen, Stanimir S. Kondov, Guido Pupillo  
@@ -256,6 +265,9 @@ We investigate the limits of quantum error correction (QEC) in neutral-atom proc
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21874"></a>
 ### [Enhancing Coherence of Spin Centers in p-n Diodes via Optimization Algorithms](http://arxiv.org/abs/2604.21874v1)
 
 **Authors:** Jonatan A. Posligua, David E. Stewart, Denis R. Candido  
@@ -364,6 +376,9 @@ Solid-state spin defects hold great promise as building blocks for various quant
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21866"></a>
 ### [High-performance cellular automaton decoders for quantum repetition and toric code](http://arxiv.org/abs/2604.21866v1)
 
 **Authors:** Don Winter, Thiago L. M. Guedes, Markus Müller  
@@ -470,6 +485,9 @@ Execution of quantum algorithms on large-scale quantum computers will require ex
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21863"></a>
 ### [Replay-buffer engineering for noise-robust quantum circuit optimization](http://arxiv.org/abs/2604.21863v1)
 
 **Authors:** Akash Kundu, Sebastian Feld  
@@ -569,6 +587,9 @@ Deep reinforcement learning (RL) for quantum circuit optimization faces three fu
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21824"></a>
 ### [Deterministic generation of grid states with programmable nonlinear bosonic circuits](http://arxiv.org/abs/2604.21824v1)
 
 **Authors:** Yanis Le Fur, Javier Lalueza-Puértolas, Carlos Sánchez Muñoz, Alberto Muñoz de las Heras, Alejandro González-Tudela  
@@ -628,6 +649,9 @@ Bosonic quantum error correction enables hardware-efficient protection of quantu
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21800"></a>
 ### [Variance Geometry of Exact Pauli-Detecting Codes: Continuous Landscapes Beyond Stabilizers](http://arxiv.org/abs/2604.21800v1)
 
 **Authors:** Arunaday Gupta, Baisong Sun, Xi He, Bei Zeng  
@@ -671,6 +695,9 @@ Exact quantum codes detecting a prescribed set of Pauli errors are approached th
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21791"></a>
 ### [Rigorous Security Proofs for Practical Quantum Key Distribution](http://arxiv.org/abs/2604.21791v1)
 
 **Authors:** Devashish Tupkary  
@@ -779,9 +806,121 @@ This thesis is concerned with rigorous security analyses of practical Quantum Ke
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
 
-## numerical methods (2)
+<a id="paper-2604.21788"></a>
+### [Partial oracles quantum algorithm framework -- Part I: Analysis of in-place operations](http://arxiv.org/abs/2604.21788v1)
 
+**Authors:** Fintan M. Bolton  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21788v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21788_figures/2604.21788_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Overview of partial oracle iterations. At each iteration stage j, a search is executed to</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21788_figures/2604.21788_fig2.jpg" width="500"><br>
+<sub>FIG. 2. First partial oracle iteration showing: (a) the initial equal superposition state; (b) index</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21788_figures/2604.21788_fig3.jpg" width="500"><br>
+<sub>Figure 2 shows a visualization of the Grover-Long algorithm, implementing the first</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21788_figures/2604.21788_fig4.jpg" width="500"><br>
+<sub>Figure 3 shows a visualization of the modified Grover-Long algorithm, implementing</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21788_figures/2604.21788_fig5.jpg" width="500"><br>
+<sub>FIG. 3. Second (and subsequent) partial oracle iteration: (a) index states remaining after the</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21788_figures/2604.21788_fig6.jpg" width="500"><br>
+<sub>Figure 4 shows the corresponding circuit for the majority oracle function, which requires</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21788_figures/2604.21788_fig7.jpg" width="500"><br>
+<sub>FIG. 6. Reciprocal majority gate</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21788_figures/2604.21788_fig8.jpg" width="500"><br>
+<sub>Figure 7 shows the corresponding circuit for the choose function, which requires just two</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21788_figures/2604.21788_fig9.jpg" width="500"><br>
+<sub>FIG. 7. Circuit for the choose function Ch(a, b, c)</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21788_figures/2604.21788_fig10.jpg" width="500"><br>
+<sub>FIG. 8. Reciprocal choose gate</sub>
+
+</details>
+
+**Main problem.** The paper addresses the lack of an explicit method for constructing the search iteration operator within the 'partial oracles' quantum algorithm framework, which aims to potentially achieve exponential speedup over Grover's algorithm.
+
+**Main result.** The author provides the missing construction for the search iteration operator for in-place oracle functions and introduces the 'reciprocal transform' to reorder Walsh functions in reciprocal space.
+
+**Method.** The method utilizes a new 'reciprocal transform' that obeys a chain rule, allowing complex oracle functions to be decomposed into simple steps, and implements these using the QFrame Python library.
+
+**Summary.** This paper develops a critical component of the partial oracles quantum algorithm framework by providing a method to construct search iteration operators. By introducing the 'reciprocal transform,' the author shows how complex, multi-bit oracle functions can be decomposed and implemented in quantum circuits. While the current focus on in-place operations does not yet prove quantum advantage, the work demonstrates the ability to invert simplified cryptographic primitives like SHA-256 components. The introduction of the QFrame library also provides a tool for automating the generation of these complex quantum circuits.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The framework uses a quantum computing model involving an n-qubit index register, multi-bit oracle functions, and operations in both direct (index) and reciprocal (Walsh function) spaces.
+
+**Key observables.** The success of the algorithm is measured by the probability of finding the target index $x_s$ where all oracle bits satisfy a specific condition (e.g., all zeros).
+
+**Important parameters / regimes.** The paper distinguishes between 'in-place' operations (where results are read from the index qubits) and 'out-of-place' operations; it also focuses on bijective (one-to-one) oracle functions.
+
+**Assumptions / limitations.** The current construction is limited to in-place operations, which are classically reversible and thus do not yet demonstrate quantum advantage; the framework also assumes the oracle function is bijective.
+
+**Figures summary.** Figure 1 shows the nested structure of partial oracle iterations; Figure 2 and 3 visualize the transition through Walsh-Hadamard and reciprocal transforms; Figures 4-12 illustrate specific quantum circuits for cryptographic primitives like Maj, Ch, and modulo addition.
+
+**Paper structure.** The paper introduces the partial oracles framework, defines the reciprocal transform and its chain rule, provides the construction for in-place operators, demonstrates applications to SHA-256 components, and introduces the QFrame automation library.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The partial oracles framework is a quantum search algorithm that has the potential to exceed the quadratic speedup of Grover's algorithm, up to a theoretical maximum of an exponential speedup. Until now, however, the framework has lacked an explicit method for constructing the operator that represents the search iteration. In this paper, we provide the missing construction, for the special case of an oracle function definable using only in-place operations (that is, where the calculated result of the oracle function can be read just from the qubits in the search index). The restriction to in-place operations means that the current work does not yet exhibit quantum advantage: oracle functions constructed using only in-place operations are always classically reversible. To demonstrate quantum advantage, it will be necessary to extend this construction method to include out-of-place operations (part II). As part of the construction of the search iteration operator, we define a new type of transform, the reciprocal transform, which is applied to the oracle function. We show that the reciprocal transform obeys a chain rule, which makes it possible to break down complex transforms into simple steps. To illustrate the practical application of this search method, we apply the reciprocal transform to elementary operations from the SHA-256 hash algorithm: addition modulo $2^n$, the $Maj(a, b, c)$ function, the $Ch(a, b, c)$ function, and the bit shift functions. We also introduce the QFrame python library, which is used to automate the construction of quantum circuits that represent reciprocal transforms.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+## numerical methods (3)
+
+<a id="paper-2604.21919"></a>
 ### ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](http://arxiv.org/abs/2604.21919v1)
 
 **Highlighted author(s):** Sarang Gopalakrishnan  
@@ -828,6 +967,9 @@ Belief propagation has recently emerged as a powerful framework for evaluating t
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21908"></a>
 ### [Efficient Classical Simulation of Heuristic Peaked Quantum Circuits](http://arxiv.org/abs/2604.21908v1)
 
 **Authors:** David Kremer, Nicolas Dupuis  
@@ -892,9 +1034,69 @@ Peaked quantum circuits, whose output distribution is sharply concentrated on a 
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21778"></a>
+### ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](http://arxiv.org/abs/2604.21778v1)
+
+**Highlighted author(s):** Andrii G. Sotnikov, Denys I. Bondar  
+**Authors:** Roman Ovsiannikov, Kurt Jacobs, Andrii G. Sotnikov, Denys I. Bondar  
+**Type:** theory · **PDF:** <https://arxiv.org/pdf/2604.21778v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `Dicke superradiance` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21778_figures/2604.21778_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Evolution of the eigenvalues of the covariance matrix (2) for Holstein–Primakoff approach (orange and blue solid lines), QuTip solver (red and green dashed lines), and our algorithm 1 with method=Linear (light green and brown dotted lines) with parame- ters ωc = 2π × 2.4 GHz, ωs = 2π × 3.6 GHz, g = 2π × 10 MHz, Λ = 2π × 1 GHz and ω = 2π × 6 GHz.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21778_figures/2604.21778_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Time of the one step evolution for Qutip solver (green line), our algorithm 1 with method=Exp (blue line), and with method=Linear (orange line).</sub>
+
+</details>
+
+**Main problem.** Developing an efficient, memory-efficient, and unitarity-preserving numerical method for simulating the time-dependent unitary dynamics of the Tavis-Cummings model, specifically overcoming the quadratic scaling of standard solvers like QuTiP.
+
+**Main result.** The authors propose a symplectic split-operator method that achieves linear scaling in both time and memory by exploiting a basis re-indexing trick to transform the Hamiltonian into tridiagonal form. This method remains accurate beyond the rotating-wave approximation and outperforms standard solvers in large Hilbert-space dimensions.
+
+**Method.** A second-order symmetric (Strang) Trotter-Suzuki propagation scheme using two realizations: a block-diagonal exponentiation approach and a Cayley/Crank-Nicolson approach using the Thomas algorithm for tridiagonal linear systems.
+
+**Summary.** This paper introduces a new numerical method for simulating the time-dependent Tavis-Cummings model with much higher efficiency than standard tools. By using a split-operator approach and a clever basis re-indexing trick, the authors reduce the computational complexity to linear scaling with the system size. This allows for the simulation of much larger spin ensembles and longer time scales, even when including non-rotating-wave terms. The method is particularly useful for studying driven hybrid quantum systems like NV centers in diamond.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The closed, undamped, time-dependent Tavis-Cummings model, which describes a multilevel spin ensemble interacting with a single cavity mode, including time-dependent modulation of the spin frequency.
+
+**Key observables.** Eigenvalues of the cavity quadrature covariance matrix (representing X and Y quadratures).
+
+**Important parameters / regimes.** Cavity frequency, spin frequency, spin-cavity coupling strength, modulation amplitude and frequency, and the Hilbert-space dimension D.
+
+**Assumptions / limitations.** The method is specifically tailored to Hamiltonians that can be decomposed into diagonal and tridiagonal parts via basis permutation; it assumes a closed (undamped) system.
+
+**Figures summary.** Figure 1 compares the time evolution of covariance matrix eigenvalues against QuTiP and the Holstein-Primakoff approximation; Figure 2 compares the runtime per propagation step against the Hilbert-space dimension to demonstrate linear scaling.
+
+**Paper structure.** The paper identifies the limitations of current solvers, introduces the Hamiltonian decomposition and basis re-indexing technique, presents two implementation realizations (Block-diagonal and Cayley), validates the method against QuTiP and the Holstein-Primakoff approximation, and discusses computational scaling and potential extensions.
+
+**Why it may be interesting.** It provides a highly scalable tool for simulating large-scale cavity QED systems and spin ensembles, particularly in regimes where the rotating-wave approximation fails, which is crucial for studying driven-dissipative quantum dynamics and many-body effects in hybrid systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We present a fast, memory-efficient, unitarity-preserving numerical method beyond the rotating-wave approximation for the closed Tavis-Cummings model in which a multilevel spin system interacts with a cavity mode. This model can describe the interaction of an ensemble of spins with a cavity mode in which the spin frequency and other parameters are time-dependent. The method exploits the fact that, while the Tavis-Cummings model is not tri-diagonal, it can be brought into tri-diagonal form by a change of basis that can be implemented purely by re-indexing (permuting basis elements), which is a fast operation. By truncating the Fock basis of the cavity mode, the computational complexity of the method is linear in the total dimension of the coupled system, both in time and memory. The method can be employed to simulate any closed quantum system whose Hamiltonian terms can be brought into tri-diagonal form.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 
 ## statistical mechanics (1)
 
+<a id="paper-2604.21929"></a>
 ### [Subsystem-Resolved Spectral Theory for Quantum Many-Body Hamiltonians](http://arxiv.org/abs/2604.21929v1)
 
 **Authors:** MD Nahidul Hasan Sabit  
@@ -1002,9 +1204,12 @@ We study spectral properties of quantum many-body Hamiltonians through a subsyst
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
 
 ## strongly correlated electrons (2)
 
+<a id="paper-2604.21912"></a>
 ### [Cryogenic shock exfoliation for ultrahigh mobility rhombohedral graphite nanoelectronics](http://arxiv.org/abs/2604.21912v1)
 
 **Authors:** Ludwig Holleis, Youngjoon Choi, Canxun Zhang, Jack H. Farrell, Gabriel Bargas, Audrey Hsu, Zexing Chen, Ian Sackin, Wenjie Zhou, Yi Guo, Thibault Charpentier, Yifan Jiang, Benjamin A. Foutty, Aidan Keough, Martin E. Huber, Takashi Taniguchi, Kenji Watanabe, Andrew Lucas, Andrea F. Young  
@@ -1078,6 +1283,9 @@ Rhombohedral multilayer graphene (RMG) offers a highly tunable platform for corr
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21899"></a>
 ### [$3d_{z^2}$ orbital delocalization and magnetic collapse in superconducting (La,Pr)$_3$Ni$_2$O$_{7-δ}$ films](http://arxiv.org/abs/2604.21899v1)
 
 **Authors:** Xiaoyang Chen, Wenliang Zhang, Fei Peng, Ting Cui, Guangdi Zhou, Zezhong Li, Jaewon Choi, Lizhi Xu, Yiu-Fung Chiu, Stefano Agrestini, Sahil Tippireddy, Haoliang Huang, Heng Wang, Xianfeng Wu, Peng Li, Jin-Feng Jia, Mirian Garcia-Fernandez, Yi Lu, Er-Jia Guo, Qi-Kun Xue, Zhuoyu Chen, Donglai Feng, Ke-Jin Zhou  
@@ -1147,9 +1355,12 @@ The recent discovery of Ruddlesden-Popper (RP) nickelate thin-film superconducto
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
 
 ## other (4)
 
+<a id="paper-2604.21857"></a>
 ### [Odd Physics Off the Diagonal: Constraining CP-violating SMEFT with Quantum Tomography](http://arxiv.org/abs/2604.21857v1)
 
 **Authors:** Avalon Roberts, Patrick Dougan, Alexander Oh, Savanna Shaw  
@@ -1257,6 +1468,9 @@ New sources of charge-parity (CP) violation beyond those described in the Standa
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21823"></a>
 ### [Unitary Time Evolution and Vacuum for a Quantum Stable Ghost](http://arxiv.org/abs/2604.21823v1)
 
 **Authors:** Cédric Deffayet, Atabak Fathe Jalali, Aaron Held, Shinji Mukohyama, Alexander Vikman  
@@ -1328,6 +1542,9 @@ We quantize a classically stable system of a harmonic oscillator polynomially co
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21820"></a>
 ### [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](http://arxiv.org/abs/2604.21820v1)
 
 **Authors:** Nikolay Yegovtsev, Sayan Choudhury, W. Vincent Liu  
@@ -1395,6 +1612,9 @@ The Dicke model (DM) serves as a paradigm for understanding collective light-mat
 
 </details>
 
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21805"></a>
 ### [The clock ambiguity is back with a vengeance](http://arxiv.org/abs/2604.21805v1)
 
 **Authors:** Ovidiu Cristinel Stoica  
@@ -1500,3 +1720,5 @@ The Dicke model (DM) serves as a paradigm for understanding collective light-mat
 Page and Wootters (1983) showed how time and dynamics can emerge in a stationary system containing a clock. Albrecht (1995) later showed, for discrete time, that within this framework any dynamical evolution can be obtained simply by choosing a different clock.   Marletto and Vedral (2017) claimed that this ambiguity disappears assuming that the clock and the rest of the world do not interact. I show that their proof relies on an incorrect mathematical assumption. Also, eliminating the ambiguity completely would obstruct spacetime symmetries.   Whereas the original clock ambiguity concerns all possible histories of a discrete-time system evolving under arbitrary Hamiltonians, but not the Hamiltonians themselves, I prove a stronger version for continuous and discrete unbounded time: the ambiguity extends to both histories and Hamiltonians, including noninteracting ones. Only the dimension of the Hilbert space remains.   One might hope to dismiss the ambiguity as merely perspectival, but I show that this would predict incorrect correlations between outcomes and their records, making even knowledge impossible. Purely relational approaches therefore face both the stronger and the original clock ambiguity problems. The ambiguity is removed by taking into account the physical meaning of the operators.
 
 </details>
+
+<sub>[↑ back to top](#top)</sub>

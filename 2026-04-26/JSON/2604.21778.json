@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2604.21778",
+  "category": "numerical methods",
+  "title": "Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model",
+  "authors": "Roman Ovsiannikov, Kurt Jacobs, Andrii G. Sotnikov, Denys I. Bondar",
+  "abstract": "We present a fast, memory-efficient, unitarity-preserving numerical method beyond the rotating-wave approximation for the closed Tavis-Cummings model in which a multilevel spin system interacts with a cavity mode. This model can describe the interaction of an ensemble of spins with a cavity mode in which the spin frequency and other parameters are time-dependent. The method exploits the fact that, while the Tavis-Cummings model is not tri-diagonal, it can be brought into tri-diagonal form by a change of basis that can be implemented purely by re-indexing (permuting basis elements), which is a fast operation. By truncating the Fock basis of the cavity mode, the computational complexity of the method is linear in the total dimension of the coupled system, both in time and memory. The method can be employed to simulate any closed quantum system whose Hamiltonian terms can be brought into tri-diagonal form.",
+  "url": "http://arxiv.org/abs/2604.21778v1",
+  "pdf": "https://arxiv.org/pdf/2604.21778v1",
+  "type": "theory",
+  "summary": "This paper introduces a new numerical method for simulating the time-dependent Tavis-Cummings model with much higher efficiency than standard tools. By using a split-operator approach and a clever basis re-indexing trick, the authors reduce the computational complexity to linear scaling with the system size. This allows for the simulation of much larger spin ensembles and longer time scales, even when including non-rotating-wave terms. The method is particularly useful for studying driven hybrid quantum systems like NV centers in diamond.",
+  "main_problem": "Developing an efficient, memory-efficient, and unitarity-preserving numerical method for simulating the time-dependent unitary dynamics of the Tavis-Cummings model, specifically overcoming the quadratic scaling of standard solvers like QuTiP.",
+  "main_result": "The authors propose a symplectic split-operator method that achieves linear scaling in both time and memory by exploiting a basis re-indexing trick to transform the Hamiltonian into tridiagonal form. This method remains accurate beyond the rotating-wave approximation and outperforms standard solvers in large Hilbert-space dimensions.",
+  "method": "A second-order symmetric (Strang) Trotter-Suzuki propagation scheme using two realizations: a block-diagonal exponentiation approach and a Cayley/Crank-Nicolson approach using the Thomas algorithm for tridiagonal linear systems.",
+  "model_or_system": "The closed, undamped, time-dependent Tavis-Cummings model, which describes a multilevel spin ensemble interacting with a single cavity mode, including time-dependent modulation of the spin frequency.",
+  "key_observables": "Eigenvalues of the cavity quadrature covariance matrix (representing X and Y quadratures).",
+  "important_parameters": "Cavity frequency, spin frequency, spin-cavity coupling strength, modulation amplitude and frequency, and the Hilbert-space dimension D.",
+  "main_assumptions": "The method is specifically tailored to Hamiltonians that can be decomposed into diagonal and tridiagonal parts via basis permutation; it assumes a closed (undamped) system.",
+  "figures_summary": "Figure 1 compares the time evolution of covariance matrix eigenvalues against QuTiP and the Holstein-Primakoff approximation; Figure 2 compares the runtime per propagation step against the Hilbert-space dimension to demonstrate linear scaling.",
+  "paper_structure": "The paper identifies the limitations of current solvers, introduces the Hamiltonian decomposition and basis re-indexing technique, presents two implementation realizations (Block-diagonal and Cayley), validates the method against QuTiP and the Holstein-Primakoff approximation, and discusses computational scaling and potential extensions.",
+  "why_interesting": "It provides a highly scalable tool for simulating large-scale cavity QED systems and spin ensembles, particularly in regimes where the rotating-wave approximation fails, which is crucial for studying driven-dissipative quantum dynamics and many-body effects in hybrid systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.21778_figures/2604.21778_fig1.jpg",
+      "caption": "FIG. 1. Evolution of the eigenvalues of the covariance matrix (2) for Holstein–Primakoff approach (orange and blue solid lines), QuTip solver (red and green dashed lines), and our algorithm 1 with method=Linear (light green and brown dotted lines) with parame- ters ωc = 2π × 2.4 GHz, ωs = 2π × 3.6 GHz, g = 2π × 10 MHz, Λ = 2π × 1 GHz and ω = 2π × 6 GHz.",
+      "page": 4
+    },
+    {
+      "image": "2604.21778_figures/2604.21778_fig2.jpg",
+      "caption": "FIG. 2. Time of the one step evolution for Qutip solver (green line), our algorithm 1 with method=Exp (blue line), and with method=Linear (orange line).",
+      "page": 4
+    }
+  ],
+  "figure": "2604.21778_figures/2604.21778_fig1.jpg",
+  "highlighted": [
+    "Andrii G. Sotnikov",
+    "Denys I. Bondar"
+  ],
+  "topic_scores": {
+    "Rydberg arrays": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "Dicke superradiance": 2,
+    "interference shaping light": 0,
+    "kinetically constrained dynamics": 0
+  }
+}
