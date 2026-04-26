@@ -1,48 +1,62 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-26
 
-*56 papers · 31 relevant · 4 highlighted*  
-_⏳ in progress: 56/144 papers processed (file updates after each one)_
+*70 papers · 45 relevant · 5 highlighted*  
+_⏳ in progress: 70/144 papers processed (file updates after each one)_
 
 
-## 🔥 Most relevant (31)
+## 🔥 Most relevant (45)
 
 *Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥3/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page. `(secondary)` marks papers from de-prioritized cond-mat archives.*
 
+- ⭐ [Light-induced Self-Organization in Cooperative Free Space Atomic Arrays](#paper-2604.21012) [[arXiv]](http://arxiv.org/abs/2604.21012v1) — 🔥 `free-space correlated emission` **4/5** · 🔥 `analog quantum simulation` **3/5** · 🔥 `correlated / nonlocal dissipation` **3/5** · 🔥 `dissipative systems` **3/5** · 🔥 `driven-dissipative phase transition` **3/5** · 🔥 `exotic spin models in light-matter` **3/5** · 🔥 `non-equilibrium dynamics` **3/5** · `Dicke superradiance` **2/5** · `interference shaping light` **2/5** · `methods for driven-dissipative` **2/5** · `entanglement & information structure` **1/5**
 - ⭐ [Quantum jump correlations in long-range dissipative spin systems](#paper-2604.21513) [[arXiv]](http://arxiv.org/abs/2604.21513v1) — 🔥 `correlated / nonlocal dissipation` **4/5** · 🔥 `dissipative systems` **4/5** · 🔥 `driven-dissipative phase transition` **4/5** · 🔥 `methods for driven-dissipative` **4/5** · 🔥 `quantum measurements` **4/5** · 🔥 `non-equilibrium dynamics` **3/5** · 🔥 `non-equilibrium universality` **3/5** · `measurement-induced transitions` **2/5**
 - [Monitoring photon entanglement in coupled cavities](#paper-2604.21208) [[arXiv]](http://arxiv.org/abs/2604.21208v1) — 🔥 `entanglement & information structure` **4/5** · 🔥 `measurement-induced transitions` **4/5** · 🔥 `quantum measurements` **4/5** · 🔥 `dissipative systems` **3/5** · 🔥 `non-equilibrium dynamics` **3/5** · `Tavis-Cummings & cavity-many-emitter` **2/5** · `correlated / nonlocal dissipation` **2/5** · `methods for driven-dissipative` **2/5**
 - [Bipartite entanglement under frequency comb pumping in parametric Josephson circuits](#paper-2604.21692) [[arXiv]](http://arxiv.org/abs/2604.21692v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `entanglement & information structure` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `dissipative systems` **3/5** · `correlated / nonlocal dissipation` **2/5** · `methods for driven-dissipative` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
 - [Dynamical Regimes of Two Qubits Coupled through a Transmission Line](#paper-2604.21463) [[arXiv]](http://arxiv.org/abs/2604.21463v1) — 🔥 `correlated / nonlocal dissipation` **4/5** · 🔥 `dissipative systems` **4/5** · 🔥 `entanglement & information structure` **3/5** · 🔥 `methods for driven-dissipative` **3/5** · 🔥 `non-equilibrium dynamics` **3/5** · `Tavis-Cummings & cavity-many-emitter` **2/5** · `correlated cavity matter` **2/5**
 - [Spectral Diffusion Mitigation with a Laser Pulse Sequence](#paper-2604.21659) [[arXiv]](http://arxiv.org/abs/2604.21659v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `dissipative systems` **3/5** · 🔥 `spintronics-quantum-optics interface` **3/5** · `interference shaping light` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+- [Thermalization Regimes in a Chaotic Tavis-Cummings Model](#paper-2604.20955) [[arXiv]](http://arxiv.org/abs/2604.20955v1) — 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · 🔥 `non-equilibrium dynamics` **4/5** · 🔥 `correlated cavity matter` **3/5** · 🔥 `scars & prethermalization` **3/5** · `dissipative systems` **2/5** · `entanglement & information structure` **2/5** · `interference shaping light` **2/5**
+- [Multidimensional semiclassical single- and double-quantum spectroscopy of anharmonic molecular polaritons](#paper-2604.21158) [[arXiv]](http://arxiv.org/abs/2604.21158v1) — 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · 🔥 `correlated cavity matter` **4/5** · 🔥 `Keldysh / 2PI / non-Gaussian methods` **3/5** · 🔥 `dissipative systems` **3/5** · 🔥 `methods for driven-dissipative` **3/5** · `non-equilibrium dynamics` **2/5**
 - [Bayesian Phase Stabilization at the Shot-Noise Limit for Scalable Quantum Networks](#paper-2604.21388) [[arXiv]](http://arxiv.org/abs/2604.21388v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum measurements` **4/5** · 🔥 `quantum optics experiment` **4/5** · `dissipative systems` **2/5** · `entanglement & information structure` **2/5** · `interference shaping light` **2/5**
+- [Collective Excitations and Stability of Nonequilibrium Polariton Supersolids](#paper-2604.21353) [[arXiv]](http://arxiv.org/abs/2604.21353v1) — 🔥 `correlated cavity matter` **4/5** · 🔥 `driven-dissipative phase transition` **4/5** · 🔥 `dissipative systems` **3/5** · 🔥 `non-equilibrium dynamics` **3/5** · `methods for driven-dissipative` **2/5** · `non-equilibrium universality` **2/5**
 - [Observation of quantum multi-Mpemba effect in a trapped-ion system](#paper-2604.21320) [[arXiv]](http://arxiv.org/abs/2604.21320v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `dissipative systems` **4/5** · 🔥 `non-equilibrium dynamics` **4/5** · 🔥 `quantum optics experiment` **4/5** · `methods for driven-dissipative` **2/5**
 - [Entanglement of two optical emitters mediated by a terahertz channel](#paper-2604.21723) [[arXiv]](http://arxiv.org/abs/2604.21723v1) — 🔥 `correlated / nonlocal dissipation` **4/5** · 🔥 `Tavis-Cummings & cavity-many-emitter` **3/5** · 🔥 `dissipative systems` **3/5** · 🔥 `entanglement & information structure` **3/5** · `methods for driven-dissipative` **2/5** · `non-equilibrium dynamics` **2/5**
 - [Loss-biased fault-tolerant quantum error correction](#paper-2604.21876) [[arXiv]](http://arxiv.org/abs/2604.21876v1) — 🔥 `Rydberg arrays` **4/5** · 🔥 `correlated / nonlocal dissipation` **3/5** · 🔥 `dissipative systems` **3/5** · `methods for driven-dissipative` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
 - [Quantum plasmonics with N emitters: bright hybrid continuum selection](#paper-2604.21560) [[arXiv]](http://arxiv.org/abs/2604.21560v1) — 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · 🔥 `correlated / nonlocal dissipation` **3/5** · 🔥 `dissipative systems` **3/5** · `Dicke superradiance` **2/5** · `correlated cavity matter` **2/5** · `methods for driven-dissipative` **2/5**
 - [Photon Sorting with a Quantum Emitter](#paper-2604.21758) [[arXiv]](http://arxiv.org/abs/2604.21758v1) — 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · 🔥 `interference shaping light` **3/5** · `dissipative systems` **2/5** · `quantum measurements` **2/5**
 - [Robust continuous symmetry breaking and multiversality in the chiral Dicke model](#paper-2604.21820) [[arXiv]](http://arxiv.org/abs/2604.21820v1) — 🔥 `Dicke superradiance` **4/5** · 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · 🔥 `non-equilibrium universality` **4/5** · 🔥 `correlated cavity matter` **3/5**
+- [Condensate states in Fermi and Bose-Hubbard ladders](#paper-2604.21296) [[arXiv]](http://arxiv.org/abs/2604.21296v1) — 🔥 `scars & prethermalization` **4/5** · 🔥 `analog quantum simulation` **3/5** · 🔥 `non-equilibrium dynamics` **3/5** · `entanglement & information structure` **2/5** · `non-equilibrium universality` **2/5**
 - [The Feedback Hamiltonian is the Score Function: A Diffusion-Model Framework for Quantum Trajectory Reversal](#paper-2604.21210) [[arXiv]](http://arxiv.org/abs/2604.21210v1) — 🔥 `methods for driven-dissipative` **4/5** · 🔥 `quantum measurements` **4/5** · 🔥 `dissipative systems` **3/5** · `non-equilibrium dynamics` **2/5**
 - [Time-optimal Qubit Reset via Environmental Spectral Structure](#paper-2604.21230) [[arXiv]](http://arxiv.org/abs/2604.21230v1) — 🔥 `dissipative systems` **4/5** · 🔥 `correlated / nonlocal dissipation` **3/5** · `methods for driven-dissipative` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+- [Magnetic-field control of interactions in alkaline-earth Rydberg atoms and applications to {\it XXZ} models](#paper-2604.21206) [[arXiv]](http://arxiv.org/abs/2604.21206v1) — 🔥 `Rydberg arrays` **4/5** · 🔥 `analog quantum simulation` **4/5** · 🔥 `exotic spin models in light-matter` **4/5**
+- [Engineering molecular potential energy surfaces using magnetic cavity quantum electrodynamics](#paper-2604.20969) [[arXiv]](http://arxiv.org/abs/2604.20969v1) — 🔥 `correlated cavity matter` **4/5** · 🔥 `exotic spin models in light-matter` **3/5** · 🔥 `spintronics-quantum-optics interface` **3/5**
 - [Time-Uniform Error Bound for Temporal Coarse Graining in Markovian Open Quantum Systems](#paper-2604.21366) [[arXiv]](http://arxiv.org/abs/2604.21366v1) — 🔥 `dissipative systems` **4/5** · 🔥 `methods for driven-dissipative` **4/5** · `non-equilibrium dynamics` **2/5**
 - [HEOM-in-Calibration-Loop: Exposing Non-Markovian Bath Signatures That Markovian Calibration Elides in Superconducting-Qubit Tune-Up](#paper-2604.21458) [[arXiv]](http://arxiv.org/abs/2604.21458v1) — 🔥 `methods for driven-dissipative` **4/5** · 🔥 `dissipative systems` **3/5** · `non-equilibrium dynamics` **2/5**
 - [Sufficient support size of measurements for quantum estimation](#paper-2604.21323) [[arXiv]](http://arxiv.org/abs/2604.21323v1) — 🔥 `quantum measurements` **4/5** · `dissipative systems` **2/5** · `methods for driven-dissipative` **2/5**
+- [Qubit-efficient and gate-efficient encodings of graph partitioning problems for quantum optimization](#paper-2604.21123) [[arXiv]](http://arxiv.org/abs/2604.21123v1) — 🔥 `QC/QI experiment` **4/5**
 - [Vertical Shuttling Protocols for Trapped Ions in Multi-Rail, Multi-Zone Surface Ion Trap Architectures](#paper-2604.21350) [[arXiv]](http://arxiv.org/abs/2604.21350v1) — 🔥 `QC/QI experiment` **4/5**
+- [Birth, Death, and Replication at Surfaces: Universal Laws of Autocatalytic Dynamics](#paper-2604.21586) [[arXiv]](http://arxiv.org/abs/2604.21586v1) — 🔥 `driven-dissipative phase transition` **3/5** · 🔥 `non-equilibrium universality` **3/5** · `dissipative systems` **2/5** · `non-equilibrium dynamics` **2/5**
+- [A rigorous quasipolynomial-time classical algorithm for SYK thermal expectations](#paper-2604.21089) [[arXiv]](http://arxiv.org/abs/2604.21089v1) — 🔥 `entanglement & information structure` **3/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `non-equilibrium dynamics` **2/5**
+- [Novel dynamics for an inertial polar tracer in an active bath](#paper-2604.21762) [[arXiv]](http://arxiv.org/abs/2604.21762v1) — 🔥 `non-equilibrium dynamics` **3/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `dissipative systems` **2/5**
 - [Scalable surface ion trap design for magnetic quantum sensing and gradiometry](#paper-2604.21342) [[arXiv]](http://arxiv.org/abs/2604.21342v1) — 🔥 `QC/QI experiment` **3/5** · `quantum measurements` **2/5** · `spintronics-quantum-optics interface` **2/5**
 - [Enhancing Coherence of Spin Centers in p-n Diodes via Optimization Algorithms](#paper-2604.21874) [[arXiv]](http://arxiv.org/abs/2604.21874v1) — 🔥 `spintronics-quantum-optics interface` **3/5** · `dissipative systems` **2/5**
 - [Structured Quantum State Reconstruction via Physically Motivated Operator Selection](#paper-2604.21272) [[arXiv]](http://arxiv.org/abs/2604.21272v1) — 🔥 `entanglement & information structure` **3/5** · `quantum measurements` **2/5**
+- [Ansätz Expressivity and Optimization in Variational Quantum Simulations of Transverse-field Ising Model Across System Sizes](#paper-2604.20961) [[arXiv]](http://arxiv.org/abs/2604.20961v1) — 🔥 `entanglement & information structure` **3/5**
 - [Dual-use quantum hardware for quantum resource generation and energy storage](#paper-2604.21913) [[arXiv]](http://arxiv.org/abs/2604.21913v1) — `dissipative systems` **2/5** · `entanglement & information structure` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
 - [Pulse Shaping for Superconducting Qubits](#paper-2604.21565) [[arXiv]](http://arxiv.org/abs/2604.21565v1) — `QC/QI experiment` **2/5** · `dissipative systems` **2/5** · `non-equilibrium dynamics` **2/5**
+- [Chaos Gated Tunneling Drives Molecular Reactivity in Astrophysical Environments](#paper-2604.21005) [[arXiv]](http://arxiv.org/abs/2604.21005v1) — `entanglement & information structure` **2/5** · `scars & prethermalization` **2/5** · `non-equilibrium dynamics` **1/5**
 - [Random Access Codes: Explicit Constructions, Optimality, and Classical-Quantum Gaps](#paper-2604.21274) [[arXiv]](http://arxiv.org/abs/2604.21274v1) — `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
 - [Rigorous Security Proofs for Practical Quantum Key Distribution](#paper-2604.21791) [[arXiv]](http://arxiv.org/abs/2604.21791v1) — `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
 - [Suppressing the Erasure Error of Fusion Operation in Photonic Quantum Computing](#paper-2604.21475) [[arXiv]](http://arxiv.org/abs/2604.21475v1) — `dissipative systems` **2/5** · `quantum measurements` **2/5**
 - [The clock ambiguity is back with a vengeance](#paper-2604.21805) [[arXiv]](http://arxiv.org/abs/2604.21805v1) — `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
 - [Third Quantization for Order Parameter (I): BCS-BEC crossover with macroscopically coherent state](#paper-2604.21288) [[arXiv]](http://arxiv.org/abs/2604.21288v1) — `Keldysh / 2PI / non-Gaussian methods` **2/5** · `correlated cavity matter` **2/5**
+- [Adiabatic Error Cancellation in Berry Phase Estimation](#paper-2604.20952) [[arXiv]](http://arxiv.org/abs/2604.20952v1) — `quantum measurements` **2/5**
 - ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](#paper-2604.21919) [[arXiv]](http://arxiv.org/abs/2604.21919v1) — `entanglement & information structure` **2/5**
 - [Composite quantum gates simultaneously compensated for multiple errors](#paper-2604.21594) [[arXiv]](http://arxiv.org/abs/2604.21594v1) — `Rydberg arrays` **2/5**
 - [LightStim: A Framework for QEC Protocol Evaluation and Prototyping with Automated DEM Construction](#paper-2604.21472) [[arXiv]](http://arxiv.org/abs/2604.21472v1) — `quantum measurements` **2/5**
 
 
-## ⭐ Highlighted (4)
+## ⭐ Highlighted (5)
 
 *Papers by authors on your watch list. Click the title to jump to the full entry below; click [arXiv] to open the paper page.*
 
@@ -50,11 +64,97 @@ _⏳ in progress: 56/144 papers processed (file updates after each one)_
 - ⭐ [Symplectic split-operator method for the time-dependent unitary Tavis-Cummings model](#paper-2604.21778) [[arXiv]](http://arxiv.org/abs/2604.21778v1) — Andrii G. Sotnikov, Denys I. Bondar
 - ⭐ [Generalized stochastic spin-wave theory for open quantum spin systems](#paper-2604.21574) [[arXiv]](http://arxiv.org/abs/2604.21574v1) — Rosario Fazio
 - ⭐ [Quantum jump correlations in long-range dissipative spin systems](#paper-2604.21513) [[arXiv]](http://arxiv.org/abs/2604.21513v1) — Rosario Fazio
+- ⭐ [Light-induced Self-Organization in Cooperative Free Space Atomic Arrays](#paper-2604.21012) [[arXiv]](http://arxiv.org/abs/2604.21012v1) — Susanne F. Yelin
 
 
-## All papers (33, sorted by relevance)
+## All papers (47, sorted by relevance)
 
 *Papers from quant-ph and your primary cond-mat archives (quant-gas, stat-mech, str-el, dis-nn). Highlighted papers (⭐) come first, then everything else sorted by topic-relevance score, highest first.*
+
+<a id="paper-2604.21012"></a>
+### ⭐ [Light-induced Self-Organization in Cooperative Free Space Atomic Arrays](http://arxiv.org/abs/2604.21012v1)
+
+**Highlighted author(s):** Susanne F. Yelin  
+**Authors:** Sara Molló-Guri, Oriol Rubies-Bigorda, Raphael Holzinger, Jonah S. Peter, Susanne F. Yelin  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21012v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `free-space correlated emission` **4/5** · 🔥 `analog quantum simulation` **3/5** · 🔥 `correlated / nonlocal dissipation` **3/5** · 🔥 `dissipative systems` **3/5** · 🔥 `driven-dissipative phase transition` **3/5** · 🔥 `exotic spin models in light-matter` **3/5** · 🔥 `non-equilibrium dynamics` **3/5** · `Dicke superradiance` **2/5** · `interference shaping light` **2/5** · `methods for driven-dissipative` **2/5** · `entanglement & information structure` **1/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21012_figures/2604.21012_fig1.jpg" width="500"><br>
+<sub>Figure 1. (a) Schematic of an ordered array of N two-level quantum emitters with an initial nearest-neighbor separation a0 set by the trap center, which is of the order of the tran- sition wavelength λ0 = 2πc/ω0. The atoms are confined in shallow harmonic traps with frequency ω ≪Γ0, where Γ0 de- notes their spontaneous decay rate. Dipole interactions are induced by an external laser drive (Rabi frequency Ω) that acts uniformly on all atoms. Collective resonances emerge from the long-range coherent (dissipative) dipole-dipole inter- actions Jnm (Γnm). (b) The interplay of weak harmonic con- finement, continuous laser driving, and strong dipole-dipole interactions leads to the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21012_figures/2604.21012_fig2.jpg" width="500"><br>
+<sub>Figure 2. Steady-state behavior for two atoms with iden- tical dipole moments d = [cos θ, i sin θ, 0] and electric field polarized along d. Effective potential for (a) θ = π/2 and (b) θ = π/4 as a function of the relative position a between the two atoms. (c) Local minima of the effective potential Veff with ω = 0.1ωr as a function of θ, corresponding to atomic separations at which the atoms are stationary and self-organized. The red dashed line denotes the initial sepa- ration a0 of the atoms at their trap equilibrium positions. All panels were obtained for a coherent driving rate Ω= 0.05Γ0, on resonance with the atomic frequency and with trap posi- tions separated by a0 = 0.6λ0.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21012_figures/2604.21012_fig3.jpg" width="500"><br>
+<sub>Fig. 2a) and b) show the computed potentials as a function of relative atomic separation a for two dipole moment orientations d = [cos θ, i sin θ, 0], with θ = π/2 and θ = π/4, respectively. The electric field is polarized along the same direction as d, such that it maximizes the laser-atom interaction. Each local minimum corresponds to a stable steady-state separation at which the atoms can self-organize. The first three local minima are shown in Fig. 2c) as a function of the dipole orientation angle θ. The red dashed line indicates the initial atomic sepa- ration, corresponding to both atoms initially positioned at the centers of their respective traps (here chosen as a0 ≡xt2 −xt1 =...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21012_figures/2604.21012_fig4.jpg" width="500"><br>
+<sub>Figure 3. Dimer strength Ds (purple circles) for a chain of (a) N = 4 atoms and (b) N = 10 atoms, with dipole and laser polarizations orientated along z. Ds = 0 indicates a uniformly ordered chain, Ds &gt; 0 corresponds to a fully dimerized chain, and Ds &lt; 0 to a dimerized chain with two unpaired atoms at the edges. The insets illustrate schematic representations of the self-organized configurations in each case. Larger values of |Ds| indicate a stronger contrast between the two alternating interatomic distances. For Ds ≈0, orange squares show the final interatomic spacing of the chain normalized to its initial value (afinal/a0). The shaded regions correspond to parameter regimes in which the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21012_figures/2604.21012_fig5.jpg" width="500"><br>
+<sub>Figure 4. a) Real part of the eigenvalue spectrum of the non-Hermitian Hamiltonians Heff for self-organized (circles) and perfectly dimerized (triangles) chains. Circles correspond to a single realization of a chain of N = 30 atoms with initial trap spacing a0 = 0.5λ. Initial disorder in the trap positions is uniformly distributed in [−0.01 a0, 0.01 a0], resulting in a self-organized dimerized chain with slight variations in the al- ternating separations. The spectrum of the most similar per- fectly dimerized configuration (see main text) largely overlaps with that of the self-organized chain. The inverse participa- tion ratio [IPR, Eq. (9)] is maximal for two nearly-degenerate eigenstates,...</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21012_figures/2604.21012_fig6.jpg" width="500"><br>
+<sub>Figure 5. a) Schematic of the trapped ring configuration showing gradual contraction of the ring radius over time. The dipoles are circularly polarized within the plane of the ring and the atoms are driven by a laser propagating perpendicular to that plane. b) Effective potential in the radial direction of the ring for different atom numbers, with initial interatomic distance a0 = 1.5λ0. c-d) Radii of the self-organized ring ge- ometries for (c) N = 4 and (d) N = 10 as a function of initial interatomic distance. The blue curves (Rr/R0) correspond to radial simulations without initial position disorder, while the orange curves (Rfinal/R0) show the results of full simulations with 1%...</sub>
+
+</details>
+
+**Main problem.** Investigating how laser-driven, cooperative dipole-dipole interactions in weakly trapped atomic arrays lead to light-induced self-organization and the emergence of modified ordered geometries.
+
+**Main result.** The study identifies the emergence of topologically nontrivial dimerized configurations in linear chains and radial contraction/expansion in ring geometries, demonstrating that collective interactions can generate ordered structures even at large initial separations.
+
+**Method.** Numerical solution of coupled Heisenberg-Langevin equations using a mean-field treatment and adiabatic elimination of internal optical degrees of freedom.
+
+**Summary.** This paper explores how laser-driven atoms in free space can self-organize into specific patterns due to dipole-dipole interactions. In linear chains, the atoms form dimerized structures that host topologically protected edge states. In ring geometries, the atoms undergo radial expansion or contraction. These findings show that light can be used to create ordered, even topological, atomic architectures from initially disordered or widely spaced arrays.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Arrays of N two-level atoms in free space, subject to weak harmonic confinement in the x-y plane and driven by a plane-wave laser, interacting via vacuum-mediated dipole-dipole coupling.
+
+**Key observables.** Atomic coherences, steady-state spatial configurations, dimer strength (Ds), Inverse Participation Ratio (IPR), Zak phase, and effective potential energy landscape.
+
+**Important parameters / regimes.** Laser detuning (delta), Rabi frequency (Omega), decay rate (Gamma_0), trap frequency (omega), and initial interatomic spacing (a0).
+
+**Assumptions / limitations.** Semiclassical regime for atom-laser interaction, Born-Markov limit, Rotating Wave Approximation, weak-driving regime, and adiabatic elimination of internal degrees of freedom.
+
+**Figures summary.** Fig 1: Schematic of driven emitters and emergence of stationary configurations; Fig 2: Effective potentials for different dipole orientations; Fig 3: Dimer strength and lattice constant ratios; Fig 4: Localization of edge vs bulk states; Fig 5: Ring geometry setup and radial potential.
+
+**Paper structure.** The paper begins with a two-emitter analytical model, extends to larger linear and ring ensembles, analyzes topological properties (Zak phase, IPR), validates approximations via numerical simulations, and discusses stability under disorder and experimental feasibility.
+
+**Why it may be interesting.** It demonstrates how light-matter interactions in free space can spontaneously engineer topological states and subwavelength geometries, which is highly relevant for designing programmable quantum simulators and controlling collective emission.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We investigate how laser-driven, cooperative dipole-dipole interactions in weakly trapped atomic arrays give rise to self-organized configurations. Starting from an analytically tractable two-emitter system, we identify the possible steady-state spatial arrangements accessible to the atoms. We then extend this analysis to larger ensembles in both linear and ring geometries. In linear chains, we demonstrate the emergence of topologically nontrivial dimerized configurations across a range of initial interatomic spacings. In ring geometries, we find that the system undergoes self-organized contraction and expansion, enabling access to length scales below those set by the trapping lattice. Our results demonstrate that collective light-matter interactions in free space can spontaneously generate modified ordered geometries, even when the emitters are initially separated by distances larger than their transition wavelength.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
 
 <a id="paper-2604.21513"></a>
 ### ⭐ [Quantum jump correlations in long-range dissipative spin systems](http://arxiv.org/abs/2604.21513v1)
@@ -751,6 +851,209 @@ The optical spectrum of a quantum system is jointly determined by the properties
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.20955"></a>
+### [Thermalization Regimes in a Chaotic Tavis-Cummings Model](http://arxiv.org/abs/2604.20955v1)
+
+**Authors:** Sameer Dambal, Eric R. Bittner  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.20955v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · 🔥 `non-equilibrium dynamics` **4/5** · 🔥 `correlated cavity matter` **3/5** · 🔥 `scars & prethermalization` **3/5** · `dissipative systems` **2/5** · `entanglement & information structure` **2/5** · `interference shaping light` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.20955_figures/2604.20955_fig1.jpg" width="500"><br>
+<sub>FIG. 1: Overview of the excitonic system and cavity-mediated thermalization: (a) shows a network of excitons with complex coupling structures. The red lines depict exciton-exciton hoppings and the green dotted lines depict biexciton interactions. This makes the excitonic Hamiltonian non-integrable and promotes ETH-based thermalization. (b) shows a TC model where an optical microcavity couples with the complex excitonic network with the coupling constant g.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.20955_figures/2604.20955_fig2.jpg" width="500"><br>
+<sub>FIG. 2: Spectral Statistics: (a) This describes the level spacing statistics of the eigenvalues of Hamiltonian in Eq. (1) projected in the N ≤2 excitation sector. We see that it resembles that of a Wigner-Dyson distribution (dotted red line) for small coupling strengths g/σ &lt; 1. However, the spectrum flattens for stronger couplings g/σ ≳1. These hint towards different regimes of thermalization; (b) This figure shows the normalized energy of the initial state for multiple realizations of the Hamiltonian. Each blue curve corresponds to one realization of σ and the random couplings drawn from a GUE. At g/σ &lt; 1, we see the energy of the initial state remains invariant and at g/σ &gt; 1, we see...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.20955_figures/2604.20955_fig3.jpg" width="500"><br>
+<sub>FIG. 4: Trace Distance Decay: This figure plots the trace distance of a reduced system with time as a function of the ratio between the cavity-exciton coupling strength and thermalization rate. The initial state has 2 excitations in the cavity and g is the coupling strength of the cavity with the excitonic lattice. We run this simulation over 5 runs across multiple excitonic subspaces A and observe that the mean trace distances numerically converge to a statistically stable state. The shaded regions represent one standard deviation away from the mean and their narrowness at weak g/σ confirms that the subsystems consistently thermalize in the long-time limit.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.20955_figures/2604.20955_fig4.jpg" width="500"><br>
+<sub>FIG. 3: Inverse Participation Ratio: This plot shows the IPR in the two coupling regimes. At small coupling strengths g (blue, yellow), the IPR decays and saturates ≈1</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.20955_figures/2604.20955_fig5.jpg" width="500"><br>
+<sub>FIG. 5: Transition from a thermalizing to a non-thermalizing regime: We see that at low polariton splittings, the trace distance of a reduced density matrix of excitons with its corresponding thermal state is close to zero and indicates a thermalization regime. As we increase the polariton splitting, it dominates the exciton coupling width and increases the final trace distance. This leads to a non-thermalizing regime close to g/σ ∼1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.20955_figures/2604.20955_fig6.jpg" width="500"><br>
+<sub>FIG. 6: Cavity population dynamics: At small coupling strengths g (ergodic regime, solid lines), the cavity populations decay and attain a steady state after a short time. At stronger coupling strengths (non-ergodic regime, dotted lines), the cavity populations oscillate and do not decay at long times.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.20955_figures/2604.20955_fig7.jpg" width="500"><br>
+<sub>FIG. 7: Correlation time of cavity populations: We see that if the polaritons are in the ergodic regime, the output photon statistics have a short correlation time. However, in the nonergodic regime, the correlation time increases until it saturates. This serves as a direct experimental observable that informs the underlying exciton coupling disorder σ.</sub>
+
+</details>
+
+**Main problem.** Investigating the transition between thermalizing (ergodic) and non-thermalizing (non-ergodic) regimes in a chaotic Tavis-Cummings model and how this affects quantum spectroscopy.
+
+**Main result.** The authors demonstrate that tuning the cavity-exciton coupling strength g allows for a switch between a quantum chaos-driven thermalizing regime and a strong-coupling regime that suppresses ergodicity, and that this transition can be used to experimentally characterize material disorder sigma.
+
+**Method.** Numerical simulations of the Tavis-Cummings model using random matrix theory (GUE) for disorder, combined with a proposed experimental framework using entangled-biphoton spectroscopy (EBS) and intensity interferometry.
+
+**Summary.** This paper explores how the competition between cavity coupling and material disorder drives a transition between thermalizing and non-thermalizing dynamics in a Tavis-Cummings model. In the weak-coupling regime, quantum chaos promotes thermalization according to the Eigenstate Thermalization Hypothesis. In the strong-coupling regime, Rabi oscillations suppress ergodicity. The authors show that these dynamical changes are imprinted on photon statistics, offering a method to use entangled-biphoton spectroscopy to measure underlying exciton-coupling disorder.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A chaotic Tavis-Cummings model consisting of a single-mode optical microcavity interacting with a complex, non-integrable network of excitons featuring exchange coupling and biexciton interactions.
+
+**Key observables.** Correlation times (tau_c) of cavity population, second-order correlation function g2(t+tau), level-spacing statistics, trace distance to thermal state, and Inverse Participation Ratio (IPR).
+
+**Important parameters / regimes.** Cavity-exciton coupling strength (g), exciton-exciton coupling disorder (sigma), and the ratio g/sigma.
+
+**Assumptions / limitations.** The system is treated in the two-excitation manifold with a resonance condition (no detuning) and assumes the energy density of the initial state lies in a region of finite energy density.
+
+**Figures summary.** Figure 1 shows the exciton network and the TC model setup; Figure 3 displays IPR decay in different regimes; Figure 4 shows the decay of trace distance; Figure 5 illustrates the transition between thermalizing and non-thermalizing regimes.
+
+**Paper structure.** The paper introduces the chaotic TC model, defines the Hamiltonian and disorder, analyzes the spectral and dynamical transition between ergodic and non-ergodic regimes using numerical diagnostics, and concludes by proposing an experimental spectroscopy method to extract material parameters.
+
+**Why it may be interesting.** It bridges many-body dynamics (ETH and quantum chaos) with practical quantum optics, providing a way to use controllable cavity parameters to probe microscopic material disorder.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+This work investigates the emergent thermalization regimes in a chaotic Tavis-Cummings (TC) model and their implications in quantum spectroscopy. While the TC model is a cornerstone of cavity quantum electrodynamics, traditional treatments often overlook many-body effects that arise in the thermodynamic limit. We utilize the Eigenstate Thermalization Hypothesis to demonstrate that a non-integrable excitonic Hamiltonian within the material manifold drives local thermalization. By tuning the polariton splitting $g$, we observe two dynamical regimes: a thermalizing regime at low interactions driven by quantum chaos and ergodicity, and a non-thermalizing regime at high interactions where strong coupling suppresses ergodicity. We further show that these regimes have direct implications on output photon statistics, specifically influencing the correlation times $τ_c$ of the cavity population and the second-order correlation function $g^{(2)}(t+τ)$. We propose that entangled-biphoton spectroscopy serves as an ideal experimental platform to probe these effects and to allow the characterization of the underlying many-body exciton-coupling disorder $σ$ through coincidence measurements of the output. Taken together, these results exploit a naturally occurring many-body phenomenon to bridge theoretical predictions with experimental observables.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21158"></a>
+### [Multidimensional semiclassical single- and double-quantum spectroscopy of anharmonic molecular polaritons](http://arxiv.org/abs/2604.21158v1)
+
+**Authors:** Michael Reitz, Harsh Bhakta, Wei Xiong, Joel Yuen-Zhou  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21158v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `Tavis-Cummings & cavity-many-emitter` **4/5** · 🔥 `correlated cavity matter` **4/5** · 🔥 `Keldysh / 2PI / non-Gaussian methods` **3/5** · 🔥 `dissipative systems` **3/5** · 🔥 `methods for driven-dissipative` **3/5** · `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21158_figures/2604.21158_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Schematics. An infrared optical cavity containing an ensemble of molecules (illustrated by W(CO)6 as, e.g., used in Refs. [35, 36]) is driven by a train of three input pulses (two pump, one probe) tagged by phases Φj and separated by time intervals τ and T. The cavity selectively couples to a molecular vibrational mode, which is modeled as a three-level system (3LS) with anharmonic shift ∆of the doubly excited state (see inset, which depicts a 2QC process). The nonlinear cavity transmission as a function of the pulse delay times is used to compute the 2D spectra.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21158_figures/2604.21158_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Overview of the semiclassical perturbative method for multidimensional cavity spectroscopy. (a) Factorizability of light and matter. The many-body system of N molecules described by dipole operators ˆµj coupled to a cavity mode ˆa is reduced to a much simplified mean-field system in the large-N limit under the assumption Hj 0 = H0, ˆµj = ˆµ. (b) Schematic illustration of the self-consistent, semiclassical method. The (single-molecule) matter component is evolved quantum mechanically, from which the molecular polarization feeding into the cavity field α(t) is computed. In turn, the classical cavity field feeds back into the evolution of the molecular density matrix. (c) Sketch of...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21158_figures/2604.21158_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Feynman diagrams for the cavity (left) and molecular density matrix (right) at (a) linear and (b) third order. (a) At linear order, e.g., following the first pulse, the external input field creates a cavity coherence α(1,0,0) Φ1 , which in turn</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21158_figures/2604.21158_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Schematic procedure to obtain phase-cycled 2D cav- ity spectra: Illustration of (a) linear and (b) nonlinear (3rd order) cavity fields (dashed shaded curves) generated by the Gaussian input pulses (solid shaded curves). Displayed is the real part only, with maxima normalized to unity. The DT signal arises from heterodyne detection, namely the interfer- ence between the linear probe (third pulse local oscillator) and 3rd order cavity fields. (c) Fourier transform along τ (T) as well as t gives rise to 1Q (2QC) spectra with frequency axes ω1 (ω2) vs. ω3, respectively. The 1Q spectra can be obtained in the R or NR configurations, corresponding to the phase sequences ±Φ1 ∓Φ2 + Φ3 (shown...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21158_figures/2604.21158_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Comparison between (a) theoretical and (b) exper- imental results for the 2D 1Q spectra at long waiting times T ≫κ−1, for the sum of NR and R contributions. The waiting time was set to T = 18 κ−1 which corresponds to approxi- mately 55 ps. (c) Comparison of the resulting 1D spectra along ω3, obtained by integrating the 2D spectra over ω1. The green dashed lines in all plots indicate the linear polariton frequencies.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21158_figures/2604.21158_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Comparison between (a) theoretical and (b) experi- mental results for the 2D 1Q spectra and (c) corresponding 1D spectra at short waiting times T = 0, for the sum of NR and R contributions. To reproduce these results, EID with β = 10.0 cm−1 was added (see SI S8 for details). All other parameters are the same as in Fig. 5 and Table I.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21158_figures/2604.21158_fig7.jpg" width="500"><br>
+<sub>FIG. 7. 2QC spectra as extracted from the phase combination Φ1 + Φ2 −Φ3 with varying degree of mechanical anharmonicity (a) ∆= −10 cm−1, (b) ∆= −5 cm−1, (c) ∆= 0 cm−1 (harm. limit), (d) ∆= 5 cm−1, (e) ∆= 10 cm−1. Green vertical lines indicate the single-polariton frequencies, while purple horizontal lines indicate the double-polariton frequencies. To isolate the effect of pure mechanical anharmonicity, we set the electrical anharmonicity to zero (δ = 0) and assume pure harmonic dephasing with γϕ = 6 cm−1 (γϕ = γge ϕ = γef ϕ ). All other parameters are identical to those listed in Table I. We chose an excitation time of τ = 26 fs. A movie of the spectra as a function of different excitation...</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21158_figures/2604.21158_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Vertical cuts of the 2QC spectra in Fig. 7 at fixed emission frequencies ω3 corresponding to the lower polariton ωLP and upper polariton ωUP, shown for (a) ∆= −10 cm−1</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21158_figures/2604.21158_fig9.jpg" width="500"><br>
+<sub>FIG. 9. 2QC spectra as extracted from the phase combination Φ1 + Φ2 −Φ3 with varying degree of electrical anharmonicity (a) δ = −0.2, (b) δ = −0.1, (c) δ = 0 (harm. limit), (d) δ = 0.1, (e) δ = 0.2. Green vertical lines indicate the single-polariton frequencies, while purple horizontal lines indicate the double-polariton frequencies. To isolate the effect of pure electrical anharmonicity, we set the mechanical anharmonicity to zero (∆= 0) and assume pure harmonic dephasing with γϕ = 6 cm−1</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21158_figures/2604.21158_fig10.jpg" width="500"><br>
+<sub>FIG. 10. Vertical cuts of the 2QC spectra in Fig. 9 at fixed emission frequencies ω3 corresponding to the lower polariton ωLP and upper polariton ωUP, shown for (a) δ = −0.2 and (b) δ = 0.2. Each curve is normalized to its maximum absolute value. The dashed purple horizontal lines indicate the har- monic double-polariton energies.</sub>
+
+</details>
+
+**Main problem.** Developing an efficient theoretical framework for computing phase-resolved multidimensional (2D) single- and double-quantum spectroscopy of anharmonic molecular polaritons and explaining experimental anomalies like the polariton bleach effect.
+
+**Main result.** The authors establish a semiclassical perturbative method that successfully reproduces experimental 1D and 2D spectra and provides a theoretical explanation for the polariton bleach effect via excitation-induced dephasing.
+
+**Method.** A semiclassical approach using a perturbative expansion of the cavity field and molecular density matrix in terms of pulse amplitudes and phases, utilizing a discrete Fourier transform for phase-cycling.
+
+**Summary.** This paper presents a new semiclassical method to simulate multidimensional spectroscopy of molecular polaritons. By expanding the response in pulse phases, the authors can isolate specific nonlinear pathways in 2D spectra. The framework successfully explains the 'polariton bleach effect' seen in experiments by incorporating excitation-induced dephasing. It also demonstrates how double-quantum spectroscopy can probe molecular anharmonicities. This work is highly relevant for designing and interpreting experiments in cavity-enhanced molecular platforms.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** An ensemble of N molecules (modeled as three-level systems representing a vibrational ladder) strongly coupled to a single-mode confined photonic cavity in the large-N limit, governed by a Lindblad master equation.
+
+**Key observables.** 2D single-quantum (1Q) spectra (rephasing and non-rephasing), 2D double-quantum coherence (2QC) spectra, and 1D differential transmission spectra.
+
+**Important parameters / regimes.** Collective coupling strength (E0), molecular anharmonicity (mechanical and electrical), cavity decay rate (kappa), excitation-induced dephasing (EID), and pulse delays (tau and T).
+
+**Assumptions / limitations.** Large-N limit, molecules are outside the ultrastrong-coupling regime (validating RWA), the cavity field is treated semiclassically (coherent state), and the vibrational Hilbert space is truncated to the two-excitation level.
+
+**Figures summary.** Figure 1 shows the experimental setup and 2QC process; Figure 2 illustrates the mean-field reduction of the many-body system; Figure 3 presents Feynman diagrams for linear and third-order nonlinear pathways; Figure 4 details the 2D spectroscopy procedure; Figure 5 compares theoretical and experimental 1Q spectra.
+
+**Paper structure.** The paper introduces the scientific problem and the physical model, develops the semiclassical perturbative framework and phase-resolved expansion, applies the method to 2D single- and double-quantum spectroscopy, benchmarks the theory against experimental data for W(CO)6, and investigates the role of excitation-induced dephasing.
+
+**Why it may be interesting.** It provides a powerful tool for interpreting nonlinear spectroscopy in light-matter platforms, specifically addressing how cavity-mediated pulse overlap and anharmonicity influence many-body dynamics and coherence.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We present a general and efficient approach to compute phase-resolved multidimensional spectra of anharmonic molecular polaritons, based on a semiclassical evolution of the molecular Hamiltonian and cavity field in the large-$\mathcal{N}$ limit of many molecules coupled to a confined photonic mode. By systematically expanding the response in both amplitudes and phases of the input fields, our method enables a transparent and computationally simple construction of phase-cycled two-dimensional single- and double-quantum polariton spectra from the underlying nonlinear signal components. Here, phase cycling acts as an analogue of phase matching with oblique pulses, allowing for the isolation of the contributing nonlinear pathways in Liouville space. We specialize to vibrational polaritons and benchmark the method through direct comparison with experimentally measured single-quantum spectra, providing an explanation for the longstanding puzzle of the polariton bleach effect observed at short waiting times. Further, we show how the imprint of various types of anharmonicities on the double-excitation manifold can be directly probed and analyzed through double-quantum coherence spectroscopy. Taken together, our results establish a practical and powerful framework for the modeling and interpretation of nonlinear spectroscopic experiments on strongly coupled light-matter platforms and for guiding the design of cavity-enhanced molecular platforms.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21388"></a>
 ### [Bayesian Phase Stabilization at the Shot-Noise Limit for Scalable Quantum Networks](http://arxiv.org/abs/2604.21388v1)
 
@@ -858,6 +1161,69 @@ The optical spectrum of a quantum system is jointly determined by the properties
 <details><summary>Abstract</summary>
 
 High-precision optical phase stabilization in quantum networks is fundamentally constrained by the strict photon-flux and duty-cycle limits required to avoid disturbing fragile quantum states. This challenge becomes especially critical when coordinating multiple independent light sources for multi-step quantum protocols. Here, we develop an integrated phase-stabilization framework that incorporates a Bayesian phase estimator to optimally extract information from sparse single-photon detection events. This approach outperforms conventional maximum-likelihood estimation and achieves the shot-noise limit under minimal photon flux. The framework enables real-time correction of combined phase noise from both nodal lasers and transmission fibers, facilitating a two-step excitation protocol for heralded entanglement generation between separate trapped-ion nodes via single-photon interference. Operating with a detected photon rate of approximately 1 MHz and a duty cycle less than or equal to 6.5%, the system maintains interferometric visibility greater than 97% over fiber links of 10 km and 100 km. This phase control yields deterministic ion-ion entanglement with parity contrast exceeding 85% at both distances, enabling device-independent quantum key distribution. Moreover, the resulting memory-memory entanglement at 10 km survives beyond the average time required to establish it -- a fundamental requirement for quantum repeaters. This work establishes a robust and scalable foundation for practical long-distance quantum networks.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21353"></a>
+### [Collective Excitations and Stability of Nonequilibrium Polariton Supersolids](http://arxiv.org/abs/2604.21353v1)
+
+**Authors:** A. Grudinina, J. Cao, A. Kavokin, N. Voronova, A. Nalitov  
+**Type:** theory · **Category:** quantum gases · **PDF:** <https://arxiv.org/pdf/2604.21353v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `correlated cavity matter` **4/5** · 🔥 `driven-dissipative phase transition` **4/5** · 🔥 `dissipative systems` **3/5** · 🔥 `non-equilibrium dynamics` **3/5** · `methods for driven-dissipative` **2/5** · `non-equilibrium universality` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21353_figures/2604.21353_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Schematic illustration of the system. (a) The nanostructured waveguide with the grating period a. Layers of different colors show embedded QWs; the wavy lines illus- trate fundamental photonic modes of the structure propagat- ing in the x direction, TE±0 (purple) and TE±1 (blue). (b) The real parts of the dispersion laws ε(p) of the 0 branch and E±1(p) of the ±1 branches are shown with the solid purple and blue lines, respectively. The dashed lines correspond to the photonic modes sketched in (a). The thick orange line in- dicates the exciton resonance. (c) Sketch of the condensation at k = 0 of the BiC branch (the dashed purple line) reached after the first threshold. (d) Sketch of...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21353_figures/2604.21353_fig2.jpg" width="500"><br>
+<sub>FIG. 2. (a) Density of the order parameter components n0 (purple) and n1 (blue) vs. the pump power W. The dot- ted gray line indicates the value of W at which the effec- tive interaction changes sign, geff(W) &lt; 0, and the inter- action of negative-mass polaritons effectively becomes repul- sive; the yellow and lilac dashed lines mark the first and sec- ond thresholds. The inset shows phase boundaries for the condensed phase (NESF, yellow) and the supersolid phase (NESS, purple). The black dashed line indicates the value of the 0-mode Hopfield coefficient at which the calculations presented in the paper are performed. The PL intensity in reciprocal space for the NESF (b) and the NESS (c)...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21353_figures/2604.21353_fig3.jpg" width="500"><br>
+<sub>FIG. 3. The excitation spectra Ek as a function of kx. Real (a) and imaginary (b) parts of Ek in the first band for the NESS (the purple, magenta, and lavender lines) and NESF (the yellow lines) phases. The solid lines in panels (a, b) correspond to the NG modes (see text), the dashed lines indi- cate the gapped modes. Parameters above the 2nd threshold: W = 1.05 Wth2, µ = 1 meV, n0 = 520 µm2, n1/n0 = 2×10−4; below the 2nd threshold: W = 2.5 Wth1 = 0.64 Wth2, n0 = 420 µm−2, µ = 0.9 meV. The insets in panels (a) and (b) show the smaller momentum range enlarged. The color-framed insets in (b) show the simulated PL distribu- tions in real space before (yellow) and after (purple) the sec- ond...</sub>
+
+</details>
+
+**Main problem.** Investigating the collective excitation spectra and dynamical stability of nonequilibrium polariton supersolids, specifically addressing how the phase remains stable despite a negative effective mass.
+
+**Main result.** The study demonstrates that the supersolid phase is stabilized by attractive polariton interactions mediated by an incoherent exciton reservoir, which renormalizes the interaction strength to prevent collapse. It also identifies the emergence of two gapless Nambu-Goldstone modes as the smoking gun for the supersolid phase.
+
+**Method.** Mean-field analysis using coupled Gross-Pitaevskii equations (GPEs) combined with a fluctuation analysis (Bogoliubov approach) and Lyapunov exponent calculation.
+
+**Summary.** This paper explores the stability and excitations of a recently reported nonequilibrium polariton supersolid. The authors show that while the system's negative effective mass would typically lead to instability, the interaction with an incoherent exciton reservoir renormalizes the polariton interactions to a stabilizing regime. They identify the appearance of two distinct gapless Nambu-Goldstone modes as the definitive signature of the supersolid state. The work provides a theoretical foundation for understanding how dissipation and reservoir effects can drive and stabilize complex broken-symmetry phases.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A nonequilibrium system of exciton-polariton condensates in a Bound States in the Continuum (BiC) nanostructure, modeled via coupled GPEs for three polariton modes (0, +1, and -1) interacting with an incoherent exciton reservoir.
+
+**Key observables.** Collective excitation spectra (real and imaginary parts), Nambu-Goldstone modes, Lyapunov exponents, and order parameter densities.
+
+**Important parameters / regimes.** Pump power (W), effective interaction strength (g_eff), thresholds (W_th1, W_th2), and effective mass.
+
+**Assumptions / limitations.** Adiabatic reservoir limit, quasi-1D approximation along the waveguide axis, and truncation of the fluctuation matrix to the first several bands.
+
+**Figures summary.** Schematics of the nanostructured waveguide and energy dispersion; plots of density and phase distributions; and the excitation spectrum showing the transition from one to two gapless modes and the stability phase diagram.
+
+**Paper structure.** The paper introduces the physical platform and the OPO-driven supersolid mechanism, presents the theoretical model and GPE framework, analyzes the excitation spectra and symmetry breaking, and concludes with a stability analysis and phase diagram.
+
+**Why it may be interesting.** It provides a fundamental insight into how reservoir-mediated interactions can stabilize exotic non-equilibrium phases (supersolids) in systems with inherently unstable (negative mass) dispersions, which is highly relevant to open quantum systems and non-equilibrium many-body dynamics.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Formation of nonequilibrium counterparts of supersolids, simultaneously characterized with spontaneous superfluid and crystalline order, was recently reported in incoherently pumped polariton condensates. We investigate collective excitation spectra of this phase and explicitly demonstrate the emergence of gapless Nambu-Goldstone modes due to spontaneously broken continuous phase and translation symmetries. For the recent implementation of the polariton nonequilibrium supersolidity in semiconductor metasurfaces [D. Trypogeorgos et al., Nature 639, 337 (2025)], we demonstrate the key role of attractive polariton interactions, mediated by the excitonic reservoir, for stability of the supersolid phase. Performing a thorough numerical investigation, we identify the conditions for existence of the diagonal and off-diagonal long-range order in negative-mass nonequilibrium supersolids.
 
 </details>
 
@@ -1269,6 +1635,76 @@ The Dicke model (DM) serves as a paradigm for understanding collective light-mat
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21296"></a>
+### [Condensate states in Fermi and Bose-Hubbard ladders](http://arxiv.org/abs/2604.21296v1)
+
+**Authors:** F. X. Liu, E. S. Ma, Z. Song  
+**Type:** theory · **Category:** quantum gases · **PDF:** <https://arxiv.org/pdf/2604.21296v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `scars & prethermalization` **4/5** · 🔥 `analog quantum simulation` **3/5** · 🔥 `non-equilibrium dynamics` **3/5** · `entanglement & information structure` **2/5** · `non-equilibrium universality` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21296_figures/2604.21296_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Comparison of the statistics of fermions and hardcore bosons. (a) Neither hardcore bosons nor fermions can occupy the same single-site state. (b) They obey different statistics when two single particles exchange their positions. (c) How- ever, when only pair states are considered, a local hardcore Bose pair and a Fermi pair obey the same statistics. This suggests that the hardcore boson counterpart of a fermionic model may possess pair eigenstates of the same form.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21296_figures/2604.21296_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Schematic of the lattice structures associated with the Fermi and hardcore Bose Hamiltonians studied in this work. The plaquette corresponding to the Hamiltonians Hl F and Hl B given in Eqs. (16) and (43), respectively. All param- eters, including hopping amplitudes, nearest-neighbor inter- action strengths, and on-site potentials, are indicated in the panel. The complex hopping amplitudes induce a magnetic flux threading the plaquette.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21296_figures/2604.21296_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Schematic illustration of the decomposition of a lad- der structure associated with the Fermi and hardcore Bose Hamiltonians studied in this work. (a) The ladder Hamilto- nians HFL and H BL given in Eqs. (32) and (55 ), respectively, can be expressed as the sum of two types of plaquettes given in Eqs. (34, 35) and (57, 58), respectively. (b) Schematic illustration of the two types of plaquettes, the dotted circle encloses the two combined sites.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21296_figures/2604.21296_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Fidelity dynamics of η-pairing states in the Fermi-Hubbard ladder under quench by next-nearest-neighbor hopping. The initial states are the exact eigenstates ψF n = (ηF)n|0⟩/(n! p</sub>
+
+</details>
+
+**Main problem.** The study investigates the relationship between many-particle quantum states in Fermi and Bose-Hubbard ladders, specifically whether they can share identical condensate-pair eigenstates and how stable these states are against perturbations.
+
+**Main result.** The authors demonstrate that while fermions and hardcore bosons have different single-particle statistics, they share identical pair-state statistics, allowing for shared condensate-pair eigenstates. They find that these bosonic pair states are robust against next-nearest-neighbor hopping due to a restricted spectrum generating algebra, whereas fermionic states are unstable.
+
+**Method.** The study uses Spectrum Generating Algebra (SGA) and a Restricted Spectrum Generating Algebra (RSGA) to construct exact eigenstates, alongside exact diagonalization and quantum quench simulations to study dynamic stability.
+
+**Summary.** This paper explores how fermions and hardcore bosons can exhibit identical many-body quantum states when considering particle pairs. By using algebraic methods, the authors construct exact condensate-pair eigenstates for both species in ladder geometries. They demonstrate that while fermionic pairing is sensitive to next-nearest-neighbor hopping, the bosonic pair states remain stable due to a specific algebraic symmetry. This finding suggests a link between pair condensation and the phenomenon of Hilbert-space fragmentation.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The models consist of extended Fermi-Hubbard and hardcore Bose-Hubbard ladders, which can be realized in synthetic atomic ladders using optical lattices.
+
+**Key observables.** Off-diagonal long-range order (ODLRO), fidelity (F(t)) during quantum quenches, and correlation functions in the dilute limit.
+
+**Important parameters / regimes.** Hopping amplitudes (J_parallel, J_perp, J_x), density-density interactions (V), magnetic flux (Phi), and the hardcore boson limit (U -> infinity).
+
+**Assumptions / limitations.** The correspondence between the two species is most clearly observed in the dilute limit and when considering only pair states.
+
+**Figures summary.** Figure 1 illustrates the statistical similarities and differences between fermions and bosons at the single-particle and pair levels. Figure 2 shows the lattice geometry. Figure 4 displays the decay of fidelity in the Fermi-Hubbard ladder under next-nearest-neighbor hopping perturbations for different pair numbers and hopping strengths.
+
+**Paper structure.** The paper begins by establishing the statistical equivalence of pairs, moves to the construction of exact eigenstates using SGA and RSGA, investigates the stability of these states via numerical quenching, and concludes with implications for Hilbert-space fragmentation.
+
+**Why it may be interesting.** This paper is highly relevant for many-body dynamics and AMO physics as it explores the emergence of robust, non-thermalizing states (resembling quantum many-body scars) and provides a mechanism for Hilbert-space fragmentation in synthetic quantum systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Although neither hardcore bosons nor fermions can occupy the same single-site state, they still obey different statistics, resulting in distinct many-particle quantum states, such as condensate states versus Fermi-liquid states. However, when only pair states are considered, the two can take the same form, since a local hardcore Bose pair and a Fermi pair obey the same statistics. In this work we demonstrate this by studying both Fermi and Bose extended Hubbard ladders, which can be realized experimentally in synthetic atomic ladders. A set of exact condensate-pair eigenstates for the Fermi ladder is constructed under SU(2) symmetry and can then be obtained by the spectrum generating algebra. The corresponding hardcore boson counterpart can be simply obtained by replacing fermionic operators with hardcore bosonic ones. Nevertheless, the boson-pair eigenstates are associated not with symmetry but with the restricted spectrum generating algebra. We also investigate the effect of next-nearest-neighbor hopping on the condensate states through numerical simulations of the dynamic response. The conclusions can be extended to a two-layer system. Our result reveals not only the resemblance of fermions to hardcore bosons, but also a possible mechanism of Hilbert-space fragmentation.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21210"></a>
 ### [The Feedback Hamiltonian is the Score Function: A Diffusion-Model Framework for Quantum Trajectory Reversal](http://arxiv.org/abs/2604.21210v1)
 
@@ -1444,6 +1880,195 @@ In continuously monitored quantum systems, the feedback protocol of García-Pint
 <details><summary>Abstract</summary>
 
 Fast qubit reset is essential for qubit reuse in the noisy intermediate-scale quantum computing era, yet it conflicts with the weak decoherence required for high-fidelity computation. We solve the time-optimal reset problem for a frequency-tunable qubit coupled to a structural environment under realistic spectral and control constraints. The optimal strategy consists of a switch--restore--switch sequence, where the qubit is moved from a low-decoherence computational configuration to a high-decoherence restoring configuration and then returned for reuse. For superconducting qubits in four representative environments, this strategy reduces the reset time from typically $\gtrsim\SI{100}{\nano\second}$ to $\SI{20}{\nano\second}$, about $40\%$ of a typical two-qubit gate time, while achieving a reset precision of $10^{-5}$. Our results identify environmental spectral structure as a practical resource for rapid, high-fidelity qubit reset and provide a design principle for qubit reuse on qubit-limited processors.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21206"></a>
+### [Magnetic-field control of interactions in alkaline-earth Rydberg atoms and applications to {\it XXZ} models](http://arxiv.org/abs/2604.21206v1)
+
+**Authors:** Masaya Kunimi, Takafumi Tomita  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21206v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `Rydberg arrays` **4/5** · 🔥 `analog quantum simulation` **4/5** · 🔥 `exotic spin models in light-matter` **4/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21206_figures/2604.21206_fig1.jpg" width="500"><br>
+<sub>FIG. 2. Principal quantum number dependence of the anisotropy parameter δ in the absence of the magnetic field. (a) 88Sr. The green dotted and magenta dashed lines repre- sent δ = −1 and δ = 0, respectively. (b) 174Yb. The green dotted and magenta dashed lines represent δ = 0 and δ = 10, respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21206_figures/2604.21206_fig2.jpg" width="500"><br>
+<sub>FIG. 1. Principal quantum number dependence of the C6 parameters in the absence of the magnetic field for (a) 88Sr with |mJ| = 1, (b) 88Sr with mJ = 0, (c) 174Yb with |mJ| = 1, and (d) 174Yb with mJ = 0. The black solid line represents the n11 scaling as a guide to the eye.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21206_figures/2604.21206_fig3.jpg" width="500"><br>
+<sub>FIG. 5. PR of the distribution of the Förster defects for (a) |mJ| = 1 and (b) mJ = 0. Here, ↑↑, ↑↓, and ↓↓represent the Förster defects ∆EF(n, ↑, ↑), ∆EF(n, ↑, ↓), and ∆EF(n, ↓, ↓), respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21206_figures/2604.21206_fig4.jpg" width="500"><br>
+<sub>FIG. 3. Principal-quantum-number dependence of the energy splittings of the intermediate P states. The energy splittings are evaluated as the maximum energy difference among the 3PJ states for 88Sr, and among the 3PJ and 1P1 states for 174Yb.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21206_figures/2604.21206_fig5.jpg" width="500"><br>
+<sub>FIG. 4. Histogram of Förster defects for (a) 88Sr with |mJ| = 1, (b) a magnified view of panel (a), (c) 174Yb with |mJ| = 1, and (d) a magnified view of panel (c). Here, ↑↑, ↑↓, and ↓↓ represent the Förster defects ∆EF(n, ↑, ↑), ∆EF(n, ↑, ↓), and ∆EF(n, ↓, ↓), respectively. We count the intermediate states satisfying Rc &gt; 0.1 nm to remove narrow resonances. The bin size is 0.1 GHz.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21206_figures/2604.21206_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Magnetic field and principal quantum number dependence of various physical quantities for 88Sr with mJ = +1 at θ = π/2. (a) C↑↑ 6 , (b) C↑↓ 6 , (c) C6, (d) R↑↑ c , (e) R↑↓ c , and (f) anisotropy parameter δ. The white region indicates the absence of data due to strong S–D mixing.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21206_figures/2604.21206_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Magnetic field and principal quantum number dependence of various physical quantities of 88Sr with mJ = 0 at θ = π/2. (a) C↑↑ 6 , (b) C↑↓ 6 , (c) C6, (d) R↑↑ c , (e) R↑↓ c , and (f) anisotropy parameter δ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21206_figures/2604.21206_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Magnetic field and principal quantum number dependence of various physical quantities of 88Sr with mJ = −1 at θ = π/2. (a) C↑↑ 6 , (b) C↑↓ 6 , (c) C6, (d) R↑↑ c , (e) R↑↓ c , and (f) anisotropy parameter δ. The white region indicates the absence of data due to strong S–D mixing.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21206_figures/2604.21206_fig9.jpg" width="500"><br>
+<sub>FIG. 9. Magnetic field and principal quantum number dependence of various physical quantities of 174Yb with mJ = +1 for θ = π/2. (a) C↑↑ 6 , (b) C↑↓ 6 , (c) C6, (d) R↑↑ c , (e) R↑↓ c , and (f) anisotropy parameter δ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21206_figures/2604.21206_fig10.jpg" width="500"><br>
+<sub>FIG. 10. Magnetic field and principal quantum number dependence of various physical quantities of 174Yb with mJ = 0 for θ = π/2. (a) C↑↑ 6 , (b) C↑↓ 6 , (c) C6, (d) R↑↑ c , (e) R↑↓ c , and (f) anisotropy parameter δ.</sub>
+
+</details>
+
+**Main problem.** Investigating how magnetic fields can control the interactions between alkaline-earth-like Rydberg atoms to realize and tune XXZ-type quantum spin models.
+
+**Main result.** The authors demonstrate that 174Yb exhibits significantly higher interaction anisotropy than 88Sr or alkali atoms due to strong spin-orbit coupling, allowing for the realization of large-anisotropy XXZ models and even supersolid phases without fine-tuning.
+
+**Method.** The study uses Multichannel Quantum Defect Theory (MQDT) and second-order perturbation theory to derive effective Hamiltonians and calculate interaction coefficients.
+
+**Summary.** This paper explores the use of magnetic fields to tune interactions in alkaline-earth Rydberg atoms. It highlights that 174Yb is particularly promising because its strong spin-orbit coupling leads to naturally large interaction anisotropy. The authors show that this allows for the simulation of complex many-body phenomena, such as the folded XXZ model in 1D and supersolid phases in 2D, with much greater ease than in traditional alkali-atom platforms.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system consists of alkaline-earth-like Rydberg atoms (88Sr and 174Yb) in an effective spin-1/2 XXZ-type quantum spin model derived from Rydberg state pairs.
+
+**Key observables.** Anisotropy parameter (delta), C6 coefficients, Forster defects, and domain-wall number.
+
+**Important parameters / regimes.** Magnetic field strength (B), principal quantum number (n), and the anisotropy parameter (delta).
+
+**Assumptions / limitations.** The study assumes the validity of second-order perturbation theory and approximates the interaction using only the leading-order dipole-dipole term.
+
+**Figures summary.** Figures show the dependence of anisotropy and C6 coefficients on the principal quantum number and magnetic field for both 88Sr and 174Yb.
+
+**Paper structure.** The paper introduces the problem, derives the effective XXZ Hamiltonian using MQDT, compares the interaction properties of Sr and Yb, explores magnetic field tuning, and discusses applications to 1D and 2D many-body systems.
+
+**Why it may be interesting.** It provides a new platform (174Yb) for quantum simulation where complex spin models like the XXZ model can be realized with large anisotropy and high stability without the need for the precise fine-tuning required in alkali-atom systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study the magnetic-field dependence of the interactions between two alkaline-earth(-like) Rydberg atoms, ${}^{88}$Sr and ${}^{174}$Yb. Considering the pair of Rydberg states $|ns,{}^3S_1,m_J\rangle$ and $|(n+1)s,{}^3S_1,m_J\rangle$, we show that the effective Hamiltonian takes the form of an {\it XXZ}-type quantum spin model, as in the alkali-atom case [M. Kunimi and T. Tomita, Phys. Rev. A {\bf 112}, L051301 (2025)]. We find that the behavior of the anisotropy parameter for ${}^{174}$Yb at zero magnetic field is significantly different from that for other atomic species. This behavior originates from the strong spin-orbit coupling in ${}^{174}$Yb. We systematically calculate the interaction parameters of the {\it XXZ} model in the presence of a magnetic field and show that they can be tuned by the field. As applications to quantum many-body problems, we investigate one-dimensional systems in the large-anisotropy regime and show that the folded {\it XXZ} model can be realized in ${}^{174}$Yb systems without fine-tuning of the field. We also investigate two-dimensional square-lattice systems and show that a supersolid phase can emerge in the ground state at the mean-field level.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.20969"></a>
+### [Engineering molecular potential energy surfaces using magnetic cavity quantum electrodynamics](http://arxiv.org/abs/2604.20969v1)
+
+**Authors:** Lukas Weber, Leonardo dos Anjos Cunha, Johannes Flick, Shiwei Zhang  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.20969v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `correlated cavity matter` **4/5** · 🔥 `exotic spin models in light-matter` **3/5** · 🔥 `spintronics-quantum-optics interface` **3/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.20969_figures/2604.20969_fig1.jpg" width="500"><br>
+<sub>FIG. 1. H2 coupled to a magnetic cavity. (a) Sketch of the lowest energy levels in cavity-coupled H2. Without light- matter coupling, there is a singlet (S = 0) bonding ground state and a triplet (S = 1) antibonding excited state. Under finite cavity coupling, through the quantum spin Zeeman ef- fect, the triplet splits into an mS = 0 singlet and an mS = ±1 doublet of lower energy. The mS = 0 states get shifted up- wards weakly by the diamagnetic coupling. (b) Potential en- ergy surfaces as a function of the bond length dHH and the cav- ity coupling λ, calculated using FCI in the aug-cc-pV5Z basis set. For each coupling, only the lowest energy mS = 0, ±1 states are shown. For clarity, in...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.20969_figures/2604.20969_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Potential energy surfaces of cavity-coupled hydrogen rings. For each dimerization angle δ and magnetic cavity coupling λ, only the lowest-energy spin state, mS, is shown. Calculations are performed using QED-UHF at a fixed ring radius R in the aug-cc-pVTZ (TZ) and in aug-cc-pVQZ (QZ) basis sets. The insets show a sketch of the ground state ring geometries outside of the cavity. The center of the ring is located at the origin, and the quantum magnetic field is perpendicular to the ring plane.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.20969_figures/2604.20969_fig3.jpg" width="500"><br>
+<sub>FIG. 4. Stability of different cyclobutadiene geome- tries under magnetic cavity coupling. Energies as a function of the magnetic cavity coupling λ. The D2h and D4h geometries are fixed to their λ = 0 values (Table I). The statistical error bars are smaller than the markers.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.20969_figures/2604.20969_fig4.jpg" width="500"><br>
+<sub>FIG. 3. Stability of different hydrogen ring geometries under magnetic cavity coupling. Energies as a function of the magnetic cavity coupling λ, for the symmetric geometry (δ = 0) and the optimal QED-UHF geometry outside of the cavity (δ ̸= 0), calculated using QED-AFQMC in the aug- cc-pVTZ (TZ) and aug-cc-pVQZ (QZ) basis sets. For each dimerization angle δ and coupling, only the lowest-energy spin state, mS, is shown. The statistical error bars are smaller than the markers.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.20969_figures/2604.20969_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Potential energy surface of cyclobutadiene in the cavity. Perturbations of the two carbon-carbon bond lengths, dCC,1 and dCC,2, around the D4h/mS = ±1 (yellow) and D2h/mS = 0 (blue) equilibrium geometries. The out-of- cavity equilibrium carbon-carbon bond lengths are indicated by markers with thick outlines. The hydrogen-carbon bond lengths and angles are left constant. The color of the markers corresponds to the QED-AFQMC results in the aug-cc-pVTZ basis set. The colors in the background show a parabolic fit. The center of the fit is marked in white. On the left colorbar, the gap between the fitted energy minima is marked along with its statistical error. The magnetic cavity...</sub>
+
+</details>
+
+**Main problem.** Investigating how coupling molecules to a magnetic cavity quantum electrodynamics (QED) field can be used to engineer molecular potential energy surfaces and induce structural or geometric transitions.
+
+**Main result.** Strong magnetic cavity coupling can invert the singlet-triplet gap in H2 and stabilize symmetric geometries in ring molecules (like H4, H8, and cyclobutadiene) that would otherwise undergo Jahn-Teller distortions.
+
+**Method.** The study uses high-precision QED auxiliary-field quantum Monte Carlo (QED-AFQMC) alongside QED-unrestricted Hartree-Fock (QED-UHF) and full configuration interaction (QED-FCI) for benchmarking.
+
+**Summary.** This paper explores how magnetic cavity QED can be used to manipulate the chemical properties of molecules. By coupling molecules to a magnetic cavity, the researchers show that one can stabilize symmetric structures in molecules that typically undergo Jahn-Teller distortions. The study also finds that strong coupling can invert spin gaps in H2 and that increasing molecular concentration enhances these cavity-induced effects. This provides a promising pathway for 'cavity-altered chemistry' using magnetic fields.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The model employs a Pauli-Fierz Hamiltonian in the Coulomb gauge to describe H2, hydrogen rings (Hn), and cyclobutadiene (C4H4) interacting with a single-mode magnetic cavity field, breaking the long-wavelength approximation.
+
+**Key observables.** Potential energy surfaces (PES), singlet-triplet gaps, spin polarization (mS), dimerization angle (delta), and molecular geometry/symmetry.
+
+**Important parameters / regimes.** Cavity coupling strength (lambda), photon frequency (Omega), molecule concentration (N), and the diamagnetic/Zeeman coupling terms.
+
+**Assumptions / limitations.** Nuclei are treated as quasistatic within the Born-Oppenheimer approximation; the magnetic field is assumed to be aligned with the molecule's rotation axis; molecules are assumed to be far enough apart to avoid direct interaction.
+
+**Figures summary.** Figure 1 shows energy level changes and PES for H2 under coupling; Figure 2 illustrates the transition from dimerized to symmetric configurations in H4, H6, and H8 rings.
+
+**Paper structure.** The paper introduces the magnetic cavity QED problem, details the Hamiltonian and numerical methods (AFQMC/UHF), presents results for H2 and hydrogen rings, discusses the effects of molecular concentration, and concludes with a discussion on the limitations of the single-mode model and origin dependence.
+
+**Why it may be interesting.** It demonstrates a unique mechanism for 'cavity-induced magnetism' and structural engineering that goes beyond the standard electrical cavity effects, offering a new way to control molecular symmetry and spin states via light-matter interaction.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We investigate the effects of coupling a quantum-magnetic cavity field to molecules. Our high-precision auxiliary-field quantum Monte Carlo calculations capture the effect of the cavity field in the presence of electron correlations, and their interplay and competition. In H$_2$, we find that a strong enough cavity coupling makes the original bound ground state metastable, along with inverting the singlet-triplet gap. In ring molecules (e.g., H$_n$), the magnetic cavity coupling stabilizes symmetric geometries. As a consequence, open-shell rings such as H$_4$, H$_8$, or C$_4$H$_4$, which would undergo Jahn-Teller distortions outside of the cavity, obtain exotic spin or ring-current polarized, antiaromatic ground states. These effects are enhanced by increasing the molecule concentration inside the cavity. Our results suggest cavity quantum electrodynamics beyond the long-wavelength approximation as a promising avenue for cavity-altered chemistry.
 
 </details>
 
@@ -1664,6 +2289,60 @@ In quantum estimation for a $d$-parameter family of density operators on a finit
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21123"></a>
+### [Qubit-efficient and gate-efficient encodings of graph partitioning problems for quantum optimization](http://arxiv.org/abs/2604.21123v1)
+
+**Authors:** Tristan Zaborniak, Prashanti Priya Angara, Vikram Khipple Mulligan, Hausi Müller, Ulrike Stege  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21123v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21123_figures/2604.21123_fig1.jpg" width="500"><br>
+<sub>Fig. 1: Small example graph colored improperly (upper row, violating edge colored red) and properly (bottom row). The tables contain bitstring assignments to each vertex under the one-hot and logarithmic encodings. Note that with 4 (|V |) vertices, 4 (|V |) qubits are required per vertex for one-hot encoding, and 2 (⌈log2 |V |⌉) qubits are required for logarithmic encoding. While the bitstrings are colored for visualization purposes, they do not refer to a particular color.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21123_figures/2604.21123_fig2.jpg" width="500"><br>
+<sub>Fig. 2: Upper left: TTS as a function of |V |. Upper right: Post- quadratization logical qubits per encoding; inset: pre-quadratization. Lower left: Physical qubits after minor embedding. Lower right: Chain length variance; inset: average chain length.</sub>
+
+</details>
+
+**Main problem.** Efficiently encoding graph partitioning problems, such as minimum graph coloring, for quantum optimization to reduce the qubit and gate overhead required on near-term quantum hardware.
+
+**Main result.** The proposed logarithmic encoding achieves the information-theoretic minimum of qubits per vertex and significantly reduces two-qupi gate counts, leading to a 1-2 order of magnitude improvement in time-to-solution on a quantum annealer.
+
+**Method.** A novel higher-order unconstrained binary optimization (HUBO) encoding using a lexicographic penalty system to minimize partition count, combined with Rosenberg quadratization to reduce terms to QUBO.
+
+**Summary.** This paper presents a new way to map graph partitioning problems onto quantum hardware using significantly fewer qubits and gates. By using a logarithmic encoding instead of the traditional one-hot method, the authors reduce the resource requirements for problems like graph coloring. They introduce a clever penalty system that allows the quantum computer to find the minimum number of colors without extra variables. Experimental tests on a D-Wave quantum annealer show that this method drastically improves the speed and quality of solutions as problem sizes grow.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study utilizes the D-Wave Advantage 2_1.11 quantum annealer (superconducting flux qubits on a Zephyr graph) and compares one-hot encoding against a new logarithmic encoding for label-symmetric graph partitioning problems.
+
+**Key observables.** Time-to-solution (TTS), logical and physical qubit counts, CNOT gate counts, and chain length variance.
+
+**Important parameters / regimes.** Number of vertices (|V|), number of edges (|E|), number of possible labels (k), and penalty coefficients for feasibility and optimality.
+
+**Assumptions / limitations.** The encoding assumes the problem class is label-symmetric and pairwise-decomposable; the derived penalty bounds are sufficient but potentially conservative.
+
+**Figures summary.** Figure 1 illustrates encoding differences; Figure 2 shows TTS increasing with graph size, logical qubit counts (with an inset for pre-quadratization), physical qubit counts after embedding, and chain length variance.
+
+**Paper structure.** The paper introduces the problem and encoding types, presents the mathematical construction and lexicographic penalty system, provides proofs for penalty coefficient sufficiency, performs complexity and gate count analysis, and concludes with benchmarking on a quantum annealer.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We introduce a qubit- and gate-efficient higher-order unconstrained binary optimization (HUBO) encoding for graph partitioning problems requiring label-count minimization. This widely applicable class of problems includes minimum graph coloring, minimum $k$-cut, and community detection. To the best of our knowledge, this is the first work to address the optimization versions of these problems in a quantum setting, rather than only their decision counterparts. Our construction encodes each $k$-valued vertex variable using $\lceil \log_2 k \rceil$ bits and employs a novel lexicographic penalty system that implicitly minimizes partition count without requiring dedicated indicator variables. We derive provably sufficient conditions on all penalty coefficients, including those arising from Rosenberg quadratization, guaranteeing feasibility and optimality of the lowest-energy solution. Analogous conditions are derived for a one-hot encoding to enable controlled comparison. We also show that our encoding reduces two-qubit gate count per QAOA layer from $Θ(|V||k|^2 + |E||k|)$ for the one-hot encoding to $Θ(|E| \cdot |k| \lceil\log_2 |k|\rceil)$. Benchmarking on a quantum annealer demonstrates that our logarithmic encoding significantly improves solution quality and time-to-solution for minimum graph coloring relative to one-hot encoding, with greater advantage as problem size increases.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21350"></a>
 ### [Vertical Shuttling Protocols for Trapped Ions in Multi-Rail, Multi-Zone Surface Ion Trap Architectures](http://arxiv.org/abs/2604.21350v1)
 
@@ -1771,6 +2450,242 @@ In quantum estimation for a $d$-parameter family of density operators on a finit
 <details><summary>Abstract</summary>
 
 We investigate optimized vertical ion-shuttling protocols for trapped-ion applications across a range of ion-trap experiments, including three-dimensional gradient-measurement sensors, on-chip ion fluorescence collection and imaging, improved laser accessibility, and quantum information processing. In this work, we focus on minimizing motional energy gain during ion transport. Our findings indicate that anomalous heating becomes the dominant limiting factor only for shuttling durations exceeding $500~μ\mathrm{s}$, whereas the final motional excitation is strongly dependent on the selected transport protocol. Using a recently measured heating rate of $(3.1 \pm 0.35)$ quanta/ms at an ion--surface separation of $134 \pm 1.5~μ\mathrm{m}$, we demonstrate that the motional excitation can be restricted to fewer than eight quanta when the ion is vertically displaced by $86~μ\mathrm{m}$ from its initial position. These results enable adiabatic shuttling within $0.5~\mathrm{ms}$, thereby meeting the operational requirements for high-fidelity quantum sensing and coherent control.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21586"></a>
+### [Birth, Death, and Replication at Surfaces: Universal Laws of Autocatalytic Dynamics](http://arxiv.org/abs/2604.21586v1)
+
+**Authors:** Denis S. Grebenkov  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21586v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `driven-dissipative phase transition` **3/5** · 🔥 `non-equilibrium universality` **3/5** · `dissipative systems` **2/5** · `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21586_figures/2604.21586_fig1.jpg" width="500"><br>
+<sub>FIG. 1. A schematic view of autocatalytic reactions on a sur- face partitioned into three subsets (here, M = 2): an absorb- ing region Γ0 (in red) that destroys particles via A+Γ0 →Γ0; an inert region Γ1 (in gray) that reflects particles back into the bulk; and a catalytic region Γ2 (in green) that replicates particles via a binary splitting A + Γ2 →2A + Γ2. Each of three subsets can be composed of multiple pieces. In the shown random realization, a single particle started from x0 diffuses towards the surface and then branches into two copies on Γ2; one of them reaches an absorbing region Γ0 and dis- appears, whereas the other produces two more offsprings on another piece of the catalytic...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21586_figures/2604.21586_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Time evolution of the population size N(t) for a diffusion-reaction system with diffusivity D = 1 in a hol- low cylinder of radii R = 0.2 and L = 1, with the outer perfectly absorbing surface (κ0 = ∞) and the inner au- tocatalytic surface with reactivity κ2. The starting point x0 is on the inner surface. Three regimes are shown for κ2 = 0.9 κc 2 (subcritical, dash-dotted line), κ2 = κc 2 (criti- cal, dashed line), and κ2 = 1.1 κc 2 (supercritical, solid line), with κc 2 = D/(R ln(L/R)) ≈3.11. Arbitrary units are used. (a) Probability 1 −Q0(t|x0) of having at least one particle at time t; (b) Distribution Qk(t|x0) at two times: t = 0.1 (thin lines) and t = 5 (thick lines); (c) Mean...</sub>
+
+</details>
+
+**Main problem.** Developing a unified theoretical framework to understand surface-mediated autocatalytic processes where replication and loss are triggered at interfaces.
+
+**Main result.** The derivation of a nonlinear integral equation and an equivalent backward Fokker-Planck equation with nonlinear Robin-type boundary conditions, identifying three universal asymptotic regimes: subcritical, critical, and supercritical.
+
+**Method.** A probabilistic approach using generating functions, renewal-type integral equations, and spectral analysis of the diffusion operator.
+
+**Summary.** This paper provides a general theory for autocatalytic processes occurring at interfaces, such as enzyme activity or heterogeneous catalysis. By using a generating function approach, the author derives a backward Fokker-Planck equation with nonlinear boundary conditions. The study identifies three distinct regimes—subcritical, critical, and supercritical—based on the competition between surface absorption and branching. These results offer a unified way to predict whether surface activity leads to population extinction or exponential growth.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A diffusive population of particles in a bulk medium interacting with a partitioned boundary consisting of absorbing, catalytic (branching), and inert regions.
+
+**Key observables.** Generating function G_s(t|x_0), probability distribution of population size Q_k(t|x_0), mean population size N_1(t|x_0), and survival probability.
+
+**Important parameters / regimes.** Surface reactivities (kappa_m), diffusion coefficient (D), and the principal eigenvalue (lambda_0) which determines the dynamical regime.
+
+**Assumptions / limitations.** Particles undergo ordinary diffusion with a constant diffusivity; the drift vector and diffusion matrix are time-independent and smooth.
+
+**Figures summary.** Figure 1 shows a schematic of a partitioned surface with different reaction zones; Figure 2 illustrates population dynamics (survival probability, distribution, and moments) in a hollow cylinder across subcritical, critical, and supercritical regimes.
+
+**Paper structure.** The paper introduces the problem of surface-mediated autocatalysis, develops a mathematical framework using generating functions and renewal equations, transforms these into a PDE description with nonlinear boundary conditions, performs spectral analysis to identify asymptotic regimes, and validates the theory with numerical simulations in a cylindrical geometry.
+
+**Why it may be interesting.** The framework for nonlinear boundary conditions and the transition between extinction and explosive growth is highly relevant to the study of open quantum systems and non-equilibrium dynamics where boundaries drive population-like changes in quantum states or quasiparticle numbers.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Autocatalytic processes underlie diverse systems in which replication is triggered at interfaces, including heterogeneous catalysis on solid substrates, enzyme activity at membranes, viral infections, biofilm growth, and spatially structured ecosystems. In a typical scenario, particles move in a bulk medium and interact with surface regions, where they may either disappear or reproduce through branching, splitting or fission. Here, we develop a general theoretical framework to understand such surface-mediated autocatalytic processes. We show that the interplay between loss and replication at surfaces gives rise to rich population dynamics. For this purpose, we derive a renewal-type nonlinear integral equation for the generating function of the population size, providing access to its full probability distribution and statistical moments. We further establish an equivalent description in terms of a Fokker-Planck equation with nonlinear Robin-type boundary conditions that encode surface reactions. Our results identify distinct dynamical regimes and universal scaling laws, and provide a unified framework to predict when surface activity promotes extinction or explosive growth. These findings offer quantitative insight into catalytic efficiency, metabolic regulation, and population persistence in spatially heterogeneous environments.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21089"></a>
+### [A rigorous quasipolynomial-time classical algorithm for SYK thermal expectations](http://arxiv.org/abs/2604.21089v1)
+
+**Authors:** Alexander Zlokapa  
+**Type:** theory · **Category:** disordered systems and neural networks · **PDF:** <https://arxiv.org/pdf/2604.21089v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `entanglement & information structure` **3/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21089_figures/2604.21089_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21089_figures/2604.21089_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21089_figures/2604.21089_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21089_figures/2604.21089_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21089_figures/2604.21089_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21089_figures/2604.21089_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21089_figures/2604.21089_page8.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 8</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21089_figures/2604.21089_page9.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 9</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21089_figures/2604.21089_page10.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 10</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21089_figures/2604.21089_page11.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 11</sub>
+
+</details>
+
+**Main problem.** Determining whether estimating local thermal expectations in the Sachdev-Ye-Kitaev (SYK) model at constant temperature allows for quantum advantage, and developing a rigorous classical algorithm to perform this estimation.
+
+**Main result.** The paper provides a rigorous proof of a quasipolunomial-time classical algorithm that estimates SYK local thermal expectations at sufficiently high constant temperatures.
+
+**Method.** The author introduces a new Wick-pair cluster expansion for non-commuting mean-field systems and utilizes Barvinok's interpolation method to approximate the partition function.
+
+**Summary.** This paper presents a rigorous classical algorithm capable of estimating local thermal expectations in the SYK model in quasipolynomial time. By developing a new cluster expansion based on Wick pairs, the author overcomes the mathematical challenges posed by the non-commutativity of the SYK Hamiltonian. The result establishes that at sufficiently high temperatures, the SYK model can be efficiently simulated classically. This provides important evidence regarding the limits of quantum advantage in disordered, highly entangled quantum systems.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The Sachdev-Ye-Kitaev (SYK) model, a $q$-local random Hamiltonian ensemble using Majorana fermions with Gaussian random couplings.
+
+**Key observables.** Local thermal expectations of Hermitian operators (local observables) and the partition function.
+
+**Important parameters / regimes.** Inverse temperature (beta), system size (n), interaction order (q), and error tolerance (epsilon).
+
+**Assumptions / limitations.** The algorithm is restricted to the high-temperature regime (sufficiently large constant beta) and the large $n$ limit.
+
+**Paper structure.** The paper defines the SYK model and the problem of thermal estimation, introduces a new Wick-pair cluster expansion, establishes a zero-free disk for the partition function in the complex beta plane, proves concentration of the quenched partition function around its mean, and concludes with the derivation of the quasipolynomial-time algorithm.
+
+**Why it may be interesting.** This work is highly relevant for many-body dynamics as it provides a rigorous classical tool to simulate a model known for high entanglement and quantum chaos, potentially clarifying the boundaries of quantum advantage in disordered systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Estimating local observables in Gibbs states is a central problem in quantum simulation. While this task is BQP-complete at asymptotically low temperatures, the possibility of quantum advantage at constant temperature remains open. The Sachdev-Ye-Kitaev (SYK) model is a natural candidate: at any constant temperature, its Gibbs states have polynomial quantum circuit complexity and are not described by Gaussian states. Rigorous analyses of the SYK model are difficult due to the failure of known techniques using random matrix theory, cluster expansions, and rigorous formulations of the quantum path integral and replica trick. Despite this, we give a rigorous proof of a quasipolynomial-time classical algorithm that estimates SYK local thermal expectations at sufficiently high constant temperature. Our result introduces a new Wick-pair cluster expansion that we expect to be broadly useful for disordered quantum many-body systems.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21762"></a>
+### [Novel dynamics for an inertial polar tracer in an active bath](http://arxiv.org/abs/2604.21762v1)
+
+**Authors:** Jing-Bo Zeng, Ji-Hui Pei  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21762v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `non-equilibrium dynamics` **3/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `dissipative systems` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21762_figures/2604.21762_fig1.jpg" width="500"><br>
+<sub>FIG. 1. A chevron-shaped rigid tracer (shown in red) , composed of a collection of beads and immersed in an active bath, is characterized by its opening angle ϕ, length a, and width b. Each bead is coupled to ABPs via the WCA force.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21762_figures/2604.21762_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Typical trajectories of CM from the reduced dynamics in different dynamical regimes: (a) ABP regime; (b) CABP regime; (c)(d) chaotic regime; (e) zigzag ABP. In each column, the figure in the bottom displays trajectories in the presence of noise, while the figure in the top depicts trajectories in the zero-noise limit. As the column changes, r varies, while σ = 10.6 and b = 2.95 are fixed.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21762_figures/2604.21762_fig3.jpg" width="500"><br>
+<sub>FIG. 3. The dependence of the diffusion coefficient on r, with fixed σ = 4.5 and b = 1. For a given r, a larger number of bath particles N corresponds to a lower noise strength, depicted in different colors.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21762_figures/2604.21762_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Comparison of the velocity autocorrelation func- tions between linear approximation of the reduced dynam- ics (shown in orange) and simulations of composite system (shown in blue). (a)-(c) shows for the ABP regime, (d)-(f) are for the CABP-regime.</sub>
+
+</details>
+
+**Main problem.** Investigating the complex, non-equilibrium dynamics of an inertial (underdamped) polar tracer immersed in an active bath of self-propelled particles.
+
+**Main result.** The reduced dynamics of the tracer can be mapped to a stochastic Lorenz equation, revealing multiple dynamical regimes including chiral, chaotic, and zigzag motion.
+
+**Method.** The authors use the projection-operator formalism and a quasi-static expansion to integrate out the bath, followed by a mapping to the Lorenz system and moment-closure methods for analytical predictions.
+
+**Summary.** This paper explores how the inertia of a particle in an active bath leads to much richer dynamics than the standard overdamped case. By mapping the tracer's motion to the stochastic Lorenz equation, the authors identify several distinct states: standard active Brownian motion, chiral motion, chaotic trajectories, and zigzag patterns. They provide analytical tools to calculate diffusion and propulsion in these regimes. This work demonstrates how complex, emergent behaviors like chirality and chaos can arise from simple microscopic interactions.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A heavy, 2D, chevron-shaped rigid polar tracer interacting via WCA potential with a dilute bath of independent, overdamped Active Brownian Particles (ABPs).
+
+**Key observables.** Propulsion speed, velocity covariance, effective diffusion coefficient, and velocity autocorrelation functions.
+
+**Important parameters / regimes.** Lorenz parameters (r, sigma, b), mass (M), moment of inertia (I), and the ratio I/M.
+
+**Assumptions / limitations.** The bath is dilute, the tracer is rigid, and there is a separation of timescales between the fast bath dynamics and slow tracer dynamics.
+
+**Figures summary.** Figure 1 shows the tracer schematic; Figure 2 displays trajectories in different regimes (ABP, CABP, Chaotic, Zigzag); Figure 3 shows the diffusion coefficient dependence on the parameter r.
+
+**Paper structure.** The paper begins with a microscopic description of the tracer-bath system, derives reduced stochastic dynamics using projection operators, maps these dynamics to the Lorenz equations, classifies the resulting dynamical regimes, and provides analytical expressions for transport properties validated by numerical simulations.
+
+**Why it may be interesting.** The mapping of active matter dynamics to the Lorenz system provides a bridge between active matter physics and classical nonlinear dynamics, offering insights into how broken symmetries and chaos emerge in non-equilibrium systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+A polar tracer immersed in an active bath is known to be propelled forward and therefore activated. Here we report that the induced dynamics of an inertial tracer can be much richer than expected. We investigate a heavy polar tracer immersed in a bath of independent active Brownian particles. Using the projection-operator formalism to integrate out the bath, we show that the tracer's reduced dynamics can be mapped to a stochastic Lorenz equation. According to the attractors in the Lorenz equation, the tracer motion is classified into several different dynamical regimes, including active Brownian motion, chiral active Brownian motion, complex chaotic motion, and zigzag active Brownian motion. For certain regimes, we derive analytical expressions for the propulsion speed, the velocity covariance, and the effective diffusion coefficient. Numerical simulations corroborate these theoretical predictions.
 
 </details>
 
@@ -2042,6 +2957,118 @@ Quantum state tomography (QST) scales exponentially in both measurement and comp
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.20961"></a>
+### [Ansätz Expressivity and Optimization in Variational Quantum Simulations of Transverse-field Ising Model Across System Sizes](http://arxiv.org/abs/2604.20961v1)
+
+**Authors:** Ashutosh P. Tripathi, Nilmani Mathur, Vikram Tripathi  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.20961v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `entanglement & information structure` **3/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.20961_figures/2604.20961_fig1.jpg" width="500"><br>
+<sub>Figure 1: Schematic of the VQE circuits for HEA (hardware efficient ans¨atz), HVA (Hamiltonian variational ans¨atz) and HVA-SB (symmetry-breaking) used in this work.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.20961_figures/2604.20961_fig2.jpg" width="500"><br>
+<sub>Figure 2: Distribution of 1-degree norm for HEA, HVA and HVA-SB ans¨atze for pairs of states generated respectively from two random parameter sets. The frame potential F1 – the average of the 1-degree norm over random parameter sets – is a measure of expressivity. The Hamiltonian is 1D TFIM.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.20961_figures/2604.20961_fig3.jpg" width="500"><br>
+<sub>Figure 3: Average energy and the von Neumann entanglement entropy for the ground state of the one dimensional TFIM at different lattice sizes.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.20961_figures/2604.20961_fig4.jpg" width="500"><br>
+<sub>Figure 4: Average energy and the von Neumann entanglement entropy for the ground state of the two dimensional TFIM at different lattice sizes.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.20961_figures/2604.20961_fig5.jpg" width="500"><br>
+<sub>Figure 5: Average energy and the von Neumann entanglement entropy for the ground state of the three dimensional TFIM at different lattice sizes.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.20961_figures/2604.20961_fig6.jpg" width="500"><br>
+<sub>Figure 6: A comparison between ED, DMRG and VQE methods for energy and entanglement entropy</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.20961_figures/2604.20961_fig7.jpg" width="500"><br>
+<sub>Figure 7: Energy variance vs hx : TFIM 1-D with 10 sites</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.20961_figures/2604.20961_fig8.jpg" width="500"><br>
+<sub>Figure 8: Spin correlation, and Magnetization for 10 site 1D system</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.20961_figures/2604.20961_fig9.jpg" width="500"><br>
+<sub>Figure 9: Spin correlation and Entanglement per site calculation for 2D system of 4x4 dimensions</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.20961_figures/2604.20961_fig10.jpg" width="500"><br>
+<sub>Figure 10: VQE flowchart</sub>
+
+</details>
+
+**Main problem.** Investigating the trade-off between ansatz expressivity and optimization stability in the Variational Quantum Eigensolver (VQE) when simulating quantum phase transitions.
+
+**Main result.** The study identifies a fundamental trade-off where hardware-efficient ansätze (HEA) provide smoother optimization landscapes but fail to capture entanglement, while physics-inspired ansätze (HVA) achieve higher fidelity but face more rugged optimization landscapes.
+
+**Method.** The authors use the VQE algorithm with different ansätze (HEA, HVA, and HVA-SB) and optimizers (L-BFGS, COBYLA), benchmarking results against Exact Diagonalization and DMRG using GPU-accelerated state-vector simulations.
+
+**Summary.** This paper evaluates the performance of different variational quantum circuit architectures for simulating the Transverse-field Ising Model. By comparing hardware-efficient and physics-inspired ansätze across 1D, 2D, and 3D lattices, the authors reveal a tension between the ease of optimization and the accuracy of captured entanglement. The results demonstrate that while physics-inspired models better capture critical phenomena, they are significantly harder to optimize as dimensionality increases. This work provides essential guidance for designing scalable VQE algorithms for many-body physics.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The Transverse-field Ising Model (TFIM) in 1D, 2D, and 3D dimensions, featuring ferromagnetic interactions and a transverse magnetic field.
+
+**Key observables.** Ground-state energy, energy variance, von Neumann entanglement entropy, spin correlations, and magnetization.
+
+**Important parameters / regimes.** Transverse field strength (h_x), system size (up to 27 spins), number of ansatz layers, and spatial dimensionality (1D, 2D, 3D).
+
+**Assumptions / limitations.** The study assumes the chosen parameterized circuits can represent the ground state and that the classical optimizer can reach the global minimum; it operates within NISQ-era constraints.
+
+**Figures summary.** Figures show VQE circuit structures (HEA vs HVA-SB), distribution of 1-design frame potential for expressivity, energy and entropy signatures of criticality across 1D, 2D, and 3D lattices, and a comparison of VQE performance against ED and DMRG.
+
+**Paper structure.** The paper introduces the VQE problem and ansätze, details the TFIM model and simulation framework, quantifies ansatz expressivity and resource scaling, presents benchmarking results across dimensions, and concludes with optimization challenges and future directions.
+
+**Why it may be interesting.** This paper is highly relevant for many-body dynamics and quantum computing as it provides critical insights into how circuit architecture and optimization strategies impact the ability to simulate phase transitions and entanglement in higher-dimensional quantum systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We explore the application of the Variational Quantum Eigensolver (VQE) to investigate the ground state properties, particularly the entanglement entropy, of the Transverse Field Ising Model (TFIM) in one, two, and three dimensions, considering systems of up to 27 spins. By benchmarking VQE results against exact diagonalization and analyzing the entanglement properties across different system sizes and geometries, we assess the algorithm's effectiveness in capturing critical phenomena. Using results of TFIM, we also investigate how VQE's expressivity and optimization influence the simulation of highly entangled quantum states. We employ different ansätze: the hardware-efficient EfficientSU2 from Qiskit, the physics-inspired Hamiltonian Variational ansätz (HVA) and HVA with symmetry breaking, and benchmark their performance using energy variance, entanglement entropy, spin correlations, and magnetization. We further discuss the implications for scaling these methods to larger quantum systems.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21913"></a>
 ### [Dual-use quantum hardware for quantum resource generation and energy storage](http://arxiv.org/abs/2604.21913v1)
 
@@ -2240,6 +3267,76 @@ Quantum resources such as entanglement form the backbone of quantum technologies
 <details><summary>Abstract</summary>
 
 High-fidelity control of superconducting qubits requires carefully shaped microwave pulses that account for multiple error channels. In this work, we present a pedagogical introduction to pulse-shaping techniques for transmon qubits, aiming to provide a unified, accessible framework that integrates physical intuition for pulse design, analytical understanding of gate-level descriptions, and practical considerations of hardware. This article further aims to serve as a guide for students and early researchers entering superconducting quantum computing. We begin by examining simple pulse envelopes and their spectral properties, highlighting how finite bandwidth leads to leakage outside the computational subspace. These observations motivate the introduction of the derivative removal by adiabatic gate (DRAG) technique, which uses a quadrature component proportional to the pulse's time derivative to suppress off-resonant excitations. We analyze the single-qubit case using the Magnus expansion, which provides a clear understanding of the order-by-order introduction of error channels. We discuss the practical hardware realities of control pulse generation, focusing on arbitrary waveform generators (AWG), local oscillators (LO), and IQ mixing. Common imperfections are discussed in terms of their impact on the effective pulse shape and qubit Hamiltonian. Finally, we extend the discussion to two-qubit operations, focusing on the cross-resonance gate and the emergence of effective interactions.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21005"></a>
+### [Chaos Gated Tunneling Drives Molecular Reactivity in Astrophysical Environments](http://arxiv.org/abs/2604.21005v1)
+
+**Authors:** Saptarshi G. Dastider, K. Prashant, P. Shruti, C. Sudheesh, Jobin Cyriac  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.21005v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `entanglement & information structure` **2/5** · `scars & prethermalization` **2/5** · `non-equilibrium dynamics` **1/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21005_figures/2604.21005_fig1.jpg" width="500"><br>
+<sub>Figure 1: (a) Mean level spacing ratio (⟨r⟩) for H2 + H+ →H+ 3 , (b) Mean level spacing ratio (⟨r⟩) for H+ 3 + H2 →H+ 5 ,</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21005_figures/2604.21005_fig2.jpg" width="500"><br>
+<sub>Figure 2: H3+ Mode-Resolved AGP and Tunneling. 3D correlations of AGP, mode displace- ment λ, and tunneling probability (log scale) at the TS for selected vibrational modes. left: AGP, Tunneling correlation Per lambda, a. for mode 0, c for mode 2 Right: Vibrational mode structures and frequencies, b. Mode 0, d. Mode 2.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21005_figures/2604.21005_fig3.jpg" width="500"><br>
+<sub>Figure 3: Distribution of ⟨r⟩across all sampled geometries along the IRC for H2 + H+ → H+ 3 reaction from reactant to the product via the TS, showing the prevalence of chaotic (red columns) integrable (green columns) and weakly chaotic regimes (yellow columns).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21005_figures/2604.21005_fig4.jpg" width="500"><br>
+<sub>Figure 4: H5+ Mode-Resolved AGP and Tunneling. 3D AGP–λ–tunneling correlations (log scale) for representative H5+ modes at the transition state. Left: left: AGP, Tunneling correlation Per lambda, a. for mode 1, c for mode 6. Right: Vibrational mode structures and frequencies, b. Mode 1, d. Mode 6.</sub>
+
+</details>
+
+**Main problem.** Predicting kinetic reaction rates in ultracold ion-molecule networks is difficult due to the complex interplay between vibrational dynamics and quantum tunneling, specifically how vibrational excitations can suppress tunneling via quantum chaos.
+
+**Main result.** The transition state acts as a dynamical bottleneck where quantum chaos is suppressed, creating an 'integrable protection' that enhances tunneling, whereas high-frequency vibrational modes can trigger chaos and suppress reactivity by orders of magnitude.
+
+**Method.** The authors integrate multireference electronic structure theory (CASSCF/NEVPT2), Adiabatic Gauge Potentials (AGP), and Random Matrix Theory (RMT) with a semiclassical 1D WKB approximation.
+
+**Summary.** This paper investigates how quantum chaos influences proton tunneling in ultracold astrophysical environments. By analyzing H3+ and H5+ systems, the authors show that the transition state acts as a 'protected' region where chaos is suppressed, facilitating tunneling. Conversely, they identify a 'fragility index' showing that certain vibrational modes reintroduce chaos and drastically reduce reaction rates. This provides a new data-driven metric for understanding complex chemical networks in planetary and interstellar plasmas.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study focuses on hydrogen-ion association reactions, specifically the formation of H3+ (H2 + H+ -> H3+) and the proton-bound cluster H5+ (H3+ + H2 -> H5+), which are representative of Jovian atmospheric chemistry.
+
+**Key observables.** Mean level spacing ratio (r-parameter) for chaos diagnostics, AGP norm for electronic state mixing, and a 'fragility index' based on the AGP slope.
+
+**Important parameters / regimes.** Nuclear displacement along mass-weighted normal modes (lambda), temperature ranges (4 K to 200 K), and the transition from chaotic (GOE) to integrable regimes.
+
+**Assumptions / limitations.** The dynamics are modeled using a 1D WKB approximation along mode-projected potential energy profiles; electronic structure is computed using a minimal active space.
+
+**Figures summary.** Figure 1 shows the drop in the level spacing ratio at the transition state; Figure 2 and 4 present 3D correlations between AGP, mode displacement, and tunneling probability; Figure 3 illustrates the transition between chaotic, weakly chaotic, and integrable regimes along the reaction coordinate.
+
+**Paper structure.** The paper introduces the problem of reaction rate prediction in astrochemistry, presents a new chaos-diagnostic framework using AGP and RMT, applies this to H3+ and H5+ systems, analyzes mode-specific tunneling suppression via a fragility index, and concludes with implications for planetary plasma models.
+
+**Why it may be interesting.** It connects quantum chaos and information scrambling to chemical reactivity, providing a framework for how structural perturbations and vibrational modes control quantum transport and coherence in molecular systems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Accurate modeling of ion-molecule reaction networks is essential for understanding the chemical evolution of planetary ionospheres, particularly for giant planets where proton-transfer chains drive atmospheric composition. However, predicting reaction rates in these ultracold environments remains a challenge due to the non-trivial interplay between vibrational dynamics and quantum tunneling. In this work we present a chaos-diagnostic framework that integrates multireference electronic structure theory, Adiabatic Gauge Potentials (AGP), and Random Matrix Theory (RMT) to characterize the microscopic dynamics of proton transport. Using the formation of H+3 and the proton-bound cluster H+5 as representative model systems relevant to Jovian atmospheres, we demonstrate that the transition state acts as a dynamical bottleneck where quantum chaos is notably suppressed, effectively enhancing tunneling probabilities. We introduce a fragility index based on the AGP slope to quantify how specific vibrational modes reintroduce chaos and suppress reactivity. This diagnostic approach offers a generalizable, data-driven metric for identifying vibrationally gated pathways in complex astrochemical networks, providing a theoretical basis for refining kinetic models of planetary and interstellar plasmas
 
 </details>
 
@@ -2677,6 +3774,62 @@ Page and Wootters (1983) showed how time and dynamics can emerge in a stationary
 <details><summary>Abstract</summary>
 
 We revisit the quantization of the order parameter, which we refer to as third quantization, from the perspective of the commutation relation between the phase operator of the order parameter and the particle-number operator. We show that this macroscopic commutation relation does not constitute an independent fundamental postulate added to quantum mechanics, but instead emerges naturally from second quantization in the thermodynamic limit for both bosonic and fermionic many-body systems. In this sense, both Bose-Einstein condensates (BECs) and Bardeen-Cooper-Schrieffer (BCS) states can be understood as macroscopic quantum states described by bosonic coherent states: in BEC, bosons condense into a single coherent mode with a well-defined phase, while in BCS systems, collective excitations of Cooper pairs can also acquire an effectively bosonic coherent description. On this basis, we propose a new macroscopic interpretation of the BCS-BEC crossover. To characterize this crossover, we model a conventional superconductor as an assembly of macroscopically separated superconducting segments. As the intra-segment coupling increases, the system evolves from a BCS-like regime toward a BEC-like regime, in which the segments collectively behave as macroscopic coherent states. Inter-segment tunneling then locks their phases, establishes global phase coherence, and gives rise to a bulk Bose-Einstein condensate. The phase diagram of the BCS-BEC crossover can thus be understood as a manifestation of a macroscopic quantum process governed by the coherent-state dynamics of the order parameter. Our results provide a unified perspective on BEC, BCS superconductivity, and the BCS-BEC crossover within the framework of third quantization.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.20952"></a>
+### [Adiabatic Error Cancellation in Berry Phase Estimation](http://arxiv.org/abs/2604.20952v1)
+
+**Authors:** Chusei Kiumi  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.20952v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.20952_figures/2604.20952_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Quantum circuit for Step 1 of the Berry phase estimation algorithm. Two independent QPE procedures are run on the forward propagator UT (1) and the reverse propagator ˆUT (1), each with input |ψ(0)⟩. The upper circuit yields an estimate of the eigenphase θB + θD + φ1/T + O(T −2), while the lower circuit yields θB −θD −φ1/T + O(T −2). Adding the two outcomes cancels both the dynamical phase θD and the leading O(T −1) phase error, leaving 2θB + O(T −2).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.20952_figures/2604.20952_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Randomized Hadamard-test subroutine used in the Berry phase estimation algorithm. For each trial j, a runtime Tj is sampled at random from a prescribed distribution, and Hadamard tests are performed for the forward propagator UTj(1) and the reverse propagator ˆUTj(1), both with input state |ψ(0)⟩. The outputs b+,j and b−,j are random variables whose distributions depend on the sampled runtime Tj. Repeating the protocol for many sampled runtimes and classically post-processing the data yields estimates of the relevant forward–reverse interference signals, from which the corresponding phase estimates are reconstructed. Combining these estimates cancels the dynamical phase and the...</sub>
+
+</details>
+
+**Main problem.** The systematic reduction of adiabatic errors (phase bias and leakage) in Berry phase estimation on quantum computers during finite-speed evolution.
+
+**Main result.** The paper demonstrates a universal error-cancellation mechanism using forward-reverse evolution, Richardson extrapolation, and runtime randomization to suppress adiabatic errors from O(T^-1) to super-polynomial scales.
+
+**Method.** The author employs Adiabatic Perturbation Theory (APT) and wave-operator formalism to analyze error expansions, combined with algorithmic techniques like Richardson extrapolation and randomized Hadamard tests.
+
+**Summary.** This paper presents a new way to estimate the Berry phase more accurately by canceling out errors caused by finite-speed evolution. By combining forward and reverse evolutions with Richardson extrapolation and randomizing the evolution time, the author shows that the leading-order errors can be systematically eliminated. This makes Berry phase estimation much more robust and efficient for near-term quantum devices. The proposed method significantly improves the scaling of both the error and the computational complexity.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A quantum system undergoing adiabatic evolution along a closed loop in parameter space, governed by a smooth, time-dependent, gapped Hamiltonian H(s).
+
+**Key observables.** Berry phase (theta_B), dynamical phase (theta_D), leakage probability (p_leak), and phase error (phi).
+
+**Important parameters / regimes.** Total runtime (T), minimum spectral gap (Delta_min), rate of change of the Hamiltonian (dot{H}), and target accuracy (epsilon_B).
+
+**Assumptions / limitations.** The ground state is non-degenerate, the Hamiltonian path is smooth, and the minimum spectral gap is well-defined and non-zero.
+
+**Figures summary.** Figure 1 shows a quantum circuit for a QPE-based protocol using forward and reverse propagators; Figure 2 illustrates a randomized Hadamard-test subroutine with forward and reverse evolutions.
+
+**Paper structure.** The paper introduces the problem of adiabatic error, establishes a mathematical framework using wave-operator formalism, proves error cancellation theorems for forward-reverse and Richardson protocols, introduces runtime randomization for oscillatory error suppression, and concludes with complexity analysis and algorithmic implementation.
+
+**Why it may be interesting.** This is highly relevant for researchers in quantum computing and open quantum systems as it provides a robust, error-mitigation-based approach to geometric phase estimation, which is a key primitive for NISQ and early fault-tolerant quantum computing.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+In this work, we show that Berry phase estimation admits a natural and universal adiabatic error-cancellation mechanism, making it a promising candidate for practical quantum computing before full fault tolerance. Combining finite-runtime evolutions under $\pm H$ along the loop cancels the leading $O(T^{-1})$ phase error exactly, and Richardson extrapolation further reduces the residual error to an oscillatory term with endpoint-controlled coefficient $O(\|\dot H(0)\|^2Δ(0)^{-4}T^{-2})$. Beyond this deterministic cancellation, we establish that, for suitable smooth runtime distributions, runtime randomization suppresses the remaining oscillatory contribution to $O(T^{-M})$ for any fixed $M$, leading to a randomized Hadamard-test algorithm for Berry phase estimation over the full range $[0,2π)$ with improved runtime scaling under standard sample complexity.
 
 </details>
 
