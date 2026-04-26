@@ -1,11 +1,11 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-26
 
-*33 papers · 15 relevant · 4 highlighted*  
-_⏳ in progress: 33/144 papers processed (file updates after each one)_
+*35 papers · 16 relevant · 4 highlighted*  
+_⏳ in progress: 35/144 papers processed (file updates after each one)_
 
 
-## 🔥 Most relevant (15)
+## 🔥 Most relevant (16)
 
 *Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥3/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page. `(secondary)` marks papers from de-prioritized cond-mat archives.*
 
@@ -21,6 +21,7 @@ _⏳ in progress: 33/144 papers processed (file updates after each one)_
 - [Dual-use quantum hardware for quantum resource generation and energy storage](#paper-2604.21913) [[arXiv]](http://arxiv.org/abs/2604.21913v1) — `dissipative systems` **2/5** · `entanglement & information structure` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
 - [Pulse Shaping for Superconducting Qubits](#paper-2604.21565) [[arXiv]](http://arxiv.org/abs/2604.21565v1) — `QC/QI experiment` **2/5** · `dissipative systems` **2/5** · `non-equilibrium dynamics` **2/5**
 - [Rigorous Security Proofs for Practical Quantum Key Distribution](#paper-2604.21791) [[arXiv]](http://arxiv.org/abs/2604.21791v1) — `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
+- [Suppressing the Erasure Error of Fusion Operation in Photonic Quantum Computing](#paper-2604.21475) [[arXiv]](http://arxiv.org/abs/2604.21475v1) — `dissipative systems` **2/5** · `quantum measurements` **2/5**
 - [The clock ambiguity is back with a vengeance](#paper-2604.21805) [[arXiv]](http://arxiv.org/abs/2604.21805v1) — `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
 - ⭐ [Algorithmic Locality via Provable Convergence in Quantum Tensor Networks](#paper-2604.21919) [[arXiv]](http://arxiv.org/abs/2604.21919v1) — `entanglement & information structure` **2/5**
 - [Composite quantum gates simultaneously compensated for multiple errors](#paper-2604.21594) [[arXiv]](http://arxiv.org/abs/2604.21594v1) — `Rydberg arrays` **2/5**
@@ -36,7 +37,7 @@ _⏳ in progress: 33/144 papers processed (file updates after each one)_
 - ⭐ [Quantum jump correlations in long-range dissipative spin systems](#paper-2604.21513) [[arXiv]](http://arxiv.org/abs/2604.21513v1) — Rosario Fazio
 
 
-## All papers (17, sorted by relevance)
+## All papers (18, sorted by relevance)
 
 *Papers from quant-ph and your primary cond-mat archives (quant-gas, stat-mech, str-el, dis-nn). Highlighted papers (⭐) come first, then everything else sorted by topic-relevance score, highest first.*
 
@@ -1281,6 +1282,118 @@ This thesis is concerned with rigorous security analyses of practical Quantum Ke
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.21475"></a>
+### [Suppressing the Erasure Error of Fusion Operation in Photonic Quantum Computing](http://arxiv.org/abs/2604.21475v1)
+
+**Authors:** Xiangyu Ren, Yuexun Huang, Zhemin Zhang, Yuchen Zhu, Tsung-Yi Ho, Antonio Barbalace, Zhiding Liang  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.21475v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `dissipative systems` **2/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21475_figures/2604.21475_fig1.jpg" width="500"><br>
+<sub>Fig. 3. Optimizing a Max-Cut problem using 6-qubit QAOA program on PQC simulator [24]. We use the RUS boosted fusion method (m = 6), and simulate the fusion erasure at 0, 5% and 10% respectively, while fixing the fusion failure at 25%. Left: Optimization of QAOA expectation value. Right: Quantum circuit execution time per tuning iteration.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.21475_figures/2604.21475_fig2.jpg" width="500"><br>
+<sub>Fig. 2. The comparison among different PQC architecture and their corre- sponding graph state generation schemes. The excitation pulses for generating a caterpillar state are demonstrated in the red box of (c). Specifically, longitudinal-acoustic excitation LA( π</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.21475_figures/2604.21475_fig3.jpg" width="500"><br>
+<sub>Fig. 4. (a)-(c) Graph state measurement patterns that establish loss-tolerance. (d) Tree-encoded fusion scheme. (e) Preparing tree-encoded logical qubit from caterpillar states. (f) Simulation of the fusion schemes. We compare these schemes with varying encoding parameters (m, b = 1, 2, 4, 8), by performing 103 fusion trials per data point to measure success rates.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.21475_figures/2604.21475_fig4.jpg" width="500"><br>
+<sub>Fig. 5. (a) Average number of tree branches that successfully prepared for logical qubit encoding parameter b, when the preparation parameter bprep = 5 and bprep = 6 (by simulation). (b) Photon resource breakdown analysis for parameter bprep, when given the maximum length of caterpillar is 30-qubit. Dashed lines represent the #photon sources used for branch preparation. (c) Execution time analysis for the tree-encoding parameter b, under a noise model that pfail = 2% and peras = 25%.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.21475_figures/2604.21475_fig5.jpg" width="500"><br>
+<sub>Fig. 6. Details of our MemTree compiler. (a) The hierarchical generation of target state based on BBT. (b) Our compiler framework for building BBT. (c) The overall pipeline for target state generation, from a time direction prospective. Each slice corresponds to a time step in the cycles.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.21475_figures/2604.21475_fig6.jpg" width="500"><br>
+<sub>Fig. 8. Execution time comparison between tree-encoded scheme and baselines.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.21475_figures/2604.21475_fig7.jpg" width="500"><br>
+<sub>Fig. 8 and Fig. 9 present the comparison of our tree- encoded fusion scheme with the redundantly-encoded and RUS fusion schemes under the hardware configurations of the quantum spin memory architecture. In this comparison, all fusion schemes are integrated in MemTree with the same compilation algorithm. While fixing the fusion failure rate pfail = 0.25 (thus 1 −pfail = 0.75), we compare the program execution time and the number of required photon sources. The program size (#qubit) varies from 2-qubit to 20- qubit, and the erasure rate during fusion (peras) varies from 0% to 10%. Due to the extremely large simulation overhead when the program size scales up, we truncate the execution time to...</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.21475_figures/2604.21475_fig8.jpg" width="500"><br>
+<sub>Fig. 9. Number of required photon sources comparison between tree-encoded scheme and baselines.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.21475_figures/2604.21475_fig9.jpg" width="500"><br>
+<sub>Fig. 10. Comparison of MemTree with OneAdapt [74] and OneAdapt-ET. (a) The average execution time of quantum programs, when peras = 0, the results are evaluated on OneAdapt without erasure-tolerance strategy. The error bars represent the value range with a statistical 95% CI (confidence interval), over 1000 times of experiment and each with 2 × 104 shots. (b) Number of required photon sources. (c) Total compilation runtime of compilers.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.21475_figures/2604.21475_fig10.jpg" width="500"><br>
+<sub>Fig. 11. Comparison on decoherence errors and CZ errors between OneAdapt [74], RLGS [38] and MemTree.</sub>
+
+</details>
+
+**Main problem.** Existing photonic quantum computing compilers focus on fusion failure but neglect fusion erasure caused by photon loss, which can be more damaging and lead to unknown graph outcomes.
+
+**Main result.** The proposed MemTree compiler and tree-encoded fusion scheme significantly suppress erasure errors, achieving exponential improvements in execution time and substantial reductions in photon resource requirements compared to state-of-the-art compilers.
+
+**Method.** The authors introduce a tree-encoded fusion strategy to handle erasure via indirect Z-measurements and a MemTree compilation framework that uses a hierarchical 'divide-and-conquer' approach with Mixed-Integer Programming (MIP) to optimize graph state generation.
+
+**Summary.** This paper addresses the critical issue of fusion erasure errors in photonic quantum computing, which are caused by photon loss. The authors propose a new 'tree-encoded fusion' strategy that uses a specific encoding to suppress these errors and a 'MemTree' compiler that optimizes the generation of large-scale graph states. Their approach significantly reduces the time and photon resources needed for quantum algorithms like QAOA and QFT. The effectiveness of the method was validated through both large-scale simulations and real-world experiments on a photonic quantum processor.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study focuses on Photonic Quantum Computing (PQC) using a quantum spin memory architecture, which utilizes semiconductor quantum dot emitters to generate caterpillar states (linear graph states) as building blocks.
+
+**Key observables.** Execution overhead (time and photon resources), fidelity (decoherence and fusion errors), and logical fusion success rate.
+
+**Important parameters / regimes.** Fusion failure rate (p_fail), fusion erasure rate (p_eras), number of branches (b), and number of preparation attempts (b_prep).
+
+**Assumptions / limitations.** The evaluation assumes a realistic hardware noise model based on experimental data and assumes the availability of a classical control path with low latency.
+
+**Figures summary.** Figure 1 shows the Type-II fusion gate operation; Figure 2 compares PQC architectures; Figure 3 shows QAOA degradation with erasure; Figure 4 illustrates the tree-encoded fusion and measurement rules; Figure 5 details the MemTree pipeline and resource scaling; Figure 11 compares fidelity across different compilers.
+
+**Paper structure.** The paper introduces the problem of fusion erasure, proposes a tree-encoded fusion strategy and the MemTree compiler framework, details the MIP-based optimization algorithms, presents simulation results across various quantum algorithms, and validates the approach through hardware experiments on the Quandela platform.
+
+**Why it may be interesting.** This paper is highly relevant to quantum optics and open quantum systems researchers as it addresses fundamental photon loss (erasure) in a scalable architecture and demonstrates how error-tolerant encoding can mitigate decoherence and loss in a networked photonic system.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Photonic quantum computing provides a promising route toward quantum computation by naturally supporting the measurement-based quantum computation (MBQC) model. In MBQC, programs are executed through measurements on a pre-generated graph state, whose construction largely depends on probabilistic fusion operations. However, fusion operations in PQC are vulnerable to two major error sources: fusion failure and fusion erasure. As a result, MBQC compilation must account for both error mechanisms to generate reliable and efficient photonic executions. Prior state-of-the-art MBQC compilation, represented by OneAdapt, is designed for all-photonic architectures and mainly focuses on handling fusion failures. Nevertheless, it does not explicitly model fusion erasures induced by photon loss, which can be substantially more damaging than fusion failures.   To mitigate fusion erasure errors, we introduce a new MBQC compilation scheme built upon the spin qubit quantum memory. We propose tree-encoded fusion, an encoding strategy that suppresses erasure errors during graph-state generation. We further incorporate this scheme into a compiler framework with algorithms that reduce the execution overhead of quantum programs. We evaluate the proposed framework using a realistic PQC simulator on six representative quantum algorithm benchmarks across multiple program scales. The results show that tree-encoded fusion achieves better robustness than alternative fusion-encoding strategies, and that our compiler provides exponential improvement over OneAdapt. In addition, we validate the feasibility of our approach through a proof-of-concept demonstration on real PQC hardware.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.21805"></a>
 ### [The clock ambiguity is back with a vengeance](http://arxiv.org/abs/2604.21805v1)
 
@@ -1497,7 +1610,7 @@ Systematic control errors remain a primary obstacle to realizing high-fidelity s
 <sub>[↑ back to top](#top)</sub>
 
 
-## Other papers (16)
+## Other papers (17)
 
 *Papers from primary archives without highlighted authors or any topic match. Click to expand.*
 
@@ -1588,6 +1701,54 @@ Systematic control errors remain a primary obstacle to realizing high-fidelity s
 <details><summary>Abstract</summary>
 
 Quantum networks are a keystone of the quantum internet. However, existing implementations remain largely confined to static point-to-point links due to the absence of a switching paradigm capable of dynamically routing fragile quantum entanglement without introducing decoherence. Here, we propose the Universal Quantum Switch, a foundational building block allowing on-demand, non-blocking, and encoding-agnostic routing of quantum information, as well as seamless modality conversion between disparate quantum platforms. We develop a prototype in thin-film lithium niobate and experimentally demonstrate robust switching with $\le 4\%$ decoherence via thermo-optic modulation and high-speed electro-optic switching of arbitrary entangled states at 1 MHz. Moreover, we show that our platform can support reconfiguration speeds up to 1 GHz. To our knowledge, this work represents the first demonstration of multi-node dynamic entanglement distribution at these speeds. Complementing these experimental results, we project the architecture's scalability, showing dimension-independent decoherence, and provide a scalable, interoperable building block for heterogeneous quantum network fabrics.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.21509"></a>
+### [Catalytic quantum thermodynamics beyond additivity and reduced-state monotones](http://arxiv.org/abs/2604.21509v1)
+
+**Authors:** Ali Can Günhan, Onur Pusuluk, Thomas Oikonomou, G. Baris Bagci  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.21509v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.21509_figures/2604.21509_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Thermo-majorization curves for the common initial product state ρuc SM = ρ β2 S ⊗ρ β1 M (black), the allowed classically correlated final state ρcc SM with χ = 5 × 10−2 (blue), the forbidden classically correlated final state ρcc SM with χ = 6.5 × 10−2 (red), the forbidden discordant final state ρ qc SM with λ = 9.47 × 10−2 (purple dashed), and the common thermal reference state (gray dashed), for Eg = 0, Ee = 2, β1 = 0.1, β2 = 0.2, β3 = 1, and βb = 2. In all three final-state examples, the initial state, the thermal reference state, and the final marginals are identical; only the correlation structure of the final joint state is changed. In particular, ρ qc SM(λ = 9.47 × 10−2) has...</sub>
+
+</details>
+
+**Main problem.** The paper addresses the lack of explicit catalyst accounting in standard Rènyi-based quantum thermodynamics and the insufficiency of reduced-state data to characterize thermodynamic accessibility in correlated catalytic transformations.
+
+**Main result.** The authors develop a non-additive divergence framework that makes the catalyst's contribution explicit in the free-energy balance and proves that in correlated catalysis, thermodynamic accessibility depends on the full joint-state structure rather than just marginals or mutual information.
+
+**Method.** The study utilizes Quantum Resource Theory (QRT), non-additive (pseudo-additive) divergences, and thermo-majorization to analyze state transformations and quantify the impact of correlations and catalyst spectral profiles.
+
+**Summary.** This paper introduces a new mathematical framework for quantum thermodynamics using non-additive divergences. In uncorrelated catalysis, this approach makes the catalyst's role and its spectral properties explicitly visible in the second law. In correlated catalysis, the authors demonstrate that simple measures like mutual information or reduced-state information are insufficient to predict if a transformation is possible, as the specific nature of the correlations (classical vs. quantum) matters. The work provides a more detailed 'bookkeeping' of how catalysts assist or constrain quantum thermal transitions.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The model involves a quantum system (S) and a catalyst (M) undergoing thermal operations in a finite-dimensional setting, potentially involving a work bit (qubit) and a thermal reservoir at inverse temperature beta.
+
+**Key observables.** Rènyi/non-additive divergences, generalized free energies, mutual information, trace-distance error, and thermo-majorization curves.
+
+**Important parameters / regimes.** Order of divergence (alpha), catalyst dimension (d_M), catalyst return error (epsilon), and correlation parameters (chi for classical, lambda for discordant).
+
+**Assumptions / limitations.** The analysis focuses on finite-dimensional regimes and assumes thermal states are block-diagonal in the energy eigenbasis.
+
+**Figures summary.** Figure 1 shows thermo-majorization curves for various states, including initial product states, thermal reference states, and states with different classical and discordant correlation structures.
+
+**Paper structure.** The paper introduces the problem of catalyst accounting, develops the non-additive divergence framework, applies it to uncorrelated catalysis (including approximate cases), extends the analysis to correlated catalysis to demonstrate the failure of reduced-state descriptions, and concludes with implications for thermodynamic bookkeeping.
+
+**Why it may be interesting.** This is highly relevant for researchers in open quantum systems and many-body dynamics as it provides new tools for understanding how correlations and finite-size effects fundamentally limit the feasibility of quantum thermodynamic processes.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The generalized second laws of quantum thermodynamics are usually formulated in terms of Rényi divergences and the associated family of generalized free energies. In catalytic thermal transformations, this framework typically certifies the existence of a suitable catalyst but does not make the catalytic contribution explicit in the resulting system-level inequalities. Here we develop a complementary formulation based on non-additive divergences, whose pseudo-additive structure yields a family of generalized free energies with an explicit catalyst-dependent correction term. For uncorrelated catalytic thermal transformations, we show that this leads to non-additive second-law relations that make the catalytic contribution explicit and provide nontrivial constraints on admissible catalysts when the catalyst is returned only approximately. We also analyze correlated catalytic thermal transformations and show, through explicit finite-dimensional examples, that reduced-state data are generally insufficient to characterize thermodynamic accessibility: the thermo-majorization behavior of the joint transformation can change while the system and catalyst marginals remain fixed, and even states with identical marginals and the same mutual information can exhibit different thermo-majorization accessibility. Our results show that non-additivity can be thermodynamically informative in uncorrelated catalysis, whereas correlated catalysis generally requires a genuinely joint-state-sensitive description beyond reduced-state monotones.
 
 </details>
 
