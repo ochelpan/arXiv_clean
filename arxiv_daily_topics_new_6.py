@@ -1483,6 +1483,11 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
             "`(secondary)` marks papers from de-prioritized cond-mat archives.*"
         )
         lines.append("")
+        # Collapse the actual list — with 60+ entries, leaving it open pushes
+        # the body section far down the page. The summary line shows the count
+        # so it's still useful at a glance.
+        lines.append(f"<details><summary>Show {len(relevant)} relevant papers</summary>")
+        lines.append("")
         for e in relevant:
             scores = e.get("topic_scores") or {}
             shown = sorted(
@@ -1501,6 +1506,8 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
                 f"- {star}[{e['title']}](#{anchor}) [[arXiv]]({e['url']}){sec} — {tags}"
             )
         lines.append("")
+        lines.append("</details>")
+        lines.append("")
 
     if highlighted:
         lines.append("")
@@ -1511,6 +1518,8 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
             "Click the title to jump to the full entry below; click [arXiv] to open the paper page.*"
         )
         lines.append("")
+        lines.append(f"<details><summary>Show {len(highlighted)} highlighted papers</summary>")
+        lines.append("")
 
         for e in highlighted:
             pretty = ", ".join(e.get("highlighted", []))
@@ -1520,6 +1529,8 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
                 f"- ⭐ [{e['title']}](#{anchor}) [[arXiv]]({e['url']}){sec} — {pretty}"
             )
 
+        lines.append("")
+        lines.append("</details>")
         lines.append("")
 
     # Body sort: papers from secondary archives (Materials Science, Soft, etc.)
@@ -1642,7 +1653,7 @@ def main():
     date_str = datetime.now().strftime("%Y-%m-%d")
     out_dir = OUTPUT_DIR / date_str
     out_dir.mkdir(parents=True, exist_ok=True)
-    digest_path = out_dir / "digest_output_2.md"
+    digest_path = out_dir / "digest_output.md"
 
     print(f"Fetching quant-ph + cond-mat papers for {date_str}...")
     if MAX_PAPERS_TO_PROCESS is not None:
