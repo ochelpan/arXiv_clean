@@ -1,0 +1,107 @@
+{
+  "arxiv_id": "2604.22194",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Qubit-Scalable CVRP via Lagrangian Knapsack Decomposition and Noise-Aware Quantum Execution",
+  "authors": "Monit Sharma, Hoong Chuin Lau",
+  "abstract": "Hybrid quantum optimization for vehicle routing faces a practical bottleneck: direct QUBO encodings of CVRP quickly exceed near-term qubit and gate budgets, while quantum evaluations are expensive, noise-limited, and sensitive to backend and circuit configuration. We address this gap with an end-to-end decomposition pipeline that converts CVRP into bounded-width quantum subproblems and treats quantum execution as a decision problem within the optimization loop. Starting from a Fisher--Jaikumar assignment linearization, we apply Lagrangian relaxation to dualize customer-assignment couplers, yielding independent per-vehicle knapsack subproblems that admit QUBO/Ising evaluation. To replace brittle subgradient tuning, we learn a multiplier-update controller using expert-guided pretraining followed by reinforcement-learning fine-tuning, with rewards based on execution-realized progress and route reconstruction. We also introduce a constrained contextual bandit as a hardware-aware execution layer that selects backend and circuit configuration with feasibility screening, enabling adaptation across heterogeneous noisy resources and parallel multi-QPU scheduling. Computational results on multiple CVRPLIB families show that the decomposition yields stable bounded-width subproblems across instance sizes, learned multiplier updates improve end-to-end routing quality relative to classical subgradient control under matched budgets, and hardware-mode configuration reduces median optimality gaps relative to static execution choices in our test set. We do not claim quantum advantage. Instead, the contribution is a practical end-to-end framework for scaling hybrid quantum CVRP optimization through OR decomposition, learning-augmented dual control, and adaptive hardware-aware execution.",
+  "url": "http://arxiv.org/abs/2604.22194v1",
+  "pdf": "https://arxiv.org/pdf/2604.22194v1",
+  "type": "both",
+  "summary": "This paper presents a practical end-to-end framework for solving large-scale vehicle routing problems using near-term quantum computers. By decomposing the complex CVRP into smaller, manageable knapsack subproblems, the authors bypass the qubit-width bottleneck. They further enhance performance by using reinforcement learning to stabilize the optimization loop and a contextual bandit to adaptively select the best quantum hardware configurations. The approach demonstrates that hybrid, decomposition-centric pipelines are more viable for NISQ-era applications than monolithic quantum encodings.",
+  "main_problem": "The scalability of the Capacitated Vehicle Routing Problem (CVRP) on NISQ devices is limited by the high qubit and gate requirements of direct QUBO encodings and the instability of classical optimization parameters in noisy environments.",
+  "main_result": "The authors developed an end-to-end hybrid pipeline that uses Lagrangian decomposition to reduce qubit requirements and a learned RL-based controller to stabilize multiplier updates, achieving significantly lower optimality gaps on real hardware compared to classical subgradient methods.",
+  "method": "A hybrid framework combining Lagrangian relaxation to decompose CVRP into bounded-width knapsack subproblems, a reinforcement learning policy (PPO) for multiplier updates, and a constrained contextual bandit for hardware-aware execution.",
+  "model_or_system": "The problem is modeled as a CVRP on a complete graph, transformed via Fisher-Jaikumar linearization and Lagrangian relaxation into 0-1 knapsack subproblems encoded as QUBO/Ising Hamiltonians with a 'tilted' quadratic penalty.",
+  "key_observables": "Optimality gap relative to Best Known Solutions (BKS), routing quality, feasibility rate of quantum samples, and hardware metrics like gate-budget hit rate and latency.",
+  "important_parameters": "Vehicle capacity, customer demand, travel costs, Lagrangian multipliers (lambda), penalty strength (rho), and headroom parameter (s).",
+  "main_assumptions": "The method assumes that a feasible global route can be reconstructed from stochastic quantum samples using a deterministic repair heuristic and that hardware descriptors are available for the bandit layer.",
+  "figures_summary": "Figures demonstrate the scaling of logical qubits versus problem size, micro-benchmarks comparing different penalty encodings (Tilted vs. Taylor), and the distribution of quantum jobs across heterogeneous backends (IBM, Rigetti, IQM).",
+  "paper_structure": "The paper introduces the scalability bottleneck, proposes a decomposition-based framework, details the Lagrangian relaxation and knapsack encoding, describes the RL-based multiplier control and hardware-aware bandit layer, and concludes with experimental validation on simulators and real QPUs.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.22194_figures/2604.22194_fig1.jpg",
+      "caption": "FIG. 2: Logical-width (qubit) scaling of direct CVRP QUBO encoding versus Fisher–Jaikumar (FJ) + La- grangian relaxation (LR) decomposition into per-vehicle knapsack QUBOs. Bars report required logical qubits (log scale) for three instance classes. Decomposition re- duces logical width by orders of magnitude by replac- ing a monolithic encoding with bounded-width subprob- lems; the slack-free tilted penalty further reduces width by avoiding auxiliary slack bits.",
+      "page": 20
+    },
+    {
+      "image": "2604.22194_figures/2604.22194_fig2.jpg",
+      "caption": "FIG. 1: Excess optimality gap relative to OR-Tools (20s/instance). For each instance i and method m, ∆gapm(i) = gapm(i) −gapORTools(i) (percentage points), where gap is computed end-to-end after decoding/repair and route reconstruction. Lower is better; the red dashed line at 0 denotes parity with OR-Tools. Gray boxes show distributions across test instances and colored points denote size buckets.",
+      "page": 21
+    },
+    {
+      "image": "2604.22194_figures/2604.22194_fig3.jpg",
+      "caption": "FIG. 3: Multiplier-control ablation under classical knapsack subproblem solves (30 CVRPLIB instances). (a) Distribution of end-to-end CVRP optimality gaps (%) after decoding/repair and route reconstruction (lower is better). (b) Distribution of wall-clock runtime (seconds) for a full LR episode, including LR iterations, subproblem solves, repair, and routing. Boxes show median and interquartile range (IQR) with 1.5×IQR whiskers; points are individual instances. Learned multiplier control reduces both median gap and time-to-solution relative to subgradient updates.",
+      "page": 22
+    },
+    {
+      "image": "2604.22194_figures/2604.22194_fig4.jpg",
+      "caption": "Figure 4 summarizes the trace-driven offline training (Section VI D). The bounded execution-proxy reward rises rapidly from a cold start and then plateaus, indi- cating that LinUCB identifies a stable set of high-utility configuration arms from the joint hardware/problem con- text (Section VI A) rather than continuing to explore",
+      "page": 22
+    },
+    {
+      "image": "2604.22194_figures/2604.22194_fig5.jpg",
+      "caption": "FIG. 4: Offline bandit learning curve under trace-driven training. Points show per-episode bounded reward (in [0, 10]); the rolling-mean and smoothed traces summarize the learning trend.",
+      "page": 22
+    },
+    {
+      "image": "2604.22194_figures/2604.22194_fig6.jpg",
+      "caption": "FIG. 6: Gate-budget hit rate by logical-width bin.",
+      "page": 23
+    },
+    {
+      "image": "2604.22194_figures/2604.22194_fig7.jpg",
+      "caption": "FIG. 5: Bandit arm-selection dynamics during trace- driven offline training. Curves report rolling-window (window=100) selection frequencies for the most fre- quently selected configuration arms; remaining arms are aggregated as Other. The policy transitions from broad exploration to concentration on a small subset of high- utility configurations, consistent with UCB-style learning under bounded rewards.",
+      "page": 23
+    },
+    {
+      "image": "2604.22194_figures/2604.22194_fig8.jpg",
+      "caption": "Figure 6 reports the empirical gate-budget hit rate as a function of logical width, defined as the fraction of con- sult calls in which the bandit’s top-ranked arm is rejected by feasibility screening (because bG > Gmax) and the se- lector falls back to the best-ranked feasible alternative. The hit rate is negligible at small widths and rises to the ≈9–16% range beyond moderate widths, consistent with routing overhead becoming a binding constraint as compiled circuits grow. This supports the constrained decision rule in Section VI C: the bandit provides a util- ity ranking, while deterministic screening enforces exe- cutability. Importantly, nonzero hit rates also translate into outer-loop...",
+      "page": 23
+    },
+    {
+      "image": "2604.22194_figures/2604.22194_fig9.jpg",
+      "caption": "FIG. 7: Budget–quality tradeoff (gap to BKS versus quantum-evaluation budget) for multi-QPU baseline and noise-aware runs. Note. Quantum budget is the total number of transpiled circuit executions / QPU jobs (log scale); gray segments connect matched instances (baseline →noise-aware).",
+      "page": 23
+    },
+    {
+      "image": "2604.22194_figures/2604.22194_fig10.jpg",
+      "caption": "FIG. 8: End-to-end CVRP optimality gap (%) after decoding/repair and route reconstruction, comparing execution variants under learned multiplier control.",
+      "page": 24
+    }
+  ],
+  "figure": "2604.22194_figures/2604.22194_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

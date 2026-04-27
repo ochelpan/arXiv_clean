@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2604.22718",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "cond-mat.dis-nn",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Replica Tensor Train",
+  "authors": "Miha Srdinsek, Gabriel Gouraud, Xavier Waintal",
+  "abstract": "We describe a numerical many-body technique that is based on both tensor networks and quantum Monte Carlo. The variational ansatz is a tensor network that can harvest volume-law entanglement. It is constructed from a tensor train to which one applies a set of non-local operators that force several indices of the tensor train to represent the same physical index, hence its name -- replica tensor train (RTT). From the tensor network toolbox, it inherits the possibility to make linear combinations of these states and apply a certain class of operators. We can therefore find the ground-state of a local Hamiltonian in a purely algebraic way as in standard tensor network algorithms -- i.e. without using gradient descent methods. On the other hand, the volume-law structure forbids calculating physical observables directly. In much the same way as on a quantum computer where one can prepare a state but can only sample it at the end, here we have to use Markov Chain Monte Carlo to compute the observables. We further show that the approach can be extended to build Krylov-subspace ground-state methods within the variational manifold. We illustrate the different algorithms on a two-dimensional spin model with a transverse magnetic field, which can be solved by this approach at low computational cost.",
+  "url": "http://arxiv.org/abs/2604.22718v1",
+  "pdf": "https://arxiv.org/pdf/2604.22718v1",
+  "type": "theory",
+  "summary": "This paper introduces the Replica Tensor Train (RTT), a new numerical technique that merges the algebraic strengths of tensor networks with the sampling power of Monte Carlo. Unlike standard tensor networks that struggle with 2D entanglement or neural networks that rely on noisy gradient descent, RTT can capture volume-law entanglement and find ground states through purely algebraic methods. The authors demonstrate that this approach can efficiently solve the 2D transverse-field Ising model with high precision. This method bridges the gap between the high expressivity of neural quantum states and the high efficiency of traditional tensor network algorithms.",
+  "main_problem": "The fundamental trade-off between expressivity (capturing volume-law entanglement) and computability (avoiding expensive gradient descent or high-dimensional contractions) in many-body physics.",
+  "main_result": "The development of the Replica Tensor Train (RTT), which allows for the algebraic, non-gradient-based finding of ground states for highly entangled systems, achieving high accuracy in 2D Ising models.",
+  "method": "A hybrid approach combining Tensor Networks (specifically an extended Tensor Train) with Quantum Monte Carlo (Dual Monte Carlo) to sample observables from a volume-law entangled ansatz.",
+  "model_or_system": "A 2D transverse-field Ising model on a square lattice, specifically studied in the paramagnetic region near the quantum critical point.",
+  "key_observables": "Ground-state energy per site, energy variance (V-score), and energy error relative to reference Green Function Monte Carlo results.",
+  "important_parameters": "Bond dimension (chi), number of replicas (K), transverse field strength (hx), and the specific path (sigma) through the physical sites.",
+  "main_assumptions": "The method assumes the ground state can be represented with a relatively small internal bond dimension and requires a predefined path through the physical degrees of freedom.",
+  "figures_summary": "Figure 1 compares different tensor network ansätze (MPS, PEPS, RTT); Figure 2 shows the effect of stochastic orthogonalization on the overlap matrix; Figure 3 illustrates energy error reduction via different operator distributions; Figure 4 shows error scaling with system size; Figure 5/6 show optimization convergence and error as a function of the transverse field.",
+  "paper_structure": "The paper introduces the RTT ansatz and its three equivalent mathematical interpretations, describes the algebraic ground-state search and the Dual Monte Carlo sampling method, demonstrates optimization in both replica and physical space, and validates the approach using the 2D transverse-field Ising model.",
+  "why_interesting": "It provides a powerful new tool for simulating highly entangled 2D systems by bypassing the optimization bottlenecks (like barren plateaus) of Neural Quantum States while maintaining the expressivity needed for volume-law entanglement.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.22718_figures/2604.22718_fig1.jpg",
+      "caption": "Figure 2: Example of the S matrix computed with dual Monte Carlo before (left) and after (right) the orthogonalization procedure. The matrix was constructed when solving the Ising model in Fig. 5. The new states are compressed to χ = 2.",
+      "page": 12
+    },
+    {
+      "image": "2604.22718_figures/2604.22718_fig2.jpg",
+      "caption": "Figure 3: Error on the energy during a replica space optimization by application of (1 −τ ¯H)P for three choices of ¯H, see text. The number of active sub-MPS is one (blue), two (orange) and four (green). The optimization is purely algebraic but the calculation of the energy is performed using VMC sampling. The parameters are hx = 3, L = 20, χ = 2, τ = 0.1 and α = 0.08 for the ¯HHV DD′ curve (green line).",
+      "page": 15
+    },
+    {
+      "image": "2604.22718_figures/2604.22718_fig3.jpg",
+      "caption": "Figure 4: Error on the energy after a replica space optimization versus system size L. The number of active sub-MPS is one (blue), two (orange) and four (green), see text. The accuracy of the RTT is robust with respect to system size. Same parameters as in Fig.3.",
+      "page": 16
+    },
+    {
+      "image": "2604.22718_figures/2604.22718_fig4.jpg",
+      "caption": "Figure 5: Dual Monte Carlo optimization steps starting from the solution of ¯HHV (star). At each step, Eq. (48) is solved. The eigenvalues of the equation (arrows) are compared with the actual energies of the state after the compression (points).",
+      "page": 17
+    },
+    {
+      "image": "2604.22718_figures/2604.22718_fig5.jpg",
+      "caption": "Figure 6: Error of χ = 2 RTT versus hx in the paramagnetic region of the phase diagram. The parameters and optimization procedure are the same as in Table 1: (solid line) replica space optimization using ¯HHV, followed by (dashed line) phys- ical space optimization using ¯OZZ,DD′. The error is estimated using the V-score, δE/E ≈0.2Nvar[H]/E2, see Ref. [28]",
+      "page": 18
+    }
+  ],
+  "figure": "2604.22718_figures/2604.22718_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

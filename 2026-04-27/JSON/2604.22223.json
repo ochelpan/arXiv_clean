@@ -1,0 +1,88 @@
+{
+  "arxiv_id": "2604.22223",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": true,
+  "title": "QAssemble: A Pure Python Package for Quantum Many-Body Theory",
+  "authors": "Seongjun Mo, Dongming Li, Mancheon Han, Johan Jönsson, Byungkyun Kang, Hoonkyung Lee, Gabriel Kotliar, Sangkook Choi",
+  "abstract": "QAssemble is a pure-Python package for the quantum many-body problem. It implements various functional approaches, such as tight-binding, Hartree-Fock, and GW approximations within a unified object-oriented architecture. Each physical concept--crystal structure, Hamiltonian, Green's function, self-energy, polarizability, screened Coulomb interaction--is represented as a distinct class. The modular design prioritizes code clarity and extensibility, leveraging NumPy, SciPy, and libdlr for numerical operations. Performance-critical kernels, including the polarizability bubble, Dyson equation inversion, and lattice Fourier transforms, are systematically vectorized and combined with the discrete Lehmann representation to achieve practical efficiency within a pure-Python environment. We validate QAssemble on the electronic structure of graphene with local and non-local interactions. Furthermore, benchmarks on a five-orbital extended Hund-Hubbard model demonstrate that this strategy delivers up to a 60x speedup over traditional loop-based Matsubara implementations. QAssemble supports both batch execution for production calculations and interactive workflows for method development.",
+  "url": "http://arxiv.org/abs/2604.22223v1",
+  "pdf": "https://arxiv.org/pdf/2604.22223v1",
+  "type": "theory",
+  "summary": "The authors present QAssemble, a new pure-Python package designed for many-body electronic structure calculations. By replacing traditional Python loops with vectorized array operations and using the Discrete Lehmann Representation, the package achieves significant speedups for GW and Hartree-Fock calculations. The design emphasizes 'hackability' and transparency, making it an ideal tool for researchers prototyping new many-body diagrams. It successfully captures the physics of graphene and provides a scalable foundation for future extensions like DMFT.",
+  "main_problem": "The difficulty of implementing complex, many-body algorithms (like GW and Hartree-Fock) due to the lack of user-friendly, transparent, and extensible software frameworks that can handle electron correlations in materials.",
+  "main_result": "The development of QAssemble, a pure-Python package that achieves up to a 60x speedup over traditional loop-based Matsubara implementations by using systematic vectorization and the Discrete Lehmann Representation.",
+  "method": "An object-oriented, pure-Python approach leveraging NumPy, SciPy, and libdlr, utilizing systematic vectorization of kernels and the Discrete Lehmann Representation (DLR) for frequency-axis compression.",
+  "model_or_system": "The framework is applied to correlated quantum materials, specifically validated using graphene (two-orbital model) and a five-orbital extended Hund-Hubbard model with local and non-local Coulomb interactions.",
+  "key_observables": "One-particle Green's functions, self-energy, polarizability, screened Coulomb interaction, density matrix, and spectral functions.",
+  "important_parameters": "Lattice/orbital structures, Matsubara frequency, imaginary time, temperature, and Coulomb interaction strengths (U, V, J).",
+  "main_assumptions": "The current implementation is limited to Tight-Binding, Hartree-Fock, and GW approximations; it prioritizes code transparency and extensibility over maximum raw performance.",
+  "figures_summary": "Figure 1 shows the software architecture and workflow; Figure 2 displays the class hierarchy; Figure 4 compares graphene band structures, density of states, and spectral functions across TB, HF, and GW levels.",
+  "paper_structure": "The paper introduces the scientific challenge of many-body software, describes the QAssemble object-oriented architecture, details the numerical strategies (vectorization and DLR), validates the physics using graphene, and benchmarks performance using a multi-orbital Hubbard model.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.22223_figures/2604.22223_fig1.jpg",
+      "caption": "Fig. 1 QAssemble architecture and workflow for many-body electronic structure calculations. Crystal and DLR components define lattice/orbital structures and imaginary- time/Matsubara grids. CorrelationFunction orchestrates tight-binding (TB), HF, and GW methods via fermionic (FLatStc, FLatDyn) and bosonic (BLatStc, BLatDyn) modules",
+      "page": 5
+    },
+    {
+      "image": "2604.22223_figures/2604.22223_fig2.jpg",
+      "caption": "Fig. 2 Core class hierarchy. Class diagram for (a) FLatDyn, (b) FLatStc, (c) BLatDyn, and (d) BLatStc",
+      "page": 6
+    },
+    {
+      "image": "2604.22223_figures/2604.22223_fig3.jpg",
+      "caption": "Figure 3 (a) illustrates the Hartree-Fock self-consistent workflow involving five classes: H0, H, SigH, SigF, and V. The Hamiltonian class acts as the central hub, aggregating self-energy contributions to construct the effective single-particle Hamiltonian at each iteration. The workflow proceeds through the following components.",
+      "page": 6
+    },
+    {
+      "image": "2604.22223_figures/2604.22223_fig4.jpg",
+      "caption": "Fig. 3 Self-consistent workflows for Hartree–Fock and GW approximations. (a) The HF loop iterates between H0, V, SigH, SigF, and Hamiltonian classes to solve H = H0 + ΣH + ΣF self- consistently for the density matrix n. (b) The GW loop extends (a) by additionally computing the irreducible polarizability P = GG (P), the dynamically screened interaction W = V + V PW (W), and the correlation self-energy ΣGW = −GW C (SigGWC), with G combining all contributions via the Dyson equation. Boxes indicate classes; arrows denote data flow between components.",
+      "page": 7
+    },
+    {
+      "image": "2604.22223_figures/2604.22223_fig5.jpg",
+      "caption": "Fig. 4 Electronic structure of graphene. (a) Band structure along high-symmetry paths com- paring TB, HF, and GW results. (b) Density of states obtained by integration over a 20 × 20 × 1 Brillouin zone mesh. (c) A(k, ω) at T = 2000 K along the high-symmetry path Γ-K-M-Γ. The color scale indicates spectral function, with the overlaid black curve showing the quasiparticle band structure obtained from diagonalization of HQP(k) in eq. (3)",
+      "page": 12
+    },
+    {
+      "image": "2604.22223_figures/2604.22223_fig6.jpg",
+      "caption": "Figure 4(b) presents the density of states computed within the three levels of theory, obtained by integrating the spectral function over a 20 × 20 × 1 Brillouin zone mesh. This uniform k-space sampling reveals how electron correlation reshapes the electronic structure across the entire zone, rather than only along high-symmetry paths. The TB DOS exhibits the characteristic semi-metallic behavior of graphene, with a V-shaped dip approaching zero at the Fermi level and symmetric van Hove singularities at ϵ ≈±1 eV arising from saddle points at the M points. The HF DOS shows moderate quantitative modifications: the van Hove singularities shift slightly in energy due to the momentum-dependent...",
+      "page": 12
+    }
+  ],
+  "figure": "2604.22223_figures/2604.22223_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

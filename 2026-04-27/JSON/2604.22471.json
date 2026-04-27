@@ -1,0 +1,107 @@
+{
+  "arxiv_id": "2604.22471",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Boundary-Aware Stabilizer Scheduling for Distributed Quantum Error Correction",
+  "authors": "Sanidhya Gupta, Sanidhay Bhambay, Narges Alavisamani, Neil Walton, Thirupathaiah Vasantam",
+  "abstract": "Future quantum architectures are expected to be modular, with quantum processors connecting multiple quantum processing units (QPUs) via photonic interconnects. In topological quantum error correction, such as color codes, this creates seam boundaries where parity checks require remote CNOT operations using heralded Bell pairs. These non-local checks are slower and noisier than bulk local checks because entanglement generation is probabilistic, causing data qubits to accumulate idle noise while waiting for remote operations. A natural way to reduce this overhead is to skip some seam measurements; however, doing so makes seam syndrome information stale and can degrade decoding. The central scheduling problem is therefore to determine how frequently seam checks should be measured so as to balance remote-operation and waiting noise against syndrome staleness.   To address this trade-off, we develop a scheduling module that integrates directly into standard syndrome-extraction circuits. We consider two policies: Skip-Seam-$τ$ (SS-$τ$), which measures all bulk checks every round while measuring seam checks once every $τ$ rounds and copying the most recent syndrome in skipped rounds, and Adaptive Skip-$τ$ (AST), which selects $τ$ as a function of code distance and entanglement generation rate (EGR). We evaluate these policies on triangular color codes under circuit-level noise in Stim, including idling errors induced by Bell-pair generation delays. Our simulations show that SS-tau and AST reduce remote-operation overhead and can lower the logical error rate (LER) relative to the Measure-All (MA) baseline. For physical error rate $p = 10^{-3}$, we identify an EGR regime in which both SS-$τ$ and AST exhibit behavior consistent with fault-tolerant scaling, with LER decreasing as code distance increases. Across these regimes, SS-$τ$ and AST outperform MA.",
+  "url": "http://arxiv.org/abs/2604.22471v1",
+  "pdf": "https://arxiv.org/pdf/2604.22471v1",
+  "type": "theory",
+  "summary": "This paper addresses the performance bottleneck in distributed quantum computing caused by the slow and noisy nature of remote entanglement-based gates. By introducing a scheduling strategy that skips certain boundary (seam) measurements, the authors reduce the accumulation of idling noise on data qubits. They demonstrate that an adaptive approach, which adjusts measurement frequency based on the entanglement generation rate, can significantly improve the logical error rate and approach the performance of monolithic architectures.",
+  "main_problem": "Optimizing the scheduling of stabilizer measurements in distributed quantum error correction to balance the trade-off between remote-operation noise (due to waiting for entanglement) and syndrome staleness.",
+  "main_result": "The proposed Skip-Seam-tau (SS-tau) and Adaptive Skip-tau (AST) policies reduce the logical error rate compared to the standard Measure-All baseline, particularly in low-to-moderate entanglement generation rate regimes.",
+  "method": "The authors develop a scheduling module for syndrome extraction and evaluate it using Stim-based circuit-level noise simulations with a concatenated MWPM decoder.",
+  "model_or_system": "A modular quantum architecture consisting of multiple QPUs connected via photonic interconnects, utilizing triangular color codes partitioned across four modules.",
+  "key_observables": "Logical Error Rate (LER)",
+  "important_parameters": "Entanglement Generation Rate (EGR), code distance (d), physical error rate (p), and the seam-refresh interval (tau).",
+  "main_assumptions": "The decoder and underlying code structure remain unchanged; the study focuses on measurement frequency rather than the classical computational overhead of the scheduler.",
+  "figures_summary": "Figures illustrate the triangular color code structure, the remote CNOT circuit, the performance gap between monolithic and distributed architectures, and plots of LER vs. physical error rate and EGR for various scheduling policies.",
+  "paper_structure": "The paper introduces the problem of distributed QEC overhead, describes the modular architecture and noise model, presents the proposed SS-tau and AST scheduling policies, evaluates them via Stim simulations, and analyzes performance across different EGR regimes and code distances.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.22471_figures/2604.22471_fig1.jpg",
+      "caption": "Figure 1: The [[7, 1, 3]] triangular color code. Data qubits (red circles) reside on the vertices, with the three triangular faces shaded red, green, and blue. An example X-type stabilizer, SX f , is shown on the top red face. The logical Z operator, ZL, is realized as the product of Z operators on the three qubits along any one colored boundary, for example, along the bottom red edge.",
+      "page": 6
+    },
+    {
+      "image": "2604.22471_figures/2604.22471_fig2.jpg",
+      "caption": "Figure 2: Circuit for a remote CNOT. The gate is implemented using a shared EPR pair and local operations, after which the EPR qubits are measured.",
+      "page": 7
+    },
+    {
+      "image": "2604.22471_figures/2604.22471_fig3.jpg",
+      "caption": "Fig. 3 shows a clear gap between a monolithic color code and an MA schedule in the dis- tributed setting. At a fixed EGR of 50 MHz and across the range of physical error rates shown, MA incurs a higher LER because, in every round, it measures all seam checks that require heralded Bell pairs to execute remote CNOTs. The wait to obtain Bell pairs trans- lates into idling errors on data qubits, so MA incurs extra noise each round. Furthermore, the gap grows with code distance because the number of seam operations increases with code distance d. Our goal in this work is to reduce that gap and recover as much of the monolithic performance as possible without requiring a monolithic architecture,...",
+      "page": 7
+    },
+    {
+      "image": "2604.22471_figures/2604.22471_fig4.jpg",
+      "caption": "Figure 3: Logical error rate (LER) versus physical error rate for triangular color codes at distances d ∈{17, 19}. The EGR is fixed at 50 MHz, and p is swept over [10−4, 2 × 10−4, 4 × 10−4, 6 × 10−4, 8 × 10−4, 10−3]. We compare a monolithic architecture with MA (measure-all in the distributed setting). Increasing the code distance lowers the LER for both schemes. The MA curves lie above the corresponding monolithic curves because non- local seam operations introduce additional noise and waiting-induced decoherence. The y-axis is shown on a logarithmic scale (log spacing).",
+      "page": 8
+    },
+    {
+      "image": "2604.22471_figures/2604.22471_fig5.jpg",
+      "caption": "Figure 4: Distributed color-code architecture and syndrome-measurement sched- ules. (a) A distributed QEC setting with a central scheduler coordinating four QPUs con- nected by photonic links. Bulk and seam checks arise from locality: bulk checks are local to a single QPU, whereas seam checks cross QPU boundaries. (b) Syndrome-measurement schedules used in this work. BC = bulk check; SC = seam check.",
+      "page": 9
+    },
+    {
+      "image": "2604.22471_figures/2604.22471_fig6.jpg",
+      "caption": "Figure 5: LER as a function of EGR for fixed seam-refresh intervals τ at code distances d ∈{11, 15} and p = 10−3. The optimal seam-refresh interval is not universal, but depends on both code distance and EGR. In the low-EGR regime, larger skip intervals are favoured because they reduce the frequency of costly remote seam measurements and the associated waiting-induced idle noise. In the high-EGR regime, smaller skip intervals are preferred because seam information must be refreshed more frequently to avoid syndrome staleness. Both axes have logarithmic spacing, and EGR is swept over {1, 2, 5, 10, 20, 50, 100, 150, 200} MHz.",
+      "page": 11
+    },
+    {
+      "image": "2604.22471_figures/2604.22471_fig7.jpg",
+      "caption": "Figure 6: Balanced four-QPU partition of a d = 9 triangular color code. Colored dots denote data qubits assigned to each QPU (QPU-0 blue, QPU-1 red, QPU-2 green, QPU-3 purple). The dark inner triangle indicates the central subpatch of distance d′ = 5 mapped to QPU-0, while the three outer wedge-shaped regions are mapped to other QPUs.",
+      "page": 15
+    },
+    {
+      "image": "2604.22471_figures/2604.22471_fig8.jpg",
+      "caption": "Figure 7: Logical error rate (LER) versus physical error rate for triangular color codes at distances d ∈{17, 19} under the MA and AST scheduling schemes. For both code distances, AST yields a lower LER than MA over the plotted range. The EGR is fixed at 50 MHz, and p is swept over [10−4, 2 × 10−4, 4 × 10−4, 6 × 10−4, 8 × 10−4, 10−3]. The y-axis is shown on a logarithmic scale (log spacing).",
+      "page": 18
+    },
+    {
+      "image": "2604.22471_figures/2604.22471_fig9.jpg",
+      "caption": "Fig. 8, provides a motivating fixed-skipping example using SS-2, showing that reducing seam-measurement frequency can improve logical performance when EGR is low. However, as discussed in Section 3.1, this benefit is regime dependent, which motivates the adaptive AST policy considered in Fig. 9. In Fig. 9, we plot LER as a function of EGR for MA and AST. In the low-EGR regime, AST consistently outperforms MA. When Bell pairs are generated slowly, measuring seam stabilizers in every round incurs substantial waiting time, which translates into additional idle noise on data qubits. By refreshing the seam less frequently, i.e. skipping with τ ∗= (d −1)/2, AST reduces this penalty and achieves...",
+      "page": 18
+    },
+    {
+      "image": "2604.22471_figures/2604.22471_fig10.jpg",
+      "caption": "Figure 8: Logical error rate (LER) versus entanglement generation rate (EGR) at fixed p = 10−3 for triangular color codes at distances d ∈{9, 15, 17, 21}. The monolithic (dotted) baseline is compared with the distributed MA (solid) and SS-2 (dashed) sched- ules. As EGR increases, the LER of the distributed schemes decreases, with SS-2 con- sistently outperforming MA. Both axes have logarithmic spacing, and EGR is swept over {1, 2, 5, 10, 20, 50, 100, 150, 200} MHz.",
+      "page": 20
+    }
+  ],
+  "figure": "2604.22471_figures/2604.22471_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

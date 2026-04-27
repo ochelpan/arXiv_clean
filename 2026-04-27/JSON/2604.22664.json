@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2604.22664",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Circuit Partitioning For Effective Utilization of Quantum Resources",
+  "authors": "Connor Howe, Cristina Radian, Justin Woodring, Vardaan Sahgal, Brian J. McDermott",
+  "abstract": "Near-term hardware is constrained by high error rates, small qubit counts, and relatively low output fidelity, making the execution of large, high performance quantum circuits difficult. Circuit partitioning (or circuit cutting) has emerged as a promising approach to circumvent these limitations by decomposing circuits into smaller subcircuits at two-qubit interaction points. However, it remains unclear which classes of circuits benefit the most from partitioning and under what hardware conditions it is most effective. In this work, we evaluate the suitability of quantum circuits for partitioning from three perspectives: improving fidelity, enabling distributed execution, and scaling to larger circuit sizes. Specifically, we compare uncut circuit execution against two circuit partitioning approaches: Qiskit's automatic cut finding technique and a custom performance optimized circuit cutting method. We also measure these across GHZ, QFT, brickwork, and random quantum circuits ranging from 4 to 14 qubits, using mean absolute error of expectation values and overall output fidelity. Our results show that partitioning benefits larger, highly interconnected circuits, with our custom method reducing error by up to 55\\% and improve fidelity for GHZ circuits, but degrading performance for brickwork circuits at larger scales.",
+  "url": "http://arxiv.org/abs/2604.22664v1",
+  "pdf": "https://arxiv.org/pdf/2604.22664v1",
+  "type": "both",
+  "summary": "This paper investigates quantum circuit partitioning (circuit cutting) as a way to run large circuits on small, noisy quantum hardware. The authors propose a new, budget-aware heuristic called 'fitv3' that optimizes the trade-off between error reduction and the exponential sampling overhead of reconstruction. They demonstrate that while partitioning is not a universal solution, it significantly improves fidelity for specific structured circuits like GHZ and QFT. The work provides a practical framework for utilizing distributed quantum computing resources more effectively.",
+  "main_problem": "The difficulty of executing large, high-performance quantum circuits on NISQ hardware due to high error rates and limited qubit counts, specifically identifying which circuit classes benefit most from circuit partitioning.",
+  "main_result": "The custom 'fitv3' heuristic can reduce error by up to 55% and improve fidelity for GHZ circuits, though partitioning can degrade performance for brickwork circuits at larger scales.",
+  "method": "A comparison of three strategies: a no-cut baseline, Qiskit's automatic cut-finding, and a custom budget-aware heuristic (fitv3) using a DAG-to-weighted-graph transformation and hardware-aware qubit mapping.",
+  "model_or_system": "Noisy simulation using Qiskit Aer, modeled after the IBM 'ibm_brisbane' superconducting hardware profile, testing circuit families including GHZ, QFT, brickwork, and random circuits.",
+  "key_observables": "Mean Absolute Error (MAE) of expectation values and overall output fidelity, specifically for z_magnetization and GHZ stabilizers.",
+  "important_parameters": "Circuit sizes ranging from 4 to 16 qubits, maximum subcircuit width of 4 qubits, and a maximum sampling overhead cap of 10^8.",
+  "main_assumptions": "The evaluation assumes a static snapshot of hardware calibration data and focuses on wire cuts rather than gate cuts.",
+  "figures_summary": "Figure 1 shows the circuit cutting workflow; Figure 2 compares MAE across different strategies; Figure 5 shows the 'win-rate' of the custom method against the baseline as a function of qubit count.",
+  "paper_structure": "The paper introduces the problem of hardware constraints, reviews existing circuit cutting literature, presents the proposed fitv3 heuristic and integrated pipeline, details the simulation setup and circuit families, presents comparative results across different metrics, and concludes with limitations and future work.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.22664_figures/2604.22664_fig1.jpg",
+      "caption": "Fig. 1: Quantum circuit cutting workflow. A circuit is partitioned into smaller subcircuits at selected cut locations, executed independently on available quantum processing units (QPUs), and recombined via classical post-processing to reconstruct the original circuit output.",
+      "page": 2
+    },
+    {
+      "image": "2604.22664_figures/2604.22664_fig2.jpg",
+      "caption": "Fig. 3: Family-level ∆MAE for fitv3 relative to the no-cut baseline across all three circuit families. Positive values indi- cate worse performance than direct execution, while negative values indicate improvement.",
+      "page": 7
+    },
+    {
+      "image": "2604.22664_figures/2604.22664_fig3.jpg",
+      "caption": "Fig. 4: Difference in MAE between fitv3 and the no-cut baseline as a function of qubit count for each circuit family.",
+      "page": 7
+    },
+    {
+      "image": "2604.22664_figures/2604.22664_fig4.jpg",
+      "caption": "Fig. 5: Fraction of repeated runs for which fitv3 achieves lower MAE than the no-cut baseline as a function of qubit count for each circuit family.",
+      "page": 8
+    }
+  ],
+  "figure": "2604.22664_figures/2604.22664_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

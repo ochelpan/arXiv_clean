@@ -1,0 +1,107 @@
+{
+  "arxiv_id": "2604.22614",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Accurate calculation of Wannier centers, position matrix, and composite operators using translationally equivariant and higher-order finite differences",
+  "authors": "Jae-Mo Lihm, Minsu Ghim, Seung-Ju Hong, Cheol-Hwan Park",
+  "abstract": "The momentum-space derivatives of Bloch wavefunctions are essential for studying quantum geometry and the equilibrium and response properties of solids. In practical first-principles calculations, these derivatives are obtained via Wannier interpolation of position and related composite matrices. These matrices are initially evaluated on a coarse k-point grid using finite-difference approximations and then interpolated to a dense grid. The accuracy of the finite-difference approximation directly impacts the convergence and reliability of the result. In this work, we present two key improvements to the finite-difference calculation of position and composite operators for Wannier interpolation. First, we formulate a translationally equivariant scheme that preserves the underlying symmetries of the system and significantly reduces finite-difference errors. Second, we introduce a higher-order finite-difference approach that yields a more accurate approximation of the k-space derivatives by systematically increasing the convergence rate. From a real-space perspective, these improvements correspond to better approximations of the position operator at the locations of the Wannier functions. We also present a generalization of the finite-difference scheme, which may reduce the number of finite-difference points while maintaining accuracy. We demonstrate the effectiveness of our methods by applying them to the calculation of Wannier centers and spreads, electric polarization, off-diagonal position matrix elements, orbital magnetization, and spin Hall conductivity. Our results demonstrate significant reductions in finite-difference errors, elimination of symmetry-violating errors, and improved convergence with respect to k-point sampling. These methods have been implemented in the open-source packages and can be readily adopted in other Wannier-based codes with minimal computational overhead.",
+  "url": "http://arxiv.org/abs/2604.22614v1",
+  "pdf": "https://arxiv.org/pdf/2604.22614v1",
+  "type": "theory",
+  "summary": "This paper presents improved numerical algorithms for Wannier interpolation used in first-principles calculations. By introducing translationally equivariant and higher-order finite-difference schemes, the authors solve long-standing issues regarding symmetry-breaking errors and slow convergence in calculating quantum geometric properties. The new methods are implemented in widely used open-source packages like Wannier90 and WannierBerri, making them immediately accessible for more accurate electronic structure simulations.",
+  "main_problem": "Standard finite-difference approximations for position and composite operators in Wannier interpolation suffer from slow convergence, broken translational equivariance, and violations of crystal symmetries.",
+  "main_result": "The authors developed a translationally equivariant finite-difference (TEFD) scheme and a higher-order (HOFD) approach that restore system symmetries, ensure size-consistency, and significantly accelerate convergence of $k$-space derivatives.",
+  "method": "The work introduces a midpoint-based TEFD scheme to ensure equivariance and a higher-order HOFD method using weighted $k$-point grids to improve error scaling from $O(b^{-2})$ to $O(b^{-2N})$.",
+  "model_or_system": "The methods are applied to periodic electronic systems (solids) described by Bloch wavefunctions and Wannier functions, with specific test cases including graphene, GeS, bcc Fe, CrO2, and GaAs.",
+  "key_observables": "Wannier centers and spreads, electric polarization, orbital magnetization, spin Hall conductivity, and interband velocity matrix elements.",
+  "important_parameters": "k-point grid density, finite-difference order, and translation shift parameters.",
+  "main_assumptions": "The derivation assumes the localization of Wannier functions and, for certain symmetry proofs, assumes a simplified case where one Wannier function transforms into exactly one other.",
+  "figures_summary": "Figure 1 compares S-FD vs. TEFD and HOFD schemes; Figure 2 shows Wannier center stability under shifts in GeS; Figure 4-6 demonstrate orbital magnetization and spin Hall conductivity convergence in Fe, CrO2, and GaAs; Figure 12-13 compare spin-velocity interpolation methods and convergence in GaAs.",
+  "paper_structure": "The paper begins by identifying errors in standard finite-difference methods, then introduces the TEFD and HOFD schemes, provides mathematical proofs for symmetry and size-consistency, demonstrates application to composite operators, and concludes with numerical validation on various materials and implementation details in open-source codes.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.22614_figures/2604.22614_fig1.jpg",
+      "caption": "FIG. 1. (a, b) Schematic illustration of the simple finite difference (S-FD) and translationally-equivariant finite difference (TEFD) methods for (a) the diagonal position matrix elements (Wannier centers) and (b) the off-diagonal position matrix elements. In the S-FD method, the exact position operator (dashed black lines) is approximated by a sinusoidal function centered at the origin (dotted orange curves). In the TEFD method, the sinusoidal approximant is shifted to be centered at the Wannier center or the midpoint between two Wannier centers (solid blue curves), making the FD approximation most accurate at positions where the WFs have the largest magnitude. (c, d) Schematic...",
+      "page": 2
+    },
+    {
+      "image": "2604.22614_figures/2604.22614_fig2.jpg",
+      "caption": "FIG. 3. (a) Brillouin zone of graphene and a circular path (dotted black circle) around the K point. (b, c) Tangential and (d, e) radial components of the interband velocity ma- trix elements between the lower and upper branches of the Dirac cone along this path, computed using Eq. (54). We show three curves, corresponding to different FD approaches for diagonal and off-diagonal position matrix elements. (f, g) The C3 symmetry-breaking error of the interband velocity matrix elements. The plotted quantity is the magnitude of the difference between the velocity matrix elements at θ and θ + 120◦in the respective local coordinates: ∆verror(θ) = p",
+      "page": 8
+    },
+    {
+      "image": "2604.22614_figures/2604.22614_fig3.jpg",
+      "caption": "FIG. 2. (a) Three structures of monolayer GeS with different out-of-plane shifts. We set the out-of-plane lattice constant to c = 15 ˚A. (b) The z-component of the Wannier center of the s-orbital-like WF of monolayer GeS for different shifts and a 12 × 12 × Nk,z k grid, computed using S-FD [Eq. (15)] and TEFD [Eq. (47)]. The gray horizontal line indicates the converged value at Nk,z →∞, obtained by a 1/N 2 k,z extrapo- lation. (c) Magnified view of panel (b). (d-g) Same as panels (b) and (c), but for off-diagonal matrix elements.",
+      "page": 8
+    },
+    {
+      "image": "2604.22614_figures/2604.22614_fig4.jpg",
+      "caption": "FIG. 4. Orbital magnetization of bcc Fe, computed using the S-FD and TEFD methods, as a function of (a) the coarse grid size and (b) its squared inverse. The results for two equivalent but shifted structures are shown. The shift is applied along all three directions: for a shift of 0.5, the Fe atom is centered at (0.5, 0.5, 0.5) in crystal coordinates.",
+      "page": 11
+    },
+    {
+      "image": "2604.22614_figures/2604.22614_fig5.jpg",
+      "caption": "FIG. 6. Cumulative spin Hall conductivity [Eq. (70)] of GaAs, computed using the S-FD and TEFD methods, as a function of (a) the coarse grid size and (b) its squared inverse. The results for two equivalent but shifted structures are shown. Before the shift, the Ga and As atoms are at (0.0, 0.0, 0.0) and (−0.25, −0.25, −0.25), respectively, in crystal coordinates. Af- ter the shift of 0.5, the two atoms are placed at (0.5, 0.5, 0.5) and (0.25, 0.25, 0.25).",
+      "page": 11
+    },
+    {
+      "image": "2604.22614_figures/2604.22614_fig6.jpg",
+      "caption": "FIG. 5. Orbital magnetization of CrO2, computed using the S-FD and TEFD methods, as a function of (a) the coarse grid size and (b) its squared inverse. The Cr atoms are at (0.0, 0.0, 0.0) and (0.5, 0.5, 0.5) in crystal coordinates.",
+      "page": 11
+    },
+    {
+      "image": "2604.22614_figures/2604.22614_fig7.jpg",
+      "caption": "FIG. 7. (a) Selected b vectors for the first-order FD method applied to a two-dimensional system with reciprocal lattice vectors (1, 0) and (−0.25, 1). (b) Selected b vectors for the second-order FD method using the multiples scheme (green circles) and the shells scheme (orange diamonds). The b vec- tors for the multiples scheme are integer multiples of the b vectors in (a). The b vectors for the shells scheme fit inside a circle of smaller radius (2.06) than that for the multiples scheme (2.50). We note that for a square lattice, the two schemes are equivalent.",
+      "page": 13
+    },
+    {
+      "image": "2604.22614_figures/2604.22614_fig8.jpg",
+      "caption": "FIG. 8. Convergence of (a) the Wannier spread of Si, (b) the macroscopic polarization [Eq. (74)] of KNbO3, and (c) the off-diagonal z matrix element between the WFs constructed from a pz orbital at a potassium atom and an s orbital at an oxygen atom of KNbO3. We used uniform coarse k-point grids of size Nk = Nk × Nk × Nk. For all cases, we used equivariant formulas. For (a, b), we compare the results from the multiples and shells schemes for HOFD and find that the two results are almost identical except at very coarse meshes. Thus, in (c), we show only the results from the multiples scheme. Note that the two schemes are equivalent for the first-order FD method. The converged polarization of...",
+      "page": 14
+    },
+    {
+      "image": "2604.22614_figures/2604.22614_fig9.jpg",
+      "caption": "FIG. 10. Orbital magnetization of bcc Fe as a function of the coarse grid, computed using the first-order TEFD and second-order TE-HOFD methods.",
+      "page": 15
+    },
+    {
+      "image": "2604.22614_figures/2604.22614_fig10.jpg",
+      "caption": "FIG. 9. Wannier centers and position matrix elements of monolayer GeS (see Fig. 2 for details), computed using (i) S-FD plus HOFD method and (ii) TE-HOFD method as a function of order. We used a 12 × 12 × 1 k grid. The horizon- tal lines show the results obtained using a direct real-space calculation using the full FFT mesh of the plane-wave basis DFT calculation. The z operator is approximated as a saw- tooth function, with the center at the origin of the unit cell (solid gray lines) or at the Wannier center or the midpoint of the two Wannier centers (dashed red lines).",
+      "page": 15
+    }
+  ],
+  "figure": "2604.22614_figures/2604.22614_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}
