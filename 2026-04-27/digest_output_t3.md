@@ -8,7 +8,7 @@
 
 *Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥3/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page. `(secondary)` marks papers from de-prioritized cond-mat archives.*
 
-<details><summary>Show 49 relevant papers</summary>
+<details markdown="1"><summary>Show 49 relevant papers</summary>
 
 - ⭐ [Entanglement and information scrambling in long-range measurement-only circuits](#paper-2604.22022) [[arXiv]](http://arxiv.org/abs/2604.22022v1) — 🔥 `measurement-induced transitions` **5/5** · 🔥 `entanglement & information structure` **4/5** · 🔥 `driven-dissipative phase transition` **3/5** · 🔥 `non-equilibrium dynamics` **3/5** · 🔥 `non-equilibrium universality` **3/5** · `correlated / nonlocal dissipation` **2/5** · `dissipative systems` **2/5** · `methods for driven-dissipative` **2/5** · `quantum measurements` **2/5**
 - [Thermometry for a Kagome Lattice Dipolar Rydberg Simulator](#paper-2604.22743) [[arXiv]](http://arxiv.org/abs/2604.22743v1) — 🔥 `Rydberg arrays` **5/5** · 🔥 `analog quantum simulation` **4/5** · 🔥 `exotic spin models in light-matter` **4/5** · 🔥 `QC/QI experiment` **3/5** · `entanglement & information structure` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
@@ -67,7 +67,7 @@
 
 *Papers by authors on your watch list. Click the title to jump to the full entry below; click [arXiv] to open the paper page.*
 
-<details><summary>Show 2 highlighted papers</summary>
+<details markdown="1"><summary>Show 2 highlighted papers</summary>
 
 - ⭐ [Anomalous Mean-Squared Displacement in Quantum Active Matter from a Wigner Phase-Space Framework](#paper-2604.22600) [[arXiv]](http://arxiv.org/abs/2604.22600v1) — Giovanna Morigi
 - ⭐ [Entanglement and information scrambling in long-range measurement-only circuits](#paper-2604.22022) [[arXiv]](http://arxiv.org/abs/2604.22022v1) — Susanne F. Yelin
@@ -2916,7 +2916,7 @@ In epistatic fitness landscapes, the fitness effect of a mutation depends on the
 
 *Papers from primary archives without highlighted authors or any topic match. Click to expand.*
 
-<details><summary>Show other papers</summary>
+<details markdown="1"><summary>Show other papers</summary>
 
 <a id="paper-2604.21985"></a>
 ### [Anisotropy of spin waves in the field-polarized phase of Fe-doped MnSi](http://arxiv.org/abs/2604.21985v1)
@@ -4438,7 +4438,7 @@ Scalable, low-dissipation memory operating below 4 K is a critical requirement f
 
 ### Other secondary papers (19)
 
-<details><summary>Show other secondary papers</summary>
+<details markdown="1"><summary>Show other secondary papers</summary>
 
 <a id="paper-2604.22614"></a>
 ### [Accurate calculation of Wannier centers, position matrix, and composite operators using translationally equivariant and higher-order finite differences](http://arxiv.org/abs/2604.22614v1)
