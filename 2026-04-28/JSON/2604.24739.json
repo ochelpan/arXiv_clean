@@ -1,0 +1,108 @@
+{
+  "arxiv_id": "2604.24739",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "CAbLECAR: efficiently scheduling QLDPC codes on a tileable spin qubit chip with shuttling",
+  "authors": "Jason D. Chadwick, Frederic T. Chong",
+  "abstract": "Semiconductor spin qubits are a promising platform for large-scale quantum computing, but have yet to take full advantage of the broad class of quantum low-density parity check (QLDPC) codes, which promise high encoding rates and efficient logic but require nonlocal connectivity between physical qubits. In this work, we investigate the implementation of QLDPC codes on a tileable, shuttling-based spin qubit architecture. By tailoring syndrome extraction circuits to the shuttling noise model, we significantly improve on previous surface code proposals and extend the feasible shuttling range of the architecture by 5-10x, enabling the implementation of more complex codes with long-range interactions. Taking inspiration from the field of robotics, we develop a coordinated shuttle scheduling algorithm that supports arbitrary codes and use it to benchmark the logical performance of a variety of promising code families. We find that the optimized schedules are up to 86% faster than hand-optimized schedules for certain code families. Through detailed circuit-level simulations, we identify specific QLDPC codes that improve upon prior surface code implementations by orders of magnitude, increasing encoding efficiency and reducing logical error rates. This work demonstrates the potential of shuttling-based spin qubit hardware platforms for scalable and efficient fault-tolerant quantum computation.",
+  "url": "http://arxiv.org/abs/2604.24739v1",
+  "pdf": "https://arxiv.org/pdf/2604.24739v1",
+  "type": "theory",
+  "summary": "This paper addresses the challenge of implementing high-rate QLDPC codes on spin qubit platforms that rely on physical qubit shuttling. By introducing a new scheduling algorithm (Q-SIPP) and a noise-aware circuit tailoring technique, the authors show how to mitigate dephasing and avoid collisions during ancilla movement. Their results demonstrate that under appropriate noise regimes, these advanced codes can provide massive improvements in both encoding efficiency and logical error rates compared to the standard surface code.",
+  "main_problem": "The difficulty of implementing high-rate QLDPC codes on semiconductor spin qubit architectures due to the mismatch between non-local code connectivity and the physical constraints of qubit shuttling, specifically regarding collision avoidance and shuttling-induced dephasing.",
+  "main_result": "The development of the CAbLECAR framework and Q-SIPP algorithm enables efficient, collision-free ancilla routing, demonstrating that specific QLDPC codes can outperform surface codes by orders of magnitude in logical error rate when shuttling errors are sufficiently low.",
+  "method": "The authors use a noise-aware circuit tailoring technique to mitigate dephasing and a quantum-adapted Safe Interval Path Planning (Q-SIPP) algorithm for automated, time-optimized ancilla scheduling, validated via Stim circuit-level simulations.",
+  "model_or_system": "A tileable, modular semiconductor spin qubit architecture featuring a 2D grid of stationary data qubits and mobile ancilla qubits that are physically transported (shuttled) through interaction and readout zones.",
+  "key_observables": "Logical error rate (pL), encoding efficiency (kd^2/n), shuttling overhead (ancilla movement counts), and physical error rates (p_sh, p_CX, p_H).",
+  "important_parameters": "Shuttling error rates (ranging from 10^-1 to 10^-4), code parameters [[n, k, d]], and gate fidelities (approx 99.9%).",
+  "main_assumptions": "The evaluation assumes a simplified grid layout for data qubits and relies on the assumption that extremely low shuttling error rates (10^-4) are physically achievable.",
+  "figures_summary": "Figure 1 shows the CAbLECAR framework overview; Figure 2 illustrates QEC syndrome extraction; Figure 3 depicts the tiled unit cell architecture; Figure 4 compares baseline vs. tailored circuits; Figure 5 shows logical error rate vs. shuttle error; Figure 6 displays an optimized movement schedule; Figure 7 visualizes collision resolution; Figure 8 compares shuttling overhead; Figure 9 shows encoding efficiency vs. overhead; Figure 12 compares various code families across error regimes.",
+  "paper_structure": "The paper introduces the scalability bottleneck of surface codes, presents the CAbLECAR framework and Q-SIPP algorithm, details the noise-aware circuit tailoring technique, evaluates various QLDPC code families through circuit-level simulations, and concludes by identifying the performance crossover regime relative to the surface code.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24739_figures/2604.24739_fig1.jpg",
+      "caption": "Fig. 1. Overview of the CAbLECAR framework. (Left) QLDPC codes demand complex, non-local parity checks, represented by arbitrary connec- tions between data qubits (black) and ancilla qubits (colored). (Middle) To map these abstract requirements onto physical hardware, CAbLECAR applies noise-aware circuit tailoring to mitigate shuttling-induced dephasing and utilizes a novel optimization algorithm Q-SIPP to compute collision-free routing paths. (Right) The output is a hardware-compatible, time-optimized shuttling schedule where mobile ancilla qubits physically route along a tileable grid architecture to interact with stationary data qubits. Applied to efficient QLDPC codes, these optimized...",
+      "page": 1
+    },
+    {
+      "image": "2604.24739_figures/2604.24739_fig2.jpg",
+      "caption": "Fig. 2. Depiction of the structure of a quantum error correction code. A code block consists of a group of data qubits (black) and the logical code state is stabilized by repeated measurement of X and Z stabilizers. Typically, each stabilizer is measured using an ancilla qubit, which is initialized, entangled with the relevant data qubits, and then measured. Example X and Z checks are shown in pink and blue. The measurement results must then be decoded to determine whether any correction is needed to maintain an error-free code state. In this figure, X and Z checks both have weight 4, meaning that each ancilla qubit interacts with four data qubits in a syndrome extraction (SE) cycle.",
+      "page": 2
+    },
+    {
+      "image": "2604.24739_figures/2604.24739_fig3.jpg",
+      "caption": "Fig. 3. The tiled unit cell architecture considered in this work. On the left is a closeup of one unit cell, which has (a) one interaction zone where gates are performed, (b) one readout port, where a qubit can be measured, and (c) shuttling channels, where qubits can travel within and between unit cells. (d) shows a simplified version of the unit cell, and (e) shows how the unit cells can be tiled into a grid-like arrangement.",
+      "page": 3
+    },
+    {
+      "image": "2604.24739_figures/2604.24739_fig4.jpg",
+      "caption": "Fig. 4. Tailoring syndrome extraction circuits to mitigate shuttling noise. (a) Ancilla qubits are shuttled between CNOTs with data qubits. Shown here is a Z ancilla qubit, which is sensitive to shuttling errors. (b) Shuttling errors are heavily biased towards Z errors (dephasing). When such an error occurs, it propagates through the following CNOTs and manifests as one or more Z errors on the data qubits. (c) The tailored version of the circuit inserts H gates before and after each shuttling period. (d) This switches the Z error to an X error during each of the remaining CNOTs, preventing error propagation. The consequence is an X error on the ancilla qubit at the end of the circuit, which...",
+      "page": 3
+    },
+    {
+      "image": "2604.24739_figures/2604.24739_fig5.jpg",
+      "caption": "Fig. 6. Snapshot of optimized ancilla movement schedule for the [[72, 12, 6]] bicycle code. Data qubits (black) are in fixed positions, one per unit cell. Ancilla qubits (blue and pink) are shuttled between data qubits, performing CNOTs along the way. Colored arrows show ancilla movement over a 1µs time period.",
+      "page": 4
+    },
+    {
+      "image": "2604.24739_figures/2604.24739_fig6.jpg",
+      "caption": "Fig. 5. Performance of the surface code shuttling schedule on the unit cell architecture [40] under varying shuttling noise, with and without CAbLECAR circuit tailoring. Tailoring allows the surface code to tolerate 5-10× higher shuttle error rates on the ancilla qubits. This increased noise resilience paves the way for considering more complex codes with longer shuttling paths.",
+      "page": 4
+    },
+    {
+      "image": "2604.24739_figures/2604.24739_fig7.jpg",
+      "caption": "Fig. 7. A visualization of the Q-SIPP scheduling process resolving a spatial collision. Ancilla B must route to di but its shortest path through IL is temporarily blocked by Ancilla A. Instead of forcing B to take a collision-free detour, Q-SIPP projects the timeline of IL into continuous safe intervals. By calculating the heuristic cost h(s) of the detour versus the known penalty twait to utilize the next available safe interval (i1), the algorithm correctly determines that waiting at IL yields the time-optimal schedule.",
+      "page": 6
+    },
+    {
+      "image": "2604.24739_figures/2604.24739_fig8.jpg",
+      "caption": "Fig. 8. Comparing average shuttle distance for CAbLECAR schedules compared to ideal minimum shuttle counts (assuming ancilla qubits can move freely past each other without collisions). We also compare to a “lockstep” schedule (all ancilla qubits moving together in a pattern) for codes where such a schedule exists. We find that CAbLECAR outperforms all lockstep schedules and is close to the collision-free ideal, with a minor 12.5% overhead (geomean). CAbLECAR reduces shuttle cost for Tile and BB codes by 19% and 86%, respectively, compared to hand-optimized lockstep schedules.",
+      "page": 7
+    },
+    {
+      "image": "2604.24739_figures/2604.24739_fig9.jpg",
+      "caption": "Fig. 9. Comparing shuttling overhead to efficiency factor kd2/n. Higher- efficiency codes from the Radial and Tile families improve encoding efficiency by more than their increase in shuttle count.",
+      "page": 7
+    },
+    {
+      "image": "2604.24739_figures/2604.24739_fig10.jpg",
+      "caption": "Figure 8 shows the average number of unit-edge shuttles per ancilla qubit across the studied code instances. We compare the CAbLECAR optimized schedules against two baselines. First, the “ideal collision-free” schedule assumes that shuttled qubits are allowed to occupy the same shuttling channel and even pass by one another without collisions. Compared to this baseline, the CAbLECAR schedules (which prevent simulta- neous occupation of any shuttling channel) incur a geomean 12.5% shuttling overhead, demonstrating surprisingly near-",
+      "page": 7
+    }
+  ],
+  "figure": "2604.24739_figures/2604.24739_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

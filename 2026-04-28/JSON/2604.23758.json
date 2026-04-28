@@ -1,0 +1,88 @@
+{
+  "arxiv_id": "2604.23758",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Agentic Fusion of Large Atomic and Language Models to Accelerate Materials Discovery",
+  "authors": "Mingze Li, Yu Rong, Songyou Li, Lihong Wang, Jiacheng Cen, Liming Wu, Anyi Li, Zongzhao Li, Qiuliang Liu, Rui Jiao, Tian Bian, Pengju Wang, Hao Sun, Jianfeng Zhang, Ji-Rong Wen, Deli Zhao, Shifeng Jin, Tingyang Xu, Wenbing Huang",
+  "abstract": "The discovery of novel materials is critical for global energy and quantum technology transitions. While deep learning has fundamentally reshaped this landscape, existing predictive or generative models typically operate in isolation, lacking the autonomous orchestration required to execute the full discovery process. Here we present ElementsClaw, an agentic framework for materials discovery that synergizes Large Atomic Models (LAMs) with Large Language Models (LLMs). In response to varied human requirements, ElementsClaw dynamically orchestrates a suite of LAM tools finetuned from our proposed model Elements for atomic-scale numerical computation, while leveraging LLMs for high-level semantic reasoning. This shift moves AI-driven materials science from isolated processes toward integrated and human interactive discovery. In the demanding domain of superconductors, our agentic system guides the experimental synthesis of four new superconductors, including Zr3ScRe8 with a transition temperature of 6.8 K and HfZrRe4 at 6.7 K. At scale, ElementsClaw screens more than 2.4 million stable crystals within only 28 GPU hours, identifying 68,000 high-confidence superconducting candidates and vastly expanding the known superconducting space. These results demonstrate how our agent accelerates materials discovery with high physical fidelity.",
+  "url": "http://arxiv.org/abs/2604.23758v1",
+  "pdf": "https://arxiv.org/pdf/2604.23758v1",
+  "type": "both",
+  "summary": "This paper introduces ElementsClaw, an AI agentic framework that combines Large Atomic Models with Large Language Models to automate the materials discovery process. By orchestrating specialized tools for property prediction and structure generation, the system can autonomously navigate vast chemical spaces. The authors demonstrate the framework's power by discovering and experimentally validating several new superconductors. This approach represents a shift from using AI as a simple predictive tool to using it as an autonomous researcher capable of complex decision-making.",
+  "main_problem": "The challenge of accelerating materials discovery by moving from isolated deep learning models to an autonomous, agentic framework capable of orchestrating the full discovery pipeline, from screening to experimental validation.",
+  "main_result": "The ElementsClaw framework successfully identified and experimentally synthesized four new superconductors, including Zr3ScRe8 and HfZrRe4, and screened 2.4 million crystals to find 68,000 high-confidence candidates.",
+  "method": "An agentic framework (ElementsClaw) that fuses Large Atomic Models (LAMs) for numerical computation with Large Language Models (LLMs) for high-level reasoning, literature retrieval, and tool orchestration.",
+  "model_or_system": "The system uses the Elements foundation model, a 1-billion-parameter EquiformerV2-based LAM pretrained on 125 million structures, integrated with specialized modules for property prediction (Elements-T), classification (Elements-C), stability (Elements-E), and generation (Elements-G).",
+  "key_observables": "Superconducting transition temperature (Tc), magnetic susceptibility, electrical resistivity, energy above hull (E_hull), formation energy (E_form), and crystal structure parameters.",
+  "important_parameters": "Critical temperature (Tc), 125 million pretraining structures, 2.4 million screened crystals, and 28 GPU hours for large-scale screening.",
+  "main_assumptions": "The framework assumes that the learned interatomic potentials and property predictions from the LAM are sufficiently accurate to guide experimental synthesis without exhaustive DFT verification for every candidate.",
+  "figures_summary": "Figure 1 shows the ElementsClaw framework overview, the Elements model development, and large-scale discovery results. Figure 2 illustrates the agentic discovery workflow. Figure 3 compares Elements against SOTA methods across 22 tasks. Figure 4 shows Tc prediction performance and clustering. Figure 5 details the superconductor screening results.",
+  "paper_structure": "The paper introduces the scientific problem of isolated AI models, describes the architecture of the ElementsClaw agentic framework and the Elements foundation model, details the four-stage discovery pipeline (screening, skill creation, pinpointing, and prioritization), presents large-scale screening results and experimental validation of new superconductors, and concludes with performance benchmarks.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.23758_figures/2604.23758_fig1.jpg",
+      "caption": "Fig. 1 Overview of our methodologies and results. a, The agentic framework. ElementsClaw integrates specialized Elements variants (Elements-T/C/E/G) and LLMs’ reasoning to identify candidates for experimental validation. b, Omni-domain large atomic model development. Elements is pretrained on 125 million structures, enabling seamless adaptation across diverse downstream tasks. c, Large-scale superconductor discovery. By leveraging Elements-T (predicted Tc > 4 K) and Elements-C (positive output), ElementsClaw screens across 2.4 million distinct stable crystals and identifies a repository of 68k potential superconductors, significantly enriching the existing SuperCon database, which contains...",
+      "page": 3
+    },
+    {
+      "image": "2604.23758_figures/2604.23758_fig2.jpg",
+      "caption": "Fig. 2 The Multi-Stage Agentic Discovery Process of ElementsClaw. Guided by human expertise, the agent first curates labeled superconducting instances via Elements-T screening and GPT-5-driven literature synthesis from existing datasets (Stage 1). It then creates the Elements-C classification skill through finetuning Elements (Stage 2), enabling the systematic screening of unverified instances to pinpoint promising ternary systems (Stage 3). Finally, ElementsClaw identifies high- probability candidate phases for downstream experimental validation (Stage 4). Notably, although we illustrate only a single representative dialogue for each stage, the actual process involves granular, multi-turn...",
+      "page": 5
+    },
+    {
+      "image": "2604.23758_figures/2604.23758_fig3.jpg",
+      "caption": "Fig. 3 Comparisons between Elements and SOTA methods across 22 downstream tasks in terms of property prediction, interatomic potential estimation, and structure prediction. The results of all compared methods are directly copied from the corresponding benchmarks. a, MAE results of molecular property prediction (HOMO and LUMO) on the QM9 dataset containing stable molecules. b, MAE results of crystal property prediction (MP_is_metal, Mp_gap, Perovskites, and Dielectric) on Matbench containing stable crystals. c-d, RMSEs of energy (c) and force prediction (d) on the DPA-2 dataset containing unstable molecules and crystals. e, Match Rate and RMSE results of crystal structure prediction on MP-20...",
+      "page": 6
+    },
+    {
+      "image": "2604.23758_figures/2604.23758_fig4.jpg",
+      "caption": "Fig. 4 The performance of Elements-T after finetuning on the DFT dataset. a, MAE results for key superconductivity- related properties on the DFT dataset. From left to right, the four panels report the MAE for the bandgap (eV), Seebeck coefficients (µV/K), electrical conductivity and electronic thermal conductivity (log-scaled σ/τ in 1/(Ω· m · s) and κe/τ in W/(m · K · s), respectively), and critical temperature Tc (K). For the electrical conductivity (p/n Cond.) and electronic thermal conductivity (p/n Kappa), we predict the log-transformed values due to their wide dynamic range spanning several orders of magnitude. In the fourth panel, the M.A.D. Tc denotes the calculation via the...",
+      "page": 7
+    },
+    {
+      "image": "2604.23758_figures/2604.23758_fig5.jpg",
+      "caption": "Fig. 5 Superconductor screening from existing databases and literature by ElementsClaw. a, Overlap between positive instances and the SuperCon3D database, revealing that 41.8% of the identified materials represent novel entries absent from the SuperCon3D database. The experimental Tc distribution of these undocumented materials is illustrated in the histogram below. b, Performance evaluation of Elements-T. The plot illustrates the classification precision (blue line) and the MAE of Tc predictions (red violin plots) across varying predicted Tc intervals. c, ROC curve for the classification model Elements-C, achieving an AUC of 0.996. d, t-SNE visualization of crystal fingerprints for the...",
+      "page": 8
+    },
+    {
+      "image": "2604.23758_figures/2604.23758_fig6.jpg",
+      "caption": "Fig. 6 Identifying superconducting phases in the Hf–Zr–Re system for experimental verification. a, (Left) Table of the successful discovery of experimentally-verified superconductors; (Right) Ternary phase diagram illustrating the distribution of explored materials. Within the diagram, black circles denote previously reported superconducting phases, cyan squares represent predicted superconductors without experimental verification, and red triangles highlight candidates successfully predicted and experimentally confirmed as novel superconductors in this work, including Hf21Re25 sourced from the MPDS dataset, alongside HfZr3Re8, HfZrRe4, and Hf3ZrRe8. The green cross indicates the targeted...",
+      "page": 11
+    }
+  ],
+  "figure": "2604.23758_figures/2604.23758_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

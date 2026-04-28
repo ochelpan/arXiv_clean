@@ -1,0 +1,108 @@
+{
+  "arxiv_id": "2604.23821",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cs.LG"
+  ],
+  "is_primary_archive": false,
+  "title": "Accelerating Quantum Materials Characterization: Hybrid Active Learning for Autonomous Spin Wave Spectroscopy",
+  "authors": "William Ratcliff",
+  "abstract": "Autonomous neutron spectroscopy must solve three distinct tasks: detection (where is the signal?), inference (which Hamiltonian governs it?), and refinement (what are the parameters?). No single controller solves all three equally well. We present TAS-AI, a hybrid agnostic-to-physics-informed framework for autonomous triple-axis spin-wave spectroscopy that separates these tasks explicitly. In blind reconstruction benchmarks, model-agnostic methods such as random sampling, coarse grids, and Gaussian-process mappers reach a global error threshold more reliably and with fewer measurements than physics-informed planning, supporting the claim that discovery and inference are distinct tasks requiring distinct controllers. Once signal structure is localized, the physics-informed stage performs in-loop Hamiltonian discrimination and parameter refinement: in a controlled square-lattice test between nearest-neighbor-only and J1-J2 Hamiltonians, TAS-AI reaches a decisive AIC-derived evidence ratio (>100) in fewer than 10 measurements, while motion-aware scheduling cuts wall-clock time by 32% at a fixed measurement budget. We also identify a failure mode of posterior-weighted design, algorithmic myopia, in which the planner over-refines the current leading model while under-sampling low-intensity falsification probes. A constrained falsification channel sharply reduces time spent committed to the wrong model and accelerates correct model selection without modifying the Bayesian inference engine. In controlled two-model ablations, both a deterministic top-two max-disagreement rule and an LLM-based audit committee achieve this gain under identical constraints. We demonstrate the full workflow in silico using a high-fidelity digital twin and provide an open-source Python implementation.",
+  "url": "http://arxiv.org/abs/2604.23821v1",
+  "pdf": "https://arxiv.org/pdf/2604.23821v1",
+  "type": "both",
+  "summary": "This paper presents TAS-AI, an autonomous framework designed to accelerate the characterization of quantum materials via neutron spectroscopy. It addresses the inefficiency of using a single controller for all experimental tasks by proposing a hybrid approach: model-agnostic methods for initial signal discovery and physics-informed methods for parameter refinement. The authors also introduce an LLM-based audit layer to prevent the system from getting stuck on incorrect physical models. The framework demonstrates significant reductions in experimental wall-clock time and improved robustness in model selection.",
+  "main_problem": "The challenge of automating neutron spectroscopy, specifically balancing the tasks of signal detection, Hamiltonian inference, and parameter refinement while avoiding 'algorithmic myopia' where a controller over-refines an incorrect model.",
+  "main_result": "The TAS-AI framework successfully uses a hybrid agnostic-to-physics-informed workflow to accelerate characterization, reducing wall-clock time by 32% and using an LLM-based audit layer to prevent model lock-in.",
+  "method": "A hybrid active learning framework (TAS-AI) combining Log-Gaussian Process mapping for discovery, physics-informed planning for refinement, and an LLM-based 'audit committee' for strategic falsification.",
+  "model_or_system": "The study uses a high-fidelity digital twin of a Triple-Axis Spectrometer (TAS) to simulate spin-wave spectroscopy on square-lattice magnetic systems, including ferromagnetic and antiferromagnetic Hamiltonians with J1-J1 and anisotropy parameters.",
+  "key_observables": "Momentum-energy coordinates (Q, E), intensity (I), uncertainty (sigma), and AIC-derived evidence ratios for model selection.",
+  "important_parameters": "Exchange constants (J1, J2), anisotropy (D), motor speeds (v_H, v_E), and counting time (t).",
+  "main_assumptions": "The framework relies on fast Laplace/Levenberg-Marquardt approximations for real-time decision-making and assumes the use of a digital twin for validation.",
+  "figures_summary": "Figure 1 illustrates the TAS-AI workflow stages; Figure S1 shows the effect of energy tapering on edge-locking; Figure 9 shows the transition between controller phases.",
+  "paper_structure": "The paper introduces the TAS-AI framework, details the three-stage hybrid workflow (agnostic discovery, physics-informed refinement, and strategic audit), presents benchmarks on model discrimination and parameter accuracy, discusses the mitigation of algorithmic myopia via LLMs, and concludes with software implementation details.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.23821_figures/2604.23821_fig1.jpg",
+      "caption": "Figure 1: Hybrid TAS-AI workflow. The controller begins with agnostic Log-GP mapping to localize signal, hands off to physics-informed discrimina- tion/refinement once structure is detected, and uses motion-aware sequencing to optimize wall-clock time. An optional constrained audit layer can request targeted falsification probes under the same kinematic and safety constraints enforced by the numerical planners.",
+      "page": 5
+    },
+    {
+      "image": "2604.23821_figures/2604.23821_fig2.jpg",
+      "caption": "Figure 2: Synthetic benchmark scenarios used to test discovery-oriented behav- ior: single branch, two branches, weak signal, sharp feature, and gap mode.",
+      "page": 12
+    },
+    {
+      "image": "2604.23821_figures/2604.23821_fig3.jpg",
+      "caption": "Figure 3: Analytic blind-reconstruction benchmarks. Agnostic methods are favored by the global reconstruction metric because they are optimized for dis- covery rather than for parameter inference.",
+      "page": 13
+    },
+    {
+      "image": "2604.23821_figures/2604.23821_fig4.jpg",
+      "caption": "Figure 4: PySpinW ground-truth benchmarks with Cooper–Nathans-derived energy broadening. Panels (a) and (b) show the two benchmark surfaces. Panel (c) reports mean final weighted reconstruction error after 300 measurements, with individual seed values overlaid. Under this stricter realism-heavy whole- window benchmark, none of the methods reaches the 0.20 threshold within budget; enhanced Log-GP is competitive with grid on the gapless case and performs best on the gapped case, while physics-only TAS-AI performs poorly on this blind global-mapping objective.",
+      "page": 14
+    },
+    {
+      "image": "2604.23821_figures/2604.23821_fig5.jpg",
+      "caption": "Figure 5: Controlled time-aware parameter-refinement study for the square- lattice ferromagnet. Once the model family is fixed, the motion-aware physics- informed planner reaches the RMS threshold earliest by prioritizing parameter- sensitive measurements with high information rate. Panel (a) shows RMS er- ror versus elapsed experiment time, panel (b) shows the TAS-AI path through (𝐻, 𝐸) space, and panel (c) separates science counting from motion overhead. In the representative run shown here, TAS-AI reaches threshold in 170 s while the random baseline does so only after 542 s; grid and Log-GP do not converge within the same budget.",
+      "page": 15
+    },
+    {
+      "image": "2604.23821_figures/2604.23821_fig6.jpg",
+      "caption": "Figure 6: In-loop Hamiltonian discrimination. The x-axis counts cumulative measurements, including the seeded points used to initialize the comparison; thus the decisive jump occurs within eight total measurements rather than eight post-seed updates. The AIC-derived evidence ratio becomes decisive in the representative run because the planner targets the regions where the competing dispersions diverge most strongly. In panel (d), the green vertical guides mark the measurement locations used for the corresponding discrimination trace.",
+      "page": 17
+    },
+    {
+      "image": "2604.23821_figures/2604.23821_fig7.jpg",
+      "caption": "Figure 7: Controlled motion-aware scheduling diagnostics on a fixed candidate set. Panel (a) shows the fixed candidate measurements colored by their posi- tion in the executed schedule, so the color scale encodes traversal order rather than intensity. Panels (b)-(d) then separate the corresponding cumulative path length, elapsed time, and per-point timing summaries. The figure is intended as a scheduling diagnostic, not as a second benchmark of adaptive discovery.",
+      "page": 18
+    },
+    {
+      "image": "2604.23821_figures/2604.23821_fig8.jpg",
+      "caption": "Figure 8: MCTS batch planning reduces path ineﬀiciency relative to one-step greedy ordering when motion dominates the cost budget.",
+      "page": 19
+    },
+    {
+      "image": "2604.23821_figures/2604.23821_fig9.jpg",
+      "caption": "Figure 9: Hybrid handoff from agnostic discovery to physics-informed inference. The agnostic front end uses the enhanced Log-GP policy (§3.1). In panel (d), the colored vertical bands mark the contiguous controller phases: coarse grid discovery, active Log-GP remapping, and physics-informed refinement. The figure makes the control transition explicit rather than mixing all points into a single trajectory.",
+      "page": 20
+    },
+    {
+      "image": "2604.23821_figures/2604.23821_fig10.jpg",
+      "caption": "Figure 10: Pilot LLM-audited closed-loop run (90 measurements). The left panel shows the executed measurements over the synthetic intensity map, with enhanced Log-GP grid, enhanced Log-GP active, and physics points shown sep- arately. The right panel shows the final model posteriors. The overseer operates only at the routing layer while preserving the same numerical posteriors, kine- matic constraints, and safety checks as the non-LLM loop.",
+      "page": 22
+    }
+  ],
+  "figure": "2604.23821_figures/2604.23821_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 2,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

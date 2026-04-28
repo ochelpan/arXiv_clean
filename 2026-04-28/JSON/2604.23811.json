@@ -1,0 +1,87 @@
+{
+  "arxiv_id": "2604.23811",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Attention Is Not All You Need for Diffraction",
+  "authors": "Elizabeth J. Baggett, Edward G. Friedman, Abhishek Shetty, Derrick Chan-Sew, Vanellsa Acha, Harshita Dwarcherla, Paul Kienzle, William Ratcliff",
+  "abstract": "Determining crystal symmetry from powder X-ray diffraction is a central problem in materials characterization, yet multiple space groups can produce indistinguishable patterns, making automated classification difficult. We show that attention-based architectures, while superior to convolutional networks for this task, are insufficient on their own: reliable symmetry extraction requires encoding crystallographic knowledge into both the network architecture and the training curriculum. We introduce a physics-informed transformer that classifies powder patterns into 99 extinction groups, the most specific symmetry classification accessible from diffraction data alone, using an explicit sin^2(theta) coordinate channel, physics-aware positional encoding, and a structured multi-task decoder that separates geometric rule learning from holistic pattern recognition. A three-stage curriculum of balanced synthetic pretraining, realistic fine-tuning with explicit preferred-orientation modeling, and Bayesian prior injection proves essential for bridging the synthetic-to-real domain gap, while post-hoc temperature scaling rather than additional training is the key remaining ingredient for robust real-data transfer. By mapping predictions onto the directed acyclic graph of maximal translationengleiche subgroups, we show that the calibrated model's errors are not random but physically structured: they remain local on the subgroup hierarchy and flow predominantly toward lower-symmetry descendants, consistent with the physical erasure of systematic-absence cues by real-world noise. These results establish that physics-informed target design, curriculum, and calibrated inference matter as much as model capacity for scientific machine learning on diffraction data.",
+  "url": "http://arxiv.org/abs/2604.23811v1",
+  "pdf": "https://arxiv.org/pdf/2604.23811v1",
+  "type": "both",
+  "summary": "This paper addresses the difficulty of identifying crystal symmetry from X-ray diffraction patterns using machine learning. By incorporating crystallographic physics—such as reciprocal-space coordinates and symmetry-based decoding—into a transformer architecture, the authors overcome the 'synthetic-to-real' domain gap. They demonstrate that a structured training curriculum and proper model calibration are just as vital as model capacity. The resulting model provides a fast, robust alternative to computationally expensive classical refinement methods.",
+  "main_problem": "Automating the determination of crystal symmetry (extinction groups) from powder X-ray diffraction patterns, which is an ill-posed inverse problem due to overlapping peaks and experimental noise.",
+  "main_result": "A physics-informed transformer architecture, combined with a three-stage training curriculum and post-hoc temperature scaling, significantly improves the accuracy and reliability of symmetry classification on real-world mineral data.",
+  "method": "The authors use a transformer-based model with a physics-aware positional encoding and a dual-head decoder, trained via a curriculum of synthetic pretraining, realistic fine-tuning with preferred orientation, and Bayesian prior injection.",
+  "model_or_system": "The physical system is powder X-ray diffraction (PXRD) of crystals/minerals. The model is a physics-informed transformer featuring an explicit sin^2(theta) coordinate channel and a split-head decoder for crystallographic rule learning.",
+  "key_observables": "Top-1/Top-k accuracy, Expected Calibration Error (ECE), Negative Log-Likelihood (NLL), and topological error metrics (mean DAG distance, error directionality).",
+  "important_parameters": "99 extinction groups (classification targets), 230 space groups (baseline), temperature scaling factor (T=5), and the alpha weight for fusion decoding.",
+  "main_assumptions": "The primary limitation is an information-theoretic ceiling on highly degraded mixtures; the model assumes that symmetry-defining features can be recovered despite noise and texture.",
+  "figures_summary": "Figure 1 shows geological class imbalance in the ICSD; Figure 2 illustrates the impact of the training curriculum on RRUFF accuracy; PCA analysis shows the learned physics embedding aligns with the reciprocal-space ruler.",
+  "paper_structure": "The paper introduces the symmetry problem, describes the physics-informed transformer architecture, details the three-stage training curriculum, presents performance benchmarks on RRUFF datasets, and concludes with a topological error analysis and efficiency comparison with classical methods.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.23811_figures/2604.23811_fig1.jpg",
+      "caption": "FIG. 1. Extinction-group distribution in the Inorganic Crys- tal Structure Database (ICSD), showing severe geological class imbalance.",
+      "page": 3
+    },
+    {
+      "image": "2604.23811_figures/2604.23811_fig2.jpg",
+      "caption": "FIG. 2. Effect of curriculum stages on real RRUFF holdout Top-1 accuracy. RRUFF domain fine-tuning (Phase 2) is the dominant factor in bridging the sim-to-real gap.",
+      "page": 5
+    },
+    {
+      "image": "2604.23811_figures/2604.23811_fig3.jpg",
+      "caption": "FIG. 3. Decoder comparison on the RRUFF-473 benchmark.",
+      "page": 6
+    },
+    {
+      "image": "2604.23811_figures/2604.23811_fig4.jpg",
+      "caption": "FIG. 4. Post-hoc calibration restores ranking accuracy on RRUFF-325. Results shown for the final Stage-2c checkpoint. Softening the auxiliary logits (T = 5) before adding the ge- ological prior decouples structural evidence from geological overconfidence.",
+      "page": 6
+    },
+    {
+      "image": "2604.23811_figures/2604.23811_fig5.jpg",
+      "caption": "FIG. 5. Topological structure of Top-1 errors on the RRUFF-325 benchmark. Left: error-distance distribution on the condensed extinction-group subgroup graph. Right: directionality. Calibration and preferred-orientation-aware training shift errors toward shorter graph distances, reduce the strong descendant bias of the non-PO model, and reveal that many residual failures are local lateral hops rather than distant hallucinations.",
+      "page": 8
+    },
+    {
+      "image": "2604.23811_figures/2604.23811_fig6.jpg",
+      "caption": "FIG. 6. The catastrophic paradox. Classical profile-fit qual- ity and neural classification difficulty do not align monotoni- cally; extinction-group reweighting removes about 45% of the recoverable-versus-catastrophic gap.",
+      "page": 8
+    }
+  ],
+  "figure": "2604.23811_figures/2604.23811_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

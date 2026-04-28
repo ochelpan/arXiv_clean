@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2604.23777",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Architecture-aware Unitary Synthesis",
+  "authors": "Frans Perkkola, Arianne Meijer-van de Griend, Jukka K. Nurminen",
+  "abstract": "We present a novel architecture-aware transpilation method for exact general unitary gate synthesis on superconducting quantum hardware. Our approach is tightly integrated with the optimized block-ZXZ decomposition, exploiting its recursive structure to make hardware-aware decisions at each level of the recursion rather than treating transpilation as an independent post-processing step. The method introduces three key techniques: a greedy qubit mapping strategy that minimizes pairwise distances between physical qubits, an adaptive Gray code selection combined with qubit swapping that optimizes the construction of uniformly controlled Rz gates for the target topology, and a heuristic for reducing CNOT gates by exploiting the structure of long-range CNOT ladders. We benchmark our method against TKet, Qiskit, and Pennylane on the 20-qubit IQM Garnet (square lattice) and the 156-qubit IBM Marrakesh (heavy-hex) architectures with qubit counts ranging from 3 to 11. Our method achieves CNOT count reductions of up to 36 percent on the IQM Garnet and up to 34 percent on the IBM Marrakesh compared to the best competing transpiler, while simultaneously achieving transpilation speedups of up to 553x. Furthermore, our method is the only one capable of transpiling circuits beyond 10 qubits within a 30-minute time limit across both architectures.",
+  "url": "http://arxiv.org/abs/2604.23777v1",
+  "pdf": "https://arxiv.org/pdf/2604.23777v1",
+  "type": "theory",
+  "summary": "This paper presents a new way to compile quantum circuits by making the synthesis process aware of the underlying hardware architecture from the start. Instead of treating hardware constraints as a final step, the method integrates qubit mapping and gate optimization directly into the mathematical decomposition of the unitary. This results in significantly fewer CNOT gates and much faster compilation speeds. It is particularly effective for scaling up the synthesis of larger unitaries on real-world superconducting hardware.",
+  "main_problem": "The inefficient transpilation of generic n-qubit unitary transformations into hardware-specific gate sequences, which leads to high CNOT gate counts and long compilation runtimes.",
+  "main_result": "The proposed architecture-aware method achieves up to a 36% reduction in CNOT counts and up to a 553x speedup in transpilation time compared to leading compilers like TKet, Qiskit, and PennyLane.",
+  "method": "An integrated approach that embeds transpilation into the recursive block-ZXZ decomposition using greedy qubit mapping, adaptive Gray code selection, and a CNOT reduction heuristic for long-range ladders.",
+  "model_or_system": "The method is benchmarked on superconducting quantum architectures, specifically the 20-qubit IQM Garnet (square lattice) and the 156-qubit IBM Marrakesh (heavy-hex) topologies.",
+  "key_observables": "CNOT gate count, transpilation runtime, and CNOT gate ratio relative to the theoretical lower bound.",
+  "important_parameters": "Qubit counts ranging from 3 to 11; time limit of 30 minutes for scalability testing.",
+  "main_assumptions": "The method focuses on exact unitary synthesis rather than numerical approximations and assumes hardware connectivity is restricted to adjacent physical qubits.",
+  "figures_summary": "Figure 1 shows CNOT merging in a 3-qubit unitary; Figure 2 visualizes a long-range CNOT ladder; Figure 3 compares standard vs. optimized Gray codes; Figure 4 illustrates qubit swapping; Figure 5 shows the logical-to-physical decomposition of a UC gate.",
+  "paper_structure": "The paper introduces the problem of post-processing inefficiency, details the architecture-aware synthesis algorithm (including mapping, Gray code, and swapping techniques), presents benchmarking results against industry-standard transpilers, and discusses scalability and limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.23777_figures/2604.23777_fig1.jpg",
+      "caption": "Fig. 1. A three-qubit unitary example of the CNOT merging optimization procedure. a) Decompose only the A and C multiplexers. b) Decompose the uniformly controlled Rz gates. c) Migrate the Hadamard gates through the CNOT targets. d) Merge VC, WA and the CZ gates into the central gate B.",
+      "page": 4
+    },
+    {
+      "image": "2604.23777_figures/2604.23777_fig2.jpg",
+      "caption": "Fig. 3. Four-qubit uniformly controlled Rz gates. a) The UC gate constructed using a binary reflected Gray code as in [21]. b) An equivalent construction for the UC gate using a different Gray code.",
+      "page": 4
+    },
+    {
+      "image": "2604.23777_figures/2604.23777_fig3.jpg",
+      "caption": "Fig. 5. Efficient construction of a three-qubit UC gate using the long range CNOT ladders. a) The logical decomposition of the UC gate, as in Fig. 1. b) The decomposition of the UC gate on physical qubits v0, v1 and v2 on a path graph using the binary reflected Gray code. c) A more efficient decomposition, using the heuristic of removing the nearest neighbor CNOT gate after a long range CNOT gate. d) The final decomposition after merging the rightmost CNOT gates into the neighboring unitary gate, as in Fig. 1.",
+      "page": 6
+    },
+    {
+      "image": "2604.23777_figures/2604.23777_fig4.jpg",
+      "caption": "Fig. 4. An example of the swapping procedure for a 6-qubit UC gate on the IQM Garnet quantum hardware. a) The physical qubit 10 is selected as the target. Physical qubits 9, 5, 4, 2 and 1 are the control qubits of the UC gate. b) Physical qubits 10 and 5 are swapped. This gives a more efficient construction for the UC gate, as the target qubit 10 is now overall closer to the rest of the physical qubits.",
+      "page": 6
+    }
+  ],
+  "figure": "2604.23777_figures/2604.23777_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

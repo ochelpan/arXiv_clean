@@ -1,0 +1,93 @@
+{
+  "arxiv_id": "2604.23931",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Do Quantum Transformers Help? A Systematic VQC Architecture Comparison on Tabular Benchmarks",
+  "authors": "Chi-Sheng Chen, En-Jui Kuo",
+  "abstract": "Variational quantum circuits (VQCs) are a leading approach to quantum machine learning on near-term devices, yet it remains unclear which circuit architecture yields the best accuracy-parameter trade-off on classical tabular data. We present a systematic empirical comparison of four VQC families -- multi-layer fully-connected (FC-VQC), residual (ResNet-VQC), hybrid quantum-classical transformer (QT), and fully quantum transformer (FQT) -- across five regression and classification benchmarks. Our key findings are: \\textbf{(i)}~FC-VQCs achieve 90-96\\% of the $R^2$ of attention-based VQCs while using 40-50\\% fewer parameters, and consistently outperform equal-capacity MLPs (mean $R^2{=}0.829$ vs.\\ MLP$_{720}$'s $0.753$ on Boston Housing, 3-seed average); \\textbf{(ii)}~FC-VQC's Type~4 inter-block connectivity provides partial cross-token mixing that approximates the role of attention -- explicit quantum self-attention yields only marginal gains on most datasets while significantly increasing parameter count; \\textbf{(iii)}~expressibility saturates at circuit depth~${\\approx}\\,3$, explaining why shallow VQCs already cover the Hilbert space effectively; \\textbf{(iv)}~LayerNorm on the fully quantum transformer improves classification accuracy, suggesting normalization is important when all operations are quantum; \\textbf{(v)}~in our noise study on Boston Housing, FQT degrades gracefully under depolarizing noise while QT collapses. All results are validated across three random seeds. These findings provide practical architectural guidance for deploying VQCs on near-term quantum hardware.",
+  "url": "http://arxiv.org/abs/2604.23931v1",
+  "pdf": "https://arxiv.org/pdf/2604.23931v1",
+  "type": "theory",
+  "summary": "This paper provides a systematic comparison of different variational quantum circuit architectures for processing tabular data. It finds that simpler fully-connected VQCs are highly parameter-efficient and often outperform more complex quantum transformer models on small datasets. Notably, it demonstrates that fully quantum architectures are more robust to depolarizing noise than hybrid architectures. These findings offer practical guidance for designing efficient quantum machine learning models for near-term quantum hardware.",
+  "main_problem": "The study addresses the lack of systematic architectural comparisons for Variational Quantum Circuits (VQCs) on classical tabular data, specifically investigating the trade-off between accuracy and parameter efficiency in quantum transformer architectures.",
+  "main_result": "FC-VQCs achieve 90-96% of the R2 of attention-based VQCs with 40-50% fewer parameters and outperform equal-capacity MLPs, while Fully Quantum Transformers (FQT) show superior robustness to depolarizing noise compared to hybrid Quantum Transformers (QT).",
+  "method": "The authors perform a systematic empirical comparison of four VQC families across five regression and classification benchmarks using PennyLane simulations, evaluating metrics like R2, accuracy, expressibility (KL divergence), and noise robustness.",
+  "model_or_system": "The study uses various VQC architectures (FC-VQC, ResNet-VQC, QT, and FQT) based on a parameterized ansatz of single-qubit rotations and CNOT entangling layers, applied to classical tabular datasets.",
+  "key_observables": "R2 (coefficient of determination), classification accuracy, macro-averaged F1 score, KL-divergence (for expressibility), and parameter efficiency.",
+  "important_parameters": "Circuit depth (d), number of attention heads (H), number of tokens (T), and depolarizing noise rate (pd).",
+  "main_assumptions": "The study assumes the relevance of NISQ-era constraints and relies on classical CPU simulations of quantum circuits.",
+  "figures_summary": "Figure 1 provides an architectural overview; Figure 2 shows circuit diagrams; Figure 3 compares accuracy vs. parameter count; Figure 4 shows training/validation loss curves; Figure 5 shows fidelity distributions; Figure 6 shows convergence on larger datasets; Figure 7 shows prediction vs. ground truth.",
+  "paper_structure": "The paper introduces the architectural problem, defines the four VQC families, details the experimental setup and benchmarks, presents comparative results on accuracy and efficiency, analyzes expressibility and noise robustness, and concludes with practical guidance for NISQ deployment.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.23931_figures/2604.23931_fig1.jpg",
+      "caption": "Fig. 1. Four model architectures compared. (a) FC-VQC with decreasing qubit count per block. (b) ResNet-VQC with dashed skip connections; the dimension-mismatched branch uses a linear projection W · z2. (c) QT — hybrid transformer with classical multi-head attention and a quantum VQC FFN, LayerNorm retained. (d) FQT — fully quantum attention via transpose-and-entangle T-qubit VQCs, with no LayerNorm by default.",
+      "page": 3
+    },
+    {
+      "image": "2604.23931_figures/2604.23931_fig2.jpg",
+      "caption": "Fig. 2. Quantum circuits. Top: 3-qubit base VQC block (depth 2) used for per-token processing in all architectures. Bottom: 5-qubit cross-token VQC (depth 2) used in FQT’s quantum attention — each qubit corresponds to one token, enabling all-to-all entanglement across tokens.",
+      "page": 4
+    },
+    {
+      "image": "2604.23931_figures/2604.23931_fig3.jpg",
+      "caption": "Fig. 3. Parameter efficiency across three regression datasets. Each point is a model; x-axis is parameter count (log scale), y-axis is 3-seed mean test R2. VQCs (blue circles) achieve competitive accuracy with far fewer parameters than tree-based methods (red diamonds), while MLPs (green squares) at equal capacity (MLP-720) underperform FC-VQC on Boston but catch up on larger datasets.",
+      "page": 7
+    },
+    {
+      "image": "2604.23931_figures/2604.23931_fig4.jpg",
+      "caption": "Fig. 4. Training and validation loss curves on Boston Housing (3-seed mean ± std shading). FC-VQC converges fastest; QT and FQT show higher variance across seeds.",
+      "page": 7
+    },
+    {
+      "image": "2604.23931_figures/2604.23931_fig5.jpg",
+      "caption": "Fig. 5. Left: fidelity distributions for VQC at various depths vs. Haar-random reference (dashed). Right: KL divergence (log scale).",
+      "page": 7
+    },
+    {
+      "image": "2604.23931_figures/2604.23931_fig6.jpg",
+      "caption": "Fig. 6. Training and validation loss on CA Housing (n=20,640). Unlike Boston, QT (orange) converges to a lower val loss than FC-VQC (blue), consistent with its higher R2 on larger datasets.",
+      "page": 9
+    },
+    {
+      "image": "2604.23931_figures/2604.23931_fig7.jpg",
+      "caption": "Fig. 7. Prediction vs. ground truth on Boston Housing test set (best-seed run). Points near the diagonal indicate accurate predictions. FC-VQC tracks ground truth closely despite using only 720 parameters.",
+      "page": 9
+    }
+  ],
+  "figure": "2604.23931_figures/2604.23931_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

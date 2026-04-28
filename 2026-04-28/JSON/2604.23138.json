@@ -1,0 +1,93 @@
+{
+  "arxiv_id": "2604.23138",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "An Analysis of Commutation-Based Trotter Ordering Strategies on Heisenberg-Style Hamiltonians",
+  "authors": "Reuben Tate, Shamminuj Aktar, Stephan Eidenbenz",
+  "abstract": "Trotterization is a technique that allows one to approximate a time evolution of a Hamiltonian by repeatedly evolving the individual terms of the Hamiltonian one-at-a-time for small time durations. Bounds on the error of this approximation exist; however, they are typically loose and moreover, it is known that the true error can be greatly influenced by the order in which the terms of the Hamiltonian are evolved. In this work, we consider various ordering strategies that exploit the commutation structure of the Hamiltonian, in addition to a few other baseline ordering strategies. These commutation-based strategies involve dividing the terms of the Hamiltonian into groups where all the terms within each group commute with one another. These groupings can be obtained by using graph coloring techniques on what we call the \"commutation graph\" of the Hamiltonian. We prove various results regarding the structure and properties of such commutation graphs for certain classes of Hamiltonians. We also empirically calculate the (true) Trotter error using these ordering strategies on various 1D and 2D Heisenberg-style systems.",
+  "url": "http://arxiv.org/abs/2604.23138v1",
+  "pdf": "https://arxiv.org/pdf/2604.23138v1",
+  "type": "theory",
+  "summary": "This paper investigates how the sequence of Hamiltonian terms in Trotterization affects simulation fidelity. By using graph coloring to group commuting Pauli strings, the authors develop 'commutation-based' ordering strategies. They demonstrate that these strategies significantly reduce the true Trotter error compared to random or simple heuristic orderings. The study shows that the best ordering strategy is highly dependent on the specific lattice geometry and the order of the Trotter decomposition used.",
+  "main_problem": "Optimizing the ordering of Pauli strings in Trotterization to minimize the 'true' state-dependent Trotter error in quantum simulations.",
+  "main_result": "Commutation-based grouping strategies, which use graph coloring on a commutation graph, consistently outperform random and baseline ordering methods, with the optimal permutation depending on the Trotter order and lattice geometry.",
+  "method": "The authors use graph coloring techniques (e.g., XYZ-coloring, greedy, and Gurobi-based optimization) to partition Hamiltonian terms into commuting groups and evaluate fidelity using sparse Krylov matrix exponentiation.",
+  "model_or_system": "Heisenberg-style Hamiltonians including 1D XXZ spin chains, 2D rectangular lattices, and 2D triangular lattices (including nearest and next-nearest neighbor interactions).",
+  "key_observables": "State-dependent fidelity (F) between the Trotterized and exact time-evolved states.",
+  "important_parameters": "Trotter order (1st and 2nd order Suzuki), number of Trotter steps (s = 3 to 20), system size (L up to 20 qubits), and Hamiltonian parameters like anisotropy (delta) and transverse field (g).",
+  "main_assumptions": "The Hamiltonians are assumed to be represented as a linear combination of Pauli strings, specifically 'non-mixed' types where each string contains at most one Pauli type.",
+  "figures_summary": "Figure 1 shows fidelity distributions for 1D XXZ chains; Figure 2 shows fidelity distributions for 2D lattices; Figure 4 compares mean fidelity across different lattice geometries and Trotter orders; Figure 5 shows fidelity decay as a function of system size; Figure 6 illustrates the interaction graph for a 2D triangular lattice.",
+  "paper_structure": "The paper introduces the problem of Trotter error bounds, formalizes the commutation graph and coloring-based grouping strategies, presents theoretical results on the chromatic number of these graphs, and concludes with numerical simulations comparing various ordering strategies across different 1D and 2D models.",
+  "why_interesting": "This is highly relevant for many-body dynamics as it provides a practical, structure-aware method to improve the accuracy of digital quantum simulations of spin systems without increasing the number of Trotter steps.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.23138_figures/2604.23138_fig1.jpg",
+      "caption": "Figure 1: Fidelity of each ordering method as a function of system size for the 1D XXZ chain with T = 5.0. System sizes shown are L ∈{8, 14, 20}, each containing 50 Hamiltonian instances swept over ∆and g. Within each system size group, left and right clusters show 1st and 2nd order Trotter, respectively. Rows correspond to Trotter step counts s ∈{3, 5, 10}. At low step counts the random fidelity distribution spans nearly the full [0, 1] interval, confirming that ordering choice has a large effect. The commutation graph-based orderings consistently sit in the upper tail of the distribution across all system sizes. As the step count increases to 10, all methods compress toward high fidelity,...",
+      "page": 5
+    },
+    {
+      "image": "2604.23138_figures/2604.23138_fig2.jpg",
+      "caption": "Figure 2: Fidelity of each ordering method for 2D rectangular (left) and triangular (right) lattices with T = 1.0 and L ∈{9, 20}, each containing 12 rectangular (swept over hx) and 27 triangular (swept over α) Hamiltonian instances. Left and right clusters show 1st and 2nd order Trotter; rows show Trotter steps s ∈{3, 5, 10}. For the rectangular lattice, at s = 3 all methods yield near-zero fidelity under 1st order, while lex dense achieves the highest fidelity under 2nd order. At s = 5 and s = 10, xyz groups clearly leads under 1st order, maintaining a gap over all other methods. For the triangular lattice, xyz groups leads under 1st order across all steps. Under 2nd order, lex dense...",
+      "page": 6
+    },
+    {
+      "image": "2604.23138_figures/2604.23138_fig3.jpg",
+      "caption": "Figure 3: Per-Hamiltonian fidelity of all ordering methods at s = 5 with L = 12. (Top-left: ) For the 1D chain under 1st order Trotter, xyz groups consistently achieves the highest fidelity, while greedy, gurobi, and handcrafted cluster together well above the baselines. (Top-right: ) Under 2nd order, greedy, gurobi, and handcrafted reach the top, with xyz groups falling slightly below at higher g. (Bottom-left: ) For the 2D lattices under 1st order, xyz groups clearly dominates for both rectangular and triangular lattices, with all other methods well below. (Bottom-right: ) Under 2nd order, for the rectangular lattice random best and lex dense lead and for the triangular lattice, xyz...",
+      "page": 7
+    },
+    {
+      "image": "2604.23138_figures/2604.23138_fig4.jpg",
+      "caption": "Figure 4: Mean fidelity per ordering method as a function of Trotter steps, averaged over all Hamiltonians and system sizes. Columns show 1D XXZ (T = 5.0, L = 3 to 20), 2D rectangular, and 2D triangular lattices (T = 1.0, L = 4 to 20). Rows show 1st and 2nd order Trotter. Lines show all permutations of our commutation graph-based orderings and baseline heuristics [8]. Under 1st order Trotter, xyz groups achieves the highest mean fidelity across all three datasets, with all methods converging near unity by s = 20. Under 2nd order Trotter, all our methods perform competitively for the 1D chain, while convergence to unity is rapid for both 2D lattices. Across conditions, perm 120 (⋄) is the...",
+      "page": 8
+    },
+    {
+      "image": "2604.23138_figures/2604.23138_fig5.jpg",
+      "caption": "Figure 4 shows mean fidelity across all Hamiltonians and system sizes as a function of step count, with all m! group permutations shown explicitly, where a label such as 120 denotes applying subgroups in the order (G1, G2, G0). For the 1D chain under 1st order Trotter (Figure 4 top-left), xyz groups achieves the highest mean fidelity at every step count from s = 3 to s = 20, with all methods converging toward unity at s ≥20. While all permutations remain competitive, perm 120 (⋄) emerges as the dominant choice for xyz groups, winning over 77% of Hamiltonians across all step counts. Under 1D 2nd order (Figure 4 top-center), greedy and handcrafted lead overall, with perm 012 (◦) taking over...",
+      "page": 8
+    },
+    {
+      "image": "2604.23138_figures/2604.23138_fig6.jpg",
+      "caption": "Figure 5: Mean fidelity as a function of system size at s = 5 (T = 5.0 for 1D, T = 1.0 for 2D). Columns show 1D XXZ (L = 3 to 20), 2D rectangular, and 2D triangular (L = 4 to 20); rows show 1st and 2nd order Trotter. Thick and thin lines show our commutation graph-based orderings and baselines [8]. Under 1st order, xyz groups and other coloring orders cluster at the top in 1D, while xyz groups clearly leads in both 2D lattices with fidelity declining steeply with system size. Under 2nd",
+      "page": 9
+    },
+    {
+      "image": "2604.23138_figures/2604.23138_fig7.jpg",
+      "caption": "Figure 6: The interaction graph for the 2D triangular lattice Hamiltonian with width W = 4 and L = 5. While the posi- tions of the sites form a paralleogram, they form a rectangular grid with respect to the basis B described in Appendix A-B. The coordinates in B are given in black and the qubit index (formed using the snaking pattern) is given in green for each site/qubit. The blue (solid) and red (dashed) edges represent the nearest and next-nearest neighbor interactions respectively.",
+      "page": 10
+    }
+  ],
+  "figure": "2604.23138_figures/2604.23138_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

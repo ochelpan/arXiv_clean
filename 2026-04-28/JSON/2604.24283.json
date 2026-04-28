@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2604.24283",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "AutoQResearch: LLM-Guided Closed-Loop Policy Search for Adaptive Variational Quantum Optimization",
+  "authors": "Monit Sharma, Hoong Chuin Lau",
+  "abstract": "Configuring variational quantum algorithms for combinatorial optimization remains a difficult, expert-driven process requiring coordinated choices over solver family, ansatz, objective, and optimizer. We present AutoQResearch, an LLM-guided closed-loop experimentation framework that casts this task as sequential policy search over a curated design space. Instead of a single static configuration, the framework searches for adaptive solver-control policies that condition future decisions on diagnostics such as feasibility, optimality gap, and convergence stagnation.   The system operates through a structured workflow: an LLM agent edits a small policy surface under a fixed evaluation harness, candidate policies are screened using cheap scout evaluations, and only the strongest candidates are promoted to full confirmation. This enables controlled autonomous exploration while guarding against proxy overfitting and unstable selection.   We evaluate the framework on Maximum Independent Set (MIS) and the Capacitated Vehicle Routing Problem (CVRP). On MIS instances (16--64 vertices), discovered policies substantially outperform static baselines and reveal scale-dependent behavior: CVaR objectives are effective at small scale, while QRAO-based qubit compression provides the most effective explored scaling path. On CVRP curricula (8--12 customers) and a held-out E-n13-k4 benchmark, the framework discovers adaptations involving sampling budget, penalty design, and hybrid repair protocols, yielding high-quality solutions.   Methodologically, we find that staged confirmation is essential: cheap proxy evaluations can materially misestimate policy quality and even invert candidate rankings. Overall, the paper positions AutoQResearch as a benchmarked quantum--GenAI co-design workflow for autonomous solver discovery in variational quantum optimization.",
+  "url": "http://arxiv.org/abs/2604.24283v1",
+  "pdf": "https://arxiv.org/pdf/2604.24283v1",
+  "type": "both",
+  "summary": "This paper introduces AutoQResearch, an automated framework that uses Large Language Models to discover optimal configurations for variational quantum algorithms. Instead of just tuning hyperparameters, the system learns adaptive policies that change solver settings based on real-time performance diagnostics. The researchers demonstrated that the agent can discover complex, scale-dependent strategies for solving combinatorial optimization problems. Crucially, the discovered policies were validated on real IBM quantum hardware, proving they are not just simulation artifacts.",
+  "main_problem": "The difficulty of manually configuring variational quantum algorithms (VQAs) for combinatorial optimization, which requires coordinating complex, interacting design choices like ansatz, optimizer, and objective.",
+  "main_result": "The AutoQResearch framework successfully discovers adaptive, scale-dependent solver policies that outperform static baselines on MIS and CVRP problems, with validation on real IBM quantum hardware.",
+  "method": "An LLM-guided closed-loop experimentation framework using a 'scout-promote-confirm' protocol to perform sequential policy search over a curated design space.",
+  "model_or_system": "The framework is applied to combinatorial optimization problems, specifically the Maximum Independent Set (MIS) and the Capacitated Vehicle Routing Problem (CVRP), using VQA families such as QAOA, VQE, and QRAO on IBM quantum processors.",
+  "key_observables": "Optimality gap, feasibility rate, convergence stagnation, sampling concentration, and hardware-specific metrics like gate counts and depth.",
+  "important_parameters": "Problem scales (16 to 64 nodes for MIS), CVaR parameter (alpha), sampling budgets, penalty coefficients, and qubit compression ratios.",
+  "main_assumptions": "The design problem can be modeled as a sequential decision process, and the LLM's search is restricted to a curated, auditable design space to prevent overfitting.",
+  "figures_summary": "Figure 1 shows stage-wise search trajectories; Figure 2 illustrates the discrepancy between cheap proxy (scout) evaluations and confirmed results; Figure 3 shows stage-wise CVRP performance.",
+  "paper_structure": "The paper introduces the AutoQResearch framework, details the LLM-guided sequential policy search and evaluation protocol, presents case studies on MIS and CVRP, validates results on real IBM hardware, and discusses methodological findings regarding proxy reliability.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24283_figures/2604.24283_fig1.jpg",
+      "caption": "Fig. 1. Stage-wise MIS search trajectories. Each panel is local to one stage. Green points denote retained scout candidates, gray points denote discarded candidates, stars denote stage baselines, and orange diamonds denote confirmed winners or the held-out final. The trajectories show that the best solver family changes with scale: CVaR-enhanced warm-start QAOA is strongest at 16 nodes, whereas QRAO-based compressed policies dominate at larger sizes.",
+      "page": 5
+    },
+    {
+      "image": "2604.24283_figures/2604.24283_fig2.jpg",
+      "caption": "Fig. 2. MIS curriculum overview comparing best scout proxy, best confirmed stage, and the held-out 64-node final. The discrepancy between scout and confirmed results shows that proxy-only selection is unreliable, motivating the staged scout–promote–confirm protocol.",
+      "page": 5
+    },
+    {
+      "image": "2604.24283_figures/2604.24283_fig3.jpg",
+      "caption": "Fig. 3. Stage-wise CVRP search trajectories. The 8-customer stage improves feasibility through increased sampling, while the 10-customer stage improves sharply after adopting a tilted capacity penalty. The retained 12-customer run and held-out E-n13 benchmark demonstrate that the framework can discover useful workflow-level adaptations beyond the initial curriculum stages.",
+      "page": 6
+    },
+    {
+      "image": "2604.24283_figures/2604.24283_fig4.jpg",
+      "caption": "Fig. 4. CVRP curriculum overview showing best scout proxy, best confirmed stage, retained 12-customer run, and held-out E-n13 final. The strongest gains occur between the 8- and 10-customer stages after the move to a more effective penalty design, while the held-out benchmark remains more challenging than the curriculum stages.",
+      "page": 6
+    }
+  ],
+  "figure": "2604.24283_figures/2604.24283_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

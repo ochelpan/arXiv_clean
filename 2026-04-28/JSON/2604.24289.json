@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2604.24289",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.NA"
+  ],
+  "is_primary_archive": true,
+  "title": "On the complexity of quantum numerical integration: an angle-structure characterization",
+  "authors": "Francisco Chinesta, Antonio Falco, Daniela Falco-Pomares",
+  "abstract": "We study numerical integration on $[0,1]$ by quantum amplitude estimation (QAE), focusing on the cost of constructing the amplitude oracle. Although QAE improves the statistical component of the integration error, this advantage is relevant only when the integrand has low encoding complexity.   We introduce a hierarchy of grid function classes $\\mathcal{G}_n^{(d)}$, defined by requiring the angle map $Θ_g:\\{0,1\\}^n\\to[0,π]$ to be multilinear of degree at most $d$. Membership is classically checkable in $O(n2^n)$ time by the Walsh--Hadamard transform. For $g\\in\\mathcal{G}_n^{(d)}$, the encoding operator factorises into $\\sum_{k=0}^d\\binom{n}{k}$ multi-controlled $R_Y$ gates, interpolating between an affine $O(n)$ regime and the generic exponential regime.   Combining this structure with classical discretisation estimates for $g\\in C^α[0,1]$, we obtain a depth-versus-accuracy trade-off: gate count $O((\\log(1/\\varepsilon))^d\\varepsilon^{-1})$ suffices to achieve $\\varepsilon$-accuracy with constant probability. For $d=1$ this becomes $O(\\varepsilon^{-1}\\log(1/\\varepsilon))$, improving over classical Monte Carlo for every $α\\ge1$. We also prove an unconditional separation: $\\mathcal{G}_n^{(1)}$ contains functions of Sobolev regularity $s<1/2$ for which the quantum oracle cost is $O(1/\\varepsilon)$, whereas classical deterministic or randomised quadrature requires $Ω(\\varepsilon^{-1/s})$ evaluations.   These results identify explicit integrand classes for which the full cost of QAE-based integration, including state preparation, is asymptotically better than classical methods. Experiments on SpinQ Triangulum and IBM Kingston illustrate the hierarchy at $n=2$: circuits inside $\\mathcal{G}_n^{(d)}$ run successfully, while those exceeding the Triangulum coherence budget fail as predicted.",
+  "url": "http://arxiv.org/abs/2604.24289v1",
+  "pdf": "https://arxiv.org/pdf/2604.24289v1",
+  "type": "both",
+  "summary": "This paper addresses a critical bottleneck in quantum numerical integration: the cost of preparing the quantum state representing the integrand. By classifying functions based on the multilinear degree of their 'angle map,' the authors show that certain classes of functions allow for highly efficient quantum circuits. They demonstrate a clear quantum advantage over classical methods for specific function regularities and validate these findings using both NMR and superconducting quantum hardware.",
+  "main_problem": "Determining whether the theoretical quadratic speedup of Quantum Amplitude Estimation (QAE) for numerical integration is preserved when the computational cost of constructing the amplitude oracle (state preparation) is included.",
+  "main_result": "The authors introduce an angle-structure hierarchy of function classes where the gate count scales with the multilinear degree d, proving that for d=1, quantum integration can asymptotically outperform classical Monte Carlo and achieve a quantum-classical separation for certain Sobolev-regular functions.",
+  "method": "The study uses a multilinear expansion of the angle map via the Walsh-Hadamard Transform to decompose the encoding operator into multi-controlled RY gates, combined with Maximum Likelihood Amplitude Estimation (MLAE) for error analysis.",
+  "model_or_system": "The framework uses Quantum Amplitude Estimation applied to numerical integration on the interval [0, 1], with experimental validation performed on the SpinQ Triangulum (3-qubit NMR processor) and IBM Kingston (127-qubit superconducting processor).",
+  "key_observables": "The encoded amplitude (Riemann sum), ancilla qubit measurement probabilities (pk), and the target integration accuracy (epsilon).",
+  "important_parameters": "Multilinear degree (d), Sobolev regularity (s), target accuracy (epsilon), number of qubits (n), and quadrature order (p).",
+  "main_assumptions": "The analysis assumes the cost of building the oracle is a structural component of the total complexity, rather than treating it as a black box; it also assumes the multilinear degree is the primary driver of circuit depth.",
+  "figures_summary": "Figure 1 shows a log-log plot of the depth-versus-accuracy trade-off highlighting the quantum advantage region; Figure 2 illustrates the quantum-classical separation gap; Figure 3 depicts the amplitude-encoding circuits for n=2; and Figure 4/5 show hardware-specific performance and probability comparisons.",
+  "paper_structure": "The paper introduces the problem of oracle complexity, defines the angle-structure hierarchy and its multilinear expansion, establishes the encoding-circuit theorem and depth-accuracy trade-offs, proves quantum-classical separation for specific function classes, and concludes with experimental validation on NMR and superconducting hardware.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24289_figures/2604.24289_fig1.jpg",
+      "caption": "Figure 1: Depth-accuracy trade-off: total gate count (quantum) or evaluation count (clas- sical) normalised to 1 at ε = 10−4, plotted against target accuracy ε for the midpoint rule (p = 2). Quantum curves for d = 1 (solid blue), d = 2 (dotted orange), and d = n∗",
+      "page": 17
+    },
+    {
+      "image": "2604.24289_figures/2604.24289_fig2.jpg",
+      "caption": "Figure 2: Quantum-classical separation for the family {gs} at ε = 10−4 (Theorem 6.5). The quantum oracle count M = O(ε−1) (dashed blue, horizontal) is independent of the Sobolev regularity s. The classical evaluation count N = Ω(ε−1/s) (solid red) grows without bound as s →0. The shaded region shows the separation gap; the ratio M/N ≤ Cε1/s−1 →0 as ε →0 for every fixed s < 1/2. The vertical dotted line marks the boundary s = 1/2 beyond which the construction of Lemma 6.2 does not apply.",
+      "page": 22
+    },
+    {
+      "image": "2604.24289_figures/2604.24289_fig3.jpg",
+      "caption": "Figure 3: Amplitude-encoding circuits Gg for n = 2 qubits, k = 0. (a) g1|X2 ∈G(1) 2 (d = 1, 3 gates, (57)): one unconditional rotation RY (ˆΘ∅) on the ancilla q2, one Cq0-RY (ˆΘ{0}), and one Cq1-RY (ˆΘ{1}). Circuit depth ≤4 layers. (b) g2|X2 ∈G(2) 2 \\ G(1) 2 (d = 2, 4 gates, (58)): the d = 1 part (left brace) is followed by the degree-2 correction C{0,1}RY (ˆΘ{0,1}) (orange brace), decomposed into 2 CNOTs and 2 singly-controlled rotations [2]. Hadamard gates H on q0, q1 prepare the uniform superposition for the amplitude oracle Ag = Gg(H2 ⊗I2).",
+      "page": 33
+    }
+  ],
+  "figure": "2604.24289_figures/2604.24289_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

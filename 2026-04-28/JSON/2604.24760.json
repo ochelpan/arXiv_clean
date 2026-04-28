@@ -1,0 +1,89 @@
+{
+  "arxiv_id": "2604.24760",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.stat-mech",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Contracting Tensor Networks with Generalized Belief Propagation",
+  "authors": "Joseph Tindall, Grace M. Sommers, Hilbert Kappen",
+  "abstract": "Recent years have seen a growing interest in the use of belief propagation - an algorithm originally introduced for performing statistical inference on graphical models - for approximate, but highly efficient, tensor network contraction. Here, we detail how to apply generalized belief propagation (GBP) - where messages are passed within a hierarchy of overlapping regions of the tensor network - to approximately contract tensor networks and obtain accurate results. The original belief propagation algorithm is a corner case of this approach, corresponding to a particularly simple choice of regions of the tensor network. We implement the GBP algorithm for a number of different region choices on a range of two- and three-dimensional, infinite and finite tensor networks, solving the corresponding fixed point equations both numerically and, in certain tractable cases, analytically. Our examples include calculating the partition function of the fully frustrated Ising model, computing the ground state degeneracy of three-dimensional ice models, measuring observables on the deformed AKLT quantum state and evaluating the norm of randomly generated tensor network states.",
+  "url": "http://arxiv.org/abs/2604.24760v1",
+  "pdf": "https://arxiv.org/pdf/2604.24760v1",
+  "type": "theory",
+  "summary": "This paper presents an implementation of Generalized Belief Propagation (GBP) for the approximate contraction of tensor networks. By using overlapping regions rather than single tensors, GBP captures higher-order correlations and maintains physical symmetries that standard Belief Propagation fails to preserve. The authors demonstrate its efficacy on frustrated Ising models, 3D ice models, and the AKLT state. The study also identifies a convergence threshold related to the presence of negative or complex tensor entries.",
+  "main_problem": "Efficiently contracting large-scale tensor networks containing loops, particularly when dealing with frustration, complex entries, or the need to preserve physical symmetries.",
+  "main_result": "Generalized Belief Propagation (GBP) significantly improves accuracy and stability over standard Belief Propagation (BP) in frustrated and highly correlated regimes, and can correctly preserve symmetries like O(2) that BP breaks.",
+  "method": "The authors implement and analyze Generalized Belief Propagation (GBP) using a hierarchy of overlapping regions (clusters) and Kikuchi free energy minimization, comparing it against BP, cluster expansions, and CTMRG.",
+  "model_or_system": "The method is applied to various 2D and 3D tensor networks, including the fully frustrated (Villain) Ising model, 3D ice-type models (hexagonal and diamond), and the deformed AKLT quantum state on a honeycomb lattice.",
+  "key_observables": "Partition functions, free energy density, energy density, entropy density, ground state degeneracy, and local spin correlators.",
+  "important_parameters": "Inverse temperature (beta), deformation parameter (a) for AKLT, fraction of negative/complex entries in tensors (alpha), and bond dimension (chi).",
+  "main_assumptions": "The algorithm assumes no index appears more than twice in the network; convergence may fail when the fraction of negative or complex entries exceeds a certain threshold.",
+  "figures_summary": "Figures illustrate the hierarchy of GBP regions (plaquettes/voxels), the tensor network representation of the Villain model, and comparative plots showing error in free energy and symmetry breaking across different models.",
+  "paper_structure": "The paper introduces the GBP framework, derives the message-passing update equations via Kikuchi free energy minimization, applies the method to various classical and quantum models, and provides analytical solutions for specific cases in the appendix.",
+  "why_interesting": "This paper provides a more robust numerical tool for approximating the properties of many-body systems where standard message-passing fails due to frustration or symmetry breaking, which is crucial for studying phase transitions in complex quantum states.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24760_figures/2604.24760_fig1.jpg",
+      "caption": "FIG. 1. Examples of some of the GBP parent region choices (and resulting intersections) used in this work for the case of a square lattice tensor network. Tensors are denoted as blue circles and indices have been made explicit as black edges with a square in the centre. Parents regions are shown in grey boxes, child regions in shaded boxes. The intersection of parent regions populates the initial child regions. Further intersections of children (where necessary) further populate the child regions. The message tensors live in these intersections and possess the corresponding indices. Simple BP) There is a parent region for the indices associated to each and every tensor in the network. GBP...",
+      "page": 3
+    },
+    {
+      "image": "2604.24760_figures/2604.24760_fig2.jpg",
+      "caption": "FIG. 2. A. 2 × 3 tensor network with all indices xi (black squares) labelled. B-D. Region diagrams for some of the parent region choices considered in this work. Parent regions are shown at the top in rectangular boxes and always have counting number cr = 1. Repeated intersections lead to series of child regions (elliptical boxes) with the given counting numbers. There is a direct relationship between parent and child if that child is a subset of the parent region. GBP message tensors mab(xb) live between parents and children and serve to define the marginals pr(xr) for each region in the diagram. These marginals approximate the contraction of the tensor network over all indices excluding...",
+      "page": 4
+    },
+    {
+      "image": "2604.24760_figures/2604.24760_fig3.jpg",
+      "caption": "FIG. 3. A. Tensor network representation of the partition function Z of the two dimensional fully frustrated Ising model. All indices are dimension 2 and there are two sublattice tensors indicated by the two colors and formed from the contraction of a delta tensor and the relevant Boltzmann interaction matrices, with W± = \u0010 e±β e∓β",
+      "page": 8
+    },
+    {
+      "image": "2604.24760_figures/2604.24760_fig4.jpg",
+      "caption": "FIG. 4. Results for contracting the norm tensor network for the deformed AKLT state |ψ(a)⟩(see Eq. (25)) on the honeycomb lattice in the thermodynamic limit. A. Error on the free energy density −limN→∞1",
+      "page": 11
+    },
+    {
+      "image": "2604.24760_figures/2604.24760_fig5.jpg",
+      "caption": "FIG. 5. Message passing results for 100 random realizations of an n × n norm network ⟨ψ|ψ⟩with n = 10, the state |ψ⟩ having bond dimension χ = 3. The elements of the tensors in |ψ⟩are drawn uniformly at random from the distribution U(−α, 1 −α). Results are for: BP, a first order cluster expansion around the BP fixed point, GBP with R1 plaquette regions and boundary MPS with MPS fixed bond dimension R. Errors are with respect to an exact contraction. The shaded region indicates where the GBP algorithm did not converge for any of the random realizations. A. Error on the free energy density −1",
+      "page": 12
+    },
+    {
+      "image": "2604.24760_figures/2604.24760_fig6.jpg",
+      "caption": "FIG. 6. (Generalized) belief propagation on the classical Villain model. A. Rewriting of the tensor network in Fig. 3a. Black vertices are the variables (delta tensors), blue rectangles are the ferromagnetic Boltzmann weights eβxixj, and red rectangles are the antiferromagnetic Boltzmann weights e−βxixj. The plaquettes shaded in gray are examples of parent regions for GBP, which intersect on both vertices and edges. B. In simple BP, the child regions are vertices, which come in two types: −vertices (such as the one shaded red) receive messages along horizontal antiferromagnetic bonds and vertical ferromagnetic bonds, parameterized by µ−−and µ+−respectively, whereas + vertices (such as the...",
+      "page": 17
+    }
+  ],
+  "figure": "2604.24760_figures/2604.24760_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 2,
+    "methods for driven-dissipative": 2
+  }
+}

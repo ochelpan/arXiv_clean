@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2604.24475",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Improving Zero-Noise Extrapolation via Physically Bounded Models",
+  "authors": "Andriy Miranskyy, Adam Sorrenti, Jasmine Thind, Claude Gravel",
+  "abstract": "Zero-noise extrapolation (ZNE) mitigates errors in near-term quantum devices by extrapolating measurements obtained at amplified noise levels to estimate noise-free expectation values. In practice, commonly used extrapolation models are fitted without enforcing physical constraints, which can yield predictions outside the valid range of quantum observables.   In this work, we introduce physically bounded variants of polynomial, exponential, and polynomial--exponential extrapolation models by explicitly parameterizing the zero-noise estimate and constraining it during optimization. We evaluate the approach using a large synthetic benchmark comprising 180,000 circuits and approximately 3.6 million ZNE experiments generated under realistic device noise models derived from IBM quantum backends. We also perform preliminary validation on real quantum hardware using GHZ and W-state circuits.   Across the synthetic benchmark, bounded extrapolation substantially reduces unphysical predictions and improves the stability of exponential- and polynomial--exponential-family models, whereas polynomial models show little difference between bounded and unbounded variants. Hardware experiments show similar qualitative behaviour: bounded models generally avoid pathological extrapolations and often provide a more reliable balance between accuracy and usable coverage. At the same time, the results highlight practical limitations of current devices, including stronger-than-expected noise effects and variability not fully captured by simulation models. These results suggest that enforcing physical constraints during extrapolation improves the reliability of ZNE and that this approach can be incorporated into existing workflows with minimal modification.",
+  "url": "http://arxiv.org/abs/2604.24475v1",
+  "pdf": "https://arxiv.org/pdf/2604.24475v1",
+  "type": "both",
+  "summary": "This paper addresses a critical flaw in quantum error mitigation where standard extrapolation techniques produce mathematically impossible results. By enforcing physical constraints (like the [-1, 1] bound for Pauli observables) directly into the fitting optimization, the authors create more robust models. Their approach significantly stabilizes exponential-family models and provides more reliable error mitigation on real NISQ hardware. The method is computationally efficient and can be integrated into existing quantum error mitigation workflows with minimal changes.",
+  "main_problem": "Standard Zero-Noise Extrapolation (ZNE) models often produce unphysical predictions (e.g., expectation values outside the [-1, 1] range) and suffer from numerical instability in high-noise regimes.",
+  "main_result": "Introducing physically bounded extrapolation models significantly improves the stability and accuracy of exponential and polynomial-exponential models, effectively eliminating unphysical predictions and reducing error on both simulated and real IBM hardware.",
+  "method": "The authors reparameterize polynomial, exponential, and hybrid models to explicitly constrain the zero-noise estimate within valid physical bounds during the optimization process using the L-BFGS-B algorithm.",
+  "model_or_system": "The study evaluates ZNE performance using a large-scale synthetic benchmark (180,000 circuits) based on IBM Falcon and Heron noise models, alongside hardware experiments on the IBM Kingston processor using GHZ and W-state circuits.",
+  "key_observables": "Expectation values of Pauli operators (e.g., Z and X strings).",
+  "important_parameters": "Noise scale factor (lambda), circuit depth, qubit count (up to 50), and polynomial degree.",
+  "main_assumptions": "The study assumes that the physical bounds of observables are known and that the noise can be scaled via gate folding; it also notes that simulations may be more optimistic than real hardware due to simplified noise models.",
+  "figures_summary": "Figure 1 shows the distribution of ideal expectation values; Figure 2 shows the distribution of circuit depths; Figure 3 shows the empirical CDF of error improvement; Figure 4 shows expectation values as a function of the noise scale factor.",
+  "paper_structure": "The paper identifies the problem of unconstrained ZNE, introduces the mathematical formulation for bounded model variants, presents a large-scale synthetic benchmarking study, validates the approach on real IBM quantum hardware, and discusses limitations and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24475_figures/2604.24475_fig1.jpg",
+      "caption": "Fig. 1. Histogram of ideal expectation values in the synthetic benchmark (bin width 0.025, chosen to highlight clustering near values, such as −1, 0, 1).",
+      "page": 4
+    },
+    {
+      "image": "2604.24475_figures/2604.24475_fig2.jpg",
+      "caption": "Fig. 2. Distribution of transpiled circuit depths in the synthetic benchmark. Although the target circuit depths range from 10 to 50 gates, device-aware transpilation can substantially increase them. Vertical bars indicate the 25th, 50th (median), and 75th quartiles.",
+      "page": 5
+    },
+    {
+      "image": "2604.24475_figures/2604.24475_fig3.jpg",
+      "caption": "Fig. 3. Empirical cumulative distribution functions (CDFs) of the improve- ment in absolute error achieved by the bounded polynomial–exponential extrapolator with asymptote a = 0 and degree d = 1 relative to its unbounded counterpart, defined as per Equation (11). Positive values indicate cases where the bounded model yields a more accurate estimate of the ideal expectation value. Each panel corresponds to a different set of noise scale factors λ. The annotation in each panel reports the percentage of circuits for which the bounded model achieves lower error than the unbounded model. For visual clarity, improvement values exceeding ±2 are truncated, and the empirical CDF is computed on...",
+      "page": 6
+    },
+    {
+      "image": "2604.24475_figures/2604.24475_fig4.jpg",
+      "caption": "Fig. 4. Expectation values as a function of the noise scale factor λ for GHZ and W-state circuits. Thin lines show individual repetitions (15 per group), while thick lines indicate the mean expectation value for each configuration.",
+      "page": 8
+    }
+  ],
+  "figure": "2604.24475_figures/2604.24475_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

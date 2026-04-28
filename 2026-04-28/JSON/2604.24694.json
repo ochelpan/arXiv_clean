@@ -1,0 +1,89 @@
+{
+  "arxiv_id": "2604.24694",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.comp-ph",
+    "physics.flu-dyn"
+  ],
+  "is_primary_archive": true,
+  "title": "Encoding strategies for quantum enhanced fluid simulations: opportunities and challenges",
+  "authors": "Omer Rathore, Alastair Basden, Nicholas Chancellor, Halim Kusumaatmaja",
+  "abstract": "Quantum computing has emerged as a powerful potential accelerator for computational fluid dynamics (CFD), but whether this promise can be realized in practice depends on how fluid information is encoded on quantum hardware. This review provides an architecture-agnostic assessment of encoding strategies for quantum-enhanced fluid simulation, focusing on the trade-offs they impose on state preparation, measurement, boundary treatment, nonlinear dynamics, and temporal evolution. We examine the principal encoding paradigms used in the literature and relate them to representative quantum algorithms for fluid simulation. Through these examples, we show that encoding choices fundamentally shape both the algorithm itself and also the practical feasibility of quantum CFD. For example, highly compact encodings can offer attractive asymptotic advantages but might introduce severe bottlenecks in readout, state preparation, and nonlinear processing, whereas less compact representations may simplify interactions and improve compatibility with analog and near-term hardware. No single encoding is universally optimal, rather the most suitable choice depends strongly on the structure of the fluid problem, the computational objective and the constraints of the target quantum platform. We therefore argue that encoding should be treated as a primary design variable in quantum CFD and revisited iteratively throughout the design pipeline, as different algorithmic components interact and influence one another.",
+  "url": "http://arxiv.org/abs/2604.24694v1",
+  "pdf": "https://arxiv.org/pdf/2604.24694v1",
+  "type": "theory",
+  "summary": "This review paper evaluates how different data encoding strategies impact the feasibility of using quantum computers for fluid dynamics simulations. It highlights the fundamental trade-offs between compact encodings, which offer theoretical speedups but suffer from readout bottlenecks, and less compact encodings that are more compatible with near-term hardware. The authors argue that encoding should be treated as a primary, iterative design variable in the development of quantum CFD algorithms. Ultimately, the paper provides a roadmap for navigating the complexities of mapping nonlinear, dissipative fluid physics onto linear, unitary quantum frameworks.",
+  "main_problem": "The central challenge is determining how to effectively encode fluid information onto quantum hardware to achieve practical quantum advantage in Computational Fluid Dynamics (CFD).",
+  "main_result": "The authors demonstrate that encoding choice is a primary design variable that fundamentally shapes algorithmic feasibility, showing that no single encoding is universally optimal and that trade-offs exist between compactness and interaction simplicity.",
+  "method": "An architecture-agnostic review and assessment of various encoding paradigms (amplitude, basis, unary, one-hot, and block encoding) and their relation to quantum algorithms like HHL and QSVT.",
+  "model_or_system": "The paper focuses on the Navier-Stokes equations for fluid dynamics, including turbulent flows and large-scale meteorological simulations, analyzed through the lens of quantum computing models (gate-model and analog).",
+  "key_observables": "Velocity fields, pressure, density, energy, temperature, vorticity, and streamlines.",
+  "important_parameters": "Reynolds number (Re), precision (epsilon), condition number (kappa), sparsity (s), and gate counts (specifically CNOT gates).",
+  "main_assumptions": "Assumes the potential for quantum advantage in CFD; notes limitations such as the exponential cost of Quantum State Tomography and the difficulty of implementing nonlinearities due to the no-cloning theorem.",
+  "figures_summary": "Figure 1 shows an HHL algorithm circuit diagram; Figure 6 illustrates application-level successes including velocity streamlines/vorticity from matrix-product-states, flow classification via QSVM, and hybrid PINN results for 3D mixers.",
+  "paper_structure": "The paper provides an architecture-agnostic assessment of encoding strategies, examines the trade-offs between different encoding paradigms, relates these to specific quantum algorithms, and discusses the implications for practical CFD implementation and hardware constraints.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24694_figures/2604.24694_fig1.jpg",
+      "caption": "Figure 1: Summary circuit diagram for the HHL algorithm, adapted from [17] (CC BY). The five main components are (a) State preparation, (b) Quantum phase estimation, (c) Controlled rotation, (d) Inverse quantum phase estimation and (e) Ancilla qubit measurement. Quantum phase estimation consists of Hadamard gates (H), controlled unitaries (U) and the inverse quantum Fourier transform (IQFT). Meanwhile, the input consists of three registers, referred to here as the ancilla, clock and input registers.",
+      "page": 9
+    },
+    {
+      "image": "2604.24694_figures/2604.24694_fig2.jpg",
+      "caption": "Figure 2: Illustrative application examples of the Quantum Integration Algorithm to fluid and transport problems. Top: compressible flow through a convergent-divergent nozzle with a normal shock, adapted from [99]. Bottom: tephra transport in the umbrella region of a submarine volcanic eruption, adapted from [100]. In each case, the left panel shows the physical setup and the right panel shows a representative numerical result. Figures licensed under CC BY.",
+      "page": 12
+    },
+    {
+      "image": "2604.24694_figures/2604.24694_fig3.jpg",
+      "caption": "Figure 3: Performance comparison between Qade and the state of the art, neural network based classical solver, Elvet, for several differential equations. The figure reports the loss and mean squared error (MSE) as functions of training epoch. The results are problem-dependent: while Elvet ultimately achieves higher accuracy in two of the three cases, Qade performs especially well for the wave equation example, where it attains a lower MSE and a comparable final loss. Adapted from [124] (CC BY).",
+      "page": 22
+    },
+    {
+      "image": "2604.24694_figures/2604.24694_fig4.jpg",
+      "caption": "Figure 4: Evolution of a Taylor–Green vortex simulated with a D3Q27 velocity set. The quantum algorithm used 17 qubits and one ancilla to represent a domain of 163 lattice cells. Only minor discrepancies were observed, most likely due to finite machine precision. Adapted from [142] (CC BY).",
+      "page": 25
+    },
+    {
+      "image": "2604.24694_figures/2604.24694_fig5.jpg",
+      "caption": "Figure 5: Quantum circuit for the D1Q2 lattice Boltzmann implementation of the one dimensional advection-diffusion equation. The circuit carries out a full time step by combining state encoding (a), the collision step via controlled operators C1 and C2 (b), propagation through the shift operators R and L (c), and final evaluation of the macroscopic variable (d).",
+      "page": 26
+    },
+    {
+      "image": "2604.24694_figures/2604.24694_fig6.jpg",
+      "caption": "Figure 6: Illustrative examples of application-level results in quantum and quantum-inspired fluid modelling. Rows 1 and 2 show a quantum-inspired matrix-product-state formulation applied to flow around a cylinder at increasing Reynolds number from left to right, with velocity streamlines in the top row and vorticity in the bottom row. As the Reynolds number increases, the onset of the classical Kármán vortex street is observed in the wake of the cylinder. Adapted from [168]. Row 3 shows a quantum support vector machine for flow classification around an airfoil, including the decision boundaries for the classical (g) and quantum (h) cases, together with a performance comparison (i), where...",
+      "page": 31
+    }
+  ],
+  "figure": "2604.24694_figures/2604.24694_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

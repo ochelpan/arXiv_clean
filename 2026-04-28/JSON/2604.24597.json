@@ -1,0 +1,108 @@
+{
+  "arxiv_id": "2604.24597",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Kernel Advantage over Classical Collapse in Medical Foundation Model Embeddings",
+  "authors": "Sebastian Cajas Ordóñez, Felipe Ocampo Osorio, Dax Enshan Koh, Rafi Al Attrach, Aldo Marzullo, Ariel Guerra-Adames, J. Alejandro Andrade, Siong Thye Goh, Chi-Yu Chen, Rahul Gorijavolu, Xue Yang, Noah Dane Hebdon, Leo Anthony Celi",
+  "abstract": "We provide evidence of quantum kernel advantage under noiseless simulation in binary insurance classification on MIMIC-CXR chest radiographs using quantum support vector machines (QSVM) with frozen embeddings from three medical foundation models (MedSigLIP-448, RAD-DINO, ViT-patch32). We propose a two-tier fair comparison framework in which both classifiers receive identical PCA-q features. At Tier 1 (untuned QSVM vs. untuned linear SVM, C = 1 both sides), QSVM wins minority-class F1 in all 18 tested configurations (17 at p < 0.001, 1 at p < 0.01). The classical linear kernel collapses to majority-class prediction on 90-100% of seeds at every qubit count, while QSVM maintains non-trivial recall. At q = 11 (MedSigLIP-448 plateau center), QSVM achieves mean F1 = 0.343 vs. classical F1 = 0.050 (F1 gain = +0.293, p < 0.001) without hyperparameter tuning. Under Tier 2 (untuned QSVM vs. C-tuned RBF SVM), QSVM wins all seven tested configurations (mean gain +0.068, max +0.112). Eigenspectrum analysis reveals quantum kernel effective rank reaches 69.80 at q = 11, far exceeding linear kernel rank, while classical collapse remains C-invariant. A full qubit sweep reveals architecture-dependent concentration onset across models. Code: https://github.com/sebasmos/qml-medimage",
+  "url": "http://arxiv.org/abs/2604.24597v1",
+  "pdf": "https://arxiv.org/pdf/2604.24597v1",
+  "type": "both",
+  "summary": "This paper explores the potential for quantum machine learning to outperform classical methods in medical imaging tasks. By using quantum kernels, the researchers found they could avoid the 'collapse' of predictive power that occurs when classical models are applied to highly compressed feature spaces. The study demonstrates that quantum kernels maintain a much higher effective rank, allowing for better classification of minority classes in imbalanced datasets. The results suggest that the structural complexity of the quantum Hilbert space provides a genuine advantage for processing complex medical embeddings.",
+  "main_problem": "Investigating whether Quantum Support Vector Machines (QSVM) can overcome the 'classical kernel collapse' phenomenon, where classical kernels lose discriminative power when classifying high-dimensional medical image embeddings in low-dimensional PCA-reduced subspaces.",
+  "main_result": "QSVM demonstrates a significant advantage over both untuned linear SVMs and hyperparameter-tuned RBF SVMs, maintaining non-trivial minority-class F1 scores while classical kernels collapse to majority-class predictions. This advantage is attributed to the quantum kernel's higher effective rank and superior spectral structure.",
+  "method": "A two-tier fair comparison framework using noiseless quantum simulations of QSVMs with 1-DOF angle encoding, compared against classical linear and RBF SVMs using PCA-reduced embeddings from medical foundation models.",
+  "model_or_system": "The study uses noiseless quantum simulations of quantum circuits (q qubits) processing high-dimensional embeddings from medical foundation models (MedSigLIP-448, RAD-DINO, and ViT-patch32) derived from MIMIC-CXR chest radiographs.",
+  "key_observables": "Minority-class F1 score, Shannon effective rank of the kernel matrix, kernel eigenspectrum, and AUC-ROC.",
+  "important_parameters": "Qubit count (q ranging from 2 to 16), regularization parameter (C), PCA dimensionality, and kernel normalization strategy (trace normalization).",
+  "main_assumptions": "The study assumes noiseless quantum simulation (no hardware noise) and uses insurance type prediction as a proxy for the discriminative power of the embeddings.",
+  "figures_summary": "Figures illustrate the preprocessing pipeline, PCA projections showing class overlap, and comparative plots of effective rank and F1 scores across different qubit counts and models.",
+  "paper_structure": "The paper introduces the problem of classical kernel collapse, describes the medical imaging dataset and foundation models used, details the quantum and classical SVM methodologies, presents a comparative analysis across two tiers of complexity, provides a structural analysis of kernel rank and eigenspectra, and concludes with ablation studies on circuit design and architecture.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24597_figures/2604.24597_fig1.jpg",
+      "caption": "FIG. 1. Three-stage preprocessing pipeline applied to all embeddings. D ∈{448, 768} depending on the foundation model; q ∈{2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 16} is the qubit/feature count.",
+      "page": 4
+    },
+    {
+      "image": "2604.24597_figures/2604.24597_fig2.jpg",
+      "caption": "FIG. 2. Linear kernel KL eigenspectrum for MedSigLIP-448 at q = 6. The kernel has exactly 6 positive eigenvalues (effective rank 5.53) out of N = 1,896 training samples, which confirms that PCA-6 compression collapses the kernel matrix to a 6- dimensional subspace.",
+      "page": 7
+    },
+    {
+      "image": "2604.24597_figures/2604.24597_fig3.jpg",
+      "caption": "FIG. 3. Quantum vs. linear kernel eigenspectrum comparison for MedSigLIP-448 at q ∈{4, 6} (left: normalized eigenvalue decay; right: cumulative energy). The quantum kernel KQ has 1,133 (q=4) and 1,586 (q=6) eigenvalues exceeding numerical threshold ε=10−10; the theoretical upper bound for the fidelity kernel is 4q (256 and 4,096 for q = 4, 6), so the surplus above that bound consists of finite-precision numerical artefacts from statevector simulation. For comparison, the linear kernel has exactly 4 and 6 algebraically positive eigenvalues. The red vertical line marks the rank boundary of the linear kernel (Nλ>0 = q), beyond which all linear kernel eigenvalues collapse to numerical zero; the...",
+      "page": 7
+    },
+    {
+      "image": "2604.24597_figures/2604.24597_fig4.jpg",
+      "caption": "FIG. 4. Quantum kernel matrix KQ (trace-normalized) for MedSigLIP-448 at q = 6 (200 training samples sorted by class label). The off-diagonal block structure reflects class boundaries; the quantum feature map preserves discriminative signal in the same PCA subspace where the linear kernel collapses (Table VI).",
+      "page": 8
+    },
+    {
+      "image": "2604.24597_figures/2604.24597_fig5.jpg",
+      "caption": "FIG. 5. Partial qubit sweep (q ∈{2, 3, 4, 5, 6, 8}, C = 1, DT9, seed 0): QSVM test accuracy (left) and minority-class F1 (right) for all three models. MedSigLIP-448 reaches F1 = 0.554 at q = 8; RAD-DINO and ViT-p32 improve monotonically across this range with ViT collapsing at q = 3 (F1 = 0). Full results at q ∈{9, 10, 11, 12, 16} are reported in Table II.",
+      "page": 8
+    },
+    {
+      "image": "2604.24597_figures/2604.24597_fig6.jpg",
+      "caption": "FIG. 6. Quantum kernel eigenvalue spectra for all three embedding models at q = 4 (left) and q = 6 (right). MedSigLIP-448 (top), RAD-DINO (middle), ViT-patch32-cls (bottom). The quantum kernel consistently exhibits higher effective rank than the linear kernel across all models and qubit counts.",
+      "page": 15
+    },
+    {
+      "image": "2604.24597_figures/2604.24597_fig7.jpg",
+      "caption": "FIG. 7. Quantum kernel eigenspectrum for MedSigLIP-448 at the performance peak q = 11 (seed 0). Shannon effective rank = 43.04, a 6.3× increase from q = 4 (6.86); multi-seed mean is 69.80.",
+      "page": 15
+    },
+    {
+      "image": "2604.24597_figures/2604.24597_fig8.jpg",
+      "caption": "FIG. 8. Quantum kernel heatmap for MedSigLIP-448 at q = 11, seed 0 (200 training samples). Compare with q = 6 (Figure 9): the q = 11 kernel shows richer off-diagonal structure, consistent with its higher effective rank (43.04 vs. 13.94, seed 0).",
+      "page": 15
+    },
+    {
+      "image": "2604.24597_figures/2604.24597_fig9.jpg",
+      "caption": "FIG. 9. Quantum kernel heatmaps for all three embedding models at q = 4 (left) and q = 6 (right). The block structure reflects class boundaries in the training data (sorted by label). Higher qubit counts show sharper off-diagonal structure, consistent with increased effective rank.",
+      "page": 16
+    },
+    {
+      "image": "2604.24597_figures/2604.24597_fig10.jpg",
+      "caption": "FIG. 10. PCA feature space (q = 4, left; q = 6, right) for all three models (MedSigLIP-448, RAD-DINO, ViT- patch32-cls, top to bottom). Each point is a training sample projected onto its first two PCA components after StandardScaler→PCA→MinMaxScaler preprocessing (seed 0). Blue: Medicaid/Medicare; orange: Private insurance. The two classes overlap substantially in every panel, which explains why the linear kernel KL—operating in this same q-dimensional subspace—collapses to majority-class prediction (F1 = 0). The label in the lower-left corner of each panel confirms classical SVM collapse at that configuration.",
+      "page": 18
+    }
+  ],
+  "figure": "2604.24597_figures/2604.24597_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

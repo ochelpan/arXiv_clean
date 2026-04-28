@@ -1,0 +1,108 @@
+{
+  "arxiv_id": "2604.24422",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Noise-aware selection of circuit cutting strategies under hardware noise non-uniformity",
+  "authors": "Debarthi Pal, Ritajit Majumdar, Padmanabha Venkatagiri Seshadri, Anupama Ray, Yogesh Simmhan",
+  "abstract": "Noise in contemporary quantum hardware is highly non-uniform across qubits and couplers, giving rise to localized low-noise \"islands\" within otherwise noisy device topologies. As quantum workloads scale, executions are increasingly forced to traverse high-noise regions, degrading algorithmic fidelity. Circuit cutting provides a route to circumvent such regions by decomposing large circuits into smaller subcircuits, but its practicality is limited by exponential sampling overhead and the lack of systematic guidance on how cut strategies should align with heterogeneous hardware noise. In this work, we present a hardware-noise-aware circuit cutting framework that explicitly exploits the spatial non-uniformity of noise in quantum devices. Rather than proposing a new cut-finding algorithm, we formalize the problem of device-constraint selection under realistic hardware noise and show that this choice critically determines both execution overhead and effective noise. Using a unified gate- and wire-cutting formulation, we demonstrate that small, hardware-informed relaxations in the device constraint yield exponential reductions in execution overhead while preserving alignment with low-noise hardware regions. Across representative workloads, our method achieves an average reduction in the number of circuit executions ranging from 5-54x for 20-qubit circuits, and enables tractable circuit cutting for 50-qubit circuits and application-level benchmarks where conventional strategies incur prohibitive overhead. These results establish noise-aware device-constraint selection as a necessary ingredient for making circuit cutting resource-efficient and practically deployable on contemporary quantum hardware.",
+  "url": "http://arxiv.org/abs/2604.24422v1",
+  "pdf": "https://arxiv.org/pdf/2604.24422v1",
+  "type": "both",
+  "summary": "This paper introduces a new framework called Hardware-Informed Circuit cutting (HIC) designed to optimize how large quantum circuits are decomposed into smaller subcircuits. By specifically accounting for the non-uniform noise patterns (islands of low noise) found in modern NISQ hardware, the method selects cutting strategies that avoid high-error regions. This approach significantly reduces the exponential sampling overhead typically associated with circuit cutting, making the execution of much larger circuits (up to 50 qubits) practically feasible on current hardware.",
+  "main_problem": "Large quantum circuits often require execution across high-noise regions of hardware, and existing circuit cutting strategies lack systematic guidance on how to align cuts with non-uniform hardware noise to balance sampling overhead and fidelity.",
+  "main_result": "The proposed Hardware-Informed Circuit cutting (HIC) framework achieves 5-54x reductions in execution overhead for 20-qubit circuits and enables tractable cutting for 50-qubit circuits by exploiting spatial noise non-uniformity.",
+  "method": "A three-stage workflow involving hardware 'puncturing' to remove noise outliers, identifying connected components to define subcircuit sizes, and using a weighted layout score to select optimal device constraints.",
+  "model_or_system": "The study focuses on NISQ hardware, specifically referencing IBM Quantum Heron and Torino architectures, and uses noisy simulations of 20-qubit and 50-qubit Clifford and QAOA circuits.",
+  "key_observables": "Weighted average layout score (Ws), expectation value of the Z-operator, and sampling overhead (number of circuit executions).",
+  "important_parameters": "Device constraint (maximum subcircuit size), cut budget (k_max), and Z-score for noise filtering.",
+  "main_assumptions": "Assumes hardware noise profiles (calibration snapshots) are available and uses the weighted layout score as a proxy for noise exposure and output quality.",
+  "figures_summary": "Figure 1 shows the impact of device constraints on Ising model executions; Figure 2 outlines the HIC workflow; Figure 3 shows the IBM Heron noise profile; Figure 4 shows a punctured coupling map; Figure 5 shows correlation between objective function terms; Figure 6 compares partitioning strategies for QAOA; Figure 10 illustrates gate-cut necessity.",
+  "paper_structure": "The paper introduces the problem of noise non-uniformity, presents the HIC workflow (puncturing, enumeration, selection), validates the simplified objective function, demonstrates performance gains on 20-qubit and 50-qubit circuits, and compares the method against baselines like CutQC and FragQC.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24422_figures/2604.24422_fig1.jpg",
+      "caption": "Figure 1. A 6-qubit 1D Ising model having nearest neighbour interactions with 2 trotter steps. The circuit execution overheads to partition this circuit for different device constraints are shown in Table I.",
+      "page": 2
+    },
+    {
+      "image": "2604.24422_figures/2604.24422_fig2.jpg",
+      "caption": "Figure 3. Noise profile of a 133 qubit IBM Quantum Heron device showing the non-uniformity of noise for both qubits and 2-qubit connectivity",
+      "page": 3
+    },
+    {
+      "image": "2604.24422_figures/2604.24422_fig3.jpg",
+      "caption": "Figure 2. Workflow for HIC: the process involves pruning hardware based on qubit and connectivity noise profile, identifying connected components, and parallelizing the automatic cut finder across various potential subcircuit sizes to select the strategy with the minimum weighted layout score Ws. This figure explicitly demonstrates a quantum-centric algorithm to circuit cutting.",
+      "page": 3
+    },
+    {
+      "image": "2604.24422_figures/2604.24422_fig4.jpg",
+      "caption": "Figure 4. Punctured coupling map of a 27-qubit IBM Quantum device obtained after removing outlier qubits and connectivities from the hardware coupling map where z = 0.05. The blue and gray qubits (edges) respectively denote the ones retained and removed after puncturing. Dangling edges are naturally always removed irrespective of their error rate.",
+      "page": 4
+    },
+    {
+      "image": "2604.24422_figures/2604.24422_fig5.jpg",
+      "caption": "Figure 5. Correlation coefficient between norm-1 and norm-2 of the objective function W for random 10-qubit (green circles) and 20-qubit (red squares) circuits. The high correlation across most instances justifies the simplification of the objective function to focus exclusively on norm-1 metric.",
+      "page": 5
+    },
+    {
+      "image": "2604.24422_figures/2604.24422_fig6.jpg",
+      "caption": "Figure 6. Comparison of equal partitioning and different cut-budget strategies (HIC) for a structured 20-qubit mirrored QAOA circuit (depth = 44). The figures respectively show the number of cuts, number of circuit executions, evaluation of the weighted average, and the calculated expectation value of the observable 1",
+      "page": 6
+    },
+    {
+      "image": "2604.24422_figures/2604.24422_fig7.jpg",
+      "caption": "Figure 7. Comparison of equal partitioning and different cut-budget strategies (HIC) for a 20-qubit random Clifford circuit (depth = 128). The figures respectively show the number of cuts, number of circuit executions, evaluation of the weighted average, and the calculated expectation value of the observable 1 n Pn−1 i=0 Zi. HIC with different cut budgets significantly reduce the overhead of circuit execution, while having a slight increase in the weighted average score, and retaining the output quality.",
+      "page": 6
+    },
+    {
+      "image": "2604.24422_figures/2604.24422_fig8.jpg",
+      "caption": "Figure 8. Comparison of equal partitioning and different cut-budget strategies (HIC) for a 20-qubit random Clifford circuit (depth = 51). The figures respectively show the number of cuts, number of circuit executions, evaluation of the weighted average, and the calculated expectation value of the observable 1 n Pn−1 i=0 Zi. HIC with cut budget 2 significantly reduce the overhead of circuit execution, while having a slight increase in the weighted average score, and retaining the output quality. However, HIC with cut budget 1 experiences a non-negligible increase in the weighted average score, and accordingly a degradation in output quality demonstrating that HIC cannot be used to...",
+      "page": 7
+    },
+    {
+      "image": "2604.24422_figures/2604.24422_fig9.jpg",
+      "caption": "Figure 9. Comparison of equal partitioning and HIC strategies for a 50- qubit QAOA circuit (depth = 44). Equally partitioning the circuit leads to a substantial overhead in the number of circuit executions, making the reconstruction of the expectation value infeasible. With cut-budget 4, HIC identifies a 2-cut strategy. The number of circuit executions is significantly reduced, accompanied by an increase in the weighted average compared to the equal partitioning case. Reducing the cut budget to 2 resulted in the same strategy, as the cut budget of 4 itself suggested a 2-cut solution.",
+      "page": 7
+    },
+    {
+      "image": "2604.24422_figures/2604.24422_fig10.jpg",
+      "caption": "Fig. 9 reports results for a 50-qubit mirrored QAOA circuit. Under equal partitioning, the automatic cut finder identifies 8 cuts, resulting in 43, 046, 721 circuit executions. The weighted average layout score for equal partitioning is Ws = 0.228. In contrast, HIC identifies a valid 2-cut strategy, reducing the number of circuit executions to 256 and bringing circuit cutting into a tractable region. This reduction is accompanied by an increase in the weighted average to Ws = 0.304, causing an average deviation of 0.1229 from the ideal expectation value. Since such a 2-cut strategy exists, the same result was observed when the cut budget was taken to be 4 or 2. It is important to note that,...",
+      "page": 7
+    }
+  ],
+  "figure": "2604.24422_figures/2604.24422_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

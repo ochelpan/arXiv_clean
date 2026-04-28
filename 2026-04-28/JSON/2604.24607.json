@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2604.24607",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Errors that matter: Uncertainty-aware universal machine-learning potentials calibrated on experiments",
+  "authors": "Matthias Kellner, Teitur Hansen, Thomas Bligaard, Karsten Wedel Jacobsen, Michele Ceriotti",
+  "abstract": "Machine-learning models of atomic-scale interactions achieve the accuracy of the quantum mechanical calculations on which they are trained, but at a dramatically lower computational cost. Their predictions can be made trustworthy by uncertainty quantification techniques that estimate the residual error relative to their reference. These errors, however, do not include uncertainty contributions from the approximations inherent in the electronic structure calculations, which are often the main source of discrepancy with empirical observations. We construct an ensemble of ML potentials trained on multiple electronic-structure references and calibrate it against experimental data on cohesive energies, atomization energies, lattice constants and bulk moduli of simple materials and molecules, similar to the uncertainty-aware functional distribution approach. The resulting ensemble of models, which we call PET-UAFD, can be used to simulate matter across a wide range of compositions and thermodynamic conditions. By comparison with experimental measurements of the density and structure of liquids, we demonstrate that, even outside the static properties on which it was calibrated, PET-UAFD enables predictions that are as accurate against experiments as the best available electronic-structure reference and that the spread in the ensemble can be used to assess the reliability of such predictions. We also introduce the PET-EXP protocol that uses shallow ensembles and statistical reweighting techniques to provide accurate estimates of uncertainty relative to experimental measurements at virtually no additional cost over a simulation based on a single conventional ML potential. Ultimately, this approach provides a practical and inexpensive approach to elevate machine-learning potentials from faithful interpolators of approximate theories to genuinely predictive tools anchored in experimental reality.",
+  "url": "http://arxiv.org/abs/2604.24607v1",
+  "pdf": "https://arxiv.org/pdf/2604.24607v1",
+  "type": "both",
+  "summary": "This paper presents a new way to make machine-learning potentials truly predictive by calibrating them against experimental data rather than just approximate DFT calculations. By using an ensemble of models representing different levels of DFT theory, the authors can estimate how much a prediction might deviate from physical reality. They introduce an efficient protocol (PET-EXP) that allows for this uncertainty quantification at almost no extra computational cost. The method successfully predicts the properties of various liquids and provides a reliable way to assess the trustworthiness of atomistic simulations.",
+  "main_problem": "Machine-learning interatomic potentials (MLIPs) accurately mimic their DFT training references but fail to account for the inherent errors in the underlying electronic structure approximations relative to experimental reality.",
+  "main_result": "The authors developed PET-UAFD, an ensemble of MLIPs calibrated against experimental data, which provides accurate predictions for liquid densities and structural properties while using the ensemble spread to quantify uncertainty relative to experiment.",
+  "method": "The framework uses an uncertainty-aware functional distribution approach (UAFD) to train an ensemble of MLIPs on various DFT functionals and employs the PET-EXP protocol (statistical reweighting) for efficient uncertainty quantification.",
+  "model_or_system": "The study utilizes the Point Edge Transformer (PET) architecture to create universal MLIPs trained on an ensemble of DFT functionals (PBE, PBEsol, PBE+U, r2SCAN, r2SCAN-D3) applied to various solids and liquids.",
+  "key_observables": "Atomization energies, cohesive energies, lattice constants, bulk moduli, liquid densities, and radial distribution functions (RDFs).",
+  "important_parameters": "A fixed local cutoff radius of 4.5 Angstroms; ensemble weights (w0 to w4); temperature and pressure in NPT ensembles.",
+  "main_assumptions": "The error in the MLIP is primarily driven by the variation in the underlying DFT functional space; the predictive distribution can be estimated by sampling specific unit vector points.",
+  "figures_summary": "Plots of normalized errors vs. predicted uncertainties; radial distribution functions (RDFs) for various liquids with shaded uncertainty bands; PCA analysis of atomic environments; and parity plots comparing predictions to experimental values.",
+  "paper_structure": "The paper introduces the problem of DFT-inherent error, describes the PET-UAFD and PET-EXP frameworks, presents calibration results on static solid properties, demonstrates transferability to liquid structures and densities, and discusses the computational efficiency and physical origin of prediction errors.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24607_figures/2604.24607_fig1.jpg",
+      "caption": "FIG. 1. Normalized errors vs. uncertainty estimates from cross-validated data. UAFD is 5-fold cross-validated on atom- ization energies, cohesive energies, lattice constants, and bulk moduli. Running root-mean-square normalized error (RM- SNE) (red) is shown in each plot averaged over 30 points in the atomization energies and averaged over 10 points in the rest. Running RMSNE shows that uncertainty estimates are good for atomization energies, lattice constants, and bulk moduli. Cohesive energies have too low uncertainty estimates compared to errors.",
+      "page": 5
+    },
+    {
+      "image": "2604.24607_figures/2604.24607_fig2.jpg",
+      "caption": "FIG. 2. PET-UAFD predicted densities against experimental reference densities. In subplot a) we plot reference densi- ties against predicted PET-UAFD densities and indicate the PET-UAFD uncertainties as error bars. The dashed line in- dicates the identity line. In subplot b) we plot PET-UAFD predicted uncertainties σ(ρpred.) against unsigned prediction errors |∆ρ|. The dashed line indicates the unit line, and gray lines from bottom to top are the 0.5, 5, 15, 85, 95, and 99.5 % quantile lines of the log folded normal distribution, indicating that between the lowermost and uppermost line 99 % of the samples should be found.",
+      "page": 7
+    },
+    {
+      "image": "2604.24607_figures/2604.24607_fig3.jpg",
+      "caption": "FIG. 3. Radial distribution function of selected liquids at ambient pressures ordered alphabetically. PET-UAFD predicted pair correlation functions are drawn in blue and the PET-UAFD predicted ±1 standard deviation uncertainties are shaded in blue. Data points that are marked with an asterisk (*) are affected by reported or potentially large measurement uncertainties. More details are given in the main text and the appendix section S9.",
+      "page": 8
+    },
+    {
+      "image": "2604.24607_figures/2604.24607_fig4.jpg",
+      "caption": "FIG. 4. Demonstration of the origin of invariant points in the pair correlation functions generated by an MLIP ensemble for liquid Ga at 326 K. (a) Principal components of the atom- resolved pair-correlation function ˜g(r, i). The color-coded rectangles correspond to the coloring of atoms in panel b and the average correlation functions in panel c. (b) Representa- tive snapshots extracted from simulations using the weighted potentials w4, wbest, and w2, color-coded according to the first PCA component.",
+      "page": 9
+    },
+    {
+      "image": "2604.24607_figures/2604.24607_fig5.jpg",
+      "caption": "FIG. 5. Comparing simulated and experimentally obtained RDFs for liquid gallium at 326 K: a) PET-UAFD predicted RDF±1σ compared with experiment; b) PET-UAFD multihead model predicted RDF±1σ compared to experiment; c) RDF±1σ obtained by the full PET-EXP protocol (combining thermodynamic reweighting and PET-UAFD multihead models) compared to experiment.",
+      "page": 10
+    }
+  ],
+  "figure": "2604.24607_figures/2604.24607_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

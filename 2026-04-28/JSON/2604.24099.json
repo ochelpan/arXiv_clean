@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2604.24099",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Single-copy stabilizer learning: average case and worst case",
+  "authors": "Gyungmin Cho, Dohun Kim",
+  "abstract": "We study single-copy stabilizer learning, the problem of identifying a stabilizer group of dimension $n-t$ from an $n$-qubit quantum state $ρ$. We obtain two complementary results. First, in the average case, logarithmic-depth local Clifford circuits suffice to efficiently learn almost all stabilizer groups with $t=O(\\log n)$, instead of the linear-depth measurements required in previous approaches. We support this result with numerical simulations for systems of up to 100 qubits. Second, we show that, in the worst case, any adaptive single-copy measurement scheme requires a number of samples that scales exponentially in $t$. Together with existing results on two-copy learning, our findings suggest that, for large $t$, identifying Pauli symmetries of a quantum system exhibits a quantum advantage in the learning setting.",
+  "url": "http://arxiv.org/abs/2604.24099v1",
+  "pdf": "https://arxiv.org/pdf/2604.24099v1",
+  "type": "theory",
+  "summary": "This paper addresses the challenge of identifying the hidden Pauli symmetries of a quantum state. It proves that for most states, we can use very shallow, local circuits to learn these symmetries efficiently. However, it also reveals a fundamental bottleneck: for certain 'hard' states like the GHZ state, single-copy measurements are exponentially less efficient than multi-copy methods. This highlights a potential quantum advantage in using entangled measurements for symmetry detection.",
+  "main_problem": "The paper investigates the complexity of learning the stabilizer group (Weyl support) of an n-qubit quantum state using single-copy measurements, specifically comparing average-case and worst-case scenarios.",
+  "main_result": "In the average case, logarithmic-depth local Clifford circuits are sufficient to efficiently learn almost all stabilizer groups with codimension t = O(log n), but in the worst case, any single-copy measurement scheme requires an exponential number of samples in t.",
+  "method": "The authors use a block-Clifford ensemble (shallow-depth circuits) and a computational difference sampling technique to extract Pauli symmetries, supported by symplectic geometry and probabilistic analysis.",
+  "model_or_system": "The study focuses on n-qubit quantum states, specifically t-doped stabilizer states and highly structured states like GHZ, Toric, and Color codes.",
+  "key_observables": "The Weyl support (Pauli symmetries), Pauli collision coefficient, and the trace of the squared density matrix relative to the learned subspace.",
+  "important_parameters": "n (number of qubits), t (codimension of the stabilizer group), k (circuit depth/block size), and epsilon/delta (error and failure parameters).",
+  "main_assumptions": "The analysis assumes the ability to perform randomized measurements using block-Clifford ensembles and that the block size k divides n.",
+  "figures_summary": "Figure 1 compares three measurement protocols (Bell, Random Clifford, and Shallow Clifford); Figure 2 shows recovery success vs. number of samples and noise; Figure 3 illustrates the reduction of intersection problems to quotient spaces; Figure 4 and 5 show success probabilities under noise and performance across different code types.",
+  "paper_structure": "The paper is structured into two parts: Part I establishes an upper bound for the average case using probabilistic arguments and subspace counting; Part II establishes a lower bound for the worst case using reduction to property testing and analyzing the GHZ state.",
+  "why_interesting": "This is highly relevant for many-body dynamics and topological order, as it provides fundamental limits on how efficiently one can identify hidden symmetries and topological features in quantum systems using local, shallow-depth measurements.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24099_figures/2604.24099_fig1.jpg",
+      "caption": "FIG. 1. Comparison of measurement protocols. (a) Bell sampling uses two copies of the n-qubit state ρ and performs Bell-basis measurements. The measurement circuit has depth O(1), but the protocol requires n-qubit quantum memory. (b) Random Clifford measurement uses a single copy of ρ, applies a random Clifford circuit C ∼Cl(n), and then measures in the computational basis. In general, implementing C requires cir- cuit depth O(n). (c) Random shallow Clifford measurement, as considered in this work, also uses a single copy of ρ but replaces Cl(n) by the block-Clifford ensemble Ck = Cl(k)⊗n/k",
+      "page": 2
+    },
+    {
+      "image": "2604.24099_figures/2604.24099_fig2.jpg",
+      "caption": "FIG. 2. Numerical simulations. (a) Learning Weyl(ρ) for random instances. We fix n = 100 and vary t = 0, . . . , 5, where dim Weyl(ρ) = n −t. For each t, we estimate the num- ber m of sampled Clifford circuits required to recover Weyl(ρ), comparing the Clifford ensembles Ck = Cl(k)⊗n/k for k = 1 and k = 100. (b) Recovery under noisy computational differ- ence samples. We fix n = 24, t = 0, and vary the number NS of computational difference samples obtained from a single measurement basis. We evaluate the success probability psuc of recovering the hidden symmetry when each measured bit is flipped independently with probability perr. In both panels, each point shows the mean and standard...",
+      "page": 4
+    },
+    {
+      "image": "2604.24099_figures/2604.24099_fig3.jpg",
+      "caption": "FIG. 3. Quotient reduction. Left: for a fixed isotropic subspace S, let M = S ∩A. Right: after passing to the quotient space M ⊥/M, the subspaces SM = S/M, AM = A/M, and BM = (B ∩M ⊥+ M)/M encode the remaining intersection structure. In particular, conditioning on S ∩A = M reduces the analysis of S ∩B to that of SM ∩BM in the quotient symplectic space.",
+      "page": 22
+    },
+    {
+      "image": "2604.24099_figures/2604.24099_fig4.jpg",
+      "caption": "FIG. 4. Recovery under noisy computational difference samples. We fix n = 24, t = 0, and vary the number NS of computational difference samples obtained from a single measurement basis. We evaluate the success probability psuc of recovering the hidden symmetry when each measured bit is flipped independently with probability perr. Each point shows the mean, and the shaded region indicates one standard deviation over 1000 independent trials.",
+      "page": 32
+    },
+    {
+      "image": "2604.24099_figures/2604.24099_fig5.jpg",
+      "caption": "FIG. 5. Numerical simulations for learning stabilizer groups with different Clifford ensembles. We compare the number m of sampled Clifford circuits required to recover the stabilizer group Weyl(ρ) using Ck = Cl(k)⊗n/k for k = 1 and k = n. (a) Random stabilizer states, as a function of the system size n. (b) Random CSS-code states, where ρ is taken to be a logical state of a random CSS code. (c) Toric-code logical states, plotted as a function of the number of physical qubits n for different code distances. (d) Color-code logical states, plotted as a function of the number of physical qubits n for different code distances. Each point shows the mean and standard deviation over 1000...",
+      "page": 33
+    }
+  ],
+  "figure": "2604.24099_figures/2604.24099_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 2,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

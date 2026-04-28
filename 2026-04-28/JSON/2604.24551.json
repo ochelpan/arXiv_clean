@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2604.24551",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "GSC-QEMit: A Telemetry-Driven Hierarchical Forecast-and-Bandit Framework for Adaptive Quantum Error Mitigation",
+  "authors": "Steven Szachara, Sheeraja Rajakrishnan, Dylan Jay Van Allen, Jason Pollack, Travis Desell, Daniel Krutz",
+  "abstract": "Quantum error mitigation (QEM) is essential for extracting reliable results from near-term quantum devices, yet practical deployments must balance mitigation strength against runtime overhead under time-varying noise. We introduce \\emph{GSC-QEMit}, a telemetry-driven, \\textbf{context--forecast--bandit} framework for \\emph{adaptive} mitigation that switches between lightweight suppression and heavier intervention as drift evolves. GSC-QEMit composes three coupled modules: (G) a Growing Hierarchical Self-Organizing Map (GHSOM) that clusters streaming telemetry into operating contexts; (S) an uncertainty-aware subsampled Gaussian-process forecaster that predicts short-horizon fidelity degradation; and (C) a cost-aware contextual multi-armed bandit (CMAB) that selects mitigation actions via Thompson sampling with explicit intervention cost. We evaluate GSC-QEMit on benchmark circuit families (GHZ, Quantum Fourier Transform, and Grover search) under nonstationary noise regimes simulated in Qiskit Aer, using an instrumented testbed where action labels correspond to graded mitigation intensity. Across Clifford, non-Clifford, and structured workloads, GSC-QEMit improves average logical fidelity by \\textbf{+9.0\\%} relative to unmitigated execution while reducing unnecessary heavy interventions by reserving them for inferred noise spikes. The resulting policies exhibit a favorable fidelity--cost trade-off and transfer across the evaluated workloads without circuit-specific tuning.",
+  "url": "http://arxiv.org/abs/2604.24551v1",
+  "pdf": "https://arxiv.org/pdf/2604.24551v1",
+  "type": "theory",
+  "summary": "This paper presents GSC-QEMit, an adaptive framework designed to optimize quantum error mitigation in the presence of drifting noise. By using machine learning modules to cluster device telemetry, forecast future fidelity degradation, and select the most cost-effective mitigation level, the system avoids expensive interventions when noise is low. The approach demonstrates significant improvements in logical fidelity and resource efficiency across various quantum circuit workloads without requiring circuit-specific tuning.",
+  "main_problem": "Managing quantum error mitigation (QEM) in the NISQ era by deciding when and how aggressively to apply mitigation techniques under time-varying, nonstationary noise while balancing fidelity gains against computational overhead.",
+  "main_result": "The GSC-QEMit framework achieved a 9.0% average increase in logical fidelity relative to unmitigated execution and reduced unnecessary heavy interventions by approximately 35% compared to a static severe strategy.",
+  "method": "A three-module 'context-forecast-bandit' framework comprising a Growing Hierarchical Self-Organizing Map (GHSOM) for context discovery, a Sparse Variational Gaussian Process (SVGP) for fidelity forecasting, and a cost-aware contextual multi-armed bandit (CMAB) for decision making.",
+  "model_or_system": "A simulated quantum backend using Qiskit Aer with a nonstationary noise model characterized by a bounded sinusoidal drift and stochastic fluctuations around a baseline physical error rate.",
+  "key_observables": "Average logical fidelity, logical error rate (measured via Total Variation Distance), and intervention cost.",
+  "important_parameters": "13-dimensional telemetry feature vector, mitigation intensity levels (NONE, MODERATE, SEVERE), and the Lagrange multiplier (lambda) controlling cost-sensitivity.",
+  "main_assumptions": "Assumes the availability of streaming telemetry and a library of discrete mitigation primitives; assumes system health can be captured via telemetry and noise patterns can be forecasted.",
+  "figures_summary": "Figure 2 shows a case study of the QFT circuit displaying a real-time barcode of selected intervention levels over time.",
+  "paper_structure": "The paper introduces the problem of adaptive QEM, describes the three-module GSC-QEMit architecture (GHSOM, SVGP, and CMAB), details the simulation environment and noise model, presents performance results across various circuit families, and discusses the framework's generalizability and cost-efficiency.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24551_figures/2604.24551_fig1.jpg",
+      "caption": "Fig. 1. GSC-QEMit implementation: An instrumented backend streams cycle-level telemetry to a classical context–forecast–bandit stack for adaptive mitigation selection.",
+      "page": 4
+    },
+    {
+      "image": "2604.24551_figures/2604.24551_fig2.jpg",
+      "caption": "Figure 1 summarizes our end-to-end implementation. An instrumented backend provides streaming, per-cycle telemetry to a classical control stack consisting of a Spark–GHSOM context mapper, a Sparse Variational Gaussian Process (SVGP) forecaster, and a cost-aware Contextual Multi-Armed Bandit (CMAB) initialized via imitation learning. The controller is defined by a fixed telemetry interface and an abstract inter- vention library; the backend used here is a Qiskit Aer–based simulator for controlled evaluation, but it can be replaced by any simulator or hardware system that exposes compatible telemetry and supports a small set of intervention hooks.",
+      "page": 4
+    },
+    {
+      "image": "2604.24551_figures/2604.24551_fig3.jpg",
+      "caption": "Fig. 2. Real-time adaptive response (case study: QFT). A representative execution trace under drifting noise. Top strip (barcode): the selected intervention level over time (NONE →MODERATE →SEVERE). Barcode shading encodes action: white/green = NONE, gray/orange = MODER- ATE, black/purple = SEVERE. Bottom plot: logical fidelity FL (solid) alongside the drifting effective noise indicator (dotted). Key insight: during elevated-noise intervals, the policy increases intervention intensity (switching to SEVERE); during quiescent periods it returns to NONE/MODERATE, con- serving cost while maintaining high fidelity.",
+      "page": 6
+    },
+    {
+      "image": "2604.24551_figures/2604.24551_fig4.jpg",
+      "caption": "Figure 3 illustrates representative telemetry traces for the full benchmark suite under a controlled, time-varying noise process. In all the experiments, circuits are executed repeatedly over a fixed horizon Trun while the effective physical error rate peff(t) is deliberately modulated according to the drifting- noise model described in Section IV-B. No additional faults or adversarial perturbations are injected beyond this explicit drift process. The drift schedule is designed to probe two complementary regimes. In the first half of each run, the noise level is rapidly increased to a peak, producing a pronounced high- noise interval near the center of the trace. This stress-test phase...",
+      "page": 6
+    },
+    {
+      "image": "2604.24551_figures/2604.24551_fig5.jpg",
+      "caption": "Fig. 3. Cross-benchmark stabilization under drift. Time-series traces for the evaluation suite under a controlled, time-varying noise schedule with a deliberate mid-run noise peak. Dotted: imposed effective noise indicator peff(t). Dashed: unmitigated baseline logical fidelity. Solid: adaptive fidelity under GSC-QEMit. The reduced depth of the mid-run fidelity trough under the adaptive policy reflects active mitigation escalation during high-noise intervals, followed by de-escalation as noise relaxes.",
+      "page": 7
+    }
+  ],
+  "figure": "2604.24551_figures/2604.24551_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

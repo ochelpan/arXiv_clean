@@ -1,0 +1,107 @@
+{
+  "arxiv_id": "2604.23700",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Circuit Cutting: Complexity and Optimization",
+  "authors": "Yuval Idan, Eitan Zahavi, Elad Mentovich, Eliahu Cohen, Shmuel Zaks",
+  "abstract": "The current noisy intermediate-scale quantum (NISQ) era is characterized by substantial errors and noise, which limit the practical feasibility of deep, many-qubit circuits. To address these constraints, quantum circuit cutting has emerged as a promising tool. Recently, there has been significant research on methods for performing such cutting effectively. In this work, the duality between quantum circuits and classical graphs - specifically, directed acyclic graphs (dags) - is leveraged to analyze the complexity of finding an optimal circuit-cutting configuration that minimizes the number of cuts. After developing a rigorous graph-theoretic framework, the complexity of identifying cut locations that partition a given quantum circuit into smaller fragments is characterized. The corresponding graph-combinatorial task is then defined, and the resulting partition problem is shown to be NP-complete. Furthermore, even a simplified version of the problem, restricted to circuits composed only of one- and two-qubit gates, is shown to be NP-complete. Finally, based on these constraints, an algorithm grounded in satisfiability modulo theories (SMT) is proposed to find optimal cuts when the number of qubits per partition is bounded. This work therefore provides a complexity-theoretic characterization of cut placement and a practical solver for bounded-size decompositions.",
+  "url": "http://arxiv.org/abs/2604.23700v1",
+  "pdf": "https://arxiv.org/pdf/2604.23700v1",
+  "type": "theory",
+  "summary": "This paper provides a rigorous complexity-theoretic analysis of quantum circuit cutting, a vital technique for executing large circuits on fragmented NISQ hardware. By mapping the cutting process to a graph duplication problem, the authors demonstrate that finding optimal cuts is NP-complete. However, they also show that the problem is tractable when the number of cuts is small and provide an SMT-based solver to find these optimal configurations. This work helps define the computational limits of circuit decomposition strategies.",
+  "main_problem": "The paper addresses the computational complexity and optimization of quantum circuit cutting, which involves partitioning large quantum circuits into smaller fragments to be processed on multiple smaller QPUs.",
+  "main_result": "The authors prove that finding the optimal circuit-cutting configuration (the Graph Duplication problem) is NP-complete in general and even for simplified 2-qubit gate circuits, but can be solved in polynomial time if the number of cuts is constant.",
+  "method": "The work uses a graph-theoretic framework mapping circuits to Directed A-cyclic Graphs (DAGs) and employs reductions from the 3-partition problem to establish complexity, alongside an SMT-based solver for practical optimization.",
+  "model_or_system": "The study focuses on the NISQ era quantum circuit model, representing quantum operations as tensors and qubit trajectories as edges within a Directed Acyclic Graph (DAG) or Tensor Network.",
+  "key_observables": "not specified",
+  "important_parameters": "beta (number of edge duplications/cuts), alpha (number of clusters), k (maximum number of input/output wires per cluster), and the qubit budget Q.",
+  "main_assumptions": "The analysis focuses on 'timelike' cuts (wire cuts) and assumes 'legal' DAGs where the number of inputs equals the number of outputs.",
+  "figures_summary": "Figure 1 shows tensor network evolution; Figure 2 illustrates unitary decomposition; Figure 3 shows the graph duplication protocol; Figures 4-7 visualize complexity proofs and SMT solver performance; Figures 8-10 detail the mathematical construction for NP-completeness proofs.",
+  "paper_structure": "The paper introduces the circuit cutting problem, establishes a graph-theoretic duality, provides a complexity characterization (identifying polynomial and NP-complete regimes), proposes an SMT-based optimization algorithm, and provides rigorous mathematical proofs in the appendix.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.23700_figures/2604.23700_fig1.jpg",
+      "caption": "Figure 1: Evolution of a quantum state within a tensor network. The initial state tensor is enclosed by the blue dashed line. The red dashed line highlights the output state resulting from the action of the unitary operator ˆU on the initial state. Finally, the green dashed line encompasses the entire process, yielding a scalar value.",
+      "page": 4
+    },
+    {
+      "image": "2604.23700_figures/2604.23700_fig2.jpg",
+      "caption": "Figure 2: (a) Rank-2n unitary, which is not separable, and acting on all the qubits simultaneously. (b) Decompositions of the previous rank-2n tensor ˆU into lower-rank tensors. (c) Cutting the unitary ˆU into two sets of unitaries. (d) The contraction from Eq. (12).",
+      "page": 7
+    },
+    {
+      "image": "2604.23700_figures/2604.23700_fig3.jpg",
+      "caption": "Figure 3: An example demonstrating GE′ of Definition 7, for |E′| = 4. (a) Simple tensor network T, and the connected graph (GE), that represent the tensor network. The desired edges that we wish to delete are E′ = {e1, e2, e3, e4} ⊆E. (b) Tensor network T ′ and GE′, obtained from the graph duplication, the set E′ = {e1, e2, e3, e4}, the additional vertices V ′ = {x1, y1, x2, y2, x3, y3, x4, y4} /∈V and the additional edges.",
+      "page": 9
+    },
+    {
+      "image": "2604.23700_figures/2604.23700_fig4.jpg",
+      "caption": "Figure 4: The case β = 0. The dag shown is G0.",
+      "page": 12
+    },
+    {
+      "image": "2604.23700_figures/2604.23700_fig5.jpg",
+      "caption": "Figure 5: The connected dag ˜G used in the proof of Theorem 7.",
+      "page": 14
+    },
+    {
+      "image": "2604.23700_figures/2604.23700_fig6.jpg",
+      "caption": "Figure 6: (a) Arbitrary quantum algorithm represented in the circuit model, each block is unitary operator with the rank of the number of inputs and outputs qubits. (b) The graph representation of the circuit in (a), which is now a legal dag. (c) After applying the constraints, the SMT solver returns two disjoint circuits, highlighted in different colors.",
+      "page": 15
+    },
+    {
+      "image": "2604.23700_figures/2604.23700_fig7.jpg",
+      "caption": "Figure 7: (a) Quantum algorithm with induced entanglement, decomposition necessitates qubit cuts. (b) The graph representation of the circuit. (c) SMT solution for the cutting protocol, yielding two separable subgraphs (red and green); the yellow edge indicates the qubit cut.",
+      "page": 16
+    },
+    {
+      "image": "2604.23700_figures/2604.23700_fig8.jpg",
+      "caption": "Figure 8: G′, G′′, G′′ each contains one component while G′′ ∪G′′′ contains two.",
+      "page": 19
+    },
+    {
+      "image": "2604.23700_figures/2604.23700_fig9.jpg",
+      "caption": "Figure 9: The case β > 0. The dag shown is G′, β copies of which are added to G0.",
+      "page": 19
+    },
+    {
+      "image": "2604.23700_figures/2604.23700_fig10.jpg",
+      "caption": "Figure 10: Illustration of the proof sketch for Theorem 5.",
+      "page": 20
+    }
+  ],
+  "figure": "2604.23700_figures/2604.23700_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

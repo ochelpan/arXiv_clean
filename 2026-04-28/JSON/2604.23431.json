@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2604.23431",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": true,
+  "title": "Physics-Informed Deep Image Prior Reconstruction of In-Plane Magnetization from Scanning NV Magnetometry",
+  "authors": "Zander Scholl, Justin Woods, Charudatta Phatak, Hanu Arava",
+  "abstract": "Reconstructing magnetization in nanoscale magnetic thin films is essential for developing next-generation memory, sensors, and various spintronic technologies. However, this remains challenging due to the ill-posed nature of the stray field inverse problem, i.e., there are infinitely many magnetization solutions to a given stray field distribution. Here, we demonstrate that a physics-informed deep image prior (DIP) framework, using a simple convolutional autoencoder conditionally achieves a reasonable qualitative and quantitative reconstruction of complex in-plane magnetization patterns from scanning NV magnetometry. We find that the orientation of user-defined masks implemented to restrict the reconstruction solution space dramatically affects convergence. The optimal alignment of the mask improves the reconstruction signal-to-noise ratio by up to $\\SI{3}{\\decibel}$, thereby also serving as a diagnostic tool. The DIP approach requires no pre-trained datasets and is considered computationally less intensive as compared to supervised learning approaches. We analyze both Landau and dipole domain structures in lithographically patterned Permalloy nanostructures by incorporating experimentally-guided spatial constraints. Complementary magnetic force microscopy measurements were carried out to support the Scanning NV measurements.",
+  "url": "http://arxiv.org/abs/2604.23431v1",
+  "pdf": "https://arxiv.org/pdf/2604.23431v1",
+  "type": "both",
+  "summary": "This paper presents a new way to reconstruct magnetic patterns in thin films using a neural network approach called Deep Image Prior. By using a physics-informed model, the researchers can overcome the mathematical ambiguity of magnetic field measurements. The method works without needing pre-trained datasets and can even use the reconstruction accuracy to help identify the correct orientation of magnetic domains. This provides a more efficient tool for analyzing nanoscale magnetic textures in spintronic materials.",
+  "main_problem": "Reconstructing in-plane magnetization from scanning NV magnetometry data is an ill-posed inverse problem because infinitely many magnetization configurations can produce the same stray field distribution.",
+  "main_result": "A physics-informed Deep Image Prior (DIP) framework using a convolutional autoencoder can qualitatively and quantitatively reconstruct complex magnetic textures, with optimal spatial mask alignment improving SNR by up to 3 dB.",
+  "method": "The researchers use a convolutional autoencoder-based Deep Image Prior (DIP) framework with a physics-informed MSE loss function in Fourier space, incorporating spatial masking and magnetostatic forward modeling.",
+  "model_or_system": "The study uses Permalloy (Ni80Fe20) nanostructures with lithographically patterned ellipse shapes, specifically investigating Landau and dipole domain configurations, measured via scanning Nitrogen-Vacancy (NV) magnetometry.",
+  "key_observables": "Stray field maps (B_NV), magnetization maps (Mx, My), signal-to-noise ratio (SNR), and Mean Square Error (MSE).",
+  "important_parameters": "NV-to-sample standoff distance (z), spatial mask orientation, and spatial filter cutoff frequencies.",
+  "main_assumptions": "The method relies on accurate spatial masking and may be limited when dealing with topologically non-trivial textures like skyrmions where signatures are highly ambiguous.",
+  "figures_summary": "Fig 1 shows the NV setup and the ill-posed nature of the problem; Fig 2 displays SEM, MFM, and NV field maps; Fig 3 details the CAE architecture and reconstruction epochs; Fig 4 shows MSE and SNR performance relative to mask orientation and standoff distance.",
+  "paper_structure": "The paper introduces the inverse problem, describes the experimental NV platform and Permalloy samples, details the DIP neural network architecture and physics-informed loss, presents results for Landau and dipole domains, and discusses the impact of standoff distance and masking.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.23431_figures/2604.23431_fig1.jpg",
+      "caption": "FIG. 1. (A) Schematic of a scanning NV magnetometry experimental set up. The magnetic field strength is determined through optically-detected magnetic resonance (ODMR). The NV center is optically pumped with a green laser while a microwave antennae sweeps an applied RF field. (B) Simulated B field plots for two different magnetizations, a Landau domain and a 4 domain flux-closure, leading to nearly identical B-field projections. Illustrates the fundamental challenges associated with addressing an ill-posed problem.",
+      "page": 2
+    },
+    {
+      "image": "2604.23431_figures/2604.23431_fig2.jpg",
+      "caption": "FIG. 2. (A) SEM image of fabricated Permalloy nanostruc- tures. (B) MFM images of selected ellipses, confirming the presence of Landau domain pattern (left) and dipole arrange- ment (right). (C-D) Scanning NV magnetometry B field maps of the same structures, here the NV axis is at 54.75 degrees rel- ative to the sample normal, illustrating the four-lobed (Lan- dau Domain) and two-lobed (Dipole Domain) stray field dis- tributions.",
+      "page": 3
+    },
+    {
+      "image": "2604.23431_figures/2604.23431_fig3.jpg",
+      "caption": "FIG. 3. (A) Deep image prior reconstruction workflow showing the approach. Stray field data from scanning NV magnetometry is processed through a convolutional autoencoder that minimizes error in real-space between measured fields and forward- propagated outputs. (B) The encoder stage (teal) comprises paired convolutional layers (kernel size 5) with LeakyReLU activation, instance normalization, and max pooling for downsampling. Channel dimensions increase progressively through encoding stages. The decoder stage (yellow) uses identical convolutional parameters with bilinear upsampling, featuring separate channels for each magnetization component (Mx, My). We do not show Mz because the network...",
+      "page": 4
+    },
+    {
+      "image": "2604.23431_figures/2604.23431_fig4.jpg",
+      "caption": "FIG. 4. (A, B) MSE as a function of training epochs for the (A) Landau and (B) Dipole domain reconstructions. Each curve represents a different orientation of the initialization mask, demonstrating that convergence is fastest for the correct orientation. In this figure, MSE is reported given that it was the actual cost function minimized during training whereas RMSE can be directly compared to the NV signal magnitude. (C, D) Line profiles comparing the measured stray field (Raw BNV) with the final reconstructed field from the model, showing excellent agreement for both magnetic configurations. (E, F) MSE error as a function of standoff distance for Landau and Dipole domains, indicating the...",
+      "page": 5
+    }
+  ],
+  "figure": "2604.23431_figures/2604.23431_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 2,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

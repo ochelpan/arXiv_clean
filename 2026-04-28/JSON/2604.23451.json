@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2604.23451",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Causal Discovery via Amplitude Estimation of Kullback-Leibler Divergence",
+  "authors": "Shabnam Sodagari",
+  "abstract": "Causal discovery from observational data underpins applications in finance, climate modeling, and machine learning. Constraint-based causal discovery reduces structure learning to a sequence of conditional independence (CI) tests, where each test decides independence by estimating conditional mutual information $I(X;Y \\mid Z)$ to additive precision $τ$ and thresholding against it. Classically this requires $Θ(1/τ^{2})$ samples per test, a cost that dominates in the high-precision regime typical of weak dependencies. We present QKLA (Quantum Kullback--Leibler Amplitude estimation), a quantum algorithm that encodes a clipped log-density ratio as a bounded amplitude and applies amplitude estimation to recover the KL divergence. Given coherent oracle access to the joint distribution, QKLA achieves a quadratic precision improvement, needing only $\\mathcal{O}((L/τ)\\log(1/δ))$ queries, where $L$ is the log-ratio clip bound. Embedded in the PC algorithm, this compounds to an $\\widetildeΩ(1/(Lτ))$ reduction in total queries for the full causal discovery procedure. We validate the theory in three experiments. A gate-level state-vector simulation of the full QKLA circuit confirms the predicted $\\mathcal{O}(1/M)$ error decay. Across $K=20$ random binary distributions, classical and quantum error scalings match theory to slope accuracy $\\pm 0.005$. On two benchmark networks (\\textsc{Asia}, 8 nodes; \\textsc{Synthetic-12}, 12 nodes), quantum PC matches classical skeleton-recovery F1 while using $2.5$--$3.0\\times$ fewer oracle queries at $τ= 5\\cdot 10^{-3}$ bits and up to $12\\times$ fewer at $τ= 10^{-3}$ bits.",
+  "url": "http://arxiv.org/abs/2604.23451v1",
+  "pdf": "https://arxiv.org/pdf/2604.23451v1",
+  "type": "both",
+  "summary": "This paper introduces QKLA, a quantum algorithm designed to accelerate causal discovery by efficiently estimating Kullback-Leibler divergence. By leveraging Quantum Amplitude Estimation, the algorithm achieves a quadratic speedup in precision compared to classical sampling methods. Simulations and benchmarks on networks like ASIA and SYNTHETIC-12 demonstrate that the quantum approach can use significantly fewer oracle queries to achieve the same structural accuracy. This is particularly impactful in high-precision regimes where detecting weak dependencies is critical.",
+  "main_problem": "The computational bottleneck in constraint-based causal discovery is the high cost of conditional independence tests when high precision is required to detect weak dependencies.",
+  "main_result": "The authors present QKLA, a quantum algorithm that achieves a quadratic speedup in precision, reducing query complexity from O(1/tau^2) to O(1/tau) and significantly reducing total queries for the PC algorithm.",
+  "method": "The QKLA algorithm uses Quantum Amplitude Estimation (QAE) to encode a clipped log-density ratio as a bounded amplitude, combined with Grover iterations and the inverse Quantum Fourier Transform.",
+  "model_or_system": "The algorithm operates in a quantum oracle model involving a preparation oracle for joint distributions and a reversible arithmetic oracle for computing clipped log-density ratios.",
+  "key_observables": "Kullback-Leibler (KL) divergence, Conditional Mutual Information (CMI), and F1 score for network skeleton recovery.",
+  "important_parameters": "Target additive precision (tau), clip bound (L), failure probability (delta), and the high-precision regime where tau is small (10^-3 to 10^-2 bits).",
+  "main_assumptions": "The efficiency assumes efficient quantum oracles for distribution preparation and log-ratio computation; the use of a clip bound L introduces a small bias on extreme distributions.",
+  "figures_summary": "Figure 1 shows the phase-register output distribution and error scaling on log-log plots; Figure 2 illustrates classical vs. quantum query scaling and identifies the crossover point for precision advantage.",
+  "paper_structure": "The paper introduces the causal discovery problem, presents the QKLA and QCMIE algorithms, provides a theoretical complexity analysis, validates the theory via gate-level simulations, and benchmarks performance on standard causal networks.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.23451_figures/2604.23451_fig1.jpg",
+      "caption": "Fig. 1. Experiment 1: gate-level state-vector simulation of the QKLA circuit on the fixed target pxy = [[0.4, 0.1], [0.1, 0.4]], L = 2, narith = 6. (a) Phase-register output distribution at t = 5 (M = 2t = 32): two peaks at the canonical locations m⋆and M −m⋆, each carrying mass ≈0.395, sum ≈0.79 (above the 8/π2 ≈0.811 QAE guarantee only at worst-case phase alignment; here the phase is closer to that worst case so we land slightly below it). (b) 80th-percentile absolute KL error vs M, with the leading-order BHMT reference line 2Lπ/M (from |˜a −a| ≤π/M after rescaling by 2L). Log-log slope is −1.38 (least-squares fit), steeper than the −1 rate predicted by this leading-order bound; the 4Lπ/M...",
+      "page": 7
+    },
+    {
+      "image": "2604.23451_figures/2604.23451_fig2.jpg",
+      "caption": "Fig. 2. Experiment 2: classical vs quantum query scaling, averaged across K = 20 random binary 2 × 2 joint distributions with MI in [0.03, 0.32] bits. (A) 90th-percentile error vs total oracle queries. Fitted slopes: classical −0.500 ± 0.004, quantum −1.001 ± 0.005. Dotted lines are the theoretical references ∝n−1/2 and ∝M−1. (B) Minimum queries needed for 90th-percentile error ≤τ, plotted against 1/τ. Classical tracks τ −2; quantum tracks τ −1. Crossover near 1/τ ≈40; at 1/τ = 200 the quantum algorithm needs 4.2× fewer queries.",
+      "page": 8
+    },
+    {
+      "image": "2604.23451_figures/2604.23451_fig3.jpg",
+      "caption": "Fig. 3. Experiment 3: PC skeleton-recovery F1 versus total oracle queries on two benchmark networks. Classical PC uses the plug-in CMI estimator with n = ⌈2/τ 2⌉i.i.d. samples per test; quantum PC uses QCMIE with the empirically-sufficient M = ⌈2πL/τ⌉iterations per test (L = 3, nshots = 5), which is half the worst-case ⌈4πL/τ⌉of Theorem 6—justified by the measured slope −1.38 in Fig. 2(b). Error bars show ±1 s.d. over five trials. Dotted vertical lines mark the finest precision in the sweep (τ = 10−3); at that point, quantum needs 12.0× fewer queries on ASIA and 7.2× fewer on SYNTHETIC-12.",
+      "page": 9
+    }
+  ],
+  "figure": "2604.23451_figures/2604.23451_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

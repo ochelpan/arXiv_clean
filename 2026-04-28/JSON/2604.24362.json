@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2604.24362",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Practical lower bounds for hybrid quantum interior point methods in linear programming",
+  "authors": "Lennart Binkowski",
+  "abstract": "Quantum interior point methods (QIPMs) promise polynomial speed-ups over classical solvers for linear programming by outsourcing the solution of Newton linear systems to quantum linear solvers (QLSAs). However, asymptotic speed-ups do not necessarily translate to practical advantages on realistic problem instances. In this work, I evaluate whether practical advantage of a standard hybrid QIPM pipeline can already be excluded relative to the classical open-source solver HiGHS on a broad and diverse collection of LP instances spanning eight problem families, including public benchmark libraries, such as MIPlib, and relaxations of combinatorial optimisation problems. Following the hybrid benchmarking paradigm initiated by Cade et al., I derive rigorous lower bounds on the quantum runtime under a series of highly benevolent assumptions and compare them against classical runtimes. I equip the QIPMs with the best-performing functional QLSA, the Chebyshev-based method, as identified by Lefterovici et al., and evaluate two Newton system formulations proposed by Mohammadisiahroudi et al.: the modified normal equation system and the orthogonal subspace system. The exclusion analysis yields a consistent negative picture: across all instances and for any realistic quantum cycle duration, the quantum runtime lower bounds already exceed the classical runtimes, establishing that these hybrid QIPMs will offer no practical advantage over good classical solvers for realistic linear programming instances.",
+  "url": "http://arxiv.org/abs/2604.24362v1",
+  "pdf": "https://arxiv.org/pdf/2604.24362v1",
+  "type": "theory",
+  "summary": "This paper investigates the practical viability of hybrid quantum algorithms for linear programming. By comparing the best-case quantum runtime lower bounds against state-of-the-art classical solvers, the author demonstrates that the overhead from state tomography and the complexity of the Newton systems prevent any practical advantage. The findings suggest that for realistic problem instances and hardware cycle times, classical solvers like HiGHS remain superior.",
+  "main_problem": "Determining whether the asymptotic polynomial speed-ups promised by hybrid quantum interior point methods (QIPMs) translate into practical advantages for solving linear programming problems on realistic instances.",
+  "main_result": "The study establishes that quantum runtime lower bounds exceed classical runtimes for all tested instances at realistic quantum cycle durations, effectively ruling out practical advantage for these hybrid QIPMs.",
+  "method": "A hybrid benchmarking approach that derives rigorous lower bounds on quantum runtime using highly benevolent assumptions and compares them against the classical HiGHS solver.",
+  "model_or_system": "The mathematical model is Linear Programming (LP) solved via Primal-Dual Path-Following Interior Point Methods, utilizing a quantum pipeline with Chebyshev-based Quantum Linear System Algorithms (QLSAs) and state tomography.",
+  "key_observables": "Quantum runtime lower bounds, effective difficulty (product of sparsity and condition number), and tomography overhead.",
+  "important_parameters": "Sparsity (s), condition number (kappa), target precision (epsilon), and quantum cycle duration.",
+  "main_assumptions": "Highly benevolent assumptions including noise-free hardware, single-cycle oracle execution, convergence in a single iteration, and minimal iterative refinement steps.",
+  "figures_summary": "Figure 1 illustrates the quantum runtime lower bound pipeline; Figure 2 shows the distribution of effective difficulty across different problem classes; Figure 3 plots the percentage of instances where quantum lower bounds are below classical runtimes relative to quantum cycle duration.",
+  "paper_structure": "The paper introduces the QIPM framework, defines the benchmarking methodology and benevolent assumptions, presents the numerical estimation of system parameters, provides the exclusion analysis results across various problem families, and identifies the tomography overhead as the primary bottleneck.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24362_figures/2604.24362_fig1.jpg",
+      "caption": "Fig. 1. Pipeline for computing the quantum runtime lower bound. Each dashed arrow marks a benevolent assumption that reduces the bound, making it more favourable to the quantum method. If this lower bound already exceeds the classical runtime, no practical quantum advantage is possible. The dimension d and the sparsity s are calculated exactly, the condition number κ is lower-bounded. The QLSA is assumed to return the approximate solution with certainty, thus allowing to set the number of QAA iterations to nQAA = 1. Furthermore, the number of IR steps for improving the initial precision ε is benevolently set to 1. Lastly, the entire IPM is assumed to converge after one iteration, which...",
+      "page": 5
+    },
+    {
+      "image": "2604.24362_figures/2604.24362_fig2.jpg",
+      "caption": "Fig. 2. Effective difficulty γ = sκ of the Newton linear systems across all benchmark instances, for the MNES (left) and OSS (right) formulations. The three binary optimisation relaxations—Clique, Independent Set, and Vertex Cover—constitute predominantly easy Newton systems in both cases. In fact, the condition number κ was often found to be exactly 1, so that their difficulties are effectively given by their sparsity s. In contrast, the Max Flow set, consisting of relaxations of an integer optimisation problem, and the benchmark sets MIPib, Misc, Netlib, and StochLP constitute the most difficult Newton systems.",
+      "page": 7
+    },
+    {
+      "image": "2604.24362_figures/2604.24362_fig3.jpg",
+      "caption": "Fig. 3 shows the percentage of instances for which the quantum runtime lower bound lies below the classical HiGHS runtime, as a function of the assumed quantum cycle duration. The instances are broken down into the eight instances classes Clique, Independent Set, Max Flow, MIPlib, Misc, Netlib, StochLP, and Vertex Cover. Despite the looseness of the bounds due to the several benevolent assumptions described above, they result in slower quantum runtimes across all instances for any realistic (logical) quantum cycle duration around the current speed record of 800 ps for a physical en- tangling two-qubit gate. Most importantly, the exclusion result is robust with respect to the choice of...",
+      "page": 7
+    },
+    {
+      "image": "2604.24362_figures/2604.24362_fig4.jpg",
+      "caption": "Fig. 3. Percentage of instances (y-axis), divided into eight problem classes, for which the lower bounds of the two QIPM variants’ runtimes lie below HiGHS’ solve runtime. The runtime lower bound is the product of the established lower bound on the cycle count times the assumed quantum cycle duration (x-axis). Despite the bounds’ looseness due to a chain of several benevolent assumptions, they result in slower quantum runtimes—for both QIPM variants and on all instances—in range of any realistic value for the quantum cycle duration around the current speed record for a physical entangling two-qubit gate at 800 ps [36].",
+      "page": 8
+    }
+  ],
+  "figure": "2604.24362_figures/2604.24362_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

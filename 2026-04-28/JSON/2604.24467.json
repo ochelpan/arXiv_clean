@@ -1,0 +1,103 @@
+{
+  "arxiv_id": "2604.24467",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Adaptive Tensor Network Sampling for Quantum Optimal Control",
+  "authors": "Zeki Zeybek, Rick Mukherjee, Peter Schmelcher",
+  "abstract": "Quantum optimal control (QOC) provides a systematic framework for achieving high-fidelity operations in quantum systems and plays a central role in tasks such as gate synthesis, state transfer, and pulse design. Existing QOC methods broadly fall into two categories: gradient-based and gradient-free algorithms. The associated optimization landscape is often high-dimensional, non-convex, and populated by numerous local minima, making efficient gradient-free search strategies essential. To address this, we introduce a gradient-free matrix product state/tensor train (MPS/TT) sampling heuristic for discrete quantum optimal control. In our approach, the MPS defines a score function over the space of discrete control parameters, which in turn induces a sampling distribution over candidate control sequences. This distribution is iteratively refined through selection of better performing sequences and local tensor updates to bias the search toward high-performing sequences. We evaluate the method on a range of benchmark problems, including single-qubit state transfer, Bell-pair preparation, qutrit gate implementation, and open-system population transfer. Across these tasks, the method exhibits stable convergence behavior and competitive empirical performance relative to established gradient-free baselines. These results suggest that tensor network sampling offers a viable heuristic framework for discrete quantum control.",
+  "url": "http://arxiv.org/abs/2604.24467v1",
+  "pdf": "https://arxiv.org/pdf/2604.24467v1",
+  "type": "theory",
+  "summary": "This paper presents TT-EDA, a new optimization heuristic for quantum optimal control that uses Tensor Trains to represent and sample from control parameter distributions. By using a Matrix Product State to define a score function, the method efficiently searches high-dimensional, non-convex landscapes. The authors demonstrate that the method can successfully recover complex control structures, such as 'bang-bang' pulses and STIRAP protocols, with performance comparable to or better than existing gradient-free algorithms. It is particularly effective at scaling to higher-dimensional control problems.",
+  "main_problem": "Efficiently navigating high-dimensional, non-convex optimization landscapes in Quantum Optimal Control (QOC) to avoid the curse of dimensionality and the limitations of existing gradient-based and gradient-free methods.",
+  "main_result": "The proposed TT-EDA method exhibits stable convergence and competitive performance against established gradient-free baselines, showing particular advantages in high-dimensional regimes.",
+  "method": "A gradient-free sampling heuristic called TT-EDA that uses a Matrix Product State (MPS/Tensor Train) to define an unnormalized score function over discrete control parameters, which is iteratively updated via gradient ascent on the log-scores of elite samples.",
+  "model_or_system": "The method is tested on various benchmarks including single-qubit state transfer, Bell-pair preparation in coupled spin systems, qutrit gate implementation, and population transfer in three-level open quantum systems governed by the Lindblad master equation.",
+  "key_observables": "Fidelity, infidelity, and population dynamics.",
+  "important_parameters": "Bond dimension (chi), number of time steps (L), number of amplitude levels (d), learning rate (eta), and the lambda parameter for controlling the exploration-exploitation tradeoff.",
+  "main_assumptions": "The method is specifically designed for discrete control parameter spaces and relies on the ability of the Tensor Train to provide a compressed representation of the control space; it also assumes a discretization of continuous control fields.",
+  "figures_summary": "Figure 1 shows the TT-EDA optimization loop; Figure 2 illustrates the MPS sampling and update mechanism; Figure 3 and 4 show convergence and pulse profiles for single-qubit tasks; Figure 7 displays convergence and STIRAP-like dynamics for open systems; Figure 8 compares scaling behavior across different dimensions.",
+  "paper_structure": "The paper introduces the TT-EDA algorithm, describes the MPS-based sampling and update mechanism, presents benchmarks across various quantum control tasks (single-qubit, Bell-pair, qutrit, and open systems), evaluates performance against standard optimizers, and analyzes the exploration-exploitation tradeoff using high-dimensional benchmark functions.",
+  "why_interesting": "It introduces a novel way to use tensor networks not just for simulating many-body states, but as a generative tool for optimizing complex control pulses in open and multi-level quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24467_figures/2604.24467_fig1.jpg",
+      "caption": "FIG. 1: The schematic illustration of the optimization loop is shown. (a) Initially, the uniform MPS score func- tion defines a uniform sampling distribution over the dis- crete control space. (b) K candidate solutions are sam- pled from this distribution and evaluated via dynamical simulations to obtain their performance signals. (c) A subset of M high-performing samples is selected as elites, and the MPS score function parameters are updated to increase the scores of these elites, thereby biasing future sampling toward high-performing regions of the search space as shown in (d). This loop of sample, evaluate, fil- ter and update is repeated until the optimization budget is exhausted.",
+      "page": 3
+    },
+    {
+      "image": "2604.24467_figures/2604.24467_fig2.jpg",
+      "caption": "Figure 1, the optimal control loop is as follows:",
+      "page": 3
+    },
+    {
+      "image": "2604.24467_figures/2604.24467_fig3.jpg",
+      "caption": "FIG. 2: Illustration of MPS sampling and updating pro- cess. (a) Samples are drawn from a uniform distribu- tion induced by a uniform MPS score function over bit- strings of length four. Elite samples [0, 0, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0] and [0, 0, 1, 1] are selected. Here the empir- ical distribution is the normalized histogram obtained from samples drawn from the MPS, while the theoret- ical distribution is given by the exact normalized prob- abilities over all bitstrings computed explicitly over the full 24 = 16 configuration space. (b) After maximizing the log-scores of these elites, the MPS tensors are up- dated to increase their scores. Upon sampling from the distribution with the...",
+      "page": 4
+    },
+    {
+      "image": "2604.24467_figures/2604.24467_fig4.jpg",
+      "caption": "FIG. 3: Single-qubit optimal control for population transfer |0⟩→|1⟩with ∆= 0 is shown. System parame- ters are total time T = π, length of time-series (also the length of the MPS) L = 28. Optimization parameters are accessible amplitude levels d = 2, bond dimension χ = 4, number of sample points K = 12, number of elites k = 2, learning rate η = 0.07, and number of single-site sweeps 10. (a) Median convergence of the infidelity over 20 in- dependent runs (different random seeds) is shown. The solid curve shows the median, the dashed curves show the 16th and 84th percentiles, and the shaded band spans this percentile range. (b) Comparison of 20 independent runs with varying bond dimensions...",
+      "page": 7
+    },
+    {
+      "image": "2604.24467_figures/2604.24467_fig5.jpg",
+      "caption": "FIG. 4: Single-qubit bang-bang optimal control for pop- ulation transfer |0⟩→|1⟩with ∆= 1 is shown. System parameters are set as total time T = π √",
+      "page": 7
+    },
+    {
+      "image": "2604.24467_figures/2604.24467_fig6.jpg",
+      "caption": "FIG. 5: Optimal Bell-pair |↓↓⟩→|ψ+⟩preparation us- ing Fourier basis encoding is shown. System parameters are total time set as T = 2.5, number of time steps 30, Ising coupling strength ξ = 1. Optimization parame- ters are number of Fourier basis J = 5 for each Rabi frequency and detuning, bond dimension χ = 2, acces- sible levels for each Fourier coefficients d = 40, number of sample points K = 15, number of elites k = 3, learn- ing rate η = 0.06, and number of single-site sweeps 10. (a) Median convergence of the infidelity over 20 indepen- dent runs is given. The solid curve shows the median, the dashed curves show the 16th and 84th percentiles, and the shaded band spans this percentile...",
+      "page": 8
+    },
+    {
+      "image": "2604.24467_figures/2604.24467_fig7.jpg",
+      "caption": "FIG. 6: Qutrit NOT-gate optimization using piecewise- constant control fields. Parameters are given as anhar- monicity ∆= −400 × 2π MHz, total time T = 12.5/|∆|, number of piecewise-constant basis J = 5 with for each quadrature, bond dimension χ = 4, accessible levels for each coefficient d = 50, number of sample points K = 20, number of elites k = 2, learning rate η = 0.07, and num- ber of single-site sweeps 10. (a) Median convergence of the NOT-gate infidelity over 20 independent runs. The solid curve shows the median, the dashed curves show the 16th and 84th percentiles, and the shaded band spans this percentile range. (b) Performance comparison of in- terleaved versus separate ordering...",
+      "page": 9
+    },
+    {
+      "image": "2604.24467_figures/2604.24467_fig8.jpg",
+      "caption": "FIG. 7: Optimal population transfer in a three-level open system using spline basis encoding is shown. Parameters are set as total time set as T = 1, with total number of time steps 30, number of spline coefficients J = 10 for both pump and Stokes Rabi frequencies, bond dimension χ = 5, and decay rate γ = 5. Optimization parameters are accessible levels for each spline coefficient d = 10, number of sample points K = 20, number of elites k = 2, learning rate η = 0.06, and number of single-site sweeps 10. (a) Median convergence of the infidelity over 20 inde- pendent runs is given. The solid curve shows the median, the dashed curves show the 16th and 84th percentiles, and the shaded band...",
+      "page": 10
+    },
+    {
+      "image": "2604.24467_figures/2604.24467_fig9.jpg",
+      "caption": "FIG. 8: Convergence behavior of TT-EDA and PROTES across benchmark functions and problem dimensions. Columns correspond to benchmark functions (Alpine, Ackley, Rastrigin, Griewank, Schwefel). Rows correspond to the number of arguments (10, 30, 50, 70, 100). Each panel reports the median best objective value as a function of evaluations with interquantile ranges, computed over 10 independent runs. Local dimension d = 16 accessible values is used for each variable in all functions across all runs in both optimizers. Across all the runs the following configrations are used for both optimizers: bond dimension χ = 4, number of sample points K = 30, number of elites M = 5, learning rate η = 0.05,...",
+      "page": 14
+    }
+  ],
+  "figure": "2604.24467_figures/2604.24467_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 3,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 4
+  }
+}

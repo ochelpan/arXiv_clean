@@ -1,0 +1,98 @@
+{
+  "arxiv_id": "2604.24397",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Few-Shot Cross-Device Transfer for Quantum Noise Modeling on Real Hardware",
+  "authors": "Sahil Al Farib, Sheikh Redwanul Islam, Azizur Rahman Anik",
+  "abstract": "In the noisy intermediate-scale quantum (NISQ) regime, quantum devices contain hardware-specific noise sources which restrict device-invariant error mitigation strategies. We explore transfer learning approaches to apply noise models learned on one quantum device to a different device with the help of a small amount of data. We create a real-hardware dataset from two IBM quantum devices, ibm_fez (source) and ibm_marrakesh (target), comprising 170 noisy and ideal circuit output distributions, with device calibration features added. We train a residual neural network on the source device to map noisy to ideal outcomes. The zero-shot transfer test shows a KL divergence of 1.6706 (up from 0.3014), establishing device specificity. With K = 20 fine-tuning samples, KL drops to 1.1924 (28.6% improvement over zero-shot), recovering 34.9% of the gap between zero-shot and in-domain KL. Ablation studies reveal that the major cause of mismatches across devices is CX gate error, followed by readout error. The results show quantum noise can be learned and fine-tuned with minimal samples, and provide a plausible approach to cross-device quantum error mitigation.",
+  "url": "http://arxiv.org/abs/2604.24397v1",
+  "pdf": "https://arxiv.org/pdf/2604.24397v1",
+  "type": "both",
+  "summary": "This paper addresses the challenge of cross-device quantum error mitigation in the NISQ era. By using transfer learning, the authors show that a neural network trained on one IBM quantum processor can be quickly adapted to a new processor using only a handful of circuit samples. This approach significantly reduces the error gap caused by hardware-specific noise like CX gate errors. The method provides a scalable, low-overhead alternative to more computationally expensive error mitigation techniques.",
+  "main_problem": "Quantum noise in the NISQ era is hardware-specific and time-varying, making it difficult to develop error mitigation strategies that generalize across different quantum devices.",
+  "main_result": "The study demonstrates that a noise model trained on one device can be effectively adapted to a different device using few-shot learning (K=20 samples), achieving a 28.6% improvement in KL divergence over zero-shot transfer.",
+  "method": "The researchers used a Residual Neural Network (ResNet) for supervised distribution regression, employing a layer-selective fine-tuning strategy and a replay buffer to adapt the model from a source device to a target device.",
+  "model_or_system": "The experimental platform consists of two IBM superconducting quantum processors, ibm_fez (source) and ibm_marrakesh (target), using circuits with 2-5 qubits and depths of 2-8.",
+  "key_observables": "KL divergence, Total Variation (TV) distance, and hardware calibration features including T1 (relaxation), T2 (dephasing), readout error, and CX gate error.",
+  "important_parameters": "Number of fine-tuning samples (K = 5, 10, 20), circuit depth (2-8), and qubit count (2-5).",
+  "main_assumptions": "The model assumes that quantum noise can be sufficiently modeled using circuit structure and mean-aggregated hardware calibration features, and it does not account for per-qubit spatial heterogeneity.",
+  "figures_summary": "Figure 1 shows dataset composition; Figure 2 compares calibration drift between backends; Figure 6 shows TV distance vs. K; Figure 7 visualizes probability distribution redistribution; Figure 8 shows the results of the feature ablation study.",
+  "paper_structure": "The paper introduces the challenge of device-specific noise, describes the dataset and hardware, details the ResNet architecture and transfer learning protocol, presents results for zero-shot and few-shot performance, performs an ablation study to identify error drivers, and discusses limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24397_figures/2604.24397_fig1.jpg",
+      "caption": "Fig. 1. Dataset composition. (a) Sample counts by backend: 85 per device. (b) Circuit type distribution: 40 random, 15 Bell, 15 GHZ, 15 QFT. (c) Qubit count distribution across 2–5 qubits. The balanced structure across circuit types ensures the dataset covers a representative range of noise regimes.",
+      "page": 2
+    },
+    {
+      "image": "2604.24397_figures/2604.24397_fig2.jpg",
+      "caption": "Fig. 2. Device calibration drift between ibm_fez (Backend A) and ibm_marrakesh (Backend B). Left: coherence times T1 and T2 in microseconds. Right: readout error and CX gate error rates. Backend B has longer coherence times but higher gate and readout error rates—a qualitatively distinct noise profile that motivates the need for explicit adaptation.",
+      "page": 3
+    },
+    {
+      "image": "2604.24397_figures/2604.24397_fig3.jpg",
+      "caption": "Fig. 3. Training convergence curve (KL divergence, log scale) on Backend A. Both training and validation loss decrease monotonically before early stopping. The gap between training and validation curves is small, indicating limited overfitting despite the small dataset size (68 training samples). Best val KL = 0.4605 at epoch 27; early stopping at epoch 52.",
+      "page": 4
+    },
+    {
+      "image": "2604.24397_figures/2604.24397_fig4.jpg",
+      "caption": "Fig. 4. Results summary table. Rows: in-domain, zero-shot, and K=5/10/20 few-shot conditions. Columns: KL divergence (mean ± std), TV distance, and KL improvement percentage. Note that TV increases slightly (+0.0221), indicating that improvements in low-probability states (KL-sensitive) may come at the cost of small deviations in dominant states.",
+      "page": 5
+    },
+    {
+      "image": "2604.24397_figures/2604.24397_fig5.jpg",
+      "caption": "Fig. 5. KL divergence as a function of few-shot sample count K. Dashed red line: zero-shot baseline (1.6706). Dotted green line: in-domain reference (0.3014). Blue curve with shaded ±1 std confidence band: few-shot fine-tuning over 5 seeds. Percentage annotations indicate per-K improvement over zero- shot. The monotonic improvement with K confirms that the pre-trained source model provides a useful initialization for adaptation.",
+      "page": 5
+    },
+    {
+      "image": "2604.24397_figures/2604.24397_fig6.jpg",
+      "caption": "Fig. 6. Total Variation distance as a function of K. Unlike KL divergence, TV distance does not decrease monotonically: it remains approximately flat for K ≤10 and increases slightly at K = 20 (0.5282 →0.5503). This divergence from the KL trend is discussed in Section V-A.",
+      "page": 6
+    },
+    {
+      "image": "2604.24397_figures/2604.24397_fig7.jpg",
+      "caption": "Fig. 7. Probability distribution comparison for a representative circuit on Backend B (circuit type and qubit count shown in panel title). Grouped bar chart: red = noisy input, blue = ideal target, green = model prediction over computational basis states. Side panel: KL and TV metrics for each sample, for all three pairs. The model effectively redistributes mass to the correct distribution, bringing down the noisy-to-ideal KL.",
+      "page": 6
+    },
+    {
+      "image": "2604.24397_figures/2604.24397_fig8.jpg",
+      "caption": "Fig. 8. Feature ablation study. Bar heights show KL divergence when each calibration feature is zeroed out at inference time (model weights unchanged). Red bar: removing this feature increases KL (feature is informative under zero-shot transfer). Green bar: removing this feature decreases KL, indicating distribution mismatch rather than benefit—the model’s learned association is miscalibrated for the target device’s regime. Both readout error and CX gate error exhibit cross-device mismatch (negative ∆), with CX gate error having the dominant effect.",
+      "page": 7
+    }
+  ],
+  "figure": "2604.24397_figures/2604.24397_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "dissipative systems": 2,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  }
+}
