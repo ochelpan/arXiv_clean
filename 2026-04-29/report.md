@@ -1,14 +1,14 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-29
 
-*176 papers · 40 relevant · 6 highlighted*
+*176 papers · 99 relevant · 6 highlighted*
 
 
-## 🔥 Most relevant (40)
+## 🔥 Most relevant (99)
 
 *Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥4/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page. `(secondary)` marks papers from de-prioritized cond-mat archives.*
 
-<details markdown="1"><summary>Show 40 relevant papers</summary>
+<details markdown="1"><summary>Show 99 relevant papers</summary>
 
 - ⭐ [Randomised measurements of a disorder-induced entanglement transition in a neutral atom quantum processor](#paper-2604.24854) [[arXiv]](http://arxiv.org/abs/2604.24854v1) — 🔥 `Rydberg arrays` **5/5** · 🔥 `QC/QI experiment` **4/5** · 🔥 `analog quantum simulation` **4/5** · 🔥 `entanglement & information structure` **4/5** · 🔥 `non-equilibrium dynamics` **4/5** · `quantum measurements` **3/5** · `exotic spin models in light-matter` **2/5** · `measurement-induced transitions` **2/5** · `non-equilibrium universality` **2/5** · `scars & prethermalization` **2/5**
 - [Emergent prethermal Bethe integrability in a periodically driven Rydberg chain](#paper-2604.24850) [[arXiv]](http://arxiv.org/abs/2604.24850v1) — 🔥 `scars & prethermalization` **5/5** · 🔥 `Rydberg arrays` **4/5** · 🔥 `non-equilibrium dynamics` **4/5** · `analog quantum simulation` **3/5** · `driven-dissipative phase transition` **3/5** · `entanglement & information structure` **3/5** · `exotic spin models in light-matter` **3/5**
@@ -50,6 +50,65 @@
 - [Magnomechanical Coupling in Suspended 2D van der Waals Ferromagnets](#paper-2604.25588) [[arXiv]](http://arxiv.org/abs/2604.25588v1) `(secondary)` — 🔥 `spintronics-quantum-optics interface` **4/5**
 - [Millikelvin digital-to-analog converter for superconducting quantum processors](#paper-2604.25303) [[arXiv]](http://arxiv.org/abs/2604.25303v1) — 🔥 `QC/QI experiment` **4/5**
 - [Simon's Algorithm for the Even-Mansour Cipher on Quantum Hardware](#paper-2604.25509) [[arXiv]](http://arxiv.org/abs/2604.25509v1) — 🔥 `QC/QI experiment` **4/5**
+- [Markovian thermodynamics of non-Markovian Langevin equations](#paper-2604.25095) [[arXiv]](http://arxiv.org/abs/2604.25095v1) — `entanglement & information structure` **3/5** · `non-equilibrium dynamics` **3/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `correlated / nonlocal dissipation` **2/5** · `methods for driven-dissipative` **2/5**
+- ⭐ [Anomaly and symmetry-charge flow in mixed states](#paper-2604.24872) [[arXiv]](http://arxiv.org/abs/2604.24872v1) — `methods for driven-dissipative` **3/5** · `correlated / nonlocal dissipation` **2/5** · `driven-dissipative phase transition` **2/5** · `entanglement & information structure` **2/5** · `non-equilibrium dynamics` **2/5**
+- [Pseudo-Hermiticity of the Nakajima-Zwanzig Projected Liouvillian in the Jaynes-Cummings Model](#paper-2604.25801) [[arXiv]](http://arxiv.org/abs/2604.25801v1) — `methods for driven-dissipative` **3/5** · `Tavis-Cummings & cavity-many-emitter` **2/5** · `driven-dissipative phase transition` **2/5** · `non-equilibrium dynamics` **2/5** · `non-equilibrium universality` **2/5**
+- [Hierarchical Reconstruction of Time-arrow from Multi-time Correlations](#paper-2604.25749) [[arXiv]](http://arxiv.org/abs/2604.25749v1) — `methods for driven-dissipative` **3/5** · `non-equilibrium dynamics` **3/5** · `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
+- [Hierarchy of entropy production and thermodynamic trade-off relations in non-Markovian systems](#paper-2604.25245) [[arXiv]](http://arxiv.org/abs/2604.25245v1) — `methods for driven-dissipative` **3/5** · `non-equilibrium dynamics` **3/5** · `correlated / nonlocal dissipation` **2/5** · `entanglement & information structure` **2/5**
+- [Nonlocal correlations for bosonic fields in black hole quantum atmosphere](#paper-2604.24976) [[arXiv]](http://arxiv.org/abs/2604.24976v1) — `entanglement & information structure` **3/5** · `correlated / nonlocal dissipation` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+- [Polarization-preserving wavefront rotator](#paper-2604.25475) [[arXiv]](http://arxiv.org/abs/2604.25475v1) — `interference shaping light` **3/5** · `quantum optics experiment` **3/5** · `QC/QI experiment` **2/5**
+- [Spinodal-like scaling behavior after a temperature quench across the first-order phase transition in three-dimensional $q$-state Potts models](#paper-2604.25351) [[arXiv]](http://arxiv.org/abs/2604.25351v1) — `non-equilibrium dynamics` **3/5** · `non-equilibrium universality` **3/5**
+- [Universal Characterization of Classical Qubit Noise](#paper-2604.25705) [[arXiv]](http://arxiv.org/abs/2604.25705v1) — `methods for driven-dissipative` **3/5** · `quantum measurements` **3/5**
+- [Control of relaxation properties of a macroscopic nuclear spin ensemble](#paper-2604.25548) [[arXiv]](http://arxiv.org/abs/2604.25548v1) `(secondary)` — `spintronics-quantum-optics interface` **3/5** · `QC/QI experiment` **2/5**
+- [Data-Driven Hamiltonian Reduction for Superconducting Qubits via Meta-Learning](#paper-2604.24912) [[arXiv]](http://arxiv.org/abs/2604.24912v1) — `QC/QI experiment` **3/5** · `methods for driven-dissipative` **2/5**
+- [From Ultrafast Demagnetization to Ultrafast Spintronics : a 30 years story](#paper-2604.25431) [[arXiv]](http://arxiv.org/abs/2604.25431v1) `(secondary)` — `non-equilibrium dynamics` **3/5** · `spintronics-quantum-optics interface` **2/5**
+- [Heralding probability optimization for nonclassical light generated by photon counting measurements on multimode Gaussian states](#paper-2604.25910) [[arXiv]](http://arxiv.org/abs/2604.25910v1) — `quantum measurements` **3/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5**
+- [Non-magnetic floating phases in frustrated Haldane chains with a single-ion anisotropy](#paper-2604.25493) [[arXiv]](http://arxiv.org/abs/2604.25493v1) — `entanglement & information structure` **3/5** · `Frenkel-Kontorova` **2/5**
+- [Nonlocal Cooper pairs in finite topological superconductors and their relation to Majorana nonlocality](#paper-2604.25169) [[arXiv]](http://arxiv.org/abs/2604.25169v1) `(secondary)` — `entanglement & information structure` **3/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5**
+- [Polynomial Resource Classification of Quantum Circuit Familes via Classical Shadows](#paper-2604.25708) [[arXiv]](http://arxiv.org/abs/2604.25708v1) — `quantum measurements` **3/5** · `entanglement & information structure` **2/5**
+- [Universal transport of active colloids with sensory delay in motility landscapes](#paper-2604.25745) [[arXiv]](http://arxiv.org/abs/2604.25745v1) — `non-equilibrium dynamics` **3/5** · `non-equilibrium universality` **2/5**
+- [Pulse Quality Optimisation in Quantum Optimal Control](#paper-2604.25768) [[arXiv]](http://arxiv.org/abs/2604.25768v1) — `Rydberg arrays` **3/5**
+- [Quantum-enhanced Network Tomography](#paper-2604.25194) [[arXiv]](http://arxiv.org/abs/2604.25194v1) — `quantum measurements` **3/5**
+- [Symmetry-Protected Topological Phases in the Triangular Majorana-Hubbard Ladder](#paper-2604.24887) [[arXiv]](http://arxiv.org/abs/2604.24887v1) — `entanglement & information structure` **3/5**
+- [Parallel distributed quantum gates for dual-species quantum emitters](#paper-2604.25140) [[arXiv]](http://arxiv.org/abs/2604.25140v1) — `correlated / nonlocal dissipation` **2/5** · `quantum measurements` **2/5** · `spintronics-quantum-optics interface` **2/5**
+- [USEQIP: Outcomes and experiences from 17 years of undergraduate summer schools in experimental quantum information science](#paper-2604.25124) [[arXiv]](http://arxiv.org/abs/2604.25124v1) — `QC/QI experiment` **2/5** · `quantum optics experiment` **2/5** · `spintronics-quantum-optics interface` **1/5**
+- [A unified quantum random walk model for internal crystal effects in dynamical diffraction](#paper-2604.25808) [[arXiv]](http://arxiv.org/abs/2604.25808v1) — `analog quantum simulation` **2/5** · `interference shaping light` **2/5**
+- [Co-rotating Vortices on Surfaces of Variable Negative Curvature: Hamiltonian Structure and Drift Dynamics](#paper-2604.25682) [[arXiv]](http://arxiv.org/abs/2604.25682v1) — `analog quantum simulation` **2/5** · `non-equilibrium dynamics` **2/5**
+- [Doping-Induced Brightening of Dark Excitons and Trions in a WSe$_2$ Monolayer](#paper-2604.25553) [[arXiv]](http://arxiv.org/abs/2604.25553v1) `(secondary)` — `quantum optics experiment` **2/5** · `spintronics-quantum-optics interface` **2/5**
+- [Electric-field control of hydrogen bonding via interfacial charge at atomic resolution](#paper-2604.25114) [[arXiv]](http://arxiv.org/abs/2604.25114v1) `(secondary)` — `driven-dissipative phase transition` **2/5** · `non-equilibrium dynamics` **2/5**
+- [Linear response from tilted Dirac cones under strain-induced pseudomagnetic fields](#paper-2604.25758) [[arXiv]](http://arxiv.org/abs/2604.25758v1) `(secondary)` — `Keldysh / 2PI / non-Gaussian methods` **2/5** · `non-equilibrium dynamics` **2/5**
+- [Moving Cooling Source Induced Phase Separation in Binary Liquids: an interplay of competing velocities](#paper-2604.25302) [[arXiv]](http://arxiv.org/abs/2604.25302v1) — `non-equilibrium dynamics` **2/5** · `non-equilibrium universality` **2/5**
+- [QCalEval: Benchmarking Vision-Language Models for Quantum Calibration Plot Understanding](#paper-2604.25884) [[arXiv]](http://arxiv.org/abs/2604.25884v1) — `QC/QI experiment` **2/5** · `Rydberg arrays` **1/5** · `quantum measurements` **1/5**
+- [Quantum Error Correction Exploiting Quantum Spatial Distribution and Gauge Symmetry](#paper-2604.25747) [[arXiv]](http://arxiv.org/abs/2604.25747v1) — `correlated / nonlocal dissipation` **2/5** · `entanglement & information structure` **2/5**
+- [Robustness of fiber-optic attenuators to 1061-nm sub-nanosecond pulsed laser radiation in quantum key distribution systems](#paper-2604.25620) [[arXiv]](http://arxiv.org/abs/2604.25620v1) — `QC/QI experiment` **2/5** · `quantum optics experiment` **2/5**
+- [Thermal conductivity of aligned polymers with kinks](#paper-2604.25037) [[arXiv]](http://arxiv.org/abs/2604.25037v1) — `non-equilibrium dynamics` **2/5** · `non-equilibrium universality` **2/5**
+- [Tightening energy-based boson truncation bound using Monte Carlo-assisted methods](#paper-2604.24896) [[arXiv]](http://arxiv.org/abs/2604.24896v1) — `analog quantum simulation` **2/5** · `methods for driven-dissipative` **2/5**
+- [Bohmian Trajectories in a Bistable Potential Well](#paper-2604.25048) [[arXiv]](http://arxiv.org/abs/2604.25048v1) — `quantum measurements` **2/5**
+- [Bond-dimension scaling of a local-refinement advantage over hyperoptimized tensor-network contraction on Sycamore like topologies](#paper-2604.25532) [[arXiv]](http://arxiv.org/abs/2604.25532v1) — `methods for driven-dissipative` **2/5**
+- [Ember: An Extensible Benchmark Suite for Quantum Annealing Embedding Algorithms](#paper-2604.25433) [[arXiv]](http://arxiv.org/abs/2604.25433v1) — `QC/QI experiment` **2/5**
+- [Exact results for the Hubbard model on bipartite lattices in spatial dimensions $d>1$: Seven theorems from the full [SU(2)$\times$SU(2)$\times$U(1)]/$\mathbb{Z}_2^2$ symmetry](#paper-2604.25712) [[arXiv]](http://arxiv.org/abs/2604.25712v1) — `entanglement & information structure` **2/5**
+- [Femtosecond tunneling spectroscopy of ultrafast band bending dynamics at the atomic limit](#paper-2604.25146) [[arXiv]](http://arxiv.org/abs/2604.25146v1) `(secondary)` — `non-equilibrium dynamics` **2/5**
+- [Hidden optical nonlinearities in linear spectra of quantum emitter arrays](#paper-2604.25010) [[arXiv]](http://arxiv.org/abs/2604.25010v1) — `Keldysh / 2PI / non-Gaussian methods` **2/5**
+- [Kohn-Sham Hamiltonian from Effective Field Theory: Quasiparticle Band Narrowing from Frozen Core Dynamics](#paper-2604.25199) [[arXiv]](http://arxiv.org/abs/2604.25199v1) — `Keldysh / 2PI / non-Gaussian methods` **2/5**
+- [On the Mathematics of Information-Thermodynamics](#paper-2604.24948) [[arXiv]](http://arxiv.org/abs/2604.24948v1) — `entanglement & information structure` **2/5**
+- [Optimizing ground state preparation protocols with autoresearch](#paper-2604.25610) [[arXiv]](http://arxiv.org/abs/2604.25610v1) — `entanglement & information structure` **2/5**
+- [Pareto Frontier of Neural Quantum States: Scalable, Affordable, and Accurate Convolutional Backflow for Strongly Correlated Lattice Fermions](#paper-2604.25775) [[arXiv]](http://arxiv.org/abs/2604.25775v1) — `entanglement & information structure` **2/5**
+- [Probing sliding ferroelectricity in bilayer T$_\mathrm{d}$-WTe$_2$ with high-harmonic generation](#paper-2604.25483) [[arXiv]](http://arxiv.org/abs/2604.25483v1) `(secondary)` — `non-equilibrium dynamics` **2/5**
+- [Quantum Dynamics via Score Matching on Bohmian Trajectories](#paper-2604.25137) [[arXiv]](http://arxiv.org/abs/2604.25137v1) — `methods for driven-dissipative` **2/5**
+- [Quantum Optimization Methods for the Generalized Traveling Salesman Problem](#paper-2604.25531) [[arXiv]](http://arxiv.org/abs/2604.25531v1) — `QC/QI experiment` **2/5**
+- [Quantum-Inspired Robust and Scalable SAR Object Classification](#paper-2604.25755) [[arXiv]](http://arxiv.org/abs/2604.25755v1) — `entanglement & information structure` **2/5**
+- [Raman Characterization of Two-Dimensional Quasiperiodic Antiferromagnets on Various Lattices: Spin-Orbit Mechanism](#paper-2604.25401) [[arXiv]](http://arxiv.org/abs/2604.25401v1) — `spintronics-quantum-optics interface` **2/5**
+- [Restoration of Ensemble Equivalence by Quantum Fluctuations](#paper-2604.25837) [[arXiv]](http://arxiv.org/abs/2604.25837v1) — `Keldysh / 2PI / non-Gaussian methods` **2/5**
+- [Sign Embedding Quantum Algorithms for Matrix Equations and Matrix Functions](#paper-2604.25333) [[arXiv]](http://arxiv.org/abs/2604.25333v1) — `methods for driven-dissipative` **2/5**
+- [Six textbook mistakes in quantum field theory](#paper-2604.24871) [[arXiv]](http://arxiv.org/abs/2604.24871v1) — `Keldysh / 2PI / non-Gaussian methods` **2/5**
+- [Statistical mechanics in continuous space with tensor network methods](#paper-2604.25060) [[arXiv]](http://arxiv.org/abs/2604.25060v1) — `methods for driven-dissipative` **2/5**
+- [The Classification of Pauli Stabilizer Codes: A Lattice and Continuum Treatise](#paper-2604.24847) [[arXiv]](http://arxiv.org/abs/2604.24847v1) — `entanglement & information structure` **2/5**
+- [The mixed-dimensional quantum MacWilliams identity: bounds for codes and absolutely maximally entangled states in heterogeneous systems](#paper-2604.25790) [[arXiv]](http://arxiv.org/abs/2604.25790v1) — `entanglement & information structure` **2/5**
+- [Tunable thermal conductivity through dual spin-phonon coupling in van der Waals ferromagnetic insulator Cr2Ge2Te6](#paper-2604.25115) [[arXiv]](http://arxiv.org/abs/2604.25115v1) — `spintronics-quantum-optics interface` **2/5**
+- [Ultrafast Energy Absorption in Silicon Controlled by Two-Color Double Pulses](#paper-2604.25093) [[arXiv]](http://arxiv.org/abs/2604.25093v1) `(secondary)` — `non-equilibrium dynamics` **2/5**
+- ⭐ [Uncovering Exotic Paired States in the 2D Spin-Imbalanced Fermi Gas with Neural Wave Functions](#paper-2604.24883) [[arXiv]](http://arxiv.org/abs/2604.24883v1) — `analog quantum simulation` **2/5**
+- [Highly fluctuating double-$q$ magnetic order in the van der Waals metal CeTe$_3$](#paper-2604.25436) [[arXiv]](http://arxiv.org/abs/2604.25436v1) — `Kondo & dissipative impurity` **1/5**
+- [Minimum Toffoli depth for the multi-controlled Toffoli gate via teleportation](#paper-2604.25861) [[arXiv]](http://arxiv.org/abs/2604.25861v1) — `quantum measurements` **1/5**
 
 </details>
 

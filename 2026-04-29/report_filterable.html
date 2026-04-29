@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>arxiv filterable digest — 2026-04-29</title>
+<style>
+:root {
+  --bg: #ffffff; --fg: #1f2328; --muted: #59636e;
+  --border: #d0d7de; --card: #f6f8fa; --link: #0969da;
+  --accent: #cf222e; --pill: #ddf4ff; --pillfg: #0969da;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117; --fg: #e6edf3; --muted: #8b949e;
+    --border: #30363d; --card: #161b22; --link: #58a6ff;
+    --accent: #f85149; --pill: #1f3958; --pillfg: #58a6ff;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.45;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+}
+header h1 {
+  margin: 0 0 0.25rem; font-size: 1.1rem;
+}
+.summary { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.5rem; }
+.controls { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; font-size: 0.85rem; }
+.controls label { display: inline-flex; align-items: center; gap: 0.3rem; cursor: pointer; }
+.threshold-row { display: flex; align-items: center; gap: 0.5rem; flex: 1 1 100%; max-width: 360px; }
+.threshold-row input[type=range] { flex: 1; min-width: 100px; }
+.threshold-val { font-weight: 600; min-width: 1.5em; text-align: right; }
+details.topics-panel summary {
+  cursor: pointer; padding: 0.3rem 0; font-weight: 600;
+  list-style: none;
+}
+details.topics-panel summary::before { content: "▸ "; }
+details.topics-panel[open] summary::before { content: "▾ "; }
+.topics-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.25rem 1rem; margin: 0.4rem 0; max-height: 50vh; overflow-y: auto;
+  padding: 0.4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.topic-checkbox { font-size: 0.85rem; }
+.topic-checkbox input { margin-right: 0.3rem; }
+.topic-actions { display: flex; gap: 0.5rem; margin-top: 0.3rem; }
+.topic-actions button {
+  font-size: 0.8rem; padding: 0.2rem 0.5rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 4px; cursor: pointer; color: var(--fg);
+}
+.topic-actions button:hover { background: var(--pill); }
+.sort-row { display: flex; align-items: center; gap: 0.4rem; }
+select {
+  background: var(--card); color: var(--fg);
+  border: 1px solid var(--border); border-radius: 4px;
+  padding: 0.2rem 0.4rem; font-size: 0.85rem;
+}
+main { max-width: 980px; margin: 0 auto; padding: 0.5rem 1rem 5rem; }
+.paper-row {
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 0;
+}
+.paper-title {
+  font-size: 1rem; font-weight: 600; margin: 0;
+  display: flex; align-items: baseline; gap: 0.4rem; flex-wrap: wrap;
+}
+.paper-title a { color: var(--link); text-decoration: none; }
+.paper-title a:hover { text-decoration: underline; }
+.paper-title .toggle {
+  cursor: pointer; user-select: none; color: var(--muted);
+  font-size: 0.85rem; flex: 0 0 auto;
+}
+.paper-meta { color: var(--muted); font-size: 0.8rem; margin: 0.15rem 0 0.25rem; }
+.paper-pills { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.2rem; }
+.pill {
+  display: inline-block;
+  background: var(--pill); color: var(--pillfg);
+  padding: 0.1rem 0.5rem; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 600;
+}
+.pill.hot { background: var(--accent); color: white; }
+.pill.star { background: #fff8c5; color: #54470b; }
+@media (prefers-color-scheme: dark) {
+  .pill.star { background: #4d3800; color: #ffe28a; }
+}
+.paper-detail {
+  padding: 0.5rem 0 0.25rem 0; margin-top: 0.5rem;
+  border-top: 1px dashed var(--border);
+}
+.paper-detail img { max-width: 100%; height: auto; }
+.paper-detail .paper-figures-scroll {
+  display: flex; gap: 0.75rem; overflow-x: auto;
+  padding: 0.5rem 0; scroll-snap-type: x proximity;
+}
+.paper-detail .paper-figure-card {
+  flex: 0 0 min(260px, 72vw); scroll-snap-align: start;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.5rem; margin: 0;
+}
+.paper-detail .paper-figure-caption { font-size: 0.78rem; color: var(--muted); }
+.paper-detail details { margin: 0.5rem 0; }
+.paper-detail summary { cursor: pointer; font-weight: 600; color: var(--link); }
+.figure-strip-hint { font-size: 0.75rem; color: var(--muted); margin: 0.25rem 0; }
+.empty-state {
+  text-align: center; padding: 2rem; color: var(--muted);
+}
+</style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header>
+  <h1>arxiv digest — 2026-04-29 <small style="font-weight:normal;color:var(--muted)">(filterable)</small></h1>
+  <div class="summary" id="summary">Loading…</div>
+  <div class="controls">
+    <div class="threshold-row">
+      <label for="threshold">Min score:</label>
+      <input type="range" id="threshold" min="0" max="5" step="1" value="0">
+      <span class="threshold-val" id="threshold-val">0</span>
+    </div>
+    <div class="sort-row">
+      <label for="sort-by">Sort:</label>
+      <select id="sort-by">
+        <option value="max">by best topic score</option>
+        <option value="sum">by total relevance</option>
+        <option value="title">by title</option>
+      </select>
+    </div>
+    <label><input type="checkbox" id="primary-only"> primary archives only</label>
+    <label><input type="checkbox" id="highlighted-only"> highlighted authors only</label>
+  </div>
+  <details class="topics-panel" open>
+    <summary>Topics (click to filter — papers must score on at least one CHECKED topic)</summary>
+    <div class="topics-grid" id="topic-checkboxes"></div>
+    <div class="topic-actions">
+      <button id="select-all">Select all</button>
+      <button id="select-none">Select none</button>
+    </div>
+  </details>
+</header>
+<main id="papers"></main>
+<script>
+const DATA_URL = 'papers.json';
+let DATA = null;
+
+const $ = (id) => document.getElementById(id);
+
+async function load() {
+  try {
+    const res = await fetch(DATA_URL);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    DATA = await res.json();
+  } catch (err) {
+    $('papers').innerHTML = '<p class="empty-state">Could not load papers.json: ' + err.message + '</p>';
+    return;
+  }
+  initTopics();
+  render();
+}
+
+function initTopics() {
+  const grid = $('topic-checkboxes');
+  grid.innerHTML = '';
+  for (const t of DATA.topics) {
+    const id = 'topic-' + btoa(t).replace(/[+/=]/g, '');
+    const lab = document.createElement('label');
+    lab.className = 'topic-checkbox';
+    lab.innerHTML = `<input type="checkbox" value="${escapeAttr(t)}" id="${id}" checked> ${escapeText(t)}`;
+    grid.appendChild(lab);
+  }
+  grid.addEventListener('change', render);
+  $('select-all').addEventListener('click', () => { setAll(true); render(); });
+  $('select-none').addEventListener('click', () => { setAll(false); render(); });
+  $('threshold').addEventListener('input', () => {
+    $('threshold-val').textContent = $('threshold').value;
+    render();
+  });
+  $('sort-by').addEventListener('change', render);
+  $('primary-only').addEventListener('change', render);
+  $('highlighted-only').addEventListener('change', render);
+}
+
+function setAll(checked) {
+  document.querySelectorAll('#topic-checkboxes input').forEach(cb => cb.checked = checked);
+}
+
+function selectedTopics() {
+  return new Set(Array.from(document.querySelectorAll('#topic-checkboxes input:checked')).map(c => c.value));
+}
+
+function paperPasses(p, sel, threshold, primaryOnly, highlightedOnly) {
+  if (highlightedOnly && !p.is_highlighted) return false;
+  if (primaryOnly && !p.is_primary) return false;
+  if (p.is_highlighted) return true;  // highlighted authors always pass once that filter is satisfied
+  // Otherwise, must score >= threshold on at least one selected topic.
+  if (sel.size === 0) return threshold === 0;
+  for (const [t, s] of Object.entries(p.topic_scores)) {
+    if (sel.has(t) && s >= threshold) return true;
+  }
+  return false;
+}
+
+function topicMaxOnSelected(p, sel) {
+  let mx = 0;
+  for (const [t, s] of Object.entries(p.topic_scores)) {
+    if (sel.has(t) && s > mx) mx = s;
+  }
+  return mx;
+}
+
+function topicSumOnSelected(p, sel) {
+  let s = 0;
+  for (const [t, v] of Object.entries(p.topic_scores)) {
+    if (sel.has(t)) s += v;
+  }
+  return s;
+}
+
+function render() {
+  const sel = selectedTopics();
+  const threshold = parseInt($('threshold').value, 10);
+  const primaryOnly = $('primary-only').checked;
+  const highlightedOnly = $('highlighted-only').checked;
+  const sortBy = $('sort-by').value;
+
+  const filtered = DATA.papers.filter(p => paperPasses(p, sel, threshold, primaryOnly, highlightedOnly));
+
+  const cmp = {
+    max: (a, b) => topicMaxOnSelected(b, sel) - topicMaxOnSelected(a, sel) ||
+                   topicSumOnSelected(b, sel) - topicSumOnSelected(a, sel) ||
+                   a.title.localeCompare(b.title),
+    sum: (a, b) => topicSumOnSelected(b, sel) - topicSumOnSelected(a, sel) ||
+                   topicMaxOnSelected(b, sel) - topicMaxOnSelected(a, sel) ||
+                   a.title.localeCompare(b.title),
+    title: (a, b) => a.title.localeCompare(b.title),
+  }[sortBy];
+  filtered.sort((a, b) => {
+    // Highlighted papers first regardless of sort field
+    if (a.is_highlighted !== b.is_highlighted) return a.is_highlighted ? -1 : 1;
+    return cmp(a, b);
+  });
+
+  $('summary').textContent = `${filtered.length} of ${DATA.papers.length} papers · ${DATA.topics.length} topics · selected: ${sel.size}`;
+
+  const main = $('papers');
+  main.innerHTML = '';
+  if (filtered.length === 0) {
+    main.innerHTML = '<p class="empty-state">No papers match these filters.</p>';
+    return;
+  }
+  for (const p of filtered) {
+    main.appendChild(renderPaper(p, sel));
+  }
+}
+
+function renderPaper(p, sel) {
+  const row = document.createElement('div');
+  row.className = 'paper-row';
+  row.dataset.id = p.id;
+
+  const star = p.is_highlighted ? '⭐ ' : '';
+  const sec = p.is_primary ? '' : ' <span class="pill" title="secondary archive">sec</span>';
+
+  // Title row with toggle
+  const titleEl = document.createElement('div');
+  titleEl.className = 'paper-title';
+  titleEl.innerHTML = `<span class="toggle" data-action="toggle">▸</span> ${star}<a href="${escapeAttr(p.url)}" target="_blank" rel="noopener">${escapeText(p.title)}</a>${sec}`;
+  row.appendChild(titleEl);
+
+  // Meta line
+  const meta = document.createElement('div');
+  meta.className = 'paper-meta';
+  let metaText = p.authors;
+  if (p.category) metaText += ' · ' + p.category;
+  if (p.type) metaText += ' · ' + p.type;
+  meta.textContent = metaText;
+  row.appendChild(meta);
+
+  // Score pills (only show topics scoring > 0; mark hot if matches a selected topic)
+  const pills = document.createElement('div');
+  pills.className = 'paper-pills';
+  if (p.is_highlighted && p.highlighted_authors.length) {
+    const sp = document.createElement('span');
+    sp.className = 'pill star';
+    sp.textContent = '⭐ ' + p.highlighted_authors.join(', ');
+    pills.appendChild(sp);
+  }
+  const ranked = Object.entries(p.topic_scores)
+    .filter(([, v]) => v > 0)
+    .sort((a, b) => b[1] - a[1]);
+  for (const [topic, score] of ranked) {
+    const sp = document.createElement('span');
+    const isHot = sel.has(topic) && score >= 4;
+    sp.className = 'pill' + (isHot ? ' hot' : '');
+    sp.textContent = `${topic} ${score}/5`;
+    pills.appendChild(sp);
+  }
+  row.appendChild(pills);
+
+  // Detail container (lazy-rendered on first toggle)
+  const detail = document.createElement('div');
+  detail.className = 'paper-detail';
+  detail.style.display = 'none';
+  detail.dataset.loaded = '0';
+  row.appendChild(detail);
+
+  titleEl.querySelector('[data-action=toggle]').addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = detail.style.display !== 'none';
+    if (!open && detail.dataset.loaded === '0') {
+      detail.innerHTML = p.html;
+      detail.dataset.loaded = '1';
+      // Tell MathJax to typeset newly-injected content
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise([detail]).catch(() => {});
+      }
+    }
+    detail.style.display = open ? 'none' : 'block';
+    titleEl.querySelector('.toggle').textContent = open ? '▸' : '▾';
+  });
+
+  return row;
+}
+
+function escapeText(s) {
+  return String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+}
+function escapeAttr(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+load();
+</script>
+</body>
+</html>
