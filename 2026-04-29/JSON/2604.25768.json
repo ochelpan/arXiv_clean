@@ -1,0 +1,96 @@
+{
+  "arxiv_id": "2604.25768",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Pulse Quality Optimisation in Quantum Optimal Control",
+  "authors": "Dylan Lewis, Roeland Wiersema",
+  "abstract": "Quantum optimal control methods are widely used to design experimental control pulses such as laser amplitudes, phases, or detunings, that implement a target unitary evolution. In practice, what makes a pulse \"good\" depends not only on its fidelity, but also on the experimental setting and the relevant hardware constraints. Here, we introduce geometric quantum control with kernel optimisation (GECKO), a model-agnostic method for improving control pulses after a high-fidelity solution has been found. GECKO uses the Riemannian geometry of the special unitary group to identify directions in pulse space that leave the implemented unitary unchanged to first order, allowing one to traverse level sets of the control landscape while optimising a chosen differentiable pulse-quality function. We demonstrate GECKO on a transverse-field Ising Hamiltonian implementing CZ and CNOT gates, optimising pulse properties including spectral filtering, smoothness, robustness to parameter deviations, and pulse duration. In all cases, GECKO finds substantially improved pulse solutions.",
+  "url": "http://arxiv.org/abs/2604.25768v1",
+  "pdf": "https://arxiv.org/pdf/2604.25768v1",
+  "type": "theory",
+  "summary": "This paper presents GECKO, a new method for post-processing quantum control pulses to meet experimental hardware constraints. By utilizing the geometric properties of the SU(N) group, the algorithm identifies pulse updates that do not change the gate fidelity but do improve properties like smoothness and spectral purity. The authors demonstrate that GECKO can effectively filter high-frequency noise and increase robustness to parameter errors. This approach allows for the optimization of secondary pulse qualities without sacrificing the high-fidelity performance achieved by initial control searches.",
+  "main_problem": "Standard quantum optimal control methods focus on maximizing gate fidelity but often neglect practical hardware constraints like pulse smoothness, spectral bandwidth, and robustness to parameter errors.",
+  "main_result": "The authors introduce GECKO, a method that optimizes secondary pulse-quality objectives (e.g., spectral filtering, smoothness, and robustness) by traversing the nullspace of the control Jacobian, thereby improving pulse quality without degrading gate fidelity.",
+  "method": "GECKO (Geometric Quantum Control with Kernel Optimisation) uses the Riemannian geometry of the SU(N) group to identify the kernel of the Jacobian map, allowing parameter updates that leave the implemented unitary unchanged to first order.",
+  "model_or_system": "The method is demonstrated on two-qubit systems using a transverse-field Ising Hamiltonian to implement CZ and CNOT gates, relevant to platforms like ion traps and Rydberg atom arrays.",
+  "key_observables": "Unitary fidelity, pulse power spectrum (FFT), pulse smoothness (sum of squared differences), and robustness to parameter deviations.",
+  "important_parameters": "Control parameters (amplitudes, phases, detunings), pulse duration (T), drift coupling strength (g), and the step size (s) for optimization updates.",
+  "main_assumptions": "The method assumes a high-fidelity initial solution is already available and that the control landscape can be effectively explored via the Jacobian's kernel.",
+  "figures_summary": "Figure 1 illustrates the geometric concept of the Jacobian map; Figure 2 shows successful frequency filtering; Figure 3 demonstrates pulse smoothing; Figure 4 shows the elimination of unnecessary control parameters; Figure 5 compares GECKO's spectral performance against Gaussian filtering.",
+  "paper_structure": "The paper introduces the problem of hardware constraints, presents the GECKO geometric framework, details the mathematical mechanism of kernel optimization, demonstrates applications in frequency filtering, smoothing, and robustness, and concludes with scalability discussions and limitations.",
+  "why_interesting": "This is highly relevant for researchers in AMO and quantum optics as it provides a systematic way to bridge the gap between theoretical high-fidelity gates and the practical, bandwidth-limited, and noisy pulses required in experimental platforms like Rydberg arrays and ion traps.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25768_figures/2604.25768_fig1.jpg",
+      "caption": "FIG. 1. The unitary UG(Φ) is an element of the special unitary group SU(N), and a point on a smooth manifold. UG(Φ) is also a map from parameters Φ, in the space RLK, to the special unitary group. The Jacobian J(Φ) is a map from the tangent space of the parameter space TΦRLK to the tangent space of the special unitary group TUG(Φ)SU(N). The kernel of the Jacobian J(Φ) is then spanned by the tangent vectors in TΦRLK that get mapped to the zero vector in TUG(Φ)SU(N). The leftmost illustration shows how, if dim(TΦRLK) > dim(TUG(Φ)SU(N)), the Jacobian map has a non-trivial kernel. The kernel can be described by an orthonormal set of basis vectors, Z(Φ). This illustrates the key idea in GECKO,...",
+      "page": 4
+    },
+    {
+      "image": "2604.25768_figures/2604.25768_fig2.jpg",
+      "caption": "FIG. 2. GECKO frequency filtering. The left column shows the original signal for h2(t) with L = 20 as a black solid line. The dashed and coloured lines show the signal smoothed with a Gaussian filter of width σ = 4 and the signal obtained with GECKO-based spectral filtering, respectively. The filtered signals are represented with L = 320 piecewise steps. On the right, we show the power of the Fourier-transformed signal with the frequencies per unit time. The right y-axis indicates the filter weight w ∈[0, 1]. The grey dots indicate the power spectrum before filtering, and the coloured dots indicate the power spectrum after filtering. All signals reported here have fidelity F ≃0.999999. (a)...",
+      "page": 6
+    },
+    {
+      "image": "2604.25768_figures/2604.25768_fig3.jpg",
+      "caption": "FIG. 3. Control pulses for the local field h1(t) implementing a two-qubit CZ gate under the Hamiltonian in Eq. (15) with h2(t) = 0. The black line is the solution (infidelity < ε = 1 × 10−7) with 4 piecewise steps. The pulse is then smoothed (a) with a Gaussian filter (in the left plot in blue) and (b) with GECKO (in the right plot in green) and then optimised again to maintain a solution with infidelity < ε. The re-optimised solutions were found using GEOPE, but GRAPE or another quantum-control method could also be used.",
+      "page": 7
+    },
+    {
+      "image": "2604.25768_figures/2604.25768_fig4.jpg",
+      "caption": "FIG. 4. Control pulses for the local fields (a) h1(t) and (b) h2(t) implementing a two-qubit CZ gate under the Hamiltonian in Eq. (15). The initial solution with 4 piecewise steps is given in black and the solution given by smoothing with GECKO is given in green. The solution maintains an infidelity ε < 1×10−7. After smoothing, GECKO effectively eliminates the need for the h1(t) control.",
+      "page": 8
+    },
+    {
+      "image": "2604.25768_figures/2604.25768_fig5.jpg",
+      "caption": "FIG. 5. GECKO pulse smoothing over 100 independently initialised solutions with L = 10 piecewise steps. Each solution is refined to L = 320 and smoothed either with Gaussian filters of different widths σ or with GECKO. The two panels on the left show the median power of the resulting pulses hx(t) and hz(t) averaged over the 100 initialisations. The error bars indicate the 25th and 75th percentiles. The two panels on the right show two examples of the resulting pulses found by the different smoothing procedures. All pulses shown have an infidelity of ε < 1 × 10−4.",
+      "page": 8
+    },
+    {
+      "image": "2604.25768_figures/2604.25768_fig6.jpg",
+      "caption": "FIG. 6. The robustness quality function is optimised with GECKO for a CZ gate pulse with the model of Eq. (15) where h2(t) = 0 and L = 20 piecewise steps. (a) Fidelity is plotted against the small deviation δh1 of the solution parameter h1(t). After 20 iterations of GECKO, the pulse is re-optimised with GEOPE to ensure a high fidelity solution. (b) The parameters after each of the 20 iterations of GECKO are shown.",
+      "page": 9
+    },
+    {
+      "image": "2604.25768_figures/2604.25768_fig7.jpg",
+      "caption": "FIG. 7. CZ pulse under the Hamiltonian in Eq. (15) with h2(t) = 0 and L = 20 piecewise steps. (a) The initial pulse after optimal control (GEOPE). (b) The final pulse after GECKO is used to minimise the pulse duration function Qpath(Φ). The total time is reported in units of the fixed drift coupling strength g, giving T = 2.323/g.",
+      "page": 10
+    },
+    {
+      "image": "2604.25768_figures/2604.25768_fig8.jpg",
+      "caption": "FIG. 8. The pulse solution for a CZ gate pulse with the model of Eq. (15) where h2(t) = 0 and L = 20 piecewise steps. (a) The initial pulse is the GECKO path-length-optimised solution shown in Fig. 7. (b) The final pulse after GECKO minimisation of Qdrift. The total time is reported in units of the fixed drift coupling strength g, giving T = 0.854/g.",
+      "page": 11
+    }
+  ],
+  "figure": "2604.25768_figures/2604.25768_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 3,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

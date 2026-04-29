@@ -1,0 +1,96 @@
+{
+  "arxiv_id": "2604.24973",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Approximate Sparse State Preparation with the Grover-Rudolph Algorithm",
+  "authors": "Debora Ramacciotti, Martin Steinbach, Bence Temesi, Andreea-Iulia Lefterovici, Antonio F. Rotundo",
+  "abstract": "Sparse quantum state preparation is a common subroutine in quantum algorithms, where classical data with few nonzero entries must be loaded into a quantum state. In this work, we consider the Grover-Rudolph algorithm, which has recently been shown to efficiently prepare sparse states, and we propose two improvements. First, we extend an existing gate-merging procedure by allowing rotations to merge with virtual zero-angle gates on unreachable branches of the preparation tree, reducing the number of CNOTs and control qubits. Second, we introduce an approximate variant in which rotations with similar but not identical angles are merged at the cost of a small, controllable error in the prepared state. We derive a classically computable estimate of the resulting overlap with the target state, which is used to guide the merging decisions.",
+  "url": "http://arxiv.org/abs/2604.24973v1",
+  "pdf": "https://arxiv.org/pdf/2604.24973v1",
+  "type": "theory",
+  "summary": "This paper presents two new optimization techniques for the Grover-Rudolph algorithm to make sparse quantum state preparation more efficient. The first method uses exact gate merging to significantly reduce CNOT counts without any loss in fidelity. The second method introduces an approximate approach that allows for even greater gate reductions by merging similar rotation angles, provided the resulting error stays below a user-defined threshold. These improvements are particularly valuable for implementing quantum algorithms on early fault-tolerant quantum computers.",
+  "main_problem": "The challenge of reducing the circuit complexity, specifically the CNOT gate count, for preparing sparse quantum states using the Grover-Rudolph algorithm.",
+  "main_result": "The proposed exact optimization reduces CNOT counts by up to 90% for highly sparse states, while an additional approximate variant provides a further 20-30% reduction with controllable error.",
+  "method": "The authors propose an exact gate-merging and control-stripping procedure and an approximate greedy optimization strategy that merges rotations with similar angles based on a classically computable overlap estimator.",
+  "model_or_system": "The work focuses on the preparation of sparse quantum states where the number of non-zero amplitudes d is much smaller than the Hilbert space dimension 2^n.",
+  "key_observables": "CNOT gate count, state overlap (fidelity), and the error in the overlap estimator.",
+  "important_parameters": "Sparsity (d/2^n), minimum allowed overlap threshold (F_min), and the number of threshold steps (M) in the greedy procedure.",
+  "main_assumptions": "The analysis is limited to real, positive quantum states; the locations and number of non-zero entries are known a priori; and the approximate method introduces a small, controllable infidelity.",
+  "figures_summary": "Circuit diagrams of rotations, illustrations of preparation trees and gate merging, plots of CNOT reduction versus sparsity, and performance assessments of the overlap estimator and greedy algorithm.",
+  "paper_structure": "The paper introduces the problem of sparse state preparation, details an exact optimization method via gate merging and control stripping, presents an approximate greedy optimization strategy with an overlap estimator, provides complexity analysis and numerical validation, and discusses limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24973_figures/2604.24973_fig1.jpg",
+      "caption": "Fig. 1: Circuit diagram of a uniformly controlled y-rotation on three qubits. We indicate the Ry rotation just by the applied angle to simplify the notation.",
+      "page": 2
+    },
+    {
+      "image": "2604.24973_figures/2604.24973_fig2.jpg",
+      "caption": "Fig. 2: Preparation tree for the state |ψ⟩= a |001⟩+ b |011⟩+ c |100⟩. The highlighted leaves are the nonzero basis states of the target state, while faded nodes indicate zero-amplitude branches. The non-faded nodes correspond to the nonzero prefix sets Sk. The coarse-grained state |ψ(2)⟩, for instance, is given by a |00⟩+ b |01⟩+ c |10⟩.",
+      "page": 2
+    },
+    {
+      "image": "2604.24973_figures/2604.24973_fig3.jpg",
+      "caption": "Fig. 3: Example of optimization procedure. Here, θ(2) 11 = θ(2) 10 = θ(2) 1e = θ.",
+      "page": 3
+    },
+    {
+      "image": "2604.24973_figures/2604.24973_fig4.jpg",
+      "caption": "Fig. 4: CNOT reduction due to the exact merges. We plot the ratio of the CNOT count after the merging procedure to that before the merging procedure, using the single-rotation decomposition in both cases, against the sparsity percentage D = d/2n. The number of qubits is fixed at n = 20 qubits, and each point is averaged across 20 repetitions.",
+      "page": 5
+    },
+    {
+      "image": "2604.24973_figures/2604.24973_fig5.jpg",
+      "caption": "Fig. 5: Comparison between the uniform rotation algorithm (blue), single rotations after merges (pink), and the exact algorithm (green). We plot the CNOT gate count against the sparsity percentage D = d/2n, for simulation of n = 20 qubits and average across 20 repetitions.",
+      "page": 5
+    },
+    {
+      "image": "2604.24973_figures/2604.24973_fig6.jpg",
+      "caption": "Fig. 6: Performance assessment of the overlap estimation. The number of qubits is fixed to 15, and the number of intervals to M = 20, while the sparsity percentage D is varied. The two columns show, respectively, Fest −F and F −FLB as functions of the minimum allowed overlap Fmin, where FLB is the lower bound of Thm. 8, and F is the true overlap. The curves represent averages over 20 random real instances, while the shaded areas show the minimum and maximum values observed across repetitions.",
+      "page": 8
+    },
+    {
+      "image": "2604.24973_figures/2604.24973_fig7.jpg",
+      "caption": "Fig. 7: Comparison between the exact and approximate al- gorithms. The number of qubits is fixed to n = 20, and the number of intervals to M = 20, while the sparsity percentage D is varied. The plot shows the ratio of the number of CNOTs in the approximate algorithm to that in the exact scheme. Each data point corresponds to an average over 20 repetitions, with 10 points plotted per curve.",
+      "page": 8
+    },
+    {
+      "image": "2604.24973_figures/2604.24973_fig8.jpg",
+      "caption": "Fig. 8: Comparison between the exact and the approximate algorithm for different values of M. The number of qubits is fixed to n = 20, and the sparsity percentage to D = 5 · 10−5. The plot shows the ratio of the number of CNOTs in the approximate algorithm to that in the exact scheme. Each data point corresponds to an average over 20 repetitions, with 10 points plotted per curve.",
+      "page": 9
+    }
+  ],
+  "figure": "2604.24973_figures/2604.24973_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

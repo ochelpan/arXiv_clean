@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2604.25631",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Local tensor-train surrogates for quantum learning models",
+  "authors": "Sreeraj Rajindran Nair, Christopher Ferrie",
+  "abstract": "A key bottleneck in quantum machine learning is the computational cost of repeated quantum circuit evaluations during the inference phase. To address this, we present a framework for constructing fast, cheap, provably accurate classical tensor-train surrogates of fully trained quantum machine learning models within local patches of their input data space. The approach combines Taylor polynomial approximation with a tensor-train (TT) representation and embeds it in a statistical learning paradigm via empirical risk minimization. In our analysis, the Taylor-TT construction serves as a deterministic error certificate proving that the TT hypothesis class contains a good approximation; empirical risk minimization then provably recovers a surrogate with controlled generalization error and explicit bounds. This translates into three independently controllable error sources: (i) Taylor truncation error controlled by the patch radius $r$ and polynomial degree $p$, (ii) TT approximation error controlled by the bond dimension $χ$, and (iii) statistical estimation error. While the parameter count scales polynomially in the number of data dimensions $N$, i.e., $d_{\\mathrm{eff}} = N(p+1)χ^2$ rather than the naive $(p+1)^N$, the worst-case constants inherit an exponential factor through the tensor-product feature norm during Taylor polynomial embedding onto TT. This cleanly separates representation complexity from feature-induced constants. Our risk bounds and sample complexity depend explicitly on the local patch radius $r$.",
+  "url": "http://arxiv.org/abs/2604.25631v1",
+  "pdf": "https://arxiv.org/pdf/2604.25631v1",
+  "type": "theory",
+  "summary": "This paper introduces a method to create fast classical 'surrogates' for expensive quantum machine learning models. By using Tensor-Train decomposition and Taylor expansions within local patches of data, the authors create a framework that is much faster than direct circuit evaluation. The method provides mathematical guarantees on the accuracy of these surrogates, effectively separating the complexity of the representation from the complexity of the features. Numerical tests show speedups of up to 400x while maintaining high accuracy.",
+  "main_problem": "The high computational cost of repeated quantum circuit evaluations during the inference phase of Quantum Machine Learning (QML) models.",
+  "main_result": "The development of a framework for local Tensor-Train (TT) surrogates that provides provable error certificates and statistical guarantees for approximating black-box quantum models.",
+  "method": "A combination of Taylor polynomial approximation, Tensor-Train (TT) compression via TT-SVD, and Empirical Risk Minimization (ERM) within local patches of the input space.",
+  "model_or_system": "Arbitrary trained quantum machine learning models, such as Variational Quantum Algorithms (VQAs) and Parametrized Quantum Circuits (PQCs), treated as black-box functions mapping classical inputs to expectation values.",
+  "key_observables": "Expectation values of quantum observables (e.g., Z expectation value), RMSE, and TT/TRUNC error ratios.",
+  "important_parameters": "Patch radius (r), polynomial degree (p), TT bond dimension (chi), number of data dimensions (N), and sample size (n).",
+  "main_assumptions": "The target function is locally smooth and continuously differentiable; the input data is sampled i.i.d. from a distribution supported on a local patch; the quantum model is treated as a black-box.",
+  "figures_summary": "Figure 1 illustrates the LTTS workflow; Figure 3 shows error decomposition, TT compression error vs. rank, and surrogate RMSE vs. patch radius across different datasets.",
+  "paper_structure": "The paper identifies the QML inference bottleneck, proposes the LTTS framework, establishes a deterministic error certificate via Taylor-TT construction, provides statistical generalization bounds via ERM, analyzes rank scaling, and validates the method with numerical experiments.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25631_figures/2604.25631_fig1.jpg",
+      "caption": "Figure 1: Sample illustration of the local tensor-train surrogates (LTTS): Starting from a function f, we restrict to a local patch and approximate f by a truncated Taylor polynomial. The Taylor coefficients are embedded as a tensor and represented in tensor-train (TT) format with cores A1, . . . , Ak, which serves as an analytical certificate predictor with a known error bound decomposition. An empirical risk minimizer (ERM) then fits a new TT with cores B1, . . . , Bk directly from sampled function values in the local patch that potentially uses the Taylor-TT certificate as a warm-start initialization instead of a random initialization. We present deterministic bounds on the certificate’s...",
+      "page": 2
+    },
+    {
+      "image": "2604.25631_figures/2604.25631_fig2.jpg",
+      "caption": "Figure 2: Scatter of minimal TT rank caps (χbox, χ∆) for 176 test cases across four (N, p) configurations. Top row: common-scale criterion ∥A −ATT∥F ≤ε∥Abox∥F ; bottom row: self-relative criterion ∥A − ATT∥F ≤ε∥A∥F . Left column: ε = 10−2; right column: ε = 10−3. Points above the dashed diagonal indicate rank inflation (ρ > 1); points below indicate deflation (ρ < 1). Small random jitter is added for visibility since ranks are discrete. Separable functions cluster above the diagonal at χbox = 1; matched- degree polynomials lie on the diagonal; higher-degree polynomials and additional non-separable families fall below the diagonal under the common-scale criterion and move closer to the...",
+      "page": 17
+    },
+    {
+      "image": "2604.25631_figures/2604.25631_fig3.jpg",
+      "caption": "Figure 3: Local TT surrogate (LTTS) validation across two datasets: Top row: synthetic Gaussian classification. Bottom row: UCI Banknote Authentication. Each row shows the same 4-panel diagnostic: (A) error decomposition vs patch radius r at the primary center x0, including an r3 reference, (B) TT coefficient-tensor truncation error ∥C −Cχ∥F /∥C∥F vs rank cap χ across multiple centers; (C) total surrogate RMSE ∥g −Tp,χ∥vs r across centers at the best (largest) χ used; (D) Remark 5.1 proxy, TT/TRUNC = RMSE(Tp −Tp,χ)/RMSE(g −Tp) vs χ at r ≈0.1, with the 10−2 threshold indicating when TT compression error is negligible relative to Taylor truncation.",
+      "page": 18
+    }
+  ],
+  "figure": "2604.25631_figures/2604.25631_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

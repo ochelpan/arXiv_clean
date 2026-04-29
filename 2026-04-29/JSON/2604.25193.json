@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2604.25193",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.optics",
+    "math.OC",
+    "physics.comp-ph",
+    "physics.data-an",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Adaptive Sensing beyond Non-Adaptive Information Limits: End-to-End Co-Design of Geometry, Policy, and Inference",
+  "authors": "Arvin Keshvari, William Tuxbury, Zin Lin",
+  "abstract": "Inverse design has made vast physical parameter spaces a substrate for emergent behavior. In sensing, the stakes of this principle are sharpest at the analog-to-digital boundary, where any information the hardware fails to capture is information no downstream algorithm can recover; hardware optimization alone is therefore not enough, and the geometry must be co-designed with a rule for what to measure next. We formulate this co-design as \\emph{joint dynamic programming} (joint-DP): a single optimization over the continuous hardware geometry and a Bellman-optimal adaptive measurement policy. The outer hardware gradient is computed by differentiable dynamic programming with a sharp Bellman maximum, which the envelope theorem makes exact and bias-free, and a relaxation hierarchy carries the common framework from small discrete POMDPs to $10^5$-pixel photonic topologies. Across three case studies, joint-DP beats the natural baseline of its community by a large factor: on a radar beam-search POMDP, classical information-bound-guided geometry selection loses $2.8\\times$ in attainable adaptive value; on a superconducting-qubit flux sensor, joint-DP reduces deployed mean-squared error by $11.3\\times$ over the joint Bayesian Cramér--Rao baseline, with both geometries numerically co-optimized under their respective objectives; and on a $90{,}000$-pixel photonic metasensor, joint-DP via the Bayesian Fisher-information-matrix surrogate reduces deployed mean-squared error by $123\\times$ relative to a randomized baseline. For any sensor whose hardware is designed once but whose policy runs for the device's lifetime, joint optimization of hardware and policy is the minimum principled procedure.",
+  "url": "http://arxiv.org/abs/2604.25193v1",
+  "pdf": "https://arxiv.org/pdf/2604.25193v1",
+  "type": "theory",
+  "summary": "This paper introduces a new optimization framework called 'joint-DP' for the simultaneous end-to-end design of physical hardware and adaptive measurement policies. By using the envelope theorem to differentiate through the Bellman equation, the authors avoid the biases introduced by traditional smoothing methods. The framework demonstrates significant improvements in sensing precision across radar, superconducting qubits, and photonic metasurfaces. This approach ensures that the hardware is specifically optimized to exploit the information gained during adaptive measurement steps.",
+  "main_problem": "The lack of end-to-end co-design between physical hardware geometry and adaptive measurement policies, which leads to information loss at the analog-to-digital boundary.",
+  "main_result": "The development of a 'joint-DP' framework that achieves massive performance gains in sensing, including a 123x reduction in MSE for photonic metasensors and an 11.3x reduction for superconducting qubit flux sensors.",
+  "method": "A joint dynamic programming (joint-DP) approach using differentiable dynamic programming and the envelope theorem to compute exact, unbiased gradients of the hardware geometry without smoothing the Bellman maximum.",
+  "model_or_system": "A general framework for sensing modeled as Partially Observable Markov Decision Processes (POMDPs), applied to three specific systems: a radar beam-search, a superconducting-qubit flux sensor (Ramsey spectroscopy), and a high-dimensional photonic metasensor.",
+  "key_observables": "Mean-Squared Error (MSE), Mutual Information (MI), Expected Fisher log-determinant, and Expected Value of Perfect Information (EVPI).",
+  "important_parameters": "Hardware geometry (c), adaptive measurement policy (pi), belief state (b), and the number of sensing epochs (K).",
+  "main_assumptions": "The hardware is designed once and remains fixed for the lifetime of the device; the inner policy is Bellman-optimal; and the computational cost of the Bellman recursion must fit within memory.",
+  "figures_summary": "not specified",
+  "paper_structure": "The paper introduces the problem of fragmented optimization, proposes the joint-DP framework, details the mathematical derivation of the 'sharp-max' gradient via the envelope theorem, presents a hierarchy of relaxation methods for scalability, and validates the method through three diverse case studies (radar, SQUID, and photonics).",
+  "why_interesting": "This is highly relevant for quantum optics and open quantum systems because it provides a principled way to optimize the design of quantum sensors and measurement protocols (like Ramsey spectroscopy) by simultaneously optimizing the physical device and the adaptive control sequence.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25193_figures/2604.25193_fig1.jpg",
+      "caption": "Figure 1: Scene illustrations for the two case studies. Left (Case Study A, §6): a phased-array antenna interrogates a ring of 16 target cells; the true state (green, cell 11), the current beam pointing at cell sk = 5 with width m = 3, and the adaptive redirect selected by π⋆at the next epoch. Right (Case Study B, §7): the x-mon transmon cross on sapphire with a SQUID loop (two Josephson junctions) at the end of the +x arm, the external flux Φext threading the loop, a meandering readout resonator, and the Bloch-sphere view of the qubit; the bottom timeline shows the adaptive Ramsey sequences sk = (τk, nk) chosen by π⋆(bk) at each epoch.",
+      "page": 16
+    },
+    {
+      "image": "2604.25193_figures/2604.25193_fig2.jpg",
+      "caption": "Figure 2: Case Study C overview. A 2 × 2 lattice of identical cross-waveguide scatterers (cells 1–4), each carrying the same inverse-designed binary-permittivity pattern in its central design region. Two coherent broadband light pulses enter at the left edge: an action pulse carrying the adaptive input phases sk = (ϕ(k) 1 , ϕ(k) 2 ) at epoch k, and a fixed-phase reference pulse. External stimulus fields (e.g., electrostatic) acting on the cells induce per-cell refractive-index shifts ∆n1, . . . , ∆n4, which constitute the hidden state x = vec(∆n) ∈R4 to be estimated. The intensity overlays inside each cell visualize the electromagnetic near-field response under one such probe. Port powers...",
+      "page": 21
+    },
+    {
+      "image": "2604.25193_figures/2604.25193_fig3.jpg",
+      "caption": "Figure 3: Final optimized binary permittivity of the 300×300 design region (main panel). Inset: joint-DP loss trajectory from a fully random initialization through the full co-design; light blue, per-iteration loss; red, 20-iteration moving average; dashed, the transition into the filter-constrained projection phase.",
+      "page": 22
+    },
+    {
+      "image": "2604.25193_figures/2604.25193_fig4.jpg",
+      "caption": "Figure 1: Reachable count-tuple DAG for a Ramsey-like DP at K = 3 epochs, J = 2 delays, n = 1 shot per epoch. Nodes: reachable count-tuples (N1, M1; N2, M2), one column per epoch; colour = posterior mean ˆx (plasma scale); size ∝posterior precision 1/σ; red ring marks nodes reached by more than one parent path (the memoization collapse). Edges: colour by action (τ1 / τ2), style by outcome (y = 0 dashed / y = 1 solid). The compression-ratio box in the lower right compares the naive playout-tree size to the count-tuple DAG size. Right column: four representative posteriors — the prior at the root and three distinct terminal-belief shapes at k = 3.",
+      "page": 46
+    }
+  ],
+  "figure": "2604.25193_figures/2604.25193_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 4,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  }
+}

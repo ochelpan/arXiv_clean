@@ -1,0 +1,106 @@
+{
+  "arxiv_id": "2604.25863",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "MCMit: Mid-Circuit Measurement Error Mitigation",
+  "authors": "Emmanouil Giortamis, Felix Gust, Aleksandra Świerkowska, Sandra Stankovic, Innocenzo Fulginiti, Yanbin Chen, Xiaorang Guo, Benjamin Lienhard, Martin Schulz, Pramod Bhatotia",
+  "abstract": "Distributed Quantum Computing (DQC) and Quantum Error Correction (QEC) rely on dynamic circuits that include Mid-Circuit Measurements (MCMs) and classical feedback. These operations present a major bottleneck: MCMs suffer from high error rates that lead to real-time branching errors, while MCM and classical feedback latencies amplify decoherence errors. Current hardware controllers, qubit-state discriminators, and software error mitigation techniques fail to address these challenges holistically.   We propose MCMit, a hardware-software co-design to mitigate branching and latency-induced errors. MCMit introduces a scalable, constant-latency multi-control branch instruction for faster classical feedback and two qubit-state discriminators, a transformer, and a CNN, with high accuracy even under short measurement durations. On the software side, static MCM elimination and stochastic branching complement the hardware by mitigating residual branching errors that persist despite hardware improvements.   We implement MCMit on Qubic and evaluate it using experimentally extracted QPU readout traces. Our branch instruction reduces feedback latency by up to 70\\%, improving circuit depths by up to $7\\times$ over Qubic. Our CNN discriminator achieves 37-73\\% higher accuracy for short measurement durations than the baselines, leading to up to 80\\% lower logical error rates in QEC. Last, our software mitigation improves fidelity by 18--30\\% over baseline methods.",
+  "url": "http://arxiv.org/abs/2604.25863v1",
+  "pdf": "https://arxiv.org/pdf/2604.25863v1",
+  "type": "both",
+  "summary": "This paper presents MCMit, a holistic hardware-software co-design to mitigate errors and latency in mid-circuit measurements. By combining an FPGA-based controller with new neural network-based state discriminators and software-level error mitigation, the authors significantly reduce the overhead of dynamic quantum circuits. The approach improves readout accuracy for short durations and reduces logical error rates in quantum error correction. This is crucial for the advancement of distributed quantum computing and scalable fault-tolerant architectures.",
+  "main_problem": "Mid-circuit measurements (MCMs) and classical feedback latency/errors create significant bottlenecks in dynamic quantum circuits, leading to increased decoherence and branching errors in QEC and DQC.",
+  "main_result": "The MCMit co-design reduces feedback latency by up to 70%, improves circuit depth by up to 7x, and achieves up to 80% lower logical error rates in surface codes through improved state discrimination and hardware-software mitigation.",
+  "method": "A hardware-software co-design featuring an FPGA-based controller with a multi-control branch instruction and neural network discriminators (Transformer and CNN) paired with software-level MCM elimination and stochastic branching.",
+  "model_or_system": "The implementation uses the Qubic 2.0 open-source framework on an Xilinx Alveo FPGA, evaluated using experimentally extracted readout traces from a five-qubit superconducting QPU and simulated surface code patches.",
+  "key_observables": "MCM error rates (bit-flips), readout fidelity, classical feedback latency, circuit depth, and logical error rates in surface codes.",
+  "important_parameters": "Readout durations (250ns to 2000ns), signal-to-noise ratio (SNR), and surface code distances (d=7, 9, 11).",
+  "main_assumptions": "The evaluation assumes realistic noise models derived from IBM Heron processors and the effectiveness of the hardware-software co-design scales with the reduction of measurement-induced errors.",
+  "figures_summary": "Figure 1 shows the readout pipeline and neural network architectures; Figure 2 analyzes the impact of MCM error and latency on performance; Figure 6 illustrates the modified controller architecture; Figure 7 details the Transformer and CNN designs; Figure 8 demonstrates dynamic circuit simplification.",
+  "paper_structure": "The paper introduces the bottleneck of MCMs, proposes the MCMit co-design (hardware and software layers), details the implementation on FPGA, evaluates performance using experimental traces and QEC simulations, and concludes with a discussion on scalability and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25863_figures/2604.25863_fig1.jpg",
+      "caption": "Figure1:Superconductingreadout(§2.1). (a)SuperconductingqubitreadoutpipelineonanFPGAcontroller.(b)TheMCMinatele- portation circuit can produce a readout trace of 1𝜇𝑠: 500 samples spaced 2ns apart. (c) The readout trace is input to a Feed-forward Neural Network comprising N layers. The network discriminates 0 and 1 using a decision boundary that separates the states.",
+      "page": 2
+    },
+    {
+      "image": "2604.25863_figures/2604.25863_fig2.jpg",
+      "caption": "Figure 2: MECH [112] performance analysis. (a) Impact of MCM errors as a ratio to the 2-qubit gate errors. (b) Impact of MCM latency as a ratio to the 2-qubit gate latency. (c) Impact of classical feedback latency as a ratio to the 2-qubit gate latency. There is a linear performance improvement with MCM error and (classical) latency reduction.",
+      "page": 3
+    },
+    {
+      "image": "2604.25863_figures/2604.25863_fig3.jpg",
+      "caption": "Figure 3: Logical error rate of the surface code on the Google Sycamore architecture [6]. (a) Increasing with the MCM error rate. (b) Increasing with the MCM duration. Green marks durations available with MCMit; red marks those available with HERQULES [68].",
+      "page": 4
+    },
+    {
+      "image": "2604.25863_figures/2604.25863_fig4.jpg",
+      "caption": "Figure 5: MCMit workflow (§ 4.2). (a) Compile-time workflow and (b) runtime workflow.",
+      "page": 5
+    },
+    {
+      "image": "2604.25863_figures/2604.25863_fig5.jpg",
+      "caption": "Figure 4: MCMit overview (§ 4). MCMit comprises the error mitigation software and the FPGA controller.",
+      "page": 5
+    },
+    {
+      "image": "2604.25863_figures/2604.25863_fig6.jpg",
+      "caption": "Fig. 5 shows the compile-time and runtime workflows of MCMit. The software layer operates only at compile-time, while the FPGA controller layer operates only at runtime. Compile-time workflow. To apply the first stage to the input quan- tum circuit, dynamic circuit simplification, we execute three sub- stages: (1) we identify and remove up to 𝑀MCMs, where 𝑀dictates the computational complexity of our static analysis tool, and (2), we simplify the control logic that is based on those MCMs. This removes some operands (e.g., XOR) in subsequent branch instructions or elim- inates the branches entirely, effectively reducing classical latency. (3) We apply the measurement hardening pass, which...",
+      "page": 5
+    },
+    {
+      "image": "2604.25863_figures/2604.25863_fig7.jpg",
+      "caption": "Fig. 4 shows the MCMit architecture, comprising the MCMit soft- ware layer for circuit-level error mitigation and the MCMit FPGA controller, which integrates the fast multi-qubit branching logic and the high-accuracy qubit-state discriminator model. Fastclassicalfeedback.MCMitintroducesafastmulti-qubitbranch instruction, which executes scalable conditional logic based on the",
+      "page": 5
+    },
+    {
+      "image": "2604.25863_figures/2604.25863_fig8.jpg",
+      "caption": "Figure 6: MCMit controller (§ 5). Blue boxes show modified components, yellow boxes show ADC/DAC components, and green boxes show example data tables. Steps (1)-(8) are executed for a conditional feedback operation based on an MCM result.",
+      "page": 6
+    },
+    {
+      "image": "2604.25863_figures/2604.25863_fig9.jpg",
+      "caption": "Fig. 6 shows the design of our FPGA controller, based on the open- source Qubic framework [107]. At a high level, the controller com- prises a function processor, a distributed processor, a set of buffers, and a set of interfaces. Function processor. The function processor is responsible for ap- plying processing functions to qubit readout results and, as such, supports an interface between external components, such as state discriminators or dedicated QEC decoders, if needed. Distributed processor. The distributed processor comprises mul- tiple cores, each managing interfaces to the function processor and inter-core synchronization. Cores execute programs featuring pre- cisely timed pulse...",
+      "page": 6
+    },
+    {
+      "image": "2604.25863_figures/2604.25863_fig10.jpg",
+      "caption": "Figure 7: The MCMit qubit-state discriminators (§ 6).",
+      "page": 7
+    }
+  ],
+  "figure": "2604.25863_figures/2604.25863_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

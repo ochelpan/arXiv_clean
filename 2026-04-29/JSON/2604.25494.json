@@ -1,0 +1,102 @@
+{
+  "arxiv_id": "2604.25494",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Sector-dominant graph-local drivers for path-window barrier Hamiltonians on the Boolean hypercube",
+  "authors": "Takiko Sasaki, Tetsuji Tokihiro",
+  "abstract": "We study finite-size adiabatic state preparation on Boolean hypercubes using graph-local drivers built from sector/path coordinates related to monotone Gray-code representatives. The construction is not presented as a new all-$n$ Gray-code existence theorem; rather, it provides finite representatives, explicitly checked through the cases used in the numerical experiments, for testing problem-dependent graph-local drivers. For ordinary diagonal-cost transverse-field annealing, the ordering does not yield a robust advantage, and we include this negative result as a baseline. For non-diagonal target Hamiltonians whose geometry is expressed in the same sector/path coordinates, hybrid drivers combining sector, path-window, and small transverse-field components can substantially improve the final ground-state fidelity in centered barrier instances. Reproduction runs from the accompanying code confirm a representative centered original-window barrier value of approximately \\(0.9799\\) for the fixed-control hybrid parameters \\((w,α,ε)=(8,0.50,0.15)\\), while also showing that the improvement is target-class dependent. Randomized and ablation controls indicate that the dominant contribution is the sector-preserving skeleton, with strict one-bit completion acting as a secondary refinement. We provide code, finite certificates, CSV files, validation logs, and reproduction scripts to make the finite-size claims traceable.",
+  "url": "http://arxiv.org/abs/2604.25494v1",
+  "pdf": "https://arxiv.org/pdf/2604.25494v1",
+  "type": "theory",
+  "summary": "This paper investigates how to design specialized 'drivers' for quantum annealing that are tailored to the specific structure of a problem. By using a hybrid approach that combines Hamming-weight sectors with specific path-window coordinates, the authors show they can significantly improve the success rate of finding ground states for certain classes of non-diagonal Hamiltonians. While not a universal solution for all quantum annealing problems, it provides a design principle for using graph-local information to guide quantum dynamics.",
+  "main_problem": "Designing problem-dependent, graph-local adiabatic drivers to improve ground-state preparation fidelity in quantum annealing on Boolean hypercubes.",
+  "main_result": "A hybrid driver combining sector, path-window, and transverse-field components significantly improves fidelity for non-diagonal target Hamiltonians aligned with the driver's geometry, though it provides no advantage for standard diagonal-cost annealing.",
+  "method": "Numerical simulations of the time-dependent Schrodinger equation using finite-size studies (up to n=8) and ablation controls to identify the roles of different driver components.",
+  "model_or_system": "Quantum annealing on an n-dimensional Boolean hypercube using a time-dependent Hamiltonian consisting of a hybrid driver and a non-diagonal target Hamiltonian with path-window barrier structures.",
+  "key_observables": "Ground-state preparation fidelity, energy residual, minimum spectral gap, and MeanBand (matrix bandwidth metric).",
+  "important_parameters": "Number of qubits (n up to 8), annealing time (T), driver window width (w), and mixing parameters (alpha, epsilon).",
+  "main_assumptions": "The study is limited to finite-size systems (n <= 8) and the effectiveness is conditional on the target Hamiltonian's geometry being aligned with the driver's coordinates.",
+  "figures_summary": "Boxplots comparing different path-order controls, ablation studies showing the necessity of each driver component, and performance comparisons for sensor-placement benchmarks.",
+  "paper_structure": "The paper introduces the sector/path coordinate construction, presents numerical experiments on fidelity and spectral gaps, performs ablation studies to isolate driver mechanisms, and concludes with validation via specific benchmark problems.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25494_figures/2604.25494_fig1.jpg",
+      "caption": "Figure 1: Locality diagnostics for the strict sector-snake ordering and the fast 𝑣2 ordering in the regenerated 𝑛≤8 benchmark. The strict ordering keeps all adjacent moves at Hamming distance one in these checked cases. The 𝑣2 ordering preserves the skeleton and fixed prefix but introduces longer adjacent jumps.",
+      "page": 6
+    },
+    {
+      "image": "2604.25494_figures/2604.25494_fig2.jpg",
+      "caption": "Figure 2: Regenerated 𝑛= 8 baseline and best-hybrid comparison for the non-diagonal target classes in table 5. The sector-dominant hybrid improves the window-barrier targets, while standard TF remains very strong for sector/path mixture controls.",
+      "page": 12
+    },
+    {
+      "image": "2604.25494_figures/2604.25494_fig3.jpg",
+      "caption": "Figure 3 illustrates the role of the mixing parameters. The best region is not 𝛼= 1, which would be a path-only driver. Instead, the high-fidelity region keeps a large sector component and uses the path-window term as an additional geometry-aware component. This observation is the basis for the phrase “sector-dominant hybrid driver” used throughout the paper.",
+      "page": 12
+    },
+    {
+      "image": "2604.25494_figures/2604.25494_fig4.jpg",
+      "caption": "Figure 3: Regenerated heatmap for the centered original-window barrier target with driver window 𝑤= 4. The useful region is sector-dominant with a substantial but not standalone path-window component and a small transverse-field catalyst.",
+      "page": 13
+    },
+    {
+      "image": "2604.25494_figures/2604.25494_fig5.jpg",
+      "caption": "Figure 4: Distributional path-order controls. Boxplots show 64 sampled random permutations and 64 sampled sector-preserving random orderings; single points show TF, sector-only, and deterministic orderings. Left: matched target/driver controls. Right: strict target with varied catalyst path.",
+      "page": 14
+    },
+    {
+      "image": "2604.25494_figures/2604.25494_fig6.jpg",
+      "caption": "Figure 5: Left: driver ablation. The path-window graph is weak as a standalone driver, while the full sector-dominant hybrid is strongest. Right: anneal-time dependence. The full hybrid becomes clearly advantageous at intermediate and long anneal times, while all broad drivers approach high fidelity for 𝑇= 160.",
+      "page": 15
+    },
+    {
+      "image": "2604.25494_figures/2604.25494_fig7.jpg",
+      "caption": "Figure 6: Left: regenerated grid-based minimum gaps for selected drivers on the 𝑛= 8 original- window barrier target. Right: finite-size summary for selected drivers over 𝑛= 5, . . . , 8 at 𝑇= 80. The path-only driver deteriorates strongly, while sector-dominant hybrids remain high at the tested finite sizes.",
+      "page": 16
+    },
+    {
+      "image": "2604.25494_figures/2604.25494_fig8.jpg",
+      "caption": "Figure 7: Representative rows of table 9. The strict ordering is extremely effective for Hamiltonians whose off-diagonal support is local in the strict path coordinate. It is not the best ordering for ordinary 1D hopping or pair creation, where a different locality is more natural.",
+      "page": 18
+    },
+    {
+      "image": "2604.25494_figures/2604.25494_fig9.jpg",
+      "caption": "Figure 8: Ground-state-preparation fidelity for the staged sensor-placement benchmark. The sector-dominant hybrid driver improves over TF-only and sector-only, whereas the path-window driver alone remains weak.",
+      "page": 19
+    }
+  ],
+  "figure": "2604.25494_figures/2604.25494_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

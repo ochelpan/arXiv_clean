@@ -1,0 +1,106 @@
+{
+  "arxiv_id": "2604.25094",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "INJEQT: Improved Magic-State Injection Protocol for Fault-Tolerant Quantum Extractor Architectures",
+  "authors": "Sayam Sethi, Sahil Khan, Aditi Awasthi, Abhinav Anand, Jonathan Mark Baker",
+  "abstract": "Near-term FTQC system designs are constrained by limited error budgets and largely sequential execution of non-Clifford gates. As a result, reducing the number of the most-error prone instructions becomes critical for successful program execution. In this work, we study the extractor architecture, a recently proposed FTQC design that enables universal quantum computation on spatially-efficient QEC codes such as the BB code family. In these architectures, over $90\\%$ of the total program error arises from the synthillation process, which involves $\\lvert T\\rangle$-state preparation and injection to implement non-Clifford gates. We observe that standard Rz synthillation requires multiple sequential $\\lvert T\\rangle$-state injections, each incurring an inter-module measurements, the most expensive instruction in the architecture, which cumulatively dominate the overall error budget.   To address this bottleneck, we propose INJEQT, a $2$-factory design that uses an auxiliary code capable of synthesizing $Rz(θ)$ states with lower error rates. These states are then injected into the extractor modules using only a constant number of inter-module measurements. This approach reduces overall error rates by up to $22\\times$. We further reduce the time overhead by a pre-fetching strategy that prepares the Rz states and their correction states in parallel. This approach improves the wall-clock time by up to $13\\times$ and reduces the space-time cost by up to $7.2\\times$, for an optimal choice of the number of INJEQT factories for each metric. We evaluate INJEQT for multiple state preparation techniques such as distillation, cultivation and STAR, and model the execution times for both lattice surgery-based and transversal CNOT based injections. Our results demonstrate that INJEQT is robust across factory choices and device technologies, enabling more efficient architectural designs for FTQC.",
+  "url": "http://arxiv.org/abs/2604.25094v1",
+  "pdf": "https://arxiv.org/pdf/2604.25094v1",
+  "type": "theory",
+  "summary": "This paper addresses the critical error bottleneck in fault-tolerant quantum computing architectures that rely on 'extractor' modules. By introducing the INJEQT protocol, the authors demonstrate a way to synthesize rotation states in an auxiliary code to minimize the most error-prone inter-module measurements. Their approach significantly reduces both the error budget and the execution time of quantum programs. The results show substantial improvements in efficiency and robustness across different quantum error correction codes and hardware models.",
+  "main_problem": "In near-term fault-tolerant quantum computing (FTQC) extractor architectures, the 'synthillation' process (combining T-state preparation and injection) is the primary source of error, specifically due to expensive and error-prone inter-module measurements.",
+  "main_result": "The proposed INJEQT protocol reduces overall error rates by up to 22x and improves wall-clock time by up to 13x by using an auxiliary code to synthesize Rz states with fewer inter-module measurements.",
+  "method": "The authors propose a 2-factory design that uses an auxiliary code (like the surface code) to synthesize Rz(theta) states, combined with a pre-fetching strategy to prepare states in parallel to mitigate latency.",
+  "model_or_system": "The study focuses on extractor-based architectures using qLDPC codes (such as the Gross code) and evaluates performance using Pauli-Based Computing (PBC) models, including lattice surgery and transversal CNOT-based injection.",
+  "key_observables": "Total program error rate, wall-clock time, physical qubit count, and space-time cost.",
+  "important_parameters": "Logical error rates, code distances (d), number of INJEQT factories (R), and precision scales (epsilon_synth) ranging from 10^-8 to 10^-10.",
+  "main_assumptions": "Assumes the validity of the extractor-based architecture and specific error profiles for inter-module measurements; neglects trivial operations like syndrome extraction due to negligible error contribution.",
+  "figures_summary": "Figure 1 compares four injection techniques; Figure 2 illustrates two injection techniques; Figure 6 shows the 2-level INJEQT factory process; Figure 7 shows the pre-fetching technique; Figures 8-10 plot improvements in error, time, and space-time metrics for various factory types (Distillation, Cultivation, STAR).",
+  "paper_structure": "The paper identifies the bottleneck in FTQC architectures, introduces the INJEQT protocol and pre-fetching strategy, provides a theoretical derivation for Rz injection efficiency, evaluates the protocol across various factory types and injection models, and concludes with a robustness analysis.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25094_figures/2604.25094_fig1.jpg",
+      "caption": "Fig. 1: Overview of magic state injection techniques. (a) Baseline standard injection: Represented by the Tour de Gross architecture, which relies on multiple high-error inter-module operations. (b) Surface code Rz-factory: Illustration of the Clifford+T decomposition of the Rz-state and the synthesis of an Rz-factory within the surface code using multiple |T⟩- factories. (c) Proposed qLDPC injection: Our method injects the prepared Rz-state into the qLDPC code, utilizing a single inter-module operation and fault-tolerant lattice surgery operations on surface code. (d) Time-efficient injection (INJEQT): Simultaneous preparation of multiple Rz-states required for post-injection corrections,...",
+      "page": 2
+    },
+    {
+      "image": "2604.25094_figures/2604.25094_fig2.jpg",
+      "caption": "Fig. 2: The two magic-state injection techniques considered in this work. |m⟩is the magic state being injected which can be either of T |+⟩or Rz(θ) |+⟩depending on the factory choice.",
+      "page": 3
+    },
+    {
+      "image": "2604.25094_figures/2604.25094_fig3.jpg",
+      "caption": "Fig. 3: Illustration of circuits across different abstraction layers. (a) Standard Circuit Model illustrating single and two- qubit unitary gates followed by measurements. (b) Pauli- Based Computing Model representing the computation as a sequence of Clifford and non-Clifford measurements. (c) Tour de Gross ISA, showing the modular instruction set architecture including In-module, Inter-module measurement and magic state preparation. For further details on the exact compilation process, see Ref. [14] and Ref. [31].",
+      "page": 4
+    },
+    {
+      "image": "2604.25094_figures/2604.25094_fig4.jpg",
+      "caption": "Fig. 4: Fraction of the total program infidelity (error) that comes from Rz injections across all benchmarks. INJEQT reduces the error contribution from Rz for all factory types.",
+      "page": 5
+    },
+    {
+      "image": "2604.25094_figures/2604.25094_fig5.jpg",
+      "caption": "Fig. 5: Illustration of magic state injection techniques within the Tour de Gross (TDG) ISA. (a) Magic state preparation represented as a primitive within the TDG instruction set architecture. (b) Direct injection of an Rz magic state sourced from a dedicated Rz-factory, followed by necessary feed- forward corrections. (c) Sequential injection of magic states as a series of T-gates from a T-factory to realize non-Clifford rotations, including subsequent adaptive Clifford correction.",
+      "page": 5
+    },
+    {
+      "image": "2604.25094_figures/2604.25094_fig6.jpg",
+      "caption": "Fig. 6: Execution of the 2-level INJEQT factory where we perform multiple sequential injections onto the auxiliary code. Each injection can be done either via lattice surgery or transversal CNOT (Figure 2). Once the Rz(θ) state is prepared in this auxiliary code, it is then injected onto the extractor module via an inter-module measurement.",
+      "page": 6
+    },
+    {
+      "image": "2604.25094_figures/2604.25094_fig7.jpg",
+      "caption": "Fig. 7: INJEQT pre-fetching technique using R copies of the 2-level factories. All R factories begin preparing different Rz(θi = 2i−1θ) states. Once the Rz(θ) state completes preparation in F1, it is injected onto the extractor module. If the measurement result indicates that a correction is required, then the already prepared Rz(2θ) state is injected, and so on. Simultaneously, F1 begins preparing the next un-prepared state, i.e., the Rz(2R+1θ) state. The execution may stall if the preparation time for F1 exceeds the time taken to inject the previous R states.",
+      "page": 6
+    },
+    {
+      "image": "2604.25094_figures/2604.25094_fig8.jpg",
+      "caption": "Fig. 8: Improvements gained by INJEQT∗over TDG across different metrics for the entire benchmark suite for the distillation factory. We also report the mean improvement at the end.",
+      "page": 7
+    },
+    {
+      "image": "2604.25094_figures/2604.25094_fig9.jpg",
+      "caption": "Fig. 9: Improvements gained by INJEQT∗over TDG across different metrics for the entire benchmark suite for the cultivation factory. We also report the mean improvement at the end.",
+      "page": 8
+    },
+    {
+      "image": "2604.25094_figures/2604.25094_fig10.jpg",
+      "caption": "Fig. 10: Improvements gained by INJEQT∗over TDG across different metrics for the entire benchmark suite for the STAR factory. We use the better of distillation or cultivation for the corresponding TDG metric. We also report the mean improvement at the end.",
+      "page": 9
+    }
+  ],
+  "figure": "2604.25094_figures/2604.25094_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

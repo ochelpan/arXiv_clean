@@ -1,0 +1,81 @@
+{
+  "arxiv_id": "2604.25644",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Complex-Valued State Preparation on Bucket Brigade QRAM",
+  "authors": "Alessandro Berti, Francesco Ghisoni",
+  "abstract": "Efficient quantum state preparation is a critical component in quantum algorithms that process large classical data, and it is fundamental to realizing quantum advantage in domains such as machine learning, quantum linear algebra, and quantum finance. Building on the framework of~\\cite{berti2025efficient}, which integrates Bucket Brigade QRAM (BBQRAM) with a segment tree to achieve amplitude encoding in polylogarithmic query time, we present two improvements within the same architecture-aware framework. First, we remove the $U_{2\\mathrm{CR}}$ subroutine by classically precomputing the rotation angles determined by the segment tree and storing these angles directly in the BBQRAM cells. The tradeoff is that the classically loaded QRAM stores precomputed fixed-point angles rather than raw subtree weights. Second, we extend the construction to complex-valued matrices $A \\in \\mathbb{C}^{M \\times N}$ by storing a leaf phase alongside each precomputed rotation angle and using a two-step magnitude-then-phase procedure; the real signed case is naturally subsumed as a one-bit phase specialization. At unchanged $\\mathcal{O}(\\log_2^2(MN))$ BBQRAM query complexity, the QPU procedure reduces to BBQRAM retrievals and controlled-rotation cascades, with $\\mathcal{O}(MN)$ memory cells per matrix and no reversible arithmetic on the QPU.",
+  "url": "http://arxiv.org/abs/2604.25644v1",
+  "pdf": "https://arxiv.org/pdf/2604.25644v1",
+  "type": "theory",
+  "summary": "This paper improves the efficiency of loading complex-valued classical data into quantum computers using a specific QRAM architecture. By precomputing rotation angles and phases classically, the authors eliminate the need for complex reversible arithmetic (like square roots) on the quantum processor. The resulting method maintains efficient polylogarithmic query time while reducing the required quantum hardware resources. This is a significant step toward practical quantum machine learning and quantum linear algebra applications.",
+  "main_problem": "Efficiently preparing complex-valued quantum states (amplitude and phase encoding) from large classical datasets while minimizing the computational overhead of reversible arithmetic on the QPU.",
+  "main_result": "The authors present a framework that achieves polylogarithmic BBQRAM query complexity for complex matrices by replacing expensive quantum subroutines with classical precomputation of rotation angles and phases.",
+  "method": "A two-step procedure involving magnitude preparation via a cascade of controlled Ry gates and phase encoding via a cascade of controlled P gates, utilizing a precomputed 'complex angle tree' structure.",
+  "model_or_system": "A hardware-aware Bucket Brigade QRAM (BBQRAM) architecture interacting with a Quantum Processing Unit (QPU) using a segment tree data structure.",
+  "key_observables": "Query complexity, QPU qubit count, gate count, and state fidelity/precision.",
+  "important_parameters": "Matrix dimensions (M, N), total entries (K), fixed-point precision (t), and target error (eta).",
+  "main_assumptions": "Assumes a fault-tolerant architecture, fixed-point precision, and that classical preprocessing/loading of the QRAM is amortized over repeated preparations.",
+  "figures_summary": "Figure 1 shows controlled rotation cascades; Figure 2 depicts the BBQRAM architecture; Figure 3 illustrates the Angle Tree and sign bit integration; Figure 4 shows the complex angle tree structure; Figure 5 shows the BBQRAM mapping for complex entries.",
+  "paper_structure": "The paper introduces the problem of state preparation, presents an improved architecture-aware framework for complex values, details the classical precomputation and two-step quantum algorithm, provides resource complexity comparisons, and discusses limitations and future work.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25644_figures/2604.25644_fig1.jpg",
+      "caption": "Fig. 2: BBQRAM architecture for N = 8 memory cells. Circles are routing switches initialized in the wait state |•⟩; rectangles are memory cells, which can be either classical or quantum bits, storing |xi⟩.",
+      "page": 4
+    },
+    {
+      "image": "2604.25644_figures/2604.25644_fig2.jpg",
+      "caption": "Fig. 3: The angle tree Θ for K = 8 entries (Definition 10); nodes hold one t-bit unsigned rotation angle, depth log2 K − 1 = 2, node count K −1 = 7. The orange leaf row shows the one-bit sign field {s0, . . . , s7} added for real signed data (Corollary 15); the complex case replaces this by the t-bit phase layer Φ of Figure 4.",
+      "page": 5
+    },
+    {
+      "image": "2604.25644_figures/2604.25644_fig3.jpg",
+      "caption": "Fig. 4: The complex angle tree Γ = (Θ, Φ) for K = 8 entries (Definition 16). The angle tree Θ has depth log2 K −1 and stores one unsigned amplitude-splitting angle per internal node of the squared-moduli tree T; it is consumed level by level during Step 1. The phase layer Φ holds one entry-wise phase ¯φz per leaf of T and is consumed by a single coherent retrieval in Step 2.",
+      "page": 7
+    },
+    {
+      "image": "2604.25644_figures/2604.25644_fig4.jpg",
+      "caption": "Fig. 5: BBQRAM mapping of the complex angle tree Γ = (Θ, Φ) (Proposition 17). Cell L0 holds a dummy zero in the angle field; for z ≥1, each cell stores one node of Θ as the rotation-angle field |θz⟩and the corresponding leaf phase | ¯φz⟩from Φ, for a total width of 2t bits. The angle field drives magnitude splitting through cascades of controlled Ry gates; the phase field is applied through cascades of controlled phase gates.",
+      "page": 8
+    },
+    {
+      "image": "2604.25644_figures/2604.25644_fig5.jpg",
+      "caption": "Fig. 6: BBQRAM-cell layout for the example matrix, instantiating Figure 5 with the precomputed angles θz and phases ¯φz derived above. Cell |L0⟩stores a dummy zero in the angle field and the phase ¯φ0 ≈0.464; for z ≥1, each cell holds the angle θz = Θl(z)−1,d(z) alongside the phase ¯φz.",
+      "page": 10
+    }
+  ],
+  "figure": "2604.25644_figures/2604.25644_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

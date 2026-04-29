@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2604.25137",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG",
+    "physics.chem-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Dynamics via Score Matching on Bohmian Trajectories",
+  "authors": "Lei Wang",
+  "abstract": "We solve the time-dependent Schrödinger equation by learning the score function, the gradient of the log-probability density, on Bohmian trajectories. In Bohm's formulation of quantum mechanics, particles follow deterministic paths under the classical potential supplemented by a quantum potential depending on the score function of the evolving density. These non-crossing Bohmian trajectories form a continuous normalizing flow governed by the score. We parametrize the score with a neural network and minimize a self-consistent Fisher divergence between the network and the score of the resulting density. We prove that the zero-loss minimizer of this self-consistent objective recovers Schrödinger dynamics for nodeless wave functions, a condition naturally met in quantum vibrations of atoms. We demonstrate the approach on wavepacket splitting in a double-well potential and anharmonic vibrations of a Morse chain. By recasting real-time quantum dynamics as a self-consistent score-driven normalizing flow, this framework opens the time-dependent Schrödinger equation to the rapidly advancing toolkit of modern generative modeling.",
+  "url": "http://arxiv.org/abs/2604.25137v1",
+  "pdf": "https://arxiv.org/pdf/2604.25137v1",
+  "type": "theory",
+  "summary": "This paper introduces a new way to solve the time-dependent Schrödinger equation by using neural networks to learn the score function of a quantum density. By simulating particles following Bohmian trajectories, the method reinterprets quantum evolution as a continuous normalizing flow. The authors prove that minimizing a specific loss function leads to exact solutions for wave functions without nodes. They demonstrate the method's success on complex systems like anharmonic Morse chains, showing that it can accurately capture quantum vibrations and density evolution.",
+  "main_problem": "Efficiently solving the time-dependent Schrödinger equation (TDSE) in high dimensions, avoiding the exponential scaling of grid-based methods and the training difficulties of existing neural-network approaches like PINNs.",
+  "main_result": "The authors prove that a self-consistent score-matching objective on Bohmian trajectories recovers exact Schrödinger dynamics for nodeless wave functions and demonstrate high-accuracy density reconstruction in Morse chains.",
+  "method": "A generative modeling approach that treats quantum dynamics as a continuous normalizing flow, using a neural network to learn the score function (gradient of the log-density) by minimizing a self-consistent Fisher divergence loss along Bohmian trajectories.",
+  "model_or_system": "The method is tested on a 1D double-well potential for wavepacket splitting and a d-dimensional Morse chain representing anharmonic vibrations with a coupled potential.",
+  "key_observables": "Probability density (rho), score function (s), quantum potential (Q), deformation gradient (F), mean-energy error, and KL divergence.",
+  "important_parameters": "Morse chain parameters (D=12.5, beta=0.2, lambda=0.3); training with 5,000 particles over time T=pi with dt=0.01.",
+  "main_assumptions": "The primary assumption is that the wave function is nodeless (rho > 0), which ensures the phase is single-valued and the score is well-defined.",
+  "figures_summary": "The figures demonstrate the convergence of the Fisher loss, the accuracy of the learned density compared to exact solutions, and the reproduction of physical observables like dipole oscillations and mode breathing in the Morse chain.",
+  "paper_structure": "The paper introduces the problem of TDSE scaling, presents the Bohmian/Madelung framework, proposes the score-matching/normalizing flow method, provides a mathematical proof of exactness for nodeless states, and validates the approach via simulations of double-well and Morse chain systems.",
+  "why_interesting": "It provides a novel bridge between generative modeling (score matching) and quantum dynamics, offering a scalable, particle-based alternative to grid-based solvers that could be extended to many-body systems via fermion-flow architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25137_figures/2604.25137_fig1.jpg",
+      "caption": "FIG. 1. Quantum dynamics as a continuous normalizing flow. The black curves are deterministic, non-crossing Bohmian trajectories, launched from particle positions sampled from the initial density and tracking the time-dependent densities shown by the blue waterfall. The blue waterfall plots the ex- act density |Ψ(x, t)|2 at evenly spaced snapshots, showing an initial Gaussian wavepacket splitting into multimodal densi- ties in a symmetric double-well potential.",
+      "page": 2
+    },
+    {
+      "image": "2604.25137_figures/2604.25137_fig2.jpg",
+      "caption": "FIG. 3. Training convergence on the d = 4 Morse chain over 45,000 epochs (raw per-epoch values, log scale). (a) Fisher loss vs. epoch. (b) Mean-energy error |⟨E⟩−Eexact| vs. epoch. ⟨E⟩is averaged over the M = 5000 particles and the trajec- tory time [0, T], and Eexact = 2.3236 is obtained from a 4D split-operator FFT reference.",
+      "page": 3
+    },
+    {
+      "image": "2604.25137_figures/2604.25137_fig3.jpg",
+      "caption": "FIG. 2. Training loop for the self-consistent score matching on Bohmian trajectories. The score network sθ determines the quantum potential Q, which together with the classical po- tential V drives the Bohmian trajectories via Eq. (5). Along each trajectory we co-integrate the deformation gradient F and its velocity counterpart G via Eq. (8). The Fisher diver- gence (Eq. (6)) measures the mismatch between sθ and the score target (Eq. (7)), and gradients dL/dθ propagate end- to-end through the trajectory via BPTT.",
+      "page": 3
+    },
+    {
+      "image": "2604.25137_figures/2604.25137_fig4.jpg",
+      "caption": "FIG. 5. Learned score field sθ(x, t) (streamlines) on the (x0, x1) slice of the d = 4 Morse chain (x2 = x3 = 0). Back- ground: exact slice density on a log scale. (a) t = 0: Gaussian initial state with approximately radial score. (b) t = π: an- harmonic coupling deforms the density and the score field. The learned streamlines remain aligned with the exact den- sity gradient across the wavepacket.",
+      "page": 4
+    },
+    {
+      "image": "2604.25137_figures/2604.25137_fig5.jpg",
+      "caption": "FIG. 4. Mean ⟨xi⟩(t) (a) and width σi(t) (b) for each of the four modes of the d = 4 Morse chain. Solid lines: exact FFT reference. Open circles: M = 20,000 particles propagated with the trained score network.",
+      "page": 4
+    }
+  ],
+  "figure": "2604.25137_figures/2604.25137_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  }
+}

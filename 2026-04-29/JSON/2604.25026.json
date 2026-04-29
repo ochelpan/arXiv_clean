@@ -1,0 +1,87 @@
+{
+  "arxiv_id": "2604.25026",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.IT"
+  ],
+  "is_primary_archive": true,
+  "title": "Networked Realization of Quantum LDPC Codes",
+  "authors": "Swayangprabha Shaw, Narayanan Rengaswamy",
+  "abstract": "Quantum low-density parity-check (QLDPC) codes with good parameters are promising candidates for low-overhead fault-tolerant quantum computing, but their non-local stabilizers require long-range connectivity and frequent qubit movement, introducing practical challenges. Prior work has studied the networked implementation of topological codes, where each node only holds one or a few qubits of the entire code, and demonstrated competitive performance under practical constraints such as the quality of network-provided entanglement. However, since these codes are already geometrically local, such a networked setting might not be essential. In this work, we propose and study the networked implementation of better QLDPC codes, specifically bivariate bicycle codes due to their similarity to surface codes and the controlled amount of long-range connections in their stabilizers. We begin by recreating networked surface codes in Stim, with one code qubit per node, and provide additional insights into their circuit-level noise performance. We then extend this approach to bipartitions of bivariate bicycle codes, using balanced min-cut partitioning on their combined X-Z Tanner graph to identify optimal qubit splits. For stabilizers spanning nodes, we implement teleported CNOTs and vary the Bell pair fidelity enabling these gates. Through circuit-level noise simulations with BP-OSD decoding, we provide the first insights into networked realizations of these codes and compare their performance with monolithic implementations. We conclude by outlining advantages, limitations, and future directions.",
+  "url": "http://arxiv.org/abs/2604.25026v1",
+  "pdf": "https://arxiv.org/pdf/2604.25026v1",
+  "type": "theory",
+  "summary": "This paper explores the feasibility of implementing Bivariate Bicycle QLDPC codes in a distributed quantum network. By partitioning the code across two nodes and using Bell-pair-assisted gates, the authors quantify the noise penalty introduced by the network. They demonstrate that while partitioning increases the error rate, the advantage of QLDPC codes can be preserved provided the inter-node entanglement fidelity remains high (above 99%). This provides a roadmap for scaling quantum error correction using modular hardware.",
+  "main_problem": "The non-local stabilizer connections required by high-performance QLDPC codes like Bivariate Bicycle (BB) codes present significant hardware challenges for monolithic processors. This work investigates whether these codes can be effectively implemented in a networked architecture where qubits are distributed across multiple modules.",
+  "main_result": "The study finds that a networked implementation of BB codes is viable if Bell pair fidelity is maintained at approximately 99% or higher. It also identifies a local gate noise threshold of roughly 1% for these partitioned codes.",
+  "method": "The authors use Stim for circuit-level noise simulations and PyMetis for balanced min-cut partitioning of the X-Z Tanner graph. Decoding is performed using Belief Propagation with Ordered Statistics Decoding (BP-OSD) for BB codes and PyMatching for surface codes.",
+  "model_or_system": "A networked quantum architecture consisting of two interconnected nodes. Each node contains a subset of the code's qubits and ancillas, with inter-module operations mediated by teleported CNOT gates using pre-shared Bell pairs.",
+  "key_observables": "Logical error rate (pL), error thresholds for gate and GHZ noise, and Bell pair demand per syndrome cycle.",
+  "important_parameters": "Bell pair fidelity (F_Bell), physical error rate (p), encoding rate, code distance (d), and the number of cut edges (E_cut) in the Tanner graph.",
+  "main_assumptions": "The noise model assumes stochastic depolarizing errors on all gates, measurements, and resets, and that the network connectivity is limited to the edges defined by the partitioning strategy.",
+  "figures_summary": "Figure 1 shows the BB code structure and measurement schedule; Figure 2 depicts the networked surface code architecture; Figure 3 illustrates the graph partitioning strategy; Figure 4 and 5 show surface code error thresholds; Figure 6 compares logical error rates for different BB code families.",
+  "paper_structure": "The paper introduces the challenge of non-local QLDPC codes, establishes a surface code baseline in a networked setting, proposes a partitioning strategy for BB codes, presents circuit-level noise simulations and threshold analyses, and concludes with performance comparisons and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25026_figures/2604.25026_fig1.jpg",
+      "caption": "Fig. 1: Bivariate bicycle (BB) code [15]: (a) toric representa- tion, (b) Tanner graph, and (c) depth-8 measurement schedule.",
+      "page": 3
+    },
+    {
+      "image": "2604.25026_figures/2604.25026_fig2.jpg",
+      "caption": "Fig. 2: Schematic of networked surface code architecture. The hexagonal regions represent individual processors, each con- taining one data qubit. A GHZ state is utilized for syndrome extraction, as illustrated by the dashed lines connecting the GHZ state to specific data qubits within the grid structure.",
+      "page": 4
+    },
+    {
+      "image": "2604.25026_figures/2604.25026_fig3.jpg",
+      "caption": "Fig. 3: Balanced graph partitioning of the combined X-Z Tanner graph across two nodes, N1 and N2. The red lines represent bridge edges connecting check qubits and data qubits distributed across the two nodes. We performed balanced graph partitioning on this combined X-Z Tanner graph using pymetis [23]. This assigns every data qubit and every check qubits to one of the two network partitions.",
+      "page": 4
+    },
+    {
+      "image": "2604.25026_figures/2604.25026_fig4.jpg",
+      "caption": "Fig. 5: Surface code performance with noisy GHZ (pGHZ = 0.002) under full circuit-level noise. This reproduces the exact performance and ≈7.5% threshold estimated in [1].",
+      "page": 6
+    },
+    {
+      "image": "2604.25026_figures/2604.25026_fig5.jpg",
+      "caption": "Fig. 4: Surface code performance with varying GHZ noise rate (p = 0). A clear threshold is visible, below which logical error rates decrease with increasing code distance.",
+      "page": 6
+    },
+    {
+      "image": "2604.25026_figures/2604.25026_fig6.jpg",
+      "caption": "Fig. 6: Logical error-rate comparison between non-partitioned and partitioned BB code implementations for the [[72, 12, 6]], [[90, 8, 10]], and [[144, 12, 12]] codes under circuit-level noise. Solid curves correspond to non-partitioned implementations, while dashed curves correspond to partitioned implementations obtained from a pymetis bipartition of the combined Tanner graph. In the partitioned case, cross-partition interactions are implemented using Bell-pair-assisted bridge operations, and the effect of Bell-link quality is shown for Bell-state fidelities FBell = 0.99 and FBell = 0.96 (equivalently, pBell = 0.0125 and pBell = 0.05). The black dash-dotted line denotes the uncoded...",
+      "page": 8
+    }
+  ],
+  "figure": "2604.25026_figures/2604.25026_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

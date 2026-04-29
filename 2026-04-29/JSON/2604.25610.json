@@ -1,0 +1,81 @@
+{
+  "arxiv_id": "2604.25610",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Optimizing ground state preparation protocols with autoresearch",
+  "authors": "Luis Mantilla Calderón, Jérôme F. Gonthier, Ignacio Gustin, Varinia Bernales, Alán Aspuru-Guzik",
+  "abstract": "Artificial intelligent language-model based coding agents have significantly changed the way we interact with computers in our day-to-day, as it is common to use them to create, improve, and run programming scripts only using natural language. Agent code updates can be better guided when such programs can be executed and scored automatically rather than judged by human preference. In quantum computing and classical quantum simulation settings, ground-state preparation has a parallel structure: candidate protocols can be ranked by estimated energies and other proxies indicating proper quantum-state convergence. In this work, we study how autoresearch, a code optimization strategy based on coding agents, can be used to optimize hyperparameter choices of different ground-state preparation and sampling protocols, including the variational quantum eigensolver (VQE), density matrix renormalization group (DMRG), and auxiliary-field quantum Monte Carlo (AFQMC). We validate the viability and capacity of this method on simple spin models and molecular Hamiltonians. Across all three settings, the agent mutates simple baselines into complex protocols with improved energy proxies while operating under constrained space-time computational budgets. We conclude with discussions of other quantum routines that support executable scalar scoring, enabling evolutionary coding agents to automate a substantial portion of the protocol-tuning work that would otherwise be required manually.",
+  "url": "http://arxiv.org/abs/2604.25610v1",
+  "pdf": "https://arxiv.org/pdf/2604.25610v1",
+  "type": "theory",
+  "summary": "This paper introduces 'autoresearch,' an automated framework using LLM coding agents to optimize quantum simulation protocols. By treating ground-state preparation as a code-optimization problem, the agent iteratively mutates algorithms like VQE, DMRG, and AFQMC to minimize energy errors. The authors demonstrate that the agent can significantly outperform manual baselines within fixed computational budgets. This approach promises to automate much of the tedious parameter-tuning work in quantum many-body simulations.",
+  "main_problem": "Automating the optimization of ground-state preparation protocols (ansatz design, hyperparameters, and algorithmic choices) to replace manual, labor-intensive tuning.",
+  "main_result": "An LLM-based 'autoresearch' agent successfully mutated simple baseline protocols into complex, high-performing ones, achieving significant energy error reductions in VQE, DMRG, and AFQMC.",
+  "method": "An evolutionary coding strategy using LLM coding agents (GPT-5.4) that generates code edits, executes benchmarks, and uses scalar energy proxies to iteratively improve quantum and classical simulation protocols.",
+  "model_or_system": "The study covers several systems: molecular electronic structures (BH, LiH, BeH2, H2O) for VQE; 1D spin-1/2 chains (Heisenberg XXX, XXZ, TFIM, XX) for DMRG; and small molecules (H2, LiH, H2O, N2) for AFQMC.",
+  "key_observables": "Ground-state energy error (relative to FCI or CCSD(T)), Rayleigh quotient, mutual-information error, and statistical stability (energy variance).",
+  "important_parameters": "Computational wall-time budgets, bond dimension, imaginary-time step, walker population, and optimizer hyperparameters (step size, tolerance).",
+  "main_assumptions": "The effectiveness is evaluated under strict, fixed computational time and resource constraints; the scope is limited to small-scale proof-of-concept systems.",
+  "figures_summary": "Figure 1 shows VQE energy error evolution over iterations; Figure 2 compares mutual-information error matrices for spin chains; Figure 3 displays AFQMC energy traces and energy distributions.",
+  "paper_structure": "The paper introduces the autoresearch concept, details the agentic framework (gsopt), presents specific applications to VQE, DMRG, and AFQMC, and concludes with discussions on future scaling and automation.",
+  "why_interesting": "It presents a novel way to use generative AI to automate the discovery of optimized numerical protocols for many-body physics and quantum chemistry, potentially reducing the human effort required for complex simulation tuning.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25610_figures/2604.25610_fig1.jpg",
+      "caption": "Figure 1 Combined log-scale VQE milestone figure for the four completed 100-iteration archival campaigns in the fixed-budget study. Left: pale points denote every evaluated candidate, solid lines denote the running best ∆E, and the dashed horizontal line marks chemical accuracy. Numbered callouts highlight later, energetically meaningful changes in the search trajectory rather than the trivial first ansatz swap. Right: short technical summaries of the corresponding code edits, with flag tint matching the molecule colour used in the plot. The full VQE mutation logs are listed in the external log supplement (83).",
+      "page": 5
+    },
+    {
+      "image": "2604.25610_figures/2604.25610_fig2.jpg",
+      "caption": "Figure 2 Tensor-network mutual-information error matrices for the four one-dimensional critical L = 64 benchmarks: Heisenberg XXX, gapless XXZ, critical TFIM, and critical XX. Columns denote Hamiltonians; the top row shows the archived baseline protocol and the bottom row shows the current best optimized protocol from the autoresearch run. Each panel plots the absolute entrywise error |ITN ij −Iref ij | relative to a frozen high-accuracy DMRG2 MPS reference, with the diagonal masked in gray because self-information entries are not compared.",
+      "page": 6
+    },
+    {
+      "image": "2604.25610_figures/2604.25610_fig3.jpg",
+      "caption": "Figure 3 AFQMC comparison across H2, LiH, H2O, and N2 for the molecular benchmark suite under the fixed post-equilibration live scorer. The top row shows the sampled mixed-estimator traces E(τ) for the initial and best archived optimized configurations, with the post-equilibration sampling regions shaded and the post-equilibration energy estimates ⟨E0⟩drawn as bold horizontal segments. The bottom row shows the corresponding distributions of stored post-equilibration block energies. The shared horizontal guides mark the frozen CCSD(T) reference and the ±1 kcal/mol chemical-accuracy window. The parameter boxes summarize the initial and optimized AFQMC controls for each molecule: τ is the...",
+      "page": 7
+    },
+    {
+      "image": "2604.25610_figures/2604.25610_fig4.jpg",
+      "caption": "Figure 4 Active-orbital gallery for the four VQE benchmark molecules used in the main text: BH, LiH, BeH2, and H2O. Each panel shows the active-space molecular orbitals used to construct the corresponding CAS Hamiltonian, with positive and negative orbital lobes colored separately.",
+      "page": 14
+    },
+    {
+      "image": "2604.25610_figures/2604.25610_fig5.jpg",
+      "caption": "Figure 5 Frozen reference mutual-information matrices for the four one-dimensional critical L = 64 tensor-network benchmarks. Each panel shows Iref ij for the corresponding high-accuracy DMRG2 MPS reference state, with the diagonal masked in gray.",
+      "page": 16
+    }
+  ],
+  "figure": "2604.25610_figures/2604.25610_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

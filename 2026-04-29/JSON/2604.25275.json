@@ -1,0 +1,86 @@
+{
+  "arxiv_id": "2604.25275",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Graph-Conditioned Meta-Optimizer for QAOA Parameter Generation on Multiple Problem Classes",
+  "authors": "Kien X. Nguyen, Ilya Safro",
+  "abstract": "We study parameter transferability for the Quantum Approximate Optimization Algorithm (QAOA) across multiple combinatorial optimization problem classes from a parameter generation perspective. Specifically, a meta-optimizer is trained on one problem class and deployed on another during test time. Prior work employs a Long Short-Term Memory network to emulate QAOA optimization trajectories, but the learned dynamics usually collapse to near-identical paths, limiting cross-problem transfer efficiency. In this paper, we present a problem-aware graph-conditioned meta-optimizer for QAOA that learns to generate parameter trajectories over a fixed horizon, providing strong initializations with only a few steps. The optimizer is conditioned on compact graph embeddings and trained end-to-end using differentiable feedback from the QAOA objective, avoiding the need for ground-truth angles. We evaluate across multiple graph problem classes, including MaxCut, Maximum Independent Set, Maximum Clique, and Minimum Vertex Cover. We report both solution quality and feasibility-aware metrics where constraints apply. Results across a comprehensive empirical study consisting of 64 settings show that the learned optimizer can reduce optimization effort and improve performance over standard initialization, while exhibiting transferable behavior across graph families and problem types.",
+  "url": "http://arxiv.org/abs/2604.25275v1",
+  "pdf": "https://arxiv.org/pdf/2604.25275v1",
+  "type": "theory",
+  "summary": "This paper introduces a new meta-optimizer for the QAOA algorithm that uses graph embeddings to improve how parameters are transferred between different types of optimization problems. By incorporating both the structure of the graph and the specific constraints of the problem into the neural network, the authors prevent the optimizer from producing identical, non-adaptive parameter paths. The method demonstrates significant improvements in finding optimal solutions for problems like MaxCut and Maximum Clique, even when trained on different problem classes. This approach reduces the computational effort required for parameter tuning in variational quantum algorithms.",
+  "main_problem": "The difficulty of efficiently tuning QAOA parameters across different combinatorial optimization problem classes and preventing 'trajectory collapse' in existing meta-optimizers.",
+  "main_result": "The proposed graph-conditioned meta-optimizer (Uni-Meta-LSTM) achieves superior parameter transferability and higher trajectory diversity across various graph problem types compared to unconditioned or structure-only models.",
+  "method": "A neural meta-optimizer (LSTM) is trained end-to-end using differentiable feedback from the QAOA objective, conditioned on problem-aware graph embeddings generated via the UniHetCO framework.",
+  "model_or_system": "The study focuses on the Quantum Approximate Optimization Algorithm (QAOA) applied to combinatorial problems including MaxCut, Maximum Independent Set, Maximum Clique, and Minimum Vertex Cover, using a cost Hamiltonian derived from quadratic programming formulations.",
+  "key_observables": "Solution quality (Approximation Ratio, Optimal Hit Rate), Feasibility Rate, Trajectory Diversity (variance of angles), and Optimization Effort (convergence time).",
+  "important_parameters": "Circuit depth (p), penalty parameter (lambda), and graph embeddings (g).",
+  "main_assumptions": "The meta-optimizer generates a short parameter trajectory rather than a full optimization; the framework assumes compatibility with a standard X-mixer Hamiltonian.",
+  "figures_summary": "Figure 1 compares trajectory diversity between the proposed method and Meta-LSTM; Figure 2 shows the training pipeline; Figure 3 illustrates the UniHetCO encoder; Figure 5 shows heatmaps of parameter variance; Figure 6 presents t-SNE visualizations of the embedding space.",
+  "paper_structure": "The paper introduces the problem of parameter transferability, presents the UniHetCO graph embedding and the graph-conditioned LSTM architecture, details the training mechanism using differentiable feedback, evaluates performance across multiple problem classes and transfer settings, and discusses limitations regarding circuit depth scaling.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25275_figures/2604.25275_fig1.jpg",
+      "caption": "Fig. 1. Diversity of generated parameter trajectories on QAOA circuits for MaxCut with depth p = 10. At each rollout step t, we compute the mean squared deviation of the generated angles from the instance-mean trajectory, averaged over angle dimensions {γℓ}p ℓ=1 (left) and {βℓ}p ℓ=1 (right). Curves show the mean across test instances; shaded bands indicate ±1 standard deviation across instances. Meta-LSTM exhibits lower diversity (near-identical paths) than our graph-conditioned meta-optimizer.",
+      "page": 1
+    },
+    {
+      "image": "2604.25275_figures/2604.25275_fig2.jpg",
+      "caption": "Fig. 2. Overview of the graph-conditioned meta-optimizer training pipeline. (Left) The graph instance is first projected to a fixed-dimension vector g by a graph encoder. (Right) A meta-optimizer, realized by a recurrent neural network (RNN), is trained to produce a trajectory of QAOA variational parameters. At each step t, the graph embedding g is injected to the RNN hidden state ht, effectively conditioning parameter generation on instance-specific graph features.",
+      "page": 4
+    },
+    {
+      "image": "2604.25275_figures/2604.25275_fig3.jpg",
+      "caption": "Fig. 3. Overview of the UniHetCO graph encoder. UniHetCO not only encodes the problem instance structure (red), but also its objective (green) and constraints (blue), into a unified graph representation. This property makes feature transfer across different problem classes possible.",
+      "page": 4
+    },
+    {
+      "image": "2604.25275_figures/2604.25275_fig4.jpg",
+      "caption": "Fig. 4. Optimal hit rate p(x∗) on cross-problem parameter transfer. We report pairwise problem transfer across four circuit depths p ∈{4, 6, 8, 10}, resulting in 48 transfer settings. The meta-optimizer is trained on one problem class and then fine-tuned on another with 5 gradient steps.",
+      "page": 7
+    },
+    {
+      "image": "2604.25275_figures/2604.25275_fig5.jpg",
+      "caption": "Fig. 5. Visualization of diversity in generated parameter trajectories among three methods, Meta-LSTM, G2V-Meta-LSTM and Uni-Meta-LSTM, on four problem classes (MaxCut, MIS, MaxClique and MVC). The trajectories are plotted on the QAOA circuit depth p = 10 and unrolling horizon T = 10.",
+      "page": 8
+    },
+    {
+      "image": "2604.25275_figures/2604.25275_fig6.jpg",
+      "caption": "Fig. 6. A demonstration of the UniHetCO embedding space: t-SNE visualization of UniHetCO graph embeddings for 1000 training instances from each of four problem classes (MaxCut, MIS, MaxClique, and MVC), totaling 4000 points. The embeddings form well-separated clusters by problem class, while also reflecting problem similarity; MIS and MaxClique exhibit partially interleaved clusters, consistent with their closely related structure.",
+      "page": 9
+    }
+  ],
+  "figure": "2604.25275_figures/2604.25275_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

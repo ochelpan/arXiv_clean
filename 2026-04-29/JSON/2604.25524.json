@@ -1,0 +1,96 @@
+{
+  "arxiv_id": "2604.25524",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Defect-Adaptive Lattice Surgery on Irregular Boundary Surface-Code Patches",
+  "authors": "GunSik Min, Yujin Kang, Jun Heo",
+  "abstract": "Defect-adaptive surface-code methods have substantially advanced the construction of valid logical patches on imperfect hardware, but fault-tolerant computation also requires executable logical oper ations on the resulting irregular geometries. We formulate the seam-boundary defect problem: how to perform a lattice-surgery merge when the intended seam intersects deformed boundaries, disabled checks, and gauge-inferred super-stabilizers. We introduce a defect-adaptive lattice-surgery method that reconstructs the target joint logical parity from the seam-related measurements available on the irregular merged patch, together with constraints inherited from the separated pre-merge code space. The reconstruction is expressed as a compact GF(2) binary-support synthesis problem. If the requested parity is realizable, the solution gives an executable parity-extraction rule over raw, schedule-tagged gauge outcomes; otherwise, it certifies a parity-synthesis failure rather than conflat ing it with patch invalidity. The framework accommodates boundary data-qubit defects, seam-check ancilla defects, and gauge-inferred seam super-checks within a single synthesis layer. Circuit-level samples of the synthesized merge operation show improved compile yield, preserved effective dis tance, and only modest success-conditioned logical-error overhead relative to the defect-free merge reference; an explicit ZZ-merge sampling check confirms the expected transposed-geometry behav ior under the same success-conditioned observable construction. More broadly, the results identify certified parity synthesis as a compilation layer between defect-adaptive patch construction and executable fault-tolerant logical operations on imperfect surface-code hardware.",
+  "url": "http://arxiv.org/abs/2604.25524v1",
+  "pdf": "https://arxiv.org/pdf/2604.25524v1",
+  "type": "theory",
+  "summary": "This paper addresses the challenge of performing logical operations in surface-code quantum computers when physical defects break the standard lattice geometry. The authors propose a compiler-level method that treats lattice surgery as a parity-synthesis problem, allowing the system to 'reconstruct' the desired logical operations from available, irregular measurements. Their approach significantly improves the success rate (compile yield) of operations on noisy hardware while maintaining the effective code distance. The method is robust enough to handle both missing data qubits and missing measurement ancillas.",
+  "main_problem": "How to perform fault-tolerant lattice surgery (specifically the merge operation) when hardware defects like broken boundaries or missing ancillas disrupt the standard seam geometry.",
+  "main_result": "The introduction of a defect-adaptive compiler that uses GF(2) synthesis to reconstruct logical parities, achieving significantly higher compile yield and preserved code distance with minimal logical error overhead.",
+  "method": "A three-layer synthesis approach (identification, certification, and extraction) that formulates parity reconstruction as a GF(2) binary-support synthesis problem and uses fused seam-super-check constructions.",
+  "model_or_system": "Surface-code-based quantum error correction on imperfect hardware, specifically planar patches with irregular boundaries, data-qubit defects, and ancilla-type defects.",
+  "key_observables": "Joint logical parity (XX and ZZ merges), gauge outcomes, and effective code distance.",
+  "important_parameters": "Physical error rate p (10^-3 to 10^-2), defect rates q (0.5% to 2.0%), and code distances d (9 to 17).",
+  "main_assumptions": "The framework assumes that a valid defect-adapted patch has already been constructed (the memory problem is solved) and focuses specifically on the merge primitive.",
+  "figures_summary": "Figure 1 illustrates boundary data-qubit defects and seam reconstruction; Figure 2 shows seam-check ancilla defects and replacement via gauge measurements; Figure 3 shows X-distance loss; Figure 4 plots compile yield vs. defect rate; Figure 5 shows success-conditioned LER.",
+  "paper_structure": "The paper identifies the seam-boundary defect problem, proposes a unified algebraic synthesis framework, provides a formal theorem for parity execution, and validates the method through circuit-level simulations comparing compile yield, distance preservation, and logical error rates.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25524_figures/2604.25524_fig1.jpg",
+      "caption": "FIG. 1. Boundary data-qubit defects during an XL ⊗XL merge. (a) A representative seam-boundary defect pair destroys the native seam region of the intended merge, so the regular defect-free seam picture no longer applies. (b) The broken neighborhood is reconstructed in terms of locally available gauge fragments and defect-adapted effective checks. (c) A naive opposite-type completion is invalid because the required cross-patch gauge bridge is not source-admissible. The surviving reduced opposite-type fragments are therefore left individually incompatible with the candidate X-type seam super-check. (d) The merge must therefore be carried out on the boundary-deformed patch using a...",
+      "page": 5
+    },
+    {
+      "image": "2604.25524_figures/2604.25524_fig2.jpg",
+      "caption": "FIG. 2. Seam-check ancilla defect and support-preserving seam reconstruction. (a) A defective seam ancilla removes one native seam measurement from the merge interface while leaving the intended data-qubit support intact. (b) The missing seam measurement is replaced by a pair of repurposed local gauge measurements whose product reconstructs the seam value. (c) The adjacent opposite-type larger checks are promoted to gauges, and their product defines an induced super-stabilizer that restores the local commutation structure. In contrast to the boundary data-qubit defect in Fig. 1, this case is handled primarily by support-preserving measurement reconstruction rather than by a larger boundary...",
+      "page": 6
+    },
+    {
+      "image": "2604.25524_figures/2604.25524_fig3.jpg",
+      "caption": "FIG. 4. Compile yield versus defect rate (XX merge). The proposed method (solid, circles) consistently outperforms the standard method (dashed, squares) across all distances. At q = 0.5%, the proposed yield ranges from 0.968 to 0.995, compared with 0.826 to 0.920 for the standard method. At q = 2.0%, the proposed yield remains in the range 0.741– 0.904, whereas the standard method drops to 0.524–0.695. The gain reflects additional instances recovered by GF(2)- certified seam super-check reconstruction.",
+      "page": 9
+    },
+    {
+      "image": "2604.25524_figures/2604.25524_fig4.jpg",
+      "caption": "FIG. 3. Distance preservation under boundary defects for the compiled XX merge. (a) Average effective X-distance loss, d −deff, as a function of defect rate for the proposed method and the standard method. (b) Distance saved by the proposed method relative to the standard method, de- fined as (d −deff)std −(d −deff)prop. The increasing separa- tion with defect rate and distance shows that certified fused seam-super-check reconstruction mitigates geometry-induced distance degradation.",
+      "page": 9
+    },
+    {
+      "image": "2604.25524_figures/2604.25524_fig5.jpg",
+      "caption": "Figure 4 shows the compile yield as a function of defect rate for both methods across all five distances. At q = 0.5%, the proposed method achieves compile yield 0.968– 0.995, whereas the standard method gives 0.826–0.920, corresponding to a gain of +7–14 percentage points. This gap widens with increasing defect rate: at q = 2.0%, the proposed method yields 0.741–0.904 while the standard method yields only 0.524–0.695, i.e., a gain of +21–24 percentage points across the full distance range. The advantage is consistent across all studied dis- tances. The yield gain measures how often recovered seam rows turn an otherwise unavailable merge parity into a compilable one. Within our row-space...",
+      "page": 9
+    },
+    {
+      "image": "2604.25524_figures/2604.25524_fig6.jpg",
+      "caption": "Figure 3 shows the average X-distance loss d −deff and the distance saved by the proposed method over the standard method. As plotted, this figure reports the XX- merge X-distance metric. Both methods incur larger ab- solute distance loss as the defect rate q increases and as the target distance d becomes larger. However, the proposed method consistently preserves more distance at every (d, q) point. The distance improvement comes from instances in which a broken native seam row would otherwise be re- moved from the effective seam family, but can instead",
+      "page": 9
+    },
+    {
+      "image": "2604.25524_figures/2604.25524_fig7.jpg",
+      "caption": "FIG. 5. Logical performance of the compiled defect-adaptive XX merge at qdata = 1% and qanc = 0.5% under the SI1000- MR noise model. For each successful defect instance, the sampled circuit uses the synthesized seam-measurement rule and the merge-parity observable returned by the compiler. (a) Success-conditioned logical error rate, LER | compile success, as a function of physical error rate p for the proposed method and the defect-free merge reference. (b) LER ratio, defined as (LERproposed)/(LERdefect-free). The ratios remain modest at high p, while larger excursions in the lowest-LER regime are consistent with finite-sampling fluctuations. The largest ratio excursions occur at the...",
+      "page": 10
+    },
+    {
+      "image": "2604.25524_figures/2604.25524_fig8.jpg",
+      "caption": "FIG. 6. Success-conditioned logical error rate for the compiled defect-adaptive ZZ merge. Solid curves show the proposed defect-adaptive merge and dashed curves show the defect-free ZZ-merge reference. The simulation uses the transposed seam geometry with the same synthesized-observable construction as the XX-merge sampling. The close, approximately par- allel curves provide a direct check that the certified parity- extraction rule carries over to the X ↔Z transposed merge under the i.i.d. defect model.",
+      "page": 11
+    }
+  ],
+  "figure": "2604.25524_figures/2604.25524_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

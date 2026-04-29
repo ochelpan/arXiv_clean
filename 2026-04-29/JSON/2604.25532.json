@@ -1,0 +1,86 @@
+{
+  "arxiv_id": "2604.25532",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Bond-dimension scaling of a local-refinement advantage over hyperoptimized tensor-network contraction on Sycamore like topologies",
+  "authors": "Rubén Darío Guerrero",
+  "abstract": "We identify a missing local-refinement stage in the cotengra tensor-network contraction pipeline and show that its impact grows monotonically with bond dimension on the \\emph{connectivity graph} of Sycamore-like topologies. Appending a nearest-neighbor interchange (NNI) search to the \\cotengra{} output at matched 8-s wallclock yields a median \\emph{predicted} cost-model gap $Δ\\fT$ at $n{=}500$ that grows monotonically and approximately linearly in $χ$, from $\\sim\\!15$~bits at $χ{=}2$ to $\\sim\\!116$~bits at $χ{=}16$ (Fig.~\\ref{fig:chi_sweep}), with the refiner winning on $25/25$ seeds at every tested $χ$. Two control families -- random $3$-regular and QAOA $p{=}2$ interaction graphs -- show median $|Δ\\fT| \\leq 0.71$~bits across both controls at every $χ$, with refiner win rate falling toward chance as $χ$ grows; the signal is topology-specific, not a generic refinement-budget effect. An ablation establishes that refinement itself, not the four-axis Pareto acceptance rule, drives the gain ($|Δ\\fT| \\lesssim 0.1$ bits between scalar and Pareto arms at $χ{=}2$). The Sycamore-circuit envelope (App.~\\ref{em:sec:results:syccirc}) reports the corresponding refinement on actual random circuits at depths $m \\in \\{4, 6, 8, 10, 12\\}$, where the refiner wins on $5/5$ instances at every depth. The advantage is therefore largest precisely in the bond-dimension regime relevant to physical contraction.",
+  "url": "http://arxiv.org/abs/2604.25532v1",
+  "pdf": "https://arxiv.org/pdf/2604.25532v1",
+  "type": "theory",
+  "summary": "This paper introduces a local-refinement algorithm to improve the efficiency of tensor network contractions. By adding a nearest-neighbor interchange search to existing hyperoptimization pipelines, the authors show that one can capture significant computational savings that hyperoptimizers miss. This advantage is particularly dramatic on Sycamore-like topologies, where the reduction in floating-point operations grows exponentially with the bond dimension. The method is computationally efficient and requires no changes to the existing optimization framework.",
+  "main_problem": "Identifying and addressing a 'refinement gap' in the cotengra-hyper tensor-network contraction pipeline where hyperoptimization fails to find the most efficient contraction orders on specific topologies.",
+  "main_result": "A local-refinement stage using Nearest-Neighbor Interchange (NNI) provides a massive, monotonically increasing FLOP-cost reduction advantage on Sycamore-like topologies as the bond dimension increases.",
+  "method": "The authors append a GPU-parallelized NNI search stage to the existing cotengra-hyper pipeline, using a four-axis Pareto-dominance acceptance rule to optimize FLOPs, memory, slicing overhead, and error bounds.",
+  "model_or_system": "The study focuses on tensor network contraction orders for Sycamore-like topologies (2D grids with diagonal couplings), random 3-regular graphs, and QAOA interaction graphs.",
+  "key_observables": "Delta f_T (log-scale difference in predicted FLOP-cost in bits), win rate of the refiner, and the fraction of Pareto-dominating neighbors (P_Pareto).",
+  "important_parameters": "Bond dimension (chi) ranging from 2 to 16, number of tensors (n) up to 500, and circuit depth (m) for Sycamore-53 circuits.",
+  "main_assumptions": "The use of a predicted cost-model as a proxy for actual computational cost at large bond dimensions.",
+  "figures_summary": "Figures show the monotonic growth of cost reduction (bits) with bond dimension, the topology-specific nature of the advantage compared to control graphs, and the success of the refiner on actual Sypectrum-53 circuit depths.",
+  "paper_structure": "The paper identifies a gap in existing pipelines, introduces the NNI refinement method, demonstrates scaling advantages on Sycamore-like topologies, provides control experiments on random/QAOA graphs, performs ablation studies on acceptance rules, and validates results on actual quantum circuit architectures.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25532_figures/2604.25532_fig1.jpg",
+      "caption": "Figure 1: Pipeline and cost structure. (a) A tensor network N = (T , E) (left) is contracted via a rooted binary contraction tree τ (right). Each internal node v contracts two children; the total floating-point work fT sums over all internal nodes, and the peak intermediate tensor size fS (log2 entry count) is the maximum over them (highlighted in vermillion). The four cost axes (fT , fS, fσ, fε) quantify total work, peak memory, slicing overhead, and a conservative Higham-style forward-error bound, respectively. (b) A nearest-neighbor interchange (nni) move [11] swaps one of an internal node’s grandchildren with its sibling; two variants per internal edge give a neighborhood of size 4(n...",
+      "page": 3
+    },
+    {
+      "image": "2604.25532_figures/2604.25532_fig2.jpg",
+      "caption": "Figure 2: Bond-dimension scaling of the refinement advantage at n=500, 25 seeds per cell. (a) Median ∆fT = fT (cotengra-hyper) −fT (refiner) in bits as a function of χ ∈{2, 4, 8, 16} for the three topology fam- ilies; bands are [25%, 75%] IQR. The right axis converts to the predicted multiplicative FLOP-cost reduction 2∆fT . Sycamore-like grows approximately linearly in χ from 14.69 bits (∼2.6 × 104×) at χ=2 to 116.31 bits (∼1.0 × 1035×) at χ=16; both controls have median |∆fT | ≤0.71 bits at every χ. Annotated win rates (refiner-beats-cotengra-hyper fraction over 25 seeds): on Sycamore-like, 100% at every χ; on random d=3- regular, 80%→40% as χ : 2→16; on QAOA p=2, 72%→44%. (b) Per-seed...",
+      "page": 5
+    },
+    {
+      "image": "2604.25532_figures/2604.25532_fig3.jpg",
+      "caption": "Figure 3: Length scaling of the predicted FLOP-cost reduction at χ=2. Median ∆fT = fT (cotengra-hyper)− fT (refiner) versus n at matched wallclock (tcotengra-hyper = thyper +ttnc-PLS). Positive ∆fT indicates the refiner beats cotengra-hyper. Bands: [25%, 75%] IQR over 25–30 seeds. Sycamore-like reaches ∆fT = 7.0 bits (128×) at n=500 on 24/25 seeds; this is the χ=2 anchor of the broader sweep in Fig. 2, and a conservative lower bound on the cell. Random d=3-regular diverges negatively at large n; QAOA p=2 sits near zero.",
+      "page": 6
+    },
+    {
+      "image": "2604.25532_figures/2604.25532_fig4.jpg",
+      "caption": "Figure 4: Per-seed fT (refiner) vs fT (cotengra-hyper), bits. Below-diagonal: refiner wins. Shape encodes topology; color encodes n (log). The dashed offset parallel to the identity line marks a 27 = 128× FLOP reduction, i.e., ∆fT = 7 bits, anchored to the Sycamore-like cluster at n=500. Inset: ∆fT distribution on symlog axis (all topologies pooled); median +0.58 bits, Sycamore-like tail visible.",
+      "page": 7
+    },
+    {
+      "image": "2604.25532_figures/2604.25532_fig5.jpg",
+      "caption": "Figure 5: External validation on the Sycamore-53 connectivity graph [9]. (a) fT (bits); the refiner achieves 22.69 vs cotengra-hyper’s 22.99, a 1.23× reduction. (b) Optimizer wallclock (log). The n=53 instance sits at the small end of the Sycamore-like scale.",
+      "page": 8
+    },
+    {
+      "image": "2604.25532_figures/2604.25532_fig6.jpg",
+      "caption": "Figure 6: Mechanism of the Sycamore-like advantage. (a) PPareto, fraction of nni neighbors of the cotengra-hyper seed that Pareto-dominate it on all four axes: median 14.9% on Sycamore-like vs 2.3% and 4.5% on random 3-regular and QAOA. The seed is far from Pareto-local on Sycamore-like. (b) Best single- move fT reduction available in the same neighborhood.",
+      "page": 9
+    }
+  ],
+  "figure": "2604.25532_figures/2604.25532_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  }
+}

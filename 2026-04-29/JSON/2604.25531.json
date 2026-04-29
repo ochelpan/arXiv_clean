@@ -1,0 +1,107 @@
+{
+  "arxiv_id": "2604.25531",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Optimization Methods for the Generalized Traveling Salesman Problem",
+  "authors": "Maximilian Zorn, Melinda Braun, Michael Ertl, Tommy Kiss, Sara Juarez Oropeza, Claudia Linnhoff-Popien, Jonas Stein",
+  "abstract": "This paper studies quantum optimization baselines for the Generalized Traveling Salesman Problem (GTSP), a clustered routing problem that naturally models variant selection and sequencing problems under discrete alternatives. We propose a novel GTSP QUBO formulation focused on maintaining feasible solutions for quantum annealing, as well as a hardware-executable gate-based pipeline utilizing the Quantum Approximate Optimization Algorithm (QAOA). We implement a constrained QAOA variant using an XY-mixer, which preserves the stepwise Hamming weight in the ideal circuit model, while feasibility with respect to the full GTSP constraints is tracked explicitly during post-processing. We compare the two quantum optimization paradigms on problem instances from GTSPLIB, an established benchmark dataset, and validate against classical state-of-the-art solvers. To mitigate current quantum hardware size limitations, we further extend a preprocessing method to reduce the node count in instance clusters, constructing new NISQ-friendly instances from reduced subsets. Across all tested instances, quantum solvers often produce competitive solution quality when tested on smaller graphs, but exhibit higher runtimes and a sharp degradation in feasibility and scalability as instance size grows. Our evaluation highlights where quantum optimizers can already succeed and which algorithmic bottlenecks, like sampling rates, runtime issues, and other practical failure modes, remain as open problems.",
+  "url": "http://arxiv.org/abs/2604.25531v1",
+  "pdf": "https://arxiv.org/pdf/2604.25531v1",
+  "type": "both",
+  "summary": "This paper evaluates how well current NISQ-era quantum hardware can solve the Generalized Traveling Salesman Problem. By comparing Quantum Annealing and a constrained QAOA approach, the authors demonstrate that while quantum methods can match classical performance on tiny instances, they struggle significantly with feasibility as problem size grows. The study identifies critical bottlenecks like the difficulty of maintaining constraints via penalty terms and the limitations of hardware embedding.",
+  "main_problem": "The paper investigates the performance and scalability of quantum optimization methods, specifically Quantum Annealing and QAOA, for solving the Generalized Traveling Salesman Problem (GTSP).",
+  "main_result": "Quantum solvers achieve competitive solution quality on very small graphs, but both approaches suffer from a sharp degradation in feasibility and scalability as the number of nodes increases beyond 15.",
+  "method": "The authors propose a novel QUBO formulation for annealing and a constrained QAOA pipeline using an XY-mixer, supplemented by a node-reduction preprocessing technique (extended NN2C).",
+  "model_or_system": "The problem is modeled as an undirected, weighted graph mapped to an Ising Hamiltonian or a QUBO matrix. The experimental platforms include the D-Wave Advantage2 QPU for annealing and Qiskit Aer simulations targeting IBM Heron-class hardware.",
+  "key_observables": "Approximation ratio, feasibility rate (percentage of valid tours), solution cost, and embedding failure rates.",
+  "important_parameters": "Number of nodes (n) and clusters (K), QAOA layers (p), penalty factor (lambda), and variational parameters (gamma, beta).",
+  "main_assumptions": "The preprocessing method assumes that reducing the node count preserves the essential structure of the optimal tour, and the QAOA implementation assumes a fixed shot budget and low-depth circuits.",
+  "figures_summary": "Figures illustrate the NN2C preprocessing method and show the distribution of solution quality (approximation ratio) and feasibility across various small and medium-sized GTSP datasets.",
+  "paper_structure": "The paper reviews existing TSP/GTSP quantum work, introduces the proposed QUBO and C-QAOA formulations, describes the preprocessing and dataset generation methods, presents empirical benchmarking results, and concludes with an analysis of scalability bottlenecks.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25531_figures/2604.25531_fig1.jpg",
+      "caption": "Fig. 1. Example illustrating the application of the NN2C extended prepro- cessing method: Here, for cluster B, the best entry node (blue) and best exit node (orange) are selected. All not selected nodes (red X) are removed. This step is repeated for all clusters.",
+      "page": 4
+    },
+    {
+      "image": "2604.25531_figures/2604.25531_fig2.jpg",
+      "caption": "Fig. 2. Distribution of solution quality achieved by Q-GTSP on the Subsample Small dataset with 3 to 5 nodes. The violins show the approximation ratio distribution over sampled feasible solutions, while the instance labels report the feasible-shot rate.",
+      "page": 6
+    },
+    {
+      "image": "2604.25531_figures/2604.25531_fig3.jpg",
+      "caption": "Fig. 3. Distribution of solution quality achieved by Q-GTSP on the Subsample Medium dataset with 3 to 20 nodes. The violins show the approximation ratio distribution over sampled feasible solutions, while the instance labels report the feasible-shot rate.",
+      "page": 6
+    },
+    {
+      "image": "2604.25531_figures/2604.25531_fig4.jpg",
+      "caption": "Fig. 4. Distribution of solution quality achieved by C-QAOA on the Subsam- ple Small dataset with 3 to 5 nodes. The violins show the approximation ratio distribution over sampled feasible solutions, while the instance labels report the feasible-shot rate.",
+      "page": 6
+    },
+    {
+      "image": "2604.25531_figures/2604.25531_fig5.jpg",
+      "caption": "Fig. 5. Distribution of solution quality achieved by C-QAOA on the Subsam- ple Medium dataset with 3 to 20 nodes. The violins show the approximation ratio distribution over sampled feasible solutions, while the instance labels report the feasible-shot rate.",
+      "page": 7
+    },
+    {
+      "image": "2604.25531_figures/2604.25531_fig6.jpg",
+      "caption": "Fig. 6. Distribution of solution quality achieved by Q-GTSP on the Preprocess Small dataset (3–5 nodes), where the corresponding original GTSPLIB instances range from 14 to 24 nodes. The violins show the approximation ratio distribution over sampled feasible solutions, while the instance labels report the feasible-shot rate.",
+      "page": 7
+    },
+    {
+      "image": "2604.25531_figures/2604.25531_fig7.jpg",
+      "caption": "Figure 7 shows that on most instances, both approaches (QAOA and quantum annealing) consistently find optimal or near optimal solutions until a node count of 13 and above. However, expanding the instance sizes to up to 20 nodes decreases the solvers’ performance drastically, in particular, the feasibility ratio drops below 50% on all instances, almost reaching 0% on the 11ft53 instance with 13 nodes. Addi- tionally, the mean is below the random threshold in 4 of the instances, meaning that the majority of sampled solutions are worse than random guessing. Analogous to similar problems, we suspect that the multitude of constraints makes it very hard for the purely QUBO-based quantum annealing...",
+      "page": 7
+    },
+    {
+      "image": "2604.25531_figures/2604.25531_fig8.jpg",
+      "caption": "Fig. 7. Solution quality of the best shot measured in approximation ratio at 1500 shots.",
+      "page": 8
+    },
+    {
+      "image": "2604.25531_figures/2604.25531_fig9.jpg",
+      "caption": "Fig. 8. Distribution of solution quality achieved by C-QAOA on the Preprocess Medium dataset (3–20 nodes), where the corresponding original GTSPLIB instances range from 14 to 100 nodes. The violins show the approximation ratio distribution over sampled feasible solutions, while the instance labels report the feasible-shot rate.",
+      "page": 9
+    },
+    {
+      "image": "2604.25531_figures/2604.25531_fig10.jpg",
+      "caption": "Figure 6 indicates that Q-GTSP, consistently achieves ap- proximation ratios that are above the average of the sampled solution landscape for the Preprocess Small instances with 3 to 5 nodes. Across all considered instances, it also shows a high feasibility rate, ranging from approximately 65% up to 98%. This is notably higher than the feasibility rates observed for the Subsample Small instances with the same number of nodes (3 to 5), cf. Figure 2. It should be noted, however, that the preprocessed instances are derived from original GTSPLIB instances and retain the same number of clusters, while only the number of nodes is reduced. Consequently, solutions obtained for preprocessed...",
+      "page": 9
+    }
+  ],
+  "figure": "2604.25531_figures/2604.25531_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

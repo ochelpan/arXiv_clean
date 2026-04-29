@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2604.25429",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Deterministic Realization of Classical Dissipation on Quantum Computers",
+  "authors": "Muhammad Idrees Khan, Sauro Succi, Hua-Dong Yao",
+  "abstract": "Lattice Boltzmann (LB) on quantum devices must reconcile unitary gate evolution with the dissipative \\emph{collision} step. In the multiple-relaxation-time (MRT) class, we work in the common setting of \\emph{modewise diagonal} moment relaxation, $δm_r'=λ_r\\,δm_r$ with $λ_r\\in[-1,1]$ (overrelaxation if $λ_r<0$). Embedding that contraction in a unitary by block encoding or a linear combination of unitaries (LCU) typically yields subunitary success probability that decays multiplicatively across modes, sites, and time, a key bottleneck for quantum LB. \\emph{For the dissipative MRT block alone} we give a \\emph{block-encoding-free} construction: a signed \\emph{two-rail} population encoding, then a completely positive trace-preserving (CPTP) map (per-rail amplitude damping with survival $|λ_r|$ and, if $λ_r<0$, a rail SWAP) so that, after the decode, the map agrees with classical MRT relaxation exactly (expectations of the rail number operators, common encoding--decode scale). Trace preservation gives success probability $1$ for that substage. The main result is the dissipative MRT block; construction of the equilibrium moment vector~$m^{\\mathrm{eq}}=Mf^{\\mathrm{eq}}$ (prescribed~$f^{\\mathrm{eq}}$, host moment matrix~$M$; notation as in Section~\\ref{subsec:generic-mrt}), moment transforms, streaming, and boundaries are composed with it as in a standard host pipeline and lie outside the scope of the formal theorem. Hybrid and fully coherent encodings, adaptive scales, Carleman-based context, and a one-rail no-go in the same nonnegative population framework are in the main text. Audits of the open-channel map on a long LBM collide-stream simulation and on stencil-free inputs both match the target to machine precision.",
+  "url": "http://arxiv.org/abs/2604.25429v1",
+  "pdf": "https://arxiv.org/pdf/2604.25429v1",
+  "type": "theory",
+  "summary": "This paper solves a major scalability bottleneck in quantum fluid dynamics simulations. By replacing probabilistic block-encoding with a deterministic CPTP channel using a two-rail encoding, the authors eliminate the multiplicative decay of success probability during the dissipative collision step. This allows for much larger and longer-running quantum Lattice Boltzmann simulations. The method is proven to be accurate to machine precision and is compatible with various quantum computing architectures.",
+  "main_problem": "Quantum Lattice Boltzmann Methods (QLBM) suffer from an exponential decay in success probability because implementing the dissipative collision step via standard block-encoding or LCU requires post-selection.",
+  "main_result": "The authors present a deterministic, block-encoding-free construction using a CPTP channel that achieves a success probability of 1 for the dissipative MRT block.",
+  "method": "The method uses a signed two-rail population encoding and an amplitude-damping quantum channel to realize the relaxation, effectively replacing post-selection with classical bookkeeping.",
+  "model_or_system": "The paper focuses on the Multiple-Relaxation-imTime (MRT) Lattice Boltzmann Method (LBM) for fluid dynamics, specifically implementing the dissipative collision step in moment space.",
+  "key_observables": "Non-equilibrium moments (delta m_r), rail number operators, and the pointwise residual error of the dissipative update.",
+  "important_parameters": "Relaxation parameters (lambda_r), overrelaxation regime (lambda_r < 0), and the encoding scale (S_r).",
+  "main_assumptions": "The construction assumes a modewise diagonal collision operator and does not cover block-coupled collision matrices or the full Carleman-linearized collision step.",
+  "figures_summary": "Figure 1 shows the high-level pipeline from classical moments to decoded updates; Figure 2 displays the gate-level circuit; Figure 3 illustrates the hybrid Carleman-CPTP collision pipeline; Figure 4 shows the error evolution in a 3D Taylor-Green vortex simulation.",
+  "paper_structure": "The paper introduces the QLBM bottleneck, proposes a two-rail CPTP construction, provides formal proofs for the deterministic update (Theorem 3.3) and success probability (Corollary 3.4), details the gate-level implementation, and validates the method through 3D lattice and synthetic numerical audits.",
+  "why_interesting": "This is highly relevant for researchers in open quantum systems as it provides a way to implement non-unitary, dissipative dynamics deterministically using CPTP maps and amplitude damping, avoiding the probabilistic overhead of standard gate-based methods.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25429_figures/2604.25429_fig1.jpg",
+      "caption": "Figure 1: Block-encoding-free CPTP realization of the diagonal MRT dissipative update. The classical nonequilibrium moment δmr is mapped onto two rails (p+ r , p− r ) by the signed population encoding (7). Each rail is damped by an amplitude-damping channel with survival |λr|, and a rail SWAP is applied when λr < 0; the decoder (9) reads off δm′ r = λr δmr exactly (Theorem 3.3). The boxed region is trace-preserving by construction, so the per-application success probability is unity: no heralding, post-selection, or amplitude amplification is required, in contrast to block-encoded realizations of the same contraction (Section 4). The SWAP branch is selected by the classical sign of λr and...",
+      "page": 5
+    },
+    {
+      "image": "2604.25429_figures/2604.25429_fig2.jpg",
+      "caption": "Figure 2: Gate-level realization of the CPTP channel Er of Figure 1. Each amplitude-damping box is opened into its Stinespring dilation: a fresh ancilla |0⟩a±, a rail-controlled rotation Ry(θr) with θr = 2 arccos p",
+      "page": 6
+    },
+    {
+      "image": "2604.25429_figures/2604.25429_fig3.jpg",
+      "caption": "Figure 3: Register-level block diagram of the hybrid Carleman–CPTP collision step (26), realizing specialization (U3) of the host-agnostic schema (23). The outer dashed frames mark the induced grouping Upre =(H1)◦(H2)◦(H3) and Upost =(H5)◦(H6). The orange block (H4) is the CPTP open channel of Theorem 3.3, whose signed two-rail internal structure is detailed in Figures 1– 2 (block and gate level). The dashed arrow entering (H4) from below carries the classical side information \u0000 sign(δmr), Sr(x, t), sign(λr) \u0001 realizing the bookkeeping items (T1)–(T3) of Section 4.3 (encoding-scale choice: Remark 3.1; adaptive scaling: Proposition 3.6).",
+      "page": 16
+    },
+    {
+      "image": "2604.25429_figures/2604.25429_fig4.jpg",
+      "caption": "Figure 4: Dissipative-mode audit maxr∈D, sites |δm′ r −λrδmr| versus advective LBM time for the run defined in Section 6.1. The error stays at the IEEE-754 double-precision floor throughout.",
+      "page": 17
+    }
+  ],
+  "figure": "2604.25429_figures/2604.25429_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 4
+  }
+}

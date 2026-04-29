@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2604.25058",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.CO"
+  ],
+  "is_primary_archive": true,
+  "title": "A SWAP-free Framework for QAOA",
+  "authors": "Thiago Assis, Pedro Baptista, Laila Lopes, Diego Ferreira, Gabriel Coutinho",
+  "abstract": "The performance of the Quantum Approximate Optimization Algorithm (QAOA) on noisy intermediate-scale quantum (NISQ) devices is strongly limited by sparse qubit connectivity. When interactions required by QAOA Hamiltonians are not aligned to the hardware topology, transpilation introduces SWAP gates, increasing circuit depth and noise. We propose a SWAP-free QAOA framework based on modifying the cost Hamiltonian so that it can be implemented natively on the hardware. We formulate this as a mixed-integer semidefinite program (MISDP) that selects a hardware-compatible approximation of the original cost matrix and optimizes the allocation of logical variables to physical qubits. We prove that the associated decision problem is NP-complete and derive theoretical guarantees relating the MISDP objective to the loss in the original optimization problem through the Lovász number of the hardware graph. Since solving MISDPs is practical only for small instances, we introduce heuristics based on spectral properties of the problem matrix and hardware graph. Our experiments on a cardinality-constrained quadratic optimization model for index tracking show competitive performance against a baseline representing ideal QAOA under SWAP-induced noise. These results indicate that, on sparse NISQ architectures, a hardware-aware approximation of the objective may be more effective than an exact but heavily transpiled Hamiltonian implementation.",
+  "url": "http://arxiv.org/abs/2604.25058v1",
+  "pdf": "https://arxiv.org/pdf/2604.25058v1",
+  "type": "theory",
+  "summary": "This paper addresses the high error rates in NISQ-era quantum computing caused by SWAP gates during algorithm transpilation. Instead of using an exact Hamiltonian that requires many noisy gates, the authors propose modifying the problem itself to fit the hardware's native connectivity. By using a mathematical framework to find the best hardware-compatible approximation, they show that an imprecise but 'SWAP-free' algorithm can actually produce more accurate results than an exact but heavily noisy one as the number of qubits increases.",
+  "main_problem": "The performance of QAOA on NISQ devices is degraded by SWAP gates required to implement non-native interactions on sparse hardware topologies. The paper seeks to determine if a hardware-compatible approximation of the cost Hamiltonian can outperform an exact but noisy implementation.",
+  "main_result": "The authors propose a SWAP-free framework that uses a Mixed-Integer Semidefinite Program (MISDP) to optimize qubit mapping and Hamiltonian approximation. They demonstrate that for larger problem sizes (n > 20), this hardware-aware approximation significantly outperforms the standard SWAP-induced noise baseline.",
+  "method": "The framework uses an MISDP formulation to simultaneously select a hardware-compatible cost matrix and optimize qubit allocation. For larger instances, the authors introduce spectral-based heuristics (e.g., Perron and Laplacian-based) to solve the optimization problem efficiently.",
+  "model_or_system": "The study focuses on the Quantum Approximate Optimization Algorithm (QAOA) applied to Quadratic Unconstrained Binary Optimization (QUBO) problems, specifically cardinality-constrained models. The physical model involves an XY-type mixer Hamiltonian and a cost Hamiltonian implemented on a hardware graph representing NISQ device connectivity.",
+  "key_observables": "The deviation/error between original and embedded cost matrices (lambda), the optimality gap, and the normalized lambda objective value.",
+  "important_parameters": "Graph density (d), number of qubits (n), cardinality constraint (k), number of QAOA layers (l), and CNOT error rate (0.33%).",
+  "main_assumptions": "The study assumes perfect classical optimization of the variational parameters (beta and gamma) to isolate the effects of qubit allocation and noise.",
+  "figures_summary": "Figure 1 compares various spectral heuristics against a brute-force benchmark for small n; Figure 2 shows the optimality gap of the proposed heuristics compared to the SWAP-based baseline as a function of problem size n.",
+  "paper_structure": "The paper introduces the problem of SWAP-induced noise, formulates the SWAP-free framework as an MISDP, proves the NP-completeness of the decision problem, provides theoretical bounds using the Lovasz number, introduces spectral heuristics for scalability, and benchmarks the approach against SWAP-based noise using a financial index-tracking problem.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25058_figures/2604.25058_fig1.jpg",
+      "caption": "Figure 1: Comparison of heuristics. The plots show how normalized lambda and optimality gap vary with graph density for n = 8.",
+      "page": 13
+    },
+    {
+      "image": "2604.25058_figures/2604.25058_fig2.jpg",
+      "caption": "Figure 2: Optimality gap as a function of n for four algorithms: Perron Con- nected, Perron Disconnected, Laplacian Connected, and ideal QAOA with SWAP errors.",
+      "page": 14
+    }
+  ],
+  "figure": "2604.25058_figures/2604.25058_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

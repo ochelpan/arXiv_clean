@@ -1,0 +1,91 @@
+{
+  "arxiv_id": "2604.25775",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Pareto Frontier of Neural Quantum States: Scalable, Affordable, and Accurate Convolutional Backflow for Strongly Correlated Lattice Fermions",
+  "authors": "Yuntian Gu, Zeyao Han, Wenrui Li, Zhiyu Xiao, Tao Xiang, Mingpu Qin, Liwei Wang, Dingshun Lv",
+  "abstract": "Neural Quantum States (NQS) are now among the most accurate methods for studying strongly correlated many-fermion systems, outperforming existing many-body approaches for large systems. However, NQS calculations remain extremely resource-intensive. Here, we introduce a new Pareto frontier of efficiency and accuracy for NQS in simulating strongly correlated lattice fermions, defined by two complementary backflow-related architectures: the Sparse Convolutional Ansatz for Lattice Electrons (SCALE) (state-of-the-art efficiency) and the Accurate Convolutional ansatz for lattice Electrons (ACE) (state-of-the-art accuracy), benchmarked on the iconic Hubbard and $t-J$ models for large lattices. SCALE uses a tailored convolutional design enabling efficient local updates via low-rank determinant updates, reducing computational scaling from $O(N^4)$ to $O(N^3)$ in backflow methods and yielding a >40$\\times$ practical speed-up in tests while maintaining high variational accuracy. As an application, we study the previously inaccessible 1/8-doped pure Hubbard model up to $32 \\times 32$, finding no significant energy difference between horizontal and vertical filled stripe states - contrasting with half-filled stripe states when next-nearest-neighbor hoppings are included. ACE employs a deep convolutional stack to maximize expressive power, achieving unprecedented accuracy on large systems. Extensive benchmarks on Hubbard and $t-J$ models show SCALE delivers variational energies competitive with leading methods at a fraction of the cost, while ACE sets a new accuracy benchmark, surpassing recent results with only 1/6 the runtime for $16 \\times 4$ systems. These new NQS approaches provide scalable, affordable, and accurate tools for exploring strongly correlated fermionic physics, such as the microscopic mechanism of unconventional superconductivity.",
+  "url": "http://arxiv.org/abs/2604.25775v1",
+  "pdf": "https://arxiv.org/pdf/2604.25775v1",
+  "type": "theory",
+  "summary": "This paper presents two new Neural Quantum State (NQS) architectures, SCALE and ACE, designed to balance efficiency and accuracy in simulating strongly correlated fermions. SCALE achieves a significant speed-up by reducing computational scaling through efficient local updates, while ACE sets new benchmarks for variational accuracy using deep convolutional stacks. The authors demonstrate the effectiveness of these methods on the Hubbard and t-J models, even resolving stripe orientation in large-scale simulations. This work provides a powerful new toolkit for exploring the physics of unconventional superconductivity and other complex electronic phases.",
+  "main_problem": "The high computational resource intensity and scaling bottlenecks of Neural Quantum States (NQS) for simulating strongly correlated many-fermion systems.",
+  "main_result": "The introduction of a new Pareto frontier of NQS architectures, SCALE (for efficiency) and ACE (for accuracy), which significantly improve computational scaling and variational accuracy on large-scale Hubbard and t-J models.",
+  "method": "Two new convolutional backflow architectures: SCALE, which uses a tailored design and Sherman-Morrison-Woodbury updates to reduce complexity from O(N^4) to O(N^3), and ACE, which uses a deep convolutional stack for maximum expressive power.",
+  "model_or_system": "Strongly correlated lattice fermions, specifically the 2D Hubbard model (including repulsive and attractive regimes) and the t-J model on various lattice sizes and geometries (cylinders and square lattices).",
+  "key_observables": "Ground-state energy, pair-pair correlation functions, spin density, hole density, and off-diagonal long-range order (ODLRO).",
+  "important_parameters": "Hubbard U, hopping parameters (t, t'), doping levels (e.g., 1/8-doped), and lattice dimensions (up to 32x32).",
+  "main_assumptions": "The use of Green's Function Monte Carlo (GFMC) is subject to the fixed-node approximation; ACE's depth prevents the use of the efficient caching scheme used in SCALE.",
+  "figures_summary": "Figure 1 illustrates the convolutional backflow kernel and efficient local updates via the Sherman-Morrison-Woodbury formula. Figure 2 shows runtime scaling of different architectures. Figure 3 displays pair correlations for the attractive Hubbard model. Figure 4 shows the accuracy vs. cost trade-off and the Pareto front for different systems. Figure 5 visualizes ground-state spin and hole density.",
+  "paper_structure": "The paper introduces the computational problem, presents the two new NQS architectures (SCALE and ACE), details the algorithmic improvements for efficiency, provides benchmarks against existing methods (DMRG, Transformer-based NQS), applies the methods to physical problems (Hubbard and t-J models), and discusses the physical implications for stripe phases.",
+  "why_interesting": "This paper is highly relevant for many-body dynamics and numerical physics as it provides a scalable way to simulate large-scale fermionic systems, potentially enabling the study of complex phase transitions and emergent orders that were previously computationally inaccessible.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.25775_figures/2604.25775_fig1.jpg",
+      "caption": "FIG. 1. Network Architecture and Efficient Local Updates. (a) Given an input configuration, a convolutional layer gathers information from local neighborhoods. The wavefunction is expressed as the determinant of the resulting backflow matrix. (b) SCALE enables efficient updates by only recomputing the orbitals of the affected sites. The computational cost of the determinant is reduced from O(N 3) to O(N 2) via the Sherman-Morrison-Woodbury formula.",
+      "page": 3
+    },
+    {
+      "image": "2604.25775_figures/2604.25775_fig2.jpg",
+      "caption": "FIG. 2. Time cost per optimization step as a function of system size. The plot compares the runtime scaling of SCALE against global architectures (ACE and Transformer) under a fixed batch size. SCALE achieves a highly favorable asymptotic complexity (empirically ≈O(N 1.65)), resulting in substantial speed-ups for larger systems compared to the steeper scaling of ACE (≈O(N 2.19)) and Transformer (≈O(N 2.90)).",
+      "page": 7
+    },
+    {
+      "image": "2604.25775_figures/2604.25775_fig3.jpg",
+      "caption": "FIG. 3. Pair correlations Cp(x, 0) for the attractive Hubbard model. The plots show results for (a) 8 × 8 and (b) 12 × 12 systems at weak (U = −2) and strong (U = −8) interaction strengths, with t′ = 0. The results from our ACE and SCALE models perfectly align with the exact DQMC benchmarks, demonstrating their high accuracy. Statistical uncertainties from Monte Carlo sampling are smaller than the marker size in all panels.",
+      "page": 7
+    },
+    {
+      "image": "2604.25775_figures/2604.25775_fig4.jpg",
+      "caption": "FIG. 4. Accuracy vs. Cost trade-off on the U = 8 Hubbard model. The plots compare variational ground state energy against relative computational cost. (a) For the 16 × 4 (t′ = 0) system, we analyze the effect of progressively enforcing symmetries on the ACE architecture (purple stars). Labels denote the cumulative addition of point group (D2), spin-flip (σ), half-translation (T1/2), and quarter-translation (T1/4) symmetries. ACE achieves lower energies than Transformer [21], HFPS [23], and NNBF [25] while maintaining a fraction of the computational cost of the full-symmetry NNBF. (b) On the larger 32 × 8 (t′ = −0.2) system, the ACE and SCALE variants establish a superior Pareto front,...",
+      "page": 8
+    },
+    {
+      "image": "2604.25775_figures/2604.25775_fig5.jpg",
+      "caption": "FIG. 5. Ground state density and spin distribution for the 16 × 10 t −J model with J/t = 1/3, t′/t = 0.2, hm = 0.5 at 1/8 doping under cylindrical boundary conditions. The color of the circles indicates the local hole density, and the arrows represent the magnitude and direction of the local spin density. We can see a clear filled stripe state from the results.",
+      "page": 10
+    },
+    {
+      "image": "2604.25775_figures/2604.25775_fig6.jpg",
+      "caption": "FIG. 6. Variational energy of ACE as a function of optimization steps. The system is a Hubbard model with size 16 × 4 and t′ = 0. We can see that symmetry projection greatly increases the variational accuracy.",
+      "page": 12
+    },
+    {
+      "image": "2604.25775_figures/2604.25775_fig7.jpg",
+      "caption": "FIG. 7. Ground state density and spin distribution for the 32 × 32 Hubbard model with t′ = 0 at 1/8 doping under PBC. The color of the circles indicates the local hole density, and the arrows represent the magnitude and direction of the local spin density. We can see a clear filled stripe state from the results.",
+      "page": 13
+    }
+  ],
+  "figure": "2604.25775_figures/2604.25775_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

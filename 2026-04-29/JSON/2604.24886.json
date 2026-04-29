@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2604.24886",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Getting large-scale quantum neural networks ready for quantum hardware",
+  "authors": "Mario Boneberg, Simon Kochsiek, Igor Lesanovsky",
+  "abstract": "Quantum neural networks generalize classical artificial neural networks into the quantum domain. They are formulated as parameterized quantum circuits which are optimized by measuring and minimizing a suitably chosen loss function. The core challenge in understanding, implementing and ultimately using quantum neural networks is that they represent many-body systems with an exponentially large Hilbert space, in combination with a large parameter search space. Moreover, noise -- which is inherent to any quantum measurement -- sets practical limits for the estimation of training loss. Here, we study physics-informed large-scale quantum neural networks that are trained through a finite number of noisy loss function measurements. We show that this architecture permits the construction of nontrivial decision boundaries that enable the classification of quantum states through measuring an order parameter. Our approach can directly process quantum data that is output from quantum simulators and computers and is well suited for implementation on current hardware. Moreover, owed to a close link between the neural network dynamics and the evolution of Markovian open many-body quantum systems, one may expect a certain robustness to noise, which is ubiquitous in the current NISQ era.",
+  "url": "http://arxiv.org/abs/2604.24886v1",
+  "pdf": "https://arxiv.org/pdf/2604.24886v1",
+  "type": "theory",
+  "summary": "This paper proposes a new class of physics-informed quantum neural networks designed for large-scale hardware. By mimicking the dissipative dynamics of open many-body systems, these networks can learn to classify complex quantum states using only a single observable. The approach effectively addresses the challenges of barren plateaus and measurement noise. Simulations on systems up to 550 qubits demonstrate that the network can reduce the complexity of tasks by mapping multi-observable problems into a single-observable measurement.",
+  "main_problem": "The difficulty of scaling Quantum Neural Networks (QNNs) due to exponentially large Hilbert spaces, barren plateaus, and measurement noise in the NISQ era.",
+  "main_result": "The development of physics-informed QNNs that use dissipative many-body dynamics to successfully classify quantum states and reduce the complexity of required observables.",
+  "method": "Tensor network simulations (MPS and MPO) are used to train the network via a Nadam stochastic gradient descent variant using a contrastive loss function.",
+  "model_or_system": "A large-scale layered quantum many-body system on a rectangular lattice, where evolution is modeled via a Lindblad master equation with parameterized Hamiltonian and jump operators.",
+  "key_observables": "Magnetization (specifically the x-component, m_x) used as an order parameter for classification.",
+  "important_parameters": "System size up to 550 qubits (50 sites, 11 layers), learning rate 0.05, and 5000-shot measurement scale.",
+  "main_assumptions": "The use of SVD truncation in tensor networks is assumed to capture the essential physics without qualitatively altering the training results.",
+  "figures_summary": "Figure 1 illustrates the QNN architecture and the training process from untrained to trained states; Figure 2 shows the mapping of input datasets to distinct magnetization ranges; Supplementary figures demonstrate the convergence of bond dimensions and the stability of training losses.",
+  "paper_structure": "The paper introduces the QNN scaling challenge, describes the physics-informed architecture based on Lindbladian dynamics, presents training results on two distinct datasets, and provides a validation of the numerical methods via tensor network truncation analysis.",
+  "why_interesting": "It bridges quantum machine learning with open quantum systems, showing how dissipative many-body dynamics can be leveraged to create robust, noise-resilient architectures for feature extraction.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.24886_figures/2604.24886_fig1.jpg",
+      "caption": "FIG. 1. Physics-informed quantum neural network architecture and training. (a) Structured dataset that is used to train the network. It consists of labeled quan- tum states. In the example shown they are represented on the Bloch sphere, spanned by the magnetization compo- nents mx,y,z [see main text] and fall into two classes: A (red dots, northern hemisphere) and B (blue dots, southern hemi- sphere). (b) The corresponding states (ρA and ρB) are fed into the first layer of qubits of a quantum neural network. Lo- cal, translation-invariant gates, applied between consecutive layers, propagate these states layer-by-layer to the rightmost (output) layer according to an open quantum many-body...",
+      "page": 2
+    },
+    {
+      "image": "2604.24886_figures/2604.24886_fig2.jpg",
+      "caption": "FIG. 2. Training on datasets I and II. (a) Dataset I of quantum states represented on the Bloch sphere. Class A states (red dots) can be distinguished from class B states (blue dots) by measuring ˆmz, i.e. populations. (b) Evolution of the expectation value mx through the layers of the initial QNN for the validation data. All trajectories converge towards a single stationary magnetization. (c) Evolution of mx for the trained QNN. Initial states with different labels have output magnetizations in different ranges, implying perfect classification on the validation set. The training algorithm thus found a solution which classifies the data in a basis where the original states were not...",
+      "page": 4
+    }
+  ],
+  "figure": "2604.24886_figures/2604.24886_fig1.jpg",
+  "highlighted": [
+    "Igor Lesanovsky"
+  ],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 4
+  }
+}
