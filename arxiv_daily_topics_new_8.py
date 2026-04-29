@@ -26,6 +26,7 @@ import json
 import os
 import re
 import tempfile
+import html
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 from pathlib import Path
@@ -144,7 +145,7 @@ HIGHLIGHT_AUTHORS = _load_highlight_authors(HIGHLIGHT_AUTHORS_FILE)
 #     # ---- HIGH PRIORITY: top-level themes from group description ----
 #     "analog quantum simulation":
 #         "Analog quantum simulation: using AMO platforms (cold atoms, ions, "
-#         "Rydberg arrays, photonic systems, cavity QED) to engineer and study "
+#         "Rydberg arrays, photonic systems, cavity QED) to engineer and study, "
 #         "many-body Hamiltonians of condensed-matter interest — Hubbard models, "
 #         "lattice gauge theories, frustrated magnets, topological models — "
 #         "without compiling to gate sequences.",
@@ -203,6 +204,7 @@ HIGHLIGHT_AUTHORS = _load_highlight_authors(HIGHLIGHT_AUTHORS_FILE)
 #         "spin-photon transduction, magnetic fluctuations driving emitters.",
 #     "Frenkel-Kontorova":
 #         "The Frenkel-Kontorova model — chains in periodic potentials, "
+#         "Pokrovsky-Talapov model, "
 #         "commensurate/incommensurate transitions, friction.",
 
 #     # ---- broad concepts you care about ----
@@ -265,9 +267,6 @@ HIGHLIGHT_AUTHORS = _load_highlight_authors(HIGHLIGHT_AUTHORS_FILE)
 #         "Monte Carlo approaches to non-equilibrium steady states.",
 # }
 
-# # Relevance score >= this threshold makes a paper appear in the
-# # "Most relevant" top section. 3 means "directly relevant or better".
-# RELEVANCE_THRESHOLD = 3
 # Topics of personal research interest. Each topic is keyed by a short label
 # (used in headings and JSON) and has a one-sentence description that the LLM
 # uses to score relevance from 0 to 5. Edit, add, or remove freely.
@@ -325,7 +324,6 @@ else:
 # Relevance score >= this threshold makes a paper appear in the
 # "Most relevant" top section. 3 means "directly relevant or better".
 RELEVANCE_THRESHOLD = 4
-
 
 client = ollama.Client(host=OLLAMA_HOST)
 
@@ -1379,6 +1377,167 @@ def save_paper_entry(out_dir, arxiv_id, entry):
     tmp.replace(p)
 
 
+
+# ---------- HTML rendering ----------
+REPORT_CSS = """
+:root {
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #59636e;
+  --border: #d0d7de;
+  --card: #f6f8fa;
+  --link: #0969da;
+}
+body {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem 1rem 5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+  color: var(--fg);
+  background: var(--bg);
+}
+a { color: var(--link); }
+img { max-width: 100%; height: auto; }
+pre, code { background: var(--card); border-radius: 6px; }
+pre { padding: 1rem; overflow-x: auto; }
+blockquote { border-left: 4px solid var(--border); padding-left: 1rem; color: var(--muted); }
+details { margin: 0.6rem 0; }
+summary { cursor: pointer; font-weight: 600; }
+.paper-figures-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding: 0.75rem 0.25rem 1rem;
+  margin: 1rem 0 1.25rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  scroll-snap-type: x proximity;
+}
+.paper-figure-card {
+  flex: 0 0 min(260px, 72vw);
+  scroll-snap-align: start;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.55rem;
+}
+.paper-figure-card img {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  background: white;
+  border-radius: 8px;
+}
+.paper-figure-caption {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.figure-strip-hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: -0.3rem;
+}
+"""
+
+
+def _protect_math(text):
+    """Replace LaTeX math regions with placeholder tokens so the markdown
+    converter doesn't mangle their contents (e.g. by escaping `<`, `>`, `_`,
+    `*`, `\\`). Returns (transformed_text, list_of_segments). The segments
+    are restored verbatim after conversion so MathJax sees the originals.
+    """
+    segments = []
+
+    def _stash(match):
+        segments.append(match.group(0))
+        return f"@@MATH{len(segments) - 1}MATH@@"
+
+    # Order matters: catch $$...$$ before $...$ so we don't half-consume
+    # a display block. Also \[...\] and \(...\) for completeness.
+    patterns = [
+        r"\$\$.+?\$\$",                    # $$display math$$
+        r"\\\[.+?\\\]",                    # \[display math\]
+        r"(?<!\\)\$(?!\s)(?:[^$\n]|\\\$)+?(?<!\s)\$(?!\d)",  # $inline$
+        r"\\\(.+?\\\)",                    # \(inline\)
+    ]
+    for pat in patterns:
+        text = re.sub(pat, _stash, text, flags=re.DOTALL)
+    return text, segments
+
+
+def _restore_math(html_text, segments):
+    """Restore stashed math segments after markdown conversion."""
+    for i, seg in enumerate(segments):
+        html_text = html_text.replace(f"@@MATH{i}MATH@@", seg)
+    return html_text
+
+
+def markdown_to_html_document(markdown_text, title):
+    """Convert the Markdown digest to a standalone HTML file.
+
+    Requires the small Python package `markdown` for full rendering:
+        pip install markdown
+    If it is missing, the function still writes a readable fallback HTML page.
+
+    LaTeX math expressions ($...$, $$...$$, \\(...\\), \\[...\\]) are
+    protected from the markdown converter and restored after, so MathJax
+    in the browser sees them intact.
+    """
+    try:
+        import markdown as md
+        protected_text, math_segments = _protect_math(markdown_text)
+        body = md.markdown(
+            protected_text,
+            extensions=["extra", "toc", "sane_lists", "md_in_html"],
+            output_format="html5",
+        )
+        body = _restore_math(body, math_segments)
+    except Exception as exc:
+        print(f"warn: Python package 'markdown' not available ({exc}); writing simple fallback HTML.")
+        escaped = html.escape(markdown_text)
+        body = f"<pre>{escaped}</pre>"
+
+    safe_title = html.escape(title)
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{safe_title}</title>
+  <style>{REPORT_CSS}</style>
+  <!-- MathJax: renders $...$ inline math and $$...$$ display math, plus
+       \\(...\\) and \\[...\\]. Loaded from the official CDN; works offline
+       once cached. Configured to skip code/pre blocks so arxiv IDs that
+       look like dollar amounts don't get mangled. -->
+  <script>
+    window.MathJax = {{
+      tex: {{
+        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+        displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      }},
+      options: {{
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      }}
+    }};
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+{body}
+</body>
+</html>
+"""
+
 # ---------- Markdown rendering ----------
 def _entry_anchor_id(e):
     """Stable anchor id for a paper entry, derived from its arxiv id when
@@ -1427,22 +1586,22 @@ def _render_entry(e, lines):
     lines.append("")
 
     if e.get("figures"):
-        # One <details> block per figure. The first is `open`, the rest are
-        # collapsed and labelled "📷 Fig 2", "📷 Fig 3", etc. Click any label
-        # to expand that figure. Works on github.com (web + mobile) and in
-        # VS Code's Markdown preview without any CSS.
+        # Horizontal scrollable figure strip. This renders well in the HTML
+        # report and remains readable inside GitHub Markdown because it is
+        # plain HTML embedded in the .md file.
+        lines.append('<div class="figure-strip-hint">↔ Scroll figures horizontally</div>')
+        lines.append('<div class="paper-figures-scroll">')
         for idx, fig in enumerate(e["figures"], 1):
             image = fig.get("image")
             caption = fig.get("caption") or f"Figure from page {fig.get('page', '?')}"
-            safe_caption = caption.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-            open_attr = " open" if idx == 1 else ""
-            lines.append(f"<details{open_attr}><summary>📷 Fig {idx}</summary>")
-            lines.append("")
-            lines.append(f'<img src="{image}" width="500"><br>')
-            lines.append(f"<sub>{safe_caption}</sub>")
-            lines.append("")
-            lines.append("</details>")
-            lines.append("")
+            safe_caption = html.escape(caption)
+            safe_image = html.escape(str(image), quote=True)
+            lines.append('<figure class="paper-figure-card">')
+            lines.append(f'<img src="{safe_image}" alt="Figure {idx}">')
+            lines.append(f'<figcaption class="paper-figure-caption"><b>Fig {idx}.</b> {safe_caption}</figcaption>')
+            lines.append('</figure>')
+        lines.append('</div>')
+        lines.append("")
     elif e.get("figure"):
         lines.append(f"![main figure]({e['figure']})")
         lines.append("")
@@ -1476,7 +1635,7 @@ def _render_entry(e, lines):
     ]
 
     if detail_items:
-        lines.append("<details><summary>Detailed structure</summary>")
+        lines.append('<details markdown="1"><summary>Detailed structure</summary>')
         lines.append("")
         for label, value in detail_items:
             lines.append(f"**{label}.** {value}")
@@ -1484,7 +1643,7 @@ def _render_entry(e, lines):
         lines.append("</details>")
         lines.append("")
 
-    lines.append("<details><summary>Abstract</summary>")
+    lines.append('<details markdown="1"><summary>Abstract</summary>')
     lines.append("")
     lines.append(e["abstract"])
     lines.append("")
@@ -1544,7 +1703,7 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
         # Collapse the actual list — with 60+ entries, leaving it open pushes
         # the body section far down the page. The summary line shows the count
         # so it's still useful at a glance.
-        lines.append(f"<details><summary>Show {len(relevant)} relevant papers</summary>")
+        lines.append(f"<details markdown=\"1\"><summary>Show {len(relevant)} relevant papers</summary>")
         lines.append("")
         for e in relevant:
             scores = e.get("topic_scores") or {}
@@ -1576,7 +1735,7 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
             "Click the title to jump to the full entry below; click [arXiv] to open the paper page.*"
         )
         lines.append("")
-        lines.append(f"<details><summary>Show {len(highlighted)} highlighted papers</summary>")
+        lines.append(f"<details markdown=\"1\"><summary>Show {len(highlighted)} highlighted papers</summary>")
         lines.append("")
 
         for e in highlighted:
@@ -1651,7 +1810,7 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
             "Click to expand.*"
         )
         lines.append("")
-        lines.append("<details><summary>Show other papers</summary>")
+        lines.append("<details markdown=\"1\"><summary>Show other papers</summary>")
         lines.append("")
         for e in primary_others:
             _render_entry(e, lines)
@@ -1680,7 +1839,7 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
         lines.append("")
         lines.append(f"### Other secondary papers ({len(secondary_others)})")
         lines.append("")
-        lines.append("<details><summary>Show other secondary papers</summary>")
+        lines.append("<details markdown=\"1\"><summary>Show other secondary papers</summary>")
         lines.append("")
         for e in secondary_others:
             _render_entry(e, lines)
@@ -1692,26 +1851,37 @@ def build_markdown_digest(entries_by_cat, date_str, progress=None):
 
 
 # ---------- main ----------
+def _write_text_atomic(path, text):
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    tmp.replace(path)  # atomic on POSIX and Windows
+
+
 def _write_digest_atomic(digest_path, entries_by_cat, date_str, papers_done, papers_total):
     """
-    Write the digest to disk atomically: write to a temp file in the same
-    directory, then rename. This guarantees the user never sees a half-written
-    file even if they Ctrl+C in the middle of a write.
+    Write both Markdown and standalone HTML digest files atomically. This
+    guarantees the user never sees a half-written file even if they Ctrl+C in
+    the middle of a write.
     """
     text = build_markdown_digest(
         entries_by_cat, date_str,
         progress=(papers_done, papers_total),
     )
-    tmp = digest_path.with_suffix(digest_path.suffix + ".tmp")
-    tmp.write_text(text, encoding="utf-8")
-    tmp.replace(digest_path)  # atomic on POSIX and Windows
+    _write_text_atomic(digest_path, text)
+
+    html_path = digest_path.with_suffix(".html")
+    html_text = markdown_to_html_document(
+        text,
+        title=f"arxiv digest — {date_str}",
+    )
+    _write_text_atomic(html_path, html_text)
 
 
 def main():
     date_str = datetime.now().strftime("%Y-%m-%d")
     out_dir = OUTPUT_DIR / date_str
     out_dir.mkdir(parents=True, exist_ok=True)
-    digest_path = out_dir / "digest_output_t.md"
+    digest_path = out_dir / "report.md"
 
     print(f"Fetching quant-ph + cond-mat papers for {date_str}...")
     if MAX_PAPERS_TO_PROCESS is not None:
@@ -1726,7 +1896,8 @@ def main():
     # Write an initial empty digest so the file exists right away — useful
     # if you're tailing it from another window.
     _write_digest_atomic(digest_path, entries_by_cat, date_str, 0, len(papers))
-    print(f"Digest will grow at: {digest_path}\n")
+    print(f"Markdown digest will grow at: {digest_path}")
+    print(f"HTML digest will grow at: {digest_path.with_suffix('.html')}\n")
 
     try:
         with tempfile.TemporaryDirectory() as tmpdir_name:
@@ -1863,7 +2034,8 @@ def main():
         print(f"\nInterrupted. Saved {done} processed paper(s) to: {digest_path}")
         return
 
-    print(f"\nDigest written to: {digest_path}")
+    print(f"\nMarkdown digest written to: {digest_path}")
+    print(f"HTML digest written to: {digest_path.with_suffix('.html')}")
 
 
 if __name__ == "__main__":
