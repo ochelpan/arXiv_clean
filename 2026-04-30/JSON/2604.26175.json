@@ -1,0 +1,101 @@
+{
+  "arxiv_id": "2604.26175",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hardware-Efficient Quantum Optimization for Transportation Networks via Compressed Adiabatic Evolution",
+  "authors": "Talha Azfar, Ruimin Ke, Sean He, Cara Wang, José Holguín-Veras",
+  "abstract": "Transportation systems such as urban logistics, vehicle routing, and infrastructure planning require solving large-scale combinatorial optimization problems under complex constraints. Problems such as the vehicle routing problem (VRP), traveling salesman problem (TSP), and facility location problem (FLP) involve large discrete search spaces and the need to generate multiple feasible solutions in real time. In this work, we develop a hardware-grounded hybrid quantum optimization framework that uses Approximate Quantum Compilation (AQC) to compress early segments of digitized adiabatic evolution into shallow circuits. The compressed prefix is combined with variational layers, enabling a systematic study of how initialization, circuit depth, and expressivity interact on near-term quantum hardware. All experiments are performed on an IBM gate-based quantum computer, and circuits are evaluated as stochastic generators of candidate transportation plans. Results show that moderate prefix compression reduces two-qubit gate depth while maintaining or improving feasible solution discovery, particularly for routing problems. These benefits depend on compatibility between the compressed prefix and the variational ansatz: while standard QAOA effectively leverages AQC initialization, linear-chain QAOA shows limited improvement. Overall, this work demonstrates that hybrid AQC-QAOA methods provide a practical pathway for hardware-efficient quantum optimization, positioning quantum algorithms as candidate generators within transportation decision-making workflows.",
+  "url": "http://arxiv.org/abs/2604.26175v1",
+  "pdf": "https://arxiv.org/pdf/2604.26175v1",
+  "type": "both",
+  "summary": "This paper proposes a hardware-aware hybrid algorithm for solving transportation logistics problems on near-term quantum computers. By using Approximate Quantum Compilation to compress the early, robust stages of adiabatic evolution, the authors significantly reduce the required two-qubit gate depth. The framework demonstrates that this compression can maintain or even enhance the generation of feasible candidate solutions for problems like the Vehicle Routing Problem. However, the study also reveals that the success of this method depends heavily on the compatibility between the compressed prefix and the subsequent variational layers.",
+  "main_problem": "Developing hardware-efficient quantum optimization algorithms for large-scale transportation problems (TSP, VRP, FLP) that can run on NISQ-era hardware despite high circuit depth and noise.",
+  "main_result": "Moderate prefix compression using Approximate Quantum Compilation (AQC) reduces two-qubit gate depth while maintaining or improving feasible solution discovery, though effectiveness depends on the compatibility between the compressed prefix and the variational ansatz.",
+  "method": "A hybrid framework combining AQC-based prefix compression of early adiabatic evolution with variational layers (standard QAOA or LC-QAOA) optimized using the CVaR objective function.",
+  "model_or_system": "The study uses IBM gate-based quantum hardware to solve combinatorial optimization problems (TSP, VRP, FLP) mapped to QUBO/Ising Hamiltonians in the Pauli-Z basis.",
+  "key_observables": "Circuit depth (two-qubit gate depth), solution feasibility probability, objective value, solution diversity, energy variance, and perturbative susceptibility.",
+  "important_parameters": "Prefix compression length (m), QAOA depth (p), penalty weight (lambda), and the CVaR parameter (alpha).",
+  "main_assumptions": "The study focuses on small-scale, tractable problem instances (12-16 qubits) and assumes the utility of quantum computing as a candidate generator within a larger classical-quantum pipeline.",
+  "figures_summary": "Figure 1 illustrates the hybrid AQC-QAOA architecture; Figure 2 shows the intuition for spectral-gap-aware design; Figure 5b relates driver energy to feasible solutions; Figure 8 demonstrates performance drops in LC-QAOA due to Hamiltonian mismatch; Figures 9a-d show trends in gate depth, optimization iterations, and objective values.",
+  "paper_structure": "The paper introduces the transportation optimization problem, details the hybrid AQC-QAOA architecture and compression methodology, describes the mapping of TSP/VRP/FLP to Ising Hamiltonians, presents experimental results on IBM hardware comparing different ansatzes and compression levels, and concludes with a discussion on the trade-offs between depth and feasibility.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26175_figures/2604.26175_fig1.jpg",
+      "caption": "Figure 1: Hybrid hardware-efficient quantum optimization architecture. A digitized quantum annealing circuit is decomposed into segments with different computational roles. The early portion of the evolution is compressed using approximate quantum compilation (AQC), while the remaining gap-critical portion is replaced by structured variational layers such as QAOA or LC- QAOA. This design reduces circuit depth while preserving optimization capability.",
+      "page": 3
+    },
+    {
+      "image": "2604.26175_figures/2604.26175_fig2.jpg",
+      "caption": "Figure 2: Spectral-gap-aware intuition for hybrid circuit design. The adiabatic evolution path exhibits regions with different spectral-gap structures. Large-gap regimes are generally more robust and can tolerate circuit compression, whereas the gap-critical region near the minimum spectral gap Δmin is more sensitive and motivates retaining expressive variational circuit layers.",
+      "page": 4
+    },
+    {
+      "image": "2604.26175_figures/2604.26175_fig3.jpg",
+      "caption": "Figure 3: Two-qubit circuit depth (left axis) and number of feasible solutions (right axis) as a function of compressed prefix length 𝑚for annealing circuits across transportation problem classes: (a) facility location, (b) vehicle routing, and (c) traveling salesman. The results illustrate the tradeoff between circuit depth and feasibility, showing that moderate prefix compression can reduce hardware cost while maintaining or improving feasible-solution discovery.",
+      "page": 13
+    },
+    {
+      "image": "2604.26175_figures/2604.26175_fig4.jpg",
+      "caption": "Figure 4: Two-qubit depth is shown as color, and marker radius indicates the number of feasible solutions sampled from the circuit.",
+      "page": 13
+    },
+    {
+      "image": "2604.26175_figures/2604.26175_fig5.jpg",
+      "caption": "Figure 5: Diagnostic analysis of compressed annealing prefixes for the VRP instance.",
+      "page": 14
+    },
+    {
+      "image": "2604.26175_figures/2604.26175_fig6.jpg",
+      "caption": "Figure 6: Effect of AQC prefix compression on feasible solution generation from QAOA for the VRP instance. Moderate com- pression can improve feasibility and diversity, while aggressive compression shows mixed behavior across depths.",
+      "page": 16
+    },
+    {
+      "image": "2604.26175_figures/2604.26175_fig7.jpg",
+      "caption": "Figure 7: Performance of the hybrid AQC+QAOA approach across the (𝑚, 𝑝) parameter grid. Results show tradeoffs between circuit depth, optimization effort, feasibility, and solution quality under varying prefix compression and QAOA depth.",
+      "page": 17
+    },
+    {
+      "image": "2604.26175_figures/2604.26175_fig8.jpg",
+      "caption": "Figure 8: AQC prefix compression on feasible solution gen- eration with LC-QAOA for the VRP instance. The mismatch of the ansätz from adiabatic evolution causes a sharp drop in performance with compression.",
+      "page": 18
+    },
+    {
+      "image": "2604.26175_figures/2604.26175_fig9.jpg",
+      "caption": "Figure 9: Performance of AQC compressed layers as initial state circuits for LC-QAOA across the (𝑚, 𝑝) grid. Results show that LC-QAOA works best without any adiabatic initialization.",
+      "page": 19
+    }
+  ],
+  "figure": "2604.26175_figures/2604.26175_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

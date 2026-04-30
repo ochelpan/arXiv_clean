@@ -1,0 +1,107 @@
+{
+  "arxiv_id": "2604.26213",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Qvine: Vine Structured Quantum Circuits for Loading High Dimensional Distributions",
+  "authors": "David Quiroga, Hannes Leipold, Bibhas Adhikari",
+  "abstract": "Loading high dimensional distributions is an important task for utilizing quantum computers on applications ranging from machine learning to finance. The high dimensionality leads to a curse of dimensionality, representing a d-dimensional distribution with k resolution requires dk qubits and an unstructured parameterized circuit would express a unitary in an exponential operator space in the number of qubits, leading to vanishing gradients and poor convergence guarantees even at high depth.   Vine copula decompositions are widely used to represent high dimensional distributions classically, showing high quality approximation in many important applications, such as financial modeling. We present Qvine, a vine structured ansatz for quantum circuits, that mirrors the vine decomposition to construct scalable quantum circuits with efficient trainability while achieving similarly high quality approximation for amplitude encoding distributions. For regular vines (R-vines), we show that the circuit depth scales at most quadratic in the dimension of the distribution, while for D-vines, as well as many practical R-vines, the circuit depth scales linear in the dimension. For 3-dimensional and 4-dimensional Gaussians and empirical joint stock price return distributions for selected stocks, our experiments show Qvines achieve high quality loading.",
+  "url": "http://arxiv.org/abs/2604.26213v1",
+  "pdf": "https://arxiv.org/pdf/2604.26213v1",
+  "type": "both",
+  "summary": "This paper introduces Qvine, a new quantum circuit architecture designed to load high-dimensional probability distributions into quantum computers. By mimicking the hierarchical structure of vine copula decompositions, the method avoids the exponential complexity typically associated with unstructured circuits. The authors demonstrate that the circuit depth scales efficiently (linearly or quadratically) with the number of dimensions. They successfully validate the approach using both synthetic Gaussian distributions and real-world financial stock return data.",
+  "main_problem": "The challenge of efficiently loading high-dimensional continuous probability distributions into quantum states without suffering from the curse of dimensionality or vanishing gradients.",
+  "main_result": "The Qvine ansatz achieves high-quality distribution loading for Gaussian and empirical financial data, with circuit depth scaling linearly for D-vines and quadratically for R-vines.",
+  "method": "A hierarchical quantum circuit architecture based on vine copula decompositions, utilizing Bivariate Entangling Blocks (BEBs) and a progressive training methodology.",
+  "model_or_system": "A quantum circuit architecture (Qvine) that represents a d-dimensional random vector by discretizing each dimension into k-bit registers, totaling dk qubits, and uses the Special Orthogonal Group SO(2^n) to ensure real-valued wavefunctions.",
+  "key_observables": "Total Variation Distance (TVD), Infidelity (1 - Fidelity), and axis projections of the learned probability density function.",
+  "important_parameters": "Dimension (d), resolution (k), number of ansatz layers, and vine structure type (R-vine, C-vine, or D-vine).",
+  "main_assumptions": "Assumes the continuous density can be accurately represented via discretization into 2^k bins and that resolution k grows only logarithmically with dimension for a fixed error tolerance.",
+  "figures_summary": "Figures illustrate the vine structure (D-vine), the mapping between copula decomposition and circuit architecture, the discretization process, the construction of SORB and BEB blocks, and performance metrics like TVD reduction during progressive training and PDF comparisons for stock data.",
+  "paper_structure": "The paper introduces the problem of high-dimensional data loading, presents the Qvine ansatz based on vine copula theory, provides mathematical proofs for the circuit's expressibility and scalability using Lie algebra, describes the progressive training algorithm, and validates the method through numerical simulations on Gaussian and financial datasets.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26213_figures/2604.26213_fig1.jpg",
+      "caption": "Fig. 1: Example of a 4-dimensional D-vine.",
+      "page": 2
+    },
+    {
+      "image": "2604.26213_figures/2604.26213_fig2.jpg",
+      "caption": "Fig. 2: Qvines: Vine Structured Quantum Circuits. Given a vine copula decomposition (depicted on the left), we define a vine structured quantum circuit (depicted on the right) based on the edges of each tree in the vine. Tree 1 depicts a star graph while Tree 2 is a path.",
+      "page": 3
+    },
+    {
+      "image": "2604.26213_figures/2604.26213_fig3.jpg",
+      "caption": "Fig. 3: Discretization of a 2-dimensional density func- tion. As discussed in Sec. III-A, a continuous function f over a domain Rd is well approximated as precision k increases.",
+      "page": 4
+    },
+    {
+      "image": "2604.26213_figures/2604.26213_fig4.jpg",
+      "caption": "Fig. 4: Special orthogonal group ring block. Over ℓ qubits, by repeating this block structure Lu times, the circuit can express unitaries in SO \u0000 2ℓ\u0001 .",
+      "page": 4
+    },
+    {
+      "image": "2604.26213_figures/2604.26213_fig5.jpg",
+      "caption": "Fig. 5: Hierarchical circuit for loading univariate distributions. Over the k qubits of each feature register, we employ this hierarchical circuit based on sequential blocks as shown in Fig. 4 with increasing number of qubits.",
+      "page": 5
+    },
+    {
+      "image": "2604.26213_figures/2604.26213_fig6.jpg",
+      "caption": "Fig. 6: Bivariate entangling block. Over two feature registers, each with k qubits, this block structure repeated Lb times captures bivariate dependency between the two features.",
+      "page": 5
+    },
+    {
+      "image": "2604.26213_figures/2604.26213_fig7.jpg",
+      "caption": "Fig. 7: A Vine Structured Circuit for 3 & 4 Dimensional Distributions. In the case that d = 3, we have a 3k qubit memory with precisely 2 trees in the vine. In the case that d = 4, we have a 4k qubit memory with precisely 3 trees in the vine. (B) shows the D-vine we used in experiments, the vine is also depicted in Fig. 1.",
+      "page": 8
+    },
+    {
+      "image": "2604.26213_figures/2604.26213_fig8.jpg",
+      "caption": "Fig. 8: Progressive TVD of the trained QNN projected onto the X axis for the uncorrelated 3D Gaussian. Each of the 3 dimensions is discretized over 3 qubits, with marginal loading as step 0 and the next 3 steps for each BEB of the 3 edges in the vine. Ti,j corresponds to the j-th edge of the i-th tree.",
+      "page": 9
+    },
+    {
+      "image": "2604.26213_figures/2604.26213_fig9.jpg",
+      "caption": "Fig. 9: Projections of the best tested number of layers to achieve convergence on a 3D stock price return distribution. The top row shows the trained pdf and the bottom row shows the original pdf. Fig. 12B depicts throughout the progressive vine training.",
+      "page": 9
+    },
+    {
+      "image": "2604.26213_figures/2604.26213_fig10.jpg",
+      "caption": "Fig. 10: TVD of the progressive trained QNN projected onto the X, Y axis for the 4D Gaussian.",
+      "page": 10
+    }
+  ],
+  "figure": "2604.26213_figures/2604.26213_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

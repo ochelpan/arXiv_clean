@@ -1,0 +1,86 @@
+{
+  "arxiv_id": "2604.26663",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hardware-Efficient Hamiltonian Simulation via Trotter-Initialized Variational Optimization with Native Placement",
+  "authors": "F. S. Luiz, P. N. Ferreira, M. C. de Oliveira",
+  "abstract": "Compiling time-evolution operators of the form $U(t)=e^{-iHt}$ into hardware-native gate sequences is a central bottleneck for digital quantum simulation on noisy intermediate-scale quantum (NISQ) devices. Generic transpilation treats $U(t)$ as an arbitrary unitary, discarding the structure of Hamiltonian dynamics and producing circuits whose depth exceeds hardware coherence limits. We introduce a structure-aware compilation framework that treats product-formula decompositions as synthesis primitives rather than simulation approximations. The method combines (i) native placement of Hamiltonian terms onto the hardware coupling map, (ii) adaptive selection of Trotter blocks via a greedy discretization procedure, and (iii) variational refinement using a Trotter-initialized ansatz. Across Heisenberg, Ising, and XY models with $n=3$--$8$ qubits, the compiled circuits achieve fidelities $F>0.996$ with approximately linear scaling in the number of entangling gates, while generic synthesis produces circuits that are orders of magnitude deeper. On IBM Torino hardware, we observe a regime in which shorter approximate circuits outperform deeper exact decompositions: a 27-CX circuit achieves higher hardware fidelity ($F_{\\mathrm{hw}}=0.987$) than a 187-CX exact circuit. These results demonstrate that, in the NISQ regime, structure-aware approximate compilation can outperform exact structure-agnostic synthesis, providing a practical pathway for executing Hamiltonian dynamics without requiring pulse-level control.",
+  "url": "http://arxiv.org/abs/2604.26663v1",
+  "pdf": "https://arxiv.org/pdf/2604.26663v1",
+  "type": "both",
+  "summary": "This paper presents a new way to compile quantum circuits for simulating time-evolving Hamiltonians. Instead of treating the evolution as a generic operation, the method uses the known structure of the Hamiltonian to create much shorter circuits. By combining adaptive Trotter steps with a variational refinement step, the authors show that these shorter, approximate circuits actually perform better on real noisy hardware than deeper, exact circuits. This approach significantly reduces the number of error-prone two-qubit gates and helps avoid the vanishing gradient problem in quantum optimization.",
+  "main_problem": "The high circuit depth and gate count required by generic quantum compilers for Hamiltonian simulation lead to excessive noise and decoherence on NISQ devices.",
+  "main_result": "A structure-aware compilation framework achieves significantly higher hardware fidelity and lower CX gate counts (up to 136x reduction) compared to generic blackbox transpilation, even outperforming exact synthesis in noisy regimes.",
+  "method": "A three-stage pipeline combining native hardware placement, a greedy oracle for adaptive Trotter block selection, and variational refinement using a Trotter-initialized ansatz.",
+  "model_or_system": "1D chains of 3-8 qubits using Heisenberg, Ising, and XY models, validated on IBM Torino and IBM Heron-based hardware architectures.",
+  "key_observables": "Process fidelity (F), hardware fidelity (Fhw), Hellinger fidelity, CX gate count, and gradient variance.",
+  "important_parameters": "Number of qubits (n=3-8), coupling strength (J=0.5, 1.0), evolution time (t), and error regimes (optimistic, typical, pessimistic).",
+  "main_assumptions": "The Hamiltonian has a known local structure (nearest-neighbor) and the framework is limited by classical computational costs for larger qubit counts.",
+  "figures_summary": "Figures show hardware fidelity comparisons between the pipeline and blackbox methods, process fidelity under various depolarizing noise levels, and gradient landscape analysis demonstrating the avoidance of barren plateals.",
+  "paper_structure": "The paper introduces the problem of compilation bottlenecks, details the three-stage adaptive native pipeline, compares it against standard Trotter and blackbox baselines, provides hardware validation on IBM Torino, and analyzes scaling and noise resilience.",
+  "why_interesting": "It provides a practical strategy for executing many-body dynamics on near-term hardware by prioritizing circuit shallowness and structural preservation over exactness, which is crucial for simulating many-body physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26663_figures/2604.26663_fig1.jpg",
+      "caption": "Figure 1. Hardware fidelity on IBM Torino. (a) Scenario B (n = 4, J = 1.0): the variational pipeline (27 CX) achieves higher Fhw than the blackbox (187 CX) across all initial states, despite lower simulation fidelity. (b) Scenario C (n = 5): the blackbox circuit (863 CX) produces essentially random output (Fhw ≈0.07), while the pipeline circuit (93 CX) retains meaningful fidelity.",
+      "page": 7
+    },
+    {
+      "image": "2604.26663_figures/2604.26663_fig2.jpg",
+      "caption": "Figure 2. Process fidelity under depolarizing noise for three error rate regimes. The adaptive native pipeline (15 CX, blue) maintains F > 0.83 even at pessimistic noise rates, while the blackbox circuit (217 CX, red) drops below F = 0.10. The fixed native method (63 CX, orange) falls between the two. Error bars show standard deviation over 10 seeds.",
+      "page": 8
+    },
+    {
+      "image": "2604.26663_figures/2604.26663_fig3.jpg",
+      "caption": "Figure 3. Gradient landscape scaling for the Trotter-structured variational ansatz (L = 3 layers, Heisenberg J = 1.0). (a) Gradient variance versus qubit count: random initialization (red) exhibits exponential decay (∼0.067n, barren plateau), while Trotter initialization (blue) decays much more slowly (∼0.54n). (b) Mean absolute gradient: Trotter initialization maintains |∇C| ∼10−2 across n = 3–8, providing informative gradients for L-BFGS optimization.",
+      "page": 11
+    },
+    {
+      "image": "2604.26663_figures/2604.26663_fig4.jpg",
+      "caption": "Figure 4. Fidelity of the adaptive native pipeline across 36 parameter configurations (4 Hamiltonian types × 3 evolution times × 3 coupling strengths). Green cells indicate F ≥0.99 (weak/moderate coupling); yellow indicates F ≥0.99 achieved with variational refinement (strong coupling). The pipeline maintains high fidelity across all tested regimes.",
+      "page": 12
+    },
+    {
+      "image": "2604.26663_figures/2604.26663_fig5.jpg",
+      "caption": "Figure 5. CX gate count (left, log scale) and fidelity (right) versus number of qubits for the Heisenberg model (J = 0.5, t = 1.0). Native methods (adaptive and fixed) exhibit linear CX scaling, while Qiskit blackbox decomposition grows exponentially, becoming impractical above n = 6.",
+      "page": 13
+    },
+    {
+      "image": "2604.26663_figures/2604.26663_fig6.jpg",
+      "caption": "Figure 6. Error mitigation comparison on IBM Torino (n = 4, J = 1.0). For computational basis states, mitigation provides no consistent improvement. For the | + + + +⟩state, twirling modestly improves all methods but does not change the relative ordering. The depth gap between pipeline (27 CX) and blackbox (187 CX) circuits cannot be closed by mitigation.",
+      "page": 14
+    }
+  ],
+  "figure": "2604.26663_figures/2604.26663_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

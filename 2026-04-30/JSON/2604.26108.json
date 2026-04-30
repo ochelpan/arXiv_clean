@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2604.26108",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Implementation of the hybrid exchange-correlation functionals in the SIESTA code",
+  "authors": "Yann Pouillon, Bill Clintone Oyomo, James Sifuna, María Camarasa-Gómez, Xinming Qin, Carlos Beltrán, Fernando Gómez-Ortiz, Honghui Shang, Javier Junquera",
+  "abstract": "We present an efficient and accurate implementation of hybrid exchange-correlation (XC) functionals in the SIESTA code, enabling large-scale simulations based on Hartree-Fock-type exact exchange combined with strictly localized numerical atomic orbitals (NAOs). Our approach exploits a fitted representation of the NAOs in terms of Gaussian-type orbitals (GTOs), which allows for the analytical evaluation of four-center electron repulsion integrals (ERIs) via the LIBINT library. This framework is seamlessly integrated with SIESTA's real-space grid and sparse-matrix infrastructure, and is combined with multiple screening techniques to control the computational complexity. We also introduce a fully analytical formulation of hybrid-functional forces and a dynamic parallel distribution scheme that ensures excellent scalability. We validate our implementation through benchmark calculations on a broad set of systems (including semiconductors, insulators, and two-dimensional materials) and demonstrate that the HSE06 functional significantly improves the prediction of band gaps compared to PBE, in close agreement with G0W0 and experimental data. We analyze in detail the trade-offs between accuracy and computational efficiency as a function of the number of Gaussians, basis set range, and integral screening thresholds. Our results confirm that hybrid functional calculations in SIESTA are now feasible for large extended systems, making accurate first-principles predictions of electronic and structural properties accessible at scale.",
+  "url": "http://arxiv.org/abs/2604.26108v1",
+  "pdf": "https://arxiv.org/pdf/2604.26108v1",
+  "type": "theory",
+  "summary": "This paper presents a major update to the SIESTA density functional theory code, enabling the use of expensive but accurate hybrid exchange-correlation functionals for very large systems. By approximating numerical atomic orbitals with Gaussian functions, the authors allow the code to use highly optimized analytical integral libraries. This approach significantly improves the prediction of electronic band gaps in semiconductors and 2D materials while maintaining computational efficiency. The new implementation is highly scalable, making high-accuracy first-principles simulations of large-scale materials accessible.",
+  "main_problem": "The high computational cost of implementing hybrid exchange-correlation functionals (like HSE06) in the SIESTA code, specifically the difficulty of evaluating non-local Hartree-Fock-type electron repulsion integrals for large-scale systems.",
+  "main_result": "A new, efficient, and scalable implementation of hybrid functionals in SIESTA that uses a Gaussian-type orbital (GTO) expansion to enable analytical integral evaluation via the libint library, achieving near-linear scaling and improved band gap predictions.",
+  "method": "The method transforms strictly localized Numerical Atomic Orbitals (NAOs) into a fitted expansion of Gaussian-type orbitals (GTOs) to leverage the libint library for four-center integral evaluation, integrated with SIESTA's real-space grid and sparse-matrix infrastructure.",
+  "model_or_system": "The implementation is applied to periodic electronic structures, including semiconductors, insulators, and 2D materials (e.g., Si, Diamond, graphene, and SrTiO3) within a Kohn-Sham DFT framework.",
+  "key_observables": "Electronic band gaps, total energy, structural properties (lattice constants, bulk moduli), and parallel scaling efficiency.",
+  "important_parameters": "Mixing parameter (alpha), screening parameter (omega), number of Gaussians in the expansion, and integral screening thresholds.",
+  "main_assumptions": "The radial part of the NAOs can be accurately approximated by a compact Gaussian expansion, and the Gaussians must be truncated to maintain the strict localization required by SIESTA.",
+  "figures_summary": "Figure 1 shows the supercell construction for Brillouin zone sampling; Figure 2 illustrates the Gaussian fit of a Carbon 2s orbital and the smoothing strategy at the cutoff radius; Figure 5 demonstrates the strong scaling performance and parallel efficiency of the implementation.",
+  "paper_structure": "The paper introduces the computational challenge of hybrid functionals, details the mathematical framework for the NAO-to-GTO transformation and integral evaluation, describes the implementation of the fitting and localization algorithms, and concludes with validation through benchmark calculations and scaling analysis.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26108_figures/2604.26108_fig1.jpg",
+      "caption": "FIG. 1. Supercell used to handle the Brillouin zone sampling in siesta. Unit cells is marked by red. Supercell is delimited by the blue box. Notation for the different orbitals explained in the main text.",
+      "page": 5
+    },
+    {
+      "image": "2604.26108_figures/2604.26108_fig2.jpg",
+      "caption": "FIG. 2. Gaussian fits of the radial part of the first-ζ of the carbon 2s orbital Gaussian functions. The black line repre- sents the strictly localized native basis orbital in siesta. The blue line shows the expansion of the NAO as a linear combi- nation of Gaussians, given in Eq. (25) with NG = 5. These Gaussians decay exponentially but do not vanish at rc. The red line represents the product of the Gaussian combination with a cutting function, ensuring the atomic orbitals remain continuous and strictly localized within rG c , determined using ϵGauss = 5 × 10−3. The three radial parts are nearly indistin- guishable to the naked eye. The inset provides a zoomed-in view around the cutoff...",
+      "page": 9
+    },
+    {
+      "image": "2604.26108_figures/2604.26108_fig3.jpg",
+      "caption": "FIG. 3. Sketch representing the sparsity of the overlap (a) and Hamiltonian (b) matrix elements in siesta with only local or semi-local exchange and correlation potentials. When the exact exchange operator is considered, then an orbital µ in the unit cell might have a non-vanishing matrix element with another orbital λ′ located beyond the sum of the cutoff radii of the two orbitals (c). (d) Connectivity condition used in this work to retain the ERIs integrals that are actually computed.",
+      "page": 11
+    },
+    {
+      "image": "2604.26108_figures/2604.26108_fig4.jpg",
+      "caption": "FIG. 4. The electronic band structures of various materials were computed using siesta with the PBE functional (black lines) and the HSE06 hybrid functional incorporating 25% exact exchange (blue lines). The studied systems include: (a) Bulk silicon (Si) in the diamond structure, (b) Bulk carbon (C) in the diamond structure, (c) Bulk lithium fluoride (LiF) in the rock salt structure, (d) Bulk cubic boron nitride (c-BN) in the zinc blende structure, (e) Monolayer hexagonal boron nitride (h-BN), (f) Monolayer graphene, (g) Bulk rutile titanium dioxide (TiO2), (h) Wurtzite zinc oxide (w-ZnO), and (i) Black phosphorus (BP) in its orthorhombic form. The radial part of the native NAOs was...",
+      "page": 15
+    },
+    {
+      "image": "2604.26108_figures/2604.26108_fig5.jpg",
+      "caption": "FIG. 5. Strong scaling performance of SIESTA HFX calcu- lations for a 5×5×5 SrTiO3 supercell with single-ζ basis set. The green bars (left y-axis) show the execution time in sec- onds, while the blue line with triangular markers (right y-axis) represents the parallel eﬀiciency as a percentage. The calcula- tion was performed on a dual-socket Intel® Xeon® Platinum 8358P system with 64 physical cores. The results demonstrate significant speedup with increasing core count, achieving an 11.8× acceleration from 4 to 64 processes, while parallel eﬀi- ciency gradually decreases from 100% to 73.57% due to com- munication overhead.",
+      "page": 21
+    }
+  ],
+  "figure": "2604.26108_figures/2604.26108_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

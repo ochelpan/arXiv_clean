@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2604.26018",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "cs.AI",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "QERNEL: a Scalable Large Electron Model",
+  "authors": "Khachatur Nazaryan, Liang Fu",
+  "abstract": "We introduce QERNEL, a foundational neural wavefunction that variationally solves families of parameterized many-electron Hamiltonians and captures their ground states throughout parameter space within a single model. QERNEL combines FiLM-based parameter conditioning with scale-efficient architectural elements -- mixture of experts and grouped-query attention, substantially improving expressivity at low computational cost. We apply QERNEL to interacting electrons in semiconductor moiré heterobilayers, training a single weight-shared model for systems of up to 150 electrons. By solving the many-electron Schrödinger equation conditioned on moiré potential depth, QERNEL captures both quantum liquid and crystal states and discovers the sharp phase transition between them, marked by abrupt changes in interaction energy and charge density. Our work establishes a foundation model for moiré quantum materials and a scalable architecture toward a Large Electron Model for solids.",
+  "url": "http://arxiv.org/abs/2604.26018v1",
+  "pdf": "https://arxiv.org/pdf/2604.26018v1",
+  "type": "theory",
+  "summary": "This paper introduces QERNEL, a 'Large Electron Model' designed to act as a foundation model for many-electron systems. By using modern transformer-inspired techniques like Mixture-of-Experts and Grouped-Query Attention, the model can solve entire families of Hamiltonians without retraining. It demonstrates the ability to predict phase transitions in moiré materials, such as the transition from a Fermi liquid to a Wigner crystal, with much higher computational efficiency than previous neural wavefunction methods.",
+  "main_problem": "Transitioning from single-instance neural wavefunction solvers that require retraining for every new Hamiltonian to 'foundation models' that can generalize across entire families of Hamiltonians efficiently.",
+  "main_result": "The QERNEL model achieves comparable accuracy to much larger baselines with 6-7x fewer parameters and 6x faster convergence, successfully capturing the phase transition between Fermi liquid and Wigner crystal states in a single model.",
+  "method": "A variational Monte Carlo approach using a neural wavefunction architecture inspired by LLMs, incorporating Grouped-Query Attention, Mixture-of-Experts, and FiLM-based parameter conditioning.",
+  "model_or_system": "The system consists of interacting electrons in semiconductor moiré heterobilayers, described by a Hamiltonian including kinetic energy, a moiré potential, and Coulomb interaction.",
+  "key_observables": "Interaction energy per electron, total energy per electron, and real-space charge density profiles.",
+  "important_parameters": "Moiré potential strength (lambda), effective mass (m* = 0.35me), moiré lattice constant (8.031 nm), and filling factor (nu = 2/3).",
+  "main_assumptions": "The model assumes the ability to represent continuous Fermi wavefunctions via a linear combination of Slater determinants.",
+  "figures_summary": "Fig 1 shows the QERNEL architecture; Fig 2 compares energy accuracy, parameter count, and convergence speed against the PsiFormer baseline; Fig 3 displays real-space density profiles for the liquid and crystal phases.",
+  "paper_structure": "The paper introduces the QERNEL architecture, details the implementation of MoE and GQA, describes the application to moiré systems, presents benchmarking results against existing neural wavefunctions, and demonstrates the capture of phase transitions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26018_figures/2604.26018_fig1.jpg",
+      "caption": "FIG. 1. Architecture of QERNEL. (a) Overall conditional wavefunction pipeline: electron features are embedded into electronic streams, processed by stacked equivariant blocks, projected to generalized orbitals, and combined into deter- minants. The Hamiltonian context is threaded alongside the electron streams and repeatedly injected throughout the depth of the network. (b) Mixture-of-experts block with a router and an shared expert. (c) Grouped-query attention, where multiple query heads share key and value heads for improved efficiency. (d) FiLM conditioning, which injects the context into the electronic streams through channel-wise shifts and rescalings.",
+      "page": 1
+    },
+    {
+      "image": "2604.26018_figures/2604.26018_fig2.jpg",
+      "caption": "FIG. 3. Inferred real space densities for a 150-electron system obtained with QERNEL in a fixed-context, non-foundational setting. (a) Fermi-liquid regime, λ = 0.7. (b) Generalized Wigner-crystal regime, λ = 1.5. The isolated minor defects in the density profile are a computational artifact and are not interpreted as a physical excitation.",
+      "page": 2
+    },
+    {
+      "image": "2604.26018_figures/2604.26018_fig3.jpg",
+      "caption": "FIG. 2. Benchmarking the efficiency of QERNEL. (a) final variational energy per electron versus parameter count for 18- and 24-electron systems. QERNEL reaches the same accu- racy regime as the PsiFormer baseline [13] with roughly 6–7× fewer parameters. For sake of presentation, the 24e data was shifted down by 0.08meV (b),(c) Training curves of QERNEL vs baseline. (b) at comparable parameter count, QERNEL converges about 6× faster and with improved stability than the baseline. (c) a 240K-parameter QERNEL converges to a slightly lower energy as a 1.1M-parameter baseline.",
+      "page": 2
+    },
+    {
+      "image": "2604.26018_figures/2604.26018_fig4.jpg",
+      "caption": "FIG. 4. Inference of the foundational-model for capturing the phase transition. (a) Interaction energy per electron as a function of moir´e strength λ, inferred from a single trained conditional QERNEL ansatz for 54-electron system. The data separate into two approximately linear branches whose extrapolated mismatch near λ ≈1.05 indicates a sharp reorganization of the ground state. (b) Total energy per electron across the same parameter range. In contrast to the interaction energy, the total energy remains smooth and continuous through the transition region, as expected for a finite-size system. (c),(d) Inferred real-space densities on the two sides of the transition for 96-electron system....",
+      "page": 4
+    }
+  ],
+  "figure": "2604.26018_figures/2604.26018_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

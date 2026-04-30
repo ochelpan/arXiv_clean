@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2604.26143",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "physics.comp-ph",
+    "cond-mat.mtrl-sci",
+    "cs.LG"
+  ],
+  "is_primary_archive": false,
+  "title": "Mixture of Experts Framework in Machine Learning Interatomic Potentials for Atomistic Simulations",
+  "authors": "Gabriel de Miranda Nascimento, Marc L. Descoteaux, Laura Zichi, Chuin Wei Tan, William C. Witt, Nicola Molinari, Sriteja Mantha, Daniil Kitchaev, Mordechai Kornbluth, Karim Gadelrab, Charles Tuffile, Boris Kozinsky",
+  "abstract": "First-principles atomistic simulations are essential for understanding complex material phenomena but are fundamentally limited by their computational cost. While Machine Learning Interatomic Potentials (MLIPs) have drastically improved cost for a given accuracy, their inference cost remains a bottleneck for massive systems or long timescales. To address this, we introduce a multifidelity \"Mixture-of-Experts\" framework based on the E(3)-equivariant Allegro architecture. Our method spatially partitions the simulation domain into a chemically complex region (e.g., reactive interfaces) and a simple region (e.g., bulk lattice), assigning models of varying capacity to each. Among the challenges in such static domain decomposition, the mechanical mismatch between models at the interface is particularly critical, as it can generate artificial stress fields and instability. We address this challenge with a co-training strategy in which the loss function includes agreement constraints -- penalties on per-atom energy and force discrepancies between models evaluated on shared bulk environments -- forcing the independent models to learn a consistent physical description of the bulk material. We validate this approach on a realistic Pt+CO catalytic system, demonstrating that the co-trained models maintain exact energy conservation, align their bulk mechanical response (e.g., equation of state and bulk modulus), and achieve predictive accuracy comparable to a full high-fidelity simulation at more than twice the computational speed.",
+  "url": "http://arxiv.org/abs/2604.26143v1",
+  "pdf": "https://arxiv.org/pdf/2604.26143v1",
+  "type": "theory",
+  "summary": "This paper introduces a way to speed up large-scale atomistic simulations by using different levels of machine learning model complexity for different parts of a system. By applying expensive, high-accuracy models only to chemically active regions (like surfaces) and cheaper, low-accuracy models to the bulk, the researchers achieved a 2x speedup. Crucially, they used a special training technique to ensure that the boundary between these two models does not create unphysical stresses or energy errors. This allows for much larger and longer simulations of complex materials like catalysts without losing the accuracy of high-end methods.",
+  "main_problem": "The high computational cost of deep equivariant machine learning interatomic potentials (MLIPs) limits large-scale atomistic simulations, while multi-fidelity approaches often suffer from mechanical mismatch and artificial stresses at the interface of different models.",
+  "main_result": "The authors developed a Mixture-of-Experts framework that achieves over 2x computational speedup compared to high-fidelity models while maintaining predictive accuracy and physical consistency (energy conservation and mechanical alignment) in a Pt+CO catalytic system.",
+  "method": "A multi-fidelity 'Mixture-of-Experts' framework using a co-training strategy with agreement constraints to penalize energy and force discrepancies between high-fidelity and low-fidelity models on shared bulk environments.",
+  "model_or_system": "An E(3)-equivariant Allegro architecture applied to a 1,040-atom Pt+CO catalytic system, where the domain is spatially partitioned into a high-fidelity region (reactive interface) and a low-fidelity region (bulk lattice).",
+  "key_observables": "Per-atom energy, atomic forces, equation of state, bulk modulus, and energy conservation.",
+  "important_parameters": "Alpha (weight of the agreement loss), number of layers and tensor features in the Allegro models, and the energy shift correction (E_ghost).",
+  "main_assumptions": "The domain decomposition is static (atom assignments are fixed at initialization) and the system can be partitioned into disjoint subsets.",
+  "figures_summary": "Figure 1 shows training dataset diversity and the atom partitioning strategy; Figure 2 displays validation errors and model disagreement during training; Figure 3 shows performance on held-out test sets; Figure 4 illustrates the Pt+CO slab structure and compares wall-clock time efficiency.",
+  "paper_structure": "The paper introduces the computational bottleneck of MLIPs, presents the Mixture-of-Experts framework and the co-training strategy, details the implementation on a Pt+CO system, validates accuracy and mechanical consistency, and concludes with efficiency benchmarks and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26143_figures/2604.26143_fig1.jpg",
+      "caption": "FIG. 1: Dataset and static domain decomposition. (a) Representative configurations from the training dataset, which consists of 2,446 DFT frames including surface slabs, free-standing nanoparticles, isolated atomic clusters and CO in gas phase. (b) Illustration of the heuristic assignment strategy used to partition the system.",
+      "page": 5
+    },
+    {
+      "image": "2604.26143_figures/2604.26143_fig2.jpg",
+      "caption": "FIG. 2: Learning dynamics of independent vs. co-trained models. The top row shows the validation Mean Absolute Error (MAE) against ground truth DFT labels for total energy (left) and atomic forces (right). The co-training schemes (red, blue) achieve an accuracy balance between the pure high-fidelity (gray) and low-fidelity (light gray) baselines. The bottom row displays the discrepancy between the high-fidelity and low-fidelity model predictions on the bulk agreement dataset. Unconstrained co-training (red) leads to significant divergence, while constrained co-training (blue lines) successfully minimizes physical disagreement at the interface. Lower α values (dark blue) impose stronger...",
+      "page": 6
+    },
+    {
+      "image": "2604.26143_figures/2604.26143_fig3.jpg",
+      "caption": "FIG. 3: Model performance on held-out test set. Top row: MAE on energies and forces against DFT ground truth. The introduction of agreement constraints (α < 1) does not degrade predictive accuracy compared to the unconstrained baseline (α = 1). Bottom row: Mean absolute difference between high-fidelity and low-fidelity model predictions on bulk test structures. Constrained co-training drastically improves physical consistency at the interface on unseen data.",
+      "page": 7
+    },
+    {
+      "image": "2604.26143_figures/2604.26143_fig4.jpg",
+      "caption": "FIG. 4: Equation of State (EOS) for bulk Platinum predicted by high-fidelity (dark blue) and low-fidelity (light blue) models. Top row: Models trained independently or co-trained without constraints exhibit significant mismatch in equilibrium volume and bulk modulus (B0), leading to artificial interface stress. Bottom row: Co-training with agreement constraints (α = 0.8, 0.5) forces the models to learn a consistent physical description of the bulk, aligning the EOS curves and minimizing mechanical mismatch at the interface.",
+      "page": 8
+    },
+    {
+      "image": "2604.26143_figures/2604.26143_fig5.jpg",
+      "caption": "FIG. 5: Computational efficiency benchmark. (a) The 1,040-atom Pt+CO slab used for MD benchmarking. The high-fidelity region comprises adsorbates and surface Pt layers (NA = 440), while the low-fidelity region comprises the bulk Pt core (NB = 600). (b) Average wall-clock time per MD timestep for pure low-fidelity, pure high-fidelity, and the combined Multifidelity (Mixture-of-Experts) scheme.",
+      "page": 8
+    }
+  ],
+  "figure": "2604.26143_figures/2604.26143_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "arxiv_id": "2604.26263",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "qSHIFT: An Adaptive Sampling Protocol for Higher-Order Quantum Simulation",
+  "authors": "Sangjin Lee, Sangkook Cho",
+  "abstract": "Quantum simulation is a cornerstone application for quantum computing, yet standard methods face a trade-off between circuit depth and accuracy: Trotterization depth scales with the number of Hamiltonian terms $L$, while sampling-based qDRIFT is restricted to $O(t^2)$ error scaling. Here, We introduce qSHIFT, an adaptive sampling protocol that overcomes these limitations. By adaptively updating sampling distributions, qSHIFT maintains $L$-independent gate complexity while achieving an improved error scaling of $O(t^{1+r})$ for an adjustable parameter $r$. This performance is enabled by a classical subroutine solving $L^r$ linear equations per sampling round. Numerical demonstrations confirm the $O(t^{1+r})$ scaling, showcasing qSHIFT as a resource-efficient framework for high-precision quantum simulation. Furthermore, the protocol's reduced circuit depth enhances its compatibility with physical error mitigation, making it a promising candidate for implementation on near-term quantum devices. In addition to its role as a standalone algorithm, qSHIFT can provide a high-precision foundation for modular quantum frameworks such as qSWIFT or Krylov quantum diagonalization.",
+  "url": "http://arxiv.org/abs/2604.26263v1",
+  "pdf": "https://arxiv.org/pdf/2604.26263v1",
+  "type": "theory",
+  "summary": "The paper presents qSHIFT, a new adaptive sampling protocol for quantum Hamiltonian simulation. Unlike standard Trotter methods that increase circuit depth with the number of terms, or qDRIFT which has limited error scaling, qSHIFT achieves higher-order accuracy O(t^(1+r)) with L-independent gate complexity. It works by adaptively updating sampling weights through a classical subroutine. This makes it a resource-efficient framework for high-precision simulation on near-term quantum devices.",
+  "main_problem": "Quantum simulation faces a trade-off between the high gate complexity of Trotterization and the limited error scaling of qDRIFT. The goal is to achieve higher-order error scaling without increasing the circuit depth's dependence on the number of Hamiltonian terms.",
+  "main_result": "The authors introduce qSHIFT, an adaptive sampling protocol that achieves an improved error scaling of O(t^(1+r)) for an adjustable parameter r, while maintaining L-independent gate complexity.",
+  "method": "qSHIFT uses an adaptive sampling scheme that updates probability distributions at each round by solving a classical system of L^r linear equations. It employs a quasi-probability sampling scheme to handle negative coefficients via a normalization factor Z.",
+  "model_or_system": "The protocol is applied to a general Hamiltonian H = sum(h_i H_i) with positive coefficients, specifically demonstrated on a 1D Transverse Field Ising Model (TFIM) with six qubits.",
+  "key_observables": "The time-evolution of a physical observable Q, specifically the total magnetization Q = sum(Z_i) in the TFIM example.",
+  "important_parameters": "N (total sampling steps), r (operators per round/expansion order), L (number of Hamiltonian terms), t (evolution time), and epsilon (target precision).",
+  "main_assumptions": "Assumes the number of sampling steps N is a multiple of r and that Hamiltonian terms can be grouped to keep L independent of system size. It also assumes the ability to solve the L^r linear system classically.",
+  "figures_summary": "Figure 1 compares the algorithmic errors of qDRIFT and various qSHIFT configurations ((N,r) = (2,2) and (3,3)) for the 1D TFIM, showing superior power-law error decay for qSHIFT as a function of time t.",
+  "paper_structure": "The paper introduces the simulation trade-off, presents the qSHIFT protocol and its mathematical derivation (including commutator expansions and quasi-probability handling), provides a complexity analysis comparing it to Trotter and qDRIFT, and validates the results with numerical simulations on the TFIM.",
+  "why_interesting": "This is highly relevant for many-body dynamics as it provides a scalable way to perform high-precision time-evolution simulations on NISQ-era hardware by reducing circuit depth while improving error scaling.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26263_figures/2604.26263_fig1.jpg",
+      "caption": "Figure 1. Numerical demonstrations the (N, r)-qSHIFT and qDRIFT protocols for the 1D transverse field Ising model with (h1, h2) = (1, 0.1) on six qubits. The time-evolution of a physical observable Q = P6 i=1 Zi is estimated for a randomly chosen initial state. Absolute algorithmic errors mitigated by the qSHIFT protocol (green dashed lines) and the qDRIFT protocol (yellow dashed lines) are shown as a function of evo- lution time t. Power-law fitting of mitigated errors confirms that the theoretically expected scalings: O(t2) for qDRIFT and O(t1+r) for (N, r)-qSHIFT.",
+      "page": 4
+    }
+  ],
+  "figure": "2604.26263_figures/2604.26263_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

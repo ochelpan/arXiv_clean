@@ -1,0 +1,106 @@
+{
+  "arxiv_id": "2604.26534",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Neural and Tensor Networks in the Study of Quantum Annealing Processors",
+  "authors": "Tomasz Śmierzchalski",
+  "abstract": "Quantum annealing targets low-energy solutions of Ising/QUBO problems, but reliable assessment requires more than best-energy comparisons. This dissertation develops a benchmarking framework for D-Wave quantum annealers that combines strong classical baselines, sampling and diversity metrics, and thermodynamic cost.   Its first contribution, SpinGlassPEPS.jl, is a topology-aware tensor-network heuristic for optimization and sampling on Pegasus/Zephyr-like graphs. It maps Ising instances to local Potts clusters, represents the partition function with PEPS, and performs branch-and-bound search in probability space. Benchmarks show that it is a physically interpretable reference solver, though approximate contractions limit its competitiveness on the largest instances.   The second contribution treats quantum annealers as effective thermal machines, relating success probability and solution quality to dissipation, entropy production, and effective temperature. Carefully placed pauses can improve performance while reducing thermodynamic cost, although longitudinal fields may become harmful in paused schedules.   The thesis also introduces reinforcement-learning post-processing to improve returned samples and exact small-system simulations to probe annealing dynamics. Overall, it argues for quantum-annealing benchmarks that jointly measure algorithmic performance and physical expenditure.",
+  "url": "http://arxiv.org/abs/2604.26534v1",
+  "pdf": "https://arxiv.org/pdf/2604.26534v1",
+  "type": "both",
+  "summary": "This work presents a comprehensive framework for benchmarking D-Wave quantum annealers. It introduces a new tensor-network-based heuristic, SpinGlassPEPS.jl, to provide physically interpretable references for optimization. The research also treats quantum annealers as thermal machines to study the relationship between annealing schedules and thermodynamic cost. Additionally, it uses reinforcement learning to post-process samples and correct hardware errors, ultimately arguing for a multi-faceted approach to evaluating quantum hardware performance.",
+  "main_problem": "The need for a reliable benchmarking framework for quantum annealers that evaluates algorithmic performance, sampling diversity, and thermodynamic efficiency beyond simple energy minimization.",
+  "main_result": "Developed SpinGlassPEPS.jl, a topology-aware tensor network heuristic, and demonstrated that specific annealing pauses can improve solution quality while reducing thermodynamic cost.",
+  "method": "Combines tensor network heuristics (PEPS) for optimization, reinforcement learning for error-correcting post-processing, and a thermodynamic framework treating annealers as thermal machines.",
+  "model_or_system": "The study focuses on D-Wave quantum annealers (Pegasus and Zephyr topologies) using the Ising/QUBO model and the Transverse Field Ising Model (TFIM) Hamiltonian.",
+  "key_observables": "Success probability, energy accuracy, low-energy diversity, energy dissipation, entropy production, and effective temperature.",
+  "important_parameters": "Annealing schedules (including pauses), inverse temperature, bond dimension in tensor networks, and hardware-specific parameters like qubit temperature and coupling strengths.",
+  "main_assumptions": "Tensor network accuracy is limited by approximate contractions in large-scale instances; simulations primarily focus on closed-system unitary dynamics despite annealers being open systems.",
+  "figures_summary": "Includes symbolic representations of Ising spin glasses, diagrammatic notation for tensor contractions, visual comparisons of contraction sequences, and schematics of the reinforcement learning loop.",
+  "paper_structure": "The dissertation introduces a benchmarking framework, presents a tensor-network-based heuristic (SpinGlassPEPS.jl), analyzes the thermodynamics of annealing schedules, implements RL-based error mitigation, and provides mathematical foundations for tensor networks and RL.",
+  "why_interesting": "It bridges the gap between many-body physics (tensor networks, spin glasses) and quantum hardware performance, offering insights into how environmental coupling and thermal dynamics affect computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26534_figures/2604.26534_fig1.jpg",
+      "caption": "Figure 1.1: Symbolic representation of an example Ising spin glass system. It’s defined on a 4×4 lattice graph with N = 16 vertices. Here, the configuration of each spin is represented by a blue arrow pointing upwards (+1) or a red arrow pointing downwards (−1). Additionally, hi ∈R is the external field acting on the i−th spin and Jij denotes coupling strength between spins i and j.",
+      "page": 20
+    },
+    {
+      "image": "2604.26534_figures/2604.26534_fig2.jpg",
+      "caption": "Figure 1.2: Schematic representation of parallel annealing algorithm. The analog spin variables x are projected onto the binary domain using the sign function. Thus, the obtained real spin configuration s is used to calculate the gradient and update the analog variables. This process continues until a specified number of steps is reached.",
+      "page": 26
+    },
+    {
+      "image": "2604.26534_figures/2604.26534_fig3.jpg",
+      "caption": "Figure 1.3: Time to obtain ground state for each instance. Due to the small size of the instances, we were able to certify the ground state using exhaustive search. For brute-force, we used GPU acceleration [46], as CPU-only time was two orders of magnitude higher (around 2 hours). With the rest of the solver, we used CPU-only versions. We used the time-to-solution metric (Eq. 4.1), which accounts for the probability of obtaining the ground state in the given sample. Each heuristic solver was run with the same number of steps and sample size.",
+      "page": 30
+    },
+    {
+      "image": "2604.26534_figures/2604.26534_fig4.jpg",
+      "caption": "Figure 2.2: Example of schedule functions A(s) and B(s) for a representative D-Wave QPU (values shown as frequencies in the manufacturer’s convention). The shaded mid-anneal window indicates the region where the driver and problem energy scales compete most strongly (A(s) ≈B(s)), often coinciding with an increased probability of diabatic excitations [16].",
+      "page": 34
+    },
+    {
+      "image": "2604.26534_figures/2604.26534_fig5.jpg",
+      "caption": "Figure 2.3: Connectivity structures of D-Wave Quantum Processing Units (QPUs), also called Topology [80–83].",
+      "page": 35
+    },
+    {
+      "image": "2604.26534_figures/2604.26534_fig6.jpg",
+      "caption": "Figure 2.4: Example minor embedding of the complete graph K3 onto a Chimera unit cell. Here, vertex A is mapped to the chain KA consisting of qubits 1 and 4, while B and C are mapped to single qubits (3 and 5). Logical couplings are implemented by physical couplers between the corresponding chains.",
+      "page": 36
+    },
+    {
+      "image": "2604.26534_figures/2604.26534_fig7.jpg",
+      "caption": "Figure 3.1: Branch-and-bound search in probability space. The solution is built sequentially by assigning spins. For each partial assignment s1:k (green), the algorithm branches by appending sk+1 ∈{−1, +1} and evaluating the corresponding conditional probabilities p(sk+1 | s1:k) (equivalently, the marginals p(s1:k+1)). The bounding step retains at most M partial assignments with the largest probabilities (green) and discards the remainder (red). The figure shows M = 3 for clarity. In SpinGlassPEPS.jl, the required marginals are obtained from approximate tensor-network contractions.",
+      "page": 43
+    },
+    {
+      "image": "2604.26534_figures/2604.26534_fig8.jpg",
+      "caption": "Figure 3.2: Execution flow of SpinGlassPEPS.jl. (a) An Ising instance on the native interaction graph is transformed into (b) a local Potts Hamiltonian on a king’s graph via clustering. (c) The resulting (Potts) partition function is represented as a PEPS tensor network on a square lattice. (d) Conditional marginals required by the search are computed by approximately contracting the PEPS. (e) A branch-and-bound sweep yields a candidate configuration, which corresponds to a ground-state configuration of the original Ising model. (f) The same machinery can be used to find localized low-energy excitations around the returned configuration.",
+      "page": 44
+    },
+    {
+      "image": "2604.26534_figures/2604.26534_fig9.jpg",
+      "caption": "Figure 3.3: Transforming hardware graphs into Potts clusters. Black dots denote physical spins, and colored edges denote couplers: orange for intra-row/column links and blue for diagonal and inter-cell links (schematic). Each circled block indicates a cluster, which is replaced by a single Potts variable xn whose state enumerates the cluster’s binary microstates.",
+      "page": 46
+    },
+    {
+      "image": "2604.26534_figures/2604.26534_fig10.jpg",
+      "caption": "Figure 3.4: Edge-specific projections for compressing Potts pair energies. A naive repre- sentation of Exmxn scales as dm × dn with dn = 2kn (up to 224 for Pegasus and 216 for Zephyr in the maximal case). Since only boundary spins couple across a given edge (m, n), we project each cluster microstate xm to a reduced index ¯xm = P mn(xm) that retains only the boundary-spin subconfiguration relevant to that edge. The pair term is then stored as a compressed matrix ¯E¯xm¯xn (Eq. (3.5)). Panel (a) shows the schematic construction of edge-specific projected indices and the resulting compressed pair matrix ¯E¯xm¯xn. Panels (b) and (c) illustrate typical reductions in local dimensions obtained in...",
+      "page": 47
+    }
+  ],
+  "figure": "2604.26534_figures/2604.26534_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  }
+}

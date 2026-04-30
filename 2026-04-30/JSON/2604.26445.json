@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2604.26445",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Geometry-Based Neural-Network Prediction of Electron Localization Function Topology in Dense Hydrogen",
+  "authors": "Xiaoyu Wang, Miriam Marqués, Sergio Gómez, Francesc Serratosa, Eva Zurek, Julia Contreras-García",
+  "abstract": "We develop a machine-learning framework to predict the electron localization function (ELF) of pure, dense hydrogen directly from atomic geometry, bypassing explicit electronic-structure calculations. Trained on first-principles data spanning multiple pressure regimes in dense fluid hydrogen, the model achieves high accuracy ($R^2 > 0.99$) and faithfully reproduces the global distribution of the ELF. A combined real- and reciprocal-space analysis reveals that the residual error is dominated by smooth, long-wavelength components with correlation lengths exceeding typical H--H bonding scales, and that the magnitude of these components increases systematically with pressure. Despite being trained exclusively on dense fluid hydrogen networks, the model transfers robustly to crystalline hydrogen configurations, preserving key features of ELF topology, including critical points and hydrogen-network connectivity. Taken together, these results suggest a viable route toward geometry-based, high-throughput evaluation of hydrogen-networking characteristics in both fluid and crystalline hydrogen.",
+  "url": "http://arxiv.org/abs/2604.26445v1",
+  "pdf": "https://arxiv.org/pdf/2604.26445v1",
+  "type": "theory",
+  "summary": "This paper presents a machine-learning approach to predict the electronic bonding topology of dense hydrogen without expensive quantum mechanical simulations. By training a neural network on atomic geometries, the authors can accurately map the Electron Localization Function (ELF) across different pressure regimes. The model effectively captures the transition from molecular to metallic hydrogen and can even estimate superconducting critical temperatures. This provides a high-throughput tool for studying the complex phase diagrams of hydrogen-rich materials.",
+  "main_problem": "The high computational cost of ab initio methods (DFT/QMC) makes characterizing electronic bonding and the liquid-liquid transition in dense hydrogen extremely difficult. There is a need for an efficient, geometry-based way to predict the Electron Localization Function (ELF) topology.",
+  "main_result": "A neural-network framework achieves high accuracy (R2 > 0.99) in predicting the 3D ELF of dense hydrogen directly from atomic geometry, successfully transferring from fluid to crystalline phases and enabling high-throughput evaluation of hydrogen networking.",
+  "method": "A multilayer perceptron regressor uses rotation-invariant descriptors (based on Gaussian radial functions and spherical harmonics) trained on AIMD data, supplemented by a Fourier-based long-range correction in logit space to account for non-local electronic contributions.",
+  "model_or_system": "The physical system is pure, dense hydrogen in both fluid and crystalline phases under high pressure (7-138.5 GPa) and high temperature (1500 K). The model is a neural network regressor trained on PBE-level density functional theory data.",
+  "key_observables": "Electron Localization Function (ELF) topology, networking value (phi), hydrogen-network connectivity, and estimated superconducting critical temperature (Tc).",
+  "important_parameters": "Pressure (76.0 to 138.5 GPa), Temperature (1500 K), radial cutoff (3.0 A), and angular momentum (l_max = 2).",
+  "main_assumptions": "The model assumes that the residual error is dominated by smooth, long-wavelength components that can be captured via Fourier expansion; it may struggle with low-symmetry structures with large, unseen interstitial regions.",
+  "figures_summary": "Figure 1 shows training convergence and predictive performance; Figure 2 displays 2D slices of the ELF field and error analysis; Figure 3 illustrates the model's performance on crystalline structures and the prediction of networking values and Tc.",
+  "paper_structure": "The paper introduces the computational bottleneck of electronic structure calculations, describes the neural network architecture and descriptor implementation, presents error analysis using Fourier transforms to identify long-range residuals, demonstrates transferability to crystalline phases, and concludes with applications to superconductivity estimation.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26445_figures/2604.26445_fig1.jpg",
+      "caption": "Figure 1: Data distribution, training convergence, and predictive performance of the ELF model. (A) Probability density distribution of ELF values across the dataset, illustrating the broad sampling of the target space. (B) Training Huber loss and validation mean absolute error (MAE) as a function of training epoch. (C) Prediction error as a function of the reference DFT ELF value. (D) Predicted versus reference DFT ELF values, with the solid line indicating the identity.",
+      "page": 8
+    },
+    {
+      "image": "2604.26445_figures/2604.26445_fig2.jpg",
+      "caption": "Figure 2: ELF and residual-field analysis for a representative two-dimensional slice of the 76.0 GPa structure. (A) DFT-computed ELF in real space (color scale from 0 (blue) to 1 (red); fractional coordinates relative to 11 Å). (B) Real-space residual between predicted and DFT ELF (color scale from −0.2 (blue) through 0 (white) to +0.2 (red)). (C) Two- dimensional Fourier transform of the residual field. (D) Radially averaged Fourier amplitude as a function of wave vector k. (E) Change in mean absolute error (∆MAE) versus Fourier cutoff kmax for 76.0, 115.1, and 138.5 GPa. (F) Fractional magnitude of the Fourier correc- tion versus kmax, evaluated in logit space at 76.0 GPa (yellow squares)...",
+      "page": 11
+    },
+    {
+      "image": "2604.26445_figures/2604.26445_fig3.jpg",
+      "caption": "Figure 3: Performance of the local-descriptor ML model for predicting ELF-derived hydrogen networking values. (A,B) Coefficient of determination (R2) of the pointwise ELF prediction error for individual structures, shown as a function of the networking value for (A) cubic and (B) hexagonal structures optimized at 100 GPa. (C) ML-predicted versus DFT networking values for cubic (red) and hexagonal (blue) systems; the solid line denotes perfect agreement. (D) Cubic I213 structure with isolated H2 units (ELF isovalue 0.85). (E) Hexagonal P6522 structure featuring a three-dimensional hydrogen framework and isolated H−species (ELF isovalue 0.65). (F) Hexagonal P6/mm structure with...",
+      "page": 16
+    }
+  ],
+  "figure": "2604.26445_figures/2604.26445_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

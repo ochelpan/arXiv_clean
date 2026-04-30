@@ -1,0 +1,106 @@
+{
+  "arxiv_id": "2604.26008",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Continuous Noise Model for Quantum Circuits",
+  "authors": "Yunos El Kaderi, Andreas Honecker, Iryna Andriyanova",
+  "abstract": "Quantum noise is a central challenge in quantum computing across many applications. Extensive work has examined how qubits couple to their environment, leading to decoherence and relaxation, which is irreversible. Current studies focus on coherent gate errors caused by control misalignment, which accumulate with circuit depth but can, in principle, be corrected. This work studies a continuous coherent noise model for quantum circuits and compares it with a discrete Pauli model. The focus is on small coherent gate errors that build up across circuit depth. These errors are modeled as random rotations on the Bloch sphere using a von Mises-Fisher distribution. In the small-angle limit, the model reduces to an isotropic Gaussian distribution. We test the model on quantum error-correction circuits based on the [[5,1,3]] and [[7,1,3]] codes. A variant of Grover's search circuit with different qubit counts is also examined. To enable fair comparison, we introduce a model-independent matching scheme. Pauli and continuous noise channels are aligned using the binary entropy at readout. This isolates the effect of noise structure at fixed uncertainty. An approximate analytical method for coherent error propagation is also developed. The method tracks error distributions through Clifford circuits without full Monte Carlo sampling. It reduces simulation cost while preserving accuracy for circuit-level error estimates. The approximation is validated against brute-force simulations, identifying its regime of validity with Clifford circuits and limits under error correction. Our results show that continuous coherent noise can degrade logical performance more strongly than Pauli noise. They also clarify when simplified propagation models succeed and when they break down.",
+  "url": "http://arxiv.org/abs/2604.26008v1",
+  "pdf": "https://arxiv.org/pdf/2604.26008v1",
+  "type": "theory",
+  "summary": "This paper introduces a continuous noise model using the von Mises-Fisher distribution to better represent coherent gate errors in quantum computing. By comparing this model to standard Pauli noise through an entropy-matching scheme, the authors demonstrate that coherent noise can be more damaging to error-correcting codes. They also present a computationally efficient analytical method to track error propagation through Clifford circuits. The work highlights the limitations of simplified noise models in predicting the performance of complex quantum error-correction protocols.",
+  "main_problem": "The paper addresses the gap between standard discrete Pauli noise models and the continuous, structured coherent errors (like control drift) found in real hardware, specifically investigating how these errors accumulate and impact quantum error correction.",
+  "main_result": "The authors find that continuous coherent noise can degrade logical performance more severely than Pauli noise in stabilizer codes, though the opposite is true for Grover's search. They also develop an efficient analytical method for tracking error distributions in Clifford circuits.",
+  "method": "The study uses Monte Carlo sampling of a von Mises-Fisher noise model and compares it to a Pauli model using an entropy-matched scheme. An approximate analytical method is also developed to propagate error distributions through Clifford gates without full sampling.",
+  "model_or_system": "The system consists of quantum circuits including [[5,1,3]] and [[7,1,3]] stabilizer codes, Grover's search algorithm, and random Clifford circuits. The noise is modeled as continuous, small-angle random rotations on the Bloch sphere using a von Mises-Fisher distribution.",
+  "key_observables": "Logical error rates, fidelity, error probability (1 - P_success), and binary entropy at readout.",
+  "important_parameters": "Rotation angle (theta), rotation axis (mu), concentration parameter (k), noise strength (sigma), and circuit depth (m).",
+  "main_assumptions": "The model assumes small-angle, isotropic Gaussian errors in the limit; single-qubit gates are the primary source of noise; CNOT gates are noiseless but propagate errors; and the analytical approximation ignores multi-qubit error correlations.",
+  "figures_summary": "Figures show QEC circuit workflows, logical error probabilities for [[5,1,3]] and [[7,1,3]] codes comparing Pauli vs. continuous noise, Grover search performance scaling, and heatmaps validating the analytical approximation's accuracy in Clifford circuits.",
+  "paper_structure": "The paper identifies the inadequacy of Pauli models, introduces the von Mises-Fisher continuous noise model, establishes a matching scheme for fair comparison, presents an efficient analytical propagation method, and validates this method against brute-force simulations.",
+  "why_interesting": "This is highly relevant for researchers in open quantum systems and quantum optics as it provides a more realistic framework for modeling how continuous environmental coupling and control imperfections accumulate and degrade quantum information.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26008_figures/2604.26008_fig1.jpg",
+      "caption": "FIG. 1. Encode one logical qubit of any code, apply series of logical Hadamards and a round of syndrome extraction, and measure the decoded state.",
+      "page": 3
+    },
+    {
+      "image": "2604.26008_figures/2604.26008_fig2.jpg",
+      "caption": "FIG. 2. Circuits for the [[5, 1, 3]] code: (a) encoding circuit, (b) logical Hadamard circuit [39], (c) syndrome-measurement circuit.",
+      "page": 4
+    },
+    {
+      "image": "2604.26008_figures/2604.26008_fig3.jpg",
+      "caption": "FIG. 3. Circuits for the [[7, 1, 3]] code: (a) encoding circuit [40], (b) logical Hadamard circuit, (c) syndrome-measurement circuit.",
+      "page": 4
+    },
+    {
+      "image": "2604.26008_figures/2604.26008_fig4.jpg",
+      "caption": "FIG. 4. A general Grover’s search circuit [44].",
+      "page": 5
+    },
+    {
+      "image": "2604.26008_figures/2604.26008_fig5.jpg",
+      "caption": "FIG. 6. Same as Fig. 5 but for the [[7, 1, 3]] code.",
+      "page": 7
+    },
+    {
+      "image": "2604.26008_figures/2604.26008_fig6.jpg",
+      "caption": "FIG. 5. Logical error probability perr for the [[5, 1, 3]] code. Solid curves correspond to continuous noise. Dashed curves correspond to Pauli noise. The circuit of Fig. 1 is run with m = 10, 50, 100 logical Hadamards and with or without the error correction cycle (shaded box) at the end of the circuit in Fig. 1 (ec = 1, 0). The bottom, middle, and top axes show the Pauli error rate p, continuous noise strength σ, and matched binary entropy H.",
+      "page": 7
+    },
+    {
+      "image": "2604.26008_figures/2604.26008_fig7.jpg",
+      "caption": "FIG. 7. Error probability of Grover search circuits for N = 3, 4, 5, 6, 7 qubits. Solid curves show continuous noise. Dashed curves show Pauli noise.",
+      "page": 8
+    },
+    {
+      "image": "2604.26008_figures/2604.26008_fig8.jpg",
+      "caption": "FIG. 8. [[5, 1, 3]] logical error rate of the full simulation (solid curves) vs the error rate of the approximation simulation (dashed curves).",
+      "page": 10
+    },
+    {
+      "image": "2604.26008_figures/2604.26008_fig9.jpg",
+      "caption": "FIG. 9. Same as Fig. 8 but for the [[7, 1, 3]] code.",
+      "page": 10
+    },
+    {
+      "image": "2604.26008_figures/2604.26008_fig10.jpg",
+      "caption": "FIG. 10. Mean (top) and variance (bottom) of the ratio in Eq. (22) over 100 random Clifford circuits. Each pixel cor- responds to a fixed number of Hadamards and CNOTs, and both panels share the same axes.",
+      "page": 11
+    }
+  ],
+  "figure": "2604.26008_figures/2604.26008_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  }
+}

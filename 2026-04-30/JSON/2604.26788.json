@@ -1,0 +1,102 @@
+{
+  "arxiv_id": "2604.26788",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.DC",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Semantic Quantum Circuit Cache for Scalable and Distributed Quantum-Classical Workflows",
+  "authors": "Mar Tejedor, Javier Conejero, Rosa M. Badia",
+  "abstract": "Hybrid quantum--classical workflows often execute large ensembles of circuits that differ syntactically but implement identical operations, leading to substantial redundant computation. To address this, we introduce the Quantum Circuit Cache, a content-addressable system that detects semantic equivalence and reuses previously computed results across executions, backends, and workflow stages.   Our approach combines ZX-calculus reduction with isomorphism-invariant Weisfeiler--Leman graph hashing to generate deterministic circuit identifiers, enabling constant-time lookup in distributed caches supporting both lightweight LMDB and scalable Redis deployments. The system integrates transparently into hybrid HPC workflows and remains backend-agnostic across CPU, GPU, and QPU environments.   We evaluate the system on MareNostrum 5 with two representative workloads: distributed wire cutting and Differential Evolution-based QAOA optimization. For wire cutting, caching eliminates up to 91.98% of redundant subcircuit simulations, yielding speedups up to 7.0 times on a single node and maintaining advantages at scale, with Redis-based caching achieving up to 1.6 times speedups under high parallelism. Validation on a 35-qubit superconducting QPU confirms these benefits, achieving an 11.2 times speedup on real hardware. In distributed QAOA optimization, equivalence-aware caching avoids up to 27.6% of circuit evaluations and consistently reduces execution cost without altering the optimization algorithm. In both cases, reuse grows with concurrency and circuit structure, highlighting redundancy as a major systems bottleneck and demonstrating the effectiveness of our Quantum Circuit Cache.",
+  "url": "http://arxiv.org/abs/2604.26788v1",
+  "pdf": "https://arxiv.org/pdf/2604.26788v1",
+  "type": "both",
+  "summary": "This paper introduces a 'Quantum Circuit Cache' designed to eliminate redundant computations in hybrid quantum-classical workflows. By using ZX-calculus and graph hashing, the system identifies circuits that are structurally identical even if their gate sequences differ. This allows the system to reuse previously computed results from a distributed database, significantly accelerating tasks like circuit cutting and variational algorithm optimization on both classical supercomputers and real quantum hardware.",
+  "main_problem": "Hybrid quantum-classical workflows suffer from massive computational redundancy because syntactically different circuits often implement identical operations, leading to wasted resources on CPUs, GPUs, and QPUs.",
+  "main_result": "The Quantum Circuit Cache achieves up to 11.2x speedup on real QPU hardware and up to 7.0x on single-node simulations by identifying and reusing semantically equivalent circuits.",
+  "method": "A semantic hashing pipeline using ZX-calculance reduction and Weisfeiler-Lehman graph hashing to create deterministic fingerprints, stored in distributed LMDB or Redis databases.",
+  "model_or_system": "The system was evaluated on the MareNostrum 5 supercomputer and the MareNostrum Ona 35-qubit superconducting quantum processor, using workloads like circuit cutting and QAOA optimization.",
+  "key_observables": "Cache hit rate, speedup factors, execution time, and number of redundant simulations.",
+  "important_parameters": "Circuit depth (p), number of wire cuts, discretization granularity for parameters, and storage backend type (LMDB vs. Redis).",
+  "main_assumptions": "The ZX-calculus reduction is intentionally incomplete (prioritizing scalability over formal completeness), and WL hashing is assumed to be practically collision-free.",
+  "figures_summary": "Figure 1 shows the end-to-end workflow from circuit to cache; Figure 2 and 3 compare execution time and cache behavior for LMDB and Redis; Figure 4 shows performance on random circuits; Figure 6 and 7 illustrate QAOA convergence and cumulative hits; Figure 8 shows the trade-off between discretization and hit rate.",
+  "paper_structure": "The paper introduces the problem of redundancy, describes the semantic hashing pipeline (ZX-calculus and WL hashing), details the storage architectures (LMDB/Redis), presents experimental evaluations on circuit cutting and QAOA workloads, and concludes with hardware validation and future work.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26788_figures/2604.26788_fig1.jpg",
+      "caption": "Fig. 1: End-to-end workflow of the Quantum Circuit Cache. Incoming circuits are translated into ZX-calculus graphs, reduced via a deterministic rewrite strategy, deterministically serialized, and hashed using Weisfeiler–Leman refinement. Cache hits bypass execution and retrieve stored results, while cache misses trigger execution on CPU, GPU, or QPU backends and insertion into a persistent key–value store.",
+      "page": 3
+    },
+    {
+      "image": "2604.26788_figures/2604.26788_fig2.jpg",
+      "caption": "Fig. 2: Total execution time for HEA circuits with four wire cuts as a function of compute nodes. Distributed circuit caching substantially reduces runtime, with Redis consistently outperforming LMDB at larger scales.",
+      "page": 5
+    },
+    {
+      "image": "2604.26788_figures/2604.26788_fig3.jpg",
+      "caption": "Fig. 5: Comparison of cache behavior for random circuits (RC) using LMDB and Redis backends. Y axis is the total number of sucircuits simulations done.",
+      "page": 6
+    },
+    {
+      "image": "2604.26788_figures/2604.26788_fig4.jpg",
+      "caption": "Fig. 3: Comparison of cache behavior for HEA circuits using LMDB and Redis backends. Y axis is the total number of sucircuits simulations done.",
+      "page": 6
+    },
+    {
+      "image": "2604.26788_figures/2604.26788_fig5.jpg",
+      "caption": "Fig. 4: Total execution time for random circuits with four wire cuts as a function of compute nodes.",
+      "page": 6
+    },
+    {
+      "image": "2604.26788_figures/2604.26788_fig6.jpg",
+      "caption": "Fig. 6: Cumulative cache hits versus DE iteration for QAOA depths p = 2, 3, 4 under coarse, medium, and fine parameter discretization. Cache reuse increases steadily over time, with coarser and medium discretizations exhibiting higher hit rates.",
+      "page": 8
+    },
+    {
+      "image": "2604.26788_figures/2604.26788_fig7.jpg",
+      "caption": "Fig. 7: Best Max-Cut energy versus DE iteration for dif- ferent QAOA depths and discretization resolutions. Energies converge rapidly and saturate within a narrow range due to equivalence-aware circuit evaluation.",
+      "page": 8
+    },
+    {
+      "image": "2604.26788_figures/2604.26788_fig8.jpg",
+      "caption": "Fig. 9: Avoided circuit simulations as a function of DE population size. Larger populations increase concurrency and amplify the effectiveness of semantic-aware circuit caching.",
+      "page": 9
+    },
+    {
+      "image": "2604.26788_figures/2604.26788_fig9.jpg",
+      "caption": "Fig. 8: Detailed view for p = 3 showing cache hit percentage during optimization. Coarser discretizations produce signifi- cantly higher reuse throughout the optimization trajectory.",
+      "page": 9
+    }
+  ],
+  "figure": "2604.26788_figures/2604.26788_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

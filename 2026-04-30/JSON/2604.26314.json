@@ -1,0 +1,92 @@
+{
+  "arxiv_id": "2604.26314",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Amplitude Encoding of Slater-Type Orbitals via Matrix Product States: Efficient State Preparation and Integral Evaluation on Quantum Hardware",
+  "authors": "Sorin Bolos",
+  "abstract": "Slater-type orbitals (STOs) provide the physically correct description of atomic wavefunctions but have been largely replaced by Gaussian-type orbitals in computational chemistry due to the lack of closed-form multi-center integrals. We present a systematic study of amplitude encoding of STOs on quantum computers using matrix product states (MPS). For one-dimensional orbital functions of the form $p_d(x) e^{-ζx}$, we derive analytical MPS constructions with constant bond dimension $χ= d + 1$, requiring $O(n)$ classical and quantum resources for $n$-qubit registers with no grid sampling. We demonstrate a complete one-electron integral pipeline -- overlap, kinetic energy, and nuclear attraction -- in one dimension, validating the overlap and kinetic energy on IBM Heron processors at 5~qubits with 0.67\\% hardware-induced error using Zero-Noise Extrapolation. In three dimensions, we compute multi-center overlap integrals between 1s and 2s orbitals in Cartesian coordinates with 0.02\\% discretization error at 18~qubits. A systematic entanglement analysis reveals that the MPS bond dimension of three-dimensional STOs in Cartesian coordinates saturates with increasing grid resolution -- reaching $\\sim$138 for the hydrogen 1s orbital at 12~qubits per coordinate -- establishing bounded encoding complexity rather than the exponential scaling initially expected. The SVD truncation threshold provides a practical resource parameter, reducing the bond dimension to 39 at threshold $10^{-6}$ with negligible accuracy loss. These results map the entanglement landscape for amplitude encoding of atomic orbitals and establish MPS-based state preparation as a viable path toward exact STO basis sets on quantum computers.",
+  "url": "http://arxiv.org/abs/2604.26314v1",
+  "pdf": "https://arxiv.org/pdf/2604.26314v1",
+  "type": "both",
+  "summary": "This paper presents a method for encoding Slater-Type Orbitals (STOs) on quantum computers using Matrix Product States (MPS). By using amplitude encoding, the authors show that the complexity of representing 3D orbitals does not grow exponentially but instead reaches a bounded bond dimension. They successfully demonstrate a 1D integral evaluation pipeline on IBM Heron hardware and prove that SVD truncation can significantly reduce circuit complexity without losing accuracy. This establishes a viable path for performing exact quantum chemistry calculations on near-term and fault-tolerant quantum hardware.",
+  "main_problem": "The challenge of efficiently encoding and preparing physically accurate Slater-Type Orbitals (STOs) on quantum hardware to enable exact evaluation of quantum chemistry integrals without the exponential cost of generic state preparation.",
+  "main_result": "The study establishes that 3D Cartesian amplitude encoding of STOs has bounded complexity rather than exponential scaling, with the MPS bond dimension saturating at approximately 138. It also demonstrates successful 1D integral pipeline validation on IBM Heron processors.",
+  "method": "The authors use Matrix Product States (MPS) for amplitude encoding and derive analytical constructions for 1D orbitals. They employ SVD truncation to manage bond dimension and use Zero-Noise Extrapolation (ZNE) for hardware error mitigation.",
+  "model_or_system": "The study focuses on hydrogen-like 1s and 2s orbitals in 1D, 3D spherical, and 3D Cartesian coordinate systems, validated on IBM Heron-generation quantum processors.",
+  "key_observables": "Overlap integrals, kinetic energy integrals, and nuclear attraction integrals.",
+  "important_parameters": "MPS bond dimension (chi), SVD truncation threshold, qubit count (n), and decay constant (zeta).",
+  "main_assumptions": "The efficiency of Cartesian encoding may depend on orbital localization; current hardware noise levels currently limit the feasibility of large-scale 3D Cartesian and nuclear attraction circuits.",
+  "figures_summary": "Figure 1 shows discretization convergence for 1D integrals; Figure 2 shows 3D overlap convergence; Figure 3 plots bond dimension saturation and sensitivity to decay constants; Figure 4 illustrates the bond dimension profile across the MPS chain; Figure 5 and 6 show hardware validation and error scaling on IBM processors.",
+  "paper_structure": "The paper introduces the Gaussian vs. Slater trade-off, presents analytical 1D MPS constructions, extends the framework to 3D Cartesian and spherical coordinates, analyzes entanglement scaling and bond dimension saturation, validates results on IBM hardware, and discusses limitations regarding two-electron integrals and hardware noise.",
+  "why_interesting": "This work is highly relevant as it provides a scalable, tensor-network-based framework for mapping continuous molecular wavefunctions onto qubits, potentially enabling high-precision quantum chemistry simulations that bypass the systematic errors of Gaussian approximations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26314_figures/2604.26314_fig1.jpg",
+      "caption": "FIG. 1. Discretization convergence of 1D integrals. (a) Over- lap integral converging to the exact value S(1.4) = 0.592 (dot- ted line). (b) Discretization error versus qubit count for over- lap and kinetic energy integrals.",
+      "page": 6
+    },
+    {
+      "image": "2604.26314_figures/2604.26314_fig2.jpg",
+      "caption": "FIG. 2. 3D overlap convergence. (a) ⟨1sA|1sB⟩at d = 1.4 a.u. (b) ⟨2sA|2sB⟩at d = 1.4 a.u. Dotted line: exact continuous value.",
+      "page": 7
+    },
+    {
+      "image": "2604.26314_figures/2604.26314_fig3.jpg",
+      "caption": "Figure 2 shows the convergence of the 3D overlap in- tegrals with increasing qubit count. The convergence be- havior at 32 a.u. space range is identical to that at 16 a.u. but shifted by one qubit—consistent with the fact that doubling the simulated space at fixed qubit count halves the grid resolution.",
+      "page": 7
+    },
+    {
+      "image": "2604.26314_figures/2604.26314_fig4.jpg",
+      "caption": "FIG. 3. Bond dimension scaling of 3D Cartesian encodings. (a) 3D Cartesian χmax versus qubits per coordinate at three SVD thresholds, showing saturation. (b) Cross-coordinate χ(x|y), also saturating. (c) Sensitivity of χmax to decay constant ζ.",
+      "page": 10
+    },
+    {
+      "image": "2604.26314_figures/2604.26314_fig5.jpg",
+      "caption": "FIG. 4. Bond dimension profile across the 3n-qubit MPS chain for the 1s orbital at 11 qubits per coordinate. (a) Threshold 10−12: y-register bonds peak at χ = 132 (bottleneck effect). (b) Threshold 10−6: peak reduced to χ = 39. Gray bars mark the x|y and y|z register boundaries.",
+      "page": 11
+    },
+    {
+      "image": "2604.26314_figures/2604.26314_fig6.jpg",
+      "caption": "FIG. 5. Hardware validation at 5 qubits on ibm kingston. (a) Overlap integral. (b) Kinetic energy integral (absolute value). Dashed line: exact continuous value.",
+      "page": 12
+    },
+    {
+      "image": "2604.26314_figures/2604.26314_fig7.jpg",
+      "caption": "FIG. 6. Hardware error versus CZ gate count for the overlap integral. Dashed line: theoretical survival probability (1 − ε)NCZ with ε = 0.5%.",
+      "page": 12
+    }
+  ],
+  "figure": "2604.26314_figures/2604.26314_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

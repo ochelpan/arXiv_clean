@@ -1,0 +1,109 @@
+{
+  "arxiv_id": "2604.26367",
+  "category": "other",
+  "arxiv_categories": [
+    "cond-mat.soft",
+    "cond-mat.mtrl-sci",
+    "cs.CE",
+    "math.CT"
+  ],
+  "is_primary_archive": false,
+  "title": "A Category-Theoretic Framework from Biological Mechanics to Engineered Stimulus-Response Systems",
+  "authors": "Lee Marom, Skylar Tibbits, Gioele Zardini, Markus J. Buehler",
+  "abstract": "Natural materials achieve adaptive behavior through hierarchical organization and coupled mechanisms across scales. Their translation into engineering, however, remains largely heuristic. What is missing is a formal translation framework that carries biological design logic into engineered realization while preserving physical consistency across levels of abstraction. Here we present a category theoretic compositional framework for verified nature-derived design. The framework defines a category of stimulus response dynamical systems with natural and artificial subcategories. It introduces a structure preserving implementation functor from biological mechanics to engineered systems. It also formalizes a machine agnostic specification layer that links behavioral intent to executable fabrication programs. We instantiate the framework on the hygromorphic pinecone hierarchy as a representative biological case. We implement the full pipeline in Grasshopper, where formal specifications are translated into modular parametric scripts that preserve the compositional structure of the model. The resulting designs are fabricated by fused filament fabrication, evaluated experimentally, and tested against model predictions derived from the pipeline. The current implementation generates four actuator classes spanning two stimulus types and two kinematic responses. One actuator arises purely through composition from previously validated components, without additional manual derivation. The results show that compositionality can function not just as a descriptive language, but as a generative and system level verifiable method for mechanical material design. More broadly, the work provides a concrete route for embedding formal multiscale reasoning within increasingly computational, generative, and physics-driven design workflows.",
+  "url": "http://arxiv.org/abs/2604.26367v1",
+  "pdf": "https://arxiv.org/pdf/2604.26367v1",
+  "type": "both",
+  "summary": "This paper presents a rigorous mathematical framework using category theory to bridge the gap between biological design and engineering. By treating biological mechanisms as a hierarchy of dynamical systems, the authors create a 'functorial' translation that allows researchers to map natural logic onto 3D-printing parameters. The framework is generative, meaning it can discover new actuator behaviors by recombining existing modules. Experimental validation using 4D-printed polymers confirms that the predicted mechanical responses match physical observations.",
+  "main_problem": "The lack of a formal, mathematical framework to translate hierarchical biological design logic (biomimicry) into engineered, programmable stimulus-response systems while preserving physical consistency across scales.",
+  "main_result": "The development of a category-theoretic pipeline that successfully generates new actuator classes (e.g., thermal-twisting) through the composition of validated modules and demonstrates high agreement between predicted and experimental 4D-printed deformations.",
+  "method": "A category-theoretic framework using functors (Implementation, Projection, Compilation) and morphisms (Assembly, Reduction) to map biological mechanics to 3D-printing instructions, implemented via a modular Grasshopper workflow.",
+  "model_or_system": "A multiscale hierarchy modeled on the hygromorphic (moisture-responsive) structure of a pinecone, translated into 4D-printed bilayer composites using Fused Filament Fabrication (FFF).",
+  "key_observables": "Moisture content, principal strains, strain mismatch, intrinsic curvature, and opening angles.",
+  "important_parameters": "Swelling coefficients, relaxation times, fiber orientation angles, geometric factors (thickness/stiffness ratios), and fabrication parameters (layer height, infill density, print speed).",
+  "main_assumptions": "The framework assumes smooth manifolds and smooth maps for dynamics, and that complex systems can be understood through the local verification of interacting parts.",
+  "figures_summary": "Figure 1 shows the pinecone hierarchy; Figures 2-6 detail the mathematical morphisms at different scales (fiber to organ); Figure 8 shows the computational workflow; Figure 10 compares predicted vs. observed actuator geometries.",
+  "paper_structure": "The paper introduces the problem of non-formal biomimicry, defines a category-theoretic framework (Dyn, Nat, Art, Spec, Comp), instantiates this on a pinecone hierarchy, demonstrates a generative computational pipeline in Grasshopper, and validates the results through 4D-printed experiments.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26367_figures/2604.26367_fig1.jpg",
+      "caption": "Figure 1: The pinecone hierarchy in Nat. (a) Dynamic pinecone opens and closes in response to relative humidity (RH). (b) Compositional multiscale structure across modeled scales: fiber, lamina, tissue, element, organ. (c) The complete formalization as a chain of objects with assembly morphisms α connecting successive scales and reduction morphisms β extracting observables.",
+      "page": 4
+    },
+    {
+      "image": "2604.26367_figures/2604.26367_fig2.jpg",
+      "caption": "Figure 2: Fiber-scale reductions. The three projections βm, βL, and βT extract the moisture content m and the longitudinal and transverse strain components εL, εT from the fiber state.",
+      "page": 5
+    },
+    {
+      "image": "2604.26367_figures/2604.26367_fig3.jpg",
+      "caption": "Figure 3: Fiber-to-lamina assembly. The assembly morphism α1 averages N fiber states (dotted arrows) into the lamina state Llam. Reductions βlam m , βlam L , βlam T extract the lamina-scale observables.",
+      "page": 6
+    },
+    {
+      "image": "2604.26367_figures/2604.26367_fig4.jpg",
+      "caption": "Figure 4: Lamina-to-tissue assembly. The assembly morphism α2 stacks M laminae with different fiber orientations ϕ(j) into the tissue state Ttis. The reduction βthk extracts the through-thickness strain mismatch ∆εthk.",
+      "page": 7
+    },
+    {
+      "image": "2604.26367_figures/2604.26367_fig5.jpg",
+      "caption": "Figure 5: Element scale. The assembly morphism αgeom applies the geometric constraints of the pinecone scale to the tissue, producing the structural element Selem. The reduction βcrv extracts the intrinsic curvature κ.",
+      "page": 7
+    },
+    {
+      "image": "2604.26367_figures/2604.26367_fig6.jpg",
+      "caption": "Figure 6: Organ scale. The assembly morphism α3 aggregates K elements (dotted line) into the organ Oorg. The reduction βm-angle extracts the mean opening angle θ as the macroscopic observable.",
+      "page": 8
+    },
+    {
+      "image": "2604.26367_figures/2604.26367_fig7.jpg",
+      "caption": "Figure 7: Top row (green): the biological hierarchy with assembly morphisms α and reductions β. Bottom row (yellow): the isomorphic engineered hierarchy with primed maps α′ and β′. Vertical arrows indicate the scale-by-scale translation given the implementation functor F : Nat →Art.",
+      "page": 9
+    },
+    {
+      "image": "2604.26367_figures/2604.26367_fig8.jpg",
+      "caption": "Figure 8: Grasshopper implementation of the categorical pipeline. Material panels encoding biological and engineered material properties feed into separate stimulus collectors. Nat and Art evaluate the same governing equations on their respective inputs. Art outputs the behavioral target Atarget, which Spec verifies against fabrication parameters via π. The verified specification Σ is compiled by Comp into machine-specific G-code. Visualizations are a non-categorical output used for validation.",
+      "page": 11
+    },
+    {
+      "image": "2604.26367_figures/2604.26367_fig9.jpg",
+      "caption": "Figure 9: Visualization outputs for the baseline PA6-GF / PA612-CF hygroscopic bending case. From top to bottom: filament-width rendering of the deposited beads, raster toolpaths with orthogonal orientations for the two layers, initial flat bilayer, and predicted deformed geometry.",
+      "page": 12
+    },
+    {
+      "image": "2604.26367_figures/2604.26367_fig10.jpg",
+      "caption": "Figure 10: Predicted and observed actuation for all four cases. Each panel shows the deformed geometry computed by the pipeline (left) alongside the experimentally observed response (right). The 2 × 2 grid is indexed by stimulus type (columns) and kinematic response (rows).",
+      "page": 14
+    }
+  ],
+  "figure": "2604.26367_figures/2604.26367_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

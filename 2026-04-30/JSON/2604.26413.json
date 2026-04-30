@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2604.26413",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.CR"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Gatekeeper: Multi-Factor Context-Bound Image Steganography with VQC Based Key Derivation on Quantum Hardware",
+  "authors": "Sahil Tomar, Sandeep Kumar",
+  "abstract": "This paper presents Quantum Gatekeeper, a context-bound image steganography framework where successful payload recovery depends on both cryptographic decryption and the reconstruction of a precise extraction path. The system integrates lossless least significant bit (LSB) embedding with a deterministic variational quantum circuit (VQC)-derived gate key, multi-factor contextual binding, and authenticated encryption. Payload extraction is contingent upon four requisite factors: a password, a shared secret, a user-supplied context string, and a reference image signature. Any deviation in these factors causes the system to read from an incorrect pixel sequence or fail authentication, resulting in silent rejection rather than partial disclosure. The proposed method derives a gatecontrolled extraction key from a seed-conditioned variational circuit, with parameters generated via cryptographic hash expansion and context-dependent image features. To ensure encode/decode consistency, the cryptographic key path is generated via exact statevector simulation; concurrently, IBM superconducting quantum hardware is utilized to evaluate the statistical behavior of the circuit family under physical noise. We introduce a dual-region image layout to resolve the nonce bootstrapping dependency, separating header recovery from payload recovery through independently derived keys. Experimental results confirm successful end-to-end message embedding and recovery on PNG images, demonstrating deterministic success under correct conditions and failure otherwise. The framework supports both text and image payloads; in the image-in-image configuration, a secret image is resized to a fixed resolution prior to embedding, enabling exact pixel-level recovery under correct contextual reconstruction.",
+  "url": "http://arxiv.org/abs/2604.26413v1",
+  "pdf": "https://arxiv.org/pdf/2604.26413v1",
+  "type": "both",
+  "summary": "This paper introduces a new steganography framework called Quantum Gatekeeper that uses quantum circuits to control how hidden data is extracted. By requiring a specific context (like a password and an image signature) to reconstruct the quantum gate key, it ensures that unauthorized users cannot even partially recover the hidden message. The authors demonstrate that while real quantum hardware is noisy, the most probable quantum state remains stable enough to allow for reliable, deterministic data recovery.",
+  "main_problem": "The paper addresses the lack of extraction-path control in traditional steganography and the challenge of implementing reliable quantum-based key derivation on noisy NISQ hardware.",
+  "main_result": "The 'Quantum Gatekeeper' framework achieves successful, deterministic, all-or-nothing payload recovery and high image fidelity, demonstrating that the VQC-driven extraction path remains stable despite hardware noise.",
+  "method": "A hybrid quantum-classical approach using Variational Quantum Circuits (VQC) for gate-controlled key derivation, combined with AES-GCM encryption and a dual-region LSB embedding strategy.",
+  "model_or_system": "The system utilizes a Variational Quantum Circuit (VQC) implemented via exact statevector simulation and executed on IBM superconducting quantum hardware (ibm_pittsburgh) using the PennyLane framework.",
+  "key_observables": "Shannon entropy, Total Variation Distance (TVD), Cross-Entropy Benchmarking (XEB), and peak bitstring consistency between simulator and hardware.",
+  "important_parameters": "The recovery tuple (password, shared secret, context string, and image signature) and the VQC parameters derived from cryptographic hash expansion.",
+  "main_assumptions": "The system assumes the cover image remains unaltered (no recompression) and relies on statevector simulation for the primary extraction key to avoid the stochastic nature of hardware sampling.",
+  "figures_summary": "Figure 1 illustrates the overall architecture and context-bound seed derivation; Figure 2 details the embedding and extraction workflow involving the image-bound signature.",
+  "paper_structure": "The paper identifies security gaps in steganography, proposes the Quantum Gatekeeper framework, details the hybrid quantum-classical implementation, provides experimental validation on IBM hardware, and concludes with an ablation study and error analysis.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26413_figures/2604.26413_fig1.jpg",
+      "caption": "Fig. 1. Overall architecture of the proposed Quantum Gatekeeper framework. User-defined inputs are transformed into context-bound seed material driving quantum gate derivation, authenticated payload encryption, and dual-region image embedding. The stego image is decodable only by reconstructing the same contextual state and completing authenticated recovery.",
+      "page": 4
+    },
+    {
+      "image": "2604.26413_figures/2604.26413_fig2.jpg",
+      "caption": "Fig. 2. Embedding and extraction workflow of the proposed Quantum Gatekeeper framework. During embedding, an image-bound signature and internal seeds parameterize the VQC and authenticated encryption. During extraction, the same contextual inputs reconstruct the gate key, recover embedded regions, and perform AES-GCM verification.",
+      "page": 6
+    }
+  ],
+  "figure": "2604.26413_figures/2604.26413_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

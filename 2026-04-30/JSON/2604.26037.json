@@ -1,0 +1,102 @@
+{
+  "arxiv_id": "2604.26037",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.comp-ph",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Accelerating finite-element-based projector augmented-wave density functional theory calculations with scalable GPU-centric computational methods",
+  "authors": "Kartick Ramakrishnan, Phani Motamarri",
+  "abstract": "Accurate large-scale Kohn-Sham density functional theory (DFT) calculations are essential for modeling complex material systems, including interfaces, defects, nanoclusters, and twisted two-dimensional heterostructures. Achieving chemical accuracy at scales of $10^4$-$10^5$ electrons with practical time-to-solution, however, remains challenging for existing DFT implementations. We present GPU-centric computational methods and algorithmic innovations within a finite-element (FE) discretized projector augmented-wave (PAW) formulation (PAW-FE) for accurate, efficient, and scalable electronic-structure calculations on modern exascale systems. The FE discretization, developed within a collinear spin formalism, accommodates generic boundary conditions and employs multi-resolution quadrature for accurate evaluation of atom-centered PAW integrals on coarse grids. The resulting generalized Hermitian eigenproblem is solved using residual-based Chebyshev filtered subspace iteration (R-ChFSI). Exploiting R-ChFSI's tolerance to inexact matrix-multivector products, we employ an approximate inverse PAW overlap matrix, mixed-precision arithmetic (FP32/TF32), and low-precision nearest-neighbor communication (BF16) during filtered subspace construction, along with block-wise computation-communication overlap to reduce cost while preserving robustness. These strategies yield up to $8\\times$ and $20\\times$ CPU-GPU speedups on Intel and AMD GPU architectures, respectively. Compared to plane-wave PAW methods, PAW-FE achieves close to 8$\\times$ reduction in time-to-solution for 10,000-electron systems on NVIDIA GPUs, with larger gains at scale, and around 6$\\times$ over norm-conserving FE approaches. We demonstrate scalability to 130,000-electron systems, establishing PAW-FE as an exascale-ready method for chemically accurate first-principles simulations.",
+  "url": "http://arxiv.org/abs/2604.26037v1",
+  "pdf": "https://arxiv.org/pdf/2604.26037v1",
+  "type": "theory",
+  "summary": "This paper presents a new computational method (PAW-FE) for large-scale electronic structure calculations. By combining finite-element discretization with the Projector Augmented-Wave method, the authors avoid the global communication bottlenecks of traditional plane-wave codes. The implementation is specifically designed for modern GPUs, using mixed-precision arithmetic and optimized kernels to achieve massive speedups. This allows for the simulation of much larger and more complex material systems, such as moiré superlattices, on exascale supercomputers.",
+  "main_problem": "The challenge of performing accurate, large-scale Kohn-Sham density functional theory (DFT) calculations for complex systems (up to 10^5 electrons) on modern exascale GPU architectures without the communication bottlenecks of plane-wave methods.",
+  "main_result": "The development of a GPU-centric, finite-element-based PAW (PAW-FE) method that achieves up to 20x speedup on AMD GPUs and significantly reduces time-to-solution compared to plane-wave and norm-conserving FE methods, demonstrating scalability to 130,000 electrons.",
+  "method": "A finite-element discretization of the Projector Augmented-Wave (PAW) formalism using a residual-based Chebyshev Filtered Subspace Iteration (R-ChFSI) eigensolver, optimized with mixed-precision arithmetic (FP32/TF32/BF16) and computation-communication overlap.",
+  "model_or_system": "The framework uses Kohn-Sham DFT within the PAW formalism and the frozen-core approximation, applied to large-scale systems such as Pt nanoclusters, WS2 slabs, and twisted bilayer WTe2.",
+  "key_observables": "Ground-state electronic structure, pseudo electron density, magnetization density, total energy, and ionic forces.",
+  "important_parameters": "System sizes up to 130,000 electrons; use of GGA exchange-correlation; multi-resolution quadrature; and various GPU precision modes (FP32, TF32, BF16).",
+  "main_assumptions": "Uses the frozen-core approximation and assumes a collinear spin formalism; relies on the efficiency of the R-ChFSI algorithm's tolerance to inexact matrix-multivector products.",
+  "figures_summary": "The paper includes diagrams of the operator action for the PAW Hamiltonian, algorithmic descriptions of the SCF cycle and subspace construction, and performance comparison plots (speedup and scaling) against Quantum ESPRESSO and previous FE implementations.",
+  "paper_structure": "The paper introduces the computational bottleneck of large-scale DFT, defines the PAW-FE mathematical framework and discretization, details the GPU-centric algorithmic innovations (R-ChFSI and precision strategies), presents performance benchmarks on various GPU architectures, and demonstrates scalability on massive systems.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26037_figures/2604.26037_fig1.jpg",
+      "caption": "Figure 1: Multi-resolution quadrature",
+      "page": 23
+    },
+    {
+      "image": "2604.26037_figures/2604.26037_fig2.jpg",
+      "caption": "Figure 2: Efficient computation of AX: The computation of Y = AX involves 4 steps: (i) Extraction, (ii) Partial non-local operator action (iii) Evaluation of local and non-local action and finally (iv) assembly of the global output vector. In the domain decomposition layout, each colour is used to depict a unique MPI task (‘t’) and the degree of freedom is depicted with the dot symbol. Each task ‘t’ is associated with ‘Nc’ FE cells and ‘mt’ degrees of freedom. The vectors X and Y is of dimension mt ×B, where ‘B’ is the multivector block size.",
+      "page": 24
+    },
+    {
+      "image": "2604.26037_figures/2604.26037_fig3.jpg",
+      "caption": "Figure 3: Schematic demonstrating the compute-communication overlap in the blocked R- ChFSI filtering step. The orange blocks involve inter-processor communication, while the blocks in blue involve computation. For each iteration, the action of bS −1X and HX for each block has to be completed.",
+      "page": 28
+    },
+    {
+      "image": "2604.26037_figures/2604.26037_fig4.jpg",
+      "caption": "Figure 4: Reduced precision communication for nearest neighbour communica- tion: The figure illustrates the processor-level domain decomposition of the simulation domain, where each colour represents a distinct processor. The arrows depict the inter- processor communication, which is performed in BF16 format and type-casted to FP32 for computation in the receiving processor.",
+      "page": 29
+    },
+    {
+      "image": "2604.26037_figures/2604.26037_fig5.jpg",
+      "caption": "Figure 5: Walk-through of algorithmic innovations for Chebyshev filtering: com- parison of the various algorithmic innovations on various supercomputers: OLCF Frontier, which uses AMD MI250X GPUs, ALCF Aurora, which uses Intel GPU Max 1550 and ALCF Polaris, which uses Nvidia A100 GPUs. Benchmark system considered is Te deposited on WS2 slab comprising 10,000 electrons and 6 million DoFs run on 120 GPUs where 70% parallel-scaling efficiency is obtained.",
+      "page": 29
+    },
+    {
+      "image": "2604.26037_figures/2604.26037_fig6.jpg",
+      "caption": "Figure 6: Mixed precision subspace rotation: Schematic of mixed-precision subspace rotation (RR-SR) strategy employed. The rotation matrix (Q) is distributed over various MPI tasks, and it is first communicated to all the MPI tasks using an AllReduce operation. The first row demonstrates the full precision multiplication of the process local dofs(Xt) with the diagonal entries of the rotation matrix(Q). The second row shows the off-diagonal multiplication of the local dofs with the rotation matrix, with diagonal entries set to zero (Qii = 0). Here, the rotation matrix is extracted and communicated in single-precision and copied to the GPUs blockwise. There is an overlap between the...",
+      "page": 31
+    },
+    {
+      "image": "2604.26037_figures/2604.26037_fig7.jpg",
+      "caption": "Figure 7: Accuracy benchmarking: comparison of energy again bond-length/unit-cell volume. Systems considered are: (a) O2 molecule (b) NO2 molecule (c) Cr BCC unit-cell. The DFT Energy in Ha is plotted on the Y-axis and the bond-length/unit-cell volume on the X-axis. The plot inset shows the structure considered and the initial spin configuration considered.",
+      "page": 34
+    },
+    {
+      "image": "2604.26037_figures/2604.26037_fig8.jpg",
+      "caption": "Figure 8: Performance comparison of DFT-FE ONCV pseudopotential calculation against PAW-FE on OLCF Frontier and ALCF Aurora. The plots shows the average time per SCF iteration (τc) in seconds on the vertical axis and the number of nodes for each calculation on hortizontal axis where X denotes the minimum nodes required to run the calculation. The text insert describes the number of nodes (N), computational cost (ηc) in Node-hrs (C) and parallel scaling efficiency in % (E).",
+      "page": 39
+    },
+    {
+      "image": "2604.26037_figures/2604.26037_fig9.jpg",
+      "caption": "Figure 9: Performance benchmarking systems: Atomic structure of the systems con- siderered for (a) Comparison against DFT-FE with ONCV pseudopotential (b) Leveraging exascale resources for density functional theory calculation.",
+      "page": 40
+    }
+  ],
+  "figure": "2604.26037_figures/2604.26037_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

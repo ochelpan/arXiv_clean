@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2604.26703",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cs.AI",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "A self-evolving agent for explainable diagnosis of DFT-experiment band-gap mismatch",
+  "authors": "Yue Li, Bijun Tang",
+  "abstract": "Standard density functional theory (DFT) routinely misclassifies the electronic ground state of correlated and structurally complex compounds, predicting metallic behaviour for materials that experiments report as semiconductors. Each such mismatch encodes a specific non-ideality -- magnetic ordering, electron correlation, an alternative polymorph, or a defect -- that the calculation excluded, but extracting that signal at scale has remained a manual exercise. Here we introduce XDFT, a closed-loop agent that diagnoses the mismatch automatically: it draws candidate hypotheses from a curated catalogue, executes the corresponding first-principles tests, and updates a global Bayesian posterior over hypothesis usefulness from each verdict. On a verified benchmark of 124 materials, XDFT identifies a resolving mechanism for 70 of 90 mismatch cases (78\\%), an order of magnitude above a uniform-random baseline (19\\%) and a static LLM ordering (20\\%). The internal posterior aligns with empirical performance over the benchmark timeline, and resolved cases collapse into a tri-partite element-class taxonomy that we distil into a four-line static rule. Each diagnosed material is returned with a corrected protocol and a mechanistic attribution; failed cases are flagged as evidence-backed targets for experimental re-examination.",
+  "url": "http://arxiv.org/abs/2604.26703v1",
+  "pdf": "https://arxiv.org/pdf/2604.26703v1",
+  "type": "both",
+  "summary": "This paper introduces XDFT, an autonomous AI agent designed to automatically diagnose why standard DFT calculations fail to predict experimental band gaps. By using a Bayesian closed-loop system, the agent tests various physical corrections like magnetism, Hubbard U, and structural defects to find the correct model. It successfully resolves 78% of mismatch cases in a benchmark set, effectively learning a simplified rule-based approach for material classification. This automation significantly reduces the computational and manual effort required to study complex, correlated materials.",
+  "main_problem": "Standard DFT calculations frequently misclassify semiconductors as metals due to unaddressed physical non-idealities, and identifying the specific cause of these band-gap mismatches is currently a manual, labor-intensive process.",
+  "main_result": "The XDFT agent achieved a 78% resolution rate in identifying the correct physical mechanism for band-gap mismatches, significantly outperforming random and static LLM-based baselines.",
+  "method": "A closed-loop, self-evolving Bayesian agent (XDFT) that selects physical hypotheses (e.g., magnetism, Hubbard U, defects), executes VASP simulations, and updates a global posterior based on the success of each test.",
+  "model_or_system": "The study focuses on inorganic semiconductors, including strongly correlated oxides and intermediate-valence rare-earth compounds, using VASP-based first-principles calculations with GGA-PBE, Hubbard U, and SOC.",
+  "key_observables": "Electronic band gap, resolution rate, rounds-to-solution, and Spearman/Kendall correlation coefficients for agent calibration.",
+  "important_parameters": "Plane-wave cutoff of 520 eV, k-point density of 1000/atom, electronic convergence of 10^-5 eV, and a budget of 10 simulation rounds per material.",
+  "main_assumptions": "The selection process assumes a prior distribution over physical hypothesis families and relies on the accuracy of the experimental band-gap data used for comparison.",
+  "figures_summary": "Figure 1 shows the XDFT architecture; Figure 2 compares different selection strategies; Figure 3 illustrates the agent's posterior calibration over time; Figure 4 shows learning curves for d-block materials; Figure 5 provides a taxonomy heatmap of resolved cases.",
+  "paper_structure": "The paper introduces the DFT mismatch problem, describes the XDFT agent architecture (Sherlock, Manipulator, Simulation, Comparator), presents benchmark results and efficiency gains, analyzes the agent's learning dynamics and emergent rules, and concludes with failure analysis and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26703_figures/2604.26703_fig1.jpg",
+      "caption": "Fig. 1. Architecture of XDFT. Closed loop of four core modules — Sherlock (hypothesis selection), Manipulator (atom-edit operators), Simulation (VASP execution) and Comparator (verdict on electronic character) — connected by clockwise actions (pick → apply → result → judge). External Library and Tools (top) are exchanged bidirectionally with the loop. Input (left): a metal/semiconductor mismatch material. Output (right): a corrected computational protocol with mechanistic attribution and a recommended next experiment.",
+      "page": 3
+    },
+    {
+      "image": "2604.26703_figures/2604.26703_fig2.jpg",
+      "caption": "Fig. 2. Hypothesis-selection strategy ladder on 90 mismatch materials (10-round budget; 41-hypothesis library). Five strategies share the same library: uniform-random sampling, an LLM zero-shot library ordering, a naïve condensed-matter expert ordering, XDFT's per-material adaptive ordering, and a static rule distilled from XDFT's outcomes that branches on element class only (sage green, right of the dashed line). Numbers in parentheses are (resolved / total); italicised numbers inside each bar are average rounds- to-solution among resolved materials.",
+      "page": 5
+    },
+    {
+      "image": "2604.26703_figures/2604.26703_fig3.jpg",
+      "caption": "Fig. 3. Calibration of the self-evolving posterior. Spearman ρ (filled circles, solid line) and Kendall τ (open squares, dashed line) between Sherlock's Beta-mean posterior over the top-15 most-tried hypotheses and the same hypotheses' final raw success rates at material 100, evaluated at every snapshot. Shaded grey band: differentiation moment (materials 30–40) where ρ crosses zero. Dashed vertical line at material 46: first time the polymorph hypothesis class was tested.",
+      "page": 6
+    },
+    {
+      "image": "2604.26703_figures/2604.26703_fig4.jpg",
+      "caption": "Fig. 4. Cohort learning curve on the d-block subset (n = 50). First 25 d-block materials seen by the agent (early half, light) versus last 25 (late half, dark). One-shot rate (round = 1 win, left group) and three-shot rate (round ≤ 3, right group) among resolved materials, with Wilson 95% intervals. Numbers above each bar are (resolved / cohort).",
+      "page": 7
+    },
+    {
+      "image": "2604.26703_figures/2604.26703_fig5.jpg",
+      "caption": "Fig. 5. Element-class taxonomy of resolved cases. Heat-map of count and within- column percentage of winning hypothesis classes (rows) by element class (columns), conditioned on the 70 resolved materials. The diagonal pattern recovers the four-line rule:",
+      "page": 8
+    }
+  ],
+  "figure": "2604.26703_figures/2604.26703_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

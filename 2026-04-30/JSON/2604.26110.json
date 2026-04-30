@@ -1,0 +1,101 @@
+{
+  "arxiv_id": "2604.26110",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Comprehensive Analysis of Accuracy and Robustness in Quantum Neural Networks",
+  "authors": "Ban Q. Tran, Duong M. Chu, Hai T. D. Pham, Viet Q. Nguyen, Quan A. Pham, Susan Mengel",
+  "abstract": "Quantum Machine Learning (QML) has recently emerged as a highly promising research frontier. Within this domain, Quantum Neural Networks (QNNs),characterized by Variational Quantum Circuits (VQCs) at their core and featuring layers of quantum gates optimized by classical algorithms, have garnered significant attention. However, a rigorous and exhaustive evaluation of their practical performance remains largely incomplete. In this study, we conduct a comprehensive comparative analysis of three prominent hybrid classical-quantum architectures: Quantum Convolutional Neural Networks (QCNN), Quantum Recurrent Neural Networks (QRNN), and Quantum Vision Transformers (QViT), focusing on the critical dimensions of generalization, accuracy, and robustness. Our findings provide novel insights that address previous evaluative gaps. Notably, while these models exhibit exceptional performance on low-feature datasets such as MNIST, their learning efficacy degrades significantly when transitioned to high-feature datasets. Furthermore, convolutional-based models like QCNN appear less effective on high-dimensional data than other machine learning architectures. Additionally, while all models are susceptible to adversarial noise, traditional architectures, such as recurrent and convolutional networks, demonstrate superior resilience. Conversely, in the presence of quantum noise, the transformer-based architecture proves its strength by maintaining high robustness against measurement noise, channel noise, and finite-shot effects, whereas other architectures suffer marked performance declines. These results provide a granular perspective on the current state of the field and underscore the critical importance of tailoring model selection to the constraints of contemporary Noisy Intermediate-Scale Quantum (NISQ) environments.",
+  "url": "http://arxiv.org/abs/2604.26110v1",
+  "pdf": "https://arxiv.org/pdf/2604.26110v1",
+  "type": "theory",
+  "summary": "This paper provides a comprehensive benchmark of three prominent quantum neural network architectures. It reveals that while transformer-based models (QViT) excel in accuracy on simple tasks, they are extremely fragile to noise and adversarial attacks. In contrast, recurrent and convolutional quantum models offer much better stability in noisy, intermediate-scale quantum environments. This work is crucial for guiding the selection of quantum machine learning models for practical, noisy hardware.",
+  "main_problem": "The study addresses the lack of a rigorous evaluation regarding the accuracy, generalization, and robustness of various Quantum Neural Network (QNN) architectures against both adversarial attacks and quantum noise in NISQ environments.",
+  "main_result": "The researchers found a fundamental trade-off between accuracy and robustness: QViT achieves high accuracy but is highly vulnerable to adversarial attacks, whereas QRNN and QCNN demonstrate superior resilience to perturbations and quantum noise.",
+  "method": "A comparative analysis of three hybrid classical-quantum architectures (QCNN, QRNN, and QViT) using MNIST and CIFAR-10 datasets, subjected to adversarial attacks (APGD, PGD, etc.) and various quantum noise models (depolarizing, amplitude damping, etc.).",
+  "model_or_system": "Hybrid Classical-Quantum Neural Networks (HCQNNs) including Quantum Convolutional Neural Networks (QCNN) based on MERA-like structures, Quantum Recurrent Neural and Quantum Vision Transformers (QViT) utilizing quantum self-attention cores.",
+  "key_observables": "Classification accuracy, generalization error, Lipschitz constant (to measure sensitivity), average fidelity, and adversarial success rate (ASR).",
+  "important_parameters": "Feature dimensionality (low vs. high), perturbation intensity (epsilon), noise types (bit-flip, phase-flip, amplitude damping, depolarizing), and number of training samples.",
+  "main_assumptions": "The study assumes the use of classical optimizers (Adam) to mitigate the barren plateau problem and is limited to a 15-qubit simulation environment.",
+  "figures_summary": "Schematics of the three architectures; comparison of adversarial success rates across different attack methods; plots of accuracy and generalization error versus training set size; and the impact of various quantum noise channels on model performance.",
+  "paper_structure": "The paper introduces the QML landscape, details the specific architectures (QCNN, QRNN, QViT), describes the experimental setup for noise and adversarial testing, presents comparative results on accuracy and robustness, and concludes with limitations and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26110_figures/2604.26110_fig1.jpg",
+      "caption": "Fig. 1. The overall architecture of the hybrid classical-quantum neural networks utilized in this study. The leftmost column presents the QViT architecture, featuring a QSAL core composed of Q, K, and V vectors, along with a Gaussian-projection self-attention mechanism. The middle column illustrates the QCNN, which leverages an inverse MERA architecture. The core of this model comprises quantum convolutional (QCV) layers and quantum pooling layers. Finally, the rightmost column depicts the QRNN model, characterized by a staggered architecture with the core QRB.",
+      "page": 5
+    },
+    {
+      "image": "2604.26110_figures/2604.26110_fig2.jpg",
+      "caption": "Fig. 2. Compare the ASR of QCNN with the four main adversarial attack methods: FGSM, PGD, APGD, and MIM. PGD and APGD yielded the highest successful attack rates among the four methods.",
+      "page": 12
+    },
+    {
+      "image": "2604.26110_figures/2604.26110_fig3.jpg",
+      "caption": "Fig. 3. An overview of the analytical methodology and evaluation framework employed in this research.",
+      "page": 14
+    },
+    {
+      "image": "2604.26110_figures/2604.26110_fig4.jpg",
+      "caption": "Fig. 4. 2D and 3D loss landscapes of the QViT optimizer for Cat and Dog classification with 10,000 samples, 100 epochs, and the amplitude encoding method.",
+      "page": 15
+    },
+    {
+      "image": "2604.26110_figures/2604.26110_fig5.jpg",
+      "caption": "Fig. 5. The generalization bound was measured on the Cat vs. Dog pair of the CIFAR-10 dataset for the QRNN model.",
+      "page": 16
+    },
+    {
+      "image": "2604.26110_figures/2604.26110_fig6.jpg",
+      "caption": "Fig. 6. Experimental verification of the claims regarding the alignment between theoretical generalization error and the practical performance of the QCNN model on the CIFAR-10 dataset.",
+      "page": 17
+    },
+    {
+      "image": "2604.26110_figures/2604.26110_fig7.jpg",
+      "caption": "Fig. 7. The measurement results of the variation in Lipschitz bound across training epochs on the MNIST and CIFAR-10 datasets for the binary classification task, with two noise bounds, 𝐿2 and 𝐿∞, for the QViT model. a) and b) The variation of the Lipschitz bound across epochs in the binary classification task, where 0-1, 0-8, 1-7, 6-9 are the handwritten digit pairs from the MNIST dataset. c) and d) Graphs depicting the variation of the Lipschitz bound function across epochs, where 0-1, 1-9, 3-5 are the airplane-automobile, automobile-truck, cat-dog pairs from the CIFAR-10 dataset.",
+      "page": 19
+    },
+    {
+      "image": "2604.26110_figures/2604.26110_fig8.jpg",
+      "caption": "Fig. 8. Comparison of Average Fidelity across QNN models.",
+      "page": 20
+    },
+    {
+      "image": "2604.26110_figures/2604.26110_fig9.jpg",
+      "caption": "Fig. 9. Impact of quantum noise on the performance of the QRNN model.",
+      "page": 22
+    }
+  ],
+  "figure": "2604.26110_figures/2604.26110_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

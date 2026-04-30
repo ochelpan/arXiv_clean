@@ -1,0 +1,86 @@
+{
+  "arxiv_id": "2604.26477",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Multi-Objective Optimization by Quantum-Annealing-Inspired Algorithms",
+  "authors": "Xian-Zhe Tao, Pavel Mosharev, Man-Hong Yung",
+  "abstract": "Combinatorial optimization is widely regarded as a primary application for near-term quantum processors, although a definitive demonstration of the practical quantum advantage remains elusive. Recent studies have reported that both gate-based quantum circuits and quantum annealers can outperform state-of-the-art classical heuristics on multi-objective optimization (MO-MaxCut) problems. However, these studies did not fully account for the substantial pre- and post-processing overheads intrinsic to quantum solvers, leading to incomplete comparisons between quantum and classical approaches. In this work, we re-examine the same benchmark suite using GPU-based quantum-annealing-inspired algorithms (QAIAs), which, analogously to quantum processors, generate probabilistic samples and thus serve as formidable classical contenders. Our results show that QAIAs can sample candidate solutions approximately two orders of magnitude faster than previously studied quantum processors. In terms of end-to-end runtime, QAIAs also surpass industry-leading classical solvers, thereby establishing themselves as the superior performers among the quantum and classical solvers evaluated thus far for the MO-MaxCut instances.",
+  "url": "http://arxiv.org/abs/2604.26477v1",
+  "pdf": "https://arxiv.org/pdf/2604.26477v1",
+  "type": "both",
+  "summary": "This paper re-evaluates the practical utility of quantum processors for multi-objective optimization by accounting for the full end-to-end computational overhead. It demonstrates that GPU-based quantum-inspired algorithms, such as noise-injected Simulated Bifurcation, are significantly faster and more efficient than current quantum annealers and gate-based circuits. By providing a superior classical baseline, the study highlights the high bar that near-term quantum hardware must overcome to demonstrate practical advantage in combinatorial optimization.",
+  "main_problem": "The paper addresses the challenge of efficiently solving Multi-Objective Optimization (MOO) problems, specifically the Multi-Objective MaxCut (MO-MaxCut) problem, by comparing quantum-inspired algorithms against quantum hardware and classical heuristics.",
+  "main_result": "GPU-accelerated Quantum-Annealing-Inspired Algorithms (QAIAs), specifically a noise-injected version of Simulated Bifurcation, outperform both quantum annealers and gate-based quantum circuits in end-to-end runtime and sampling speed, while also surpassing industry-leading classical heuristics.",
+  "method": "The authors utilize GPU-accelerated Simulated Bifurcation (SB) algorithms, specifically introducing a Gaussian-noise variant (NI-bSB and NI-dSB) to increase sample diversity and coverage of the Pareto front.",
+  "model_or_system": "The problem is modeled using an Ising Hamiltonian framework on an undirected graph, where multiple conflicting objectives are addressed via a scalarized Hamiltonian using the weighted sum method and a Das-Dennis simplex-lattice design for weight generation.",
+  "key_observables": "Hypervolume (HV) indicator, end-to-end runtime, sampling speed (velocity), sample diversity, and Pareto dominance.",
+  "important_parameters": "Noise amplitude (alpha), node count (n), edge density (d), batch size, and the number of objectives (K).",
+  "main_assumptions": "The evaluation assumes the effectiveness of the weighted sum method for scalarization and relies on the selection of a reference point for the Hypervolume calculation.",
+  "figures_summary": "Figures compare the runtime ratio of NI-SB against classical baselines, show the convergence of hypervolume for noisy vs. original SB, illustrate the distribution of samples needed to recover the Pareto set, and demonstrate the growth of the hypervolume difference relative to weight vector count.",
+  "paper_structure": "The paper introduces the MO-MaxCut problem, defines the Ising Hamiltonian and scalarization method, describes the implementation of the noise-injected Simulated Bifurcation algorithm, presents a comparative benchmark against quantum and classical solvers, and concludes with performance analysis across different scales.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26477_figures/2604.26477_fig1.jpg",
+      "caption": "Figure 1: Convergence of different algorithms towards the Pareto front. The y-axis shows the Hypervolume difference (HVmax −HVt + 1) in logarithmic scale, and the x-axis represents the sampling time in seconds. Data for all algorithms, except for SB, is taken from References [19, 22]. See details and hardware information in Table 1.",
+      "page": 6
+    },
+    {
+      "image": "2604.26477_figures/2604.26477_fig2.jpg",
+      "caption": "Figure 2: Comparison of sampling time with full Pareto front reconstruction time. The y-axis shows the Hypervol- ume difference (HVmax −HVt + 1) in logarithmic scale, and the x-axis represents the end-to-end time in seconds. DCM and DPA-a are classical baseline algorithms. End-to-end time for NI-dSB and NI-bSB includes both model construction and filtering of Pareto optimal solutions from the sampled candidate set.",
+      "page": 7
+    },
+    {
+      "image": "2604.26477_figures/2604.26477_fig3.jpg",
+      "caption": "Figure 3: a) Convergence to optimal hypervolume for original and noisy SB. b) Distribution of numbers of samples needed by NI-SB to discover whole Pareto set of the 3-objective problem. Values for Quantum Annealing and QAOA according to [22] and [19]. c) Illustration of the Pareto front for two-objective problem with correlation coefficient between the two objectives equal approximately to −0.92.",
+      "page": 8
+    },
+    {
+      "image": "2604.26477_figures/2604.26477_fig4.jpg",
+      "caption": "Figure 4: Left: Das-Dennis simplex lattice points compared to random Dirichlet distribution for 3-objective problem. Middle: Hypervolume difference for solutions found by exact solver at each number of fixed weight vectors. Right: Number of Pareto-optimal solutions found by exact solver at each number of fixed weight vectors.",
+      "page": 13
+    },
+    {
+      "image": "2604.26477_figures/2604.26477_fig5.jpg",
+      "caption": "Figure 5: Total sample size required to reach optimal hypervolume, depending on different amplitude of noise injected in the algorithm. Left: NI-dSB. Right: NI-bSB. Values for QA and QAOA from references [22, 19].",
+      "page": 14
+    },
+    {
+      "image": "2604.26477_figures/2604.26477_fig6.jpg",
+      "caption": "Figure 6: Comparison of SimCIM and NI-SB. The y-axis shows the Hypervolume difference (HVmax −HVt + 1) in logarithmic scale, and the x-axis represents the end-to-end run time in seconds.",
+      "page": 14
+    }
+  ],
+  "figure": "2604.26477_figures/2604.26477_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

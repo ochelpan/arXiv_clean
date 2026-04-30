@@ -1,0 +1,92 @@
+{
+  "arxiv_id": "2604.26804",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "HyPulse: A Pulse Synthesis Framework for Hybrid Qubit-Oscillator Gates on Trapped-Ion Platform",
+  "authors": "Masoud Hakimi Heris, Yuan Liu, Frank Mueller",
+  "abstract": "As hybrid qubit-oscillator algorithm development and trapped-ion hardware demonstrations advance in parallel, there is a lack of a compilation layer connecting the two at the pulse level in the vertical software stack. While qubit gate control and pulse synthesis are well-established, the translation of hybrid qubit-oscillator primitives to the pulse level has not been systematically addressed. This gap is further compounded by the inherently continuous parametric nature of such gates. Each distinct parameter value defines a physically unique operation requiring independent pulse optimization, making static pre-compilation strategies inapplicable. To fill this gap, we present HyPulse, a hardware-aware pulse synthesis and generation framework, which contributes a two-phase architecture decoupling pulse discovery from circuit assembly. An offline optimization engine populates a content-addressed cache of high-fidelity primitives: If a pulse for a given gate, parameter, and device specification already exists in the library, it is retrieved instantly; otherwise the optimizer synthesizes, hashes, and caches it automatically. An online assembler then constructs circuit-specific pulse programs ready to drive trapped-ion hardware control systems via DAX/ARTIQ (Duke) and JaqalPaw/QSCOUT (Sandia), trapped-ion pulse execution backends.",
+  "url": "http://arxiv.org/abs/2604.26804v1",
+  "pdf": "https://arxiv.org/pdf/2604.26804v1",
+  "type": "theory",
+  "summary": "HyPulse is a new software framework designed to automate the synthesis and assembly of complex pulses for hybrid qubit-oscillator gates in trapped-ion systems. It solves the bottleneck of manually optimizing every unique parameter set by using a smart caching system that recognizes when a pulse can be reused. The framework is compatible with major hardware backends like ARTIQ and QSCOUT. By allowing researchers to pre-characterize gates numerically, it helps identify hardware constraints before physical experiments are even performed.",
+  "main_problem": "There is a missing compilation layer in the quantum software stack that connects high-level hybrid qubit-oscillator gate primitives to hardware-level pulse waveforms for trapped-ion platforms, specifically addressing the difficulty of optimizing continuous parametric gates.",
+  "main_result": "The authors present HyPulse, a two-phase pulse synthesis framework that uses a content-addressed cache to efficiently reuse optimized pulses, achieving high gate fidelities (F > 0.99) and successful numerical preparation of a squeezed cat state.",
+  "method": "A two-phase architecture consisting of an offline optimization engine (using gradient-based GRAPE) to populate a hashed pulse library and an online assembler to stitch waveforms into hardware-executable programs for DAX/ARTIQ and JaqalPaw.",
+  "model_or_system": "A hybrid qubit-oscillator system on a trapped-ion platform, utilizing laser-driven sideband interactions to couple a spin qubit to a bosonic motional mode.",
+  "key_observables": "Gate fidelities (closed and noisy systems), Wigner function negativity, and phase-space displacements/rotations/squeezing.",
+  "important_parameters": "Lamb-Dicke parameter (eta), motional frequency (omega_m), qubit transition frequency (omega_q), sideband detuning (Delta), and squeezing/displacement amplitudes (alpha, zeta, theta).",
+  "main_assumptions": "The validation is purely numerical/simulated; the noise model is restricted to motional dephasing; and effects like AC Stark shifts or cross-mode coupling are not considered.",
+  "figures_summary": "Figure 1 shows the hybrid quantum computing stack; Figure 2 illustrates phase-space transformations for gate primitives; Figure 3 diagrams the HyPulse architecture; Figure 4 shows optimized waveforms and infidelity sweeps; Figure 5 shows the Wigner function evolution for a squeezed cat state.",
+  "paper_structure": "The paper introduces the compilation gap, describes the HyPulse four-layer abstraction architecture (Device, Gate, Compilation, Export), details the two-phase synthesis/assembly process, validates the framework via numerical gate fidelity and state preparation simulations, and concludes with future directions.",
+  "why_interesting": "It provides a systematic way to bridge the gap between continuous-variable and discrete-variable quantum control, offering a scalable software approach to managing the complex, parametric pulse landscapes required for hybrid bosonic-qubit architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.26804_figures/2604.26804_fig1.jpg",
+      "caption": "Fig. 1. Full hybrid qubit-qumode quantum computing stack. HyPulse fills the hybrid qubit-qumode pulse synthesis slot between the compiler/decomposer and the hardware export layer, alongside existing DV-only synthesis tools. The content-addressed pulse library is shared between the offline synthesis phase and the online assembly phase.",
+      "page": 2
+    },
+    {
+      "image": "2604.26804_figures/2604.26804_fig2.jpg",
+      "caption": "Fig. 2. Phase-space illustration of the three HyPulse gate primitives. Each column shows one gate. Rows show the motional Wigner function conditioned on the two qubit branches, with dashed contours showing the initial state. (a) CD(√π): opposite displacements along x conditioned on |±⟩. (b) CR(θ = 0.38): opposite phase-space rotations of a squeezed vacuum conditioned on |0⟩, |1⟩. (c) CS(r = 0.5): opposite squeezings along orthogonal quadratures conditioned on |±⟩.",
+      "page": 3
+    },
+    {
+      "image": "2604.26804_figures/2604.26804_fig3.jpg",
+      "caption": "Fig. 3. HyPulse two-phase architecture. The offline phase runs the optimizer once per (gate, device, model) combination and populates a content-addressed library. The online phase assembles circuits from cached pulses, triggering on- demand synthesis only for parameter combinations not yet in the library.",
+      "page": 4
+    },
+    {
+      "image": "2604.26804_figures/2604.26804_fig4.jpg",
+      "caption": "Fig. 5. Wigner function evolution through the squeezed cat preparation circuit on Sydney hardware parameters. (a) After CS(r = 0.5): squeezed vacuum. (b) After CS + CD(√π): spin-motion entangled state with two separated lobes. (c) After post-selection on | ↑⟩: squeezed cat state with Wigner negativity neg = −0.278, confirming non-classical coherence consistent with Kienzler et al. [36].",
+      "page": 8
+    },
+    {
+      "image": "2604.26804_figures/2604.26804_fig5.jpg",
+      "caption": "Fig. 4. CD gate characterization on the hardware parameters from Table III. (a) Optimized pulse waveforms Ωx(t) (blue) and Ωp(t) (orange) for T = 100 µs, showing both channels bounded within the hardware amplitude limit. (b) Wigner function of the motional mode after CD(√π), confirming a coherent displacement. (c) Infidelity 1−F vs. gate duration T, demonstrating the pre-characterization sweep capability of the framework.",
+      "page": 8
+    },
+    {
+      "image": "2604.26804_figures/2604.26804_fig6.jpg",
+      "caption": "Fig. 5 shows the Wigner function at each circuit stage. After CS (panel a), the vacuum Gaussian is elongated along P, con- firming squeezing. After CD (panel b), the state is entangled: Two separated squeezed lobes are visible, corresponding to the two spin-conditioned displacement branches. After post- selection on | ↑⟩(panel c), the motional mode is projected onto the squeezed cat state with peak Wigner negativity neg = −0.278 and post-selection probability p(↑) = 0.514 ≈0.5, consistent with the expected even-parity cat state. The clear Wigner negativity in panel (c) is the definitive signature of non-classical coherence, confirming that the two HyPulse-compiled primitives compose...",
+      "page": 8
+    },
+    {
+      "image": "2604.26804_figures/2604.26804_fig7.jpg",
+      "caption": "Fig. 6. Noise characterization under the motional dephasing model reported in Matsos et al. [7] (γ = 18 Hz, 500 trajectories). (a) Closed-system squeezed cat Wigner function, neg = −0.278. (b) Noisy Wigner function averaged over 500 trajectories, neg = −0.273: negativity preserved. (c) Per-gate noisy fidelity Fnoisy for CD, CR, and CS. CD and CR are less affected by noise; CS is limited by its 1300 µs gate duration, a hardware constraint addressable by improved sideband Rabi rates.",
+      "page": 9
+    }
+  ],
+  "figure": "2604.26804_figures/2604.26804_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}
