@@ -1,6 +1,6 @@
 # Daily arXiv Report
 
-Total papers: 354
+Total papers: 177
 
 ## Pages
 
@@ -12,18 +12,9 @@ Total papers: 354
 - [Papers 101–120](papers_06.md)
 - [Papers 121–140](papers_07.md)
 - [Papers 141–160](papers_08.md)
-- [Papers 161–180](papers_09.md)
-- [Papers 181–200](papers_10.md)
-- [Papers 201–220](papers_11.md)
-- [Papers 221–240](papers_12.md)
-- [Papers 241–260](papers_13.md)
-- [Papers 261–280](papers_14.md)
-- [Papers 281–300](papers_15.md)
-- [Papers 301–320](papers_16.md)
-- [Papers 321–340](papers_17.md)
-- [Papers 341–354](papers_18.md)
+- [Papers 161–177](papers_09.md)
 
-## Original report header
+---
 
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-29

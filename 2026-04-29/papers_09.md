@@ -3,1109 +3,1636 @@
 [← Index](index.md)
 
 [← Previous](papers_08.md)
-[Next →](papers_10.md)
 
-## Papers 161–180
+## Papers 161–177
 
+---
+<a id="paper-2604.25805"></a>
 
-<a id="paper-2604.25333"></a>
+### [Geometric Rashba Control of Polar Pairing at LaAlO$_3$/KTaO$_3$ Interfaces](http://arxiv.org/abs/2604.25805v1)
 
+**Authors:** Yi Zhou
 
-### [Sign Embedding Quantum Algorithms for Matrix Equations and Matrix Functions](http://arxiv.org/abs/2604.25333v1)
-
-**Authors:** Yanqiao Wang, Jin-Peng Liu
-
-**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.25333v1>
+**Type:** theory · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.25805v1>
 
 **Analysis basis:** full PDF text, analyzed in chunks
 
-**Topic relevance:** `methods for driven-dissipative` **2/5**
-
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.25333_figures/2604.25333_fig1.jpg" width="500"><br>
+<img src="2604.25805_figures/2604.25805_fig1.jpg" width="500"><br>
 
-<sub>Figure 1: method overview</sub>
+<sub>FIG. 1. 3D atomic schematic of the amorphous- LaAlO3/KTaO3 (a-LAO/KTO) interface and the relevant bosonic modes. Deep in the insulating KTO substrate (bot- tom), Ta ions sit in a symmetric harmonic potential (U-shape inset); any bulk PNRs present are randomly oriented, and the lack of charge carriers precludes superconductivity. At the interface, beneath the amorphous LAO overlayer (top), the built-in electric field tilts the local potential into an asym- metric double-well (tilted W-shape inset). This field forces Ta ions vertically off-center, aligning the interfacial polar nanore- gions (PNRs) into static out-of-plane dipoles. These aligned PNRs extend throughout the thickness of the 2D...</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.25333_figures/2604.25333_fig2.jpg" width="500"><br>
+<img src="2604.25805_figures/2604.25805_fig2.jpg" width="500"><br>
 
-<sub>Figure 2: shift-rotation and common scaling</sub>
+<sub>FIG. 3. The Eliashberg electron-boson spectral function α2F(ω). The underdamped transverse optical phonon in bulk KTO (gray dashed line) peaks at higher energies (∼3 meV). At the a-LAO/KTO interface, the soft dynamics of polar nanoregions (PNRs) are modeled by an overdamped Brown- ian oscillator (red solid line). This yields a broad low-energy spectral density peaking at an effective frequency Ω0 ≈0.85 meV, representative of the physically relevant near-threshold fit regime. Unlike a pure Debye relaxator, the Brownian os- cillator spectrum decays rapidly at high frequencies (∝ω−3), providing the microscopic UV regularization required to yield a well-defined Allen-Dynes second moment.</sub>
 
 </details>
 
 <details><summary>📷 Fig 3</summary>
 
-<img src="2604.25333_figures/2604.25333_fig3.jpg" width="500"><br>
+<img src="2604.25805_figures/2604.25805_fig3.jpg" width="500"><br>
 
-<sub>Figure 3: Roadmap for the three ordinary Sylvester regimes treated in Section 6.</sub>
+<sub>FIG. 4. Experimental superconducting Tc versus orientation angle θ for a-LAO/KTO interfaces [4]. The dashed blue line is the Allen-Dynes curve evaluated with representative near- threshold parameters Ω0 ≈0.85 meV, λ0 ≈0.25, C ≈2.88, and µ∗= 0.13. The solid red line represents the corre- sponding exact numerical solution of the isotropic Matsubara- Eliashberg equations using the same spectrum and represen- tative parameters. While the exact solution yields a systemat- ically larger Tc at stronger coupling, both approaches display the same qualitative quasi-linear Tc(θ) behavior arising from the non-linear mapping of the underlying sin2(θ) pairing in- put.</sub>
 
 </details>
 
 **Main problem.**
-
-Developing a systematic quantum algorithmic framework for solving various matrix equations (such as Sylvester, Lyapunov, and Riccati equations) and computing matrix functions (such as square roots and geometric means) in an operator-output setting.
+Explaining the origin of the strong, quasi-linear dependence of the superconducting transition temperature (Tc) on crystallographic orientation at LaAlO3/KTaO3 interfaces and why KTaO3 exhibits a higher Tc scale than SrTiO3.
 
 **Main result.**
-
-The authors introduce a 'sign-embedding' framework that provides explicit block-encodings for a wide array of structured matrix problems, achieving query complexity that is linear in inverse-conditioning parameters and logarithmic in error tolerance.
+The authors propose a geometric mechanism where dynamic Rashba coupling, driven by polar nanoregion fluctuations, scales with sin(theta), leading to a pairing strength lambda(theta) = lambda0 + C sin^2(theta) that naturally produces the observed quasi-linear Tc(theta) dependence.
 
 **Method.**
-
-The framework uses a three-step pipeline: compressing the target operator into a matrix sign object, applying a logarithmic-sinc quadrature rule for rational approximation, and implementing the resulting shifted inverses using Quantum Singular Value Transformation (QSVT).
+The study employs Migdal-Eliashberg theory using an effective electron-boson spectral function derived from an overdamped Brownian oscillator model, verified via exact Matsubara-Eliashberg numerical solutions and Allen-Dynes interpolation.
 
 **Summary.**
-
-This paper presents a unified quantum computing framework for solving complex matrix equations and computing matrix functions. By using a 'sign-embedding' technique, the authors can transform difficult matrix problems into a standardized form that is easier to implement on a quantum computer. The method is particularly powerful because it works for non-normal and non-diagonalizable matrices, provided certain spectral gaps are known. The resulting algorithms are highly efficient, scaling logarithmically with the required precision.
+This paper proposes a theoretical framework to explain why superconductivity at LaAlO3/KTaO3 interfaces is highly sensitive to the crystal orientation angle. By modeling the interaction between electrons and fluctuating polar nanoregions through a geometric Rashba vertex, the authors show that the pairing strength follows a sin^2(theta) dependence. This mechanism successfully reproduces the observed quasi-linear dependence of the transition temperature on the orientation angle. Furthermore, the model explains why the larger spin-orbit coupling in KTaO3 leads to a much higher superconducting temperature compared to SrTiO3.
 
 <details><summary>Detailed structure</summary>
 
 **Model / system.**
+The system is the 2D electron gas at the LaAlO3/KTaO3 (LAO/KTO) interface, modeled using a reduced isotropic helicity-band description with a dynamic Rashba vertex and an interaction mediated by overdamped polar nanoregion (PNR) fluctuations.
 
-The paper focuses on mathematical operators including the Sylvester operator (AX + XB = C), the Lyapunov equation, the Continuous-time Algebraic Riccati Equation (CARE), and matrix functions like the principal square root and matrix geometric means.
+**Key observables.**
+Superconducting transition temperature (Tc) as a function of orientation angle (theta), pairing strength (lambda), and parity mixing amplitude.
 
 **Important parameters / regimes.**
-
-Field-of-Values (FoV) gap, strip-resolvent bounds, error tolerance (epsilon), and conditioning parameters (mu, gamma, and kappa).
+Crystallographic orientation angle (theta), Rashba coupling strength, overdamping rate (gamma), bosonic frequency (Omega_B), and Coulomb pseudopotential (mu*).
 
 **Assumptions / limitations.**
-
-The algorithms rely on the existence of a Field-of-Values gap or a strip-resolvent hypothesis to ensure error control and handle non-normal or non-diagonalizable matrices.
+Use of a reduced isotropic helicity-band description, assumption of the strongly overdamped regime, and a forward-scattering approximation for the interaction vertex.
 
 **Figures summary.**
-
-Figure 1 illustrates the algorithmic pipeline from sign function to QSVT implementation; Figure 2 shows the transformation of matrices to separate their numerical ranges along the real axis.
+The figures likely show the calculated Tc(theta) dependence, the mapping between lambda(theta) and Tc(theta), and the comparison between the proposed model and experimental data.
 
 **Paper structure.**
+The paper introduces the experimental problem of orientation-dependent Tc, develops a microscopic model based on geometric Rashba coupling and PNR fluctuations, performs numerical Eliashberg calculations to derive scaling laws, and concludes by comparing the results to KTO and STO experimental benchmarks.
 
-The paper introduces the sign-embedding framework, details the mathematical construction of the augmented matrices for various equations, describes the log-sinc approximation and QSVT implementation, provides complexity analysis for different regimes (FoV gap and strip-resolvent), and concludes with a comparative analysis against existing quantum algorithms.
+</details>
+
+<details><summary>Abstract</summary>
+
+At LaAlO$_3$/KTaO$_3$ interfaces, the superconducting $T_c$ exhibits a striking quasi-linear dependence on crystallographic orientation, coexisting with switchable polar nanoregions (PNRs). We propose an effective minimal Eliashberg framework in which overdamped PNR fluctuations provide the pairing glue, while geometric Rashba coupling controls its angular dependence. Within a reduced isotropic helicity-band description, the dynamic Rashba vertex scales as $\sin(θ)$, yielding a pairing strength $λ(θ)=λ_0+C\sin^2(θ)$. Exact Matsubara-Eliashberg numerical solutions show that this non-linear mapping naturally yields the same qualitative quasi-linear $T_c(θ)$ dependence within the reduced model. Because the Rashba-activated polar channel is amplified by the large atomic spin-orbit coupling of Ta $5d$ orbitals, the same framework also rationalizes why KTaO$_3$ interfaces exhibit both a much stronger orientational dependence and a substantially higher $T_c$ scale than their SrTiO$_3$ counterparts.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.25869"></a>
+
+### [Global DIC-based sample-detector geometry refinement for accurate EBSD indexing](http://arxiv.org/abs/2604.25869v1)
+
+**Authors:** Claire Griesbach, Dennis M. Kochmann
+
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.25869v1>
+
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.25869_figures/2604.25869_fig1.jpg" width="500"><br>
+
+<sub>Figure 1: Coupling between pattern shifts due to local orientation and global geometry changes</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.25869_figures/2604.25869_fig2.jpg" width="500"><br>
+
+<sub>Figure 2: DIC-based calculation of the displacement field representing pattern misalignment: (A) Example pair of</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.25869_figures/2604.25869_fig3.jpg" width="500"><br>
+
+<sub>Figure 3: Sample-detector geometry parameter sensitivities: (A) schematic showing sample-detector geometry parameters;</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.25869_figures/2604.25869_fig4.jpg" width="500"><br>
+
+<sub>Figure 4: Schematic summary of the DIC-based geometry refinement algorithm</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.25869_figures/2604.25869_fig5.jpg" width="500"><br>
+
+<sub>Figure 5: Comparison of geometry refinement methods applied to a Si single crystal: (A) Schematic showing scan areas</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.25869_figures/2604.25869_fig6.jpg" width="500"><br>
+
+<sub>Figure 6: Calibrated pattern center maps: Refined pcx, pcy, and pcz values as a function of position for each geometry</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.25869_figures/2604.25869_fig7.jpg" width="500"><br>
+
+<sub>Figure 7: Geometry optimization for accurate PS variant discrimination in BTO: (A) PRIAS signal of EBSD map with</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.25869_figures/2604.25869_fig8.jpg" width="500"><br>
+
+<sub>Figure 8: Validity bounds of parameter perturbations: (A) Average NCC after geometry refinement and average</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.25869_figures/2604.25869_fig9.jpg" width="500"><br>
+
+<sub>Figure 9: Geometry parameter errors: (A) Normalized error of each geometry parameter as stacked columns for the 25</sub>
+
+</details>
+
+**Main problem.**
+Inaccurate EBSD orientation indexing caused by the coupling between global sample-detector geometry errors and local crystallographic orientation changes.
+
+**Main result.**
+A global DIC-based refinement method that achieves high orientation accuracy (0.03 degree disorientation in Si) and effectively discriminates pseudosymmetric variants in BTO, performing up to 50x faster than traditional optimization.
+
+**Method.**
+A global Digital Image Correlation (DIC) algorithm that uses a Jacobian sensitivity matrix and a weighted least-squares approach to decouple map-wide pattern shifts from local orientation changes.
+
+**Summary.**
+This paper presents a new method for refining the sample-detector geometry in EBSD microscopy using Digital Image Correlation. By analyzing spatially coherent pattern shifts across an entire map, the method decouples global geometric errors from local crystal orientation changes. This approach is significantly faster than traditional optimization and provides much higher accuracy, particularly for distinguishing between similar crystal variants in complex materials like barium titanate.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.**
+Electron Backscatter Diffraction (EBSD) microscopy using Kikuchi patterns, with experimental demonstrations on single-crystal silicon and barium titanate (BTO).
+
+**Key observables.**
+Kikuchi patterns, Normalized Cross-Correlation (NCC), disorientation angles, Confidence Index (CI), and displacement fields.
+
+**Important parameters / regimes.**
+Six geometry parameters: pattern center (pc_x, pc_y, pc_z), detector tilt, detector azimuthal angle, and sample tilt; refinement reliability is valid for displacements < 4% of detector width.
+
+**Assumptions / limitations.**
+The refinement algorithm relies on a linear approximation of geometry parameter sensitivities, which may fail for large geometric perturbations.
+
+**Figures summary.**
+Figure 1 shows parameter coupling and pattern shifts; Figure 5 compares refinement methods on Si using disorientation and CI maps; Figure 6 shows spatial stability of pattern centers; Figure 7 demonstrates application to BTO domain identification; Figure 8/9 show error analysis, coupling matrices, and parameter error statistics.
+
+**Paper structure.**
+The paper introduces the problem of geometry-orientation coupling, presents the DIC-based refinement algorithm, validates it using Si single crystals for accuracy and speed, demonstrates its utility in identifying pseudosymmetric variants in BTO, and concludes with a sensitivity/error analysis of the linear approximation.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Electron backscatter diffraction is a powerful tool for mapping crystallographic microstructures. However, the primary crux to improving orientation accuracy and applying the technique to challenging materials lies in the correct calibration of the sample-detector geometry. Many approaches have aimed at overcoming this barrier through various pattern center calibration strategies, but the pattern center only defines part of the sample-detector geometry. Here, we present a DIC-based geometry refinement method that obtains a single map-consistent sample-detector geometry, refining both the pattern center and sample/detector angles. We effectively decouple the local orientation changes from the global geometry effects on the Kikuchi patterns by calculating the consistent map-wide simulated-to-experimental pattern shifts associated with global geometry parameter errors. Using single-crystal silicon and barium titanate (a material possessing six pseudosymmetric variants) as model materials, we demonstrate improved map-wide orientation consistency and more robust discrimination of pseudosymmetric variants than the Nelder-Mead and Differential Evolution optimization strategies.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.25274"></a>
+
+### [High-field magneto-optical imaging of superconducting critical states beyond 10 T using a paramagnetic garnet sensor](http://arxiv.org/abs/2604.25274v1)
+
+**Authors:** Yuto Kinoshita, Masayuki Toyoda, Yoshiaki Kobayashi, Masayuki Itoh, Masashi Tokunaga
+
+**Type:** experiment · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.25274v1>
+
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.25274_figures/2604.25274_fig1.jpg" width="500"><br>
+
+<sub>FIG. 1. (a) Schematic of the magneto-optical imaging system under high magnetic fields</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.25274_figures/2604.25274_fig2.jpg" width="500"><br>
+
+<sub>FIG. 2. (a) Optical image of the sample. (b) Microscope image of the magneto-optical</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.25274_figures/2604.25274_fig3.jpg" width="500"><br>
+
+<sub>FIG. 3. Differential images of the magnetic flux distribution obtained by subtracting</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.25274_figures/2604.25274_fig4.jpg" width="500"><br>
+
+<sub>FIG.4. (a,b) Line profiles of Δ𝐵 at various magnetic fields at 12 K and 20 K,</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.25274_figures/2604.25274_fig5.jpg" width="500"><br>
+
+<sub>FIG. 5. (a) Δ𝐵 image at 12 K and 12 T. (b,c) Spatial distributions of the current density</sub>
+
+</details>
+
+**Main problem.**
+Conventional magneto-optical imaging (MOI) is limited to low magnetic fields because standard indicators saturate, making it difficult to spatially resolve the critical current density (Jc) in superconductors under high magnetic fields (> 10 T).
+
+**Main result.**
+The researchers developed a high-field MOI technique using a paramagnetic Nd-garnet sensor that enables imaging up to 13 T, successfully mapping the magnetic flux and vector current density in iron-based superconductors.
+
+**Method.**
+The technique uses a paramagnetic Nd-garnet indicator in a polarizing microscope system to detect Faraday rotation induced by magnetic fields, followed by quantitative reconstruction of Jc using the Bean model and Fourier transformation.
+
+**Summary.**
+This paper presents a new magneto-optical imaging technique that overcomes the saturation limits of conventional indicators by using a paramagnetic Nd-garnet sensor. This allows for the spatial visualization of magnetic flux and current density in superconductors at much higher magnetic fields (up to 13 T) than previously possible. The researchers demonstrated this by mapping the critical current density in iron-based superconductors, providing a powerful tool to study inhomogeneous current transport in high-field regimes.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.**
+The experimental platform consists of a polarizing microscope integrated with a superconducting magnet (up to 13 T) used to image bulk single crystals of the iron-based superconductor Ba(Fe1-xCox)2As2.
+
+**Key observables.**
+Faraday rotation angle, magnetic flux density distribution (Bz), critical current density (Jc), and vector current density components (Jx, Jy).
+
+**Important parameters / regimes.**
+Magnetic fields up to 13 T, temperatures of 12 K and 20 K, and wavelengths of 455 nm and 625 nm.
+
+**Assumptions / limitations.**
+Assumed a linear relationship between intensity and magnetic field within a +/- 1 T range and that Jc is locally field-independent.
+
+**Figures summary.**
+Fig 1: Schematic of MOI setup and Faraday rotation dependence on field/wavelength; Fig 2: Optical images of flux trapping and flux penetration; Fig 3: Differential flux images at various high fields; Fig 4: Line profiles and comparison of Jc from MOI vs magnetization; Fig 5: Vector maps of current density components.
+
+**Paper structure.**
+Introduction of the high-field imaging problem, description of the Nd-garnet indicator and optical setup, calibration of the Faraday rotation, demonstration of flux imaging in Ba(Fe,Co)2As2, quantitative extraction of Jc, and vector mapping of current distributions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Spatially resolved characterization of the critical current density Jc in superconductors under high magnetic fields is crucial for both fundamental understanding and practical applications. However, conventional techniques primarily provide bulk-averaged values, making it difficult to resolve local variations of Jc, especially in high magnetic fields. In this work, we develop a magneto-optical imaging (MOI) technique that enables visualization of superconducting critical states in steady magnetic fields up to 13 T. This is achieved by employing a paramagnetic Nd-garnet indicator combined with a polarizing microscope system. Using this method, we directly image the magnetic flux distribution in a bulk single crystal of an iron-based superconductor Ba(Fe1-xCox)2As2 (x = 0.075) at 12 K and 20 K across the entire sample area (approximately 1 mm). From the measured magnetic field distributions, we quantitatively reconstruct the spatial distribution of the critical current density. The extracted field dependence of Jc is in good agreement with that obtained from conventional magnetization measurements. Furthermore, we demonstrate vector mapping of current flow within the sample by converting the magnetic field distribution into local current-density distributions. Our results establish high-field MOI as a powerful approach for spatially resolved evaluation of superconducting critical states and provide a new pathway for investigating inhomogeneous current transport in superconductors under high magnetic fields.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.25075"></a>
+
+### [Influence of Heterogeneity on the Response of Architected Metamaterials](http://arxiv.org/abs/2604.25075v1)
+
+**Authors:** Sarvesh Joshi, Jingye Tan, Craig M. Hamel, Stavros Gaitanaros, Nikolaos Bouklas
+
+**Type:** theory · **Category:** disordered systems and neural networks · **PDF:** <https://arxiv.org/pdf/2604.25075v1>
+
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.25075_figures/2604.25075_fig1.jpg" width="500"><br>
+
+<sub>Figure 1: The realizations showcase the variation of α(X) with CV (a) 0.01%, (b) 1.0%, and (c) 10.0% for an unstructured mesh with ℓcorr = 4ℓnl.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.25075_figures/2604.25075_fig2.jpg" width="500"><br>
+
+<sub>Fig. 1 shows three realizations of α(X) generated on an unstructured mesh with fixed correlation length ℓcorr = 4ℓnl2, while systematically increasing the coefficient of variation</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.25075_figures/2604.25075_fig3.jpg" width="500"><br>
+
+<sub>Figure 2: The realizations showcase the variation of α(X) with ℓcorr = (a) ℓnl, (b) 2ℓnl, and (c) 4ℓnl for unstructured mesh with CV = 10.0%.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.25075_figures/2604.25075_fig4.jpg" width="500"><br>
+
+<sub>Figure 3: Adapted from Joshi et al. [65]. Influence of vertical grading in the bulk modulus κ on the force— displacement response and Jacobian field J of a metastable material. Graded profiles correspond to 0.0% and 10.0% variation across the domain height. Snapshots for the 0.0% and 10.0% cases at five loading stages illustrate the impact of property heterogeneity on densification evolution.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.25075_figures/2604.25075_fig5.jpg" width="500"><br>
+
+<sub>Fig. 3 presents the corresponding force–displacement responses together with representa- tive contours of the Jacobian field J at five characteristic loading stages. In the homogeneous</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.25075_figures/2604.25075_fig6.jpg" width="500"><br>
+
+<sub>Figure 4: Influence of coefficient of variation of confined compression response for ℓcorr = ℓnl. Force– displacement curves are shown for CV = 0.01%, 1.0%, and 10.0%, with four realizations for each case. Rows correspond to heterogeneity introduced individually in α, β, κ and µ, followed by the case where all parameters are heterogeneous, p ∈{α, β, κ, µ}, simultaneously. Increasing variance progressively stabilizes the transition plateau and mitigates limit-load drops, with the most pronounced stabilization observed when all parameters are heterogeneous at CV = 10.0%.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.25075_figures/2604.25075_fig7.jpg" width="500"><br>
+
+<sub>Figure 5: Effect of stochastic heterogeneity on densification patterns under confined compression. Jacobian contours J are shown for four realizations in which all constitutive parameters (α, β, κ, and µ) are modeled as Gaussian Random Fields with CV = 10.0% and correlation length ℓcorr = 2ℓnl on an unstructured mesh. Five snapshots corresponding to increasing stages of loading illustrating the evolution of the densified phase. Despite realization-to-realization variability in local stiffness distributions, all realizations exhibit consistent macroscopic responses and similar qualitative growth mechanisms of the densified phases.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.25075_figures/2604.25075_fig8.jpg" width="500"><br>
+
+<sub>Figure 6: Cyclic confined compression response with stochastic heterogeneity in all constitutive parameters for ℓcorr = ℓnl. Loading–unloading force–displacement curves are shown for (a) CV = 1.0% and (b) CV = 10.0%, together with representative Jacobian contours at selected stages of the cycle. Increasing variance eliminates the limit load drop and leads to a stable hysteresis response, accompanied by a transition from localized band-like densification to distributed, network-like transition patterns.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.25075_figures/2604.25075_fig9.jpg" width="500"><br>
+
+<sub>Figure 7: Effect of correlation length on localization under confined compression for CV = 10.0% applied to all constitutive parameters. Shown are Jacobian contours at δ = 0.4 for four realizations on a structured mesh with ℓcorr = (a) ℓnl, (b) 2ℓnl, (c) 4ℓnl, (d) 8ℓnl, and (e) 16ℓnl. Increasing correlation length leads to larger, more coherent pockets of compliant material and correspondingly coarser densification patterns, resulting in a systematic increase in the intermediate-regime stiffness of the macroscopic response. 22</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.25075_figures/2604.25075_fig10.jpg" width="500"><br>
+
+<sub>Figure 8: Effect of heterogeneity magnitude and indenter radius on the indentation response. Force– displacement curves are shown for CV = 1.0% with (a) Rind = 0.1 and (b) Rind = 0.2, and for CV = 10.0% with (c) Rind = 0.1 and (d) Rind = 0.2. In all cases, the correlation length is fixed at ℓcorr = ℓnl, and four independent realizations are reported for each configuration.</sub>
+
+</details>
+
+**Main problem.**
+Understanding how stochastic material heterogeneity, introduced via Gaussian random fields, influences the macroscopic mechanical response, stability, and localization patterns in architected metamaterials.
+
+**Main result.**
+The study demonstrates that heterogeneity fundamentally alters phase nucleation, localization morphology, and macroscopic response, such as changing the plateau slope and even eliminating the initial elastic regime.
+
+**Method.**
+Finite element simulations using a gradient-enhanced, nonlocal continuum formulation and Gaussian Random Fields (GRF) implemented via a stochastic elliptic PDE.
+
+**Summary.**
+This paper develops a mathematical framework to study how random material fluctuations affect the stability and deformation of engineered metamaterials. By using Gaussian Random Fields, the authors show that the spatial scale and intensity of disorder can change how these materials collapse and densify. The work provides a unified way to link manufacturing imperfections to macroscopic mechanical failure. This is crucial for designing more robust and predictable architected structures.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.**
+Architected metamaterials (e.g., foams and lattices) modeled using a nonlinear, thermodynamically consistent, gradient-enhanced continuum framework with a non-convex Helmholtz free energy density.
+
+**Key observables.**
+Phase nucleation sites, localization morphology, macroscopic force-displacement response, Jacobian field (densification), and effective bulk modulus.
+
+**Important parameters / regimes.**
+Coefficient of variation (amplitude of fluctuations), correlation length (spatial scale of fluctuations), nonlocal lengthscale, and constitutive parameters (alpha, beta, kappa, mu).
+
+**Assumptions / limitations.**
+The material is isotropic, the process is isothermal and quasi-static, and the focus is limited to purely elastic architected metamaterials.
+
+**Figures summary.**
+Visualizations of stochastic field realizations at different variance and correlation levels; plots of effective bulk modulus versus constitutive parameters; and analytical plots of the Helmholtz free energy density.
+
+**Paper structure.**
+The paper identifies the problem of manufacturing-induced heterogeneity, introduces a nonlinear continuum theory with stochastic parameters via GRFs, details the numerical implementation in FEniCS, and presents parametric studies on how amplitude and correlation length affect mechanical stability and localization.
 
 **Why it may be interesting.**
-
-This is highly relevant for researchers in open quantum systems and many-body dynamics, as the ability to efficiently solve Riccati and Lyapunov equations is fundamental to studying master equations, stability, and control in quantum systems.
+While focused on mechanics, the use of Gaussian Random Fields to study how spatial disorder drives localization and phase-transition-like phenomena (densification) shares deep mathematical parallels with studying disorder-induced localization in many-body systems.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-We develop a systematic sign-embedding framework of operator-output quantum algorithms for matrix equations and matrix functions. Differing from the contour-integral treatment, we start with the matrix-sign embedding route: an augmented matrix $M$ whose half-plane matrix sign compresses the target operator either as a block of $\text{sign}(M)$ or, in projector form, through $(I-\text{sign}(M))/2$; we then construct a logarithmic-sinc approximation for the half-plane sign operator and combine it with structure-aware scaled multiplexing and nodewise rebalancing of shifted inverse families. For ordinary Sylvester equations, we offer an explicit block-encoding of the target matrix solution with query complexity linear in the inverse-conditioning parameters and logarithmic in the target error tolerance, under non-normal and non-diagonalizable settings given a field-of-values (FoV) gap or strip-resolvent hypotheses. These algorithms propagate the same overlap-based normalization bookkeeping to ordinary and generalized Sylvester equations, generalized Lyapunov equations, principal square roots and inverse square roots, matrix geometric means, and continuous-time algebraic Riccati equations (CARE). These results identify matrix-sign embeddings and nodewise rebalancing as reusable design principles for structured operator-output quantum linear algebra.
+Architected metamaterials like foams and lattices exhibit complex responses governed by microstructural instabilities, localization, and phase-transition-like phenomena. Their behavior is further affected by heterogeneities inherent in their microstructure often caused through manufacturing processes. In this study we extend a gradient-enhanced, nonlocal continuum formulation to incorporate stochastic material heterogeneity through Gaussian random fields imposed on selected constitutive parameters. The framework enables independent control of both the amplitude and spatial correlation of material fluctuations while preserving thermodynamic consistency and regularization of localization. It also introduces a characteristic lengthscale ratio between the nonlocal and correlation lengthscales, that enables modeling at the limit of random or spatially correlated microstructures. Finite element simulations of confined compression and indentation show that heterogeneity fundamentally alters phase nucleation, localization morphology, and macroscopic response. Overall, the proposed framework provides a unified approach for linking stochastic material variability to instability-driven mechanics in architected metamaterials, enabling improved understanding of imperfection sensitivity, stability and design. It showcases how heterogeneity alone can influence characteristic features of the response, such as stability, slope of the plateau region, and elimination of the initial elastic regime.
 
 </details>
 
 <sub>[↑ back to top](#top)</sub>
 
 
-<a id="paper-2604.24871"></a>
+<a id="paper-2604.25736"></a>
 
+### [Magnetoplasma excitations in interacting GaAs disks](http://arxiv.org/abs/2604.25736v1)
 
-### [Six textbook mistakes in quantum field theory](http://arxiv.org/abs/2604.24871v1)
+**Authors:** S. A. Andreeva, A. A. Gavrilov, K. R. Dzhikirba, A. S. Astrakhantseva, A. V. Shchepetilnikov, O. V. Orlov, V. V. Solovyev, I. V. Kukushkin
 
-**Authors:** Alexandros Gezerlis
-
-**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.24871v1>
+**Type:** experiment · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.25736v1>
 
 **Analysis basis:** full PDF text, analyzed in chunks
 
-**Topic relevance:** `Keldysh / 2PI / non-Gaussian methods` **2/5**
-
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.24871_figures/2604.24871_fig1.jpg" width="500"><br>
+<img src="2604.25736_figures/2604.25736_fig1.jpg" width="500"><br>
 
-<sub>FIG. 1: Connected, momentum-space, second-order Feynman diagrams representing the S-matrix in a 2 →2 process (for a quartic interaction) in the s, t, and u channels.</sub>
+<sub>Figure 1. Transmission dependence on magnetic ﬁeld for a sample with d = 100 and a = 200 µm</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.24871_figures/2604.24871_fig2.jpg" width="500"><br>
+<img src="2604.25736_figures/2604.25736_fig2.jpg" width="500"><br>
 
-<sub>FIG. 2: Contour of integration for Wick rotation, relevant to the 2 →2 process of Fig. 1 for the cases of: (a) k2 + ∆&gt; 0, and (b) k2 + ∆&lt; 0.</sub>
+<sub>Figure 2. Magnetodispersions for samples with d = 100 µm and (a) a = 300 µm, (b) 200 µm and</sub>
 
 </details>
 
 **Main problem.**
-
-The paper identifies and corrects widespread conceptual errors and pedagogical 'muddledness' found in introductory Quantum Field Theory (QFT) textbooks and research literature.
+Investigating how inter-disk coupling and lateral screening affect the magnetoplasma dispersion and collective modes in a square lattice of 2D electron system disks.
 
 **Main result.**
-
-The author provides rigorous corrections to six specific themes, including the validity of relativistic quantum mechanics, the derivation of Noether's theorem, the proper promotion of fields to operators, particle localization, normal ordering, and the nature of Wick rotation.
+The system behaves as a collection of isolated disks at large separations, but as the lattice period decreases, the plasma frequency shifts to lower values (from 110 GHz to 95 GHz) due to increased coupling.
 
 **Method.**
-
-The author uses a comparative approach, quoting specific textbook mistakes and providing mathematically rigorous corrections using canonical quantization, contour integration, and the Newton-Wigner position operator.
+Magneto-optical terahertz (THz) transmission spectroscopy using a microwave generator and frequency extenders to track resonance evolution in a perpendicular magnetic field.
 
 **Summary.**
-
-This paper serves as a pedagogical critique of common misconceptions in Quantum Field Theory textbooks. The author identifies six specific areas where introductory texts often sacrifice mathematical rigor for simplicity, potentially leading to fundamental misunderstandings. By providing corrected derivations and physical insights, the work aims to prevent the propagation of these errors in the physics literature. It is particularly useful for instructors and graduate students seeking a deeper, more accurate foundation in QFT.
+This paper studies how the interaction between closely spaced 2D electron disks affects their collective plasma oscillations. By using THz spectroscopy on a GaAs-based disk array, the researchers show that while large separations allow for an independent-disk description, bringing the disks closer together causes a significant shift in the plasma frequency. This demonstrates the transition from isolated excitations to a coupled regime where inter-disk electromagnetic fields modify the dispersion.
 
 <details><summary>Detailed structure</summary>
 
 **Model / system.**
-
-The discussion focuses on relativistic scalar field theory (Klein-Gordon field) and scalar electrodynamics, specifically examining the transition from classical Lagrangian/Hamiltonian density to the interacting S-matrix.
+A square lattice of 2D electron system (2DES) disks etched from an AlGaAs/GaAs/AlGaAs quantum well, with varying lattice periods (a = 300, 200, and 110 micrometers) and disk diameter (d = 100 micrometers).
 
 **Key observables.**
-
-S-matrix (scattering amplitude), Feynman propagator, probability density, and conserved currents.
+Magnetoplasma resonance frequencies (1st and 3rd harmonics), plasma frequency (F0), and transmission spectra.
 
 **Important parameters / regimes.**
-
-Mass (m), coupling constant (lambda), momentum (k, p, q), and the infinitesimal epsilon (i-epsilon prescription).
+Lattice constant (a), disk diameter (d), magnetic field (B), cyclotron frequency, and the proximity factor (a-d)/d.
 
 **Assumptions / limitations.**
-
-The discussion is limited to the core aspects of QFT relevant to a first-semester graduate course and assumes familiarity with basic relativistic quantum mechanics.
+The use of the dipole approximation (explaining the absence of even-numbered modes) and comparison against a non-retarding plasmon dispersion model.
 
 **Figures summary.**
-
-Figure 1 shows momentum-space second-order Feynman diagrams for a 2 to 2 process; Figure 2 illustrates the integration contour in the complex k0 plane for different pole configurations.
+Figures show magnetodispersion for different lattice periods including harmonics and edge modes, and the dependence of the plasma frequency on the disk proximity factor.
 
 **Paper structure.**
-
-The paper begins with a notation summary, followed by a systematic presentation of six thematic errors, each containing a textbook quote, a mathematical correction, and references to authoritative literature, concluding with a pedagogical reflection.
+The paper introduces the experimental platform, describes the THz spectroscopy setup, presents the evolution of magnetoplasma modes with decreasing lattice spacing, compares results to theoretical models, and discusses the effects of coupling on mode resolution.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-This article discusses incorrect statements appearing in textbooks on quantum field theory (QFT); some of these mistakes also appear in the research literature. The focus is not on errors made by an individual author, but on conceptual muddledness that is widespread in introductory textbooks. We start from a bare-bones summary of QFT, meant to establish the notation. We then turn to our six paradigmatic themes, in each case quoting a specific example of the textbook mistake, a summary of material that is known to experts but is frequently mishandled in introductory works, pointers to authoritative references where the relevant concept is handled properly, as well as a concise correction that rectifies any issues. The goal of this work is to warn readers of the existence of several pitfalls and thereby stop these errors from further propagating in the literature on QFT.
+We investigate the effect of inter-disk coupling on the magnetoplasmon dispersion in a square lattice of two-dimensional electron system (2DES) disks etched from a GaAs quantum well. Using magneto-optical terahertz (THz) spectroscopy, we track the evolution of the collective modes as disk lattice period is systematically reduced, thereby increasing the coupling strength. At large distances, the system exhibits magnetoplasma modes corresponding to individual excitations in disks. As the inter-disk distance decreases, we observe a modification to magnetoplasma dispersion.
 
 </details>
 
 <sub>[↑ back to top](#top)</sub>
 
 
-<a id="paper-2604.25060"></a>
+<a id="paper-2604.25328"></a>
 
+### [Microscopic Theory of Chiral-Phonon-Induced Orbital Selectivity in Helical Crystals](http://arxiv.org/abs/2604.25328v1)
 
-### [Statistical mechanics in continuous space with tensor network methods](http://arxiv.org/abs/2604.25060v1)
+**Authors:** Tomomi Tateishi, Akihito Kato, Alexander S. Ovchinnikov, Jun-ichiro Kishine
 
-**Authors:** Gunhee Park, Tomislav Begušić, Si-Jing Du, Johnnie Gray, Garnet Kin-Lic Chan
-
-**Type:** theory · **Category:** numerical methods · **PDF:** <https://arxiv.org/pdf/2604.25060v1>
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.25328v1>
 
 **Analysis basis:** full PDF text, analyzed in chunks
 
-**Topic relevance:** `methods for driven-dissipative` **2/5**
-
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.25060_figures/2604.25060_fig1.jpg" width="500"><br>
+<img src="2604.25328_figures/2604.25328_fig1.jpg" width="500"><br>
 
-<sub>FIG. 2. (a) Diagrammatic representation of the factor graph for the hard disk partition function, where the on-site and pairwise terms are shown as pink circles and blue squares, respectively. (b) When the pair connectivity is restricted to nearest-neighbor and next-nearest-neighbor interactions, the factor graph can be transformed into an equivalent represen- tation where tensors are placed at the original lattice sites and at the centers of the square units.</sub>
+<sub>Fig. 1. (a) Schematic illustration of a rotational phonon mode in a heli- cal crystal and the p-orbital rotation comoving with the displaced ions. The yellow spheres denote ions undergoing rotational motion, the black ellipses represent their classical orbits, and the red and blue lobes depict the two pla- nar electronic p orbitals following the ionic displacement. (b) Phonon and (c) electron dispersions for a chiral crystal belonging to helical line-group sym- metry L31, resolved by CAM m = ±1, 0. Electron dispersions are obtained using the Slater–Koster parameters: t0 ++ = t0 −−= 0.242964, t0 00 = 1.034072, t0 +−= −0.496482 + 0.859932i, t0 +0 = −0.665492 −1.152666i, t0 −0 = (t0 +0)∗, and...</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.25060_figures/2604.25060_fig2.jpg" width="500"><br>
+<img src="2604.25328_figures/2604.25328_fig2.jpg" width="500"><br>
 
-<sub>FIG. 1. (a) Particles in a box. (b) Same system in the site rep- resentation, where colors denote occupied lattice grid points. (c) Grid points in a cell are coarse-grained into one effective site.</sub>
+<sub>Fig. 2. Diagrammatic representation of the leading-order contributions to ⟨ˆLz⟩from the electron–phonon interaction. Solid arrowed lines: electron propagation; wavy lines: chiral-phonon propagation; ﬁlled circles: rotational electron–phonon vertices at which CAM is exchanged between electrons and phonons (the phonon CAM is correlated with its mechanical angular mo- mentum19)); crossed circles: insertion of ˆLz. Process (a) shows the dominant contribution to ⟨ˆLz⟩evaluated in this work; processes (b) and (c) show self- energy corrections to the electron propagation.</sub>
 
 </details>
 
 <details><summary>📷 Fig 3</summary>
 
-<img src="2604.25060_figures/2604.25060_fig3.jpg" width="500"><br>
+<img src="2604.25328_figures/2604.25328_fig3.jpg" width="500"><br>
 
-<sub>FIG. 3. 2 × 2 unit cell structure for the transfer matrix of the partition function composed of S and T tensors in the infinite tensor network. Its boundary MPS is characterized by two alternating two-site uniform MPS with tensors (A11, A12) and (A21, A22).</sub>
-
-</details>
-
-<details><summary>📷 Fig 4</summary>
-
-<img src="2604.25060_figures/2604.25060_fig4.jpg" width="500"><br>
-
-<sub>FIG. 4. Within the infinite TN framework, the density is plot- ted as a function of MPS bond dimension using the boundary contraction method. The reference MC data is shown as the dashed lines, where the MC is performed on a finite system with L = 28 using periodic boundary conditions.</sub>
-
-</details>
-
-<details><summary>📷 Fig 5</summary>
-
-<img src="2604.25060_figures/2604.25060_fig5.jpg" width="500"><br>
-
-<sub>FIG. 5. Spatially resolved densities in a finite box with open boundary conditions at µ = 2, 6, 10, and 12.</sub>
-
-</details>
-
-<details><summary>📷 Fig 6</summary>
-
-<img src="2604.25060_figures/2604.25060_fig6.jpg" width="500"><br>
-
-<sub>FIG. 6. Pair correlation functions computed from infinite TN and MC calculations. For the MC reference, the GCMC data from both the continuous space (red dotted) and the discretized lattice (black dashed) are presented.</sub>
-
-</details>
-
-<details><summary>📷 Fig 7</summary>
-
-<img src="2604.25060_figures/2604.25060_fig7.jpg" width="500"><br>
-
-<sub>FIG. 7. (a) Free energy convergence using the TN boundary contraction method as a function of MPS bond dimension for various system sizes. Free energy convergence is quantified by the computed free energy density difference between the given bond dimension and the maximum bond dimension, χmax = 600. Free energy density values for different system sizes are plotted in the inset. (b) The number of Monte Carlo steps in the Wang-Landau algorithm as a function of area. The inset shows a comparison of the free energy density calculated via the TN and MC methods. See the main text for the details of the Monte Carlo procedures.</sub>
-
-</details>
-
-<details><summary>📷 Fig 8</summary>
-
-<img src="2604.25060_figures/2604.25060_fig8.jpg" width="500"><br>
-
-<sub>FIG. 8. Density as a function of lattice discretization constant compared to density in the continuum, indicated as dashed lines, at three different chemical potential values.</sub>
-
-</details>
-
-<details><summary>📷 Fig 9</summary>
-
-<img src="2604.25060_figures/2604.25060_fig9.jpg" width="500"><br>
-
-<sub>Fig. 8 shows the convergence of the density values as a function of the lattice discretization in the lattice GCMC calculations compared to GCMC in the contin- uum, where the smallest lattice discretization used in the plot corresponds to the lattice discretization value used in this work.</sub>
+<sub>Fig. 3. Expectation value of ⟨ˆLz⟩/ℏas a function of k. The same Slater–Koster parameters as in Fig. 1 (c) are used. The value 1/(Mc2) = 1.0×1042 kg−1m−2, consistent with typical ionic masses and lattice constants of helical crystals, is adopted. The top row (a)–(c) shows the unperturbed contribution for diﬀerent initial electronic states, τ = 1, 2, 3, while the lower panels (d)–(f) display the perturbative contribution [second term in Eq. (16)] for acoustic phonon branch λ = 1. Within each panel, curves represent the m = +1 (red), m = −1 (blue), and m = 0 (green) branches.</sub>
 
 </details>
 
 **Main problem.**
-
-Extending tensor network (TN) methods, which are traditionally limited to lattice models, to simulate interacting particle systems in continuous space.
+The paper investigates the microscopic mechanism of Chirality-Induced Orbital Selectivity (CIOS) in helical crystals, specifically how chiral phonons transfer angular momentum to electronic orbital degrees of freedom.
 
 **Main result.**
-
-The developed TN framework accurately reproduces local observables and captures liquid-to-solid phase transitions in 2D hard-disk systems, offering a deterministic alternative to Monte Carlo methods with linear scaling of computational cost relative to system size.
+The authors derive a rotational electron-phonon interaction that drives orbital transfer (m_l to m_l - m_s) following crystal angular momentum conservation, finding that the orbital response is enhanced at intermediate wave vectors and suppressed near the Gamma point and BZ boundary.
 
 **Method.**
-
-A real-space discretization and cell-based coarse-graining scheme are used to map continuous particles onto an effective lattice model, which is then solved using TN boundary contraction via Matrix Product States (MPS) and Matrix Product Operators (MPO).
+A symmetry-based microscopic theory using the irreducible representations of the helical line group L31, employing perturbation theory and a modified tight-binding approximation.
 
 **Summary.**
-
-This paper presents a new way to use tensor networks to study classical statistical mechanics in continuous space. By discretizing space into a grid and using a coarse-graining scheme, the authors transform a continuous particle problem into an effective lattice model. This allows for the deterministic calculation of absolute free energies and local observables, such as density and pair correlation functions. The method is shown to be highly efficient, scaling linearly with system size, and successfully captures the liquid-to-solid phase transition in hard-disk systems.
+This paper provides a microscopic theoretical framework for understanding how chiral phonons in helical crystals induce orbital selectivity in electrons. By analyzing the rotational electron-phonon interaction, the authors show that angular momentum is transferred from the lattice to the electronic p-orbitals in a way that conserves crystal angular momentum. This mechanism provides a fundamental link to the phenomenon of Chirality-Induced Spin Selectivity (CISS). The study also predicts that this effect is highly dependent on the crystal momentum, being most prominent at intermediate wave vectors.
 
 <details><summary>Detailed structure</summary>
 
 **Model / system.**
-
-The study focuses on 2D hard-disk systems with a pairwise repulsive potential, where continuous coordinates are mapped to a fine grid and grouped into cells to create an effective lattice representation.
+A 1D effective model of a 3D helical crystal with L31 symmetry (e.g., Tellurium) featuring p-orbital electrons and chiral phonon modes.
 
 **Key observables.**
-
-Density, pair correlation functions, and absolute free energy density.
+The expectation value of the z-component of orbital angular momentum <L_z>
 
 **Important parameters / regimes.**
-
-Inverse temperature (beta), chemical potential (mu), lattice constant (a), and tensor network bond dimension (D).
+Electronic orbital index (m_l), phonon rotational mode eigenvalue (m_s), helical rotation angle (alpha), and wave vector (k).
 
 **Assumptions / limitations.**
-
-The method assumes a discretization of continuous space and uses a coarse-graining approximation where each cell contains at most one particle; the current scope is limited to 2D and short-range potentials.
+Weak-coupling regime; use of a discrete lattice definition for local rotation; expansion of the overlap integral to first order in nuclear displacement.
 
 **Figures summary.**
-
-Figure 1 shows the mapping from particles to a coarse-grained cell model; Figure 2 illustrates the factor graph and TN representation; Figure 3 shows the unit cell structure; Figure 4 shows density convergence with bond dimension; Figure 5 displays spatially resolved densities in a finite box; Figure 6 compares pair correlation functions with GCMC; Figure 7 compares free energy convergence and computational scaling; Figure 8 demonstrates convergence to the continuum limit.
+Fig 1 shows schematic rotational phonon modes, phonon dispersions by CAM, and electron dispersions. Fig 2 provides a diagrammatic representation of the leading-order contributions to orbital angular momentum. Fig 3 shows the unperturbed orbital angular momentum response.
 
 **Paper structure.**
-
-The paper introduces the problem of continuous-space simulation, details the discretization and coarse-graining methodology, describes the construction of the tensor network, presents benchmark results against Monte Carlo simulations (density, correlation, and free energy), and concludes with scaling analysis and future directions.
+The paper introduces the problem of CIOS, defines the helical crystal model and Hamiltonian, derives the analytical form of the rotational electron-phonon vertex, calculates the orbital angular momentum response using perturbation theory, and discusses the connection to CISS and k-dependent suppression/enhancement.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-Tensor network (TN) methods are well established for computing partition functions in statistical mechanics, though this use has traditionally been limited to lattice models. We extend the scope of TN methodology to interacting particle systems in continuous space. Through a real-space discretization combined with a cell-based coarse-graining scheme, we formulate an effective lattice model that explicitly preserves spatial locality. The partition function of this model is represented as a TN, and the thermodynamic quantities are computed via boundary contraction. We apply this framework to the two-dimensional hard-disk problem and demonstrate the strengths of the TN formulation compared to existing Monte Carlo simulations.
+We present a microscopic theory of chirality-induced orbital selectivity (CIOS) in helical crystals, in which truly chiral phonons selectively transfer angular momentum to electronic orbital degrees of freedom. For a threefold helical crystal with line-group symmetry $L3_1$, we show that phonon-induced local rotations generate a rotational electron--phonon interaction proportional to $\hat{L}^{\pm}$, which drives the orbital transfer $m_{\ell}\to m_{\ell}-m_{s}$ in accordance with crystal angular momentum (CAM) conservation, where $m_{s}=\pm 1$ denotes the eigenvalue of the phonon rotational mode. Evaluating $\langle\hat{L}^{z}\rangle$ to leading order in perturbation theory, we find that the orbital response is suppressed near the $Γ$ point and the BZ boundary, and enhanced at intermediate wave vectors -- a feature intimately tied to the degeneracy structure of the phonon bands.
 
 </details>
 
 <sub>[↑ back to top](#top)</sub>
 
 
-<a id="paper-2604.24847"></a>
+<a id="paper-2604.24979"></a>
 
+### [Non-Oberbeck-Boussinesq effects in coldwater](http://arxiv.org/abs/2604.24979v1)
 
-### [The Classification of Pauli Stabilizer Codes: A Lattice and Continuum Treatise](http://arxiv.org/abs/2604.24847v1)
+**Authors:** Gustavo Estay, Daisuke Noto, Hugo N. Ulloa
 
-**Authors:** Bowen Yang, Matthew Yu
-
-**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.24847v1>
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.24979v1>
 
 **Analysis basis:** full PDF text, analyzed in chunks
 
-**Topic relevance:** `entanglement & information structure` **2/5**
-
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.24847_figures/2604.24847_page2.jpg" width="500"><br>
+<img src="2604.24979_figures/2604.24979_fig1.jpg" width="500"><br>
 
-<sub>Low-resolution page preview, page 2</sub>
+<sub>Figure 1. Temperature dependence of material properties for cold water, including (a) density, (b) dynamic viscosity and (c) thermal conductivity. Black dashed lines correspond to the models described in § 2.1, while key values are highlighted with diamonds, considering example values of 𝑇𝑏, 𝑇𝑟and 𝑇𝑡. Actual values of water properties are shown with continuous grey lines. The maximum relative error of each model is indicated in the corresponding panel, and defined for a general function 𝑓(𝑇) as 𝑒= max𝑇(| 𝑓−𝑓model| /| 𝑓|).</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.24847_figures/2604.24847_page3.jpg" width="500"><br>
+<img src="2604.24979_figures/2604.24979_fig2.jpg" width="500"><br>
 
-<sub>Low-resolution page preview, page 3</sub>
+<sub>Figure 2. Instantaneous snapshots of the temperature field 𝜃for cases with variable material properties for different values of the Rayleigh number: (𝑎) Ra = 2.15 × 103, (𝑏) Ra = 2.15 × 105, (𝑐) Ra = 4.64 × 107.</sub>
 
 </details>
 
 <details><summary>📷 Fig 3</summary>
 
-<img src="2604.24847_figures/2604.24847_page4.jpg" width="500"><br>
+<img src="2604.24979_figures/2604.24979_fig3.jpg" width="500"><br>
 
-<sub>Low-resolution page preview, page 4</sub>
+<sub>Figure 3. (𝑎) Mean temperature 𝜃𝑚as a function of the Rayleigh number Ra for simulations with CMP (red circles) and VMP (blue diamonds). Vertical bars denote temporal variability through standard deviation at steady state. The horizontal dashed lines indicate the mean temperature for the conductive state for cases with CMP (red) and VMP (blue). Cases that are also shown in figure 2 are highlighted with a grey circle. The inset shows the ratio between bottom and top boundary layer thickness 𝛿𝑏/𝛿𝑡following the previous notation for CMP and VMP cases, without indicating temporal variability. (𝑏) Ratio between boundary layer thickness of VMP and CMP cases 𝛿VMP/𝛿CMP as a function of the Rayleigh...</sub>
 
 </details>
 
 <details><summary>📷 Fig 4</summary>
 
-<img src="2604.24847_figures/2604.24847_page5.jpg" width="500"><br>
+<img src="2604.24979_figures/2604.24979_fig4.jpg" width="500"><br>
 
-<sub>Low-resolution page preview, page 5</sub>
+<sub>Figure 4(𝑏) shows the Reynolds number, defined in (2.13), as a function of Ra −Ra𝑐. Consistent with the previous analysis of the heat transfer rate, the behaviour of the Re can be effectively described by power laws in the same two regimes. The region close to the onset exhibits an exponent of 0.5, while an exponent of 0.58 is observed for the strongly supercritical regime. Again, there is no significant difference in the exponents obtained from the simulations with CMP and VMP.</sub>
 
 </details>
 
 <details><summary>📷 Fig 5</summary>
 
-<img src="2604.24847_figures/2604.24847_page6.jpg" width="500"><br>
+<img src="2604.24979_figures/2604.24979_fig5.jpg" width="500"><br>
 
-<sub>Low-resolution page preview, page 6</sub>
+<sub>Figure 4. (𝑎) Heat transfer rate represented by ‘Nu −1’ as a function of ‘Ra −Ra𝑐’ for VMP (blue diamonds) and CMP (red circles) cases. Solid blue lines represent power-law fits for the VPM case across low and high Ra regions, whereas the dashed lines correspond to their extrapolation. In the fully steady convective regime, the fit obtained is Re ∝(Ra −Ra𝑐); in the turbulent convective regime, the fitting gives Re ∝(Ra −Ra𝑐)0.3. The inset shows ‘Nu−1’ as a function of Ra in a range close to the onset, where the dotted lines indicate the extrapolation used to estimate the critical Rayleigh numbers Ra𝑐(see § 3), which are indicated by crosses on the horizontal axis. (𝑏) Reynolds number, Re,...</sub>
 
 </details>
 
 <details><summary>📷 Fig 6</summary>
 
-<img src="2604.24847_figures/2604.24847_page7.jpg" width="500"><br>
+<img src="2604.24979_figures/2604.24979_fig6.jpg" width="500"><br>
 
-<sub>Low-resolution page preview, page 7</sub>
+<sub>Figure 5. Horizontally-averaged temperature, buoyancy, and temperature variance for increasing Ra, showing reduced upper-lower asymmetry and an upward shift of the zero-crossing of the mean temperature ⟨𝜃⟩𝑥𝑦, from positive to negative bulk mean temperature. The intersection between ⟨𝑏⟩𝑥𝑦and ⟨˜𝜃2⟩𝑥𝑦that determines the change in temperature sign is highlighted with black circles.</sub>
 
 </details>
 
 <details><summary>📷 Fig 7</summary>
 
-<img src="2604.24847_figures/2604.24847_page8.jpg" width="500"><br>
+<img src="2604.24979_figures/2604.24979_fig7.jpg" width="500"><br>
 
-<sub>Low-resolution page preview, page 8</sub>
+<sub>Figure 6. Panels from (𝑎) to (𝑑) show the individual and joint effects of variable conductivity and viscosity in the laterally-averaged temperature profile, with respect to the CMP case (5.1), for different Rayleigh numbers. Panel (𝑒) shows the relative effect of variable conductivity (𝑟𝑘) and viscosity (𝑟𝜇) in the temperature increase with respect to their joint effect (5.2), as a function of the Rayleigh number. To emphasise the nonlinear interaction between variable viscosity and conductivity, the linear superposition of their individual effects is shown with grey circles in all panels.</sub>
+
+</details>
+
+**Main problem.**
+Investigating how non-Oberbeck-Boussinesq effects, specifically nonlinear density-temperature relations and temperature-dependent viscosity and thermal conductivity, modify Rayleigh-Bénard convection in coldwater systems.
+
+**Main result.**
+The study finds that these effects break the vertical symmetry of the temperature profile, shift the critical Rayleigh number, and that while heat transfer follows classical scaling after accounting for the shift, the Reynolds number scaling matches Grossmann-Lohse theory at an intermediate Prandtl number.
+
+**Method.**
+Two-dimensional Direct Numerical Simulations (DNS) using the Dedalus spectral solver.
+
+**Summary.**
+This paper examines how the unique physical properties of water near freezing—such as its non-linear density relation and temperature-dependent viscosity—affect convective heat transfer. Using direct numerical simulations, the authors show that these 'non-Oberbeck-Boussinesq' effects break the vertical symmetry of temperature profiles and shift the onset of convection. The results demonstrate that despite these complexities, the heat transfer and flow velocity still follow established scaling theories when the shift in the critical Rayleigh number is properly accounted for. This work is significant for understanding heat distribution and mixing in ice-covered aquatic environments.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.**
+A Rayleigh-Bénard convection framework representing ice-bounded aquatic systems, utilizing a quadratic equation of state for density and linear models for temperature-dependent viscosity and thermal conductivity.
+
+**Key observables.**
+Nusselt number (Nu), Reynolds number (Re), mean temperature (theta_m), boundary layer thicknesses, and critical Rayleigh number (Ra_c).
+
+**Important parameters / regimes.**
+Rayleigh number (Ra), Prandtl number (Pr), and dimensionless parameters A (EOS nonlinearity), B (viscosity contrast), and C (conductivity contrast).
+
+**Assumptions / limitations.**
+The density dependence is modeled via a quadratic equation of state, and viscosity and thermal conductivity variations are modeled linearly.
+
+**Figures summary.**
+Figure 1 displays the temperature dependence of water properties, specifically the quadratic model for density and linear models for dynamic viscosity and thermal conductivity.
+
+**Paper structure.**
+The paper introduces the problem of non-Oberbeck-Boussinesq effects in coldwater, describes the numerical model and governing equations, presents results regarding symmetry breaking and temperature shifts, analyzes scaling laws for heat and momentum transport, and concludes with implications for cryospheric dynamics.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Water exhibits an anomalous nonlinear temperature-density ($ρ$-$T$) relation as it approaches freezing, along with an increase in viscosity, and a decrease in thermal conductivity. These departures from the standard Oberbeck--Boussinesq approximation, which assumes constant material properties and a linear $ρ$-$T$ relation, can modify convection in ice-bounded aquatic systems, yet their effects remain unexplored. Here, we examine these effects via the canonical Rayleigh--Bénard convection framework using direct numerical simulations. We show that non-Oberbeck--Boussinesq effects lower the mean fluid temperature relative to the standard case and break the classical symmetry of the mean temperature profile. The magnitude of this symmetry breaking depends on both the Rayleigh number $Ra$ and the temperature-dependent material properties retained in the governing equations. We further identify a small but measurable shift in the critical Rayleigh number, $Ra_c$. After accounting for this shift, the nondimensional heat transfer rate, $Nu$, follows the classical scaling with supercriticality, while $Re$ remains consistent with the Grossmann--Lohse unifying theory, $Re\propto (Ra-Ra_c)^{1/2}$ for low-$Ra$ convection (regime $\mathrm{I}_u$) and $Re\propto (Ra-Ra_c)^{4/7}$ at high-$Ra$ (regime $\mathrm{III}_u$). Unlike the classical expectation that the latter scaling arises at high Prandtl number, here it is obtained at an intermediate Prandtl number, $Pr\sim 10$. Our results establish how near-freezing material anomalies affect both local and global properties of convection, with implications for heat distribution and mixing in cryospheric liquid waters.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.25626"></a>
+
+### [Physical properties of transition metal hydride superconductors Mg2TmH6 (Tm = Rh, Pd, Ir, Pt) by first-principles calculations](http://arxiv.org/abs/2604.25626v1)
+
+**Authors:** Md Ashraful Alam, Md Abdul Hadi Shah, F. Parvin, S. H. Naqib
+
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.25626v1>
+
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.25626_figures/2604.25626_fig1.jpg" width="500"><br>
+
+<sub>Fig. 1. Crystal structure of Mg2TmH6 (Tm = Rh, Pd, Ir, Pt).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.25626_figures/2604.25626_fig2.jpg" width="500"><br>
+
+<sub>Fig. 2. Hydrogen energy storage capacity of Mg2TmH6 (Tm = Rh, Pd, Rr, Pt).</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.25626_figures/2604.25626_fig3.jpg" width="500"><br>
+
+<sub>Fig. 3. Phonon dispersion curve for Mg2TmH6 (Tm = Rh, Pd, Ir, Pt).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.25626_figures/2604.25626_fig4.jpg" width="500"><br>
+
+<sub>Fig. 4. (a) Elastic constants and (b) elastic moduli of Mg2TmH6.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.25626_figures/2604.25626_fig5.jpg" width="500"><br>
+
+<sub>Fig. 4 shows that all the studied compounds exceed the critical value of Poisson’s ratio and fall</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.25626_figures/2604.25626_fig6.jpg" width="500"><br>
+
+<sub>Fig. 5. Poisson’s ratio and Pugh’s ratio of Mg2TmH6.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.25626_figures/2604.25626_fig7.jpg" width="500"><br>
+
+<sub>Fig. 6. Anisotropy indices of Mg2TmH6.</sub>
 
 </details>
 
 <details><summary>📷 Fig 8</summary>
 
-<img src="2604.24847_figures/2604.24847_page9.jpg" width="500"><br>
+<img src="2604.25626_figures/2604.25626_fig8.jpg" width="500"><br>
 
-<sub>Low-resolution page preview, page 9</sub>
+<sub>Fig. 6 shows that Mg2IrH6 stands out with significantly higher shear anisotropy (Aᴳ) and universal</sub>
 
 </details>
 
 <details><summary>📷 Fig 9</summary>
 
-<img src="2604.24847_figures/2604.24847_page10.jpg" width="500"><br>
+<img src="2604.25626_figures/2604.25626_fig9.jpg" width="500"><br>
 
-<sub>Low-resolution page preview, page 10</sub>
+<sub>Fig. 9 shows that the shear modulus surface of Mg2RhH6 is relatively rounded with moderately</sub>
 
 </details>
 
 <details><summary>📷 Fig 10</summary>
 
-<img src="2604.24847_figures/2604.24847_page11.jpg" width="500"><br>
+<img src="2604.25626_figures/2604.25626_fig10.jpg" width="500"><br>
 
-<sub>Low-resolution page preview, page 11</sub>
+<sub>Fig. 7. 3D view of Young’s modulus for (a) Mg2RhH6, (b) Mg2PdH6,</sub>
 
 </details>
 
 **Main problem.**
-
-The classification of mobile Pauli stabilizer codes up to gapped interfaces and coarse-graining, and establishing the relationship between these lattice models and continuum framed TQFTs.
+The study investigates the structural, electronic, mechanical, thermodynamic, and optical properties of a specific family of transition metal hydrides (Mg2TmH6, where Tm = Rh, Pd, Ir, Pt) to evaluate their potential for hydrogen storage, superconductivity, and optoelectronic applications.
 
 **Main result.**
-
-The authors establish a bulk-boundary correspondence where the equivalence class of a Pauli stabilizer code is described by a Clifford QCA in one dimension higher, and identify qualitative distinctions between lattice and continuum theories regarding gapped boundaries.
+The hydrides are found to be thermodynamically, mechanically, and dynamically stable, with predicted superconducting transition temperatures between 25-44 K and significant potential for hydrogen storage and UV optoelectronics.
 
 **Method.**
-
-The study utilizes algebraic L-theory, surgery theory, and homological algebra within a categorical framework of perfect chain complexes and quadratic functors.
+First-principles calculations using Density Functional Theory (DFT) within the CASTEP code, employing the Generalized Gradient Approximation (GGA) and the plane-wave pseudopotential method.
 
 **Summary.**
-
-This paper provides a rigorous mathematical classification of Pauli stabilizer codes using the framework of algebraic L-theory. It establishes a fundamental link between lattice-based stabilizer codes and continuum-based topological quantum field theories (TQFTs). A key finding is a bulk-boundary correspondence relating stabilizer codes to Clifford Quantum Cellular Automata. The work also highlights how lattice theories can admit gapped boundaries in dimensions where continuum TQFTs cannot.
+This paper uses first-principles DFT calculations to comprehensively characterize a family of transition metal hydrides (Mg2RhH6, Mg2PdH6, Mg2IrH6, and Mg2PtH6). The researchers demonstrate that these materials are stable and possess multi-functional properties, including potential for high-temperature superconductivity, efficient hydrogen storage, and use in UV optoelectronics. The study specifically highlights the mechanical robustness and the interesting elastic anisotropy found in these compounds.
 
 <details><summary>Detailed structure</summary>
 
 **Model / system.**
-
-The system consists of Pauli stabilizer codes defined by commuting subgroups of the Pauli operator algebra on a spatial lattice Z^n, specifically focusing on translation-invariant, mobile excitations.
+A series of cubic transition metal hydrides with the formula Mg2TmH6 (Tm = Rh, Pd, Ir, Pt) belonging to the Fm-3m space group.
 
 **Key observables.**
-
-Topological charges (point-like, string-like, and membrane-like excitations) and their braiding relationships.
+Lattice parameters, cohesive energy, formation enthalpy, hydrogen storage capacity (gravimetric and volumetric), elastic constants, Young's modulus, Bulk modulus, shear modulus, superconducting transition temperature (Tc), and optical reflectivity/absorption.
 
 **Important parameters / regimes.**
-
-Lattice dimension n, Krull dimension of excitations (restricted to zero for mobile codes), and the prime p for qudit systems.
+Transition metal type (Tm), superconducting transition temperature (25-44 K), hydrogen storage capacity (2.42-3.84 wt%), and melting temperatures (up to 1577.51 K).
 
 **Assumptions / limitations.**
-
-The work assumes translation invariance and restricts the scope to 'mobile' stabilizer codes where excitations have Krull dimension zero.
+The superconducting transition temperature calculation assumes a linear dependence of the electron-phonon coupling constant on the density of states at the Fermi level and a constant electron-phonon interaction strength.
 
 **Figures summary.**
-
-Table 1 provides a structural analogy between Pauli stabilizer codes, TQFTs, and manifold theory, mapping physical concepts like mobile excitations to mathematical concepts like n-morphisms.
+Figure 1 shows the crystal structure; Figure 2 displays hydrogen storage capacities; Figure 3 shows phonon dispersion curves; Figures 7-10 present 3D elastic anisotropy surfaces; Figure 15 illustrates optical properties including absorption and conductivity.
 
 **Paper structure.**
-
-The paper introduces the algebraic framework for stabilizer codes, develops a classification using L-theory, establishes a bulk-boundary correspondence with Clifford QCAs, and concludes by comparing the results to the classification of framed TQFTs.
+The paper begins with structural and stability analysis, followed by mechanical and elastic property investigations, then moves to thermophysical and acoustic properties, and concludes with electronic, superconducting, and optical property characterizations.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-We classify mobile Pauli stabilizer codes up to gapped interfaces and coarse-graining using the framework of algebraic $\mathrm{L}$-theory. We compare this classification with that of framed TQFTs, theories that arise naturally in the continuum, highlighting a close structural relationship between the two. Our approach is formulated in the category of perfect chain complexes equipped with quadratic functor over the Laurent polynomial ring $R = \mathbb{Z}/p[x_1^{\pm 1}, \ldots, x_n^{\pm 1}]$, within which the collection of topological operators of Pauli stabilizer codes arise naturally as objects. In particular, we establish a bulk-boundary correspondence for lattice theories: the equivalence class of a Pauli stabilizer code up to gapped interface is described by a Clifford QCA in one dimension higher. This is done using the universal target category for stabilizer codes, which is the categorical spectrum whose existence and universal properties are introduced in this work. We conclude by highlighting subtle differences between the classification of Pauli stabilizer codes and TQFTs, leading to qualitative distinctions between lattice and continuum theories.
+In this work, a comprehensive first-principles investigation of the structural, hydrogen storage potential, electronic, elastic, mechanical, thermophysical, superconducting, and optical properties of Mg2TmH6 (Tm = Rh, Pd, Ir, Pt) hydrides is presented. Obtained results demonstrate that Mg2TmH6 hydrides combine favorable hydrogen storage, mechanical robustness, superconductivity, and multifunctional optical properties, making them promising candidates for energy storage, superconducting and advanced optoelectronic applications.
 
 </details>
 
 <sub>[↑ back to top](#top)</sub>
 
 
-<a id="paper-2604.25790"></a>
+<a id="paper-2604.25343"></a>
 
+### [Proximity Ferroelectricity Driven by Mobile High-Miller-Index Domain Walls](http://arxiv.org/abs/2604.25343v1)
 
-### [The mixed-dimensional quantum MacWilliams identity: bounds for codes and absolutely maximally entangled states in heterogeneous systems](http://arxiv.org/abs/2604.25790v1)
+**Authors:** Changming Ke, Shi Liu
 
-**Authors:** David González-Lociga, Simeon Ball
-
-**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.25790v1>
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.25343v1>
 
 **Analysis basis:** full PDF text, analyzed in chunks
 
-**Topic relevance:** `entanglement & information structure` **2/5**
-
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.25790_figures/2604.25790_fig1.jpg" width="500"><br>
+<img src="2604.25343_figures/2604.25343_fig1.jpg" width="500"><br>
 
-<sub>FIG. 1. Existence of mixed-dimensional AME states formed by qubits and qutrits based on the positivity of shadow multiset enumerators. Green squares represent potentially existing states, while red squares indicate states strictly forbidden by negative shadow enumerators. Blue squares are already existing states in homogeneous systems [21, 22]. The seven-qubit AME state was ruled out by [23], marked with a cross. Purple squares represent existing AME states in heterogeneous scenarios. The C2 ⊗C3 has the trivial AME 1 √</sub>
+<sub>FIG. 1. High-Miller-index domain walls enable switching in pristine AlN at low electric</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.25790_figures/2604.25790_fig2.jpg" width="500"><br>
+<img src="2604.25343_figures/2604.25343_fig2.jpg" width="500"><br>
 
-<sub>FIG. 2. Existence of mixed-dimensional AME states based on the positivity of shadow multiset enumerators for qutrits and ququarts. Green squares represent potentially existing states, while red squares indicate states strictly forbidden by negative shadow enumerators. Blue squares are already existing states in homogeneous systems [21, 22]. Purple squares represent existing AME states in heterogeneous scenarios given in Eqs. (A1) and (A2). The AME formed by a single qutrit and single ququart is trivial.</sub>
-
-</details>
-
-**Main problem.**
-
-The lack of a formal mathematical framework to characterize quantum error-correcting codes (QECC) and absolutely maximally entangled (AME) states in heterogeneous quantum architectures where local dimensions vary across subsystems.
-
-**Main result.**
-
-The derivation of a mixed-dimensional quantum MacWilliams identity and shadow identity, which allows for the formulation of generalized Hamming, Singleton, and Scott bounds, as well as a new tighter Singleton bound for pure codes.
-
-**Method.**
-
-The authors introduce a framework based on dimension multisets and multivariate weight enumerators, utilizing linear programming and a combinatorial grid method for state construction.
-
-**Summary.**
-
-This paper develops a new mathematical language to describe quantum error correction in heterogeneous systems, such as networks combining qubits and higher-dimensional qudits. By replacing standard scalar weights with dimension multisets, the authors establish a mixed-dimensional version of the MacWilliams identity. This allows them to derive new, tighter bounds on code parameters and identify specific configurations where absolutely maximally entangled states are physically impossible. The work provides a systematic way to evaluate the viability of complex, multi-dimensional quantum architectures.
-
-<details><summary>Detailed structure</summary>
-
-**Model / system.**
-
-Mixed-dimensional Hilbert spaces formed by the tensor product of subsystems with varying local dimensions (e.g., combinations of qubits, qutrits, and ququarts) representing heterogeneous quantum networks.
-
-**Key observables.**
-
-Shor-Laflamme enumerators, unitary weight enumerators, shadow weight enumerators, and dimensional minimum distance.
-
-**Important parameters / regimes.**
-
-Code dimension (K), dimensional minimum distance (D), dimension multisets, and the AME threshold (Delta).
-
-**Assumptions / limitations.**
-
-The framework assumes a 'nice error basis' closed under multiplication and that the operators used in the weight enumerators are Hermitian.
-
-**Figures summary.**
-
-Heatmaps showing the existence/non-existence landscape of AME states for varying qubit/qutrit/ququart configurations, and combinatorial grids used for state construction.
-
-**Paper structure.**
-
-The paper begins by introducing the dimension multiset framework, moves to the derivation of the mixed-dimensional MacWilliams and shadow identities, establishes generalized bounds (Hamming, Singleton, Scott) and a feasibility linear program, and concludes with the analysis and construction of AME states.
-
-</details>
-
-<details><summary>Abstract</summary>
-
-As emerging quantum architectures evolve into heterogeneous networks combining different physical substrates, such as qubits for logic and higher-dimensional qudits for robust communication, the traditional scalar metrics of quantum error correction become insufficient. To address this, we introduce a mathematical framework based on dimension multisets to characterize quantum error-correcting codes (QECC) and absolutely maximally entangled (AME) states in mixed-dimensional Hilbert spaces. By replacing scalar weights with multisets, we accurately capture the exact physical composition of error supports across these diverse systems. Our central result is the mixed-dimensional quantum MacWilliams identity, which establishes the formal algebraic relationship between Shor-Laflamme enumerators and unitary weight enumerators. From this foundation, we deduce the mixed-dimensional shadow identity and derive rigorous, generalized constraints on code parameters, explicitly formulating the mixed-dimensional quantum Hamming, Singleton and Scott bounds, and developing a linear program to systematically evaluate code viability. For the Singleton bound, a tighter bound that has no homogeneous analogue is derived for pure mixed-dimensional codes. Finally, we deploy this enumerator machinery to thoroughly analyze AME states, utilizing shadow inequalities to constrain their existence and introducing a combinatorial grid method for the explicit construction of mixed-dimensional tripartite AME states.
-
-</details>
-
-<sub>[↑ back to top](#top)</sub>
-
-
-<a id="paper-2604.25115"></a>
-
-
-### [Tunable thermal conductivity through dual spin-phonon coupling in van der Waals ferromagnetic insulator Cr2Ge2Te6](http://arxiv.org/abs/2604.25115v1)
-
-**Authors:** Zhongbin Wang, Wenlong Tang, Simin Pang, Hongxing Zhu, Renkang Fan, Baohai Jia, Junxue Li, Ben Xu, Jun Zhang, Lin Xie, Jiaqing He
-
-**Type:** experiment · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.25115v1>
-
-**Analysis basis:** full PDF text, analyzed in chunks
-
-**Topic relevance:** `spintronics-quantum-optics interface` **2/5**
-
-<details open><summary>📷 Fig 1</summary>
-
-<img src="2604.25115_figures/2604.25115_fig1.jpg" width="500"><br>
-
-<sub>Fig. 1: Magnetothermal transport in the dual magnon-phonon coupling regime of Cr2Ge2Te6 (CGT).</sub>
-
-</details>
-
-<details><summary>📷 Fig 2</summary>
-
-<img src="2604.25115_figures/2604.25115_fig2.jpg" width="500"><br>
-
-<sub>Fig.2: High-field resonance dip originating from magnon-phonon hybridization.</sub>
+<sub>FIG. 2. Dual role of Sc doping in domain nucleation and DW motion. (a) Domain</sub>
 
 </details>
 
 <details><summary>📷 Fig 3</summary>
 
-<img src="2604.25115_figures/2604.25115_fig3.jpg" width="500"><br>
+<img src="2604.25343_figures/2604.25343_fig3.jpg" width="500"><br>
 
-<sub>Fig. 3: Low-field anisotropic magnetothermal conductivity originating from magnetic anisotropy</sub>
+<sub>FIG. 3. Proximity ferroelectricity in AlN/Al0.6Sc0.4N originates from the injection</sub>
 
 </details>
 
 <details><summary>📷 Fig 4</summary>
 
-<img src="2604.25115_figures/2604.25115_fig4.jpg" width="500"><br>
+<img src="2604.25343_figures/2604.25343_fig4.jpg" width="500"><br>
 
-<sub>Fig. 4: Magnetothermal transport phase diagram Δκ(H, θ) at low temperatures.</sub>
+<sub>FIG. 4. Mobile high-index DWs in polar wurtzites. (a) DFT-calculated DW energies and</sub>
 
 </details>
 
 **Main problem.**
-
-The difficulty of actively manipulating phonon transport due to the charge-neutral nature of heat carriers and the lack of a unified framework for controlling them via spin-phonon coupling.
+Explaining the 'proximity ferroelectricity' puzzle, where undoped AlN layers undergo polarization reversal when in contact with ferroelectric AlScN layers.
 
 **Main result.**
-
-Discovery of two distinct magnetic-field-tunable regimes in thermal conductivity: a high-field regime driven by isotropic magnon-phonon hybridization (magnon polarons) and a low-field regime driven by anisotropic magnon gap softening.
+The study identifies high-Miller-index domain walls as the driving mechanism, which are nucleated by Sc dopants in AlScN and then propagate rapidly through undoped AlN due to reduced pinning.
 
 **Method.**
-
-Integration of four-probe longitudinal thermal conductivity measurements with Brillouin light scattering (BLS) and ferromagnetic resonance (FMR) spectroscopy.
+The researchers used first-principles DFT calculations, Ab initio Molecular Dynamics (AIMD), and large-scale Machine-Learning Molecular Dynamics (MLMD) using the Deep Potential model.
 
 **Summary.**
-
-This paper demonstrates a method to control heat transport in a 2D magnetic insulator using magnetic fields. The researchers identified two different ways that spin-phonon coupling affects thermal conductivity: one at high fields through the creation of hybrid magnon-phonon particles, and another at low fields through the rotation of magnetization. This work provides a framework for using magnetic field magnitude and direction as 'knobs' to engineer phonon transport in van der Waals materials.
+This paper resolves the mystery of how undoped AlN can switch polarization when placed next to ferroelectric AlScN. The authors show that high-index domain walls, which are stabilized by Scandium, act as seeds that move easily into the undoped layers. This 'divide-and-conquer' mechanism allows for low-field switching across thick undoped layers. The findings suggest that controlling high-index interfaces is a powerful way to engineer ferroelectric properties in nitride-based electronics.
 
 <details><summary>Detailed structure</summary>
 
 **Model / system.**
-
-The physical system is Cr2Ge2Te6 (CGT), a two-dimensional van der Waals ferromagnetic insulator with strong magnetocrystalline anisotropy.
+The physical system consists of wurtzite-structure heterostructures, specifically AlN/AlScN multilayers, as well as comparisons to GaN and ZnO.
 
 **Key observables.**
-
-Thermal conductivity (kappa), relative change in thermal conductivity (delta-kappa/kappa0), magnon frequency, and magnetic anisotropy gap.
+Domain wall formation energy (E_DW), migration barriers (delta U), switching fields (E_DW^s), and Avrami exponents (n).
 
 **Important parameters / regimes.**
-
-Magnetic field magnitude (H), field orientation (theta), temperature (T), and the saturation field (Hs).
+Scandium (Sc) concentration, electric field strength (ranging from low-field to 15 MV/cm), and Miller indices of domain walls.
 
 **Assumptions / limitations.**
-
-The study assumes the validity of the magnon polaron model for high-field resonance and uses an empirical exponential function to approximate the monotonic background of thermal conductivity.
+The study assumes the validity of the Deep Potential model for large-scale atomistic simulations and focuses on the kinetic aspects of domain wall motion.
 
 **Figures summary.**
-
-Fig 1: Measurement setup and temperature/field dependence of kappa showing ballistic, AMTC, and MPH regimes. Fig 2: Evidence of high-field resonance dips and calculated magnon-phonon dispersion relations. Fig 3: Low-field AMTC analysis including angular dependence and BLS spectra. Fig 4: Magnetothermal transport phase diagram and thermal quenching of SPC features.
+Fig 1 shows the AlN unit cell, the correlation between domain wall energy and migration barriers, and a schematic of the domain wall motion mechanics.
 
 **Paper structure.**
-
-The paper introduces the challenge of phonon manipulation, presents experimental thermal transport data, identifies two anomalous magnetic field regimes, uses spectroscopic techniques (BLS/FMR) to reveal the microscopic origins (magnon-phonon hybridization and gap softening), and concludes with a phase diagram and implications for phonon engineering.
+The paper introduces the proximity ferroelectricity puzzle, presents the discovery of mobile high-index walls via DFT and MLMD, details the dual role of Sc dopants in nucleation and pinning, and concludes with the 'divide-and-conquer' mechanism in heterostructures.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-The active manipulation of phonon transport remains a central challenge in phononics and spin caloritronics due to the charge-neutral nature of heat carriers. Spin-phonon coupling (SPC) offers a promising route for the dynamic control of heat carriers, yet its progress has been limited due to the lack of a unified framework and suitable material platforms. Here, we report on the magnetic field-tunable phonon transport behavior in the ferromagnetic insulator Cr2Ge2Te6. We observed two distinct anomalous regimes at both the high and low fields that were governed by isotropic magnon-phonon hybridization and an anisotropic magnon softening process, respectively. By integrating detailed transport behavior with Brillouin light scattering and ferromagnetic resonance, we uncovered the microscopic origins of these anomalous regimes and demonstrated that both the field magnitude and orientation could act as versatile tuning knobs to manipulate the thermal conductivity. Our findings provide experimental evidence of the SPC effect on phonon transport, demonstrating the dual impact of SPC within a unified system. This work will not only broaden the fundamental understanding of quasiparticle interactions but also establish a viable framework for dynamic phonon engineering. Furthermore, the characteristics of this system highlight the potential for achieving field-tunable phonon transport in similar platforms such as two-dimensional (2D) magnetic materials.
+Wurtzite ferroelectrics such as scandium-doped aluminum nitride (AlScN) are promising for next-generation memory because of their compatibility with semiconductor processes and strong spontaneous polarization. Ferroelectric switching in these materials is typically attributed to doping-induced softening of the bulk switching barrier. However, recent reports of proximity ferroelectricity, in which undoped AlN layers up to 500 nm thick fully switch in AlN/AlScN multilayers, challenge this view. Here, we reveal an alternative switching mechanism mediated by high-Miller-index domain walls, long overlooked due to their complex geometry and presumed instability. Using first-principles calculations and machine-learning molecular dynamics simulations, we show that these walls, once nucleated, migrate with exceptionally low barriers. The Sc dopants play a dual role: they stabilize high-index walls and thereby promote nucleation, while also introducing pinning that hinders wall motion. In multilayers, our simulations demonstrate that mobile domain walls nucleated in AlScN can propagate deep into adjacent AlN, where they move easily without dopant pinning, enabling low-field switching across thick undoped layers. This microscopic divide-and-conquer mechanism resolves the puzzle of proximity ferroelectricity and highlights high-index interfaces as an underexplored lever for controlling ferroelectric switching.
 
 </details>
 
 <sub>[↑ back to top](#top)</sub>
 
 
-<a id="paper-2604.25436"></a>
+<a id="paper-2604.25287"></a>
 
+### [Reversible Modulation of Thermal Conductivity in GaN via Strain-Driven Reorganization of Dislocation Ensembles](http://arxiv.org/abs/2604.25287v1)
 
-### [Highly fluctuating double-$q$ magnetic order in the van der Waals metal CeTe$_3$](http://arxiv.org/abs/2604.25436v1)
+**Authors:** Shantal Adajian, Fanghao Zhang, Zeyu Xiang, Tanay Tak, Miguel Zepeda-Rosales, Nikhil Tulshibagwale, Kirk Fields, Bolin Liao
 
-**Authors:** Ryutaro Okuma, Yuita Fujisawa, Natsumi Maekawa, Akiko Nakao, Yoshihisa Ishikawa, Riki Kobayashi, Yoshinori Okada, Daichi Ueta
-
-**Type:** both · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.25436v1>
+**Type:** both · **Category:** disordered systems and neural networks · **PDF:** <https://arxiv.org/pdf/2604.25287v1>
 
 **Analysis basis:** full PDF text, analyzed in chunks
 
-**Topic relevance:** `Kondo & dissipative impurity` **1/5**
-
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.25436_figures/2604.25436_fig1.jpg" width="500"><br>
+<img src="2604.25287_figures/2604.25287_fig1.jpg" width="500"><br>
 
-<sub>FIG. 1. vdW antiferromagnet CeTe3. (a) Crystal structure, where blue and gold spheres represent Ce and Te atoms, re- spectively. The conducting Te0.5−square nets are stacked along the b axis via vdW coupling and interact with the mag- netic [CeTe]+ layers through Kondo coupling. Crystal struc- ture is drawn by VESTA [17]. (b) Quasi-two-dimensional Fermi surface of CeTe3. The nearly tetragonal slab symme- try gives rise to characteristic nesting vectors along the a∗</sub>
+<sub>Figure 1: In-situ strain-dependent thermal conductivity measurements in c-plane</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.25436_figures/2604.25436_fig2.jpg" width="500"><br>
+<img src="2604.25287_figures/2604.25287_fig2.jpg" width="500"><br>
 
-<sub>FIG. 2. Magnetic order in CeTe3 detected by neutron diffrac- tion. (a) Diffraction patterns in the h5l plane at 0.3 K (left) and 5 K (right). Crossings of the dashed lines indicate the magnetic Bragg peak positions. (b) Diffraction patterns in the h6l plane at 0.3 K (left) and 5 K (right). (c) Tempera- ture dependence of the integrated intensity at (−1, 7, 0)−q+. The transparent red line is a guide to the eye.</sub>
+<sub>Figure 2: Cathodoluminescence (CL) and High-resolution x-ray diffraction char-</sub>
 
 </details>
 
 <details><summary>📷 Fig 3</summary>
 
-<img src="2604.25436_figures/2604.25436_fig3.jpg" width="500"><br>
+<img src="2604.25287_figures/2604.25287_fig3.jpg" width="500"><br>
 
-<sub>FIG. 3. (a,b) Conductance maps near the Fermi level (E −EF = +14 mV) measured (a) above TN1 and (b) below TN2. The set point is -60 mV/200 pA. (c) Schematic of the double-q spin-density-wave (SDW) structure consistent with the neutron and STM experiments, drawn by SpinW[49]. The magnetic moment of the Ce1 site, as defined in Table III, is indicated. (d,e) Corresponding Fourier transform images obtained from (a) and (b), respectively. (f)Charge modulations below TN2 that can be explained by the double-q magnetic structure and CDW order (filled symbols). Experimentally negligible peaks are shown by open symbols. See the main text for the details. Panels (a,b,d,e) are adapted from Ref.[29].</sub>
+<sub>Figure 3: Strain-dependent Raman spectroscopy of c-plane GaN. (a) The two</sub>
 
 </details>
 
 **Main problem.**
-
-The study aims to determine the microscopic magnetic structure of the van der Waals metal CeTe3 and understand the interplay between magnetism, c-f hybridization, and charge-density-wave (CDW) instabilities.
+Investigating whether the thermal transport in GaN can be dynamically and reversibly controlled by using elastic strain to reorganize dislocation ensembles.
 
 **Main result.**
-
-The researchers identified a double-q magnetic order with moments predominantly aligned along the c-axis, where the reduced magnetic moment indicates strong quantum fluctuations driven by c-f hybridization.
+A 23% enhancement in thermal conductivity was observed under only 0.21% uniaxial tensile strain, driven by the strain-induced screening and ordering of dislocation strain fields.
 
 **Method.**
-
-The study combines single-crystal neutron diffraction down to 0.3 K with scanning tunneling microscopy (STM) to analyze magnetic Bragg peaks and real-space charge modulations.
+The study combines in situ time-domain thermoreflectance (TDTR), high-resolution x-ray diffraction (HRXRD), Raman spectroscopy, and cathodoluminescence imaging with DFT and phonon Boltzmann transport simulations.
 
 **Summary.**
-
-This paper investigates the magnetic ground state of the van der Waals metal CeTe3. Using neutron diffraction and STM, the authors reveal a double-q magnetic order with significantly reduced moments due to quantum fluctuations. They demonstrate that the magnetic structure is intimately linked to the material's itinerant charge degrees of freedom and residual CDW instabilities. This work provides key insights into how magnetism and conduction electrons interact in low-dimensional van der Waals materials.
+This paper demonstrates that the thermal conductivity of GaN can be reversibly increased by 23% through the application of very small amounts of elastic strain. Instead of reducing the number of defects, the strain causes existing dislocations to reorganize into more ordered, screened configurations that scatter phonons less effectively. This work introduces dislocation correlations as a new, tunable degree of freedom for controlling heat transport in crystalline solids.
 
 <details><summary>Detailed structure</summary>
 
 **Model / system.**
-
-The system is CeTe3, a van der Waals antiferromagnet consisting of magnetic [CeTe]+ layers coupled to highly conducting Te0.5- square nets, characterized by a quasi-two-dimensional electronic structure.
+The physical system is c-plane Gallium Nitride (GaN) thin films containing threading dislocation ensembles, manipulated via a uniaxial strain platform using piezoelectric stacks.
 
 **Key observables.**
-
-Magnetic propagation vectors (q_plus and q_minus), magnetic Bragg peaks, ordered magnetic moment, and charge density modulations (FFT peaks).
+Thermal conductivity, dislocation density, dislocation correlation range, XRD diffuse scattering power law, and Raman phonon linewidth.
 
 **Important parameters / regimes.**
-
-Magnetic transition temperatures (TN1 approx 3 K, TN2 approx 1.3 K), propagation vectors q_plus = (0.17, 0, 0.31), and the reduced magnetic moment of approx 0.32 mu_B.
+Uniaxial tensile strain (up to 0.21%), dislocation density (10^7-10^10 cm^-2), and a strain threshold of ~0.1%.
 
 **Assumptions / limitations.**
-
-The magnetic structure refinement was performed using an undistorted Cmcm structure without explicitly including the CDW modulation.
+Dislocation-related phonon scattering is approximated via the Carruthers expression, and the measured thermal response is assumed to reflect bulk transport rather than surface effects.
 
 **Figures summary.**
-
-Fig 1 shows the crystal structure, Fermi surface, and neutron diffraction patterns; Fig 2 shows magnetic structure refinement and satellite peaks; Fig 3 presents STM conductance maps and the schematic of the double-q spin-density-wave structure.
+Figure 1 shows the experimental setup and the increase in thermal conductivity with strain; Figure 2 shows CL maps of dislocations before and after strain cycling; Supplemental figures show XRD rocking curves, Raman spectra, and FEM strain simulations.
 
 **Paper structure.**
-
-The paper introduces the CeTe3 system, presents neutron diffraction data to identify magnetic propagation vectors, uses STM to confirm the double-q nature via charge modulation, and discusses the physical implications of c-f hybridization and CDW coupling.
+The paper introduces the problem of static defects, presents the experimental strain platform, details the thermal and structural measurements (TDTR, XRD, Raman), provides computational validation (DFT, BTE), and concludes with the mechanism of dislocation reorganization.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-CeTe$_3$ is a van der Waals antiferromagnet composed of magnetic [CeTe]$^+$ layers coupled to highly conducting Te$^{0.5-}$ square nets. Its simple quasi-two-dimensional electronic structure and cleavable nature make it an appealing platform for exploring correlated magnetism in reduced dimensions. To clarify the nature of its low-temperature state, we performed single-crystal neutron diffraction down to 0.3 K, complemented by scanning tunneling microscopy. A magnetic transition near 1.5 K gives rise to incommensurate Bragg peaks at $q_{\pm}\sim(\pm0.17,0,0.31)$, consistent with a double-$q$ magnetic order whose moments are predominantly aligned along the $c$ axis. The strongly reduced ordered moment is consistent with enhanced quantum fluctuations driven by $c$-$f$ hybridization, while the deviation of the propagation vectors from simple nesting suggests a coupling to residual charge-density-wave instabilities of the quasi-one-dimensional Te-derived bands. These results indicate that CeTe$_3$ hosts a correlated magnetic ground state where spin and itinerant charge degrees of freedom are intimately linked in the van der Waals limit.
+Crystalline defects are generally regarded as static phonon scatterers that irreversibly suppress thermal transport. Here we show that elastic strain can dynamically and reversibly reorganize dislocation ensembles and strongly modify heat conduction. Using in situ strain-dependent time-domain thermoreflectance measurements, we observe a reversible enhancement of thermal conductivity in GaN by 23% under only 0.21% uniaxial strain. High-resolution x-ray diffraction reveals progressive narrowing of the symmetric (0002) reflection together with a crossover of the diffuse scattering tails from a $q^{-3}$ to a $q^{-2}$ power law, indicating a strain-induced change in the statistical correlations of threading dislocations. Raman spectroscopy further shows a non-monotonic evolution of the $E_{2}^{\mathrm{high}}$ phonon linewidth, with a minimum near the same threshold strain at which thermal conductivity sharply increases. These results support a picture in which elastic strain promotes reversible screening and ordering of long-range dislocation strain fields, thereby reducing phonon scattering. Our work establishes defect correlations as a tunable degree of freedom for controlling thermal transport in crystalline solids.
 
 </details>
 
 <sub>[↑ back to top](#top)</sub>
 
 
-<a id="paper-2604.25861"></a>
+<a id="paper-2604.25658"></a>
 
+### [Spin-Axis-Layer Locking for Intrinsic Bipolar Altermagnetic Semiconductors: Proof-of-Concept in Bilayer CuBr2](http://arxiv.org/abs/2604.25658v1)
 
-### [Minimum Toffoli depth for the multi-controlled Toffoli gate via teleportation](http://arxiv.org/abs/2604.25861v1)
+**Authors:** Wei Ma, Dengpan Ma, Zhiheng Lv, Zhifeng Liu
 
-**Authors:** Spyros Tserkis, Muhammad Umer, Eleftherios Mastorakis, Dimitris G. Angelakis
-
-**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.25861v1>
+**Type:** theory · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.25658v1>
 
 **Analysis basis:** full PDF text, analyzed in chunks
 
-**Topic relevance:** `quantum measurements` **1/5**
-
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.25861_figures/2604.25861_fig1.jpg" width="500"><br>
+<img src="2604.25658_figures/2604.25658_fig1.jpg" width="500"><br>
 
-<sub>FIG. 1. Quantum circuit representation of an (n+1)-qubit MCT gate.</sub>
+<sub>Fig. 1. Schematic illustration of the SALL model for intrinsic BAMSs. (a) Schematic of the lattice model comprising two perpendicularly stacked quasi-1D FM monolayers (UL: upper layer; BL: bottom layer). (b) Spin- and layer-resolved band structure and (c) the corresponding DOS. Orthogonal Fermi-surface contours for the conduction (d) and valence (g) bands. Schematics of the SALL effect for (e) electron- and (h) hole-doped regimes. Energy-dependent conductivities and spin polarization (η) for electrons (f) and holes (i).</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.25861_figures/2604.25861_fig2.jpg" width="500"><br>
+<img src="2604.25658_figures/2604.25658_fig2.jpg" width="500"><br>
 
-<sub>FIG. 2. In panels (a)-(c) we plot the Toffoli depth, the Toffoli count, and the ancilla count, respectively, against the number of control qubits in an MCT gate decomposition. The color code is the same for all three panels. With blue we have the corresponding values for the decomposition by Khattar and Gidney [17]. With orange the corresponding values for the protocol derived by Dutta et al. [18] that uses one ancilla qubit and with green the corresponding protocol by the same authors that uses two ancilla qubits. With red we have the corresponding values for the teleportation-based protocol proposed in this work. With purple there is a trend appearing only on panel (a) corresponding to...</sub>
+<sub>Fig. 2. Characterization of the quasi-1D FM CuBr2 monolayer building block. (a) Crystal structure and (b) simulated STM image. (c) Spin-resolved band structure, with the inset illustrating the ideal BMS nature. The shaded regions highlight the broad energy windows that host open 1D Fermi surfaces. (d) Atom-resolved wave-function weights for the topmost valence (V, solid lines) and bottommost conduction (C, dashed lines) bands. 2D Fermi surface contours for the (e) valence and (g) conduction bands. Calculated energy-dependent conductivities (σxx, σyy) and the directional polarization ratio (δ) for the (f) hole- and (h) electron-doped regimes. The corresponding shaded areas in (f) and (h)...</sub>
 
 </details>
 
 <details><summary>📷 Fig 3</summary>
 
-<img src="2604.25861_figures/2604.25861_fig3.jpg" width="500"><br>
+<img src="2604.25658_figures/2604.25658_fig3.jpg" width="500"><br>
 
-<sub>Fig. 2(c) we compare the additional qubits, also known as ancilla qubits, required for each implementation. A detailed analysis of how our proposed decomposition compares with the rest is deferred to section V.</sub>
+<sub>Fig. 3. Altermagnetic state and intrinsic SALL effect in the cross-stacked CuBr2 bilayer. (a) Top and (b) perspective views of the 90°-rotated bilayer structure. (c) Spin-resolved band structure with d-wave spin splitting (inset). (d) Spin- and layer-projected DOS. 3D “tent-like” band dispersions for the (e) valence and (f) conduction bands. 2D orthogonal intersecting Fermi surface contours for the (g) hole- and (h) electron-doped regimes. (i) Calculated energy-dependent, spin- and layer-resolved conductivities alongside the directional polarization ratio (δ) for electrons (top panel) and holes (bottom panel).</sub>
 
 </details>
 
 <details><summary>📷 Fig 4</summary>
 
-<img src="2604.25861_figures/2604.25861_fig4.jpg" width="500"><br>
+<img src="2604.25658_figures/2604.25658_fig4.jpg" width="500"><br>
 
-<sub>FIG. 4. An MCT5 gate as a unitary operation (left) and through a teleportation-based decomposition (right).</sub>
+<sub>Fig. 4. Macroscopic anisotropic transport and optimal pure spin current generation. Angular dependence of the calculated transport properties for the electron-doped regime (E−EF = 0.65 eV). (a) Longitudinal (σx'x') and transverse (σy'y') conductivities for the spin-up (top panel) and spin-down (bottom panel) channels as a function of the electric field angle θ. (b) Tunable longitudinal spin polarization (η) driven by the in- plane electric field angle. (c) The charge-to-spin conversion efficiency (effective spin Hall angle, θSH), reaching a theoretical maximum of 1.0 at θ = π/4 and 3π/4.</sub>
+
+</details>
+
+**Main problem.**
+The challenge is to achieve efficient, all-electrical control of spin and magnetic degrees of freedom in spintronics without relying on external strain, valley polarization, or external magnetic fields.
+
+**Main result.**
+The authors propose a Spin-Axis-Layer Locking (SALL) paradigm in a twisted bilayer of CuBr2 that enables 100% spin polarization and near-unity charge-to-spin conversion efficiency via electrostatic gating.
+
+**Method.**
+The study uses first-principles DFT calculations to identify the material properties and a tight-binding Hamiltonian model to simulate transport and symmetry properties.
+
+**Summary.**
+This paper introduces a new way to control spin in a material called an altermagnetic semiconductor. By twisting two layers of CuBr2 by 90 degrees, the researchers created a state where the spin of an electron is tied to both the specific layer it is in and the direction it is moving. This 'locking' allows for highly efficient electrical switching of spin currents using only a gate voltage, potentially leading to much lower-power spintronic devices.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.**
+A bilayer system formed by vertically stacking two quasi-1D ferromagnetic CuBr2 monolayers with a 90-degree twist, creating an A-type altermagnetic state.
+
+**Key observables.**
+Spin polarization (eta), conductivity (longitudinal and transverse), directional polarization ratio (delta), and effective spin Hall angle (theta_SH).
+
+**Important parameters / regimes.**
+Curie temperature (Tc approx 38.6 K), exchange splitting (Delta_V = 3.45 eV, Delta_C = 0.58 eV), and electron-doped vs. hole-doped regimes.
+
+**Assumptions / limitations.**
+The layers are assumed to be decoupled due to a large van der Waals gap, and the transport is modeled using a minimal tight-binding Hamiltonian.
+
+**Figures summary.**
+Figure 4 shows the angular dependence of conductivities, the tunability of longitudinal spin polarization with electric field angle, and the charge-to-spin conversion efficiency.
+
+**Paper structure.**
+The paper introduces the limitations of existing BAMS systems, proposes the SALL paradigm using a 90-degree twisted CuBr2 bilayer, demonstrates the symmetry and electronic structure via DFT, and analyzes transport properties and switching capabilities via tight-binding modeling.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Electrical control of spin and magnetic sublattice degrees of freedom is essential for multifunctional and low-power spintronic devices. Bipolar altermagnetic semiconductors (BAMSs)-characterized by opposite spin polarizations at the valence and conduction band edges-offer such control, yet known systems require external strain and sizable valley polarization for gate-tunable switching. Here, we propose a universal spin-axis-layer locking (SALL) paradigm to overcome these limitations. By stacking two quasi-1D ferromagnetic monolayers with a 90 degrees twist, the bilayer reconstructs altermagnetic symmetry, yielding an intrinsic BAMS state where carrier spin is locked to specific layers and transport directions. Using synthesized CuBr2 monolayers as proof-of-concept, we demonstrate via first-principles calculations a robust BAMS state. Electrostatic gating enables simultaneous, reversible switching of carrier type, spin, and active layer, generating fully spin-polarized axial charge currents and directionally controllable pure spin currents with near-unity charge-to-spin conversion efficiency. This SALL model establishes a versatile, strain-independent strategy for advanced all-electrical altermagnetic devices.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.25908"></a>
+
+### [Structure Prediction and Bonding Analysis of B$_{18}$Ag$_2$ Clusters Featuring Double-Ring Motifs](http://arxiv.org/abs/2604.25908v1)
+
+**Authors:** Peter Ludwig Rodríguez-Kessler
+
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.25908v1>
+
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.25908_figures/2604.25908_fig1.jpg" width="500"><br>
+
+<sub>FIG. 1. Lowest energy structures for B18Ag2 cluster at PBE0/def2-TZVP.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.25908_figures/2604.25908_fig2.jpg" width="500"><br>
+
+<sub>FIG. 2. IR and UV-VIS spectra of B18Ag2 cluster.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.25908_figures/2604.25908_fig3.jpg" width="500"><br>
+
+<sub>FIG. 3. Reduced density gradient (RDG) isosurface for the B18Ag2 cluster (isovalue s=0.5).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.25908_figures/2604.25908_fig4.jpg" width="500"><br>
+
+<sub>FIG. 4. Molecular electrostatic potential (MEP) mapped onto the electron density isosurface (ρ = 0.01 a.u.) for the B18Ag2 cluster.</sub>
+
+</details>
+
+**Main problem.**
+The study investigates the structural stability, electronic structure, and bonding characteristics of silver-doped boron clusters, specifically B18Ag2.
+
+**Main result.**
+The global minimum is identified as a bent double-ring structure of two stacked B9 rings stabilized by Ag atoms, featuring aromatic-like sigma-delocalization and weak Ag-B electrostatic interactions.
+
+**Method.**
+Density Functional Theory (DFT) using ORCA 6.0.0 with PBE0 and omegaB97X-D3 functionals, combined with basin-hopping global optimization and real-space bonding analyses (ELF, RDG, MEP).
+
+**Summary.**
+This paper explores how silver doping stabilizes boron nanostructures by forming a bent double-ring motif. Using DFT and global optimization, the authors show that the stability is driven by electron delocalization within the boron framework. The silver atoms act as axial stabilizers through weak electrostatic interactions. The study provides insights into the electronic and optical properties of metal-doped boron clusters, which could be relevant for designing new nanostructures.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.**
+The physical system is the B18Ag2 cluster, a silver-doped boron nanostructure consisting of two stacked B9 rings with Ag atoms positioned axially.
+
+**Key observables.**
+UV-Vis absorption spectrum, IR vibrational spectrum, electron localization function (ELF), reduced density gradient (RDG), and molecular electrostatic potential (MEP).
+
+**Important parameters / regimes.**
+Relative energies of isomers (eV), vibrational frequencies (cm-1), and electronic transition energies (eV).
+
+**Assumptions / limitations.**
+The study focuses on the B18M2 size regime and does not explore the interaction of Ag with larger boron clusters or other metal compositions.
+
+**Figures summary.**
+Figure 1 shows the lowest energy isomers; Figure 2 displays calculated IR and UV-Vis spectra; Figure 3 presents the RDG isosurface for multicenter bonding; Figure 4 shows the MEP mapped onto the electron density.
+
+**Paper structure.**
+The paper follows a logical progression from structural optimization and isomer energy comparison to detailed electronic, optical, and vibrational analysis, concluding with a discussion on the role of coinage-metal doping.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The structural stability, electronic structure, and bonding characteristics of the silver-doped boron cluster B18Ag2 were investigated using density functional theory (DFT) combined with global optimization techniques. Basin-hopping searches identify a bent double-ring structure as the global minimum, consisting of two stacked B9 rings symmetrically stabilized by Ag atoms located above and below the boron framework. The UV-Vis absorption spectrum exhibits weak transitions in the near-infrared region and intense bands in the visible and near-ultraviolet regions, reflecting delocalized electronic excitations within the boron framework. Charge analysis indicates moderate electron redistribution from Ag atoms to the boron scaffold. Real-space bonding analyses based on the electron localization function (ELF), reduced density gradient (RDG), and molecular electrostatic potential (MEP) reveal that bonding is dominated by {$σ$}-delocalization over the boron skeleton, while Ag-B interactions are weak, non-directional, and primarily electrostatic. The continuous annular electron delocalization within the double-ring structure suggests an aromatic-like character. These findings establish B18Ag2 as a silver-stabilized boron double-ring cluster in which global electron delocalization governs structural stability, while Ag atoms act as axial stabilizing centers that modulate the electronic structure. This work provides new insight into the role of coinage-metal doping in stabilizing extended boron nanostructures.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.25621"></a>
+
+### [Substitutional platinum as an efficient nonradiative recombination center in silicon](http://arxiv.org/abs/2604.25621v1)
+
+**Authors:** Zhenxing Dai, Menglin Huang, Xin-Gao Gong, Shiyou Chen
+
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.25621v1>
+
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.25621_figures/2604.25621_fig1.jpg" width="500"><br>
+
+<sub>FIG. 1. Equilibrium atomic structures of the platinum substitutional defect in the (a) double-positive, (b) single-positive, (c) neutral, and (d) single-negative charge states. Platinum atom is shown in orange and silicon atoms are in blue, with each unique Si-Pt bond length labeled. The corresponding electron energy level diagrams at the Γ point with character symmetry labels are shown in the bottom panel.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.25621_figures/2604.25621_fig2.jpg" width="500"><br>
+
+<sub>FIG. 2. (a) Calculated formation energies of the PtSi defect as a function of the Fermi level (EF). Solid lines represent the ground- state configuration for each charge state (T 2+ d , C+ 2v, D0 2d, and C− 2v), while dashed lines denote higher-energy metastable configurations. The vertical dashed arrows mark the thermodynamic transition lev- els. (b) Comparison between the calculated transition levels (this work) and experimental values1,8,12,16,17,19,23,25. All energies are referenced to the VBM or CBM as indicated.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.25621_figures/2604.25621_fig3.jpg" width="500"><br>
+
+<sub>FIG. 3. (a) CC diagram for hole capture (Pt− Si + h+ →Pt0 Si) to the D2d neutral state. (b) Calculated σpA as a function of tempera- ture, showing the average value (solid line) and contributions from three degenerate VBM states (dotted lines) compared with exper- imental data1,17,20,25 (stars). (c) CC diagram for electron capture (Pt0 Si + e−→Pt− Si) from the D∗ 2d neutral state. (d) Calculated σnA compared with experimental data1,8,12,17,23,25. Solid and dotted lines show the average and individual contributions from six CBM states.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.25621_figures/2604.25621_fig4.jpg" width="500"><br>
+
+<sub>FIG. 4. (a) CC diagram for electron capture (Pt+ Si +e−→Pt0 Si) to the D2d neutral state. (b) Calculated σnD as a function of temperature, showing the average value (solid line) and contributions from six degenerate CBM states (dotted lines) compared with experimental data1,17,20 (stars). (c) CC diagram for hole capture (Pt0 Si +h+ →Pt+ Si) from the D∗ 2d neutral state. (d) Calculated σpD compared with ex- perimental data1,8,12,17,23,25 (stars). Solid and dotted lines show the average and individual contributions from three VBM states.</sub>
+
+</details>
+
+**Main problem.**
+The study aims to resolve the debate regarding the microscopic nonradiative recombination mechanism of substitutional platinum (PtSi) in silicon and determine if its donor and acceptor levels are the primary recombination-controlling states.
+
+**Main result.**
+The researchers found that both donor and acceptor levels of PtSi exhibit large capture cross sections, making it an effective recombination center, and that accounting for symmetry-equivalent Jahn-Teller configurations is crucial for matching experimental values.
+
+**Method.**
+First-principles calculations using Density Functional Theory (DFT) with the HSE hybrid functional and VASP, combined with nonradiative multiphonon theory and the Climbing Image Nudged Elastic Band (CI-NEB) method.
+
+**Summary.**
+This paper investigates how platinum impurities in silicon act as efficient centers for nonradiative carrier recombination. By using advanced first-principles simulations, the authors show that the capture of electrons and holes is driven by specific electronic transitions at donor and acceptor levels. A key finding is that the efficiency of this process is highly dependent on Jahn-Teller distortions and the inclusion of symmetry-equivalent defect configurations. The results provide a microscopic understanding that aligns well with experimental observations of carrier lifetime in silicon power devices.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.**
+The physical system is substitutional platinum (PtSi) impurities in a silicon (Si) crystal lattice, specifically focusing on deep-level defects that introduce donor and acceptor levels within the band gap.
+
+**Key observables.**
+Formation energies, transition levels (2+/+, +/0, 0/-), carrier capture cross sections for electrons and holes, and Pt-Si bond lengths.
+
+**Important parameters / regimes.**
+Jahn-Teller distortion symmetries (Td, D2d, C2v), capture cross section magnitudes (10^-15 to 10^-14 cm^2), and temperature-dependent capture behavior.
+
+**Assumptions / limitations.**
+Neglected spin-orbit coupling due to negligible effects; use of the harmonic approximation for effective phonon energy; use of a semiclassical picture for carrier capture via potential energy surface crossing.
+
+**Figures summary.**
+Figure 1 shows equilibrium atomic structures and energy level diagrams for different charge states; Figure 2 shows calculated formation energies and a comparison of transition levels with experimental data; Figure 3 includes configuration coordinate diagrams and potential energy surfaces.
+
+**Paper structure.**
+The paper introduces the problem of PtSi recombination, details the DFT and multiphonon theory methods, presents structural and energetic results (transition levels), discusses the impact of Jahn-Teller distortions on capture cross sections, and concludes with the implications for recombination efficiency.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Platinum (Pt) is widely used for carrier-lifetime control in silicon power devices, yet the microscopic nonradiative recombination mechanism of the substitutional platinum ($\text{Pt}_\text{Si}$) dopant remains debated. Using first-principles calculations combined with nonradiative multiphonon theory, we systematically investigate the electronic structures and carrier capture dynamics of $\text{Pt}_\text{Si}$. Our results show that both the donor ($+/0$) and acceptor ($0/-$) levels of $\text{Pt}_\text{Si}$ exhibit large capture cross sections for electron and hole carriers, thereby making $\text{Pt}_\text{Si}$ an effective recombination center. Notably, the calculated capture cross sections are sensitive to the symmetry-equivalent defect configurations with different Jahn-Teller distortions. By accounting for two different $D_{2d}$ configurations of neutral $\text{Pt}_\text{Si}$ during transitions properly, our calculated carrier capture cross sections align well with experimental values. This work provides a microscopic picture of the carrier capture processes induced by $\text{Pt}_\text{Si}$ and emphasizes the importance of symmetry-equivalent configurations in defect-assisted nonradiative recombination.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.25454"></a>
+
+### [Thermodynamic surface reconstruction governs catalytic behavior in high-entropy alloys](http://arxiv.org/abs/2604.25454v1)
+
+**Authors:** Taegyeong Kim, Youngtak Kim, Sathya Sheela Subramanian, Geun Ho Gu
+
+**Type:** both · **Category:** disordered systems and neural networks · **PDF:** <https://arxiv.org/pdf/2604.25454v1>
+
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.25454_figures/2604.25454_fig1.jpg" width="500"><br>
+
+<sub>Figure 1. Homogeneous surface model fails to capture the experimental activity landscape. a Experimental composition-activity map obtained from SECCM measurements of high-throughput sputter sample from Banko et al.19, revealing localized regions of enhanced activity across the compositional space (See Figure S2). b Activity predicted from thermodynamically annealed surfaces, resembling the trend in the experimental map. c Predicted activity assuming a homogeneously mixed surface, which fails to reproduce the experimentally observed features and displays weak spatial correspondence. All activities are min-max normalized. d Continuous recall analysis relative to the random-selection limit...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.25454_figures/2604.25454_fig2.jpg" width="500"><br>
+
+<sub>Figure 2. Thermodynamic origin of surface ordering. a Element-resolved segregation energy distributions showing strong surface preference for Pd and Pt, moderate preference for Rh and Ir, and bulk stabilization of Ru. The dashed line denotes the maximum configurational entropy contribution for reference. The data is constructed by performing random segregation to 50 homogeneous slabs. The vertical lines indicate the 𝑇𝑆𝑚𝑖𝑥 at different temperature. b Probability of favorable segregation events (ΔG &lt; 0) as a function of temperature. Each point represents the normalized fraction of surface-subsurface exchange steps with negative segregation free energy. The distribution reflects the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.25454_figures/2604.25454_fig3.jpg" width="500"><br>
+
+<sub>Figure 3. Surface ordering reshapes the active-site landscape. a Layer-resolved elemental composition of the annealed slab for the equal composition. The surface layer is strongly enriched in Pd and Pt, while Rh preferentially occupies the subsurface layer and Ru/Ir are stabilized in deeper layers, illustrating vertical chemical partitioning of the catalyst. Distribution of the adsorption energy distance from optimal (ΔGOH,opt - ΔGOH) for b homogeneous and c thermodynamically annealed surfaces. The homogeneous model exhibits known multiple distinct bell shaped populations arising from diverse local ensembles, whereas annealing concentrates the distribution into dominant Pd and Pt peaks,...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.25454_figures/2604.25454_fig4.jpg" width="500"><br>
+
+<sub>Figure 4. Surface compositional deviation indicates when homogeneous HEA models break down. a Pixel-wise shift in the mean OH adsorption free energy, ⟨Δ𝐺OH</sub>
+
+</details>
+
+**Main problem.**
+The study investigates the failure of the 'homogeneous surface' assumption in predicting the catalytic activity of high-entropy alloys (HEAs) by neglecting thermodynamic surface reconstruction.
+
+**Main result.**
+Thermodynamically annealed surfaces, which account for surface segregation and ordering, accurately reproduce experimental activity landscapes, whereas homogeneous models fail and misidentify active compositions.
+
+**Method.**
+The researchers used a Crystal Graph Convolutional Neural Network (CGCNN) to evaluate energies in Monte Carlo Metropolis annealing simulations, comparing these to experimental data from a sputtered combinatorial library characterized via SECCM and EDX.
+
+**Summary.**
+This paper demonstrates that predicting the catalytic performance of high-entropy alloys requires accounting for surface reconstruction rather than assuming a random, homogeneous mixture. By using machine-learning-accelerated Monte Carlo simulations, the authors show that thermodynamic annealing leads to surface segregation that narrows the distribution of adsorption energies toward a catalytically favorable state. This finding identifies a critical failure in current screening models that neglect the chemically selective interfaces formed by elemental enrichment. Ultimately, the work establishes that the thermodynamically selected surface state is the true governing parameter for predictive catalysis in multicomponent alloys.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.**
+The physical system is a multicomponent high-entropy alloy (Ru-Rh-Pd-Pt-Ir) featuring a vertically stratified surface structure driven by the competition between segregation energetics and configurational entropy.
+
+**Key observables.**
+Catalytic activity landscape (OH adsorption energy), surface compositional deviation (D), Warren-Cowley short-range order parameter, and rank correlation coefficients (Spearman, Kendall, Pearson).
+
+**Important parameters / regimes.**
+Annealing temperature (ranging from 4000 K to 298 K), surface segregation energy, and the Sabatier optimum for OH adsorption.
+
+**Assumptions / limitations.**
+The study assumes that the catalytic activity can be modeled via a linear relationship between adsorption energy and nearest-neighbor elemental composition.
+
+**Figures summary.**
+Figure 1 compares experimental and predicted activity maps and shows the failure of homogeneous models; Figure 2 details segregation energies and temperature-dependent surface evolution; Figure 3 shows the contraction of adsorption energy distributions toward the Sabatier optimum; Figure 4 relates adsorption energy shifts to surface compositional deviation.
+
+**Paper structure.**
+The paper introduces the problem of model validity, presents experimental and simulated activity maps, analyzes the thermodynamic drivers of surface reconstruction (segregation and ordering), quantifies the predictive error of homogeneous models, and concludes with the establishment of a validity boundary for such models.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+High-entropy alloys are widely modeled as homogeneously mixed surfaces, yet the validity of this assumption for catalytic prediction remains unclear. Here, we reproduce high-throughput experimental measurements using thermodynamic simulations and show that surface ordering is essential for accurately capturing the compositional activity landscape. Homogeneous surface models fail to reproduce experimentally observed trends and, in some regimes, perform at or below the random-selection baseline. In contrast, thermodynamically annealed surfaces restore meaningful agreement with the experimental activity landscape and substantially improve the recovery of active compositions. Segregation energetics reveal strong surface enrichment of preferred elements, producing chemically selective interfaces that collapse the broad adsorption-energy spectrum of random alloys into a narrower distribution of catalytically favorable sites. By linking predictive error to the degree of short-range order, we identify a validity boundary for homogeneous models and establish the thermodynamically selected surface state as a governing parameter for predictive catalysis in multicomponent alloys.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.25576"></a>
+
+### [Tuning magnitude and direction of lattice thermal conductivity in transition metal dichalcogenide heterobilayers](http://arxiv.org/abs/2604.25576v1)
+
+**Authors:** Elliot Perviz, Antonio Cammarata
+
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.25576v1>
+
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.25576_figures/2604.25576_fig1.jpg" width="500"><br>
+
+<sub>FIG. 1: Top-down views of a) homobilayer MoS2, b) heterobilayer MoS2-WS2, and c) W-doped heterobilayer MoS2-MoWS2 (33% W); corresponding side views are shown in d)-f), respectively. Mo, S, and W atoms are depicted in blue, yellow, and red. Black lines in each plot draw the boundaries of the associated primitive cell. Green arrows in b) indicate the 30◦sector between one pair of zigzag (Z) and armchair (A) crystallographic axes, where Z is fixed parallel to the a lattice vector and subsequently the Cartesian x direction.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.25576_figures/2604.25576_fig2.jpg" width="500"><br>
+
+<sub>FIG. 2: Maximum principal conductivity derived from the exact solution of the LBTE via [38] as a function of temperature for the set of unique pristine MX2 heterobilayers.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.25576_figures/2604.25576_fig3.jpg" width="500"><br>
+
+<sub>FIG. 3: Maximum (in=plane) conductivities (κ = κmax = κmin) for the specified set of TMD heterobilayers, as a function of: (a) heat capacity C; (b) transport-weighted modal average relaxon velocities ⟨Vα⟩κ; (c) transport-weighted modal average relaxon lifetimes ⟨τα⟩κ; (d) transport-weighted modal average relaxon mean free paths ⟨Λα⟩κ. Filled and unfilled markers correspond to results obtained from phono3py and phoebe, respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.25576_figures/2604.25576_fig4.jpg" width="500"><br>
+
+<sub>FIG. 4: |q|-sorted phonon frequencies sampled on the transport mesh, with systems ordered from smallest to largest LTC in plots (a)-(o), determined via phono3py LBTE calculations. The colour distinguishes the percentage contribution of each phonon mode (expressed in %) to the the maximum (in-plane) LTC.</sub>
 
 </details>
 
 <details><summary>📷 Fig 5</summary>
 
-<img src="2604.25861_figures/2604.25861_fig5.jpg" width="500"><br>
+<img src="2604.25576_figures/2604.25576_fig5.jpg" width="500"><br>
 
-<sub>FIG. 3. Protocol for the teleportation of an MCTn+1 gate based on Ref. [32]. The MCTn+1 gate is teleported using m number of MCTk+1 gates and a single MCTm+ℓ+1 gate. The squiggly lines correspond to Bell states of the form |Φ+⟩= (|00⟩+ |11⟩)/ √</sub>
+<sub>FIG. 5: (a) Transport weighted modal average relaxon velocity ⟨Vα⟩κ plotted against the root mean square average phonon group velocities vrms in the 0-4 THz frequency range. (b) ⟨Vα⟩κ as a function of the transport-weighted modal average phonon layer participation ⟨∆Pλ⟩κ. (c) ⟨∆Pλ⟩κ as a function of the layer mass contrast |∆M|. (d) Lattice thermal conductivity κ as a function of the average mass ⟨M⟩.</sub>
 
 </details>
 
 <details><summary>📷 Fig 6</summary>
 
-<img src="2604.25861_figures/2604.25861_fig6.jpg" width="500"><br>
+<img src="2604.25576_figures/2604.25576_fig6.jpg" width="500"><br>
 
-<sub>FIG. 5. Teleportation-based decomposition of an MCT8 gate. Toffoli gates applied on closest-neighboring qubits are indicated with a red dashed box. In panel (a) the MCT8 gate is depicted as a unitary operation. Panel (b) depicts the teleportation-based decomposition of the MCT8 gate that includes ten ancilla qubits. The Toffoli depth of this circuit is equal to three due to the measurement outcomes required for the conditional gates. Panel (c) depicts the teleportation-based decomposition of the MCT8 gate with Toffoli depth equal to one after classically conditioned gates have been commuted to the right hand-side of the circuit. In the gray box it is shown how four consecutive gates can be...</sub>
+<sub>FIG. 6: (a) Maximum (in-plane) conductivity, κ = κmax = κmin, as a function of the maximum component of thermal viscosity µiiii. (b) µiiii as a function of the M-X cophonicity Cph, i.e. the relative overlap of the atom-projected phonon densities of states between M and X atoms.</sub>
 
 </details>
 
 <details><summary>📷 Fig 7</summary>
 
-<img src="2604.25861_figures/2604.25861_fig7.jpg" width="500"><br>
+<img src="2604.25576_figures/2604.25576_fig7.jpg" width="500"><br>
 
-<sub>FIG. 6. Dutta et al. decomposition of an MCT8 gate [18]. Toffoli gates applied on closest-neighboring qubits are placed within a red dashed box. Panel (a) depicts the MCT8 gate as a unitary operation. In panel (b) the Dutta et al. decomposition [18] of the MCT8 gate is depicted that corresponds to the lower bound (purple line) in Fig. 2(a). This decomposition has a Toffoli-depth equal to three, five ancilla qubits, and only two of the Toffoli gates are applied on closest-neighboring qubits. Panel (d) depicts the corresponding circuit where all Toffoli gates have been replaced by circuit primitives, shown in panel (c), that allow for only closest-neighboring interactions based on Ref. [44].</sub>
+<sub>FIG. 7: Thermal transport properties of doped heterobilayers bounded by MoS2 and WS2 homobilayers, with W treated as the dopant. (a) Maximum in-plane conductivity, κmax, as a function of temperature. (b) Anisotropy, A, between the maximum (emax) and minimum (emin) transport directions.</sub>
 
 </details>
 
 <details><summary>📷 Fig 8</summary>
 
-<img src="2604.25861_figures/2604.25861_fig8.jpg" width="500"><br>
+<img src="2604.25576_figures/2604.25576_fig8.jpg" width="500"><br>
 
-<sub>FIG. 7. Panels (a) and (b) depict side by side the upper bound of process fidelity of the Dutta et al. decomposition and the teleportation-based decomposition, respectively. Both are plotted against the Toffoli error rate and the entanglement error rate that range from 10−3 to 10−1. Panel (c) depicts a value called ∆process fidelity, corresponding to the subtraction of the fidelity found for the teleportation-based decomposition from the Dutta et al. decomposition. Red is the region where the Dutta et al. decomposition is preferable and blue the region where the teleportation-based decomposition is preferable. Analogously panels (d) and (e) depicts to the lower bound of the process fidelity...</sub>
+<sub>FIG. 8: Maximum (in-plane) LTC κmax plotted against ∆θ, which describes the deviation of the direction of maximum LTC emax from the nearest zigzag direction. Data-points from different systems at the same temperatures are connected by a faint dashed coloured line, with temperature set according to the colour bar.</sub>
 
 </details>
 
 <details><summary>📷 Fig 9</summary>
 
-<img src="2604.25861_figures/2604.25861_fig9.jpg" width="500"><br>
+<img src="2604.25576_figures/2604.25576_fig9.jpg" width="500"><br>
 
-<sub>FIG. 8. Panel (a) depicts the MCT-based construction of the adder operator modulo 24. Panel (b) depicts an analogous construction but substitutes the MCT4 gate with the teleportation-based decomposi- tion according to the protocol discussed in section V. Panel (c) de- picts the adder operator modulo 24 based on Vedral et al. [1].</sub>
-
-</details>
-
-<details><summary>📷 Fig 10</summary>
-
-<img src="2604.25861_figures/2604.25861_fig10.jpg" width="500"><br>
-
-<sub>FIG. 9. The Toffoli depth of the adder operator is plotted for three different decompositions against the total number of register qubits. The decomposition of the adder operator through the teleportation- based decomposition developed in this work is the optimal overall in terms of minimizing Toffoli depth.</sub>
+<sub>FIG. 9: (a) Maximum in-plane conductivity κmax as a function of the average phonon group velocity projected onto the direction of maximum transport, vrms, evaluated over the [0, 4] THz frequency range. (b) κmax as a function of the transport-weighted modal average layer mode localisation ⟨|∆Pλ|⟩κ. (c) ⟨|∆Pλ|⟩κ as a function of the layer mass contrast |∆M|. (d) κmax plotted against the M-X cophonicity Cph.</sub>
 
 </details>
 
 **Main problem.**
-
-The decomposition of multi-controlled Toffoli (MCT) gates into simpler gates typically results in high circuit depth, which increases susceptibility to decoherence.
+Understanding the microscopic mechanisms that determine the magnitude and direction of lattice thermal conductivity (LTC) in transition metal dichalcogenide (TMD) heterobilayers and how doping can tune these properties.
 
 **Main result.**
-
-The authors introduce a teleportation-based decomposition that achieves a unit Toffoli depth, independent of the number of controls, while maintaining a relatively low Toffoli count.
+Pristine heterobilayers exhibit isotropic in-plane LTC, while W-doped systems exhibit reduced and anisotropic LTC where the direction of maximum transport can be tuned via doping and temperature.
 
 **Method.**
-
-A recursive gate teleportation protocol that uses ancilla qubits and Bell states to decompose an (n+1)-qubit MCT gate into smaller MCT gates and measurements.
+First-principles calculations using VASP and phono3py, employing the 'relaxon' framework to solve the linearized Boltzmann transport equation and analyzing phonon-based descriptors.
 
 **Summary.**
-
-This paper presents a new method for decomposing multi-controlled Toffoli gates using quantum teleportation. The proposed technique achieves a constant Toffoli depth that does not increase with the number of control qubits. While it requires a linear increase in ancilla qubits, it offers significant advantages for circuit depth and error resilience in specific noise regimes. The authors demonstrate the utility of this method in optimizing quantum adders, QROM, and quantum machine learning architectures.
+This study investigates how the lattice thermal conductivity in TMD heterobilayers can be controlled. By using a 'relaxon' framework, the authors show that thermal transport is linked to phonon group velocity and layer localization. They demonstrate that while pristine layers are isotropic, introducing dopants breaks symmetry, allowing for the tuning of the direction of maximum heat flow. This provides a potential pathway for designing 2D materials with customized thermal properties.
 
 <details><summary>Detailed structure</summary>
 
 **Model / system.**
-
-General quantum computing circuits and architectures, specifically focusing on the implementation of MCT gates, quantum adders, QROM, and quantum machine learning primitives.
+Pristine and W-doped MX2-M'X2 transition metal dichalcogenide (TMD) heterobilayers, specifically focusing on Mo-W-S-Se-Te configurations.
 
 **Key observables.**
-
-Toffoli depth, Toffoli count, ancilla qubit count, and process fidelity.
+Lattice thermal conductivity (LTC), phonon group velocity, layer localization, phonon lifetime, mean free path, and thermal viscosity.
 
 **Important parameters / regimes.**
-
-Number of control qubits (n), Toffoli error probability, and entanglement error probability.
+Temperature, mass contrast between layers, dopant concentration (x), and lattice mismatch.
 
 **Assumptions / limitations.**
-
-The protocol assumes the ability to distribute entangled pairs across non-neighboring (distant) qubits and assumes a hierarchical error scaling between different gate types.
+Neglects extrinsic scattering (isotopes, defects, boundaries) for pristine layers; assumes the validity of the relaxon framework for heat transport.
 
 **Figures summary.**
-
-Figure 1 shows the MCT gate circuit; Figure 2 compares depth, count, and ancilla scaling against existing methods; Figure 3 illustrates the teleportation protocol; Figure 4 and 5 show specific gate decompositions (MCT5, MCT8); Figure 7 shows process fidelity bounds and differences; Figure 8 and 9 compare adder constructions; Figure 10 shows QROM and QML applications.
+Figure 1 shows atomic arrangements of homobilayers, heterobilayers, and doped bilayers; Figure 2 plots LTC vs. temperature; Figure 3 shows correlations between LTC and phonon descriptors; Figure 5 illustrates the relationship between relaxon velocity and phonon group velocity.
 
 **Paper structure.**
-
-The paper introduces the problem of MCT decomposition, presents a new teleportation-based protocol, provides a comparative analysis of gate metrics (depth, count, ancilla), evaluates noise resilience via fidelity simulations, and demonstrates practical applications in quantum adders, QROM, and quantum machine learning.
+The paper introduces the problem of thermal transport in TMDs, describes the first-principles and relaxon-based methodology, analyzes pristine heterobilayers to establish phonon-based descriptors, investigates the effects of W-doping on anisotropy, and concludes with implications for high-throughput material design.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-The decomposition of complex quantum operations into experimentally feasible gate sets has been a central challenge since the early development of quantum computing. The multi-controlled Toffoli (MCT) gate is a key example, with applications across a wide range of quantum algorithms, whose decomposition into smaller gates, however, typically leads to deep circuits. In this work, we introduce a teleportation-based decomposition that implements an arbitrary MCT gate with unit Toffoli depth, independent of the number of controls, while maintaining a relatively low Toffoli count compared to existing approaches. This is achieved at the cost of a linear overhead in ancilla qubits and the ability to distribute entangled pairs across distant qubits, a capability already available in several quantum computing platforms. We further demonstrate the advantages of this implementation in circuits that rely on MCT gates, such as the adder operator, quantum read-only memory, quantum neurons, and quantum decision trees.
+We investigate the nanoscale mechanisms determining lattice thermal conductivity (LTC) of pristine and W-doped MX$_2$-M$^\prime$X$^\prime_2$ transition metal dichalcogenide heterobilayers from first principles, using the exact solution of the linearised Boltzmann transport equation in both phonon and relaxon bases. Pristine heterobilayers exhibit isotropic in-plane LTC with preserved ordering across temperature. Relaxon analysis identifies descriptors linking LTC to phonon properties such as the phonon group velocity and layer localisation. While systems with lighter atoms generally favour higher LTC, a sufficiently large mass contrast is required to induce layer localisation of the transport-relevant vibrational modes. Further, we show through the thermal viscosity that the relative distribution of vibrational states between metal/non-metal sublattices influences the balance between Normal and Umklapp scattering processes. On the other hand, doped systems exhibit reduced and anisotropic in-plane LTC, retain a well-defined layer character, but are strongly affected by enhanced phonon-phonon scattering due to mass disorder. Notably, we find that both configuration and temperature dictate the direction of maximum thermal transport, which opens the possibility to tune the direction of maximum (and minimum) conductivity via doping in novel 2D functional materials. Thanks to its general formulation, the analysis protocol can be readily extended to other van der Waals heterostructures, and the descriptors may be implemented in high-throughput engines to identify promising layered materials with tailored thermal transport characteristics.
 
 </details>
 
 <sub>[↑ back to top](#top)</sub>
 
 
-## Other papers (49)
+<a id="paper-2604.25830"></a>
 
-*Papers from primary archives without highlighted authors or any topic match. Click to expand.*
+### [Universal material basis for biocompatible printed electrolytes in Organic Electrochemical Transistors](http://arxiv.org/abs/2604.25830v1)
 
-<details><summary>Show other papers</summary>
+**Authors:** Moritz Flemming, Paul Zechel, Rakesh R. Nair, Emil Mahnke, Markus Löffler, Alyna Ong, Bernd Rellinghaus, Lukas M. Eng, Karl Leo, Hans Kleemann
 
-
-<a id="paper-2604.25424"></a>
-
-
-### [A graph-aware bounded distance decoder for all stabilizer codes](http://arxiv.org/abs/2604.25424v1)
-
-**Authors:** Harikrishnan K J, Amit Kumar Pal
-
-**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.25424v1>
+**Type:** experiment · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.25830v1>
 
 **Analysis basis:** full PDF text, analyzed in chunks
 
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.25424_figures/2604.25424_fig1.jpg" width="500"><br>
+<img src="2604.25830_figures/2604.25830_fig1.jpg" width="500"><br>
 
-<sub>FIG. 1. (a) The equivalent graph associated with the [[5, 1, 3]] perfect code. See Appendix. B for the stabilizers and a detailed discussion. White node indicate the Hadamard in the Hr. A demonstration of resulting graph syndromes in the case of (b) σz 4 and (c) σx 5 errors where the blue nodes indicates the non-trivial graph generators of α. The corresponding feedforward network corresponding to the minimum weight scenarios (b) σz 4 error where β = 1001, ˜β = 0 and (d) σx 5 error where β = 0011, ˜β = 1.</sub>
+<sub>Figure 1: a) Components used in the material basis. Adding an ionic liquid forms the ionic gel ink (IGI). (b) IGI solutions based on [MTEOA][MeOSO3] for inkjet / screen printing freshly prepared and after 4 weeks without differences visible. (c) Application of an OECT as a sensor to analyze the sweat production for athletes.</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.25424_figures/2604.25424_fig2.jpg" width="500"><br>
+<img src="2604.25830_figures/2604.25830_fig2.jpg" width="500"><br>
 
-<sub>FIG. 2. A demonstration of feedforward network structure of a graph. The graph syndrome nodes (shown in blue) and their neighbors belong to the left most layer L1. Any later layer contains neighbors of preceding layer as well as their neighbors (See Sec. III B). Nodes after Lw[α] can be discarded by virtue of Eq. (40).</sub>
+<sub>Figure 2: (a) Shear rate dependent viscosity of IGI formulations. (b) Micrograph of screen printed and inkjet IGI structures. For screen printing, the resolution can be downscaled to 200 µm, while 60 µm are possible for inkjet printing. (c) FTIR spectrum of IGI thin films before and after UV curing. The characteristic C=C double-bond vibration peak at 1636 cm-1 almost completely vanishes when PEGDA polymerizes. (d) Impedance of IGI films compared to a solid-state electrolyte (SSE)[25].</sub>
 
 </details>
 
 <details><summary>📷 Fig 3</summary>
 
-<img src="2604.25424_figures/2604.25424_fig3.jpg" width="500"><br>
+<img src="2604.25830_figures/2604.25830_fig3.jpg" width="500"><br>
 
-<sub>FIG. 3. Log-log plot of logical error rate pL against the phys- ical error rate p in the case of optimal codes under depolariza- tion noise corrected with BDD (see Sec. III C and Appendix. C for code details). Errors are sampled according to Eq. (43) with px = py = pz = p/3. Each of the datapoints correspond to 104</sub>
+<sub>Figure 3: (a) Transfer curve and transconductance |gm| of an OECT with screen printed IGI. (b) Transfer curve comparison for three different IGI formulations. (c) Output characteristics of a device with inkjet-printed IGI. (d) Stability analysis for OECTs with IGI under constant gate voltage VG = 0 V.</sub>
 
 </details>
 
 <details><summary>📷 Fig 4</summary>
 
-<img src="2604.25424_figures/2604.25424_fig4.jpg" width="500"><br>
+<img src="2604.25830_figures/2604.25830_fig4.jpg" width="500"><br>
 
-<sub>FIG. 4. (a) The equivalent bipartite graph associated with smallest [[7, 1, 3]] CSS code. The white nodes indicates Hadamard operations. See Appendix. D for the stabilizers and a detailed discussion. A demonstration of graph syndrome and the corresponding feedforward network corresponding to the trivial logical syndrome in the case of (c) σz 1 (d) σx 1 error.</sub>
-
-</details>
-
-<details><summary>📷 Fig 5</summary>
-
-<img src="2604.25424_figures/2604.25424_fig5.jpg" width="500"><br>
-
-<sub>FIG. 5. Schematics of d = 3, k = 1 (a) triangular color and (b) rotated surface codes with N = 7 and N = 9 physical qubits respectively. The thick pick and green lines represent the logical z and x operators respectively. The log-log plot of pL against p for code distances three to nine of (c) triangular color (d) rotated surface codes. Both of them are under bit flip channel corresponding to py = pz = 0 of Eq. (43). The vertical black dotted line indicates the theoretical known optimal threshold noise strengths popt c = 0.109(2)[78] (popt c = 0.1094(2)[79]) of color (surface) code. The inset shows the data collapse (Eq. (53)) obtained near the BDD threshold physical error probability pc...</sub>
+<sub>Figure 4: (a) Transfer characteristics of a fully biocompatible OECT on a leaf substrate[34], (b) corresponding substrate / micrograph of the active area.</sub>
 
 </details>
 
 **Main problem.**
-
-The difficulty of developing efficient, generalized decoding strategies for all stabilizer codes, particularly non-CSS codes, where standard methods like Belief Propagation often fail or are computationally prohibitive.
+Developing a universal, biocompatible, and stable electrolyte for Organic Electrochemical Transistors (OECTs) that can be easily printed using both inkjet and screen-printing methods.
 
 **Main result.**
-
-The development of a graph-aware Bounded Distance Decoder (BDD) that achieves near-optimal performance for CSS codes and satisfactory performance for non-CSS codes up to distance d=11, accompanied by the QGDecoder open-source library.
+The authors developed a UV-curable polymer matrix that serves as a universal basis for electrolytes, enabling high-stability, biocompatible, and printable OECTs, including a demonstration on a leaf substrate.
 
 **Method.**
-
-The authors leverage the local Clifford equivalence between stabilizer codes and graph states, using a graph-based framework with strategic pruning (via a feed-forward network structure) and structured sampling to reduce the search space.
+The researchers used a polymer matrix (PVA, DMSO, PEGDA, etc.) combined with ionic liquids, employing both inkjet and screen-printing techniques followed by UV-induced cross-linking and electrochemical characterization.
 
 **Summary.**
-
-This paper presents a new decoding strategy called Graph-Aware Bounded Distance Decoding that works for any stabilizer code by mapping them to graph states. By using graph pruning and structured sampling, the authors significantly reduce the computational complexity of finding the most likely error. The method shows high efficiency for both CSS and non-CSS codes and provides a new open-source tool, QGDecoder, for the quantum error correction community.
+This paper presents a new material platform for creating printable electrolytes used in Organic Electrochemical Transistors. By using a UV-curable polymer matrix, the authors created a system that can be tuned for either inkjet or screen printing while maintaining high biocompatibility and long-term stability. The electrolyte can remain stable in ambient air for over 30 days, and the technology was successfully demonstrated by printing a transistor directly onto a leaf. This work is significant for the development of low-cost, flexible, and biodegradable bioelectronics.
 
 <details><summary>Detailed structure</summary>
 
 **Model / system.**
-
-The study focuses on quantum stabilizer codes, including both CSS (surface and color codes) and non-CSS families, subjected to depolarizing and bit-flip error models.
+The experimental platform consists of Organic Electrochemical Transistors (OECTs) using Organic Mixed Ionic Electronic Conductors (OMIECs), specifically PEDOT:PSS, with various electrolyte formulations and substrates ranging from glass to biodegradable leaves.
 
 **Key observables.**
-
-Logical error rate (pL), threshold error probability (pc), and critical exponent (nu).
+Transconductance, on/off ratio, drain current stability, viscosity, ionic conductivity, and device lifetime.
 
 **Important parameters / regimes.**
-
-Code distance (d), physical error rate (p), target weight threshold (T), and number of physical (N) and logical (k) qubits.
-
-**Assumptions / limitations.**
-
-The decoder assumes perfect syndrome measurement and focuses on specific error models like depolarizing and bit-flip noise.
+Viscosity (for printing regime selection), threshold voltage, and device stability over 30 days in ambient air.
 
 **Figures summary.**
-
-Figure 1 shows the graph representation of the [[5,1,3]] code; Figure 2 illustrates the feed-forward network structure for graph pruning; Figure 3 displays logical error rate vs. physical error rate for non-CSS codes; Figure 4 shows the bipartite graph syndrome for CSS codes; Figure 5 shows code schematics and data collapse plots for threshold estimation.
+Figure 1 shows the chemical components of the material basis; Figure 3 presents transfer/transconductance characteristics, comparisons of different IGI formulations, and stability analysis; Figure 4 demonstrates the transfer characteristics and micrograph of the OECT on a leaf substrate.
 
 **Paper structure.**
-
-The paper introduces the decoding bottleneck, establishes the mathematical mapping between stabilizer codes and graph states, proposes the graph-aware BDD algorithm with pruning techniques, demonstrates performance on non-CSS and CSS codes, performs finite-size scaling analysis for thresholds, and introduces the QGDecoder software.
+The paper introduces the problem of electrolyte stability and biocompatibility, describes the development of the universal polymer matrix, details the printing and fabrication processes for different viscosity regimes, presents electrochemical and stability characterization, and concludes with a demonstration of a fully biocompatible device on a leaf.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-We formulate a bounded distance decoding strategy applicable to all stabilizer codes including both CSS and non-CSS code-families. The framework emerges out of the local Clifford equivalence between arbitrary stabilizer states and graph states. Using the graphical representation of the stabilizers and the syndromes, we constitute the bounded distance decoding as an adaptable generalization of maximum likelihood decoding, ensuring correction of all errors with weights upper bounded by a target weight. We show that strategic pruning associated with a feed-forward network structure of the graph can reduce the search space and subsequently the runtime of the designed decoder. We demonstrate satisfactory performance of the bounded distance decoder in the case of the optimal non-CSS codes up to distance $d=11$ subjected to the depolarizing error on all qubits, and near-optimal decoding for the color and the surface codes, both belonging to the CSS family, under the bit-flip errors on the qubits. We also develop an open-source library, QGDecoder, enabling the graph-aware bounded distance decoding of arbitrary stabilizer codes.
+Organic Electrochemical Transistors (OECTs) stand out for their interplay between ionic and electronic conduction, making them ideal analogues to biological synapses for neuromorphic computing and biosensing applications. Furthermore, they can be printed into integrated circuits on flexible substrates, enabling low-cost and high-throughput fabrication of complete electronic systems. However, most OECT electrolytes for integrated circuits still lack biocompatibility and suffer from rheology-related printing challenges. This paper presents a novel material basis that can be combined with an ionic liquid to fabricate an electrolyte for OECTs that only contains biocompatible materials. It allows rheological adjustments to enable the use of electrolyte in both inkjet and screen printing. Furthermore, the electrolyte is UV-curable, enabling it to transition into solid-state structures after printing. Extended ink and device lifetimes for screen-printed structures enable the fabrication of advanced OECTs that can operate in ambient air for over 30 days after fabrication. Ultimately, a fully screen-printed transistor using only biocompatible materials on a leaf substrate is shown
 
 </details>
 
 <sub>[↑ back to top](#top)</sub>
 
 
-<a id="paper-2604.25825"></a>
+<a id="paper-2604.24941"></a>
 
+### [Visualizing Crystallization Dynamics and Transformation Pathways of Disordered Rocksalt Oxides During Thermally Activated Sol-Gel Synthesis](http://arxiv.org/abs/2604.24941v1)
 
-### [A Quantum Spectral Framework for Solving PDEs](http://arxiv.org/abs/2604.25825v1)
+**Authors:** Diyi Cheng, Tim Kodalle, Anika T. Promi, Ansuman Halder, Raphael F. Moral, Madeline Grass, Venkata S. Avvaru, Haegyeom Kim, Carolin M. Sutter-Fella, Haimei Zheng
 
-**Authors:** Chih-Kang Huang, Giacomo Antonioli, Frédéric Barbaresco
-
-**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.25825v1>
+**Type:** experiment · **Category:** disordered systems and neural networks · **PDF:** <https://arxiv.org/pdf/2604.24941v1>
 
 **Analysis basis:** full PDF text, analyzed in chunks
 
 <details open><summary>📷 Fig 1</summary>
 
-<img src="2604.25825_figures/2604.25825_fig1.jpg" width="500"><br>
+<img src="2604.24941_figures/2604.24941_fig1.jpg" width="500"><br>
 
-<sub>Figure 4. Quantum circuit for solving the 2D Poisson equation on a 16 × 16 grid using 9 qubits. The circuit consists of a the QFT⊗2, followed by the block encoding of the diagonal filter corresponding to the inverse Laplacian, and concludes with an inverse QFT⊗2 to return to the spatial domain.</sub>
+<sub>Figure 1. Sol-gel synthesis workflow and sol/gel properties before pyrolysis. a, schematic overview of the sol-gel synthesis process and the characterization tools used at each step, including FTIR, DLS, STEM- EDS, SEM, in situ liquid cell heating TEM, and in situ SXRD, for probing multiscale material transformation and crystallization dynamics. Note that gelation was performed at 70 °C. Pyrolysis was performed in the range of 130-400 °C in air and calcination was performed in the range of 400-1000 °C in argon atmosphere. b, FTIR spectra showing the evolution from precursor solution to gel. MeOX_Solvent Mixture represents the solvent mixture (methanol, water and acetic acid), LMTO_MeOH_Sol...</sub>
 
 </details>
 
 <details><summary>📷 Fig 2</summary>
 
-<img src="2604.25825_figures/2604.25825_fig2.jpg" width="500"><br>
+<img src="2604.24941_figures/2604.24941_fig2.jpg" width="500"><br>
 
-<sub>Figure 5. Visualizations of the reference, classical, and quantum solutions, along with the absolute errors of the classical and quantum methods relative to the reference for the 2D elliptic case with N = 64 and A =diag(10, 1).</sub>
+<sub>Figure 1c presents DLS results that are used to probe the size distribution of species in the LMTO precursor solution. The volume-weighted size distributions from three replicate measurements show a narrow, reproducible population centered at approximately 4–6 nm, indicating that the solution is dominated by small, dispersed metal–ligand clusters rather than large aggregates. The close overlap among replicates confirms good measurement consistency. The volume distribution is reported here in preference to the intensity distribution (Figure 1c, inset), as larger species scatter disproportionately more light and can obscure the true population composition; the intensity distribution does show...</sub>
 
 </details>
 
 <details><summary>📷 Fig 3</summary>
 
-<img src="2604.25825_figures/2604.25825_fig3.jpg" width="500"><br>
+<img src="2604.24941_figures/2604.24941_fig3.jpg" width="500"><br>
 
-<sub>Figure 6. Visualizations of the reference, classical, and quantum solutions, along with the absolute errors of the classical and quantum methods relative to the reference for the 3D elliptic case with N = 16 and A =diag(10, 1, 1).</sub>
+<sub>Figure 2. Gel examination prior to in situ TEM measurement and the workflow for in situ dataset analysis. a &amp; b, Low-magnification morphology of LMTO gel before heating and corresponding SAED pattern showing the amorphous feature. c, in situ heating setup for the liquid cell configuration for the gel sample, along with the five-step virtual dark-field image analysis employed to generate the in situ datasets shown in Figure 3.</sub>
 
 </details>
 
 <details><summary>📷 Fig 4</summary>
 
-<img src="2604.25825_figures/2604.25825_fig4.jpg" width="500"><br>
+<img src="2604.24941_figures/2604.24941_fig4.jpg" width="500"><br>
 
-<sub>Figure 7. Visualizations of the reference, classical, and quantum solutions, along with the absolute errors of the classical and quantum methods relative to the reference for the 2D Helmholtz equation with N = 64, k = 2π × 0.5 (Left) and k = 2π × 0.1 (Right).</sub>
+<sub>Figure 3. Crystallization pathways captured during the heating sequence till 400 °C. Each color corresponds to a specific individual phase or a group of phases. Orange color denotes MnO. Blue color denotes the group of titanium oxides, including rutile TiO2, anatase TiO2, and Ti2O3. Pink color denotes the group of lithium manganese oxides, including LiMn2O4, LiMnO2, and Li2MnO2. Green color denotes the group of lithium titanates, including orthorhombic LiTi2O4, spinel LiTi2O4, Li2Ti3O7, LiTiO2, and Li2TiO3. Yellow color denotes the group of manganese titanates, including MnTiO3, Mn2TiO4, MnTi2O4, and Mn2Ti4O. Red color denotes S-LMTO. Each unique crystallization pathway is expressed in...</sub>
 
 </details>
 
 <details><summary>📷 Fig 5</summary>
 
-<img src="2604.25825_figures/2604.25825_fig5.jpg" width="500"><br>
+<img src="2604.24941_figures/2604.24941_fig5.jpg" width="500"><br>
 
-<sub>Figure 8. Visualizations of the reference, classical, and quantum solutions, along with the absolute errors of the classical and quantum methods relative to the reference for the 2D diffusion case with N = 64 and A =diag(10, 1).</sub>
+<sub>Figure 4. Crystallization pathways identified during the heating sequence from 400 °C to 800 °C. Each color corresponds to a specific individual phase or a group of phases. Pink color denotes the group of lithium manganese oxides, including LiMn2O4, LiMnO2, and Li2MnO2. Green color denotes the group of lithium titanates, including orthorhombic LiTi2O4, spinel LiTi2O4, Li2Ti3O7, LiTiO2, and Li2TiO3. Yellow color denotes the group of manganese titanates, including MnTiO3, Mn2TiO4, MnTi2O4, and Mn2Ti4O. Red color denotes S-LMTO and purple color denotes DRX-LMTO. Each unique crystallization pathway is expressed in acronyms underneath each image sequence.</sub>
 
 </details>
 
 <details><summary>📷 Fig 6</summary>
 
-<img src="2604.25825_figures/2604.25825_fig6.jpg" width="500"><br>
+<img src="2604.24941_figures/2604.24941_fig6.jpg" width="500"><br>
 
-<sub>Figure 9. Visualizations of the reference, classical, and quantum solutions, along with the absolute errors of the classical and quantum methods relative to reference for the 3D diffusion case with N = 16 and A =diag(1,100, 1).</sub>
-
-</details>
-
-<details><summary>📷 Fig 7</summary>
-
-<img src="2604.25825_figures/2604.25825_fig7.jpg" width="500"><br>
-
-<sub>Figure 10. Evolutions and dissipations of the energy 15 for the diffusion case with (Left) d = 2, N = 64 and A=diag(100, 1); (Right) d = 3, N = 16 and A=diag(1, 100, 1) for the Reference, Classical and Quantum methods. We track log(E(u)−E∞) where E∞is the energy of the steady-state solution, since E can become negative during evolution.</sub>
+<sub>Figure 5. In situ synchrotron-based XRD measurements and post-synthesis characterizations of DRX-LMTO samples. a, contour plot showing the evolution of diffraction intensity as a function of temperature and 2θ (converted to Cu Kα for convenience). b, quantified evolution of the relative phase volume fractions during heating. The methanol-derived sample exhibits progressive consumption of S- LMTO and LTO intermediates with increasing temperature, accompanied by strong growth of the DRX phase, which becomes dominant above ~880 °C. c &amp; d, surface morphologies of DRX-LMTO sample as synthesized powder and casted electrode, respectively. e, galvanostatic charge–discharge voltage profiles of the...</sub>
 
 </details>
 
 **Main problem.**
-
-Addressing the curse of dimensionality in solving Partial Differential Equations (PDEs) by developing a quantum algorithmic alternative to standard matrix inversion methods.
+Understanding the complex, multiscale crystallization dynamics and transformation pathways of disordered rocksalt (DRX) oxides during thermally activated sol-gel synthesis.
 
 **Main result.**
-
-The authors present a quantum spectral framework that achieves polylogarithmic gate complexity and demonstrates numerical accuracy comparable to classical FFT-based spectral solvers.
+The study identifies two distinct nanoscale crystallization pathways: a classical multi-step transition through stable intermediates and a 'kinetic shortcut' where nanocrystals dissolve into an amorphous matrix to directly precipitate the DRX structure.
 
 **Method.**
-
-The framework utilizes the Quantum Fourier Transform (QFT) combined with Quantum Block Encoding (QBE) and quantum reversible arithmetic to implement an inverse spectral filter.
+A multiscale approach combining in situ liquid cell heating TEM, in situ synchrotron X-ray diffraction (SXRD), and FTIR spectroscopy, supported by a custom Python-based automated image processing pipeline for phase mapping.
 
 **Summary.**
-
-This paper introduces a specialized quantum subroutine for solving linear PDEs by exploiting the diagonal structure of differential operators in the Fourier domain. By using Quantum Block Encoding and reversible arithmetic, the authors bypass the high complexity of generic matrix encoding methods. The framework is validated against classical spectral methods for Poisson, Helmholtz, and diffusion equations. This approach offers a path toward efficient quantum simulation of complex physical systems in high dimensions.
+This paper investigates how disordered rocksalt oxides form during the sol-gel synthesis process. By using in situ electron microscopy and synchrotron X-ray diffraction, the researchers discovered that while the bulk material follows a standard multi-step phase transition, certain nanoscale regions undergo a 'kinetic shortcut' through an amorphous state. This finding reveals that local chemical heterogeneity in the precursor can drive unexpected crystallization pathways. Understanding these dynamics is crucial for controlling material homogeneity and optimizing the synthesis of high-performance battery cathodes.
 
 <details><summary>Detailed structure</summary>
 
 **Model / system.**
-
-The mathematical models include second-order linear elliptic (Poisson, Helmholtz) and parabolic (anisotropic diffusion) PDEs on a d-dimensional flat torus.
+The physical system is the thermally activated sol-gel synthesis of Li1.2Mn0.4Ti0.4O2 (LMTO), a disordered rocksalt-type cathode material for lithium batteries, evolving from molecular precursors through a xerogel state to crystalline particles.
 
 **Key observables.**
-
-Relative L2-errors, energy functional E(u) for dissipation tracking, and error distributions.
+Nanoscale phase distribution maps, crystallization trajectories, phase volume fractions, d-spacings, and chemical coordination signatures (FTIR).
 
 **Important parameters / regimes.**
-
-Dimensionality (d), grid size (N), condition number (kappa), and precision (epsilon).
+Temperature regimes (pyrolysis at 25-400 C and calcination at 400-800 C), chemical microenvironments in the gel, and particle size scales (4-6 nm clusters).
 
 **Assumptions / limitations.**
-
-Periodic boundary conditions, constant coefficients, and a noiseless quantum computing setting with efficient state preparation.
+TEM imaging was subject to sample drift requiring frame removal; the processed video length may not represent the total recording time.
 
 **Figures summary.**
-
-The figures illustrate quantum circuit sequences for controlled rotations and block encoding, the d-dimensional QFT, and visual comparisons of quantum vs. classical solution distributions and energy dissipation trajectories.
+Figure 1 shows the experimental workflow and precursor characterization (FTIR, DLS, STEM-EDS); Figure 2 details the TEM setup and automated image processing pipeline; Figure 5 presents SXRD contour plots and quantified phase evolution vs. temperature.
 
 **Paper structure.**
-
-The paper progresses from defining the limitations of classical PDE solvers to proposing a quantum spectral framework, detailing the block encoding and arithmetic implementation, providing complexity analysis, and concluding with numerical validation via Qiskit simulations.
+The paper introduces the sol-gel synthesis potential, describes the multiscale characterization workflow, details the chemical/colloidal nature of the precursor, presents the automated phase mapping pipeline, reports the discovery of dual nanoscale crystallization pathways, compares local TEM findings with bulk SXRD results, and concludes with electrochemical performance.
 
 </details>
 
 <details><summary>Abstract</summary>
 
-Partial differential equations (PDEs) are fundamental across numerous scientific fields. As these problems scale to high dimensions, classical numerical schemes introduce severe computational bottlenecks, known as the curse of dimensionality. Attempts to solve this problem typically rely on either classical sparsity and low-rank decompositions, or neural network surrogate models. On the other hand, Quantum Computing offers a promising alternative, as it allows us to operate in significantly larger spaces while demanding far fewer resources. In this work, we present a quantum subroutine to solve second-order linear PDEs by exploiting the structural properties of the filter in Fourier space using Quantum Block Encoding (QBE) with quantum reversible arithmetic. This approach serves as a specialized alternative to standard quantum matrix inversion, which typically relies solely on Quantum Singular Value Transformation (QSVT) without exploiting the inherent structural properties of the matrix. We validate the proposed methodology against its classical counterpart to prove its correctness. This framework provides a foundation for extending these methods toward quantum group Fourier transforms, wavelet-based analysis, and equivariant quantum neural networks (EQNNs), offering a promising path toward solving broader classes of problems, including nonlinear PDEs.
+Sol-gel synthesis is a wet-chemical processing route for the fabrication of functional materials offering control over composition, morphology, and microstructure at relatively low processing temperatures compared to conventional solid-state synthesis methods. While the sol-gel process initiates with intermixed molecular precursors, the transformation pathways at the early nucleation stage are insufficiently understood. Here, the chemical and structural transformation of disordered rocksalt (DRX) Li1.2Mn0.4Ti0.4O2 (LMTO), a promising cathode material for lithium batteries, is studied by multiscale characterization tools. In situ heating transmission electron microscopy (TEM) using a liquid cell visualizes and identifies crystallization pathways at nanoscale. While some regions follow a classical multi-step transition through thermodynamically stable intermediates, others exhibit a kinetic shortcut in which intermediate nanocrystals dissolve into a localized amorphous matrix that directly precipitates the DRX structure. Macroscale FTIR corroborates the findings to be related to chemically distinct microenvironments in the gel precursor, with transition metal ions more strongly incorporated into the acetate-coordinated network than lithium. Although in situ heating TEM captures diverse local transformation pathways, in situ SXRD indicates that the macroscopic transformation proceeds predominantly through spinel LMTO and lithium titanite intermediates toward DRX-LMTO. The findings shed light on the spatiotemporal chemical and structural transformations in sol-gel derived DRX-LMTO materials, and call for fine tuning of such sol-gel chemistries to manipulate the crystallization pathways and achieve target material homogeneity more efficiently.
 
 </details>
 
 <sub>[↑ back to top](#top)</sub>
+
+</details>
