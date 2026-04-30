@@ -1,6 +1,6 @@
 # Daily arXiv Report
 
-[← Index](index.md)
+[← Index](report.md)
 
 [← Previous](papers_05.md)
 [Next →](papers_07.md)
