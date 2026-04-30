@@ -1,24 +1,208 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-30
 
-*4 papers · 1 relevant · 0 highlighted*  
-_⏳ in progress: 4/158 papers processed (file updates after each one)_
+*9 papers · 3 relevant · 0 highlighted*  
+_⏳ in progress: 9/158 papers processed (file updates after each one)_
 
 
-## 🔥 Most relevant (1)
+## 🔥 Most relevant (3)
 
 *Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥4/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page. `(secondary)` marks papers from de-prioritized cond-mat archives.*
 
-<details><summary>Show 1 relevant papers</summary>
+<details><summary>Show 3 relevant papers</summary>
 
+- [Cavity-mediated coherence protection and one-axis twisting for spins in solids](#paper-2604.26909) [[arXiv]](http://arxiv.org/abs/2604.26909v1) — 🔥 `Tavis-Cummings & cavity-many-emitter` **5/5** · 🔥 `Dicke superradiance` **4/5** · 🔥 `QC/QI experiment` **4/5** · 🔥 `correlated cavity matter` **4/5** · 🔥 `quantum optics experiment` **4/5** · `analog quantum simulation` **3/5** · `correlated / nonlocal dissipation` **3/5** · `spintronics-quantum-optics interface` **3/5** · `exotic spin models in light-matter` **2/5** · `non-equilibrium dynamics` **2/5** · `superradiant laser` **2/5** · `driven-dissipative phase transition` **1/5** · `entanglement & information structure` **1/5** · `quantum measurements` **1/5**
+- [Digital Simulation of Non-Hermitian Knotted Bands on Quantum Hardware](#paper-2604.26914) [[arXiv]](http://arxiv.org/abs/2604.26914v1) — 🔥 `QC/QI experiment` **4/5** · `correlated / nonlocal dissipation` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
 - [Schwinger-Keldysh Path Integral for Gauge theories](#paper-2604.26941) [[arXiv]](http://arxiv.org/abs/2604.26941v1) — 🔥 `Keldysh / 2PI / non-Gaussian methods` **4/5** · `methods for driven-dissipative` **2/5** · `non-equilibrium dynamics` **2/5**
 
 </details>
 
 
-## All papers (4, sorted by relevance)
+## All papers (8, sorted by relevance)
 
 *Papers from quant-ph and your primary cond-mat archives (quant-gas, stat-mech, str-el, dis-nn). Highlighted papers (⭐) come first, then everything else sorted by topic-relevance score, highest first.*
+
+<a id="paper-2604.26909"></a>
+### [Cavity-mediated coherence protection and one-axis twisting for spins in solids](http://arxiv.org/abs/2604.26909v1)
+
+**Authors:** Rikuto Fukumori, Chengyi Luo, Alexey Tiranov, Karolina Waszkowska, Philippe Goldner, Andrei Faraon  
+**Type:** experiment · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.26909v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `Tavis-Cummings & cavity-many-emitter` **5/5** · 🔥 `Dicke superradiance` **4/5** · 🔥 `QC/QI experiment` **4/5** · 🔥 `correlated cavity matter` **4/5** · 🔥 `quantum optics experiment` **4/5** · `analog quantum simulation` **3/5** · `correlated / nonlocal dissipation` **3/5** · `spintronics-quantum-optics interface` **3/5** · `exotic spin models in light-matter` **2/5** · `non-equilibrium dynamics` **2/5** · `superradiant laser` **2/5** · `driven-dissipative phase transition` **1/5** · `entanglement & information structure` **1/5** · `quantum measurements` **1/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26909_figures/2604.26909_fig1.jpg" width="500"><br>
+<sub>FIG. 1. System overview. (a) Cutaway of a loop-gap microwave resonator hosting a millimeter-scale 171Yb3+:CaWO4 crystal. Red beam: optical input/output (I/O) at ∼973 nm for initialization and readout; spin excitation and resonator transmission measurements are done via antennas at the microwave I/O ports on the outer loops. Right: schematic of cavity-mediated spin-exchange interactions. (b) Simplified energy level diagram shows the spin manifold |↓⟩,|↑⟩split by ωs/2π = 3.08385 GHz and two optical transitions (A,E) to an excited state |e⟩used for pumping and absorption-based population readout. (c) Spin spectroscopy obtained by sweeping the frequency of a weak 2 ms excitation pulse; a...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26909_figures/2604.26909_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Superradiant emission. (a) The spin and resonator are approximately on resonance (∆≈0), resulting in collectively enhanced emission through the resonator output. (b) Pulse sequence. Optical initialization →microwave rotation to polar angle θ →readout of the microwave emission from the resonator. (c) Emission dynamics (normalized intensity) versus initial polar angle θ, with simulations (dashed) overlaid. Near inversion (θ ≈π), the characteristic delayed superradiant burst is visible. (d) Superradiant emission rate ΓSR versus N0 at θ = π/6. ΓSR is extracted by fitting the emission traces to numerical simulations (SI). The rate scales linearly with N0 (dashed line), consistent with...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26909_figures/2604.26909_fig3.jpg" width="500"><br>
+<sub>FIG. 3. One-axis twisting dynamics. (a) The resonator is detuned from the spin (|∆| ≫κ), resulting in unitary cavity- mediated interactions while suppressing superradiant emission. (b) Pulse sequence. Optical initialization is followed by a spin Hahn-echo sequence with initial rotation θ. The phase of the final π/2 pulse (φ) is varied to extract the phase shift induced by OAT dynamics. (c) Evolution of the Bloch-vector azimuthal angle ∆ϕ versus τ at θ = π/4. The slope of the overlaid linear fit gives χN0 cos(π/4). (d) Evolution of ∆ϕ vs. θ at τ = 100 µs. Data is fit to ∆ϕ = χN0τ cos θ. (e) Collective interaction rate χN0 vs. N0 at θ = π/4. For each optical pumping time, χN0 (y-axis) is...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26909_figures/2604.26909_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Many-body gap protection. (a) The χ ˆJ2 term opens a many-body energy gap of size χN0 between a collective state |J, Jz⟩and a less coherent state |J −1, Jz⟩, suppressing inhomogeneous dephasing. In the Bloch sphere representation, this corresponds to a suppression of the shrinkage of the collective Bloch vector. (b) Experimental pulse sequence for measuring the Ramsey coherence time. The readout is performed optically in the population basis. (c) Ramsey coherence versus delay time τ for five values of the collective interaction rate χN0/2π ≈0.1, 0.7, 2, 4, 7 kHz (blue to red). At low χN0, the coherence decays with the disorder-limited Ramsey time T∗ 2 =52(3) µs. As χN0 exceeds γinh,...</sub>
+
+</details>
+
+**Main problem.** The challenge of realizing coherent, cavity-mediated, all-to-all interactions and utilizing many-body gap protection in solid-state spin ensembles to overcome intrinsic inhomogeneous dephasing.
+
+**Main result.** Demonstration of superradiant emission and unitary one-axis twisting in a Yb:CaWO4 crystal, achieving a 65-fold extension of Ramsey coherence time through interaction-induced gap protection.
+
+**Method.** The researchers used microwave-driven spin spectroscopy, optical pumping/readout, and resonator transmission measurements in a 3D loop-gap resonator at millikelvin temperatures.
+
+**Summary.** This paper reports the first observation of coherent, cavity-mediated all-to-all interactions in a solid-state spin ensemble using Yb:CaWO4. By tuning the spin-resonator detuning, the authors observe both superradiant emission and unitary one-axis twisting dynamics. Crucially, they demonstrate that the resulting many-body energy gap suppresses inhomogeneous dephasing, extending the ensemble's Ramsey coherence time from microseconds to milliseconds. This establishes a new platform for quantum metrology and many-body physics in the solid state.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A millimeter-scale 171Yb3+:CaWO4 crystal coupled to a 3D microwave loop-gap resonator, described by the Tavis-Cummings Hamiltonian in the rotating frame.
+
+**Key observables.** Superradiant emission rate, one-axis twisting phase shift, Ramsey coherence time (T2*), and resonator transmission (S21).
+
+**Important parameters / regimes.** Resonant regime (superradiance) vs. dispersive regime (one-axis twisting); single-ion coupling g/2pi approx 15 mHz; inhomogeneous linewidth gamma_inh/2pi < 5 kHz.
+
+**Assumptions / limitations.** Uniform single-spin coupling across the ensemble; adiabatic elimination of the cavity field in the dispersive limit; neglecting the single-particle rotation term in the large-N limit.
+
+**Figures summary.** System overview and energy levels; spin spectroscopy and Rabi oscillations; resonator transmission spectra; extraction of collective coupling; and demonstration of superradiance and one-axis twisting dynamics.
+
+**Paper structure.** The paper introduces the solid-state platform, details the experimental setup and spin properties, demonstrates superradiance in the resonant regime, demonstrates one-axis twisting in the dispersive regime, shows the enhancement of coherence via many-body gap protection, and discusses future metrological implications.
+
+**Why it may be interesting.** It demonstrates a solid-state implementation of cavity QED phenomena (superradiance and OAT) typically associated with cold atoms, and shows how many-body interactions can be engineered to protect quantum information against environmental disorder.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Long-range interactions between emitters give rise to collective phenomena, including superradiance, spin squeezing, and coherence protection, that are important to both fundamental physics and quantum technologies. Despite progress in cold atoms, coherent cavity-mediated all-to-all interactions have not yet been realized in a solid-state ensemble. Here we demonstrate such interactions in a $^{171}$Yb$^{3+}$:CaWO$_4$ crystal coupled to a microwave resonator, observing superradiant emission on resonance and unitary one-axis twisting dynamics in the dispersive regime. The same interaction also opens a many-body energy gap that suppresses inhomogeneous dephasing, extending the ensemble Ramsey coherence time from tens of microseconds to milliseconds without decoupling pulses. These results establish a solid-state platform for collective many-body physics with direct implications for quantum technologies. Specifically, the observed one-axis twisting dynamics opens a path towards spin squeezing for entanglement-enhanced quantum metrology, and the extended coherence due to gap-protection is relevant for both microwave photon storage and precision measurement.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.26914"></a>
+### [Digital Simulation of Non-Hermitian Knotted Bands on Quantum Hardware](http://arxiv.org/abs/2604.26914v1)
+
+**Authors:** Truman Yu Ng, Yuzhu Wang, Wei Jie Chan, Ruizhe Shen, Tianqi Chen, Ching Hua Lee  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26914v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · `correlated / nonlocal dissipation` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26914_figures/2604.26914_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Examples of braids and their corresponding knots/links from braid closure. a) The Hopf link is formed from two strands. b) Solomon’s knot is formed from four strands. σi denotes strand i crossing over strand i + 1. The braid word is formed by recording the crossings from the bottom to the top. The twister models that host these braids are described in their respective sections in the Mea- sured Knotted Bands on Quantum Hardware section.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26914_figures/2604.26914_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Our workflow from quantum circuit implementation to the measurement and topological characteriza- tion of non-Hermitian braiding. a) Given any non-Hermitian N-band model, a M-qubit non-unitary operator e−i ˆ H(N)(k)t</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26914_figures/2604.26914_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Characterization of braids from the measured winding number W+−(k) for the two-band twister model Eq. (15). Its eigenvalues E±(k) are defined below Eq. (15). In the upper row, the measured and theoretical values of ⟨ˆσα ±(k)⟩ are given in Eqs. (16) and (17) respectively. In all plots, the color gradient indicates the evolution of k for k ∈[0, 2π] and the cross markers are measured data on ibm_marrakesh. The winding number computation is given in Eq. (22), and the black dashed lines in the bottom row correspond to Eq. (13), which denote the crossings on the braid diagram and the projection plane for each knot/link. The chosen parameters agree with Ref. [96]. a(i) The reconstructed...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26914_figures/2604.26914_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Variety of topologically inequivalent braids of the four-band twister model Eq. (23). There are eight regions, each corresponding to a braid, and the boundaries are given in Eq. (53). The Jones polynomials VL(s) for a knot/link L, and their winding number matrices Eq. (12) are shown for each braid. Both serve as topological indices that uniquely distinguish the knots and links, although this property does not hold in general. The parameters used are (m0, m1) = (1.5, 1), (1.5, 0.5), (1.5, −0.08), (1.5, −3), (1.5, −0.18), (1.5, −1), (1, −1.5), (1.5, −1.8) for the a) Hopf chain, b) Solomon’s knot, c) Hopf link + unlink, d) unknot, e) unknot + unlink, f) double unlinks, g) Hopf link,...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26914_figures/2604.26914_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Characterization of braids via the elements of the phase-shifted measured winding numbers ˜ Wij(k) Eq. (30) for the four-band twister model Eq. (23). a(i) The band structure is computed by diagonalizing Eq. (23) with parameters (m0, m1) = (−0.5, −0.4). a(ii) The projected eigenstate trajectories Eq. (27) are in good agreement with a(i). a(iii) Measured winding number matrix elements ˜ Wij(k) after phase-shifting Eq. (29) on ibm_marrakesh. The six crossings (solid colored circles) in the evolution of ˜ Wij(k) are detected whenever ˜ Wij(k) = −1/4 (black dashed lines); the black dashed lines correspond to Eq. (13). a(iv) The braid diagram is reconstructed from the identified...</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26914_figures/2604.26914_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Determining the rotation angles for Solomon’s knot. In each plot, the yellow regions denote the angles λ(k) that yield the largest overlap ψ(kj, λopt i ) φi(kj) (see Eq. (33)) where ψ(kj, λopt i ) is the classically evolved state with t = 20 and |φi(kj)⟩is the true eigenstate obtained by diagonalizing Eq. (23). The parameters used are (m0, m1) = (−0.5, −0.4).</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26914_figures/2604.26914_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Variety of topologically inequivalent braids of the two-band twister model Eq. (15). The boundaries are given in Eq. (43), and Eq. (38) distinguishes each braid. The analogous diagram for N = 4 braid strands is far more complicated and a particular parameter cross-section is pre- sented in Fig. 4 of the main text.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.26914_figures/2604.26914_fig8.jpg" width="500"><br>
+<sub>FIG. 8. The winding number evolution for the Hopf link + unlink, unknot + unlink, Hopf link, unknot, and unlink of the four-band twister model Eq. (23). The black dashed lines correspond to Eq. (59), which denote the crossings (solid colored circles) on the braid diagrams. It is important to note that the labels i and j in ˜ Wij(k) correspond to the initial labels at k = 0 before any permutations. The parameters used are (m1, m2) = (−1, −1.5), (−0.7, −1.5), (−2.5, −2.4), (−1.85, 0.25), (−1.4, −0.25) for the Hopf link, unknot, unlink, Hopf link + unlink, and unknot + unlink re- spectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.26914_figures/2604.26914_fig9.jpg" width="500"><br>
+<sub>FIG. 9. Geometric significance of the winding number between two bands. Given two bands i (red) and j (blue), the winding number Wij is topologically well defined only when the trajectories form closed paths in the complex plane, namely when the initial and final points coincide as the same set of points. This condition is satisfied in the leftmost and middle columns, whereas the rightmost column provides a counterexample in which Wij is not well defined, and becomes sensitive to perturbations. For multiple bands, it may require multiple periods for all the winding numbers to be topological.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.26914_figures/2604.26914_fig10.jpg" width="500"><br>
+<sub>FIG. 10. νE for the Hopf link, unknot, and unlink of Eq. (15). The blue/orange plot denotes E+(k) = p</sub>
+
+</details>
+
+**Main problem.** The difficulty of simulating and characterizing complex, multi-band non-Hermitian knotted band structures on programmable quantum hardware due to the high cost of variational optimization and the challenges of extracting topological braid information.
+
+**Main result.** The authors successfully implemented a non-variational protocol on a superconducting quantum processor to reconstruct complex knots and links, such as the Hopf chain and Solomon's knot, by mapping energy band windings to braid words and knot invariants.
+
+**Method.** A non-variational protocol using unitary embedding and post-selection on an ancilla qubit to simulate non-unitary evolution, combined with a measurement strategy that extracts a winding matrix to reconstruct braid words and knot polynomials.
+
+**Summary.** This paper presents a new method to simulate and identify complex knotted energy bands in non-Hermitian systems using a quantum computer. By avoiding expensive optimization, the authors use a non-variational protocol to extract topological information like braid words and knot polynomials. They experimentally demonstrate this on an IBM quantum processor, successfully reconstructing complex structures like the Solomon's knot. This approach offers a general way to study exotic non-Hermitian topology on near-term quantum devices.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A family of N-band non-Hermitian 'twister' Hamiltonians implemented on an IBM superconducting quantum processor (ibm_marrakesh), utilizing ancilla qubits for non-unitary dynamics.
+
+**Key observables.** Braid words, knot invariants (Alexander and Jones polynomials), winding number matrix (W_ij), and Bloch angles (theta, phi) for eigenstate reconstruction.
+
+**Important parameters / regimes.** Hamiltonian parameters m0 and m1, number of bands N, and the number of harmonics V.
+
+**Assumptions / limitations.** The reconstruction assumes a fixed gauge where the final component of the eigenstate is real-valued, and the error model assumes exponential decay in the weak-noise regime.
+
+**Figures summary.** Figure 1 shows the relationship between braids and their closures (Hopf link and Solomon's knot); Figure 2 details the experimental workflow including circuit implementation and winding number calculation; Figure 3 demonstrates N=2 braid characterization; Figure 4 shows phase boundaries in parameter space.
+
+**Paper structure.** The paper begins with the mathematical definition of braids and knots, introduces the twister Hamiltonian and the non-variational measurement protocol, details the quantum circuit implementation via unitary embedding, presents experimental results for N=2 and N=4 systems, and concludes with a comparison of topological invariants and error analysis.
+
+**Why it may be interesting.** This work is highly relevant for researchers in open quantum systems and many-body dynamics as it provides a scalable framework for exploring non-Hermitian topology and complex spectral braiding using near-term quantum hardware.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Knots and links represent a fundamental motif of non-local connectivity that permeates the physical sciences from string theory to protein folds. While spectral braiding has been explored in two-band non-Hermitian models across various platforms, its direct simulation and characterization on programmable quantum hardware, particularly beyond two strands, remains a formidable challenge due to the limitations of variational optimization in these systems. Here, we introduce a family of non-Hermitian multi-band twister models and implement a non-variational protocol to characterize their complex braided band structures on a programmable superconducting quantum processor. By mapping the winding of eigenstates to the spectral topology, we devise an efficient measurement strategy that extracts braid information, including braid words and knot invariants like the Alexander and Jones polynomials, without requiring full spectral tomography or repeated optimization. We experimentally demonstrate the reconstruction of complicated knots and links such as the Hopf chain and Solomon's knot. Our approach provides a general framework for investigating exotic non-Hermitian topology on near-term quantum devices, opening a route to simulate more sophisticated topological structures in knot theory.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
 
 <a id="paper-2604.26941"></a>
 ### [Schwinger-Keldysh Path Integral for Gauge theories](http://arxiv.org/abs/2604.26941v1)
@@ -123,6 +307,79 @@ _⏳ in progress: 4/158 papers processed (file updates after each one)_
 <details><summary>Abstract</summary>
 
 We develop the Schwinger-Keldysh path-integral formalism for open non-Abelian gauge theories that are gauge-fixed via the BRST method in covariant gauges. We focus on generic initial states, pure and mixed, specified at finite times suitable for non-equilibrium processes. We pay particular attention to the handling of the indefinite Hilbert space, the construction of BRST-invariant Schrodinger picture wavefunctionals, density matrices and inner product, the implementation of the Hata-Kugo prescription, and the role of boundary terms at both the initial and final times. We highlight the advantages of the Nakanishi-Lautrup field representation in dealing with initial/final conditions. The resulting Schwinger-Keldysh path integral is manifestly invariant under a diagonal (retarded) BRST symmetry for arbitrary physical initial states, whether pure or mixed. From this, we obtain the corresponding Ward-Takahashi-Slavnov-Taylor identities, valid perturbatively. Non-perturbatively the Gribov ambiguity is expected to break or modify the BRST symmetry. The naive advanced BRST symmetry is shown to be explicitly violated by the in-in boundary conditions. We show that the Feynman-Vernon influence functional derived by integrating out charged matter and/or hard gluon modes remains (perturbatively) BRST invariant. When the Open EFT action is expanded to second order in advanced fields it exhibits an exact symmetry under a contraction of the original BRST symmetry. This Keldysh BRST symmetry is equivalent to the BRST associated with the retarded gauge transformations together with a linearly realized BRST transformation of the advanced fields. These govern the structure of the leading terms in an Open EFT. We illustrate this with the explicit example of Hard Thermal Loop Effective Theory, and construct the general form of the Open EFT in a Higgs phase when all gauge symmetries are spontaneously broken.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.26916"></a>
+### [Rethinking Nonlocality: Locality, Counterfactuals, and the EPR-Bell Argument](http://arxiv.org/abs/2604.26916v1)
+
+**Authors:** Partha Ghose  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26916v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `entanglement & information structure` **3/5** · `quantum measurements` **3/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26916_figures/2604.26916_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26916_figures/2604.26916_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26916_figures/2604.26916_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26916_figures/2604.26916_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26916_figures/2604.26916_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+**Main problem.** The paper re-examines whether violations of Bell inequalities necessarily imply nonlocal causation or if they can be interpreted as evidence of contextuality.
+
+**Main result.** The author demonstrates that Bell violations do not logically mandate nonlocality, but rather signal the failure of global value assignment (contextuality) across incompatible measurement contexts.
+
+**Method.** The study employs a logical deconstruction of the EPR-Bell argument, a historical re-analysis of Einstein's formulations, and modern sheaf-theoretic approaches to model measurement contexts.
+
+**Summary.** This paper challenges the standard conclusion that Bell inequality violations prove the nonlocality of nature. The author argues that these violations actually demonstrate contextuality—the impossibility of assigning definite values to all possible measurements simultaneously. By focusing on the role of counterfactual reasoning, the work suggests that locality can be preserved if one accepts that physical quantities are context-dependent. This interpretation aligns with modern mathematical approaches to quantum contextuality.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The analysis focuses on entangled quantum systems and the framework of the EPR setup and CHSH-type experiments involving spatially separated, non-interacting systems.
+
+**Key observables.** Non-commuting observables (A, A', B, B') and the existence of a joint probability distribution for all observables.
+
+**Assumptions / limitations.** The paper challenges the assumption of global value assignment (counterfactual definiteness) and evaluates the tension between locality, measurement independence, and contextuality.
+
+**Paper structure.** The paper begins with a re-evaluation of the EPR argument, moves into a logical deconstruction of the assumptions in Bell's theorem, applies sheaf-theoretic frameworks to define contextuality, and concludes by contrasting Einstein's and Bohr's interpretations.
+
+**Why it may be interesting.** This is highly relevant for researchers in quantum information and foundations, as it provides a structural, sheaf-theoretic alternative to the standard interpretation of nonlocality, potentially reframing how we understand entanglement and contextuality.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The widespread claim that violations of Bell inequalities establish the nonlocality of nature is critically reexamined. It is argued that this conclusion is not logically compelled by either the Einstein--Podolsky--Rosen (EPR) argument or Bell's theorem. The analysis highlights the central role of counterfactual reasoning -- the assumption that outcomes of unperformed measurements possess definite values -- in deriving Bell inequalities. It is shown that these inequalities follow not from locality alone, but from the conjunction of locality with a global assignment of values across incompatible measurement contexts. Their experimental violation therefore signals the impossibility of such a global assignment, i.e.\ contextuality, rather than necessarily implying nonlocal causation. This interpretation aligns with Bohr's emphasis on the contextual character of physical quantities and is naturally formulated within modern sheaf-theoretic approaches to contextuality.
 
 </details>
 
@@ -343,6 +600,118 @@ We introduce a quantum algorithm for simulating the dynamics of electrical circu
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.26900"></a>
+### [Strict Hierarchy for Quantum Channel Certification to Unitary](http://arxiv.org/abs/2604.26900v1)
+
+**Authors:** Kean Chen, Qisheng Wang, Zhicheng Zhang  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26900v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `entanglement & information structure` **2/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26900_figures/2604.26900_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26900_figures/2604.26900_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26900_figures/2604.26900_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26900_figures/2604.26900_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26900_figures/2604.26900_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26900_figures/2604.26900_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26900_figures/2604.26900_page8.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 8</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.26900_figures/2604.26900_page9.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 9</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.26900_figures/2604.26900_page10.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 10</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.26900_figures/2604.26900_page11.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 11</sub>
+
+</details>
+
+**Main problem.** The paper addresses the query complexity of certifying whether an unknown d-dimensional quantum channel is exactly equal to a target unitary or is epsilon-far from it in the diamond norm.
+
+**Main result.** The authors establish a strict hierarchy of optimal query complexities across three access models: Theta(d/epsilon^2) for incoherent access, Theta(d/epsilon) for coherent access, and Theta(sqrt(d)/epsilon) for source-code access.
+
+**Method.** The study uses the Choi-Jamiołkowski isomorphism for the incoherent model, a bootstrapping/amplification strategy for the coherent model, and Quantum Amplitude Estimation for the source-code model.
+
+**Summary.** This paper solves the problem of determining the minimum number of queries needed to certify a quantum channel as a specific unitary. It proves that the difficulty of this task depends strictly on the type of access available to the researcher. By analyzing incoherent, coherent, and source-code access models, the authors show a clear hierarchy of complexity, matching all known lower bounds. This provides a complete characterization of the query complexity for quantum channel certification to unitaries.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The problem is formulated in terms of d-dimensional quantum channels and their deviation from a target unitary channel, evaluated using the diamond norm.
+
+**Key observables.** Entanglement fidelity and the diamond norm distance between channels.
+
+**Important parameters / regimes.** Channel dimension (d), error tolerance (epsilon), and failure probability (delta).
+
+**Assumptions / limitations.** The channels are d-dimensional and the task is to distinguish between the exact unitary and an epsilon-far alternative.
+
+**Figures summary.** Table 1 summarizes the query complexity, the specific theorems providing new upper bounds, and the corresponding existing lower bounds for all three access models.
+
+**Paper structure.** The paper introduces the certification problem, then presents three distinct algorithms (incoherent, coherent, and source-code) corresponding to three levels of access power, proving matching upper and lower bounds for each to establish the complexity hierarchy.
+
+**Why it may be interesting.** This is highly relevant for researchers in open quantum systems and quantum information, as it provides fundamental limits on how efficiently one can verify the integrity of quantum gates and channels under different experimental control regimes.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We consider the problem of quantum channel certification to unitary, where one is given access to an unknown $d$-dimensional channel $\mathcal{E}$, and wants to test whether $\mathcal{E}$ is equal to a target unitary channel or is $\varepsilon$-far from it in the diamond norm. We present optimal quantum algorithms for this problem, settling the query complexities in three access models with increasing power. Specifically, we show that:   (i) $Θ(d/\varepsilon^2)$ queries suffice for incoherent access model, matching the lower bound due to Fawzi, Flammarion, Garivier, and Oufkir (COLT 2023).   (ii) $Θ(d/\varepsilon)$ queries suffice for coherent access model, matching the lower bound due to Regev and Schiff (ICALP 2008).   (iii) $Θ(\sqrt{d}/\varepsilon)$ queries suffice for source-code access model, matching the lower bound due to Jeon and Oh (npj Quantum Inf. 2026).   This demonstrates a strict hierarchy of complexities for quantum channel certification to unitary across various access models.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.26947"></a>
 ### [Large quantum dot energy level shifts in anomalous photon-assisted tunneling](http://arxiv.org/abs/2604.26947v1)
 
@@ -424,3 +793,119 @@ Orbital energy splittings are important quantum dot parameters for the operation
 </details>
 
 <sub>[↑ back to top](#top)</sub>
+
+
+## Other papers (1)
+
+*Papers from primary archives without highlighted authors or any topic match. Click to expand.*
+
+<details><summary>Show other papers</summary>
+
+<a id="paper-2604.26921"></a>
+### [En Route to a Standard QMA1 vs. QCMA Oracle Separation](http://arxiv.org/abs/2604.26921v1)
+
+**Authors:** David Miloschewsky, Supartha Podder, Dorian Rudolph  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26921v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26921_figures/2604.26921_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26921_figures/2604.26921_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26921_figures/2604.26921_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26921_figures/2604.26921_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26921_figures/2604.26921_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26921_figures/2604.26921_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26921_figures/2604.26921_page8.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 8</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.26921_figures/2604.26921_page9.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 9</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.26921_figures/2604.26921_page10.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 10</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.26921_figures/2604.26921_page11.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 11</sub>
+
+</details>
+
+**Main problem.** The paper investigates the computational power of quantum witnesses under perfect completeness, specifically seeking oracle separations between the complexity classes QMA1 and QCMA.
+
+**Main result.** The authors construct classical oracles that separate QMA1 from QCMA under bounded adaptivity and derive an in-place permutation oracle separation. They also establish lower bounds on the circuit complexity required to prepare approximate ground states of certain sparse Hamiltonians.
+
+**Method.** The study employs oracle constructions, derandomization of permutation-based models, and the Feynman-Kitaev history state construction. They use techniques like the parallel-query hybrid method, quantum phase estimation, and transcript analysis to prove lower bounds.
+
+**Summary.** This paper addresses fundamental questions in quantum complexity theory regarding whether quantum witnesses provide more power than classical ones when perfect completeness is required. By constructing specific oracle models, the authors demonstrate a separation between QMA1 and QCMA. Furthermore, they bridge complexity theory and many-body physics by showing that these separations imply high circuit complexity for preparing the ground states of certain sparse, frustration-free Hamiltonians.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The work focuses on complexity-theoretic models including sparse Hamiltonians (O(1)-sparse), permutation oracles (in-place and forward), and the Hamiltonian query model (Orc_H).
+
+**Key observables.** Completeness and soundness gaps, ground-state energy, and circuit gate complexity.
+
+**Important parameters / regimes.** Number of adaptive rounds (R), number of parallel queries (q), Hamiltonian sparsity (d), and the precision of the energy gap (exponentially small vs. fixed).
+
+**Assumptions / limitations.** The separation results are sensitive to the number of adaptive rounds and the specific oracle model used; some results assume a specific universal gate set.
+
+**Paper structure.** The paper begins by introducing the QMA1 vs. QCMA problem, followed by the construction of classical oracles for bounded adaptivity. It then moves to the derandomization of permutation oracles to achieve in-place separation, analyzes the impact of small energy gaps, and concludes by applying these complexity results to derive lower bounds on Hamiltonian ground-state preparation.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study the power of quantum witnesses under perfect completeness. We construct a classical oracle relative to which a language lies in $\mathsf{QMA}_1$ but not in $\mathsf{QCMA}$ when the $\mathsf{QCMA}$ verifier is only allowed polynomially many adaptive rounds and exponentially many parallel queries per round. Additionally, we derandomize the permutation-oracle separation of Fefferman and Kimmel, obtaining an in-place oracle separation between $\mathsf{QMA}_1$ and $\mathsf{QCMA}$. Furthermore, we focus on $\mathsf{QCMA}$ and $\mathsf{QMA}$ with an exponentially small gap, where we show a separation assuming the gap is fixed, but not when it may be arbitrarily small. Finally, we derive consequences for approximate ground-state preparation from sparse Hamiltonian oracle access, including a bounded-adaptivity frustration-free variant.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+</details>
