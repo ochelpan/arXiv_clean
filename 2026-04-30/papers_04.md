@@ -1,0 +1,1547 @@
+# Daily arXiv Report
+
+[← Index](index.md)
+
+[← Previous](papers_03.md)
+[Next →](papers_05.md)
+
+## Papers 61–80
+
+---
+<a id="paper-2604.26625"></a>
+### [Tikhonov-regularised projected gradient flow for equality-constrained bilinear quantum control](http://arxiv.org/abs/2604.26625v1)
+
+**Authors:** Tanveer Ahmad  
+**Type:** theory · **Category:** numerical methods · **PDF:** <https://arxiv.org/pdf/2604.26625v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `Rydberg arrays` **2/5** · `methods for driven-dissipative` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26625_figures/2604.26625_fig1.jpg" width="500"><br>
+<sub>Figure 1: Baseline unregularised flow (ε = 0). (a) objective J[E(n)]; (b) relative flu- ence drift (h2 −h(0) 2 )/h(0) 2 ; (c) |h1| (logarithmic scale); (d) Gram-matrix condition number cond(Γ(s(n))). The persistence of cond(Γ) in the band 109–1011 across all three pulse dur- ations documents the generic ill-conditioning of the unregularised flow.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26625_figures/2604.26625_fig2.jpg" width="500"><br>
+<sub>Figure 2: Empirical verification of Theorem 4.6. Markers: ∥Eε(s∗) −E0(s∗)∥L2 / ∥E0(s∗)∥L2 against ε. Dashed line: O(ε2) reference. The ε2</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26625_figures/2604.26625_fig3.jpg" width="500"><br>
+<sub>Figure 3 plots the maximum condition number maxs cond(Γε(s)) along the trajectory and the relative fluence drift at the final iterate, both as functions of ε. The condition number tracks the bound (17): it is ∼1011 for ε ≲10−4 (the small-ε regime of Remark 3.2), decreases as ε−2 for ε ∈[10−4, 10−1], and approaches 1 for larger ε. The fluence drift, dominated by discretisation error in the small-ε regime, decreases to about 3% as ε grows to 10−2.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26625_figures/2604.26625_fig4.jpg" width="500"><br>
+<sub>Figure 3: (a) Maximum condition number maxs cond(Γε(s)) along the regularised flow versus ε. The plateau at small ε matches cond(Γ) (dashed line). (b) Relative fluence drift at the final iterate. The decrease at moderate ε reflects the CFL margin of Theorem 5.1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26625_figures/2604.26625_fig5.jpg" width="500"><br>
+<sub>Figure 4: Practical impact of regularisation at τ = 250 fs. (a) Iterations to reach J = 0.99 versus initial step size ∆s. (b) Total step-halving rejections. (c) Relative fluence drift at termination. Regularisation with ε ∈{10−3, 10−2} outperforms the unregularised baseline on all three metrics; aggressive step sizes violate the CFL bound for every ε.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26625_figures/2604.26625_fig6.jpg" width="500"><br>
+<sub>Figure 5: Initial control (dashed) and final controls obtained with ε = 0, ε = 10−3, ε = 10−2. All three controls produce J ≥0.9999; the L2-distances among them match the predictions of Theorem 4.6.</sub>
+
+</details>
+
+**Main problem.** Numerical instability and constraint violations in equality-constrained bilinear quantum control when the Gram matrix is ill-conditioned during discretization.
+
+**Main result.** The introduction of a Tikhonov-regularised projected gradient flow that guarantees objective monotonicity, provides explicit error bounds for constraint drift, and establishes a discrete CFL criterion for stability.
+
+**Method.** Tikhonov regularisation of the moving Gram matrix (Gamma_epsilon = Gamma + epsilon^2 I) combined with a forward-Euler discretization scheme and spectral identity analysis.
+
+**Summary.** This paper addresses the numerical instability encountered when optimizing quantum control pulses subject to equality constraints. By applying Tikhonov regularisation to the Gram matrix, the author develops a new projected gradient flow that prevents the algorithm from crashing due to ill-conditioned matrices. The work provides rigorous proofs that this regularisation maintains objective ascent and bounds the error in constraint satisfaction. Numerical tests on a three-level system demonstrate that this method significantly reduces constraint drift and eliminates the need for heuristic step-size adjustments.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A bilinear quantum control model where a d-level system evolves under a Hamiltonian H(t) = H0 - mu E(t). The benchmark case is a three-level system for all-optical Bell-state preparation in dipole-dipole coupled atoms.
+
+**Key observables.** Terminal fidelity (J), constraint drift (error in pulse area, fluence, and reference area), and the condition number of the Gram matrix.
+
+**Important parameters / regimes.** Regularisation parameter (epsilon), discretization step size (Delta s), and the second variation of the objective (G).
+
+**Assumptions / limitations.** The Gram matrix is assumed to be uniformly invertible for the convergence proof, and the objective function is assumed to be smooth.
+
+**Figures summary.** The paper includes plots showing the convergence of the regularised trajectory to the unregularised one over eight decades of epsilon, and the reduction of constraint drift and step rejections using moderate regularisation.
+
+**Paper structure.** The paper introduces the instability problem, proposes the Tikhonov-regularised flow, provides a rigorous mathematical framework (theorems on monotonicity, drift, and convergence), presents a discrete stability criterion (CFL), and validates the theory using a three-level atomic benchmark.
+
+**Why it may be interesting.** It provides a mathematically rigorous way to stabilize pulse optimization in quantum technologies like Rydberg gates or superconducting qubits, where physical constraints (like energy budgets) are critical and numerical stability is often difficult to maintain.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study a projection-type gradient flow for equality-constrained maximisation of a smooth bilinear control objective on $\mathcal{H}=L^2(0,T;\mathbb{R})$, eliminating Lagrange multipliers through an $(M{+}1)\times(M{+}1)$ moving Gram matrix $Γ(s)_{\ell\ell'}=\int_0^T S(t)\,c_\ell(s,t)\,c_{\ell'}(s,t)\,\mathrm{d}t$. The flow generates monotonic ascent in continuous time but becomes unstable on discretisation; existing implementations rely on heuristic step-size safeguards lacking rigorous justification. We close this gap by replacing $Γ$ with $Γ_{\varepsilon}:=Γ+\varepsilon^{2}I$ and prove: (i) an exact spectral identity giving $κ(Γ_{\varepsilon})=(σ_{\max}^{2}+\varepsilon^{2})/(σ_{\min}^{2}+\varepsilon^{2})$; (ii) objective monotonicity $\mathrm{d}J/\mathrm{d}s\ge 0$ for all $\varepsilon\ge 0$; (iii) constraint drift $|h_{m}-C_{m}|=\mathcal{O}(\varepsilon^{2})$ with a computable prefactor; (iv) convergence of the regularised trajectory to the unregularised one in $L^{2}(0,T)$ at rate $\mathcal{O}(\varepsilon^{2})$ under uniform invertibility of $Γ$; and (v) a discrete CFL criterion $Δs\,G\,\|Γ_{\varepsilon}^{-1}\|\leα<2$ guaranteeing objective monotonicity of the forward-Euler scheme up to $\mathcal{O}(Δs^{2})$ local truncation error. The theory is validated on a three-level bilinear benchmark for all-optical Bell-state preparation, where $κ(Γ)\in[10^{9},10^{11}]$, the predicted $\varepsilon^{2}$ rate is confirmed over eight decades, and moderate regularisation eliminates step rejections and reduces constraint drift by more than an order of magnitude at unchanged final fidelity.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26530"></a>
+### [Fundamental Physics, Existential Risks and Human Futures](http://arxiv.org/abs/2604.26530v1)
+
+**Authors:** Adrian Kent  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.26530v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `quantum measurements` **2/5** · `entanglement & information structure` **1/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26530_figures/2604.26530_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Effect of a hodological path-guided law in a simple Ehrenfest urn model (from [20]). Ten numbered balls are initially divided equally between two urns. At each of 20 steps, a random ball is chosen and moved to the opposite urn. The standard model has no other rule, and produces fluctuations around equidistribution. The rule illustrated here weights the probability of any sequence depending on its mean square separation from the line n = 5 −(t/4) (red line), producing typical sequences shown by the other coloured paths. The chance of any such path arising by chance in the original model is so small that, if it were observed, we would inductively infer a rule similar to the one given....</sub>
+
+</details>
+
+**Main problem.** The paper addresses the lack of a unified account of quantum measurement, the role of consciousness in physical laws, and the existential risks posed by potential discoveries in post-quantum physics and AGI.
+
+**Main result.** The author proposes that a convergence of quantum theory, gravity, and consciousness may lead to new 'beable-guided' evolution laws, which could fundamentally transform information processing and necessitate new frameworks for evaluating high-impact, low-probability existential risks.
+
+**Method.** The author uses algorithmic compressibility (Kolmogorov complexity and MDL) to evaluate scientific testability and applies risk assessment metrics to quantify the potential impact of new physical hypotheses.
+
+**Summary.** This paper explores the intersection of fundamental physics, consciousness, and the future of humanity. The author argues that moving beyond standard quantum theory toward models that include 'beables' or consciousness-linked evolution could revolutionize computation and AI. This transition carries significant existential risks that require a new approach to scientific risk assessment. Ultimately, the work posits a convergence of gravity, quantum mechanics, and consciousness into a single, richer physical theory.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The paper discusses various theoretical frameworks, including dynamical collapse models (GRWP), hodological models of path-dependent evolution, and the Ehrenfest urn model to illustrate path-guided laws.
+
+**Key observables.** Asymptotic late-time states of fields, gravitationally-induced entanglement, and deviations in quantum computing outputs.
+
+**Important parameters / regimes.** The parameter window for spontaneous localization in GRWP models and the probability bounds for high-impact physical hypotheses.
+
+**Assumptions / limitations.** The author assumes that a unified theory of nature is possible and that the quantum measurement problem implies the existence of physics beyond standard quantum theory.
+
+**Figures summary.** Figure 1 illustrates the effects of a simple hodological rule within a toy model, showing how path-guided laws can steer a system toward specific outcomes compared to Newtonian dynamics.
+
+**Paper structure.** The paper begins with a retrospective on the foundations of physics, moves into specific critiques of existing quantum interpretations, proposes new 'beable' and 'hodological' frameworks, and concludes by connecting these physical theories to the broader implications for AI and existential risk.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Over the past 25 years, I have been involved in some intriguing developments in the foundations of physics, exploring the quantum reality problem, the relationship between quantum theory and gravity and the interplay between consciousness and physical laws. These investigations make it plausible that we will find physics beyond quantum theory, potentially including both new evolution laws and new types of measurement. There is also a significant chance they could have potentially transformative impact on information processing and on the development of and our future with AI.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26392"></a>
+### [Imaginarity-generating power of unitaries: A resource-theoretic approach](http://arxiv.org/abs/2604.26392v1)
+
+**Authors:** Akhil Kumar Awasthi, Mrinmoy Samanta, Sudipta Mondal, Ayan Patra, Aditi Sen De  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26392v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `entanglement & information structure` **2/5** · `non-equilibrium dynamics` **1/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26392_figures/2604.26392_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Schematic illustration of the experimental protocol for quantifying the IGP. Alice (A1A2) prepares a bipartite maximally entangled state ϕ+ in dimension d, shared between subsystems A1 and A2. She then applies the unitary operation U locally on both subsystems, implementing U ⊗U ϕ+ . Finally, she performs a pro- jection onto the state ϕ+ . The corresponding projection probability is directly related to the IGP through Eqs. (14) and (7).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26392_figures/2604.26392_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Scaling of the variance of ¯IB(U)N with dimension d. Log-scale plot of the numerically computed variance of ¯IB(U)N as a function of the dimension d. The numerical data (blue points) are well described by the analytical scaling ∼ 1 d4 (4 + 64</sub>
+
+</details>
+
+**Main problem.** Quantifying the 'imaginarity-generating power' (IGP) of unitary dynamics, which refers to the ability of unitary operations to produce complex-valued features from initially real quantum states.
+
+**Main result.** The authors derive an exact expression for the purity-constrained IGP and prove that for Haar-random unitaries in high dimensions, the IGP concentrates near its maximum value, meaning typical high-dimensional dynamics are highly effective at generating imaginarity.
+
+**Method.** The study employs the framework of Dynamical Resource Theories (DRT), using the Hilbert-Schmidt norm to quantify imaginarity, Weingarten calculus for Haar averages, and Levy's Lemma to derive concentration bounds.
+
+**Summary.** This paper introduces a new way to quantify how much 'imaginarity' (complex-valuedness) a quantum operation can create from real-valued states. Using resource theory and random matrix theory, the authors show that most high-dimensional quantum gates are extremely efficient at generating this resource. They provide exact formulas for this power based on the gate's properties and propose an experimental protocol to measure it using entanglement fidelity.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The model considers arbitrary finite-dimensional Hilbert spaces (qudits) subject to unitary dynamics $U \in U(d)$ acting on real density matrices.
+
+**Key observables.** Imaginarity-generating power (IGP), purity ($P$), and the trace-based quantity $|Tr(U^dagger U^*)|^2$.
+
+**Important parameters / regimes.** Dimension ($d$), purity ($P$), and the large-dimension limit ($d 	o \infty$).
+
+**Assumptions / limitations.** The resource theory is basis-dependent (fixed computational basis) and focuses on unitary dynamics rather than general noisy CPTP maps.
+
+**Figures summary.** A log-scale plot showing the scaling of the variance of the normalized IGP with dimension, demonstrating agreement between numerical data and the analytical $1/d^4$ prediction.
+
+**Paper structure.** The paper introduces the concept of IGP, establishes the mathematical framework of the dynamical resource theory of imaginarity, derives exact analytical expressions for the IGP under purity constraints, characterizes maximizing unitaries, and uses random matrix theory to study the statistical concentration of the resource in high dimensions.
+
+**Why it may be interesting.** This work provides a fundamental characterization of how the complex structure of quantum mechanics is dynamically activated, which is relevant for understanding the complexity of quantum circuits and the distinction between real and complex quantum theories.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Imaginarity, stemming from the complex structure of quantum mechanics, has recently emerged as a fundamental resource, yet its dynamical generation remains largely unexplored. In this work, we introduce the notion of imaginarity-generating power (IGP) of unitary dynamics, which quantifies the ability of unitary operations to produce imaginarity from initially real quantum states. To quantify imaginarity, we employ a measure based on the Hilbert--Schmidt norm, which we show to be monotone under real unital operations. Within the framework of dynamical resource theories, we derive an exact expression for the purity-constrained IGP in arbitrary dimensions and show that, for pure real input states, it depends solely on intrinsic and experimentally accessible properties of the unitary. We further analyze its average behavior over ensembles of states with varying purity under both uniform and Hilbert--Schmidt distributions. We prove that it satisfies the essential properties of a valid resource monotone within the dynamical resource theory of imaginarity. We also characterize the unitaries that maximize the IGP and determine the corresponding bounds. Moreover, for Haar-random unitaries, we show that the IGP concentrates near its maximal value in high dimensions with small fluctuations, indicating that typical high-dimensional quantum dynamics are highly effective at generating imaginarity.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26947"></a>
+### [Large quantum dot energy level shifts in anomalous photon-assisted tunneling](http://arxiv.org/abs/2604.26947v1)
+
+**Authors:** Jared Benson, C. E. Sturner, A. R. Huffman, Sanghyeok Park, Valentin John, Brighton X. Coe, Tyler J. Kovach, Stefan D. Oosterhout, Lucas E. A. Stehouwer, Francesco Borsoi, Giordano Scappucci, Menno Veldhorst, Benjamin D. Woods, Mark Friesen, M. A. Eriksson  
+**Type:** experiment · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26947v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `QC/QI experiment` **2/5** · `quantum optics experiment` **1/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26947_figures/2604.26947_fig1.jpg" width="500"><br>
+<sub>Figure 1. Device layout and anomalous photon-assisted tunneling (PAT). (a) A false-color scanning electron microscope (SEM) im- age of a device that is nominally identical to the one measured here. Adapted from the raw SEM image in Ref. [27]. (b) An energy dis- persion diagram near the (2,1) - (1,2) charge anticrossing. PAT reso- nances appear when the energy difference between the states (∆E) is equal to the microwave photon energy (insets). (c) A charge stability diagram measured in the presence of a 15 GHz microwave excita- tion. PAT resonances are straight because the device is tuned such that the excited state anticrossings occur far away in detuning (ε). (inset) A diagram of ∆E...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26947_figures/2604.26947_fig2.jpg" width="500"><br>
+<sub>Figure 2. Measuring the dependence of ST splittings on gate voltages with pulsed-gate spectroscopy. (a) A charge stability diagram with insets showing the dependence of the two-hole ST splittings on the plunger gate voltages. Note that the ST splittings increase while moving away from the polarization line. (b) Pulsed-gate spectroscopy measurement to obtain energy splittings. Here, a square wave pulse is applied to the plunger gate P5 while sweeping across a P5 transition line. When the pulse amplitude is sufficiently large, a second loading line appears, and the gap between the two loading lines (∆VR) provides a measurement of the ST splitting in the right dot. (c) Measured ST splittings...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26947_figures/2604.26947_fig3.jpg" width="500"><br>
+<sub>Figure 3. Modeling the energy dispersion using PAT and pulsed-gate spectroscopy data. (a) A charge stability diagram with insets showing the lowest two energy levels of the DQD along lines that are parallel to the detuning axis and intersect the points i. and ii. calculated using the results of the fitting shown in (c). These diagrams show how the energy levels shift due to the gate-voltage dependence of the ST splittings. (b) An energy level diagram showing how the gate-voltage dependence is incorporated into the model used to fit the data. The energy dispersion near zero detuning (highlighted in gray) is fit to the PAT results, which depends on both VP3 and VP5. The energy splittings at...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26947_figures/2604.26947_fig4.jpg" width="500"><br>
+<sub>Figure 3b shows schematically how the gate-voltage depen- dence is included and how the data from each type of mea- surement contribute to the model of the DQD energy lev- els. At small detuning values, the PAT data provide a di-</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26947_figures/2604.26947_fig5.jpg" width="500"><br>
+<sub>Figure 4. Energy dispersion modeling under different device tun- ings. (a) ST splittings measured with pulsed-gate spectroscopy in the case that the device is tuned such that the left-dot ST splitting is much smaller than the right-dot ST splitting. (b) PAT resonances compared with fitting results for the tuning described in (a). Since the left-dot ST splitting is small, the PAT resonances are curved in the region of the stability diagram corresponding to the (2,1) charge configuration. (c,d) The same as (a,b), except in a tuning where the ST splittings are more similar in value. Here, the ST splittings are small enough that curvature is present in the PAT resonances in the regions of the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26947_figures/2604.26947_fig6.jpg" width="500"><br>
+<sub>Figure 3 Figure 4b Figure 4d ∆1 (GHz) 2.40 3.63 0∗</sub>
+
+</details>
+
+**Main problem.** Investigating the unexpected, strong dependence of orbital energy splittings (singlet-triplet splittings) on gate voltages in Ge/SiGe double quantum dots.
+
+**Main result.** The researchers discovered that singlet-triplet splittings exhibit a strong, linear dependence on plunger gate voltages, which causes anomalous curvature in photon-assisted tunneling (PAT) resonance lines.
+
+**Method.** The study combines photon-assisted tunneling (PAT) using microwave excitation with pulsed-gate spectroscopy to measure energy dispersions and splittings directly.
+
+**Summary.** This paper identifies that orbital energy splittings in Ge/SiGe quantum dots change significantly with gate voltages, contradicting the standard assumption of constant splittings. By using photon-assisted tunneling and pulsed-gate spectroscopy, the authors demonstrate that these splittings follow a linear dependence on plunger gates. This discovery explains previously observed anomalous, curved resonance lines in PAT measurements. Understanding this dependence is crucial for the reliable control and readout of hole spin qubits in quantum computing applications.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A double quantum dot (DQD) in a Ge/SiGe heterostructure featuring holes, modeled using a 4x4 Hamiltonian that incorporates gate-voltage-dependent ST splittings and crosstalk effects.
+
+**Key observables.** Singlet-triplet (ST) splittings, detuning, photon-assisted tunneling resonance frequencies, and hole temperature.
+
+**Important parameters / regimes.** Plunger gate voltages (V_P3, V_P5), tunnel couplings, lever arms, and hole temperature (measured at 94 mK).
+
+**Assumptions / limitations.** The model assumes a linear gate-voltage dependence of the ST splittings to reconcile the experimental data.
+
+**Figures summary.** Figure 1 shows device layout and PAT resonance patterns (straight vs. curved); Figure 2 presents charge stability diagrams and pulsed-gate spectroscopy results; Figure 3 illustrates the energy dispersion model; Figure 4 demonstrates model performance in different regimes; Supplemental figures show temperature measurement, device layout, and experimental setup.
+
+**Paper structure.** The paper introduces the problem of gate-dependent orbital splittings, describes the Ge/SiGe DQD platform, presents experimental PAT and pulsed-gate data, proposes a modified model to account for linear voltage dependence, validates the model across different device tunings, and provides detailed experimental setup and calibration in the supplement.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Orbital energy splittings are important quantum dot parameters for the operation of hole spin qubits. They are known to depend on the lateral confinement of the quantum dots. However, when changing top, plunger gate voltages, which are the typical control parameter for qubit applications, such energy splitting changes are typically negligible, both as measured in experiment and as assumed in effective theories. Here, we study the singlet-triplet (ST) splittings, which depend on the orbital splittings, of a double quantum dot (DQD) in a Ge/SiGe heterostructure using photon-assisted tunneling (PAT) and pulsed-gate spectroscopy. We find that the ST splittings have a surprising, strong dependence on the top gate voltages, leading to anomalous PAT measurements. We combine data from both measurements in a model that well describes the linear gate-voltage dependence of the ST splittings. Finally, we show that the ST splittings of the two dots exhibit similar linear gate-voltage dependences when the device is retuned such that their ratio is significantly different.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26788"></a>
+### [A Semantic Quantum Circuit Cache for Scalable and Distributed Quantum-Classical Workflows](http://arxiv.org/abs/2604.26788v1)
+
+**Authors:** Mar Tejedor, Javier Conejero, Rosa M. Badia  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26788v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `QC/QI experiment` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26788_figures/2604.26788_fig1.jpg" width="500"><br>
+<sub>Fig. 1: End-to-end workflow of the Quantum Circuit Cache. Incoming circuits are translated into ZX-calculus graphs, reduced via a deterministic rewrite strategy, deterministically serialized, and hashed using Weisfeiler–Leman refinement. Cache hits bypass execution and retrieve stored results, while cache misses trigger execution on CPU, GPU, or QPU backends and insertion into a persistent key–value store.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26788_figures/2604.26788_fig2.jpg" width="500"><br>
+<sub>Fig. 2: Total execution time for HEA circuits with four wire cuts as a function of compute nodes. Distributed circuit caching substantially reduces runtime, with Redis consistently outperforming LMDB at larger scales.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26788_figures/2604.26788_fig3.jpg" width="500"><br>
+<sub>Fig. 5: Comparison of cache behavior for random circuits (RC) using LMDB and Redis backends. Y axis is the total number of sucircuits simulations done.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26788_figures/2604.26788_fig4.jpg" width="500"><br>
+<sub>Fig. 3: Comparison of cache behavior for HEA circuits using LMDB and Redis backends. Y axis is the total number of sucircuits simulations done.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26788_figures/2604.26788_fig5.jpg" width="500"><br>
+<sub>Fig. 4: Total execution time for random circuits with four wire cuts as a function of compute nodes.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26788_figures/2604.26788_fig6.jpg" width="500"><br>
+<sub>Fig. 6: Cumulative cache hits versus DE iteration for QAOA depths p = 2, 3, 4 under coarse, medium, and fine parameter discretization. Cache reuse increases steadily over time, with coarser and medium discretizations exhibiting higher hit rates.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26788_figures/2604.26788_fig7.jpg" width="500"><br>
+<sub>Fig. 7: Best Max-Cut energy versus DE iteration for dif- ferent QAOA depths and discretization resolutions. Energies converge rapidly and saturate within a narrow range due to equivalence-aware circuit evaluation.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.26788_figures/2604.26788_fig8.jpg" width="500"><br>
+<sub>Fig. 9: Avoided circuit simulations as a function of DE population size. Larger populations increase concurrency and amplify the effectiveness of semantic-aware circuit caching.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.26788_figures/2604.26788_fig9.jpg" width="500"><br>
+<sub>Fig. 8: Detailed view for p = 3 showing cache hit percentage during optimization. Coarser discretizations produce signifi- cantly higher reuse throughout the optimization trajectory.</sub>
+
+</details>
+
+**Main problem.** Hybrid quantum-classical workflows suffer from massive computational redundancy because syntactically different circuits often implement identical operations, leading to wasted resources on CPUs, GPUs, and QPUs.
+
+**Main result.** The Quantum Circuit Cache achieves up to 11.2x speedup on real QPU hardware and up to 7.0x on single-node simulations by identifying and reusing semantically equivalent circuits.
+
+**Method.** A semantic hashing pipeline using ZX-calculance reduction and Weisfeiler-Lehman graph hashing to create deterministic fingerprints, stored in distributed LMDB or Redis databases.
+
+**Summary.** This paper introduces a 'Quantum Circuit Cache' designed to eliminate redundant computations in hybrid quantum-classical workflows. By using ZX-calculus and graph hashing, the system identifies circuits that are structurally identical even if their gate sequences differ. This allows the system to reuse previously computed results from a distributed database, significantly accelerating tasks like circuit cutting and variational algorithm optimization on both classical supercomputers and real quantum hardware.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system was evaluated on the MareNostrum 5 supercomputer and the MareNostrum Ona 35-qubit superconducting quantum processor, using workloads like circuit cutting and QAOA optimization.
+
+**Key observables.** Cache hit rate, speedup factors, execution time, and number of redundant simulations.
+
+**Important parameters / regimes.** Circuit depth (p), number of wire cuts, discretization granularity for parameters, and storage backend type (LMDB vs. Redis).
+
+**Assumptions / limitations.** The ZX-calculus reduction is intentionally incomplete (prioritizing scalability over formal completeness), and WL hashing is assumed to be practically collision-free.
+
+**Figures summary.** Figure 1 shows the end-to-end workflow from circuit to cache; Figure 2 and 3 compare execution time and cache behavior for LMDB and Redis; Figure 4 shows performance on random circuits; Figure 6 and 7 illustrate QAOA convergence and cumulative hits; Figure 8 shows the trade-off between discretization and hit rate.
+
+**Paper structure.** The paper introduces the problem of redundancy, describes the semantic hashing pipeline (ZX-calculus and WL hashing), details the storage architectures (LMDB/Redis), presents experimental evaluations on circuit cutting and QAOA workloads, and concludes with hardware validation and future work.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Hybrid quantum--classical workflows often execute large ensembles of circuits that differ syntactically but implement identical operations, leading to substantial redundant computation. To address this, we introduce the Quantum Circuit Cache, a content-addressable system that detects semantic equivalence and reuses previously computed results across executions, backends, and workflow stages.   Our approach combines ZX-calculus reduction with isomorphism-invariant Weisfeiler--Leman graph hashing to generate deterministic circuit identifiers, enabling constant-time lookup in distributed caches supporting both lightweight LMDB and scalable Redis deployments. The system integrates transparently into hybrid HPC workflows and remains backend-agnostic across CPU, GPU, and QPU environments.   We evaluate the system on MareNostrum 5 with two representative workloads: distributed wire cutting and Differential Evolution-based QAOA optimization. For wire cutting, caching eliminates up to 91.98% of redundant subcircuit simulations, yielding speedups up to 7.0 times on a single node and maintaining advantages at scale, with Redis-based caching achieving up to 1.6 times speedups under high parallelism. Validation on a 35-qubit superconducting QPU confirms these benefits, achieving an 11.2 times speedup on real hardware. In distributed QAOA optimization, equivalence-aware caching avoids up to 27.6% of circuit evaluations and consistently reduces execution cost without altering the optimization algorithm. In both cases, reuse grows with concurrency and circuit structure, highlighting redundancy as a major systems bottleneck and demonstrating the effectiveness of our Quantum Circuit Cache.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26226"></a>
+### [Exponentially improved quantum simulation of scalar QFT](http://arxiv.org/abs/2604.26226v1)
+
+**Authors:** Qing-Hong Cao, Ying-Ying Li, Xiaohui Liu, Liang-Qi Zhang, Ke Zhao  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26226v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26226_figures/2604.26226_fig1.jpg" width="500"><br>
+<sub>FIG. 1. ⟨Ω|ϕ†(0)T0,{0,1}→{1,1}ϕ(0)|Ω⟩as a function of the time t for a 2 × 2 lattice with m0 = 0.15, λ = 0.05 and the renormalized mass m = 0.20. Comparison between exact lattice field calculation, the encoding scheme proposed in this work, and the encoding scheme of JLP.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26226_figures/2604.26226_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Same plot as Fig. (1), with m0 = 0.15, λ = 0.15 and the renormalized mass m = 0.26.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26226_figures/2604.26226_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Same plot as Fig. (1), with m0 = 0.15, λ = 0.3 and the renormalized mass m = 0.32.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26226_figures/2604.26226_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Realization of operator ϕ†(0)e−iHtϕ(x′)Π(x)eiHtϕ(0) as quantum circuit.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26226_figures/2604.26226_fig5.jpg" width="500"><br>
+<sub>FIG. 5. ⟨Ω|ϕ†(0)T0,{0,1}→{1,1}ϕ(0)|Ω⟩as a function of the time t for a 2 × 2 lattice with δx = 1, nq = 2 and m0 = 0.15 and λ = 0.05.</sub>
+
+</details>
+
+**Main problem.** The high circuit depth and large Trotter errors associated with standard Pauli-string decomposition in occupation-basis digitization for simulating scalar quantum field theories.
+
+**Main result.** A diagonalization-based approach achieves exponential reductions in circuit depth and significantly mitigates Trotter errors, showing faster convergence than the amplitude-basis approach in certain regimes.
+
+**Method.** Diagonalizing truncated field operators prior to Pauli decomposition to transform the interaction Hamiltonian into commuting Z-type strings, utilizing LCU and MCM techniques.
+
+**Summary.** This paper presents an improved method for simulating scalar quantum field theories on quantum computers using occupation-basis digitization. By diagonalizing field operators before decomposing them into Pauli strings, the authors achieve an exponential reduction in circuit depth and significantly reduce Trotter errors. They demonstrate that this approach converges more rapidly than existing amplitude-basis methods for certain parameter regimes. The results provide a more efficient pathway for studying complex observables like energy-energy correlators on near-term quantum devices.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A real scalar quantum field theory (phi^4 theory) in 2+1 dimensions, discretized on a 2x2 spatial lattice with periodic boundary conditions.
+
+**Key observables.** Lorentzian energy-energy correlator (EEC) and energy-flow matrix elements.
+
+**Important parameters / regimes.** Lattice spacing, mass (m0), coupling constant (lambda), and truncation size (nq).
+
+**Assumptions / limitations.** The study assumes a truncated local Hilbert space which breaks canonical bosonic algebra, and focuses on a small 2x2 lattice representative example.
+
+**Figures summary.** Circuit diagrams for operator products using LCU/MCM and plots showing the time-dependent expectation value of the energy-flux operator compared across exact, Trotterized, and Qiskit simulations.
+
+**Paper structure.** The paper introduces the problem of digitization inefficiency, proposes a diagonalization-based algorithm, details the implementation via LCU and MCM, provides numerical benchmarks comparing the new method to the JLP amplitude-basis approach, and discusses scaling and limitations.
+
+**Why it may be interesting.** The development of more efficient algorithms for simulating field theories is crucial for demonstrating quantum advantage and provides new tools for studying real-time dynamics and non-equilibrium processes on near-term quantum hardware.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Quantum simulations of scalar quantum field theories (QFT) provide important benchmarks for demonstrating quantum advantage. We revisit digitization in the occupation basis, which is typically hindered by unfavorable circuit depth scaling. We present an approach that achieves exponential reductions in circuit depth and significantly mitigates Trotter errors by diagonalizing field operators prior to their decomposition into Pauli strings. Focusing on a scalar QFT in 2+1 dimensions, we show that this method substantially reduces circuit depth and CNOT gate counts for time evolution. Using the Lorentzian energy-energy correlator as a benchmark observable, we find parameter regimes in which occupation-basis digitization converges more rapidly with respect to local truncation than the amplitude-basis approach of Jordan, Lee, and Preskill. These results provide both algorithmic advances and phenomenological benchmarks for studies of light-ray observables on near-term quantum devices.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26002"></a>
+### [Exposing impostor Majorana zero modes through atomic-scale shot-noise](http://arxiv.org/abs/2604.26002v1)
+
+**Authors:** A. Maiti, G. D. Gu, F. Massee  
+**Type:** experiment · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.26002v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `Kondo & dissipative impurity` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26002_figures/2604.26002_fig1.jpg" width="500"><br>
+<sub>Figure 1. Trivial YSR states mimicking Majorana-like zero-bias peak. a High resolution topography (Vbias = 50 mV, I = 1.5 nA) of Fe(Se,Te), showing a clean surface with Se (bright) and Te (dark) contrast. b Zero-bias conductance map on the same location as panel a, revealing an in-gap state induced by a sub-surface impurity (defect #A). Set conditions: Vbias = 10 mV, I = 100 pA. c,d Differential conductance measured at position #1 and position #2, respectively for different junction resistances (RJ) as indicated in the legend. The step size in resistance uses a logarithmic scale. Inset shows the 2D map of the spectra (normalised by the setup current). e,f Differential conductance taken...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26002_figures/2604.26002_fig2.jpg" width="500"><br>
+<sub>Figure 2. Shot-noise spectroscopy of the zero-bias and split peak(s). a Differential conductance measured at posi- tion #1 (see Fig. 1a). Set-point conditions: Vbias = 4.8 mV, I = 1.5 nA. b Simultaneously recorded current noise. The in- set highlights the region of interest around the zero-bias peak. The black line indicates the reference F ∗= 1. Deviations from this line are observed on both the positive and negative flanks of the zero-bias peak, marked by the red arrows. c Extracted effective Fano factor, F ∗, as a function of sample voltage, clearly showing F ∗̸= 1 in the region of interest. d-f A similar data set, using the same set-point conditions at po- sition #2, also shows F ∗̸= 1...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26002_figures/2604.26002_fig3.jpg" width="500"><br>
+<sub>Figure 3. Shot-noise spectroscopy revealing the trivial nature across a quantum phase transition. a simultaneously taken topography and zero-bias conductance map of the sub-surface impurity (defect #B) showing a QPT. Set-point conditions: Vbias = 4.4 mV, I = 1 nA). The red circle denotes the area where the spectroscopic measurements were carried out. c Junction resistance (RJ) dependence of the differential conductance (normalised by the set-point current) measured inside the impurity ranging from 1.2 MΩ(top) to 3.28 MΩ(bottom). The step size in RJ uses a logarithmic scale. d-f Differential conductance measured for three different resistances: 1.85 MΩ(G−&gt; G+), 2.4 MΩ(crossing), and 3.43...</sub>
+
+</details>
+
+**Main problem.** Distinguishing true Majorana zero modes (MZMs) from topologically trivial 'impostor' states, such as Yu-Shiba-Rusinov (YSR) states, which produce nearly identical zero-bias conductance peaks.
+
+**Main result.** Shot-noise spectroscopy reveals deviations in the Fano factor (F* != 1) that expose the trivial nature of zero-bias peaks, providing a decisive diagnostic tool that conductance spectroscopy alone lacks.
+
+**Method.** Atomic-scale shot-noise spectroscopy using Scanning Tunneling Microscopy (STM) with cryogenic MHz circuitry to measure current noise and extract the effective Fano factor.
+
+**Summary.** This paper addresses the difficulty of identifying Majorana zero modes in superconductors because trivial impurity states can mimic their signature in conductance measurements. By using atomic-scale shot-noise spectroscopy, the authors show that the Fano factor deviates from unity in a way that reveals the underlying particle and hole character of the states. This allows them to unambiguously identify 'impostor' states in Fe(Se,Te) that appear as robust zero-bias peaks in standard spectroscopy. The study establishes shot-noise as a powerful new diagnostic tool for topological physics.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Sub-surface impurities and defect-bound states in the iron-based superconductor Fe(Se,Te) studied via a single-tip STM platform.
+
+**Key observables.** Effective Fano factor (F*), differential conductance (dI/dV), junction resistance (RJ), and electron-hole asymmetry.
+
+**Important parameters / regimes.** Junction resistance (RJ) used to tune electric fields, thermal broadening (~0.15 mV), and temperature (0.5 K).
+
+**Assumptions / limitations.** The noise measurement baseline is established using a clean, fully gapped region where F* = 1 (Poissonian statistics).
+
+**Figures summary.** Fig 1: STM topography and conductance maps showing localized defect states and peak splitting. Fig 2: Shot-noise spectroscopy showing F* deviations at zero-bias and split peaks. Fig 3: Shot-noise measurements during a quantum phase transition driven by junction resistance.
+
+**Paper structure.** The paper introduces the problem of MZM impostors, describes the STM/shot-noise experimental setup, demonstrates the failure of conductance spectroscopy to detect hidden splitting, presents shot-noise as the solution by revealing F* deviations, and validates the method via a quantum phase transition.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+A robust zero-bias conductance peak in putative $p$-wave superconductors is often regarded as the primary signature of a Majorana zero mode. Yet similar features can also arise from trivial bound states. This ambiguity has limited the reliability of conventional spectroscopy as a diagnostic tool, raising a long-standing problem of how to detect such impostors. Here, we address this issue with an alternative approach, atomic-scale shot-noise spectroscopy, that goes beyond conductance measurements. Through a detailed investigation of multiple defect-bound zero-bias states in the widely studied superconductor Fe(Se,Te), we observe that differential conductance can exhibit an apparently `robust' zero-bias peak. However, shot-noise measurements consistently reveal the fingerprint of the individual particle- and hole character hidden in the tunnelling conductance, unambiguously exposing the trivial nature of the zero-bias peak. Our results establish shot-noise spectroscopy as a decisive diagnostic for ruling out false Majorana signatures in atomic-scale experiments.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.25999"></a>
+### [Lattice Topological Defects in Non-Unitary Conformal Field Theories](http://arxiv.org/abs/2604.25999v1)
+
+**Authors:** Madhav Sinha, Thiago Silva Tavares, Hubert Saleur, Ananda Roy  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.25999v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `entanglement & information structure` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.25999_figures/2604.25999_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Schematic of a topological defect (in red) for a 2D CFT with periodic boundary conditions. In the ‘direct’ channel, this defect is analyzed using a Hamiltonian with a spatially-localized impurity. In the ‘crossed’ channel, the de- fect manifests itself as an operator that acts on the Hilbert space of the CFT without defects. Here, x is the spatial di- rection along the chain and y is the imaginary time direction. (b) Schematic of the transfer matrix of the associated classical statistical mechanics model with periodic boundary condition. The case of a single defect corresponds to choosing one of the inhomogeneity parameters as uk = u+iv, keeping all the oth- ers u. The...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.25999_figures/2604.25999_fig2.jpg" width="500"><br>
+<sub>FIG. 3. Numerical results (in circles) for the conformal di- mension ∆(= h + ¯h) versus the conformal spin s(= h −¯h) for the lowest states in each of the Virasoro tower in the CFT spectrum. The CFT predictions are shown with crosses. The maroon and blue markers correspond to the (1,1) and the (1,2) defects respectively. For M(5, 2) and M(5, 3) all pri- mary fields are shown, for M(7, 5) and M(7, 4) some of the primary fields, which are higher up in the energy spectrum, are omitted.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.25999_figures/2604.25999_fig3.jpg" width="500"><br>
+<sub>FIG. 2. Numerical data for the conformal dimension (∆0) for the states with the lowest energy for the (1, 1) and (1, 2) defects. The latter are realized by respectively setting v = 0 and v = 20 in Eq. (8). The different values of ∆0 are obtained by fitting E0 −e∞Leff with 1/Leff [Eq. (21)]. Here, e∞denotes the bulk energy density given in Eq. (23). The expected CFT predictions are shown in parenthesis.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.25999_figures/2604.25999_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Free energy density in the direct channel (denoted by circles) calculated numerically for four different RSOS(m, m′) models with L = 28(24) and R = 6, 7, 8, 9, 10. The effective central charge (ceff) is obtained by fitting the numerical data to Eq. (24). The expected results for ceff are shown in the parenthesis. The same free energy density is also calculated in the crossed channel (denoted by crosses) using systems with L = 6, 8, 10 and R = 28 (24) for the corresponding RSOS models. The agreement between the direct and crossed chan- nel computations, as would be expected from the modular invariance of the corresponding CFT partition function, is reasonable and serves as a...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.25999_figures/2604.25999_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Change in the thermodynamic entropy ∆S upon variation of the defect parameter v for RSOS(m, m′) models with four different choices of m, m′. As v changes from 0 to 4, the lattice Hamiltonian [Eq. (8)] interpolates between the (1,1) and (1,2) fixed points. The thermodynamic en- tropy is computed in the direct channel (denoted by circles) with L = 28(L = 24) for m′ = 5(m′ = 7). For this computa- tion, R is taken to be L/2. In the crossed channel, the same change ∆S is obtained by computing the expectation value of the corresponding transfer matrix T({u}) with uj = γ/2 + iv ∀j and v varying between 0 and 4. For this computa- tion, the system-size R was varied from 20 to 12 (16 to 10)...</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.25999_figures/2604.25999_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Change in the ground-state conformal dimension (∆0) as the defect parameter v is varied from 0 to 4 to interpolate between the (1,1) and the (1,2) fixed points. Here, ∆0 is calculated numerically for four RSOS(m, m′) models using systems of sizes L = 18 to L = 28 (L = 14 to L = 24) for m′ = 5 (m′ = 7). The theoretical values for ∆0 at the (1,1) and the (1,2) fixed points are provided and depicted using dashed horizontal lines.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.25999_figures/2604.25999_fig7.jpg" width="500"><br>
+<sub>FIG. 7. The fusion tree that defines the anyonic chain. In this work we set ρ = 2</sub>
+
+</details>
+
+**Main problem.** The investigation of topological defects and Renormalization Group (RG) flows between different fixed points in non-unitary conformal field theories (CFTs).
+
+**Main result.** The study establishes a framework to study non-unitary CFT defects via lattice models, demonstrating a monotonic RG flow between fixed points and verifying that defect operator eigenvalues match analytical predictions.
+
+**Method.** The authors use integrable lattice models, specifically the Temperley-Lieb algebra and RSOS models, combined with exact diagonalization and finite-size scaling analysis.
+
+**Summary.** This paper explores how topological defects behave in non-unitary conformal field theories using lattice-based RSOS models. By constructing a parameter-dependent Hamiltonian, the authors are able to numerically track the Renormalization Group flow between different fixed points. They successfully demonstrate that the numerical results for conformal dimensions and operator expectation values align with theoretical predictions from the modular S-matrix. The work also establishes a connection between anyonic chains and these non-unitary RSOS models.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system consists of quantum RSOS(m, m') chains and anyonic chain models derived from Galois conjugated su(2)k fusion categories, which serve as the lattice counterparts to non-unitary minimal models.
+
+**Key observables.** Conformal dimensions (scaling dimension and conformal spin), central charge, thermodynamic entropy, ground-state energy, and expectation values of defect line operators.
+
+**Important parameters / regimes.** The defect parameter v (interpolating between identity and Kramers-Wannier defects), the integers m and m' defining the RSOS model, and the impurity strength/Kondo temperature scale.
+
+**Assumptions / limitations.** The study assumes the co-primality of certain integers (p and k+2) and is limited by the small system sizes accessible via exact diagonalization.
+
+**Figures summary.** Figure 1 shows schematics of topological defects and transfer matrices; Figure 2 and 3 plot conformal dimensions; Figure 4 shows free energy density; Figure 5 displays thermodynamic entropy scaling; Figure 6 shows the evolution of conformal dimensions with the defect parameter; Figure 7 illustrates fusion trees.
+
+**Paper structure.** The paper begins by defining the lattice RSOS and anyonic models, moves to the construction of the defect Hamiltonian and algebraic framework, presents numerical results for energy spectra and operator eigenvalues, analyzes RG flows and thermodynamic scaling, and concludes with the equivalence of anyonic and RSOS models.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Topological defects play a fundamental role in the investigation of symmetries in quantum field theories. For conformal field theories in two space-time dimensions, it is possible to construct these defects using lattice models allowing ab-initio analytical and numerical computations of their characteristics. In this work, topological defects are investigated in non-unitary conformal field theories using appropriate variations of the restricted solid-on-solid models. The relevant impurity models and the corresponding defect operators are constructed for the lattice system. Numerical computations are performed for the energy spectrum, eigenvalues of the defect operators as well as thermodynamic characteristics and compared with analytical predictions. Finally, renormalization group flows between the different fixed points are analyzed using numerical methods.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26287"></a>
+### [Newton-Cartan limit of Klein-Gordon AQFT and the collapse of Galilean modular structure](http://arxiv.org/abs/2604.26287v1)
+
+**Authors:** Leonardo A. Pachon  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.26287v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `entanglement & information structure` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26287_figures/2604.26287_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Newton–Cartan (c →∞) limit of relativistic free Klein–Gordon AQFT and the modular-content collapse on the Galilean side. The full modular machinery present on the relativistic side (Reeh–Schlieder, Bisognano–Wightman boost-modular flow on Rindler wedges, Bisognano– Wightman/Sewell flow on bifurcate Killing horizons, Hartle–Hawking KMS, Kay–Wald uniqueness) does not survive the contraction. The algebraic mechanism is shown below the arrow: the 1/c2 in the Poincaré commutator [ ˆKL i , ˆPj] is exactly cancelled by the c2 scaling of the rest energy mc2, leaving the central Bargmann mass charge m on the Galilean side. The thermal parameters TU and THH scale in opposite directions in c...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26287_figures/2604.26287_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Non-commutativity of the c →∞and r →r+ s limits in the Schwarzschild case. Order (a) (c first, top path) produces the Galilean Haag–Kastler net on R3 \{0} of Theorem 4; the horizon location rs(c) = 2GM/c2 leaves the exterior region in the limit, and the near-horizon thermal/modular content is destroyed at order O(c−2). Order (b) (r first, bottom path) lands on the relativistic near-horizon AQFT with Bisognano–Wightman/Sewell modular flow at THH; subsequently taking c →∞sends THH →∞, and no Galilean state on the limiting net can be KMS at any finite temperature by axioms (G5) and (G6c). The two paths produce structurally different objects.</sub>
+
+</details>
+
+**Main problem.** Investigating the structural collapse of the modular (thermodynamic) structure, specifically the Reeh-Schlieder property and Tomita-Takesaki modular flow, when taking the Newton-Cartan (non-relativistic) limit of relativistic quantum field theory.
+
+**Main result.** The paper proves that the relativistic modular structure entirely collapses in the c -> infinity limit, as the Bargmann mass-charge superselection prevents the vacuum from being a separating vector. It also establishes a new 'Galilean Hadamard condition' to characterize the short-distance singularity structure in the non-relativistic regime.
+
+**Method.** The author uses the Inoniu-Wigner contraction of the Poincaré algebra, Post-Newtonian expansions of the metric, and the GNS reconstruction of the field net, alongside heat-kernel expansions to analyze short-distance behavior.
+
+**Summary.** This paper explores what happens to the fundamental algebraic properties of quantum field theory when transitioning from relativistic to non-relativistic physics. It demonstrates that key relativistic features, such as the Unruh and Hawking effects and the Reeh-Schlieder property, fundamentally disappear in the Newton-Cartan limit. The work provides a rigorous mathematical framework for defining quantum fields in a non-relativistic, curved-space setting. By establishing a 'Galilean Hadamard condition,' it offers a way to handle short-distance singularities in non-relativistic quantum field theory.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study focuses on the Klein-Gordon field on Minkowski and static globally hyperbolic spacetimes (such as Schwarzschild and Reissner-Nordstrom metrics) transitioning to a Newton-Cartan structure with a Schrödinger-type Hamiltonian.
+
+**Key observables.** Wightman two-point functions, Bargmann mass-charge, Hawking and Unruh temperatures, and the spectrum of the Schrödinger Hamiltonian.
+
+**Important parameters / regimes.** The speed of light (c -> infinity limit), the Bargmann central charge (mass m), the Newtonian potential V(x), and the gravitational constant G.
+
+**Assumptions / limitations.** The derivation assumes a fixed background metric (no backreaction) and focuses on static spacetimes; the construction is limited to the leading-order Post-Newtonian expansion.
+
+**Figures summary.** Figure 1 provides a schematic comparison between the relativistic side (presence of modular flow and thermal states) and the Galilean side (absence of modular content). Figure 2 illustrates the non-commutativity of the c -> infinity and near-horizon limits.
+
+**Paper structure.** The paper begins by defining the Newton-Cartan limit of the KG field, proceeds to prove the existence of the limiting net and the collapse of the Reeh-Schlieder property, extends these results to curved static backgrounds, and concludes with a discussion on the short-distance singularity structure and the new Galilean Hadamard condition.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We extend the established Galilean/relativistic structural divider in algebraic quantum field theory, namely, the absence of Reeh-Schlieder and of Tomita-Takesaki modular flow on local algebras of any Galilean Haag-Kastler net satisfying a natural axiom set augmented by the Bargmann-charge hypotheses (G7$^*$)(a) and (G7$^*$)(d) to curved backgrounds via the Newton-Cartan ($c\to\infty$) limit. We show, for the free Klein-Gordon field on Minkowski and on static globally hyperbolic spacetimes admitting a Post-Newtonian expansion, that a position-independent rest-energy rescaling produces in the limit a Galilean Haag-Kastler net satisfying the axioms of Ref. [1] in flat-space form (Minkowski) or in a curved-space modification (Killing-flow invariance and uniqueness of the vacuum replacing full translation invariance) appropriate to the static case. The Bargmann central charge equals the Klein--Gordon mass~$m$; the gravitational potential $V(x)$ enters the limiting Schrödinger Hamiltonian but not the algebraic structure obstructed by the Galilean Reeh-Schlieder no-go theorem. The strengthened obstruction theorem of Ref. [1] extends to the modified curved-space setting on Fock representations, and the limiting net carries no modular flow on local algebras. Schwarzschild is treated as a worked example: the Killing horizon shrinks to a point, the Hartle-Hawking thermal state has no $c\to\infty$ limit, and the Boulware vacuum limits to the gravitational hydrogenic ground state. The Reissner-Nordström metric is included as a sanity check confirming that leading Post-Newtonian misses the electromagnetic content of the background. We discuss how Newton's constant~$G$ enters the present (background-metric) framework only at the level of the limiting Hamiltonian, and indicate where dynamical-metric extensions would require $G$ to play a structural role.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26862"></a>
+### [Non-local Tunneling Spectroscopy of Inelastic Quasiparticle Relaxation in Superconducting 1-D Wires](http://arxiv.org/abs/2604.26862v1)
+
+**Authors:** Kevin M. Ryan, Detlef Beckmann, Venkat Chandrasekhar  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.26862v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26862_figures/2604.26862_fig1.jpg" width="500"><br>
+<sub>FIG. 1. False Color SEM Micrograph of one device. The central superconducting wire was isolated via a liftoff step which prevented the formation of a parallel normal metal wire between the left and right reservoirs of the device. Traces of this liftoff process can be seen on either edge where this Cu feature is broken off. In the inset, we label the junctions A, B, and C as discussed in the text.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26862_figures/2604.26862_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Normalized local conductance of the three junctions studied, measured at 20.5 mK for all three junctions with the remaining two junctions floating. The normalization values Ginj and ∆0 were obtained via fitting as described in the text.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26862_figures/2604.26862_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Normalized non-local conductance due to charge- imbalance for all combinations of detector and injector. As described in the text, the spacing between the A and C junc- tions is approximately twice that of the A/B or B/C injec- tor/detector pairs, which can be seen in the reduction of over- all charge imbalance signal.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26862_figures/2604.26862_fig4.jpg" width="500"><br>
+<sub>FIG. 4. a.)+b.) Normalized non-local conductance between the A/B and A/C junction pairs with a small detector bias. c.)+d.) and e.)+f.) Corresponding decompositions of the non-local dual-biased conductance data into its components symmet- ric/antisymmetric with respect to Vinj. All color-maps are identical between panels.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26862_figures/2604.26862_fig5.jpg" width="500"><br>
+<sub>FIG. 5. a.) Heatmap plot of the local conductance of the injector junction A during simultaneous detector biasing on B. b.)+c.)+d.) Results of fittings to a Dynes-type model for the DOS, plotted as a function of detector bias. For all fits, only the normal state conductance was held fixed, with the other parameters varying freely.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26862_figures/2604.26862_fig6.jpg" width="500"><br>
+<sub>FIG. 6. a.) Heatmap of the dual-biased non-local conduc- tance data for the A/B junction pair. The grey regions cor- respond to data outside the color-map. b.) Same data, pre- sented as a 3D contour over its full data range. Also shown are projections indicating the general shape of the data taken during biasing of either Vinj or Vdet, indicating the sign rever- sal of the signal with respect to the bias polarity.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26862_figures/2604.26862_fig7.jpg" width="500"><br>
+<sub>FIG. 7. a.) Heatmap of the local conductance of the injector junction as a function of applied supercurrent density and in- jector bias. The dashed black lines indicate the point where the total supercurrent exceeds the critical current during the sweep, and the data has been suppressed to ignore parts of the sweep beyond this where the device is driven normal. b.) Non-local conductance heatmap measured between the A/B pair over a narrower range of JS values under swept current bias. Only a slight indication of the non-local peaks are dis- cernible. The artifacts near zero current bias are caused by stochastic switching and retrapping which has been interpo- lated out of the dataset...</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.26862_figures/2604.26862_fig8.jpg" width="500"><br>
+<sub>FIG. 8. a.) Heatmap of the local conductance spectra mea- sured on the A junction as a function at fixed supercurrent bias. The total current on the y-axis corresponds to a range IS = ±11 µA. b.) Line traces taken at 0 and 10 µA from the same measurement, demonstrating the non-equilibrium con- ductance spectra which occur with increasing supercurrent bias.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.26862_figures/2604.26862_fig9.jpg" width="500"><br>
+<sub>FIG. 10. a.) Symmetric part gss of the nonlocal conductance as a function of bias for different supercurrents Is. Symbols are data from Fig. 9.b, lines are fits (see text). b.) Applied supercurrent Is as a function of phase gradient ∂xϕ obtained from the fits in a, with a fit to Eq. (6).</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.26862_figures/2604.26862_fig10.jpg" width="500"><br>
+<sub>FIG. 9. a.) Heatmap of the non-local conductance spec- tra measured simultaneously with the data in Fig. 8 on the A/B junction pair. b.)+c.) Corresponding decompositions of the non-local conductance data into its components symmet- ric/antisymmetric with respect to the injector voltage Vinj for each value of the injected supercurrent.</sub>
+
+</details>
+
+**Main problem.** Investigating the non-local transport and relaxation of non-equilibrium quasiparticles (charge and energy imbalance) in 1-D superconducting wires.
+
+**Main result.** The study identifies a transition from charge-carrying to charge-neutral excitations at energies around 3-Delta and demonstrates how supercurrents drive the interconversion of charge and energy modes.
+
+**Method.** Non-local tunneling spectroscopy using a dual-bias scheme in NIS junctions, combined with quasiclassical simulations using the Usadel equations.
+
+**Summary.** This paper explores how quasiparticles move and relax in one-dimensional superconducting wires. By using a specialized dual-bias measurement technique, the authors can distinguish between charge and energy imbalance modes. They observe that at high injection energies, quasiparticles can break Cooper pairs, leading to a change in transport behavior. The study also shows how applied supercurrents can manipulate these non-equilibrium states, providing deep insight into the kinetics of superconductors.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Mesoscopic three-terminal Cu and Al NIS tunnel junction devices featuring 1-D ultra-thin Aluminum wires in the millikelvin, dirty-limit superconducting regime.
+
+**Key observables.** Non-local conductance (g_nl), local conductance (G), charge imbalance (Q*), and the superconducting gap (Delta).
+
+**Important parameters / regimes.** Superconducting gap (Delta_0), coherence length (xi), Thouless length (L_T), and the energy-dependent inelastic scattering time.
+
+**Assumptions / limitations.** The magnitude of the pair potential is assumed constant along the wire, and the effect of charge imbalance on the phase is neglected due to small tunnel currents.
+
+**Figures summary.** Figures show the decomposition of non-local conductance into symmetric/antisymmetric components, heatmaps of local conductance under varying bias and supercurrent, and the evolution of the pair potential and distribution functions.
+
+**Paper structure.** The paper introduces the experimental platform, details the symmetry-based decomposition of conductance, presents results on quasiparticle relaxation and energy-dependent scattering, explores the impact of high supercurrents, and concludes with the effects of in-plane magnetic fields.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Non-local conductance experiments using tunnel junctions can provide valuable spectroscopic information on both the transport and relaxation of quasiparticles in superconductors, as these techniques directly probe the quasiparticle charge and energy imbalance even at mK temperatures. In this work, we employ mesoscopic three terminal Cu and Al NIS devices to study non-local quasiparticle transport over length-scales on the order of the superconducting coherence length in this regime. Via a dual-bias scheme, which utilizes detector biases both above and below the superconducting gap, we are able to extract the effect of quasiparticle energy imbalance via its impact on the self consistent pair potential by symmetry considerations. We observe non-local conductance features due to pair-breaking which are anti-symmetric with respect to the polarity of the voltage bias, with a sharp onset during single electron tunneling at energies around $3Δ$. We compare these findings with quasiclassical simulations including inelastic effects to obtain estimates of the energy dependent inelastic scattering time. In addition, we demonstrate kinetic effects due to a large applied supercurrent which can also be captured in this formalism and decomposed with respect to the particle-hole symmetry and supercurrent direction, and discuss further opportunities for the advancement of this method.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26263"></a>
+### [qSHIFT: An Adaptive Sampling Protocol for Higher-Order Quantum Simulation](http://arxiv.org/abs/2604.26263v1)
+
+**Authors:** Sangjin Lee, Sangkook Cho  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26263v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26263_figures/2604.26263_fig1.jpg" width="500"><br>
+<sub>Figure 1. Numerical demonstrations the (N, r)-qSHIFT and qDRIFT protocols for the 1D transverse field Ising model with (h1, h2) = (1, 0.1) on six qubits. The time-evolution of a physical observable Q = P6 i=1 Zi is estimated for a randomly chosen initial state. Absolute algorithmic errors mitigated by the qSHIFT protocol (green dashed lines) and the qDRIFT protocol (yellow dashed lines) are shown as a function of evo- lution time t. Power-law fitting of mitigated errors confirms that the theoretically expected scalings: O(t2) for qDRIFT and O(t1+r) for (N, r)-qSHIFT.</sub>
+
+</details>
+
+**Main problem.** Quantum simulation faces a trade-off between the high gate complexity of Trotterization and the limited error scaling of qDRIFT. The goal is to achieve higher-order error scaling without increasing the circuit depth's dependence on the number of Hamiltonian terms.
+
+**Main result.** The authors introduce qSHIFT, an adaptive sampling protocol that achieves an improved error scaling of O(t^(1+r)) for an adjustable parameter r, while maintaining L-independent gate complexity.
+
+**Method.** qSHIFT uses an adaptive sampling scheme that updates probability distributions at each round by solving a classical system of L^r linear equations. It employs a quasi-probability sampling scheme to handle negative coefficients via a normalization factor Z.
+
+**Summary.** The paper presents qSHIFT, a new adaptive sampling protocol for quantum Hamiltonian simulation. Unlike standard Trotter methods that increase circuit depth with the number of terms, or qDRIFT which has limited error scaling, qSHIFT achieves higher-order accuracy O(t^(1+r)) with L-independent gate complexity. It works by adaptively updating sampling weights through a classical subroutine. This makes it a resource-efficient framework for high-precision simulation on near-term quantum devices.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The protocol is applied to a general Hamiltonian H = sum(h_i H_i) with positive coefficients, specifically demonstrated on a 1D Transverse Field Ising Model (TFIM) with six qubits.
+
+**Key observables.** The time-evolution of a physical observable Q, specifically the total magnetization Q = sum(Z_i) in the TFIM example.
+
+**Important parameters / regimes.** N (total sampling steps), r (operators per round/expansion order), L (number of Hamiltonian terms), t (evolution time), and epsilon (target precision).
+
+**Assumptions / limitations.** Assumes the number of sampling steps N is a multiple of r and that Hamiltonian terms can be grouped to keep L independent of system size. It also assumes the ability to solve the L^r linear system classically.
+
+**Figures summary.** Figure 1 compares the algorithmic errors of qDRIFT and various qSHIFT configurations ((N,r) = (2,2) and (3,3)) for the 1D TFIM, showing superior power-law error decay for qSHIFT as a function of time t.
+
+**Paper structure.** The paper introduces the simulation trade-off, presents the qSHIFT protocol and its mathematical derivation (including commutator expansions and quasi-probability handling), provides a complexity analysis comparing it to Trotter and qDRIFT, and validates the results with numerical simulations on the TFIM.
+
+**Why it may be interesting.** This is highly relevant for many-body dynamics as it provides a scalable way to perform high-precision time-evolution simulations on NISQ-era hardware by reducing circuit depth while improving error scaling.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Quantum simulation is a cornerstone application for quantum computing, yet standard methods face a trade-off between circuit depth and accuracy: Trotterization depth scales with the number of Hamiltonian terms $L$, while sampling-based qDRIFT is restricted to $O(t^2)$ error scaling. Here, We introduce qSHIFT, an adaptive sampling protocol that overcomes these limitations. By adaptively updating sampling distributions, qSHIFT maintains $L$-independent gate complexity while achieving an improved error scaling of $O(t^{1+r})$ for an adjustable parameter $r$. This performance is enabled by a classical subroutine solving $L^r$ linear equations per sampling round. Numerical demonstrations confirm the $O(t^{1+r})$ scaling, showcasing qSHIFT as a resource-efficient framework for high-precision quantum simulation. Furthermore, the protocol's reduced circuit depth enhances its compatibility with physical error mitigation, making it a promising candidate for implementation on near-term quantum devices. In addition to its role as a standalone algorithm, qSHIFT can provide a high-precision foundation for modular quantum frameworks such as qSWIFT or Krylov quantum diagonalization.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26007"></a>
+### [Quantum mechanical bootstrap without inequalities: SYK bilinear spectrum](http://arxiv.org/abs/2604.26007v1)
+
+**Authors:** Kok Hong Thong, David Vegh  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.26007v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `entanglement & information structure` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26007_figures/2604.26007_fig1.jpg" width="500"><br>
+<sub>Figure 1: Anomaly-free correlator-cone for a fixed operator family labelled by ω, defined by ζ, ξ &gt; σ ≥0 in the ϵ →0 limit. The gray block marks the reference point (σ, ζ, ξ) = (0, ω, ω).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26007_figures/2604.26007_fig2.jpg" width="500"><br>
+<sub>Figure 2: Diagrammatic representation of the recursion structure on the anomaly-free correlator- cone. The basic recursions do not by themselves close on the correlator-wall, but suitable linear</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26007_figures/2604.26007_fig3.jpg" width="500"><br>
+<sub>Figure 3: ∆= 1</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26007_figures/2604.26007_fig4.jpg" width="500"><br>
+<sub>Figure 4: Absolute truncation errors of selected eigenvalues as functions of the Taylor-expansion cutoff N. The solid lines are linear least-squares fits on a log-log scale, and the dashed lines show the reference upper-bound scaling expected from Appendix D.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26007_figures/2604.26007_fig5.jpg" width="500"><br>
+<sub>Figure 5: Bootstrap allowed regions in the (f0, 3</sub>
+
+</details>
+
+**Main problem.** The standard positivity-based quantum mechanical bootstrap is insufficient to determine the energy spectrum of the SYK bilinear model because it is degenerate with respect to boundary conditions. The authors aim to develop a 'direct bootstrap' method to resolve this degeneracy and uniquely identify the spectrum.
+
+**Main result.** The authors successfully implement a 'direct bootstrap' using equality constraints from fractional-power operators, which converges to the exact energy eigenvalues of the SYK bilinear spectrum as the truncation order increases. They demonstrate that this method overcomes the failure of positivity-based bounds to isolate the spectrum.
+
+**Method.** The method uses a 'direct bootstrap' approach involving commutator recursion relations and Taylor expansions of fractional-power operators. It addresses boundary anomalies by using operator families that probe different boundary conditions, effectively turning the problem into a system of algebraic equality constraints.
+
+**Summary.** This paper introduces a 'direct bootstrap' method to solve for the energy spectrum of the SYK model's bilinear operators. While traditional bootstrap methods using positivity constraints fail due to boundary condition degeneracy, this new approach uses equality constraints derived from fractional-power operators. The authors show that this method accurately recovers the exact eigenvalues as the numerical truncation order increases. This provides a new tool for studying systems where boundary conditions are critical to the spectrum.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A quantum mechanical system defined on the interval [0, 1] whose spectrum matches the bilinear operators of the Sachdev-Ye-Kitaev (SYK) model. The Hamiltonian is related to the Casimir operator of a folded string in AdS2 and involves conjugate operators Z and S.
+
+**Key observables.** Energy eigenvalues (E_a or h) and dressed correlators (expectation values of bilinear operators).
+
+**Important parameters / regimes.** Conformal dimension (Delta), Robin boundary parameter (r), and the truncation order (N or K).
+
+**Assumptions / limitations.** The method assumes the finiteness of correlators as the regularization parameter epsilon approaches zero and relies on the validity of Taylor expansion truncation.
+
+**Figures summary.** Tables show convergence of energy eigenvalues for specific Delta values; Figure 3 compares bootstrap results to exact curves for general boundary conditions; Figure 4 shows power-law decay of truncation error; Figure 5 illustrates the large 'islands' of allowed regions in the positivity-based bootstrap compared to the targeted spectrum.
+
+**Paper structure.** The paper begins by defining the Hamiltonian and its connection to the SYK model, identifies the failure of standard positivity bounds, introduces the fractional-power operator basis for the direct bootstrap, details the handling of boundary anomalies, and concludes with numerical validation and convergence analysis.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study a quantum mechanical system whose spectrum coincides with that of bilinear operators of the Sachdev-Ye-Kitaev model. The standard positivity-based quantum mechanical bootstrap is degenerate with respect to the boundary data: it does not distinguish the boundary conditions that select the SYK spectrum, and hence is insufficient to determine the eigenvalues. Instead, by considering fractional powers of operators, we obtain constraint equations that determine the spectrum without imposing positivity. The resulting roots converge to exact eigenvalues as the truncation order increases. We call this the direct bootstrap.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26098"></a>
+### [Solving a Linear System of Equations on a Quantum Computer by Measurement](http://arxiv.org/abs/2604.26098v1)
+
+**Authors:** Alain Giresse Tene, Thomas Konrad  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26098v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26098_figures/2604.26098_fig1.jpg" width="500"><br>
+<sub>FIG. 1: Ansatz with 36k rotation angles generated by k sequential applications of the module depicted.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26098_figures/2604.26098_fig2.jpg" width="500"><br>
+<sub>FIG. 2: Quantum circuit of measurement test algorithm. Ansatz V (α) in input register and quantum gates of phase estimation algorithm, as well as measurements in output register. The relative frequency of ”0” results serves as estimator of the probability p0 to be maximised by classical optimisation.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26098_figures/2604.26098_fig3.jpg" width="500"><br>
+<sub>FIG. 3: Numerical simulation show convergence of target fidelity (red) and its estimate (green) averaged over fifty runs for different random matrices M and N = 1000 measurements per iteration t. Best fit f(t) = 1 −e−γt) (blue) with parameter γ = 0.014 demonstrates exponentially fast rise and then saturates at unity. The asymptotic behaviour of FT is analysed in Sect. III).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26098_figures/2604.26098_fig4.jpg" width="500"><br>
+<sub>FIG. 4: Target fidelity for simulation of a single run with N = 20000 shots per iteration. The measured relative frequency (blue) saturates when it sufficiently often reaches the maximum value of 1, while the actual target fidelity (red) is still less than 1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26098_figures/2604.26098_fig5.jpg" width="500"><br>
+<sub>FIG. 5: Subsequent section to the one shown in Fig.4</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26098_figures/2604.26098_fig6.jpg" width="500"><br>
+<sub>FIG. 6: Standard deviation of estimator for various values of probability p0 as detected in numerical simulations of the measurements in the algorithm.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26098_figures/2604.26098_fig7.jpg" width="500"><br>
+<sub>FIG. 7: The median relative standard deviation σrel (red line) for a total number of N = 100000 measurements, cf. main text, does not increase with the number of Pauli strings of M .</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.26098_figures/2604.26098_fig8.jpg" width="500"><br>
+<sub>FIG. 8: The median relative standard deviation σ (red line), cf. main text, of the cost function C of VQLS increases with the number of Pauli terms of M</sub>
+
+</details>
+
+**Main problem.** Solving a system of linear equations (Mx = b) on a quantum computer while overcoming the limitations of existing variational algorithms, such as the need for Pauli string decomposition and sensitivity to the matrix condition number.
+
+**Main result.** The proposed 'measurement test algorithm' allows for solving dense matrices without Pauli decomposition, achieves accuracy independent of the condition number (given sufficient qubits), and exhibits Heisenberg scaling for error relative to measurement shots.
+
+**Method.** A variational algorithm for fault-tolerant quantum computing that uses a parameterized ansatz and the Phase Estimation Algorithm (PEA) to maximize the probability of measuring a zero eigenvalue of a specific self-adjoint operator.
+
+**Summary.** This paper introduces a new variational algorithm for solving linear systems on fault-tolerant quantum computers. Unlike previous methods that struggle with dense matrices due to the need for Pauli string decomposition, this approach uses a measurement-based technique to directly maximize target fidelity. The algorithm is robust against high condition numbers and achieves high accuracy that scales efficiently with the number of measurements. This makes it a promising candidate for large-scale quantum linear algebra tasks.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A mathematical model of a linear system Mx = b, where M is a dense, real-valued, invertible matrix, implemented on a fault-tolerant quantum computing platform using amplitude encoding.
+
+**Key observables.** The target fidelity (probability of projecting into the target state) and the zero eigenvalue of the self-adjoint operator A.
+
+**Important parameters / regimes.** The matrix condition number (kappa), the number of measurement shots (N), the number of qubits in the output register (m), and the target fidelity error (epsilon).
+
+**Assumptions / limitations.** Assumes the availability of fault-tolerant quantum computing to implement the Phase Estimation Algorithm and that the operator A can be implemented via PEA.
+
+**Figures summary.** Figure 1 shows the ansatz circuit architecture; Figure 2 displays the full quantum circuit with PEA; Figures 3-5 illustrate the convergence of target fidelity and the impact of shot counts; Figures 6-8 compare the statistical stability and error scaling of this algorithm against VQLS.
+
+**Paper structure.** The paper introduces the problem of linear systems, defines the measurement test algorithm and its mathematical framework, describes the implementation via PEA, presents numerical simulations for dense matrices, and provides a comparative analysis against existing VQLS methods.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We present a variational algorithm for fault tolerant quantum computing to solve a system of linear equations which directly maximises the parameters of the target fidelity. This so-called measurement test algorithm can be applied to any computational task with a solution that is represented as eigenvector of a self-adjoint matrix. The solution is prepared as state of a register in the quantum computer by a von Neumann measurement of a corresponding observable, which is implemented using the phase estimation algorithm. The probability to project the system thus into the unknown target state, which equals the target fidelity, is measured in terms of relative frequencies and iteratively optimised to read out the target state. The new algorithm overcomes three issues of previous variational quantum algorithms: i) It does not rely on a decomposition in terms of Pauli strings and therefore can compute eigenvectors of dense matrices. ii) The accuracy is not limited by the condition number $κ$ of the matrix, provided a logarithmic number ($O(\logκ)$) of qubits is used to encode the eigenvalues and iii) the target fidelity $F_T = 1-ε$ can be reached with an accuracy $ε$ that scales with $1/N$ for $N$ measurements per iteration. We demonstrate this by numerical simulations for dense random real-valued $16\times 16$ matrices with non-vanishing determinant.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26639"></a>
+### [The temperature dependent geometric phase](http://arxiv.org/abs/2604.26639v1)
+
+**Authors:** Zheng-Chuan Wang  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.26639v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+**Topic relevance:** `non-equilibrium dynamics` **2/5**
+
+**Main problem.** The paper investigates how the geometric phase of a quantum system changes when the adiabatic evolution involves an environment at a finite temperature.
+
+**Main result.** The authors derive a temperature-dependent geometric phase and a temperature-dependent effective potential arising from an Abelian gauge potential induced by a Born-Oppenheimer-like approximation.
+
+**Method.** The study employs a Born-Oppenheimer approximation framework applied to a system interacting with an environment in thermal equilibrium.
+
+**Summary.** This paper explores the emergence of a temperature-dependent geometric phase in quantum systems. By applying a Born-Oppenheimer-like approximation to a system interacting with a thermal environment, the authors show that the resulting Abelian gauge potential leads to temperature-sensitive geometric and effective potentials. The effect is specifically demonstrated using the H2+ ion as a model system.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The theoretical framework is demonstrated using the H2+ ion system.
+
+**Key observables.** Temperature-dependent geometric phase and temperature-dependent effective potential.
+
+**Important parameters / regimes.** Temperature of the environment, adiabaticity of the evolution.
+
+**Assumptions / limitations.** The environment is assumed to be in an equilibrium state, and the interaction follows a Born-Oppenheimer-like adiabatic procedure.
+
+**Paper structure.** The paper introduces the concept of a temperature-dependent geometric phase via the Born-Oppenheimer approximation, derives the resulting Abelian gauge potential and effective potential, and provides a demonstration using the H2+ ion system.
+
+**Why it may be interesting.** This is interesting for researchers in open quantum systems and AMO physics because it provides a mechanism for temperature to influence topological/geometric properties of quantum states through environmental coupling.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+There exists a geometric phase for a quantum state during the adiabatic evolution of the system. If the adiabatic procedure happens between the system and the environment interacting with it similar to Born-Oppenheimer (BO) approximation, we can introduce a temperature into the environment, which can be regarded as in an equilibrium state. Then a temperature-dependent geometric phase can be obtained for the system, which originates from the Abelian gauge potential induced by the BO approximation. This gauge potential contributes to the effective potential of the system, which is temperature dependent, too. Finally, we demonstrate them using an example of H_2^+ ion system.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+## Other papers (34)
+
+*Papers from primary archives without highlighted authors or any topic match. Click to expand.*
+
+<details><summary>Show other papers</summary>
+
+
+<a id="paper-2604.26110"></a>
+### [A Comprehensive Analysis of Accuracy and Robustness in Quantum Neural Networks](http://arxiv.org/abs/2604.26110v1)
+
+**Authors:** Ban Q. Tran, Duong M. Chu, Hai T. D. Pham, Viet Q. Nguyen, Quan A. Pham, Susan Mengel  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26110v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26110_figures/2604.26110_fig1.jpg" width="500"><br>
+<sub>Fig. 1. The overall architecture of the hybrid classical-quantum neural networks utilized in this study. The leftmost column presents the QViT architecture, featuring a QSAL core composed of Q, K, and V vectors, along with a Gaussian-projection self-attention mechanism. The middle column illustrates the QCNN, which leverages an inverse MERA architecture. The core of this model comprises quantum convolutional (QCV) layers and quantum pooling layers. Finally, the rightmost column depicts the QRNN model, characterized by a staggered architecture with the core QRB.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26110_figures/2604.26110_fig2.jpg" width="500"><br>
+<sub>Fig. 2. Compare the ASR of QCNN with the four main adversarial attack methods: FGSM, PGD, APGD, and MIM. PGD and APGD yielded the highest successful attack rates among the four methods.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26110_figures/2604.26110_fig3.jpg" width="500"><br>
+<sub>Fig. 3. An overview of the analytical methodology and evaluation framework employed in this research.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26110_figures/2604.26110_fig4.jpg" width="500"><br>
+<sub>Fig. 4. 2D and 3D loss landscapes of the QViT optimizer for Cat and Dog classification with 10,000 samples, 100 epochs, and the amplitude encoding method.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26110_figures/2604.26110_fig5.jpg" width="500"><br>
+<sub>Fig. 5. The generalization bound was measured on the Cat vs. Dog pair of the CIFAR-10 dataset for the QRNN model.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26110_figures/2604.26110_fig6.jpg" width="500"><br>
+<sub>Fig. 6. Experimental verification of the claims regarding the alignment between theoretical generalization error and the practical performance of the QCNN model on the CIFAR-10 dataset.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26110_figures/2604.26110_fig7.jpg" width="500"><br>
+<sub>Fig. 7. The measurement results of the variation in Lipschitz bound across training epochs on the MNIST and CIFAR-10 datasets for the binary classification task, with two noise bounds, 𝐿2 and 𝐿∞, for the QViT model. a) and b) The variation of the Lipschitz bound across epochs in the binary classification task, where 0-1, 0-8, 1-7, 6-9 are the handwritten digit pairs from the MNIST dataset. c) and d) Graphs depicting the variation of the Lipschitz bound function across epochs, where 0-1, 1-9, 3-5 are the airplane-automobile, automobile-truck, cat-dog pairs from the CIFAR-10 dataset.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.26110_figures/2604.26110_fig8.jpg" width="500"><br>
+<sub>Fig. 8. Comparison of Average Fidelity across QNN models.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.26110_figures/2604.26110_fig9.jpg" width="500"><br>
+<sub>Fig. 9. Impact of quantum noise on the performance of the QRNN model.</sub>
+
+</details>
+
+**Main problem.** The study addresses the lack of a rigorous evaluation regarding the accuracy, generalization, and robustness of various Quantum Neural Network (QNN) architectures against both adversarial attacks and quantum noise in NISQ environments.
+
+**Main result.** The researchers found a fundamental trade-off between accuracy and robustness: QViT achieves high accuracy but is highly vulnerable to adversarial attacks, whereas QRNN and QCNN demonstrate superior resilience to perturbations and quantum noise.
+
+**Method.** A comparative analysis of three hybrid classical-quantum architectures (QCNN, QRNN, and QViT) using MNIST and CIFAR-10 datasets, subjected to adversarial attacks (APGD, PGD, etc.) and various quantum noise models (depolarizing, amplitude damping, etc.).
+
+**Summary.** This paper provides a comprehensive benchmark of three prominent quantum neural network architectures. It reveals that while transformer-based models (QViT) excel in accuracy on simple tasks, they are extremely fragile to noise and adversarial attacks. In contrast, recurrent and convolutional quantum models offer much better stability in noisy, intermediate-scale quantum environments. This work is crucial for guiding the selection of quantum machine learning models for practical, noisy hardware.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Hybrid Classical-Quantum Neural Networks (HCQNNs) including Quantum Convolutional Neural Networks (QCNN) based on MERA-like structures, Quantum Recurrent Neural and Quantum Vision Transformers (QViT) utilizing quantum self-attention cores.
+
+**Key observables.** Classification accuracy, generalization error, Lipschitz constant (to measure sensitivity), average fidelity, and adversarial success rate (ASR).
+
+**Important parameters / regimes.** Feature dimensionality (low vs. high), perturbation intensity (epsilon), noise types (bit-flip, phase-flip, amplitude damping, depolarizing), and number of training samples.
+
+**Assumptions / limitations.** The study assumes the use of classical optimizers (Adam) to mitigate the barren plateau problem and is limited to a 15-qubit simulation environment.
+
+**Figures summary.** Schematics of the three architectures; comparison of adversarial success rates across different attack methods; plots of accuracy and generalization error versus training set size; and the impact of various quantum noise channels on model performance.
+
+**Paper structure.** The paper introduces the QML landscape, details the specific architectures (QCNN, QRNN, QViT), describes the experimental setup for noise and adversarial testing, presents comparative results on accuracy and robustness, and concludes with limitations and future directions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Quantum Machine Learning (QML) has recently emerged as a highly promising research frontier. Within this domain, Quantum Neural Networks (QNNs),characterized by Variational Quantum Circuits (VQCs) at their core and featuring layers of quantum gates optimized by classical algorithms, have garnered significant attention. However, a rigorous and exhaustive evaluation of their practical performance remains largely incomplete. In this study, we conduct a comprehensive comparative analysis of three prominent hybrid classical-quantum architectures: Quantum Convolutional Neural Networks (QCNN), Quantum Recurrent Neural Networks (QRNN), and Quantum Vision Transformers (QViT), focusing on the critical dimensions of generalization, accuracy, and robustness. Our findings provide novel insights that address previous evaluative gaps. Notably, while these models exhibit exceptional performance on low-feature datasets such as MNIST, their learning efficacy degrades significantly when transitioned to high-feature datasets. Furthermore, convolutional-based models like QCNN appear less effective on high-dimensional data than other machine learning architectures. Additionally, while all models are susceptible to adversarial noise, traditional architectures, such as recurrent and convolutional networks, demonstrate superior resilience. Conversely, in the presence of quantum noise, the transformer-based architecture proves its strength by maintaining high robustness against measurement noise, channel noise, and finite-shot effects, whereas other architectures suffer marked performance declines. These results provide a granular perspective on the current state of the field and underscore the critical importance of tailoring model selection to the constraints of contemporary Noisy Intermediate-Scale Quantum (NISQ) environments.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26430"></a>
+### [A Multi-Level Integrity Evaluation Framework for Quantum Circuits under Controlled Anomaly Injection](http://arxiv.org/abs/2604.26430v1)
+
+**Authors:** Ejaz Ahmed, Boshuai Ye, Syed Hamza Shah, Muhammad Azeem Akbar, Arif Ali Khan  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26430v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26430_figures/2604.26430_fig1.jpg" width="500"><br>
+<sub>Fig. 1: Multi-layer quantum circuit integrity framework using SIS, IGS, and OIS. Black lines show the reference circuit; red lines indicate anomalies.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26430_figures/2604.26430_fig2.jpg" width="500"><br>
+<sub>Fig. 2: Distribution of SIS and OIS across anomaly severity levels.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26430_figures/2604.26430_fig3.jpg" width="500"><br>
+<sub>Fig. 6 compares the runtime of IGS and OIS across qubit counts for different severity levels. IGS maintains consistently low and stable runtime across all configurations, with only a modest increase as the number of qubits grows and minimal variance across severity levels. In contrast, OIS exhibits substantially higher runtime and significantly greater variability, with both mean runtime and variance increasing sharply beyond 10 qubits. Notably, OIS runtime becomes increasingly unstable at higher qubit counts, with large error bars indicating sensitivity to circuit structure and execution conditions. This highlights the computational advantage of IGS as a low-runtime pre- execution metric...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26430_figures/2604.26430_fig4.jpg" width="500"><br>
+<sub>Fig. 3: IGS response across defined anomalies.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26430_figures/2604.26430_fig5.jpg" width="500"><br>
+<sub>Fig. 4: SIS remains high for structure-preserving anomalies, while IGS and OIS degrade with increasing severity, capturing interaction level and behavioral deviations.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26430_figures/2604.26430_fig6.jpg" width="500"><br>
+<sub>Fig. 5: IGS and OIS exhibit weak correlation across severity levels, confirming that interaction-level similarity does not reliably reflect behavioral equivalence.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26430_figures/2604.26430_fig7.jpg" width="500"><br>
+<sub>Fig. 6: IGS achieves stable and low runtime across qubit counts, while OIS incurs significantly higher and more variable computational cost.</sub>
+
+</details>
+
+**Main problem.** Existing quantum circuit validation methods are fragmented, failing to detect 'structural blind spots' where circuit transformations preserve global properties like gate count but alter computational behavior.
+
+**Main result.** A multi-level framework (SIS, OIS, IGS) is necessary because structural similarity does not guarantee behavioral equivalence; specifically, OIS can detect 93.85% of anomalies that structural metrics miss.
+
+**Method.** The authors propose a three-layer metric framework combining Structural Integrity Score (SIS), Operational Integrity Score (OIS) via Jensen-Shannon distance, and Interaction Graph Score (IGS) using graph-based representations, tested via controlled anomaly injection.
+
+**Summary.** This paper addresses the challenge of ensuring quantum circuit integrity in the NISQ era, particularly against accidental or adversarial modifications. It identifies that structural analysis alone is insufficient because certain gate changes do not alter global circuit descriptors. By proposing a multi-layered approach that integrates structural, interaction-level, and behavioral metrics, the authors provide a more robust way to detect hidden circuit deviations. The framework offers a trade-off between the high accuracy of execution-based methods and the computational efficiency of graph-based pre-execution analysis.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study uses quantum circuits from the QASMBench suite, modeled as Directed Acyclic Graphs (DAGs), and simulated using the Qiskit Aer backend.
+
+**Key observables.** Gate count, circuit depth, interaction topology, output probability distributions, and Jensen-Shannon distance.
+
+**Important parameters / regimes.** Anomaly severity levels (0.1, 0.3, 0.6) and circuit scales ranging from small to 40 qubits.
+
+**Assumptions / limitations.** The study assumes an idealized environment without hardware noise or physical device variability and uses a predefined taxonomy of perturbations.
+
+**Figures summary.** Figure 1 shows the framework workflow; Figure 2 shows SIS and OIS performance across anomaly types; Figure 3 shows IGS degradation; Figure 4 shows the divergence between metrics; Figure 6 compares the computational runtime of IGS versus OIS.
+
+**Paper structure.** The paper introduces the problem of circuit integrity, proposes a three-layer metric framework (SIS, OIS, IGS), details the anomaly injection methodology, presents experimental results on detection performance and scalability, and concludes with limitations and future directions.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Ensuring the integrity of quantum circuits is a significant challenge in the Noisy Intermediate-Scale Quantum (NISQ) era, where circuits are subject to compilation transformations, hardware constraints, and potential adversarial modifications. Existing validation approaches typically rely on either structural analysis or behavioral evaluation, leading to incomplete assessment of circuit correctness.   In this work, we investigate the relationship between structural, interaction-level, and behavioral perspectives of circuit integrity, demonstrating that a single aspect of integrity is insufficient to guarantee circuit integrity; structural similarity alone does not ensure behavioral equivalence. To address this problem, we use a three-layer metric framework that combines the Structural Integrity Score (SIS), the Operational Integrity Score (OIS), and the Interaction Graph Semantic-Logical Score (IGS). SIS captures global structural properties, OIS quantifies behavioral divergence using Jensen-Shannon distance, and IGS models interaction patterns and dependencies in a pre-execution setting.   Through controlled anomaly injection on benchmark quantum circuits, we demonstrate that each metric captures a different aspect of circuit deviation. In particular, structural blind-spot cases (SIS >= 0.95) reveal a clear limitation of structural analysis, where OIS detects anomalies in 93.85% of instances, while IGS detects 72.58%. These results highlight that the metrics provide complementary insights and that a single metric is insufficient for reliable circuit validation.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26267"></a>
+### [Algebraic quantum kinematics and SR-selection](http://arxiv.org/abs/2604.26267v1)
+
+**Authors:** Leonardo A. Pachon  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.26267v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26267_figures/2604.26267_fig1.jpg" width="500"><br>
+<sub>FIG. 1. The photon-sector construction. Classical Fourier–Maxwell theory supplies, before any quantum input, a complex Hilbert-space scaffold (top). A single canonical commutator with scale ¯h (middle) promotes the scaffold to a quantum theory in which photon indivisibility, the Planck relation Eγ = ¯hω, and the spin spectrum σ ¯h = ±¯h along propagation arise as theorems (bottom). The entire quantum step is governed by one scalar parameter, ¯h; the relativistic content (k2 = 0, ω = c|k|, helicity σ = ±1) already lives in the classical scaffold.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26267_figures/2604.26267_fig2.jpg" width="500"><br>
+<sub>FIG. 2. The complementary structural roles of c and ¯h. The constant c acts within each of the two Fourier-conjugate spaces, defining the metric structure (light cone in spacetime, null cone in dual space) and supporting the local-algebra microcausality of (HK2). The constant ¯h acts between the two spaces: it converts the kinematic phase rates (ω,k,σ), intrinsic to the dual-space mode equation, into the dynamical observables (E,p,Sz), realized as operators on the single-particle Hilbert space. The roles are non-interchangeable.</sub>
+
+</details>
+
+**Main problem.** Investigating whether the algebraic axioms of quantum field theory, specifically microcausality and positive energy, structurally necessitate special relativity over Galilean kinematics.
+
+**Main result.** The author establishes an algebraic framework where the photon sector of QED is a realization of a single quantum postulate and proposes the SR-selection conjecture, suggesting Galilean kinematics are incompatible with a Haag-Kastler net supporting sharper-than-equal-time microcausality.
+
+**Method.** The paper utilizes operator-algebraic methods, including Weyl C*-algebras, Tomita-Takesaki modular theory, and the GNS construction, to analyze the compatibility of kinematic groups with local algebras.
+
+**Summary.** This paper presents the first in a series exploring the deep algebraic link between quantum mechanics and special relativity. It shows that fundamental properties like photon energy quantization and spin are theorems derived from a single algebraic postulate applied to classical electromagnetism. Crucially, it proposes that the requirements of local quantum field theory (specifically microcausality) effectively 'select' relativistic physics by making Galilean kinematics structurally inconsistent. This provides a potential foundation for understanding why the universe obeys relativistic rather than Newtonian laws at a fundamental algebraic level.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The primary model is the photon sector of free Quantum Electrodynamics (QED) in 3+1 dimensions, treated via a classical Fourier-Maxwell scaffold and quantized using canonical commutation relations.
+
+**Key observables.** Energy (E), momentum (p), helicity (spin), and the number operator (N).
+
+**Important parameters / regimes.** Planck's constant (h-bar) as the deformation scale, the speed of light (c) as the geometric scale, and the Newtonian/Galilean limit (c to infinity).
+
+**Assumptions / limitations.** Assumes the validity of Weyl C*-algebras, the existence of a positive-energy spectrum, and the requirement of sharper-than-equal-time microcausality.
+
+**Figures summary.** Figure 2 illustrates the complementary roles of c and h-bar, showing c defining the geometry of light and null cones while h-bar acts as the bridge between kinematic phase rates and dynamical observables.
+
+**Paper structure.** The paper introduces an algebraic framework for quantum kinematics, demonstrates its realization in the photon sector, establishes the structural roles of c and h-bar, and concludes by stating the SR-selection conjecture and a roadmap for a six-paper series.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We develop, as the first of a six-paper series, an operator-algebraic framework relating non-relativistic quantum mechanics and special relativity. Three structural facts organize the framework. (i)~The photon sector of free QED is a transparent realization: classical Fourier--Maxwell theory supplies a complex Hilbert-space scaffold (inner product, symplectic form, Schrödinger-form mode equation, polarization $\mathbb{C}^2$) with no quantum input, and a single canonical commutator with scale $\hbar$ on the mode amplitudes promotes it to single-photon QED, with photon indivisibility, the Planck relation $E=\hbarω$, and the spin spectrum $\pm\hbar$ as theorems. (ii)~The constants $c$ and $\hbar$ play non-interchangeable roles: $c$ is intrinsic to each Fourier-conjugate space, while $\hbar$ acts \emph{between} them, converting kinematic phase rates into dynamical observables. (iii)~Lifting the framework to a Haag--Kastler net with sharper-than-equal-time microcausality and positive-energy spectrum is structurally obstructed in the Galilean case; we state this as the SR-selection conjecture and identify three strands of evidence (Hegerfeldt spreading; absence of a known Galilean multi-particle resolution; Reeh--Schlieder failure on Galilean Haag--Kastler nets), the third established as a precise no-go theorem in the second paper of the series. The framework's modular content (Tomita--Takesaki, Bisognano--Wichmann, Unruh as KMS, type-$\mathrm{III}_1$ universality) is collected as the algebraic substrate on which the curved-background, dynamical-metric, and crossed-product extensions of the third through sixth papers operate.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26758"></a>
+### [Anisotropic metamagnetism and magnetotransport of heavy rare-earth orthorhombic single-crystal TbAlGe](http://arxiv.org/abs/2604.26758v1)
+
+**Authors:** Ram Kumar, K. E. Avers, V. Saini, D. S. Sokratov, Y. Anand, P. Saraf, J. A. Horn, N. Brenowitz, S. Otazo, P. Sobel, D. Graf, S. R. Saha, J. Paglione  
+**Type:** experiment · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.26758v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26758_figures/2604.26758_fig1.jpg" width="500"><br>
+<sub>FIG. 1. A comparison of two types of crystal structure of RAlGe, tetragonal (a), and orthorhombic (b). Panel (c) shows the crystal structure with the distorted triangular arrangements of Tb-atoms in the orthorhombic crystal structure. Panel (d) represents Rietveld refinement of powder X-ray diffraction data with the experimental data (Red symbols) and the black line representing the calculated data. A set of vertical green bars represents the Bragg peak positions of the orthorhombic (Space group: Cmcm) structure, and the blue line at the bottom represents the difference between the observed and calculated diffraction patterns.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26758_figures/2604.26758_fig2.jpg" width="500"><br>
+<sub>FIG. 3. Magnetic field (B) dependence of magnetization (M) of TbAlGe measured at different temperatures for the applied magnetic field parallel to three principal crystallographic di- rections, i.e., (a) B ∥a, (b) B ∥b, and (c) B ∥c, respectively. We note that for B ∥a, there are multiple metamagnetic tran- sitions, while in contrast, the other field directions are mostly featureless with minor curvature. The curves in fig. 3 (a) are shifted upward for clarity to illustrate the hysteresis at each metamagnetic transition.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26758_figures/2604.26758_fig3.jpg" width="500"><br>
+<sub>FIG. 2. Temperature dependence of magnetic susceptibility χdc(T) of TbAlGe measured under a magnetic field from 0.1 T to 14 T in all three B ∥a, B ∥b, and B ∥c directions as shown in fig. 2 (a), (b), and (c), respectively. The vertical dotted lines across all three panels mark the existing magnetic transitions at B = 0.1 T. The curves in fig. 2 (a) are shifted upward for clarity to illustrate the magnetic transition under applied fields. A black triangle symbol is showing a field- induced transition (T∗). Inset of (b) shows the Curie-Weiss fit. All data are measured on warming after cooling in a zero field.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26758_figures/2604.26758_fig4.jpg" width="500"><br>
+<sub>Fig. 1(a) shows the crystal structure of TbAlGe, which clearly depicts the triangular lattice of Tb-atoms with opposite slanting to the nearest triangular lattice, and Fig. 1(b) the Rietveld refinement of the powder XRD</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26758_figures/2604.26758_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Change in magnetic entropy (-∆S) of TbAlGe as a function of temperature at different magnetic fields from 0 T to 7 T in 0.025 T steps. The observed sign change in entropy reveals possible competing magnetic phases that evolve with temperature and magnetic field.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26758_figures/2604.26758_fig6.jpg" width="500"><br>
+<sub>FIG. 4. (a) Temperature dependence of Heat Capacity of TbAlGe measured under zero field and applied magnetic fields. The upper left inset shows the CP /T vs T2 plot in zero field with red solid line at low temperature region show- ing the liner fit to calculate the γ. The bottom right inset shows the suppression of TN2 with an increase in the applied magnetic field. The CP /T vs T plots with different applied magnetic fields for a better view of TN1 and TN2 are shown in fig. (b) and (c), respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26758_figures/2604.26758_fig7.jpg" width="500"><br>
+<sub>FIG. 6. Electrical resistivity (ρ) as a function of the temperature under different applied fields. (a) ρxx(T) of TbAlGe for B ∥a, and B ∥b is shown in panels (a) and (b), respectively. The curves above the zero field one are constantly shifted upwards with a factor of 10 µΩcm for the clarity of the magnetic transition under applied fields. Black triangles in (a) show the field-induced transition (T∗). Inset of (b) shows the ρxx(T) up to 300 K. Transverse magnetoresistance of TbAlGe and its evolution with temperature for B ∥a, and B ∥b, are shown in Figs. (c), and (d), respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.26758_figures/2604.26758_fig8.jpg" width="500"><br>
+<sub>FIG. 7. High-field magnetoresistance as a function of the magnetic field at different temperatures in the magnetic state for B ∥a. The curves for temperatures above 1.5 K are constantly shifted upward (with a factor of 60%) for clarity to illustrate the multiple field-induced transitions as marked with different numbers ( with notation ‘u’: up sweep, and ‘d’: down sweep) symbols for 1.5 K curve.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.26758_figures/2604.26758_fig9.jpg" width="500"><br>
+<sub>FIG. 8. B-T phase diagram of TbAlGe as a contour plot of magnetoresistance up to 41.5 T, with TN1, TN2 and T ∗ob- tained from magnetic susceptibility measurements. The dif- ferent metamagnetic transitions are derived from the magne- toresistance plot as shown in Fig. 7.</sub>
+
+</details>
+
+**Main problem.** Investigating the anisotropic magnetism, field-induced metamagnetic transitions, and the interplay between localized 4f magnetism and itinerant electronic topology in the heavy rare-earth system TbAlGe.
+
+**Main result.** The study identifies a rich, field-tuned magnetic phase diagram with five distinct metamagnetic transitions (MMT1-MMT5) for fields along the a-axis and demonstrates significant magnetotransport anomalies up to 41.5 T.
+
+**Method.** Experimental characterization using high-temperature self-flux crystal growth, followed by magnetization, heat capacity, and electrical transport measurements in magnetic fields up to 41.5 T.
+
+**Summary.** This paper provides a comprehensive study of the magnetic and transport properties of TbAlGe single crystals. The researchers discovered a complex series of magnetic phase transitions that can be tuned with high magnetic fields, particularly along the a-axis. By observing multiple metamagnetic transitions and large magnetoresistance, the study establishes TbAlGe as a key platform for studying the interaction between magnetism and topological electronic states in a tunable semimetal.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Single crystals of the orthorhombic TbAlGe (space group Cmcm), which features a distorted triangular lattice of Tb ions and exhibits complex magnetic interactions.
+
+**Key observables.** Electrical resistivity, magnetization, magnetic susceptibility, heat capacity, magnetoresistance, and magnetic entropy change.
+
+**Important parameters / regimes.** Neel temperatures (T_N1 = 40 K, T_N2 = 8 K), magnetic field strength (up to 41.5 T), and crystallographic axes (a, b, c).
+
+**Figures summary.** Fig 1: Structural comparison and XRD refinement; Fig 2: Temperature-dependent susceptibility showing Neel transitions; Fig 3: Isothermal magnetization showing metamagnetic hysteresis; Fig 4: Heat capacity data; Fig 6: Magnetoresistance and phase evolution.
+
+**Paper structure.** The paper begins with structural characterization, moves to zero-field magnetic and thermodynamic properties, details high-field magnetization and metamagnetic transitions, analyzes magnetotransport anomalies, and concludes with a discussion on the interplay between magnetism and topology.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We report a comprehensive investigation of the anisotropic magnetism and magnetic field-induced transitions in single crystals of the orthorhombic system TbAlGe, a member of the topological RAlGe (R = rare-earth) family with the highest ordering temeprature in the RAlX (X = Si, Ge) series. With a single rare earth site with triangular coordination in its Cmcm orthorhombic unit cell, TbAlGe harbors complex magnetic interactions that yield two antiferromagnetic transitions at 40 K and 8 K in zero field, and a rich cascade of metamagnetic transitions that only appear for fields directed along the crystallographic a-axis. Combining electrical resistivity, magnetization and heat capacity measurements with magnetotransport experiments performed up to 41.5 T, we construct a magnetic phase diagram mapping the multiple magnetic phases of TbAlGe, and discuss the complex interplay between localized 4f magnetism and itinerant electronic topology, establishing TbAlGe as a compelling platform for exploring tunable magnetic semimetal physics.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26846"></a>
+### [Constitutive Modelling of Korteweg Fluids Using Liu's Method](http://arxiv.org/abs/2604.26846v1)
+
+**Authors:** Zagorka Matić, Srboljub Simić, Peter Ván  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.26846v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26846_figures/2604.26846_page2.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26846_figures/2604.26846_page3.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 3</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26846_figures/2604.26846_page4.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 4</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26846_figures/2604.26846_page5.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 5</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26846_figures/2604.26846_page6.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 6</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26846_figures/2604.26846_page7.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 7</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26846_figures/2604.26846_page8.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 8</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.26846_figures/2604.26846_page9.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 9</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.26846_figures/2604.26846_page10.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 10</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.26846_figures/2604.26846_page11.jpg" width="500"><br>
+<sub>Low-resolution page preview, page 11</sub>
+
+</details>
+
+**Main problem.** Achieving thermodynamic consistency in the constitutive modeling of Korteweg fluids, specifically ensuring compatibility between balance laws and the entropy balance law.
+
+**Main result.** The derivation of a thermodynamically consistent model that includes a generalized Gibbs relation with capillary terms and demonstrates cross-coupling between mechanical and thermal effects via temperature-dependent coefficients.
+
+**Method.** Liu's method of multipliers (Lagrange multipliers) applied to the entropy inequality to derive restrictions on constitutive functions.
+
+**Summary.** This paper develops a mathematically rigorous framework for modeling Korteweg fluids using Liu's method of multipliers. It ensures that the resulting constitutive relations, such as the stress tensor and heat flux, are compatible with the second law of thermodynamics. A key finding is the derivation of a generalized Gibbs relation that incorporates density gradients and the discovery that temperature-dependent capillary coefficients lead to thermal-mechanical cross-coupling. This provides a consistent macroscopic description for fluids with diffuse interfaces.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Korteweg fluids, which are weakly non-local fluids characterized by mass density gradients and capillary/surface tension effects.
+
+**Key observables.** Entropy production, entropy flux, Korteweg stresses, and the generalized Gibbs relation.
+
+**Important parameters / regimes.** Mass density (rho), temperature (theta), capillary coefficient (alpha), and transport coefficients (viscosity, thermal conductivity).
+
+**Assumptions / limitations.** The specific entropy is assumed to have a functional form allowing for both equilibrium and non-equilibrium contributions; the symmetric part of the velocity gradient tensor is used in constitutive functions.
+
+**Paper structure.** The paper begins with an algebraic lemma, applies the method to a simplified Euler fluid case to establish a baseline, and then extends the framework to the main subject of Korteweg fluids.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The paper studies constitutive modelling of Korteweg fluids. Thermodynamic consistency, i.e. compatibility with entropy balance law, is achieved using Liu's method of multipliers. Appropriate constitutive assumptions facilitated inclusion of the capillary effects in the specific entropy. Korteweg stresses are derived from the equilibrium conditions -- vanishing of the entropy production and its minimization in equilibrium. Material parameter in Korteweg stresses is allowed to depend on temperature, which turns out to be consistent with kinetic-theory results and leads to cross-coupling of mechanical and thermal effects. The generalized Gibbs' relation, which inherits the capillary effects, is derived as consequence, which is a peculiar feature of the Liu's method.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.26599"></a>
+### [Effective length scales, dispersion relations, and discrete densities of states for Laplacian eigenvectors on complex networks](http://arxiv.org/abs/2604.26599v1)
+
+**Authors:** Per Arne Rikvold  
+**Type:** theory · **Category:** disordered systems and neural networks · **PDF:** <https://arxiv.org/pdf/2604.26599v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+
+**Main problem.** The paper seeks to establish a method for constructing dispersion relations and identifying effective length scales for diffusion or oscillation processes on complex networks.
+
+**Main result.** The authors successfully adapt a condensed-matter correlation length method to graph Laplacians, allowing for the identification of both distributed and localized eigenvectors across various network topologies.
+
+**Method.** The method adapts the Debye-Anderson-Brumberger approach, calculating effective length scales as the ratio of twice the total number of edges to the number of edges connecting vertices with different eigenvector signs.
+
+**Summary.** This paper introduces a way to study how waves or diffusion spread across complex, irregular networks. By adapting a technique used to study disordered materials, the author provides a way to measure the 'size' or length scale of network vibrations. The method is tested on a wide variety of real-world and artificial networks, revealing how some patterns stay localized while others spread across the whole system. This is important for understanding dynamics in any complex system, from biological neural networks to power grids.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The study applies the method to nine different graph types, including tree graphs (with and without random shortcuts), a roundworm nervous system, a food web, a dolphin social network, an electrical power grid, and a model porous material.
+
+**Key observables.** Effective length scales, dispersion relations, and discrete densities of states.
+
+**Important parameters / regimes.** Eigenvalues of the graph Laplacian (representing inverse time scales) and the sign distribution of eigenvectors.
+
+**Assumptions / limitations.** The method assumes that the ratio of volume to interface area can be meaningfully mapped to the ratio of total edges to sign-changing edges in a graph setting.
+
+**Figures summary.** The figures show example eigenvectors, dispersion relations, and discrete densities of states in graphical format.
+
+**Paper structure.** The paper begins with a pedagogical description of the method and necessary concepts, followed by the application of the method to nine diverse network models, and concludes with numerical results presented in graphs and tables.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+To construct dispersion relations for diffusion or oscillation processes on random networks, it is necessary to obtain effective length scales for the eigenvectors of a graph Laplacian matrix, whose eigenvalues represent inverse time scales. For this purpose, we adapt a method originally introduced in condensed-matter physics to estimate correlation lengths for disordered materials as the ratio of volume to interface area [P. Debye, H.R. Anderson and H. Brumberger, J. Appl. Phys. 28, 679 (1957)]. In a graph setting of vertices connected by edges, we interpret this as the ratio of twice the total number of edges to the number of edges connecting vertices bearing values of different sign on the particular eigenvector. After describing the method and the necessary concepts in pedagogical detail, we apply it to nine different graphs representing natural and artificial networks, including two tree graphs without and with random shortcuts, the nervous system of a roundworm, a food web, a social network of dolphins, an electrical power grid, and a model porous material. The results identify both distributed and localized eigenvectors. They are given in graphical format showing example eigenvectors, dispersion relations, and discrete densities of states, as well as tables summarizing the main numerical results.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
