@@ -1,8 +1,8 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-30
 
-*3 papers · 1 relevant · 0 highlighted*  
-_⏳ in progress: 3/158 papers processed (file updates after each one)_
+*4 papers · 1 relevant · 0 highlighted*  
+_⏳ in progress: 4/158 papers processed (file updates after each one)_
 
 
 ## 🔥 Most relevant (1)
@@ -16,7 +16,7 @@ _⏳ in progress: 3/158 papers processed (file updates after each one)_
 </details>
 
 
-## All papers (3, sorted by relevance)
+## All papers (4, sorted by relevance)
 
 *Papers from quant-ph and your primary cond-mat archives (quant-gas, stat-mech, str-el, dis-nn). Highlighted papers (⭐) come first, then everything else sorted by topic-relevance score, highest first.*
 
@@ -123,6 +123,111 @@ _⏳ in progress: 3/158 papers processed (file updates after each one)_
 <details><summary>Abstract</summary>
 
 We develop the Schwinger-Keldysh path-integral formalism for open non-Abelian gauge theories that are gauge-fixed via the BRST method in covariant gauges. We focus on generic initial states, pure and mixed, specified at finite times suitable for non-equilibrium processes. We pay particular attention to the handling of the indefinite Hilbert space, the construction of BRST-invariant Schrodinger picture wavefunctionals, density matrices and inner product, the implementation of the Hata-Kugo prescription, and the role of boundary terms at both the initial and final times. We highlight the advantages of the Nakanishi-Lautrup field representation in dealing with initial/final conditions. The resulting Schwinger-Keldysh path integral is manifestly invariant under a diagonal (retarded) BRST symmetry for arbitrary physical initial states, whether pure or mixed. From this, we obtain the corresponding Ward-Takahashi-Slavnov-Taylor identities, valid perturbatively. Non-perturbatively the Gribov ambiguity is expected to break or modify the BRST symmetry. The naive advanced BRST symmetry is shown to be explicitly violated by the in-in boundary conditions. We show that the Feynman-Vernon influence functional derived by integrating out charged matter and/or hard gluon modes remains (perturbatively) BRST invariant. When the Open EFT action is expanded to second order in advanced fields it exhibits an exact symmetry under a contraction of the original BRST symmetry. This Keldysh BRST symmetry is equivalent to the BRST associated with the retarded gauge transformations together with a linearly realized BRST transformation of the advanced fields. These govern the structure of the leading terms in an Open EFT. We illustrate this with the explicit example of Hard Thermal Loop Effective Theory, and construct the general form of the Open EFT in a Higgs phase when all gauge symmetries are spontaneously broken.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.26927"></a>
+### [The most discriminable quantum states in the multicopy regime](http://arxiv.org/abs/2604.26927v1)
+
+**Authors:** Maria Kvashchuk, Polina Chernyshova, Lucas E. A. Porto, Ties-A. Ohst, Lucas B. Vieira, Marco Túlio Quintino  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26927v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `quantum measurements` **3/5** · `entanglement & information structure` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26927_figures/2604.26927_fig1.jpg" width="500"><br>
+<sub>Figure 2: An equilateral triangle in the XZ plane of the Bloch sphere.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26927_figures/2604.26927_fig2.jpg" width="500"><br>
+<sub>Figure 3: Tetrahedron.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26927_figures/2604.26927_fig3.jpg" width="500"><br>
+<sub>Figure 4: Triangle and fully mixed state.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26927_figures/2604.26927_fig4.jpg" width="500"><br>
+<sub>Figure 9: (d, N, k) = (2, 6, 3)</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26927_figures/2604.26927_fig5.jpg" width="500"><br>
+<sub>Figure 5: (d, N, k) = (2, 4, 2)</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26927_figures/2604.26927_fig6.jpg" width="500"><br>
+<sub>Figure 10: (d, N, k) = (2, 7, 3)</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26927_figures/2604.26927_fig7.jpg" width="500"><br>
+<sub>Figure 6: (d, N, k) = (2, 4, 3)</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.26927_figures/2604.26927_fig8.jpg" width="500"><br>
+<sub>Figure 7: (d, N, k) = (2, 5, 2)</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.26927_figures/2604.26927_fig9.jpg" width="500"><br>
+<sub>Figure 8: (d, N, k) = (2, 5, 3)</sub>
+
+</details>
+
+**Main problem.** Identifying the sets of quantum states that achieve the highest success probability in minimum-error state discrimination when multiple identical copies of an unknown state are provided.
+
+**Main result.** The authors prove that for large enough N, quantum k-designs are the most discriminable pure state sets, and that mixed states can outperform pure states when N exceeds the size of a k-design. They also demonstrate a quadratic advantage in discriminability for quantum systems over classical ones.
+
+**Method.** The work utilizes semidefinite programming (SDP), the Holevo-Helstrom theorem, and the theory of quantum k-designs, alongside analytical tools like the symmetric subspace and multiplicative Bayes capacity.
+
+**Summary.** This paper investigates the fundamental limits of distinguishing quantum states when multiple copies are available. It establishes that quantum k-designs are optimal for pure states and reveals that mixed states can actually be more discriminable than pure states in certain regimes. Furthermore, it proves that quantum systems possess a quadratic advantage over classical probability distributions in terms of discriminability. The study also explores how restricting states to real-valued (rebit) systems reduces this advantage.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** An ensemble of N d-dimensional quantum states (qudits) provided in k identical and independent copies, with a uniform prior probability for each state.
+
+**Key observables.** k-copy discriminability (maximal average probability of correctly guessing the state).
+
+**Important parameters / regimes.** Number of states (N), dimension of the Hilbert space (d), number of copies (k), and the distinction between pure, mixed, classical, and real quantum states.
+
+**Assumptions / limitations.** The analysis assumes a uniform prior distribution for the states in the ensemble.
+
+**Figures summary.** Figure 1 illustrates the k-copy discrimination scenario with Alice and Bob; subsequent figures show Bloch sphere representations of optimal state configurations for various parameters.
+
+**Paper structure.** The paper begins by defining the k-copy discrimination problem, reviews single-copy results, introduces mathematical tools like k-designs and symmetric subspaces, analyzes pure and mixed state regimes, compares quantum to classical/real systems, and concludes with computational techniques and asymptotic scaling.
+
+**Why it may be interesting.** This paper provides fundamental limits on state discrimination, which is a core task in quantum communication, cryptography, and the characterization of quantum resources.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+This work investigates which sets of quantum states give rise to the highest achievable success probability in minimum-error state discrimination if multiple copies of the unknown state are given. Specifically, we consider uniformly distributed ensembles of the form $\left\{\frac{1}{N},ρ_i^{\otimes k}\right\}_{i=1}^N$, where $N$ states in dimension $d$ are provided in $k$ identical copies, and derive universal limits in this scenario. For pure state ensembles, we prove that whenever $N$ is large enough to support a state $k$-design, these designs will exactly give rise to the maximally discriminable sets. We further show that when $N$ exceeds the size required for a $k$-design, mixed states can outperform all pure state ensembles. We also analyse the analogue classical discrimination problems, in which states are replaced by probability distributions. We recognise that the problem of most discriminable classical states in the multi-copy regime is in one-to-one correspondence to the concept of the multiplicative Bayes capacity of independent uses of classical channels, a concept that emerges naturally in the context of classical information leakage. This connection allows us to completely solve the classical analogue of our problem when $N\geq \binom{d + k - 1}{k}$, and to prove that quantum systems offer a quadratic advantage (in number of copies $k$) over classical ones. Curiously, we also show that this quantum advantage is strongly reduced when one is restricted to real quantum states. Finally, we introduce computational techniques to find sets of most discriminable ensembles, and to obtain rigorous universal upper bounds on the maximal success probability for multi-copy state discrimination in cases that are analytically intractable.
 
 </details>
 
