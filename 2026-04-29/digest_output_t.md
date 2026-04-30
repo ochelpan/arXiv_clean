@@ -1,7 +1,7 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-29
 
-*176 papers · 40 relevant · 6 highlighted*
+*177 papers · 40 relevant · 6 highlighted*
 
 
 ## 🔥 Most relevant (40)
@@ -70,7 +70,7 @@
 </details>
 
 
-## All papers (87, sorted by relevance)
+## All papers (88, sorted by relevance)
 
 *Papers from quant-ph and your primary cond-mat archives (quant-gas, stat-mech, str-el, dis-nn). Highlighted papers (⭐) come first, then everything else sorted by topic-relevance score, highest first.*
 
@@ -3306,6 +3306,118 @@ Scaling superconducting quantum processors is increasingly constrained by the wi
 <details><summary>Abstract</summary>
 
 Simon's algorithm is a polynomial period-finding algorithm that has been used to exploit the algebraic structure of specific symmetric ciphers, showing that exponential speedups in their cryptanalysis are theoretically possible. While the theoretical framework for an attack using Simon's algorithm on the Even-Mansour cipher is well-established, practical implementations on noisy intermediate-scale quantum (NISQ) hardware remain limited. This paper presents a proof of concept quantum cryptanalysis of the Even-Mansour cipher using Simon's period-finding algorithm on NISQ hardware. For N = 3 and N = 4, we successfully demonstrate secret key recovery for N-bit constructions on the ibm_miami processor. Our experiments also identify a scaling limitation in the classical pre-processing stage: The DORCIS circuit optimization tool encountered a memory bottleneck at N = 5, preventing the generation of optimized circuits for larger key lengths. Our results suggest firstly that Simon's algorithm is effective for the Even-Mansour cipher for short bit lengths on current quantum hardware. Secondly, while DORCIS is effective for the small-scale S-boxes for which it was designed, there remains a need for the investigation of more scalable and efficient synthesis tools capable of handling larger and more general permutations in the context of Even-Mansour ciphers.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.25983"></a>
+### [Characterization of Thermalization Behaviour in a Generalized Aubry-André Model](http://arxiv.org/abs/2604.25983v1)
+
+**Authors:** S. Mal, D. K. Nandy, B. K. Sahoo  
+**Type:** theory · **Category:** disordered systems and neural networks · **PDF:** <https://arxiv.org/pdf/2604.25983v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `analog quantum simulation` **3/5** · `entanglement & information structure` **3/5** · `non-equilibrium dynamics` **3/5** · `scars & prethermalization` **3/5** · `non-equilibrium universality` **2/5** · `driven-dissipative phase transition` **1/5** · `methods for driven-dissipative` **1/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.25983_figures/2604.25983_fig1.jpg" width="500"><br>
+<sub>FIG. 1. A schematic representation of the generalised Aubry- Andr´e model. The maxima and minima of the quasi-periodic potential of the considered system are governed by two pa- rameters α and λ with the quasi-periodic wavenumber given by the irrational number q = ( √</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.25983_figures/2604.25983_fig2.jpg" width="500"><br>
+<sub>FIG. 2. The average of adjacent gap ratio ⟨r⟩deﬁned in Eq. (2) is presented in the plane of α and λ for diﬀerent values of interaction with L = 14 (upper row) and L = 16 (lower row). For a ﬁxed value of α, we observe ⟨r⟩≈0.53 for smaller values of λ, signifying that the level statistics follow the GOE distribution.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.25983_figures/2604.25983_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Spectral form factor K(τ) is shown as a function of scaled time τ for diﬀerent values of α = 0 (a, b, c), 0.3 (d, e, f), 0.7 (g, h, i) and λ = 0.65 (a, d, g), 1.35 (b, e, h), 10.15 (c, f, i). The black dashed line corresponds to KGOE(τ) and the dotted vertical line represents the scaled Heisenberg time τH. The Thouless time τT h is identiﬁed as K →KGOE and indicated by the dashed circles. For a lower value of λ, the ratio of Thouless time and Heisenberg time τT h/τH &lt;&lt; 1 for all three values of α. As the value of λ increases, the ratio approaches unity and for large λ goes past unity. The insets represent the magniﬁed images near Thouless time.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.25983_figures/2604.25983_fig4.jpg" width="500"><br>
+<sub>FIG. 4. The scaled Thouless time τTh is shown as a function of α for three diﬀerent values of λ = 0.65 (a), 1.35 (b) and 10.15 (c) with L = 16 and 17. In the ergodic regime, with λ &lt; 1, τTH increases rapidly as α approaches unity.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.25983_figures/2604.25983_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Scaled ﬁdelity susceptibility F for the local operator nL/2 (n(L+1)/2) for even (odd) lattice sizes as a function of λ is plotted for diﬀerent values of α. We consider L = 13, 14, 15 and 16 for α = 0.0, 0.3 and 0.7. In the insets, we show the behavior of unscaled ﬁdelity susceptibility eζ. The crossing of the three curves, indicated with the shaded region, speciﬁes the transition λ∗between ergodic and localized phases. With increasing α, λ∗decreases as predicted by the earlier analysis. The dashed line indicates the peak-drift behavior towards higher values of λ as the system size is increased.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.25983_figures/2604.25983_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Scaled ﬁdelity susceptibility F for the extended AGP operator (P</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.25983_figures/2604.25983_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Mean level spacing ratio ⟨r⟩for diﬀerent systems sizes L, calculated for α = 0 (a), 0.3 (b) and 0.7 (c). Insets show ⟨r⟩as a function of λ. In the main panels, we plot ⟨r⟩ as a function of scaling parameter Θ = sgn[λ −λ∗]L/ξ, with ξ = ξBKT is a BKT correlation length, assuming the crossing point ansatz λ∗= λ0 + λ1L. The optimal parameters ν, λ0 and λ1 in ξBKT are obtained by minimizing the cost function Cr. The number of data points included in the minimization procedure is Np = 264.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.25983_figures/2604.25983_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Scaled ﬁdelity susceptibility for extended operator and diﬀerent system sizes are calculated for α = 0, 0.3 and 0.7, and plotted as a function of Θ = sgn[λ −λ∗]L/ξ, with ξ = ξ0 (upper panel) and ξ = ξBKT (lower panel), assuming the crossing point ansatz λ∗= λ0+λ1L. The parameters ν, λ0 and λ1 in ξBKT are obtained by minimizing CF. The dotted vertical line represents the critical point λ = λ∗at which F becomes discontinuous. The number of data points included in the minimization procedure is Np = 240.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.25983_figures/2604.25983_fig9.jpg" width="500"><br>
+<sub>FIG. 9. Critical point λ∗as a function of system size L, for the power-law correlation ξ = ξ0 (left) and BKT-type correlation ξ = ξBKT (right) for diﬀerent values of α. λ∗are obtained from the best data collapse of CF. The straight lines represent the linear dependence of critical value λ∗= λ0 + λ1L. The square and circular markers are diﬀerent nonlinear ansatz λ∗= λ0 + λ1/ln(L) and λ∗= λ0 + λ1/L, respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.25983_figures/2604.25983_fig10.jpg" width="500"><br>
+<sub>FIG. 10. F for the extended operator are plotted with ξ = ξBKT, assuming the critical ansatz λ∗= λ0 +λ1/ln(L) (upper panel) and λ∗= λ0 + λ1/L (lower panel).</sub>
+
+</details>
+
+**Main problem.** The study aims to characterize the ergodic-to-many-body localization (MBL) transition in the generalized Aubry-André model (GAA) with interacting spinless fermions.
+
+**Main result.** The analysis constructs a phase diagram using the fidelity susceptibility ($\chi_n$) and shows that the system exhibits distinct scaling behaviors corresponding to ergodic, intermediate, and localized regimes.
+
+**Method.** The research employs advanced numerical techniques including Exact Diagonalization (ED), finite-size scaling analysis via cost-function minimization, and diagnostics based on the adjacent gap ratio and spectral form factor.
+
+**Summary.** This paper investigates the ergodic-to-Many-Body Localization (MBL) transition in the interacting generalized Aubry-André model. The authors utilize sophisticated diagnostics, including the fidelity susceptibility and spectral statistics, alongside finite-size scaling analysis. By mapping out a phase diagram, they characterize the transition point ($\lambda^*$) and demonstrate how the system's thermalization properties change as the disorder strength and quasi-periodic modulation are varied. This work advances the understanding of quantum chaos in complex, disordered quantum systems.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The system is the generalized Aubry-André model (GAA) Hamiltonian, which includes tunneling ($t$), quasi-periodic modulation ($\lambda$), and nearest-neighbor interactions ($V$). The model is studied for interacting spinless fermions.
+
+**Key observables.** Fidelity susceptibility ($\chi_n$), adjacent gap ratio ($\langle r angle$), Spectral Form Factor (SFF), and the Thouless time ($	au_{Th}$).
+
+**Important parameters / regimes.** Disorder strength ($\lambda$), quasi-periodic parameter ($\alpha$), system size ($L$), and the critical disorder strength ($\lambda^*$).
+
+**Assumptions / limitations.** The analysis compares scaling behavior using two correlation length ansatzes: power-law ($\xi_0$) and Berezinskii-Kosterlitz-Thouless (BKT) type ($\xi_{BKT}$).
+
+**Figures summary.** Figures illustrate phase diagrams in the $\alpha-\lambda$ plane using $\langle r angle$, and show scaling collapse plots for the fidelity susceptibility ($F$) using both $\xi_0$ and $\xi_{BKT}$ ansatzes.
+
+**Paper structure.** The paper systematically analyzes the transition by first establishing the Hamiltonian and then applying multiple diagnostic tools ($\chi_n$, $\langle r angle$, SFF) across varying system sizes and parameters to map out the phase diagram and determine scaling laws.
+
+**Why it may be interesting.** The application of fidelity susceptibility and finite-size scaling to probe the MBL transition in a quasi-periodic interacting system provides a rigorous theoretical framework for understanding quantum chaos in disordered settings.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Although random matrix theory provides a fundamental framework for characterizing quantum chaos, encompassing both ergodic and localized phases, a comprehensive understanding of the universal features governing the critical transition remains elusive in many disordered and quasi-random systems. In this study, we explore the ergodic-to-many-body localization transition in the generalized Aubry-André model with interacting spinless fermions. Using the concept of Frobenius norm of an adiabatic gauge potential, we construct a phase diagram that captures the sensitivity of the eigenspectrum to infinitesimal adiabatic gauge deformations. To examine the stability of the critical disordered strength with respect to system size, we perform an unbiased finite-size scaling analysis via cost-function minimization techniques. Additionally, by analyzing the adjacent gap ratio and spectral form factor, we determine the scaling behavior of the Thouless time as a function of the disorder strength.
 
 </details>
 
