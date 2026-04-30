@@ -1,24 +1,25 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-30
 
-*9 papers · 3 relevant · 0 highlighted*  
-_⏳ in progress: 9/158 papers processed (file updates after each one)_
+*13 papers · 4 relevant · 0 highlighted*  
+_⏳ in progress: 13/158 papers processed (file updates after each one)_
 
 
-## 🔥 Most relevant (3)
+## 🔥 Most relevant (4)
 
 *Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥4/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page. `(secondary)` marks papers from de-prioritized cond-mat archives.*
 
-<details><summary>Show 3 relevant papers</summary>
+<details><summary>Show 4 relevant papers</summary>
 
 - [Cavity-mediated coherence protection and one-axis twisting for spins in solids](#paper-2604.26909) [[arXiv]](http://arxiv.org/abs/2604.26909v1) — 🔥 `Tavis-Cummings & cavity-many-emitter` **5/5** · 🔥 `Dicke superradiance` **4/5** · 🔥 `QC/QI experiment` **4/5** · 🔥 `correlated cavity matter` **4/5** · 🔥 `quantum optics experiment` **4/5** · `analog quantum simulation` **3/5** · `correlated / nonlocal dissipation` **3/5** · `spintronics-quantum-optics interface` **3/5** · `exotic spin models in light-matter` **2/5** · `non-equilibrium dynamics` **2/5** · `superradiant laser` **2/5** · `driven-dissipative phase transition` **1/5** · `entanglement & information structure` **1/5** · `quantum measurements` **1/5**
+- [A Gaussian asymmetry measure](#paper-2604.26878) [[arXiv]](http://arxiv.org/abs/2604.26878v1) — 🔥 `entanglement & information structure` **4/5** · 🔥 `non-equilibrium dynamics` **4/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `non-equilibrium universality` **2/5** · `scars & prethermalization` **2/5**
 - [Digital Simulation of Non-Hermitian Knotted Bands on Quantum Hardware](#paper-2604.26914) [[arXiv]](http://arxiv.org/abs/2604.26914v1) — 🔥 `QC/QI experiment` **4/5** · `correlated / nonlocal dissipation` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
 - [Schwinger-Keldysh Path Integral for Gauge theories](#paper-2604.26941) [[arXiv]](http://arxiv.org/abs/2604.26941v1) — 🔥 `Keldysh / 2PI / non-Gaussian methods` **4/5** · `methods for driven-dissipative` **2/5** · `non-equilibrium dynamics` **2/5**
 
 </details>
 
 
-## All papers (8, sorted by relevance)
+## All papers (12, sorted by relevance)
 
 *Papers from quant-ph and your primary cond-mat archives (quant-gas, stat-mech, str-el, dis-nn). Highlighted papers (⭐) come first, then everything else sorted by topic-relevance score, highest first.*
 
@@ -87,6 +88,76 @@ _⏳ in progress: 9/158 papers processed (file updates after each one)_
 <details><summary>Abstract</summary>
 
 Long-range interactions between emitters give rise to collective phenomena, including superradiance, spin squeezing, and coherence protection, that are important to both fundamental physics and quantum technologies. Despite progress in cold atoms, coherent cavity-mediated all-to-all interactions have not yet been realized in a solid-state ensemble. Here we demonstrate such interactions in a $^{171}$Yb$^{3+}$:CaWO$_4$ crystal coupled to a microwave resonator, observing superradiant emission on resonance and unitary one-axis twisting dynamics in the dispersive regime. The same interaction also opens a many-body energy gap that suppresses inhomogeneous dephasing, extending the ensemble Ramsey coherence time from tens of microseconds to milliseconds without decoupling pulses. These results establish a solid-state platform for collective many-body physics with direct implications for quantum technologies. Specifically, the observed one-axis twisting dynamics opens a path towards spin squeezing for entanglement-enhanced quantum metrology, and the extended coherence due to gap-protection is relevant for both microwave photon storage and precision measurement.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.26878"></a>
+### [A Gaussian asymmetry measure](http://arxiv.org/abs/2604.26878v1)
+
+**Authors:** Riccardo Travaglino, Pasquale Calabrese  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.26878v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `entanglement & information structure` **4/5** · 🔥 `non-equilibrium dynamics` **4/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `non-equilibrium universality` **2/5** · `scars & prethermalization` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26878_figures/2604.26878_fig1.jpg" width="500"><br>
+<sub>Figure 1: Gaussian asymmetry in a quench from tilted ferromagnetic state for a subsystem of size ℓwith different values of tilting angle θ. The curves clearly show the occurrence of the quantum Mpemba effect. Symbols are numerical exact results at ℓA = 100 and lines are the quasiparticle picture prediction. The linear decrease up to t = ℓA/2 and the following saturation is a clear sign of the validity of the quasiparticle picture directly at the level of ∆S(G) A . This has to be contrasted with the standard EA, which is nonlinear at early times.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26878_figures/2604.26878_fig2.jpg" width="500"><br>
+<sub>Figure 2: Gaussian asymmetry as a probe for the lack of symmetry restoration in a quench from the tilted N´eel state with different tilting angles. The asymmetry is evaluated over a subsystem of size ℓ= 100. As in Fig. 1 notice the linear decrease followed by saturation.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26878_figures/2604.26878_fig3.jpg" width="500"><br>
+<sub>Figure 3: ⟨∆S(G) A ⟩g for typical Gaussian states. The symbols represents the numerical averages over large samples for L = 100 and L = 200. The behavior is smooth as a function of ℓA/L. The dashed lines represent the two asymptotic regimes, confirming the parabolic growth at small ℓA and the linear behavior for ℓA →L.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26878_figures/2604.26878_fig4.jpg" width="500"><br>
+<sub>Figure 4: Dynamics of the variance difference (7.10) after a quench from the tilted ferromagnetic state. The squares are the exact predictions obtained through correlation matrix techniques, cf. Eq. (7.11). Dashed lines are the quasiparticle predictions (7.10). The data show that the Mpemba effect can be diagnosed through the variance difference of the charge distribution.</sub>
+
+</details>
+
+**Main problem.** The standard definition of entanglement asymmetry is analytically difficult to use in free-fermionic systems because the symmetrized state becomes non-Gaussian. The authors aim to introduce a new asymmetry measure that remains strictly within the Gaussian manifold.
+
+**Main result.** The authors introduce a Gaussian asymmetry measure that quantifies the distance to the manifold of symmetric Gaussian states, which is extensive in subsystem size and can detect the quantum Mpemba effect and symmetry restoration.
+
+**Method.** The study utilizes correlation matrix techniques, the quasiparticle picture for dynamics, and relative entropy to define the new measure and analyze its properties.
+
+**Summary.** The paper addresses the analytical limitations of standard entanglement asymmetry in free-fermionic systems by proposing a new 'Gaussian asymmetry' measure. This new measure stays within the Gaussian manifold, allowing for exact calculations using correlation matrices and the quasiparticle picture. It successfully captures complex dynamical phenomena such as the quantum Mpemba effect and the lack of symmetry restoration in certain quenches. Furthermore, the authors show that charge fluctuations can serve as a practical experimental probe for these symmetry-related dynamics.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The work focuses on Gaussian states in free-fermionic systems, specifically 1D hopping models (fermionic XX spin chain) and quenches from tilted ferromagnetic or Néel states.
+
+**Key observables.** Gaussian asymmetry, entanglement entropy, non-Gaussianity, charge fluctuations (variance), and Full Counting Statistics (FCS).
+
+**Important parameters / regimes.** Subsystem size (L_A), total system size (L), tilting angle (theta), and quasiparticle velocity (v_k).
+
+**Assumptions / limitations.** The dynamics are restricted to the Gaussian manifold (e.g., quadratic Hamiltonians), and the focus is primarily on U(1) charge symmetry.
+
+**Figures summary.** Figure 1 shows the time evolution of Gaussian asymmetry under different tilting angles; Figure 2 shows the lack of symmetry restoration in tilted Néel state quenches; Figure 3 shows the average Gaussian asymmetry for Gaussian ensembles; Figure 4 demonstrates the use of charge variance as a diagnostic for the Mpemba effect.
+
+**Paper structure.** The paper introduces the Gaussian asymmetry measure, proves its mathematical properties (minimization and monotonicity), applies it to the dynamics of quantum quenches (detecting the Mpemba effect and symmetry restoration), and concludes by proposing experimentally accessible charge-based diagnostics.
+
+**Why it may be interesting.** This paper is highly relevant for many-body dynamics as it provides a new, analytically tractable tool to study symmetry-breaking and relaxation phenomena like the Mpemba effect using simple, experimentally accessible charge fluctuations.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The study of Entanglement Asymmetry has emerged in recent years as a powerful tool to characterise the symmetry properties of quantum states in relation to a given charge operator through the lens of entanglement. While extremely powerful and general, the standard definition of asymmetry introduces significant non-Gaussian features in free-fermionic systems, leading to certain analytical limitations. In this work, we introduce an asymmetry measure that remains strictly within the Gaussian manifold and analyse its properties. In particular, we show that it quantifies the minimal distance between a Gaussian state and the manifold of symmetric Gaussian states. We further demonstrate that this measure captures the established dynamical signatures of entanglement asymmetry, such as the Mpemba effect, symmetry restoration, and the lack thereof. The Gaussian structure allows these novel asymmetry measures to be computed exactly using correlation matrix techniques, and to be described asymptotically through the quasiparticle picture. We also comment on the possibility of using charge fluctuations to characterise the asymmetry of a Gaussian state.
 
 </details>
 
@@ -312,6 +383,118 @@ We develop the Schwinger-Keldysh path-integral formalism for open non-Abelian ga
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.26874"></a>
+### [Convex combinations of bosonic pure-loss channels](http://arxiv.org/abs/2604.26874v1)
+
+**Authors:** Giuseppe Catalano, Marco Fanizza, Francesco Anna Mele, Giacomo De Palma, Vittorio Giovannetti  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26874v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `entanglement & information structure` **3/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `methods for driven-dissipative` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26874_figures/2604.26874_fig1.jpg" width="500"><br>
+<sub>FIG. 2. Regions of Antidegradability and Non-Antidegradability. Left: Parameter space (λ1, λ2) for the symmetric binary fading channel (p = 0.5). The green area indicates the region where the channel is non-antidegradable. The red square (λ1, λ2 ≤0.5) highlights the region of antidegradability consistent with the theoretical property that the set of all antidegradable channels is convex. Right: Non-antidegradable region (green area) for the atmospheric fading channel modeled by the Log-Negative Weibull distribution, as a function of the scale (R) and shape (γ) parameters (with cutoff λ0 = 1).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26874_figures/2604.26874_fig2.jpg" width="500"><br>
+<sub>FIG. 3. Left: Quantum mutual information of the Continuous-Variable Erasure Channel I(Φp, ρ(p0, E)) as a function of the vacuum population p0, for the erasure channel Φp = pI + (1 −p)E0 with fixed p = 0.5 and E = 4. The input state ρ(p0, E) = p0 |0⟩⟨0| + (1 −p0)σN is the optimal ansatz of Eq. (39), parametrized by the vacuum population p0. The orange dot marks the thermal state (pth 0 = 1/(E + 1) = 0.2), while the blue dot marks the true optimum (popt 0 ≈0.1), demonstrating that suppressing the vacuum component below the thermal value strictly increases the mutual information. Right: Absolute capacity gain CE(Φp, E) −I(Φp, ρth,E) in the (p, E) plane, quantifying the advantage of the optimal...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26874_figures/2604.26874_fig3.jpg" width="500"><br>
+<sub>FIG. 4. Absolute quantum mutual information gain I(Φ(0) p,λ, ρ(1)) −I(Φ(0) p,λ, ρth) for the erasure-lossy channel Φ(0) p,λ = pEλ + (1 − p)E0, where ρ(1) = p0 |0⟩⟨0| + (1 −p0)σN is the first-order variational state with vacuum population p0 optimized over [0, 1]. The gain is mapped across the (p, λ) parameter space for low energy (E = 1, left) and high energy (E = 10, right). In both regimes, the non-Gaussian advantage is most pronounced at low transmissivity λ and intermediate fading probability p, and increases with the available energy.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26874_figures/2604.26874_fig4.jpg" width="500"><br>
+<sub>FIG. 5. Convergence of the iterative optimization algorithm. As the order k increases, the algorithm expands the non-Gaussian discrete head of the input state, monotonically increasing the achievable information rate until saturation is reached.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26874_figures/2604.26874_fig5.jpg" width="500"><br>
+<sub>FIG. 6. Activation of the quantum capacity for the binary fading family Φ(0) p,λ = pEλ + (1 −p)E0, at energy E = 10, where</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26874_figures/2604.26874_fig6.jpg" width="500"><br>
+<sub>FIG. 7. Regions of non-antidegradability (green) and degradability (red) for specific binary fading configurations defined in Eq. (A12). (a) Lossy vs. Noisy (λ2 = 0) in the (p, λ1) plane. (b) Identity vs. Lossy (λ1 = 1) in the (p, λ2) plane. (c) General binary mixture with fixed asymmetric weight p = 0.3 in the (λ1, λ2) plane. The boundary curves represent the analytic threshold where Eq. (A13) holds with equality.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26874_figures/2604.26874_fig7.jpg" width="500"><br>
+<sub>FIG. 8. Absolute quantum mutual information gain I(Φ(0) p,λ, ρopt) −I(Φ(0) p,λ, ρth) for the erasure-lossy channel. The panels compare different energy constraints: E = 1 (top-left), E = 2 (top-right), E = 5 (bottom-left), and E = 10 (bottom-right). The region of non-Gaussian advantage persists and evolves with increasing energy.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.26874_figures/2604.26874_fig8.jpg" width="500"><br>
+<sub>FIG. 9. Left: Optimal vacuum population p0 for the erasure channel input as a function of fading probability p and energy E. Lower p0 is preferred at higher energies to distinguish from the vacuum noise. Right: Relative gain in capacity R(p, E) obtained by using the optimized non-Gaussian state compared to the thermal state. The gain is most significant for low transmission probabilities (noisy channels) and moderate energies.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.26874_figures/2604.26874_fig9.jpg" width="500"><br>
+<sub>FIG. 10. Absolute capacity gain I(Φ(1) p,λ, ρopt) −I(Φ(1) p,λ, ρth) for the identity-lossy channel Φ(1) p,λ. Panels correspond to different energy constraints (E = 1, 2, 5, 10). The emergence of distinct regions of advantage confirms that non-Gaussian states are optimal also against intermittent attenuation without total erasure.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.26874_figures/2604.26874_fig10.jpg" width="500"><br>
+<sub>FIG. 11. Single-shot quantum capacity analysis for the erasure-lossy channel Φ(0) p,λ across increasing energy regimes (E =</sub>
+
+</details>
+
+**Main problem.** Investigating the quantum Shannon theory of bosonic fading channels, specifically determining their communication capacities and structural properties when transmissivity fluctuates stochastically.
+
+**Main result.** Proved that non-Gaussian Fock-diagonal states strictly outperform Gaussian thermal states for entanglement-assisted classical capacity and can 'activate' the channel for quantum communication in regimes where Gaussian states yield zero capacity.
+
+**Method.** Analytical proofs using Stinespring dilation and Choi matrix rank, alongside a numerical iterative variational algorithm to optimize photon number distributions.
+
+**Summary.** This paper explores the information-theoretic properties of bosonic channels subject to transmissivity fluctuations, known as fading channels. The authors show that these channels are fundamentally non-Gaussian and that standard Gaussian (thermal) states are sub-optimal for communication. Crucially, they prove that optimized non-Gaussian states can enable quantum communication in high-loss regimes where Gaussian encodings fail entirely. This 'channel activation' is particularly relevant for practical applications like satellite-to-ground quantum networks subject to atmospheric turbulence.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A bosonic fading channel modeled as a convex combination (mixture) of pure-loss channels, representing physical scenarios like atmospheric turbulence in free-space quantum communication.
+
+**Key observables.** Coherent information, entanglement-assisted classical capacity, quantum mutual information, and secret key capacity.
+
+**Important parameters / regimes.** Transmissivity (lambda), probability density of fluctuations (p(lambda)), mean energy constraint (E), and LNW distribution parameters (R and gamma).
+
+**Assumptions / limitations.** The optimization is restricted to phase-insensitive (Fock-diagonal) input states, and the model assumes negligible thermal background noise.
+
+**Figures summary.** Circuit representations of the fading channel, parameter space plots for non-antidegradability, and maps showing the capacity gain and channel activation of non-Gaussian states over thermal benchmarks.
+
+**Paper structure.** The paper introduces the fading channel model, establishes its structural properties (non-degradability/distillability), analyzes specific fading distributions (binary and LNW), demonstrates the sub-optimality of Gaussian states, and presents a variational algorithm for capacity optimization.
+
+**Why it may be interesting.** It provides fundamental insights into the limits of quantum communication in realistic, fluctuating environments and demonstrates how non-Gaussianity can be leveraged to overcome noise-induced capacity vanishing.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The pure-loss channel is a fundamental model for describing noise in bosonic quantum platforms. It is characterised by a single parameter, the transmissivity, which quantifies the fraction of the input energy that reaches the output of the channel. In realistic scenarios, however, such as free-space quantum communication, the transmissivity is not fixed but fluctuates from one channel use to another. In this setting, the overall channel is effectively described as a convex combination of pure-loss channels, known as a fading channel. Despite its practical relevance, the quantum Shannon theory of the fading channel has remained largely unexplored. Here, we address this gap, specifically investigating degradability, anti-degradability, entanglement breakingness, and capacities of the fading channel. Of particular relevance to practical quantum-internet applications, we prove that entanglement distribution and quantum key distribution can always be achieved at a strictly positive rate over any fading channel, no matter how noisy it is or how strongly the transmissivity fluctuates, provided the channel is not completely noisy. Moreover, we prove that thermal states, which are optimal for a broad class of static bosonic Gaussian channels, fail to achieve the entanglement-assisted classical capacity of fading channels: non-Gaussian Fock-diagonal states strictly outperform all Gaussian encodings. Most strikingly, we identify regimes where the coherent information of thermal inputs vanishes, while optimized non-Gaussian states achieve strictly positive values, thereby activating the channel for quantum communication. For a paradigmatic binary fading model we establish this result analytically, deriving the exact capacity-achieving state in closed form. For general fading distributions, we design an iterative variational algorithm to optimize the coherent and mutual information.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.26916"></a>
 ### [Rethinking Nonlocality: Locality, Counterfactuals, and the EPR-Bell Argument](http://arxiv.org/abs/2604.26916v1)
 
@@ -485,6 +668,90 @@ The widespread claim that violations of Bell inequalities establish the nonlocal
 <details><summary>Abstract</summary>
 
 This work investigates which sets of quantum states give rise to the highest achievable success probability in minimum-error state discrimination if multiple copies of the unknown state are given. Specifically, we consider uniformly distributed ensembles of the form $\left\{\frac{1}{N},ρ_i^{\otimes k}\right\}_{i=1}^N$, where $N$ states in dimension $d$ are provided in $k$ identical copies, and derive universal limits in this scenario. For pure state ensembles, we prove that whenever $N$ is large enough to support a state $k$-design, these designs will exactly give rise to the maximally discriminable sets. We further show that when $N$ exceeds the size required for a $k$-design, mixed states can outperform all pure state ensembles. We also analyse the analogue classical discrimination problems, in which states are replaced by probability distributions. We recognise that the problem of most discriminable classical states in the multi-copy regime is in one-to-one correspondence to the concept of the multiplicative Bayes capacity of independent uses of classical channels, a concept that emerges naturally in the context of classical information leakage. This connection allows us to completely solve the classical analogue of our problem when $N\geq \binom{d + k - 1}{k}$, and to prove that quantum systems offer a quadratic advantage (in number of copies $k$) over classical ones. Curiously, we also show that this quantum advantage is strongly reduced when one is restricted to real quantum states. Finally, we introduce computational techniques to find sets of most discriminable ensembles, and to obtain rigorous universal upper bounds on the maximal success probability for multi-copy state discrimination in cases that are analytically intractable.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.26865"></a>
+### [MLMC-qDRIFT: Multilevel Variance Reduction for Randomized Quantum Hamiltonian Simulation](http://arxiv.org/abs/2604.26865v1)
+
+**Authors:** Pegah Mohammadipour, Xiantao Li  
+**Type:** theory · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26865v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26865_figures/2604.26865_fig1.jpg" width="500"><br>
+<sub>Figure 2: MLMC variance (left) and absolute mean (right) for the qDRIFT estimator on the 6-qubit Heisenberg XYZ chain (63), plotted on a log2 scale against MLMC level ℓ. All quantities are computed analytically from the exact channel probabilities pℓvia the Bernoulli formulas (64)–(67); no random circuits are sampled. Red solid lines show the single-level estimator Pℓ; green dashed lines show the coupled correction ∆Pℓ= Pℓ−Pℓ−1, where pℓand pℓ−1 are computed from the index-sharing qDRIFT channel and the difference is evaluated via the correlated Bernoulli formula (66); dotted lines show the least-squares reference slope. The flat red line confirms that Var(Pℓ) = 4pℓ(1 −pℓ) ≈0.75 is...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26865_figures/2604.26865_fig2.jpg" width="500"><br>
+<sub>Figure 2 shows log2 of the per-level variance (left panel) and absolute mean (right panel) for the qDRIFT estimator. All four quantities are computed analytically from the exact pℓvalues, no random circuits are sampled and no measurement outcomes are drawn:</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26865_figures/2604.26865_fig3.jpg" width="500"><br>
+<sub>Figure 3: Mean conditional shot-noise variance of the augmented estimator, Es[Varshot], plotted on a log2 scale against correction level ℓfor the 6-qubit Heisenberg XYZ chain (63). Each point is estimated by averaging (68) over nℓ∈{80, . . . , 300} independently sampled index-sharing circuits at gate counts Nℓ∈{256, . . . , 4096}, using ζℓ= 1/√τℓ. The fitted decay rate is ˆβshot ≈1.0, matching the reference slope −1. Thus the shot-noise contribution decays as O(τℓ) = O(2−ℓ), as predicted by Eq. (48).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26865_figures/2604.26865_fig4.jpg" width="500"><br>
+<sub>Figure 3 validates the measurement-level claim of Section 2.3: the scaled augmented observable bOℓ reduces the conditional shot-noise variance from a level-independent O(1) floor to O(τℓ) = O(2−ℓ). This experiment uses actual random qDRIFT circuits sampled with the index-sharing coupling, rather than averaged-channel probabilities. Speifically, for each level ℓ∈{1, . . . , 5}, we sample nℓ∈{80, . . . , 300} random index sequences s = (s1, . . . , s2K). The fine and coarse states are propagated using (14)–(15), and we form the difference state |e(ℓ) K ⟩= |ψ(ℓ) 2K⟩−|ψ(ℓ−1) K ⟩. With ζℓ= c/√τℓand c = 1, the augmented norm is Sℓ(s) = 1 + ζ2 ℓ∥e(ℓ) K ∥2. For each fixed sample path, the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26865_figures/2604.26865_fig5.jpg" width="500"><br>
+<sub>Figure 4: Total gate complexity as a function of target RMSE ε for standard qDRIFT (orange) and MLMC qDRIFT (blue), computed from the cost formulae (60)–(61) instantiated for O = Z0 with system-specific values c1 ≈10.55, N0 = 128, and σ2 = 4pNL(1 −pNL). Dashed and dotted gray lines show the slope −3 and slope −2 references, both anchored to the MLMC curve at ε = 0.02. The right axis (purple, dash-dot) shows the gate-count speedup Cstd/CMLMC; the horizontal dotted line marks break-even. The crossover occurs near ε∗≈0.02, consistent with the log-dominated estimate (2.27). The upper axis shows the number of MLMC levels L required at each precision.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26865_figures/2604.26865_fig6.jpg" width="500"><br>
+<sub>Figure 4 validates the cost comparison of Section 3 for the six-qubit Heisenberg example. The plot uses the standard qDRIFT cost (60) and the MLMC-qDRIFT cost (61), with the MLMC Giles sum SL = PL ℓ=0 √VℓCℓevaluated using the level variances and costs from the preceding numerical experiments. For O = Z0, the measurement probability satisfies</sub>
+
+</details>
+
+**Main problem.** The qDRIFT randomized Hamiltonian simulation protocol suffers from high gate complexity, scaling as O(epsilon^-3), when high-precision observable estimation is required due to the need to suppress both algorithmic bias and statistical variance.
+
+**Main result.** The authors introduce MLMC-qDRIFT, which reduces the total gate complexity to O(epsilon^-2 log^2(1/epsilon)) while maintaining independence from the number of Hamiltonian terms, demonstrated by a 28x speedup at epsilon = 10^-4.
+
+**Method.** A Multilevel Monte Carlo (MLMC) framework using a hierarchy of qDRIFT estimators coupled via an 'index-sharing' technique and an 'augmented-state' construction to control measurement shot-noise.
+
+**Summary.** This paper addresses the high computational cost of high-precision quantum Hamiltonian simulation using the randomized qDRIFT algorithm. By applying a Multilevel Monte Carlo (MLMC) approach, the authors create a hierarchy of simulations that share random samples to reduce variance. They also introduce an augmented-state measurement strategy to prevent measurement noise from destroying the efficiency gains. The result is a significant reduction in gate complexity, making high-precision simulations of large systems much more feasible on near-term quantum hardware.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The method is validated using a 6-qubit Heisenberg XYZ spin chain with Hamiltonian terms defined by Jx, Jy, and Jz coupling constants.
+
+**Key observables.** Expectation values of the Pauli-Z operator (Z0) on the first qubit.
+
+**Important parameters / regimes.** Target precision (epsilon), Hamiltonian one-norm (lambda), evolution time (t), and the crossover precision (epsilon*) where the multilevel overhead becomes efficient.
+
+**Assumptions / limitations.** The Hamiltonian terms are Hermitian with unit norm, the observable is bounded, and the index-sharing coupling is used to ensure geometric variance decay.
+
+**Figures summary.** Figure 1 illustrates the index-sharing coupling between levels; Figure 2 shows the decay of MLMC variance and absolute mean; Figure 3 validates the decay of shot-noise variance in the augmented estimator; Figure 4 compares total gate complexity of standard qDRIFT vs MLMC-qDRIFT.
+
+**Paper structure.** The paper introduces the qDRIFT bottleneck, proposes the MLMC-qDRIFT hierarchy and index-sharing coupling, develops the augmented-state construction to handle measurement noise, provides complexity proofs, and concludes with numerical validation on a spin chain.
+
+**Why it may be interesting.** This is highly relevant for many-body dynamics as it provides a more efficient way to simulate time-evolution of large-scale quantum systems by turning the statistical error of randomized sampling into a precision-efficient computational tool.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Simulating quantum dynamics is one of the central applications of quantum computing. For Hamiltonians written as a sum of many terms, deterministic Trotter--Suzuki product formulas can require applying a large number of term-wise evolutions at each time step, leading to high circuit costs for large or dense systems. Randomized methods such as qDRIFT offer an alternative: each step samples only one Hamiltonian term, giving a circuit depth with no explicit dependence on the number of terms. However, when qDRIFT is used for observable estimation, high precision requires many independent random circuit realizations, resulting in a total gate complexity that scales as $\mathcal{O}(\varepsilon^{-3})$.   We introduce a multilevel Monte Carlo framework for qDRIFT that reduces this sampling overhead. The method constructs a hierarchy of qDRIFT estimators with increasing circuit depths and couples adjacent levels by sharing their random Hamiltonian-term samples. This coupling makes the variance of the level differences decay with depth, allowing most samples to be taken on cheaper, coarse circuits and only a few on expensive, fine circuits. We prove that the resulting MLMC-qDRIFT estimator reduces the total gate complexity for fixed-precision observable estimation from the standard qDRIFT scaling $\mathcal{O}(\varepsilon^{-3})$ to $\mathcal{O}(\varepsilon^{-2}\log^2(1/\varepsilon))$, while preserving qDRIFT's lack of explicit dependence on the number of Hamiltonian terms. Numerical experiments for spin-chain dynamics confirm the predicted variance decay and demonstrate the practical gate-count savings of the multilevel construction.
 
 </details>
 
@@ -789,6 +1056,116 @@ We consider the problem of quantum channel certification to unitary, where one i
 <details><summary>Abstract</summary>
 
 Orbital energy splittings are important quantum dot parameters for the operation of hole spin qubits. They are known to depend on the lateral confinement of the quantum dots. However, when changing top, plunger gate voltages, which are the typical control parameter for qubit applications, such energy splitting changes are typically negligible, both as measured in experiment and as assumed in effective theories. Here, we study the singlet-triplet (ST) splittings, which depend on the orbital splittings, of a double quantum dot (DQD) in a Ge/SiGe heterostructure using photon-assisted tunneling (PAT) and pulsed-gate spectroscopy. We find that the ST splittings have a surprising, strong dependence on the top gate voltages, leading to anomalous PAT measurements. We combine data from both measurements in a model that well describes the linear gate-voltage dependence of the ST splittings. Finally, we show that the ST splittings of the two dots exhibit similar linear gate-voltage dependences when the device is retuned such that their ratio is significantly different.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.26862"></a>
+### [Non-local Tunneling Spectroscopy of Inelastic Quasiparticle Relaxation in Superconducting 1-D Wires](http://arxiv.org/abs/2604.26862v1)
+
+**Authors:** Kevin M. Ryan, Detlef Beckmann, Venkat Chandrasekhar  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.26862v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26862_figures/2604.26862_fig1.jpg" width="500"><br>
+<sub>FIG. 1. False Color SEM Micrograph of one device. The central superconducting wire was isolated via a liftoff step which prevented the formation of a parallel normal metal wire between the left and right reservoirs of the device. Traces of this liftoff process can be seen on either edge where this Cu feature is broken off. In the inset, we label the junctions A, B, and C as discussed in the text.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26862_figures/2604.26862_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Normalized local conductance of the three junctions studied, measured at 20.5 mK for all three junctions with the remaining two junctions floating. The normalization values Ginj and ∆0 were obtained via fitting as described in the text.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26862_figures/2604.26862_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Normalized non-local conductance due to charge- imbalance for all combinations of detector and injector. As described in the text, the spacing between the A and C junc- tions is approximately twice that of the A/B or B/C injec- tor/detector pairs, which can be seen in the reduction of over- all charge imbalance signal.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26862_figures/2604.26862_fig4.jpg" width="500"><br>
+<sub>FIG. 4. a.)+b.) Normalized non-local conductance between the A/B and A/C junction pairs with a small detector bias. c.)+d.) and e.)+f.) Corresponding decompositions of the non-local dual-biased conductance data into its components symmet- ric/antisymmetric with respect to Vinj. All color-maps are identical between panels.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26862_figures/2604.26862_fig5.jpg" width="500"><br>
+<sub>FIG. 5. a.) Heatmap plot of the local conductance of the injector junction A during simultaneous detector biasing on B. b.)+c.)+d.) Results of fittings to a Dynes-type model for the DOS, plotted as a function of detector bias. For all fits, only the normal state conductance was held fixed, with the other parameters varying freely.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.26862_figures/2604.26862_fig6.jpg" width="500"><br>
+<sub>FIG. 6. a.) Heatmap of the dual-biased non-local conduc- tance data for the A/B junction pair. The grey regions cor- respond to data outside the color-map. b.) Same data, pre- sented as a 3D contour over its full data range. Also shown are projections indicating the general shape of the data taken during biasing of either Vinj or Vdet, indicating the sign rever- sal of the signal with respect to the bias polarity.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.26862_figures/2604.26862_fig7.jpg" width="500"><br>
+<sub>FIG. 7. a.) Heatmap of the local conductance of the injector junction as a function of applied supercurrent density and in- jector bias. The dashed black lines indicate the point where the total supercurrent exceeds the critical current during the sweep, and the data has been suppressed to ignore parts of the sweep beyond this where the device is driven normal. b.) Non-local conductance heatmap measured between the A/B pair over a narrower range of JS values under swept current bias. Only a slight indication of the non-local peaks are dis- cernible. The artifacts near zero current bias are caused by stochastic switching and retrapping which has been interpo- lated out of the dataset...</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.26862_figures/2604.26862_fig8.jpg" width="500"><br>
+<sub>FIG. 8. a.) Heatmap of the local conductance spectra mea- sured on the A junction as a function at fixed supercurrent bias. The total current on the y-axis corresponds to a range IS = ±11 µA. b.) Line traces taken at 0 and 10 µA from the same measurement, demonstrating the non-equilibrium con- ductance spectra which occur with increasing supercurrent bias.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.26862_figures/2604.26862_fig9.jpg" width="500"><br>
+<sub>FIG. 10. a.) Symmetric part gss of the nonlocal conductance as a function of bias for different supercurrents Is. Symbols are data from Fig. 9.b, lines are fits (see text). b.) Applied supercurrent Is as a function of phase gradient ∂xϕ obtained from the fits in a, with a fit to Eq. (6).</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.26862_figures/2604.26862_fig10.jpg" width="500"><br>
+<sub>FIG. 9. a.) Heatmap of the non-local conductance spec- tra measured simultaneously with the data in Fig. 8 on the A/B junction pair. b.)+c.) Corresponding decompositions of the non-local conductance data into its components symmet- ric/antisymmetric with respect to the injector voltage Vinj for each value of the injected supercurrent.</sub>
+
+</details>
+
+**Main problem.** Investigating the non-local transport and relaxation of non-equilibrium quasiparticles (charge and energy imbalance) in 1-D superconducting wires.
+
+**Main result.** The study identifies a transition from charge-carrying to charge-neutral excitations at energies around 3-Delta and demonstrates how supercurrents drive the interconversion of charge and energy modes.
+
+**Method.** Non-local tunneling spectroscopy using a dual-bias scheme in NIS junctions, combined with quasiclassical simulations using the Usadel equations.
+
+**Summary.** This paper explores how quasiparticles move and relax in one-dimensional superconducting wires. By using a specialized dual-bias measurement technique, the authors can distinguish between charge and energy imbalance modes. They observe that at high injection energies, quasiparticles can break Cooper pairs, leading to a change in transport behavior. The study also shows how applied supercurrents can manipulate these non-equilibrium states, providing deep insight into the kinetics of superconductors.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** Mesoscopic three-terminal Cu and Al NIS tunnel junction devices featuring 1-D ultra-thin Aluminum wires in the millikelvin, dirty-limit superconducting regime.
+
+**Key observables.** Non-local conductance (g_nl), local conductance (G), charge imbalance (Q*), and the superconducting gap (Delta).
+
+**Important parameters / regimes.** Superconducting gap (Delta_0), coherence length (xi), Thouless length (L_T), and the energy-dependent inelastic scattering time.
+
+**Assumptions / limitations.** The magnitude of the pair potential is assumed constant along the wire, and the effect of charge imbalance on the phase is neglected due to small tunnel currents.
+
+**Figures summary.** Figures show the decomposition of non-local conductance into symmetric/antisymmetric components, heatmaps of local conductance under varying bias and supercurrent, and the evolution of the pair potential and distribution functions.
+
+**Paper structure.** The paper introduces the experimental platform, details the symmetry-based decomposition of conductance, presents results on quasiparticle relaxation and energy-dependent scattering, explores the impact of high supercurrents, and concludes with the effects of in-plane magnetic fields.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Non-local conductance experiments using tunnel junctions can provide valuable spectroscopic information on both the transport and relaxation of quasiparticles in superconductors, as these techniques directly probe the quasiparticle charge and energy imbalance even at mK temperatures. In this work, we employ mesoscopic three terminal Cu and Al NIS devices to study non-local quasiparticle transport over length-scales on the order of the superconducting coherence length in this regime. Via a dual-bias scheme, which utilizes detector biases both above and below the superconducting gap, we are able to extract the effect of quasiparticle energy imbalance via its impact on the self consistent pair potential by symmetry considerations. We observe non-local conductance features due to pair-breaking which are anti-symmetric with respect to the polarity of the voltage bias, with a sharp onset during single electron tunneling at energies around $3Δ$. We compare these findings with quasiclassical simulations including inelastic effects to obtain estimates of the energy dependent inelastic scattering time. In addition, we demonstrate kinetic effects due to a large applied supercurrent which can also be captured in this formalism and decomposed with respect to the particle-hole symmetry and supercurrent direction, and discuss further opportunities for the advancement of this method.
 
 </details>
 
