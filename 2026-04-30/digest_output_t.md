@@ -1,25 +1,28 @@
 <a id="top"></a>
 # arxiv digest (quant-ph + cond-mat) — 2026-04-30
 
-*13 papers · 4 relevant · 0 highlighted*  
-_⏳ in progress: 13/158 papers processed (file updates after each one)_
+*16 papers · 7 relevant · 0 highlighted*  
+_⏳ in progress: 16/158 papers processed (file updates after each one)_
 
 
-## 🔥 Most relevant (4)
+## 🔥 Most relevant (7)
 
 *Every paper with at least one nonzero topic score, sorted by best-matching score. 🔥 marks scores ≥4/5. Click the title to jump to the full entry below; click [arXiv] to open the paper page. `(secondary)` marks papers from de-prioritized cond-mat archives.*
 
-<details><summary>Show 4 relevant papers</summary>
+<details><summary>Show 7 relevant papers</summary>
 
 - [Cavity-mediated coherence protection and one-axis twisting for spins in solids](#paper-2604.26909) [[arXiv]](http://arxiv.org/abs/2604.26909v1) — 🔥 `Tavis-Cummings & cavity-many-emitter` **5/5** · 🔥 `Dicke superradiance` **4/5** · 🔥 `QC/QI experiment` **4/5** · 🔥 `correlated cavity matter` **4/5** · 🔥 `quantum optics experiment` **4/5** · `analog quantum simulation` **3/5** · `correlated / nonlocal dissipation` **3/5** · `spintronics-quantum-optics interface` **3/5** · `exotic spin models in light-matter` **2/5** · `non-equilibrium dynamics` **2/5** · `superradiant laser` **2/5** · `driven-dissipative phase transition` **1/5** · `entanglement & information structure` **1/5** · `quantum measurements` **1/5**
 - [A Gaussian asymmetry measure](#paper-2604.26878) [[arXiv]](http://arxiv.org/abs/2604.26878v1) — 🔥 `entanglement & information structure` **4/5** · 🔥 `non-equilibrium dynamics` **4/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `non-equilibrium universality` **2/5** · `scars & prethermalization` **2/5**
 - [Digital Simulation of Non-Hermitian Knotted Bands on Quantum Hardware](#paper-2604.26914) [[arXiv]](http://arxiv.org/abs/2604.26914v1) — 🔥 `QC/QI experiment` **4/5** · `correlated / nonlocal dissipation` **2/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+- [Fluctuations of path-dependent thermodynamic quantities in open quantum systems via two-point system-only measurements](#paper-2604.26856) [[arXiv]](http://arxiv.org/abs/2604.26856v1) — 🔥 `quantum measurements` **4/5** · `methods for driven-dissipative` **3/5** · `non-equilibrium dynamics` **3/5**
+- [Protein folding on a 64 qubit trapped-ion hardware via counterdiabatic quantum optimization](#paper-2604.26861) [[arXiv]](http://arxiv.org/abs/2604.26861v1) — 🔥 `QC/QI experiment` **4/5** · `exotic spin models in light-matter` **2/5** · `quantum measurements` **2/5**
 - [Schwinger-Keldysh Path Integral for Gauge theories](#paper-2604.26941) [[arXiv]](http://arxiv.org/abs/2604.26941v1) — 🔥 `Keldysh / 2PI / non-Gaussian methods` **4/5** · `methods for driven-dissipative` **2/5** · `non-equilibrium dynamics` **2/5**
+- [Quantum Feature Selection with Higher-Order Binary Optimization on Trapped-Ion Hardware](#paper-2604.26834) [[arXiv]](http://arxiv.org/abs/2604.26834v1) — 🔥 `QC/QI experiment` **4/5** · `entanglement & information structure` **1/5**
 
 </details>
 
 
-## All papers (12, sorted by relevance)
+## All papers (15, sorted by relevance)
 
 *Papers from quant-ph and your primary cond-mat archives (quant-gas, stat-mech, str-el, dis-nn). Highlighted papers (⭐) come first, then everything else sorted by topic-relevance score, highest first.*
 
@@ -275,6 +278,153 @@ Knots and links represent a fundamental motif of non-local connectivity that per
 
 <sub>[↑ back to top](#top)</sub>
 
+<a id="paper-2604.26856"></a>
+### [Fluctuations of path-dependent thermodynamic quantities in open quantum systems via two-point system-only measurements](http://arxiv.org/abs/2604.26856v1)
+
+**Authors:** Alessandra Colla, Andrea Smirne, Heinz-Peter Breuer, Bassano Vacchini  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.26856v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `quantum measurements` **4/5** · `methods for driven-dissipative` **3/5** · `non-equilibrium dynamics` **3/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26856_figures/2604.26856_fig1.jpg" width="500"><br>
+<sub>Figure 1. Temporal evolution of the correction factor Λw S (t) and its bound for (a) monotonic and (b) periodic driving pro- tocols. Parameters are set to δ = 1, β = 1, γ = 0.01, and tf = 10, with all quantities expressed in units of ω. For (a) we have taken Ω= π/20, while for (b) we have taken Ω= π/5.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26856_figures/2604.26856_fig2.jpg" width="500"><br>
+<sub>Figure 2. Temperature sensitivity of the correction factors. (a) Evolution of Λw S (t) and its analytical bound for varying bath temperatures. As temperature decreases, the bound converges and the oscillations in the exact factor flatten. (b) Comparison of Λw S (t) with the internal energy correction factor Λu S(t) for the same temperature range. Parameters in both figures are: δ = 1, γ = 0.01, and tf = 10 in units of ω.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26856_figures/2604.26856_fig3.jpg" width="500"><br>
+<sub>Figure 3. Correction factors at different temperatures for the Jaynes-Cummings model. (a) Work correction factor Λw S (t) for varying temperatures; as temperature decreases, the factor rises to saturate the analytical bound. (b) Comparison with the internal energy factor Λu S(t), which remains consistently higher for this parameter set. The finite environment induces distinct, clean oscillations and recurrences. Parameters are in units of ω, and are given by ωm = 2, and g = 0.01.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26856_figures/2604.26856_fig4.jpg" width="500"><br>
+<sub>Figure 4. High-temperature dynamics of the correction fac- tors Λw S (t) and Λu S(t) for the Jaynes-Cummings model. For both factors, the regular oscillations observed at low temper- ature are replaced by complex, multi-frequency behavior and sharp peaks. The factor can temporarily drop below 1. Pa- rameters are in units of ω and given by ωm = 2, and g = 0.01.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.26856_figures/2604.26856_fig5.jpg" width="500"><br>
+<sub>Figure 5. Correction factors at stronger couplings. (a) Evolution of Λw S (t) and its bound showing a highly structured profile with higher deviations from unity. (b) Comparison between Λw S (t) and Λu S(t). While both exhibit sharp, isolated peaks and temporary values below one, the work correction factor Λw S (t) displays a characteristic initial peak absent in the internal energy factor Λu S(t). Parameters are in units of ω and given by ωm = 2, and g = 0.1.</sub>
+
+</details>
+
+**Main problem.** The lack of an operational procedure to evaluate thermodynamic fluctuations (work, heat, and internal energy) in open quantum systems using only system-accessible degrees of freedom, especially in non-unital and strong-coupling regimes.
+
+**Main result.** The authors propose a two-point system-only measurement scheme that provides exact equalities for thermodynamic fluctuations and identifies correction factors to the Jarzynski equality. They specifically show that in pure decoherence dynamics, the Jarzynable equality for work holds identically at any coupling strength.
+
+**Method.** A Two-Point Measurement Scheme (TPMS) applied to the reduced system using dynamics-dependent thermodynamic observables, utilizing the time-local master equation framework and the 'minimal dissipation' approach.
+
+**Summary.** This paper develops a new method to measure thermodynamic quantities like work and heat in open quantum systems by only looking at the system itself. It overcomes the difficulty of accounting for environmental effects and renormalization in strong-coupling regimes. The authors derive new versions of the Jarzynski equality that include correction factors for non-unital dynamics. They demonstrate that for certain types of decoherence, standard fluctuation theorems remain valid even at high coupling. The framework is versatile enough to cover both Markovian and non-Markovian dynamics.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** An open quantum system (specifically a qubit) interacting with a heat bath, described by a time-local (TCL) master equation. The model includes phase-covariant dynamics and the Jaynes-Cummings model for non-Markovian regimes.
+
+**Key observables.** Work (w), heat (q), internal energy (u), non-equilibrium free energy, and correction factors (Lambda) for fluctuations.
+
+**Important parameters / regimes.** Inverse temperature (beta), coupling strength (weak vs. strong/ultrastrong), Markovian vs. non-Markovian regimes, and unital vs. non-unital dynamics.
+
+**Assumptions / limitations.** The environment starts in a thermal state, and the initial system-environment state is factorized.
+
+**Figures summary.** Figure 1 shows the temporal evolution of the work correction factor and its upper bound; Figure 3 illustrates the work correction factor for a qubit at varying temperatures.
+
+**Paper structure.** The paper introduces the problem of thermodynamic fluctuations in open systems, proposes a new measurement framework using system-only observables, derives modified Jarzynski-like equalities and bounds, and then applies the framework to specific cases like pure decoherence and the Jaynes-Cummings model.
+
+**Why it may be interesting.** It provides a unified, operational framework for studying non-equilibrium thermodynamics in complex regimes (strong coupling, non-Markovianity) without needing to measure the environment, which is highly relevant for anyone working on open quantum systems or quantum thermodynamics.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We propose a method to evaluate general thermodynamic fluctuations in open quantum systems, based on performing a two-point measurement scheme on the system using dynamics-dependent thermodynamic observables. Our approach allows one to obtain exact equalities for fluctuations of path-dependent thermodynamic quantities such as work and heat, and to isolate correction factors to Jarzynski's equality, requiring only access to the system degrees of freedom. This framework is flexible and can be applied to the limiting case of closed systems, recovering previous, yet seemingly contradictory, results from the literature. Moreover, the formalism admits a straightforward extension to strongly coupled open quantum systems. We investigate the effect of specific dynamical classes on the fluctuation relations, and show that the pure decoherence case is particularly special, as it deterministically does not contain any heat contribution and thus constitutes a class of open system dynamics for which the Jarzynski equality for work fluctuations is identically true at any coupling strength. Finally, we look explicitly at the shape and size of the correction factors to Jarzynski's equality for a qubit undergoing phase covariant dynamics, both in the weakly-coupled regime and in the deep non-Markovian regime.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.26861"></a>
+### [Protein folding on a 64 qubit trapped-ion hardware via counterdiabatic quantum optimization](http://arxiv.org/abs/2604.26861v1)
+
+**Authors:** Alejandro Gomez Cadavid, Pavle Nikačević, Pranav Chandarana, Sebastián V. Romero, Enrique Solano, Narendra N. Hegade, Miguel Angel Lopez-Ruiz, Claudio Girotto, Hanna Linn, Hakan Doga, Evgeny Epifanovsky, Panagiotis Kl. Barkoutsos, Ananth Kaushik, Martin Roetteler  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26861v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · `exotic spin models in light-matter` **2/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26861_figures/2604.26861_fig1.jpg" width="500"><br>
+<sub>Fig. 1. Raw energy distributions for LEPFSGKALCSWSIC (53 qubits, high pruning). BF-DCQO (blue) produces samples with a mean energy 2.9× lower than the random case (red). The dashed line marks Eref = −8.46.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26861_figures/2604.26861_fig2.jpg" width="500"><br>
+<sub>Fig. 2. Consensus pipeline energy distributions for LEPFSGKALCSWSIC (53 qubits, high pruning). Using quantum seeds (blue) is clearly shifted to lower energies compared to using random seeds (red).</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26861_figures/2604.26861_fig3.jpg" width="500"><br>
+<sub>Fig. 3. Split-violin plot of consensus pipeline energy distributions across all 6 sequences (best pruning per sequence). Left half (blue): quantum (BF-DCQO); right half (red): random baseline. White lines indicate mean energy. Green lines show Eref.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26861_figures/2604.26861_fig4.jpg" width="500"><br>
+<sub>Fig. 4. Per-sample repair energy distributions for LEPFSGKALCSWSIC (53 qubits, high pruning). Using quantum seeds (blue) yields comparable energies to using random seeds (red).</sub>
+
+</details>
+
+**Main problem.** Optimizing the protein folding problem, an NP-hard combinatorial task, on near-term digital quantum hardware by finding the minimum-energy conformation of peptide sequences.
+
+**Main result.** Demonstrated the largest trapped-ion hardware implementation of protein folding to date (up to 61 qubits), achieving a 2.9x reduction in mean energy compared to random sampling and reaching classical reference energies in 4 out of 6 tested sequences.
+
+**Method.** Used Bias-Field Digitized Counterdiabatic Quantum Optimization (BF-DCQO), a non-variational algorithm that employs a bias-feedback mechanism and counterdiabatic driving to suppress diabatic transitions, combined with a consensus-based post-processing pipeline.
+
+**Summary.** This paper presents a large-scale demonstration of protein folding optimization using a 64-qubit trapped-ion quantum computer. By using a specialized algorithm called BF-DCQO, the researchers were able to significantly improve the energy of sampled protein configurations compared to random methods. The approach uses a hybrid workflow where the quantum hardware identifies key residue interactions, and classical post-processing ensures the resulting structures are physically valid. This work marks a significant step in using near-term quantum hardware for complex, large-scale biological optimization tasks.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** A 64-qubit Barium-based trapped-ion development system with all-to-all connectivity, utilizing a coarse-grained tetrahedral lattice model for protein folding mapped to higher-order spin-glass Hamiltonians.
+
+**Key observables.** Ising energy distributions, residue-contact variable expectation values, and bitstring samples.
+
+**Important parameters / regimes.** Evolution time (T), number of Trotter steps, pruning threshold (theta), and number of iterations (R=10).
+
+**Assumptions / limitations.** The algorithm assumes that the quantum processor can provide structured statistical information in the interaction sector that can be successfully integrated with classical geometric constraints.
+
+**Figures summary.** Figure 1 shows energy distributions comparing BF-DCQO to random sampling; Figure 2 shows the improvement in energy distributions after the consensus pipeline; Figure 3 provides a split-violin plot of the performance advantage.
+
+**Paper structure.** The paper introduces the protein folding problem and the hardware platform, details the BF-DCQO algorithm and the encoding/mapping process, describes the post-processing pipelines, presents experimental results and energy comparisons, and concludes with limitations and future directions.
+
+**Why it may be interesting.** It demonstrates a large-scale implementation of a non-variational quantum algorithm on a complex, all-to-all connected trapped-ion system, showcasing how counterdiabatic driving and feedback loops can be used to tackle high-order, many-body optimization problems.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We report the largest trapped-ion hardware demonstration of lattice protein-folding optimization to date, using bias-field digitized counterdiabatic quantum optimization (BF-DCQO) on a fully connected 64-qubit Barium development system similar to the forthcoming IonQ Tempo line. Six peptide sequences with 14-16 amino-acid residues are encoded using a coarse-grained tetrahedral lattice model, yielding higher-order spin-glass Hamiltonians with long-range interactions involving up to five-body terms and mapped to 46-61 qubits. The resulting instances are demanding for near-term quantum hardware because low-energy configurations must satisfy backbone-geometry constraints while optimizing dense residue-contact interactions. BF-DCQO uses a non-variational bias-feedback mechanism, where low-energy samples from each round define longitudinal fields that guide subsequent quantum evolutions. Across the studied instances, BF-DCQO shifts raw sampled energy distributions toward lower energies than uniform random sampling, with the strongest improvements appearing in residue-contact variables. To preserve this signal, we introduce a consensus-based post-processing pipeline that combines quantum-learned contact information with feasible backbone geometries. The resulting hybrid workflow reaches the classical reference energy in multiple instances and improves over the corresponding random-seeded pipeline. These results show that BF-DCQO can generate structured samples for dense protein-folding Hamiltonians at previously unexplored trapped-ion scales.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
 <a id="paper-2604.26941"></a>
 ### [Schwinger-Keldysh Path Integral for Gauge theories](http://arxiv.org/abs/2604.26941v1)
 
@@ -378,6 +528,74 @@ Knots and links represent a fundamental motif of non-local connectivity that per
 <details><summary>Abstract</summary>
 
 We develop the Schwinger-Keldysh path-integral formalism for open non-Abelian gauge theories that are gauge-fixed via the BRST method in covariant gauges. We focus on generic initial states, pure and mixed, specified at finite times suitable for non-equilibrium processes. We pay particular attention to the handling of the indefinite Hilbert space, the construction of BRST-invariant Schrodinger picture wavefunctionals, density matrices and inner product, the implementation of the Hata-Kugo prescription, and the role of boundary terms at both the initial and final times. We highlight the advantages of the Nakanishi-Lautrup field representation in dealing with initial/final conditions. The resulting Schwinger-Keldysh path integral is manifestly invariant under a diagonal (retarded) BRST symmetry for arbitrary physical initial states, whether pure or mixed. From this, we obtain the corresponding Ward-Takahashi-Slavnov-Taylor identities, valid perturbatively. Non-perturbatively the Gribov ambiguity is expected to break or modify the BRST symmetry. The naive advanced BRST symmetry is shown to be explicitly violated by the in-in boundary conditions. We show that the Feynman-Vernon influence functional derived by integrating out charged matter and/or hard gluon modes remains (perturbatively) BRST invariant. When the Open EFT action is expanded to second order in advanced fields it exhibits an exact symmetry under a contraction of the original BRST symmetry. This Keldysh BRST symmetry is equivalent to the BRST associated with the retarded gauge transformations together with a linearly realized BRST transformation of the advanced fields. These govern the structure of the leading terms in an Open EFT. We illustrate this with the explicit example of Hard Thermal Loop Effective Theory, and construct the general form of the Open EFT in a Higgs phase when all gauge symmetries are spontaneously broken.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+<a id="paper-2604.26834"></a>
+### [Quantum Feature Selection with Higher-Order Binary Optimization on Trapped-Ion Hardware](http://arxiv.org/abs/2604.26834v1)
+
+**Authors:** Carlos Flores-Garrigós, Anton Simen, Qi Zhang, Enrique Solano, Narendra N. Hegade, Sayonee Ray, Claudio Girotto, Jason Iaconis, Martin Roetteler  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.26834v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · `entanglement & information structure` **1/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.26834_figures/2604.26834_fig1.jpg" width="500"><br>
+<sub>Fig. 1. Schematics of the quantum feature selection procedure. (a) illustrates a training dataset with n variables and N samples used to compute (b) the coefficients of a higher-order spin Hamiltonian—based on classical statistics from the dataset—whose low-energy configurations encode solutions of the feature selection problem. A (c) digitized counterdiabatic (CD) protocol is implemented in order to obtain a distribution of low-energy states, and (d) local magnetizations that capture the importance of the features are calculated. Based on a importance threshold, (e) features are selected.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.26834_figures/2604.26834_fig2.jpg" width="500"><br>
+<sub>Fig. 3. ROC-AUC performance on the Gallstone dataset (results in test) as a function of the selection threshold τ applied to the feature inclusion probabilities. Results are shown for IonQ Forte hardware and noiseless simulation. The optimal threshold balances predictive performance and subset size, with annotations indicating the number of selected features at the best- performing configurations.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.26834_figures/2604.26834_fig3.jpg" width="500"><br>
+<sub>Fig. 2. Feature inclusion probabilities Pi ∈[0, 1] for the Gallstone dataset obtained from IonQ Forte hardware (upper half) and noiseless simulation (lower half). Each bar represents the empirical selection frequency of a feature within the retained low-energy subset. Features are classified as selected or discarded according to a threshold (dashed lines), illustrating the consistency between hardware and simulation in identifying relevant variables.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.26834_figures/2604.26834_fig4.jpg" width="500"><br>
+<sub>Fig. 4. Feature selection pipeline for the Spambase dataset using IonQ Forte. (a) Distribution of sampled Hamiltonian values, where only the lowest ρ = 25% of states, i.e., those below the 25th percentile, are retained for post-processing. (b) Feature inclusion probabilities Pi computed as the empirical frequency of xi = 1 within the retained low-energy subset. Features are sorted by Pi and classified as selected or discarded using a threshold τ = 0.50.</sub>
+
+</details>
+
+**Main problem.** The paper addresses the challenge of efficient feature selection in high-dimensional datasets by overcoming the limitations of standard quadratic (QUBO) approaches that fail to capture higher-order multivariate dependencies.
+
+**Main result.** The proposed HUBO framework on IonQ Forte hardware achieves competitive classification performance, outperforming classical baselines like PCA and SelectKBest on the Gallstone and Spambase datasets.
+
+**Method.** The authors use Digitized Counterdiabatic Quantum Optimization (DCQO) to optimize a Higher-Order Unconstrained Binary Optimization (HUBO) Hamiltonian derived from mutual information measures.
+
+**Summary.** This paper presents a quantum-enhanced method for feature selection in machine learning. By using a higher-order optimization (HUBO) instead of standard quadratic models, the approach captures complex three-body statistical dependencies. The researchers implemented this on IonQ Forte trapped-ion hardware using a counterdiabatic optimization protocol. The results demonstrate that the quantum approach can produce more informative and compact feature subsets than traditional classical methods like PCA.
+
+<details><summary>Detailed structure</summary>
+
+**Model / system.** The physical platform is the IonQ Forte trapped-ion quantum processor using 171Yb+ ions. The mathematical model is a HUBO Hamiltonian in the Ising convention, incorporating one-, two-, and three-body interaction terms and a structured sparsity penalty.
+
+**Key observables.** Local magnetizations (used to estimate feature importance scores) and energy levels of the Hamiltonian.
+
+**Important parameters / regimes.** Weights (w1, w2, w3) for relevance, redundancy, and higher-order terms; sparsity penalty parameters (lambda, tau, p); and the retention fraction (rho) of low-energy samples.
+
+**Assumptions / limitations.** The effectiveness is currently limited by available qubit counts, and the method assumes that higher-order statistical dependencies can be effectively mapped to Ising-type interactions.
+
+**Figures summary.** Figure 1 shows the workflow from dataset to feature selection; Figure 2 displays feature inclusion probabilities; Figure 3 shows ROC-AUC performance vs. selection threshold; Figure 4 illustrates energy distribution and the thresholding process.
+
+**Paper structure.** The paper introduces the feature selection problem, formulates the HUBO Hamiltonian using mutual information, describes the DCQO algorithm and hardware implementation on IonQ Forte, presents experimental results on benchmark datasets, and concludes with a discussion on scaling and future work.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We present a quantum feature-selection framework based on a higher-order unconstrained binary optimization (HUBO) formulation that explicitly incorporates multivariate dependencies beyond standard quadratic encodings. In contrast to QUBO-based approaches, the proposed model includes one-, two-, and three-body interaction terms derived from mutual-information measures, enabling the objective function to capture feature relevance, pairwise redundancy, and higher-order statistical structure within a unified energy model. To suppress trivial all-selected solutions, we further include structured linear penalties that promote sparsity while preserving informative variables. The resulting HUBO instances are optimized with digitized counterdiabatic quantum optimization on IonQ Forte and compared against noiseless quantum simulation as well as two classical dimensionality-reduction baselines: SelectKBest based on mutual information and principal component analysis (PCA). We evaluate the proposed workflow on two benchmark classification datasets, namely the Gallstone dataset and the Spambase dataset, and analyze both predictive performance and selected-subset structure. The results show good qualitative agreement between hardware executions and noiseless simulations, supporting the feasibility of implementing higher-order feature-selection Hamiltonians on current trapped-ion processors. In addition, the quantum approach yields competitive classification performance while producing compact and informative feature subsets, highlighting the potential of higher-order quantum optimization for machine-learning preprocessing tasks.
 
 </details>
 
