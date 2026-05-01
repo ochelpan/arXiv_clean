@@ -1,0 +1,1027 @@
+# Daily arXiv Report
+
+[← Index](report.md)
+
+[← Previous](papers_07.md)
+
+## Papers 141–158
+
+---
+<a id="paper-2604.27760"></a>
+### [On Linear and Non-Linear Mechanics of Cyanobacterial Colonies](http://arxiv.org/abs/2604.27760v1)
+
+**Authors:** Yuri Z. Sinzato, Annemieke M. Drost, Dedmer B. Van de Waal, Robert Uittenbogaard, Petra M. Visser, Jef Huisman, Maziyar Jalaal  
+**Type:** experiment · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.27760v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper investigates the mechanical strength of toxic cyanobacterial colonies using micropipette force sensors and rheology. It finds that these colonies are highly resistant to natural water mixing and that low phosphorus levels actually increase their structural strength. This work provides a physical basis for understanding how blooms persist in various environmental conditions.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The study aims to quantify the linear and non-linear biomechanical properties of Microcystis cyanobacterial colonies and understand how nutrient availability affects their structural integrity.
+
+**Main result.** The colonies exhibit high tensile strength and yield stress, making them resistant to fragmentation by natural hydrodynamic stresses, and low phosphorus availability leads to stronger colonies.
+
+**Method.** The researchers used micropipette force sensors for single-cell resolution mechanical quantification and bulk shear rheology to probe macroscopic properties.
+
+**Model / system.** The system consists of Microcystis cyanobacterial colonies held together by a matrix of extracellular polymeric substances (EPS).
+
+**Key observables.** Tensile strength, yield stress, and linear/non-linear mechanical properties.
+
+**Important parameters / regimes.** Nutrient availability (specifically phosphorus levels) and hydrodynamic stresses from wind-mixed lakes.
+
+**Paper structure.** The paper introduces the environmental importance of cyanobacterial blooms, describes the experimental setup using micropipette sensors and rheology, presents the mechanical findings, discusses the impact of nutrient levels, and concludes with the utility of mechanical testing in studying colony formation.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Toxic cyanobacterial blooms are a growing environmental concern that affects freshwater ecosystems, drinking water supplies, and public health. The cyanobacterium Microcystis is among the most important bloom forming species. It often grows in large colonies, which enhances its flotation, reduces grazing, and improves nutrient regulation. Microcystis cells are held together by a matrix of extracellular polymeric substances (EPS), making colony mechanics crucial for bloom formation. However, an analysis of the biomechanical properties of cyanobacterial colonies, and how these properties relate to environmental conditions like nutrient availability, remains largely missing. Here, we use micropipette force sensors to quantify the linear and non-linear mechanical properties of individual colonies at single-cell resolution. Bulk shear rheology complements these measurements by probing macroscopic properties. The measured tensile strength and yield stress are broadly comparable to those of bacterial biofilms and are far greater than the hydrodynamic stresses typically found in wind-mixed lakes. This implies that cyanobacterial colonies are highly resistant to fragmentation by natural mixing processes. We also show that low nutrient availability, particularly low phosphorus, produced stronger colonies, suggesting structural changes in the EPS. Overall, our results establish mechanical testing as a tool for a more complete and physically grounded understanding of cyanobacterial colony formation.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27098"></a>
+### [Phase Stability of Superfluid $^{3}\mathrm{He}$ in Anisotropic Aerogel](http://arxiv.org/abs/2604.27098v1)
+
+**Authors:** J. W. Scott, D. Park, X. Yuan, W. P. Halperin  
+**Type:** both · **Category:** disordered systems and neural networks · **PDF:** <https://arxiv.org/pdf/2604.27098v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27098_figures/2604.27098_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Tip angle dependence of NMR precession frequency shift. The two possible modes are ˆn ∥H0 (red) and ˆn ∦H0 (blue) above and below Tx at T/Tc = 0.71 and T/Tc = 0.84 temperatures respectively, in 16% positive strain aerogel[12]. Crosses are experimental data at P = 26.5 bar, H0 = 74.4 mT. Dashed lines represent theoretical calculations incorpo- rating order parameter distortion[13, 14].</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27098_figures/2604.27098_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Temperature dependence of the NMR resonance fre- quency shift in 16% positive strain aerogel in the B phase at P = 26.5 bar, H0 = 74.5 mT at tip angle β ≈0. The transi- tion Tx from ˆn ∦H0 to ˆn ∥H0 occurs near 1.26 mK.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27098_figures/2604.27098_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Phase Diagrams for TAB and flop temperature Tx dependence on magnetic field in 16% positive strain aerogel at 26.5 bar, experiment and theory, with the A-phase shaded red and B-phase blue. A fit to the H2 dependence of experimen- tally measured TAB is given by the green dotted line. TAB with weak coupling βi and Tc,∥/Tc,⊥= 0.96 is shown with the blue line[22]. Strong-coupling βi with Tc,∥/Tc,⊥= 0.99 is given by the purple dashed line[22–24]. The flop transition temperature Tx is shown with a purple dash-dot line. Exper- imental TAB is shown with the green triangles, Tx with green crosses.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27098_figures/2604.27098_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Calculated small tip angle (β = 0) NMR frequency shifts ∆ω/2π as a function of temperature for the phase di- agram at H0 = 0.0745 T, P = 26.6 bar, strong coupling βi. The experimentally measured Tab is shown in orange, while the calculated Tab is shown in black. The linear extrapola- tion of the GL coefficent α to α(Tx) based on the pressure dependence of Tc over estimates the frequency shift at low temperatures.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.27098_figures/2604.27098_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Pressure P dependence of Tx in preplated and non-preplated positive strain (green preplated 16% positive strained, blue non-preplated 14% positive strain) and nega- tive strain (red non-preplated, orange preplated) aerogels[5, 38, 39]. The pure coherence length, appearing in Eq.3 is a well-established function of pressure[40]. The positive slopes d(Tx/Tc0)/dP are not compatible with the pair breaking pa- rameter x for either the homogeneous or inhomogeneous scat- tering models[22, 33]. The black dotted line corresponds to the prediction for the anisotropic IISM model given by equa- tion Eq. 3 for the data point taken in preplated 16% positively strained aerogel at P ≈26.5, bar.</sub>
+
+</details>
+
+**Why it may be interesting.** The study explores how quenched disorder and anisotropy can manipulate the broken symmetry states and topological degrees of freedom in a superfluid, which is relevant to understanding symmetry-breaking in many-body systems.
+
+**Summary.** This paper investigates how anisotropic disorder in silica aerogel affects the phase stability and orientation of the superfluid 3He order parameter. By using NMR spectroscopy and Ginzburg-Landau theory, the authors demonstrate a temperature-dependent reorientation transition (Tx) of the spin-orbit axis. The results provide a framework for understanding how structural anisotropy influences the symmetry-breaking properties of p-wave superfluids.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Understanding the phase stability and the mechanism behind the spontaneous reorientation transition (Tx) of the vector degrees of freedom in superfluid 3He within anisotropic silica aerogel.
+
+**Main result.** The study identifies a sharp, field-independent transition at Tx where the spin-orbit rotation axis (n) reorients, driven by the temperature-dependent anisotropy of the pairing amplitudes.
+
+**Method.** Nuclear Magnetic Resonance (NMR) spectroscopy was used to measure frequency shifts and tip angle dependence, which were then compared to an anisotropic Ginzburg-Landau model.
+
+**Model / system.** The system consists of superfluid 3He (a spin-triplet p-wave superfluid) impregnated in uniformly strained silica aerogel. The theoretical framework is an anisotropic Ginzburg-Landau model including quadratic and fourth-order invariants and Zeeman energy.
+
+**Key observables.** NMR frequency shifts (delta omega), tip angle (beta), transition temperature (Tx), and the orientation of the n and l vectors.
+
+**Important parameters / regimes.** Strain axis (epsilon), spin-orbit rotation axis (n), orbital chiral axis (l), pair-breaking parameter (x), and dipole field (HD).
+
+**Assumptions / limitations.** Assumes a linear temperature dependence for the pairing amplitudes (alpha_perpendicular and alpha_parallel) and applies strong-coupling corrections to the GL coefficients.
+
+**Figures summary.** Figure 4 shows calculated NMR frequency shifts versus temperature compared to experimental data; Figure 5 shows the pressure dependence of the transition temperature ratio Tx/Tc0.
+
+**Paper structure.** The paper introduces the problem of vector reorientation in aerogel, describes the experimental NMR setup and aerogel strain, presents the Ginzburg-Landau modeling of the phase stability, and concludes with a discussion on the pressure dependence and limitations of the model in non-preplated aerogels.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The A and B phases of superfluid 3 He have vector degrees of freedom that reflect their characteristic broken symmetries, respectively chiral and spin-orbit rotation axes. Anisotropic disorder in the superfluid, imbibed in uniformly strained silica aerogel, orients these degrees of freedom, thereby affecting phase stability. These degrees of freedom have been found to spontaneously reorient at a field-independent transition temperature Tx , that can be accounted for with a temperature dependent anisotropic Ginzburg-Landau model.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27370"></a>
+### [Phase-Transition Induced Domain Evolution and Magnetization Dynamics in FePt/FeRh Bilayers for Efficient Heat-Assisted Magnetic Recording](http://arxiv.org/abs/2604.27370v1)
+
+**Authors:** Saroj K. Mishra, Y. Sasaki, S. Isogami, I. Suzuki, Keerthana P, J. Mohanty, Y. K. Takahashi  
+**Type:** experiment · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.27370v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** The study demonstrates that using FePt/FeRh bilayers can significantly reduce the coercivity of magnetic media during heating. This is achieved through the phase transition of FeRh, which enhances domain wall mobility via interfacial coupling. This mechanism offers a path toward more energy-efficient magnetic recording technologies.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Reducing the power consumption and thermal load required for Heat-Assisted Magnetic Recording (HAMR) by lowering the coercivity of L10 FePt media.
+
+**Main result.** FePt/FeRh bilayers exhibit a 40% reduction in coercivity between 300 K and 400 K due to phase-transition-induced domain wall mobility and interfacial exchange coupling, rather than intrinsic anisotropy softening.
+
+**Method.** Magnetometry, temperature-dependent Magnetic Force Microscopy (MFM), and Time-Resolved Magneto-Optical Kerr Effect (TR-MOKE) measurements.
+
+**Model / system.** FePt/FeRh bilayers, specifically focusing on the interaction between the ferromagnetic FePt layer and the antiferromagnetic-to-ferromagnetic phase transition of the FeRh layer near 350 K.
+
+**Key observables.** Coercivity (Hc), domain size, phase contrast, and effective anisotropy field.
+
+**Important parameters / regimes.** Temperature range (300 K to 400 K), FeRh phase transition temperature (~350 K), and anisotropy field modification (0.4 T).
+
+**Figures summary.** The figures likely show magnetometry data comparing coercivity in bilayers vs single layers, MFM images capturing domain evolution, and TR-MOKE data showing the stability of the anisotropy field.
+
+**Paper structure.** Introduction to HAMR challenges, description of the FePt/FeRh bilayer system, presentation of magnetometry results, analysis of domain evolution via MFM, investigation of anisotropy via TR-MOKE, and conclusion on the switching mechanism.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Achieving ultrahigh recording densities with low power consumption is a central challenge for next generation heat assisted magnetic recording (HAMR), as conventional L10 FePt media require intense laser heating due to their high coercivity (Hc) and high Curie temperature (700 K). Here, we address this issue using FePt/FeRh bilayers, where the antiferromagnetic to ferromagnetic transition of FeRh near 350 K generates strong interfacial exchange coupling that assists magnetization switching in the FePt layer. Magnetometry measurements reveal a 40% reduction in Hc from 300 K to 400 K in the bilayer, compared to only 8% in single layer FePt. Temperature dependent MFM directly captures phase transition induced domain evolution, showing a 30% reduction in domain size and enhanced phase contrast. TR-MOKE measurements reveal only a minor (0.4 T) modification of the effective anisotropy field during phase transition, confirming that the intrinsic anisotropy of FePt remains largely preserved. These results demonstrate that the reduction in Hc in FePt/FeRh bilayers is primarily governed by phase transition induced domain wall mobility coupled with interfacial magnetic interactions, rather than by intrinsic anisotropy softening. This mechanism provides a pathway toward efficient magnetization switching under reduced thermal load, making FePt/FeRh heterostructures promising candidates for advanced HAMR media.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.28120"></a>
+### [Polar Topologies in a Ferroelastic Metal Membrane](http://arxiv.org/abs/2604.28120v1)
+
+**Authors:** Rahil Haria, Noah Schnitzer, T. Ben Britton, Yaqi Li, Tom J. P. Irons, Sophia Linssen Pitsaros, Ella Banyas, Geri Topore, Annabel Hoyes, Mariana Palos, Sinead M. Griffin, Katherine Inzani, Michele Shelly Conroy  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.28120v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** The researchers demonstrate that releasing SrRuO3 films from their substrates creates a hierarchy of ferroelastic domains that spontaneously generate polar textures. By using advanced microscopy, they show that electric polarization emerges at specific structural boundaries, providing a robust platform for engineering polar textures in metals.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The rarity of polar metals due to electron screening and the challenge of engineering stable polar textures in conducting materials.
+
+**Main result.** Releasing epitaxial SrRuO3 films from substrates drives ferroelastic domain refinement and generates two distinct classes of emergent polar textures at antiphase boundaries and 90-degree walls.
+
+**Method.** Correlative microscopy combining mesoscale electron channelling contrast imaging (ECCI) and atomic-resolution scanning transmission electron microscopy (STEM), supported by ab initio calculations.
+
+**Model / system.** Freestanding/membrane-form epitaxial SrRuO3 (strontium ruthenate) films, specifically focusing on ferroelastic domain structures and antiphase boundaries.
+
+**Key observables.** Electric polarisation, tilt field interpolation (Neel-like and Ising-like), and domain length scales.
+
+**Important parameters / regimes.** Domain scales ranging from micrometre to nanometre; 4 nm polar nanoclusters.
+
+**Paper structure.** The paper introduces the concept of polar metals, describes the experimental process of releasing SrRuO3 films, details the microscopy results showing polar textures at boundaries, provides theoretical corroboration via ab initio calculations, and concludes with the implications for metal oxide membranes.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Polar metals, materials in which electric polarisation and metallicity coexist, are exceptionally rare because itinerant electrons screen long-range dipoles and favour centrosymmetric structures. Engineering polar textures in a conducting magnet holds promise for reconfigurable spin orbit coupling and magnetoelectric functionality. Here we show that releasing epitaxial SrRuO3 films from their substrates drives a hierarchy of ferroelastic domain refinement from micrometre to nanometre length scales, and that this structural reorganisation spontaneously generates two distinct classes of emergent polar texture that are ubiquitous across the freestanding membrane. Using correlative microscopy from mesoscale electron channelling contrast imaging (ECCI) to atomic resolution scanning transmission electron microscopy (STEM), we demonstrate that electric polarisation emerges selectively at translation-inequivalent antiphase boundaries (APBs). At these boundaries multicomponent aac tilt field undergoes Neel-like interpolation that preserves the in-phase tilt component and amplifies roto flexoelectric coupling, while translation-equivalent boundaries remain nonpolar. The Neel like interpolation at hard APBs and Ising like collapse of all tilt components at easy APBs is corroborated with ab initio calculations. While embedded 90 ferroelastic walls provide an additional mechanistically distinct source of electric polarisation resulting in polar nanoclusters (4 nm). These distinct nanotextures at 90 walls from via elastic accommodation of strain mismatch between variants and rotostriction as the tilt field interpolates across the boundaries. These findings show that, in a membrane form, metal oxides provide a robust platform for hosting nanoscale ferroelastic domains that generate polar textures.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27192"></a>
+### [Practical Insights to Thin Film Dewetting](http://arxiv.org/abs/2604.27192v1)
+
+**Authors:** Karim Gadelrab, Stefan Reimann-Zitz  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.27192v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper uses lattice Boltzmann simulations to study how various physical parameters control the rupture and coarsening of thin liquid films. It provides predictive scaling laws and identifies a stable coverage plateau, offering practical guidance for engineering robust coatings.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Quantifying how film thickness, surface energy, wettability, and intermolecular forces govern the kinetics and long-time morphology of thin film dewetting.
+
+**Main result.** Identification of master-curve scalings for dewetting time, showing power-law sensitivity to thickness, and discovery of a coverage plateau that provides a window for morphological stabilization.
+
+**Method.** Lattice Boltzmann method (LBM) simulations implemented within a lubrication-theory framework.
+
+**Model / system.** Thin liquid films undergoing instability and rupture dynamics, governed by surface energy, wettability, and intermolecular forces.
+
+**Key observables.** Time to dewet, film coverage plateau, domain density, and coarsening scaling laws.
+
+**Important parameters / regimes.** Film thickness, surface energy, wettability (contact angle), and intermolecular forces.
+
+**Assumptions / limitations.** The dynamics are modeled using lubrication theory and the lattice Boltzmann method.
+
+**Paper structure.** The paper presents a systematic quantification of dewetting kinetics and morphology using LBM simulations, identifying scaling laws and a stabilization window.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Thin liquid films exhibit rich instability and rupture dynamics that critically impact coating performance across many applications. In this work, we use the lattice Boltzmann method (LBM) simulations within a lubrication-theory framework to systematically quantify how film thickness, surface energy, wettability, and intermolecular forces govern dewetting kinetics and long-time morphology. Master-curve scalings are identified for the time to dewet, revealing a strong power-law sensitivity to film thickness and a comparatively weak dependence on moderate variations in the contact angle. Following rupture, the film reaches a physically meaningful coverage plateau, whose magnitude correlates with material parameters and provides a practical window for morphological stabilization prior to coarsening. Long-time evolution obeys classical coarsening scaling laws, with surface energy controlling domain density. These results demonstrate that lubrication-based models can deliver predictive design guidance for evaluating coating robustness and forming materials and surface engineering strategies. Source code is available at https://github.com/Zitzeronion/Swalbe.jl.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27348"></a>
+### [Propulsion and far-field hydrodynamics of linked-sphere microswimmers with viscoelastic deformability](http://arxiv.org/abs/2604.27348v1)
+
+**Authors:** Vimal Singh, Akash Choudhary  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.27348v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper studies how the viscoelasticity of a microswimmer's body influences its ability to move under reciprocal motion. It compares two different sphere-link configurations and shows that the frequency of motion can control both the speed and the direction of swimming. The study also details how these swimmers influence the surrounding fluid through dipolar and quadrupolar flow patterns.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Investigating how viscoelastic deformability affects the propulsion and far-field hydrodynamics of microswimmers driven by reciprocal actuation.
+
+**Main result.** The 3-sphere design shows an optimal actuation frequency, while the 4-sphere design features a critical frequency where locomotion direction reverses; far-field flows are characterized by dipolar and quadrupolar contributions.
+
+**Method.** Theoretical modeling of microswimmer dynamics using Kelvin-Voigt viscoelasticity and hydrodynamic analysis of far-field flow signatures.
+
+**Model / system.** Two linked-sphere microswimmer designs: a 3-sphere design with actuation at one end and a 4-sphere design with actuation at the midpoint, both featuring a passive viscoelastic body.
+
+**Key observables.** Kinematic performance (propulsion velocity), locomotion direction, and far-field hydrodynamic signatures (dipolar and quadrupolar flow contributions).
+
+**Important parameters / regimes.** Actuation frequency, relative length of the actuator segment, and viscoelastic properties (Kelvin-Voigt model).
+
+**Assumptions / limitations.** The passive body follows Kelvin-Voigt viscoelastic deformability; actuation is reciprocal.
+
+**Paper structure.** Introduction to viscoelastic microswimmers, description of the 3-sphere and 4-sphere models, analysis of kinematic performance under frequency variation, and characterization of far-field hydrodynamic flow fields.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Viscoelasticity governs the locomotion strategies of deformable microorganisms, rendering it a fundamental mechanical property of microbial motility and an integral component in the design of envisioned microbots. Recent studies have shown that it can enable effective propulsion through non-reciprocal body deformations, even under time-reversible actuation. In this work, we investigate the dynamics of model microswimmers driven by reciprocal actuation, wherein the passive body exhibits viscoelastic deformability. We consider two linked-sphere designs, distinguished by the location of actuation: applied at one end (3-sphere design) or at the midpoint of the swimmer body (4-sphere design). Adopting Kelvin-Voigt deformability, we characterize the kinematic performance of both designs: the three-sphere swimmer possesses an optimal actuation frequency, while the four-sphere swimmer exhibits a critical frequency at which the locomotion direction reverses. We examine the swimmer's far-field hydrodynamic signature and find that resulting flow field is characterized by dominant dipolar and quadrupolar contributions, whose magnitudes are sensitive to the relative length of the actuator segment.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.28094"></a>
+### [Quantifying Thermal, Photovoltage, and Defect Contributions to Transient Absorption of Ta$_{3}$N$_{5}$ Photoanodes](http://arxiv.org/abs/2604.28094v1)
+
+**Authors:** Johannes Dittloff, Lukas M. Wolz, Matthias U. Quintern, Laura I. Wagner, Matthias Kuhl, Johanna Eichhorn, Ian D. Sharp  
+**Type:** experiment · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.28094v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.28094_figures/2604.28094_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Ground-state absorption spectrum of the Ta3N5/TiN thin film (right axis) and transient absorption (TA) spectrum recorded at a pump-probe delay of 1 µs following 355 nm pulsed excitation with a 1 mJ cm−2</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.28094_figures/2604.28094_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Potential-dependent UV-Vis (P-UV-Vis) spectra of a Ta3N5 working electrode, recorded in trans- mission geometry in a three-electrode electrochemical cell as a function of the applied electrochemical potential, which was swept from 0.0 to 1.2 VRHE with a 0.1 V step size in 1 M pH 12.3 KPi buffer. Data are referenced to the spectrum recorded at 0.0 VRHE. The near-edge region exhibits two field-induced absorption features near 2.10 eV and 2.35 eV that grow with increasing anodic bias, consistent with an electroabsorp- tion response arising from widening of the near-surface depletion region. A broad sub-gap bleach below 2.0 eV is assigned to bias-induced change of defect charge states...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.28094_figures/2604.28094_fig3.jpg" width="500"><br>
+<sub>FIG. 3. (a) Temperature-dependent UV-Vis (T-UV-Vis) spectra of a Ta3N5 thin film recorded in transmission geometry as a function of temperature, stepped from 30 ◦C to 70 ◦C. Data are referenced to the spectrum recorded at 30 ◦C. A pronounced positive feature near 2.80 eV grows with increasing temperature, closely resembling the dominant above-edge photo-induced absorption observed in TA. The inset shows the re- constructed thermally induced critical point shift for the above-edge and near-edge region. (b) Influence of pump-induced lattice heating on the TA spectrum of Ta3N5. A TA spectrum recorded in air (black) is compared to one recorded with Ta3N5 in DI water (blue), where the higher...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.28094_figures/2604.28094_fig4.jpg" width="500"><br>
+<sub>FIG. 4. TA spectrum of Ta3N5 recorded at a pump-probe delay of 1 µs (black, upper panel) together with the reconstructed spectrum obtained by co-fitting independently measured T-UV-Vis and P-UV-Vis com- ponents (red, upper panel). The individual thermal (blue) and electrostatic (teal) components are shown in the lower panel. Good agreement between the measured and reconstructed spectra is observed across the near- and above-edge spectral range, indicating that pump-induced lattice heating and transient band flattening dominate the visible TA response of Ta3N5. Deviations between the measured and reconstructed spectra below 2.15 eV are ascribed to contributions from non-equilibrium charge...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.28094_figures/2604.28094_fig5.jpg" width="500"><br>
+<sub>FIG. 5. (a) Full TA time delay series of a Ta3N5 thin film recorded with a pump fluence of 0.83 mJ cm−2</sub>
+
+</details>
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper provides a method to disentangle overlapping physical processes in the transient optical response of semiconductor photoanodes. By quantifying thermal, electrostatic, and defect contributions, the researchers resolved long-standing ambiguities in the carrier dynamics of Ta3N5. This approach offers a template for interpreting complex transient signals in functional semiconductor materials.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The ambiguity in assigning spectral features in the transient absorption (TA) spectra of Ta3N5 photoanodes due to overlapping contributions from lattice heating, electrostatics, and defect states.
+
+**Main result.** The authors successfully decomposed the TA spectra into quantifiable thermal, electrostatic, and defect-mediated components, identifying a previously unreported photo-induced absorption at 2.80 eV as a thermal effect.
+
+**Method.** A combination of microsecond-to-second transient absorption spectroscopy, photoreflectance, temperature-dependent UV-Vis, and potential-dependent UV-Vis spectroscopy, using an iterative fitting algorithm to decouple the signals.
+
+**Model / system.** Polycrystalline Ta3N5 thin-film photoanodes prepared via reactive magnetron sputtering and ammonolysis, featuring anisotropic band structure and defect states (nitrogen vacancies and oxygen impurities).
+
+**Key observables.** Transient absorption (TA) spectra, photoreflectance (PR) critical points, surface photovoltage (SPV) relaxation, and temperature-dependent/potential-dependent absorption changes.
+
+**Important parameters / regimes.** Microsecond to second (us-s) timescale; 2.14 eV, 2.27 eV, and 2.80 eV transition energies; 355 nm pump wavelength; 30-70 C temperature range.
+
+**Assumptions / limitations.** Assumed complete absorption of the pump pulse and assumed specific heat capacity for Ta3N5 to estimate thermal-induced temperature rise.
+
+**Figures summary.** Figure 1 shows ground-state absorption and TA spectra with identified spectral regimes; Figure 2 displays potential-dependent UV-Vis spectra; Figure 3 illustrates temperature-dependent UV-Vis and the thermal origin of the 2.80 eV feature; Figure 5 shows the TA time delay series.
+
+**Paper structure.** The paper begins by identifying the ambiguity in TA spectra, then details the experimental setup and characterization of Ta3N5 films, proceeds to present the spectroscopic measurements (PR, T-UV-Vis, P-UV-Vis), describes the iterative decomposition algorithm, and concludes by validating the reconstructed components against physical models of heat diffusion and band bending.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Ta$_{3}$N$_{5}$ is among the most intensively studied photoanode materials for solar-driven water oxidation, yet its performance often remains limited by short carrier lifetimes and defect mediated recombination. Although transient absorption spectroscopy is widely used to probe carrier dynamics in photoelectrodes, spectral assignments are frequently ambiguous due to overlapping contributions. Here, microsecond-to-second transient absorption of Ta$_{3}$N$_{5}$ thin films is combined with complementary optical spectroscopies to disentangle contributions from lattice heating, electrostatics, and defect states. Photoreflectance reveals three critical points in the Ta$_{3}$N$_{5}$ band structure, including two anisotropic near-edge transitions at 2.14 eV and 2.27 eV and a higher-lying transition near 2.80 eV, all closely aligned with dominant transient absorption features. A previously unreported photo-induced absorption at 2.80 eV is attributed to pump-induced lattice heating, while potential-dependent measurements reveal that near-edge bleach features arise from pump-induced band flattening and subsequent surface photovoltage relaxation. Fitting transient absorption spectra with independently measured thermal and electrostatic components enables quantification of both thermal and photovoltage dynamics, while the sub-bandgap response provides insight into the redistribution of defect charge states. Thus, this approach to quantifying thermal, electrostatic, and defect-mediated contributions to microsecond-to-second transient absorption provides broadly applicable insights into photoexcitation and relaxation mechanisms in functional semiconductor photoelectrodes.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.28100"></a>
+### [Radio Frequency Field-Induced Enhancement of Detection Sensitivity in Silicon Nanowire Sensors](http://arxiv.org/abs/2604.28100v1)
+
+**Authors:** Ang Liu, Jingsong Shang, Jiangang J. Du, Shyamsunder Erramilli, Pritiraj Mohanty  
+**Type:** experiment · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.28100v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper presents a method to improve biosensor sensitivity using radiofrequency-induced flexoelectric resonance in silicon nanowires. This technique overcomes the Debye screening limit in high-salt environments, allowing for direct detection of biomarkers without sample dilution. The approach provides a significant boost in conductance response compared to conventional sensing methods.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The detection of biomarkers in physiological fluids is hindered by Debye screening, which masks electrostatic signals from surface-bound molecules.
+
+**Main result.** Applying a radiofrequency field induces flexoelectric resonance in silicon nanowires, enhancing detection sensitivity by an order of magnitude and reducing Debye screening effects.
+
+**Method.** The researchers used radiofrequency modulation to induce strain gradients in silicon nanowire field-effect transistors, leveraging flexoelectric polarization to amplify conductance changes.
+
+**Model / system.** The experimental platform consists of silicon nanowire field-effect transistors (FETs) used for detecting C-reactive protein in high-ionic-strength physiological fluids.
+
+**Key observables.** Conductance changes in the nanowire and the sensitivity of these changes to biomolecular binding.
+
+**Important parameters / regimes.** Radiofrequency field strength, resonant frequencies, and ionic strength of the environment.
+
+**Paper structure.** The paper introduces the problem of Debye screening, describes the implementation of radiofrequency-induced flexoelectric resonance, demonstrates the enhancement using C-reactive protein, and concludes with the implications for nanoscale biosensing.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Sensitive biomarker detection in physiological fluids is often limited by Debye screening, which suppresses electrostatic signals at sensor surfaces. Here we report a sensing approach based on flexoelectric resonance in silicon nanowire field-effect transistors. An applied radiofrequency field induces strain gradients in the nanowires, generating flexoelectric polarization that is amplified at resonant frequencies. This effect enhances the sensitivity of conductance measurements to small surface charge variations associated with biomolecular binding. Using C-reactive protein as a model biomarker, we observe an order-of-magnitude improvement in detection sensitivity compared to conventional operation, with a 62% conductance increase versus 30% without radiofrequency modulation. The high-frequency field also perturbs the electrical double layer, reducing Debye screening in high-ionic-strength environments. These combined effects enable direct biomarker detection without sample dilution. This work establishes flexoelectric resonance as a general strategy for improving nanoscale biosensing performance in physiologically relevant conditions.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27864"></a>
+### [Second harmonic generation and third harmonic generation in topological insulator-based van der Waals metamaterials](http://arxiv.org/abs/2604.27864v1)
+
+**Authors:** Alessandra Di Gaspare, Sara Ghayeb, Craig Knox, Edmund H. Linfield, Joshua Freeman, Miriam S. Vitiello  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.27864v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27864_figures/2604.27864_fig1.jpg" width="500"><br>
+<sub>Figure 1 (a) Simulated transmittance, calculated using a finite element method (FEM), of the Bi2Se3-SSRR, for an electric field polarization parallel to the dipolar split gap; (b-c) two-dimensional (2D) profiles of the electric field (ESRR) calculated using FEM simulations of the Bi2Se3-SSRR for the (b) fundamental and (c) third harmonic frequency modes, normalized by the field on the surface outside the resonator, E0 (zero enhancement region). (d) Amplification (AG) factor as a function of frequency calculated for the Bi2Se3-SSRR, defined as the ratio of the average electric field on the split ring resonator plane to the average electric field impinging on a SiO2/Si substrate under the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27864_figures/2604.27864_fig2.jpg" width="500"><br>
+<sub>Fig.1h, which shows the simulated transmittances, in broad agreement with the experimental data</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27864_figures/2604.27864_fig3.jpg" width="500"><br>
+<sub>Figure 2: (a) Schematic diagram of the experiment apparatus for investigating SHG and THG. Light from a single-plasmon QCL, emitting 2.5 W into free space, is focused on the resonator array. The SHG and THG signal is isolated after filtering the THz QCL with a 6 THz high-bandpass Ta-filter. (b) Fourier transform infrared (FTIR) emission spectrum of the QCL pump source, acquired under vacuum with a 1 cm-1 spectral resolution. (c) Emission spectrum at the third harmonic measured on the optically pumped Bi2Se3-SSRR from two different fabrication runs (green and blue), after filtering the QCL with the Ta-filter. Spectra were measured in step-scan mode with a spectral resolution ~1cm-1 and...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27864_figures/2604.27864_fig4.jpg" width="500"><br>
+<sub>Figure 3: (a) Electric field incident on the Bi2Se3 SSRR as a function of frequency, calculated through the convolution of the field enhancement shown in the inset, and the optical beam intensity modeled assuming a 2 W Gaussian-peak emission power focused on a 700 m diameter circular spot. (b-c) T/To as a function of frequency in the pumped Bi2Se3 SSRR, assuming the incident effective electric field from (a), and following the analytical model illustrated in the text, plotted (b) at the fundamental QCL frequency 0, and (c) at 30(c). (d-e) Two-dimensional (2D) profiles of the emitted electric field from the Bi2Se3 SSRR, calculated according to the refined numerical model illustrated in...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.27864_figures/2604.27864_fig5.jpg" width="500"><br>
+<sub>Figure 3a shows |𝐸0(𝜈)|2, the effective electric field driving the nonlinear response. It is given</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.27864_figures/2604.27864_fig6.jpg" width="500"><br>
+<sub>Figure 4. (a) 2D map of the normalized electric field (ESSRR/E0) on the Bi2Se3 SSRR at the resonance frequency νSIM~3.245 THz, calculated using FEM simulations on an SSRR fabricated on as-grown Bi2Se3 heterostructures. E0 is the field on the bare sapphire surface. (b) Simulated optical transmittance of the design shown in (a), extracted when the input beam polarization is oriented parallel to the split gap dipole. (c) SEM images acquired on the SSRR fabricated on the (InxBi(1-x))2Se3/Bi2Se3/(InxBi(1-x))2Se3 sample, H2. (d) Experimental transmittance acquired on the sample shown in (c), using FTIR, under vacuum, with a spectral resolution of 1 cm-1, the internal MIR (Globar) source and a...</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.27864_figures/2604.27864_fig7.jpg" width="500"><br>
+<sub>Fig.4a), as expected in a simply scaled geometry, and the calculated transmittance shows a resonant</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.27864_figures/2604.27864_fig8.jpg" width="500"><br>
+<sub>Figure 5. (a-b) Schematic illustration of the single-SRR array embedding on sample H1 (a) and H2 (b) (c-d) Emission spectra measured from the optically pumped samples (c) H1 and (d) H2, incorporating SSRR (black) and DSRR (red) design geometries, respectively. The spectra are measured in step-scan mode with a spectral resolution ~1cm-1 and aperture size ~5mm. The total light reflected by the samples was collected through the external input window of the FTIR spectrometer, with a silicon-bolometer connected to a lock-in amplifier for detection.</sub>
+
+</details>
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper demonstrates the use of metamaterial resonators to amplify nonlinear optical signals in topological insulators at terahertz frequencies. By engineering van der Waals heterostructures, the authors successfully induced even-order harmonic generation through symmetry breaking. This work provides a potential pathway for developing efficient, on-chip THz frequency up-conversion devices.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Achieving and distinguishing second (SHG) and third (THG) harmonic generation in topological insulators at THz frequencies, specifically overcoming the difficulty of separating bulk and surface state contributions.
+
+**Main result.** The researchers demonstrated efficient THG and SHG in the 6.4-9.7 THz range by using metamaterial-induced field amplification and symmetry-breaking heterostructures.
+
+**Method.** The study combines experimental THz time-domain spectroscopy and FTIR emission spectroscopy with Finite Element Method (FEM) simulations and analytical modeling of hot-electron dynamics.
+
+**Model / system.** The system consists of Bi2Se3 and (InxBiy)2Se3/Bi2Se3 van der Waals heterostructures integrated into metallic split-ring resonator (SSRR) and double split-ring resonator (DSRR) arrays on sapphire or SiO2/Si substrates.
+
+**Key observables.** Second and third harmonic generation frequencies, conversion efficiency (CE), electric field amplification factor (AG), transmittance, and Hall coefficient nonlinearity.
+
+**Important parameters / regimes.** THz frequency range (3.25 THz pump), pump power density (~1 kW/cm2), hot-electron cooling time (~3.5 ps), and carrier density (~2.2 x 10^12 cm^-2).
+
+**Assumptions / limitations.** The nonlinear response is assumed to stem from hot-electron dynamics in massless Dirac carriers; the system is treated in a steady-state illumination regime.
+
+**Figures summary.** Figure 1 shows simulated transmittance and 2D electric field profiles; Figure 3 illustrates the effective electric field driving nonlinear response.
+
+**Paper structure.** The paper introduces the challenge of THz harmonic generation, describes the fabrication of TI-based metamaterials, presents experimental detection of SHG/THG, provides numerical validation via FEM, and concludes with a discussion on symmetry breaking and device integration.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+High-order harmonic generation (HHG) in solids - the frequency up-conversion of an optical signal - is governed by symmetries. At terahertz (THz) frequencies, HHG is a key technology to access high frequency spectral windows that are usually difficult to cover using conventional solid state laser technologies. This effect has been recently exploited in graphene where HHG has been demonstrated, albeit only at odd multiples of the driving frequency owing to its inherent centro-symmetry. In topological insulators (TIs), the combination of spin-orbit interaction and time-reversal symmetry create an insulating bulk state with an inverted band order, inseparably connected with conducting surface states. TIs have been predicted to support unconventional high harmonic generation from the bulk and topological surface, which are usually difficult to be distinguished. However, no experimental results have been provided, so far. Here, we exploit the strong optical field amplification provided by an array of single or double split ring resonators, with embedded Bi2Se3 or (InxBi(1-x))2Se3/ Bi2Se3 van der Waals heterostructures, to achieve up-conversion in the 6.4 (even) - 9.7 (odd) THz frequency range. This results from bulk centro-symmetry (odd states) and symmetry breaking in the topological surface states (odd and even).
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27848"></a>
+### [Shift of the maxima of the critical currents of different polarity relative to the zero magnetic flux along the flux axis in a superconducting asymmetric aluminum ring](http://arxiv.org/abs/2604.27848v1)
+
+**Authors:** V. I. Kuznetsov, O. V. Trofimov  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.27848v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27848_figures/2604.27848_fig1.jpg" width="500"><br>
+<sub>Figure 1: (Color online) Resistive N-S transition Rr3(T) measured on a struc- ture of three circularly-asymmetric rings in series at Idc = 0.1 µA. Inset upper: expected normalized circulating current Ir/Irm as a function of Φ/Φ0 in a su- perconducting circularly-symmetric ring of small radius at T close to Tc. Inset below: a sketch of one of the rings included in the structure of three rings in series.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27848_figures/2604.27848_fig2.jpg" width="500"><br>
+<sub>Figure 2: (Color online) Rectiﬁed direct voltage Vrec1(Φ/Φ0) as a function of Φ/Φ0 measured in two rings in series biased with an alternating cosine current (without a dc component) Iac1(t) with the frequency ν = 1.5333 kHz and the ac amplitude Iacm1 = 3.88 µA greater than the critical current Ic(T, B = 0) at T = 1.293 K. The numbers 1, 2, and 3 are placed near the marked points of the Vrec1(Φ/Φ0) curve corresponding to three values Φ/Φ0 = 0, 1-0.16, and 2, respectively. At these points, the oscillograms of the ac voltage Vac1(Φ/Φ0, t) were taken at the same ac Iac1(t).</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27848_figures/2604.27848_fig3.jpg" width="500"><br>
+<sub>Figure 4: (Color online) Lines 1, 2, and 3 are oscillograms of the ac voltage Vac1(Φ/Φ0, t), taken on two rings in series at Φ/Φ0 = 0, 1-0.16, and 2, corre- sponding to the marked points 1, 2 and 3 (curve Vrec1(Φ/Φ0), Fig. 2), respec- tively. Lines 1 and 3 are the same. Line 4 is the oscillogram of the applied ac Iac1(t) (the coordinate axis of the current is located on the right). Line 5 is the ac voltage Vac1(t) = Iac1(t)Rr2.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27848_figures/2604.27848_fig4.jpg" width="500"><br>
+<sub>Figure 3: (Color online) Rectiﬁed voltage Vrec2(Φ/Φ0) as a function of Φ/Φ0, recorded on a structure of three rings in series biased with an alternating cosine current (without a dc component) Iac2(t) with the frequency ν = 1.5333 kHz and the ac amplitude Iacm2 = 5.5 µA less than Ic(T, B = 0) at T = 1.288 K. The numbers 1, 2, and 3 are placed near the marked points of the Vrec2 curve corresponding to three values Φ/Φ0 = 5−0.16, 7+0.5, and 15+0.5, respectively. At these points, the voltage oscillograms Vac2(Φ/Φ0, t) are measured at the same ac Iac2(t).</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.27848_figures/2604.27848_fig5.jpg" width="500"><br>
+<sub>Figure 5: (Color online) Lines 1 (solid), 2 (dash-dotted), and 3 (dotted) are oscillograms of the ac voltage Vac2(Φ/Φ0, t) recorded on a structure of three rings in series at Φ/Φ0 = 5 −0.16, 7+0.5, and 15+0.5, corresponding to the marked points 1, 2 and 3 (curve Vrec2(Φ/Φ0), Fig. 3), respectively. Line 4 is the oscillogram of the applied ac Iac2(t) (the coordinate axis of the current is on the right). Line 5 is the ac voltage Vac2(t) = Iac2(t)Rr3.</sub>
+
+</details>
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper resolves a long-standing discrepancy in superconducting physics by explaining why critical current maxima in asymmetric rings shift relative to zero magnetic flux. The authors attribute this shift to differences in kinetic inductance between the ring's arms caused by varying critical temperatures. This model successfully reconciles previously contradictory experimental results.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Explaining the mysterious temperature-dependent phase shift of the maxima of critical currents of different polarity relative to zero magnetic flux in asymmetric superconducting aluminum rings.
+
+**Main result.** The authors propose a model where the phase shift is equal to the difference between the dimensionless kinetic inductances of the wide and narrow semirings, driven by different critical temperatures in the two arms.
+
+**Method.** The study combines experimental measurements of rectified AC voltage and critical currents in series of asymmetric rings with a theoretical model based on Ginzburg-Landau theory and asymmetric dc SQUID physics.
+
+**Model / system.** The physical system consists of circularly-asymmetric aluminum rings (thin-film interferometers) fabricated via electron beam lithography. The model treats the rings as asymmetric dc micro-SQUIDs where kinetic inductance dominates magnetic inductance.
+
+**Key observables.** Rectified DC voltage (V_rec), critical currents of positive and negative polarity (Ic+ and Ic-), resistance oscillations (delta R), and AC voltage oscillograms.
+
+**Important parameters / regimes.** Magnetic flux (Phi/Phi0), temperature (T), critical temperatures (Tcw, Tcn), ring widths (ww, wn), and dimensionless kinetic inductance (l).
+
+**Assumptions / limitations.** The current-phase relationship is assumed to be nearly sinusoidal, and the applied magnetic field is low enough that its effect on critical current density can be neglected.
+
+**Figures summary.** Figures show the geometry of asymmetric rings, plots of resistance transitions, voltage waveforms (oscillograms) at different flux levels, and experimental temperature-dependent phase shifts compared to theoretical fits.
+
+**Paper structure.** The paper introduces the problem of the phase shift, describes the experimental setup and fabrication, presents measurements of rectified voltage and critical currents, proposes a kinetic inductance-based model, and validates the model against experimental data and previous studies.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We measured the rectification of an ac voltage in a structure of superconducting circularly-asymmetric aluminum rings in series, permeated with a magnetic flux and biased with a low-frequency alternating current (without a dc component). This rectification is due to the shift of the maxima of the critical currents of different polarity relative to the zero flux in opposite directions along the flux axis in the asymmetric ring. For the first time, we propose a model for a temperature-dependent phase shift equal to difference between dimensionless kinetic inductances of wide and narrow semirings having the same length and thickness. The shift is not zero in the case of different critical currents densities in both semirings. This is possible only in a situation of different critical temperatures of both semirings. The model describes well the temperature-dependent shift of the maxima of the critical currents, answers the long-standing mysterious challenge of the shift and removes extremely strange contradiction between the results of different measurements, previously found in circularly-asymmetric aluminum structures.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27769"></a>
+### [Spin-orbit interaction in core-shell semiconductor-metal nanowires](http://arxiv.org/abs/2604.27769v1)
+
+**Authors:** Tudor-Gabriel Dumitru, Anna Sitek, Gunnar Thorgilsson, Sigurdur I. Erlingsson, Andrei Manolescu  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.27769v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper theoretically examines the spin-orbit interaction in a hexagonal core-shell semiconductor-metal nanowire. It explores how different interface potentials influence the strength of spin-orbit coupling and how electrons are localized within the semiconductor shell. This is important for understanding spin manipulation in semiconductor nanostructures.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The study investigates how interface potentials and the geometry of a core-shell nanowire affect spin-orbit interaction and electron wave function localization.
+
+**Main result.** The research discusses the effects of band off-offset potentials and complex potential barriers on the strength of spin-orbit coupling and the spatial distribution of wave functions within the semiconductor shell.
+
+**Method.** The authors employ a theoretical model derived from the k-dot-p method to simulate the electronic properties of the nanowire.
+
+**Model / system.** A tubular semiconductor nanowire with a hexagonal cross-section, consisting of an inner semiconductor core and an outer metallic shell, featuring specific potential barriers at the interfaces.
+
+**Key observables.** Spin-orbit coupling strength and wave function localization.
+
+**Important parameters / regimes.** Band off-offset potential at the inner interface and the potential barrier at the metal-semiconductor contact.
+
+**Assumptions / limitations.** The model assumes a hexagonal geometry for the nanowire cross-section and uses a k-dot-p approximation.
+
+**Paper structure.** The paper presents a theoretical study of a specific nanowire geometry, applying the k-dot-p method to analyze the impact of interface potentials on spin-orbit interaction and wave function localization.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study theoretically the spin-orbit interaction of electrons confined in a tubular semiconductor nanowire, between an inner semiconductor core and an outer metallic extra shell. A band off-offset potential is present at the inner semiconductor-semiconductor interface and a more complex potential barrier at the outer metal-semiconductor contact. The cross section of the nanowire has a hexagonal geometry. We use a model derived from the k-dot-p method, and discuss the effects of the interface potentials on the strength of the spin-orbit coupling and on the localization of the wave functions within the semiconductor shell
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27524"></a>
+### [The optical phonoelectric effect](http://arxiv.org/abs/2604.27524v1)
+
+**Authors:** D. Choi, M. Först, M. Fechner, M. Buzzi, X. Deng, Z. Zeng, K. H. Martens, D. Prabhakaran, C. Putzke, P. Moll, P. G. Radaelli, A. Cavalleri  
+**Type:** experiment · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.27524v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper reports the discovery of an optical phonoelectric effect where light-induced optical phonons create electrical polarization much faster than mechanical strain. This effect bypasses the speed limits of sound and the physical limits of material fracture, offering a new way to control polarization in quantum materials.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Traditional piezoelectricity is limited by the speed of sound, the difficulty of tuning intrinsic coupling, and the risk of material fracture under high strain.
+
+**Main result.** The authors demonstrate 'optical phonoelectricity,' a strain-free, piezoelectric-like response driven by photo-excited optical phonon distortions that is four orders of magnitude faster than traditional piezoelectricity.
+
+**Method.** The researchers use ultrafast optical excitation to induce phonon rectification in a material, creating electrical polarization without mechanical strain.
+
+**Model / system.** The experimental platform is the weak piezoelectric material BPO4.
+
+**Key observables.** Electrical polarization and phonon rectification.
+
+**Important parameters / regimes.** The speed of the effect is limited by the speed of light rather than the speed of sound; the induced polarization is significantly higher than the fracture limit of strain-induced piezoelectricity.
+
+**Paper structure.** The paper introduces the limitations of piezoelectricity, presents the realization of the optical phonoelectric effect in BPO4, compares its speed and magnitude to traditional piezoelectricity, and discusses potential applications in quantum materials and devices.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Piezoelectricity is a technologically important property of certain insulators in which mechanical strain induces an electrical polarization. However, the rate at which a piezoelectric response can be established over a macroscopic volume is limited by the sound velocity, constraining applications in high-bit-rate transduction and sensing. Furthermore, the strength of the piezoelectric effect is not readily tunable, as it depends on intrinsic anharmonic coupling between strain and intra-unit-cell distortions in a given material. Lastly, the maximum amplitude of the effect is bounded by material fracture, which sets in already at percent level strain values. Here we overcome these limitations by realizing a strain-free, piezoelectric-like response driven solely by photo-excited optical phonon distortions. We demonstrate such optical phonoelectricity in the weak piezoelectric BPO$_4$, in which we induce electrical polarization through phonon rectification. This effect is established over macroscopic volumes with four orders of magnitude higher speed than piezoelectric responses, ultimately limited by the speed of light. The maximum induced polarization is estimated to be far in excess of that attainable through strain at the fracture limit. Ultrafast phonoelectricity opens up new opportunities for optical control in quantum materials, but also for device applications.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.28183"></a>
+### [Uniaxial strain-driven ferroelastic domain control in LaAlO3](http://arxiv.org/abs/2604.28183v1)
+
+**Authors:** Matthias Roeper, Robin Buschbeck, Jakob Wetzel, Tobias Ritschel, Anna-Lena Hofmann, Vladyslav Kovtunovych, Mike N. Pionteck, Javier Taboada-Gutiérrez, Alexey B. Kuzmenko, Martina Basini, Vivek Unikandanunni, Iuliia Kiseleva, Jochen Geck, Susanne C. Kehr, Maximilian Lederer, Simone Sanna, Lukas M. Eng, Samuel D. Seddon  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.28183v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** The researchers show that applying small amounts of uniaxial strain can reversibly control the ferroelastic domain structure in LaAlO3. This method allows for large-scale domain engineering and surface flattening, which could be used to program domain architectures in oxide-based electronic and photonic devices.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The difficulty in achieving deterministic, large-scale, and reversible control over ferroelastic domain populations in functional oxides without relying on local probes or temperature changes.
+
+**Main result.** Demonstration of continuous and reversible manipulation of ferroelastic domain structures in single-crystal LaAlO3 using in-situ uniaxial strain, leading to surface flattening and domain reorganization.
+
+**Method.** A combination of in-situ uniaxial strain application, atomic force microscopy (AFM), X-ray diffraction (XRD), Raman spectroscopy, and first-principles calculations.
+
+**Model / system.** Single-crystal LaAlO3 (lanthanum aluminate) undergoing a strain-driven structural transition from a rhombohedral R3c ground state toward a predicted orthorhombic Fmmm phase.
+
+**Key observables.** Twin domain population, surface topography/flattening, and structural phase evolution.
+
+**Important parameters / regimes.** Applied uniaxial strain levels below 0.5%.
+
+**Paper structure.** The paper introduces the problem of domain control, presents the experimental demonstration of strain-driven manipulation, details the multi-modal characterization (AFM, XRD, Raman), supports findings with first-principles calculations, and discusses implications for heterostructures.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Multiferroic domain walls in functional oxides exhibit properties distinct from the bulk and are increasingly exploited as active elements in nanoelectronic and photonic devices. Deterministic control of domain populations has typically remained limited to local control, or removal with temperature. Here we demonstrate continuous, reversible manipulation of the ferroelastic domain structure in single-crystal LaAlO$_3$ using in-situ uniaxial strain. Combining atomic force microscopy, X-ray diffraction, and Raman spectroscopy with first-principles calculations we map the complete microscopic evolution of the twin domain population through the strain-driven transition from the rhombohedral $R\bar{3}c$ ground state toward the predicted orthorhombic $Fmmm$ phase. Applied strains below $0.5\%$ produce pronounced surface flattening and large-scale domain reorganisation, establishing uniaxial strain as a technically accessible control parameter for ferroelastic domain engineering. These results open a route to active, real-time programming of domain architectures in LaAlO$_3$-based heterostructures, with implications for strain-tunable superconducting interfaces, nanoscale phonon-polariton optics, and ultrafast lattice control.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27881"></a>
+### [Unusual critical currents in quasi-one-dimensional superconducting aluminum two-width structures in a magnetic field](http://arxiv.org/abs/2604.27881v1)
+
+**Authors:** V. I. Kuznetsov, O. V. Trofimov  
+**Type:** experiment · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.27881v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27881_figures/2604.27881_fig1.jpg" width="500"><br>
+<sub>Figure 2: (Color online) Experimental data for the "n1" structure: 1 (squares) and r1 (circles) are the switching and retrapping currents as functions of T at B = 0 G, respectively. Solid lines 1a and 1b are the ﬁts of the measured switching current (squares) to the functions IGL(T) (2) at low T and Ir(T) (4) at high T , respectively. The dotted line is the ﬁt of the measured retrapping current (circles) to the function Ir(T) (4). The inset: a sketch of the structure (not to scale) with the measurement circuit.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27881_figures/2604.27881_fig2.jpg" width="500"><br>
+<sub>Figure 3: (Color online) (a)-(b). Experimental data for the "sl5" (I-3-4, V-2-1) in (a) and "sl6" (I-3-4, V-2-1) in (b) structures: 1 (squares) and r1 (circles) are the switching and retrapping currents as functions of T at B = 0 G, re- spectively. (a)-(b) Solid lines 1a and 1b are the ﬁts of the measured switching current (squares) to the functions IGL(T) (2) at low T and Ir(T) (4) at high T , respectively. (a) Dash-dotted line 1e is the expected switching current as a function of T calculated using the function IGL(T) (1). (a) The dotted line is the ﬁt of the measured retrapping current (circles) to the Ir(T) function (4). (a) - (b) The insets: sketches of the structures (not to scale)...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27881_figures/2604.27881_fig3.jpg" width="500"><br>
+<sub>Figure 4: (Color online) Experimental data for the "n4b" structure (I-3-4, V- 2-1): 1 (squares), 2 (triangles), 3 (diamonds) are the switching currents vs. B at temperatures Tg; r2 (asterisks), r3 (crosses) are the retrapping currents vs. B at temperatures corresponding to data 2, 3. For data 2, r2,3,r3, the scale along the vertical coordinate axis is doubled. The sets of solid lines: 1a-1b-1c, 2a- 2b-2c, 3a-3b, including branches corresponding to diﬀerent ﬁeld ranges, are the ﬁts of the measured switching currents vs. B (squares, triangles, diamonds, respectively) to the functions Ick(Tg, B) (14). The dash-dotted line 1e is the expected switching current vs. B at Tg = 1.260 K, calculated...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27881_figures/2604.27881_fig4.jpg" width="500"><br>
+<sub>Figure 5: (Color online) Experimental data for the "n4b" structure (I-2-1, V-3- 4): 1 (circles), 2 (squares), 3 (triangles), 4 (diamonds) are switching currents vs. B at temperatures Tg; r1 (asterisks) is the retrapping current vs. B at Tg = 1.243 K. For data 3 and 4, the switching and retrapping currents are the same. For data 3, 4, the vertical coordinate axis scale is increased eightfold. The sets of solid lines: 1a-1b-1c, 2a-2b, 3a-3b, 4a-4b are the ﬁts of the measured switching cur- rents vs. B (circles, squares, triangles, diamonds, respectively) to the functions Ick(Tg, B) (14). The dash-dotted line 1e shows the expected switching current vs. B at Tg = 1.243 K, calculated using the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.27881_figures/2604.27881_fig5.jpg" width="500"><br>
+<sub>Figure 6: (Color online) Experimental data for the "n4a" structure (I-2-1, V-3- 4): 1 (circles), 2 (squares), 3 (triangles), 4 (diamonds) are switching currents vs. B at temperatures Tg; r4 (asterisks) is the retrapping current vs. B at 1.361 K. The four pairs of solid lines: 1a and 1c, 2a and 2c, 3a and 3c, 4a and 4c are the ﬁts of switching currents vs. B (circles, squares, triangles, diamonds, respec- tively), measured in low and high ﬁelds, respectively, to the functions Ic1(Tg, B) and Ic3(Tg, B) (14). The four solid lines: 1b, 2b, 3b, 4b are the ﬁts of the switching currents vs. B (circles, squares, triangles, diamonds, respectively), measured in the intermediate ﬁeld range, to the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.27881_figures/2604.27881_fig6.jpg" width="500"><br>
+<sub>Figure 7: (Color online) (a)-(b) Experimental data for the "n4a" structure (I- 3-4, V-2-1): (a) 1 (circles), 2 (squares), 3 (up triangles) and (b) 4 (diamonds), 5 (hexagons), 6 (down triangles) are the switching currents vs. B at temper- atures Tg; (a) r3 (asterisks), and (b) r4 (crosses), r5 (vertical bars) are the re- trapping currents vs. B at temperatures corresponding to data 3,4,5. The sets of solid lines: (a) 1a-1b-1c, 2a-2b-2c, 3a-3b-3c, and (b) 4a-4b-4c, 5a, 6a are the ﬁts of the measured switching currents vs. B ((a) circles, squares, trian- gles, and (b) diamonds, hexagons, down triangles, respectively) to the functions Ick(Tg, B) (14). (a) Dash-dotted line 1e shows the expected...</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.27881_figures/2604.27881_fig7.jpg" width="500"><br>
+<sub>Fig. 7(a) -(b) and data a1-a3, not shown in the ﬁgures). For diﬀerent ﬁeld ranges, the switching current vs. B at tem- peratures Tg (data 1-6, Fig. 7(a)-(b) and a1-a3 (not shown in the ﬁgure)), we ﬁtted to the functions (solid lines) Ick(Tg, B) (14). From Table 6 it is seen that ξ(Tg)e/ξ f1 = 1.24 −1.56. For data 1-3 and a1-a3, the ﬁtted coherence lengths ξf1, ξ f2 and ξ f3 are very close to each other. For data 4, ξ f3 &lt; ξ f2 &lt; ξ f1. In Table 6, we calculated the expected values of the switching current Icwe of the individual wide wire of the "n4a" structure at temperatures Tg in the zero ﬁeld using the K-L ﬁtting function IKL(T) (3) for the individual wide wire of the "n4b" structure (I-...</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.27881_figures/2604.27881_fig8.jpg" width="500"><br>
+<sub>Figure 8: (Color online) Experimental data for the "n1" structure (I-2-1, V-3- 4): 1 (squares) and r1 (circles) are the switching and retrapping currents vs. B at Tg = 1.343 K, respectively. Solid lines 1a and 1b are the ﬁts of the switching current vs. B (squares), measured in low and high ﬁelds, respectively, to the functions Ick(Tg, B) (14), where k = 1, 2. Dash-dotted line 1e is the expected switching current vs. B at Tg = 1.343 K, calculated using the function IGL(T, B) (6). The inset: sketch of the structure (not to scale).</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.27881_figures/2604.27881_fig9.jpg" width="500"><br>
+<sub>Fig. 9 shows that the steepness of the solid line 1b is less than the steepness of the solid line 1a. The ﬁeld B = 47.3 G, corresponding to the intersection of lines 1a and 1b, is slightly less than the critical ﬁeld B = 63.9 G, at which the individ- ual (without taking into account the inﬂuence of the proxim- ity eﬀect) wide wire of the "sl5" structure should transition to the normal state. This ﬁeld is deﬁned by the requirement Tc(B) = Tg = 1.289 K, where Tc(B) is given by equation (10), into which the corresponding values of w1 = wb = ww = 0.40 µm, ξ(0) = 0.128 µm, Tc = T c f r = 1.405 K are substituted (Ta- bles 1, and 2). The ﬁtted widths w1 = 0.40 and w2 = 0.23 µm used in the ﬁtting...</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.27881_figures/2604.27881_fig10.jpg" width="500"><br>
+<sub>Figure 9: (Color online) Experimental data for the "sl5" structure (I-3-4, V-2- 1): 1 (squares) and r1 (circles) are the switching and retrapping currents vs. B at Tg = 1.289 K, respectively. Solid lines 1a and 1b are the ﬁts of the switching current vs. B (squares), measured in low and high ﬁelds, respectively, to the functions Ick(Tg, B) (14), where k = 1, 2. Dash-dotted line 1e is the expected switching current vs. B at Tg = 1.289 K, calculated using the function IGL(T, B) (7). The inset: sketch of the structure (not to scale).</sub>
+
+</details>
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper reports on anomalous critical current behavior in superconducting aluminum wires of varying widths. The researchers found that the switching current is nonlocal and remains non-zero in magnetic fields higher than theoretically predicted, challenging existing Ginzburg-Landau descriptions of quasi-1D superconductors.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Investigating the unusual, nonlocal behavior of critical switching currents in quasi-one-dimensional superconducting aluminum structures with varying wire widths under magnetic fields.
+
+**Main result.** The experimental switching current is found to be nonlocal, depending on the junction area and persisting in magnetic fields that exceed the maximum critical field of the individual wires, a phenomenon that contradicts standard Ginzburg-Landau predictions.
+
+**Method.** Measurement of current-voltage (I-V) characteristics, specifically tracking switching and retrapping currents, using various circuit configurations and comparing results to Ginzburg-Landau and Kupriyanov-Lukichev theories.
+
+**Model / system.** Thin-film aluminum (Al) quasi-one-dimensional structures on silicon substrates, featuring 'two-width' (narrow and wide wires) and 'three-width' geometries in the dirty limit.
+
+**Key observables.** Switching current (Is), retrapping current (Ir), and DC voltage appearance/disappearance.
+
+**Important parameters / regimes.** Magnetic field (B), temperature (T), wire widths (wn, ww), Ginzburg-Landau coherence length (xi), and critical temperature (Tc).
+
+**Assumptions / limitations.** The system operates in the dirty limit (electron mean free path much smaller than coherence length); calculations sometimes neglect the influence of one wire type on the other to establish a baseline.
+
+**Figures summary.** Figure 1 shows sketches of the wire structures; Figure 4 displays switching and retrapping currents vs. magnetic field for the n4b structure; Figure 10(a) shows the sl6 three-width structure.
+
+**Paper structure.** The paper introduces the experimental setup and geometry, details the measurement methods and temperature/field regimes, presents the experimental results for various structures (n4a, n4b, sl5, sl6), compares these results to Ginzburg-Landau theory, and concludes by discussing the discrepancy between experiment and theory.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We measured unusual critical currents as functions of temperature in the zero field and as functions of a magnetic field perpendicular to the substrate surface at a given temperature close to the critical temperature in thin-film long quasi-one-dimensional superconducting aluminum two-width structures consisting of narrow and wide wires with different critical temperatures. It is found that the experimental critical switching current as a function of the field at a given temperature, determined by the appearance of a dc voltage on a short section of the structure, is nonlocal (dependent on electron transport in the area containing the junction line between the narrow and wide wires). When current flows through the narrow and wide wires of the structure, the switching currents, experimental and calculated within the framework of the Ginzburg-Landau theory, differ radically from each other. A nonzero switching current exists in high fields greater than the maximum critical magnetic field in a quasi-one-dimensional superconducting wire. In the aluminum two-width structures studied here, the unusual measured switching current challenges description by known theories.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.28128"></a>
+### [Unveiling the potential of NdPO4 magnetocaloric phases in cryogenic refrigeration](http://arxiv.org/abs/2604.28128v1)
+
+**Authors:** M. Balli, L. Attou, S-E. Bouzarmine, S. Oubad, K. El Maalam, P. Fournier, S. Mangin  
+**Type:** both · **Category:** strongly correlated electrons · **PDF:** <https://arxiv.org/pdf/2604.28128v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.28128_figures/2604.28128_fig1.jpg" width="500"><br>
+<sub>Fig.1. (a) XRD patterns of anhydrous monoclinic NdPO4. (b) TEM images showing nanorods of NdPO4. (c) Magnetic entropy changes as a function of magnetic field at 3 K for anhydrous (square) and hydrated (solid cercle) NdPO4 phases. Inset: exchange interactions in monoclinic NdPO4.</sub>
+
+</details>
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper demonstrates that anhydrous NdPO4 is a highly promising material for cryogenic refrigeration due to its large magnetocaloric effect near 3 K. It shows that this material can outperform much more expensive rare-earth alternatives, making it an economically viable candidate for low-temperature cooling.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The need to find affordable, chemically stable, and mechanically robust alternatives to expensive rare-earth-based materials (like Dy, Ho, or Tb) for use in cryogenic refrigeration.
+
+**Main result.** The anhydrous monoclinic phase of NdPO4 exhibits a large magnetocaloric effect of approximately 19 J/kg K under 5 T near 3 K, outperforming several more expensive reference materials.
+
+**Method.** The study uses a facile precipitation growth route and thermal annealing for synthesis, combined with XRD, TEM, and SQUID magnetometry, supplemented by DFT calculations.
+
+**Model / system.** Neodymium orthophosphates (NdPO4) in two structural phases: a hydrated hexagonal rhabdophane-type and an anhydrous monoclinic monazite-type, characterized by nanorod morphology.
+
+**Key observables.** Magnetic entropy change (-delta S), magnetization, effective magnetic moments, Curie-Weiss temperature, and exchange coupling.
+
+**Important parameters / regimes.** Temperature range of 2-300 K, magnetic fields up to 7 T, and the specific cryogenic regime near 3 K.
+
+**Assumptions / limitations.** The study focuses on the potential for cryogenic applications and assumes the stability of the synthesized phases for industrial use.
+
+**Figures summary.** Fig 1a shows XRD patterns and exchange interactions; Fig 1b displays TEM images of nanorod morphology; Fig 1c shows magnetic entropy changes as a function of magnetic field at 3 K.
+
+**Paper structure.** The paper introduces the problem of rare-earth costs, describes the synthesis and structural characterization of NdPO4 phases, presents magnetic measurement results and DFT calculations, and concludes with a performance comparison for refrigeration applications.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The RPO4 orthophosphates (R = rare earth element) have recently attracted a wide interest due to the strong coupling between their electronic, orbital and structural ordering parameters resulting in a variety of functional properties. Herein, we demonstrate that NdPO4 phases synthesized via a facile precipitation growth process unveil promise in low-temperature magnetic cooling. The analysis of their structural properties reveals nanorod forms with diameters of 10 to 20 nm and lengths ranging from 200 to 500 nm while the heat treatment transforms their hexagonal rhabdophane-type structure to a monoclinic anhydrous monazite-type symmetry. Magnetization measurements and DFT calculations show strong antiferromagnetic couplings and the absence of any magnetic ordering in the 2-300 K range. On the other hand, the monoclinic phase of NdPO4 exhibits a large magnetocaloric effect of about 19 J/kg K under 5 T near 3 K, outperforming some reference materials containing more expensive rare-earth elements with high magnetic moments.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27262"></a>
+### [VBr >10 kV E-Beam/Sputtered Vertical NiOx/(011) β-Ga2O3 HJDs with PFOM >2.3 GW/cm2](http://arxiv.org/abs/2604.27262v1)
+
+**Authors:** Yizheng Liu, Carl Peterson, Chinmoy Nath Saha, Marko J. Tadjer, Sriram Krishnamoorthy  
+**Type:** experiment · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.27262v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27262_figures/2604.27262_fig1.jpg" width="500"><br>
+<sub>Fig.1. Schematics cross-section of (a) reference Schottky barrier diodes (SBDs) and (b) mesa-isolated/field-plated heterojunction diodes (MI/FP HJDs).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27262_figures/2604.27262_fig2.jpg" width="500"><br>
+<sub>Fig.3. (a) C-V characteristics of MI/FP HJD on 1-mm dia. dimeison at 1 MHz with 1/C2 vs. voltage inset. (b) Doping vs. depth profile MI/FP HJD on 1-mm dia. dimeison at 1 MHz.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27262_figures/2604.27262_fig3.jpg" width="500"><br>
+<sub>Fig.4. (a) Reverse breakdown characteristics of MI/FP HJDs for 60-μm dia. devices. (b) Reverse breakdown characteristics of MI/FP HJDs for 100-μm dia. devices. (c) J-V characteristics of 60-μm dia. device before and after 10 kV reverse bias in both linear and semi-log scale.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27262_figures/2604.27262_fig4.jpg" width="500"><br>
+<sub>Fig.2. (a) Linear forward J-V characteristics of SBDs and MI/FP HJDs. (b) Semi-log scale J-V characteristics of SBDs and MI/FP HJDs. (c) Ron,sp vs. diode dimension for SBDs and MI/FP HJDs. (d) Pulsed I-V characteristics for SBD and MI/FP 1-mm dia. devices.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.27262_figures/2604.27262_fig5.jpg" width="500"><br>
+<sub>Fig. 5. benchmarks the Ron,sp vs. breakdown voltage (VBr) of heterojunction diodes fabricated in this work in comparison to various HJDs reported in the literatures. It is shown that the PFOM of the MI/FP HJDs begins exceeding the material limit of 4H-SiC at 10 kV reverse bias.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.27262_figures/2604.27262_fig6.jpg" width="500"><br>
+<sub>Fig.5. Benchmarking of Ron,sp vs. breakdown voltage for various heterojunction diodes reported in the literature. [12], [16], [17], [19], [20], [21], [22], [23], [24], [25]</sub>
+
+</details>
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper reports the development of high-voltage beta-gallium oxide diodes that achieve a breakdown voltage of over 10 kV. By using a nickel oxide heterojunction, the researchers bypassed the difficulty of p-type doping in gallium oxide, achieving a high power figure of merit for next-generation power electronics.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The lack of reliable p-type doping in beta-gallium oxide (beta-Ga2O3) prevents the creation of high-voltage power electronic devices for applications like EV charging and AI data centers.
+
+**Main result.** Demonstration of vertical heterojunction diodes (HJDs) with a breakdown voltage exceeding 10 kV and a power figure of merit (PFOM) greater than 2.3 GW/cm2.
+
+**Method.** Fabrication of edge-terminated vertical HJDs using an e-beam/sputtered nickel oxide (NiOx) stack on (011) beta-Ga2O3, utilizing BCl3 ICP dry-etching for mesa isolation and field-plate structures.
+
+**Model / system.** The experimental platform consists of vertical heterojunction diodes featuring an e-beam/sputtered NiOx stack on epitaxial (011) beta-Ga2O3 with a 20-micrometer thick drift layer.
+
+**Key observables.** Breakdown voltage (VBr), specific on-resistance (Ron,sp), power figure of merit (PFOM), parallel-plane breakdown field, turn-on voltage (Von), and rectifying ratio.
+
+**Important parameters / regimes.** Breakdown voltage > 10 kV, specific on-resistance = 43 mOhm*cm2, breakdown field > 5.3 MV/cm, and carrier density ~ 2 x 10^15 cm^-3.
+
+**Assumptions / limitations.** The use of a non-current spreading model for J-V normalization was noted as necessary to avoid significant discrepancies.
+
+**Paper structure.** The paper introduces the motivation for high-voltage power electronics, describes the device architecture and fabrication process (metallization, NiOx deposition, and etching), presents the electrical characterization results (breakdown and resistance), and discusses the extracted breakdown field and performance metrics.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Beta-gallium oxide (β-Ga2O3) holds enormous potential for medium voltage range power electronic applications. This work reports VBr > 10 kV/Ron,sp = 43 mΩ*cm2 class edge terminated vertical heterojunction diodes (HJDs) with e-beam/sputtered nickel oxide (NiOx) stack on epitaxial (011) β-Ga2O3. The power figure of merit (PFOM) of the HJD exceeds 2.3 GW/cm2. The extracted parallel plane breakdown field is > 5.3 MV/cm, which is the highest reported electric field for thick (011) β-Ga2O3 epitaxial drift layer.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27685"></a>
+### [VibroML: an automated toolkit for high-throughput vibrational analysis and dynamic instability remediation of crystalline materials using machine-learned potentials](http://arxiv.org/abs/2604.27685v1)
+
+**Authors:** Rogério Almeida Gouvêa, Gian-Marco Rignanese  
+**Type:** theory · **Category:** disordered systems and neural networks · **PDF:** <https://arxiv.org/pdf/2604.27685v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** VibroML is an automated Python toolkit designed to fix structural instabilities in predicted crystals using machine-learned potentials and genetic algorithms. It moves beyond simple stability checking to actively find stable polymorphs and new compositions through targeted alloying. This enables a much more efficient high-throughput screening of complex materials.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Identifying dynamical instabilities in predicted crystalline materials is insufficient; there is a need for automated pathways to remediate these instabilities and find stable polymorphs.
+
+**Main result.** The introduction of VibroML, a toolkit that uses an energy-guided genetic algorithm and machine-learned potentials to automate structural remediation and discover stable crystal structures.
+
+**Method.** The toolkit employs an energy-guided genetic algorithm for navigating potential energy surfaces, coupled with automated molecular dynamics for finite-temperature validation and targeted alloying via the ProtoCSP engine.
+
+**Model / system.** The system involves crystalline materials, specifically focusing on perovskite networks (e.g., Cs2KInI6 and KTaSe3) and high-symmetry stoichiometries from the Alexandria database.
+
+**Key observables.** Phonon dispersion, vibrational stability, and finite-temperature structural retention.
+
+**Important parameters / regimes.** 0 K harmonic stability, finite-temperature stability, and elemental combinations (quaternary and quinary).
+
+**Assumptions / limitations.** The method relies on the accuracy of foundational machine-learned interatomic potentials (MLIPs).
+
+**Paper structure.** The paper introduces the VibroML toolkit, describes the genetic algorithm for structural remediation, details the integration with ProtoCSP for alloying, demonstrates application to perovskites, and showcases large-scale mining of the Alexandria database.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+While machine-learned interatomic potentials (MLIPs) accelerate phonon dispersion calculations, merely identifying dynamical instabilities in computationally predicted materials is insufficient; automated pathways to resolve them are required. We introduce VibroML, an open-source Python toolkit driven by foundational MLIPs that shifts the paradigm from stability verification to automated structural remediation. VibroML employs an energy-guided genetic algorithm that vastly outperforms traditional soft-mode following, efficiently navigating the potential energy surface to uncover diverse, dynamically stable polymorphs. As 0 K harmonic stability does not guarantee macroscopic viability, an automated molecular dynamics workflow evaluates finite-temperature structural retention. VibroML also couples with ProtoCSP, our combinatorial structure prediction engine, to stabilize frustrated crystal topologies via targeted alloying, successfully rescuing functional perovskite networks like Cs$_2$KInI$_6$ and KTaSe$_3$. Demonstrating broader applicability, we mined the Alexandria database -- where ~50% of quaternary and 99.5% of quinary elemental combinations lack any structural entries -- to identify thousands of abandoned, high-symmetry stoichiometries. Deploying ProtoCSP's "cold start" retrieval and VibroML's evolutionary search on a sample, we successfully identified dynamically stable low-symmetry candidates. Through integrated structural remediation, thermal validation, and systematic compositional exploration, VibroML enables a comprehensive deep-screening approach, yielding physically sound structural propositions that far surpass standard high-throughput workflows.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.28099"></a>
+### [Yukawa screening derivation of the bond-valence rule](http://arxiv.org/abs/2604.28099v1)
+
+**Authors:** Michael L. Whittaker, Pan Wang, Chunhui Li, Naman Katyal, Piotr Zarzycki  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.28099v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.28099_figures/2604.28099_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Fitted slope β vs. formal charge z for 94 cation– oxygen species at n = 4 (68 cations, left) and n = 6 (82 cations, right); 56 cations contribute at both coordi- nations, giving 150 fitted slopes in total. Dashed curves: β = 1/ ln(z/n). The pole at z = n separates the screen- ing (z &lt; n) and anti-screening (z &gt; n) branches; species at z = n are omitted because the B–R0 fit is degenerate at the pole (see Supplemental Material [11]).</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.28099_figures/2604.28099_fig2.jpg" width="500"><br>
+<sub>FIG. 2. First-principles screening centroid reff vs. Boltzmann shell centroid mi. (a) Ten s-block ground-state binary oxides. Solid line: shared fit; dashed line: reff = mi. (b) Twenty-five non-s-block ground-state binary oxides, color-coded by block. Open symbols mark the four directional-bonding outliers excluded from the regression (B2O3, P2O5, As2O3, Au2O3).</sub>
+
+</details>
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper provides a physical derivation for the long-standing empirical bond-valence rule by showing it emerges from screened Coulomb electrostatics. It identifies the bond-valence softness parameter as a measurable electronic screening length, transforming an empirical rule into a predictive physical descriptor. The theory is highly validated against first-principles electron density data across various chemical blocks.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The bond-valence model (BVM) is a widely used empirical method for estimating bond strengths in crystals, but it lacks a derivation from a specific physical interaction and its exponential dependence on bond length is not physically grounded.
+
+**Main result.** The paper proves that the bond-valence exponential form is the leading-order limit of Yukawa-screened Coulomb electrostatics, providing a physical basis for the model's parameters.
+
+**Method.** The authors use a Taylor expansion of the Yukawa weight about a Boltzmann-weighted mean bond length and validate the theory by comparing predicted parameters against first-principles electron density data from the Materials Project.
+
+**Model / system.** The study focuses on ionic solids and coordination environments, specifically cation-oxygen species, modeled using a Yukawa-screened electrostatic potential.
+
+**Key observables.** Bond-valence softness (B), bond-valence intercept (R0), electronic screening length (lambda), and the bond-valence Boltzmann shell centroid (mi) compared to the first-principles screening centroid (reff).
+
+**Important parameters / regimes.** The screening length (lambda), formal charge (z), coordination number (n), and the bond-valence parameter B (bond-valence softness).
+
+**Assumptions / limitations.** The derivation relies on a first-order Taylor expansion, which may fail for highly distorted coordination shells, and assumes an isotropic Yukawa regime.
+
+**Figures summary.** Figure 1 shows the predicted slope beta versus formal charge for various species; Figure 2 demonstrates the linear correlation between the bond-valence shell centroid and the first-principles screening centroid for s-block and other oxides.
+
+**Paper structure.** The paper introduces the empirical BVM, provides a theoretical derivation using Yukawa-screened electrostatics, validates the model using large-scale first-principles data from the Materials Project, and discusses the limits of the theory in anisotropic bonding regimes.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The bond-valence model is a standard way to estimate bond strengths in crystals, but its exponential dependence on bond length has lacked a derivation from a specific physical interaction. We show that this form emerges as the leading-order limit of screened Coulomb electrostatics and that the fitted bond-valence softness can be interpreted in terms of an electronic screening length. This turns bond valence from an empirical fitting rule into a transferable descriptor of local screened charge response across coordination environments. The resulting theory predicts how the bond-valence parameters should vary with ionic charge and coordination number, and that prediction agrees with 150 fitted valences from 94 cation-oxygen species, including 68 in fourfold coordination and 82 in sixfold coordination, at an abundance-weighted coefficient of determination of 0.986. A comparison with first-principles charge densities shows that the bond-valence shell radius tracks the electronic screening cloud with coefficients of determination of 0.9998 for ten alkali and alkaline-earth oxides and 0.967 for 21 other binary oxides whose nearest-neighbor environments match the theory's assumptions. The widely used bond-valence model is thus the leading-order expression of screened electrostatics in ionic solids.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+</details>

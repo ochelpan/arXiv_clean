@@ -1,0 +1,1526 @@
+# Daily arXiv Report
+
+[← Index](report.md)
+
+[Next →](papers_02.md)
+
+## Papers 1–20
+
+---
+<a id="paper-2604.27074"></a>
+### ⭐ [Long-lived local quantum coherences from hydrodynamic large deviations](http://arxiv.org/abs/2604.27074v1)
+
+**Highlighted author(s):** Sarang Gopalakrishnan  
+**Authors:** Ewan McCulloch, J. Alexander Jacoby, Sarang Gopalakrishnan  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.27074v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `non-equilibrium dynamics` **4/5** · `entanglement & information structure` **3/5** · `methods for driven-dissipative` **3/5** · `non-equilibrium universality` **3/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `driven-dissipative phase transition` **2/5** · `scars & prethermalization` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27074_figures/2604.27074_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Schematic of low-entropy voids. Voids support coherent single-particle/magnon evolution of σ+. (a) In the weak-noise regime, conditional on the survival of a local co- herence (shown here as σ+), the surrounding charge profile is depleted over a finite scale ξ ∼γ−1/2. (b) In the noiseless case, the same diffusion-limited dephasing mechanism pro- duces an aging void whose width grows diffusively in time, ξ(t) ∼ √</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27074_figures/2604.27074_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Weak-noise stationary void. (a) Top: branch-resolved density profile in the down-polarized branch, ρ(↓)(x), compared with the profile ρC(x) reconstructed from the particle-hole-symmetric diagnostic C(x, t) ≈(1 −2ρ(x, t))2 (Eq. (39)), shown here for γ = 0.04. Their agreement confirms that C(x, t) faithfully captures the branch-resolved stationary void profile. Bottom: stationary density profiles for γ ∈{0.01, · · · , 0.05}. The close agreement between the full two-replica statistical me- chanics model (“full”) and the dilute-coherence approximation (“dilute”) shows that the latter reproduces the same conditioned hydrodynamic voids. (b) Collapse of the stationary void profiles under...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27074_figures/2604.27074_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Noiseless aging void. (a) Conditioned density profiles ρ(x, t) at times t = 20, 30, 40, 50, 60 (reconstructed from the overlap C(x, t) defined in Eq. (41)). The density is strongly depleted near the coherence and relaxes back toward half filling over a scale that broadens with time, consistent with an aging void. (b) The same profiles plotted against the similarity variable x/ √</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27074_figures/2604.27074_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Weak noise coherence–void polaron translation mode. (a) Mean-squared displacements of the coherence, ⟨X(t)2⟩, and of the void center of mass, ⟨xcom(t)2⟩, for several values of γ. At early times the coherence moves rapidly inside an already well-polarized quasi-stationary void, while the void center of mass diffuses much more slowly. At later times the coherence motion crosses over to match the void center of mass, indicating binding of the coherence to the slow polaron coordinate. (b) Corresponding time-dependent diffusion constants DX(γ, t) = 1</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.27074_figures/2604.27074_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Internal motion of the weak noise coherence– void polaron. (a) Mean-squared displacement of the relative-coordinate of the coherence and the void center-of- mass, ⟨(X(t) −xcom(t))2⟩, for γ = 0.007, 0.01, . . . , 0.1. In each case the relative-coordinate MSD approaches a late-time plateau, showing that the coherence remains confined inside the void, with the confinement length increasing as γ is re- duced. (b) Plateau value ℓ2 X(γ), extracted from the late-time relative-coordinate MSD, plotted against γ−2/3. The near- linear dependence is consistent with the Feynman-polaron prediction ℓζ ∼γ−1/3. These data are obtained from the same dilute-coherence population-dynamics sampling as in...</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.27074_figures/2604.27074_fig6.jpg" width="500"><br>
+<sub>FIG. 6. Localization of the coherence–void polaron to a slow bond. (a) Late-time stationary coherence-position distribution P(X = x) in the presence of a single slow bond at x = 0. (b) Rescaled late-time position distributions plotted as γ−1/3P(X = x) against γ1/3x. The collapse is consistent with the scaling form P(X = x) ∼γ1/3f(γ1/3x), corresponding to a localization length ℓloc ∼γ−1/3. (c) Rescaled mean-squared displacement γ2/3⟨X(t)2⟩plotted against γ2/3t. The late-time saturation is consistent with the Airy scaling predicted by Eq. (97): each curve saturates at ⟨X(t)2⟩∼γ−2/3 on a timescale t ∼γ−2/3, corresponding to ℓloc ∼γ−1/3 and τloc ∼γ−2/3. Numerical data are obtained from TEBD...</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.27074_figures/2604.27074_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Subdiffusion of the zero–noise aging coherence–void polaron. (a) Phase-averaged coherence envelope |G(x, t)|2, normalized at each time and plotted against x/tα. A good collapse is obtained for α ≃0.3, with close agreement between the full two-replica statistical mechanics model (“full”) and the dilute-coherence approximation (“dilute”). (b) Second moment of the normalized coherence envelope, ⟨X(t)2⟩, showing subdiffusive growth ⟨X(t)2⟩∼t0.60 over the accessible late- time window, again with close agreement between the full model and the dilute-coherence approximation. (c) Mean-squared displacements of the coherence, the void center of mass xcom(t), and the relative coordinate...</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.27074_figures/2604.27074_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Structure of leading eigenvalues. Eigenvalues of the transfer matrix for Q ̸= 0 and Q = 0, as a function of quasimomentum k. The gaps in the two types of sectors scale parametrically differently at k = 0; however, for any nonzero k and weak enough noise, both gaps scale as √γ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.27074_figures/2604.27074_fig9.jpg" width="500"><br>
+<sub>FIG. 9. Quasi-stationary decay rate estimate in translation-invariant systems. We simulate a one- dimensional gas of ballistic point particles with velocity ran- domizing collisions and a weak particle reservoir with strength γ (described in the main text) on a system of size L = 360. The tilted measure in Eq. (117) is sampled with λ = 1/2 and a = 1. Main panel: instantaneous decay rate Λ(γ, t) = −∂t log Zdet(γ, t), obtained from population-dynamics simu- lations with N = 104 clones up to time t = 2 × 104, for γ = 0.0035, . . . , 0.016. Inset: quasi-stationary plateau value ΛQSS(γ), obtained by averaging the late-time instantaneous decay rate, plotted against γ. The dashed guide shows γ1/4.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.27074_figures/2604.27074_fig10.jpg" width="500"><br>
+<sub>FIG. 10. Weak noise coherence–void polaron diffusion. A comparison of the time-dependent coherence diffusion in the full random-circuit dynamics (using the exact two-replica statistical mechanics model in Sec. V) and within the dilute- coherence approximation. Left: coherence-position variance ⟨X(t)2⟩for γ = 0.0025, . . . , 0.0050. Right: corresponding time-dependent diffusion constant DX(t) ≡1</sub>
+
+</details>
+
+**Why it may be interesting.** This work is highly relevant for many-body dynamics and open quantum systems as it provides a non-perturbative description of how dissipation and hydrodynamic fluctuations cooperatively protect quantum information through the formation of stable, collective objects.
+
+**Summary.** The paper describes how local quantum coherences in charge-conserving systems are protected from decay by binding to rare, low-entropy hydrodynamic fluctuations called 'voids.' This binding creates a 'polaron-like' object that significantly extends the lifetime of the coherence. The authors provide a complete hydrodynamic theory and verify it with numerical simulations of random circuits.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Understanding how local quantum coherences between distinct charge sectors evolve and decay under generic charge-conserving dynamics, specifically investigating their interaction with hydrodynamic large deviations.
+
+**Main result.** The authors show that quantum coherences bind to hydrodynamic 'voids' of low charge entropy, forming a collective 'void-coherence polaron' that enhances coherence lifetime; in 1D, the spectral gap vanishes nonperturbatively as the square root of the noise strength.
+
+**Method.** The study integrates local coherence dynamics into Macroscopic Fluctuation Theory (MFT) using a framework of hydrodynamic large deviations, a two-replica transfer matrix approach, and tensor-network simulations.
+
+**Model / system.** Generic many-body quantum systems with a conserved U(1) charge, specifically modeled using 1D random charge-conserving circuits and diffusive models like the Symmetric Simple Exclusion Process (SSEP) and the Katz-Lebowitz-Spohn (KLS) model.
+
+**Key observables.** Single-particle Green's function, charge density profiles, spectral gap of the quantum channel, and the many-body weight (MBW) distribution.
+
+**Important parameters / regimes.** Noise strength (gamma), diffusion constant (D), mobility (sigma), and the weak-noise vs. noiseless (zero-noise) limits.
+
+**Assumptions / limitations.** The framework assumes the diffusion constant remains finite at all densities and utilizes a 'dilute coherence approximation' to treat coherences as isolated objects.
+
+**Figures summary.** Figure 1 shows charge profile evolution; Figure 10 displays coherence-position variance and time-dependent diffusion constants; Figure 12 and 13 show magnon number conservation breakdown and the relaxation of the MBW distribution.
+
+**Paper structure.** The paper introduces the problem of coherence decay, develops a hydrodynamic framework via MFT, analyzes the polaron formation and spectral gap in the weak-noise limit, investigates the noiseless/aging regime, and validates results via microscopic derivations and tensor-network simulations.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We develop a framework to describe how quantum coherences between distinct charge sectors evolve under generic charge-conserving dynamics. Our framework captures the nonperturbative interactions between quantum coherences and hydrodynamic large deviations -- i.e., rare ``voids'' of low charge entropy. Conditional on surviving, the quantum coherence and its surrounding void form a collective polaron-like object. In one dimension, even at infinite temperature, we show that the lifetime of coherences is parametrically enhanced because they bind to voids. We use our framework to address two fundamental questions about generic quantum dynamics with a conserved charge. First, we argue that gapped Ruelle-Pollicott resonances are absent in the weak-noise limit, even in sectors of operator space that contain no hydrodynamic slow modes: instead, the spectral gap in all sectors vanishes nonperturbatively in the noise strength. Second, we compute the spacetime asymptotics of the dynamical single-particle Green's function, both in the weak-noise regime and in the absence of noise. In the noiseless case, we find that the void-coherence polaron undergoes subdiffusion, with an exponent we calculate. We support our general arguments with a microscopic derivation for random charge-conserving circuits, as well as numerical evidence from tensor-network simulations.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.28191"></a>
+### ⭐ [Observation of Vinen turbulence during far-from-equilibrium Bose-Einstein condensation](http://arxiv.org/abs/2604.28191v1)
+
+**Highlighted author(s):** Nigel R. Cooper  
+**Authors:** Sebastian J. Morris, Martin Gazo, Simon M. Fischer, Haoyu Zhang, Christopher J. Ho, Nigel R. Cooper, Christoph Eigen, Zoran Hadzibabic  
+**Type:** experiment · **Category:** quantum gases · **PDF:** <https://arxiv.org/pdf/2604.28191v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+**Topic relevance:** 🔥 `non-equilibrium dynamics` **4/5** · `non-equilibrium universality` **3/5**
+
+**Why it may be interesting.** It provides experimental evidence for how far-from-equilibrium quantum fluids relax through the decay of vortex tangles, linking the dynamics of weakly interacting atomic gases to the universal behavior seen in strongly interacting superfluid helium.
+
+**Summary.** This paper reports the observation of decaying quantum turbulence in a 3D atomic Bose-Einstein condensate. By measuring the decay of vortex line density, the authors demonstrate that the system follows Vinen ultraquantum turbulence predictions. The results show that the large-scale dynamics of these compressible gases mimic incompressible hydrodynamic fluids.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Understanding the relaxation and decay of quantum turbulence in far-from-equilibrium, homogeneous 3D Bose-Einstein condensates.
+
+**Main result.** The researchers observed the decay of vortex line-length density and found it follows the predictions for Vinen 'ultraquantum' turbulence, behaving like an incompressible hydrodynamic fluid despite the gas being highly compressible.
+
+**Method.** Matter-wave techniques were used to magnify the gas density distribution, followed by imaging a thin slice of the magnified cloud to detect vortex line imprints.
+
+**Model / system.** A homogeneous 3D atomic Bose gas in a far-from-equilibrium state, characterized by a turbulent tangle of randomly oriented vortex lines.
+
+**Key observables.** Vortex line-length density (L)
+
+**Important parameters / regimes.** Vortex line-length density, interatomic interaction strength, and the regime of Vinen ultraquantum turbulence.
+
+**Assumptions / limitations.** The large-scale dynamics of the weakly interacting, highly compressible gas can be treated as an incompressible hydrodynamic fluid.
+
+**Paper structure.** The paper describes the observation of decaying quantum turbulence, the experimental method of magnification and imaging, the measurement of vortex density, and a comparison of the decay dynamics to Vinen turbulence and superfluid helium.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Relaxation of far-from-equilibrium quantum fluids, intimately related to the emergence of long-range order, is theoretically associated with the decay of a turbulent isotropic tangle of vortex lines. We observe and study such decaying quantum turbulence in a homogeneous 3D atomic Bose gas. Using matter-wave techniques to magnify the gas density distribution, and then imaging a thin slice of the magnified cloud, we observe imprints of randomly oriented vortex lines and measure the vortex line-length density $\mathcal{L}$. The observed decay of $\mathcal{L}$ agrees with the prediction for Vinen `ultraquantum' turbulence. Although our weakly interacting gases are highly compressible, their large-scale dynamics are consistent with the behavior of an incompressible hydrodynamic fluid, with the decay of $\mathcal{L}$ not depending on the strength of the interatomic interactions and being similar to that in the strongly interacting superfluid helium.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27608"></a>
+### [Quantum Magnetometry with Orientation beyond Steady-State Limits in Cavity-Magnon Systems](http://arxiv.org/abs/2604.27608v1)
+
+**Authors:** Zheng Liu, Ding-hui Xu, Yi-jia Yang, Chang-shui Yu  
+**Type:** theory · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.27608v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `spintronics-quantum-optics interface` **5/5** · 🔥 `quantum measurements` **4/5** · `non-equilibrium dynamics` **3/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `Tavis-Cummings & cavity-many-emitter` **2/5** · `methods for driven-dissipative` **2/5** · `entanglement & information structure` **1/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27608_figures/2604.27608_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Schematic of the weak magnetic-ﬁeld sensor. A YIG sphere in a microwave cavity couples magnons to cavity photons under an external magnetic ﬁeld Bex(t). A bias ﬁeld Bbˆz tunes the magnon res- onance. The cavity is driven by a microwave source and interfaced with a Josephson parametric ampliﬁer to engineer a squeezed input ﬁeld. The output is measured by homodyne detection, enabling vec- tor magnetic ﬁeld reconstruction.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27608_figures/2604.27608_fig2.jpg" width="500"><br>
+<sub>FIG. 2. (a) Signal-to-noise ratio RNS NR versus normalized frequency ω/κm with the ﬁxed pre-squeezing amplitude r0 = 2. (b) Resonant SNR at ω = 0 as a function of measurement time. (c) RNSNR versus normalized frequency ω/κm with r0 = 2 and κmtm = 3. (d) ⟨m2 p⟩s, (e) ⟨a2 x⟩s, and (f) ⟨axmp + mpax⟩s versus squeezing parameter r0, with ﬁxed squeezing angle θ0 = π. Here r0 and θ0 are the pre-squeezing parameters in the preparation stage, no squeezing is applied during sensing, i.e., (r = θ = 0).</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27608_figures/2604.27608_fig3.jpg" width="500"><br>
+<sub>FIG. 3. The detected azimuthal angle (φ) (a) and polar angle (θ) (b) of a weak magnetic ﬁeld using the double-diﬀerence estimator. Solid lines denote true angles, and dashed lines denote estimated values.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27608_figures/2604.27608_fig4.jpg" width="500"><br>
+<sub>FIG. 4. S r(ω) as functions of the frequency ω/κm and the coupling strength gam/κm (a, c) ( of ω/κm and the cavity dissipation rate κa/κm (b, d)) without squeezing (a,b) and with squeezing (c,d).</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.27608_figures/2604.27608_fig5.jpg" width="500"><br>
+<sub>FIG. 5. (a) Stationary SNR versus normalized frequency ω/κm for diﬀerent squeezing parameters. (b) Stationary SNR as functions of temperature and squeezing parameter, the black solid contour de- notes the threshold RSSNR = 1.</sub>
+
+</details>
+
+**Why it may be interesting.** It provides a novel approach to quantum-limited sensing by exploiting non-equilibrium transient dynamics and engineered initial states to surpass steady-state precision limits.
+
+**Summary.** This paper proposes a transient quantum sensing method for cavity-magnon systems that outperforms steady-state protocols. By utilizing initial quantum correlations and injected squeezing, the framework enables high-precision, 3D reconstruction of magnetic field vectors. The approach also demonstrates a resonance condition where cavity-induced noise can be effectively canceled.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Conventional steady-state cavity-magnon magnetometry is limited by the loss of initial-state quantum information, inability to detect arbitrary field orientations, and sensitivity to cavity-added noise.
+
+**Main result.** A transient sensing framework is developed that uses residual initial quantum correlations to enhance SNR and enables 3D magnetic field reconstruction via crosstalk-free quadrature measurements.
+
+**Method.** The authors use Heisenberg-Langevin equations and input-output relations to model transient dynamics, employing a double-difference scheme for vector reconstruction and injected squeezing for noise suppression.
+
+**Model / system.** A cavity-magnon system consisting of a microwave cavity coupled to one or more Yttrium Iron Garnet (YIG) spheres, interacting with a 3D magnetic field pulse.
+
+**Key observables.** Cavity field amplitude and phase quadratures, transient noise spectrum, and signal-to-noise ratio (SNR).
+
+**Important parameters / regimes.** Cavity and magnon decay rates (kappa_a, kappa_m), coupling strength (g_am), squeezing amplitude (r), and the resonance condition g_am = sqrt(kappa_a * kappa_m)/2.
+
+**Assumptions / limitations.** Assumes a delta-function magnetic field pulse and a specific noise power spectral density for weak magnetic fields.
+
+**Figures summary.** Fig 2 shows SNR vs frequency and quadrature detection; Fig 5 shows stationary SNR vs frequency and temperature/squeezing thresholds.
+
+**Paper structure.** The paper introduces the problem of steady-state limitations, describes the transient framework and 3D reconstruction method, analyzes noise suppression via squeezing and resonance, and discusses scalability with multiple YIG spheres.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We present a transient quantum sensing framework for cavity-magnon systems that circumvents the inevitable loss of initial-state quantum properties plaguing conventional steady-state protocols. Explicitly incorporating finite-time dynamics and adopting an engineered steady state as the initial condition, we derive the exact transient noise spectrum. We show that residual initial quantum correlations alone can drastically enhance the short-time signal-to-noise ratio (SNR) beyond that achievable with unsqueezed steady-state schemes. Through analysis of the transient spectral density and joint measurements of orthogonal cavity quadratures, we realize crosstalk-free reconstruction of all three magnetic field components, enabling orientation of magnetic signals. In the long-time limit, our theory yields a closed-form stationary noise spectrum and uncovers a resonance condition $g_{am}=\sqrt{κ_aκ_m}/2$, where cavity field quantum noise is fully canceled without requiring strong coherent coupling. Away from this resonance, injected squeezing further suppresses cavity induced noise and broadens the detection bandwidth. Extending the framework to an array of $N$ yttrium iron garnet (YIG) spheres generates a collective bright mode, with magnon-probe noise scaling as $1/N$. Our results establish a unified route to scalable, high precision, multidimensional quantum magnetometry using cavity-magnon platforms.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27679"></a>
+### [Parametrically Driven iSWAP Gate Using a Capacitively Shunted Double-Transmon Coupler at the Zero-Flux Sweet Spot](http://arxiv.org/abs/2604.27679v1)
+
+**Authors:** Shinichi Inoue, Rui Li, Kentaro Kubo, Yinghao Ho, Yasunobu Nakamura, Hayato Goto  
+**Type:** experiment · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.27679v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `QC/QI experiment` **5/5** · `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27679_figures/2604.27679_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Device and operating principle of the parametrically driven iSWAP gate at the zero-flux sweet spot. (a) False-colored optical micrograph. In the present work, we use the same device as in Ref. 28. (b) Circuit diagram of the device. Black crosses represent Josephson junctions. The device has two fixed-frequency transmon qubits (Q1 and Q2) coupled via a CSDTC. The CSDTC consists of two transmons (C3 and C4), which hybridize into two internal modes (the P mode and the M mode) through the interaction mediated by a Josephson junction (JJ5) and a shunt capacitor. A local magnetic flux Φex generated by a dedicated bias line (green) threads the coupler loop. Microwave flux drive is applied...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27679_figures/2604.27679_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Characterization of parametrically driven iSWAP interaction. (a) Chevron patterns of the excited-state popu- lations of Q1 and Q2, plotted as a function of the frequency ωd and pulse duration of the flux drive with the amplitude φd/2π = 0.28. The initial state is |01⟩. (b) Experimentally measured iSWAP interaction strength giSWAP and (c) reso- nant drive frequency ωres d as functions of the squared flux- drive amplitude φ2 d, together with numerical simulation re- sults (black solid curves) and analytic prediction, giSWAP (or- ange dashed line) given by Eq. (23).</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27679_figures/2604.27679_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Randomized benchmarking of the iSWAP gate with a total gate duration ttot of 112 ns. (a) Sequence fidelity P| g 0000⟩−Pχ1/4 as a function of the number of Clifford gates. The dashed lines are fits to Eq. (28). (b) Leakage randomized benchmarking. The dashed lines are fits to Eq. (30).</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27679_figures/2604.27679_fig4.jpg" width="500"><br>
+<sub>FIG. 4. (a) Experimentally measured iSWAP depolarization- induced error rD iSWAP, coherent ZZ error rZZ, and leakage error L1 as a function of the total iSWAP gate duration ttot. The blue dashed line denotes gate infidelities estimated from the qubit coherence times measured at zero flux bias. (b) Effective coherence time T D (blue dots) inferred from the depolarization-induced error for each total gate duration ttot. The blue dashed line shows the effective coherence time es- timated from the same qubit coherence properties as in (a), and the shaded blue band indicates the ±1σ uncertainty. The red and purple markers show the effective coherence times re- ported for CZ gates using a DTC...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.27679_figures/2604.27679_fig5.jpg" width="500"><br>
+<sub>FIG. 5. (a) Optimized flux-drive waveform for the iSWAP gate (ttot = 112 ns), together with the symmetric part of the BNZ waveform used to implement a CZ gate (ttot = 80 ns) on the same device in Ref. 28. (b) Numerically simulated coupler hybridization fraction as a function of time. The solid blue and red lines represent the hybridization fractions for the iSWAP- and CZ-gate waveforms in (a), respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.27679_figures/2604.27679_fig6.jpg" width="500"><br>
+<sub>FIG. 6. (a) Pulse sequence used to evaluate the effective ZZ interaction strength. F stands for the flux drive inducing the iSWAP and −iSWAP gates. (b) Experimentally measured effective ZZ interaction ζeff (orange dots) and numerically calculated averaged static ZZ interaction ζavg [Eq. (46); blue curve] as a function of the flux-drive amplitude. The solid black curve is the full-Hamiltonian simulation of the effective ZZ interaction, which shows quantitative agreement with the experimental data. The inset shows the dynamical contribu- tions corresponding to the dots and curves in (b). The green dashed curve is the analytic estimate of the dynamical ZZ interaction from Eq. (54).</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.27679_figures/2604.27679_fig7.jpg" width="500"><br>
+<sub>FIG. 7. Room-temperature control electronics and cryogenic wiring. The SHFQC+ provides qubit drive tones (XY1, XY2) and generates/detects a readout tone (RO/RI), while the HDAWG delivers the parametric flux-drive waveform (Z) to the coupler’s flux loop.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.27679_figures/2604.27679_fig8.jpg" width="500"><br>
+<sub>FIG. 8. Flux dependence of the coherence properties of the two data qubits and the two coupler modes. (a) Energy- relaxation time T1, (b) Ramsey dephasing time T ∗ 2 , and (c) Hahn-echo dephasing time T2E measured as functions of the external flux bias φex for Q1, Q2, the P mode, and the M mode. (d) 1/f-noise-induced pure-dephasing rate ΓΦE ex- tracted from the Hahn-echo decay curves as a function of the flux sensitivity of the corresponding energy level. The dashed line shows a linear fit with a positive intercept to the com- bined data.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.27679_figures/2604.27679_fig9.jpg" width="500"><br>
+<sub>FIG. 9. Comparison with analytic results obtained from the toy-model Hamiltonian. The blue dots and black solid curves are experimental data and full-Hamiltonian numeri- cal simulation, respectively. Nc is the cutoff number, mean- ing that the analytic expressions include the summation over n = −Nc, . . . , Nc −1. The results for Nc = 2 and 3 nearly overlap within the flux-bias range shown here, indicating that Nc = 2 is already sufficient to capture the essential physics. (a) iSWAP interaction strength giSWAP [Eq. (C45)] as a func- tion of the squared flux-drive amplitude φ2 d. (b) Dynamical ZZ interaction strength ζdyn [Eq. (C54)] as a function of the flux-drive amplitude φd.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.27679_figures/2604.27679_fig10.jpg" width="500"><br>
+<sub>FIG. 10. Hybridization fractions pc ij of the coupler modes in the computational states |ij⟩(φex) [Eq. (D14)] as functions of the external flux φex. The solid black line shows the average ¯pc defined in Eq. (45).</sub>
+
+</details>
+
+**Why it may be interesting.** The paper demonstrates a method for controlling many-body-like interactions (exchange and ZZ) via parametric driving and provides insights into managing qubit-coupler hybridization, which is relevant to open quantum systems and circuit QED.
+
+**Summary.** The researchers implemented a high-fidelity iSWAP gate between fixed-frequency transmons using a specialized capacitively shunted coupler. By operating at the zero-flux sweet spot and using parametric driving, they significantly reduced decoherence and unwanted ZZ interactions. This approach enables faster, more scalable two-qubit gates for superconducting quantum processors.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Achieving high-fidelity two-qubit iSWAP gates in superconducting circuits while minimizing unwanted ZZ interaction, leakage, and qubit-coupler hybridization caused by large flux pulses.
+
+**Main result.** Demonstrated a high-fidelity (99.92%) parametrically driven iSWAP gate at the zero-flux sweet spot with a gate time of 112 ns, achieving ZZ suppression through a combination of static and dynamical mechanisms.
+
+**Method.** Experimental implementation using a capacitively shunted double-transmon coupler (CSDTC) with an AC flux drive, characterized via randomized benchmarking (SRB, IRB, LRB) and calibrated using software-based virtual-Z frame updates.
+
+**Model / system.** A superconducting circuit consisting of two highly detuned, fixed-frequency transmon qubits coupled via a Capacitively Shunted Double-Transmon Coupler (CSDTC) that hybridizes into symmetric and antisymmetric modes.
+
+**Key observables.** Average gate fidelity, leakage rate, iSWAP interaction strength, effective ZZ interaction, and hybridization fraction.
+
+**Important parameters / regimes.** Gate fidelity of 99.92(2)%, gate time of 112 ns, zero-flux sweet spot operation, and hybridization fraction of approximately 0.05.
+
+**Assumptions / limitations.** The analysis assumes the ability to compensate for phase errors via software frame updates and uses a three-level approximation to explain dynamical ZZ interaction.
+
+**Figures summary.** Fig 1 shows the device micrograph, circuit diagram, and energy spectrum; Fig 2 shows chevron patterns for population exchange; Fig 3 displays gate and leakage error extraction; Fig 4 compares error scaling with gate duration; Fig 5 compares iSWAP and CZ waveforms; Fig 6 shows experimental vs simulated ZZ interaction; Fig 14/15 show PTM reconstruction and readout IQ clusters.
+
+**Paper structure.** The paper introduces the hardware problem, describes the CSDTC architecture and parametric driving mechanism, presents experimental gate fidelity and error budget analysis, details the suppression of ZZ interaction, explains the calibration/phase-tracking protocol, and concludes with readout characterization.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+A double-transmon coupler (DTC) enables a fast, high-fidelity CZ gate between two highly detuned, fixed-frequency transmon qubits. Moreover, a recently proposed capacitively shunted DTC (CSDTC) realizes a small residual ZZ interaction over a wide flux-bias range around zero flux, eliminating the necessity of static flux biasing while maintaining high CZ-gate fidelity. However, CZ gates with the DTC and CSDTC require baseband flux pulses with large amplitudes, which are vulnerable to pulse distortion and decoherence due to large qubit-coupler hybridization. To address these issues, we experimentally demonstrate a parametrically driven iSWAP gate operated at zero flux bias between highly detuned, fixed-frequency transmon qubits coupled through a CSDTC. Using a simple flux-drive waveform without predistortion, we realize an average gate fidelity of 99.92(2)% at a total gate time of 112 ns. The observed high-fidelity performance is consistent with small qubit-coupler hybridization and small effective ZZ interaction during the gate. Our numerical simulations reproduce the experimentally observed iSWAP interaction rate and effective ZZ interaction, demonstrating the applicability of the theoretical model not only to spectral information but also to time-domain dynamics such as gate operations. These results boost further progress in the research of superconducting quantum computers.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27457"></a>
+### [Demonstration of Exponential Quantum Speedup with Constant-Depth Compiled Circuits for Simon's Problem](http://arxiv.org/abs/2604.27457v1)
+
+**Authors:** Phattharaporn Singkanipa, Victor Kasatkin, Daniel A. Lidar  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.27457v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `QC/QI experiment` **5/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27457_figures/2604.27457_fig1.jpg" width="500"><br>
+<sub>FIG. 2. Comparison of two oracle constructions for Simon-5 (b = 01111) in the graph representation. CNOTs can be placed in the same entangling layer when they do not share any qubits. For the HW(b) = 4 instance shown here, the construction presented in this work can be scheduled in two entangling layers, whereas the con- struction in Ref. [47] requires three under the same non-overlapping- qubit scheduling rule.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27457_figures/2604.27457_fig2.jpg" width="500"><br>
+<sub>FIG. 3. Circuit construction underlying the compiled Simon-5 query circuits in the graph representation. Using the reduction procedure, we can trace out an appropriate subset of the leading dashed boxes to obtain Simon-m for any m satisfying HW(b) ≤m &lt; 5.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27457_figures/2604.27457_fig3.jpg" width="500"><br>
+<sub>FIG. 4. Circuit for w2Simon-3 compiled on Boston using the ALAP scheduling strategy. The native gates shown are Rz (circular arrows), √</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27457_figures/2604.27457_fig4.jpg" width="500"><br>
+<sub>FIG. 5. log2(NTSQ) as a function of n (bottom axis) for the restricted-HW Simon problem with cutoff w = 3 on Boston (blue, up to n = 63) and Miami (red, up to n = 60); the top axis shows log2(Nw). The solid lines denote fits using the polylog model [Eq. (8)], and the dashed lines denote fits using the poly model [Eq. (9)]. The error bars show bootstrapped 1σ uncertainties. The yellow dash-dot lines represent the scaling of log2(NTSlb C ) and also serve as a visual guide for the large-n scaling of the poly model. The gray dashed line is log2 of the interpolated noiseless-quantum esti- mate given by Eq. (6).</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.27457_figures/2604.27457_fig5.jpg" width="500"><br>
+<sub>FIG. 6. log2(NTSQ) as a function of n on Boston (blue) and Miami (red) for the original wnSimon-n, up to n = 20 and n = 16, respec- tively. The line styles and reference curves are the same as in Fig. 5.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.27457_figures/2604.27457_fig6.jpg" width="500"><br>
+<sub>FIG. 7. Test of whether the polylog or poly model is the better fit for NTSQ as a function of HW w. For both Boston (blue) and Miami (red), solid lines with diamond markers denote the unrestricted Simon’s problem wnSimon-n with n ≤w, and dashed lines with circle markers denote the restricted-HW Simon’s problem wwSimon-n. The maximum HW is wmax = 16 and wmax = 20 on Miami and Boston, respectively. For the restricted-HW version, w ∈[1, wmax]; each point is fitted for n ∈[2, nmax], where nmax is the largest problem size for which the bar height in Fig. 9 is at least w. For the unrestricted version, w ∈[7, wmax]; the lower bound choice w = 7 is discussed in the main text, and each point is...</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.27457_figures/2604.27457_fig7.jpg" width="500"><br>
+<sub>FIG. 8. The fitted scaling exponent β of the poly model as a func- tion of Hamming weight w on Miami for the unrestricted-HW case (solid diamonds, shown for w ∈[10, 16]) and the restricted-HW case (circles, shown for w ∈[12, 16]). In both cases, the fitted quantum exponent satisfies βQ &lt; βC = 1/2 throughout the displayed range, indicating polynomial quantum speedup wherever the poly model is the preferred fit. Error bars represent one standard deviation (1σ) of the fitted parameter obtained from bootstrapped data.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.27457_figures/2604.27457_fig8.jpg" width="500"><br>
+<sub>FIG. 9. Availability range of the NTS analysis as a function of problem size. For each problem size n shown, the bar height gives the largest Hamming-weight cutoff wavail max (n) for which NTSQ could be evaluated on Boston (blue) and Miami (red). A solid bar reaching wavail max (n) = n corresponds to the original Simon problem wnSimon-n; a cross-hatched bar with wavail max (n) &lt; n indicates that only restricted-HW instances wwSimon-n were available at that problem size. For example, on Miami the n = 17 unrestricted-Simon instance did not yield a usable NTSQ value, whereas the w18Simon-18 instance did. Consequently, the Miami unrestricted-Simon scaling analysis uses the largest contiguous...</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.27457_figures/2604.27457_fig9.jpg" width="500"><br>
+<sub>FIG. 12. Probabilities of obtaining a valid equation, Pr(z ⋅b = 0) (cross markers) and a valid nonzero equation, Pr(z ⋅b = 0 ∧z ≠0) (open-circle markers) on Miami (red) and Boston (blue), as functions of problem size n = 2, 3, . . . , nmax, where nmax = 60 (Miami) and nmax = 65 (Boston). Each data point is averaged over Hamming- weight classes i = 1, 2, . . . , n with weights proportional to (n i). The probability Pr(z ⋅b = 0) serves as a direct measure of circuit perfor- mance, since an ideal Simon circuit has Pr(z ⋅b = 0) = 1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.27457_figures/2604.27457_fig10.jpg" width="500"><br>
+<sub>FIG. 13. Probability of obtaining z ⋅b = 0 as a function of problem size n, reproducing the results of Fig. 12 with the addition of data obtained via Q-CTRL.</sub>
+
+</details>
+
+**Why it may be interesting.** not directly relevant
+
+**Summary.** This paper demonstrates exponential quantum speedup for Simon's problem on real superconducting hardware using a new constant-depth compilation strategy. By making the circuits shallow enough for the NISQ era, the authors show that algorithmic advantage is experimentally accessible even without full error correction.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Demonstrating exponential quantum speedup for a version of Simon's problem on NISQ-era superconducting hardware by overcoming high circuit depth and SWAP overhead.
+
+**Main result.** The authors achieved exponential quantum speedup on the IBM Boston processor across a wide Hamming-weight range and observed a transition from exponential to polynomial speedup on the IBM Miami processor at higher Hamming weights.
+
+**Method.** A hardware-aware compilation strategy was developed to reduce the quantum part of the Simon query circuit to constant depth (O(1)) and linear connectivity, mapping directly to the device layout.
+
+**Model / system.** The experiment was performed on IBM superconducting quantum processors, specifically the 156-qubit 'Boston' (heavy-hex connectivity) and 120-qubit 'Miami' (square-lattice connectivity) devices.
+
+**Key observables.** Number of queries to solution (NTS), success probability (Pr(z . b = 0)), and scaling exponents (alpha for polylog and beta for poly models).
+
+**Important parameters / regimes.** Problem size (n), Hamming weight of the hidden bitstring (w), and the scaling regimes (exponential vs. polynomial).
+
+**Assumptions / limitations.** The study assumes a restricted-Hamming-weight version of Simon's problem and utilizes a factorized-CPTP-map assumption to neglect crosstalk between qubit groups.
+
+**Figures summary.** Figures illustrate the quantum circuit construction, the reduction of oracle complexity, scaling plots of NTS vs. problem size, and statistical comparisons (AIC/R2) between polylog and poly models.
+
+**Paper structure.** The paper introduces the problem and hardware-aware compilation method, details the oracle construction and circuit depth reduction, presents experimental results on Boston and Miami processors, performs statistical model selection (polylog vs. poly), and discusses the impact of optimization tools like Q-CTRL.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We demonstrate exponential quantum speedup for a restricted-Hamming-weight version of Simon's problem on present-day superconducting quantum processors by introducing a hardware-aware compilation strategy that compiles the quantum part of each Simon query circuit to constant depth. The resulting compiled circuits have $O(1)$ depth and linear connectivity, map directly onto common device layouts, and avoid additional routing and SWAP overhead. Implemented on IBM's $156$-qubit Boston and $120$-qubit Miami processors, the resulting circuits achieve sufficiently high fidelity to exhibit algorithmic quantum speedup without error suppression. Using the number-of-queries-to-solution metric, we observe exponential speedup over the classical lower bound across the full Hamming-weight range studied on Boston and across low-to-intermediate Hamming weights on Miami; at higher Hamming weights on Miami, we still observe polynomial speedup. The same construction also reaches a regime where the original Simon problem is recovered for the problem sizes studied. These results show that careful hardware-aware compilation can make exponential quantum speedup experimentally accessible for a canonical hidden-subgroup problem in the NISQ regime.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.28151"></a>
+### [Domain-wall melting in all-to-all QSSEP from random-matrix theory](http://arxiv.org/abs/2604.28151v1)
+
+**Authors:** Denis Bernard, Lorenzo Piroli, Stefano Scopa  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.28151v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `entanglement & information structure` **4/5** · 🔥 `non-equilibrium dynamics` **4/5** · `correlated / nonlocal dissipation` **3/5** · `non-equilibrium universality` **3/5** · `Keldysh / 2PI / non-Gaussian methods` **2/5** · `driven-dissipative phase transition` **2/5** · `methods for driven-dissipative` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.28151_figures/2604.28151_fig1.jpg" width="500"><br>
+<sub>Figure 1. Illustration of the setup. We consider a one-dimensional quantum system of size L, where spinless fermions can hop between any pair of sites j →k, with amplitudes given by different realization of the complex Brownian motion. The hopping amplitudes are reset at each time step. The system is initialized in a domain-wall configuration, with the leftmost M sites occupied and the rest of the chain empty. During the evolution, we probe fluctuations in a subregion Aℓof size ℓ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.28151_figures/2604.28151_fig2.jpg" width="500"><br>
+<sub>Figure 2. Entropy density dynamics from a domain-wall initial state with L = 32 and M = ℓ= L/2. The solid line corresponds to the analytic prediction in Eq. (46), while the symbols are obtained from numerical simulations of the quantum dynamics (see Appendix A), averaged over 200 realizations. The dashed horizontal line marks the steady-state value s(∞) = 2 log(2) −1.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.28151_figures/2604.28151_fig3.jpg" width="500"><br>
+<sub>Figure 3. Charge full-counting statistics dynamics from a domain-wall initial state with L = 32 and M = ℓ= L/2. The solid lines correspond to the analytic predictions in Eq. (52), while the symbols are obtained from numerical simulations of the quantum dynamics (see Appendix A), averaged over 200 realizations. Several values of α are shown, as indicated by the color legend.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.28151_figures/2604.28151_fig4.jpg" width="500"><br>
+<sub>Figure 4. Comparison between the classical and quantum dynamics of the charge full- counting statistics. Symbols: numerical data for the time evolution of Fclass ℓ (α, t) for ℓ= M = L/2 = 16 as a function of time for different values of α (see color legend), obtained from Eq. (81) by direct matrix exponentiation. Solid lines: analytic solution for the quantum dynamics F(α, t), given in Eq. (52). Dashed horizontal lines indicate the steady-state value in Eq. (69).</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.28151_figures/2604.28151_fig5.jpg" width="500"><br>
+<sub>Figure 5. Numerical analysis of the finite-size deviation |∆L(α, t)| between the classical and quantum charge full-counting statistics as a function of L, for different values of α and t. Quantum data are obtained from simulations of the all-to-all QSSEP as described in Appendix A, while classical results are computed from the corresponding Markov process in Eq. (81) via direct matrix exponentiation. For each system size, the number of samples is chosen as Nsamp ∼O(L4), ensuring that statistical errors remain smaller than the finite-size deviations. The expected scaling ∼L−1 is shown as a dotted black line for reference.</sub>
+
+</details>
+
+**Why it may be interesting.** This paper is highly relevant for researchers in many-body dynamics and open quantum systems as it provides exact analytical solutions for entanglement and transport in a non-equilibrium, all-to-all interacting quantum system, establishing a direct link between quantum and classical stochastic processes.
+
+**Summary.** This paper provides an analytical framework to study the melting of a domain wall in the all-to-all quantum symmetric simple exclusion process using random matrix theory. It demonstrates that the quantum and classical charge statistics are identical in the thermodynamic limit and provides exact expressions for the evolution of entanglement entropy. The work highlights the emergence of classical-like transport from underlying quantum dynamics in large-scale systems.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Characterizing the real-time dynamics of coherent quantum fluctuations and the melting of an initial domain wall in the all-to-all Quantum Symmetric Simple Exclusion Process (QSSEP).
+
+**Main result.** The authors show that the eigenvalues of the correlation matrix evolve according to a Jacobi process, and that in the thermodynamic limit, the quantum and classical full-counting statistics of the charge coincide without finite-time corrections.
+
+**Method.** The study employs Random Matrix Theory (RMT), mapping the evolution of the correlation matrix to a Jacobi process, and uses Itô calculus and Gaussian state formalism to derive analytic solutions.
+
+**Model / system.** The system is an all-to-all Quantum Symmetric Simple Exclusion Process (QSSEP), also known as the charged SYK2 model, consisting of spinless fermions on a fully connected graph with stochastic unitary dynamics.
+
+**Key observables.** von Neumann entanglement entropy, Rényi entanglement entropy, and full-counting statistics (FCS) of the charge.
+
+**Important parameters / regimes.** Thermodynamic limit (L to infinity), subregion size ratio (theta), particle density ratio (zeta), and the domain-wall regime (M = l = L/2).
+
+**Assumptions / limitations.** The analysis assumes the thermodynamic limit, the self-averaging of spectral observables, and specific smoothness/boundedness conditions for the functions of eigenvalues.
+
+**Figures summary.** Figure 1 illustrates the all-to-all hopping setup; Figure 2 shows the analytic prediction for entropy density dynamics matching numerical simulations; Figure 5 demonstrates the L^-1 scaling of finite-size deviations between quantum and classical processes.
+
+**Paper structure.** The paper introduces the all-to-all QSSEP model, maps the correlation matrix dynamics to a Jacobi process using RMT, derives analytic expressions for entanglement entropy and charge statistics, compares quantum and classical dynamics, and analyzes finite-size corrections and self-averaging properties.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study the melting of a domain wall in the quantum simple exclusion process with all-to-all hoppings (a.k.a. the charged SYK$_2$ model). We show that the real-time dynamics of physical quantities of interest can be obtained exploiting spectral results in random matrix theory. We first show that the eigenvalues of the correlation matrix corresponding to the initially charged subsystem evolve according to a Jacobi process, which is defined in terms of a closed system of stochastic differential equations. In turn, this observation allows us to obtain the real-time dynamics of all the eigenvalue moments. We present two physical applications. First, we study the dynamics of the averaged von Neumann entanglement entropy, arriving at a fully explicit expression in the thermodynamic limit. Second, we compute analytically the full-counting statistics of the charge. Our formula allows us to perform a thorough comparison with the full-counting statistics of the classical simple exclusion process. Notably, we show that, in the thermodynamic limit, the quantum and classical full-counting statistics coincide, with no finite-time corrections.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.28042"></a>
+### [Deep Strong light-matter Coupling in 3D Kane Fermions](http://arxiv.org/abs/2604.28042v1)
+
+**Authors:** Dmitriy Yavorskiy, David Hagenmuller, Noureddine Charrouj, Yurii Ivonyak, Alexander Kazakov, Yanko Todorov, Wojciech Knap, Marcin Bialek  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.28042v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `correlated cavity matter` **4/5** · 🔥 `quantum optics experiment` **4/5** · `Dicke superradiance` **3/5** · `driven-dissipative phase transition` **3/5** · `Tavis-Cummings & cavity-many-emitter` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.28042_figures/2604.28042_fig1.jpg" width="500"><br>
+<sub>Fig. 1 Kane fermions in MCT. (a) Temperature evolution of the electronic band structure from an inverted semimetallic phase (EG &lt; 0) at low temperatures, to a normal semiconducting phase (EG &gt; 0) at high temperatures. At the critical temperature Tc ≈100 K (for x = 0.15), the band structure becomes gapless. At this point, the bands exhibit linear momentum dispersion and host massless Kane fermions. With increasing temperature, the Fermi level rises into the conduction band (red). (b) Top, temperature dependence of the electron density in MCT; coloured stars mark the tem- peratures corresponding to the reflection spectra shown in Fig. 2. Bottom, temperature dependence of the Fermi energy (EF...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.28042_figures/2604.28042_fig2.jpg" width="500"><br>
+<sub>Fig. 2 Sample and cavity modes. (a) Heterostructure schematic indicates the active MCT layer as the red block, which is sandwiched by ∼1 µm-thick MCT layers with Cd composition continuously graded from 45% to 15% (grey blocks). We probe the sample using THz-TDS in reflection mode. (b) Temperature evolution of M1 and M2 modes in reflection spectra (solid lines). M0 1 and M0 2 denote the modes in the absence of carriers in the MCT layer (dashed lines). (c) Calculated real part of the electric field profile in the cavity at zero magnetic field and selected temperatures (d) Reflection spectra at the same selected temperatures. Arrows mark M1 and M2 modes.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.28042_figures/2604.28042_fig3.jpg" width="500"><br>
+<sub>Fig. 3 LL dispersion and cyclotron transitions in MCT. (a) Energy dispersion of the conduction-band LL En,kz,σ at B = 0.45 T and T = 30 K (electron density ρ = 1.48 × 1015 cm−3). The Fermi energy EF is shown as a horizontal black line. Filled states lie within the shaded area. Blue (red) curves denote the σ = −1 (σ = +1) sector. Dipole-allowed, σ-conserving transitions between the highest occupied and lowest empty LLs are marked by arrows. As kz moves from left to right across the vertical blue (red) dotted line, the filling factors ν−(ν+) decrease from 2 (1) to 1 (0). (b) Cyclotron gap ∆kz,σ between the last filled and first empty LLs as a function of magnetic field B, forming...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.28042_figures/2604.28042_fig4.jpg" width="500"><br>
+<sub>Fig. 4 Reflection spectra. (a) Reflection as a function of magnetic field at selected temperatures. Dotted lines indicate the CR. At 10 K, two horizontal dashed lines mark photonic modes M0 1 and M0 2. Continuous lines are eigenvalues of Eq. (2), which are labelled in the 50 K segment—the upper and lower co-rotating polaritons as crUP and crLP, respectively, and the anti-rotating polariton as aRP. (b) Simulated spectra based on the transfer-matrix model. The lines are identical to those in panel (a).</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.28042_figures/2604.28042_fig5.jpg" width="500"><br>
+<sub>Fig. 5 Microscopic modelling of MCT polaritons. (a) Schematic representation of the Hamil- tonian (2). The CR collective “bright” mode arises as a coherent superposition of transitions from the highest occupied LL to the lowest unoccupied level, contributed by many transverse wavevectors kz. This mode couples resonantly to the co-rotating photon modes M0 j (j = 1, 2) with strength Ωj,</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.28042_figures/2604.28042_fig6.jpg" width="500"><br>
+<sub>Fig. 6 Deep strong coupling figures of merit for MCT Landau polaritons. (a) Temperature dependence of the normalized coupling strength Ωj/ωj for the photon modes M0 j (j = 1, 2). (b) Ground-state photon populations in the first cavity mode M0 1, for left- (pink) and right- (blue) circular polarisations, ⟨a† 1,pa1,p⟩(p = l, r), together with the inter-polarization correlations ⟨a† 1,la† 1,r⟩. Here ⟨· · · ⟩denotes the expectation value evaluated in the ground state of the Hamiltonian Eq. (2).</sub>
+
+</details>
+
+**Why it may be interesting.** It addresses a fundamental debate in cavity QED regarding gauge invariance and the existence of phase transitions in light-matter systems with relativistic-like matter, while demonstrating extreme non-perturbative coupling regimes.
+
+**Summary.** The study achieves record-breaking deep strong light-matter coupling in 3D Kane fermions at room temperature. It resolves a long-standing debate by showing that a diamagnetic term naturally emerges to prevent a superradiant phase transition. This work opens new avenues for developing polaritonic semiconductor devices in extreme coupling regimes.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Resolving the controversy regarding whether a superradiant quantum phase transition can occur in relativistic-like electronic systems (Dirac/Kane fermions) due to the potential absence of the diamagnetic A^2 term.
+
+**Main result.** Demonstrated the deep strong-coupling regime with a record coupling ratio exceeding 1.6 at room temperature and proved that a gauge-invariant A^2 term emerges, precluding the superradiant phase transition.
+
+**Method.** THz time-domain spectroscopy in reflection mode combined with a gauge-invariant microscopic quantum model and transfer-matrix simulations.
+
+**Model / system.** 3D Kane fermions in a bulk Mercury Cadmium Telluride (MCT) layer coupled to a Fabry-Perot resonator, modeled using a Hopfield-like Hamiltonian derived via a projected unitary gauge transformation.
+
+**Key observables.** Reflectivity spectra, electric field spectra, cyclotron resonance transitions, and polariton dispersion.
+
+**Important parameters / regimes.** Normalized coupling ratio (eta > 1.6), temperature-dependent carrier density, magnetic field, and the ultralow effective mass of Kane fermions.
+
+**Assumptions / limitations.** Low-excitation regime where electronic transitions are mapped to bosonic operators, and neglect of spin-flip excitations.
+
+**Figures summary.** Figure 1 shows the temperature evolution of the MCT band structure and carrier density; Figure 2 illustrates the cavity design, electric field distribution, and temperature-dependent cavity modes.
+
+**Paper structure.** The paper introduces the deep strong-coupling problem, describes the MCT/cavity experimental platform, presents THz spectroscopy results, details the microscopic gauge-invariant theoretical model, and concludes by resolving the superradiant phase transition controversy.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Deep strong light-matter coupling represents an extreme non-perturbative regime of quantum electrodynamics, in which the interaction strength exceeds the bare frequencies of the uncoupled systems. The ground state features strong quantum correlations between photons and matter excitations, and new cavity-driven phase transitions are expected to occur. Whether a superradiant quantum phase transition, marked by spontaneous dipole ordering and photon condensation, is possible has remained a long-standing and controversial question. Such phenomena have been proposed to arise in exotic electronic systems hosting Dirac and Kane fermions, owing to the formal absence of an $A^2$ term in their low-energy Hamiltonian. Here we exploit the ultralow effective mass of Kane fermions to realise Landau polaritons in a bulk mercury cadmium telluride layer coupled to a Fabry-Perot resonator. Using thermally tunable carrier density, we continuously tune the coupling from the weak to the deep-strong regime, achieving a record normalised coupling ratio exceeding 1.6 above room temperature. The measured polariton spectra are in excellent agreement with a rigorous, gauge-invariant microscopic theory. Despite the nonlinear Landau level structure of relativistic Kane fermions, we show that a diamagnetic $A^2$ term naturally emerges and precludes a superradiant phase transition. These results resolve the long-standing controversy surrounding cavity quantum electrodynamics of relativistic-like matter systems, extend deep-strong-coupling physics to Kane fermions, and open new opportunities for polaritonic semiconductor devices operating in extreme light-matter coupling regimes.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27250"></a>
+### [Emergence of prethermal time quasicrystalline order in a quasiperiodically driven non-interacting spin chain](http://arxiv.org/abs/2604.27250v1)
+
+**Authors:** Davood Marripour, Jahanfar Abouie  
+**Type:** theory · **Category:** disordered systems and neural networks · **PDF:** <https://arxiv.org/pdf/2604.27250v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+**Topic relevance:** 🔥 `non-equilibrium dynamics` **4/5** · 🔥 `scars & prethermalization` **4/5** · `driven-dissipative phase transition` **3/5** · `entanglement & information structure` **3/5** · `non-equilibrium universality` **2/5**
+
+**Why it may be interesting.** It explores a novel form of temporal order (TQC) that extends beyond standard Floquet theory, providing insights into how quasiperiodic driving and disorder can be used to engineer long-lived, non-equilibrium phases and suppress heating in many-body systems.
+
+**Summary.** This paper demonstrates that a spin chain driven by two incommensurate frequencies can exhibit a stable, prethermal time quasicrystalline phase. The research shows that this temporal order is robust against perturbations and can be enhanced by specific disorder configurations. This provides a potential platform for creating long-lived nonequilibrium states in driven quantum systems.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The study investigates the emergence and stability of prethermal time quasicrystalline (TQC) order in a spin chain subjected to quasiperiodic driving.
+
+**Main result.** The authors demonstrate that quasiperiodic driving leads to quasiperiodic time-translation symmetry breaking (QTTSB) with robust spectral peaks and suppressed heating, a phase that is stable against perturbations and enhanced by asymmetric disorder distributions.
+
+**Method.** The study utilizes exact diagonalization to analyze the dynamics of the spin chain.
+
+**Model / system.** A non-interacting spin-1/2 chain with disordered Ising interactions (randomly chosen from a symmetric interval) and a random transverse field, driven by a two-part periodic drive consisting of a switching mechanism and a rotating transverse magnetic field with an incommensurate frequency.
+
+**Key observables.** Time autocorrelation function, dynamical structure factor, and entanglement entropy (EE).
+
+**Important parameters / regimes.** Driving frequencies (omega_d and Omega), the irrational ratio omega_d/Omega, the high-frequency regime, and the symmetry/asymmetry of the Ising exchange coupling distribution.
+
+**Assumptions / limitations.** The system is treated as a non-interacting spin chain; the study focuses on the high-frequency regime to observe prethermal effects.
+
+**Paper structure.** The paper introduces the quasiperiodically driven model, describes the numerical methodology (exact diagonalization), presents results for spectral features and entanglement entropy, analyzes the effects of disorder asymmetry and perturbations, and concludes with the implications for nonequilibrium temporal order.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study prethermal time quasicrystalline (TQC) order in a quasiperiodically driven chain of non-interacting spin-1/2 particles. The drive consists of two parts, switched on and off periodically with frequency $ω_d$: (i) disordered Ising interactions, with exchange couplings chosen from a symmetric interval $[-J/2, J/2]$, allowing random antiferromagnetic or ferromagnetic nearest-neighbor couplings, together with a random transverse field; and (ii) a rotating transverse magnetic field with frequency $Ω$.   The ratio $ω_d/Ω$ is chosen to be irrational, producing multiple incommensurate frequencies and yielding quasiperiodic dynamics beyond Floquet theory. Using exact diagonalization, we analyze the time autocorrelation function, dynamical structure factor, and entanglement entropy (EE). In the high-frequency regime, robust spectral peaks at incommensurate frequencies (not integer multiples of the fundamental drives) signal quasiperiodic time-translation symmetry breaking (QTTSB). The EE exhibits sublinear power-law growth followed by a prethermal plateau, indicating suppressed resonant heating due to an energy scale mismatch. The nonequilibrium lifetime increases rapidly with driving frequency. Unlike symmetric disorder sampling, an asymmetric distribution of the Ising exchange couplings induces collective spin rigidity, enhancing the system's resistance to heating. The TQC phase remains stable against next-nearest-neighbor (NNN) exchange perturbations and rotational imperfections, with robustness comparable to discrete time crystals (TCs) under periodic driving. Our results establish this quasiperiodically driven system as a platform for long-lived nonequilibrium temporal order, revealing the interplay of disorder, collective rigidity, and quasiperiodic driving.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27585"></a>
+### [Observation of Universal Spectral Moments and the Dynamic Dispersive-to-Proliferative Transition](http://arxiv.org/abs/2604.27585v1)
+
+**Authors:** Jia-Xin Zhong, Chang Shu, Nan Cheng, Jee Woo Kim, Kai Zhang, Kai Sun, Yun Jing  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.27585v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `driven-dissipative phase transition` **4/5** · 🔥 `non-equilibrium universality` **4/5** · `analog quantum simulation` **3/5** · `non-equilibrium dynamics` **3/5** · `correlated / nonlocal dissipation` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27585_figures/2604.27585_fig1.jpg" width="500"><br>
+<sub>Figure 1: Boundary-sensitive spectra versus boundary-robust spectral moments, and the acoustic lattice platform. a, For the same bulk non-Hermitian lattice Hamiltonian at finite size L, the complex spectrum {En} reshapes drastically under different boundary geometries (PBC torus versus OBC P- and M-shaped domains), whereas the per-site spectral moments Mα,m(L) are nearly boundary inde- pendent. The residual geometry dependence scales as a universal finite-size correction O(m2/L), and Mα,m(L) →Mm(∞) as L →∞. b, Loop-counting picture for the finite-size deviation. The dashed curve partitions the domain into a bulk region Ωb and a boundary shell Ωe of thickness ∼m/2 (in hop distance). For a...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27585_figures/2604.27585_fig2.jpg" width="500"><br>
+<sub>Figure 2: Observation of spectral moments and finite-size scaling in a 1D non-Hermitian lat- tice. a, Tight-binding schematic of the 1D non-Hermitian lattice. The Bloch Hamiltonian is H(k) = κ+e−2ik + κ−e2ik + 2κ cos k + ω0. A generalized boundary condition (GBC) continu- ously interpolates between open boundary condition (OBC) and periodic boundary condition (PBC) via HGBC = HOBC + g(HPBC −HOBC). Boundary sites (sites 1 and N) are highlighted in dark brown. b, Measured (top) and simulated (bottom) complex spectra under GBCs with different boundary coupling strengths g (color coded). The experiment uses g = 0, 0.1, 1, 2, while the simulation addi- tionally includes a near-OBC case g =...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27585_figures/2604.27585_fig3.jpg" width="500"><br>
+<sub>Figure 3: Observation of spectral moments in higher-dimensional lattices. a, Tight-binding schematic of the 2D reciprocal non-Hermitian lattice. The Bloch Hamiltonian is H(kx, ky) = 2κx cos kx+2κy cos(kx + ky)+ω0. Parameters are: κx = 2i Hz, κy = 4 Hz, and ω0 = 1040 Hz−6i Hz. b–d, The top panel shows three different real-space implementations of a under PBCs in both x and y directions: b a regular 8×8 square lattice, and c, d 9×9 square lattices with a few removed sites (to form an irregular boundary) to show the letter c ‘P’ and d ‘M’. The bottom panel in b–d shows the measured (red squares) and simulated (blue dots) energy spectra. e, Spectral moments up to the 10th order obtained from...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27585_figures/2604.27585_fig4.jpg" width="500"><br>
+<sub>Figure 4: Observation of the dynamic dispersive-to-proliferative phase transition. a, Tight-binding schematic of the 1D non-Hermitian PT-symmetric lattice. The Bloch Hamiltonian is H(k) = 2α(1 − γ)e−3ik +(1−γ)2e−2ik +2α(1+γ)e−ik +2α(1−γ)eik +(1+γ)2e2ik +2α(1+γ)e3ik. b–d, Results for the three representative regimes: b PT -symmetric (γ = 0), c dispersive (γ = 0.13), and d proliferative (γ = 0.45). In each of b–d, the top panel shows the measured OBC spectra (red dots), the simulated OBC spectra (blue dots), and the theoretical PBC spectra (black curves). The middle and bottom panels show the measured and simulated spatiotemporal evolution of the wave-function amplitude for an initial...</sub>
+
+</details>
+
+**Why it may be interesting.** This work is highly relevant to open quantum systems and many-body dynamics as it provides a new way to extract intrinsic bulk properties from finite-size non-Hermitian systems, decoupling local stability from boundary-induced spectral fluctuations.
+
+**Summary.** The paper shows that while the energy spectra of non-Hermitian systems change drastically with boundary conditions, their spectral moments remain nearly invariant and reflect the true bulk physics. By using an acoustic platform, the authors verify a universal scaling law for finite-size errors and discover a new dynamical phase transition driven by bulk properties.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** How to characterize intrinsic bulk physics in non-Hermitian systems when the Non-Hermitian Skin Effect (NHSE) causes the complex spectrum to be extremely sensitive to boundary conditions and geometry.
+
+**Main result.** The authors demonstrate that spectral moments are boundary-robust descriptors of bulk physics and establish a universal scaling law for finite-size deviations. They also reveal a dynamical transition from dispersive to proliferative regimes governed by bulk moments rather than boundary-sensitive spectra.
+
+**Method.** The study uses an active acoustic metamaterial platform for full spectral reconstruction and time-domain wave-packet tracking. They employ Green's-function-based spectroscopy and a loop-counting theory to analyze 1D, 2D, and 3D lattices.
+
+**Model / system.** A unified acoustic metamaterial platform implementing non-Hermitian tight-binding models in 1D, 2D, and 3D. The system uses electro-acoustic feedback loops to control non-reciprocal hopping amplitudes and on-site potentials.
+
+**Key observables.** Complex energy spectra, spectral moments (up to 10th order), relative deviation between boundary conditions, and wave-packet amplitude evolution.
+
+**Important parameters / regimes.** Boundary coupling strength (g), system size (L or N), moment order (m), non-reciprocity/non-Hermiticity parameter (gamma), and hopping amplitudes.
+
+**Assumptions / limitations.** The loop-counting theory assumes a regime where on-site potentials dominate over off-diagonal terms (|H_ii| >> |H_{i != j}|) for certain scaling predictions.
+
+**Figures summary.** Fig 1: Concept of spectral moments, loop-counting logic, and acoustic lattice photo. Fig 2: 1D lattice spectra under varying boundary conditions, moment invariance, and finite-size scaling. Fig 3: 2D and 3D lattice implementations and higher-dimensional scaling.
+
+**Paper structure.** Introduction of the boundary sensitivity paradox, presentation of the acoustic platform, demonstration of spectral moment invariance in 1D, derivation and verification of finite-size scaling laws, extension to 2D and 3D geometries, and investigation of the dynamical dispersive-to-proliferative transition.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+In non-Hermitian systems, spectra can be maximally boundary-sensitive, yet bulk physics need not be. Here we experimentally show that spectral moments provide boundary-robust bulk observables in finite non-Hermitian lattices, even when the spectra undergo dramatic geometry-dependent reshaping due to the skin effect. Using a unified acoustic platform with full spectral reconstruction and time-domain access, we probe one-, two- and three-dimensional lattices and demonstrate that spectral moments remain nearly invariant across distinct boundary geometries while the corresponding complex spectra differ strongly. To connect the thermodynamic theorem to realistic finite systems, we develop a loop-counting theory that identifies the physical origin of finite-size deviations in terms of missing boundary loops, quantitatively captures the corrections, and predicts a scaling law, which we verify experimentally. Beyond acoustic spectroscopy, we reveal a counterintuitive dynamical consequence of moment invariance: a dispersive-to-proliferative bulk transition governed by bulk moment structure rather than spectral boundary sensitivity. As a result, local bulk dynamics can remain stable (dispersive) even in a $\mathcal{PT}$-broken spectral regime, challenging the conventional expectation that $\mathcal{PT}$ breaking necessarily implies feedback-induced dynamical instability (proliferation) through exponentially amplifying spectral components. These results establish spectral moments as practical bulk descriptors for finite non-Hermitian matter and open a route to extracting and controlling intrinsic bulk behavior in realistic wave-based non-Hermitian devices.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27668"></a>
+### [Observation of attractor transitions in active magnon-polaritons under microwatt drives](http://arxiv.org/abs/2604.27668v1)
+
+**Authors:** Hao Wu, Qichun Liu, Yuanbin Fan, Yulong Liu, Qing Zhao  
+**Type:** both · **Category:** other · **PDF:** <https://arxiv.org/pdf/2604.27668v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `driven-dissipative phase transition` **4/5** · 🔥 `spintronics-quantum-optics interface` **4/5** · `non-equilibrium dynamics` **3/5** · `quantum optics experiment` **3/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27668_figures/2604.27668_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Models and stability analysis of the active and passive magnon-polaritons (MP). a,b, Schematics of the active and passive MP models where a cavity photon mode a is coupled to a magnon mode m possessing the nonlinearity K. The coupling is characterized by the spin-photon coupling strength g and the damping of the a and m modes is denoted by κ and γ respectively. The difference between the active and passive MP arises from the driving mechanisms. For the active MP, a self-sustained a mode, acting like a van-der Pol (vdP) oscillator, is established via a feedback architecture consisting of the linear gain G and nonlinear gain saturation Γ|a|2 depending on the photon number, while for...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27668_figures/2604.27668_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Experimental setup and microwave characterizations of the magnon and bare cavity modes. a, The half-wavelength microstrip- line cavity is fabricated on a printed circuit board (PCB) and the gain is provided by a bipolar junction transistor (BJT) which is powered by two-port DC voltages (one is ﬁxed at 0.7 V and the other Vc is adjustable). A yttrium iron garnet (YIG) sphere surrounded by a loop antenna is ﬁxed in a sample holder (not shown) above the PCB and movable via a three-axis (x,y and z) translation stage. The whole setup is positioned between a pair of electromagnets supplying horizontal static magnetic ﬁelds. There are three RF ports used for the microwave...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27668_figures/2604.27668_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Onset of attractor transitions under microwatt-level drive. a,b,c,d, Experimental and simulated results of the frequency offset of the vdP oscillator caused by its coupling to the YIG sphere subject to an up-sweeping magnetic ﬁeld. ∆0m = ωm −ω0 d is the magnon-drive (cavity) detuning between the magnetic-ﬁeld-dependent magnon mode frequency and the initial vdP oscillator frequency. The driving power Pd is varied by the gain in the circuit tuned by Vc and determined according to the vdP oscillator output power. The adjustment of Pd in the simulation is realized by tuning the gain factor G. e, Zoom-in of the sidebands observed in the dashed box of c.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27668_figures/2604.27668_fig4.jpg" width="500"><br>
+<sub>FIG. 4. Route to chaotic active MP. a,b,e,g, Experimental results of the frequency offset of the vdP oscillator coupled to the YIG sphere subject to a up-sweeping magnetic ﬁeld under the driving powers beyond 1 µW (-30 dBm). c,d, Zoom-in of the rich nonlinear phenomena observed in the dashed box of b where the four nonlinear regimes show (i) multifrequency limit cycles, (ii) fractals, (iii) frequency-comb-like structure and (iv) chaos. f, Switching of the vdP output spectrum from the multimode to single-mode emission observed in e. The signiﬁcant peak shifts occur within a change of the magnetic ﬁeld less than 0.2 G. h, Zoom-in of the magnetic-ﬁeld-dependent Rabi splittings of the vdP...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.27668_figures/2604.27668_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Power-dependent stability phase diagram of the active MP revealing its power efﬁciency in achieving nonlinear attractor transitions. a, Dependence of the critical detuning in real time ∆m = ∆0m −Ωmeasured at different driving powers (left panel). Simulated phase diagrams of the stable and unstable FPs in ∆m −G space of the active MP (right panel). The parameters used for generating the phase diagrams are obtained from the simulation shown in Figs. 3b and 3d that reproduce the experimental results. The color bar consistent with the circle ﬁllings in the left panel indicates the different FP situations where S and U stand for stable and unstable FPs respectively. The deterministic...</sub>
+
+</details>
+
+**Why it may be interesting.** This work is highly relevant to researchers in open quantum systems and quantum optics as it demonstrates a platform for studying non-equilibrium phase transitions, nonlinear cavity QED, and complex attractor dynamics in a highly efficient, low-power regime.
+
+**Summary.** This paper demonstrates that using an active, self-oscillating cavity allows for the observation of complex nonlinear phenomena like frequency combs and chaos in magnon-polaritons at microwatt power levels. This significantly reduces the power threshold compared to traditional passive systems. The findings open new avenues for low-power nonlinear microwave signal generation, high-precision sensing, and neuromorphic computing.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The difficulty of experimentally observing and controlling transitions between distinct nonlinear attractors (such as bistability, frequency combs, and chaos) in conventional passive magnon-polariton systems, which typically require high-power milliwatt-class external drives.
+
+**Main result.** The observation of controlled attractor transitions, including the explosive growth of bistability and a full route to chaos, achieved at extremely low microwatt-level power levels using an active magnon-polariton platform.
+
+**Method.** The researchers used a self-oscillating microwave cavity coupled to a YIG sphere, employing stability analysis of fixed points and numerical simulations (Runge-Kutta) to map the nonlinear dynamics and compare them with experimental transmission and emission spectra.
+
+**Model / system.** An active magnon-polariton system consisting of a 1-mm YIG sphere coupled to a microstrip-line cavity with a BJT-based gain element acting as a van der Pol oscillator, incorporating Kerr nonlinearity and Suhl-mediated magnon-magnon scattering.
+
+**Key observables.** Frequency offset of the oscillator, emission spectra (single-peak, multi-frequency, frequency combs, and chaos), transmission spectra (S21), and magnetic-field-triggered spectral shifts.
+
+**Important parameters / regimes.** Microwatt-level drive power (-35 to -10 dBm), spin-photon coupling strength (g), photon and magnon damping rates (kappa, gamma), and DC-controlled gain (G).
+
+**Assumptions / limitations.** The system is modeled using a semiclassical mean-field approach with complex mode amplitudes.
+
+**Figures summary.** Fig 1 compares active vs. passive models and shows simulated phase diagrams; Fig 2 details the experimental setup and magnetic field dependence; Fig 4 shows the progression of nonlinear regimes and frequency offsets; Fig 5 presents the power-dependent stability phase diagram and a comparison of power efficiency with previous studies.
+
+**Paper structure.** The paper introduces the problem of high-power requirements in passive systems, describes the active experimental architecture, presents the theoretical model and stability analysis, details the experimental observation of various nonlinear regimes (from limit cycles to chaos), and concludes with applications in sensing and computing.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Magnon-polaritons provide a room-temperature platform for investigating nonlinear cavity quantum electrodynamics in the microwave domain, but experimentally observing controlled transitions among distinct nonlinear attractors remains challenging in conventional passive systems, where strong external driving is usually required. Here we report the observation of attractor transitions in an active magnon-polariton formed by a self-oscillating microwave cavity coupled to a yttrium iron garne (YIG) sphere. The feedback loop supplies an internal microwave drive, while Kerr frequency pulling and Suhl-mediated magnon-magnon scattering produce an enhanced effective nonlinearity. Stability analysis using experimentally calibrated parameters reveals a rich fixed-point (FP) landscape with multiple unstable-FP phases and a triple-point region. By tuning gain across these phases, we observe the first experimental evidence of explosive growth of bistability, followed by transitions to multifrequency limit cycles, comb-like/fractal spectra, and broadband chaotic dynamics at microwatt powers. Near a critical point, magnetic-field-triggered switching between nonlinear emission states produces spectral shifts up to 162 times the bare gyromagnetic response. By enabling low-power attractor transitions and attractor-switching-amplified spectral response, active magnon-polaritons open opportunities for nonlinear microwave signal generation, high-precision sensing, and neuromorphic computing.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27567"></a>
+### [Experimental detection of entanglement in multimode Gaussian states from high-order intensity correlation moments](http://arxiv.org/abs/2604.27567v1)
+
+**Authors:** Ze-Shan He, Yukuan Zhao, Hao-Shu Tian, Kai Sun, Xiao-Ye Xu, Chuan-Feng Li, Guang-Can Guo  
+**Type:** experiment · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.27567v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · `entanglement & information structure` **3/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27567_figures/2604.27567_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Generation of two-mode and three-mode Gaussian states. The laser from a Coherent RegA 9000 is filtered by a 4-f spatial filtering system. We use a single cpKTP crystal to generate a two-mode Gaussian state and subsequently em- ploy two cpKTP crystals to produce a three-mode Gaussian state. The SPDC process in the first crystal generates a two- mode squeezed vacuum state: the idler photon is reflected by a dichroic PBS, while the signal photon is injected into the second crystal simultaneously with the pump laser. After the signal mode polarization is rotated by 90◦, a BBO crystal compensates the time difference between the pump laser and the signal mode after polarization rotation...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27567_figures/2604.27567_fig2.jpg" width="500"><br>
+<sub>FIG. 2. PPT criterion inequality for a TMSV. The experi- mental and simulated results for the inequality Eq. (2) as a function of r for g2(0) = 1.8 are shown. The light red solid line with square markers and the light blue solid line with diamond markers represent the simulated values of the two sides of the inequality, corresponding to det σ + 1 and ˜∆2 1, re- spectively. The blue and red dots represent the experimental results, which are in good agreement with the simulations. Specifically, the blue dots correspond to det σ + 1 and the red dots correspond to ˜∆2 1, with r ranging from 0.18 to 0.96.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27567_figures/2604.27567_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Symplectic eigenvalues of the TMSV as a function of r. Experimental and simulated results for the smallest symplectic eigenvalue of the partially transposed covariance matrix ˜λ−are shown. The green solid line with up-triangle marker corresponds to g2(0) = 2, i.e., a pure TMSV. The red and blue solid lines correspond to g2(0) = 1.9 and g2(0) = 1.8, respectively; the latter was obtained using experimentally measured parameters with a PNR detector. The blue dots represent the experimental results. For r &gt; 0.75, the eigen- value increases due to the growing contribution of additional pump supermodes, which modifies the photon-number distri- bution. The black dashed line marks the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27567_figures/2604.27567_fig4.jpg" width="500"><br>
+<sub>FIG. 4. PPT criterion inequality for a TMGS. (a) Experimen- tal and simulated results for inequality Eq. (16) as a function of r at g2(0) = 1.8 with a photon-number cutoff of 5. The light blue solid line with up-triangle markers represents the simulated value of the left-hand side (LHS) of the inequal- ity. The light green and light red solid lines with right- and down-triangle markers represent the upper bounds (UB) and lower bounds (LB) of the right-hand side (RHS), respectively. Experimental results are shown as corresponding dots (see leg- end) and agree well with the simulations. (b) Experimental results for the same inequality with a photon-number cutoff of 32. The observed trend is...</sub>
+
+</details>
+
+**Why it may be interesting.** This work is highly relevant to quantum optics and quantum information as it provides a scalable, robust method for certifying entanglement in continuous-variable systems without the experimental complexity of homodyne detection or local oscillators.
+
+**Summary.** The researchers developed a method to detect entanglement in multi-mode Gaussian states using only intensity correlation measurements. By using high-order moments, they bypassed the need for phase-sensitive reference beams, successfully verifying entanglement in both two-mode and three-mode squeezed states.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Experimental detection of entanglement in multi-mode Gaussian states without the need for a coherent local oscillator or phase-sensitive measurements.
+
+**Main result.** Successfully demonstrated entanglement detection for two-mode and three-mode Gaussian states using high-order intensity correlation moments, even when phase information is unavailable.
+
+**Method.** The authors use high-order (up to sixth-order) intensity correlation moments and the Peres-Horodecki (PPT) criterion, applying mathematical bounds to handle phase-sensitive terms in the three-mode case.
+
+**Model / system.** The system consists of multi-mode Gaussian states (TMSV and TMGS) generated via spontaneous and cascable parametric down-conversion in cpKTP crystals, detected using a 32-channel pseudo-photon-number-resolving detector made of SNSPDs.
+
+**Key observables.** High-order intensity correlation moments (up to 6th order), photon-number distributions, symplectic eigenvalues, and joint spectral intensity (JSI).
+
+**Important parameters / regimes.** Squeezing parameters (r), mean photon numbers, symplectic quantum universal invariants (QUIs), and pump laser purity (g2(0)).
+
+**Assumptions / limitations.** The states are assumed to be Gaussian; for TMSV, the reduced mode distribution is assumed to be thermal-like; for TMGS, phase-sensitive terms are estimated via upper and lower bounds.
+
+**Figures summary.** Fig 1 shows the experimental setup; Fig 2 compares simulated and experimental PPT inequality for TMSV; Fig 3 shows symplectic eigenvalues vs squeezing for different pump purities; Fig 4 shows the PPT inequality and experimental results for TMGS.
+
+**Paper structure.** The paper introduces the problem of phase-insensitive entanglement detection, describes the experimental generation of TMSV and TMGS, details the mathematical derivation of intensity-based entanglement criteria and bounds, presents experimental verification for two-mode and three-mode states, and discusses limitations regarding pump impurity and phase loss.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Quantum universal invariants of a Gaussian state's covariance matrix, which can be derived from intensity correlation moments, have been adopted to characterize the entanglement properties of Gaussian states via the positive partial transpose criterion, also known as the Peres-Horodecki separability criterion. Such intensity correlation moments enable the extraction of information about the covariance matrix without the need for a coherent local oscillator. Here, we experimentally detect the entanglement properties of multimode Gaussian states using high-order\,(up to sixth-order) intensity correlation moments. These multimode Gaussian states are prepared via spontaneous and cascaded parametric down-conversion pumped by a high-peak-energy pulsed laser. Their intensity correlation moments are measured using a pseudo-photon-number-resolving detector constructed through spatial multiplexing of 32 threshold superconducting nanowire single photon detectors. This method is successfully demonstrated for two-mode and three-mode Gaussian states and can be extended to $N$-mode Gaussian states with $N>3$.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27072"></a>
+### [Dissipation Mechanisms and Dissipative Phase Transitions of two coupled Fully Connected Quantum Ising models](http://arxiv.org/abs/2604.27072v1)
+
+**Authors:** Bidyut Dey, Andrea Nava, Domenico Giuliano  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.27072v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+**Topic relevance:** 🔥 `driven-dissipative phase transition` **4/5** · `non-equilibrium dynamics` **3/5** · `non-equilibrium universality` **3/5** · `methods for driven-dissipative` **2/5**
+
+**Why it may be interesting.** It provides fundamental insights into how the microscopic structure of environmental coupling can switch a system between equilibrium-like and genuinely non-equilibrium critical behavior.
+
+**Summary.** This paper explores how different dissipation mechanisms affect phase transitions in coupled quantum Ising models. It demonstrates that while some dissipation leads to standard thermal-like steady states, others create complex non-equilibrium phases, such as reentrant symmetry breaking. This highlights the critical role of the environment's structure in determining many-body dynamics.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The study investigates how different types of dissipation mechanisms influence dissipative phase transitions and the nature of steady states in coupled quantum Ising models.
+
+**Main result.** The authors find that dissipators satisfying detailed balance lead to equilibrium-like steady states and standard phase transitions, whereas local spin-flip dissipators drive the system into a genuinely non-equilibrium regime featuring a reentrant phase.
+
+**Method.** The study employs a Lindblad master equation approach combined with a self-consistent mean-field framework to analyze the dynamics and steady states.
+
+**Model / system.** A system of two coupled fully-connected quantum Ising models interacting with an environment, described by a Lindblad master equation.
+
+**Key observables.** Relaxation dynamics, non-analytic behavior in time (dynamical phase transitions), and the phase diagram of the steady state.
+
+**Important parameters / regimes.** System-bath coupling strength, Hamiltonian quench protocols (parametric and temperature quenches), and the specific structure of the jump operators.
+
+**Assumptions / limitations.** The use of a self-consistent mean-field framework to describe the unitary part of the evolution.
+
+**Paper structure.** The paper compares two classes of dissipators, analyzing the relaxation dynamics and steady-state phase diagrams for both detailed-balance and local-spin-operator-based dissipation.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study dissipative phase transitions in a system of two coupled fully-connected quantum Ising models interacting with an environment. The dynamics is governed by a Lindblad master equation combining coherent unitary evolution and incoherent dissipative processes, where the unitary part is described within a self-consistent mean-field framework effectively acting on the local Hilbert space of two coupled spins at each site.   We analyze two fundamentally different classes of dissipators. In the first case, the jump operators are defined in the instantaneous eigenbasis of the mean-field Hamiltonian and satisfy a detailed-balance condition. In this setting, the relaxation dynamics depends strongly on the quench protocol: a parametric quench of the Hamiltonian leads to conventional relaxation, whereas a temperature quench gives rise to a dynamical phase transition characterized by nonanalytic behavior in time. Yet, in both cases, the system relaxes toward a steady state determined solely by the post-quench parameters and the bath temperature, which closely resembles a thermal Gibbs state of the mean-field Hamiltonian. As a result, the dissipative phase transition occurs at a critical point consistent with the corresponding equilibrium transition. In contrast, when the dissipators are realized via local spin raising and lowering operators, the steady state is genuinely nonequilibrium, leading to a significantly richer phase diagram. In particular, for sufficiently strong system-bath coupling, we observe a reentrant phase featuring a symmetry-broken region bounded by two continuous dissipative phase transitions.   Our results evidence how the structure of dissipative processes controls the emergence of equilibrium-like versus genuinely nonequilibrium critical behavior in open quantum systems.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27761"></a>
+### [Macroscopic photon counting beating the Poisson noise limit](http://arxiv.org/abs/2604.27761v1)
+
+**Authors:** Timon Schapeler, Fabian Schlue, Isabell Mischke, Michael Stefszky, Benjamin Brecht, Christine Silberhorn, Tim J. Bartley  
+**Type:** experiment · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.27761v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum measurements` **4/5** · 🔥 `quantum optics experiment` **4/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27761_figures/2604.27761_fig1.jpg" width="500"><br>
+<sub>FIG. 1. (a) Combination of temporal multiplexing (green box), spatial multiplexing (red box) and intrinsic PNR SNSPDs (orange box). One input pulse is (temporally) split into two pulse trains with 128 sub pulses each, afterwards both pulse trains are (spatially) split onto four SNSPDs, which can resolve the photon number in each of the 8 · 128 = 1024 resulting sub pulses, i.e, bins. The output of each of the eight spatial bins is a stream of 128 arrival times measured by the time tagger, which is depicted in the upper right corner. (b) Arrival-time histogram of the entire pulse train, i.e., all 128 temporal bins for the first spatial bin. The 128 peaks correspond to the individual temporal...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27761_figures/2604.27761_fig2.jpg" width="500"><br>
+<sub>FIG. 2. (a) For every input state that impinges on the detection system, we record up to 1024 arrival times (corresponding to the 8 · 128 = 1024 spatial and temporal bins). For every bin, we have a lookup table (LUT), which is created through an EMG model describing the n = 15 underlying photon-number contributions (b). With this, every arrival time is then translated into a photon-number distribution (c)-(e). (b) The LUT is created by fitting EMG distributions to the arrival-time histograms (see Fig. 1(c)-(e)) for all 1024 bins and then assuming a flat prior distribution. As an example we show the LUT for spatial bin 1 and temporal bin 48. (c)-(e) The photon-number distributions are a...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27761_figures/2604.27761_fig3.jpg" width="500"><br>
+<sub>FIG. 3. (a) From the 1024 individual photon-number distributions generated with the LUT (as depicted in Fig. 2(c)-(e)) we can generate an overall photon-number distribution for every single input state that impinges on the detection system. This is done via a convolution. (b), (c) Photon-number distribution of a single shot for two different incident mean photon numbers (484 and 4904, respectively). These shots are marked in (d) with red and blue dots, respectively. (d) Scatter plot of the measurement uncertainty vs. the measured photon number on a shot-by-shot basis. For every incident mean photon number (corresponding to different colors of the scatter plot dots, see color bar) we plot...</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27761_figures/2604.27761_fig4.jpg" width="500"><br>
+<sub>FIG. 4. (a) Ensemble variance vs. ensemble mean from 105 samples for every incident mean photon number, corresponding to the colored cross symbols. These lie on the Poisson noise limit (black dashed line) as we measure coherent light, which follows Poissonian statistics. Above a measured mean of approximately 1000 we see a deviation, which we can attribute to a probabilistic blinding of our detection bins. Our blinding model (orange line) accurately explains the deviation from the Poisson noise limit (see Sec III D in the supplemental document for more detail). (b) The efficiency of the device is the fraction of the measured mean photon number over the incident mean photon number (orange...</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.27761_figures/2604.27761_fig5.jpg" width="500"><br>
+<sub>FIG. 5. Reconstructed POVM matrix of the entire detector shown as a heatmap of the conditional probabilities. The x axis corresponds to the incident mean photon number and the y axis to the detector outcome, i.e., the measured photon number. The color axis shows the probability of observing the conditional probability of a certain measured photon number given an incident photon number. The top left inset shows a zoom-in of the first 500 outcomes. The bottom right inset shows the content of the main plot on a logarithmic scale for both axes.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.27761_figures/2604.27761_fig6.jpg" width="500"><br>
+<sub>FIG. 1. The experimental setup can be divided into four main parts: probe state preparation (blue box), temporal multiplexing (green box), spatial multiplexing (red box) and PNR detection (orange box). A detailed explanation is given in Sec I.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.27761_figures/2604.27761_fig7.jpg" width="500"><br>
+<sub>FIG. 2. (a) Outcome matrix PD×M for every second coherent input state in the measured photon number region from 10 to 1000. We include Poisson distributions for every forth coherent input state (for clarity), using the mean of the outcome distribution as the mean of the Poisson distribution, i.e., the distributions are not fitted. This shows, that the ensemble data of 105 samples follows Poissonian statistics from our coherent light source. (b) Outcome matrix for measured photon numbers from 1000 to 1800, to visualize the region where the ensemble mean and variance begin to deviate from the Poisson noise limit (compare Fig. 4(a) in the main document).</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.27761_figures/2604.27761_fig8.jpg" width="500"><br>
+<sub>FIG. 3. (a), (c) and (e) Oscilloscope traces of the 128 bin pulse train for three different mean photon numbers (low, medium and high, respectively) for a repetition rate of the laser of 80 kHz. Subsequent pulse trains (here differentiated by different colors) are directly aligned after each other. (b), (d) and (f) Oscilloscope traces when the laser repetition rate is 32 kHz. Here, when subsequent pulse trains are separated in time, the ”charging” effect is clearly visible. To avoid this we operate at 80 kHz, to be at a constant DC-offset. The spacing between subsequent traces is approximately 100 ns, i.e., just enough time for the SNSPD to reset after a detection event. The inset in (b)...</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.27761_figures/2604.27761_fig9.jpg" width="500"><br>
+<sub>FIG. 4. (a) Arrival-time histogram of the last temporal bin (128) for spatial bin 1 for two different incident mean photon numbers per bin. The region of interest corresponds to the slow-axis photons from 0 ps to 450 ps (vertical dashed lines). The fast-axis photons arrive 3.5 ns earlier. The peaks between the two extremes correspond to photons that couple back and forth between the axes at the splice interfaces, due to slight angle mismatches of the polarization-maintaining fibers. (b) Coupling probability pc for all temporal bins for spatial bin 1.</sub>
+
+</details>
+
+**Why it may be interesting.** This work is highly relevant to quantum optics and precision metrology as it demonstrates a scalable way to characterize large quantum states and provides a new tool for high-sensitivity optical power standards.
+
+**Summary.** The researchers developed a large-scale multiplexed SNSPD detector capable of counting up to 9000 photons with precision exceeding the standard Poisson noise limit. By combining spatial and temporal multiplexing, they bridged the gap between single-photon detection and classical power metering. This advancement is crucial for characterizing large-scale quantum states and improving precision metrology.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** The difficulty of building detectors that maintain photon-number resolution at high light intensities and bridging the gap between single-photon detectors and high-sensitivity optical power meters.
+
+**Main result.** Demonstration of macroscopic photon counting from 0 to over 9000 photons, beating the Poisson noise limit by at least 4.1 dB and achieving sub-single-photon precision up to 276 photons per pulse.
+
+**Method.** A large-scale multiplexed detector using 8 spatial SNSPD bins and 128 temporal modes, combined with model-informed characterization (EMG model) and quantum detector tomography to reconstruct POVMs.
+
+**Model / system.** An experimental platform consisting of 8 intrinsically photon-number-resolving superconducting nanowire single-photon detectors (SNSPDs) integrated with a 128-bin temporal multiplexing network using fiber delay lines.
+
+**Key observables.** Photon-number distributions, arrival times, reconstructed POVMs, detector efficiency, and the second-order correlation function g2(0).
+
+**Important parameters / regimes.** Optical power of ~71 pW, 80 kHz repetition rate, 1024 total detection bins, and photon numbers scaling up to 15,393 per pulse.
+
+**Assumptions / limitations.** The use of a zero-inflated model to account for detector blinding; the necessity of temporal pulse broadening to mitigate group-velocity dispersion in the fiber network.
+
+**Figures summary.** Fig 1: Experimental setup schematic and arrival-time histograms; Fig 2: Workflow for photon-number distribution via LUT; Fig 3: Convolution process and uncertainty vs. photon number plots; Fig 4: Ensemble variance and efficiency vs. photon number; Fig 5: POVM matrix heatmap.
+
+**Paper structure.** The paper introduces the experimental setup and multiplexing architecture, details the characterization and reconstruction methods (LUT and POVM), presents the performance results regarding noise limits and precision, and discusses systematic effects like detector blinding and efficiency-rate dependence.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Photon counting is a cornerstone of quantum optics. Here, we demonstrate precisely counting from 0 to over 9000 photons, beating the Poisson noise limit by at least $4.1~\mathrm{dB}$ across this range. We achieve sub-single-photon precision up to 276 photons per pulse. To do so, we multiplex eight intrinsically photon-number-resolving superconducting nanowire single-photon detectors across 128 temporal modes. We use a model-informed characterization of each of the 1024 detection bins, for optimal precision. We perform quantum detector tomography to reconstruct the positive operator valued measures (POVMs) of the complete device, which consists of $1.38\cdot10^8$ matrix elements. At the repetition rate of our experiment of $80~\mathrm{kHz}$, we can precisely count photons corresponding to an optical power of approximately $71~\mathrm{pW}$, bridging the gap from single-photon measurements to high-sensitivity optical power meters. A photon-number-resolving detector of this size, and the tools used to analyze it, will become increasingly important to characterize large quantum states, as well as tasks in precision metrology and optical power standards.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27494"></a>
+### [Observation antibunching with classical light in a linear interferometer](http://arxiv.org/abs/2604.27494v1)
+
+**Authors:** Yu Gu, Yuhan Ma, Yiqi Song, Meixue Chen, Hui Chen, Huaibin Zheng, Yuchen He, Yu Zhou, Fuli Li, Zhuo Xu, Jianbin Liu  
+**Type:** experiment · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.27494v1>  
+**Analysis basis:** abstract only; PDF text extraction failed or PDF unavailable
+**Topic relevance:** 🔥 `quantum optics experiment` **4/5** · `interference shaping light` **3/5** · `quantum measurements` **3/5** · `QC/QI experiment` **2/5**
+
+**Why it may be interesting.** This is highly relevant to quantum optics as it explores the fundamental connection between classical and nonclassical correlations and demonstrates how measurement techniques can reveal nonclassical-like signatures in classical light.
+
+**Summary.** The paper demonstrates that antibunching, typically a nonclassical phenomenon, can be observed using classical thermal light in a Hanbury Brown-Twiss interferometer. This is achieved by using single-photon detectors to perform photon-number projection measurements. The findings help clarify the boundary between classical and quantum correlations in optical systems.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Exploring the boundary between classical and nonclassical phenomena by investigating whether antibunching effects can be observed using classical thermal light.
+
+**Main result.** The researchers demonstrated that antibunching can be observed with thermal light in a Hanbury Brown-Twiss interferometer by utilizing single-photon detectors as photon-number-resolving detectors for photon-number projection measurements.
+
+**Method.** The study uses a Hanbury Brown-Twiss interferometer setup and treats single-photon detectors as photon-number-resolving detectors to perform photon-number projection measurements on thermal and laser light.
+
+**Model / system.** A linear interferometer setup (Hanbury Brown-Twiss type) using thermal light and laser light as the input optical states.
+
+**Key observables.** Temporal and spatial antibunching via the correlation of two detectors detecting one and zero photons, respectively.
+
+**Important parameters / regimes.** Photon statistics of thermal light and photon-number projection measurement settings.
+
+**Assumptions / limitations.** The observation relies on the ability to treat single-photon detectors as photon-number-resolving detectors through projection measurements.
+
+**Paper structure.** The paper introduces the research motivation regarding classical vs nonclassical boundaries, describes the experimental demonstration of antibunching with thermal light, compares thermal and laser light results, and analyzes the classical and nonclassical nature of the observed effects.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Understanding the boundary between classical and nonclassical phenomena is important for both fundamental researches in quantum optics and applications in quantum information. One of the most interesting research directions in this field is exploring nonclassical effects with classical light. In this paper, we will show that it is possible to observe antibunching with thermal light in a Hanbury Brown-Twiss interferometer by treating single-photon detectors as photon-number-resolving detectors to perform photon-number projection measurements. Both temporal and spatial antibunching is observed via the correlation of two detectors detecting one and zero photon, respectively. By comparing the measured results of thermal and laser light, it is found that the observed antibunching arises from the combined effect of photon statistics of thermal light and photon-number projection measurement.The classical and nonclassical nature of the observed antibunching is analyzed. The results are helpful to understand the connection between classical and nonclassical correlation and may find applications in multiphoton interference and quantum imaging.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27328"></a>
+### [Semiclassical Ehrenfest paths in open quantum systems](http://arxiv.org/abs/2604.27328v1)
+
+**Authors:** Xiao-Kan Guo  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.27328v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `Keldysh / 2PI / non-Gaussian methods` **4/5** · 🔥 `methods for driven-dissipative` **4/5** · `non-equilibrium dynamics` **2/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27328_figures/2604.27328_fig1.jpg" width="500"><br>
+<sub>Figure 1: The position variance ⟨ˆx2⟩(t) = x(t)2 + σxx(t) for three cases: The quantum case with Dab = diag(2ℏλ, 0) (blue dotted line); the classical case with D = 0 (grey dotted line); the analytical quantum solution (red line). The choices of parameters are specified in the main text.</sub>
+
+</details>
+
+**Why it may be interesting.** It provides a rigorous microscopic link between quantum master equations and classical-like phase-space transport, offering a clear thermodynamic decomposition of work and heat in the context of decoherence.
+
+**Summary.** This paper develops a phase-space framework to describe the semiclassical evolution of open quantum systems using Gaussian mixtures. It successfully decomposes the dynamics of expectation values into reversible, coherent parts and irreversible, diffusive parts. This provides a transparent way to see how classical trajectories emerge from quantum dynamics subject to environmental noise.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Extending semiclassical Ehrenfest trajectories to open quantum systems to understand how classical trajectories emerge from dynamics involving dissipation and decoherence.
+
+**Main result.** The derivation of a Fokker-Planck equation for a Gaussian mixture that provides a phase-space interpretation of the generalized Ehrenfest theorem, separating dynamics into coherent (unitary) and irreversible (diffusive) components.
+
+**Method.** Uses a Gaussian mixture framework in an extended phase space, employing a Lagrangian description and a local harmonic approximation to derive a Fokker-Planck equation and its equivalent Itô stochastic differential equation.
+
+**Model / system.** Open quantum systems described by a Lindblad master equation, specifically validated using a 1D free particle with a quadratic Hamiltonian and linear Lindblad operators.
+
+**Key observables.** Expectation values of observables, position and momentum centroids, covariance matrices, and position variance.
+
+**Important parameters / regimes.** Coupling strength (lambda), mass (m), Planck's constant (hbar), and the 'not-too-squeezed' condition parameter (xi).
+
+**Assumptions / limitations.** Relies on the local harmonic approximation (truncating Weyl symbols to second order) and requires that Gaussian states do not become too squeezed.
+
+**Figures summary.** Figure 1 shows the evolution of position variance over time, comparing the analytical quantum solution, a quantum case with diffusion, and a classical comparison without environmental noise.
+
+**Paper structure.** The paper begins by deriving a Fokker-Planck equation for the mixing measure of a Gaussian mixture, then embeds the generalized Ehrenfest theorem into this phase-space picture, and concludes with a numerical validation using a free-particle model to demonstrate the split between coherent and diffusive dynamics.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We study the semiclassical Ehrenfest trajectories in open quantum systems. We first derive in explicit form the Fokker-Planck equation that governs the time evolution of the mixing measure for a Gaussian mixture. Then, we embed the generalized Ehrenfest theorem recently obtained for open quantum systems into this phase-space picture to study the time evolution of the expectations of observable with respect to the Gaussian mixture. We show how the coherent and irreversible contributions are microscopically separated. Our work provides a transparent phase-space interpretation of the emergence of classical trajectories in open quantum dynamics.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27943"></a>
+### [Adaptable Continuous Variable Quantum Network with Finite Size Security](http://arxiv.org/abs/2604.27943v1)
+
+**Authors:** Runjia Zhang, Akash nag Oruganti, Huy Q Nguyen, Adnan A. E. Hajomer, Vladyslav C. Usenko, Ulrik L. Andersen, Tobias Gehring  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.27943v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · `quantum measurements` **2/5** · `entanglement & information structure` **1/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27943_figures/2604.27943_fig1.jpg" width="500"><br>
+<sub>Fig. 1. (a) Trust assumptions of different broadcasting CV-QKD protocols in access CV-QKD network. Dashed areas indicate ele- ments that are not trusted under respective protocol. Under the trusted protocol quantum channels are not trusted, while users have a varying degree of trust between them. The collaborative protocol relies on measured results of other users to be kept private from Eve, while their detectors are not necessarily trusted. All non-reference Bobs are assumed to be fully a part of Eve in the untrusted protocol. (b) Per-user secret key rate as a function of channel loss for a multi-user CV-QKD network with uniform splitting among users. The solid curves correspond to the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27943_figures/2604.27943_fig2.jpg" width="500"><br>
+<sub>Fig. 2. A continuous variable quantum access network in action in the lab. (a) State preparation station comprises a signal laser, a digital-to-analog converter (DAC), an IQ modulator stabilized by an automatic bias controller (ABC), as well as a variable optical attenuator (VOA) and an isolator. (b) State distribution is assisted with a 1 : 4 splitter which splits the coherent states, forming a quantum broadcasting channel that connects N users while distributing quantum correlations evenly among them. The link consists of two segment, a 10 km fiber spool before the 1 : 4 splitter represent the communication backbone and at each output of the splitter represent last-mile connection to the...</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27943_figures/2604.27943_fig3.jpg" width="500"><br>
+<sub>Fig. 3. Finite-size secret key rates as a function of the total number of exchanged quantum signals for the different trust scenarios considered in the multi-user CV-QKD network. The solid curves correspond to the finite-size secret key rates, while the dashed horizontal lines indicate the corresponding asymptotic secret key rates. (Left) Trusted-user scenario, where non-reference users are assumed trusted and excluded from Eve’s system. (Middle) Collaborative (conditionally trusted) scenario, where auxiliary users publicly disclose their measurements to improve the effective correlations used for key extraction. (Right) Fully untrusted-user scenario, where all non-reference users are...</sub>
+
+</details>
+
+**Why it may be interesting.** The paper demonstrates advanced quantum optical control and signal processing for large-scale quantum communication, which is highly relevant to quantum optics and the development of scalable quantum networks.
+
+**Summary.** The researchers demonstrated a 1-to-4 continuous-variable quantum network that can adapt its security level based on whether users are trusted or untrusted. They successfully implemented finite-size security protocols, proving that high-rate quantum key distribution is practical for multi-user telecommunication infrastructures.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Scaling point-to-point CV-QKD to multi-user networks while maintaining practical finite-size security and addressing the 'overcounting' of correlations in broadcasting architectures.
+
+**Main result.** Experimental demonstration of an active 1:4 CV quantum network achieving a total secret key rate of 1.9e-1 bits/channel use with finite-size security over 11 km.
+
+**Method.** A unified security framework using chain-rule decomposition to attribute joint key rates to individual users across trusted, collaborative, and untrusted protocols, combined with DSP-based phase recovery.
+
+**Model / system.** An active 1:4 multi-user continuous-variable quantum network using a passive optical network (PON) topology with a 1:4 beam splitter, Gaussian-modulated coherent states, and fiber-optic links up to 11 km.
+
+**Key observables.** Secret key generation rate (bits/channel use), mutual information, and joint key rate decomposition.
+
+**Important parameters / regimes.** 1.25e9 exchanged coherent states (finite-size regime), 125 MBaud symbol rate, modulation variance V_M = 5 SNU, and reconciliation efficiency beta = 0.95.
+
+**Assumptions / limitations.** Security is analyzed under collective attacks; users are categorized into trusted, collaborative, or untrusted scenarios based on their relationship with the adversary (Eve).
+
+**Figures summary.** Figure 1 illustrates the 1:4 network topology and different trust modes; Figure 3 shows finite-size secret key rates versus the number of signals sent for the three security scenarios.
+
+**Paper structure.** The paper introduces the multi-user CV-QKD problem, describes the experimental setup and hardware, presents the theoretical security framework for different trust scenarios, reports experimental performance and key rate decomposition, and concludes with a comparison to existing protocols.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+In recent years, continuous-variable quantum key distribution (CV-QKD) has become a promising paradigm for enabling secure communication among multiple end users sharing the same telecommunication backbone. CV-QKD with reverse reconciliation naturally enables scalability from conventional point-to-point links to quantum access networks based on passive quantum broadcasting channels. Here, we report an experimental demonstration on an active $1:4$ multi-user CV quantum network (QN) in the finite-size regime. With $1.25\cdot10^9$ coherent states exchanged on each $11\text{km}$ quantum channel, the highest performance for secret key generation totaling $1.9\cdot10^{-1}$ bits/channel use. Furthermore, we investigate adaptable CV-QN protocols that comprehensively allow network operation in various security and key rates requirements of individual users. The results establish the practical security of CV-QN compatible with existing telecommunication for broad deployment, and allowing additional degree of freedom for connected end users in existing infrastructures.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.28155"></a>
+### [Optimal current-based sensing of phonon temperature using a finite reservoir](http://arxiv.org/abs/2604.28155v1)
+
+**Authors:** Sindre Brattegard, Stephanie Matern, Mark T. Mitchison, Saulo V. Moreira  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.28155v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `quantum measurements` **4/5** · `non-equilibrium dynamics` **3/5** · `Kondo & dissipative impurity` **2/5** · `methods for driven-dissipative` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.28155_figures/2604.28155_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Sketch of the finite-size reservoir at stationary tem- perature and chemical potential, T and µ, coupled to a phonon bath at temperature Tph and to the quantum dot sys- tem. The finite reservoir is also coupled to the left infinite-size reservoir at temperature TL and µL, while the quantum dot is coupled to another infinite-size reservoir to its right, at tem- perature TR and chemical potential µR.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.28155_figures/2604.28155_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Sensitivity rate of the three thermometry schemes as a function of: (left column) phonon temperature and (right column) bias voltage. The top row has electron-phonon cou- pling with an exponent n = 5, while the bottom row has n = 3. The parameters used are TL = TR = 10Γ, Vb = 40Γ, σ = 300Γ/TL, and Vg = −10Γ. When n = 5, we use Σ = 1000σ/T 3 L, and when n = 3, we use Σ = 100σ/TL. In the right column, we set the phonon temperature to Tph = 8Γ.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.28155_figures/2604.28155_fig3.jpg" width="500"><br>
+<sub>FIG. 3. Optimised sensitivity rate over gate voltage as the phonon temperature Tph is varied. The inset shows the cor- responding optimal bias voltage. The parameters used are n = 5, TL = TR = 10Γ, Vb = 40Γ, σ = 300Γ/TL, and Σ = 1000σ/T 3 L. For these parameters, we have that ζ = 300, and ξ ≫1, provided the phonon temperature is sufficiently large, i.e., Tph ≳TL/3.</sub>
+
+</details>
+
+**Why it may be interesting.** It provides new insights into parameter estimation in non-equilibrium steady states and demonstrates how the thermodynamic properties of finite environments can be leveraged for high-precision sensing in open quantum systems.
+
+**Summary.** This paper investigates how the temperature changes in a finite electronic reservoir due to heat exchange with a phonon bath can be used for precise thermometry. It compares different current-based measurement strategies and proves that monitoring individual electron tunneling events is the most optimal method. The findings offer a way to enhance sensing precision in nanoscale transport devices by tuning experimental parameters like gate voltage.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Developing high-precision thermometry for phonon temperatures in nanoscale transport setups by exploiting the finite heat capacity of electronic reservoirs.
+
+**Main result.** The study identifies that monitoring individual electron jumps (Strategy I) achieves optimal precision for sensing phonon temperature, and provides an optimization analysis for tuning gate voltage to maximize sensitivity.
+
+**Method.** The authors combine current metrology techniques with a thermodynamic framework for finite reservoirs, using Fisher information and the Cramér-Rao bound to evaluate different measurement strategies.
+
+**Model / system.** A quantum dot coupled to a finite-size electronic reservoir, which is itself coupled to a phonon bath and an infinite electronic reservoir, described by a master equation in the weak coupling regime.
+
+**Key observables.** Monitoring quanta exchanged between the QD and finite reservoir, net particle current through the QD, and QD occupation.
+
+**Important parameters / regimes.** Electron-phonon coupling exponent (n=3, 5), coupling strengths (xi, zeta), bias voltage (Vb), and gate voltage (Vg).
+
+**Assumptions / limitations.** Weak coupling regime (Gamma << T), large but finite reservoir, fast internal thermalization (quasiequilibrium), and energy-independent transmission.
+
+**Figures summary.** Figure 1 shows the experimental setup schematic; Figure 2 displays sensitivity rates as a function of parameters, vanishing at the chemical potential/energy level equality; Figure 3 shows optimization of sensitivity rates via gate voltage tuning.
+
+**Paper structure.** The paper introduces the problem of finite reservoir thermometry, defines the physical model and transport dynamics, evaluates three measurement strategies using Fisher information, performs an optimization analysis for gate voltage, and provides analytical derivations for the steady-state reservoir properties.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+In realistic nanoscale transport set-ups, electron-phonon coupling leads to the exchange of heat between phonon baths and electronic reservoirs with finite heat capacities. Such exchange affects the finite reservoir's temperature. However, this sensitivity of the finite reservoir temperature to the exchange of heat with the finite reservoir has remained unexplored for thermometry. Here, we fill this gap by combining current metrology techniques with a thermodynamic framework encompassing finite reservoirs. We focus on an experimentally realizable set-up with a quantum dot coupled to a finite reservoir and consider two distinct current-based strategies in the long time limit, namely monitoring quanta exchanged between the quantum dot and finite reservoir and the measurement of the total current flowing from the quantum dot into an infinite reservoir. A third strategy involves measurements of the quantum dot occupation. For a large but finite reservoir, we show that the Fisher information for all three strategies captures the finite reservoir's contribution to sensitivity through common factors. We also demonstrate that monitoring quanta exchanged between the system and finite reservoir in the long time limit achieves optimal precision. Finally, we provide an optimization analysis that explores how maximal precision can be achieved within each of the current-based strategies by tuning the gate voltage.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.28121"></a>
+### [Quantum Lattice Boltzmann Solutions for Transport under 3D Spatially Varying Advection on Trapped Ion Hardware](http://arxiv.org/abs/2604.28121v1)
+
+**Authors:** Sayonee Ray, Jezer Jojo, Jason Iaconis, Abeynaya Gnanasekaran, Apurva Tiwari, Martin Roetteler, Chris Hill, Jay Pathak  
+**Type:** both · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.28121v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · `quantum measurements` **3/5** · `entanglement & information structure` **2/5** · `non-equilibrium dynamics` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.28121_figures/2604.28121_fig1.jpg" width="500"><br>
+<sub>Fig. 1. QLBM pipeline used in this work. We efficiently encode the initial density distribution and velocity field into quantum operators. The MPS state preparation, streaming and collision operations are then performed within the quantum circuit. An error detection gadget using ancilla qubits is also applied. The output density is reconstructed using three potential methods described in the text: kernel density estimation, MPS smoothing, and MPS shadow tomography.</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.28121_figures/2604.28121_fig2.jpg" width="500"><br>
+<sub>Fig. 2. Top: Reconstructed 3D density distribution from the QPU at t = 1 and t = 3, together with the absolute error relative to the exact solution. Bottom: Fidelity, |⟨ϕ|ψ⟩|2, for the ideal simulation and QPU runs. The simulation includes only finite-shot error, whereas the QPU data also include hardware noise.</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.28121_figures/2604.28121_fig3.jpg" width="500"><br>
+<sub>Fig. 3. (Top) Infidelity of MPS compression of ideal statevector during 3D swirl evolution for a 32×32×32 grid. (Bottom) Infidelity vs bond dimension at different grid sizes at times where the infidelity of the respective MPS approximation is highest during the evolution. Large grid density distributions were determined using exact classical simulations.</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.28121_figures/2604.28121_fig4.jpg" width="500"><br>
+<sub>Fig. 4. Fidelity |⟨ψ|ϕ⟩|2 of ideal simulation with KDE (top) and MPS smoothing (bottom) techniques with statevector simulation on a 163 grid.</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.28121_figures/2604.28121_fig5.jpg" width="500"><br>
+<sub>Fig. 5. Effect of KDE and MPS smoothing techniques on a 83 state after 1 time step on the Tempo class Barium system, visualized as a 1D function here. We plot only the first half for better visualization.</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.28121_figures/2604.28121_fig6.jpg" width="500"><br>
+<sub>Fig. 7. Fidelity | ⟨ψ| ϕ⟩|2 on IonQ Forte-1 QPU with shadow MPS (solid lines) with M = 25 settings, 20K shots total vs. direct state tomography with MPS smoothing (dashed lines) on a 16×16×16 grid. Blue circle and purple squares show results without and with KDE smoothing respectively.</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.28121_figures/2604.28121_fig7.jpg" width="500"><br>
+<sub>Fig. 6. Fidelity | ⟨ψ| ϕ⟩|2 of ideal simulation with different number of shots with shadow MPS (solid lines) with M = 25 settings and direct state tomography with MPS smoothing (dashed lines) on a 16 × 16 × 16 grid. Shadow MPS outperforms even with a limited budget of 1,000 shots.</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.28121_figures/2604.28121_fig8.jpg" width="500"><br>
+<sub>Fig. 8. Fidelity | ⟨ψ| ϕ⟩|2 on the IonQ Forte-1 noisy simulator with shadow MPS (solid line) with M = 50 settings, 50K shots total vs. direct state tomography with MPS smoothing (dashed line) on a 32×32×32 grid. Results with noisy simulator with (green triangles) and without (purple squares) KDE smoothing are shown. Ideal simulation results (blue circles) with the same number of shots are also shown for reference.</sub>
+
+</details>
+
+<details><summary>📷 Fig 9</summary>
+
+<img src="2604.28121_figures/2604.28121_fig9.jpg" width="500"><br>
+<sub>Fig. 10. Simulation of D2Q5 advection-diffusion on a 32 × 32 grid with velocity field ⃗u(x, y) = (sin(2πy/L)/3, 0), and walls at y = 0 and y = 31</sub>
+
+</details>
+
+<details><summary>📷 Fig 10</summary>
+
+<img src="2604.28121_figures/2604.28121_fig10.jpg" width="500"><br>
+<sub>Fig. 9. Relative error of the computed Hadamard transform of the flattened L × L × L discretization of the field 1 + sin(2πx) sin(2πy) sin(2πz) for different values of K and L. We compare both the interpolated FWHT outlined in Algorithm 2 as well as a coarse version of the standard Hadamard transform that applies H⊗K since their asymptotic runtimes are comparable.</sub>
+
+</details>
+
+**Why it may be interesting.** It demonstrates a practical application of quantum algorithms (QLBM) on real trapped-ion hardware and introduces advanced reconstruction techniques like Shadow-MPS tomography which are highly relevant to many-body state characterization.
+
+**Summary.** This paper presents an advancement in using quantum computers to simulate fluid dynamics through the Quantum Lattice Boltzmann Method. It introduces efficient ways to handle complex 3D flows and boundary conditions while proposing a scalable readout method using classical shadows to overcome hardware noise and measurement bottlenecks.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Advancing the Quantum Lattice Boltzmann Method (QLBM) for realistic 3D fluid dynamics simulations by addressing spatially varying velocity fields, wall boundary conditions, and the readout bottleneck on NISQ hardware.
+
+**Main result.** Demonstrated 3D spatially varying transport on IonQ trapped-ion hardware, showing that Shadow-MPS tomography significantly outperforms direct histogram reconstruction in scalability and noise robustness.
+
+**Method.** Implementation of a QLBM pipeline using MPS-based state preparation, streaming and collision operators, and a novel Shadow-MPS tomography approach using randomized single-qubit measurements.
+
+**Model / system.** The study uses the D3Q7 Lattice Boltzmann model for advection-diffusion on IonQ's trapped-ion systems, specifically the Forte generation and a 64-qubit Barium development system.
+
+**Key observables.** Particle density distribution (scalar field) and reconstruction fidelity relative to the exact solution.
+
+**Important parameters / regimes.** Grid sizes ranging from 8^3 to 32^3, relaxation time tau = 1, and measurement shot counts ranging from 1k to 50k.
+
+**Assumptions / limitations.** Assumes a smooth velocity field to utilize an interpolated Fast Walsh-Hadamard Transform and uses the BGK approximation for collision dynamics.
+
+**Figures summary.** Figure 1 shows the QLBM pipeline and reconstruction methods; Figure 2 displays 3D density reconstruction and fidelity; Figure 3 shows MPS compression infidelity; Figure 5 illustrates KDE and MPS smoothing; Figure 9 shows the accuracy of the interpolated FWHT; Figure 11 shows 3D species diffusion around a solid cube.
+
+**Paper structure.** The paper introduces the QLBM framework, details the implementation of spatially varying velocity fields and boundary conditions, presents the new Shadow-MPS tomography method, evaluates performance on IonQ hardware, and discusses scaling and future integration into CFD workflows.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+The Quantum Lattice Boltzmann Method (QLBM) has emerged as one of the most promising quantum computing approaches for the numerical simulation of problems in computational fluid dynamics (CFD). The dynamics is formulated in terms of mesoscopic particle distribution functions governed by a discrete Boltzmann transport equation, comprising local streaming and collision operations. In this work, the resulting macroscopic behavior corresponds to the advection-diffusion equation, which we adopt as a canonical model problem for transport phenomena. Building upon recent progress in QLBM implementations, we advance towards more realistic problem settings that better reflect conventional CFD requirements. We address, for the first time, transport under the action of non uniform velocity fields on quantum hardware. We implement our demonstration using IonQ's trapped-ion systems including Forte generation systems and a 64-qubit Barium development system similar to the forthcoming IonQ Tempo line. We identify the density readout and subsequent reloading of the fluid density as a potential bottleneck of the current algorithm and discuss several approaches to mitigate this bottleneck. We identify the use of MPS shadow tomography as a promising method to efficiently scale the readout to large system with complex density distributions. Lastly, we introduce and simulate a novel method to implement wall boundaries for advection-diffusion in QLBM, and discuss the prospects of scaling to higher-complexity problems.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.27299"></a>
+### [High-Rate Free-Space Continuous-Variable QKD with Self-Referenced Passive State Preparation](http://arxiv.org/abs/2604.27299v1)
+
+**Authors:** H. W. Yin, X. J. Liao, Y. H. Xu, P. Huang, K. T. Zhu, T. Wang, G. H. Zeng  
+**Type:** experiment · **Category:** quantum information and computing · **PDF:** <https://arxiv.org/pdf/2604.27299v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `QC/QI experiment` **4/5** · 🔥 `quantum optics experiment` **4/5** · `quantum measurements` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.27299_figures/2604.27299_fig1.jpg" width="500"><br>
+<sub>Figure 1: Schematic of LLO-PSP-CVQKD theory. In a thermal source, photons at different energy</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.27299_figures/2604.27299_fig2.jpg" width="500"><br>
+<sub>Figure 2: Experimental schematic of LLO-PSP-CVQKD. BS1 and BS3: 99:1 beam splitter. BS2:</sub>
+
+</details>
+
+<details><summary>📷 Fig 3</summary>
+
+<img src="2604.27299_figures/2604.27299_fig3.jpg" width="500"><br>
+<sub>Figure 3: LLO-PSP-CVQKD optical layout. ASE, amplified spontaneous emission; BPF, bandpass</sub>
+
+</details>
+
+<details><summary>📷 Fig 4</summary>
+
+<img src="2604.27299_figures/2604.27299_fig4.jpg" width="500"><br>
+<sub>Figure 4: Spectra of the system at different nodes. (a) Spectra of the ASE source after bandpass</sub>
+
+</details>
+
+<details><summary>📷 Fig 5</summary>
+
+<img src="2604.27299_figures/2604.27299_fig5.jpg" width="500"><br>
+<sub>Figure 5: Complex power spectra (CPS) of the system at different nodes. (a) CPS of the Alice</sub>
+
+</details>
+
+<details><summary>📷 Fig 6</summary>
+
+<img src="2604.27299_figures/2604.27299_fig6.jpg" width="500"><br>
+<sub>Figure 5(a). Limited by the detection bandwidth of the ICR detector, the bandwidth of the thermal</sub>
+
+</details>
+
+<details><summary>📷 Fig 7</summary>
+
+<img src="2604.27299_figures/2604.27299_fig7.jpg" width="500"><br>
+<sub>Figure 6: Experimental results in a turbulence-free channel. (a) Time-varying transmittance in a</sub>
+
+</details>
+
+<details><summary>📷 Fig 8</summary>
+
+<img src="2604.27299_figures/2604.27299_fig8.jpg" width="500"><br>
+<sub>Figure 7: Experimental results under turbulent channels. (a) Mean excess noise and its composition,</sub>
+
+</details>
+
+**Why it may be interesting.** This work is highly relevant to quantum optics and open quantum systems due to its use of thermal state fluctuations for state preparation, the application of temporal-mode theory to continuous-time modes, and the management of decoherence-like effects (phase/frequency drift) in a turbulent channel.
+
+**Summary.** This paper demonstrates a high-rate CVQKD system that uses a local local oscillator and passive state preparation to overcome the noise and stability issues of transmitted local oscillators. By using a self-referenced pilot scheme, the authors achieved a high-speed secret key rate of over 10 Mbps even through significant atmospheric turbulence. This provides a practical pathway for robust, high-speed quantum communication in realistic free-space environments.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Existing Continuous-Variable Quantum Key Distribution (CVQKD) schemes using transmitted local oscillators suffer from high photon leakage noise and instability, making them unsuitable for high-loss free-space channels.
+
+**Main result.** The authors implemented a Local Local Oscillator (LLO) CVQKD system with self-referenced passive state preparation, achieving a record-high asymptotic secret key rate of 10.34 Mbps over a 23.5 dB loss free-space channel.
+
+**Method.** The researchers used a thermal light source (ASE) for passive state preparation and a self-referenced pilot scheme (beacon light) to implement high-precision frequency and phase compensation algorithms via digital signal processing.
+
+**Model / system.** The experimental platform consists of a thermal source (ASE) at Alice's side, a turbulent free-space channel, and a receiver (Bob) using a separate local laser. The system utilizes an Integrated Coherent Receiver (ICR) with 20 GHz bandwidth for heterodyne detection.
+
+**Key observables.** Secret key rate (SKR), excess noise (including PSP noise, frequency offset, and phase drift), channel transmittance, and signal-to-noise ratio (SNR).
+
+**Important parameters / regimes.** Repetition rate of 20 GHz, channel loss up to 23.5 dB, detection bandwidth of 20 GHz, and a thermal source with a second-order correlation function near 2.
+
+**Assumptions / limitations.** The demonstration is a proof-of-principle; the experiment used simplified coupling efficiency losses rather than full atmospheric complexity, and data processing was performed offline.
+
+**Figures summary.** Figure 1 shows the system schematic; Figure 2 details the experimental setup for Alice and Bob; Figure 3 shows the optical layout; Figure 5 displays complex power spectra before and after frequency correction; Figure 6 and 7 show transmittance, noise components, and key rate performance under turbulence.
+
+**Paper structure.** The paper introduces the challenge of CVQKD in free space, proposes a new LLO-PSP scheme, provides a theoretical proof of equivalence to GMCS protocols, describes the experimental setup and DSP algorithms, analyzes noise and key rates, and concludes with future outlooks.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+Continuous-variable quantum key distribution (CVQKD) using passive state preparation (PSP) offers low-cost, high-rate secure communication. However, the existing PSP-CVQKD scheme with a transmitted local oscillator has high photon leakage noise and poor stability, making it unsuitable for high-loss transmission. In this work, for the first time, we propose and implement a local local oscillator (LLO) CVQKD system using a self-referenced (SR) PSP scheme, and give a theoretical proof of the equivalence of the PSP and GMCS protocol using temporal-mode theory. By employing the novel self-referenced pilot scheme to achieve high-precision time-varying frequency and phase compensation algorithms, we significantly improve the system' s signal-to-noise ratio and stability. The system achieves a record-high asymptotic secret key rate of 10.34 Mbps over a free-space channel with up to 23.5 dB loss, while maintaining low excess noise and robust performance under turbulent conditions. This work establishes the feasibility of SR-LLO CVQKD, providing a practical pathway toward secure, high-rate quantum communication in realistic environments.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
+
+
+<a id="paper-2604.28117"></a>
+### [Strong Mpemba Effect Through a Reentrant Phase Transition](http://arxiv.org/abs/2604.28117v1)
+
+**Authors:** Kristian Blom, Doron Benyamin, Uwe Thiele, Oren Raz, Aljaz Godec  
+**Type:** theory · **Category:** statistical mechanics · **PDF:** <https://arxiv.org/pdf/2604.28117v1>  
+**Analysis basis:** full PDF text, analyzed in chunks
+**Topic relevance:** 🔥 `non-equilibrium dynamics` **4/5** · `driven-dissipative phase transition` **2/5** · `non-equilibrium universality` **2/5** · `scars & prethermalization` **2/5**
+
+<details open><summary>📷 Fig 1</summary>
+
+<img src="2604.28117_figures/2604.28117_fig1.jpg" width="500"><br>
+<sub>FIG. 1. Emergence of reentrant phase behavior with increasing coordination number. (a)–(c) Equilibrium values [Eq. (11)] of the staggered magnetization s, total magnetization m, and nearest-neighbor correlation q as functions of temperature T at fixed magnetic field H/z|J|=0.5 for z=3&lt;z∗≈5.14. Solid lines denote stable equilibria, dashed lines unstable ones. (d) Corresponding phase diagram in the (H, T) plane. The critical line (green) is monotonic and no reentrant phase transition is observed. (e)–(g) Equilibrium values of (s, m, q) for z=7&gt;z∗and H/z|J|=1.02. In contrast to z=3, the staggered magnetization is nonzero only within an intermediate temperature window. (h) Corresponding phase...</sub>
+
+</details>
+
+<details><summary>📷 Fig 2</summary>
+
+<img src="2604.28117_figures/2604.28117_fig2.jpg" width="500"><br>
+<sub>FIG. 2. Mpemba and inverse Mpemba effects across the reentrant regime and their spectral origin. (a) Displace- ment from equilibrium D(t) [Eq. (13)] for a cooling quench from Ti1 = 3 (paramagnetic phase) and Ti2 = 2 (antiferromagnetic phase) to Tf = 0.12 (paramagnetic phase). Although the quench from Ti2 starts closer to equilibrium, the relaxation curves cross at finite time, showing the Mpemba effect. Insets show the corresponding relaxation trajectories in the (m, s) plane, zoomed in around the trajectories; blue and red dots denote the initial states, and the black dot the final equilibrium. (b) Same protocol but with Tf and Ti2 interchanged, corresponding to a heating quench. The...</sub>
+
+</details>
+
+**Why it may be interesting.** This paper is highly relevant to many-body dynamics as it establishes a fundamental link between equilibrium phase topology (reentrance) and non-equilibrium relaxation anomalies (Mpemba effect) using spectral analysis of relaxation modes.
+
+**Summary.** The paper demonstrates that the strong Mpemba effect in an antiferromagnetic Ising model is driven by whether a temperature quench excites the system's slowest relaxation mode. This effect is specifically tied to the presence of reentrant phase transitions, which occur when the lattice coordination number is sufficiently high.
+
+<details><summary>Detailed structure</summary>
+
+**Main problem.** Investigating the origin of the strong direct and inverse Mpemba effects in the context of reentrant phase transitions.
+
+**Main result.** The strong Mpemba effect arises from the selective excitation of the slowest relaxation mode (staggered mode) during temperature quenches, a phenomenon linked to the non-monotonic phase boundaries found in systems with high coordination numbers.
+
+**Method.** The study uses the Bethe-Guggenheim (pair) approximation to derive macroscopic dynamical equations and employs spectral decomposition of the Jacobian matrix to analyze relaxation modes.
+
+**Model / system.** An antiferromagnetic Ising model on a Bethe lattice with a uniform magnetic field, governed by single-spin-flip Glauber dynamics.
+
+**Key observables.** Sublattice magnetizations (ma, mb), total magnetization (m), staggered magnetization (s), nearest-neighbor correlation (q), and excess free energy (D(t)).
+
+**Important parameters / regimes.** Temperature (T), magnetic field (H), coordination number (z), and exchange interaction (J).
+
+**Assumptions / limitations.** The results are based on the Bethe-Guggenheim pair approximation, which assumes nearest-neighbor pairs are randomly distributed and may not capture higher-order correlations.
+
+**Figures summary.** Figure 1 compares equilibrium order parameters and phase diagrams for low (z=3, monotonic) vs. high (z=7, reentrant) coordination numbers; Figure S1 shows the long-time decay of excess free energy for the inverse Mpemba protocol.
+
+**Paper structure.** The paper introduces the problem of anomalous relaxation, defines the Ising model and BG approximation, analyzes the equilibrium phase behavior (reentrance), derives the linearized dynamics and spectral properties, and concludes by linking the Mpemba effect to the existence of reentrant phase boundaries.
+
+</details>
+
+<details><summary>Abstract</summary>
+
+We investigate temperature quenches across the reentrant phase transition of the antiferromagnetic Ising model in a magnetic field and show that the strong direct and inverse Mpemba effects arise when quenches terminate in the paramagnetic phase. These anomalous relaxation phenomena originate from the selective excitation of the slowest relaxation mode, which in the paramagnetic phase is purely staggered. Consequently, quenches starting from the paramagnetic phase have zero overlap with the slow mode and exhibit a strong (inverse) Mpemba effect. Quenches from the antiferromagnetic phase excite the staggered mode and display a slow-relaxation tail. By varying the lattice coordination number we show that the strong Mpemba effect disappears in the absence of reentrance. Our results provide the first demonstration of the strong (inverse) Mpemba effect in the antiferromagnetic Ising model based on the pair-approximation, and establish a link between anomalous relaxation and the equilibrium phase behavior.
+
+</details>
+
+<sub>[↑ back to top](#top)</sub>
