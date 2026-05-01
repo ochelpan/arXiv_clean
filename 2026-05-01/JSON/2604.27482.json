@@ -1,0 +1,106 @@
+{
+  "arxiv_id": "2604.27482",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Finite Imaginary-Time Evolution for Polynomial Unconstrained Binary Optimization",
+  "authors": "Jaehee Kim, Juhyeon Kim, Gwonhak Lee, Kyunghyun Baek, Daniel K. Park, Jeongho Bang, Joonsuk Huh",
+  "abstract": "Imaginary-time evolution is a standard primitive for ground-state preparation but is nonunitary, precluding direct quantum implementation. We develop Finite Imaginary-Time Evolution (FinITE), a finite-beta construction for diagonal Pauli-Z cost Hamiltonians arising from polynomial unconstrained binary optimization (PUBO) instances, including QUBO and HUBO cases. FinITE uses the linear-combination-of-unitaries (LCU) framework to implement a scaled imaginary-time propagator. The commuting Pauli-Z structure makes termwise block-encodings compose without product-formula error, and higher-order Pauli-Z terms are handled directly without quadratization. The structure yields an exact finite-beta identity between the LCU success probability and the ground-subspace fidelity. Combined with a gap-based fidelity lower bound, the identity yields a closed-form sufficient imaginary-time threshold beta-star for a chosen target fidelity. The threshold depends on estimates of the spectral gap and the initial ground-subspace overlap. Because the LCU success event is flagged by a known ancilla outcome, we integrate fixed-point amplitude amplification with an explicit query-complexity bound. Statevector simulations verify the identity on a five-vertex MaxCut (QUBO) and an eight-qubit cubic HUBO instance, and shot-based simulations on the MaxCut instance illustrate the predicted finite-beta threshold and amplification procedure.",
+  "url": "http://arxiv.org/abs/2604.27482v1",
+  "pdf": "https://arxiv.org/pdf/2604.27482v1",
+  "type": "theory",
+  "summary": "This paper presents a new method called FinITE for performing finite imaginary-time evolution on quantum computers to solve optimization problems. It provides an analytical way to choose the optimal evolution time to guarantee a specific ground-state fidelity while controlling the computational cost of amplitude amplification. The method is particularly efficient for higher-order optimization problems as it avoids the need for complex quadratization.",
+  "main_problem": "Implementing non-unitary imaginary-time evolution (ITE) on quantum hardware for solving optimization problems, specifically managing the trade-off between ground-state fidelity and the success probability of the LCU implementation.",
+  "main_result": "The authors derive an exact identity relating LCU success probability and ground-subspace fidelity, providing a closed-form rule for choosing an optimal finite imaginary time beta-star to achieve target fidelity.",
+  "method": "The FinITE algorithm uses the Linear Combination of Unitaries (LCU) framework for termwise block-encoding of commuting Pauli-Z strings, combined with Fixed-Point Amplitude Amplification (FPAA) to boost success probability.",
+  "model_or_system": "Polynomial Unconstrained Binary Optimization (PUBO) problems, including QUBO and HUBO, represented by diagonal Pauli-Z cost Hamiltonians consisting of pairwise-commuting terms.",
+  "key_observables": "Ground-subspace fidelity (Fg), LCU success probability (PLCU), and the spectral gap (Delta).",
+  "important_parameters": "Imaginary time (beta), initial ground-subspace overlap (gamma_0), L1-norm of Pauli coefficients (W), and the spectral gap (Delta).",
+  "main_assumptions": "The Hamiltonian must consist of pairwise-commuting Pauli terms (diagonal PUBO case), and the initial state must have a non-zero overlap with the ground subspace.",
+  "figures_summary": "Simulations verifying the exponential decay identity of the success-fidelity product, comparisons of different initial state warm-starts, and the performance of FPAA in amplifying success probability.",
+  "paper_structure": "The paper introduces the FinITE algorithm, establishes the mathematical framework for LCU-based ITE, proves the exact spectral identity and the beta-selection rule, provides a complexity analysis for gate counts and queries, and validates the theory via statevector and shot-based simulations on QUBO and HUBO instances.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.27482_figures/2604.27482_fig1.jpg",
+      "caption": "Figure 1: Five-vertex MAX-CUT test graph with |E| = 5 edges. The curve indicates one of the three optimal cuts (six ground-state labelings counting partition complements); the graph is non-bipartite, so no cut separates every edge. The five edges {(0, 1), (0, 2), (1, 2), (2, 3), (3, 4)} combine a triangle on {0, 1, 2} with a path 2–3–4.",
+      "page": 12
+    },
+    {
+      "image": "2604.27482_figures/2604.27482_fig2.jpg",
+      "caption": "Figure 2: Identity validation on the 5-vertex MAX-CUT instance with |ψ0⟩= |+⟩⊗5. Green circles: simulated PLCU(β) Fg(β); solid line: closed-form prediction (3/16) e−4β. Blue squares: PLCU(β); red triangles: Fg(β). Maximum relative error is 1.3 × 10−14, near the double-precision roundoff level.",
+      "page": 13
+    },
+    {
+      "image": "2604.27482_figures/2604.27482_fig3.jpg",
+      "caption": "Figure 3: Simulation results of MAX-CUT without amplitude amplification. (a) LCU success probability PLCU(β). (b) Conditional ground-subspace fidelity Fg(β), the probability of finding the system in the ground subspace given that the LCU succeeded.",
+      "page": 14
+    },
+    {
+      "image": "2604.27482_figures/2604.27482_fig4.jpg",
+      "caption": "Figure 4: Simulation results with varying query complexities L. (a) FPAA-amplified LCU success prob- ability P (L) amp(β). (b) Ground-subspace preparation probability P (L) g (β) = P (L) amp(β) Fg(β) for different L, i.e., the joint probability of amplified LCU success and being in the ground subspace.",
+      "page": 14
+    },
+    {
+      "image": "2604.27482_figures/2604.27482_fig5.jpg",
+      "caption": "Fig. 4 turns on FPAA at varying β across multiple query complexities L and tracks, as β is swept from 0 to 2, both (a) the amplified LCU success probability P (L) amp(β) and (b) the ground-subspace preparation probability P (L) g (β) = P (L) amp(β) Fg(β), defined as the",
+      "page": 14
+    },
+    {
+      "image": "2604.27482_figures/2604.27482_fig6.jpg",
+      "caption": "Figure 5: Identity check on the weighted HUBO instance Eq. (26) with uniform initial state |+⟩⊗8. Green circles: simulated PLCU(β)Fg(β); solid line: closed-form prediction (1/32) e−9.6β. Blue squares: PLCU(β); red triangles: Fg(β). Maximum relative error across the swept β is 1.2 × 10−12, at the double-precision floating-point limit.",
+      "page": 16
+    },
+    {
+      "image": "2604.27482_figures/2604.27482_fig7.jpg",
+      "caption": "Fig. 5 displays the identity check for the uniform regime: the simulated product matches the closed-form prediction across β ∈[0, 3] with maximum relative error 1.2 × 10−12. Because the statevector simulator uses exact expectation values rather than finite- shot sampling, no shot noise enters; the agreement validates Eq. (16) as an equality rather than an approximation. Fig. 6 sweeps the initial state. All three regimes follow the theory envelope γ0 e−9.6β: the exponent W + E0 = 4.8 is common across regimes, while γ0 scales the prefactor by roughly an order of magnitude between uniform and strong warm-start. This separation is the one implied by Proposition 1 and illustrates the role of γ0...",
+      "page": 16
+    },
+    {
+      "image": "2604.27482_figures/2604.27482_fig8.jpg",
+      "caption": "Figure 6: Initial-state dependence on the HUBO Hamiltonian Eq. (26). The three regimes—uniform (γ0 ≈0.031), warm start at p = 0.60 (γ0 ≈0.041), and warm start at p = 0.85 (γ0 ≈0.29)—produce parallel envelopes γ0 e−9.6β with common slope −2(W +E0) = −9.6; the prefactor is the initial overlap γ0.",
+      "page": 17
+    },
+    {
+      "image": "2604.27482_figures/2604.27482_fig9.jpg",
+      "caption": "Figure 8: Quantum circuit for fixed-point amplitude amplification. A prepares the initial state |s⟩= A|0⟩⊗n; U is the good-subspace phase oracle (realized via phase kickback from a bit-flip ancilla oracle, with the ancilla prepared in |−⟩); Zθ is a z-axis rotation. Adapted from Ref. [17].",
+      "page": 24
+    },
+    {
+      "image": "2604.27482_figures/2604.27482_fig10.jpg",
+      "caption": "Figure 9: Quantum circuit for a multi-controlled double NOT gate. The gate decomposes into two CNOT gates and one multi-controlled NOT gate.",
+      "page": 28
+    }
+  ],
+  "figure": "2604.27482_figures/2604.27482_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

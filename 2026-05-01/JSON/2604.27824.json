@@ -1,0 +1,91 @@
+{
+  "arxiv_id": "2604.27824",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Compressed Sensing for Efficient Fidelity Estimation of GHZ States",
+  "authors": "Farrokh Labib, David Nicholaeff, Vincent Russo, William J. Zeng",
+  "abstract": "Accurately characterizing multipartite entangled states is a critical challenge in quantum information processing. In this work, we focus on applying compressed sensing techniques to efficiently estimate the fidelity of Greenberger-Horne-Zeilinger (GHZ) states. By exploiting the inherent sparsity of these states, our compressed sensing protocol drastically reduces the measurement overhead traditionally required for state verification while maintaining high accuracy. To evaluate the practical performance of this approach, we test the protocol on GHZ states using both quantum simulators and Quantinuum's trapped-ion hardware. Furthermore, we implement error detection techniques during our hardware evaluations, demonstrating the robustness and viability of compressed sensing for fidelity estimation in noisy experimental environments.",
+  "url": "http://arxiv.org/abs/2604.27824v1",
+  "pdf": "https://arxiv.org/pdf/2604.27824v1",
+  "type": "both",
+  "summary": "This paper introduces a compressed sensing approach to drastically reduce the number of measurements needed to verify the fidelity of large GHZ states. By treating the parity signal as sparse, the method achieves logarithmic scaling with system size. The protocol is validated on both simulators and real trapped-ion hardware, demonstrating robustness through integrated error detection and mitigation.",
+  "main_problem": "Efficiently estimating the fidelity of large-scale multipartite GHZ states while overcoming the prohibitive measurement overhead of standard tomography and the high sampling requirements of traditional methods.",
+  "main_result": "The proposed compressed sensing protocol achieves a logarithmic scaling of measurement overhead (M proportional to log N) and maintains high accuracy in reconstructing the parity oscillation signal, even in noisy hardware environments.",
+  "method": "Compressed sensing is applied to the parity oscillation signal in the Discrete Cosine Transform (DCT) basis, combined with a flag qubit strategy for error detection and readout error mitigation (REM) for bias correction.",
+  "model_or_system": "The study focuses on N-qubit GHZ states prepared via a logarithmic-depth binary tree circuit, evaluated using both quantum simulators and Quantinuum's trapped-ion hardware (H2-1).",
+  "key_observables": "Fidelity (F), population (P), coherence (C), parity oscillation signal P(phi), and phase offset (theta).",
+  "important_parameters": "Number of qubits (N), number of measurement samples (M), coverage ratio of flag qubits, and error rates (single-qubit p1q and two-qubit p2q).",
+  "main_assumptions": "Assumes all-to-all connectivity for effective flag qubit placement and assumes the parity signal is sparse in the DCT basis.",
+  "figures_summary": "Figure 1 shows the binary tree structure and flag qubit coverage; Figure 2 shows the bounded error of coherence estimation; Figure 3 shows the success probability of frequency recovery vs. number of samples; Figure 4 and 5 demonstrate the impact of flag qubits on population and rotated fidelity.",
+  "paper_structure": "The paper introduces the GHZ fidelity problem, describes the compressed sensing and flag qubit methodology, presents numerical simulations, details hardware implementation on trapped-ion systems, and discusses error mitigation strategies.",
+  "why_interesting": "This work is highly relevant for researchers in open quantum systems and quantum optics as it addresses the practical challenges of verifying entanglement in the presence of noise and provides scalable protocols for characterizing many-body states.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.27824_figures/2604.27824_fig1.jpg",
+      "caption": "FIG. 1. Binary tree of depth four. The two red leaf nodes are the qubits we use for a parity check, and the paths to their least common ancestor (following the CNOTs) are highlighted in red too. In this case, using just one parity check covers 46.67% of the qubits.",
+      "page": 3
+    },
+    {
+      "image": "2604.27824_figures/2604.27824_fig2.jpg",
+      "caption": "FIG. 2. Left: Verification of the compressed sensing estimation. The plot shows the median (red line) absolute error |Cest − Cexact| and 95th percentile (green dashed line) error, confirming high accuracy across all system sizes. The blue points represent individual trial errors. Right: Coherence estimation of a fixed-size GHZ state as a function of the number of chosen random angles. The plot shows the median absolute error |Cest −Cexact| (red line), the 95th percentile (green dashed line), and the range 5th-95th percentile error.",
+      "page": 5
+    },
+    {
+      "image": "2604.27824_figures/2604.27824_fig3.jpg",
+      "caption": "FIG. 3. Success probability of recovering the correct frequency component n = N as a function of random samples M. The vertical line indicates the heuristic threshold 15, beyond which the recovery rate approaches 100%.",
+      "page": 6
+    },
+    {
+      "image": "2604.27824_figures/2604.27824_fig4.jpg",
+      "caption": "FIG. 4. Simulation results for N = 10 GHZ state preparation under depolarizing and thermal noise. The plot shows the estimated fidelity as a function of the number of flag qubits used. Annotation labels indicate the coverage ratio. We observe a clear monotonic increase in population, coherence, and fidelity estimates as more flag qubits are added, confirming that the protocol effectively detects and filters out errors propagating through the circuit.",
+      "page": 7
+    },
+    {
+      "image": "2604.27824_figures/2604.27824_fig5.jpg",
+      "caption": "FIG. 5. Simulation results for N = 26 GHZ state preparation using Quantinuum H2-1 Emulator with noise. The plot shows the estimated fidelity as a function of the number of flag qubits used. We used 20 random angles at which we sample. The coverage ratio for several flags can be found at the top of the figure. We observe a clear monotonic increase in population and rotated fidelity estimates as more flag qubits are added. However, the standard fidelity is decreasing for which the reason is the increasing phase offset θ, due to unwanted rotations. We have also applied dynamic decoupling (DD).",
+      "page": 7
+    },
+    {
+      "image": "2604.27824_figures/2604.27824_fig6.jpg",
+      "caption": "FIG. 6. Estimated fidelity of the 50 qubit standard and rotated GHZ state on the H2 Quantinuum device. We used 1000 shots on each parity oscillation circuit. We used 19 random angles at which we sample. The error bars are quite wide as a result of low number of shots to reduce cost. No error mitigation has been applied here.",
+      "page": 8
+    },
+    {
+      "image": "2604.27824_figures/2604.27824_fig7.jpg",
+      "caption": "FIG. 7. Comparison of QEM techniques on the Quantinuum H2-2E emulator for 25-qubit GHZ state preparation with com- pressed sensing verification. The estimated fidelity is shown as a function of the number of flag qubit pairs (k ∈{0, 2, 4}) for four configurations: unmitigated, REM only (analytical correction with pro = 0.2%), DD only, and REM+DD. REM provides the largest improvement by correcting measurement bias in both population and coherence estimates. DD shows a modest effect on the emulator, consistent with the emulator’s noise model having limited idle-time dephasing. The combination REM+DD yields the highest fidelities across all configurations.",
+      "page": 9
+    }
+  ],
+  "figure": "2604.27824_figures/2604.27824_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

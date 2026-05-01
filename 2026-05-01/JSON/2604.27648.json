@@ -1,0 +1,109 @@
+{
+  "arxiv_id": "2604.27648",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.stat-mech",
+    "cond-mat.str-el",
+    "hep-th"
+  ],
+  "is_primary_archive": true,
+  "title": "Effective Noise Mitigation via Quantum Circuit Learning in Quantum Simulation of Integrable Spin Chains",
+  "authors": "Wenlong Zhao, Yimeng Zhang, Yan Guo, Yufan Cui, Zhuohang Wang, Rui-Dong Zhu",
+  "abstract": "We propose a noise-mitigation quantum simulation strategy for near-term quantum devices based on Quantum Circuit Learning (QCL), which is in particular effective for integrable quantum spin chains. The method trains a shallow variational circuit to approximate a deeper time-evolution circuit by learning the conserved charges and only a small amount of dynamical information in the system. Under realistic noise models, the learned circuit maintains both conserved quantities and dynamical observables significantly closer to their true values than the noisy simulation of the original circuit. This demonstrates QCL as an effective, physics-informed error mitigation strategy, producing shorter, more robust circuits without exponential sampling overhead.",
+  "url": "http://arxiv.org/abs/2604.27648v1",
+  "pdf": "https://arxiv.org/pdf/2604.27648v1",
+  "type": "theory",
+  "summary": "The paper proposes using Quantum Circuit Learning to replace deep, noisy quantum simulation circuits with shallower, learned versions. By training the circuit to respect the conserved charges of integrable spin chains, the method significantly reduces the impact of hardware noise. This approach allows for more robust and accurate simulation of long-time dynamics on near-term quantum hardware.",
+  "main_problem": "Mitigating hardware noise (decoherence and gate infidelity) in the quantum simulation of integrable spin chains on NISQ devices.",
+  "main_result": "Quantum Circuit Learning (QCL) can produce shallower, noise-resilient circuits that effectively preserve conserved charges and dynamical observables compared to the original deep, noisy circuits.",
+  "method": "A machine learning framework where a shallow variational circuit is trained to approximate a deeper time-evolution operator by leveraging conserved charges and a small amount of dynamical information as training signals.",
+  "model_or_system": "Integrable quantum spin chains, specifically the XXX Heisenberg model, studied for two-qubit and three-qubit systems.",
+  "key_observables": "Conserved charges (total magnetization Z_tot, SU(2) generators, Hamiltonian H) and dynamical observables (expectation values like <Z1>, <X1>, <Y1>).",
+  "important_parameters": "Circuit depth (D and d), noise probability (p), coupling constant (J), and number of qubits (L).",
+  "main_assumptions": "The method relies on the existence of conserved charges (integrability) and assumes a sufficiently small time step for the Trotterized approximation.",
+  "figures_summary": "Figures compare predictions of learned circuits vs. true data, demonstrate accuracy improvements across different circuit depths, and show the suppression of noise-induced decay in conserved quantities under various noise models (bit-flip, depolarizing, amplitude, and phase damping).",
+  "paper_structure": "The paper introduces the noise mitigation problem, proposes the QCL strategy using integrability, details the circuit architecture and training process, presents numerical results for L=2 and L=3 systems under various noise channels, and discusses scalability and future directions.",
+  "why_interesting": "This is highly relevant for many-body dynamics as it provides a physics-informed way to extend the reach of NISQ devices by using the inherent symmetries of integrable systems to combat decoherence.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.27648_figures/2604.27648_fig1.jpg",
+      "caption": "FIG. 1. Predictions from learned circuit (solid lines) compared with the original data for L = 2 and d = 15 (dashed lines). In particular, the data for ⟨X1⟩and ⟨Y1⟩were not taught to the circuit (n.b. in the quantum simulation, the first qubit is usually called qubit 0). The scaling factor a is optimized to aopt = 1.014819.",
+      "page": 5
+    },
+    {
+      "image": "2604.27648_figures/2604.27648_fig2.jpg",
+      "caption": "FIG. 2. Comparison of predictions for the training data, H, Ztot, and the dynamical observable ⟨Z1⟩at d = 4 using QCL with circuit depths D = 2 (solid lines) and D = 3 (dashed lines). Both setups achieve relatively good agreement with the training data, and give similar predictions.",
+      "page": 6
+    },
+    {
+      "image": "2604.27648_figures/2604.27648_fig3.jpg",
+      "caption": "FIG. 3. Comparison of predictions for the training data, H, Ztot, and the dynamical observable ⟨Z1⟩at d = 6 using QCL with circuit depths D = 2 and D = 3. The predictions of the D = 3 QCL circuit (dashed lines) are clearly better than those of D = 2 circuit, especially for ⟨Ztot⟩.",
+      "page": 6
+    },
+    {
+      "image": "2604.27648_figures/2604.27648_fig4.jpg",
+      "caption": "FIG. 4. Conserved Hamiltonian H at x = 0.3 under bit-flipping (p = 0.5%) and depolarizing (p = 1%) noise. The learned circuit closely follows the ideal curve, while the un- mitigated simulation quickly deviates as the time-evolution depth d increases.",
+      "page": 7
+    },
+    {
+      "image": "2604.27648_figures/2604.27648_fig5.jpg",
+      "caption": "FIG. 5. Hamiltonian H at x = 0.3 subjected to amplitude damping (p = 1%) and phase damping (p = 1%). The QCL-based noise mitigation effectively suppresses the degra- dation, keeping the predicted values close to the exact con- served quantity.",
+      "page": 7
+    },
+    {
+      "image": "2604.27648_figures/2604.27648_fig6.jpg",
+      "caption": "FIG. 6. Ztot at x = −0.3 under bit-flipping (p = 0.5%) and depolarizing (p = 1%) noise. Again, the learned circuit suc- cessfully limits the noise-induced errors, maintaining the con- served charge much closer to its ideal value than the original time-evolution circuit.",
+      "page": 7
+    },
+    {
+      "image": "2604.27648_figures/2604.27648_fig7.jpg",
+      "caption": "FIG. 8. Comparison of ⟨X2⟩as a function of x after d = 10 steps of time evolution between the ideal simulation (blue line for the original circuit, orange line for the prediction of QCL circuit) and the noisy simulation (green line for the original circuit, red line for the prediction of QCL circuit) with depo- larizing noise (p = 0.01).",
+      "page": 8
+    },
+    {
+      "image": "2604.27648_figures/2604.27648_fig8.jpg",
+      "caption": "FIG. 7. Total Z magnetization Ztot at x = −0.3 under ampli- tude and phase damping noise. The learned circuit preserves the constant theoretical value with high accuracy, whereas the unmitigated circuit exhibits a large systematic drift caused by noise.",
+      "page": 8
+    },
+    {
+      "image": "2604.27648_figures/2604.27648_fig9.jpg",
+      "caption": "FIG. 9. Comparison of ⟨Z2⟩as a function of x after d = 10 steps of time evolution between the ideal simulation (blue line for the original circuit, orange line for the prediction of QCL circuit) and the noisy simulation (green line for the original circuit, red line for the prediction of QCL circuit) with bit- flipping noise (p = 0.005).",
+      "page": 8
+    },
+    {
+      "image": "2604.27648_figures/2604.27648_fig10.jpg",
+      "caption": "FIG. 11. Comparison of ⟨X1⟩as a function of x after d = 10 steps of time evolution between the ideal simulation (blue line for the original circuit, orange line for the prediction of QCL circuit) and the noisy simulation (green line for the original circuit, red line for the prediction of QCL circuit) with phase damping noise (p = 0.01).",
+      "page": 9
+    }
+  ],
+  "figure": "2604.27648_figures/2604.27648_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  }
+}

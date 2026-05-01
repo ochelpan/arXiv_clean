@@ -1,0 +1,87 @@
+{
+  "arxiv_id": "2604.27153",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR"
+  ],
+  "is_primary_archive": true,
+  "title": "Formulating Subgroup Discovery as a Quantum Optimization Problem for Network Security",
+  "authors": "Samuel Spell, Chi-Ren Shyu",
+  "abstract": "While current network intrusion detection systems achieve satisfactory accuracy, they often lack explainability. Subgroup Discovery (SD) addresses this by building interpretable rules that characterize feature interactions associated with attack traffic. With large datasets, classical heuristic beam search methods struggle with exponentially scaling search spaces and can prune critical multi-feature interactions. This paper introduces a quantum-enhanced pipeline for SD applied to network intrusion detection using NSL-KDD, formulating SD as quantum optimization for the first time. By encoding feature selection as a Quadratic Unconstrained Binary Optimization (QUBO) and solving it via the Quantum Approximate Optimization Algorithm (QAOA) on IBM Quantum hardware (ibm_pittsburgh), the pipeline identifies subgroups of network features that discriminate normal from attack traffic. A least-squares regression QUBO formulation fits the Weighted Relative Accuracy (WRAcc) landscape over feature subsets, with surrogate sampling for larger QUBOs. Results are benchmarked against exhaustive enumeration and Beam Search using ratios for Hamiltonian quality and WRAcc. Hardware scaling experiments on ibm_pittsburgh (10-30 qubits) reveal that QAOA at depth p = 1 shows WRAcc ratios of 0.983 at 10 qubits, 0.971 at 15 qubits, 0.855 at 20 qubits, and 0.624 at 25 qubits, degrading to 0.039 at 30 qubits as circuit noise dominates, establishing an empirical NISQ scaling boundary. Results demonstrate that QAOA discovers subgroups competitive with classical heuristics and finds multi-feature interaction patterns that greedy Beam Search prunes, with QAOA-unique subgroups achieving up to 99.6% test precision. This work establishes a framework for quantum combinatorial optimization in cybersecurity and characterizes hardware scaling for NISQ devices.",
+  "url": "http://arxiv.org/abs/2604.27153v1",
+  "pdf": "https://arxiv.org/pdf/2604.27153v1",
+  "type": "both",
+  "summary": "This paper introduces the first quantum-enhanced pipeline for Subgroup Discovery in network security, using QAOA to find interpretable attack patterns. It demonstrates that quantum optimization can recover complex feature interactions missed by classical greedy algorithms, while characterizing the performance degradation limits of current NISQ hardware.",
+  "main_problem": "The challenge of identifying interpretable, multi-feature interaction patterns (subgroups) in network security datasets, which is an NP-hard combinatorial optimization problem that classical greedy heuristics often fail to solve.",
+  "main_result": "The QAOA pipeline successfully identifies high-precision attack subgroups that classical Beam Search prunes, while also establishing a quantitative NISQ scaling boundary where hardware noise causes performance to collapse between 20 and 30 qubits.",
+  "method": "A hybrid quantum-classical pipeline using QAOA on IBM Quantum hardware, where the Subgroup Discovery problem is formulated as a QUBO and solved via a least-squares regression fit to the WRAcc landscape.",
+  "model_or_system": "The problem is modeled as a Quadratic Unconstrained Binary Optimization (QUBO) problem mapped to an Ising Hamiltonian with ZZ couplings, implemented on the ibm_pancakes superconducting processor.",
+  "key_observables": "WRAcc (Weighted Relative Accuracy), Hamiltonian quality (r5), and solution quality ratio (r6).",
+  "important_parameters": "QAOA circuit depth (p), qubit count (10-30), target cardinality (K), and penalty weight (lambda).",
+  "main_assumptions": "The WRAcc landscape can be accurately approximated by a quadratic surrogate; high-cardinality features can be reduced via information-gain filtering to fit within NISQ qubit budgets.",
+  "figures_summary": "Figure 1 shows the end-to-end QAOA pipeline; Figure 3 shows the high R-squared value of the QUBO landscape fit; Figure 4 presents a Bubble Pareto front comparing QAOA to classical methods; Figure 5 compares subgroup richness between QAOA and Beam Search.",
+  "paper_structure": "The paper follows a logic of problem formulation (SD as QUBO), data preprocessing (binarization and feature selection), algorithmic implementation (QAOA on IBM hardware), benchmarking against classical heuristics, and a scaling analysis of hardware noise limits.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.27153_figures/2604.27153_fig1.jpg",
+      "caption": "Figure 1: End-to-end QAOA subgroup-discovery pipeline. Phases 1-2 binarize NSL-KDD features and run classical baselines. Phase 3 fits the LS-regression QUBO. Phase 4 executes QAOA on ibm_pittsburgh with COBYLA optimization and error mitigation. Phase 5 computes the dual approximation ratios and identifies QAOA-unique subgroups.",
+      "page": 4
+    },
+    {
+      "image": "2604.27153_figures/2604.27153_fig2.jpg",
+      "caption": "Figure 2: Subgroup quality vs. subgroup size at k = 3 for the 20-qubit Probe configuration on ibm_pittsburgh. Green stars mark the exhaustive optimum (best WRAcc at any k), red triangles the beam- search results, and orange diamonds the QAOA-sampled subgroups. QAOA recovers subgroups in the same Pareto region as the classical baselines, confirming hardware competitiveness at this scale (𝑟, =",
+      "page": 7
+    },
+    {
+      "image": "2604.27153_figures/2604.27153_fig3.jpg",
+      "caption": "Figure 3: QUBO fit quality for the R2L-filtered 10-qubit configuration. Each point is one QAOA-sampled bitstring plotted against its quadratic QUBO objective value; the OLS fit (R² = 0.989, Spearman |ρ| = 0.899) confirms the QUBO accurately ranks the WRAcc landscape.",
+      "page": 8
+    },
+    {
+      "image": "2604.27153_figures/2604.27153_fig4.jpg",
+      "caption": "Figure 4: Bubble Pareto front (k = 3) for the 20-qubit Probe configuration on ibm_pittsburgh. Bubble size encodes WRAcc. QAOA hardware subgroups are competitive with classical methods, with several returning subgroups exhibiting higher positive rates than beam search.",
+      "page": 8
+    },
+    {
+      "image": "2604.27153_figures/2604.27153_fig5.jpg",
+      "caption": "Figure 5: Depth-matched comparison at k = 5 for the R2L-filtered configuration. The QAOA simulator returns smaller subgroups with higher attack-positive rate than beam search at the same cardinality, evidence that the QUBO objective rewards contrast-rich rules even when coverage is reduced.",
+      "page": 8
+    },
+    {
+      "image": "2604.27153_figures/2604.27153_fig6.jpg",
+      "caption": "Figure 6: Comparative scaling of hardware 𝑟, and circuit fidelity on ibm_pittsburgh. Left: Measured WRAcc approximation ratio 𝑟, for Probe (k = 3) and R2L (k = 5) attacks. Right: Predicted circuit fidelity F derived from a layered 2-qubit error rate (EPLG = 2.42 × 10⁻³). The shared log scale highlights that 𝑟, tracks above the fidelity floor until n = 30, where both metrics collapse, marking the operational limit of the NISQ device.",
+      "page": 9
+    }
+  ],
+  "figure": "2604.27153_figures/2604.27153_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}

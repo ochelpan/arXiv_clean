@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2604.28008",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mes-hall",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Compressibility of micromagnetic solutions in tensor train format",
+  "authors": "Thierry Valet, Nicolas Vukadinovic",
+  "abstract": "For three-dimensional (3D) magnetic objects with linear size $L$ exceeding a few exchange lengths, the micromagnetic state exhibits pronounced informational sparsity: low-dimensional, high-gradient regions (e.g., domain walls) coexist with near-uniformly magnetized volumetric domains. Because standard micromagnetic simulation methods discretize the magnetization on near-uniform 3D grids with linear cell size $a$, they cannot take advantage of this sparsity. The computational problem scales as $\\sim L^3$ and $\\sim (1/a)^3$. In this Letter, we establish that direct tensor-train (TT) representations overcome these poor scalings by exploiting the spatial sparsity optimally, while preserving accuracy in a controlled way. Focusing on representative flux-closure configurations in soft-magnetic rectangular prisms, in the near-micrometer regime, we demonstrate that the parameter count of TT-compressed micromagnetic data scales approximately as $L^{1.8}$ and $(1/a)^{1.2}$. Hence the relative advantage over dense discretizations rapidly grows with the problem size and refinement level. These first results provide a strong motivation for future developments of micromagnetic solvers in TT format which could transcend the limitations of traditional simulators, with far reaching potential impacts on fundamental research and technology development.",
+  "url": "http://arxiv.org/abs/2604.28008v1",
+  "pdf": "https://arxiv.org/pdf/2604.28008v1",
+  "type": "theory",
+  "summary": "This paper demonstrates that using Tensor Train compression for micromagnetic simulations can bypass the cubic scaling bottleneck of traditional 3D methods. By exploiting the spatial sparsity of domain walls and edges, the computational complexity scales much more favorably with both system size and grid resolution. This provides a foundation for developing highly efficient, tensor-network-based micromagnetic solvers.",
+  "main_problem": "Standard 3D micromagnetic simulations suffer from severe computational bottlenecks due to cubic scaling with object size and grid refinement, failing to exploit the inherent spatial sparsity of magnetic structures.",
+  "main_result": "Tensor Train (TT) representations successfully exploit informational sparsity, achieving sub-cubic scaling of approximately L^1.8 and (1/a)^1.2, which significantly outperforms traditional dense discretization.",
+  "method": "The authors use Tensor Cross-Interpolation (TCI) via the tntorch package to compress magnetization data obtained from GPU-accelerated MuMax3 simulations.",
+  "model_or_system": "The study focuses on 3D equilibrium flux-closure states in soft-magnetic rectangular prisms with a 2:1:1 aspect ratio, characterized by localized domain walls and vortices.",
+  "key_observables": "Compressed Parameter Count (CPC), Compression Ratio (CR), and Maximal Pointwise Vector Error (MPVE).",
+  "important_parameters": "Exchange length (approx. 5.69 nm), saturation magnetization (8.0 x 10^5 A/m), and exchange stiffness (1.3 x 10^-11 J/m).",
+  "main_assumptions": "The analysis assumes the magnetic state can be effectively captured by the Tensor Train format due to the presence of low-dimensional high-gradient regions.",
+  "figures_summary": "Figure 1 shows a 3D flux-closure state; Figure 2 plots compression ratio and parameter count scaling against prism size; Figure 3 shows compression ratio and parameter count scaling against grid refinement.",
+  "paper_structure": "The paper introduces the scaling bottleneck of micromagnetics, presents the Tensor Train compression approach, demonstrates scaling advantages through variable-size and variable-refinement simulation series, and concludes with implications for future TT-based solvers.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.28008_figures/2604.28008_fig1.jpg",
+      "caption": "FIG. 1. Representative equilibrium flux-closure state for the considered magnetic rectangular prisms. We use a surface line- integral convolution rendering to reveal the in-plane magnetization flow at the surface of the prism, and a color scale to indicate the amplitude of the z component. Closure domains and a sur- face vortex are clearly visible, highlighting the non-trivial and fully three-dimensional micromagnetic configuration.",
+      "page": 2
+    },
+    {
+      "image": "2604.28008_figures/2604.28008_fig2.jpg",
+      "caption": "FIG. 2. Scaling as a function of the linear size (VS series). (a) CR as a function of MPVE for the TT-TCI compression of flux-closure states in prisms of increasing length Lx, with fixed cell size a = 1.5625nm. We plot the mean variation and 90% CI envelope, estimated over five different initial pivots for the TCI. Over the plotted error range, the CR monotonously grows with the prism size, showing that volumetric complexity does not control the TT scaling. (b) Regression-adjusted CPC versus Lx, obtained from all data in the VS series, over 10−3 ≤MPVE ≤5 × 10−2, with power law fitted exponents α. The original densely sampled field scales evidently as L3x, whereas the TT- compressed data...",
+      "page": 3
+    },
+    {
+      "image": "2604.28008_figures/2604.28008_fig3.jpg",
+      "caption": "FIG. 3. Scaling as a function of grid refinement (VR series). (a) CR as a function the MPVE for the TT-TCI compressed magnetization data of the 200 × 100 × 100nm3 prism as the discretization is refined. The monotonous upward shift of the curves with increasing lex/a shows that finer resolution does not hurt compressibility; to the contrary, the TT representation captures the same physical configuration increasingly efficiently relative to the dense discretization. (b) Regression-adjusted CPC versus lex/a, obtained from all in the VR series, over 10−3 ≤MPVE ≤5×10−2. The fitted power law exponents remain in the range 1.21–1.30, far slower than the (lex/a)3 scaling of the densely discretized...",
+      "page": 4
+    }
+  ],
+  "figure": "2604.28008_figures/2604.28008_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "arxiv_id": "2604.28160",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Reorganizing Quantum Measurement Records Improves Time-Series Prediction",
+  "authors": "Markus Baumann, Maximilian Zorn, Thomas Gabor, Claudia Linnhoff-Popien, Jonas Stein",
+  "abstract": "Near-term quantum computers are accessed through repeated circuit executions, which produce finite measurement records rather than exact deterministic outputs. In quantum reservoir computing, these records are converted to feature vectors for a classical readout. The standard expectation-value approach averages all shots from one labeled time step into a single feature vector. This reduces finite-shot noise, but it also gives the readout only one training example from many circuit executions. We introduce split-ensemble training: the same shots are split into groups, and each group average is used as a separate, partially denoised feature vector for the same target. The quantum circuit, task, and measurement budget remain unchanged. Across simulated forecasting benchmarks and real hardware experiments, this simple reorganization improves prediction when full averaging leaves the readout with too few training examples, with the strongest gains observed on hardware. Our results establish shot-record organization as a simple, broadly applicable algorithmic lever for improving near-term quantum learning without additional quantum hardware cost.",
+  "url": "http://arxiv.org/abs/2604.28160v1",
+  "pdf": "https://arxiv.org/pdf/2604.28160v1",
+  "type": "both",
+  "summary": "The paper introduces a simple algorithmic technique called split-ensemble training to reorganize quantum measurement shots. By grouping shots into intermediate averages, it balances the trade-off between measurement noise and training sample size, significantly improving the accuracy of quantum-classical hybrid time-series prediction on both simulators and real hardware.",
+  "main_problem": "How to optimize the use of finite measurement records in Quantum Reservoir Computing (QRC) to improve time-series prediction without increasing the quantum hardware execution budget.",
+  "main_result": "The proposed 'split-ensemble' training method, which reorganizes shots into partially denoised groups, consistently outperforms standard expectation-value and raw-stacking approaches, especially on noisy real hardware.",
+  "method": "A split-ensemble training protocol that partitions $N$ shots into $G$ disjoint groups, each averaged to create a distinct, partially denoised feature vector for a classical linear readout.",
+  "model_or_system": "A Quantum Reservoir Computing framework using a fixed $Q$-qubit circuit (e.g., ring-CNOT entangler) with repeated executions, combined with a classical leaky integrator and a linear ridge regression readout.",
+  "key_observables": "Single-qubit $Z_i$ and $X_i$ observables derived from measurement bitstrings.",
+  "important_parameters": "Total execution budget ($S_{total}$), group size ($k$), training-support ratio ($\rho_{EV}$), reservoir size ($Q$), and leakage rate ($\\eta$).",
+  "main_assumptions": "The total number of quantum circuit executions is a fixed resource; the classical readout is a linear model.",
+  "figures_summary": "Figure 1 illustrates the three data organization strategies; Figure 2 shows NRMSE results for various time-series tasks; Figure 3-5 show performance across reservoir sizes and architectures; Figure 6 compares split-ensemble to EV-dup; Figure 7-8 show hardware validation on IBM hardware.",
+  "paper_structure": "The paper introduces the problem of shot-noise vs. data scarcity, defines the three data organization protocols, provides a theoretical framework for the split-ensemble advantage, presents numerical benchmarks on various time-series tasks, performs ablation studies to rule out simple data augmentation, and validates the method on real superconducting quantum hardware.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.28160_figures/2604.28160_fig1.jpg",
+      "caption": "Fig. 1. Three ways of organizing shot-based training data under a fixed measurement budget: EV averaging, split-ensemble training, and raw stacking.",
+      "page": 1
+    },
+    {
+      "image": "2604.28160_figures/2604.28160_fig2.jpg",
+      "caption": "Fig. 2. Shared operating point (Q = 4, Nshots = 18, λ = 10, ρEV = 2.65125). Top: illustrative test trajectories, where the displayed seed is the one whose split-ensemble test NRMSE is closest to the 20-seed median. Bottom: test outcomes over all 20 seeds.",
+      "page": 2
+    },
+    {
+      "image": "2604.28160_figures/2604.28160_fig3.jpg",
+      "caption": "Fig. 4. Baseline and estimator controls at the shared operating point. The compared methods are EV, Raw, EV-dup, EV-NA, split-ensemble, and Split- NA.",
+      "page": 4
+    },
+    {
+      "image": "2604.28160_figures/2604.28160_fig4.jpg",
+      "caption": "Fig. 3. EV-minus-split-ensemble test gap ∆as a function of ρEV across the common Nshots sweep. Points show individual seeds; curves and bands summarize the 20-seed mean and spread. Positive values favor split-ensemble.",
+      "page": 4
+    },
+    {
+      "image": "2604.28160_figures/2604.28160_fig5.jpg",
+      "caption": "Fig. 6. Duplication control over the broader Nshots sweep. Duplication matches the split-ensemble example count by repeating the fully averaged feature vector, without creating distinct grouped views.",
+      "page": 8
+    },
+    {
+      "image": "2604.28160_figures/2604.28160_fig6.jpg",
+      "caption": "Fig. 5. Reservoir-size sweep with Q ∈{4, 6, 8, 10, 12} and 20 seeds per point. The absolute EV and split-ensemble curves are shown; their vertical separation corresponds to the EV-minus-split-ensemble gap. Positive values favor split-ensemble.",
+      "page": 8
+    },
+    {
+      "image": "2604.28160_figures/2604.28160_fig7.jpg",
+      "caption": "Fig. 7. Mackey–Glass hardware validation on ibm_marrakesh at total budget 20,000 and Nshots = 40. The plot compares EV, Raw, and split- ensemble for this case; lower values indicate better forecasting performance.",
+      "page": 9
+    },
+    {
+      "image": "2604.28160_figures/2604.28160_fig8.jpg",
+      "caption": "Fig. 8. Mackey–Glass slice of the architecture ablation at the shared operating point (Q = 4, Nshots = 18, 20 seeds; no added synthetic noise). The plot shows the EV-minus-split-ensemble gap across five architectures; D denotes circuit depth. Positive values favor split-ensemble.",
+      "page": 9
+    },
+    {
+      "image": "2604.28160_figures/2604.28160_fig9.jpg",
+      "caption": "Fig. 9. Ridge-regularization ablation at Q = 4, Nshots = 18 (20 seeds). Curves show mean test NRMSE over λ with ±1 SD bands.",
+      "page": 10
+    }
+  ],
+  "figure": "2604.28160_figures/2604.28160_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  }
+}
