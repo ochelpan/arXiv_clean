@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2604.28176",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Defending Quantum Classifiers against Adversarial Perturbations through Quantum Autoencoders",
+  "authors": "Emma Andrews, Sahan Sanjaya, Prabhat Mishra",
+  "abstract": "Machine learning models can learn from data samples to carry out various tasks efficiently. When data samples are adversarially manipulated, such as by insertion of carefully crafted noise, it can cause the model to make mistakes. Quantum machine learning models are also vulnerable to such adversarial attacks, especially in image classification using variational quantum classifiers. While there are promising defenses against these adversarial perturbations, such as training with adversarial samples, they face practical limitations. For example, they are not applicable in scenarios where training with adversarial samples is either not possible or can overfit the models on one type of attack. In this paper, we propose an adversarial training-free defense framework that utilizes a quantum autoencoder to purify the adversarial samples through reconstruction. Moreover, our defense framework provides a confidence metric to identify potentially adversarial samples that cannot be purified the quantum autoencoder. Extensive evaluation demonstrates that our defense framework can significantly outperform state-of-the-art in prediction accuracy (up to 68%) under adversarial attacks.",
+  "url": "http://arxiv.org/abs/2604.28176v1",
+  "pdf": "https://arxiv.org/pdf/2604.28176v1",
+  "type": "theory",
+  "summary": "This paper proposes a new way to protect quantum machine learning models from adversarial noise without needing to retrain them on attack samples. By using a quantum autoencoder to clean the data and a diagnostic metric to reject suspicious inputs, the authors demonstrate much higher robustness in quantum classifiers.",
+  "main_problem": "Variational Quantum Classifiers (VQCs) are highly vulnerable to adversarial attacks like FGSM and PGD, where small perturbations cause incorrect predictions, and existing defenses like adversarial training are often impractical or prone to overfitting.",
+  "main_result": "The proposed QAE++ framework, which uses a quantum autoencoder for purification and a confidence metric for sample rejection, significantly outperforms classical autoencoder defenses and achieves up to a 68% improvement in prediction accuracy under attack.",
+  "method": "An adversarial training-free defense framework that utilizes a Quantum Autoencoder (QAE) to reconstruct and purify input samples, combined with a confidence metric based on encoding fidelity and logit difference to identify and reject adversarial inputs.",
+  "model_or_system": "The study uses Variational Quantum Classifiers (VQCs) with amplitude embedding and strongly entangling layers, alongside Quantum Autoencoders (QAEs) designed to compress input states into a latent space.",
+  "key_observables": "Encoding fidelity (measured via SWAP test), logit difference (difference between the two highest logits), and expectation values of the Pauli-Z operator.",
+  "important_parameters": "Epsilon (perturbation magnitude), alpha (PGD step size), threshold T (for sample acceptance/rejection), and the number of qubits/parameters in the VQC.",
+  "main_assumptions": "The decoder is assumed to be the Hermitian conjugate of the encoder, and the trash qubits are assumed to converge to a specific reference state.",
+  "figures_summary": "Figures illustrate adversarial attacks on MNIST, the architectures of VQCs and Autoencoders (both classical and quantum), the QAE++ algorithm flow, and comparative performance plots showing accuracy gains and reconstruction stability.",
+  "paper_structure": "The paper introduces the problem of adversarial vulnerability, describes the QAE++ architecture and confidence metric, details the experimental setup using MNIST/FMNIST, presents comparative results against classical and undefended models, and discusses limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.28176_figures/2604.28176_fig1.jpg",
+      "caption": "Fig. 3: Classical autoencoder structure.",
+      "page": 2
+    },
+    {
+      "image": "2604.28176_figures/2604.28176_fig2.jpg",
+      "caption": "Fig. 4: Quantum autoencoder structure.",
+      "page": 2
+    },
+    {
+      "image": "2604.28176_figures/2604.28176_fig3.jpg",
+      "caption": "Fig. 2: General structure of QML models.",
+      "page": 2
+    },
+    {
+      "image": "2604.28176_figures/2604.28176_fig4.jpg",
+      "caption": "Fig. 5: Example of FGSM ϵ = 0.30 attack on MNIST images. The original MNIST images are shown in the top row, while the adversarial images are in the bottom row.",
+      "page": 3
+    },
+    {
+      "image": "2604.28176_figures/2604.28176_fig5.jpg",
+      "caption": "Fig. 6: An overview of our defense framework. A sample, either clean or adversarial, is given as input x to the QAE. The QAE produces a reconstruction ˆx which is given to the VQC for classification. The QAE also produces the encoding fidelity ⟨σZ⟩x, which is used in calculation of the confidence metric. Once the VQC has predicted the reconstruction ˆx, it produces the logit difference lˆx which is used in addition to the encoding fidelity ⟨σZ⟩x to calculate the confidence metric C. This is compared against the confidence threshold T. If the calculated confidence metric C meets the confidence threshold T, the predicted class label from the VQC is used. Otherwise, the sample is rejected as a...",
+      "page": 4
+    }
+  ],
+  "figure": "2604.28176_figures/2604.28176_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
