@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.00118",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Toward Secure Multitenant Quantum Computing: Circuit Affinity, Crosstalk Patterns, and Grouping Strategies",
+  "authors": "Andrew Woods, Chi-Ren Shyu",
+  "abstract": "Multitenancy increases throughput and reduces costs in cloud-based quantum computing, but concurrent job execution introduces security risks through inter-circuit crosstalk. We characterize the structural predictability of these interference patterns across seven IBM superconducting processors, spanning Heron (r1-r3) and Nighthawk (r1) architectures and five different circuit types. We evaluate pairwise interactions, by applying the Structural Similarity Index (SSIM) and a structural $t$-statistic to the concurrent execution of five foundational quantum circuits (QAOA, Grover's, QPE, QFT, and ZZFeatureMap), we quantify behavioral consistency across disparate hardware. Our results identify three types of circuits: universally aggressive, universally sensitive, and cotenant-dependent circuits. Aggressive circuits, such as Grover's Algorithm, exhibit a statistically significant interference pattern, yielding a $t$-statistic range of $[1.37,2.61]$ relative to the standalone baselines across all tested pairings. Conversely, sensitive circuits, such as the Quantum Fourier Transform, demonstrate a disproportionate susceptibility to multitenant execution, showing high deviations from single-tenant computational behavior. We demonstrate that crosstalk signatures are highly consistent within architectural revisions--with intra-revision similarity reaching $0.77$ (Hr3) and $0.68$ (Hr2)--while inter-revision similarity drops to $0.43$. Furthermore, we identify a ``topological decoupling\" between Heavy-Hex and square lattice systems, where structural similarity falls to $0.01$ between Heron r1 and Nighthawk r1. These findings provide an empirical foundation for hardware-aware schedulers to strategically pair jobs, maximizing system utilization while preserving computational integrity.",
+  "url": "http://arxiv.org/abs/2605.00118v1",
+  "pdf": "https://arxiv.org/pdf/2605.00118v1",
+  "type": "both",
+  "summary": "This paper investigates how running multiple quantum circuits simultaneously on the same hardware causes crosstalk that can degrade performance and compromise security. By characterizing which circuits are 'aggressive' or 'sensitive,' the authors propose a framework for a scheduler to pair compatible jobs to maximize system utility and stability.",
+  "main_problem": "The study addresses the security and performance risks introduced by inter-circuit crosstalk during multitenant execution in cloud-based quantum computing, specifically focusing on how concurrent jobs can lead to fault-injection or information leakage.",
+  "main_result": "The authors identify three classes of circuits (universally aggressive, universally sensitive, and cotenant-dependent) and demonstrate that while crosstalk patterns are transferable within hardware revisions, they are fundamentally different across different topologies like Heavy-Hex and Square lattices.",
+  "method": "The researchers used a 'Sandwiched Baseline-Cotenant Calibration' strategy to isolate crosstalk from temporal drift and applied the Structural Similarity Index (SSIM) to quantify the consistency of interference patterns across seven IBM superconducting processors.",
+  "model_or_system": "The experimental platform consists of seven IBM superconducting quantum processors, including various generations of the Heron (Heavy-Hex lattice) and Nighthawk (Square lattice) architectures.",
+  "key_observables": "Crosstalk Aggression (N), Crosstalk Sensitivity (S), Structural Similarity Index (SSIM), t-statistic of interference, and Bhattacharyya Coefficient for fidelity.",
+  "important_parameters": "Padding depth (p) for spatial isolation, circuit depth, 2-qubit gate ratio, and architectural topology (Heavy-Hex vs. Square).",
+  "main_assumptions": "The study uses a pairwise approximation for circuit interactions, which may not fully capture the complexity of much higher-load multitenant scenarios.",
+  "figures_summary": "Figure 1 shows the experimental methodology and mapping flow; Figure 2 illustrates cumulative stress-tests with increasing circuit load; Figure 3 displays interaction scores across different machines; Figure 4 and 5 show SSIM scores indicating hardware transferability and architectural differences.",
+  "paper_structure": "The paper introduces the problem of multitenancy security, describes the hardware and circuit selection, details the experimental protocols for isolation and mapping, presents the classification of circuits and architectural similarity results, and concludes with implications for hardware-aware scheduling.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.00118_figures/2605.00118_fig1.jpg",
+      "caption": "Fig. 1: Visual overview of the experimental methodology. Stage 1 executes spatial partitioning and padding to generate the mapping set M. Stage 2 utilizes a verification pipeline (Solo vs Cotenant) to isolate crosstalk from temporal drift.",
+      "page": 3
+    },
+    {
+      "image": "2605.00118_figures/2605.00118_fig2.jpg",
+      "caption": "Fig. 4: This chart illustrates how similarly each of the ma- chines behave. A higher score means that a scheduler cali- brated for one machine can be deployed for another machine. The sequence of lower scores for ibm_miami (Nighthawk r1) indicates a recalibration for complete revisions of new circuits will be needed.",
+      "page": 6
+    },
+    {
+      "image": "2605.00118_figures/2605.00118_fig3.jpg",
+      "caption": "Fig. 2: Flow of adding more and more stress on QFT circuit multitenancy with the strong to weak interference circuits. The weak to strong interference add the circuits in reverse order starting with adding QAOA and ending with adding GA.",
+      "page": 6
+    },
+    {
+      "image": "2605.00118_figures/2605.00118_fig4.jpg",
+      "caption": "Fig. 3: Overall interaction scores between circuits across all machines. All noise levels have been shifted so that the stan- dalone baseline is 0. The columns show an uneven structure indicating that circuits are not simply ”noisy” but convey a complex relationship.",
+      "page": 6
+    },
+    {
+      "image": "2605.00118_figures/2605.00118_fig5.jpg",
+      "caption": "Fig. 5: A higher level overview of circuit types. These values are averaged amount the SSIM scores between each processor type. We see that there is a noticeable drop in the score between the Nighthawk r1 and Heron r1 processors where the score is approximately 0, indicating a need for a complete scheduler recalibration across generations. However, only a slight recalibration would be needed for processors of the same type.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.00118_figures/2605.00118_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

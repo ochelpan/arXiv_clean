@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2604.27738",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "cs.LG",
+    "hep-lat"
+  ],
+  "is_primary_archive": true,
+  "title": "Sampling two-dimensional spin systems with transformers",
+  "authors": "Piotr Białas, Piotr Korcyl, Tomasz Stebel, Adam Stefański, Dawid Zapolski",
+  "abstract": "Autoregressive Neural Networks based on dense or convolutional layers have recently been shown to be a viable strategy for generating classical spin systems. Unlike these methods, sampling with transformers is commonly considered to be computationally inefficient. In this work, we propose a novel approach to transformer-based neural samplers in which we generate not a single spin per step but groups of spins. As an additional improvement, we construct a model of approximated probabilities, further improving the efficiency of the algorithm. Despite our approach being computationally heavier than dense networks or CNN-based approaches, we were able to sample larger systems of up to $180 \\times 180$ spins in case of the Ising model. The Effective Sample Size of our sampler is $\\sim 20$ times larger than that of the previous state-of-the-art neural sampler when trained for the $128 \\times 128$ Ising model at critical temperature. Finally, we also test our algorithm on the 2D Edwards-Anderson model, where we train $64\\times 64$ spin systems.",
+  "url": "http://arxiv.org/abs/2604.27738v1",
+  "pdf": "https://arxiv.org/pdf/2604.27738v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel Transformer-based neural sampler called tVAN that uses patch-based generation and approximate probabilities to efficiently sample large 2D spin systems. It demonstrates significant improvements in sampling quality and scalability compared to previous neural network approaches, particularly for the Ising model at the critical point.",
+  "main_problem": "Developing an efficient Transformer-based neural sampler for large-scale classical spin systems, overcoming the computational inefficiency and scaling limitations of previous autoregressive models.",
+  "main_result": "The proposed tVAN architecture can sample 2D Ising models up to 180x180 and 2D Edwards-Anderson spin glasses up to 64x64, achieving an Effective Sample Size 20 times larger than previous state-of-the-art neural samplers at the critical temperature.",
+  "method": "A Transformer Variational Autoregressive Network (tVAN) that generates groups of spins (patches) per step and utilizes an 'Approximate Probabilities' method to accelerate training and improve efficiency.",
+  "model_or_system": "The study focuses on 2D classical spin systems, specifically the 2D Ising model and the 2D Edwards-Anderson spin glass model, using a Hamiltonian based on nearest-neighbor interactions.",
+  "key_observables": "Effective Sample Size (ESS), Variational Free Energy (Fq), and Relative Error in Free Energy Density.",
+  "important_parameters": "Critical temperature for the Ising model, spin glass transition temperature, patch sizes (e.g., 2x4, 3x4), and system size L.",
+  "main_assumptions": "The Approximate Probabilities method is currently restricted to nearest-neighbor interactions, and the complexity analysis ignores element-wise operations and activation functions.",
+  "figures_summary": "Figure 1 shows the tVAN architecture; Figure 2 illustrates patch-based generation; Figure 3 and 4 show training history (ESS vs. epochs/time) for various patch sizes and the impact of Approximate Probabilities; Figure 5 and 6 show ESS training history for the EA model; Appendix figures show scaling of training time and memory usage.",
+  "paper_structure": "The paper introduces the tVAN architecture and patch-based generation, details the training process and the Approximate Probabilities method, presents performance results on Ising and Edwards-Anderson models, provides a complexity analysis of scaling with system size, and concludes with limitations and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.27738_figures/2604.27738_fig1.jpg",
+      "caption": "Figure 1: Schematic view of tVAN algorithm. Configuration of spins is divided into patches that are generated sequentially. Output of the transformer is a conditional probability of the next patch.",
+      "page": 4
+    },
+    {
+      "image": "2604.27738_figures/2604.27738_fig2.jpg",
+      "caption": "Figure 2: The sample is generated sequentially, starting from the upper-left corner. Grey rectangles denote the patches produced by the transformer in a single step. Assuming that three initial patches have already been generated, probability of fourth patch is calculated. Green connections indicate interactions between spins inside a patch, while red represents interactions with neighboring patches; sum of those is E4, Eq. 14, and enters approximate probabilities formula, Eq. 15.",
+      "page": 5
+    },
+    {
+      "image": "2604.27738_figures/2604.27738_fig3.jpg",
+      "caption": "Figure 3: The history of Ising model training for L = 32 with different patch shapes. No approximate probabilities were used. The lines show moving average of ESS (with window of 30 points, points were saved every 10 epochs) that are averaged over 3 or 4 independent runs. Left: ESS as function of epoch. Right: the same, but as function of runtime.",
+      "page": 6
+    },
+    {
+      "image": "2604.27738_figures/2604.27738_fig4.jpg",
+      "caption": "Figure 4: The history of Ising model training for system size L = 120, for two patch shapes, 2 × 4 and 3 × 4, with and without approximate probabilities. Moving average is performed over 30 consecutive points and points were saved every 10 epochs. All runs took 48 hours. Left: ESS as function of epoch. Right: Relative values of Fq/L2 compared to Fex/L2 = −2.10975198.",
+      "page": 7
+    },
+    {
+      "image": "2604.27738_figures/2604.27738_fig5.jpg",
+      "caption": "Figure 5: Comparison of ESS during training using different setups. Results are for Ising model with L = 128. Moving average is performed over 30 consecutive points and points were saved every 10 epochs.",
+      "page": 9
+    }
+  ],
+  "figure": "2604.27738_figures/2604.27738_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

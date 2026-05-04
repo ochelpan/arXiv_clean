@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.00099",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Provable and scalable quantum Gaussian processes for quantum learning",
+  "authors": "Jonas Jäger, Paolo Braccia, Pablo Bermejo, Manuel G. Algaba, Diego García-Martín, M. Cerezo",
+  "abstract": "Despite rapid recent advances in quantum machine learning, the field is in many ways stuck. Existing approaches can exhibit serious limitations, and we still lack learning frameworks that are simple, interpretable, scalable, and naturally suited to quantum data. To address this, here we introduce quantum Gaussian processes, a Bayesian framework for learning from quantum systems through priors over unknown quantum transformations. We show that, under suitable conditions, unitary quantum stochastic processes define Gaussian processes, thereby enabling regression, classification, and Bayesian optimization directly on quantum data. The key ingredient in this framework is sufficient knowledge of a quantum process's structure and symmetries to define an informative prior through its corresponding quantum kernel, effectively injecting a strong, physics-informed inductive bias into the learning model. We then prove that matchgate, or free-fermionic, evolutions give rise to provable and scalable quantum Gaussian processes, providing the first family in our framework where the unknown unitary acts non-trivially on all qubits. Finally, we demonstrate accurate long-range extrapolation, phase-diagram learning in many-body systems, and sample-efficient Bayesian optimization in a quantum sensing task. Our results identify quantum Gaussian processes as a promising route toward simpler and more structured forms of quantum learning.",
+  "url": "http://arxiv.org/abs/2605.00099v1",
+  "pdf": "https://arxiv.org/pdf/2605.00099v1",
+  "type": "theory",
+  "summary": "This paper introduces Quantum Gaussian Processes, a scalable Bayesian learning framework for quantum systems. By utilizing the structure of matchgate circuits, the authors demonstrate that one can perform efficient regression, classification, and optimization on large-scale quantum data even with very sparse training samples.",
+  "main_problem": "Existing quantum machine learning approaches lack scalable, interpretable, and provable frameworks that leverage physics-informed inductive bias, especially when unknown unitaries act non-trivially on all qubits.",
+  "main_result": "The authors introduce Quantum Gaussian Processes (QGP) and prove that matchgate (free-fermionic) circuits provide a provable and scalable family of QGPs. They also propose a robust 'lambda_Wigner-shift' method to handle kernel noise from finite-shot measurements.",
+  "method": "A non-parametric Bayesian framework using quantum kernels derived from the symmetries of the underlying quantum process. The authors use moment-based proofs, the Weingarten expansion, and marginal likelihood maximization for kernel optimization.",
+  "model_or_system": "The framework is applied to matchgate/free-fermionic evolutions (represented by the SPIN(2n) group) and tested on 1D many-body systems like the XXX and XXZ spin chains.",
+  "key_observables": "Expectation values of Hermitian operators (e.g., Pauli strings, magnetization, and order-parameter proxies).",
+  "important_parameters": "System size (n up to 100 qubits), shot budgets for observations (n_obs) and kernels (n_kappa), and Majorana sector indices (m).",
+  "main_assumptions": "The unknown unitary transformation is assumed to belong to a known group (e.g., SPIN(2n)), and observation noise is assumed to be Gaussian.",
+  "figures_summary": "Figure 1 shows the QGP framework schematic; Figure 4 illustrates magnetization regression in XXZ chains; Figure 5 demonstrates Bayesian optimization trajectories and magnetometry tasks; Supplemental figures show MSE comparisons, Pareto fronts, and the effectiveness of the Wigner-shift method.",
+  "paper_structure": "The paper introduces the QGP framework, proves the scalability and provability of matchgate-based QGPs, demonstrates applications in regression, classification, and optimization, and concludes with a discussion on noise robustness and kernel optimization.",
+  "why_interesting": "It provides a rigorous bridge between Bayesian inference and quantum dynamics, offering a way to perform scalable learning on many-body systems using physics-informed priors.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.00099_figures/2605.00099_fig1.jpg",
+      "caption": "FIG. 1. Schematic representation of our quantum Gaussian process (QGP) framework. Information about an unknown quantum process and measurement operator, together with access to a quantum dataset, is used to select a kernel from a QGP toolbox. Previously known examples correspond to few-qubit unitary, orthogonal, and symplectic kernels, while this work adds an all-qubit matchgate, or free-fermionic, kernel. The resulting quantum Gaussian process then serves as a Bayesian surrogate that can be used for regression and extrapolation, classification, and optimization.",
+      "page": 2
+    },
+    {
+      "image": "2605.00099_figures/2605.00099_fig2.jpg",
+      "caption": "FIG. 2. Quantum Gaussian process extrapolation and the role of inductive bias. We consider a 50-qubit regression task where the model is trained on 15 points in the interval t ∈[0, 1] and then asked to extrapolate the signal out to t ≤10. The unknown transformation is a random matchgate circuit from SPIN(2n), and the observable is a Pauli string in B1. (a) If we ignore this structure and instead use the unitary kernel associated with U ∈U(2n), the QGP fails to extrapolate. (b) The corresponding kernel matrix is nearly band-diagonal, with rapidly vanishing off-diagonal entries, so long-range correlations are lost. When the correct inductive bias is used, namely U ∈SPIN(2n) and O ∈B1, the...",
+      "page": 6
+    },
+    {
+      "image": "2605.00099_figures/2605.00099_fig3.jpg",
+      "caption": "FIG. 3. QGPs for phase diagram prediction and classification in a bond-alternating XXX model. This model exhibits a phase transition at J1 = J2. (a) We show- case the regression of the phase diagram using just one train- ing point. (b) A QGP classifier achieves accurate phase clas- sification, trained on a minimal set of a single training point per phase. The training labels are no longer quantitative order parameter values but qualitative binary phase labels.",
+      "page": 7
+    },
+    {
+      "image": "2605.00099_figures/2605.00099_fig4.jpg",
+      "caption": "FIG. 4. QGP learning the magnetization phases of an XXZ Hamiltonian. (a) Regressed magnetization landscape for an n = 100 XXZ chain, obtained from a single training point placed in the maximal magnetization plateau. The wireframe shows the true magnetization profile, while the colored surface is the QGP prediction. The training point is marked by a yellow circle. (b) Regression along the black cut shown in the left panel. Using only the two extrema of the cut as training points, and shot budgets nobs s = nκ s = 105, the QGP reproduces the staircase structure of the magnetization plateaus.",
+      "page": 8
+    },
+    {
+      "image": "2605.00099_figures/2605.00099_fig5.jpg",
+      "caption": "FIG. 5. Bayesian optimization using QGP surrogates (QGP-BO). (a) Synthetic two-parameter optimization land- scape built from a 30-qubit matchgate dataset, with an objective function derived from the expectation values of an B1 observable on states ρt. The QGP surrogate uses the corresponding B1 kernel. Arrows trace the BO trajectory from a random initial point to the global optimum (star). (b) QGP-BO applied to a 55-qubit quantum sensing task. The black line denotes the true objective, while the colored curves show the surrogate mean together with the upper 95% confidence bound at successive BO iterations. Squares denote queried observations, and triangles mark the maxima of the acquisition...",
+      "page": 10
+    }
+  ],
+  "figure": "2605.00099_figures/2605.00099_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

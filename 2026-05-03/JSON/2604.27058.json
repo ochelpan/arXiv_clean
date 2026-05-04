@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2604.27058",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Clifft: Fast Exact Simulation of Near-Clifford Quantum Circuits",
+  "authors": "Bradley A. Chase, Farrokh Labib",
+  "abstract": "Exact classical simulation of fault-tolerant quantum circuits remains limited by a tradeoff between exponential state vector scaling, exponential $T$-count scaling in stabilizer-rank approaches, and per-shot tracking overhead in sparse generalized stabilizer simulators. In this work, we introduce Clifft, an open-source simulator that shifts the dominant exponential cost from the total qubit count to a dynamic active subspace by factoring the quantum state into an offline Clifford frame, an online Pauli frame, and a dynamically sized active state vector. This architecture resolves deterministic Clifford coordinate transformations ahead of time, generalizing Stim's compile-once, sample-many execution model to circuits with non-Clifford operations. Consequently, exponential simulation costs are determined by the peak active virtual dimension, which expands during non-Clifford operations and contracts during measurements. Clifft remains within a constant factor of standard tools in the pure-Clifford and non-Clifford limits, while delivering up to orders-of-magnitude throughput gains over GPU-accelerated near-Clifford simulators on low-magic fault-tolerant benchmarks. Executing on commodity CPUs and exposing a Stim-like API, Clifft enables, to our knowledge, the first exact end-to-end simulation of magic state cultivation including the escape stage, over hundreds of billions of shots. These simulations show that escape-stage failures suppress the discrepancy between the true $T$-gate circuit and its $S$-proxy at low decoder-gap thresholds, while at high thresholds the full-protocol behavior approaches the larger discrepancy observed in the cultivation stages alone.",
+  "url": "http://arxiv.org/abs/2604.27058v1",
+  "pdf": "https://arxiv.org/pdf/2604.27058v1",
+  "type": "theory",
+  "summary": "The authors present Clifft, an open-source simulator that accelerates the exact simulation of near-Clifford circuits by focusing computational effort on a small, dynamic active subspace. This allows for the first large-scale, end-to-end simulation of complex error correction protocols like magic state cultivation. The work provides new insights into the error discrepancies between true T-gates and their S-gate approximations.",
+  "main_problem": "Exact classical simulation of fault-tolerant quantum circuits is bottlenecked by exponential scaling with total qubit count, T-count, or per-shot tracking overhead.",
+  "main_result": "The Clifft simulator achieves orders-of-magnitude throughput gains in the near-Clifford regime by scaling complexity with a dynamic active dimension rather than total qubit count, enabling the first end-to-end simulation of large-scale magic state cultivation.",
+  "method": "A frame-factored representation that decouples the quantum state into an offline Clifford frame, an online Pauli frame, and a dynamically sized active state vector using Pauli localization.",
+  "model_or_system": "Near-Clifford quantum circuits, specifically focusing on fault-tolerant protocols like Magic State Cultivation (MSC) and surface/color codes subject to circuit-level depolarizing or coherent noise.",
+  "key_observables": "Logical error rates, T/S ratio (discrepancy between T-gate and S-proxy), and logical Pauli expectation values (e.g., <YL>).",
+  "important_parameters": "Total qubit count (N), peak active virtual dimension (k_max), error probability (p), and decoder-gap threshold.",
+  "main_assumptions": "The efficiency is highly dependent on the active subspace size remaining small; the method is optimized for the low-magic/near-Clifford regime.",
+  "figures_summary": "Figure 1 shows the lifecycle of an active operation; Figure 2 details the Clifft pipeline; Figure 4 illustrates bytecode optimization; Figure 6 and 7 show T/S ratio discrepancies and end-to-end error rates as a function of decoder thresholds.",
+  "paper_structure": "The paper introduces the simulation bottleneck, presents the Clifft architecture (compiler, HIR, and SVM), provides mathematical proofs for Pauli localization and frame-factored stability, benchmarks performance against existing tools (Stim, Tsim, SOFT), and applies the simulator to analyze magic state cultivation protocols.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.27058_figures/2604.27058_fig1.jpg",
+      "caption": "Figure 1: Lifecycle of an active operation in the frame-factored representation. Physical Clifford gates are absorbed into the offline Clifford frame UC, while a non-Clifford operation is Heisenberg mapped into a virtual Pauli rotation. Pauli localization uses virtual Clifford transformations to reduce the mapped multi-qubit Pauli string to a single virtual axis. The resulting localized operation either updates the active state vector or promotes a dormant virtual qubit into the active set, increasing k. Later projective measurements can collapse an active axis and return it to the dormant set, decreasing k. Stochastic Pauli noise and feed-forward corrections update only the virtual Pauli...",
+      "page": 4
+    },
+    {
+      "image": "2604.27058_figures/2604.27058_fig2.jpg",
+      "caption": "Figure 2: The high-level Clifft execution pipeline. The compiler resolves Clifford-coordinate evolution, HIR optimization, Pauli localization, and active-space planning once. The SVM then samples the compiled bytecode many times over the frame-factored runtime state.",
+      "page": 8
+    },
+    {
+      "image": "2604.27058_figures/2604.27058_fig3.jpg",
+      "caption": "Figure 5: Single-shot execution time vs. qubit count N for random Quantum Volume circuits at depth D = N, run on a 16-core CPU. This dense-limit benchmark corresponds to the worst case kmax = N, where Clifft no longer benefits from near-Clifford structure. Even in this regime, Clifft tracks the leading dense state vector simulators within a small constant factor up to N = 28; its near-Clifford speedups are shown separately in Table 1.",
+      "page": 13
+    },
+    {
+      "image": "2604.27058_figures/2604.27058_fig4.jpg",
+      "caption": "Figure 6: Inject + cultivate stage: T-gate vs S-proxy logical error rate per kept shot, estimated using stratified importance sampling across uniform circuit-level depolarizing noise. Shaded regions in the top panels show absolute error-rate values within a factor of 1000 in likelihood relative to the maximum-likelihood estimate, following the convention used by Sinter for rare-event visualization. Shaded regions in the bottom panels show 95% Bayesian credible intervals for the T/S ratio, computed as described in Appendix D. For d = 5, we also show the SOFT results from Table III in Li et al. [33] for comparison.",
+      "page": 15
+    },
+    {
+      "image": "2604.27058_figures/2604.27058_fig5.jpg",
+      "caption": "Figure 7: End-to-end magic state cultivation including the escape stage to a d = 15 surface code. Top panels: conservative infidelity estimate per kept shot after decoder correction for the true T-gate circuit (Clifft) and the S-proxy baseline (Gidney et al. [9]). Bottom panels: T/S infidelity ratio with 95% Bayesian credible intervals; the dashed line marks the inject and cultivation stage ratio from Section 4.2.1 as a reference. Note that the credible intervals for d = 5 cultivation extend beyond the plotted range due to low rare-event statistics.",
+      "page": 16
+    }
+  ],
+  "figure": "2604.27058_figures/2604.27058_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

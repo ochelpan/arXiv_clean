@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.00732",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Reconstruction of spin structures from topological charge distributions via generative neural network systems",
+  "authors": "Kyra H. M. Klos, Jan Disselhoff, Michael Wand, Karin Everschor-Sitte, Friederike Schmid",
+  "abstract": "Localized topological defects inherently possess a multiscale character. While their microstructure configuration depends on the specific physical system, their topological features and mutual interactions can be described on the macroscale in terms of a particle representation. However, determining the physical properties associated with a given defect pattern often requires knowledge of the underlying microscopic structure. In this work, we extend a Wasserstein generative adversarial neural network by incorporating physical constraints and Fourier-space information to generate microscopic spin configurations consistent with prescribed macroscopic patterns and thermodynamic parameters. Using the two-dimensional XY model as a test case, where vortex-antivortex pairs act as long-range interacting defects, we show that the model generates spin configurations that accurately reproduce magnetization, susceptibility, helicity modulus, and spin-spin correlations over a wide range of temperatures below the Kosterlitz-Thouless transition. At the same time, deviations in the specific heat reveal limitations in reproducing higher order energy fluctuations. A complementary analysis based on topological data analysis uncovers subtle differences in global spin-correlation structures at near critical temperatures that are not apparent from conventional correlation functions alone. These results demonstrate both the promise and current limitations of generative approaches for multiscale studies of defect-dominated spin systems and at the same time highlight topological methods as valuable tools for characterizing critical behavior.",
+  "url": "http://arxiv.org/abs/2605.00732v1",
+  "pdf": "https://arxiv.org/pdf/2605.00732v1",
+  "type": "theory",
+  "summary": "This paper presents a generative neural network approach to 'back-map' macroscopic topological defect patterns to their underlying microscopic spin configurations. By incorporating physical constraints and Fourier-space information, the model accurately captures essential thermodynamic properties and long-range correlations in the 2D XY model. It demonstrates how machine learning can bridge the gap between multiscale topological features and microscopic physics.",
+  "main_problem": "The challenge of reconstructing microscopic spin configurations from macroscopic topological charge distributions (vortices) using generative models.",
+  "main_result": "A physics-informed conditional Wasserstein GAN (cWGAN) successfully reconstructs spin configurations that accurately reproduce magnetization, susceptibility, and spin-spin correlations, though it struggles with higher-order energy fluctuations like specific heat.",
+  "method": "An extended WGAN architecture using a U-Net generator with AdaIN for temperature embedding and a dual-critic system (real-space and Fourier-space) to enforce physical and spectral constraints.",
+  "model_or_system": "The two-dimensional (2D) XY model on a square lattice, characterized by the Berezinskii-Kosterlitz-Thouless (BKT) phase transition and topological defects (vortex-antivortex pairs).",
+  "key_observables": "Magnetization, magnetic susceptibility, helicity modulus (spin stiffness), specific heat, spin-spin correlation functions, and topological descriptors (Minkowski functionals, Betti numbers, and persistence diagrams).",
+  "important_parameters": "Temperature (T), defect-pair distance (d_nu), winding number distribution (y), and lattice size (L).",
+  "main_assumptions": "The continuum approximation for energy is valid only outside defect cores; the model is tested primarily in the regime below the BKT transition.",
+  "figures_summary": "Figures illustrate the vortex-antivortex structure, the construction of cubical complexes and persistence images, the U-Net and critic architectures, training progress of thermodynamic observables, and comparisons of generated vs. simulated physical and topological metrics.",
+  "paper_structure": "The paper introduces the multiscale reconstruction problem, describes the 2D XY model and the cWGAN architecture (including Fourier-space critics), details the topological data analysis (TDA) pipeline, presents validation results via thermodynamic and geometric observables, and discusses limitations regarding energy fluctuations and critical behavior.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.00732_figures/2605.00732_fig1.jpg",
+      "caption": "FIG. 1. Example of a vortex-antivortex pair (blue and red marker) with distance dν = 3 in a two dimensional XY-model on a square lattice at zero temperature. The arrows point in the direction of the spins and are colored according to their orientation as indicated in the color wheel legend (right). The background encodes the local gradient field ϑ. It is colored according to the direction of the gradient, and the saturation level indicates its strength.",
+      "page": 3
+    },
+    {
+      "image": "2605.00732_figures/2605.00732_fig2.jpg",
+      "caption": "FIG. 2. Construction of cubical complexes SΘ for config- urations of the XY model on a square lattice (Eq. 10). a) Single square made of lattice sites i, j, k, l showing basic units σ{i} (vertices), σ{ij} (edges), σ{ijkl} (plaquettes), and a local spin configuration (cyan arrows). ∆ϑnm denotes the angle between spins on lattice sites n and m. b) Filtration pro- cess for the configuration in a) for three filtration threshold values Θ = π/36, π/6, π/2 (left to right). Edges are part of SΘ (marked as thick teal lines) if the angle ∆ϑ between their adjacent spins does not exceed the threshold Θ. A pla- quette is part of SΘ (marked as orange square) if none of the angles between any two...",
+      "page": 5
+    },
+    {
+      "image": "2605.00732_figures/2605.00732_fig3.jpg",
+      "caption": "FIG. 3. Construction of persistance diagrams and persistent images. a) Example of a spin configuration with two vortex pairs at zero temperature (same color coding as in 1). b) Cor- responding persistence diagram showing “death” vs. ”birth” of features for the zero-dimensional homology group H0 (teal dots) and the one-dimensional homology group H1 (orange dots). Every point in the graph represents the (birth-death) pair (Θ, Θ′) of a feature with Θ marking the filtration thresh- old value where the feature is first created, and Θ′ marking the filtration threshold where it disappears again. c) Resulting persistence mapping of H1, showing (birth-lifetime) pairs of features (Θ, τ = Θ′ −Θ). d)...",
+      "page": 6
+    },
+    {
+      "image": "2605.00732_figures/2605.00732_fig4.jpg",
+      "caption": "FIG. 5. Architecture of the generator network G(z|y, T) = x′ based on a U-net architecture. The encoder maps the winding-number distribution y and the embedded tempera- ture labels T to to a high-dimensional latent representation at the bottleneck. Gaussian noise z is injected at this stage, and the combined latent features are subsequently decoded to generate the output spin configuration x′. Short cut con- nections transfer information from the encoder to the corre- sponding decoder layers at each resolution.",
+      "page": 7
+    },
+    {
+      "image": "2605.00732_figures/2605.00732_fig5.jpg",
+      "caption": "FIG. 4. Illustration of the back-mapping concept based on a physics-informed conditional Wasserstein Generative Ad- versarial Neural Network (WGAN). A prescribed defect con- figuration (shown here for the two dimensional XY model) is provided as input to the generator (see Fig. 5), which pro- duces a corresponding microscopic spin configuration. During training, the generated configuration is evaluated by the crit- ics (Fig. 6), which output a realism score (details see text). These scores are used in a feedback loop to update the gen- erator parameters.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.00732_figures/2605.00732_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

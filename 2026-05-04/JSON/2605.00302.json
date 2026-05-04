@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.00302",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Data Loading for Carleman Linearized Systems: Application to the Lattice-Boltzmann Equation",
+  "authors": "Reuben Demirdjian, Thomas Hogancamp, Abeynaya Gnanasekaran, Amit Surana, Daniel Gunlycke",
+  "abstract": "Herein, we introduce a strategy to decompose an arbitrary square matrix into a linear combination of non-unitaries (LCNU) where each non-unitary term is embedded into a unitary matrix. The result is a linear combination of unitaries (LCU) with an equal number of terms as the LCNU. Using this approach, we construct a generalized LCU framework for any Carleman linearized autonomous dynamical system with a polynomial nonlinearity. This framework is then used to construct an LCU for the 3-dimensional Carleman linearized lattice Boltzmann equation (LBE) in which the number of terms scales like $N_s \\sim \\mathcal{O}(α^2 Q^2)$, where $α$ is the Carleman truncation order and $Q$ is the number of discrete velocities from the LBE. Importantly, $N_s$ is completely independent of both the number of temporal and spatial discretization points. Lastly, we provide an estimate of our LCNU strategy's T gate cost in conjunction with (1) PREP and SELECT block encoding oracles, and (2) the variational quantum linear solver. In the former, the T cost scales like $\\mathcal{O}(α^3 Q^2 (\\log_2 n)^2)$, where $n$ is the total number of spatial grid points across all dimensions. Next, the latter requires $N_s^2(\\log_2 (2n_tn^α)+1)$ circuits per iteration, with a worst case T gate cost of $\\mathcal{O}(α(\\log_2 Qn)^2)$ among them. We, therefore, provide an efficient decomposition strategy useful for both fault-tolerant and variational approaches.",
+  "url": "http://arxiv.org/abs/2605.00302v1",
+  "pdf": "https://arxiv.org/pdf/2605.00302v1",
+  "type": "theory",
+  "summary": "This paper presents a new method for loading nonlinear fluid dynamics data onto a quantum computer by using Carleman linearization and a novel unitary embedding technique. It achieves polylogarithmic scaling with respect to the simulation grid size, making it a significant step toward efficient quantum simulation of complex classical fluids.",
+  "main_problem": "Developing an efficient quantum data loading strategy for simulating nonlinear dynamical systems, specifically addressing the high cost of decomposing Carleman-linearized matrices into a Linear Combination of Unitaries (LCU).",
+  "main_result": "The authors introduce an LCNU-to-LCU strategy that embeds non-unitary terms into unitaries without increasing the number of terms, providing a framework that scales polylogarithmically with spatial and temporal discretization points for the 3D Lattice-Boltzmann Equation.",
+  "method": "The method uses Carleman linearization to transform nonlinear PDEs into linear systems, a 'judicious zero padding' technique to handle non-uniform submatrix sizes, and a unitary completion strategy to implement the resulting operators via quantum circuits.",
+  "model_or_system": "The primary application is the 3-dimensional Lattice-Boltzmann Equation (LBE), a discretized model for fluid dynamics involving streaming and collision operators (linear, quadratic, and cubic) on a periodic domain.",
+  "key_observables": "T gate cost, number of LCU terms (Ns), condition number scaling, and Reynolds/Mach numbers.",
+  "important_parameters": "Carleman truncation order (alpha), number of discrete velocities (Q), spatial grid points (n), and the Reynolds and Mach numbers.",
+  "main_assumptions": "The number of discrete velocities is a power of two; the density is approximately one; and the accuracy of the simulation depends on the truncation order alpha.",
+  "figures_summary": "Figure 4.1 and 4.2 show quantum circuit embeddings for linearized terms; Figure 4.3 shows the most expensive circuit for the linear collision term; Table 1 summarizes resource costs for different lattice types (D1Q3, D2Q9, D3Q15).",
+  "paper_structure": "The paper introduces the LCNU-to-LCU strategy, develops a generalized framework for Carleman linearized systems, applies this to the 3D LBE, provides explicit circuit constructions and resource estimations, and concludes with a condition number stability analysis.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.00302_figures/2605.00302_fig1.jpg",
+      "caption": "Figure 4.1: Embeddings for the two nontrivial L(e) 1 terms of (62): the emebedded L1,2 term (left) and the embedded L1,3 term (right). The |a⟩wire is a single ancillary qubit required to embed each term into a unitary operation. A control operation or a single qubit gate on a multi-qubit register should be interpreted as the respective operation being applied to every wire within that register. The vertical dashed line separates the U1 component from the U2 component corresponding to the embedding procedure from (5). The equations below the circuits are: the desired term to load (L), its completion (L) which constructs U2 using Algorithm 2, and LLT which constructs U1 using Algorithm 1....",
+      "page": 19
+    },
+    {
+      "image": "2605.00302_figures/2605.00302_fig2.jpg",
+      "caption": "Figure 4.2: Embedding for Llin,1 λ as defined in (65b) using λ = (2, 1, 0, x, +1, m) for any m ∈{1, . . . , NEη}, which is the most expensive circuit among any λ ∈Λ1. The σf(η,m) block is the mth term in the Pauli decomposition of x-component of (52), and is therefore a tensor product of log Q Pauli gates. The Sn +1 block is the incrementer circuit from (24).",
+      "page": 21
+    },
+    {
+      "image": "2605.00302_figures/2605.00302_fig3.jpg",
+      "caption": "Figure 4.3: Embedding for Llin,2 λ as defined in (68b) using λ = (2, 1, 0, m) for any m ∈{1, . . . , NR}, which is the most expensive circuit among any λ ∈Λ2. The σg(m) gate is the mth term in the Pauli decomposition used in (55), and is therefore a tensor product of log Q Pauli gates. The VR and WR circuits come from the SVD in (55) and depend on the specific lattice structure used.",
+      "page": 22
+    },
+    {
+      "image": "2605.00302_figures/2605.00302_fig4.jpg",
+      "caption": "Figure 4.4: Embedding for Lnlin λ as defined in (71b) using λ = (3, 2, α−2, α−3, q, m) for any m ∈{1, . . . , NΓq} and q ∈{1, . . . , Q}, which is the most expensive circuit among any λ ∈Λ3. The circuits for P3, B3,q and the commutation matrix K(a,b) for integers a and b are provided in Appendices E.1, E.4 and E.5, respectively. The σh(q,m) gate is the mth term in the Pauli decomposition used in (59) and is therefore a tensor product of log Q Pauli gates. The VΓq and WΓq circuits come from the SVD in (59) and are determined for a specific lattice structure.",
+      "page": 24
+    },
+    {
+      "image": "2605.00302_figures/2605.00302_fig5.jpg",
+      "caption": "Figure 5.1: T gate count to encode the Carleman linearized LBE matrix using the PREP and SELECT oracles for the D1Q3*, D2Q9* and D3Q15* lattices. T count is plotted as a function of the total number of discrete points defined as nntQ. Each case uses (90) with nt = nx and the following: for D1Q3* n = nx and Q = 4, for D2Q9* n = nxny and Q = 16, and for D3Q15* n = nxnynz and Q = 16. We also use α = 4, ϵ = 10−12 and NEx, NEy, NEz, NR, and NΓ come from Table 1. The leading term of (90) is plotted in the dashed curve for the D3Q15* lattice.",
+      "page": 29
+    }
+  ],
+  "figure": "2605.00302_figures/2605.00302_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

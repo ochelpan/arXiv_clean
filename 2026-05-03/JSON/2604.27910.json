@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2604.27910",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "physics.chem-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Fragment-Constrained Charge Equilibration for Charge-Aware Machine Learning Potentials at Electrochemical Interfaces",
+  "authors": "Akhil Reddy Peeketi, Blas P Uberuaga, Travis E Jones",
+  "abstract": "Predictive simulation of electrochemical interfaces requires atomistic models that capture reactive bond rearrangements, long-range electrostatics, and charge distributions reflecting the electronic distinctness of electrode and electrolyte. Existing charge-aware machine-learned interatomic potentials (MLIPs) built on global charge equilibration (QEq) settle electrode and electrolyte at a common electrochemical potential, leaving no room for the interfacial gradient that the double layer requires and admitting spurious charge transfer between electronically disconnected regions. Per-fragment charge equilibration is the established remedy in classical molecular dynamics, but reliance on predefined molecular topology has confined it to non-reactive systems. We lift this restriction by making fragment identification itself a differentiable function of atomic geometry, yielding soft fragment-constrained charge equilibration (Soft-FQEq) -- a solver layer that restores fragment-resolved charge conservation in reactive MLIPs. The layer consumes four scalar MLP readouts from a shared atomic-feature network -- per-atom electronegativity, source charge, short-range energy, and a soft bond connectivity -- and returns equilibrated charges together with per-fragment chemical potentials. We implement Soft-FQEq as an extension of the hippynn framework on a HIP-NN feature network and train it on DFT energies, forces, and DDEC6 charges for IrO2/H2O/Na+/ClO4- interfaces. The trained model recovers a clear electrode-to-electrolyte gradient in the per-atom electrochemical potential. With the same trained weights but the fragment-constrained solver replaced by global QEq at inference, this gradient collapses to an essentially uniform profile, directly showing that the gradient cannot be sustained within global QEq while the fragment formulation recovers it.",
+  "url": "http://arxiv.org/abs/2604.27910v1",
+  "pdf": "https://arxiv.org/pdf/2604.27910v1",
+  "type": "theory",
+  "summary": "This paper introduces a new machine learning solver layer that allows for different chemical potentials in different parts of a system. This enables reactive machine learning potentials to accurately simulate the electric double layer at electrochemical interfaces, which was previously impossible with standard global charge equilibration methods.",
+  "main_problem": "Existing charge-aware machine learning interatomic potentials (MLIPs) using global charge equilibration (QEq) cannot model the electrochemical potential gradient at interfaces because they force a single system-wide chemical potential.",
+  "main_result": "The authors developed a 'Soft-FQEq' solver layer that uses differentiable fragment identification to allow distinct chemical potentials for different fragments, successfully recovering the interfacial potential gradient.",
+  "method": "An augmented-Lagrangian Uzawa iterative solver integrated into the hippynn framework, using a graph Laplacian resolvent for differentiable fragment assignment and Gaussian-screened Ewald electrostatics.",
+  "model_or_system": "An electrochemical interface consisting of an IrO2 electrode, aqueous electrolyte (H2O, Na+, ClO4-), and a bulk water region, modeled via a machine learning potential (HIP-NN) with a fragment-constrained charge solver.",
+  "key_observables": "Local electrochemical potential (mu_phys), fragment-resolved chemical potentials (mu_frag), per-atom electronegativity, and DDEC6 atomic charges.",
+  "important_parameters": "Penalty strength beta = 50, Ewald screening parameter alpha_E = 0.5 A^-1, and soft bond connectivity weights.",
+  "main_assumptions": "Assumes fragment identification can be treated as a differentiable function of geometry via soft connectivity; assumes the solver's coupling is restricted to scalar MLP readouts.",
+  "figures_summary": "Figure 1 shows a snapshot of the IrO2/aqueous NaClO4 interface with partitioned regions; Figure 3 illustrates the electrochemical potential profile showing the electrode plateau, interfacial gradient, and bulk water plateau.",
+  "paper_structure": "The paper identifies the failure of global QEq, introduces the Soft-FQEq mathematical framework and differentiable fragment identification, details the implementation within the HIP-NN/hippynn architecture, validates the model against DFT/DDEC6 data, and performs an ablation study to prove the necessity of the fragment-constrained approach.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.27910_figures/2604.27910_fig1.jpg",
+      "caption": "Figure 1: Snapshot of an IrO2(110)/aqueous NaClO4 interface, our prototype training system for Soft-FQEq. The interface partitions into three structurally distinct regions (electrode, inner and outer Helmholtz layers, and diffuse/bulk electrolyte) and, at molecular resolution, into fragments for per-fragment charge equilibration: the connected electrode slab (one fragment), each intact water molecule, and each individual Na+ or ClO4 – ion. The electrode (Ir, olive; O, red) is a conductor whose electronic states set the surface’s electrochemical potential. The inner and outer Helmholtz layers comprise the first few Å of solvent: oriented water molecules and, further out, the plane of closest...",
+      "page": 3
+    },
+    {
+      "image": "2604.27910_figures/2604.27910_fig2.jpg",
+      "caption": "Figure 2: Architecture of fragment-constrained charge equilibration on a HIP-NN feature net- work. Atomic positions R feed a shared feature network whose four MLP readout heads produce Eshort i , χi, qc,i, and ∆log κij. The bond-connectivity head feeds a differentiable resolvent (Sec- tion 2.2) producing the soft fragment-membership matrix eC; the augmented-Lagrangian Uzawa solver (Section 2.1) then consumes χ, qc, and eC and returns equilibrated charges q and frag- ment chemical potentials µfrag. Forces are obtained by autograd through the unrolled solver; the per-atom observable µphys,i = χi + [Aq]i (Section 2.5) is evaluated directly from the converged χ and q.",
+      "page": 5
+    },
+    {
+      "image": "2604.27910_figures/2604.27910_fig3.jpg",
+      "caption": "Figure 3: Per-atom µphys,i = χi + [Aq]i along the interface normal z for a charge-neutral IrO2/H2O/NaClO4 slab, referenced to the bulk-water mean (z ∈[30, 60] Å). The two shaded regions separate the electrode (gray, z ≲11.5 Å) from the electrolyte (light blue, z ≳11.5 Å). Soft-FQEq (blue) shows a flat electrode plateau, a sharp interfacial drop, and a bulk-water plateau near zero; shaded band is the 5-seed ensemble standard deviation. Replacing the Uzawa solver by a global-QEq bordered solve at inference with the same trained weights collapses µphys to a single system-wide value (red dashed line). Species shown: Ir and electrode-O in the electrode region; clean water-O (not bonded to Cl) in...",
+      "page": 14
+    },
+    {
+      "image": "2604.27910_figures/2604.27910_fig4.jpg",
+      "caption": "Figure 4: Response of µphys(z) to electrode charging. Nine ion compositions from 4 Na+ to 4 ClO4 – per electrode face (placed in the Stern layer) span a range of model-predicted surface charge densities σ, with each composition averaged over 5 random seeds. Shaded regions and species inclusion match Figure 3: electrode (gray, z ≲11.5 Å) and electrolyte (light blue, z ≳ 11.5 Å). The electrode plateau shifts monotonically with σ: more positive σ raises µphys on the electrode, consistent with the capacitive response expected at an interface. The bulk-water region remains near zero on each configuration’s own bulk-water reference. Single-snapshot evaluation per seed, not MD-averaged; curves are...",
+      "page": 15
+    }
+  ],
+  "figure": "2604.27910_figures/2604.27910_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

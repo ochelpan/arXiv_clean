@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.00626",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning Lindblad Dynamics of a Superconducting Quantum Processor",
+  "authors": "Johann Bock Severin, Malthe A. Marciniak, Rune Thinggaard Birke, Emil Hogedal, Andreas Nylander, Irshad Ahmad, Amr Osman, Janka Biznárová, Marcus Rommel, Anita Fadavi Roudsari, Jonas Bylander, Giovanna Tancredi, Christopher W. Warren, Svend Krøjer, Jacob Hastrup, Morten Kjaergaard",
+  "abstract": "Accurate models of quantum processors are essential for understanding, calibrating, and improving their performance. In practice, model construction must balance physical detail against the experimental and computational effort required to reliably learn parameters. Compact descriptions therefore often rely on assumptions about which interactions, noise processes, or hidden degrees of freedom are relevant. Here we introduce LIMINAL, a data-driven framework for testing such assumptions and selecting minimal adequate Lindblad models. LIMINAL fits nested candidate models to time-resolved tomographic data and uses likelihood-ratio tests to decide when added physical mechanisms are warranted. We apply LIMINAL to a five-qubit superconducting processor, identifying an idling model with three-local Hamiltonian terms and two-local dissipation, while finding no support for three-local dissipation. We further apply it to recover driven single-qubit Hamiltonians, reconstruct a shaped-pulse Hamiltonian without assuming an analytic pulse model, and test hidden-qubit extensions in coupler-mediated dynamics, demonstrating the applicability of the framework for a wide range of tasks.",
+  "url": "http://arxiv.org/abs/2605.00626v1",
+  "pdf": "https://arxiv.org/pdf/2605.00626v1",
+  "type": "both",
+  "summary": "The authors present LIMINAL, a framework for learning the simplest Lindblad models that accurately describe a superconducting quantum processor. By using differentiable simulation and likelihood-ratio tests, the method can automatically determine the necessary level of interaction locality and dissipation. This allows for the automated characterization of both idling dynamics and complex, time-dependent control pulses.",
+  "main_problem": "The challenge of identifying the minimal adequate Lindblad model for a multi-qubit processor, balancing model complexity against experimental and computational tractability.",
+  "main_result": "The LIMINAL framework successfully identifies the simplest adequate model for a 5-qubit processor, recovering 3-local Hamiltonian terms and 2-local dissipation, while also reconstructing time-dependent pulse envelopes and detecting hidden coupler dynamics.",
+  "method": "A data-driven, likelihood-based inference framework (LIMINAL) using gradient-based Maximum Likelihood Estimation (MLE) with a differentiable ODE-based simulator and Likelihood-Ratio tests.",
+  "model_or_system": "A five-qubit superconducting quantum processor featuring fixed-frequency transmons and tunable couplers, modeled using the Lindblad master equation for both Hamiltonian and dissipative dynamics.",
+  "key_observables": "Time-resolved tomographic data, bit-string outcomes, Pauli basis coefficients, and excited-state probabilities.",
+  "important_parameters": "Hamiltonian coefficients, dissipation rates, qubit frequencies, relaxation times (T1), and dephasing times (T2).",
+  "main_assumptions": "The dynamics are assumed to be Markovian and describable by a Lindblad generator.",
+  "figures_summary": "Figure 1 shows the device micrograph and LIMINAL workflow; Figure 2 illustrates the model selection path and likelihood landscapes; Figure 3 demonstrates single-qubit constant pulse reconstruction; Figure 4 shows time-dependent pulse reconstruction; Figure 5 and 6 detail hidden-qubit detection and the cryogenic setup.",
+  "paper_structure": "The paper introduces the LIMINAL framework, describes the experimental superconducting platform, details the mathematical implementation of the differentiable simulator, presents results for idling dynamics, demonstrates reconstruction of driven single-qubit pulses, and concludes with tests for hidden degrees of freedom in couplers.",
+  "why_interesting": "It provides a rigorous statistical method for model selection in open quantum systems, specifically addressing how to identify relevant noise and interaction terms in many-body Lindbladian dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.00626_figures/2605.00626_fig1.jpg",
+      "caption": "FIG. 1. Conceptual overview of the framework for learning the minimal Lindblad model. (a) Optical micrograph of the superconducting 5-qubit device with fixed-frequency trans- mons and tunable couplers used in this work. Further experi- mental details can be found in Supplemental Material B. (b) Tomographic measurement sequence: Qubits are prepared us- ing local preparation gates Ui, and the system is allowed to evolve under the time-dependent channel of interest, Λ(t). Fi- nally, local basis-change gates Um are applied to each qubit before projective readout is performed. (c) Classical post- processing of the data. A hierarchy of nested candidate Lind- blad models (gray pictograms) are...",
+      "page": 2
+    },
+    {
+      "image": "2605.00626_figures/2605.00626_fig2.jpg",
+      "caption": "FIG. 2. Application of the LIMINAL framework to determine the minimal adequate model for the idling dynamics of a 5-qubit processor. (a) Tomographic experiment for idling dynamics on the 5-qubit device. (b) Candidate models arranged along two axes: unitary and dissipative locality. Complexity increases from local terms to nearest-neighbor (two-local), all-to-all two-local, and three-local interactions. (c) Observed bit-strings from one example configuration and fitted predictions from two different models. (d) Log-likelihood values for all model combinations, where complexity increases from lower left to upper right. Arrows indicate the path of greatest explanatory power. See main text for...",
+      "page": 4
+    },
+    {
+      "image": "2605.00626_figures/2605.00626_fig3.jpg",
+      "caption": "FIG. 3. Single-qubit validation under a constant, slightly de- tuned pulse. (a) Tomographic sequence: local preparation Ui, square pulse of amplitude A and duration t, basis-change Um, and projective readout. (b) Probability of measuring the excited state as a function of time for different pulse am- plitudes. Experimental data (top) are compared with sim- ulated fits (bottom). (c) Fitted Hamiltonian parameters for each amplitude, decomposed into Pauli components. A zoom- in highlights the z-component (gold), while the x- and y- components (red and blue) are fitted with a linear model and the z-component with an offset quadratic form.",
+      "page": 6
+    },
+    {
+      "image": "2605.00626_figures/2605.00626_fig4.jpg",
+      "caption": "FIG. 4. Reconstruction of a time-dependent Hamiltonian from an enveloped resonant drive. (a) Tomographic sequence: local preparation Ui, resonant pulse with a shaped I(t) en- velope; the Q(t) quadrature follows a DRAG-like derivative scaling. The pulse is truncated at time t in fixed increments to map the evolving dynamics, followed by basis-change Um and projective readout. (b) Representative configurations show- ing data (points) and model predictions (solid lines) obtained by maximum likelihood estimation. (c) Reconstructed single- qubit Hamiltonian components ax(t), ay(t), az(t), obtained via piecewise-linear interpolation between anchor points. The I/Q envelopes are overlaid (scaled)...",
+      "page": 7
+    },
+    {
+      "image": "2605.00626_figures/2605.00626_fig5.jpg",
+      "caption": "FIG. 5. Capturing coupler-mediated entangling dynamics and non-Markovian memory with minimal hidden qubit models. (a) Two-qubit experiment where only the properties of qubit 1 is tomographically reconstructed. Two fixed-frequency transmons are connected by a tunable coupler. A flux modulation at the qubit-frequency difference induces an iSWAP-like interaction. Tomography is performed on the first qubit only. (b) Nested models for one observed qubit. Model A: single-qubit Lindblad model. Model B: the observed qubit coupled to one hidden two-level system (TLS). Model C: the observed qubit coupled to two hidden TLSs. (c) Observed data for two configurations alongside model-predicted...",
+      "page": 8
+    }
+  ],
+  "figure": "2605.00626_figures/2605.00626_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 3,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

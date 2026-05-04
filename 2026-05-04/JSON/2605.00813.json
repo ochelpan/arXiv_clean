@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.00813",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "physics.bio-ph",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Statistical mechanics for Scrabble predicts strategy, entropy and language",
+  "authors": "Olivier Witteveen, Marianne Bauer",
+  "abstract": "The crossword-like patterns of tiles in Scrabble form connected graphs of occupied sites on a square lattice. We find the most structureless description that reproduces means and covariances observed in real Scrabble games by adapting a maximum entropy approach to connected graphs. This pairwise model captures the data well, and predicts word-length statistics and geometric features of the Scrabble graphs correctly; in addition, the parameters of this model are interpretable and allow us to understand Scrabble playing strategies. Using this pairwise model, we calculate entropy differences and distinguishability of Scrabble graphs across languages, without having access to the letters on the tiles. Notably, we find that the entropy is predicted better by strategic gameplay -- such as word length on the board -- than lexicon size. Finally, we find that we can use the pairwise model to correctly assign Scrabble graphs to languages, avoiding explicit feature selection and at relatively low computational cost.",
+  "url": "http://arxiv.org/abs/2605.00813v1",
+  "pdf": "https://arxiv.org/pdf/2605.00813v1",
+  "type": "theory",
+  "summary": "This paper applies the maximum entropy principle and Ising-like models to analyze the structural patterns of Scrabble boards. It demonstrates that a simple pairwise model can capture complex geometric features and even identify the underlying language of a game based solely on tile placement patterns.",
+  "main_problem": "Determining if a statistical mechanics framework can describe the patterns, strategies, and linguistic features of Scrabble board configurations and distinguish between different languages.",
+  "main_result": "A pairwise maximum entropy model effectively captures Scrabble board statistics, including higher-order correlations and geometric features, and can correctly identify the source language of a board configuration without knowing the specific letters.",
+  "method": "The authors use a maximum entropy approach with a pseudolikelihood method for parameter estimation and thermodynamic integration to calculate entropy differences.",
+  "model_or_system": "The system is a Scrabble graph represented as a 15x15 square lattice of spins (sigma_i in {-1, +1}). The model is an Ising-like Hamiltonian: E(sigma) = -sum J_ij * sigma_i * sigma_j - sum h_i * sigma_i.",
+  "key_observables": "Mean square occupation, pairwise correlations, word-length statistics, geometric features (radius of gyration, perimeter-to-area ratio, number of holes), and Jensen-Shannon divergence.",
+  "important_parameters": "External fields (h_i) representing spatial bias and pairwise interactions (J_ij) representing word placement constraints.",
+  "main_assumptions": "The configuration space is restricted to connected graphs with a permissible number of tiles; the posterior calculation assumes all languages are initially equiprobable.",
+  "figures_summary": "Figure 1 shows the Scrabble board and spin representation; Figure 2 compares predicted vs. observed occupation and correlations; Figure 3 displays geometric observables and covariance matrices across languages; Figure 4 illustrates the language decoding framework and confusion matrix.",
+  "paper_structure": "The paper introduces the Scrabble graph system, defines the pairwise maximum entropy model, demonstrates model accuracy using occupation and correlation data, extends the analysis to geometric and linguistic features, and concludes with a Bayesian framework for language identification.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.00813_figures/2605.00813_fig1.jpg",
+      "caption": "FIG. 1. We model the crossword-like pattern of tiles on a Scrabble board. (A) An empty 15×15 Scrabble board with blank and colored, ‘premium’ squares. DW and TW indicate double and triple word scores, respectively; DL and TL are double and triple letter scores. (B) An example of a final Scrabble board configuration: We collect ca. 50,000 Scrabble games from user-uploaded and tournament data [20]. All words read in top-down or left-right fashion are legal according to a standard English Scrabble lexicon [22]. Lowercase, gray letters are those assigned to blank tiles by the players. (C) We assign a spin σi ∈{−1, 1} to each square on the Scrabble board to indicate whether or not a tile is...",
+      "page": 2
+    },
+    {
+      "image": "2605.00813_figures/2605.00813_fig2.jpg",
+      "caption": "FIG. 2. The pairwise maximum entropy model has interpretable parameters, and correctly predicts marginal distributions and macroscopic observables. (A) Simultaneous occupation of the eight triple word (TW) squares on the board: for each of the 28 = 256 patterns of TW-occupation, we plot the frequency of occurrence predicted by the pairwise model p(2) against the observed frequency (blue crosses). Red dots labeled (i-iii) are three example patterns. For comparison, the first-order model p(1) is shown (gray dots). (B) Jensen–Shannon divergence between observed and predicted marginal distributions for 500 random subsets of eight squares (sketch). (C) The local fields hi plotted on the Scrabble...",
+      "page": 4
+    },
+    {
+      "image": "2605.00813_figures/2605.00813_fig3.jpg",
+      "caption": "FIG. 3. The size and composition of the available lexicon impacts Scrabble graphs. (A) We adapt a Scrabble AI tool, Quackle [21], to self-play. We generate 50,000 Scrabble games for each of five lexica ℓ∈{English, French, Greek, Norwegian, Turkish} included in the Quackle software distribution; an example game in French is shown. We fit a maximum entropy model p(σ|ℓ) for each language. (B) The lexica differ in size and composition: Histograms showing word length frequencies in each Scrabble dictionary. (C) Languages show differences in their covariance structure. We show three examples: (i) French, (ii) English, and (iii) Turkish. (D, E) Total number of words on the board for (D) English...",
+      "page": 5
+    },
+    {
+      "image": "2605.00813_figures/2605.00813_fig4.jpg",
+      "caption": "FIG. 4. The pairwise maximum entropy model is successful at assigning Scrabble graphs to their corresponding lexica, despite having no access to letters. (A) For a Scrabble graph σ, the posterior distribution p(ℓ|σ) indicates the probability that it originated from a particular lexicon. By picking the lexicon ˆℓthat maximizes the posterior distribution, we ‘decode’ σ to obtain an estimate for the original lexicon. (B) The posterior distribution for an example Scrabble graph (inset and Fig. 3A). In this case, we infer correctly that the original language is French. (C) To systematically evaluate how well we can assign Scrabble graphs to their lexica using the pairwise model, we use sets of...",
+      "page": 7
+    },
+    {
+      "image": "2605.00813_figures/2605.00813_fig5.jpg",
+      "caption": "FIG. 1. Monte Carlo scheme for sampling Scrabble graphs from p(σ), consisting of three steps; we show a 5×5 example. (i) For the current configuration σ, we find all n(σ) places where a tile can be added (green circles) or removed (red crosses). (ii) Out of the permissible tile additions or removals, one is proposed with probability g(σ →σ′) = 1/n(σ) (purple box). (iii) The proposed transition is accepted with probability A(σ →σ′) (Eq. 1) or rejected. In this case, a tile addition was proposed on square A3 and accepted. By iterating (i-iii), detailed balance ensures that the Scrabble graphs are drawn from the Boltzmann distribution p(σ).",
+      "page": 12
+    }
+  ],
+  "figure": "2605.00813_figures/2605.00813_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

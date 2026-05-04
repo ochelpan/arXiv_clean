@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.00435",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.CL",
+    "cond-mat.dis-nn",
+    "cs.AI",
+    "nlin.CD"
+  ],
+  "is_primary_archive": true,
+  "title": "Escaping Mode Collapse in LLM Generation via Geometric Regulation",
+  "authors": "Xin Du, Kumiko Tanaka-Ishii",
+  "abstract": "Mode collapse is a persistent challenge in generative modeling and appears in autoregressive text generation as behaviors ranging from explicit looping to gradual loss of diversity and premature trajectory convergence. We take a dynamical-systems view and reinterpret mode collapse as reduced state-space accessibility caused by *geometric collapse*: during generation, the model's internal trajectory becomes confined to a low-dimensional region of its representation space. This implies mode collapse is not purely a token-level phenomenon and cannot be reliably solved by symbolic constraints or probability-only decoding heuristics. Guided by this perspective, we propose *Reinforced Mode Regulation* (RMR), a lightweight, online state-space intervention that regulates dominant self-reinforcing directions in the Transformer value cache (implemented as low-rank damping). Across multiple large language models, RMR substantially reduces mode collapse and enables stable, high-quality generation at extremely low entropy rates (down to 0.8 nats/step), whereas standard decoding typically collapses near 2.0 nats/step.",
+  "url": "http://arxiv.org/abs/2605.00435v1",
+  "pdf": "https://arxiv.org/pdf/2605.00435v1",
+  "type": "both",
+  "summary": "This paper reinterprets LLM mode collapse as a geometric collapse of internal representation trajectories into low-dimensional attractors. It introduces RMR, a method to suppress persistent directions in the Transformer cache, effectively preventing repetitive generation. The approach maintains high text quality while enabling stable generation at much lower entropy rates.",
+  "main_problem": "Addressing mode collapse in Large Language Models (LLMs), where autoregressive generation enters repetitive, low-entropy loops or loses semantic diversity.",
+  "main_result": "The proposed Reinforced Mode Regulation (RMR) significantly increases non-collapse rates in LLMs (e.g., from 8% to 56% at temperature 0.7) without degrading text quality, by preventing the geometric collapse of internal trajectories.",
+  "method": "A lightweight, online intervention called Reinforced Mode Regulation (RMR) that uses low-rank damping to attenuate dominant, self-reinforcing directions in the Transformer value cache identified via a generalized eigenvalue problem.",
+  "model_or_system": "The system is modeled as an autoregressive Transformer-based LLM (e.g., Qwen, Llama) where the generation process is viewed as a stochastic trajectory in a high-dimensional state space (the KV cache), specifically using an Iterated Function System (IFS) framework to represent the dynamics.",
+  "key_observables": "Correlation dimension (fractal dimension of the trajectory), next-token entropy, Distinct-n, and generalized eigenvalues of the value-cache subspace.",
+  "important_parameters": "Temperature (T), damping strength (eta), eigenvalue threshold (lambda_min = 0.8), and entropy-locked/temperature-locked decoding regimes.",
+  "main_assumptions": "The method assumes access to the internal Transformer KV cache and relies on the approximation that the high-dimensional vocabulary can be binned for efficient computation.",
+  "figures_summary": "Figure 1 visualizes trajectory transitions in an IFS; Figure 2 shows explicit looping examples; Figure 4 shows the widening spectral gap signaling collapse; Figure 6 illustrates non-looping degeneration (template/conceptual looping); Figure 8 and 9 show the stability of correlation dimension under RMR.",
+  "paper_structure": "The paper introduces the problem of mode collapse, proposes a dynamical-systems reinterpretation as geometric collapse, presents the RMR method and its efficient implementation, validates the method using correlation dimension as a diagnostic, and demonstrates performance gains across various LLMs and temperatures.",
+  "why_interesting": "The paper uses tools from dynamical systems and statistical mechanics, such as Iterated Function Systems, phase transitions, and fractal dimensions, to analyze the stability and ergodicity of a high-dimensional stochastic process.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.00435_figures/2605.00435_fig1.jpg",
+      "caption": "Figure 1. Trajectories of the state-dependent IFS in Eq. (13). We use ri = 0.6 (∀i), bi = [2gi, 0]⊤, and a rotation Oi with angle θi = −giπ/3. (a–c) Different inverse temperatures β: (a) β = 2.0, (b) β = 1.0, (c) β = 0.5. (d) Regulation implemented as weak damping (Eq. (3)) applied to the history-dependent variable mt.",
+      "page": 3
+    },
+    {
+      "image": "2605.00435_figures/2605.00435_fig2.jpg",
+      "caption": "Figure 2. From explicit looping to geometric collapse. (a) An example of explicit mode collapse (looping) with Qwen3-4B-Base at temperature 0.5. (b) Along a single generation trajectory (starting at t = 1000), next-token entropy (blue) and Distinct-2 (green) provide token-level proxies of diversity, whereas correlation dimension (red) directly measures state-space accessibility; it drops sharply as the trajectory concentrates into a low-dimensional regime.",
+      "page": 5
+    },
+    {
+      "image": "2605.00435_figures/2605.00435_fig3.jpg",
+      "caption": "Figure 3. Correlation dimension tracks mode collapse across decoding conditions. As randomness is reduced (lower temperature or lower entropy target), explicit looping becomes more frequent, and correlation dimension decreases in tandem, indicating progressive concentration into low-dimensional regimes.",
+      "page": 5
+    },
+    {
+      "image": "2605.00435_figures/2605.00435_fig4.jpg",
+      "caption": "Figure 4. Evolution of the top-2 generalized eigenvalues in the value cache across Transformer layers (color-coded from blue to red), reporting the mean over attention heads. (a) Without RMR, geometric collapse begins around t ≈1000: the leading eigenvalue rises toward 1 while the second eigenvalue quickly drops toward 0, indicating a widening spectral gap and dominance by a single persistent mode. (b) With RMR, the leading eigenvalue in each layer is regulated below the threshold (λmin = 0.8), maintaining a stable spectrum and preventing collapse.",
+      "page": 7
+    },
+    {
+      "image": "2605.00435_figures/2605.00435_fig5.jpg",
+      "caption": "Figure 5. Non-collapse rates under controlled randomness. (a) Temperature-locked decoding and (b) entropy-locked decoding, comparing standard decoding, typical sampling, random regulation, and RMR. A completion is counted as non-collapse if its correlation dimension remains above 8 over 1,000 generated tokens of HEIDEGGER.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.00435_figures/2605.00435_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 2,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2604.27836",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Towards High Performance Quantum Computing (HPQ): Parallelisation of the Hamiltonian Auto Decomposition Optimisation Framework (HADOF)",
+  "authors": "Namasi G Sankar, Georgios Miliotis, Simon Caton",
+  "abstract": "Practical applicability of quantum optimisation on near term devices is constrained by limited qubit counts and hardware noise, which restricts the scalability of quantum optimisation algorithms for combinatorial problems. The simulation of large quantum circuits is also difficult and constrained by memory requirement. The Hamiltonian Auto Decomposition Optimisation Framework (HADOF) addresses this by decomposing large QUBOs into smaller subproblems that can be solved iteratively on quantum or classical backends. This allows the scalability of quantum QUBO algorithms beyond device limits, as well as their simulation on classical devices. In this research, we extend the evaluation of HADOF by benchmarking on real IBM QPUs across sequential, single-QPU parallel, and multi-QPU parallel execution modes, advancing toward High Performance Quantum (HPQ) computing for combinatorial optimisation problems.   Experimental results on IBM quantum hardware demonstrate up to 3-4x reduction in wall clock time when utilising four QPUs compared to sequential execution baseline, while maintaining comparable solution quality. Notably, even single QPU execution benefits from parallelised job orchestration and execution, yielding up to 3x speedup. Simulated results predict over 5x speed-up in parallel execution mode. We further validate the practical applicability of the approach on real world genome assembly instances, showing that both sequential and parallel HADOF variants achieve competitive accuracy while significantly improving time to solution. These results highlight the importance of parallelism at both the algorithmic and system levels, positioning HADOF as a viable pathway toward scalable quantum optimisation.",
+  "url": "http://arxiv.org/abs/2604.27836v1",
+  "pdf": "https://arxiv.org/pdf/2604.27836v1",
+  "type": "both",
+  "summary": "This paper introduces a parallelized version of the HADOF framework to solve large-scale combinatorial optimization problems by decomposing them into smaller sub-problems. By utilizing multiple quantum processors simultaneously, the authors demonstrate significant reductions in computation time without sacrificing solution quality. This work provides a practical pathway toward High Performance Quantum (HPQ) computing for real-world applications like genomics.",
+  "main_problem": "The scalability of quantum optimization algorithms like QAOA is limited by the low qubit counts, noise, and connectivity of NISQ-era hardware, making large-scale combinatorial problems like genome assembly difficult to solve.",
+  "main_result": "The parallelized HADOF framework achieves up to a 3-4x reduction in wall-clock time on real IBM QPUs and up to a 5x speedup in simulations, while maintaining competitive solution accuracy for genome assembly.",
+  "method": "The researchers extended the HADOF framework to enable parallel execution across single and multiple QPUs using asynchronous job orchestration and sub-Hamiltonian decomposition.",
+  "model_or_system": "The study uses Quadratic Unconstrained Binary Optimization (QUBO) models, specifically applied to genome assembly via overlap graphs, and benchmarks on IBM Quantum processors (e.g., IBM_Kingston) and classical PennyLane simulations.",
+  "key_observables": "Wall-clock time (makespan), solution accuracy (relative to Simulated Annealing), and probability distribution of the sampled solutions.",
+  "important_parameters": "Sub-Hamiltonian size (k=5), QAOA circuit depth (L=5), number of qubits (up to 500 in simulation, 10-50 on hardware), and number of QPUs used for parallelization.",
+  "main_assumptions": "The framework assumes that large problems can be effectively decomposed into smaller, independent sub-problems that can be recombined via expected values from previous iterations.",
+  "figures_summary": "Figure 1 shows a standard QAOA circuit; Figure 2 illustrates the Trotterized QAOA parameter schedule; Figure 3 provides an overview of the HADOF framework; Figures 4-5 compare wall-clock time for sequential vs. parallel execution in ideal and noisy settings; Figure 6 shows solution accuracy; Figure 8-9 illustrate the genome assembly overlap graph and reconstructed sequence.",
+  "paper_structure": "The paper introduces the scalability bottleneck, describes the HADOF decomposition framework, presents the new parallelization strategy, details the experimental setup on IBM hardware and simulations, validates the approach with a genome assembly case study, and discusses future directions for High Performance Quantum computing.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2604.27836_figures/2604.27836_fig1.jpg",
+      "caption": "Figure 1: Standard QAOA circuit with alternating cost and mixer Hamiltonians[34]. The output produces a probability distribution over the solution space which can be samples with the shots parameter of the quantum simulation or backend. Higher sampled solutions are more likely to be solutions with better objective value.",
+      "page": 5
+    },
+    {
+      "image": "2604.27836_figures/2604.27836_fig2.jpg",
+      "caption": "Figure 2: Trotterised QAOA parameters based on Ref [34], [35]. We move βm from 1 to 0 and γm from 0 to 1 allowing the system to stay close to the ground state of the mixer Hamiltonian to the Cost Hamiltonian.",
+      "page": 6
+    },
+    {
+      "image": "2604.27836_figures/2604.27836_fig3.jpg",
+      "caption": "Figure 3: General overview of the HADOF framework. Here, we use QAOA as the optimiser, which is called iteratively. (1) We choose subsets of sizes 5 from the binary variables of the global problem. (2) These are used to form the sub-Hamiltonians using P(xi), approximated as the expected value of each qubit. (3) The QAOA circuit set up with t = 1 layers and in every iteration we add a layer. In this study, we use 5 layers. (4) Once the n/k sub-Hamiltonians are optimised, we sample them and use an aggregation policy to form the global solution probability distribution. This can be done sequentially or in parallel.",
+      "page": 7
+    },
+    {
+      "image": "2604.27836_figures/2604.27836_fig4.jpg",
+      "caption": "Figure 4: Simulating quantum circuit dynamics is hard classically, however with HADOF, problems up to size 500 variables are simulated in a comparable time to classical Simulated Annealing. Time advantage can be observed in HADOF simulation when running in parallel.",
+      "page": 8
+    },
+    {
+      "image": "2604.27836_figures/2604.27836_fig5.jpg",
+      "caption": "Fig. 4 and Fig. 5 show the wall clock time to solution for the different algorithms. In the ideal simulation setting (Fig. 4), both sequential and parallel HADOF exhibit approximately linear scaling with respect to the number of binary variables. However, the parallel implementation consistently achieves lower wall clock times, with the performance gap widening as the problem size increases. For instance, at 500 variables, parallel HADOF achieves roughly a 3× speedup over the sequential variant. This indicates that parallelisation not only reduces constant overheads but also improves the effective scaling coefficient, suggesting strong suitability for large-scale QUBO instances. In...",
+      "page": 8
+    }
+  ],
+  "figure": "2604.27836_figures/2604.27836_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

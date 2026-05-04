@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.00747",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Interval Bound Propagation for Certified Training of Quantum Neural Networks",
+  "authors": "Emma Andrews, Nahyeon Kim, Prabhat Mishra",
+  "abstract": "Quantum machine learning is a promising field for efficiently learning features of a dataset to perform a specified task, such as classification. Interval bound propagation (IBP) is a popular certified training method in classical machine learning, where the lower and upper bounds are tracked throughout the model. These bounds are used during training to ensure that the model is certified to predict the correct label even under adversarial perturbations. While IBP is successful in classical domain, there are limited certified training efforts in quantum domain. In this paper, we present quantum interval bound propagation (QIBP) to establish a certified training routine for quantum machine learning, certifying the accuracy of models under adversarial perturbations. We implement QIBP using both interval and affine arithmetic to explore the tradeoffs between the two implementations in terms of accuracy and other design considerations. Extensive evaluation demonstrates that the resulting certified trained models have robust decision boundaries, guaranteed to predict the correct class for the samples within the trained adversarial robustness bounds.",
+  "url": "http://arxiv.org/abs/2605.00747v1",
+  "pdf": "https://arxiv.org/pdf/2605.00747v1",
+  "type": "theory",
+  "summary": "This paper introduces a new certified training routine called Quantum Interval Bound Propagation (QIBP) to make quantum neural networks robust against adversarial attacks. By propagating mathematical bounds through the quantum circuit, the method provides a formal guarantee that predictions will remain correct within a specified noise range. The study highlights that affine arithmetic is more effective than standard interval arithmetic for maintaining tight bounds in complex quantum models.",
+  "main_problem": "Variational Quantum Classifiers (VQCs) are vulnerable to adversarial attacks where small input perturbations cause incorrect predictions, and there is a lack of certified training methods to guarantee robustness in the quantum domain.",
+  "main_result": "The authors propose Quantum Interval Bound Propagation (QIBP), demonstrating that using affine arithmetic provides tighter bounds and higher certified accuracy than interval arithmetic, and that margin loss improves decision boundary robustness.",
+  "method": "The method propagates upper and lower bounds of input intervals through the quantum circuit layers (feature map, ansatz, and measurement) using interval and affine arithmetic to establish worst-case logits.",
+  "model_or_system": "The study uses Variational Quantum Circuits (VQCs) consisting of $n$ qubits, featuring an amplitude or angle embedding feature map, parameterized rotation gates ($R_Y, R_X$), and entangling gates (CNOT).",
+  "key_observables": "Logits (expectation values of the Pauli-Z operator), test accuracy, certified accuracy, and PGD (Projected Gradient Descent) accuracy.",
+  "important_parameters": "Perturbation magnitude (epsilon), weighting hyperparameter (kappa), number of qubits, number of layers, and number of classes.",
+  "main_assumptions": "Assumes model layers can be treated via interval or affine arithmetic (linearity/monotonicity of gates) and uses Chebyshev approximation for nonlinear transformations.",
+  "figures_summary": "Figure 1 shows an adversarial attack on MNIST; Figure 2 shows the QML architecture; Figure 3 shows a specific two-layer ansatz; Figure 4 illustrates interval propagation; Figure 5 shows the QIBP framework; Figure 6 plots accuracy trends vs. qubit count.",
+  "paper_structure": "The paper introduces the problem of adversarial vulnerability in QML, presents the QIBP framework using interval and affine arithmetic, evaluates the method using various loss functions and architectures on MNIST-like datasets, and analyzes the impact of model complexity and hyperparameters.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.00747_figures/2605.00747_fig1.jpg",
+      "caption": "Fig. 1: Example of an MNIST [3] image of digit 2 being adversarially perturbed. While a human can still identify the digit 2, a quantum classifier will incorrectly predict it as 3.",
+      "page": 1
+    },
+    {
+      "image": "2605.00747_figures/2605.00747_fig2.jpg",
+      "caption": "Fig. 2: Common structure of QML models.",
+      "page": 2
+    },
+    {
+      "image": "2605.00747_figures/2605.00747_fig3.jpg",
+      "caption": "Figure 2 provides an overview of the basic structures typically found in QML models. These are the feature map, the ansatz, and measurement. The feature map is responsible for embedding the data into the quantum circuit of the QML model. The ansatz carries out the QML model computations, consisting of parameterized and entangling gates. The param- eters of the parameterized gates are updated over the course",
+      "page": 2
+    },
+    {
+      "image": "2605.00747_figures/2605.00747_fig4.jpg",
+      "caption": "Fig. 4: An example of interval bound through model layers.",
+      "page": 3
+    },
+    {
+      "image": "2605.00747_figures/2605.00747_fig5.jpg",
+      "caption": "Fig. 5: Overview of QIBP. In each layer, the interval shifts due to the layer operations, adjusting the worst case bounds. Once the interval is propagated through all layers, it results in the logits zK, which are used to predict the class label. QIBP optimizes the interval logits so that the lower bound of the correct class logit is greater than the upper bounds of all incorrect class logits.",
+      "page": 4
+    }
+  ],
+  "figure": "2605.00747_figures/2605.00747_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
