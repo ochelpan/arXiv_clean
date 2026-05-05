@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2605.02798",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Measuring Accuracy and Energy-to-Solution of Quantum Fine-Tuning of Foundational AI Models",
+  "authors": "Oliver Knitter, Sang Hyub Kim, Maximilian Wurzer, Jonathan Mei, Claudio Girotto, Karen Horovitz, Chi Chen, Masako Yamada, Frederik F. Flöther, Martin Roetteler",
+  "abstract": "We present an experimental study of energy-to-solution (ETS) of hybrid quantum-classical applications, enabled by direct instrumentation of power consumption of a Forte Enterprise trapped-ion quantum processor. We apply this methodology to a hybrid quantum-classical pipeline for quantum fine-tuning of foundational AI models, and validate the approach end-to-end on quantum hardware. Despite noise and limited qubit counts, the resulting models achieve accuracy competitive with and exceeding classical baselines such as logistic regression and support vector classifiers. Our results show that QPU energy consumption scales approximately linearly with qubit number for shallow circuits, while classical simulation exhibits exponential scaling, indicating a break-even for ETS around 34 qubits. The classification error improvement of the best quantum fine-tuned model over the best classical fine-tuned model considered in this study is around 24%. We further contextualize these findings with comparisons to tensor network methods. This work establishes energy-to-solution as a measurable and scalable metric for evaluating quantum applications and provides experimental evidence of favorable energy-accuracy trade-offs.",
+  "url": "http://arxiv.org/abs/2605.02798v1",
+  "pdf": "https://arxiv.org/pdf/2605.02798v1",
+  "type": "both",
+  "summary": "This paper presents an experimental study measuring the actual power consumption of a trapped-ion quantum processor during AI fine-tuning tasks. It demonstrates that while classical simulations scale exponentially in energy, quantum processors show linear scaling, suggesting a clear energy advantage for quantum computing at around 34 qubits. Furthermore, it shows that quantum-enhanced models can outperform classical counterparts in text classification accuracy.",
+  "main_problem": "Evaluating the energy-to-solution (ETS) and classification accuracy of hybrid quantum-classical pipelines for fine-tuning foundational AI models, specifically comparing QPU efficiency against GPU-based classical simulations.",
+  "main_result": "The study identifies a break-even point for energy-to-solution at approximately 34 qubits, where QPUs become more efficient than GPUs, and demonstrates that quantum fine-tuned models can achieve a 24% improvement in classification error over classical baselines.",
+  "method": "The researchers used direct electrical instrumentation of an IonQ Forte Enterprise processor to measure power draw and applied a hybrid pipeline involving a Sentence Transformer and a parameterized quantum circuit (PQC) with error mitigation techniques like debiasing and non-linear aggregation.",
+  "model_or_system": "The experimental platform is an IonQ Forte Enterprise trapped-ion quantum processor. The computational model is a hybrid QML architecture using a BERT-based encoder (SetFit) followed by a PQC with angle encoding and data re-uploading.",
+  "key_observables": "Classification accuracy (error rate), Energy-to-Solution (ETS), power draw (kW), and Z-basis expectation value <Z>.",
+  "important_parameters": "Qubit counts (10 to 28), circuit depth, number of re-uploads (R=4), and power draw of the QPU (~5 kW) vs GPU (~0.072 kW).",
+  "main_assumptions": "Assumes that the energy-to-solution metric is a scalable metric for future applications; assumes gate counts scale linearly with qubit number; assumes training on classical simulators is a valid precursor to hardware execution.",
+  "figures_summary": "Figure 1 shows the hybrid architecture; Figure 2 is a semilog plot of energy scaling (linear QPU vs exponential GPU); Figure 3 shows QPU power draw stability; Figure 4 compares classification accuracy across different qubit counts and noise regimes.",
+  "paper_structure": "The paper introduces the problem of energy efficiency in QML, describes the hybrid architecture and error mitigation pipeline, presents the experimental setup for energy and accuracy measurements, compares results against classical baselines (SVM, LR) and simulations (MPS, statevector), and concludes with scaling analysis.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.02798_figures/2605.02798_fig1.jpg",
+      "caption": "Fig. 1: Diagram of the fully-differentiable QML classification head added to the base LLM, reproduced and modified from [12]. It is composed of two sub-modules: a quantum-inspired multi-head encoder to classically reduce the dimension of the SetFit latent vectors, and a data-reuploading parameterized quantum ansatz operating on a QPU. Note that in contrast to the classification head used in [12], our variation of this architecture does not incorporate a final classical linear layer.",
+      "page": 4
+    },
+    {
+      "image": "2605.02798_figures/2605.02798_fig2.jpg",
+      "caption": "Fig. 2: Average energy consumption, shown on a semilog plot, for 600-shot debiased inference circuits on QPU (IonQ Forte Enterprise) vs GPU (NVIDIA L4). Least squares fits strongly indicate linear and exponential scaling for QPU and GPU runs, respectively, and indicate break-even of energy-to-solution at around 34 qubits. The exact crossover point is specific to choices of hardware, circuits, and hyperparameters.",
+      "page": 5
+    },
+    {
+      "image": "2605.02798_figures/2605.02798_fig3.jpg",
+      "caption": "Fig. 3: Per-job average power draw readings for one slate of inference tests, increasing from 10 to 28 qubits. Fluctuations have been normalized and shifted vertically for readability, and are shown for both the total system and the two macroscale components with greatest power draw.",
+      "page": 6
+    },
+    {
+      "image": "2605.02798_figures/2605.02798_fig4.jpg",
+      "caption": "Fig. 4: Test accuracy on SST2 binary classification as a function of qubit count. QPU+DNL results use debiasing and non-linear filtering for error mitigation. Also shown are noise- less and noisy (gate noise model) simulations, and classical baselines (SVC and logistic regression). The filtered QPU results approach simulation accuracy at scale, consistently exceeding classical baselines starting at 14 qubits. At 18 qubits, results show a reduction in the classical baseline error of 23.9% and 15.7% respectively when executing our model on a noiseless simulator and on a QPU with error mitigation.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.02798_figures/2605.02798_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

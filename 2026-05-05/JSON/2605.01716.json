@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.01716",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Towards Real-time Control of a CartPole System on a Quantum Computer",
+  "authors": "Nguyen Truong Thu Ngo, Väinö Mehtola, Jérome Lenssen, Peiyong Wang, Francesco Cosco, Tien-Fu Lu, James Q. Quach",
+  "abstract": "The application of quantum reinforcement learning (QRL) to real-time control systems faces significant challenges regarding hardware latency, noise susceptibility, and learning convergence. This work presents an end-to-end investigation of a minimal hybrid quantum-classical agent applied to the CartPole benchmark, addressing the gap between idealized simulation and execution on a physical superconducting quantum processing unit (QPU). We demonstrate that a single-qubit agent acts as an effective learning model, solving the environment in substantially fewer episodes than a comparable classical actor-critic network even when the training of the hybrid agent is restricted to use parameter-shift for its quantum circuit component. To connect learning to deployment constraints, we map the inference-time trade-off between control-loop rate and measurement shot budget to provide guidance for an eventual real-time control demonstration. The resulting performance matrices show that both inference control frequency and shot count strongly affect balancing stability: higher inference frequencies consistently improve performance, and increasing the shot budget lowers the minimum inference frequency required to achieve near-maximal balancing. These results highlight the importance of finding an optimal medium between shot count and control frequency and developing circuits that are e.g. initial-state invariant. Lastly, we address the critical bottleneck of control latency on NISQ hardware by bypassing the standard high-level software stack and programming the Zurich Instruments readout electronics directly via command tables. These results quantify some of the current boundaries of quantum-assisted control and provide a start for achieving the tens-of-hertz throughput required for real-time closed-loop control feedback.",
+  "url": "http://arxiv.org/abs/2605.01716v1",
+  "pdf": "https://arxiv.org/pdf/2605.01716v1",
+  "type": "both",
+  "summary": "This paper demonstrates a method for real-time control of a CartPole system using a hybrid quantum-classical reinforcement learning agent on a physical superconducting QPU. By bypassing standard software layers, the researchers achieved significant increases in execution speed and identified the optimal balance between measurement precision and control frequency for stable operation.",
+  "main_problem": "Bridging the gap between idealized quantum reinforcement learning simulations and practical, real-time deployment on physical NISQ hardware by addressing latency, noise, and the trade-off between control frequency and measurement precision.",
+  "main_result": "A single-qubit hybrid agent demonstrates superior sample efficiency compared to classical networks and, by bypassing high-level software stacks to program electronics directly, achieves a >40x speedup in iteration rates on a superconducting QPU.",
+  "method": "A hybrid quantum-classical actor-critic framework using a single-qubit variational quantum circuit (VQC) trained via the parameter-shift rule and optimized with the Adam optimizer.",
+  "model_or_system": "The system uses the CartPole-v1 benchmark task implemented on the VTT Q5, a 5-qubit superconducting quantum processor, utilizing Zurich Instruments readout electronics programmed via low-level command tables.",
+  "key_observables": "Expectation value of the Pauli-Z measurement, control-loop inference frequency, measurement shot budget, and episode return (stability).",
+  "important_parameters": "Control frequency (20-100 Hz), shot count (128-1024), qubit coherence times (T1, T2), and gate durations (120 ns).",
+  "main_assumptions": "The cart position is discarded from the state vector to simplify single-qubit encoding, and the study assumes the use of a specific 3D feature vector.",
+  "figures_summary": "Figures include the CartPole environment schematic, neural network architectures (classical and hybrid), learning efficiency trajectories, heatmaps of stability vs. frequency/shot count, and a comparison of hardware execution latency.",
+  "paper_structure": "The paper introduces the control problem, describes the hybrid agent architecture and hardware setup, presents simulation-based learning efficiency results, analyzes the impact of frequency and shot-count trade-offs, and concludes with a low-latency hardware implementation demonstration.",
+  "why_interesting": "It addresses the critical intersection of quantum control and real-time feedback loops, providing insights into how hardware-induced noise and latency affect the stability of quantum-classical hybrid dynamical systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.01716_figures/2605.01716_fig1.jpg",
+      "caption": "Figure 1: Schematic of the CartPole environment. The task consists of balancing the inverted pendulum mounted on the movable cart by applying discrete left or right forces. The observation states set ˜s = [s1, s2, s3, s4] is described by the cart position x and velocity ˙x, as well as the pole angle φ and angular velocity ˙φ respectively.",
+      "page": 4
+    },
+    {
+      "image": "2605.01716_figures/2605.01716_fig2.jpg",
+      "caption": "Figure 2: Classical actor network (left) and critic network (right) illustrations. Both networks share an identical internal structure consisting of an input layer for observations followed by two hidden layers of 128 and 256 neurons, respectively. The input layer received the raw observations. While the actor network contained the Softmax function to calculate the action probability distribution, the critic outputs a single state value judging how well the current environment states is. By comparing this value to actual reward, the agent determines whether the actor’s chosen action was better or worse than expected.",
+      "page": 6
+    },
+    {
+      "image": "2605.01716_figures/2605.01716_fig3.jpg",
+      "caption": "Figure 3: Hybrid quantum neural network for the actor (top) and critic (bottom). The functions of both actor and critic remain the same as its classical counterpart. The NN has been replaced by PQCs to approximate policy function (actor) and value function (critic). Each PQC output is copied 32 times before fully connected to two outputs (actor) and one output (critic). Soft is also used to output the final probability distribution.",
+      "page": 8
+    },
+    {
+      "image": "2605.01716_figures/2605.01716_fig4.jpg",
+      "caption": "Figure 4: Experimental setup for measurements on Qubit 3 of the VTT Q5 device. The qubit flux bias is provided by an SRS SIM928 source (orange), which sets the qubit frequency and remains constant throughout the experiment. Microwave drive pulses are generated by the HDAWG (green), while readout pulses are produced by the UHFQA. Qubit drive pulses are implemented via frequency up-conversion, where narrow-band intermediate-frequency in-phase (I) and quadrature (Q) signals are mixed with a high-frequency local oscillator using an IQ mixer.",
+      "page": 9
+    },
+    {
+      "image": "2605.01716_figures/2605.01716_fig5.jpg",
+      "caption": "Figure 5: Average reward scores over 50 runs (5a). The single-qubit QRL model (blue) achieves the maximum reward threshold significantly faster than the Classical RL baseline (green), validating the higher sample efficiency observed in simulation. The orange curve represented the same QRL model with manual backward propagation process implemented. The dashed lines show the average episodes taken to solve the CartPole task. Average episode counts needed for the single-qubit QRL and classical RL models to reach the success criterion of 100 consecutive perfect episodes (5b). The Single-Qubit model (blue) demonstrates a 2.7x improvement in sample efficiency (161.6 ± 56.3 episodes) compared to...",
+      "page": 11
+    }
+  ],
+  "figure": "2605.01716_figures/2605.01716_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

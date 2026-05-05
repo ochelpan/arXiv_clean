@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.00998",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Accurate, full-dimensional computations of thousands of complex vibrational eigenstates with tree tensor network states",
+  "authors": "Henrik R. Larsson, Brieuc Le Dé, Gino E. Gamboni",
+  "abstract": "Tree tensor network states (TTNSs) combined with the density matrix renormalization group (DMRG) are emerging as powerful tools for vibrational and vibronic structure simulations in molecules with strong coupling and fluxionality. In this Perspective, we discuss how TTNS methods enable accurate, full-dimensional computations of thousands of eigenstates for molecular systems ranging from quartic-force-field benchmarks to molecules with strong vibronic coupling and protonated water clusters as large as the 33-dimensional Eigen ion, H$_3$O$^+$$\\cdot$(H$_2$O)$_3$. We emphasize the close connection and interoperability between DMRG-based TTNS methods and the multilayer multiconfiguration time-dependent Hartree method (ML-MCTDH), which share the same underlying ansatz. We also highlight practical challenges of predictive simulations, including robust error estimation, convergence of observables such as infrared intensities, and optimization of tensor network tree structures. Finally, we outline recent advances toward direct targeting of excited states and discuss opportunities for broader applications in molecular spectroscopy and quantum dynamics.",
+  "url": "http://arxiv.org/abs/2605.00998v1",
+  "pdf": "https://arxiv.org/pdf/2605.00998v1",
+  "type": "theory",
+  "summary": "This perspective paper details how Tree Tensor Network States (TTNS) can overcome the curse of dimensionality in molecular simulations. By optimizing the tensor network structure, the authors show it is possible to compute thousands of accurate vibrational eigenstates for large, complex clusters. This approach bridges the gap between condensed matter tensor network techniques and molecular quantum dynamics.",
+  "main_problem": "Simulating the vibrational and vibronic structures of large, high-dimensional, and fluxional molecules is hindered by the exponential scaling of the direct-product basis, known as the curse of dimensionality.",
+  "main_result": "The authors demonstrate that Tree Tensor Network States (TTNS) combined with DMRG can accurately compute thousands of eigenstates for complex systems, such as the 33-dimensional Eigen ion, with significantly higher efficiency and accuracy than traditional methods.",
+  "method": "The method utilizes Tree Tensor Network States (TTNS) and the Density Matrix Renormalization Group (DMRG) algorithm, incorporating an inexact Lanczos method for targeting specific states and automated tree structure optimization.",
+  "model_or_system": "The study focuses on high-dimensional molecular systems, specifically fluxional protonated water clusters like the Zundel ion and the 33-dimensional Eigen ion, using Sum-of-Products (SoP) Hamiltonians.",
+  "key_observables": "Vibrational/vibronic energies (eigenvalues), infrared (IR) intensities, and molecular dynamics.",
+  "important_parameters": "Bond dimension (D_max), target energy (sigma), and the dimensionality of the system.",
+  "main_assumptions": "The accuracy is highly dependent on the quality of the Potential Energy Surface (PES) and the choice of coordinate systems; the Hamiltonian must be representable in a Sum-of-Products (SoT) form.",
+  "figures_summary": "Figure 1 compares MPS vs TTNS diagrams and shows the canonicalization procedure; Figure 2 shows DMRG convergence vs ML-MCTDH; Figure 3 demonstrates energy extrapolation via 1/D_max; Figure 4 compares TISE and TDSE IR spectra; Figure 7 shows tree structure optimization for the Eigen ion.",
+  "paper_structure": "The paper introduces the scaling problem, presents the TTNS/DMRG framework, discusses implementation details like canonicalization and state-shifting, demonstrates scalability on water clusters, evaluates error estimation and tree optimization, and concludes with future directions in automation and data analysis.",
+  "why_interesting": "This work is highly relevant for many-body dynamics as it demonstrates how tensor network architectures (originally from condensed matter) can be optimized to solve high-dimensional quantum problems in molecular physics, providing a scalable alternative to traditional wavepacket methods.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.00998_figures/2605.00998_fig1.jpg",
+      "caption": "FIG. 1. Tree tensor network state (TTNS) methodology. (a) Example of a tensor network diagram for a matrix product state (MPS) and the corresponding summation pattern. Compare with Eq. (2). Nodes correspond to tensors and vertices/bonds denote their dimensions; shared vertices indicate summation over the corresponding indices (𝑖, 𝑗), while the free-standing vertices means that we do not sum over the corre- sponding indices (𝛼, 𝛽, 𝛾). (b) Same as (a) but for a TTNS. (c) Eigenvector problem to compute an update for the root note 𝐀[1] in (b). The large black tensor represents the Hamiltonian, whose typical tensor network structure is shown in (f). A vectorized 𝐀[1] corresponds to the...",
+      "page": 2
+    },
+    {
+      "image": "2605.00998_figures/2605.00998_fig2.jpg",
+      "caption": "FIG. 2. Comparison of the DMRG algorithm with two ML-MCTDH approaches for CH3CN: imaginary time propagation (ITP) and im- proved relaxation, which diagonalizes an effective Hamiltonian for the root tensor and uses ITP for all other tensors. (a) Absolute en- ergy errors as a function of iteration for the ground state. (b) Same as (a) but for the lowest 13 states using state averaging. All three algorithms start from the same random initial TTNS. The state aver- aged optimizations use the same bond dimensions as the ground state optimizations, thus the larger error. The iteration is proportional to the runtime and is one sweep for the DMRG, one propagation with a time step of 1 fs for ITP,...",
+      "page": 4
+    },
+    {
+      "image": "2605.00998_figures/2605.00998_fig3.jpg",
+      "caption": "FIG. 3. DMRG energy extrapolation and error estimate calculation. Shown are DMRG energies as a function of the inverse max. bond di- mensions 1∕𝐷max (blue points), and a linear fit that uses two of these energies (purple line). Its vertical intercept yields a lower bound of the energy and a corresponding error estimate. In practice, the fit is done for two energies with the largest bond dimensions. Here, it is shown for energies with smaller 𝐷max values, giving an error esti- mate that is larger than necessary. The blue line connects and extrap- olates DMRG energies using cubic spline interpolation. Reprinted from Ref. [65], CC BY-NC-ND 4.0 license.",
+      "page": 5
+    },
+    {
+      "image": "2605.00998_figures/2605.00998_fig4.jpg",
+      "caption": "FIG. 4. Zundel ion IR spectrum computed using two TTNS ap- proaches: time-propagation (TDSE, red curves) and eigenstate opti- mization (TISE; blue curves and sticks) for different basis sizes/bond dimensions. The total propagation time is 𝑇= 2000 fs. Both curves use the same cos[𝜋𝑡∕(2𝑇)] kernel for convolution, leading to a scal- ing factor of 4𝑇∕𝜋for the stick spectrum.",
+      "page": 6
+    },
+    {
+      "image": "2605.00998_figures/2605.00998_fig5.jpg",
+      "caption": "FIG. 5. Convergence analysis of the triplet in the Zundel IR spectrum that appears when using the PES from Ref. [100]. First row: Exci- tation energies taken from the peaks of the time-propagation-based spectrum in Fig. 4 (red points), from the eigenstate computation af- ter (blue points) and before (purple points) diagonalization. The last point is based on extrapolation, compare with Fig. 3. Second row: Same as first row but for the IR intensities. Missing data for the peak at 1040 cm−1 means that the simulation did not lead to a significant peak in this region.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.00998_figures/2605.00998_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

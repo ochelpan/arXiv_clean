@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.01494",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "math.NA",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Completely Positive and Trace Preserving Schemes with Tensor Train Compression for the Lindblad Equation",
+  "authors": "Peter DelMastro, Daniel Appelö, Yingda Cheng",
+  "abstract": "We propose a family of low-rank, completely positive and trace preserving schemes for the Lindblad equation, a common model for open quantum systems. Low-rank representation is employed at two levels: the density matrix is factorized into the product of tall-skinny matrices, and the columns of these matrices are further represented using the tensor train (TT) format, also know as matrix product states (MPS). This two-level low-rank format fits naturally into our existing Kraus is King scheme (arXiv:2409.08898v2 [math.NA]) for the Lindblad equation, whose underlying operations are arithmetic on the columns of the tall-skinny matrices. We show how these operations can be performed efficiently in the TT/MPS format, with particular emphasis on density matrix rank-truncation. We conclude with extensive numerical experiments demonstrating the convergence of this scheme and its efficiency in simulating systems with up to $10^{19}$ degrees of freedom using only modest compute resources.",
+  "url": "http://arxiv.org/abs/2605.01494v1",
+  "pdf": "https://arxiv.org/pdf/2605.01494v1",
+  "type": "theory",
+  "summary": "The paper introduces a new numerical method for solving the Lindblad equation by combining a low-rank density matrix factorization with Tensor Train compression. This two-level approach allows for the efficient simulation of massive quantum systems, such as those with 10^19 degrees of freedom, while strictly maintaining the physical requirements of complete positivity and trace preservation.",
+  "main_problem": "Simulating the time evolution of large-scale open quantum systems is computationally intractable due to the exponential growth of the Hilbert space. The challenge is to develop a numerical scheme for the Lindblad equation that is efficient via compression while strictly preserving physical properties like Complete Positivity and Trace Preservation (CPTP).",
+  "main_result": "The authors present a two-level low-rank CPTP-preserving scheme that scales to systems with up to 10^19 degrees of freedom. The method demonstrates efficient memory compression (up to 10,000x) and maintains convergence for complex dynamics like qudit-resonator chains and 1D spin chains.",
+  "method": "The scheme uses a 'Kraus is King' framework where the density matrix is factorized into tall-skinably matrices (rho = VV^dagger) and the columns of V are represented in the Tensor Train (TT/MPS) format. It employs randomized rounding, norm screening, and MPO-based operator splitting to manage truncation errors and computational complexity.",
+  "model_or_system": "The primary model is the Lindblad master equation for open quantum systems. Specific systems studied include a 1D dissipative spin-1/2 XX Heisenberg chain and a chain of alternating transmon qudits and resonators with self-Kerr and cross-Kerr interactions.",
+  "key_observables": "Trace distance/error, probability of measuring a spin in the down state, expected energy levels of subsystems, density matrix rank, and MPS bond dimension.",
+  "important_parameters": "Truncation tolerance (tau), bond dimension (b_k), dissipation timescale (T_decay), and the error allocation parameter (alpha).",
+  "main_assumptions": "The density matrix is assumed to remain in a low-rank regime; the efficiency of the Taylor series approach depends on the growth of bond dimensions during the flow operator application; and the splitting scheme introduces a second-order error.",
+  "figures_summary": "Figure 1 shows the two-level low-rank decomposition; Figure 2 shows error convergence for spin chains; Figure 7 illustrates the qudit-resonator chain layout; Figure 8 shows the evolution of energy levels; Figure 9 displays scaling of rank and bond dimension with respect to tolerance and a breakdown of computational runtime.",
+  "paper_structure": "The paper introduces the problem of Lindblad simulation, proposes a two-level low-rank TT/MPS scheme, details the mathematical mechanics of the 'Kraus is King' integrator, describes specific algorithmic optimizations like randomized rounding and norm screening, and concludes with numerical demonstrations on spin chains and qudit-resonator systems.",
+  "why_interesting": "This paper provides a highly scalable, physically consistent framework for simulating dissipative many-body dynamics, offering a way to bypass the curse of dimensionality in open quantum systems using advanced tensor network compression.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.01494_figures/2605.01494_fig1.jpg",
+      "caption": "Fig. 1: Two-level low-rank decomposition of the density matrix ρ ∈CN×N. At the top level, ρ is factorized as ρ = V V † where V ∈CN×r, r ≪N, is a tall-skinny matrix. At the second level, the columns vj ∈CN of V are viewed as order-d tensors of shape n1 × · · · × nd with N = n1n2 · · · nd, and each vj is represented in TT/MPS format with its own cores Gj,k.",
+      "page": 6
+    },
+    {
+      "image": "2605.01494_figures/2605.01494_fig2.jpg",
+      "caption": "Fig. 2: Convergence of the TT/MPS-based integrator applied to the dissipative 1D Heisenberg model. (a) shows the convergence in error ∥ρh(T) −ρ(T)∥F at T = 5 for d = 6 spins, for which a reference solution ρ(T) can be computed using matrix- exponentiation of the Lindbladian. Subfigure (b) shows the behavior on a larger system (64 spins) whose full Hilbert space has size > 1019. Please refer to the text for more in-depth explanations.",
+      "page": 14
+    },
+    {
+      "image": "2605.01494_figures/2605.01494_fig3.jpg",
+      "caption": "Fig. 3: Low-rank dynamics of the dissipative 1D Heisenberg model with d = 64 spins, whose full Hilbert space has size > 1019. The larger system starts in the state ψ0 = σx 8σx 48 |↓↓· · · ↓⟩, where σx j flips the spin at site j. The dissipative timescale is set to Tdecay = 20. (a)-(d) record various run statistics when using our second-order CPTP scheme based on the midpoint rule with step size h = 0.01. Please refer to the text for more in-depth explanations of the subfigures.",
+      "page": 16
+    },
+    {
+      "image": "2605.01494_figures/2605.01494_fig4.jpg",
+      "caption": "Fig. 5: Dynamics of the 25-qubit heavy-hex lattice mock quantum circuit simulation. Subfigure (a) plots the populations αi(t) := ⟨ϕi| ρ(t) |ϕi⟩of the system in the sequence of states |ϕ0⟩, |ϕ1⟩, ..., |ϕ5⟩that the circuit would progress through without the Jaynes- Cummings coupling and qubit decay/dephasing. Each gate’s control signal lasts 100 nanoseconds as indicated by the vertical dotted lines. The maximum populations in the target states achieved by the circuit decreases with each gate. These errors are predominately due to the JC coupling, though the decay/dephasing do decrease the system’s purity Tr(ρ2) to around 0.95 by the end of the simulation. (b) shows snapshots of the system...",
+      "page": 20
+    },
+    {
+      "image": "2605.01494_figures/2605.01494_fig5.jpg",
+      "caption": "Fig. 6: Run statistics of the heavy-hex lattice mock quantum circuit simulation: den- sity matrix rank, maximum MPS bond dimension, and elapsed runtime by timestep when using three different rounding tolerances.",
+      "page": 20
+    }
+  ],
+  "figure": "2605.01494_figures/2605.01494_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 2,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 2,
+    "exotic spin models in light-matter": 2,
+    "methods for driven-dissipative": 5
+  },
+  "citation_potential": {}
+}

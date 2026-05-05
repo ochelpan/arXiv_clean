@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.02389",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Rethinking How to Act: Action-Space Engineering for Reinforcement Learning-Based Circuit Routing in Distributed Quantum Systems",
+  "authors": "Joost Van Veen, Luise Prielinger, Sebastian Feld",
+  "abstract": "As it becomes increasingly difficult to monolithically scale a quantum processor, distributed quantum computing (DQC) offers an alternative by distributing qubits across multiple smaller interconnected quantum processor modules. In such an architecture, the challenge of quantum circuit compilation shifts from placing and routing qubits within one module to placing, routing and using the qubits efficiently across modules. In order to optimize circuit execution time, the right state-dependent networking decisions must be found, such as when and where to generate shared remote quantum states to support remote operations.   Reinforcement learning (RL) provides a natural framework for this problem, generating a compilation policy that can generalize across different circuits. Building on the framework of Promponas et al. (2024), we introduce an agent that combines a novel action-space formulation with effective action-masking strategies. A comprehensive numerical comparison of the two approaches under different coupling constraints shows that our agent achieves improved training and inference performance with a relative reduction in the modeled execution time of up to 35\\%.",
+  "url": "http://arxiv.org/abs/2605.02389v1",
+  "pdf": "https://arxiv.org/pdf/2605.02389v1",
+  "type": "theory",
+  "summary": "This paper presents an improved reinforcement learning framework for compiling quantum circuits in distributed architectures. By re-engineering the RL action space to use routing chains rather than single edges, the authors significantly speed up both the training process and the resulting circuit execution time. This is a crucial step toward managing the complexity of scaling quantum computers via modular interconnects.",
+  "main_problem": "Optimizing quantum circuit routing and compilation in distributed quantum computing (DQC) architectures to minimize total execution time.",
+  "main_result": "The proposed RL agent using action-space engineering achieves up to a 35% reduction in modeled execution time and a 64% reduction in training wall-clock time compared to existing baselines.",
+  "method": "A Reinforcement Learning approach using Deep Q-Networks (DQN) with a novel action-space formulation (routing via precomputed shortest paths), action-masking strategies, and a low-dimensional Q-value approximation.",
+  "model_or_system": "A distributed quantum computing architecture consisting of multiple interconnected modules (QPUs) with local intra-module connectivity and remote inter-module links for EPR pair generation and tele-operations.",
+  "key_observables": "Total circuit execution time (measured in timesteps), cumulative reward, and training wall-clock time.",
+  "important_parameters": "Entanglement generation probability (p_gen = 0.95), gate execution latencies (SWAP vs. remote operations), and circuit size (number of CNOT gates).",
+  "main_assumptions": "The model assumes classical channels are available for heralding, neglects single-qubit gate routing, and approximates stochastic entanglement generation as a deterministic process with fixed latency.",
+  "figures_summary": "Figure 1 shows remote entanglement generation; Figure 2 depicts a circuit DAG; Figure 3 visualizes qubit mapping and remote actions (tele-qubit, tele-gate); Figure 4 shows state vector encoding; Figures 5-6 show hardware topologies; Figures 11-12 show execution time distributions via boxplots.",
+  "paper_structure": "The paper introduces the DQC challenge, describes the hardware and circuit models, details the RL agent's novel action-space and masking innovations, presents numerical comparisons against a baseline, and discusses scalability and training dynamics.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.02389_figures/2605.02389_fig1.jpg",
+      "caption": "Fig. 1: An entangled state is generated between two remote qubits used as communication qubits connected via a quantum channel and heralded by a classical message sent over a classical channel. Within each module, local two-qubit gates can be applied between all qubits according to the available connectivity (physical coupling edges).",
+      "page": 1
+    },
+    {
+      "image": "2605.02389_figures/2605.02389_fig2.jpg",
+      "caption": "Fig. 2: DAG of a quantum circuit encoding precedence con- straints of quantum operations. Operations in the same layer can be executed in parallel.",
+      "page": 3
+    },
+    {
+      "image": "2605.02389_figures/2605.02389_fig3.jpg",
+      "caption": "Fig. 3: Panel (a) shows the qubit mapping: Annotated values {0, . . . , n −1} denote physical qubit indices, while the value inside a node indicates the virtual qubit mapped onto the physical qubit; −1 implies a non-initialized physical qubit. In (b), the generate action creates an EPR pair on a pair of non- initialized remote communication qubits. Panel (c) visualizes a tele-gate execution and (d) visualizes a tele-qubit action.",
+      "page": 3
+    },
+    {
+      "image": "2605.02389_figures/2605.02389_fig4.jpg",
+      "caption": "Fig. 1. The edge set En denotes the coupling connections in a module enabling local operations. We assume that all local operations take some constant duration to execute, which we denote tlocal. We note that remote entanglement generation over a quantum channel is inherently stochastic: each attempt succeeds with probability pgen < 1 and otherwise must be repeated. We adopt a standard abstraction [14], [24], [28] and treat entanglement generation as deterministic with a fixed latency tgen, approximating the mean waiting time of a repeat-until-success protocol, tgen := t0/pgen, where t0 is the duration of a single heralded entanglement generation attempt.",
+      "page": 3
+    },
+    {
+      "image": "2605.02389_figures/2605.02389_fig5.jpg",
+      "caption": "Fig. 4: Example of a state vector.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.02389_figures/2605.02389_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

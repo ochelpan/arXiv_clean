@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.02606",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "NESSi 2.0: The Non-Equilibrium Systems Simulation package version 2.0",
+  "authors": "Fabian Künzel, Michael Schüler, Denis Golež, Yuta Murakami, Sujay Ray, Christopher Stahl, Jiajun Li, Hugo U. R. Strand, Philipp Werner, Martin Eckstein",
+  "abstract": "Nonequilibrium Green's functions provide a powerful framework for studying quantum many-body dynamics including the laser-induced dynamics in solids. The Non-Equilibrium Systems Simulation package (NESSi) offers an efficient platform for such simulations, ranging from perturbative approaches like nonequilibrium $GW$ to nonequilibrium dynamical mean-field theory. However, simulations based on nonequilibrium Green's functions become computationally demanding when the dynamics span a large temporal range, such as from sub-femtosecond electron dynamics to the picosecond dynamics of collective modes. Due to the memory integral in the Kadanoff-Baym equations, which serve as equations of motion for nonequilibrium Green's functions, the computational cost scales as $\\mathcal{O}(N_t^3)$ with the number of timesteps $N_t$, and the memory requirement scales as $\\mathcal{O}(N_t^2)$. In this work, we extend NESSi by incorporating techniques that aim to overcome this bottleneck: (i) By truncating the memory integrals in the KBE to a maximum of $N_c$ timesteps, the computational complexity is reduced to $\\mathcal{O}(N_tN_c^2)$, and the memory requirement to $\\mathcal{O}(N_c^2)$. Provided that the results converge with respect to the cutoff $N_c$, memory truncation allows to extend the simulations to significantly longer times. (ii) We introduce functionalities to describe nonequilibrium steady states, i.e. time-translationally invariant nonequilibrium states. Such states are relevant for transport settings, and they provide an approximate description of slowly evolving (prethermal) nonequilibrium states.",
+  "url": "http://arxiv.org/abs/2605.02606v1",
+  "pdf": "https://arxiv.org/pdf/2605.02606v1",
+  "type": "theory",
+  "summary": "NESSi 2.0 is an updated software package for simulating non-equilibrium quantum many-body systems. It introduces memory-truncation techniques to enable much longer time-scale simulations and new tools for studying non-equilibrium steady states. This allows for more efficient study of phenomena like photo-induced phase transitions and thermalization.",
+  "main_problem": "The computational cost of solving Kadanoff-Baym equations for non-equilibrium many-body systems scales prohibitively as O(Nt^3) in CPU time and O(Nt^2) in memory, limiting simulations to short time scales.",
+  "main_result": "The NESSi 2.0 package introduces memory truncation to reduce complexity to O(NtNc^2) and implements new functionalities for simulating time-translationally invariant non-equilibrium steady states (NESS).",
+  "method": "The package uses Keldysh formalism and Non-Equilibrium Dynamical Mean-Field Theory (DMFT), implementing a moving Green's function window for memory truncation and Fourier-space solvers for steady states.",
+  "model_or_system": "The software is designed for strongly correlated electron systems, including the Hubbard model, Mott insulators, and SYK models, specifically focusing on laser-induced dynamics and interaction quenches.",
+  "key_observables": "Retarded, lesser, and advanced Green's functions, self-energy, spectral functions, and density matrices.",
+  "important_parameters": "Memory cutoff (Nc), time step (h), total real-time (t_max), and inverse temperature (beta).",
+  "main_assumptions": "The memory truncation assumes the self-energy decays to zero after a certain time cutoff, and steady-state approximations assume the system is quasi-stationary or weakly coupled to reservoirs.",
+  "figures_summary": "Figure 1 shows Green's function data structures; Figure 2 illustrates the memory-truncated domain and moving window; Figure 9 compares NESS and real-time results; Figure 10 shows numerical convergence with respect to frequency grid and timestep.",
+  "paper_structure": "The paper introduces the NESSi 2.0 update, details the mathematical framework for memory truncation and steady-state simulations, describes the new C++/Python data structures, and provides benchmarks comparing NESS and real-time propagation.",
+  "why_interesting": "It provides a significant algorithmic advancement for simulating long-time many-body dynamics and steady states, which is crucial for studying thermalization and relaxation in driven quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.02606_figures/2605.02606_fig1.jpg",
+      "caption": "Figure 1: Green’s function domain and data structures on a discrete time grid. The Hermitian domain (9) for a two-time Green’s function G(t, t′) is shown by the filled squares (the Matsubara component is not shown here). The class herm_matrix stores the values of a Green’s function on the Hermitian domain up to a maximum timestep Nt, which is sufficient to represent a Hermitian Green’s function with the symmetry G = G‡. Filled squares with dots indicate the time slice n. The data on one time slice n of a Green’s function can be stored using the class herm_matrix_timestep. The timestep on the real axis is denoted by h and hτ is the timestep on the Matsubara axis.",
+      "page": 5
+    },
+    {
+      "image": "2605.02606_figures/2605.02606_fig2.jpg",
+      "caption": "Figure 2: Domains for data structures on a discrete time grid. The memory truncated domain, defined by Eqs. (19) and (20), is indicated by dark squares, for a cutoff nc = 2. The domain of a memory truncated time slice T [G]nc n (Eq. (22)) is shown by the squares with a red dot. Squares with a solid boundary denote the triangular window ∆[G]nc n , while squares with a dashed boundary show the extension of the triangular window (23) to the moving window M[G]nc n [Eq. (24)].",
+      "page": 8
+    },
+    {
+      "image": "2605.02606_figures/2605.02606_fig3.jpg",
+      "caption": "Figure 3: The functions |Σ<(t, t′)| (a) and |G<(t, t′)| (b) in the initial time window 0 ≤t, t′ ≤32.",
+      "page": 30
+    },
+    {
+      "image": "2605.02606_figures/2605.02606_fig4.jpg",
+      "caption": "Figure 4: (a) The functions |ΣR,<(t, t′)| and |GR,<(t, t′)| as a function of the time difference t−t′ at a given time slice (t = 32) on a logarithmic scale. (b) The function |GR k (t, t′)| as a function of the time difference t −t′ at a given time slice (t = 32) on a logarithmic scale, for different values of ϵk, where ϵk = 0 corresponds to the Fermi edge. Note the different vertical scale in the two plots.",
+      "page": 31
+    },
+    {
+      "image": "2605.02606_figures/2605.02606_fig5.jpg",
+      "caption": "Figure 5: Momentum occupation ρk(t) for selected values of ϵk, obtained with the memory-truncated time evolution with different tc. Different line colors represent different values of ϵk, close to the Fermi energy (ϵk = 0), in the middle of the band (ϵk = 1), and close the band edge (ϵk = 2). Different line-styles distinguish different values of tc.",
+      "page": 32
+    }
+  ],
+  "figure": "2605.02606_figures/2605.02606_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 4,
+    "scars & prethermalization": 2,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

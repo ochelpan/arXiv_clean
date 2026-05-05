@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.01169",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Quantum Approach to Stochastic Optimization in Insurance Underwriting",
+  "authors": "Mitchell Bordelon, Maurice Garfinkel, Vivek Dixit, Thomas Whitehead, Jenny Holzbauer, Guillermo Mijares Vilarino, Alberto Maldonado Romo, Abhijit Mitra, Vaibhaw Kumar, Jean Utke",
+  "abstract": "The presence of stochastic elements in combinatorial optimization problems makes them particularly challenging, as such problems quickly become intractable for classical computers even at relatively small sizes. In this work, we propose a novel quantum-classical hybrid scheme for solving a class of stochastic optimization problems known as chance-constrained knapsack problems, in which item weights follow probability distributions and constraints may be violated within a specified risk tolerance. Our method employs knapsack-specific QAOA-based circuits to generate samples which, when combined with a self-consistent classical recovery scheme introduced in this work, produce high-quality solutions. Experiments carried out on IBM Heron processors, using circuits with depths up to 177 and comprising 3443 gates acting on as many as 150 qubits, yield solutions that indicate improvement over classical optimization schemes. The proposed quantum-classical scheme paves the way to tackling such problems, with the potential to outperform approaches that rely solely on classical computation.",
+  "url": "http://arxiv.org/abs/2605.01169v1",
+  "pdf": "https://arxiv.org/pdf/2605.01169v1",
+  "type": "both",
+  "summary": "This paper presents a novel quantum-classical hybrid algorithm designed to solve stochastic optimization problems used in insurance underwriting. By combining a specialized QAOA-based circuit with a robust classical post-processing repair scheme, the authors demonstrate that quantum hardware can outperform traditional classical heuristics on large-scale, high-constraint problems.",
+  "main_problem": "Solving the Chance-Constrained Knapsack Problem (CCKP), a stochastic combinatorial optimization problem where item weights are random variables and constraints must be met within a specific risk tolerance.",
+  "main_result": "The proposed quantum-classical hybrid scheme achieves solution quality comparable to classical heuristics for small instances and outperforms them for larger, more complex instances (e.g., n=75, M=5).",
+  "method": "A hybrid framework using a QAOA-based variational circuit (LD-DA) on IBM Heron processors, combined with a parameter transfer strategy to mitigate barren plateaus and a self-consistent classical recovery scheme for post-processing noisy samples.",
+  "model_or_system": "A variational quantum circuit using a phase separator Hamiltonian (encoding values and mean weights) and a mixer Hamiltonian (using X and XX rotations) acting on a specific Hamming-weight sector of qubits.",
+  "key_observables": "Measurement probability P(T) of target subsets, solution quality metric (closeness kappa to Gurobi), and constraint residual.",
+  "important_parameters": "Number of items (n), number of constraints (M), weight variance (sigma^2), risk tolerance (epsilon), and circuit depth (p).",
+  "main_assumptions": "The weight distributions are assumed to be closed under convolution (specifically focusing on Normal distributions) to allow for deterministic reformulation.",
+  "figures_summary": "Figure 1 shows the QAOA circuit architecture; Figure 2 compares Gurobi runtime and solution quality against heuristics; Figure 3 shows the CDF of loss values and the impact of the recovery algorithm; Figure 4 illustrates the evolution of profit distributions during fine-tuning.",
+  "paper_structure": "The paper introduces the CCKP problem, proposes a deterministic reformulation via SOCP, details the quantum-classical hybrid architecture (ansatz, mixer, and parameter transfer), describes the classical post-processing recovery algorithm, presents experimental results on IBM hardware and MPS simulations, and compares performance against classical benchmarks.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.01169_figures/2605.01169_fig1.jpg",
+      "caption": "Figure 1: QAOA-based variational quantum circuit with P layers and three vari- ational parameters θ = (α, β, γ) ∈IRP ×3. The circuit contains parametrized single qubit X and two-qubit XX rotations where two-qubit gates are ar- ranged over a line. The phase separation block applies diagonal RZ(2(αpvi − PM m=1 β(m) p µ(m) i )) gates, where layers are indexed by p = 1, . . . , P.",
+      "page": 6
+    },
+    {
+      "image": "2605.01169_figures/2605.01169_fig2.jpg",
+      "caption": "Figure 2: (a) Gurobi optimality gap evolution over time for different problem instances when Gurobi runtime is capped at 30 minutes. The plot shows gap convergence on a log-log scale, where different colors represent problem sizes (n) and marker shapes indicate the number of constraints (M): circles for M = 5, squares for M = 20. (b) Final solution quality comparison across all solvers after 1800 seconds for different problem instances. The y-axis shows closeness (κ) to Gurobi’s best solution as a percentage, where 100% (green dashed line) indicates matching Gurobi’s performance. Note, to obtain the “Gurobi-best” solutions, the 30 minute time limit was relaxed. Results are sorted by n and...",
+      "page": 16
+    },
+    {
+      "image": "2605.01169_figures/2605.01169_fig3.jpg",
+      "caption": "Figure 3: The plot displays the mean CDF with shaded confidence regions for the feasible region (L < 0) under the chosen penalty λ. An inset with logarith- mic y-axis focuses on the near-optimal region (−120 ≤L ≤−80), highlighting the probability of achieving solutions close to the optimum. The vertical dashed line at L = −114 marks the optimal solution, while the dotted line at L = 0 indicates the feasibility threshold.",
+      "page": 18
+    },
+    {
+      "image": "2605.01169_figures/2605.01169_fig4.jpg",
+      "caption": "Figure 4: Empirical cumulative distributions of penalized profit for a 100-item, 5-constraint knapsack problem obtained from hardware-sampled quantum cir- cuits. (a) Comparison of a random (Hadamard) baseline and increasing num- bers of fine-tuning iterations following parameter transfer from a 50-item, 5-constraint knapsack, where the x-axis is clipped for clarity. Profit is penal- ized using a λ-scaled worst-case SOCP constraint violation, where λ matches the value employed during CVaR-based training. Successive fine-tuning stages induce a progressive rightward shift of the distributions that saturates at 500 iterations (green), indicating increasing concentration of probability mass on...",
+      "page": 19
+    },
+    {
+      "image": "2605.01169_figures/2605.01169_fig5.jpg",
+      "caption": "Figure 5: Visualizations of observed bitstrings for a 100-item, 5-constraint knap- sack instance (a) before and (b) after recovery. Top: SOCP surface plots of bitstrings showing profit versus worst SOCP residual, with the colorbar repre- senting observed hardware sampling probability. The blue line represents the classical best solution profit, and its intersection with the black line (r(∗) = 0) outlines the SOCP-feasible zone in the xy-plane (green rectangle). Bottom: CCKP scatter plots of bitstrings showing profit versus CCKP critical resid- uals with the highest violation probability. The dashed blue line once again indicates the classically best profit. Each point corresponds to a...",
+      "page": 20
+    }
+  ],
+  "figure": "2605.01169_figures/2605.01169_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

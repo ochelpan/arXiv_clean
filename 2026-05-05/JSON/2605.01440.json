@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.01440",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Spectral functions on a quantum computer through system-environment interaction",
+  "authors": "Etienne Granet, Ramil Nigmatullin, David T. Stephen, Henrik Dreyer",
+  "abstract": "Spectral functions measured with angle-resolved photoemission spectroscopy (ARPES) provide key insight to elucidate the band structure of materials. Comparison with theory requires computing dynamical one-point functions in some equilibrium state, which can be classically challenging. Their measurement on quantum computers poses multiple problems and comes with a large sampling overhead when standard techniques are used. We introduce an efficient way of measuring spectral functions on a quantum computer by directly modeling the interaction of the system with the environment involved in ARPES experiments. We develop quantum circuits whose local expectation values are proportional to the spectral function $A(k,ω)$ for all momentum $k$ and a specific chosen frequency $ω$. Although coming with a qubit and two-qubit gate overhead, our approach requires $O(N)$ times less sampling than previous approaches, translating into a factor $O(N)$ faster in runtime, and is particularly adapted to ion-trap quantum computers. The algorithm requires to implement a fermionic Fourier transform (FFT). We write out an efficient gate decomposition for generic radix-$n$ FFT and benchmark it on hardware for radix-$3$ on $27$ qubits. We finally demonstrate our algorithm on a Quantinuum System Model H2 ion-trap system, computing the spectral function on a one-dimensional system of $27$ sites, using $54$ qubits.",
+  "url": "http://arxiv.org/abs/2605.01440v1",
+  "pdf": "https://arxiv.org/pdf/2605.01440v1",
+  "type": "both",
+  "summary": "This paper presents a new quantum algorithm for measuring spectral functions that significantly reduces the number of required measurements by modeling a system-environment interaction. By implementing this on a 54-qubit ion-trap processor, the authors demonstrate that the method is both efficient and robust against Trotter errors. This approach allows for much faster extraction of band structures from quantum hardware.",
+  "main_problem": "Measuring spectral functions A(k, omega) on quantum computers is computationally expensive due to high sampling overhead and sensitivity to Trotter errors.",
+  "main_result": "The authors introduce an efficient method that reduces sampling overhead by a factor of O(N) and demonstrates its effectiveness on a 54-qubit Quantinuum ion-trap processor.",
+  "method": "The approach models the system-environment interaction analogous to ARPES and uses a Fast Fermionic Fourier Transform (FFFT) to measure momentum occupation numbers in the environment.",
+  "model_or_system": "A 1D system of N sites coupled to an environment of N sites via a particle-conserving Hamiltonian, implemented on a Quantinuum H2 ion-trap quantum computer.",
+  "key_observables": "Spectral function A(k, omega), momentum occupation number n(k), energy density, and infidelity.",
+  "important_parameters": "Coupling strength epsilon, frequency omega, evolution time t, and system size N.",
+  "main_assumptions": "The method incurs a qubit overhead by requiring an environment (doubling the qubits) and a gate overhead due to the FFFT and interleave operations.",
+  "figures_summary": "Figure 1 shows the method schematic and hardware vs. noiseless results; Figure 2 illustrates ghost bands at high coupling; Figure 3 compares Trotter error robustness; Figure 4-6 detail FFFT circuit implementations and optimizations; Figure 7-8 show hardware momentum distributions and spectral function accuracy.",
+  "paper_structure": "The paper introduces the system-environment interaction model, derives the mathematical relationship to the spectral function, presents the FFFT algorithm and circuit optimization, and concludes with hardware benchmarking on the Quantinuum H2 system.",
+  "why_interesting": "It provides a scalable way to extract dynamical properties of many-body systems from quantum hardware, specifically addressing the bottleneck of measurement shot noise and Trotter-induced unphysical results.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.01440_figures/2605.01440_fig1.jpg",
+      "caption": "FIG. 1. Schematic representation of our method for measuring spec- tral functions A(k, ω), and comparison of raw hardware results ob- tained from Quantinuum System Model H2 for A(k, ω) with noise- less expectation values of quantum circuits for a system of size 27, using 54 qubits. A bicubic interpolation is used for both experimen- tal and exact data.",
+      "page": 1
+    },
+    {
+      "image": "2605.01440_figures/2605.01440_fig2.jpg",
+      "caption": "FIG. 2. Amplitude ⟨n(k)⟩for Hsys a free-fermion hopping Hamilto- nian on 200 sites, as a function of k and ω, computed with t = 5, for different values of ϵ. The three panels have a different color scale, ranging from value zero (darker) to the maximal value (lighter).",
+      "page": 4
+    },
+    {
+      "image": "2605.01440_figures/2605.01440_fig3.jpg",
+      "caption": "FIG. 3. Average absolute error (a) and maximal error (b) between spectral function computed with perfect time evolution, and com- puted with a finite number of Trotter steps, comparing our environ- ment method with different ϵ’s, and the standard dynamical correla- tion approach, for the Hamiltonian (30) with an additional interaction term V PN j=1 c† jcjc† j+1cj+1 with V = 4, for a total evolution time t = 5, in size N = 9, for 26 values of ω. For each point an overall scaling factor for all values of k, ω is optimized so as to minimize the difference with exact.",
+      "page": 5
+    },
+    {
+      "image": "2605.01440_figures/2605.01440_fig4.jpg",
+      "caption": "FIG. 4. Fast Fermionic Fourier Transform. (a): Circuit implementing a 3-way interleave operation on 27 = 33 qubits, from bottom to top. (b): Energy density (dots) and infidelity (bars) of a free-fermion ground state on 27 sites, measured on hardware, for the machines H2-1 and H2-2, and for different implementations of the interleaves (see text). The dotted red line indicates the ground state energy density. (c): Two-qubit gate count and two-qubit gate depth of the circuits run on hardware appearing in panel (b).",
+      "page": 6
+    },
+    {
+      "image": "2605.01440_figures/2605.01440_fig5.jpg",
+      "caption": "FIG. 5. Recursive algorithm for the FFT on N = nk modes. Rz(α, i) denotes a rotation of angle α in the Z direction on qubit i, and F denotes the FFT on n modes.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.01440_figures/2605.01440_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 5,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,74 @@
+{
+  "arxiv_id": "2605.01367",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG",
+    "eess.SY"
+  ],
+  "is_primary_archive": true,
+  "title": "From Characterization To Construction: Generative Quantum Circuit Synthesis from Gate Set Tomography Data",
+  "authors": "King Yiu Yu, Aritra Sarkar, Erbing Hua, Maximilian Rimbach-Russ, Ryoichi Ishihara, Sebastian Feld",
+  "abstract": "High-fidelity circuit execution on noisy intermediate-scale quantum devices is bottlenecked by compilation pipelines that disregard complex, correlated noise. To address this, this methodology article proposes a quantum machine learning control (QMLC) framework for generative quantum circuit synthesis from gate-set tomography (GST) data that bypasses the traditional two-step pipeline of characterizing native quantum gates via GST followed by unitary decomposition algorithms. Instead, a generative concept space is directly learnt from GST data, enabling conditional synthesis of quantum circuits on a desired output distribution. Our approach tokenizes GST germ circuits and embeds them into a structured latent space using a curriculum-learning-motivated strategy, starting with short circuits and progressively incorporating longer ones with diverse output statistics. The embedded sequences are processed by a set-vision transformer with permutation-invariant pooling, producing k-seed vectors that represent the learned concept space of the quantum device. Aggregating data across multiple circuits makes this latent representation inherently context-aware, capturing the shared physical noise environment (e.g., crosstalk, drift) that isolated gate metrics miss. We propose an unconditional diffusion model to sample from the concept space. During inference, a user provides a target measurement distribution, and the model generates a corresponding circuit. To ensure fidelity and robustness, the output is denoised using a diffusion model that operates on the target conditional covariance matrix. This end-to-end framework is a step towards context-aware, hardware-native circuit synthesis directly from raw GST data, which offers a new paradigm for integrating quantum control and compilation. The QMLC framework is particularly suited for near-term quantum devices with complex calibration procedures.",
+  "url": "http://arxiv.org/abs/2605.01367v1",
+  "pdf": "https://arxiv.org/pdf/2605.01367v1",
+  "type": "theory",
+  "summary": "This paper introduces a new machine learning framework that uses raw Gate Set Tomography data to directly generate quantum circuits tailored to a specific noisy device. By using a hierarchical diffusion model, it bypasses the need for idealized gate models, allowing for the synthesis of circuits that are inherently aware of hardware-specific errors like crosstalk and drift.",
+  "main_problem": "The decoupling of quantum gate characterization and circuit compilation leads to a hardware-software gap where compilers fail to account for complex, correlated noise like crosstalk and drift in NISQ devices.",
+  "main_result": "The authors propose a Quantum Machine Learning Control (QMLC) framework that bypasses traditional two-step pipelines by directly learning a hardware-native latent concept space from Gate Set Tomography (GST) data to synthesize noise-aware circuits.",
+  "method": "A hierarchical generative pipeline using a Set Vision Transformer (Set-ViT) encoder to extract device context from GST data, followed by a two-stage diffusion model (Global-Context and Conditional Circuit-Token Diffusion) for circuit synthesis.",
+  "model_or_system": "The framework targets NISQ-era quantum processors, specifically focusing on Clifford circuits on n-qubit registers, and is designed to handle hardware-specific noise such as crosstalk, decoherence, and calibration drift.",
+  "key_observables": "GST circuit-measurement pairs, measurement probability distributions, and target conditional covariance matrices.",
+  "important_parameters": "Circuit depth, gate count, qubit number (n), and the signal-to-noise ratio (SNR) schedule for the diffusion process.",
+  "main_assumptions": "The system is assumed to be stationary over the characterization window, and the implementation assumes a diagonal covariance matrix for efficient computation.",
+  "figures_summary": "Figure 1 compares the traditional GST-to-decomposition pipeline with the proposed QMLC pipeline; Figure 2 illustrates the architecture of the generative decoder; Figure 3 shows the data grouping strategy and curriculum learning progression.",
+  "paper_structure": "The paper identifies the limitations of current compilation pipelines, introduces the QMLC framework, details the Set-ViT encoder and hierarchical diffusion decoder architectures, describes the training strategies (curriculum learning and label consistency), and discusses potential applications in quantum control and neuromorphic integration.",
+  "why_interesting": "This work is highly relevant for researchers in open quantum systems as it proposes a way to implicitly learn and utilize complex, non-Markovian noise environments (like crosstalk) for practical control without requiring explicit Hamiltonian modeling.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.01367_figures/2605.01367_fig1.jpg",
+      "caption": "Figure 1: Workflow depicting the two traditional pipelines of characterizing native quantum gates via gate set tomography (GST) and unitary decomposition (UD) algorithm, and the proposed quantum machine learning control (QMLC) method of directly learning a generative concept space from GST data, enabling conditional synthesis of quantum circuits that produce a desired output distribution.",
+      "page": 2
+    },
+    {
+      "image": "2605.01367_figures/2605.01367_fig2.jpg",
+      "caption": "Figure 2: Overview of the proposed architecture for tomography-driven quantum circuit generation.",
+      "page": 5
+    },
+    {
+      "image": "2605.01367_figures/2605.01367_fig3.jpg",
+      "caption": "Figure 3: Schematic illustration of the data grouping strategy. Raw data instances are partitioned into sets such that instances within a set are maximally distinct yet share a narrow range of circuit lengths. Overlap across sets is allowed. The sets are then ordered by circuit length to enable curriculum learning from simple to complex circuits.",
+      "page": 11
+    }
+  ],
+  "figure": "2605.01367_figures/2605.01367_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

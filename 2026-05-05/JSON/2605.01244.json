@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.01244",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "NEGF Modeling of Impact Ionization in Semiconductor Avalanche Photodiodes for Quantum Networking",
+  "authors": "Colin Burdine, Nischal Binod Gautam, Enrique P. Blair",
+  "abstract": "We present an atomistic quantum transport simulation framework based on the Non-Equilibrium Green's Function (NEGF) formalism to model impact ionization in semiconductor avalanche devices, with direct relevance to near-term quantum networking applications. Conventional descriptions of avalanche breakdown rely predominantly on semiclassical simulation methods, such as local ionization coefficients, semiclassical carrier trajectories, or Monte Carlo sampling, all of which implicitly assume weak correlations and mean-field electronic interactions. These assumptions break down in nanoscale, high-field junctions where carrier multiplication emerges from strongly non-equilibrium, energy-resolved scattering processes.   Our approach formulates impact ionization as a multi-particle self-energy within NEGF, enabling a non-perturbative, energy- and atomic orbital-resolved description of carrier multiplication directly from the device spectral function. This formulation captures strongly inelastic scattering processes beyond semiclassical approximations and is implemented in a matrix-based real-space representation suitable for nanoscale device modeling. Using a model semiconductor structure under high electric fields, we demonstrate the emergence of carrier multiplication and analyze its dependence on energy-resolved transport and nonequilibrium charge distributions. The framework provides insight into microscopic mechanisms governing avalanche processes and their impact on device performance. Our results establish a transport baseline for self-consistent calculations of the impact-ionization self-energy and carrier multiplication. By resolving the available and occupied states that underlie avalanche onset, this framework provides a route toward predictive modeling of silicon single-photon avalanche detectors and avalanche photodiodes used in quantum-network receivers.",
+  "url": "http://arxiv.org/abs/2605.01244v1",
+  "pdf": "https://arxiv.org/pdf/2605.01244v1",
+  "type": "theory",
+  "summary": "This paper introduces a quantum transport framework using NEGF to model impact ionization in silicon avalanche photodiodes. By treating carrier multiplication as a multi-particle self-energy, it provides an atomistic way to predict detector performance for quantum networks. This approach overcomes the limitations of traditional semiclassical models in nanoscale devices.",
+  "main_problem": "The lack of a microscopic, atomistic description of impact ionization in nanoscale semiconductor avalanche photodiodes, which is necessary to predict detector performance for quantum networking.",
+  "main_result": "The development of an NEGF-based framework that captures carrier multiplication as a multi-particle self-energy, establishing a transport baseline for predicting device metrics like dark counts and timing jitter.",
+  "method": "An atomistic quantum transport simulation using the Non-Equilibrium Green's Function (NEGF) formalism and the Self-Consistent Born Approximation (SCBA) implemented in PyTorch.",
+  "model_or_system": "A silicon p-i-n-like junction avalanche photodiode modeled with an equivariant tight-binding Hamiltonian (s+p basis) and semi-infinite p-type and n-type leads.",
+  "key_observables": "Carrier multiplication, spectral function, local density of states (LDOS), transmission spectrum, and nonequilibrium charge distributions.",
+  "important_parameters": "25-nm depletion region, high electric fields, reverse bias voltage (e.g., -5V), and silicon doping concentrations.",
+  "main_assumptions": "The use of a compressed s+p basis limits high-energy conduction band accuracy; the electrostatic profile was imposed rather than solved self-consistently with Poisson; and the model lacks phonon/defect scattering.",
+  "figures_summary": "Figure 1 shows a quantum network block diagram; Figure 2 illustrates the quantum transport model and self-energy components; Figure 4 compares tight-binding to DFT bands; Figure 5 shows the device geometry; Figure 8 displays the spatial tilt of the LDOS and the occupied DOS under bias.",
+  "paper_structure": "The paper introduces the importance of detectors in quantum networks, identifies limitations in semiclassical modeling, presents the NEGF/SCBA mathematical framework, validates the tight-binding model against DFT, demonstrates the emergence of carrier multiplication, and discusses implications for device performance.",
+  "why_interesting": "It provides a rigorous many-body approach (NEGF/Keldysh) to modeling non-equilibrium, inelastic scattering processes that are critical for the hardware layer of quantum communication.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.01244_figures/2605.01244_fig1.jpg",
+      "caption": "Fig. 1: The simplified block diagram of a representative quantum networking shows the various components involved in it. In this work, our focus is on the single-photon detector block, specifically silicon avalanche-based detection.",
+      "page": 2
+    },
+    {
+      "image": "2605.01244_figures/2605.01244_fig2.jpg",
+      "caption": "Fig. 2: The quantum transport model of the generic silicon p–n junction device enables the modeling of incoherent NEGF transport using the channel Hamiltonian matrix H, the self-energy matrices Σ1 and Σ2 that describe coupling to the contacts, ΣII that describes the impact ionization scattering self-energy, the self-energy term for photon scattering Σph, and Σ0 that accounts for interactions within the channel. The channel is connected to source and drain contacts and at each terminal the influx is described by the electron in-scattering function Σin, which injects contact electrons into hole states G> in the channel, while the outflow is governed by the out-scattering function Σout, which...",
+      "page": 4
+    },
+    {
+      "image": "2605.01244_figures/2605.01244_fig3.jpg",
+      "caption": "Fig. 3: A very high energy electron (4) collides with a top of the valence-band electron (1), scattering both into empty states (2, 3), and resulting in two lower-energy conduction electrons near the band bottom along with holes at the original states 1 and 4, giving us the four energy levels. The energy levels satisfy energy conservation, E4 −E3 = E2 −E1.",
+      "page": 5
+    },
+    {
+      "image": "2605.01244_figures/2605.01244_fig4.jpg",
+      "caption": "Fig. 4: (a) The blue curves in the silicon band structure along high-symmetry points in the Brillouin zone show the reference DFT plane-wave bands, while the red curves show the fitted equivariant tight-binding bands used in the device Hamiltonian. The comparison shows how the reduced tight- binding model captures the low-energy band features needed for transport while remaining compact enough for NEGF calculations. (b) In the orbital character of the silicon tight- binding band structure, red and blue curves show dominant p- and s-orbital character, where conduction/valence band states correspond to sp3-bonding/antibonding states.",
+      "page": 6
+    },
+    {
+      "image": "2605.01244_figures/2605.01244_fig5.jpg",
+      "caption": "Fig. 5: (a) Cubic unit cell of silicon containing 8 atoms in a diamond structure. (b) Irreducible 1st Brillouin zone (IBZ), capturing the ⃗k = (ky, kx) momentum degrees of freedom of electrons propagating orthogonal to the device axis. (c) Visualization of the device unit cell of a 25-nm depletion region in a Si APD device, constructed with 45 silicon cells and p+- and n+-doped semi-infinite leads. Periodicity orthogonal to the device axis was acccounted for by sampling the Brillouin zone in (b) with a uniform mesh.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.01244_figures/2605.01244_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 4,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

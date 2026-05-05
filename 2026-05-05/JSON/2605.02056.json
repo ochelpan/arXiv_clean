@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.02056",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Benchmarking quantum trial wavefunctions for phaseless auxiliary-field quantum Monte Carlo",
+  "authors": "Rod Rofougaran, Neil Mehta, Katherine Klymko, Pooja Rao, J. Wayne Mullinax, Sam Stein, Norm M. Tubman, Ermal Rrapaj",
+  "abstract": "The phaseless auxiliary-field quantum Monte Carlo (ph-AFQMC) method is a stochastic imaginary-time projection technique for computing ground-state properties of strongly correlated quantum systems, with accuracy that depends critically on the choice of trial wavefunction. Here, we investigate ph-AFQMC with trial states prepared using parameterized quantum circuits. In this work, we present a comprehensive benchmarking study of quantum trial wavefunctions spanning unitary coupled-cluster, Hamiltonian-informed, Jastrow-inspired, and adaptively constructed ansatze. The benchmarking evaluates accuracy, expressibility, and scalability of these ansatze within the QC-AFQMC framework. We test these ansatze on linear hydrogen chains under bond stretching and find that several ansatz families produce chemically accurate ph-AFQMC energies across the dissociation curve. We have performed simulations using the CUDA-Q quantum development platform on the GPU partition of the Perlmutter supercomputer. When comparing ansatze at similar numbers of variational parameters, we find that different ansatz families yield comparable ph-AFQMC results despite exhibiting substantially different variational energies, optimization costs, and circuit depths. Our results indicate that the variational energy of an ansatz is not always a reliable indicator of its quality for ph-AFQMC and reveal instances of over-parameterization. In the strongly correlated regime, trial wavefunctions obtained from adaptive ansatze, exemplified here by ADAPT-VQE with the UCCSD operator pool, can outperform their fixed-ansatz counterparts (UCCSD) in terms of projected energies while using substantially more compact circuits, providing a flexible route to optimize quantum resources within the ph-AFQMC framework.",
+  "url": "http://arxiv.org/abs/2605.02056v1",
+  "pdf": "https://arxiv.org/pdf/2605.02056v1",
+  "type": "both",
+  "summary": "The paper benchmarks various quantum-circuit-based trial wavefunctions used as inputs for the phaseless auxiliary-field quantum Monte Carlo method. It demonstrates that adaptive quantum circuits can provide superior accuracy in strongly correlated regimes and reveals that standard variational metrics like energy do not always predict the quality of the resulting Monte Carlo projection.",
+  "main_problem": "Benchmarking the performance of various quantum-prepared trial wavefunctions (ansatze) within the phaseless auxiliary-field quantum Monte Carlo (ph-AFQMC) framework to minimize phaseless bias.",
+  "main_result": "The study finds that variational energy and fidelity are not always reliable indicators of ph-AFQMC accuracy, and that adaptive ansatze like ADAPT-VQE can outperform fixed-ansatz counterparts in strongly correlated regimes using more compact circuits.",
+  "method": "A hybrid quantum-classical approach using VQE to optimize quantum circuits (UCCSD, LUCJ, HVA, etc.) and ph-AFQMC to project these states into accurate ground states, implemented via the CUDA-Q platform.",
+  "model_or_system": "Linear hydrogen chains (H8 and H10) in an STO-6G basis, subjected to bond stretching to explore transitions from weakly to strongly correlated regimes.",
+  "key_observables": "VQE energy, ph-AFQMC energy, absolute energy error relative to FCI, state fidelity, spin-projected fidelity, and spin contamination (S^2).",
+  "important_parameters": "Number of variational parameters, circuit depth (k), bond length (R), and number of spatial orbitals (N).",
+  "main_assumptions": "Use of the phaseless approximation to control the fermion sign problem; use of a Multi-Slater Determinant (MSD) expansion to represent quantum statevectors; use of Trotterization for UCC mapping.",
+  "figures_summary": "Figures show absolute energy errors for H10 across different ansatze, circuit depth scaling, and energy error as a function of ansatz depth (k) for various bond lengths.",
+  "paper_structure": "The paper introduces the QC-AFQMC framework, details the construction of various quantum ansatze (UCC, LUCJ, HVA, ADAPT), describes the ph-AFQMC implementation on GPUs, presents benchmarking results on hydrogen chains, and concludes with a discussion on optimization and scalability.",
+  "why_interesting": "This work is highly relevant for many-body dynamics and molecular physics as it provides a roadmap for using near-term quantum hardware to improve the accuracy of stochastic many-body methods in the presence of strong correlation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.02056_figures/2605.02056_fig1.jpg",
+      "caption": "FIG. 1: (a) Absolute energy errors |EVQE −EFCI| (mHa) for the symmetric bond-stretching curve of H10. (b) Fidelity of the optimized VQE states with respect to the FCI ground state, |⟨ΨVQE|ΨFCI⟩|2. Dashed lines represent single layer ansatze, and solid lines represent multilayer ones. The depths of the multilayer ansatze (3-LUCJ, 6-UpCCGSD, and 7-HVA) were chosen such that the total number of variational parameters is approximately equal to that of UCCSD.",
+      "page": 7
+    },
+    {
+      "image": "2605.02056_figures/2605.02056_fig2.jpg",
+      "caption": "FIG. 2: AFQMC energy error for H10 as a function of bond length using different quantum trial wavefunctions. The vertical axis shows the absolute deviation from FCI, |EAFQMC −EFCI|, in mHa on a logarithmic scale. The RHF curve serves as a classical single-determinant reference. The depth of the multilayer ansatze (3-LUCJ, 6-UpCCGSD, and 7-HVA) were chosen such that the total number of variational parameters is approximately equal to that of UCCSD.",
+      "page": 8
+    },
+    {
+      "image": "2605.02056_figures/2605.02056_fig3.jpg",
+      "caption": "FIG. 3: AFQMC energy error as a function of the number of determinants retained in the MSD trial wavefunctions for H10 at three bond lengths (R = 1.0, 1.4, and 1.8 ˚A). Trials are constructed by truncating the full quantum-prepared state, retaining the largest-magnitude coefficients, and renormalizing the resulting state.",
+      "page": 10
+    },
+    {
+      "image": "2605.02056_figures/2605.02056_fig4.jpg",
+      "caption": "FIG. 4: AFQMC energy error as a function of the number of operators in the ADAPT-UCCSD ansatz for H10 at three bond lengths (R = 1.0, 1.4, and 1.8 ˚A). Each point corresponds to a trial wavefunction saved every ten ADAPT-VQE iterations and subsequently used in ph-AFQMC. Horizontal dashed lines indicate the corresponding AFQMC(UCCSD) reference energies.",
+      "page": 10
+    },
+    {
+      "image": "2605.02056_figures/2605.02056_fig5.jpg",
+      "caption": "FIG. 5: Comparison of RHF- and UHF-based references for VQE and ph-AFQMC along the H10 bond-stretching curve. The vertical axis shows energy error in mHa on a logarithmic scale. Dashed lines denote mean-field RHF and UHF errors, crosses indicate VQE(UCCSD) results initialized on RHF and UHF references, and solid circles show the corresponding AFQMC energies using these trials. Encircled data points denote non-variational results for which E −EFCI < 0.",
+      "page": 11
+    }
+  ],
+  "figure": "2605.02056_figures/2605.02056_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

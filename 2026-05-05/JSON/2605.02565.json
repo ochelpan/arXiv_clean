@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.02565",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Sample-Based Quantum Diagonalization with Amplitude Amplification",
+  "authors": "Nina Stockinger, Ludwig Nützel, Michael J. Hartmann",
+  "abstract": "Recently, sample-based quantum diagonalization (SQD) has emerged as a promising approach to compute ground and excited states of problem Hamiltonians.This method classically diagonalizes a Hamiltonian in a subspace that is spanned by samples obtained from a quantum computer. However, by its nature, SQD suffers from a fundamental sampling problem, as some basis states that are required for a targeted accuracy may only be sampled extremely rarely. To alleviate this limitation, we introduce the SQD-AA algorithm that combines SQD with amplitude amplification (AA). SQD-AA uses AA to sequentially reduce probabilities of already measured bitstrings, thus making the observation of new ones more likely. We observe a reduction in the total query complexity of more than a factor 100 for algebraically and exponentially decaying model distributions, and analytically show a quadratic advantage for the latter. Moreover, we evaluate real molecules in an early fault-tolerant scenario and compare SQD-AA to SQD and iterative quantum phase estimation (iQPE). For all considered examples, we observe the lowest total number of T-gates for SQD-AA while only requiring circuits that are 3-4 orders of magnitude shallower than those needed for iQPE. Given this substantial reduction in circuit depth compared to iQPE while saving 2 orders of magnitude in total runtime compared to SQD, we expect a significant regime in early fault-tolerance where SQD-AA runs feasibly, but iQPE circuits are too deep to execute confidently.",
+  "url": "http://arxiv.org/abs/2605.02565v1",
+  "pdf": "https://arxiv.org/pdf/2605.02565v1",
+  "type": "theory",
+  "summary": "This paper introduces SQD-AA, a new quantum algorithm that uses amplitude amplification to solve the sampling bottleneck in sample-based diagonalization. It demonstrates that this approach can significantly reduce the number of required quantum measurements and circuit depth, making molecular electronic structure calculations more feasible in the early fault-tolerant era.",
+  "main_problem": "The Sample-Based Quantum Diagonalization (SQD) algorithm suffers from high measurement overhead because dominant bitstrings are sampled repeatedly, while the sub-dominant bitstrings needed for accuracy are rarely observed.",
+  "main_result": "The proposed SQD-AA algorithm achieves a quadratic advantage in query complexity for exponentially decaying distributions and reduces total T-gate complexity by up to an order of magnitude compared to standard SQD, while maintaining significantly shallower circuits than iQPE.",
+  "method": "The authors introduce SQD-AA, which integrates Amplitude Amplification (AA) into the SQD framework to sequentially rotate the quantum state and reduce the probability of previously measured bitstrings.",
+  "model_or_system": "The method is evaluated on electronic structure Hamiltonians for molecules such as cyclopentadiene, Cr2, H2O, and Mo2, using both RPA and UCJ/ASP state preparation models.",
+  "key_observables": "Ground state energy (GSE), T-count, T-depth, total query complexity, and total number of shots.",
+  "important_parameters": "Target fidelity (Ft), convergence threshold (tau), target chemical accuracy (epsilon), and decay rates (alpha and gamma) for bitstring distributions.",
+  "main_assumptions": "Assumes an early fault-tolerant computing regime and requires approximate knowledge of bitstring probabilities to implement the amplification steps.",
+  "figures_summary": "Figure 1 visualizes the AA rotation process; Figure 2 shows the SQD-AA algorithm flowchart and circuit schematic; Figure 3 illustrates query complexity ratios for algebraic decay; Figure 4 and 5 compare T-count and T-depth across different molecular systems.",
+  "paper_structure": "The paper introduces the SQD sampling problem, presents the SQD-AA algorithm and its analytical complexity, evaluates performance on model distributions (algebraic/exponential), benchmarks against SQD and iQPE using molecular systems, and discusses parameter optimization and hardware implications.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.02565_figures/2605.02565_fig1.jpg",
+      "caption": "Figure 1. Visualization of one step of AA inside a circle where the amplitude of the state marked in orange is reduced. The bars represent real amplitudes of computa- tional basis states. First, the phases of all basis states but the orange bitstring, z0, are inverted via SP0 (1), followed by a reflection about |˜ΨGS⟩via S ˜ΨGS (2) where A0 = −S ˜ΨGSSP0. A0 rotates |˜ΨGS⟩toward |ϕt,0⟩by an angle of 2θ0 which re- duces the amplitude of the orange basis state while increasing all others on average. Based on [4, p.253]",
+      "page": 3
+    },
+    {
+      "image": "2605.02565_figures/2605.02565_fig2.jpg",
+      "caption": "Figure 2. Sketch of SQD-AA. a) First, an approximate ground state |˜ΨGS⟩= |Ψ0⟩is prepared and measured in the computational basis, yielding the most probable bitstring z0 and its approximate probability p0. The steps to reduce the probability of z0 are determined as function of p0, s1 = f(p0), via Equations (4) and (6). Applying A1 s1 times to |˜ΨGS⟩ results in the next state where z1 has the highest probability. The procedure is repeated until either the energy converges or the distribution becomes too flat. In the second case, the final state |Ψm⟩is measured until ∆Ek−1,k is below a threshold. b) Schematic of the circuits. First, ˜UGS is applied to n qubits and an ancilla is prepared in...",
+      "page": 4
+    },
+    {
+      "image": "2605.02565_figures/2605.02565_fig3.jpg",
+      "caption": "Figure 3. Comparison of total query complexities for SQD and SQD-AA assuming an algebraically (a) and an exponentially (b) decaying distribution. In the first row, estimated ratios QSQD tot /QSQD−AA tot are plotted for differ- ent parameters γ or α. Here, N AA,it S = 1000, whereas the shot counts for direct measurements, N AA,dir S and N dir S , are ap- proximated via Equation (16) and (19), with pfail = 0.1. The exact expressions for the query complexities can be found in Appendix A 1. In lower panels, we show the median reduction in Qtot (second row) and NS,tot (third row) running both algo- rithms with simulated measurements until all m most prob- able bitstrings are obtained. (Note that...",
+      "page": 6
+    },
+    {
+      "image": "2605.02565_figures/2605.02565_fig4.jpg",
+      "caption": "Figure 4. T -count (upper panels) and T -depth (lower panels) to obtain the GSE of cyclopentadiene within ϵ = 1.6×10−3 Ha. The left panels show T-count (upper left panel) and T-depth (lower left panel) of the deepest circuit, i.e., the highest number of T-gates that are executed within one shot. The right panels display the total T-count (upper right panel) and total T-depth (lower right panel) which is the T-count / T-depth multiplied with the total number of shots. We plot median values of 100 repetitions, with error bars representing the 68 % confidence interval. Here, FT = 0.8, N AA,it S = 10, and τ = 0.4. The inset shows a zoomed-in view of the T-complexity of SQD-AA and SQD for 16...",
+      "page": 7
+    },
+    {
+      "image": "2605.02565_figures/2605.02565_fig5.jpg",
+      "caption": "Figure 5. T -count (upper panels) and T -depth (lower panels) to obtain the GSE of Cr2 within ϵ = 1.6 × 10−3 Ha. The left panels show T-count (upper left panel) and T-depth (lower left panel) of the deepest circuit, i.e., the highest number of T-gates that are executed within one shot. The right panels display the total T-count (upper right panel) and total T-depth (lower right panel) which is the T-count / T-depth multiplied with the total number of shots. We plot median values of 100 repetitions, with error bars representing the 68 % confidence interval. Here, N AA,it S = 10 for n ≤20 and N AA,it S = 100 for n > 20, FT = 0.8, and τ = 0.4. The in- set shows a zoomed-in view of the...",
+      "page": 8
+    }
+  ],
+  "figure": "2605.02565_figures/2605.02565_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

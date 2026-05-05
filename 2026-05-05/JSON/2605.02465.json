@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.02465",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Constraint Preserving XY-Mixers under Trotterized Adiabatic Evolution",
+  "authors": "Abhishek Awasthi, Maximilian Hess, Salome Lomadze, Francesco Bär, Christian Biefel",
+  "abstract": "Constraint handling is a central challenge for quantum algorithms applied to combinatorial optimization. Standard penalty-based approaches increase problem size, distort energy landscapes, and often degrade performance. Constraint-preserving mixers, such as XY-mixers, restrict quantum evolution to feasible subspaces, but their implementation on gate-based hardware requires Trotterization, which introduces approximation errors. In this work, we systematically investigate the interplay between constraint-preserving XY-mixers and Trotterized Adiabatic Evolution (TAE). We present a theoretical analyses of the origin and scaling of Trotter errors in XY-mixers and show that the dominant contribution depends on the size and structure of individual constraints rather than on the total problem size. Our findings are validated through extensive numerical simulations on three representative problems: Portfolio Optimization, the Multi-Car Paint Shop problem, and a Multi-Commodity Flow problem. For problems with a single global equality constraint spanning all variables, Trotter errors significantly impair XY-mixer performance, making standard Pauli-X mixers more robust under realistic implementations. In contrast, for problems whose constraints decompose into multiple disjoint local blocks, XY-mixers outperform X-mixers by several orders of magnitude even under Trotterized evolution. These results identify constraint locality as the key criterion for the effective use of XY-mixers and demonstrate that TAE combined with structure-aware mixer design provides a robust and theoretically grounded alternative to variational quantum optimization methods. We further present a dedicated mixer Hamiltonian for TSP-like 2-way-1-hot constraints.",
+  "url": "http://arxiv.org/abs/2605.02465v1",
+  "pdf": "https://arxiv.org/pdf/2605.02465v1",
+  "type": "theory",
+  "summary": "This paper demonstrates that the success of using constraint-preserving XY-mixers in quantum adiabatic evolution depends heavily on whether the constraints are global or local. It shows that while global constraints cause high Trotter errors that negate the benefits of XY-mixers, local constraints allow these mixers to significantly outperform standard methods.",
+  "main_problem": "Investigating how Trotterization errors in XY-mixers affect the performance of Trotterized Adiabatic Evolution (TAE) for combinatorial optimization problems with equality constraints.",
+  "main_result": "The effectiveness of XY-mixers depends on constraint locality: global constraints lead to significant Trotter errors that favor standard X-mixers, whereas local/disjoint constraints allow XY-mixers to outperform X-mixers by several orders of magnitude.",
+  "method": "Theoretical analysis of Trotter error scaling combined with numerical statevector simulations using Qiskit on various optimization problems (Portfolio, Paint Shop, Multi-Commodility Flow).",
+  "model_or_system": "Quantum optimization frameworks using Trotterized Adiabatic Evolution (TAE) with XY-mixers (which preserve Hamming weight) and standard Pauli-X mixers, applied to Ising Hamiltonians encoding $k$-hot constraints.",
+  "key_observables": "Probability of measuring/sampling the optimal solution.",
+  "important_parameters": "Trotter step size ($\\delta t$), Trotter depth ($p$), constraint locality (global vs. local), and Hamming weight ($k$).",
+  "main_assumptions": "The analysis assumes linear, unweighted equality constraints and uses a first-order Suzuki-Trotter expansion for the implementation.",
+  "figures_summary": "Figures compare success probabilities of XY vs. X mixers across different problem types (Portfolio, MCPS, MCFP) and varying Trotter step sizes and depths, highlighting the performance degradation in global vs. local constraint regimes.",
+  "paper_structure": "The paper introduces the problem of constraint handling, provides a theoretical analysis of Trotter error scaling in XY-mixers, presents numerical validation using three distinct optimization problems, and concludes with a discussion on constraint locality as a design principle.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.02465_figures/2605.02465_fig1.jpg",
+      "caption": "Figure 1: This figure demonstrates the breakdown of XY and X-mixers performance under TAE. Results for Portfolio Optimization with exact unitary evolution, i.e., without Trotterization of the mixing and phase separation unitaries but with exact computation of the unitary matrices in Eq. (20). The plot shows results for δt = 0.3 and δt = 0.75, using standard X-mixers and the XY -mixers with full connectivity. In each plot the x-axis shows the number of Trotter steps used in the respective experiment and the y-axis shows the probability of measuring the optimal solution which was determined classically beforehand.",
+      "page": 11
+    },
+    {
+      "image": "2605.02465_figures/2605.02465_fig2.jpg",
+      "caption": "Figure 2: Results for Portfolio Optimization with approximated unitary evolution via Trotterization of the mixing and phase separation unitaries. The plot shows results for two different δt = 0.3 and 0.75, using standard X-mixers as well and the XY -mixers with full connectivity. In each plot the x-axis shows the number of Trotter steps used in the respective experiment and the y-axis shows the probability of measuring the optimal solution which was determined classically beforehand. The probability of optimal solution for any problem size is averaged over 10 different instances of the same size.",
+      "page": 12
+    },
+    {
+      "image": "2605.02465_figures/2605.02465_fig3.jpg",
+      "caption": "Figure 3: Results for Multi-car paint shop problem with approximated unitary evolution via Trotterization of the mixing and phase separation unitaries. The plot shows results for two different δt = 0.25 and 0.50, using standard X-mixers as well and the XY -mixers with full connectivity. In each plot the x-axis shows the number of Trotter steps used in the respective experiment and the y-axis shows the probability of measuring the optimal solution which was determined classically beforehand. The probability of sampling an optimal solution for any problem size is averaged over 10 different instances of the same size.",
+      "page": 14
+    },
+    {
+      "image": "2605.02465_figures/2605.02465_fig4.jpg",
+      "caption": "Figure 4: Results for the multi-commodity flow problem with approximated unitary evolution via Trotteri- zation of the mixing and phase separation unitaries. The plot shows results for δt = 0.2, 0.3 and 0.5, using standard X-mixers as well as full XY -mixers. In each plot the x-axis shows the number of Trotter steps used in the respective experiment and the y-axis shows the probability of measuring the optimal solution which was determined classically beforehand. The probability of sampling an optimal solution for any problem size is averaged over 10 different instances of the same size.",
+      "page": 15
+    },
+    {
+      "image": "2605.02465_figures/2605.02465_fig5.jpg",
+      "caption": "Figure 5: Results for Portfolio Optimization with exact unitary evolution, i.e., without Trotterization of the mixing and phase separation unitaries but with exact computation of the unitary matrices in Eq. (20). The plot shows results for δt ∈{0.01, 0.1, 0.2, 0.3}, using standard X-mixers and the XY -mixers with full connectivity. In each plot the x-axis shows the number of Trotter steps used in the respective experiment and the y-axis shows the probability of measuring the optimal solution which was determined classically beforehand.",
+      "page": 20
+    }
+  ],
+  "figure": "2605.02465_figures/2605.02465_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.01286",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Inverse Materials Design via Joint Generation of Crystal Structures and Local Electronic Descriptors",
+  "authors": "Ibuki Okuda, Izumi Takahara, Teruyasu Mizoguchi",
+  "abstract": "Inverse design of inorganic crystals, in which structures are generated to satisfy a target property while preserving diversity and physical plausibility, remains more demanding than ab initio generation, as property conditioning can degrade the structural quality that current generative models otherwise achieve. We propose a diffusion framework that jointly denoises crystal-structure variables and site-resolved local electronic descriptors through a shared score network. As representative descriptors, we adopt Bader charge and atomic density of states (atomic DOS). Under both band-gap and formation energy conditioned generation, the joint models achieved higher success rates than the structure-only baseline in most target conditions, while simultaneously increasing the fraction of generated structures that satisfy uniqueness, novelty, thermodynamic stability, and physical validity (VSUN criteria). A dummy-variable control confirms that these gains originate from the electronic content of the descriptors rather than from auxiliary site-wise variables. The generated Bader charges agree with DFT references with an MAE of 5.5e-2 e on stable structures, and the generated atomic DOS captures the coarse spectral profile of the DFT reference around the modal accuracy range, although finer details and accuracy vary with elemental species. These results establish local electronic descriptors as effective generative variables that serve two complementary roles: broadening the explored materials space through increased structural diversity, and mitigating the trade-off between property targeting and structural quality by guiding the structural trajectory toward electronically plausible configurations during joint denoising.",
+  "url": "http://arxiv.org/abs/2605.01286v1",
+  "pdf": "https://arxiv.org/pdf/2605.01286v1",
+  "type": "theory",
+  "summary": "This paper presents a new generative diffusion model that jointly predicts crystal structures and local electronic properties like Bader charges and density of states. By including electronic information in the generative process, the model successfully targets specific material properties without sacrificing the physical stability or novelty of the generated crystals.",
+  "main_problem": "The trade-off in inverse materials design where property-conditioned generation (e.g., targeting specific band gaps) often degrades the structural quality, diversity, and physical validity of the generated crystals.",
+  "main_result": "Jointly generating crystal structures and local electronic descriptors (Bader charges and atomic DOS) improves the success rate of property targeting and enhances structural quality (VSUN criteria) by guiding the diffusion process toward electronically plausible configurations.",
+  "method": "A diffusion-based framework (MatterGen-e-) that jointly denoises structural variables (lattice, positions, atom types) and site-resolved electronic descriptors through a shared score network.",
+  "model_or_system": "The system consists of inorganic crystal structures represented by lattice parameters, atomic positions, and atom types, augmented with local electronic descriptors including Bader charges and 30-dimensional latent vectors representing atomic Density of States (DOS).",
+  "key_observables": "Band gap, formation energy, Bader charges, atomic Density of States (DOS), uniqueness, novelty, stability (energy above hull), and validity.",
+  "important_parameters": "Target band gap (e.g., 3 eV, 4 eV), target formation energy, and the 30-dimensional latent space for DOS.",
+  "main_assumptions": "The accuracy of the atomic DOS is limited by the chemical sensitivity of elements to their bonding environment; the model assumes that the 30D latent vector is sufficient to capture essential spectral features.",
+  "figures_summary": "Figure 1 shows the MatterGen-e- framework schematic; Figure 2 displays DFT property distributions and success rates; Figure 3 compares novelty metrics; Figure 4 shows correlation between generated and DFT Bader charges; Figure 5 evaluates DOS quality via Wasserstein distance; Figure 6 illustrates the convolutional autoencoder; Figure 7 provides element-wise error analysis for charges and DOS.",
+  "paper_structure": "The paper introduces the problem of property-driven structural degradation, proposes a joint diffusion framework, details the architecture for electronic descriptor generation via autoencoders, presents a multi-criteria evaluation (VSUN) against baselines, and concludes with an element-specific analysis of descriptor accuracy.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.01286_figures/2605.01286_fig1.jpg",
+      "caption": "Figure 1: Schematic illustration of the proposed diffusion framework for the joint generation of crystal structures M and local electronic descriptors Z. In addition to the structural variables treated in crystal generation, namely the lattice L, atomic positions X and atom types A, the model simultaneously denoises and generates site-resolved local electronic quantities Z0, Z1, . . .. In this study, Bader charge and atomic DOS latent variables are compared as representative local electronic descriptors, and the right panels illustrate how each is incorporated into the framework. During training (green panel), the noised descriptors ZBC t and ZADOS t are embedded together with At, t, and...",
+      "page": 2
+    },
+    {
+      "image": "2605.01286_figures/2605.01286_fig2.jpg",
+      "caption": "Figure 2: Band-gap and formation-energy distributions and conditional generation success rates for VSUN struc- tures generated by the baseline (gray), Bader charge joint (blue), and atomic DOS joint (orange) models. a. DFT band-gap distributions for ab initio generation and conditional generation with targets Eg = 2 and 4 eV. Dashed vertical lines indicate the respective target values. b. DFT formation-energy distributions for ab initio generation and conditional generation with target Ef = −4 eV/atom. c. Success rates for each conditional generation target. The four left bar charts show the target-Eg success rates for conditional generation with Eg = 2 eV, Eg = 3 eV, Eg = 3 eV & Ehull = 0...",
+      "page": 4
+    },
+    {
+      "image": "2605.01286_figures/2605.01286_fig3.jpg",
+      "caption": "Figure 3: Novelty of VSUN structures generated by the baseline (gray solid), dummy joint (gray dashed), Bader charge joint (blue), and atomic DOS joint (orange) mod- els. Each panel shows the number of generated struc- tures whose novelty score exceeds a given threshold, evaluated for ab initio generation (left column) and con- ditional generation with target Eg = 3 eV (right col- umn), using the structure-based AMD metric (top row) and the composition-based Magpie metric (bottom row).",
+      "page": 6
+    },
+    {
+      "image": "2605.01286_figures/2605.01286_fig4.jpg",
+      "caption": "Figure 4: Comparison between generated and DFT- calculated Bader charges for atoms in the generated structures. a. Overall correlation for all atoms across all generated structures. Atoms belonging to SUN struc- tures (MAE: 5.5 × 10−2 e) are shown using a density colormap, and those from non-SUN structures are plot- ted as gray points. b. Element-resolved correlations for O, S, Sr, and Au. In each panel, atoms from SUN struc- tures (blue) and non-SUN structures (gray) are shown separately.",
+      "page": 6
+    },
+    {
+      "image": "2605.01286_figures/2605.01286_fig5.jpg",
+      "caption": "Figure 5: Evaluation of atomic DOS generation quality using the Wasserstein distance W1 between generated and DFT-calculated atomic DOS profiles. a. Distribution of W1 for all generated structures (gray) and SUN structures (blue). Annotations indicate the W1 ranges corresponding to the representative examples shown in b, c, and d. b. Representative generated (orange) and DFT-calculated (gray) atomic DOS profiles for three sites with small W1 (≤0.06; below the 1st percentile among SUN structures). c. Same as b, but for three sites with modal W1 (0.273–0.31; 45th–50th percentile). d. Same as b, but for three sites with large W1 (≥1.43; above the 90th percentile). Crystal structures are shown...",
+      "page": 7
+    }
+  ],
+  "figure": "2605.01286_figures/2605.01286_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
