@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.04049",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "FTPrimitiveBench: A Benchmark Suite For Logical Computation Under Hardware-Motivated and Biased Noise Models",
+  "authors": "Shuwen Kan, Adrian Harkness, Zefan Du, Rod Rofougaran, Sean Garner, Chenxu Liu, Ying Mao, Samuel Stein",
+  "abstract": "Fault-tolerant quantum computing requires understanding how error-correcting codes perform on diverse physical hardware. This is typically assessed via noisy stabilizer simulation of logical circuits at HPC scale, combined with a noise model that yields a logical error rate for the relevant code distances and depths. The uniform depolarizing model is the standard baseline, but its homogeneous assumptions fail to capture the heterogeneity, asymmetries, and correlations of real devices, where Pauli, measurement, and spatio-temporal errors are not weakly coupled. Yet these same structured features create opportunities for joint code-hardware co-design, motivating noise models that more faithfully reflect target hardware while remaining tractable to simulate.   We introduce FTPrimitiveBench, a systematic benchmarking approach for studying how logical primitives interact with hardware-motivated noise. It supports both custom specifications and representative structured noise families: Pauli bias, measurement bias, and spatial or spatio-temporal non-uniformity -- together with generators for core surface-code Clifford primitives: logical memory, lattice surgery, transversal logical Hadamard, and the logical phase gate via lattice surgery. We find that structured noise affects these primitives in qualitatively distinct ways, with outcomes shaped by the interplay between noise model, primitive, and decoder choice. These results extend memory benchmarks to active logical computation, where the interaction between noise structure and primitive implementation matters. By standardizing the link between noise-model specification and primitive construction, FTPrimitiveBench enables reproducible comparative studies of QEC protocols and decoders, supporting hardware-aware co-design of fault-tolerant architectures. Code: https://github.com/ShuwenKan/FTPrimitiveBench.",
+  "url": "http://arxiv.org/abs/2605.04049v1",
+  "pdf": "https://arxiv.org/pdf/2605.04049v1",
+  "type": "theory",
+  "summary": "The paper presents FTPrimitiveBench, a standardized benchmarking suite designed to evaluate how realistic, hardware-motivated noise models affect fault-tolerant quantum computing primitives. It provides a unified interface to study the interplay between noise structure, error correction protocols, and decoding strategies, facilitating better hardware-software co-design.",
+  "main_problem": "Standard benchmarking for fault-tolerant quantum computing relies on uniform depolarizing noise, which fails to capture the complex, asymmetric, and heterogeneous noise characteristics of real physical hardware.",
+  "main_result": "The authors introduce FTPrimitiveBench, a framework that demonstrates how structured noise (such as Z-bias and measurement bias) affects logical primitives differently, showing that while asymmetric patches mitigate Z-bias in memory, they do not help the transversal Hadamard gate.",
+  "method": "The study uses a new benchmarking suite, FTPrimitiveBench, to generate Stim-compatible circuits for surface-code Clifford primitives and evaluates them using large-scale noisy stabilizer simulations and various decoders.",
+  "model_or_system": "The framework focuses on the rotated surface code and its logical primitives (memory, lattice surgery, and phase gates) under various noise models including Pauli bias, measurement bias, and spatial/temporal non-uniformity.",
+  "key_observables": "Logical Error Rate (LER) and Relative Logical Error Rate (normalized to a depolarizing baseline).",
+  "important_parameters": "Code distance (d), noise bias factor (eta), heterogeneity strength (sigma), physical error rate (p), and number of syndrome extraction rounds.",
+  "main_assumptions": "The noise is restricted to stochastic Pauli channels to ensure efficient simulation, and idling noise is modeled using the Pauli-twirled approximation.",
+  "figures_summary": "Figures illustrate the surface code layout, the impact of measurement bias on lattice surgery LER, the response of the transversal Hadamard to noise heterogeneity, and the performance of the logical phase gate relative to boundary rounds.",
+  "paper_structure": "The paper introduces the motivation for hardware-aligned benchmarking, describes the FTPrimitiveBench architecture and noise model hierarchy, presents systematic evaluations of various logical primitives under different noise families, and concludes with the framework's utility for hardware-software co-design.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.04049_figures/2605.04049_fig1.jpg",
+      "caption": "Fig. 1. Illustration of a surface-code logical qubit. Left: a distance-3 patch showing data qubits (white) and interleaved 𝑋- and 𝑍-stabilizer ancilla qubits (red/blue) used to detect errors; logical operators 𝑋𝐿and 𝑍𝐿correspond to strings spanning the patch. Middle: syndrome extraction circuit for 𝑍-stabilizers using an ancilla prepared in |0⟩, entangled with neighboring data qubits and measured in the computational basis. Right: syndrome extraction circuit for 𝑋-stabilizers using an ancilla prepared in |+⟩and measured in the 𝑋basis. Repeated stabilizer measurements enable detection and correction of errors up to (𝑑−1)/2.",
+      "page": 5
+    },
+    {
+      "image": "2605.04049_figures/2605.04049_fig2.jpg",
+      "caption": "Fig. 2. (a, b): Spacetime structure of the logical memory primitive in the rotated surface code. A distance-(𝑑𝑋,𝑑𝑍) patch is transversally initialized in a logical eigenstate, undergoes 𝑡rounds of stabilizer extraction (vertical axis), and is transversally measured in the same basis. Panel (a) shows a ¯𝑍-basis experiment with 𝑑𝑋= 𝑑𝑍= 3; panel (b) shows its ¯𝑋-basis counterpart. Blue and red data-qubit nodes mark transversal initialization and measurement in Z and X basis, respectively. (c): Logical Hadamard via transversal Hadamard on all data qubits, shown for a ¯𝑍→¯𝑋operation with 𝑡pre = 𝑡post = 2. Since the transversal Hadamard conjugates 𝑋↔𝑍, the 𝑋- and 𝑍-type stabilizers swap after the...",
+      "page": 14
+    },
+    {
+      "image": "2605.04049_figures/2605.04049_fig3.jpg",
+      "caption": "Fig. 3. (a) and (b): Spacetime structure of the lattice-surgery primitive. Two logical patches (pre-surgery columns) are temporarily merged for 𝑇merge rounds along an ancilla bridge of length 𝐿to extract the joint logical parity (𝑀𝑋𝑋or 𝑀𝑍𝑍), then split apart for 𝑇post post-surgery rounds. The merge–split bridge yields the characteristic “H-shaped” spacetime topology. (c) Logical phase-gate: one logical data patch and one logical ancilla patch are initialized in the logical 𝑋basis, after which a logical 𝑀𝑍𝑍lattice-surgery measurement is performed between them. The ancilla patch is then measured in the logical 𝑌basis using the 𝑌transition round from Ref. [36] followed by additional boundary...",
+      "page": 15
+    },
+    {
+      "image": "2605.04049_figures/2605.04049_fig4.jpg",
+      "caption": "Fig. 4. Logical memory under uniform depolarizing (𝜂= 1) and 𝑍-biased noise (𝜂∈{10, 100}). Each panel plots LER per round versus physical error rate for both bases; columns sweep 𝜂and rows increase patch asymmetry 𝑑𝑍−𝑑𝑋∈{0, 2, 4}. The 𝑋-basis experiment, limited by 𝑍-driven fault chains, is suppressed by enlarging 𝑑𝑍. The 𝑍-basis experiment, limited by 𝑑𝑋, improves error suppression as 𝑝𝑋= 𝑝𝑌∝1/𝜂shrinks the dominant fault channel.",
+      "page": 17
+    },
+    {
+      "image": "2605.04049_figures/2605.04049_fig5.jpg",
+      "caption": "Fig. 5. Relative Logical Error Rate (LER) for memory experiments comparing correlated PyMatching [25] to uncorrelated PyMatching [43] under a 𝑍-biased noise model (𝜂= 1 denotes uniform depolarizing noise). Results are shown for varying code geometries. It is observed that the relative advantage of correlated PyMatching decreases as the noise becomes increasingly biased.",
+      "page": 19
+    }
+  ],
+  "figure": "2605.04049_figures/2605.04049_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

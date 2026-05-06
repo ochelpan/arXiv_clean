@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.03951",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.atom-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Factoring $2048$ bit RSA integers with a half-million-qubit modular atomic processor",
+  "authors": "Tian Xue, Jacob P. Covey",
+  "abstract": "Shor's algorithm is one of the most promising applications of quantum computers. However, since $\\sim 10^6$ physical qubits are believed to be required for established approaches, the algorithm will need to be distributed across many modules. In this paper, we provide a distributed compilation of Shor's algorithm on a modular atomic processor. We present an end-to-end compilation and optimization strategy that focuses on the interplay between the inter-module communication and the intra-module clock rate. With a half-million-qubit modular atomic processor with a communication rate of $10^5$ Bell pairs per second and a measurement time of 1 ms in a CPU-inspired architecture, we demonstrate that 2048-bit RSA integers can be factored in only 16\\% more time than a single-module architecture. Our work presents the first end-to-end analysis and simulation of large-scale integer factorization on modular atomic hardware and it provides a blueprint for the future design of other large-scale modular algorithms.",
+  "url": "http://arxiv.org/abs/2605.03951v1",
+  "pdf": "https://arxiv.org/pdf/2605.03951v1",
+  "type": "theory",
+  "summary": "This paper presents a blueprint for a large-scale modular quantum computer capable of breaking RSA-2048 encryption. By optimizing the distribution of Shor's algorithm across multiple atomic modules, the authors show that the massive communication overhead typically expected from modularity can be largely mitigated.",
+  "main_problem": "Determining the architectural requirements and resource overhead for factoring 2048-bit RSA integers using a distributed version of Shor's algorithm on a large-scale modular atomic processor.",
+  "main_result": "Demonstrated that a half-million-qubit modular architecture can factor 2048-bit RSA integers with only a 16% increase in time compared to a monolithic architecture, provided communication rates are sufficiently high.",
+  "method": "End-to-end compilation and simulation of the DShor algorithm, utilizing a custom Shor's simulator to track Hilbert trajectories and estimate T-gate counts, communication overhead, and qubit requirements.",
+  "model_or_system": "A modular, CPU-inspired quantum processor consisting of multiple Quantum Processing Units (QPUs) using surface codes and a shared quantum memory using qLDPC codes, interconnected via photonic links or atom transport.",
+  "key_observables": "Circuit execution time, total physical and logical qubit counts, inter-module communication rate (Bell pairs per second), and T-gate counts.",
+  "important_parameters": "RSA bit sizes (1024, 2048, 4096), physical error rates (10^-3 to 10^-4), communication delay ratio (tau), and measurement/QEC cycle times (250 us to 1 ms).",
+  "main_assumptions": "Assumes realistic estimates for photonic communication rates, uses a hybrid error correction approach (surface code for processing, qLDPC for memory), and approximates logical gate times based on atom movement.",
+  "figures_summary": "Figure 1 shows the decomposition of modular exponentiation and QPU architecture; Figure 2 and 3 illustrate the DShor algorithmic structure and distributed operations via GHZ states; Figure 4 shows scaling of communications and T-gates; Figure 5 presents circuit time vs. communication cost and scaling analysis.",
+  "paper_structure": "The paper introduces the DShor algorithm, details the modular hardware architecture and atom-movement protocols, presents a systematic simulation of resource scaling (space and time) for RSA factoring, and concludes with an analysis of the 'free modularization' regime.",
+  "why_interesting": "It provides a critical bridge between abstract quantum algorithms and the physical constraints of emerging neutral-atom platforms, specifically addressing how modularity and interconnect latency impact large-scale fault-tolerant computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.03951_figures/2605.03951_fig1.jpg",
+      "caption": "FIG. 1. Architecture of the DShor algorithm. The archi- tecture of the modular QPU is designed around the modular exponentiations. (a) The modular exponentiation can be de- composed to modular additions and distributed to different QPUs. The addition between two 24-bit integers (red squares and blue squares) is distributed to six modules, and the ad- ditions only need local communications to ripple the overflow information to the neighboring module. (b) Each QPU in the modular processor is divided into caches, the CCX factory, and the communication zone. Temporary results of Shor’s al- gorithm are stored in caches and non-Clifford gates are dis- tilled from the CCX factory. Inter-module...",
+      "page": 1
+    },
+    {
+      "image": "2605.03951_figures/2605.03951_fig2.jpg",
+      "caption": "FIG. 2. Algorithmic structure of DShor. (a) Results of Shor’s algorithm are stored in the memory (the orange square), and all intermediate results are distributed evenly to all QPUs (blue squares). (b) Shor’s algorithm is decomposed to five steps: 1. loading short logarithms from the memory to the QPUs, 2. compressing the short logarithms, 3. modular exponentiations, 4. accumulating results to the memory, and 5. cleaning all intermediate results and phases. The whole procedure is iterated over all primes in the prime system. (c) The circuit of DShor is simulated and verified by the Shor’s simulator. When the modular exponentiation gqe is implemented, it will be decomposed to modular...",
+      "page": 5
+    },
+    {
+      "image": "2605.03951_figures/2605.03951_fig3.jpg",
+      "caption": "FIG. 4. Inter-module communications and the T gate count in DShor. We simulate the DShor to factor 2048- bit RSA integers with 2, 4, 6, 8, 12 QPUs in (a)-(e), respec- tively. The rectangle on the left is the quantum memory, and the squares on the right are QPUs. The white-to-blue color scale (right) of the rectangles and squares represents the total number of T gates used in each Shor’s shot, and the red-to- yellow color scale (left) and thickness of lines represents the communications between modules. Except the 2-QPU DShor, the communications between modules are roughly unchanged with the number of QPUs in DShor, but the number of intra- module T gates per module decreases as DShor is...",
+      "page": 6
+    },
+    {
+      "image": "2605.03951_figures/2605.03951_fig4.jpg",
+      "caption": "FIG. 3. Distributed fundamental operations of DShor. (a) Loadings transfer classical information to the quantum registers depending on the quantum address (green square) |qe⟩. Loading is distributed by NQPU intra-module pre- loadings, and the quantum address is broadcast to all modules through one inter-module GHZ state. (b) Adding sums two quantum registers, and it is distributed by teleporting the overflow information to the neighbor module. Un-Adding is skipped in (b) for the cleaner illustration. (c) Modular expo- nentiation can be decomposed to one loading and two addings, which can be distributed with only local (nearest-neighbor) communications. Each loading requires one GHZ state...",
+      "page": 6
+    },
+    {
+      "image": "2605.03951_figures/2605.03951_fig5.jpg",
+      "caption": "FIG. 5. Results of DShor. We estimate the space and time usage of the DShor with 2, 4, 6, 8, 12 QPUs to factor RSA 2048-bit integers. The circuit time is benchmarked by the circuit time of single-core Shor’s algorithm with 180 qubits: t0 = 164.5 days. (a) The circuit time of DShor with 2, 4, 6, 8, 12 QPUs at different costs of inter-module communications, where the communication cost is benchmarked by the cost of logical intra-module CNOTs (without QEC) time: τ = tinter",
+      "page": 8
+    }
+  ],
+  "figure": "2605.03951_figures/2605.03951_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 2,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

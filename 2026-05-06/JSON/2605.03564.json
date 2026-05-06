@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.03564",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Vault: Secure Token Authentication Without Classical State Information Benchmarked on IBMQ",
+  "authors": "Lucas Tsunaki, Boris Naydenov",
+  "abstract": "Quantum tokens are underlying primitives for quantum money and network proposals, which leverage the no-cloning theorem to realize unforgeable authentication. A relevant but overlooked type of attack to such architectures is a hacker that steals the classical side information of the token states from the issuing agent (e.g. a bank), allowing the forgery of fake tokens without violating no-cloning theorem. Our proposal avoids this threat by removing classical side information about the token states, where instead a copy of the token is stored at the bank, i.e. a quantum vault. This copy can be accessed by anyone to perform authentication, consuming the token pair in the process. Our protocol is benchmarked and quality parameters are identified within a hardware agnostic framework employing three cloud-based IBM quantum (IBMQ) processors, such that the protocol is applicable to arbitrary quantum platforms. By comparing the efficiency with which genuine tokens are produced and authenticated with a possible query attack scenario, we demonstrate the security of the protocol. Where we achieve probabilities lower than $10^{-4}$ for false-negative errors and $10^{-18}$ for successful attacks when considering quantum bills composed of 200 tokens, even in the worst performing hardware. The quantum vault not only symmetrically protects both user and bank with the same quantum principles, but provides a step towards public key authentication, since any untrusted party can have authentication access granted from the bank to the tokens without being able to clone them, assuming they have a quantum channel with the vault. Besides public accessible verifiability, our proposal naturally achieves standard unforgeability, traceability and revocability.",
+  "url": "http://arxiv.org/abs/2605.03564v1",
+  "pdf": "https://arxiv.org/pdf/2605.03564v1",
+  "type": "both",
+  "summary": "This paper introduces a 'Quantum Vault' protocol for token authentication that removes the need to store classical state information, preventing hackers from forging tokens via stolen database data. By storing a physical quantum copy at the bank, the protocol achieves extremely low forgery rates on current noisy quantum hardware. The approach provides a scalable path toward secure, traceable, and revocable quantum authentication.",
+  "main_problem": "Existing quantum token protocols are vulnerable to attacks where hackers steal classical side-information (like Bloch sphere angles) from the issuing agent to forge tokens. The goal is to create a protocol that eliminates the need for storing classical state information.",
+  "main_result": "The proposed 'Quantum Vault' protocol achieves high security, with forgery probabilities as low as 10^-18 for a 200-token bill, even on noisy IBMQ hardware. It demonstrates that removing classical data protects against bank-side database compromises.",
+  "method": "The authors use a SWAP test to compare a user's token against a physical quantum copy stored in a bank's vault. They benchmark the protocol using the Qiskit SDK on three IBM Quantum (IBMQ) processors (Kingston, Fez, and Marrakesh).",
+  "model_or_system": "The system consists of two identical Haar random qubit states prepared via rotation operators. The experimental platform uses IBMQ Heron r2 family superconducting processors.",
+  "key_observables": "The SWAP test observable (average of the bitstring C_N), quality parameters (oscillation amplitude Q_a and offset Q_o), and the acceptance threshold (tau).",
+  "important_parameters": "Number of tokens in a bill (M), number of SWAP test repetitions (N), and the target probability of accepting genuine tokens (p_b = 0.99).",
+  "main_assumptions": "Assumes the existence of a quantum channel between the bank and the agent, and assumes the use of error mitigation/correction to prevent decoherence during storage.",
+  "figures_summary": "Figure 1 illustrates classical side-information attack scenarios; Figure 2 shows the Quantum Vault scheme; Figure 4 shows the density distribution of the SWAP test observable and the exponential decay of forgery probability with increasing token numbers; Figure 5 displays hardware-specific measurement outcomes.",
+  "paper_structure": "The paper identifies a vulnerability in current quantum tokens, proposes the Quantum Vault architecture, describes the hardware-agnostic implementation, benchmarks the protocol on IBMQ hardware, and performs a security analysis against query attacks.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.03564_figures/2605.03564_fig1.jpg",
+      "caption": "FIG. 1. Attack scenarios on previous quantum token proposals with classical side information. In general, a token protocol has three steps: I. a bank issues quantum tokens in states |ψ⟩with angles (θ, ϕ), II. the bank transmits the tokens to the user who stores them until authentication, III. a vendor or bank authenticates the tokens by measuring their states and comparing with the classically stored values of (θ, ϕ). While the token stored by the user is no-cloning protected, an attacker could steal the values of (θ, ϕ) from the bank to create fake tokens, with the bank not even realizing it was hacked.",
+      "page": 2
+    },
+    {
+      "image": "2605.03564_figures/2605.03564_fig2.jpg",
+      "caption": "FIG. 2. In the quantum vault protocol the bank issues two Haar random identical tokens in the state |ψ1⟩= |ψ2⟩, one of which is stored in the bank’s vault while the other is given to the user. This, way both parties are no-cloning protected from hacker attacks. For authentication, the bank or vendor performs a SWAP test repeated N times in order to verify if both tokens are in the same state or if one of them is fake.",
+      "page": 4
+    },
+    {
+      "image": "2605.03564_figures/2605.03564_fig3.jpg",
+      "caption": "FIG. 3. (a) SWAP test register ¯cn shot averaged for identical and perpendicular states in IBMQ Kingston. For small number of repetitions n, ¯cn is close to 0 for |ψ1⟩= |ψ2⟩, while it is close to 0.5 for |ψ1⟩⊥|ψ2⟩. As n increases, the back-action from the test decays the signal. (b) SWAP test observable ¯C20 as a function of Θ in IBMQ Kingston. As Θ increases and the states become orthogonal, ¯C20 increases, enabling the bank or vendor to verify if the two states |ψ1⟩and |ψ2⟩are the same. (c) Distribution of C20(Θ = 0) taking 400 angles (θ1, ϕ1) = (θ2, ϕ2) uniformly distributed in the Bloch sphere. From this, the acceptance threshold τ is defined such that the probability that the bank...",
+      "page": 5
+    },
+    {
+      "image": "2605.03564_figures/2605.03564_fig4.jpg",
+      "caption": "FIG. 4. (a) SWAP test observable C20 density distribution for genuine and fake tokens in IBMQ Kingston. The distribution from fake tokens is shifted to higher values of C20, but still the area below τ corresponding to the probability to accept a fake token pf is considerable. (b) Probability to accept genuine and forged bills P(m, M, p) composed of M = 20, 200 tokens as a function of m/M in IBMQ Kingston. With a larger M, the binomial distribution approaches a rectangular function, improving security. (c) Probability of successful forgery Pf(M, p) for m fixed such that 1 −Pb = 10−4 in all three IBMQ. Pf decays exponential with M, reaching negligible values even in the worst performing...",
+      "page": 6
+    },
+    {
+      "image": "2605.03564_figures/2605.03564_fig5.jpg",
+      "caption": "FIG. 5. Classical register values cn in IBMQ (a) Fez and (d) Marrakesh. (b, e) Fez and Marrakesh SWAP test observable ¯C20 as a function of Θ. (c, f) Fez and Marrakesh genuine and fake tokens distributions of C20(0).",
+      "page": 8
+    }
+  ],
+  "figure": "2605.03564_figures/2605.03564_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

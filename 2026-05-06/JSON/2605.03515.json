@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2605.03515",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Scale-Dependent Input Representation and Confidence Estimation for LLMs in Materials Property Prediction",
+  "authors": "Shuichiro Ozawa, Izumi Takahara, Teruyasu Mizoguchi",
+  "abstract": "Large language models (LLMs) are increasingly applied to materials science. However, the relationship between prediction accuracy, input representation, and model scale remains unclear, and reliable methods for assessing prediction confidence have not yet been established. In this study, we fine-tune two Llama models of different scales (1B and 8B) using low-rank adaptation (LoRA) on an inorganic crystal structure dataset. We systematically evaluate five input representations, namely chemical composition, crystal summary, local environment description, full text description, and crystallographic information files (CIF), for formation energy and bandgap prediction. Our results show that the optimal input representation depends on model scale. The 1B model performs better with compact representations, whereas the 8B model maintains high accuracy even with longer natural-language descriptions and CIF inputs. Across both model scales, crystal summaries that include space-group information consistently outperform composition-only inputs, indicating that symmetry information serves as a robust and informative feature. We further analyze the relationship between prediction error and the mean negative log-likelihood (mean NLL) of tokens corresponding to predicted numerical values. While no clear correlation is observed in base models, fine-tuned models exhibit a consistent trend in which lower mean NLL corresponds to smaller prediction errors. This result suggests that mean NLL can serve as a practical confidence indicator without requiring additional training. These findings demonstrate that both input representation and model scale play critical roles in LLM-based materials property prediction, and that mean NLL provides an effective and computationally efficient measure of prediction confidence.",
+  "url": "http://arxiv.org/abs/2605.03515v1",
+  "pdf": "https://arxiv.org/pdf/2605.03515v1",
+  "type": "both",
+  "summary": "This paper explores how the size of a language model and the complexity of the input text influence its ability to predict physical properties of crystals. It finds that larger models can leverage detailed natural language descriptions better than smaller ones and demonstrates that the model's own prediction probability (NLL) can be used to estimate prediction uncertainty.",
+  "main_problem": "Investigating how LLM scale and input representation (from chemical formulas to detailed text) affect the accuracy and reliability of predicting materials properties like formation energy and bandgap.",
+  "main_result": "Optimal input representation is scale-dependent, with 1B models favoring compact inputs and 8B models handling complex text; additionally, mean NLL in fine-tuned models serves as an effective confidence indicator.",
+  "method": "Fine-tuning Llama-3.2-1B and Llama-3.1-8B models using LoRA on various input modalities including chemical composition, crystal summaries, and CIF files.",
+  "model_or_system": "The study uses Llama-based Large Language Models (1B and 8B parameters) applied to inorganic crystal structures, specifically targeting formation energy and bandgap predictions.",
+  "key_observables": "Formation energy per atom (eV/atom), bandgap (eV), Mean Absolute Error (MAE), and Mean Negative Log-Likelihood (mean NLL).",
+  "important_parameters": "LoRA rank (r=32), learning rate (1e-4), and various input modalities (Composition, Crystal Summary, Local Environment, Full Description, CIF).",
+  "main_assumptions": "The study assumes that numerical property prediction can be treated as a discrete token generation task and that NLL of the integer part of predicted values is a reliable proxy for uncertainty.",
+  "figures_summary": "Figure 1 shows the experimental pipeline and input examples; Figure 2 displays MAE across scales and input types; Figure 3 shows the correlation between NLL and prediction error; Figure 4 demonstrates the effect of NLL-based filtering on accuracy.",
+  "paper_structure": "The paper introduces the problem of LLM-based materials prediction, details the experimental setup (models, LoRA, and input types), presents results on accuracy and scale-dependence, evaluates NLL as a confidence metric, and discusses limitations regarding computational cost.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.03515_figures/2605.03515_fig1.jpg",
+      "caption": "Figure 1: Experimental overview and examples of input representations. (a) Experimental pipeline in which five input representations are constructed from the LLM4Mat-Bench dataset and fed into 1B and 8B Llama models (base LLM and fine-tuned LLM) to output property values and mean NLL. Input representations are grouped into three categories by information content: Compact (red: Composition and Crystal Summary), Descriptive (yellow: Local Environment and Full Description), and Structured (green: CIF). (b) Concrete examples of each input representation using ZrO2.",
+      "page": 2
+    },
+    {
+      "image": "2605.03515_figures/2605.03515_fig2.jpg",
+      "caption": "Figure 2: MAE for five input representations under base and fine-tuned model conditions. Four panels are shown: (a) formation energy, base model; (b) formation energy, fine-tuned; (c) bandgap, base model; (d) bandgap, fine-tuned. Input representations are color-coded: Composition and Crys- tal Summary (compact inputs) in red, Local Environment and Full Description (natural-language descriptions) in yellow, and CIF in green. Light and dark fills (with hatching) denote 1B and 8B models, respectively. Note that the y-axis in (a) extends to approximately 40 eV/atom to accom- modate large base model errors, whereas (b) is scaled to 0.8 eV/atom.",
+      "page": 6
+    },
+    {
+      "image": "2605.03515_figures/2605.03515_fig3.jpg",
+      "caption": "Figure 3: Scatter plots of mean NLL versus absolute error for the fine-tuned 1B model on the formation energy task, using (a) Composition input and (b) Full Description input. Each panel includes a scatter plot with marginal histograms of mean NLL (top) and absolute error (right).",
+      "page": 9
+    },
+    {
+      "image": "2605.03515_figures/2605.03515_fig4.jpg",
+      "caption": "Figure 4: Change in MAE with NLL filtering for fine-tuned models. Panels (a) and (b) compare Composition and Full Description inputs for the 1B model; panels (c) and (d) show the corre- sponding comparison for the 8B model. Each panel shows a count histogram (top) and a line plot of MAE versus mean NLL threshold (bottom); the red dashed line indicates the unfiltered MAE (baseline).",
+      "page": 10
+    }
+  ],
+  "figure": "2605.03515_figures/2605.03515_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

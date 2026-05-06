@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2605.03123",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "ffsim: Faster simulation of fermionic quantum circuits",
+  "authors": "Kevin J. Sung, Inho Choi, Mirko Amico, Bartholomew Andrews, Esra Ayantuna, Yukio Kawashima, Wan-Hsuan Lin, David Omanovic, Samuele Piccinelli, Javier Robledo Moreno, Abdullah Ash Saki, James Shee, Soyoung Shin, Minh C. Tran, Kento Ueda, Haimeng Zhang, Mario Motta",
+  "abstract": "We present ffsim, an open-source software library for fast simulation of fermionic quantum circuits. ffsim exploits conservation of particle number and the z component of spin, symmetries present in a wide range of fermionic systems, to dramatically reduce memory usage and simulation time compared to general-purpose quantum circuit simulators. Compared to FQE, a library with similar functionality, ffsim differs in software design and is faster on a representative set of simulation benchmarks. Beyond state vector evolution by basic fermionic gates, ffsim offers a number of additional features including variational ansatzes, Hamiltonian time evolution via Trotter-Suzuki product formulas, efficient sampling of Slater determinants, seamless integration with Qiskit and PySCF, and comprehensive documentation. We demonstrate ffsim's capabilities on scientific applications involving quantum circuits of up to 64 qubits.",
+  "url": "http://arxiv.org/abs/2605.03123v1",
+  "pdf": "https://arxiv.org/pdf/2605.03123v1",
+  "type": "theory",
+  "summary": "The paper introduces ffsim, a new software library designed for the fast classical simulation of fermionic quantum circuits. By exploiting physical symmetries like particle number conservation, it enables much larger-scale simulations than general-purpose qubit simulators. This tool is particularly useful for testing variational ansätze and Hamiltonian time evolution for molecular and lattice models.",
+  "main_problem": "The high memory and computational cost of general-purpose quantum circuit simulators when simulating large-scale fermionic systems.",
+  "main_result": "The development of ffsim, an open-source library that achieves significant speedups and memory reductions (e.g., simulating 64 qubits with only 19.3 GiB instead of 256 EiB) by exploiting particle number and spin symmetries.",
+  "method": "An exact state vector simulation approach using a Python-based library with Rust extensions, utilizing symmetry-based Hilbert space decomposition, Givens rotations, and integration with PySCF and Qiskit.",
+  "model_or_system": "Fermionic systems including molecular Hamiltonians (e.g., N2), the 2D Hubbard model, and diagonal Coulomb Hamiltonians, characterized by conserved particle number and z-component of spin.",
+  "key_observables": "Expectation values of Hamiltonians, ground state energies, and Trotter errors.",
+  "important_parameters": "Number of spatial orbitals, particle number (filling fraction), and Trotter step size/order.",
+  "main_assumptions": "The performance benefits are limited to systems where particle number and z-component of spin are conserved; the simulator is an exact state vector method, so it still scales exponentially with system size.",
+  "figures_summary": "Figure 1 shows a Qiskit circuit for a Jastrow ansatz; Figure 2 compares ffsim performance against FQE and Qiskit Aer for various tasks; Figure 3 shows sampling and normal ordering speedups; Figure 4 illustrates Trotter error scaling and KQD energy error convergence.",
+  "paper_structure": "The paper introduces the ffsim library, details its mathematical foundation and symmetry-based optimizations, describes its integration with existing chemistry and quantum software, presents performance benchmarks against existing simulators, and demonstrates practical applications in Hubbard model and molecular simulations.",
+  "why_interesting": "It provides a highly efficient classical tool for benchmarking and validating fermionic quantum algorithms, which is crucial for the development of near-term quantum hardware for chemistry and materials science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.03123_figures/2605.03123_fig1.jpg",
+      "caption": "Figure 1: A Qiskit circuit that ffsim can simulate. This circuit implements an instance of the local unitary Cluster Jastrow (LUCJ) ansatz. First, a Slater determinant is prepared by applying a diamond- shaped pattern of Givens rotations (as XXPlusYYGates) to a computational basis state. Then, a diagonal Coulomb evolution is implemented using controlled-phase gates. Finally, an orbital rotation is implemented by a brickwork pattern of Givens rotations followed by a layer of single-qubit phase gates.",
+      "page": 8
+    },
+    {
+      "image": "2605.03123_figures/2605.03123_fig2.jpg",
+      "caption": "Figure 2: Performance benchmarks for state vector simulation: Time evolution by a quadratic Hamil- tonian; time evolution by a diagonal Coulomb operator; Trotter simulation by a double factorized Hamiltonian (three order-0 Trotter steps of a Hamiltonian with three terms); operator action of a molecular Hamiltonian with real-valued coefficients. Left: Single-threaded wall-clock time for state vector simulation as a function of number of spatial orbitals, on a Linux x86 laptop (see main text for machine details). Data points show the median time taken to perform the operation, and error bars show the interquartile range. Data is shown for both 1/2 filling and 1/4 filling. While ffsim and FQE...",
+      "page": 13
+    },
+    {
+      "image": "2605.03123_figures/2605.03123_fig3.jpg",
+      "caption": "Figure 3: Performance comparison for additional features, as measured on a Linux x86 laptop (see main text for machine details). Data points show the median time taken to perform the operation, and error bars show the interquartile range. Left: Time taken to sample 1000 configurations from a spinless Slater determinant at 1/4 filling. Right: Time taken to normal order a random fermionic operator with 100 spatial orbitals and varying numbers of terms.",
+      "page": 14
+    },
+    {
+      "image": "2605.03123_figures/2605.03123_fig4.jpg",
+      "caption": "Figure 4: Applications. Top left: Trotter error of the order-2 product formula as a function of two- qubit gate count for the 2D Hubbard model at 1/8 filling for different lattice sizes. Data points show the average error over 5 random vectors sampled from the uniform distribution over the unit sphere, and error bars indicate ±1 standard deviation. Note that the order-2 product formula is commonly referred to as the fourth-order formula in the literature (see Section 4.5.3). Top right: Trotter error as a function of two-qubit gate count for the 4 × 8 Hubbard model at 1/8 filling, for different product formula orders. Bottom left: Absolute ground state energy error of Krylov Quantum...",
+      "page": 16
+    }
+  ],
+  "figure": "2605.03123_figures/2605.03123_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

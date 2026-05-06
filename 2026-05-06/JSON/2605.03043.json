@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.03043",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Information in Many-body Eigenstates: A Question of Learnability",
+  "authors": "Maksymilian Kliczkowski, Jarosław Pawłowski, Masudul Haque",
+  "abstract": "To what extent do individual eigenstates encode information of their underlying Hamiltonian, and how does this depend on their spectral position? For many-body quantum systems, this issue is widely understood in terms of the differing nature of the eigenstates near the spectral edges (low-entanglement, highly-structured eigenstates) and those far from the spectral edges (high-entanglement, near-random eigenstates). Utilizing the availability of machine learning tools, we introduce a new way to quantify the information contained in eigenstates: for a particular learning architecture, how precisely can the Hamiltonian be reconstructed from a single eigenstate? We refer to this property as learnability; it serves as a new, alternative measure of the information content of eigenstates, made possible by machine learning. Using an encoder-decoder neural network and a physics-inspired loss function, we demonstrate how the distinction between two types of eigenstates is manifested as a difference in learnability. For spectral-edge eigenstates, the prediction accuracy is much better, and fewer eigenstates are required to learn the Hamiltonian, compared to mid-spectrum eigenstates.",
+  "url": "http://arxiv.org/abs/2605.03043v1",
+  "pdf": "https://arxiv.org/pdf/2605.03043v1",
+  "type": "theory",
+  "summary": "This paper introduces 'learnability' as a new way to quantify the information content of many-body eigenstates using machine learning. It demonstrates that while low-energy states can be used to accurately reconstruct Hamiltonian parameters, mid-spectrum states are intrinsically unlearnable due to their random-like nature. This finding suggests that the difficulty of Hamiltonian identification is rooted in the underlying physics of the quantum states.",
+  "main_problem": "The study investigates how much information about a Hamiltonian's parameters is encoded within individual many-body eigenstates and how this 'learnability' depends on their spectral position.",
+  "main_result": "The authors find that eigenstates near the spectral edges are highly learnable, whereas mid-spectrum states, which resemble random vectors, lack the intrinsic information necessary for accurate Hamiltonian reconstruction regardless of model capacity.",
+  "method": "An unsupervised encoder-decoder neural network architecture is used, employing a physics-inspired Rayleigh loss function to reconstruct Hamiltonian parameters from eigenstates obtained via Exact Diagonalization.",
+  "model_or_system": "A one-dimensional spin-1/2 J1-J2 chain with periodic boundary conditions, featuring nearest-neighbor and next-nearest-neighbor couplings and local magnetic fields.",
+  "key_observables": "Learnability (reconstruction precision), Rayleigh loss, parameter error (MSE), spectral error, entanglement entropy, and participation ratio.",
+  "important_parameters": "Coupling constants J1 and J2, number of input eigenstates (M), number of training samples (N_sam), and neural network width (w_H).",
+  "main_assumptions": "The study assumes that the failure to reconstruct mid-spectrum states is due to intrinsic physical properties (information loss) rather than limitations in neural network expressivity.",
+  "figures_summary": "Figure 1 illustrates spectral differences via density of states and entanglement; Figure 2 sketches the ML protocol; Figure 3 shows reconstruction error vs. eigenstate index; Figure 5 demonstrates that increasing network width does not fix bulk reconstruction failure; Figure 6 shows generalization failure on unseen parameter intervals; Figure 9 shows stable convergence for multi-parameter inference.",
+  "paper_structure": "The paper introduces the concept of learnability, describes the J1-J2 model and the autoencoder architecture, presents results comparing spectral edge vs. mid-spectrum states, investigates the impact of model capacity and training sample size, tests generalization capabilities, and extends the analysis to multi-parameter reconstruction.",
+  "why_interesting": "It provides a novel information-theoretic perspective on the structure of many-body spectra, linking the physical concept of thermalization/randomness to the fundamental limits of machine learning-based Hamiltonian identification.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.03043_figures/2605.03043_fig1.jpg",
+      "caption": "Figure 1. Typical distinction between eigenstates in differ- ent parts of the spectrum. (a),(b) Density of states (DoS) as a function of rescaled energy for two parameter choices (columns), J1 = −0.4, 0.4, L = 12, ∆= 0.5. Normalized (c),(d) bipartite (half-chain) entanglement entropy [33, 35] SvN, and (e),(f) participation entropy [36, 37] Spart versus normalized eigenstate index mi/D. A strong suppression is visible in the low-energy sector.",
+      "page": 1
+    },
+    {
+      "image": "2605.03043_figures/2605.03043_fig2.jpg",
+      "caption": "Figure 2. Sketch of the learnability protocol. (a) One-dimensional J1J2 spin-1/2 chain ˆH(θ) [Eq. (1)], parametrized by a vector θ [Eq. (2)], is diagonalized to obtain a full set of eigenstates {|Ψmi θ ⟩} and corresponding eigenvalues {Emi θ }. (b) Subsets of eigenstates are selected according to three spectral windows: (i) low-energy sector, (ii) middle of the spectrum, and (iii) single eigenstate mi. These states constitute the input to the network. (c) The autoencoder network transforms quantum states into a latent representation (inferred parameters) ˜θ, which are subsequently used to reconstruct the Hamiltonian. The decoder itself contains no trainable parameters. The training uses...",
+      "page": 2
+    },
+    {
+      "image": "2605.03043_figures/2605.03043_fig3.jpg",
+      "caption": "Figure 4. Systematic dependence of Hamiltonian reconstruc- tion on the number of input eigenstates M for two spec- tral protocols: (i) low-energy and (ii) middle of the spec- trum. Columns correspond to different numbers of Hamilto- nian realizations Nsam. Panels (a)-(c) display the Rayleigh loss LRayleigh [Eq. (6)] used during training. Panels (d)-(f) show the parameter reconstruction loss Lθ [Eq. (8)]. Assumed hidden layer width wH = 128.",
+      "page": 4
+    },
+    {
+      "image": "2605.03043_figures/2605.03043_fig4.jpg",
+      "caption": "Figure 3. Dependence of the loss on the selected eigenstate in- dex mi according to single state selection protocol. Columns correspond to different numbers of Hamiltonian realizations Nsam. Panels (a)–(b) show the Rayleigh loss LRayleigh [Eq. (6)] used during training, while panels (d)–(f) display the recon- struction loss Lθ. Curves denote different hidden layer widths wH.",
+      "page": 4
+    },
+    {
+      "image": "2605.03043_figures/2605.03043_fig5.jpg",
+      "caption": "Figure 5. Dependence of the loss on the neural-network parametrization wH for two spectral protocols: (i) low-energy and (ii) middle of the spectrum. Columns correspond to different numbers of Hamiltonian realizations Nsam. Panels (a)–(c) show the Rayleigh loss LRayleigh [Eq. (6)] used during training, while panels (d)–(f) display the reconstruction loss Lθ. Curves correspond to different numbers of input eigen- states M.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.03043_figures/2605.03043_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 4,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 2,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

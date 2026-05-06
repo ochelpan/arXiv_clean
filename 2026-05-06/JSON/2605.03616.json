@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.03616",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Reducing Postselection Overhead in Magic-State Cultivation by In-Patch Multiplexing",
+  "authors": "Dongmin Kim, Jeonggeun Seo, Aniket Patra, Youngsun Han",
+  "abstract": "Fault-tolerant quantum computing requires high-fidelity logical magic states for implementing non-Clifford operations. Magic-state cultivation provides a lower-overhead route to logical magic-state preparation, but its efficiency is limited by postselection loss during the early injection-and-cultivation stages. In this work, we propose an in-patch multiplexing scheme that uses early-stage idle resources within a single logical patch to create multiple local cultivation opportunities. A candidate that passes the early stages is forwarded to the standard escape pathway, while the escape stage and the decoder-based acceptance procedure are kept identical to those of the single-site baseline. Under a uniform depolarizing noise model with idle noise, the proposed protocol substantially reduces the injection-and-cultivation discard rate and the expected number of attempts required to obtain an accepted early-stage candidate. At a physical error rate of \\(p=2\\times10^{-3}\\), the injection-and-cultivation expected attempts are reduced by \\(45.46\\%\\) for \\(d_1=3\\) and by \\(72.91\\%\\) for \\(d_1=5\\), relative to the single-site MSC baseline. In the direct full-cycle evaluation including escape, the expected attempts per kept logical output are further reduced by \\(49.04\\%\\) for \\(d_1=3\\) and by \\(78.69\\%\\) for \\(d_1=5\\) at the same physical error rate. The full-cycle cost curves are shifted toward smaller expected attempts, while the final logical-error behavior remains governed by the escape-stage gap threshold. These results show that in-patch multiplexing can reduce postselection overhead while preserving the standard magic-state cultivation framework.",
+  "url": "http://arxiv.org/abs/2605.03616v1",
+  "pdf": "https://arxiv.org/pdf/2605.03616v1",
+  "type": "theory",
+  "summary": "This paper introduces a multiplexing strategy for magic-state cultivation that utilizes idle space within a logical patch to run multiple cultivation trials in parallel. By doing so, it significantly reduces the frequency of discarded shots due to early-stage errors, thereby lowering the computational overhead for implementing non-Clifford gates in fault-tolerant quantum computing.",
+  "main_problem": "High postselection overhead in Magic-State Cultivation (MSC) protocols leads to high discard rates and inefficient use of spacetime volume in fault-tolerant quantum computing.",
+  "main_result": "The proposed in-patch multiplexing scheme significantly reduces the expected number of attempts required for successful magic-state preparation, with reductions of up to 78.69% in full-cycle attempts at a physical error rate of 2e-3.",
+  "method": "The authors propose an in-patch multiplexing protocol that embeds multiple local cultivation sites within a single large logical patch, using a 'grafting' process to forward successful candidates to a standard escape stage.",
+  "model_or_system": "The protocol is modeled within a fault-tolerant quantum error correction framework using color codes and surface codes, subject to a uniform depolarizing noise model including idle noise.",
+  "key_observables": "Injection-and-cultivation (IC) expected attempts, full-cycle expected attempts, logical error rate, and the decoder-based gap threshold.",
+  "important_parameters": "Physical error rate (p = 2e-3), local cultivation distances (d1 = 3, 5), final logical distance (d2 = 15), and the decoder gap threshold (G).",
+  "main_assumptions": "The efficiency gain relies on an independent-site approximation, which assumes no correlation between the multiplexed sites (e.g., no crosstalk).",
+  "figures_summary": "Figure 1 compares distillation vs. cultivation; Figure 2 shows resource underutilization in single-site MSC; Figure 3 illustrates the multiplexed protocol structure; Figure 4 shows the 2D lattice embedding of the four sites; Figure 5 shows the end-to-end execution flow; Figure 11 shows cumulative fractions of correct and erroneous shots.",
+  "paper_structure": "The paper introduces the problem of MSC overhead, presents the proposed in-patch multiplexing architecture, details the protocol stages (injection, cultivation, and escape), provides numerical results comparing the scheme to a single-site baseline, and discusses the scaling of benefits and limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.03616_figures/2605.03616_fig1.jpg",
+      "caption": "Figure 2: Illustration of idle space and time in single-site magic-state cultivation. During the early injection and cultivation stages, only a limited portion of the eventual logical patch is actively used, while the remaining region stays idle until the final escape stage.",
+      "page": 2
+    },
+    {
+      "image": "2605.03616_figures/2605.03616_fig2.jpg",
+      "caption": "Figure 1: Conceptual comparison between magic-state distillation and magic-state cultivation. (a) In magic- state distillation, multiple noisy logical magic states are consumed through one or more purification levels to pro- duce a smaller number of higher-fidelity output states. (b) In magic-state cultivation, a single local magic state is grown through staged operations, such as injection, cultivation, and escape, to obtain a high-fidelity logical magic state within a larger logical patch.",
+      "page": 2
+    },
+    {
+      "image": "2605.03616_figures/2605.03616_fig3.jpg",
+      "caption": "Figure 3: Conceptual illustration of the proposed in-patch multiplexed magic-state cultivation protocol. During injection, four local color-code regions are initialized within a common logical patch. During cultivation, the local regions are grown from d = 3 to d = 5 and checked in parallel. After a surviving candidate is selected, the protocol returns to the standard single escape path through grafting, producing the final d = 15 grafted-code logical patch. Thus, multiplexing is applied only to the early injection-and-cultivation stages, while the final escape stage remains a single continuation path.",
+      "page": 3
+    },
+    {
+      "image": "2605.03616_figures/2605.03616_fig4.jpg",
+      "caption": "Figure 4: Multiplexed injection-and-cultivation layout within a single logical patch. (a) Conceptual placement of the four local cultivation sites in corner-localized re- gions of a distance-15 logical patch. Each site begins as a distance-3 color-code injection region (24 physical qubits) and is subsequently grown to a distance-5 local cultiva- tion region (53 physical qubits), while the remaining cen- tral area forms an idle region during the early stages of the protocol. (b) Explicit two-dimensional embedding of the four local code patches within the distance-15 logical patch. The four sites implement the same local growth primitive and are arranged as symmetry-related place- ments with...",
+      "page": 4
+    },
+    {
+      "image": "2605.03616_figures/2605.03616_fig5.jpg",
+      "caption": "Figure 5: End-to-end flow of the proposed multiplexed MSC protocol. Four local sites (C1–C4) begin injection and cultivation in parallel within a single logical patch. Sites that trigger an error-detection event are reset and removed from further advancement, while the surviving sites form the candidate set for continuation. One candidate is selected for the final escape stage, and the remaining sites stay idle for the rest of the shot.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.03616_figures/2605.03616_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

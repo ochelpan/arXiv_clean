@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2605.04025",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Fast, accurate, high-resolution simulation of large-scale Fermi-Hubbard models on a digital quantum processor",
+  "authors": "Gavin S. Hartnett, Khadijeh Sona Najafi, Aleksei Khindanov, Haoran Liao, Michael Schutzman, Michael R. Hush, Michael J. Biercuk, Yuval Baum",
+  "abstract": "We report experimental digital quantum simulation of the one-dimensional Fermi-Hubbard model on a superconducting quantum processor at a scale beyond the reach of exact statevector simulation and challenging for state-of-the-art tensor-network methods. We encode this problem using up to 120 qubits through an efficient mapping that reduces circuit complexity, and we improve accuracy through error suppression to simulate dynamical evolution using up to 90 Trotter steps. From a vacancy defect introduced in the middle of an $L=31$-site (62-qubit) Néel initial state, we directly observe spin-charge separation to $t=9$ in natural units using up to 90 Trotter steps, and quantitatively extract velocity ratios $v_c/v_s$ which match classical simulations across a range of model parameters. We then extend experiments to $L=60$ (120 qubits) and long evolution times to $t=6$ using 30 Trotter steps; Quantum-processor outputs agree quantitatively with approximate classical simulations performed using a time-dependent variational principle (TDVP) solver; increasing the TDVP bond dimension through $χ= 4096$ expands the range of evolution times within which agreement has RMSE $\\sim 1\\%$ before the approaches diverge. Owing to the large scale of the simulation and the use of efficient overhead-free error-suppression techniques, for simulated evolution times at the limit of quantum/classical agreement ($t\\gtrsim 5$ in natural hopping units), the wall-clock runtime of the quantum processor is up to $3000\\times$ faster than an optimized TDVP simulation using $χ= 4096$. These results establish contemporary digital quantum processors as a versatile, quantitatively accurate, and competitive platform for the study of fermionic many-body dynamics in regimes where leading classical methods can become prohibitively expensive.",
+  "url": "http://arxiv.org/abs/2605.04025v1",
+  "pdf": "https://arxiv.org/pdf/2605.04025v1",
+  "type": "both",
+  "summary": "This paper reports the large-scale digital quantum simulation of the 1D Fermi-Hubbard model on a superconducting processor using up to 120 qubits. By using efficient mapping and error suppression, the authors successfully observed spin-charge separation and demonstrated that the quantum processor can be up to 3000 times faster than classical TDVP simulations in regimes where classical methods struggle.",
+  "main_problem": "Simulating the non-equilibrium dynamics of large-scale 1D Fermi-Hubbard models is computationally expensive for classical methods due to exponential Hilbert space growth and increasing entanglement entropy.",
+  "main_result": "The researchers demonstrated high-resolution digital quantum simulation of up to 120 qubits, observing spin-charge separation and achieving a 3000x speedup over optimized classical TDVP simulations at the limit of classical/quantum agreement.",
+  "method": "Digital quantum simulation using a Trotterized circuit on a superconducting processor, utilizing application-aware compilation, an efficient fermion-to-qubit mapping, and error-suppression techniques like decay recovery and readout error mitigation.",
+  "model_or_system": "The 1D Fermi-Hubbard model (homogeneous chain) implemented on an IBM superconducting quantum processor (IBM 'boston' device) with up to 60 sites (120 qubits).",
+  "key_observables": "Spin-up/down occupancy, charge tracer correlator, spin tracer correlator, and wavefront velocities for spin and charge.",
+  "important_parameters": "Interaction strength U/t_h (0 to 14), evolution time t (up to 9), and system size L (up to 60 sites).",
+  "main_assumptions": "Assumes readout error mitigation can be performed via single-qubit confusion matrices and that the error-suppression techniques (decay recovery) can effectively handle hardware noise without exponential overhead.",
+  "figures_summary": "Figure 1 shows the qubit mapping and Trotterized circuit; Figure 3 displays heatmaps of spin-up occupancy and charge density dynamics; Figure 4 compares quantum results against TDVP benchmarks, showing RMSE and wall-clock runtime advantages.",
+  "paper_structure": "The paper introduces the problem of large-scale Hubbard simulations, details the hardware-aware compilation and mapping methods, presents the experimental observation of spin-charge separation, benchmarks the accuracy and runtime against classical TDVP, and discusses error mitigation strategies and future directions.",
+  "why_interesting": "This work is highly relevant for many-body dynamics as it demonstrates a practical regime where quantum hardware can outperform state-of-the-art tensor network methods in simulating complex fermionic dynamics like spin-charge separation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.04025_figures/2605.04025_fig1.jpg",
+      "caption": "Fig. 1. Application-aware compilation for fermionic simulation. (a) The fermion-to-spin mapping represents a length-L chain of sites with L = 8 here (top row, purple circles) as a system of 2L qubits, one for each site/spin combination (bottom row, red and blue circles). We use a pair-interleaved ordering ↓↑↑↓↓↑↑↓· · · . The nearest-neighbor hopping interactions (indicated by the ↔arrows in the top row) map to “short-hop” and “long-hop” terms (bottom arrows). (b) The Trotterized time-evolution circuit with layers color-coded for simplicity. Red indicates state preparation. Purple indicates the single-qubit RZ for onsite and chemical potential. Blue indicates short hopping terms, onsite...",
+      "page": 3
+    },
+    {
+      "image": "2605.04025_figures/2605.04025_fig2.jpg",
+      "caption": "Fig. 2. Spin-charge separation exhibited in the evolution of a central vacancy in a N´eel initial state for L = 31 over a range of repulsive couplings in each column (U > 0). All simulations run to a total time t = 9 t−1 h . Simulations in panels (a,d) use 45 Trotter steps, (b,e) use 60 Trotter steps, and (c,f) use 90 Trotter steps. (a–c) Heatmaps of the charge tracer correlator Cc i (t) := ⟨ni,↑(t) + ni,↓(t)⟩−⟨ni,↑(0) + ni,↓(0)⟩. Time flows top-to-bottom, and the horizontal axis indicates site location on the one-dimensional chain. The wavefront boundary, as identified by the protocol detailed in Supplementary Material, Sec. V A, is shown as a dashed line, and the velocity of the wavefront...",
+      "page": 5
+    },
+    {
+      "image": "2605.04025_figures/2605.04025_fig3.jpg",
+      "caption": "Fig. 3. Digital quantum simulation of the Fermi-Hubbard model for two initial states of an L = 60 chain with interaction strength U/th = −2: a N´eel state (left) and a N´eel state with a central vacancy defect (right). (a) Heatmap showing the evolution of the per-site spin-up occupation ⟨ni,↑⟩. To enhance the visibility of small late-time occupations, the colormap applies the transformation σ(⟨ni,↑⟩), where σ(x) = [1 + tanh(k(x −1/2))/ tanh(k/2)]/2. (b)–(d) Time evolution of the per-site spin occupations, ⟨ni,↑⟩and ⟨ni,↓⟩, for selected sites. The site shown in each panel is indicated by the purple marker in the one-dimensional chain schematic shown in the inset. (e) Heatmap analogous to (a)...",
+      "page": 6
+    },
+    {
+      "image": "2605.04025_figures/2605.04025_fig4.jpg",
+      "caption": "Fig. 4. Quantum simulator outputs benchmarked against TDVP for a range of bond dimensions, χ ∈ {64, 128, 256, 512, 1024, 2048, 4096}. (a) Time evolution of the occupation expectation value of a representative spin-orbital, ⟨n46,↑⟩(t) for site i = 46. Quantum hardware results are shown as purple circles; TDVP results are shown as solid lines, with color indicating bond dimension χ. The light rectangu- lar box indicates the region of zoomed-in dynamics treated in panel (b). (b) Zoom of (a), showing that larger-χ TDVP simu- lations track the quantum data to later times before diverging. (c) RMSE calculated between the quantum and TDVP occu- pation values across all 120 spin orbitals, shown for...",
+      "page": 7
+    }
+  ],
+  "figure": "2605.04025_figures/2605.04025_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 4,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

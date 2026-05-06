@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.03930",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Time-dependent variational Monte Carlo without bias",
+  "authors": "Wladislaw Krinitsin, Markus Schmitt",
+  "abstract": "When combined with highly expressive ansatz functions such as neural quantum states, variational Monte Carlo (VMC) constitutes a versatile numerical approach to tackle the quantum many-body problem in and out of equilibrium. However, its traditional formulation exhibits a subtle estimation bias leading to inaccuracies, which can be particularly detrimental when addressing real time dynamics. In this work, we investigate two avenues to circumvent said estimation bias. First, we propose an unbiased variant of time-dependent VMC using self-normalized importance sampling with respect to a cutoff-based deformation of the Born distribution. We demonstrate the feasibility and accuracy of the approach in pathological and generic cases of quench dynamics. Furthermore, we explore an alternative sampling strategy based on active learning via the tensor cross interpolation (TCI). While we find that our choice of tensor network architecture lacks the required low rank property, the proposed TCI-based algorithm complements the conventional importance sampling paradigm, providing an alternative perspective that may be further explored in future work.",
+  "url": "http://arxiv.org/abs/2605.03930v1",
+  "pdf": "https://arxiv.org/pdf/2605.03930v1",
+  "type": "theory",
+  "summary": "The paper addresses the estimation bias in time-dependent variational Monte Carlo caused by zeros in the wavefunction. By introducing a cutoff-based importance sampling method, the authors achieve more accurate and efficient simulations of quantum quench dynamics. They also investigate using Tensor Cross Interpolation as an alternative, though its effectiveness is currently limited by the complexity of the neural network ansatz.",
+  "main_problem": "Traditional time-dependent variational Monte Carlo (t-VMC) suffers from a systematic estimation bias when the wavefunction contains nodes (roots), which leads to inaccurate real-time dynamics.",
+  "main_result": "The authors propose an unbiased variant of t-VMC using a cutoff-based deformation of the Born distribution that significantly improves accuracy and reduces sample requirements. They also explore a Tensor Cross Interpolation (TCI) strategy, though they find it limited by the lack of low-rank properties in certain architectures.",
+  "method": "Two approaches are investigated: (1) self-normalized importance sampling with a cutoff-based deformation of the Born distribution, and (2) an active learning strategy using Tensor Cross Interpolation (TCI) to approximate the TDVP equations.",
+  "model_or_system": "The study focuses on the 1D Transverse Field Ising Model (TFIM) undergoing quench dynamics, as well as a single-spin system undergoing Rabi oscillations.",
+  "key_observables": "Quantum Geometric Tensor (QGT), force vector, local energy, magnetization, and infidelity.",
+  "important_parameters": "The cutoff parameter epsilon (where epsilon > 0 avoids bias), bond dimension (chi), and lattice size (L).",
+  "main_assumptions": "The TCI-based approach assumes the existence of a low-rank property in the tensor network architecture, which the authors find is not present in their specific ResNet/RBM setup.",
+  "figures_summary": "Figure 1 and 2 illustrate the MPS and TCI structures; Figure 3 shows the failure of standard Born sampling in single-spin dynamics; Figure 6 demonstrates the relative error of the force vector and QGT as a function of time and system size.",
+  "paper_structure": "The paper identifies the bias problem, proposes two solutions (importance sampling and TCI), tests them on a single-spin system and the TFIM, evaluates error metrics and scalability, and discusses limitations of the TCI approach.",
+  "why_interesting": "This is highly relevant for many-body dynamics as it provides a way to maintain accuracy in real-time evolution simulations where wavefunctions encounter nodes, a common occurrence in non-equilibrium quantum dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.03930_figures/2605.03930_fig1.jpg",
+      "caption": "FIG. 1. MPS representation of fEloc and fgrad. The orthog- onality center of the latter is moved to the site carrying the neural network parameter index k. The resulting isometries are denoted by triangles, general tensors by squares.",
+      "page": 4
+    },
+    {
+      "image": "2605.03930_figures/2605.03930_fig2.jpg",
+      "caption": "FIG. 2. MPS contractions between TCIEloc and TCIgrad, yielding the force vector and QGT, respectively. The cal- culation of the latter is simplified due to the aforementioned choice of the orthogonality center: by setting it to node carry- ing the parameter index k, the remaining isometries collapse into an identity.",
+      "page": 5
+    },
+    {
+      "image": "2605.03930_figures/2605.03930_fig3.jpg",
+      "caption": "FIG. 3. (a) Time evolution of the magnetization for the sin- gle spin system rotating around the y-axis. As it approaches the pathological time point tJ = π/4, sampling based on the Born distribution, denoted by ϵ = 0, fails to reproduce the correct dynamics. Choosing a suited cutoff ϵ fixes the issue. (b) Time evolution of the total x-magnetization for a many- body system of 10 spins evolving under the Hamiltonian (21) with J/g = 0.1. The TDVP equation is evaluated using impor- tance sampling for different values of ϵ and NS = 103 samples. Choosing ϵ = 0 results in noticeable deviations from the ref- erence result. The inset shows infidelities with respect to the exact state after evolving...",
+      "page": 5
+    },
+    {
+      "image": "2605.03930_figures/2605.03930_fig4.jpg",
+      "caption": "FIG. 4. Time evolution of an initially x-polarized state after a quench to the critical Ising model for a system size L = 20 using different cutoffs and 4⋅104 samples. (a) The time evolu- tion of the magnetization matches the exact reference results for all cutoffs up to a time tJ = 1.3, with slight deviations appearing between different cutoffs at around tJ = 1.6. (b) shows the TDVP error R2, a measure for the projection error at each time step. (c) Time evolution of the infidelity be- tween the variational and reference state. The exact solution is followed with higher precision for all cases of ϵ > 0 and the infidelities remain very close to those obtained by performing the full...",
+      "page": 6
+    },
+    {
+      "image": "2605.03930_figures/2605.03930_fig5.jpg",
+      "caption": "FIG. 5. (a) Time evolution of the ratio of normalization con- stants (16) for different choices of the cutoff. Dots denote values obtained through sampling using NS = 4 ⋅104, circles denote results obtained through full summation, showing an excellent agreement between the two approaches. (b) and (c) show the time evolution of the mean over the component- wise variance of the first two terms appearing in (A1), respec- tively, for different choices of the ϵ. Starting from tJ = 0.5, a larger cutoff parameter leads to an increase in the estima- tion variance; the overall increase, however, remains limited— especially for the smallest values of ϵ.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.03930_figures/2605.03930_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 4,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

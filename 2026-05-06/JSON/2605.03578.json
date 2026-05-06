@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2605.03578",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "q-bio.QM",
+    "cond-mat.stat-mech",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Expanding functional protein sequence space using high entropy generative models",
+  "authors": "Roberto Netti, Emily Hinds, Francesco Calvanese, Rama Ranganathan, Martin Weigt, Francesco Zamponi",
+  "abstract": "Boltzmann Machines trained on evolutionary sequence data have emerged as a powerful paradigm for the data-driven design of artificial proteins. However, the relationship between model architecture, specifically parameter density, and experimental performance remains poorly understood. Here, we investigate this relationship using the Chorismate Mutase enzyme family as a model system. We compare standard fully connected Boltzmann Machines for Direct Coupling Analysis (bmDCA) with sparse models generated via progressive edge activation (eaDCA) and edge decimation (edDCA). We identify a maximum-entropy model (meDCA) along the decimation trajectory that represents an optimal balance between constraint satisfaction and the flexibility of the probability distribution. We synthesized and tested artificial sequences from all models using an in vivo complementation assay, finding that all architectures, regardless of sparsity, generate functional enzymes with high success rates, even at significant divergence from natural sequences. Despite this functional equivalence, we demonstrate that the meDCA model samples a viable sequence space that is more than fifteen orders of magnitude larger than its low-entropy counterparts. Furthermore, comparative analyses reveal that high-entropy models systematically minimize overfitting and better capture the local neutral spaces surrounding natural proteins. These findings suggest that while various models satisfying coevolutionary statistics can generate functional sequences, high-entropy Boltzmann Machines provide a superior representation of the underlying evolutionary fitness landscape.",
+  "url": "http://arxiv.org/abs/2605.03578v1",
+  "pdf": "https://arxiv.org/pdf/2605.03578v1",
+  "type": "both",
+  "summary": "The paper demonstrates that optimizing the entropy of Boltzmann-based generative models allows for the discovery of a functional protein sequence space that is orders of magnitude larger than that accessible by dense or overfitted models. By using an edge decimation strategy, the authors identify a maximum-entropy regime that accurately represents the neutral evolutionary landscape. This provides a framework for more efficient and diverse de novo protein design.",
+  "main_problem": "Investigating how the relationship between model architecture (parameter density/sparsity) and entropy affects the ability of generative Boltzmann Machines to capture the evolutionary fitness landscape and expand functional protein sequence space.",
+  "main_result": "The identified maximum-entropy model (meDCA) accesses a functional sequence space more than fifteen orders of magnitude larger than low-entropy models and better captures the local neutral spaces of natural proteins without overfitting.",
+  "method": "The study uses Direct Coupling Analysis (DCA) frameworks, specifically comparing fully connected (bmDCA), edge decimation (edDCA), and edge activation (eaDCA) models, validated via in vivo E. coli complementation assays.",
+  "model_or_system": "The physical system is the protein sequence space of the AroQ Chorismate Mutase enzyme family, modeled using a Potts model (Boltzmann Machine) with a Hamiltonian consisting of single-site potentials and pairwise couplings.",
+  "key_observables": "Shannon entropy (S), parameter density, functional fraction (success rate), sequence divergence, Context-Dependent Entropy (CDE), and mixing time.",
+  "important_parameters": "Parameter density (ranging from ~3% to 100%), sequence divergence levels (20-65%), and the entropy peak during the decimation trajectory.",
+  "main_assumptions": "Assumes that the coevolutionary statistics captured by the model are a reliable proxy for the underlying evolutionary fitness landscape; assumes the use of thermodynamic integration for entropy estimation.",
+  "figures_summary": "Figure 1 shows the workflow and the non-monotonic entropy trajectory; Figure 2 compares functional rates across divergence bins; Figure 3 illustrates generalization via energy assignment and site-specific mutability; Figure 4 shows the entropy evolution during pruning.",
+  "paper_structure": "The paper introduces the problem of model architecture in protein design, describes the DCA model variants and the decimation/activation algorithms, presents experimental validation of functional sequences, quantifies the expansion of sequence space via entropy, and concludes with a comparison to Transformer-based models.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.03578_figures/2605.03578_fig1.jpg",
+      "caption": "FIG. 1. Pipeline for sparse generative modeling of Chorismate Mutase proteins. The workflow begins with a multiple sequence alignment (MSA) of natural homologous proteins, which is then used to train a family of generative models. Starting from a fully connected parameterization in which all possible two-site frequencies are used in the inference (green dot), we iteratively remove parameters to induce sparsity. By monitoring the Shannon entropy of the model throughout this process, we observe that entropy initially increases, indicating improved generalization, before decreasing as the model becomes overfitted. We select the maximum-entropy model (blue dot) and a strongly overfitted model...",
+      "page": 2
+    },
+    {
+      "image": "2605.03578_figures/2605.03578_fig2.jpg",
+      "caption": "FIG. 2. Assessment of generative capability of DCA models. Left panel: Histograms of statistical energy (log- probability) distributions assigned by a “scoring” model (columns) to sequences generated by a “generating” model (legend). Sequences are taken from the close (0.2–0.25) and moderate (0.4–0.45) divergence bins (rows). (Left column) The low-entropy eaDCA model assigns low probability to sequences from the meDCA model. (Right column) The high-entropy meDCA model assigns comparable probability to sequences from the eaDCA model, demonstrating its broader coverage. Right panel: The plot shows the entropy (represented as the effective number of sequences Ω= exp S) of each model, binned by...",
+      "page": 5
+    },
+    {
+      "image": "2605.03578_figures/2605.03578_fig3.jpg",
+      "caption": "FIG. 3. Left panel: Assessment of generalization capability on unobserved natural sequences. To evaluate the ability of the models to generalize to regions of sequence space not covered by the training data, we perform a leave-one-group-out validation test. We selected 10 mutually distant natural sequences (> 80% divergence). For each target, we constructed a specific training set by excluding the target sequence and all its close homologs (< 20% divergence), and we used it to train the bmDCA and meDCA models. The horizontal axis in the plot displays the label of each of the 10 excluded sequences. The vertical axis displays the statistical energy assigned by the two models, centered by...",
+      "page": 6
+    },
+    {
+      "image": "2605.03578_figures/2605.03578_fig4.jpg",
+      "caption": "FIG. 4. Evolution of model entropy as a function of pa- rameter density during the iterative pruning process. The plot displays the model entropy (y-axis) against the frac- tion of active parameters (x-axis). The trajectory moves from right to left, starting from the fully connected bmDCA model (density =1.0). The procedure reveals a non-monotonic be- havior: initially, pruning weak or noisy parameters relaxes the distribution, leading to an increase in entropy. This trend continues until a peak is reached at a density of approximately 12.5%, representing the maximally agnostic model. Beyond this point, further sparsification forces the remaining param- eters to become overly rigid to...",
+      "page": 9
+    }
+  ],
+  "figure": "2605.03578_figures/2605.03578_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

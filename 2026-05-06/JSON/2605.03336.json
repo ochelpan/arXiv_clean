@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.03336",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Centralizing Task-based Approach to Quantum Network Control",
+  "authors": "Alexander Pirker, Robert J. Hayek, Alexander Kolar, Igor Kadota, Joaquin Chung, Rajkumar Kettimuthu",
+  "abstract": "For the last decade, layered stacks have dominated the way of reasoning about architectures for quantum networks. However, layered architectures impose stringent design and timing constraints on quantum networks, adding additional latency to the time required to serve an entanglement generation request. Moreover, increasing delays from the layered approach to network control causes degradation of state, effectively minimizing achievable fidelities. In this work we simulate a resource-centric, task-based approach to quantum network control by utilizing a centralized controller. Using the SeQUeNCe quantum network simulator, we implement the centralized controller which tracks quantum memory availability across all nodes, and schedules objectives in an offline fashion using a priority-based scheduler. We evaluate the performance of this controller on multiple topologies (bottleneck, grid, star, caveman) of significant scale, with varying reservation patterns; thereby we demonstrate the viability of the resource-centric task-based quantum network control framework for scaling. Our simulation results show that the caveman and grid topologies have a higher fraction of delivered requests with low delay compared to the star topology, but with a higher fraction of highly delayed requests as well. Furthermore, we find a linear shift of the CDFs in terms of queue size for all topologies depending on the reservation delay. More interestingly, we conclude that the CDFs of priority queues for the star topology converge fast into saturation for increasing request arrival rates, demonstrating together with the other results that the framework is robust for high load scenarios in quantum networks.",
+  "url": "http://arxiv.org/abs/2605.03336v1",
+  "pdf": "https://arxiv.org/pdf/2605.03336v1",
+  "type": "theory",
+  "summary": "This paper proposes a shift from traditional layered network protocols to a centralized, task-based approach for managing quantum networks. By treating network requests as distributed workflows (sagas), the framework optimizes resource usage and demonstrates robustness against high traffic loads and varying network topologies.",
+  "main_problem": "Traditional layered/hierarchical quantum network architectures introduce significant latency and timing constraints, leading to state degradation due to decoherence and inefficient resource management.",
+  "main_result": "A centralized, resource-centric, task-based control framework is shown to be robust under high loads, with Grid and Caveman topologies providing better low-delay delivery than Star topologies due to higher path diversity.",
+  "method": "The authors implement a centralized controller using the SeQUeNCe discrete-event simulator, employing a priority-based scheduler and Dijkstra's algorithm to transform user objectives into distributed workflows called 'sagas'.",
+  "model_or_system": "The study models various quantum network topologies (Star, Bottleneck, Grid, and Caveman) consisting of quantum routers and processors connected via optical channels with depolarizing noise and exponential memory decoherence.",
+  "key_observables": "Request delivery fraction, request delay (latency), entanglement fidelity, scheduling conflicts, and queue size dynamics.",
+  "important_parameters": "Network topologies, request arrival rates (lambda), priority levels (0, 1, 2), memory coherence time (2s), and number of reservation requests.",
+  "main_assumptions": "The study assumes a centralized control architecture and uses simplified error models (Werner states and depolarizing channels) for the quantum hardware.",
+  "figures_summary": "Figures illustrate the resource-centric architecture, the control flow of sagas, various network topologies, and CDF plots showing request delay, fidelity vs. hops, and scheduling conflicts per node.",
+  "paper_structure": "The paper introduces the limitations of layered stacks, proposes a resource-centric task-based architecture, details the centralized controller implementation and scheduling algorithm, presents simulation results across different topologies and loads, and concludes with future work directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.03336_figures/2605.03336_fig1.jpg",
+      "caption": "Fig. 1: The resource-centric, task-based approach to quantum network control using a centralized controller. The controller keeps track of the resources in the network (channels, entan- glement, classical messaging), and it is aware of the executable tasks (capabilities) of the nodes in the network (such as entanglement swapping, entanglement purification, etc.). It derives distributed workflows (sagas) to accomplish objectives, and schedules them for execution in the network.",
+      "page": 3
+    },
+    {
+      "image": "2605.03336_figures/2605.03336_fig2.jpg",
+      "caption": "Fig. 3: To achieve an objective, in principle several sagas could be used. For example, when distributing a Bell-state between Node 1 and Node 3, Saga 1 could be used (prepare local Bell- states, send a half to Node 2 which performs an entanglement swap). Alternatively, pre-shared entanglement between Node 1 and Node 2 and Node 1 and Node 3 could be swapped by Node 2, followed by performing an entanglement purification step. Both sagas achieve the same objective, namely a Bell- state between Node 1 and Node 3.",
+      "page": 4
+    },
+    {
+      "image": "2605.03336_figures/2605.03336_fig3.jpg",
+      "caption": "Fig. 2: The control flow for quantum networks adopting a centralized, resource-centric, task-based approach to quantum network control. (1) A user sends the objective to the cen- tralized controller which in turn (2) derives a saga composed of elementary tasks, exploiting the available resources of the quantum network. Once ready, (3) the controller schedules the saga for execution in the network in a time-slot. When the network advances to that time-slot, (4) the centralized controller initiates the saga execution by the nodes of the network which ultimately achieves the objective by executing the tasks as specified in the saga.",
+      "page": 4
+    },
+    {
+      "image": "2605.03336_figures/2605.03336_fig4.jpg",
+      "caption": "Fig. 4: SeQUeNCe modular architecture of a node and the simulation kernel. Reproduced under the terms of the CC-BY license [25]. Copyright 2021, The Author(s).",
+      "page": 6
+    },
+    {
+      "image": "2605.03336_figures/2605.03336_fig5.jpg",
+      "caption": "Fig. 6: Cumulative distribution function of request delay for each studied topology with a queue size of 10000 requests. The graph is separated by request priority, with lowest p (highest priority) requests plotted on the top sub-figure and increasing p (lower priority) requests on lower subfigures.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.03336_figures/2605.03336_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

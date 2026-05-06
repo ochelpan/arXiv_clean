@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.04047",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.NI"
+  ],
+  "is_primary_archive": true,
+  "title": "Sequential vs. Simultaneous Entanglement Swapping under Optimal Link-Layer Control",
+  "authors": "Priyam Srivastava, Akshat R. Sabavat, Siddharth Jain, Alan Scheller-Wolf, Sridhar Tayur, David Tipper, Prashant Krishnamurthy, Amy Babay, Kaushik P. Seshadreesan",
+  "abstract": "Connection-less, packet-switched quantum network architectures distribute entanglement across multi-hop paths through sequential entanglement swapping, in which each node acts on purely local state information. The architectural advantages over the connection-oriented alternative -- simultaneous SWAP-ASAP -- are compelling, but sequential swapping holds partial chains in intermediate buffers between successive swaps, exposing them to memory decoherence in a way simultaneous SWAP-ASAP avoids by design. We present a proof-of-principle study at fixed chain length $n = 4$ in which each elementary link is governed by a fixed reinforcement-learning policy optimizing the secret-key rate of the six-state protocol, leaving the network-layer protocol as the sole independent variable. Sweeping the network-layer memory coherence time $T_c^{\\mathrm{ext}}$ over four orders of magnitude reveals a clear regime structure governed by the dimensionless ratio $T_c^{\\mathrm{ext}}/τ$, where $τ$ is the per-link entanglement heralding latency. Simultaneous SWAP-ASAP delivers a constant rate across the full sweep. Sequential swapping, by contrast, collapses to zero end-to-end deliveries below $T_c^{\\mathrm{ext}}/τ= 25$, and begins recovering at $T_c^{\\mathrm{ext}}/τ= 50$. It remains limited by the simultaneous rate, which it saturates only at the relaxed end of the sweep. These results suggest that the connection-less penalty is a near-term phenomenon tied to present-day memory coherence rather than a fundamental property of sequential swapping.",
+  "url": "http://arxiv.org/abs/2605.04047v1",
+  "pdf": "https://arxiv.org/pdf/2605.04047v1",
+  "type": "theory",
+  "summary": "This paper demonstrates that the performance disadvantage of connection-less quantum networks is not a fundamental architectural limitation but rather a consequence of current-day hardware constraints regarding memory coherence. By using reinforcement learning to optimize link-layer control, the authors show that as memory coherence improves, sequential swapping protocols become as efficient as simultaneous ones.",
+  "main_problem": "The study compares the performance of sequential (connection-less) versus simultaneous (connection-oriented) entanglement swapping protocols in quantum networks, specifically investigating if the performance penalty in sequential swapping is a fundamental flaw or a transient effect of low memory coherence.",
+  "main_result": "The researchers find that the performance gap is a near-term phenomenon tied to low memory coherence; at high coherence levels, both protocols are statistically equivalent, and the sequential protocol only collapses when the coherence-to-latency ratio falls below a critical threshold.",
+  "method": "A two-layer simulation framework is used where the link layer is controlled by a reinforcement-learning policy (WN2M2) and the network layer implements different swapping protocols, followed by a parameter sweep of external memory coherence time.",
+  "model_or_system": "A multi-hop quantum network chain (n=4 links) consisting of nodes with internal memories and external buffers, utilizing Werner states subject to depolarizing decay and a six-state QKD protocol.",
+  "key_observables": "Per-pair efficiency (uSKR) in bits per heralding tick, end-to-end entanglement delivery rates, and the dimensionless ratio of external coherence time to heralding latency (T_c_ext/tau).",
+  "important_parameters": "External memory coherence time (T_c_ext), per-link heralding latency (tau), link lengths (5 km and 10 km), and the number of links (n=4).",
+  "main_assumptions": "Local operations (gates, measurements, readout) are assumed to be instantaneous and noiseless; the link-layer RL policy is held fixed to isolate network-layer variables.",
+  "figures_summary": "Figure 1 illustrates the two-layer architecture; Figure 2 shows the convergence of trained RL policies; Figure 3 compares uSKR vs. coherence time showing the sequential protocol collapse; Figures 7 and 8 demonstrate protocol equivalence in symmetric and bottleneck topologies at high coherence.",
+  "paper_structure": "The paper introduces the two-layer architecture, defines the link-layer RL policy and network-layer protocols, presents a systematic sweep of coherence regimes, analyzes the mechanism of protocol failure, and concludes with a comparison of different network topologies.",
+  "why_interesting": "This is highly relevant for researchers in quantum optics and open quantum systems as it quantifies how environmental decoherence (memory decay) fundamentally dictates the operational limits and architectural choices for scalable quantum communication networks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.04047_figures/2605.04047_fig1.jpg",
+      "caption": "Fig. 1. Two-layer architecture. Top: per-node link-layer environment. The WN2M2 agent operates on two internal memory slots (coherence T int c ); its CONSUME action delivers a Werner pair to the external link buffer (coherence T ext c ). Bottom: the n = 4 chain under each of the two network layer protocols. Sequential holds partial chains in n−1 chain buffers (highlighted); simultaneous SWAP-ASAP holds none.",
+      "page": 3
+    },
+    {
+      "image": "2605.04047_figures/2605.04047_fig2.jpg",
+      "caption": "Fig. 2. Each bar is one trained WN2M2 policy evaluated on its training configuration, in bits per heralding tick. Ten policies span L ∈{5, 10} km and T int c /τ ∈{5, 10, 25, 50, 100}.",
+      "page": 5
+    },
+    {
+      "image": "2605.04047_figures/2605.04047_fig3.jpg",
+      "caption": "Figure 2 shows that all ten policies converge to the same dimensionless operating point within four-decimal precision: 0.1357–0.1358 bits/tick. The mean delivery fidelity is ¯Fdel = 0.9575 and the mean inter-delivery interval is 7.36τ in tick units. The convergence holds across both link lengths and across a 20× range in T int c /τ, including the most stressed case T int c = 5τ.",
+      "page": 5
+    },
+    {
+      "image": "2605.04047_figures/2605.04047_fig4.jpg",
+      "caption": "Fig. 4. uSKR vs. T ext c for chains with one L = 10 km link at position p ∈{1, 2, 3, 4} in an otherwise L = 5 km chain. Filled bars: simultaneous SWAP-ASAP. Hatched bars: sequential.",
+      "page": 5
+    },
+    {
+      "image": "2605.04047_figures/2605.04047_fig5.jpg",
+      "caption": "Fig. 3. uSKR vs. T ext c for the symmetric topologies [5, 5, 5, 5] km and [10, 10, 10, 10] km. Filled bars: simultaneous SWAP-ASAP. Hatched bars: sequential.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.04047_figures/2605.04047_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.03056",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Exchange-Only Silicon Based Spin Qubits: Charge Noise, PINN Optimised Pulse Sequences,and Gate-Level Fidelity",
+  "authors": "Rajdeep Rameshchandra Dwivedi, Amitoj Singh Miglani, Vishvendra Singh Poonia",
+  "abstract": "Exchange-only (EO) spin qubits in silicon realise all-electrical qubit control through pairwise Heisenberg exchange interactions, making them attractive for scalable quantum computation. Their principal vulnerability is charge noise, which couples multiplicatively to the exchange coupling and degrades gate fidelity. We present a \\emph{two-stage} Physics-Informed Neural Network (PINN) framework for per-gate pulse optimisation. In \\textbf{Stage~I} (iterations~1--100) the PINN maximises the noise-averaged gate fidelity toward a threshold of $\\Fth=0.99$; the pulse duration is held fixed at its nominal hardware value. Once the threshold is crossed, \\textbf{Stage~II} (iterations~101--250) progressively compresses the total pulse time while maintaining $F\\geq\\Fth$ via continuous fine-tuning of the pulse-shape parameters. The cost function is a Monte-Carlo ensemble mean-squared error (MSE) averaged over $N_{\\rm real}=2000$ quasi-static Gaussian noise realisations drawn fresh at every iteration. We benchmark the framework on the single-qubit gate set $\\{X,Y,Z,H\\}$ and the two-qubit set $\\{X,Y,Z,H,\\mathrm{CX}\\}$ at noise levels $\\sigmaJ/J\\in\\{1\\%,5\\%,10\\%\\}$. All single-qubit gates cross $\\Fth$ within the first 100 iterations across all noise levels; Stage~II then reduces pulse durations by 20--40\\% from their nominal values. The two-qubit gates follow the same two-phase behaviour, with the CX gate compressing from its nominal \\SI{31}{\\nano\\second} to $\\approx\\SI{22}{\\nano\\second}$ at 1\\% noise.",
+  "url": "http://arxiv.org/abs/2605.03056v1",
+  "pdf": "https://arxiv.org/pdf/2605.03056v1",
+  "type": "theory",
+  "summary": "The paper presents a new machine learning framework using Physics-Informed Neural Networks to optimize control pulses for silicon-based spin qubits. By using a two-stage training process, the method achieves high-fidelity gates while significantly reducing the time required for gate operations. This approach effectively resolves the tension between noise robustness and gate speed without manual parameter tuning.",
+  "main_problem": "Optimizing exchange-only silicon spin qubit gate pulses to achieve high fidelity (F >= 0.99) while simultaneously minimizing gate duration to mitigate the effects of charge noise.",
+  "main_result": "A two-stage PINN framework successfully reduces gate durations by 20-40% while maintaining high fidelity, outperforming analytic baselines and showing high sample efficiency compared to reinforcement learning.",
+  "method": "A two-stage Physics-Informed Neural Network (PINN) that first maximizes noise-averaged fidelity at a fixed duration (Stage I) and then progressively compresses the pulse time (Stage II) using a threshold penalty.",
+  "model_or_system": "Exchange-only (EO) spin qubits in Si/SiGe quantum dots, where a logical qubit is encoded in the S=1/2 subspace of three electrons, driven by time-dependent Heisenberg exchange couplings subject to quasi-static Gaussian charge noise.",
+  "key_observables": "Gate fidelity (F), pulse duration (Tg), and gate-level error/leakage.",
+  "important_parameters": "Noise levels (sigma_J/J) of 1%, 5%, and 10%; exchange coupling maximum (J_max) of 100 MHz; fidelity threshold (F_th) of 0.99.",
+  "main_assumptions": "Charge noise is modeled as quasi-static Gaussian noise that is constant during a single gate but varies across the ensemble.",
+  "figures_summary": "Figure 1 shows PINN optimization progress (fidelity vs. iteration); Figure 4 displays optimization results for two-qubit gates (fidelity and duration vs. iteration); Figure 5 shows trajectory distortion under noise; Figure 6 shows CX gate evolution.",
+  "paper_structure": "The paper introduces the problem of the speed-fidelity trade-off in silicon spin qubits, describes the two-stage PINN architecture and loss functions, presents benchmarking results for single and two-qubit gates across various noise levels, and compares the method against RL and analytic baselines.",
+  "why_interesting": "This work is highly relevant to researchers in open quantum systems as it demonstrates a sophisticated machine learning approach to controlling quantum dynamics under the influence of non-Markovian, quasi-static noise.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.03056_figures/2605.03056_fig1.jpg",
+      "caption": "Figure 1: Single-qubit PINN optimisation results at σJ/J ∈{1%, 5%, 10%}. Top row: Noise-averaged fidelity vs. iteration. The dotted black line marks Fth = 0.99. All gates cross the threshold within Stage I (iterations 1–100). Bottom row: Total pulse duration (ns) vs. iteration. Stage II begins at iteration 100 and reduces pulse times by 20–40% from their nominal values.",
+      "page": 10
+    },
+    {
+      "image": "2605.03056_figures/2605.03056_fig2.jpg",
+      "caption": "Figure 2: Single-qubit simultaneous-pulsing baseline (no ML) noisy state evolution for the gate set {X, Y, Z, H} under quasistatic Gaussian charge noise. Each panel shows the noisy population dynamics for the relevant computational-basis input states; the resulting noise-averaged fidelities are annotated directly in the panels for each input state. Compared with the PINN results in fig. 1, the analytic simultaneous-pulsing scheme shows visibly larger population deviations from the ideal trajectories, motivating the PINN-based optimisation.",
+      "page": 11
+    },
+    {
+      "image": "2605.03056_figures/2605.03056_fig3.jpg",
+      "caption": "Figure 3: Single-qubit simultaneous-pulsing baseline noise-averaged fidelity as a function of the fractional charge-noise amplitude σJ/J for each gate in {X, Y, Z, H}. The fidelity values reported in the figure are averaged over all computational-basis input states. The baseline fidelity falls monotonically with increasing noise while the PINN-optimised pulses maintain F ≥Fth = 0.99 across the same noise range (fig. 1).",
+      "page": 12
+    },
+    {
+      "image": "2605.03056_figures/2605.03056_fig4.jpg",
+      "caption": "Figure 4: Two-qubit PINN optimisation results at σJ/J ∈{1%, 5%, 10%}. Top row: Noise-averaged fidelity vs. iteration. Dotted line marks Fth = 0.99. All gates cross the threshold during Stage I. Bottom row: Pulse duration (ns) vs. iteration. The CX gate compresses from 31 ns to ≈22 ns at 1% noise and ≈26.5 ns at 10% noise.",
+      "page": 13
+    },
+    {
+      "image": "2605.03056_figures/2605.03056_fig5.jpg",
+      "caption": "Figure 5: Two-qubit simultaneous-pulsing baseline (no ML) noisy state evolution for the gate set {X, Y, Z, H} under quasistatic Gaussian charge noise. The noise-averaged fidelities for all computational-basis input states are annotated directly within each panel. Relative to the PINN-optimised results in fig. 4, the analytic baseline exhibits significantly larger trajectory distortion at 1 0 % noise amplitude.",
+      "page": 14
+    }
+  ],
+  "figure": "2605.03056_figures/2605.03056_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

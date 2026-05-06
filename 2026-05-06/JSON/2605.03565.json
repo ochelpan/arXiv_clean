@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.03565",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Neural optimization for quantum architectures: graph embedding problems with Distance Encoder Networks",
+  "authors": "Chiara Vercellino, Giacomo Vitali, Paolo Viviani, Alberto Scionti, Andrea Scarabosio, Olivier Terzo, Edoardo Giusto, Bartolomeo Montrucchio",
+  "abstract": "Quantum machines are among the most promising technologies expected to provide significant improvements in the following years. However, bridging the gap between real-world applications and their implementation on quantum hardware is still a complicated task. One of the main challenges is to represent through qubits (i.e., the basic units of quantum information) the problems of interest. According to the specific technology underlying the quantum machine, it is necessary to implement a proper representation strategy, generally referred to as embedding. This paper introduces a neural-enhanced optimization framework to solve the constrained unit disk problem, which arises in the context of qubits positioning for neutral atoms-based quantum hardware. The proposed approach involves a modified autoencoder model, i.e., the Distances Encoder Network, and a custom loss, i.e., the Embedding Loss Function, respectively, to compute Euclidean distances and model the optimization constraints. The core idea behind this design relies on the capability of neural networks to approximate non-linear transformations to make the Distances Encoder Network learn the spatial transformation that maps initial non-feasible solutions of the constrained unit disk problem into feasible ones. The proposed approach outperforms classical solvers, given fixed comparable computation times, and paves the way to address other optimization problems through a similar strategy.",
+  "url": "http://arxiv.org/abs/2605.03565v1",
+  "pdf": "https://arxiv.org/pdf/2605.03565v1",
+  "type": "theory",
+  "summary": "This paper introduces a neural network-based approach to solve the difficult task of embedding graphs onto the physical layout of neutral-atom quantum computers. By using a specialized autoencoder, the method efficiently finds spatial configurations that satisfy strict physical distance constraints. This provides a scalable alternative to classical optimization for preparing quantum hardware for specific computational tasks.",
+  "main_problem": "The challenge of graph embedding, specifically finding a spatial realization of a graph (the Constrained Unit Disk Graph problem) to represent QUBO problems on neutral-atom-based quantum hardware.",
+  "main_result": "The proposed Distance Encoder Network (DEN) outperforms classical solvers like Ipopt in finding feasible embeddings, especially as dimensionality increases, although classical solvers may achieve a better adjacency gap when successful.",
+  "method": "A neural-enhanced optimization framework using a modified autoencoder (Distance Encoder Network) and a custom Embedding Loss Function (ELF) to learn spatial transformations from non-feasible to feasible solutions.",
+  "model_or_system": "The application context is neutral-atom-based quantum hardware using Rydberg atoms in 2D or 3D registers, where the blockade effect determines connectivity via a spin Hamiltonian (Ising model).",
+  "key_observables": "Adjacency gap, feasibility of the embedding, and computational time/scaling.",
+  "important_parameters": "Minimum atom distance (4 um), maximum register radius (50 um), interaction radius (~10.26 um), and dimensionality (N=2 or 3).",
+  "main_assumptions": "The Fruchterman-Reingold initialization assumes a specific equilibrium distance; the framework assumes the problem can be mapped to a spatial transformation task.",
+  "figures_summary": "Figure 1 shows adjacency matrices and feasible/unfeasible embeddings; Figure 2 illustrates clique and degree-constrained embeddings; Figure 3 depicts the optimization framework; Figure 4 shows scaling of computation time and epoch-to-feasibility; Figure 5 and 6 compare DEN performance against Ipopt in terms of feasibility and adjacency gap.",
+  "paper_structure": "The paper introduces the CUDG problem, defines the physical hardware constraints, proposes the DEN architecture and ELF loss function, details the experimental setup and dataset generation, and concludes with a comparative performance analysis against classical solvers.",
+  "why_interesting": "It addresses a critical bottleneck in the NISQ era: the mapping of abstract computational problems onto the physical geometry of Rydberg atom arrays, using machine learning to automate hardware-specific embedding.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.03565_figures/2605.03565_fig1.jpg",
+      "caption": "Fig. 1. Representation of unit disk graphs in a quantum register. Whenever two circles intersect an edge is generated. The radius of the circles in figs.1b,1c is the half blockade radius, i.e. r. The adjacency matrix in fig.1a describes the desired edges, it determines the feasibility of the embedding.",
+      "page": 2
+    },
+    {
+      "image": "2605.03565_figures/2605.03565_fig2.jpg",
+      "caption": "Fig. 2. Representations of a K7, clique with 7 vertexes, (on the left) and of a graph with maximum degree ∆= 18 (on the right) feasible embeddings, for a CUDG problem with Dmin = 4 µm, L = 50 µm and Dadj = 10.26 µm.",
+      "page": 4
+    },
+    {
+      "image": "2605.03565_figures/2605.03565_fig3.jpg",
+      "caption": "Fig. 2, on the right, shows a feasible embedding for a subgraph with ∆= 18. All the vertexes lying within the circular red area, with radius Dadj = 10.26 µm, are neigh- bours of the red-colored vertex, which among the highlighted vertexes is the one with the highest degree ∆= 18. However, the represented embedding constraints the connectivity of neighbouring vertexes. Thus it is not a feasible embedding for all arbitrary graphs with ∆= 18. So, since properties 1 and 2 define the necessary conditions for the CUDG to have a feasible solution, they govern the dataset generation. To have more chance and get feasible embeddings, the graphs instances are created by randomly setting initial...",
+      "page": 4
+    },
+    {
+      "image": "2605.03565_figures/2605.03565_fig4.jpg",
+      "caption": "Fig. 3. The optimization framework for the constrained unit disk graph problem: two different approaches are considered for the position initializations in the preprocessing phase. Both the Scaling and the Fruchterman-Reingold methods do not provide initial feasible embeddings. Then, during the learning phase, the DEN model has 3000 epochs available for learning a proper spatial transformation. Along with the model training, the best feasible embeddings are updated according to the adjacency gap maximization goal. The final step returns the best embedding found so far.",
+      "page": 6
+    },
+    {
+      "image": "2605.03565_figures/2605.03565_fig5.jpg",
+      "caption": "Fig. 5. Percentage of feasible embeddings obtained, on the whole graphs dataset. The DEN model outperforms the Ipopt solver for both the N = 2 and N = 3 cases. There is no clear best choice concerning the initialization methods (Fruchterman-Reingold, i.e. FR, or scaling). As in the case of the first feasible embedding (Fig. 4b), the increment in dimensionality allows for finding more easily feasible embeddings, despite the increment in the models’ parameters.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.03565_figures/2605.03565_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 4,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
