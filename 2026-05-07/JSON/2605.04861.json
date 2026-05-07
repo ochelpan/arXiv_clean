@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.04861",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum algorithm for solving differential equations using SLAC derivatives",
+  "authors": "Rakshit M. Gharat, Gopikrishnan Muraleedharan, Dominic W. Berry, Gavin K. Brennen",
+  "abstract": "We present the construction of efficient linear-combination-of-unitaries (LCU)-based block-encodings for the first-order derivative and Laplacian operators in the SLAC representation. We use state-preparation techniques designed for smoothly decaying functions to efficiently prepare the dense LCU amplitudes with high success probability and low gate cost. Furthermore, we demonstrate how Shannon wavelet transforms can be applied to these block-encodings to efficiently obtain multi-scale representations of the SLAC derivative operators. We then show how to apply a diagonal preconditioner that reduces the condition number of these matrices in the multi-scale wavelet basis to a small constant. This approach enables the solution of partial differential equations with SLAC-discretised derivative operators on a finite lattice using the quantum linear solving algorithm (QLSA). Throughout this work, we analyse the computational complexity and error scaling of each implementation.",
+  "url": "http://arxiv.org/abs/2605.04861v1",
+  "pdf": "https://arxiv.org/pdf/2605.04861v1",
+  "type": "theory",
+  "summary": "This paper presents a new quantum algorithm for solving partial differential equations using the SLAC derivative discretization. By combining LCU-based block-encoding with the Quantum Shannon Wavelet Transform, the authors achieve an efficient, multi-scale approach that avoids the unphysical artifacts of standard lattice methods.",
+  "main_problem": "Developing efficient quantum algorithms to solve partial differential equations (PDEs) using SLAC derivatives, which are non-local and result in dense matrices that are difficult to simulate classically.",
+  "main_result": "The authors construct efficient LCU-based block-encodings for first-order derivative and Laplacian operators in the SLAC representation, achieving polylogarithmic gate complexity and reduced condition numbers via wavelet preconditioning.",
+  "method": "The approach utilizes Linear Combination of Unitaries (LCU) for block-encoding, the Quantum Shannon Wavelet Transform (QSWT) for multi-scale representations, and a nested-box inequality-test framework for efficient state preparation.",
+  "model_or_system": "The framework applies to discretized continuum field theories and many-body quantum systems on a finite lattice, specifically focusing on translation-invariant pseudodifferential operators like the SLAC Laplacian and first-order derivative.",
+  "key_observables": "not specified",
+  "important_parameters": "Complexity metrics including subnormalization factor (alpha), gate complexity (O(n^2)), and error scaling (epsilon); momentum scales (IR and UV sectors).",
+  "main_assumptions": "Assumes coefficient functions are smoothly decaying, the lattice size is a power of two, and the right-hand-side state has support on the invertible subspace of the operator.",
+  "figures_summary": "Figure 1 shows a quantum circuit implementation of the QSWT; Figure 2 illustrates a high-level circuit diagram for the state-preparation protocol; Figure 4 depicts the SELECT operation as a black box of adder circuits.",
+  "paper_structure": "The paper introduces the problem of SLAC discretization, proposes LCU-based block-encodings for derivatives, details a state-preparation protocol using nested-box inequality tests, implements multi-scale representations via QSWT, introduces a wavelet preconditioner, and concludes with a complexity analysis and comparison to general PDO frameworks.",
+  "why_interesting": "This is highly relevant for many-body dynamics and field theory simulations, as it provides a way to implement non-local operators (essential for avoiding fermion doubling) on quantum hardware with efficient scaling.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.04861_figures/2605.04861_fig1.jpg",
+      "caption": "FIG. 1. Implementation of QSWT in a quantum circuit on n qubits using QFT, modular adders and 2-sparse unitaries",
+      "page": 7
+    },
+    {
+      "image": "2605.04861_figures/2605.04861_fig2.jpg",
+      "caption": "FIG. 2. High-level circuit implementing the state-preparation protocol for the LCU of the SLAC Laplacian in Eq. (22) using O(2) prep. The procedure begins by applying an Ry(θini) gate to the ancilla qubit a, where θini is chosen to ensure the amplitude ratio between the j = 0 and j > 0 branches matches the required LCU coefficients. Next, controlled rotations (CROT) on the unary-encoded register µ are followed by controlled Hadamards to generate a conditional superposition on register j. The first dotted region converts µ into a one-hot encoding via a downward cascade of CX gates (controlled on qubit µk, targeting qubit µk+1 for k = n −2, . . . , 1), terminating with a CX gate controlled on...",
+      "page": 10
+    },
+    {
+      "image": "2605.04861_figures/2605.04861_fig3.jpg",
+      "caption": "FIG. 3. Probability per state j within box Bµ during the quantum rejection sampling protocol. We first prepare a proposal state with uniform probabilities, 2−2µ within each box Bµ, forming the orange dashed step-function envelope. The blue points indicate the target 1/j2 probability distri- bution. The inequality test in Eq. (31), effectively rejects the probability mass corresponding to the unshaded region between the orange envelope and the blue curve. The over- all success probability is the ratio of the target (blue) area (P∞ j=1 1/j2 = π2/6) to the area under the proposal envelope",
+      "page": 11
+    },
+    {
+      "image": "2605.04861_figures/2605.04861_fig4.jpg",
+      "caption": "FIG. 4. Complete LCU architecture showing: (a) The SELECT operator Oselect, which implements the permutation P j via a modular subtractor, mapping the system state |j⟩a |ψ⟩to |j⟩a P j |ψ⟩; ancillary registers used for inequality tests are omitted; see Appendix A 5. (b) The full LCU block structure composed of Oprep, Osgn, Oselect, Ocpy, and O† prep, which implements the block-encoding of the SLAC Laplacian in Eq. (42) upon postselection of all ancillae in the state |¯0⟩. For the SLAC Laplacian, the operator Osgn is realised as a Z gate acting on the least significant qubit of the register j, whereas for the first-order SLAC derivative, see Eq. (56), the corresponding phase operator Ophase...",
+      "page": 13
+    },
+    {
+      "image": "2605.04861_figures/2605.04861_fig5.jpg",
+      "caption": "FIG. 5. Log–log plot showing the scaling of the operator- norm error between the ideal SLAC operators and their block- encoded counterparts as a function of the lattice size N. The second-order SLAC Laplacian of Eq. (20) is compared with its truncated form Eq. (21), and the first-order SLAC derivative of Eq. (43) is compared with its truncated form Eq. (44). Both operators exhibit an error scaling of O(1/N), in agreement with the analytical estimates of Eq. (39) and Eq. (54). For the first-order derivative, the high-momentum modes have been projected out to emphasize the physically relevant subspace.",
+      "page": 15
+    }
+  ],
+  "figure": "2605.04861_figures/2605.04861_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

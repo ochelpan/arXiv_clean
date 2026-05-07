@@ -1,0 +1,86 @@
+{
+  "arxiv_id": "2605.05104",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cs.AI",
+    "cs.DB",
+    "cs.LG",
+    "stat.AP"
+  ],
+  "is_primary_archive": false,
+  "title": "Building informative materials datasets beyond targeted objectives",
+  "authors": "Rafael Espinosa Castañeda, Ashley Dale, Hongchen Wang, Yonatan Kurniawan, Hao Wan, Runze Zhang, Adji Bousso Dieng, Kangming Li, Jason Hattrick-Simpers",
+  "abstract": "Materials science data collection can be expensive, making the reuse and long-term utility of datasets critical important for future discovery campaigns. In practice, researchers prioritize a subset of properties due to research interests. However, ignoring a subset of outcomes in data collection campaigns potentially generate datasets poorly suited for future learning tasks. Here, we present a framework for dataset construction that maximizes informativeness for target properties of interest while preserving performance on untargeted ones. Our approach uses diversity-aware selection to ensure broad coverage of the materials space. In noisy experimental dataset construction, we find that without our diversity-aware framework, prediction performance on untargeted properties can degrade by up to 40% relative to random sampling, whereas applying our framework yields improvements of up to 10% . For targeted properties, performance can degrade with respect to random sampling by up to 12.5% without diversity, while our framework achieves gains of up to 25%. Incorporating diversity into dataset construction not only preserves informativeness for the targeted properties, but also improves materials coverage for potential future objectives. As a result, the constructed datasets remain broadly informative across considered and unconsidered outcomes, ensuring unbiased quality entries and mitigating cold-start limitations in subsequent modeling and discovery campaigns.",
+  "url": "http://arxiv.org/abs/2605.05104v1",
+  "pdf": "https://arxiv.org/pdf/2605.05104v1",
+  "type": "both",
+  "summary": "This paper proposes a new method for building materials datasets that balances immediate research goals with long-term utility. By incorporating feature-space diversity into the selection process, the framework prevents the sampling bias that typically makes datasets useless for predicting properties not explicitly targeted during collection.",
+  "main_problem": "Materials science data collection often focuses on specific target properties, creating sampling bias that reduces the utility of datasets for future, unanticipated scientific tasks.",
+  "main_result": "A diversity-aware framework improves predictive performance on untargeted properties by up to 10% and prevents the 40% performance degradation seen in purely targeted strategies, especially in noisy experimental datasets.",
+  "method": "The authors use a multi-objective optimization approach with the NSGA-II genetic algorithm to balance target property informativeness with feature-space diversity (using cosine dissimilarity).",
+  "model_or_system": "The study evaluates the framework using DFT-based repositories (Materials Project, JARVIS) and the experimental sysTEm thermoelectric dataset, utilizing structural and compositional descriptors via Voronoi tessellation.",
+  "key_observables": "Electronic bandgap, elastic bulk modulus, formation energy, thermoelectric figure of merit (zT), thermal conductivity, electrical conductivity, and Seebeck coefficient.",
+  "important_parameters": "High-dimensional feature space (up to 273 dimensions), iterative selection of 1% of the pool per iteration, and weighting between informativeness and diversity.",
+  "main_assumptions": "Assumes that chosen properties are weakly linearly correlated to ensure true cross-objective generalization; assumes the utility of cosine similarity for diversity in high-dimensional spaces.",
+  "figures_summary": "Figures illustrate the data selection pipeline, RMSE curves for various properties, and comparisons of chemical manifold coverage (PCA space) between targeted and diversity-aware sampling.",
+  "paper_structure": "Introduction of the sampling bias problem, description of the diversity-aware framework and NSGA-II implementation, evaluation on DFT and experimental datasets, and a detailed appendix of performance metrics across various property combinations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.05104_figures/2605.05104_fig1.jpg",
+      "caption": "Figure 1: Overview of data selection pipeline for each iteration when explicitly incorporating diversity in feature space. The image shows how 1% of the pool data is selected. For each iteration, performance of the two models-Random Forest and XGBoost on hold-out test dataset is recorded. The pipeline is repeated until the complete pool data has been selected.",
+      "page": 3
+    },
+    {
+      "image": "2605.05104_figures/2605.05104_fig2.jpg",
+      "caption": "Figure 2: RMSE curves on hold out test data for bandgap, bulk modulus and formation energy when the target used for data construction is bandgap using as pool JARVIS18.",
+      "page": 7
+    },
+    {
+      "image": "2605.05104_figures/2605.05104_fig3.jpg",
+      "caption": "Figure 3: Data Manifold coverage comparison without and with diversity for single target DFT dataset building. Notoriously, skewed distributions are obtained even with 50% of sampled data when unconsidering diversity.",
+      "page": 8
+    },
+    {
+      "image": "2605.05104_figures/2605.05104_fig4.jpg",
+      "caption": "Figure 4: Random Forest improvement of all policies respect to random sampling with single outcome targeting in DFT datasets construction.",
+      "page": 9
+    },
+    {
+      "image": "2605.05104_figures/2605.05104_fig5.jpg",
+      "caption": "Figure 5: Random Forest improvement of all policies respect to random sampling with single outcome targeting in experimental datasets construction. Using as pool the sysTEm dataset.",
+      "page": 10
+    }
+  ],
+  "figure": "2605.05104_figures/2605.05104_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

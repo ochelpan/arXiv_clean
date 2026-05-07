@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.05179",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Estimating the expected output of wide random MLPs more efficiently than sampling",
+  "authors": "Wilson Wu, Victor Lecomte, Michael Winer, George Robinson, Jacob Hilton, Paul Christiano",
+  "abstract": "By far the most common way to estimate an expected loss in machine learning is to draw samples, compute the loss on each one, and take the empirical average. However, sampling is not necessarily optimal. Given an MLP at initialization, we show how to estimate its expected output over Gaussian inputs without running samples through the network at all. Instead, we produce approximate representations of the distributions of activations at each layer, leveraging tools such as cumulants and Hermite expansions. We show both theoretically and empirically that for sufficiently wide networks, our estimator achieves a target mean squared error using substantially fewer FLOPs than Monte Carlo sampling. We find moreover that our methods perform particularly well at estimating the probabilities of rare events, and additionally demonstrate how they can be used for model training. Together, these findings suggest a path to producing models with a greatly reduced probability of catastrophic tail risks.",
+  "url": "http://arxiv.org/abs/2605.05179v1",
+  "pdf": "https://arxiv.org/pdf/2605.05179v1",
+  "type": "theory",
+  "summary": "This paper introduces a way to calculate the expected behavior of large random neural networks without actually running samples through them. By propagating the statistical properties (cumulants) of the activations through the layers, the authors achieve much higher computational efficiency and better accuracy for predicting rare, high-risk events.",
+  "main_problem": "Efficiently estimating the expected output and loss of wide, random multilayer perceptrons (MLPs) without the high computational cost of Monte Carlo sampling.",
+  "main_result": "The authors develop a sample-free cumulant propagation method that achieves a target mean squared error using significantly fewer FLOPs than Monte Carlo sampling, specifically outperforming it by a factor of n in the large-width limit.",
+  "method": "The method uses cumulant propagation via Hermite expansions and diagram summation to track the distribution of activations layer-by-layer, including factorized versions to reduce complexity.",
+  "model_or_system": "Wide, random, fully-connected feedforward MLPs with L hidden layers and width n, using He initialization and Gaussian inputs.",
+  "key_observables": "Expected output (quenched average), expected loss, and higher-order cumulants (mean, variance, etc.).",
+  "important_parameters": "Network width (n), network depth (L), maximum cumulant order (K), and error tolerance (epsilon).",
+  "main_assumptions": "The theory assumes the large-width limit (n to infinity), fixed depth, and primarily focuses on polynomial or 'tame' activation functions like ReLU.",
+  "figures_summary": "Figure 1 compares MSE vs FLOPs for various algorithms against Monte Carlo; Figure 2 shows MSE vs FLOPs for different depths; Figure 3 shows MSE scaling with width n; Figure 4 compares relative RMSE for rare event probabilities; Figure 5 compares distillation learning curves.",
+  "paper_structure": "The paper introduces the problem of sampling inefficiency, presents the cumulant propagation algorithm and its factorized variants, provides theoretical complexity and error bounds using diagrammatic expansions, and demonstrates empirical superiority and applications in mechanistic distillation.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.05179_figures/2605.05179_fig1.jpg",
+      "caption": "Figure 1: Performance of our best cumulant propagation algorithms at estimating the mean of random ReLU MLPs with 4 hidden layers and width 256. Mean over 5 random seeds shown. (Error bars hidden because they would be too small to be readable, given the logarithmic scale.)",
+      "page": 2
+    },
+    {
+      "image": "2605.05179_figures/2605.05179_fig2.jpg",
+      "caption": "Figure 2: Performance of all versions of our algorithm for different networks of width 256 and K varying from 1 to 4. All 4 versions are identical for K = 1, and the factorized versions are identical to their unfactorized counterparts for K = 2. (Error bars hidden because they would be too small to be readable.)",
+      "page": 7
+    },
+    {
+      "image": "2605.05179_figures/2605.05179_fig3.jpg",
+      "caption": "Figure 3: Width scaling of the basic and ablated versions of our algorithm on networks with 4 hidden layers. Dashed lines are those with the predicted large-n slope passing through the rightmost point. Error bars show ±1 standard error over 5 random seeds.",
+      "page": 8
+    },
+    {
+      "image": "2605.05179_figures/2605.05179_fig4.jpg",
+      "caption": "Figure 4: Performance of the factorized version of our algorithm with K = 3 at low probability estimation. Error bars show ±1 standard error, with 205 random seeds used across the 7 buckets.",
+      "page": 9
+    },
+    {
+      "image": "2605.05179_figures/2605.05179_fig5.jpg",
+      "caption": "Figure 5: Learning curves for distillation of a random teacher MLP with width 16 into a student MLP with width 8, both with 4 hidden layers.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.05179_figures/2605.05179_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

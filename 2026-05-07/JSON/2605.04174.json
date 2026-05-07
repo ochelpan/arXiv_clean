@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2605.04174",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Transferable Machine Learning Approach to Predict Optimized Orbitals for Electronic Structure Problems",
+  "authors": "Lucas van der Horst, Maniraman Periyasamy, Abhishek Y. Dubey, Davide Bincoletto, Jakob S. Kottmann, Daniel D. Scherer",
+  "abstract": "Variational quantum eigensolver ansätze hold considerable promise for ground-state energy calculations on near-term quantum hardware, yet most promising ansatz designs currently strongly depend on how well the molecular orbital basis captures the electronic correlation of the system. Computing optimized orbital coefficients via classical routines is computationally expensive and must be performed independently for each molecular geometry -- a bottleneck that limits scalability across chemical space. We present a graph neural network framework that predicts optimized orbital coefficients directly from molecular geometry and pair-wise bonding structure. Trained on hydrogenic systems of modest size ($H_4$ and $H_6$) across tens of thousands of geometries, our model transfers to larger, unseen systems ($H_8$, $H_{10}$ and $H_{12}$) without retraining -- demonstrating strong out-of-distribution generalization with respect to system size. When evaluating on structured and random configurations, and comparing against energies obtained with full classical optimization, our model reaches mean absolute energy errors $\\mathcal{O}(10^2)$ and $\\mathcal{O}(10)$ milli-Hartrees, respectively. Beyond energy estimation, the predicted orbitals serve as high-quality warm-start initializations that substantially reduce optimizer iterations to ground-state energy convergence. These results establish graph neural networks as an effective and scalable strategy for accelerating orbital optimization in hybrid quantum-classical workflows, directly reducing the classical pre-processing overhead that currently limits the practical deployment of variational quantum eigensolver on near-term quantum hardware.",
+  "url": "http://arxiv.org/abs/2605.04174v1",
+  "pdf": "https://arxiv.org/pdf/2605.04174v1",
+  "type": "theory",
+  "summary": "The paper presents a Graph Neural Network approach to predict optimized molecular orbitals directly from geometry. This method allows for much faster setup of VQE simulations and generalizes to larger molecular systems without retraining, significantly accelerating the hybrid quantum-classical workflow.",
+  "main_problem": "The computational bottleneck in VQE workflows caused by the need to re-optimize molecular orbital coefficients via expensive classical routines for every new molecular geometry.",
+  "main_result": "A transferable Graph Neural Network (GNN) that predicts optimized orbital coefficients, achieving 30x faster inference than classical optimization and providing high-quality warm-starts that significantly reduce convergence iterations.",
+  "method": "A dual-scale GNN architecture using fine and coarse interaction cutoffs to predict the entries of an antisymmetric generator matrix, trained on small hydrogenic systems and tested on larger, unseen systems.",
+  "model_or_system": "Hydrogenic molecular systems (H4, H6, H8, H10, H12) using the Separable Pair Approximation (SPA) ansatz and the Hard-Core Boson (HCB) approximation within a VQE framework.",
+  "key_observables": "Mean absolute energy errors (in milli-Hartrees) and reduction in optimizer iterations for ground-state energy convergence.",
+  "important_parameters": "Interaction scales of r_fine = 2.5 A and r_coarse = 5.0 A; dissociation regime (1.5-4.0 A) and bonding regime (0.5-1.5 A).",
+  "main_assumptions": "The model is currently limited to hydrogenic systems in a minimal STO-3G basis and assumes real-valued orthogonal orbital rotation matrices.",
+  "figures_summary": "Figure 1 shows the GNN pipeline from mapping to energy computation; Figure 2 displays energy distributions for different geometries; Figure 3 compares potential energy curves for predicted vs. classical energies and shows the impact of warm-starting; Figure 4 visualizes orbital shape transformations.",
+  "paper_structure": "The paper introduces the VQE orbital optimization bottleneck, describes the GNN architecture and feature engineering (node/edge descriptors), presents training on small systems and transferability tests on larger systems, and concludes with error analysis and future directions for end-to-end automation.",
+  "why_interesting": "It addresses a critical scalability bottleneck in NISQ-era algorithms by using machine learning to automate the classical pre-processing required for variational quantum chemistry.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.04174_figures/2605.04174_fig1.jpg",
+      "caption": "Fig. 1: Complete pipeline for transferable orbital prediction. Stage 0): a molecular system is mapped to paired hydrogenic configurations under the Separable Pair Approximation (SPA), yielding a pairwise bonding graph Gopt, whose geometry is inherited directly from the physical atomic coordinates. Stage 1) Construct the enriched molecular representation ˜ M from three complementary graph structures: the complete graph Gcomplete, the radius graph Gcut retaining only neighbors within the cutoff rcut and the Givens rotation guess matrix Minit encoding the pairwise bonding structure. Stage 2) Construct physically motivated node and edge descriptors from the 3D atomic positions {r1, . . . , rN}...",
+      "page": 3
+    },
+    {
+      "image": "2605.04174_figures/2605.04174_fig2.jpg",
+      "caption": "Fig. 2: Predictions on random molecular geometries. En- ergy distributions comparing SPA energies computed from predicted orbital matrices against the classically optimized reference for out-of-distribution system sizes, across three ran- dom geometry families: random linear (a), random planar (b), and random 3D (c). Our model achieves mean absolute energy errors of O(10) mEh relative to the classically optimized reference, demonstrating that the architecture successfully generalizes the relationship between molecular geometry and optimal orbital structure to larger, unseen systems.",
+      "page": 7
+    },
+    {
+      "image": "2605.04174_figures/2605.04174_fig3.jpg",
+      "caption": "Fig. 3: Predictions and warm-start evaluation on structured hydrogenic geometries. Potential energy curves for equidistant linear configurations (a) and ring configurations (b), comparing SPA energies computed from predicted orbital matrices (dashed) against the classically optimized SPA reference (solid), across both in-distribution sizes (H4 and H6) and out-of-distribution sizes (H8, H10 and H12). The model reproduces the reference curves closely in the dissociation regime (1.5, 4.0) ˚A, while larger deviations are observed in the bonding regime (0.5, 1.5) ˚A. For equidistant linear geometries, the mean absolute errors over the full dataset are 96.0, 122.9, and 170.0 mEh for H8, H10 and...",
+      "page": 8
+    },
+    {
+      "image": "2605.04174_figures/2605.04174_fig4.jpg",
+      "caption": "Fig. 4: Visualization of Native (top) and SPA (bottom) orbitals of the H4 molecule. Each 3D visualization represents one column of the respective orbital coefficient matrix.",
+      "page": 11
+    }
+  ],
+  "figure": "2605.04174_figures/2605.04174_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

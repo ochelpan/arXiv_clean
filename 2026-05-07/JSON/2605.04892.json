@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2605.04892",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Real-time Surface-Code Error Correction Using an FPGA-based Neural-Network Decoder",
+  "authors": "Xiaohan Yang, Xuandong Sun, Zhiyi Wu, Jiawei Zhang, Ji Jiang, Xiayu Linpeng, Yuxuan Zhou, Ji Chu, Jingjing Niu, Youpeng Zhong, Song Liu, Dapeng Yu",
+  "abstract": "Quantum error correction (QEC) is essential for achieving low error rates required for fault-tolerant quantum computation. In stabilizer-based codes such as the surface code, errors are inferred from repeated syndrome measurements and corrected by a classical decoder. To prevent error accumulation, decoding must be performed with both high throughput and low latency to keep pace with the QEC cycle and enable real-time feedback for universal logical operations. Here we report a hardware-integrated control architecture featuring an FPGA-based neural-network (NN) decoder and experimentally demonstrate real-time surface-code (distance-3) QEC on a superconducting quantum processor. The system achieves a deterministic closed-loop latency of 550 ns, including 124 ns for NN decoding, enabling feedback corrections within a 1.25 us QEC cycle. We show that real-time decoding and feedback correction achieve logical performance comparable to offline decoding while maintaining robustness against varying error conditions. We further demonstrate mid-circuit feedback correction in non-Clifford logical circuits, where Pauli-frame updating alone becomes insufficient. Our results establish a low-latency hardware architecture for embedded QEC control and provide a pathway towards scalable fault-tolerant quantum computing systems.",
+  "url": "http://arxiv.org/abs/2605.04892v1",
+  "pdf": "https://arxiv.org/pdf/2605.04892v1",
+  "type": "experiment",
+  "summary": "This paper presents a hardware-integrated architecture using an FPGA-based neural network to perform real-time surface-code error correction. By achieving sub-microsecond closed-loop latency, the system enables active mid-circuit feedback necessary for non-Clifford operations. This provides a scalable pathway toward the low-latency control required for large-scale fault-tolerant quantum computing.",
+  "main_problem": "The need for real-time, low-latency quantum error correction (QEC) to prevent error accumulation and enable mid-circuit feedback for non-Clifford gates in fault-tolerant quantum computing.",
+  "main_result": "Demonstrated a hardware-integrated FPGA-based neural-network decoder that achieves a 550 ns closed-loop latency, providing real-time surface-code QEC with performance comparable to offline decoding.",
+  "method": "An LSTM-based neural network decoder is implemented on an AMD Kintex-7 FPGA using 6-bit integer quantization and a pipelined architecture to process syndrome data in real-time.",
+  "model_or_system": "A 17-qubit subset of a 66-qubit superconducting quantum processor implementing a distance-3 rotated surface code.",
+  "key_observables": "Logical error rates, logical state fidelity, oscillation amplitude of the expectation value <Z_L> during logical rotations, and closed-loop latency.",
+  "important_parameters": "Closed-loop latency of 550 ns, QEC cycle time of 1.25 us, decoding latency of 124 ns, and 6-bit quantization for the NN weights.",
+  "main_assumptions": "The scalability of the decoder is limited by FPGA resource consumption (DSP slices) as the code distance increases; the decoder accuracy assumes the effectiveness of 6-bit quantization and piecewise linear activation approximations.",
+  "figures_summary": "Figure 1 shows the experimental setup and QEC workflow; Figure 2 details the FPGA-integrated LSTM architecture and compares logical fidelity of the NN decoder against offline MWPM; Figure 3 demonstrates mid-circuit feedback effectiveness in non-Clifford circuits.",
+  "paper_structure": "Introduction to QEC challenges, description of the hardware-integrated architecture (FPGA/NN decoder), experimental implementation on a superconducting processor, performance evaluation (latency and error rates), demonstration of non-Clifford gate feedback, and discussion on scalability and hardware limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.04892_figures/2605.04892_fig1.jpg",
+      "caption": "FIG. 1. System architecture and real-time QEC workflow. a, Schematic of the experimental setup, showing in- house room-temperature control electronics connected to a 66-qubit superconducting quantum processor operating at cryogenic temperatures. The control electronics integrate data acquisitions (DAQs, orange) for acquiring measurement signals, arbitrary waveform generators (AWGs, green) for generating qubit control pulses, and a central feedback module (CFM, purple) with a NN decoder. A 17-qubit subset is used to implement the distance-3 surface code: data qubits (D1–D9) store the logical information, while ancilla qubits (A1–A8) perform Z (light blue) and X (dark blue) stabilizer...",
+      "page": 2
+    },
+    {
+      "image": "2605.04892_figures/2605.04892_fig2.jpg",
+      "caption": "FIG. 2. FPGA-integrated neural-network decoder. a, FPGA implementation of the recurrent neural-network decoder. X-type and Z-type decoders process syndrome inputs xn from X and Z stabilizers, respectively, and output logical flip instruc- tions. The LSTM layer maintains temporal memory via recurrent cell state cn and hidden state hn, using gating mechanisms (in, fn, ˜cn, on). Pre-trained weight matrices (W α x , W α h , Wd, α ∈{i, f, c, o}) and bias vectors (bα x, bd) are quantized to 6-bit integers for efficient FPGA implementation. The critical path comprises four pipelined stages (red arrows), while memory updates (green) run in parallel, preserving low feedback latency. b, Fidelity of...",
+      "page": 3
+    },
+    {
+      "image": "2605.04892_figures/2605.04892_fig3.jpg",
+      "caption": "FIG. 3. Real-time QEC. a, Logical memory circuit with repeated stabilizer measurements and real-time feedback. A delay is inserted after each measurement to accommodate the feedback latency, and a final PFU corrects residual errors detected during logical measurement. The right panel shows logical |0L⟩fidelity (inset, n = 1) versus the delay time. Delays shorter than the closed-loop latency (550 ns) prevent the decoder output from reaching the AWG in time, corresponding to an infeasible operating regime (purple). b, Logical-state fidelities as a function of QEC rounds n with final-round feedback. Results are shown with (red) and without (grey) the final PFU, compared with uncorrected data...",
+      "page": 4
+    },
+    {
+      "image": "2605.04892_figures/2605.04892_fig4.jpg",
+      "caption": "FIG. 4. Real-time QEC in a non-Clifford logical cir- cuit. a, Circuit (blue background) implementing a logi- cal rotation about the XL axis. Without feedback correc- tion (green dashed), stochastic Pauli errors (red)—introduced via injected rotation gates (lightning) and subsequent stabi- lizer measurements (yellow)—can evolve into non-Pauli errors (purple dashed) after the RZ(φ) rotation and propagate to multiple data qubits through subsequent entangling gates. b, Experimental demonstration of a non-Clifford logical rotation with mid-circuit QEC (top: experimental circuit). Effective stochastic Pauli X and Z errors are generated by applying X(θ) and Z(θ) rotations on qubits D2 and D6 prior...",
+      "page": 5
+    }
+  ],
+  "figure": "2605.04892_figures/2605.04892_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

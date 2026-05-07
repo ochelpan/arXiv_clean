@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.04459",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Triage: An Adaptive Parallel Window Decoding Scheduler for Real-time Fault-Tolerant Quantum Computation",
+  "authors": "Jiahan Chen, Chenghong Zhu, Ge Bai, Xin Wang",
+  "abstract": "Fault-tolerant quantum computation (FTQC) critically depends on real-time classical decoding, which is rapidly emerging as a system bottleneck. As quantum systems scale, decoding latency and throughput limitations lead to exponential syndrome backlogs and logical operation stalls. While hardware accelerators and parallel windowing offer pathways to speed up decoding, dynamically deploying a finite pool of decoders across a vast quantum error correction architecture remains an unresolved resource allocation problem.   To address this, we formulate FTQC decoding as a constrained dynamic scheduling problem by utilizing a spatio-temporal framework based on slices. We propose Triage, a dual-mode architecture that mitigates operation stalls by adaptively combining a cost-efficient heuristic scheduler with a priority-aware emergency mode to rapidly resolve the causal cone of critical operations. Our evaluation shows that Triage maintains low algorithm stalls and logical error rates even under scarce classical resource constraints. Across various benchmarks, Triage achieves an average logical error rate reduction of 52.6% compared to standard temporal parallelism, enabling an efficient classical control plane for scalable FTQC architectures.",
+  "url": "http://arxiv.org/abs/2605.04459v1",
+  "pdf": "https://arxiv.org/pdf/2605.04459v1",
+  "type": "theory",
+  "summary": "This paper proposes 'Triage,' an adaptive scheduler designed to manage the classical computational load of real-time error correction in large-scale quantum computers. By dynamically allocating a finite pool of decoders between routine tasks and critical operations, it prevents the accumulation of syndrome backlogs. This approach significantly reduces logical error rates in resource-constrained environments.",
+  "main_problem": "The real-time decoding bottleneck in fault-tolerant quantum computing (FTQC), where classical decoding latency leads to syndrome backlogs and logical operation stalls, especially during critical non-Clifford gates.",
+  "main_result": "The Triage scheduler achieves an average reduction in logical error rate of 52.6% compared to standard temporal parallelism by adaptively managing decoder resources.",
+  "method": "A dual-mode adaptive parallel window decoding scheduler that uses a heuristic-based 'Steady Mode' for routine tasks and a priority-aware 'Emergency Mode' to resolve critical causal cones.",
+  "model_or_system": "A scalable FTQC architecture utilizing surface codes and lattice surgery for logical operations, modeled using a spatio-temporal 'slice' and 'tile' framework.",
+  "key_observables": "Logical Error Rate (LER), decoding latency, decoding throughput, algorithm/logical operation stalls, and number of inserted idle syndrome layers.",
+  "important_parameters": "Decoder count (M), number of logical patches (N), code distance (d), decoding time vs. syndrome generation time, and the causal cone of critical operations.",
+  "main_assumptions": "The decoder latency follows a mean-preserving lognormal distribution; the focus is primarily on surface code architectures.",
+  "figures_summary": "Figure 1 compares traditional vs. Triage decoding and shows the resource landscape; Figure 2 shows surface code stabilizer extraction; Figure 3 abstracts patches as tiles; Figure 4 illustrates T-gate implementation; Figure 6 shows a causal cone; Figure 11 shows decoder utilization; Figure 14 shows an optimal scheduler map.",
+  "paper_structure": "The paper introduces the decoding bottleneck, defines the spatio-temporal scheduling problem, proposes the Triage dual-mode architecture (Steady and Emergency modes), details the algorithmic implementation (Predictive Causal Cone Coloring), and validates the approach through large-scale simulations across various resource-constrained regimes and benchmarks.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.04459_figures/2605.04459_fig1.jpg",
+      "caption": "Fig. 1. Navigating the FTQC Decoding Bottleneck. (a) Traditional decoding leads to large idle stalls, while Triage employs spatio-temporal windows and prioritizes the causal cone to effectively reduce the latency. (b) Triage achieves better performance in the near-term, resource-constrained landscape.",
+      "page": 1
+    },
+    {
+      "image": "2605.04459_figures/2605.04459_fig2.jpg",
+      "caption": "Fig. 2. Example rotated surface code of distance d = 3. a) The code is defined by a set of X- and Z-type stabilizer checks used for syndrome extraction. b) and c) Syndrome extraction circuits for the X and Z stabilizers, respectively.",
+      "page": 3
+    },
+    {
+      "image": "2605.04459_figures/2605.04459_fig3.jpg",
+      "caption": "Fig. 4. T-gate implementation via gate teleportation. The classically-controlled S-gate correction forces a decoder synchronization by physically correcting the Pauli frame.",
+      "page": 3
+    },
+    {
+      "image": "2605.04459_figures/2605.04459_fig4.jpg",
+      "caption": "Fig. 3. (a) Abstract view of the surface code as a patch. (b–d) Summary of the logical operations that can be performed.",
+      "page": 3
+    },
+    {
+      "image": "2605.04459_figures/2605.04459_fig5.jpg",
+      "caption": "Fig. 5. Spatio-temporal partitioning of a lattice surgery operation. (a) The monolithic operation volume. (b) It is decomposed into a graph of causally- constrained slices, where red edges represent mutual exclusion constraints. (c) The graph is 2-colored, which partitions all slices into two independent sets, and each set can be decoded in parallel.",
+      "page": 4
+    }
+  ],
+  "figure": "2605.04459_figures/2605.04459_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

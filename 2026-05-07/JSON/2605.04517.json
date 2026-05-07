@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.04517",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "cond-mat.str-el",
+    "physics.atom-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Angular Gausslets",
+  "authors": "Steven R. White",
+  "abstract": "Gausslets are one of the few basis constructions for electronic structure that combine locality, orthonormality, variable resolution, and an accurate diagonal approximation for the electron-electron interaction, but the original construction is tied to one dimension. Radial gausslets extended this idea to atoms while leaving the angular degrees of freedom in spherical harmonics, so the atomic interaction remained only partially diagonal in the combined basis. Here we introduce generalized gausslets on the sphere and combine them shell by shell with radial gausslets to form an atom-centered basis in which the electron-electron interaction takes a two-index integral-diagonal form. The angular basis starts from localized spherical Gaussians and uses injection to make a low-$\\ell$ spherical-harmonic subspace exact. Tests of the kinetic spectrum, low-$\\ell$ Coulomb matrix elements, spherium, first-row Hartree--Fock calculations, and He exact diagonalization show systematic convergence with increasing angular resolution. We also develop DMRG methods for this basis, including compact MPOs, correlated small-space starting states, Givens-rotation transfers between nearby angular sizes, and embedded sampled variance extrapolation (ESVE). We show that this combination of ingredients can be used to solve the Be atom, with extrapolations in the number of angular functions but with fixed radial resolution, to within about 0.1 mH of the complete basis set limit exact energy. This shows that DMRG calculations of first row atoms which include both static and accurate dynamic correlation on the same footing are feasible.",
+  "url": "http://arxiv.org/abs/2605.04517v1",
+  "pdf": "https://arxiv.org/pdf/2605.04517v1",
+  "type": "theory",
+  "summary": "The paper introduces 'Angular Gausslets,' a new 3D localized basis set designed for efficient atomic electronic structure calculations. By using an integral diagonal approximation, the authors reduce the complexity of the electron-electron interaction, enabling high-precision DMRG simulations of atoms. This approach allows for the simultaneous treatment of static and dynamic correlation with microhartree accuracy.",
+  "main_problem": "Extending the 1D Gausslet basis construction to 3D to create a localized, orthonormal basis for atomic electronic structure that allows for an efficient, two-index approximation of the electron-electron interaction.",
+  "main_result": "The development of 'Angular Gausslets' enables highly accurate DMRG calculations of first-row atoms, achieving microhartree precision for the Be atom by combining localized angular/radial bases with advanced extrapolation techniques.",
+  "method": "The method uses localized spherical Gaussians with an 'injection' technique to ensure exact low-angular-momentum coverage, combined with an Integral Diagonal Approximation (IDA) to compress the four-index Coulomb tensor into a two-index form, and utilizes ESVE for energy extrapolation.",
+  "model_or_system": "The study focuses on the electronic structure of atoms, specifically the first-row atoms (B, C, N, O, F, Ne) and the Helium atom, using an atom-centered Hamiltonian with a one-electron part and a two-electron Coulomb interaction.",
+  "key_observables": "Ground-state energy, kinetic energy spectrum, Coulomb matrix elements, occupancy-weighted leakage, and local energy variance.",
+  "important_parameters": "Angular resolution (number of centers N_Omega), width parameter (beta), radial scale (s), and the angular momentum injection limit (L_inj).",
+  "main_assumptions": "Assumes basis functions behave as localized bumps with short oscillatory tails and that the wavefunction varies slowly over the local neighborhood of the basis functions.",
+  "figures_summary": "Figure 1 compares 1D Gaussian localization; Figures 2-3 illustrate the effectiveness of the injection method; Figure 4 shows the spatial localization of angular basis functions; Figure 5 shows the recovery of the kinetic energy spectrum; Figure 7 shows Hartree-Fock energy convergence; Figure 11 shows the final energy extrapolation.",
+  "paper_structure": "The paper begins with the 1D Gausslet construction, moves to the 2D spherical angular Gausslet derivation and optimization, extends the basis to a 3D radial-angular combination, introduces the two-index IDA for the Coulomb interaction, and concludes with DMRG implementation, wavefunction transfer, and energy extrapolation benchmarks.",
+  "why_interesting": "This work provides a highly efficient numerical framework for solving 3D many-body problems, offering a scalable way to handle the computational bottleneck of the four-index Coulomb interaction in atomic systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.04517_figures/2605.04517_fig1.jpg",
+      "caption": "FIG. 1. Centered orthonormalized Gaussian functions on the periodic 1D line for β = 1, 2, 4, compared with the Fourier- localized packet formed from the same number of plane waves. The Fourier-localized function has long range oscillatory tails, while the orthonormalized Gaussians are much more local. In this test calculation, the length of the periodic line was 41, long enough to clearly show tails.",
+      "page": 3
+    },
+    {
+      "image": "2605.04517_figures/2605.04517_fig2.jpg",
+      "caption": "FIG. 3. Effect of injection for the sweet-spot case β = 2. The injected localized function lies almost on top of the original orthonormalized Gaussian, while now containing the exact low-momentum content of the injected subspace.",
+      "page": 4
+    },
+    {
+      "image": "2605.04517_figures/2605.04517_fig3.jpg",
+      "caption": "FIG. 2. Best fit to the constant function within the orthonor- malized Gaussian span. The Fourier curve is exactly constant. The narrow β = 4 Gaussians show strong oscillatory errors in the constant fit, while β = 2 and especially β = 1 represent the low-momentum sector much more accurately.",
+      "page": 4
+    },
+    {
+      "image": "2605.04517_figures/2605.04517_fig4.jpg",
+      "caption": "FIG. 5. Kinetic-energy eigenvalues for the angular basis with N = 32 optimized centers. This is a purely angular calculation on a sphere of radius R = 1, with no radial degrees of freedom, corresponding to the one-particle angular Hamiltonian used in spherium. The black circles show the exact spherical-harmonic shell sequence ℓ(ℓ+ 1)/2 with degeneracies 2ℓ+ 1, ordered by eigenvalue index n. The red stars are the eigenvalues of the final injected basis, and the blue diamonds are those of the corresponding basis without injection. For N = 32 the injected subspace has Linj = 3, so the first (Linj + 1)2 = 16 states, corresponding to the ℓ= 0, 1, 2, 3 shells, should be exact. This is seen...",
+      "page": 6
+    },
+    {
+      "image": "2605.04517_figures/2605.04517_fig5.jpg",
+      "caption": "FIG. 4. Great-circle cuts through representative localized angular basis functions for optimized sphere point sets with N = 15, 32, and 51 centers (top to bottom). For the three point sets shown, the injected spherical-harmonic subspace was chosen as the largest complete low-ℓblock satisfying (Linj+ 1)2 ≤N/2, giving Linj = 1 (NY = 4) for N = 15, Linj = 3 (NY = 16) for N = 32, and Linj = 4 (NY = 25) for N = 51. For each N, one final injected basis function is evaluated along four great circles through its center, with tangent directions separated by 45◦. The horizontal axis s is the signed angular distance along the great circle, in radians, and the curves for N = 32 and N = 15 are shifted...",
+      "page": 6
+    }
+  ],
+  "figure": "2605.04517_figures/2605.04517_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

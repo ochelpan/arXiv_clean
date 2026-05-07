@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.04748",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Automated Circuit Depth Reduction of Quantum Subroutines via Compilation",
+  "authors": "Folkert de Ronde, Stephan Wong, Sebastian Feld",
+  "abstract": "Optimizing quantum circuits by reducing circuit depth is essential for improving the efficiency and scalability of quantum algorithms, particularly as quantum hardware continues to evolve. This can be achieved by restructuring quantum algorithms to allow more parallelism. A compiler is needed to automatically detect and apply these optimizations. In this work, we focus on the optimization of two fundamental quantum subroutines: GHZ state creation and CNOT/CZ chain decomposition. Traditional implementations of these subroutines suffer from linearly increasing circuit depth, which limits scalability. We propose a compiler-driven approach that automatically detects and optimizes these two fundamental quantum subroutines. Our approach reduces circuit depth through constant-depth GHZ state creation, constant depth CZ chain decomposition, and logarithmic depth recursive CNOT chain decomposition, which enhance parallel execution. Performance analysis of benchmarked algorithms shows significant reductions in depth. However, our solution also results in an increased gate count, which makes our optimization a trade-off. The gate count for the CNOT chains is doubled, where logarithmic depth reduction is achieved. The reduced circuit depth results in more efficient algorithms by reducing execution time.",
+  "url": "http://arxiv.org/abs/2605.04748v1",
+  "pdf": "https://arxiv.org/pdf/2605.04748v1",
+  "type": "theory",
+  "summary": "This paper presents an automated compiler designed to reduce the circuit depth of fundamental quantum subroutines like GHZ state creation and CNOT/CZ chains. By transforming sequential gate structures into parallelized versions, the compiler significantly reduces execution time and noise susceptibility, though it introduces a trade-off by increasing the total gate count.",
+  "main_problem": "Quantum algorithms suffer from increasing circuit depth as they scale, leading to higher susceptibility to noise and longer execution times. Specifically, fundamental subroutines like GHZ state creation and CNOT/CZ chains often use sequential implementations that are not optimized for parallelism.",
+  "main_result": "The development of a compiler-driven approach that automatically detects and transforms sequential subroutines into parallelized versions, achieving logarithmic depth for CNOT chains and constant depth for CZ chains and GHZ state creation, albeit with an increased gate count.",
+  "method": "A configurable compiler uses a single-pass detection algorithm to identify CNOT/CZ chains and GHZ structures, applying recursive decomposition for CNOTs and parallel layering for CZs, with a preference-based strategy to trade off gate count against depth.",
+  "model_or_system": "The work focuses on quantum circuit compilation for NISQ-era hardware, specifically targeting architectures utilizing CNOT (CX), CZ, and single-qubit rotation gates (RX, RY, RZ).",
+  "key_observables": "Circuit depth, gate count, measurement count, and error susceptibility (decoherence, depolarization, and measurement noise).",
+  "important_parameters": "Qubit counts ranging from 5 to 95; optimization modes (Conservative vs. Always); and VQE ansatz types (EfficientSU2, RealAmplitudes, TwoLocal).",
+  "main_assumptions": "The optimization is most effective for chains longer than 5 gates; the depth evaluation is limited to a local scope (the chain plus the next 100 operations) to maintain computational efficiency.",
+  "figures_summary": "Figures 1-3 compare different GHZ generation schemes (linear, logarithmic, and constant depth); Figures 4-6 illustrate the evolution and decomposition of CNOT and CZ chains; Figure 7 shows commutation rules; Figure 8 shows intertwined chain optimization; Figure 9 is a detection algorithm flowchart; and Figures 10-14 present performance benchmarks across various VQE configurations.",
+  "paper_structure": "The paper introduces the problem of circuit depth, describes the compiler's detection and transformation algorithms for specific subroutines, details the optimization strategies for GHZ and CNOT/CZ chains, presents performance analysis via benchmarks and VQE integration, and discusses the inherent trade-offs and limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.04748_figures/2605.04748_fig1.jpg",
+      "caption": "Fig. 1: Circuit representation of a standard GHZ state generation in a configuration linear to the number of qubits. Gates in between dotted lines can be executed in parallel.",
+      "page": 3
+    },
+    {
+      "image": "2605.04748_figures/2605.04748_fig2.jpg",
+      "caption": "Fig. 2: Circuit representation of an improved GHZ state generation scheme with depth logarithmic in the number of qubits. Gates in between dotted lines can be executed in parallel.",
+      "page": 3
+    },
+    {
+      "image": "2605.04748_figures/2605.04748_fig3.jpg",
+      "caption": "Fig. 3: Circuit representation of an improved GHZ state generation scheme with constant depth. The design allows gates to be added fully in parallel as the number of qubits increases. The Z symbol denotes measurement in the Z basis.",
+      "page": 3
+    },
+    {
+      "image": "2605.04748_figures/2605.04748_fig4.jpg",
+      "caption": "Fig. 4: (a) Circuit representation of a standard forward CNOT chain, exhibiting linear depth in the number of involved qubits. (b) Representation of an improved CNOT chain circuit by using the gate property shown in Fig. 5c that reduces the circuit depth by half. (c) Circuit representation of the recursive application of the method shown in (b), repeated until no further improvement is possible. The recursive approach achieves a circuit depth logarithmic in the number of qubits.",
+      "page": 5
+    },
+    {
+      "image": "2605.04748_figures/2605.04748_fig5.jpg",
+      "caption": "Fig. 5: (a) Circuit representation of a standard reversed CNOT chain, exhibiting linear depth in the number of qubits. (b) Recursive implementation of the reversed CNOT chain, where the optimization process is applied iteratively until no further improvement is possible. This results in logarithmic depth. (c) Gate transformation rule used to obtain the improved CNOT chain solution.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.04748_figures/2605.04748_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

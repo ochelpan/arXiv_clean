@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.04974",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Symmetric estimator for discrete self-energy of discrete many-body systems",
+  "authors": "Aleksandrs Zacinskis, Frank T. Ebel, Mathias Pelz, Fabian B. Kugler, Karsten Held, Jan von Delft, Maurits W. Haverkort, Andreas Gleis",
+  "abstract": "We derive a discrete spectral representation of the single-particle self-energy using a discrete evaluation of Kugler's symmetric improved estimator. Our construction can be used on both the real and the complex (Matsubara) frequency axis. It is guaranteed to remain causal at the numerical level, in contrast to standard approaches that may generate unphysical negative spectral weight or require additional broadening. Our representation can be used for any Hamiltonian; here we apply it to quantum impurity models and in dynamical mean-field theory. The latter is formulated with a discrete hybridization function throughout its self-consistency loop. In both cases and across various numerical methods, we obtain significantly improved accuracy for a range of impurity properties.",
+  "url": "http://arxiv.org/abs/2605.04974v1",
+  "pdf": "https://arxiv.org/pdf/2605.04974v1",
+  "type": "theory",
+  "summary": "The paper presents a new numerical method to calculate the self-energy of discrete many-body systems without the instability and causality issues found in standard Dyson equation subtraction. By using a symmetric estimator based on the Schur complement, the method ensures physical spectral weights and improves accuracy in DMFT calculations. It is compatible with various many-body solvers including NRG, DMRG, and Krylov-based methods.",
+  "main_problem": "Calculating the single-particle self-energy in discrete many-body systems is numerically unstable due to the subtraction of nearly canceling quantities in the Dyson equation, often leading to causality violations and unphysical negative spectral weight.",
+  "main_result": "The authors derive a symmetric estimator for the discrete self-energy that is guaranteed to remain causal at the numerical level and avoids the need for artificial broadening. This method achieves significantly improved accuracy for impurity properties and allows for a consistent discrete DMFT self-consistency loop.",
+  "method": "The method uses a discrete realization of Kugler's symmetric improved estimator, treating the self-energy as the Schur complement of an augmented Green's function. It involves a three-step process of inversion, projection, and re-inversion of a matrix-valued propagator.",
+  "model_or_system": "The method is applicable to any discrete many-body Hamiltonian, specifically focusing on quantum impurity models (like the Single-Impurity Anderson Model) and the Hubbard model on a Betra lattice.",
+  "key_observables": "Single-particle self-energy, Green's functions, hybridization function, quasiparticle weight (Z), scattering-rate coefficient (C), and double occupancy.",
+  "important_parameters": "Discretization parameter (Lambda), interaction strength (U/D), temperature (T), and Krylov space size (K).",
+  "main_assumptions": "The method assumes the system is a discrete many-body system with a finite number of bath poles; the Schur complement formula requires the existence of the involved matrix inverses.",
+  "figures_summary": "Figure 1 shows the discrete self-energy spectrum; Figure 3 compares double occupation across different codes; Figure 4 shows quasiparticle weight vs interaction strength; Figure 5 displays the self-energy spectrum in metallic and insulating phases; Figure 6 illustrates the effect of regularization on the quasiparticle weight.",
+  "paper_structure": "The paper introduces the problem of numerical instability in self-energy extraction, derives the symmetric estimator using the Schur complement of an augmented propagator, demonstrates implementation across various solvers (TaSK, NRG, ED), validates the approach using the Anderson impurity model and DMFT, and discusses regularization of spurious poles.",
+  "why_interesting": "This is highly relevant for many-body dynamics and open quantum systems because it provides a numerically stable way to extract spectral properties and self-energies from discrete representations (like MPS or NRG) without introducing unphysical broadening or violating causality.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.04974_figures/2605.04974_fig1.jpg",
+      "caption": "FIG. 1. Discrete self-energy spectrum {ϵ′′ i , W ′′ i } (purple dots) computed for a particle-hole symmetric SIAM with U = 2 and logarithmically discretized semicircular hybridization density of states [see Eq. (21)], using (a) TaSK with logarithmic discretization parameter Λ = 1.5 and (b) NRG with Λ = 1.7. At small discrete frequencies ϵ′′ i , we find W ′′ i ∝(ϵ′′ i )3. Due to the logarithmic spacing of ϵ′′ i , the number of weights in an interval [ω−δω, ω+δω] (with constant δω > 0) around a small frequency ω is ∝1/ω. Hence, the total spectral weight in such an interval is ∝ω2, consistent with Fermi-liquid behavior. The orange line shows Σ ′′(σ) [see Eq. (25)], the Gaussian- weighted...",
+      "page": 5
+    },
+    {
+      "image": "2605.04974_figures/2605.04974_fig2.jpg",
+      "caption": "FIG. 2. (a) Quasiparticle weight Z and (b) ω2 coefficient C of the spectral part of the self-energy for the same SIAM as in Fig. 1. We obtain Z and C either from NRG combined with RPT, or from TaSK via the discrete self-energy spectrum. The hybridization function is logarithmically discretized with discretization parameter Λ > 1 (indicated next to the symbols), and the true continuous hybridization function is recovered in the Λ →1 limit. Both Z and C depend on Λ; their true values are obtained by extrapolating to Λ = 1. The solid lines show fits to the NRG+RPT data only, while the TaSK data serves as a consistency check at Λ = 2 and Λ = 1.7, and as validation of the fit at Λ = 1.5. TaSK...",
+      "page": 6
+    },
+    {
+      "image": "2605.04974_figures/2605.04974_fig3.jpg",
+      "caption": "FIG. 3. Double occupation ⟨n↑n↓⟩as a function of interaction strength U/D for the half-filled Hubbard model on the Bethe lattice. Results obtained using discrete DMFT with Quanty and RAS DMFT.jl are compared to conventional NRG data calculated with MuNRG. The inset shows the absolute deviation ∆Γ⟨n↑n↓⟩ = |⟨n↑n↓⟩(Γ) −⟨n↑n↓⟩(discrete)| at U/D = 2 as a function of the Lorentzian broadening Γ (full width at half maximum) calculated with Quanty.",
+      "page": 8
+    },
+    {
+      "image": "2605.04974_figures/2605.04974_fig4.jpg",
+      "caption": "FIG. 4. Quasiparticle weight Z as a function of interaction strength U/D. Results from discrete DMFT (Quanty and RAS DMFT.jl) are compared with conventional NRG reference data. For small values of U, we also compare against fourth- order perturbation theory (PT) (Eq. (113) of Ref. [89]).",
+      "page": 8
+    },
+    {
+      "image": "2605.04974_figures/2605.04974_fig5.jpg",
+      "caption": "FIG. 5. Discrete self-energy spectrum {ϵ′′ i , W ′′ i } for (a) a metallic solution (U/D = 2) and (b) an insulating solution (U/D = 4). In the metallic case, Σ(ω) exhibits no poles at ω = 0, keeping the height of the Kondo peak unchanged at zero temperature, while in the insulating case, the self-energy exhibits a single pole inside the insulating gap, located at ω = 0. The residue of this pole is related to the negative second moment of the Green’s function [see Eq. (32)] and shows excellent agreement between the two codes. Particle–hole symmetry was not enforced, demonstrating the numerical stability of the solution. The insets show the respective self- energy convolved with a Gaussian...",
+      "page": 9
+    }
+  ],
+  "figure": "2605.04974_figures/2605.04974_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 4,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 3,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

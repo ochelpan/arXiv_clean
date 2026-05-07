@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.04604",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Generative Quantum-inspired Kolmogorov-Arnold Eigensolver",
+  "authors": "Yu-Cheng Lin, Yu-Chao Hsu, I-Shan Tsai, Chun-Hua Lin, Kuo-Chung Peng, Jiun-Cheng Jiang, Yun-Yuan Wang, Tzung-Chi Huang, Tai-Yue Li, Kuan-Cheng Chen, Samuel Yen-Chi Chen, Nan-Yow Chen",
+  "abstract": "High-performance computing (HPC) is increasingly important for scalable quantum chemistry workflows that couple classical generative models, quantum circuit simulation, and selected configuration interaction postprocessing. We present the generative quantum-inspired Kolmogorov-Arnold eigensolver (GQKAE), a parameter-efficient extension of the generative quantum eigensolver (GQE) for quantum chemistry. GQKAE replaces the parameter-heavy feed-forward network components in GPT-style generative eigensolvers with hybrid quantum-inspired Kolmogorov-Arnold network modules, forming a compact HQKANsformer backbone. The method preserves autoregressive operator selection and the quantum-selected configuration interaction evaluation pipeline, while using single-qubit DatA Re-Uploading ActivatioN modules to provide expressive nonlinear mappings. Numerical benchmarks on H4, N2, LiH, C2H6, H2O, and the H2O dimer show that GQKAE achieves chemical accuracy comparable to the GPT-based GQE architecture, while reducing trainable parameters and memory by approximately 66% and improving wall-time performance. For strongly correlated systems such as N2 and LiH, GQKAE also improves convergence behavior and final energy errors. These results indicate that quantum-inspired Kolmogorov-Arnold networks can reduce classical-side overhead while preserving circuit-generation quality, offering a scalable route for HPC-quantum co-design on near-term quantum platforms.",
+  "url": "http://arxiv.org/abs/2605.04604v1",
+  "pdf": "https://arxiv.org/pdf/2605.04604v1",
+  "type": "theory",
+  "summary": "This paper introduces a more efficient generative model for constructing quantum circuits used in electronic structure calculations. By replacing heavy transformer layers with quantum-inspired Kolmogorov-Arnold networks, the authors significantly reduce the classical computational cost while maintaining high accuracy for molecular energy estimations.",
+  "main_problem": "The scalability and parameter overhead of GPT-style Generative Quantum Eigensolvers (GQE) in quantum chemistry workflows, particularly as molecular active spaces and circuit lengths increase.",
+  "main_result": "The proposed GQKAE architecture achieves chemical accuracy comparable to GQE while reducing trainable parameters and memory by approximately 66% and improving wall-time performance.",
+  "method": "A generative framework that replaces standard transformer feed-forward networks with hybrid quantum-inspired Kolmogorov-Arnold network (HQKAN) modules using data re-uploading activations.",
+  "model_or_system": "The method targets molecular electronic structure problems, specifically estimating ground-state energies for systems including H4, N2, LiH, C2H6, H2O, and the H2O dimer using a UCCSD-derived operator pool.",
+  "key_observables": "Ground-state energy, chemical accuracy (error < 1.6 mHa), and potential energy surfaces (PES).",
+  "important_parameters": "Subspace truncation dimension (d_max), number of measurement shots (N_shots), and circuit sequence length (L).",
+  "main_assumptions": "The circuit sequence length L must be manually specified; the method assumes the availability of a classical simulator like CUDA-Q for evaluation.",
+  "figures_summary": "Figure 1 shows the HQKANsformer architecture; Figure 2 illustrates the GQKAE workflow; Figure 3 displays optimization history for various molecules; Figure 4 shows potential energy surfaces; Figures 6 and 7 show error convergence with respect to shots and subspace truncation.",
+  "paper_structure": "The paper introduces the scalability bottleneck of GQE, proposes the GQKAE architecture using HQKAN modules, details the training via GRPO and evaluation via QSCI, presents numerical benchmarks on various molecular systems, and discusses limitations and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.04604_figures/2605.04604_fig1.jpg",
+      "caption": "Fig. 1: Architecture of the Jiang–Huang–Chen–Goan Net- work (JHCG Net) [44]. The JHCG Net uses an encoder– processor–decoder structure, where a QKAN-based latent processor forms the Hybrid QKAN (HQKAN) module and introduces quantum-inspired nonlinear transformations in the latent space.",
+      "page": 4
+    },
+    {
+      "image": "2605.04604_figures/2605.04604_fig2.jpg",
+      "caption": "Fig. 2: Overview of the GQKAE framework. The HQKANsformer defines an autoregressive distribution over operator sequences, which are used to construct candidate quantum circuits. The generated circuits prepare trial states that are measured to obtain sampled Slater determinants. These determinants span a truncated subspace of dimension Ddmax, where the Hamiltonian is classically diagonalized to compute the QSCI energy. This energy is converted into a reward signal for updating the generative model via GRPO loss [47]. The proposed method modifies only the generative backbone, while preserving the QSCI-based evaluation workflow.",
+      "page": 5
+    },
+    {
+      "image": "2605.04604_figures/2605.04604_fig3.jpg",
+      "caption": "Fig. 3: Optimization history showing the best-so-far energy error relative to the CASCI baseline up to each iteration. Solid curves represent the mean values averaged over five independent optimization trials with different random seeds, while the shaded regions indicate one standard deviation. The horizontal dashed lines denote the chemical accuracy threshold (1.6 mHa).",
+      "page": 7
+    },
+    {
+      "image": "2605.04604_figures/2605.04604_fig4.jpg",
+      "caption": "Fig. 4: Potential energy surface of the six target molecules. Subfigures present the energy variations with respect to bond lengths, bond angles, and intermolecular distances. The predictions of GQKAE (purple squares) and GQE (green circles) are compared against HF (grey dotted lines), CCSD (grey dashed lines), SCI (red dash-dot lines), CASCI (black solid lines), and VQE (blue triangles). The sequence lengths (L) of the generated circuits were fixed based on computational efficiency tradeoffs: L = 20 for H4, L = 90 for N2, L = 70 for LiH, L = 20 for C2H6, L = 130 for H2O and L = 50 for (H2O)2.",
+      "page": 8
+    },
+    {
+      "image": "2605.04604_figures/2605.04604_fig5.jpg",
+      "caption": "Fig. 5 plots the absolute energy differences relative to CASCI on a logarithmic scale, demarcating the chemical accuracy threshold (1.6 mHa) alongside HF, CCSD, and VQE baselines. For H4, C2H6, and LiH (Fig. 5a, 5d, and 5c), both GQKAE and GQE exhibit outstanding stability and accuracy. Across all scanned distances and angles, the absolute errors remain firmly situated within or well below the chemical accuracy zone. In the case of the N2 dissociation profile (Fig. 5b), we observe a distinct phenomenon. Between the bond lengths of 1.0 ˚A and 2.0 ˚A, the standard deviations for both models expand significantly. This region corresponds to the breaking of the nitrogen triple bond, a classical...",
+      "page": 8
+    }
+  ],
+  "figure": "2605.04604_figures/2605.04604_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

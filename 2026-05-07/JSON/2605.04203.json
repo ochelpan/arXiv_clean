@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.04203",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "GHZ is All You Need: Quantum Sensing with VISTA",
+  "authors": "Oskar Novak, Christos N. Gagatsos, Narayanan Rengaswamy",
+  "abstract": "Quantum metrology holds the potential to enhance magnetic field sensing beyond current limits. However, in the presence of realistic noise, this advantage degrades to the Standard Quantum Limit. While recent algorithmic and variational techniques attempt to recover this scaling, they are hindered by stringent control requirements on the probe state that are infeasible in the near term, or by barren plateaus and interpretability issues inherent to black-box variational quantum circuits. Here, we introduce Variational Inference and Sensing with Twin Ansätze (VISTA), a closed-loop protocol that combines passive sensing, or where the probe state is left to evolve without any active control, with physics-informed variational optimization. In the VISTA framework, a probe state evolves under a Lindbladian master-equation, and is compared, via the Swap test, to a parameterized ``quantum twin\", a shallow quantum circuit designed to mimic the underlying pure-state or Lindbladian master-equation dynamics. By restricting the optimization space to the physical parameters of interest, VISTA circumvents barren plateaus. We demonstrate that by coupling the protocol with a classical optimizer and high shot counts, VISTA can temporarily achieve near-Heisenberg scaling for moderately noisy qubits over a finite range of system sizes. Furthermore, we introduce a Quasi-Normalization technique that sharpens the loss gradients, enabling simultaneous extraction of both the coherent signal $θ$ and the environmental noise rate $γ$ with low absolute error. Finally, we extend VISTA to the multi-parameter vector metrology regime, enabling simultaneous parameter extraction from a transverse-magnetic-field Hamiltonian. By eliminating the need for complex, open-loop control and processing, VISTA offers a highly practical, resource-efficient framework for near- to intermediate-term quantum sensors.",
+  "url": "http://arxiv.org/abs/2605.04203v1",
+  "pdf": "https://arxiv.org/pdf/2605.04203v1",
+  "type": "theory",
+  "summary": "The paper presents VISTA, a new variational protocol for quantum sensing that uses a 'quantum twin' circuit to mimic noisy system dynamics. By using physics-informed optimization and a new quasi-normalization technique, it overcomes barren plateaus and achieves near-Heisenberg scaling even in the presence of environmental noise. This approach allows for the simultaneous and efficient extraction of both signal and noise parameters.",
+  "main_problem": "Improving the precision of quantum parameter estimation (metrology) in the presence of environmental noise, which typically degrades scaling from the Heisenberg Limit to the Standard Quantum Limit.",
+  "main_result": "The introduction of the VISTA protocol, which achieves near-Heisenberg scaling for moderate noise and enables simultaneous estimation of signal and noise parameters using a physics-informed variational approach.",
+  "method": "A closed-loop variational protocol (VISTA) using a 'quantum twin' ansatz and a Swap Test to compare a passively evolving probe to a parameterized circuit, enhanced by a 'Quasi-Normalization' technique to sharpen gradients.",
+  "model_or_system": "An N-qubit GHZ state evolving under a Lindbladian master equation involving dephasing and amplitude damping channels, with a Hamiltonian proportional to the signal parameter theta.",
+  "key_observables": "Hilbert-Schmidt inner product, Quantum Fisher Information (QFI), parameter error (delta theta), and purity.",
+  "important_parameters": "Signal parameter (theta), noise rate (gamma), number of qubits (N), and the Heisenberg vs. Standard Quantum Limits.",
+  "main_assumptions": "The achievement of near-Heisenberg scaling may not persist in the asymptotic N to infinity limit; assumes availability of high shot counts for gradient stability.",
+  "figures_summary": "Fig 1: VISTA protocol diagram; Fig 2: Error scaling vs N; Fig 5: FFT spectrum for traditional protocol; Fig 6-7: Dephasing and Amplitude Damping ansätze; Fig 9-10: Impact of Quasi-Normalization on loss gradients and convergence; Fig 14: Vector metrology results.",
+  "paper_structure": "Introduction of the metrology problem and limitations of existing methods; description of the VISTA framework and quantum twin ansatz; introduction of the Quasi-Normalization technique; demonstration of performance in dephasing and amplitude damping models; extension to multi-parameter vector metrology; mathematical derivation of QFI lower bounds in the appendix.",
+  "why_interesting": "It provides a practical, resource-efficient framework for near-term quantum sensors by combining passive evolution with variational optimization, specifically addressing the challenge of parameter estimation in open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.04203_figures/2605.04203_fig1.jpg",
+      "caption": "FIG. 1. A diagram summarizing the VISTA metrology pro- tocol. First, the probe state is prepared and allowed to pas- sively evolve under the influence of the magnetic field and noise of its surroundings. The quantum state of the probe is then teleported to the registers of a quantum computer, while the ans¨atz state evolves, thereby mimicking the probe state’s evolution using a variational quantum circuit that acts as a digital twin. The quantum computer then performs the swap test over multiple shots, each with a fresh probe state, to compute the Hilbert-Schmidt Inner Product between the circuit ans¨atz and the probe state. Gradients for this quan- tity are computed using the Stochastic...",
+      "page": 3
+    },
+    {
+      "image": "2605.04203_figures/2605.04203_fig2.jpg",
+      "caption": "FIG. 2. For a moderate noise rate of γ = 0.005, and θ = 0.05, we can achieve near-Heisenberg scaling by employing a shot budget of 105 shots. This gives a scaling law of δθ ≈N −0.88, but this scaling can be improved to N −1 with more shots. However, in the asymptotic limit as N increases, the scaling is expected to converge towards the SQL due to noise. Re- gardless of the large-N behavior, this demonstrates that the VISTA protocol, by leveraging shots to stabilize the gradi- ents of a variational quantum algorithm, can achieve a clear metrological advantage in certain regions. Note that the em- pirical error dips beneath Heisenberg scaling due to variance in the optimizer convergence.",
+      "page": 4
+    },
+    {
+      "image": "2605.04203_figures/2605.04203_fig3.jpg",
+      "caption": "FIG. 3. Averaged Absolute error for a typical range of θ values for different-sized GHZ states with a more aggressive noise rate of γ = 0.05. We use a shot scheduler ranging from 10K to 40K shots per epoch. We notice that due to the higher noise rate, there are diminishing performance returns past N = 10, with an N = 20 GHZ state performing worse than an N = 3 GHZ state.",
+      "page": 4
+    },
+    {
+      "image": "2605.04203_figures/2605.04203_fig4.jpg",
+      "caption": "FIG. 5. FFT for extracting ˆθ from traditional protocol. For the N = 3 probe with noise rate γ = 0.11, θ = 0.23, 2500 shots per time step, and 200 timesteps for a total time of t = 1. We find ˆθ = 0.75, which is within the SQL for an N = 3 GHZ state. In comparison, our protocol, using the same parameters, yields ˆθV IST A = 0.223.",
+      "page": 5
+    },
+    {
+      "image": "2605.04203_figures/2605.04203_fig5.jpg",
+      "caption": "FIG. 4. A diagram summarizing the cascade approach for scaling to large N.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.04203_figures/2605.04203_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}
