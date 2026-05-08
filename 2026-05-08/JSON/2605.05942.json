@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.05942",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Architecture Shape Governs QNN Trainability: Jacobian Null Space Growth and Parameter Efficiency",
+  "authors": "Michael Poppel, David Bucher, Maximilian Zorn, Markus Baumann, Sebastian Wölckert, Claudia Linnhoff-Popien, Philipp Altmann, Jonas Stein",
+  "abstract": "Variational quantum circuits with angle encoding implement truncated Fourier series, and architectures arranging $N$ qubits with $L$ encoding layers each -- sharing encoding budget $E = NL$ -- generate identical frequency spectra, identical frequency redundancy, and require the same minimum parameter count for coefficient control. Despite this equivalence, trainability varies substantially with architecture shape $(N,L)$ at fixed $E$. We identify structural rank deficiency of the coefficient matching Jacobian $J$ as the mechanism responsible. For serial single-qubit architectures, we prove $\\mathrm{rank}(J) \\leq 2L+1$ regardless of parameter count $P$, with $\\dim(\\ker J) \\geq P-(2L+1)$ growing without bound -- a phenomenon we term \\emph{structural gradient starvation}: a growing fraction of parameters become structurally decoupled from the loss as $P$ increases at fixed $L$. Parallel architectures avoid this via independent phase trajectories, ensuring $σ_{\\min}(J^{(\\mathrm{par})}) > 0$ generically for $P \\leq 2E+1$, so no parameter lies in $\\ker J$. For practitioners, we further show that the two natural routes to increasing parameter count have fundamentally different effects: adding feature map (FM) layers monotonically strengthens the Jacobian QFIM eigenvalue spectrum and achieves $R^2 \\geq 0.95$ with $1.6$--$2.2\\times$ fewer parameters than adding trainable blocks across all tested architectures, while trainable blocks improve training only through the classical interpolation mechanism with no quantum-specific benefit.",
+  "url": "http://arxiv.org/abs/2605.05942v1",
+  "pdf": "https://arxiv.org/pdf/2605.05942v1",
+  "type": "theory",
+  "summary": "This paper explains why certain quantum neural network architectures fail to train even when they have sufficient expressivity. It identifies 'structural gradient starvation' in serial architectures and demonstrates that expanding the encoding budget is a much more efficient way to improve performance than simply adding more trainable layers.",
+  "main_problem": "Investigating why Variational Quantum Circuit (VQC) architectures with identical frequency spectra exhibit significantly different trainability and identifying the mechanism behind structural gradient starvation.",
+  "main_result": "The authors identify that serial architectures suffer from structural gradient starvation due to a rank-deficient Jacobian caused by phase-locking, whereas parallel architectures avoid this. They also show that increasing the encoding budget (FM route) is more parameter-efficient than adding trainable blocks.",
+  "method": "The study uses Fourier analysis of VQCs, Jacobian rank and null space analysis, and comparison of the Quantum Fisher Information Matrix (QFIM) and the Data Jacobian.",
+  "model_or_system": "Variational Quantum Neural Networks (VQNNs) using angle encoding (data re-uploading) with serial (N=1) and parallel (N>1) architectures, utilizing a Rot ansatz with CNOT ladder entanglement.",
+  "key_observables": "Jacobian rank and null space dimension, coefficient matching Jacobian (J), Quantum Fisher Information Matrix (QFIM) eigenvalue spectrum, and R-squared (R2) accuracy.",
+  "important_parameters": "Number of qubits (N), number of encoding layers (L), encoding budget (E = NL), parameter count (P), and the geometric threshold (Rmax).",
+  "main_assumptions": "The analysis assumes the circuits implement truncated Fourier series via angle encoding and focuses on the regime of regression tasks.",
+  "figures_summary": "Figure 1 shows success rates vs. parameter count; Figure 2 demonstrates phase-locking in serial vs. parallel gradients; Figure 3 compares the efficiency of the FM route vs. the trainable blocks route; Figure 4 rules out barren plateaus; Figure 5 shows Jacobian rank saturation; Figure 7 shows real-world validation on temperature data.",
+  "paper_structure": "The paper introduces the problem of architectural trainability, provides a theoretical framework using Fourier analysis, proves the phase-locking mechanism in serial circuits, compares parameter efficiency of different scaling routes, and validates findings with real-world time-series data.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.05942_figures/2605.05942_fig1.jpg",
+      "caption": "Figure 1: Trainability of data re-uploading QNNs at fixed encoding budget E = NL = 12, trained with Adam on 10 randomly drawn degree-12 Fourier targets. Left: success rate (R2 ≥0.95) vs. parameter count P. Right: mean R2 (test) vs. P. All architectures share identical frequency spectra and redundancy structure, ruling out expressivity and spectral bias as explanations.",
+      "page": 2
+    },
+    {
+      "image": "2605.05942_figures/2605.05942_fig2.jpg",
+      "caption": "Figure 2: Phase-locking in serial circuits vs. independent phase trajectories in parallel circuits. Each curve shows gj(x) = ⟨ψ⊥|∂jψ⟩∈C, normalized by its maximum magnitude, as x sweeps [0, 2π] and plotted in the complex plane. Left two panels (serial, N = 1, L = 4): parameters from the first four ansatz blocks W0, . . . , W3 trace curves lying entirely on the real axis of C, confirming that gj = hj ∈R exactly (Lemma 3.2, Appendix C): the global phase factor G = eiφ = 1 identically, so gj/gk ∈R at every x (Im(gj/gk) = 0.000 exactly). Curves are related by real scaling factors hj/hk, the direct signature of phase-locking. Right two panels (parallel, N = 2, L = 2): parameters on qubit 0...",
+      "page": 6
+    },
+    {
+      "image": "2605.05942_figures/2605.05942_fig3.jpg",
+      "caption": "Figure 3: FM route vs. trainable blocks route for N = 1 (gradient starvation) and N = 6 (high-qubit regime). Left panels: mean R2 (test) vs. parameter count P for the FM route (blue, solid) and trainable blocks route (red, dashed). Teal shading: expressivity gap (L < Lmin). Dashed gray line: R2 = 0.95 threshold. Right panels: normalized Jacobian QFIM eigenvalue spectra λi/λ1 at selected L values (FM, solid blue) and tbl values (trainable blocks, dashed red). Top row (N = 1): the spectral knee shifts rightward with each extra FM layer while remaining frozen at the theoretical rank ceiling 2Lmin + 1 = 25, despite R2 improving along both routes. Bottom row (N = 6): both routes reach R2 ≥0.95....",
+      "page": 8
+    },
+    {
+      "image": "2605.05942_figures/2605.05942_fig4.jpg",
+      "caption": "Figure 4: Gradient variance Varθ[∂kL] vs. parameter count p for degree-12 targets, separated by architecture. Median over random initializations; shaded bands show IQR. Variance is approximately constant within each architecture, with no sign of depth-dependent exponential decay.",
+      "page": 20
+    },
+    {
+      "image": "2605.05942_figures/2605.05942_fig5.jpg",
+      "caption": "Figure 5: Jacobian rank saturates at the 2E +1 ceiling for all architectures at matched P ≈3E. Median rank(J) with IQR across 100 random initializations at matched parameter counts P ≈3E (dotted gray). All architectures track the theoretical ceiling 2E + 1 (dashed black), confirming Proposition 3.3(i): the ceiling is tight and at P > 2E + 1 a fraction (P −(2E + 1))/P of parameters lie in ker J regardless of architecture. For N = 4, only E divisible by 4 are shown to ensure integer L = E/N.",
+      "page": 21
+    }
+  ],
+  "figure": "2605.05942_figures/2605.05942_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2605.05369",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Toward Hop-Independent Fidelity in Quantum Data Centers: Resource Requirements for Entanglement Purification",
+  "authors": "Mohadeseh Azari, Anoosha Fayyaz, Amy Babay, David Tipper, Prashant Krishnamurthy, Kaushik Seshadreesan",
+  "abstract": "Quantum data-center networks must distribute entanglement between QPUs over paths whose length grows with system scale, but each entanglement-swapping step reduces the quality of the raw end-to-end state. Topology, multiplexing, and repeated connection attempts can increase the number of raw end-to-end copies available for a request, yet they do not answer the central resource question: whether those copies are sufficient to remove, via entanglement purification, the fidelity loss caused by multi-hop distribution. We study this question through a topology-independent black-box model of the network. Each elementary link is modeled as a Werner state with parameter $w_0$, so ideal swapping over an $\\ell$-link path produces equal-quality raw copies with Werner parameter $w_0^\\ell$; purification succeeds if it outputs at least one state with Werner parameter at least $w_0$ with probability at least $p_{\\mathrm{th}}$. We compare recursive BBPSSW purification with higher-order $r$-to-$1$ bilocal-Clifford purification protocols of Jansen \\emph{et al.}, using an all-in recursive schedule whose success probability is computed by exact dynamic programming. The resulting resource landscapes show a threshold structure governed by the Werner entanglement condition $w_0^\\ell>1/3$ and demonstrate that multi-copy purification substantially improves both feasibility and copy efficiency. Across the evaluated grid, the Jansen family requires fewer copies than BBPSSW at more than $96\\%$ of shared feasible points; at $p_{\\mathrm{th}}=0.70$, the median copy budget drops from $268$ to $30$. These results provide a quantitative purification-resource benchmark for assessing whether future quantum data-center architectures can practically support hop-independent end-to-end entanglement quality.",
+  "url": "http://arxiv.org/abs/2605.05369v1",
+  "pdf": "https://arxiv.org/pdf/2605.05369v1",
+  "type": "theory",
+  "summary": "This paper quantifies the resources needed to maintain high-fidelity entanglement across multi-hop quantum networks. It demonstrates that using higher-order multi-copy purification protocols can drastically reduce the number of required entanglement copies, making large-scale quantum data centers more practically feasible.",
+  "main_problem": "Determining the minimum number of raw entanglement copies (copy budget) required to achieve hop-independent fidelity in quantum data center networks, specifically to recover link-level quality despite degradation from multi-hop entanglement swapping.",
+  "main_result": "Multi-copy (r-to-1) purification protocols, such as the Jansen family, are significantly more efficient than the standard BBPSSW protocol, reducing the median copy budget from 268 to 30 at a 70% success threshold and expanding the feasible operating region.",
+  "method": "The authors use a topology-independent black-box model and exact dynamic programming to compute the success probability of an 'all-in' recursive purification schedule, combined with a numerical search to find the optimal protocol configuration.",
+  "model_or_system": "A quantum data-center network model where elementary links are represented as Werner states with parameter w0, and end-to-end states are produced via ideal entanglement swapping over a path of length l.",
+  "key_observables": "Werner parameter (fidelity), success probability (P_succ), and the minimum required raw-copy budget (n0).",
+  "important_parameters": "w0 (link quality), l (path length/hops), p_th (success probability threshold), and r (purification block size).",
+  "main_assumptions": "Assumes ideal entanglement swapping without additional noise, ideal local operations during purification, no memory decoherence, and a 'swap-then-purify' abstraction.",
+  "figures_summary": "Figure 1 shows the three-stage network process; Figure 2 compares output quality vs. success probability; Figure 3 presents heatmaps of the resource landscape (copy budget) over path length and link quality; Figure 4 shows the optimal recursion depth across different regimes.",
+  "paper_structure": "The paper introduces the problem of hop-independent fidelity, defines a black-box network model, compares BBPSSW and Jansen purification protocols using dynamic programming, presents numerical results on resource scaling and efficiency, and concludes with implications for quantum data center architecture.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.05369_figures/2605.05369_fig1.jpg",
+      "caption": "Fig. 1. Schematic of the black-box setting studied in this work. First, elementary entanglement is generated across neighboring nodes. Second, routing and entanglement swapping create one or more raw end-to-end entangled pairs between the requested terminal QPUs. Third, entanglement purification may be applied to the available raw end-to-end copies to recover the quality of the final shared state. This paper focuses on the third stage: given a path length and a supply of raw end-to-end copies, we ask how many copies are required to recover elementary-link-level quality with a prescribed success probability.",
+      "page": 1
+    },
+    {
+      "image": "2605.05369_figures/2605.05369_fig2.jpg",
+      "caption": "Fig. 2. Condensed comparison of the minimum raw-copy budget n0 required for hop-independent Werner recovery. Rows correspond to two target-quality regimes, parameterized by the upper bound wth on the selected recovery target w⋆, and columns correspond to success thresholds pth. Circles denote recursive BBPSSW purification, and the labels next to the circles show the selected BBPSSW recursion depth k. Stars denote the best candidate Jansen r-to-1 configuration selected from r ∈{3, 4, 5, 6, 7}, and the labels next to the stars show the selected block size r. To avoid overcrowding the figure, the selected Jansen recursion depth is encoded by the color of the r-label: black labels indicate k =...",
+      "page": 6
+    },
+    {
+      "image": "2605.05369_figures/2605.05369_fig3.jpg",
+      "caption": "Fig. 3. Black-box resource landscape for hop-independent Werner recovery. Each panel is a heatmap over path length ℓand elementary-link Werner parameter w0. The color indicates the minimum raw-copy budget n0 required to produce at least one purified output satisfying wout ≥w0 with success probability at least pth. The top row uses recursive BBPSSW purification, while the bottom row uses the best tested Jansen r-to-1 protocol selected from r ∈{3, 4, 5, 6, 7}. The dashed curve marks the Werner entanglement boundary wℓ 0 = 1/3, equivalently w0 = 3−1/ℓ. White regions are infeasible within the explored search range, and overlaid contours show constant values of n0.",
+      "page": 7
+    },
+    {
+      "image": "2605.05369_figures/2605.05369_fig4.jpg",
+      "caption": "Fig. 4. Optimal recursion depth k associated with the minimum-copy solutions in Fig. 3. Each panel is a heatmap over path length ℓand elementary-link Werner parameter w0. The color indicates the recursion depth selected by the minimum-copy search. The top row corresponds to recursive BBPSSW purification, while the bottom row corresponds to the best tested Jansen r-to-1 configuration selected from r ∈{3, 4, 5, 6, 7}. Columns correspond to success thresholds pth ∈{0.50, 0.70, 0.99}. White regions are infeasible within the explored search range.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.05369_figures/2605.05369_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

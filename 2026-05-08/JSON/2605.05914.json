@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.05914",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum-enhanced Large Language Models on Quantum Hardware via Cayley Unitary Adapters",
+  "authors": "Borja Aizpurua, Sukhbinder Singh, Augustine Kshetrimayum, Saeed S. Jahromi, Roman Orus",
+  "abstract": "Large language models (LLMs) have transformed artificial intelligence, yet classical architectures impose a fundamental constraint: every trainable parameter demands classical memory that scales unfavourably with model size. Quantum computing offers a qualitatively different pathway, but practical demonstrations on real hardware have remained elusive for models of practical relevance. Here we show that Cayley-parameterised unitary adapters -- quantum circuit blocks inserted into the frozen projection layers of pre-trained LLMs and executed on a 156-qubit IBM Quantum System Two superconducting processor -- improve the perplexity of Llama 3.1 8B, an 8-billion-parameter model in widespread use, by 1.4% with only 6,000 additional parameters and end-to-end inference validated on real Quantum Processing Unit (QPU). A systematic study on SmolLM2 (135M parameters), chosen for its tractability, reveals monotonically improving perplexity with unitary block dimension, 83% recovery of compression-induced degradation, and correct answers to questions that both classical baselines fail -- with a sharp noise-expressivity phase transition identifying the concrete path to quantum utility at larger qubit scales.",
+  "url": "http://arxiv.org/abs/2605.05914v1",
+  "pdf": "https://arxiv.org/pdf/2605.05914v1",
+  "type": "both",
+  "summary": "This paper demonstrates a way to enhance large language models by inserting small, trainable quantum circuits into classical transformer layers. By using Cayley-parameterized adapters on real IBM quantum hardware, the authors achieved measurable improvements in model perplexity and reasoning capabilities.",
+  "main_problem": "The scaling bottleneck of classical LLM memory and the lack of practical demonstrations of quantum-enhanced LLMs on real, large-scale hardware.",
+  "main_result": "The implementation of Cayley Unitary Adapters on IBM hardware improved Llama 3.1 8B perplexity by 1.43% using only 6,000 additional parameters and demonstrated qualitative reasoning wins over classical baselines.",
+  "method": "Insertion of block-diagonal Cayley-parameterized unitary adapters into frozen transformer layers, using amplitude encoding and a sign-correction technique to handle QPU measurement constraints.",
+  "model_or_system": "The study utilizes the Llama 3.1 8B and SmolLM2 135M transformer architectures executed on the IBM Quantum System Two (specifically the IBM Heron r2 superconducting processor).",
+  "key_observables": "Perplexity (PPL) on WikiText, MMLU accuracy, Operator Schmidt Rank (OSR), and operator entanglement entropy.",
+  "important_parameters": "2-qubit and multi-qubit block dimensions, 156-qubit IBM hardware, 8,192 measurement shots, and depolarizing error rates.",
+  "main_assumptions": "The current implementation is limited to 2-qubit blocks due to hardware coherence limits; larger unitaries require approximate compilation.",
+  "figures_summary": "Figure 1 illustrates the CUA architecture; other figures show monotonic perplexity improvement with block dimension and qualitative success in math/logic tasks.",
+  "paper_structure": "Introduction to scaling bottlenecks, description of the CUA architecture and Cayley transform, implementation details on IBM hardware, performance evaluation on Llama and SmolLM models, and analysis of noise and entanglement capacity.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.05914_figures/2605.05914_fig1.jpg",
+      "caption": "Figure 1: Cayley Unitary Adapter (CUA) architecture. a, Full-model backbone. Vertical pipeline of L frozen transformer blocks (L = 30 for SmolLM2; L = 32 for Llama-3.1-8B), bracketed by the input embedding and the LM head. The dashed-border block “Transformer ℓ” is the layer expanded in panel (b). b, Detail of one Llama transformer block. CUA blocks (pur- ple) are inserted on the input side of each linear projection in both the multi-head attention path (WQ, WK, WV , WO) and the feed-forward MLP path (Wgate, Wup, Wdown). Backbone weights, normalisation layers, and activation functions remain frozen; only CUA blocks are trainable. Up to seven CUA insertion sites are available per block;...",
+      "page": 21
+    },
+    {
+      "image": "2605.05914_figures/2605.05914_fig2.jpg",
+      "caption": "Figure 2: Realisation of the Cayley Unitary Adapter on ibm_basquecountry. a, Tran- spiled 2-qubit CUA circuit on physical qubits q[80] and q[81], in the IBM Heron r2 native gate set {CZ, SX, RZ, X}. Depth 19; 12 SX (magenta √",
+      "page": 22
+    },
+    {
+      "image": "2605.05914_figures/2605.05914_fig3.jpg",
+      "caption": "Figure 3: Progression of QPU execution experiments (SmolLM2-135M). Timeline of the four QPU execution milestones achieved primarily on the ibm_basquecountry IBM Sys- tem Two processor (156 qubits, IBM Heron r2; the same device used for all Llama-3.1-8B QPU runs in this work), with cross-validation milestones on ibm_strasbourg (127 qubits) be- tween February and March 2025; transpilation and packing parameters in this figure refer to the SmolLM2 pipeline (d = 576, 144 blocks per layer). Llama-3.1-8B values (depth 19, 64 disjoint qubit pairs, 1,024 blocks per layer) are reported in Fig. 2 and Methods. a, Circuit schematic for the 2-qubit encode–unitary–measure pipeline (24 native gates; depth...",
+      "page": 23
+    },
+    {
+      "image": "2605.05914_figures/2605.05914_fig4.jpg",
+      "caption": "Figure 4: WikiText perplexity as a function of unitary block dimension. Left axis (loga- rithmic): noiseless WikiText perplexity for 210-layer Cayley adapters in three regimes: uncon- strained dense matrices, orthogonal unitaries, and sign-constrained unitaries (QPU-compatible), all as a function of block dimension from 4 × 4 (2 qubits) to full input dimension (384–896, 9–10 qubits). All configurations applied to the compressed SmolLM2 backbone (PPL 35.31). Right axis: simulated perplexity under IBM Heron r2 per-gate depolarising noise, showing catastrophic degradation at ≥3 qubits under exact synthesis. Horizontal dashed lines indicate compressed backbone (PPL 35.31) and uncompressed...",
+      "page": 24
+    },
+    {
+      "image": "2605.05914_figures/2605.05914_fig5.jpg",
+      "caption": "Figure 5: Perplexity vs. total parameter count. WikiText perplexity (compressed SmolLM2 backbone + adapter overhead) for 210-layer adapters in three regimes. Unitary adapters (green: sign-constrained; orange: orthogonal) achieve comparable perplexity to unconstrained dense matrices (blue) with approximately 50% fewer parameters, demonstrating that the orthogonality constraint acts as an effective regulariser rather than a restriction. The sign-constrained regime (directly QPU-compatible) is highlighted.",
+      "page": 25
+    }
+  ],
+  "figure": "2605.05914_figures/2605.05914_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

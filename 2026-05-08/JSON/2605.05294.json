@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.05294",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Competing nonlinearities, criticality, and order-to-chaos transition in deep networks",
+  "authors": "Omri Lesser, Debanjan Chowdhury",
+  "abstract": "Deep neural networks owe their expressive power to nonlinear activation functions. The effective field theory of signal propagation at initialization reveals a few distinct universality classes of activations that exhibit different depth scaling. Tuning across these, especially with analytical control, is an open problem. We show that a statistical mixture of activations, where each neuron independently and randomly draws its activation from a two-component distribution with mixing fraction $p$, provides a new mechanism for a continuous phase transition. Applied to a mixture of Tanh and Swish, the transition is sharp in the depth scaling of the preactivation variance, separating a variance-collapsing from a variance-inflating phase; at $p_c$, the network acquires statistical scale invariance, with depth-independent variance, without sacrificing smoothness. This resolves a longstanding tension, where scale-invariant propagation has previously required the non-smooth ReLU family, rendering such networks ill-suited to curvature-based optimizers, physics-informed architectures, and neural-network quantum states. We corroborate the transition through variance propagation, parallel and perpendicular susceptibilities, and Lyapunov exponents. Training multilayer perceptrons on real datasets reveals non-monotonic test performance as a function of $p$, with an optimum near the theoretically predicted $p_c$, confirming that the initialization-level transition has direct consequences for learned representations. The quenched activation disorder acts as a structural regularizer, suppressing memorization of corrupted labels while preserving generalization. Our framework establishes statistical activation mixtures as a controlled tool for navigating the phase diagram of deep network universality classes.",
+  "url": "http://arxiv.org/abs/2605.05294v1",
+  "pdf": "https://arxiv.org/pdf/2605.05294v1",
+  "type": "theory",
+  "summary": "The paper shows that by randomly mixing two different smooth activation functions, one can create a continuous phase transition that achieves the benefits of scale-invariant signal propagation (like ReLU) without losing smoothness. This approach provides a controlled way to navigate neural network universality classes and improves model robustness to label noise.",
+  "main_problem": "The difficulty of analytically controlling the transition between different universality classes of activation functions in deep neural networks, specifically resolving the tension between achieving scale-invariant signal propagation and maintaining function smoothness.",
+  "main_result": "The discovery of a continuous phase transition in a statistical mixture of smooth activations (Tanh and Swish) that enables emergent scale-invariance and acts as a structural regularizer during training.",
+  "method": "Effective field theory and mean-field dynamics in the infinite-width limit, utilizing kernel recursion, Taylor expansions, and finite-size scaling analysis.",
+  "model_or_system": "Deep multilayer perceptrons (MLPs) where each neuron's activation function is drawn independently from a Bernoulli distribution (a mixture of Tanh and Swish) at initialization, creating quenched activation disorder.",
+  "key_observables": "Preactivation variance propagation, parallel and perpendicular susceptibilities, Lyapunov exponents, and the stability coefficient.",
+  "important_parameters": "Mixing fraction (p), network depth (L), network width (N), and initial input variance (K0).",
+  "main_assumptions": "The infinite-width limit (N to infinity) allows for self-averaging and Gaussian preactivations; the transition is analyzed in the context of quenched disorder.",
+  "figures_summary": "Figures depict variance propagation through layers, the transition from variance-collapsing to variance-inflating regimes, the smoothness of the transition, and the non-monotonic relationship between the mixing fraction and neural network test performance/robustness.",
+  "paper_structure": "The paper introduces the problem of activation universality, proposes a statistical mixture model, develops a mean-field theory to predict the critical point, verifies the transition via Lyapunov exponents and susceptibilities, and demonstrates the practical learning advantages and regularization effects through MNIST/Fashion-MNIST simulations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.05294_figures/2605.05294_fig1.jpg",
+      "caption": "FIG. 1. (a) Schematic of the dynamics of variance propagation in a fully connected network. The preactivations z(l) at each layer l are Gaussian distributed with zero mean and variance K(l). The variance evolves according to the kernel recursion Eq. (1), which depends on the activation function σ through the kernel function g(K). (b) The activation function is chosen randomly for each neuron. (c) Schematic phase diagram: the mixing fraction p controls the relative weight of two competing activations with opposing variance stability characters, with an expected phase transition at a critical pc where the network becomes statistically scale invariant.",
+      "page": 2
+    },
+    {
+      "image": "2605.05294_figures/2605.05294_fig2.jpg",
+      "caption": "FIG. 2. Inverse variance 1/K(l) vs. depth l for a Tanh/Swish activation mixture, for several values of the mixing fraction p. Two distinct regimes appear. For p < pc the Tanh-dominated network drives variance to zero (K(l) decays), while for p > pc the Swish-dominated network explodes (K(l) grows), both with a power-law behavior. At the empirical critical point pc ≈0.83 the inverse variance is depth-independent: this is a transition between universality classes, with emergent statis- tical scale invariance.",
+      "page": 6
+    },
+    {
+      "image": "2605.05294_figures/2605.05294_fig3.jpg",
+      "caption": "FIG. 3. Finite-size scaling near the critical point. (a) Variance at layer L (normalized by the input variance K0) vs. mixing fraction p for several values of depth L. The variance transition sharpens with increasing depth, and the curves cross near the critical point pc. (b) Data collapse of the variance curves using the scaling variable (p −pc) L1/ν. The extracted critical exponent is ν = 1, in agreement with a continuous mean-field-like phase transition.",
+      "page": 7
+    },
+    {
+      "image": "2605.05294_figures/2605.05294_fig4.jpg",
+      "caption": "FIG. 4. Signatures of criticality. (a) Parallel susceptibility χ∥and (b) perpendicular susceptibility χ⊥vs. layer depth l for Tanh/Swish mixtures at several values of p. χ∥= 1 means the overall signal scale is preserved layer-to-layer; χ⊥= 1 means transverse perturbations neither grow nor shrink. Away from pc, both quantities drift monotonically with depth. Near pc ≈0.83, both susceptibilities remain pinned to unity across all layers, providing a signature of criticality. (c) Maximal Lyapunov exponent λ vs. mixing fraction p for Tanh/Swish networks. λ > 0 signals exponential divergence of perturbations (chaotic regime, Swish-dominated), while λ < 0 signals contraction (ordered regime,...",
+      "page": 8
+    },
+    {
+      "image": "2605.05294_figures/2605.05294_fig5.jpg",
+      "caption": "FIG. 5. Performance of an MLP with a mixture of Tanh and Swish activations on (a) the MNIST digit classification task [30] and (b) the Fashion-MNIST fashion items classification task [31]. Both test loss (blue) and test accuracy (red) vary non- monotonically with the mixing fraction p, exhibiting an optimum at an intermediate pc. Pure Tanh (p = 0) and pure Swish (p = 1) both underperform. The shaded regions indicate the standard deviation across 10 random seeds.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.05294_figures/2605.05294_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

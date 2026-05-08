@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.05620",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Physics-Grounded Understanding of Thermal Boundary Conductance between Ga$_2$O$_3$ and SiC from a Feedforward Neural Network Potential",
+  "authors": "Nuohao Liu, Chen Shen, Yue Cao, Song Xue, Pingfan Wu, Zongfang Lin, Masood Mortazavi, Liang Peng, Izabela Szlufarska, Jiechen Wang",
+  "abstract": "Ga$_2$O$_3$/SiC heterointegration is attractive for ultra-wide-bandgap power electronics, but interfacial thermal boundary conductance (TBC) remains a major heat-removal bottleneck. Direct experimental access to intrinsic atomistic interfacial transport remains limited, particularly for ideally synthesized materials with defect-free interfacial contact. First-principles simulations are too expensive at relevant length and time scales, while empirical Molecular Dynamics (MD) potentials often lack transferability across oxide and carbide bonding environments. We develop a unified feedforward neural network potential and validate it against density-functional data, bulk phonon dispersions, and anisotropic thermal-conductivity trends in both $β$-Ga$_2$O$_3$ and SiC. Nonequilibrium simulations show that TBC decreases with transport length, increases with temperature, and is consistently higher for Ga$_2$O$_3$$(\\bar{2}01)$/SiC(0001) than for Ga$_2$O$_3$(100)/SiC(0001). These trends are explained by attenuation of long-mean-free-path carriers, enhanced incoherent and anharmonic interfacial exchange within broadly unchanged spectral channels, and stronger bonding and vibrational coupling at the $(\\bar{2}01)$ interface. The results show how a single transferable feedforward neural network potential can enable large-scale transport prediction and physics-grounded mechanistic understanding of thermal boundary conductance. Code for NEP training and simulation workflows is available at the project repository https://github.com/knowhow07/TBC_Ga2O3_SiC.git",
+  "url": "http://arxiv.org/abs/2605.05620v1",
+  "pdf": "https://arxiv.org/pdf/2605.05620v1",
+  "type": "theory",
+  "summary": "This paper presents a machine-learning-based approach to predict and understand heat transfer at the Ga2O3/SiC interface. By using a neural network potential, the authors bridge the gap between expensive first-principles calculations and inaccurate empirical models, revealing how temperature and interface structure drive thermal conductance.",
+  "main_problem": "The study addresses the lack of a unified, computationally efficient, and physically transparent understanding of thermal boundary conductance (TBC) at the Ga2O3/SiC interface, which is a bottleneck for power electronics.",
+  "main_result": "The researchers developed a transferable Neural Network Potential (NEP) that accurately predicts TBC trends, showing that TBC increases with temperature due to enhanced anharmonic exchange and varies with interface orientation due to structural bonding strength.",
+  "method": "The study uses a Neuroevolution Potential (NEP) trained on DFT data, combined with large-scale Molecular Dynamics (NEMD, EMD, HNEMD) and lattice dynamics analysis (spectral conductance, coherence, and force-constant metrics).",
+  "model_or_system": "The system is a Ga2O3/SiC heterostructure, specifically focusing on beta-Ga2O3 and 4H-SiC interfaces with different orientations, modeled using a five-species neural network potential (Ga, O, Si, C, H).",
+  "key_observables": "Thermal boundary conductance (TBC), thermal conductivity, frequency-resolved spectral conductance, cross-interface coherence, and interfacial force-constant (IFC) metrics.",
+  "important_parameters": "Temperature ranges from 300 K to 900 K, simulation cell lengths up to 1200 Angstroms, and interface orientations (100) and (201).",
+  "main_assumptions": "The interface is assumed to be atomically ordered (no defects or roughness), the transport analysis is classical (no quantum nuclear effects), and hydrogen is used only for surface passivation.",
+  "figures_summary": "Figure 3 validates the NEP against DFT for phonon dispersions and thermal conductivity; Figure 4 shows NEMD setup and TBC trends; Figure 7 displays charge-density difference and spectral conductance; Figure 8 illustrates temperature-dependent covariance of coupling.",
+  "paper_structure": "The paper introduces the heat removal problem, describes the development and validation of the NEP, presents large-scale transport simulations (TBC trends), provides a microscopic mechanistic analysis via spectral and structural metrics, and concludes with limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.05620_figures/2605.05620_fig1.jpg",
+      "caption": "Figure 1: Overview of the multiscale workflow used in this work. DFT and AIMD calculations first provide reference energies, forces, and stress labels, which are used to construct descriptors and train the NEP model. The trained NEP is then applied in large-scale MD simulations, including NEMD, HNEMD, and EMD, to evaluate interfacial thermal transport. The bottom labels summarize the associated increase in characteristic time and length scales.",
+      "page": 3
+    },
+    {
+      "image": "2605.05620_figures/2605.05620_fig2.jpg",
+      "caption": "Figure 2: Supervised validation of the unified NEP. (a) Training loss curve. (b) Parity plot for energies. (c) Parity plot for forces. The smooth convergence and near-diagonal parity plots indicate that a single NEP can accurately represent the bulk and interfacial environments relevant to this work.",
+      "page": 4
+    },
+    {
+      "image": "2605.05620_figures/2605.05620_fig3.jpg",
+      "caption": "Figure 3 further shows that the NEP reproduces the transport-relevant bulk physics of both constituents. For SiC and Ga2O3, the predicted phonon dispersions follow the DFT branches closely along the standard high-symmetry paths in the Brillouin zone, labeled by points such as Γ, A, L, and M on the horizontal axis. In SiC, the main discrepancy appears near Γ around 25 THz, while in Ga2O3 several optical branches are slightly shifted, consistent with the fact that the DFT dispersions include non-analytical long-range dipole corrections, whereas local Machine-Learning Interatomic Potential (MLIPs) such as the present NEP describe interactions only within a finite cutoff. Importantly, at the...",
+      "page": 4
+    },
+    {
+      "image": "2605.05620_figures/2605.05620_fig4.jpg",
+      "caption": "Figure 3: Bulk vibrational and thermal validation of the learned potential. Phonon dispersions of (a) SiC and (b) Ga2O3 predicted by DFT and NEP. Temperature-dependent thermal conductivity for (c) SiC [8] and (d) Ga2O3 [5, 23] along different orientations from NEP (square markers) and pyhsical experiments (round markers)",
+      "page": 5
+    },
+    {
+      "image": "2605.05620_figures/2605.05620_fig5.jpg",
+      "caption": "Figure 4: Overall TBC trends from NEMD simulation. (a) Representative steady-state temperature profile. (b) Simulation cell and setup. (c) TBC versus transport length Lx. (d) TBC versus temperature. For both orientations, TBC decreases with increasing length and increases markedly with temperature.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.05620_figures/2605.05620_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

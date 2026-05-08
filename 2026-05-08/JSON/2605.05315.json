@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.05315",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Two Layers, No Swaps: Biplanar SPOQC Architecture Improves Runtime of Fermi-Hubbard Simulation",
+  "authors": "Boris Bourdoncle, Peter-Jan Derks, Théo Dessertaine, Johannes Frank",
+  "abstract": "We estimate the cost of simulating the two-dimensional Fermi-Hubbard model on a biplanar spin-optical quantum computing (SPOQC) architecture. Qubits are encoded in the honeycomb Floquet code, and we use a circuit-level noise model with explicit timings for each native physical operation. We benchmark lattice surgery and magic state preparation within each plane, and transversal CNOT gates between corresponding logical qubits across planes. We compile a plaquette-based Trotterization of the time evolution operator, mapping the two spin sectors of the Fermi-Hubbard model onto two physical planes. This architectural co-design eliminates fermionic swap operations and reduces the depth of each Trotter step to $4t_{\\mathrm{synth}} + 90$ logical timesteps, where $t_\\mathrm{synth}$ is the logical timestep cost of arbitrary-angle rotations, compared to $6t_\\mathrm{synth} + 354$ in prior single-plane compilations. All error sources - algorithmic (Trotter), logical noise, magic state infidelity, and rotation synthesis - are treated jointly within a single 1% diamond norm budget. For an $L\\times L$ lattice with hopping amplitude $t$ and on-site interaction strength $U$, setting $L=8$ and $U/t=8$, we estimate a total runtime of approximately $2$ hours using $1.35\\times 10^6$ physical qubits. We find that fallback-based rotation synthesis methods become a scalability bottleneck: the probability that all $L^2$ parallel rotations succeed on the first attempt vanishes exponentially with system size, causing the failure branch to dominate the expected runtime already at moderate $L$.",
+  "url": "http://arxiv.org/abs/2605.05315v1",
+  "pdf": "https://arxiv.org/pdf/2605.05315v1",
+  "type": "theory",
+  "summary": "The paper proposes a two-layer quantum computing architecture that eliminates the need for costly fermionic swap operations when simulating the Fermi-Hubbard model. While this significantly reduces circuit depth, the authors identify that the parallel execution of rotation synthesis creates a new scalability bottleneck. The study provides detailed resource estimates for a regime that is classically intractable.",
+  "main_problem": "Estimating the quantum computing resources and optimizing the architecture for fault-tolerant simulation of the 2D Fermi-Hubbard model.",
+  "main_result": "A biplanar SPOQC architecture reduces the depth of Trotter steps by eliminating fermionic swap operations, though rotation synthesis becomes a scalability bottleneck due to exponential failure probabilities in parallelized settings.",
+  "method": "Architectural co-design using a biplanar honeycomb Floquet code, circuit-level noise modeling, and Clifford+T rotation synthesis analysis.",
+  "model_or_system": "A Spin-Optical Quantum Computing (SPOQC) architecture using quantum dot spin qubits and photon-mediated interactions, applied to the 2D Fermi-Hubbard model.",
+  "key_observables": "Logical error rates (spacelike and timelike), T-count, circuit depth, and total runtime/qubit count.",
+  "important_parameters": "Lattice size L=8, interaction strength U/t=8, physical error rate p=0.01, and 1% diamond norm error budget.",
+  "main_assumptions": "All error sources are treated within a single 1% diamond norm budget; photon loss is treated as a heralded error; rotation synthesis failures are analyzed in a parallelized context.",
+  "figures_summary": "Visualizations of the honeycomb code and biplanar layout, spacetime diagrams for lattice surgery, ternary plots of error contributions, and plots of logical error rates versus physical qubit count.",
+  "paper_structure": "The paper introduces the biplanar SPOQC architecture, details the Fermi-Hublarb mapping and Trotterization, describes the error model and noise parameters, presents resource estimation results, and concludes with an analysis of rotation synthesis bottlenecks.",
+  "why_interesting": "It provides a concrete architectural blueprint for simulating strongly correlated systems using a hybrid spin-photon platform, specifically addressing the practical overheads of fault-tolerant error correction and gate synthesis.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.05315_figures/2605.05315_fig1.jpg",
+      "caption": "FIG. 1 (a) An example of a 6×4 (height × width) patch of honeycomb code along with the measurement schedule compatible with this layout from [12]. (b) Bilayer layout studied in this article. Qubits from U (resp. D) are laid out on the upper plane (resp. lower) plane. Colored edges represent intra-plane connectivity to implement parity measurements for honeycomb code syndrome extraction and lattice surgery, while black edges represent inter-plane connectivity to implement transversal CNOT gates. For clarity, we have represented the inter-plane connections only between the upper and lower top-rightmost patches. Dashed edges represent connections between patches that are only active whenever...",
+      "page": 9
+    },
+    {
+      "image": "2605.05315_figures/2605.05315_fig2.jpg",
+      "caption": "FIG. 2 Four representations of a two-qubit MZZ lattice surgery operation. (a) Circuit representation. (b) Spacetime pipe diagram, consisting of seven lattice surgery cubes of width w, height h and number of rounds r. (c) Macroscopic representation obtained by slicing the pipe diagram along the time axis. Red and blue boundaries indicate smooth and rough boundaries, respectively. (d) Microscopic honeycomb code representation. Here, an auxiliary patch mediates the operation between the two patches; if the patches are adjacent, no auxiliary is needed.",
+      "page": 11
+    },
+    {
+      "image": "2605.05315_figures/2605.05315_fig3.jpg",
+      "caption": "FIG. 3 Ternary plots of the relative contributions of horizontal spacelike, vertical spacelike, and timelike logical errors to the total logical error rate. A cube-root transformation improves readability by spreading points away from the corners. Marker shape denotes patch height, colour denotes the number of syndrome measurement rounds, and grey lines connect points of equal height across increasing rounds. The red cross marks equal error contributions. All data were obtained at p = 0.01 using PyMatching [48]. For both patch widths, the error rates are closest to equal when the height is 3/5w and the number of syndrome rounds is 3/10w. The details about the numerical simulations performed...",
+      "page": 12
+    },
+    {
+      "image": "2605.05315_figures/2605.05315_fig4.jpg",
+      "caption": "FIG. 4 Combined spacelike logical error rate EHV = 1−(1−EH)(1−EV ) as a function of the number of physical qubits (width × height). Solid markers show Monte Carlo estimates with shaded 95% confidence intervals computed using two-level variance estimation over heralding outcomes. Dashed lines show exponential fits in log space. Open markers indicate extrapolated values at larger block sizes. Results are shown for both independent PyMatching [48] and correlated matching decoders [53]. All circuits are simulated using Stim [19].",
+      "page": 12
+    },
+    {
+      "image": "2605.05315_figures/2605.05315_fig5.jpg",
+      "caption": "FIG. 5 To get the same logical error rate per cube, the width of the honeycomb code must be ≈1.25× the width of the surface code. The logical error rate per round is calculated as pr = 1 −(1 −E)1/nr from the data used to produce Figure 4. The data for the surface code is taken from Ref. [15, Figure 6].",
+      "page": 14
+    }
+  ],
+  "figure": "2605.05315_figures/2605.05315_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 3,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 2,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.06367",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "stat.ML",
+    "cond-mat.dis-nn",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "The Interplay of Data Structure and Imbalance in the Learning Dynamics of Diffusion Models",
+  "authors": "Flavio Nicoletti, Chenxiao Ma, Enrico Ventura, Luca Saglietti, Stefano Sarao Mannelli",
+  "abstract": "Real-world datasets are inherently heterogeneous, yet how per-class structural differences and sampling imbalance shape the training dynamics of diffusion models-and potentially exacerbate disparities-remains poorly understood. While models typically transition from an initial phase of generalization to memorizing the training set, existing theory assumes homogeneous data, leaving open how class imbalance and heterogeneity reshape these dynamics. In this work, we develop a high-dimensional analytical framework to study class-dependent learning in score-based diffusion models. Analyzing a random-features model trained on Gaussian mixtures, we derive the feature-covariance spectrum to characterize per-class generalization and memorization times. We reveal the explicit hierarchy governing these dynamics: class variance is the primary determinant of learning order-consistently favoring higher-variance classes-while centroid geometry plays a secondary role. Sampling imbalance acts as a modulator that can reverse this ordering and, under strong imbalance, forces minority classes to acquire distinct, delayed speciation times during backward diffusion. Together, these results suggest that diffusion models can memorize some classes while others remain insufficiently learned. We validate our theoretical predictions empirically using U-Net models trained on Fashion MNIST.",
+  "url": "http://arxiv.org/abs/2605.06367v1",
+  "pdf": "https://arxiv.org/pdf/2605.06367v1",
+  "type": "both",
+  "summary": "This paper provides a theoretical and empirical framework to explain how data heterogeneity and imbalance cause diffusion models to learn different classes at different rates. It reveals that class variance is the dominant factor in determining whether a model generalizes or memorizes a specific sub-population first.",
+  "main_problem": "Understanding how class-specific data structures (variance, geometry) and sampling imbalance shape the training dynamics, specifically the timing of generalization and memorization in diffusion models.",
+  "main_result": "Established a hierarchy where class variance is the primary driver of learning order, while sampling imbalance acts as a modulator that can reverse this order and delay the learning of minority classes.",
+  "method": "A high-dimensional analytical framework using Random Matrix Theory and Gaussian Equivalence, validated against numerical simulations of Random Feature models and U-Net diffusion models on Fashion MNIST and CIFAR.",
+  "model_or_system": "The study analyzes score-based diffusion models (DDPM) and Random Feature models trained on heterogeneous Gaussian Mixture Models (GMM) representing imbalanced datasets.",
+  "key_observables": "Feature-covariance spectrum, class-specific speciation times, generalization and memorization windows, and memorization fraction based on nearest-neighbor distance ratios.",
+  "important_parameters": "Class variance, centroid geometry (norms), sampling imbalance (mixing proportions), diffusion time (t), and training time (tau).",
+  "main_assumptions": "Data follows a Gaussian Mixture Model; the analysis relies on high-dimensional asymptotic limits; the model uses a random feature architecture; classes are assumed to be well-separated.",
+  "figures_summary": "Figures illustrate how imbalance induces separation in speciation times, show the alignment between theoretical error curves and simulations, and demonstrate the correlation between memorization gaps and class variance/geometry.",
+  "paper_structure": "The paper introduces the problem of class-dependent dynamics, develops a high-dimensional analytical framework using RMT, provides theoretical derivations for spectral edges and error dynamics, and validates these findings through large-scale experiments on Fashion MNIST and CIFAR datasets.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.06367_figures/2605.06367_fig1.jpg",
+      "caption": "Figure 1: Strong imbalance induces separation in speciation times. Root mean square (RMS) overlaps between the projected centroids µc (Eq.(10)) and the top principal components (ψ1, ψ2) of Ugep, defined as RMSc ≡ Mean(P2 i=1(µc · ψi)2/∥µc∥2)1/2, as a function of rescaled diffusion time et ≡t/ log N. Left panel correspond to weak imbalance (b1 = 0.7, b2 = 0.3, Eq.(12)), while the remaining panels illustrate instances of strong imbal- ance (b1 = 1 −N −a, b2 = N −a, Eq.(13)). Solid lines denote asymptotic theoretical predictions; markers represent finite-size numerical simulations for N ∈{50, 500, 5000} and P ∈{100, 1000, 10000}, with increasing system size indicated by darker colors....",
+      "page": 4
+    },
+    {
+      "image": "2605.06367_figures/2605.06367_fig2.jpg",
+      "caption": "Figure 2: Strong class diversity can reduce the generalization window. Parameters for theory: χp = 60.0, χm = 30.0, b1 = b2 = 0.5, σ2 1 = 0.5, σ2 2 = 0.25, ∥m1∥= ∥m2∥= 0, t = 0.001. Parameters for finite-size simulations: N = 100, P = 6000, M = 3000, Nepoch = 2 × 106, learning rate η = 5 × 10−5N/∆t, N spectrum run = 10, N train run = 20. Training time in (a) is rescaled as τ →τ/eη, where eη = η∆t/N.",
+      "page": 5
+    },
+    {
+      "image": "2605.06367_figures/2605.06367_fig3.jpg",
+      "caption": "Figure 3: Class heterogeneity induces class-specific timescales. Class-conditional test errors (Eq. 14) evaluated over training time across three structural ablations relative to a perfectly symmetric baseline (σ2 1 = σ2 2 = 0.5, ∥m1∥= ∥m2∥= √",
+      "page": 6
+    },
+    {
+      "image": "2605.06367_figures/2605.06367_fig4.jpg",
+      "caption": "Fig.3 shows the test error under three structural ablations relative to a balanced baseline with orthogonal, equal-norm centroids: doubling the variances (left), halving the centroid norms (center), and skewing the sampling weights (right). These perturbations reveal a hierarchy of influence:",
+      "page": 6
+    },
+    {
+      "image": "2605.06367_figures/2605.06367_fig5.jpg",
+      "caption": "Figure 4: Imbalance can reverse the order of learning for classes. In both subfigures, solid lines represent the- oretical predictions derived in Appendix G, while crosses represent empirical average gaps from gradient descent simulations. Parameters: χp = 60.0, χm = 30.0, t = 0.01, N = 100, Nepoch = 2 × 106, learning rate η = 5 × 10−5, N train run = 50.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.06367_figures/2605.06367_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

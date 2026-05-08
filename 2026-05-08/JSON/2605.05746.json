@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.05746",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cs.LG",
+    "physics.chem-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Polarizable atomic multipoles for learning long-range electrostatics",
+  "authors": "Dongjin Kim, Daniel S. King, Yoonjae Park, Roya Savoj, Sebastien Hamel, Xiaoyu Wang, Bingqing Cheng",
+  "abstract": "Long-range electrostatics and polarization remain central obstacles to extending machine learning interatomic potentials (MLIPs) to ionic, polar, and interfacial systems. Here, we introduce a semi-local framework for learning electrostatics from energies and forces using polarizable atomic multipoles. Local equivariant descriptors predict environment-dependent latent monopoles, dipoles, and quadrupoles, while residual non-local charge transfer and polarization are captured by non-self-consistent linear response in induced charges and dipoles. Across four diverse benchmarks and four short-range MLIP architectures, the multipole hierarchy and response terms systematically improve potential energy surface accuracy, with the largest gains in systems where long-range effects are essential. More importantly, the learned latent variables recover physically meaningful electrical responses: accurate Born effective charge tensors, emergent polarizabilities, infrared spectra in close agreement with experiments, and semi-quantitative Raman spectra for bulk water and hybrid MAPbI$_3$ perovskite. This systematically improvable, physically transparent framework enables MLIPs trained on standard energy and force labels to predict polarization-sensitive observables.",
+  "url": "http://arxiv.org/abs/2605.05746v1",
+  "pdf": "https://arxiv.org/pdf/2605.05746v1",
+  "type": "theory",
+  "summary": "This paper presents a new machine learning framework that incorporates polarizable atomic multipoles into interatomic potentials. This allows models to capture long-range electrostatic effects and predict complex properties like infrared and Raman spectra without the need for expensive electronic structure labels. It demonstrates significant improvements in accuracy for systems where long-range interactions are critical, such as water and perovskites.",
+  "main_problem": "Extending machine learning interatomic potentials (MLIPs) to accurately capture long-range electrostatics and polarization in ionic, polar, and interfacial systems.",
+  "main_result": "The introduction of a semi-local framework using polarizable atomic multipoles significantly improves potential energy surface accuracy and enables the prediction of physically meaningful electrical responses like Born effective charges and vibrational spectra.",
+  "method": "A semi-local framework using local equivariant descriptors to predict latent multipoles (monopole, dipole, quadrupole) combined with a non-self-consistent linear response approach for non-local charge transfer and polarization.",
+  "model_or_system": "The framework is applied to various systems including bulk liquid water, MAPbI3 perovskite, Na8/9Cl+8 clusters, and Au2 on MgO(001) surfaces, utilizing architectures like MACE, CACE, NequIP, and Allegro.",
+  "key_observables": "Born effective charge (BEC) tensors, polarizabilities, infrared (IR) spectra, Raman spectra, and lattice constants.",
+  "important_parameters": "Latent multipoles (q, u, Q), hardness (kappa), polarizability (alpha), and the electronic dielectric constant (epsilon_e).",
+  "main_assumptions": "Assumes local atomic multipoles capture dominant interactions, treats non-local effects as small corrections, and neglects interactions between induced multipoles in the non-local response calculation.",
+  "figures_summary": "Figure 1 compares force RMSE reduction across different systems; Figure 2/5/8 show parity plots for BEC tensors and polarizabilities; Figure 3 shows lattice constants and phase transitions in perovskites; Figure 3e/6 show predicted IR and Raman spectra.",
+  "paper_structure": "The paper identifies the limitations of current MLIPs, introduces the multipole-based semi-local framework, provides the mathematical derivation for the multipole expansion and linear response, details the neural network implementation, and validates the model through benchmarks on various physical systems and spectroscopic properties.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.05746_figures/2605.05746_fig1.jpg",
+      "caption": "Figure 1. Benchmark results of baseline and long-range-augmented machine learning interatomic potentials (MLIPs) across four systems: a: Bulk water, b: MAPbI3 (Methylammonium lead iodide), c: Na8/9Cl+ 8 , and d: Au2 on MgO(001). The test force root mean square errors (RMSEs) are compared between the baseline short-range models (hollow bars) and their long-range-augmented variants (solid bars) for different architectures (MACE [4], CACE [47], NequIP [3], and Allegro [49]). The colored bars represent the inclusion of long-range interactions: monopoles (-les, blue), monopoles and dipoles (-u, orange), monopoles, dipoles, and induced charges (-uiq, green), monopoles, dipoles, and induced...",
+      "page": 6
+    },
+    {
+      "image": "2605.05746_figures/2605.05746_fig2.jpg",
+      "caption": "Figure 2. Bulk water properties predicted by the MACE augmented with long-range electrostatics with latent charges, dipoles, and induced dipoles (MACELES-uiu) with anisotropic polarizability tensors, compared with DFT reference data and experi- ments. a: Parity plots of the Born effective charge (BEC) tensors predicted by the MACELES-uiu model (r = 4.5 ˚A, nl = 1) relative to RPBE-D3 DFT reference data for 100 bulk water configurations [50]. The left panel compares the diagonal compo- nents (Z∗ αα), while the right panel shows the off-diagonal components (Z∗ αβ with α ̸= β). The RMSE and R2 values are reported in each panel. b: Infrared (IR) absorption spectra of bulk water at different...",
+      "page": 7
+    },
+    {
+      "image": "2605.05746_figures/2605.05746_fig3.jpg",
+      "caption": "Figure 3. Phase diagram and electrical response properties of MAPbI3 perovskite predicted by MACE augmented with long- range electrostatics with latent charges, dipoles, and induced dipoles (MACELES-uiu). a: The pseudocubic lattice constants at different temperatures, compared to experiment [74]. The lattice parameters a, b, and c correspond to the directions defined in panel b. Vertical orange and yellow bands mark the experimentally reported orthorhombic−tetragonal and tetragonal−cubic phase transition temperatures, respectively [74]. b: Illustrations of the orthorhombic, tetragonal, and cubic MAPbI3 phases. c: Parity plot of Born effective charge (BEC) tensor Z∗computed from MACELES-uiu...",
+      "page": 9
+    },
+    {
+      "image": "2605.05746_figures/2605.05746_fig4.jpg",
+      "caption": "Figure 4. Computational performance benchmarks of molec- ular dynamics (MD) simulations using the baseline MACE models and their long-range augmented variants for bulk liq- uid water. a: Time per MD step for all models as a func- tion of system size (N). b: Relative computational overhead of long-range augmented variants compared to the baseline MACE model (nl = 1). The benchmarks were performed on an NVIDIA L40S GPU (48 GB memory) using single- precision (float32) with ASE implementations.",
+      "page": 12
+    },
+    {
+      "image": "2605.05746_figures/2605.05746_fig5.jpg",
+      "caption": "Figure 5. Parity plots comparing the Born effective charge (BEC) tensors predicted from long-range augmented MACE variants (r = 4.5 ˚A, nl = 1) with RPBE-D3 DFT reference data for 100 bulk water configurations [50]. The main panels compare the diagonal elements (Z∗ αα), while the insets show the off-diagonal components (Z∗ αβ with α ̸= β). The test RMSE values and R2 coefficients computed over all tensor components are reported in each panel. Red and white markers denote oxygen and hydrogen atoms, respectively.",
+      "page": 14
+    }
+  ],
+  "figure": "2605.05746_figures/2605.05746_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

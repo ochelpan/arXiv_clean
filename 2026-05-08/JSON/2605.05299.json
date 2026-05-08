@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.05299",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.mes-hall",
+    "cond-mat.str-el",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Universal Neural Propagator: Learning Time Evolution in Many-Body Quantum Systems",
+  "authors": "Zihao Qi, Christopher Earls, Yang Peng",
+  "abstract": "Conventional approaches to simulating quantum many-body dynamics produce a single trajectory: if the Hamiltonian or the initial state is changed, the computation must be re-performed. Recent efforts toward foundation models have begun to address this limitation, yet existing methods transfer across either Hamiltonians or initial states, but not both. In this work, we introduce the Universal Neural Propagator (UNP), a single, unified model that learns the functional mapping from driving protocols to time-evolution propagators. Trained in an entirely self-supervised way, a single UNP model predicts dynamics across a function space of driving protocols and an exponentially large Hilbert space of initial states simultaneously. We benchmark on a two-dimensional driven Ising model and demonstrate the UNP's accuracy and transferability across product and entangled initial states, as well as for both in- and out-of-distribution driving protocols. The UNP remains accurate at system sizes beyond exact diagonalization, and can be efficiently fine-tuned across all initial states using observable data. By shifting the object of learning from quantum states to operators, this work opens a route toward transferable simulation of driven quantum matter.",
+  "url": "http://arxiv.org/abs/2605.05299v1",
+  "pdf": "https://arxiv.org/pdf/2605.05299v1",
+  "type": "theory",
+  "summary": "The paper presents the Universal Neural Propagator (UNP), a machine learning model that learns to predict the time-evolution of many-body quantum systems. Unlike previous methods, it can simultaneously generalize to new driving protocols and new initial states. This approach enables efficient, scalable simulation of driven quantum matter beyond the limits of exact diagonalization.",
+  "main_problem": "Existing neural network approaches for quantum dynamics are limited to transferring across either Hamiltonians or initial states, but not both simultaneously, requiring new simulations to be re-performed if parameters change.",
+  "main_result": "The introduction of the Universal Neural Propagator (UNP), which achieves simultaneous transferability across driving protocols and initial states, maintaining high accuracy even for system sizes beyond exact diagonalization.",
+  "method": "A self-supervised hybrid architecture combining a Fourier Neural Operator (FNO) to process driving protocols and an autoregressive Transformer to predict the time-evolution propagator in a doubled Hilbert space.",
+  "model_or_system": "A two-dimensional driven transverse-field Ising model on a square lattice with time-dependent longitudinal and transverse fields.",
+  "key_observables": "State fidelity, local magnetization (z and x directions), energy per spin, and ZZ-correlators.",
+  "important_parameters": "System sizes of 4x4 and 6x6; driving protocols modeled via random Fourier series; training on a single NVIDIA H100 GPU.",
+  "main_assumptions": "Assumes general initial states can be expressed as linear combinations of computational basis states; scalability is limited by VRAM for larger system sizes.",
+  "figures_summary": "Figure 1 shows the UNP framework; Figure 2 details the FNO-Transformer architecture; Figure 3 demonstrates accuracy and transferability on 4x4 systems; Figure 4 shows fine-tuning efficiency; Figure 5 illustrates error reduction after fine-tuning; Figure 6 compares 6x6 results with tDMRG.",
+  "paper_structure": "The paper introduces the limitation of single-trajectory simulations, presents the UNP architecture (FNO and Transformer), describes the self-supervised training objective based on the Schrödinger equation, validates the model via 2D Ising model benchmarks (accuracy, transferability, and scalability), and discusses future extensions to open quantum systems.",
+  "why_interesting": "It proposes a paradigm shift from learning individual quantum states to learning the underlying operators, providing a foundation model approach that could be extended to dissipative dynamics via Liouville-space superoperators.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.05299_figures/2605.05299_fig1.jpg",
+      "caption": "FIG. 1. Illustration of the Universal Neural Propagator (UNP) framework. For any driving protocol ˆH(t), the corresponding time-evolution quantum propagator ˆU(t) is predicted by a neural-network-operator hybrid UNP architecture. The learned propagator can be further applied to track time evolution starting from arbitrary initial states in a given computational basis. A single, unified UNP model allows for transferring across an infinite-dimensional functional space of driving protocols and an exponentially large space of initial states, predicting time dependent observables at any time in the training interval.",
+      "page": 4
+    },
+    {
+      "image": "2605.05299_figures/2605.05299_fig2.jpg",
+      "caption": "FIG. 2. The architecture diagram of the UNP model. Driving protocols H(t) are processed by a Fourier Neural Operator (FNO) and distilled into a set of context tokens M(t) that encode the temporal structure of driving. The Transformer backbone of UNP processes this information through cross attention to assign an amplitude p(σ; t) and phase ϕ(σ; t) for each spin configuration σ in the doubled space. The phase and amplitude are combined to produce the matrix element Uαβ(t).",
+      "page": 5
+    },
+    {
+      "image": "2605.05299_figures/2605.05299_fig3.jpg",
+      "caption": "FIG. 3. Evaluation of the performance of Universal Neural Propagator for a driven TFIM with system size 4 × 4. Each row corresponds to a different computational-basis product state and a different time-dependent driving protocol. The four columns show: the initial spin configuration, the driving protocol, the state fidelity F(t) between the exactly evolved state and the UNP-predicted evolution, and a representative local observable, respectively. (a) Performance on an in-distribution driving field. (b, c) UNP predictions for out-of-distribution but experimentally realistic driving protocols: a tanh ramp-up and a Gaussian pulse. The same UNP model is used across all panels without...",
+      "page": 7
+    },
+    {
+      "image": "2605.05299_figures/2605.05299_fig4.jpg",
+      "caption": "FIG. 4. Time-evolution starting from the GHZ state (Eq. 34). Because the UNP predicts a propagator, the time evolution of a coherent superposition is obtained by linearly combining the individually propagated computational-basis components. The driving protocols are (a) in the training distribution; (b) a tanh ramp-up; (c) a Gaussian pulse, and are different from the ones in Fig. 3. Agreement with exact evolution from this state shows not only the accuracy of individual columns of eU(t), but also their relative phase structure.",
+      "page": 8
+    },
+    {
+      "image": "2605.05299_figures/2605.05299_fig5.jpg",
+      "caption": "FIG. 5. Mean absolute error (MAE) of local observables, be- fore and after fine-tuning the propagator. (a): MAE of the x-magnetization ⟨X⟩; (b): MAE of the energy per spin ⟨E⟩. Both quantities are averaged over 50 random z-basis prod- uct states that have not been seen during fine-tuning. Fine- tuning using only a small number of initial states consistently improves the propagator’s performance across the entire time interval.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.05299_figures/2605.05299_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

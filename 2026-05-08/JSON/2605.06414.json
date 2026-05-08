@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.06414",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Residual-Based Quantum Linear System Algorithm with Dynamic Stopping and Applications to Elliptic PDEs",
+  "authors": "Xiantao Li",
+  "abstract": "Quantum linear-system algorithms (QLSAs) have rigorous worst-case complexity guarantees, but their runtimes are often chosen from spectral information assumed in advance. What is largely lacking is an a posteriori progress flag: most QLSA workflows, unlike the classical counterparts, do not provide a built-in mechanism to signal whether a particular instance has already converged.   For discretizations of elliptic PDEs $-\\nabla\\cdot(a(x)\\nabla u(x))=f(x),$ with divergence--gradient structure \\[   -\\nabla\\cdot \\big(a(x)\\nabla) \\approx A_h=G_h^\\dagger G_h, \\] we formulate a stable first-order ODE whose limiting solution block is the desired Galerkin solution. The PDE-dependent scale is then \\(\\norm{G_h}=\\bigO(h^{-1})\\), comparable to factorized QLSA constructions with square-root condition-number scaling. We design an augmented dynamics with residual variables, in which measuring a residual register gives an on-the-fly convergence indicator without reconstructing the solution vector. For smooth right-hand sides, dynamic stopping can reduce the evolution time and gate count relative to a fixed worst-case schedule, and may also reduce exposure to accumulated hardware errors. Numerical experiments for a two-dimensional finite element Poisson problem show that the residual-register probability follows the actual error decay and, for some right-hand sides, can stop the quantum circuit well before a conservative worst-case runtime estimate is reached.",
+  "url": "http://arxiv.org/abs/2605.06414v1",
+  "pdf": "https://arxiv.org/pdf/2605.06414v1",
+  "type": "theory",
+  "summary": "This paper introduces an adaptive quantum algorithm for solving linear systems arising from elliptic PDEs. By incorporating a residual register into the quantum dynamics, the algorithm can stop computation early once convergence is detected, significantly improving efficiency over worst-case-based schedules.",
+  "main_problem": "Standard Quantum Linear System Algorithms (QLSAs) lack an a posteriori mechanism to signal convergence, often requiring fixed runtimes based on conservative worst-case spectral information.",
+  "main_result": "The authors develop a residual-based QLSA with a dynamic stopping rule that uses a co-evolving residual register to detect convergence, potentially reducing circuit depth and gate count for smooth right-hand sides.",
+  "method": "The algorithm uses an ODE-based accumulator approach where the linear system is formulated as a time-evolution problem, augmented with residual variables to enable on-the-fly monitoring via checkpoint circuits.",
+  "model_or_system": "The algorithm is applied to the discretization of second-order elliptic Partial Differential Equations (PDEs) using a Galerkin finite element method, specifically targeting the structure A_h = G_h^dagger G_h.",
+  "key_observables": "The residual probability (p_res), which serves as a convergence indicator, and the relative error of the solution vector.",
+  "important_parameters": "The mesh size (h), the condition number of the matrix, the target precision (epsilon), and the normalization scale of the block encoding (alpha_G).",
+  "main_assumptions": "The method assumes the existence of a sparse-access block encoding for the gradient operator and relies on the exponential stability of the underlying ODE dynamics.",
+  "figures_summary": "Figure 1 compares different QLSA approaches for a 2D Poisson problem; Figure 2 shows the workflow for the checkpoint and production run; Figure 3 displays the finite element mesh; Figure 4 illustrates the decay of error and residual probability.",
+  "paper_structure": "The paper introduces the problem of fixed-runtime QLSAs, proposes an augmented ODE-based solver, provides mathematical proofs for stability and complexity, and validates the method with numerical experiments on a 2D Poisson problem.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.06414_figures/2605.06414_fig1.jpg",
+      "caption": "Figure 1: Right-hand-side dependence for the finite element Poisson problem. Left: a QSVT-style spectral inverse-polynomial experiment, where the horizontal axis is the polynomial degree. This is a spectral-polynomial emulator for the inverse filter rather than a hardware-level QSVT circuit. Right: the first-order ODE relaxation Eq. (4), where the horizontal axis is the ODE evolution time. The ODE curves use the relative solution error. In both panels, the dashed vertical line is the conservative worst-case prediction, while the dash-dotted line marks the latest empirical crossing among the benchmark cases I–IV.",
+      "page": 4
+    },
+    {
+      "image": "2605.06414_figures/2605.06414_fig2.jpg",
+      "caption": "Figure 2: Checkpoint circuit for residual-based stopping. Each checkpoint run prepares the initial state, evolves the dilated joint accumulator system once to time tk, and measures the residual flag ares. The outcome mk ∈{0, 1} is one Bernoulli sample. Repeating the checkpoint circuit Nshot times gives the estimate bpres(tk) = Xk/Nshot, which is compared with the constant threshold p0. If the entry test accepts, a separate production run evolves directly to T⋆= tk + ∆t, without residual measurements, and outputs the solution block.",
+      "page": 17
+    },
+    {
+      "image": "2605.06414_figures/2605.06414_fig3.jpg",
+      "caption": "Figure 3: Finite element setup for the model Poisson problem. Left: the uniform triangular mesh obtained by splitting each square cell into two triangles. Right: the P1 finite element solution uh for the manufactured solution in (36). The factorization Ah = G† hGh is assembled from the elementwise gradients of the P1 basis functions on this mesh.",
+      "page": 18
+    },
+    {
+      "image": "2605.06414_figures/2605.06414_fig4.jpg",
+      "caption": "Figure 4: Residual dynamics and checkpoint readout. Left: relative solution error, relative algebraic residual ∥rA(t)∥/∥bh∥, mixed residual ∥w(t)∥/∥w(0)∥, and accumulator residual probability pres(t), computed from (x(t), w(t)). Right: checkpoint estimates of pres(t) from Bernoulli samples of the residual flag.",
+      "page": 19
+    },
+    {
+      "image": "2605.06414_figures/2605.06414_fig5.jpg",
+      "caption": "Figure 4 shows the main numerical mechanism. The algebraic residual and the mixed residual decay together with the solution error, up to the oscillations expected from the first-order damped dynamics. The residual-register probability pres(t) follows the same trend. Thus measuring the residual register gives an observable proxy for convergence, without reconstructing x(t) or evaluat- ing bh −Ahx(t) classically. The right panel shows that this probability can be estimated directly from repeated checkpoint measurements.",
+      "page": 19
+    }
+  ],
+  "figure": "2605.06414_figures/2605.06414_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
