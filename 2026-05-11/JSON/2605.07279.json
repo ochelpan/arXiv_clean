@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.07279",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Physics-informed operator learning for transferable energy-dissipative microstructure dynamics",
+  "authors": "Jie Xiong, Yue Wu, Xuewei Zhou, Peishuo Zhao, Jiaming Zhu",
+  "abstract": "Phase-field simulations provide mechanistic descriptions of microstructure evolution, but repeated high-fidelity integration over long horizons and broad parameter spaces remains computationally expensive. We present PFNet, a physics-informed neural operator framework that advances microstructural states by learning conditional evolution operators rather than direct correlations. PFNet combines a diffusion-inspired U-Net with periodic padding, entropy-based state conditioning and thermodynamic-parameter modulation to encode boundary consistency, instantaneous ordering state and changes in the free-energy landscape. For Cahn-Hilliard coarsening, PFNet achieves accurate one-step prediction and stable autoregressive rollouts across composition, gradient-energy coefficient, coarsening stage and morphology class, with errors concentrated near diffuse interfaces and topology-changing regions. The same framework extends to a four-channel martensitic-transformation benchmark without martensite-specific redesign. These results indicate that physics-informed operator learning can provide transferable surrogates for phase-field dynamics and broader energy-dissipative dynamical systems.",
+  "url": "http://arxiv.org/abs/2605.07279v1",
+  "pdf": "https://arxiv.org/pdf/2605.07279v1",
+  "type": "theory",
+  "summary": "The paper introduces PFNet, a neural operator framework designed to accelerate phase-field simulations of material microstructure evolution. By incorporating physical constraints like boundary consistency and thermodynamic parameter modulation, it enables stable, long-term predictions across different physical regimes without retraining.",
+  "main_problem": "High-fidelity phase-field simulations of microstructural evolution are computationally expensive for long-time horizons and broad parameter spaces, and existing neural operators struggle with long-term stability and physical constraints.",
+  "main_result": "The PFNet framework achieves accurate, stable, and transferable one-step predictions and long-horizon autoregressive rollouts for both Cahn-Hilliard and martensitic transformation dynamics.",
+  "method": "A physics-informed neural operator (PFNet) using a diffusion-inspired U-Net architecture with periodic padding, entropy-based state conditioning, and FiLM-based thermodynamic parameter modulation.",
+  "model_or_system": "Energy-dissipative microstructure dynamics governed by phase-field models, specifically Cahn-Hilliard (conserved) and Allen-Cahn (non-conserved) gradient flows driven by Ginzburg-Landau free-energy functionals.",
+  "key_observables": "Phase-field variables (concentration/order parameters), chemical potential, interfacial morphology, and Shannon entropy of the state.",
+  "important_parameters": "Gradient-energy coefficient (kappa), composition (phi), mobility (M), and time (delta t).",
+  "main_assumptions": "The dynamics follow a dissipative gradient-flow structure; errors are concentrated near diffuse interfaces and topology-changing regions.",
+  "figures_summary": "Figure 1 shows the PFNet architecture; Figure 2 illustrates single-step Cahn-Hilliard predictions; Figure 3 displays long-horizon rollouts and error maps; Figure S2 shows temporal evolution of concentration fluctuations.",
+  "paper_structure": "The paper introduces the computational bottleneck of phase-field modeling, presents the PFNet architecture and its physics-informed features, demonstrates performance on Cahn-Hilliard coarsening, extends the framework to multi-channel martensitic transformations, and discusses error localization and generalization.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.07279_figures/2605.07279_fig1.jpg",
+      "caption": "Fig. 1 | Physics-embedded architecture of PFNet for microstructure evolution prediction. PFNet employs a diffusion-style U-Net backbone with dual physics-informed conditioning. The input phase-field state ϕt is processed through periodic-padded convolutions across four hierarchical levels (128, 256, 384, 512 channels). Entropy H(ϕt) computed from the current microstructure, is embedded via RBF and added to head features, providing trajectory-adaptive conditioning. The gradient-energy coefficient κ is embedded and injected through feature-wise linear modulation (FiLM) in all residual blocks, enabling parameter-aware predictions. Self-attention (denoted by stars) is applied only at middle...",
+      "page": 8
+    },
+    {
+      "image": "2605.07279_figures/2605.07279_fig2.jpg",
+      "caption": "Fig. 2 | Single-step prediction for Cahn-Hilliard (CH) kinetics. (a) Ground-truth concentration fields, PFNet predictions, and pointwise errors at t =50, 200, 500, and 800, covering the early, intermediate, and late stages of coarsening. The predicted fields remain close to the reference solutions throughout the evolution, with errors mainly localized near diffuse interfaces and high-curvature regions. (b) Single-step test error as a function of time step for different gradient-energy coefficients κ = 5, 7, 9, and 11. Solid lines denote the mean error and shaded bands denote the spread over the test set.",
+      "page": 10
+    },
+    {
+      "image": "2605.07279_figures/2605.07279_fig3.jpg",
+      "caption": "Fig. 3. | Representative long-horizon rollouts for CH kinetics. (a) Ground-truth fields, autoregressive PFNet predictions initialized at t = 250, and pointwise errors at rollout horizons Δt = 1, 50, 100, 150, 200, and 250. PFNet preserves the dominant coarsening pathway over extended horizons, while the first visible deviations appear near shrinking droplets, thin ligaments, and incipient coalescence sites. (b) Generalization across different nominal compositions, ϕNb = 0.35, 0.45, 0.55, and 0.65, at a fixed rollout horizon of Δt = 50. Shown are the ground truth at t = 300, the prediction from t = 250 to 300, and the corresponding pointwise error. (c) Generalization across different...",
+      "page": 12
+    },
+    {
+      "image": "2605.07279_figures/2605.07279_fig4.jpg",
+      "caption": "Fig. 3c extends this analysis to variations in κ at the same rollout horizon of Δt =",
+      "page": 12
+    },
+    {
+      "image": "2605.07279_figures/2605.07279_fig5.jpg",
+      "caption": "Fig. 4. | Quantitative evaluation of long-horizon rollout for CH kinetics. (a) Rollout error as a function of rollout steps for different gradient-energy coefficients, κ = 5, 7, 9, and 11. Solid lines denote the mean error and shaded bands denote the spread over the test set. (b) Rollout error grouped by the starting stage of the trajectory, with early (t < 200), middle (200 ≤ t <500), and late (t ≥ 500) initial states. Early-stage configurations show the fastest error accumulation, whereas late-stage configurations remain the most stable. (c) Comparison of concentration profiles (ϕNb = 0.55) extracted across the steepest interface for the sharper-interface case κ = 5 after 1, 25, 50, and...",
+      "page": 14
+    }
+  ],
+  "figure": "2605.07279_figures/2605.07279_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

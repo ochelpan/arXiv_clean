@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.07621",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Entanglement-informed distributed wavefunction approach to scalable quantum many-body systems",
+  "authors": "Adriano Amaricci",
+  "abstract": "We show that the entanglement structure of quantum many-body states defines a natural and optimal distributed representation for their simulation. An arbitrary entanglement cut induces a bipartite decomposition of the wavefunction, mapping its distribution onto that of the entanglement spectrum. In this representation the Hamiltonian application, the core of Krylov-subspace methods, reduces to local contractions and communication-optimal operations. Using benchmarks from different methods and models, we demonstrate near-linear scaling for sufficiently large systems and identify entanglement spectrum fragmentation as a key factor controlling computational cost. This establishes entanglement as an organizing principle and unified, method-independent, route for scaling up quantum many-body simulations.",
+  "url": "http://arxiv.org/abs/2605.07621v1",
+  "pdf": "https://arxiv.org/pdf/2605.07621v1",
+  "type": "theory",
+  "summary": "This paper proposes a new way to perform large-scale quantum many-body simulations by using the system's entanglement structure to organize distributed computing tasks. By mapping the wavefunction to the entanglement spectrum, the authors achieve near-linear scaling and show that the primary limit to efficiency is the fragmentation of symmetry sectors. This establishes entanglement as a fundamental principle for optimizing the computational performance of many-body algorithms.",
+  "main_problem": "The exponential growth of Hilbert space makes large-scale quantum many-body simulations computationally prohibitive, specifically regarding the bottleneck of Hamiltonian application in distributed computing.",
+  "main_result": "The authors demonstrate that using the entanglement structure as an organizing principle allows for near-linear scaling in distributed simulations, where scalability is controlled by the fragmentation of the entanglement spectrum.",
+  "method": "An entanglement-informed distributed wavefunction approach using parallel T*-transpositions to map the wavefunction onto the entanglement spectrum, applied via ED and DMRG.",
+  "model_or_system": "General K-local Hamiltonians in quantum many-body systems, specifically benchmarked using the 1D Heisenberg model, 1D Hubbard model, and quantum impurity models.",
+  "key_observables": "Entanglement spectrum, Inverse Participation Ratio (IPR), parallel speed-up, parallel efficiency, and communication-over-computation ratio (R).",
+  "important_parameters": "Bond dimension (chi), symmetry group (Q), number of processes (P), and symmetry-sector bond dimension (chi_q).",
+  "main_assumptions": "Assumes the existence of a symmetry group that commutes with the Hamiltonian and that computational cost scales with the cube of the sector dimensions.",
+  "figures_summary": "Fig 1 shows entanglement spectrum evolution and IPR; Fig 2 illustrates system bipartitions and the T* transposition scheme; Fig 3 shows parallel speed-up and efficiency scaling; Fig 4 shows symmetry-sector dimension distribution and communication overhead; Fig 5 shows the power-law behavior of the Hubbard model's bond dimension distribution.",
+  "paper_structure": "The paper introduces the problem of scalability, proposes an entanglement-informed distributed framework, demonstrates its efficiency via benchmarks (Heisenberg, Hubbard, impurity models), provides a statistical analysis of symmetry fragmentation, and derives analytical scaling laws for communication overhead.",
+  "why_interesting": "It provides a method-independent framework for scaling up many-body simulations by leveraging the intrinsic entanglement structure of the quantum state, which is highly relevant for large-scale dynamics and complex many-body simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.07621_figures/2605.07621_fig1.jpg",
+      "caption": "Figure 1. Distributed entanglement spectrum. Evolu- tion of the distribution of the spectrum ξq,i of the entan- glement Hamiltonian HE = −log ρL as a function of the symmetry-sectors label q and the number of processes P (a- d). Data are from DMRG solution of the Hubbard model with U/t = 2, S = 20 and total bond dimension χ = 4000. (e) Inverse participation ratio WP as a function of P for the same system.",
+      "page": 2
+    },
+    {
+      "image": "2605.07621_figures/2605.07621_fig2.jpg",
+      "caption": "Figure 2. Setup and scaling of the entanglement-informed wavefunction distribution. (a-c) Examples of system bi-partition. The blue line indicates the EC C separating the system in L and R partitions for a 2d spin model (a), a 1d Hubbard model with hopping t, local U and non-local interaction V (b) and a quantum impurity model (c) featuring a cut in the spin symmetry group space. (d) Representation of the distributed wavefunction. Vertical colored segments corresponds to the L states distribution of the wavefunctions blocks ˆΨq. (e) Schematic description of the parallel transposition T ∗using P = 3 and dL q = 2. (f) Scaling of the speed-up T(P)/T(1) in different models, methods and ECs. The...",
+      "page": 3
+    },
+    {
+      "image": "2605.07621_figures/2605.07621_fig3.jpg",
+      "caption": "Figure 3. Asymptotic scaling of the QMBs solution. Top panel: parallel speed-up T(P)/T(1) as a function of the number of processes P. Data are from the DMRG solution of the 1d SM with S = 20. The dashed line indicates the Am- dahl’s law fit (f = 0.95). The dotted line indicates power-law fit (k = 0.93). Bottom panel: parallel efficiency ϵ = T (1) P T (P ) (left y-axis) and data share per CPU (right y-axis) as a func- tion of P. Data as in the top panel. The marked region indicates the latency limit regime. The dashed line indicates the corresponding efficiency critical threshold.",
+      "page": 4
+    },
+    {
+      "image": "2605.07621_figures/2605.07621_fig4.jpg",
+      "caption": "Figure 4. Symmetry fragmentation and communi- cation overhead. (a) Wavefunction symmetry-blocks bond dimensions χq distribution as a function of the sector index q. Data from DMRG solution with S = 20 sites, P = 64, χ = 4000 of the SM J = 1 (top), the HM U = 2t and attrac- tive HM |U| >> t (bottom). The dashed lines are fit with ex- ponential distributions: α = 0.95 (SM), 0.15 (HM) and 1.11 (attractive HM). (b) Communication-over-computation time ratio R = Tcomm/Tcomp as a function of the total bond dimen- sion χ. Data as in panel (a). The dashed line indicates the fit with effective model with [a, b, c] = [1.53, 0.45 10−2, 0.17] (SM) [0.77, 0.71 10−5, 1.1] (HM).",
+      "page": 4
+    },
+    {
+      "image": "2605.07621_figures/2605.07621_fig5.jpg",
+      "caption": "Figure 5. Complementary cumulative distribution function of the symmetry-sectors bond dimension χq for the Hubbard model. Data are from DMRG solutions with S = 20, P = 64, U/t = 2 and χ = 4000. The red line is a power law fit, γ = 0.20.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.07621_figures/2605.07621_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 4,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 2,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 2,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
