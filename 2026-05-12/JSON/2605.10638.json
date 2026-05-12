@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.10638",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantifying the Hadamard Resilience Law: Discovery of the Coherence Gap in NISQ-Era Classifiers",
+  "authors": "Wladimir Silva",
+  "abstract": "We report on a fundamental disparity between stochastic noise models and algorithmic performance in NISQ-era classifiers. Utilizing the ibm_kingston processor, we characterize the \"Kingston Constant\" ($κ\\approx 0.07$), representing a 93% signal magnitude collapse. Despite this decay, we demonstrate that the Hadamard Test Perceptron maintains a 93.9% MNIST accuracy, validating our proposed Hadamard Resilience Law. However, a systemic divergence -- the \"Coherence Gap\" ($Δρ\\approx 0.91$) -- emerges at high feature depths ($N=256$), where physical hardware collapses while stochastic simulations remain resilient. This gap identifies coherent phase errors, rather than depolarizing noise, as the primary barrier to scaling quantum linear layers. Furthermore, experimental results on the ibm_kingston processor reveal a \"Coherence Wall\" at $N=256$, where circuit depth ($D \\approx 10k$) exceeds the hardware's resilient depth limit ($D_{max} \\approx 3.5k$). We provide a refined hardware-aware model that accounts for this coherence-induced signal decay, establishing a predictive boundary for robust quantum linear layers on current NISQ devices.",
+  "url": "http://arxiv.org/abs/2605.10638v1",
+  "pdf": "https://arxiv.org/pdf/2605.10638v1",
+  "type": "both",
+  "summary": "This paper identifies that the primary barrier to scaling quantum machine learning is not random gate noise, but systematic coherent errors and crosstalk that create a 'Coherence Wall.' It demonstrates that while quantum classifiers are surprisingly resilient to signal magnitude loss, they fail catastrophically once circuit depth exceeds hardware coherence limits. The authors propose a distributed computing approach to bypass these depth limits by partitioning large feature vectors across multiple quantum nodes.",
+  "main_problem": "Investigating the discrepancy between stochastic noise models and actual hardware performance in NISQ-era quantum classifiers, specifically identifying the cause of the 'Coherence Gap' at high feature depths.",
+  "main_result": "The discovery of a 'Coherence Gap' where hardware performance collapses due to coherent phase errors and crosstalk rather than depolarizing noise, alongside the validation of the 'Hadamard Resilience Law' which allows high classification accuracy despite massive signal decay.",
+  "method": "The study uses a 'Digital Twin' protocol (calibrated stochastic simulation) compared against experimental data from the IBM Kingston processor, utilizing depth ablation, parametric noise sweeps, and a proposed 'Quantum MapReduce' architecture for distributed computing.",
+  "model_or_system": "The experimental platform is the IBM Kingston superconducting quantum processor, utilizing Hadamard Test circuits with 8 qubits plus one ancilla to perform quantum linear layers for MNIST classification.",
+  "key_observables": "Expectation values (Z), Spearman rank correlation (rho), Sign Fidelity, Pearson R, and MNIST classification accuracy.",
+  "important_parameters": "The Kingston Constant (kappa approx 0.07), the Coherence Gap (delta rho approx 0.91), the Coherence Wall (Dmax approx 3.5k), and the critical threshold (epsilon_crit approx 0.65).",
+  "main_assumptions": "Assumes that the primary scaling barrier can be distinguished by comparing calibrated stochastic models to physical hardware performance.",
+  "figures_summary": "Table I compares performance metrics between IBM Kingston and the Digital Twin; Table II summarizes system performance; figures likely illustrate the divergence between hardware and simulation at N=256.",
+  "paper_structure": "The paper introduces the problem of NISQ scalability, defines the Hadamard Resilience Law and Kingston Constant, presents the discovery of the Coherence Gap through hardware-vs-simulation comparison, identifies coherent errors as the failure mechanism, and proposes a distributed 'Quantum MapReduce' solution.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.10638_figures/2605.10638_fig1.jpg",
+      "caption": "FIG. 1. The Kingston Constant and Signal Compres- sion. Hardware results (red) from the ibm kingston processor vs. theoretical ideal (green) and calibrated simulator (blue). Probes are sorted by theoretical magnitude to reveal the sys- temic “S-curve” mapping. Despite a 93% collapse in mag- nitude, the monotonic trend remains intact, preserving the rank-order necessary for correct classification.",
+      "page": 2
+    },
+    {
+      "image": "2605.10638_figures/2605.10638_fig2.jpg",
+      "caption": "FIG. 2. Ensemble Trend Analysis via Decimation. By binning probes into groups of 10, stochastic shot noise is sup- pressed to reveal the underlying Kingston Constant. The hardware response (red) maintains the monotonic upward trend of the ideal theory (green), confirming that the rank- order of quantum states is preserved even as signal-to-noise ratio approaches the entropy limit.",
+      "page": 3
+    },
+    {
+      "image": "2605.10638_figures/2605.10638_fig3.jpg",
+      "caption": "FIG. 3. The HW plot: This result shows that the Hadamard Resilience Law is currently failing on this specific hardware run. A Sign Fidelity of 53.0% and a Spearman Rho of 0.070 means the hardware is performing almost exactly like a coin flip. The ”signal” has not just collapsed; it has been swallowed by noise.",
+      "page": 3
+    },
+    {
+      "image": "2605.10638_figures/2605.10638_fig4.jpg",
+      "caption": "FIG. 4. The ”smoking gun” plot: This noisy analytical simulation is the Ground truth, the trend needed to prove the Hadamard Resilience Law.",
+      "page": 4
+    },
+    {
+      "image": "2605.10638_figures/2605.10638_fig5.jpg",
+      "caption": "FIG. 5. Phase transition of the Hadamard Resilience Law. The Spearman Rank Correlation (ρ) maintains high fidelity (> 0.9) until a critical gate noise threshold of ϵ ≈0.65. The divergence between this stochastic limit and our phys- ical hardware results suggests that systemic crosstalk, rather than raw gate noise, is the primary bottleneck for 256-feature quantum classifiers.",
+      "page": 4
+    }
+  ],
+  "figure": "2605.10638_figures/2605.10638_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

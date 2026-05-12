@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>arxiv digest — 2026-05-12</title>
+  <style>
+:root {
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #59636e;
+  --border: #d0d7de;
+  --card: #f6f8fa;
+  --link: #0969da;
+}
+body {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem 1rem 5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+  color: var(--fg);
+  background: var(--bg);
+}
+a { color: var(--link); }
+img { max-width: 100%; height: auto; }
+pre, code { background: var(--card); border-radius: 6px; }
+pre { padding: 1rem; overflow-x: auto; }
+blockquote { border-left: 4px solid var(--border); padding-left: 1rem; color: var(--muted); }
+details { margin: 0.6rem 0; }
+summary { cursor: pointer; font-weight: 600; }
+.paper-figures-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding: 0.75rem 0.25rem 1rem;
+  margin: 1rem 0 1.25rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  scroll-snap-type: x proximity;
+}
+.paper-figure-card {
+  flex: 0 0 min(260px, 72vw);
+  scroll-snap-align: start;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.55rem;
+}
+.paper-figure-card img {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  background: white;
+  border-radius: 8px;
+}
+.paper-figure-caption {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.figure-strip-hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: -0.3rem;
+}
+</style>
+  <!-- MathJax: renders $...$ inline math and $$...$$ display math, plus
+       \(...\) and \[...\]. Loaded from the official CDN; works offline
+       once cached. Configured to skip code/pre blocks so arxiv IDs that
+       look like dollar amounts don't get mangled. -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header style="background-color: #333; color: white; padding: 15px; margin-bottom: 20px;">
+  <h1 style="margin: 0; font-size: 24px;">
+    <a href="https://ochelpan.github.io/arXiv_clean/" style="color: white; text-decoration: none;">Main</a>
+  </h1>
+</header>
+
+<h1>Daily arXiv Report</h1>
+
+<hr>
+<p>
+<a href="index.html">← Index</a>
+ · <a href="papers_08.html">← Previous</a> · <a href="papers_10.html">Next →</a>
+</p>
+<hr>
+
+<h2>Papers 161–180</h2>
+<p><a id="paper-2605.09556"></a></p>
+<h3 id="stream-randomness-extraction-against-quantum-side-information"><a href="http://arxiv.org/abs/2605.09556v1">Stream randomness extraction against quantum side information</a></h3>
+<p><strong>Authors:</strong> Chun-Yang Luan, Xiang-Jie Lie, Lin Cheng, Gang-Xi Wang, Cheng-Kang Pan, Xiang Zhang, Xingjian Zhang<br>
+<strong>Type:</strong> both · <strong>Category:</strong> quantum information and computing · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.09556v1">https://arxiv.org/pdf/2605.09556v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> This paper introduces a way to perform randomness extraction in a stream-like fashion rather than in blocks. By using a pre-generated pseudo-random mask and bitwise XOR operations, the authors reduce latency, making real-time quantum random number generation more efficient without sacrificing security.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The latency and buffering overhead caused by conventional block-wise randomness extractors hinder real-time quantum random number generation.</p>
+<p><strong>Main result.</strong> The authors generalize a stream-processing paradigm to universal2 random hashing extractors, proving that this stream implementation preserves the security guarantees of block-wise protocols while enabling on-the-fly processing.</p>
+<p><strong>Method.</strong> The method shifts computational burden to an offline pre-processing stage to generate a pseudo-random mask, allowing raw data to be processed via a simple bitwise XOR operation.</p>
+<p><strong>Model / system.</strong> The framework is applied to randomness extractors based on Toeplitz, circulant, and modified Toeplitz matrices, and benchmarked using realistic quantum experimental data.</p>
+<p><strong>Assumptions / limitations.</strong> The security of the stream implementation is assumed to be equivalent to the original block-wise protocols.</p>
+<p><strong>Paper structure.</strong> The paper introduces the problem of block-wise latency, proposes a generalized stream-processing framework for universal2 hashing, provides mathematical proofs for security preservation, details the transformation of three specific matrix constructions, and concludes with performance benchmarks using experimental data.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Randomness extraction is indispensable for quantum random number generators, serving to eliminate bias and potential information leakage from raw measurement data. Conventional extractors operate in a block-wise fashion, requiring the complete accumulation of raw data before processing. To circumvent the latency and buffering overheads that hinder real-time random number generation, recent work introduced a stream-cipher implementation for the randomness extractor based on the Toeplitz matrix hashing. In this work, we generalize this stream-processing paradigm to the broader family of randomness extractors based on (almost dual) universal$_2$ random hashing. Specifically, we shift the computational burden from a time-consuming block-wise post-processing stage into an offline pre-processing stage that generates a pseudo-random mask. This allows the raw data to be processed by the mask on the fly using a simple bitwise exclusive-OR operation. Crucially, we prove that this stream implementation strictly preserves the security guarantees of the original block-wise protocols. We detail the transformation of three typical constructions -- based on standard Toeplitz, circulant, and modified Toeplitz matrices -- from block to stream implementations, and benchmark their practical performance using realistic quantum experimental data. We anticipate our framework will enhance the efficiency of real-time quantum cryptographic systems.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10538"></a></p>
+<h3 id="structural-transition-and-fragmentation-of-vortex-lattices-in-rotating-tilted-dipolar-bose-einstein-condensate"><a href="http://arxiv.org/abs/2605.10538v1">Structural transition and fragmentation of vortex lattices in rotating tilted dipolar Bose-Einstein condensate</a></h3>
+<p><strong>Authors:</strong> Mamta Ale, Harsimranjit Kaur, Kuldeep Suthar<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> quantum gases · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10538v1">https://arxiv.org/pdf/2605.10538v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> This paper explores how the tilt of magnetic dipoles and beyond-mean-field corrections influence the formation and structure of vortex lattices in rotating dipolar BECs. It identifies a transition between square and triangular lattices and demonstrates that LHY corrections can prevent vortex-free states and even lead to condensate fragmentation. These findings are directly applicable to current experiments with anisotropic dipolar quantum gases.</p>
+<p><strong>Why it may be interesting.</strong> It provides insights into how beyond-mean-field effects and dipole anisotropy influence the stability and topology of vortex states, which is highly relevant for controlling many-body dynamics in dipolar quantum gases.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> Investigating the structural transitions, fragmentation, and vortex lattice formation in rotating, tilted, quasi-two-dimensional dipolar Bose-Einstein condensates.</p>
+<p><strong>Main result.</strong> The study reveals a transition from square to triangular vortex lattices as the tilt angle approaches a critical value, and shows that Lee-Huang-Yang corrections enable vortex formation in elongated condensates and cause fragmentation under strong rotation.</p>
+<p><strong>Method.</strong> Numerical analysis using an extended Gross-Pitaevskii equation that incorporates the Lee-Huang-Ying (LHY) correction to account for beyond-mean-field effects.</p>
+<p><strong>Model / system.</strong> A harmonically confined, quasi-two-dimensional, rotating dipolar Bose-Einstein condensate with tilted magnetic dipoles relative to the polarization axis.</p>
+<p><strong>Key observables.</strong> Vortex lattice structure (square vs. triangular), condensate shape/elongation, and condensate fragmentation.</p>
+<p><strong>Important parameters / regimes.</strong> Tilt angle of dipoles, rotation frequency, magic angle, and the presence of Lee-Huang-Yang corrections.</p>
+<p><strong>Assumptions / limitations.</strong> The system is treated within the framework of an extended Gross-Pitaevskii equation in a quasi-two-dimensional geometry.</p>
+<p><strong>Paper structure.</strong> The paper presents an investigation of vortex lattice dynamics, covering structural transformations due to tilt, the impact of LHY corrections on stability and fragmentation, and the effects of rotational frequency quenches.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>We investigate the vortex lattices of harmonically confined quasi-two-dimensional tilted rotational dipolar Bose-Einstein condensates. By employing an extended Gross-Pitaevskii equation for a rotating condensate, we reveal the structural transformation of vortices from square to triangular lattices as the tilt of dipolar bosons relative to the polarization axis approaches a critical angle. When the tilt of the magnetic dipoles surpasses the magic angle, the condensate elongates diagonally and becomes devoid of vortices. Moreover, we include the Lee-Huang-Yang correction, which enables the formation of vortices in the elongated condensate. Additionally, when dipoles are oriented perpendicular to the polarization axis, the Lee-Huang-Yang correction results in the fragmentation of condensates under strong rotation. The quench dynamics of the rotational frequency demonstrate the development of vortex lattices; however, with a strong rotational quench, the condensate remains free of vortices. Our numerical analysis highlights the beyond mean-field effects of the rotational properties of anisotropic dipolar bosons, which can be observed in current dipolar quantum gas experiments.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10497"></a></p>
+<h3 id="study-of-the-superradiance-phenomenon-in-the-math446math-attractor-potential-using-the-log-derivative-method"><a href="http://arxiv.org/abs/2605.10497v1">Study of the Superradiance Phenomenon in the $α$--attractor Potential using the Log Derivative Method</a></h3>
+<p><strong>Authors:</strong> Ángel Salazar, Quray Potosí, David Laroze, Laura M. Pérez, Benjamín de Zayas, Clara Rojas<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10497v1">https://arxiv.org/pdf/2605.10497v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> This paper uses the Log derivative method to solve the Klein-Gordon equation in an alpha-attractor potential. It confirms that superradiance occurs in this specific potential configuration. The results are validated by comparing them to established analytical solutions for the hyperbolic tangent potential.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The study aims to investigate the occurrence of the superradiance phenomenon within the context of the Klein-Gordon equation under an alpha-attractor potential.</p>
+<p><strong>Main result.</strong> The authors successfully demonstrated the presence of superradiance by calculating reflection and transmission coefficients and validated their approach against known analytical solutions.</p>
+<p><strong>Method.</strong> The researchers employed the Log derivative method to solve the time-independent one-dimensional Klein-Gordon equation.</p>
+<p><strong>Model / system.</strong> The system consists of a one-dimensional Klein-Gordon scalar field interacting with an alpha-attractor potential.</p>
+<p><strong>Key observables.</strong> Reflection coefficient (R) and transmission coefficient (T).</p>
+<p><strong>Important parameters / regimes.</strong> alpha-attractor potential parameters; hyperbolic tangent potential (used for validation).</p>
+<p><strong>Assumptions / limitations.</strong> The study assumes a time-independent, one-dimensional framework for the Klein-Gordon equation.</p>
+<p><strong>Paper structure.</strong> The paper presents a solution to the Klein-Gordon equation using the Log derivative method, demonstrates the presence of superradiance, and concludes with a validation step comparing results to the analytical hyperbolic tangent potential solution.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>In this article, we solved the time--independent one--dimensional Klein--Gordon equation in the presence of $α$--attractor potential using the Log derivative method. We calculated the reflection coefficient $\mathcal{R}$ and the transmission coefficient $\mathcal{T}$, showing that the superradiance phenomenon is present. In order to demonstrate the accuracy of our method, we performed a comparison with the analytical solution for the hyperbolic tangent potential.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10644"></a></p>
+<h3 id="susceptible-infected-susceptible-model-with-mitigation-on-scale-free-networks"><a href="http://arxiv.org/abs/2605.10644v1">Susceptible-Infected-Susceptible Model with Mitigation on Scale-Free Networks</a></h3>
+<p><strong>Authors:</strong> João Gabriel Simões Delboni, M. O. Hase<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> statistical mechanics · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10644v1">https://arxiv.org/pdf/2605.10644v1</a><br>
+<strong>Analysis basis:</strong> full PDF text, analyzed in chunks</p>
+<div class="figure-strip-hint">↔ Scroll figures horizontally</div>
+<div class="paper-figures-scroll">
+<figure class="paper-figure-card">
+<img src="2605.10644_figures/2605.10644_fig1.jpg" alt="Figure 1">
+<figcaption class="paper-figure-caption"><b>Fig 1.</b> FIG. 2. Stationary Θ as a function of the transmission rate λ. The network size is N = 105 and the degree expo- nents are 2.25 (□), 2.50 (◦), 2.75 (△), and 3.00 (♢). Left: HMF model. Right: mHMF model.</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10644_figures/2605.10644_fig2.jpg" alt="Figure 2">
+<figcaption class="paper-figure-caption"><b>Fig 2.</b> FIG. 1. Endemic prevalence as a function of the trans- mission rate λ for different system sizes N. From top to bottom: N = 106, 105, 104, and 103, with γ = 2.25. Cir- cles (left) and squares (right) denote HMF and mHMF, re- spectively. Solid and dashed lines show the corresponding leading-order analytical results (Table I).</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10644_figures/2605.10644_fig3.jpg" alt="Figure 3">
+<figcaption class="paper-figure-caption"><b>Fig 3.</b> FIG. 3. Stationary ρ as a function of the transmission rate λ. The network size is N = 105 and the degree expo- nents are 2.25 (□), 2.50 (◦), 2.75 (△), and 3.00 (♢). Left: HMF model. Right: mHMF model.</figcaption>
+</figure>
+</div>
+<p><strong>Summary.</strong> This paper explores how self-limiting behaviors, such as social distancing or reduced contact, change the dynamics of disease spreading on complex networks. It reveals that while the epidemic threshold remains unchanged, the way infection spreads through network links becomes non-monotonic and can even reverse the impact of network heterogeneity.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The study investigates how a nonlinear mitigation mechanism, representing behavioral responses or self-limiting dynamics, alters the spreading of an SIS epidemic on scale-free networks.</p>
+<p><strong>Main result.</strong> The mitigation factor induces non-monotonic behavior in the link infection probability and causes an inversion in the dependence of epidemic prevalence on the degree exponent at high transmission rates.</p>
+<p><strong>Method.</strong> The authors use a Heterogeneous Mean-Field (HMF) approach with an annealed approximation and validate analytical results using Gillespie stochastic simulations.</p>
+<p><strong>Model / system.</strong> The system is a Susceptible-Infected-Susceptible (SIS) model on scale-free networks with a power-law degree distribution, modified by a Malthus-Verhulst-type saturation term to account for reduced transmission.</p>
+<p><strong>Key observables.</strong> Endemic prevalence (rho), probability that a link points to an infected node (Theta), and the epidemic threshold (lambda_c).</p>
+<p><strong>Important parameters / regimes.</strong> Transmission rate (lambda), recovery rate (mu), degree exponent (gamma), and system size (N).</p>
+<p><strong>Assumptions / limitations.</strong> The network is assumed to be uncorrelated (no degree correlations) and follows a configuration model ensemble.</p>
+<p><strong>Figures summary.</strong> Fig 1 shows prevalence vs. transmission rate with data collapse for different system sizes; Fig 2 demonstrates the non-monotonicity of the link infection probability; Fig 3 illustrates the inversion effect where larger degree exponents lead to higher prevalence at high transmission rates.</p>
+<p><strong>Paper structure.</strong> The paper introduces the modified SIS model, derives analytical self-consistency equations using the HMF approach, performs asymptotic analysis for different degree exponent regimes, and compares these results with stochastic simulations.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>We investigate infectious disease spreading on scale-free networks using a heterogeneous mean-field approach applied to the susceptible-infected-susceptible model, incorporating a mitigation factor. Individual heterogeneity is incorporated through a power-law distribution, while a mitigation factor accounts for behavioral responses and external effects that effectively reduce transmission from infected individuals. This mechanism, inspired by Malthus-Verhulst-type constraints, introduces a nonlinear saturation effect that encodes self-limiting dynamics in a tractable way. Analytical results are supported by stochastic simulations. We find that the mitigation factor induces a nontrivial behavior in the probability that a link points to an infected node, which develops a maximum at finite infection rates. In contrast, the overall prevalence remains a monotonically increasing function of the transmission rate. Additionally, the mitigation mechanism leads to an inversion in the dependence of epidemic observables on the degree exponent at sufficiently high transmission rates. While in the standard model smaller exponents yield higher endemic prevalence, in the modified model this trend reverses, with larger exponents producing higher prevalence and increased infection probability along network links.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.09909"></a></p>
+<h3 id="symmetry-protected-basin-localization-in-variational-quantum-eigensolvers"><a href="http://arxiv.org/abs/2605.09909v1">Symmetry-Protected Basin Localization in Variational Quantum Eigensolvers</a></h3>
+<p><strong>Authors:</strong> Yangshuai Wang<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> quantum information and computing · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.09909v1">https://arxiv.org/pdf/2605.09909v1</a><br>
+<strong>Analysis basis:</strong> full PDF text, analyzed in chunks</p>
+<div class="figure-strip-hint">↔ Scroll figures horizontally</div>
+<div class="paper-figures-scroll">
+<figure class="paper-figure-card">
+<img src="2605.09909_figures/2605.09909_fig1.jpg" alt="Figure 1">
+<figcaption class="paper-figure-caption"><b>Fig 1.</b> FIG. 1. Basin topology controls VQE trajectories in the strongly correlated regime. Two-parameter energy landscape of stretched N2 at R = 2.5 ˚A with Hartree–Fock and equivariant initialization trajectories overlaid. Hartree– Fock lies on the symmetry-broken side of the Coulson–Fischer instability; spin-symmetry breaking diverts the variational flow into a competing local minimum (∆E &gt; 0.2 Ha), while Peq places θ0 in a locally positive-curvature region associated with the correlated ground-state basin (SM Note S2).</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.09909_figures/2605.09909_fig2.jpg" alt="Figure 2">
+<figcaption class="paper-figure-caption"><b>Fig 2.</b> FIG. 2. Equivariant preconditioning places circuit parameters on the correlated branch of the PES at ini- tialization, before quantum optimization. (a) Peq maps geometry R to symmetry-consistent θinit via a single classical evaluation; (b–d) energy-error traces during variational refinement of N2 at equilibrium, stretched, and dissociation geometries, comparing Hartree–Fock and equivariant initialization against the statevector reference. When the optimizer terminates before 100 recorded calls, the final evaluated error is continued horizontally to show the terminal plateau. In stretched regimes, Hartree–Fock enters a symmetry-broken basin (∆E ≳0.2 Ha); equivariant preconditioning lowers...</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.09909_figures/2605.09909_fig3.jpg" alt="Figure 3">
+<figcaption class="paper-figure-caption"><b>Fig 3.</b> FIG. 3. Polyatomic transfer under equivariant pre- conditioning. Energy error for the H2O O–H stretch af- ter geometry-conditioned initialization; the shaded region and dotted line mark chemical accuracy. Colors compare random initialization (red) with equivariant initialization (blue).</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.09909_figures/2605.09909_fig4.jpg" alt="Figure 4">
+<figcaption class="paper-figure-caption"><b>Fig 4.</b> FIG. 4. Hybridizing geometric basin targeting with stochastic escape improves ground-state success un- der positional disorder. Ground-state success probability for H10 chains vs. positional disorder strength σ at fixed op- timization budget, for random (red), equivariant (blue), and hybrid (gold) initialization strategies. Equivariant precondi- tioning suppresses heavy-tail basin misidentification failures while stochasticity resolves fine-scale inter-well traps; their combination reaches success probability one across the disor- der scan (SM Figs. S1–S2).</figcaption>
+</figure>
+</div>
+<p><strong>Summary.</strong> The paper introduces a method to prevent VQE optimization failures by using an equivariant neural network to initialize quantum circuit parameters. By mapping molecular geometry directly to the correct energy basin, it avoids both barren plateaus and symmetry-broken local minima. This significantly improves the accuracy and efficiency of quantum molecular simulations.</p>
+<p><strong>Why it may be interesting.</strong> It provides a way to bypass the expensive 'basin discovery' phase in quantum chemistry simulations by using classical equivariant machine learning to prepare the quantum state.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> Variational Quantum Eigensolvers (VQE) often fail in strongly correlated regimes because the initial state is placed in a non-ground-state energy basin or suffers from barren plateaus.</p>
+<p><strong>Main result.</strong> An equivariant preconditioner reduces Hartree-Fock initialization errors by 38x to 6250x, successfully placing the optimizer in the correct ground-state basin for molecules like N2 and H2O.</p>
+<p><strong>Method.</strong> A classical MACE-type equivariant neural network maps nuclear geometry to circuit parameters, effectively performing basin selection before the quantum optimization loop begins.</p>
+<p><strong>Model / system.</strong> Electronic structure Hamiltonians for strongly correlated molecules (e.g., N2, H2O, LiH, H8, H10 chains) using a hardware-efficient ansatz and the Born-Oppenheimer approximation.</p>
+<p><strong>Key observables.</strong> Gradient variance, Hessian eigenspectrum (eigenvalues), energy error (in Hartree and mHa), and gradient statistics (concentration-controlled vs. curvature-controlled).</p>
+<p><strong>Important parameters / regimes.</strong> SE(3) covariance, body-order (nu=3), radial cutoff (5.0 A), and the transition from Haar-like to basin-localized regimes.</p>
+<p><strong>Assumptions / limitations.</strong> The electronic Hamiltonian is SE(3)-equivariant; the optimization is performed within a localized, strongly convex basin.</p>
+<p><strong>Figures summary.</strong> Visualizations of energy landscape topology for N2, error-tail statistics comparing random vs. equivariant initialization, and schematic of the hardware-efficient ansatz.</p>
+<p><strong>Paper structure.</strong> The paper defines the failure mechanisms of VQE (barren plateaus and basin misidentification), introduces the SE(3)-equivariant preconditioner, provides mathematical proofs for gradient control in localized basins, and demonstrates numerical success across various molecular benchmarks.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Variational quantum eigensolvers fail before optimization begins when strong correlation splits the molecular energy landscape into competing basins and the initial state selects a non-ground-state basin. We introduce a geometry-conditioned preconditioner $\mathcal{P}_{\mathrm{eq}}:\mathbf{R}\mapsto\boldsymbolθ_0$ constrained by the $SE(3)$ covariance of the molecular Hamiltonian, so that nuclear geometry is mapped directly into circuit parameters in the correlated ground-state basin. This basin localization changes the relevant gradient statistics from concentration controlled to curvature controlled. In statevector benchmarks on six stretched molecules, $\mathcal{P}_{\mathrm{eq}}$ reduces Hartree--Fock initialization errors by factors of $38\times$--$6250\times$, reaches sub-mHa initialization in CO, LiH, and H$_8$, and places N$_2$, H$_2$O, and BeH$_2$ in the mHa-scale correlated basin. In disordered H$_{10}$ chains, equivariant basin targeting and stochastic escape reach unit success probability at fixed optimization budget. The procedure performs basin selection before the shot-limited quantum loop; the quantum circuit then refines correlation inside the selected basin.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10700"></a></p>
+<h3 id="transverse-magnetic-response-from-orbitally-polarized-cooper-pairs-in-elemental-superconductors"><a href="http://arxiv.org/abs/2605.10700v1">Transverse Magnetic Response from Orbitally Polarized Cooper Pairs in Elemental Superconductors</a></h3>
+<p><strong>Authors:</strong> Gabor Csire, Maria Teresa Mercaldo, Balazs Ujfalussy, Carmine Ortix, Mario Cuoco<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> strongly correlated electrons · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10700v1">https://arxiv.org/pdf/2605.10700v1</a><br>
+<strong>Analysis basis:</strong> full PDF text, analyzed in chunks</p>
+<div class="figure-strip-hint">↔ Scroll figures horizontally</div>
+<div class="paper-figures-scroll">
+<figure class="paper-figure-card">
+<img src="2605.10700_figures/2605.10700_fig1.jpg" alt="Figure 1">
+<figcaption class="paper-figure-caption"><b>Fig 1.</b> FIG. 1. Strain-induced transverse orbital magnetic response in elemental superconductors. (a) Schematic showing that an in-plane magnetic field induces an out-of-plane orbital moment on the strained [111] surface. The application of the strain field can lower the trigonal symmetry to Cs symmetry thus keeping only a single mirror plane at the surface. (b) Unit cell of bulk bcc crystal stacked along [111] (left) and top view showing crystallographic axes ˆa, ˆb and the Mb mirror plane, the only one remaining after strain applied along ˆa. (c) Evolution of orbital states at the Γ point from bulk t2g to trigonal (C3v) surface states, and their further splitting under strain to Cs, where we...</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10700_figures/2605.10700_fig2.jpg" alt="Figure 2">
+<figcaption class="paper-figure-caption"><b>Fig 2.</b> FIG. 2. Strain-driven interorbital pairing in elemental superconductors. Interorbital components of the maximal projections for (a) V(111) and (b) Nb(111) as a function of tensile strain applied along the ˆb axis. Results are shown for both bulk and surface cases. Only non-zero projection elements are displayed. Strain is expressed as the relative percentage change of the unit cell’s long diagonal.</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10700_figures/2605.10700_fig3.jpg" alt="Figure 3">
+<figcaption class="paper-figure-caption"><b>Fig 3.</b> FIG. 3. Interorbital components of the maximal pro- jections for V(111) surface as a function of external magnetic field. The field was applied in two in-plane ori- entations on the surface, along a and b. Panels (a–b) corre- spond to the unstrained case, and panels (c–d) correspond to the strained case, each with different in-plane orientations of the external field.</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10700_figures/2605.10700_fig4.jpg" alt="Figure 4">
+<figcaption class="paper-figure-caption"><b>Fig 4.</b> FIG. 4. Energy-resolved orbital moment along different directions under external magnetic fields within the surface plane. H = 0.1∆was applied in two in-plane orientations, along a and b. Results are shown for unstrained (C3v, dashed line) and strained (CS, solid line) cases. Panels (a–c) correspond to the V 111 surface, and panels (d–f) to the Nb 111 surface. Red curves indicate that the applied external field lies within the mirror plane (preserved under strain), whereas blue curves correspond to a field applied perpendicular to the mirror plane.</figcaption>
+</figure>
+</div>
+<p><strong>Summary.</strong> This paper shows that applying strain to elemental superconductors like Niobium can create Cooper pairs with orbital angular momentum. This state is uniquely identifiable by a transverse magnetic response, where an in-plane magnetic field generates an unexpected perpendicular magnetization, providing a foundation for superconducting orbitronics.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The difficulty in finding experimental signatures and material platforms for superconducting orbitronics, specifically identifying how to manipulate orbital angular momentum in superconductors.</p>
+<p><strong>Main result.</strong> The authors demonstrate that breaking crystalline symmetry via strain in elemental superconductors like V and Nb activates interorbital pairing, leading to a novel transverse magnetic response where an in-plane field induces an out-of-plane orbital magnetization.</p>
+<p><strong>Method.</strong> Superconducting density functional theory (SCDFT) using the Kohn-Sham Dirac-Bogoliubov-de Gennes (KS-DBdG) Hamiltonian and the Screened Korringa-Kohn-Rostoker Green's function method.</p>
+<p><strong>Model / system.</strong> The study focuses on bcc(111) elemental superconductors, specifically Vanadium and Niobium, considering both bulk and surface geometries under uniaxial tensile strain.</p>
+<p><strong>Key observables.</strong> Transverse magnetic response (induced out-of-plane orbital magnetization), interorbital pairing amplitudes, and energy-resolved orbital angular momentum.</p>
+<p><strong>Important parameters / regimes.</strong> Strain levels (0.00 to 0.04), magnetic field orientation (in-plane), and the transition from trigonal (C3v) to Cs symmetry.</p>
+<p><strong>Assumptions / limitations.</strong> The pairing potential is treated as a semi-phenomenological parameter, and the superconducting host is assumed to be an isotropic s-wave spin-singlet BCS-like state.</p>
+<p><strong>Figures summary.</strong> Fig 1 shows a schematic of the transverse response and symmetry reduction; Fig 2 plots the evolution of interorbital pairing with strain; Fig 3 shows interorbital components under different field orientations; Fig 4 presents energy-resolved orbital angular momentum.</p>
+<p><strong>Paper structure.</strong> The paper introduces the problem of superconducting orbitronics, describes the symmetry-breaking mechanism via strain, presents SCDFT calculations for V and Nb, details the resulting transverse magnetic response, and discusses experimental detection methods and vortex engineering.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>We demonstrate how crystalline symmetry lowering, as for instance through strain, allows elemental superconductors such as vanadium and niobium to realize spin-singlet orbitally polarized Cooper pairs composed of electrons with identical orbital moments. Using superconducting density functional theory, we show that lowering of trigonal symmetry to $C_s$, thus keeping only a single mirror plane, activates interorbital pairing in bulk and (111) surfaces, with a pronounced surface enhancement. In a magnetic field, the resulting orbitally polarized superconducting state leads to a novel transverse magnetic response. For in--plane field orientations that break the remaining mirror symmetry, a sizable orbital magnetization emerges perpendicular to the applied field. We show that this effect is a direct consequence of equal--orbital-moment Cooper pairing, providing an experimentally accessible signature of this state. Our results establish strained elemental superconductors as a minimal material platform for superconducting orbitronics.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.09812"></a></p>
+<h3 id="two-parameter-classes-of-exactly-solvable-quantum-systems"><a href="http://arxiv.org/abs/2605.09812v1">Two-parameter classes of exactly solvable quantum systems</a></h3>
+<p><strong>Authors:</strong> A. D. Alhaidari<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.09812v1">https://arxiv.org/pdf/2605.09812v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> This paper introduces new classes of exactly-solvable quantum systems characterized by two parameters. It demonstrates that tuning these parameters can fundamentally change the nature of the energy spectrum, such as creating bound states from a continuous spectrum.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The paper seeks to identify and characterize new classes of exactly-solvable quantum systems defined by two-parameter initial values in their expansion coefficients.</p>
+<p><strong>Main result.</strong> The authors introduce novel exactly-solvable systems where the Hamiltonian is tridiagonal in an orthonormal basis, demonstrating that varying two parameters can induce bound states or resonances in previously continuous spectra.</p>
+<p><strong>Method.</strong> The method involves representing the Hamiltonian as a tridiagonal symmetric matrix and expressing wavefunctions as convergent series whose expansion coefficients are orthogonal polynomials in energy.</p>
+<p><strong>Model / system.</strong> The study focuses on a class of quantum systems where the Hamiltonian is represented by tridiagonal symmetric matrices in an orthonormal basis, including systems with both continuous and discrete energy spectra.</p>
+<p><strong>Key observables.</strong> Energy spectra (continuous and discrete), bound states, and resonances.</p>
+<p><strong>Important parameters / regimes.</strong> Two parameters within the initial values of the three-term recursion relation for the expansion coefficients.</p>
+<p><strong>Assumptions / limitations.</strong> The potential functions for these two-parameter classes cannot be determined analytically and must be realized numerically.</p>
+<p><strong>Paper structure.</strong> The paper introduces the mathematical framework of the two-parameter classes, describes the tridiagonal matrix representation, provides numerical realizations of the potentials, and presents illustrative examples of energy spectra and parameter-induced bound states.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>We introduce two-parameter classes of exactly-solvable novel systems whose Hamiltonian operators could be represented by tridiagonal symmetric matrices in some orthonormal basis set. The associated wavefunction is written as point-wise convergent series in the basis elements. The expansion coefficients of the series are orthogonal polynomials in the energy that satisfy the resulting three-term recursion relation starting with two-parameter initial values. These polynomials contain all physical information about the system and they depend on the values of the two parameters. However, we could not write down the associated two-parameter potential function analytically but could realize them numerically for a given set of physical parameters. We give several illustrative examples of these systems with continuous and/or discrete energy spectra. Moreover, a curious phenomenon is observed where bound states and/or resonances are induced in a system with pure continuous spectrum (e.g., a free particle) if the two parameters in the initial values exceed certain critical limits.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10768"></a></p>
+<h3 id="unitaria-quantum-linear-algebra-via-block-encodings"><a href="http://arxiv.org/abs/2605.10768v1">Unitaria: Quantum Linear Algebra via Block Encodings</a></h3>
+<p><strong>Authors:</strong> Matthias Deiml, Oliver Hüttenhofer, Ram Mosco, Jakob S. Kottmann, Daniel Peterseim<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> quantum information and computing · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10768v1">https://arxiv.org/pdf/2605.10768v1</a><br>
+<strong>Analysis basis:</strong> full PDF text, analyzed in chunks</p>
+<div class="figure-strip-hint">↔ Scroll figures horizontally</div>
+<div class="paper-figures-scroll">
+<figure class="paper-figure-card">
+<img src="2605.10768_figures/2605.10768_page2.jpg" alt="Figure 1">
+<figcaption class="paper-figure-caption"><b>Fig 1.</b> Low-resolution page preview, page 2</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10768_figures/2605.10768_page3.jpg" alt="Figure 2">
+<figcaption class="paper-figure-caption"><b>Fig 2.</b> Low-resolution page preview, page 3</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10768_figures/2605.10768_page4.jpg" alt="Figure 3">
+<figcaption class="paper-figure-caption"><b>Fig 3.</b> Low-resolution page preview, page 4</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10768_figures/2605.10768_page5.jpg" alt="Figure 4">
+<figcaption class="paper-figure-caption"><b>Fig 4.</b> Low-resolution page preview, page 5</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10768_figures/2605.10768_page6.jpg" alt="Figure 5">
+<figcaption class="paper-figure-caption"><b>Fig 5.</b> Low-resolution page preview, page 6</figcaption>
+</figure>
+</div>
+<p><strong>Summary.</strong> Unitaria is a new Python library that simplifies quantum linear algebra by allowing users to implement block encodings using a high-level, array-like interface. It enables researchers to develop and verify complex algorithms like QSVT and estimate hardware resources without the need for low-level circuit construction or expensive state-vector simulations.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The manual construction of complex quantum circuits for block encodings and Quantum Singular Value Transformation (QSVT) is error-prone, requires deep low-level circuit knowledge, and lacks high-level abstraction for algorithm verification.</p>
+<p><strong>Main result.</strong> The authors introduce Unitaria, a Python library that provides a high-level, NumPy-like interface for defining, composing, and analyzing block encodings and quantum linear algebra algorithms.</p>
+<p><strong>Method.</strong> The library uses a computational graph approach with a 'lazy' execution model, implementing a matrix-arithmetic evaluation path that allows for classical simulation and resource estimation without full circuit execution.</p>
+<p><strong>Model / system.</strong> The framework operates on the gate-based quantum computing model, specifically focusing on the mathematical framework of block encodings where a matrix is embedded into a larger unitary operator.</p>
+<p><strong>Key observables.</strong> Gate counts, qubit counts, and normalization constants (gamma).</p>
+<p><strong>Important parameters / regimes.</strong> Normalization factor (gamma), information efficiency (eta), and subspace indices.</p>
+<p><strong>Assumptions / limitations.</strong> The current implementation is restricted to subspaces corresponding to computational basis states and does not yet include automatic optimization of the normalization factor.</p>
+<p><strong>Figures summary.</strong> Figure 1 illustrates a computational graph representing the implementation of the addition operation via the LCU technique.</p>
+<p><strong>Paper structure.</strong> The paper introduces the problem of block encoding complexity, defines the Unitaria software architecture and its node-based abstraction, details the matrix-arithmetic evaluation path for verification, and demonstrates applications such as integer addition, PDE solving, and Gaussian convolution.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>We introduce Unitaria, a Python library that brings the simplicity of classical linear algebra toolkits such as NumPy and SciPy to the implementation of quantum algorithms based on block encodings, a general-purpose abstraction in which a matrix is embedded as a sub-block of a larger unitary operator. Their implementation has so far required deep knowledge of low-level circuit construction, which Unitaria aims to eliminate. The library provides a composable, array-like interface through which users can define block encodings of matrices and vectors, combine them through standard operations such as addition, multiplication, tensor products, and the Quantum Singular Value Transformation, and extract the resulting quantum circuits automatically. A key feature is a matrix-arithmetic evaluation path in which every operation can be computed directly on encoded vectors and matrices without dependence on ancilla qubits or circuit simulation. This enables correctness verification and classical simulation that scale well beyond what state vector simulation permits and also allows resource estimation, including gate counts, qubit counts, and normalization constants, without executing any circuit. Together, these capabilities allow researchers to develop, verify, and analyze quantum linear algebra algorithms today, ahead of the availability of error-corrected hardware. Unitaria is open source and available at https://github.com/tequilahub/unitaria.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+</details>
+<h2 id="secondary-cond-mat-archives">Secondary cond-mat archives</h2>
+<p><em>Papers from cond-mat.mtrl-sci, mes-hall, other, soft, supr-con. These archives are de-prioritized — they appear at the end regardless of relevance score.</em></p>
+<h3 id="relevant-in-secondary-archives-19">Relevant in secondary archives (19)</h3>
+
+<p><a id="paper-2605.10483"></a></p>
+<h3 id="laser-induced-demagnetization-in-a-max-phase-cr05mn052gac">⭐ <a href="http://arxiv.org/abs/2605.10483v1">Laser-induced demagnetization in a MAX phase (Cr0.5Mn0.5)2GaC</a></h3>
+<p><strong>Highlighted author(s):</strong> Artyom Gorshkov<br>
+<strong>Authors:</strong> Iaroslav Mogunov, Artyom Gorshkov, Mikhail Rautskii, Tatyana Andryushchenko, Alexandra Kalashnikova<br>
+<strong>Type:</strong> experiment · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10483v1">https://arxiv.org/pdf/2605.10483v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable
+<strong>Topic relevance:</strong> <code>non-equilibrium dynamics</code> <strong>2/5</strong></p>
+<p><strong>Summary.</strong> This paper explores how laser pulses trigger ultrafast demagnetization in (Cr0.5Mn0.5)2GaC MAX phase films. It identifies a two-step demagnetization process typical of 2D magnetic systems and provides a foundation for using light to control magnetism in these stable, nanolaminated materials.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The investigation of ultrafast magnetization dynamics and laser-induced demagnetization processes in magnetic MAX phase thin films.</p>
+<p><strong>Main result.</strong> The study reveals a two-step type-II demagnetization process characteristic of 2D magnetic systems, with a dominant second stage lasting approximately 100 ps.</p>
+<p><strong>Method.</strong> Time-resolved magneto-optical Kerr effect (MOKE) spectroscopy combined with the application of the three-temperature model.</p>
+<p><strong>Model / system.</strong> A 40-nm-thick epitaxial film of the magnetic MAX phase (Cr0.5Mn0.5)2GaC, which exhibits magnetic ordering below approximately 250 K.</p>
+<p><strong>Key observables.</strong> Magnetization transients, electron-lattice, spin-lattice, and electron-spin coupling constants, and reconstructed spin heat capacity.</p>
+<p><strong>Important parameters / regimes.</strong> Magnetic ordering temperature (~250 K), demagnetization time (~100 ps), and laser fluence/temperature regimes.</p>
+<p><strong>Assumptions / limitations.</strong> The use of the three-temperature model to extract coupling constants.</p>
+<p><strong>Paper structure.</strong> Introduction to MAX phases, experimental setup using MOKE, analysis of demagnetization stages, extraction of coupling constants via the three-temperature model, and discussion of implications for 2D spintronics.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Magnetic MAX phases are nanolaminated metals that combine ceramic-like thermal and mechanical stability with peculiar magnetic ordering, making them attractive for thin-film optoelectronics and spintronics. However, their magnetization dynamics remain largely unexplored. Here, we investigate laser-induced ultrafast demagnetization in a 40-nm-thick epitaxial film of the magnetic MAX phase (Cr0.5Mn0.5)2GaC, which magnetically orders below ~250 K, using time-resolved magneto-optical Kerr effect spectroscopy. We reveal, that the demagnetization transients exhibit a two-step type-II demagnetization - a signature of two-dimensional magnetic systems. The fast demagnetization stage is small at low temperatures and fluences but becomes prominent with increasing excitation. The second stage dominates the process and has a characteristic time of approximately 100 ps. Applying the three-temperature model, we extract the electron-lattice, spin-lattice, and electron-spin coupling constants. The reconstructed spin heat capacity exhibits a weak temperature dependence, accounting for the absence of significant slowing down of demagnetization at elevated temperatures and fluences. Our results provide a starting point for experimental optical control of magnetism in MAX phases, bringing this broad class of materials into modern 2D spintronics.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10578"></a></p>
+<h3 id="ultra-fast-quantum-control-via-non-adiabatic-resonance-windows-a-9x-speed-up-on-127-qubit-ibm-processors"><a href="http://arxiv.org/abs/2605.10578v1">Ultra-Fast Quantum Control via Non-Adiabatic Resonance Windows: A 9x Speed-up on 127-Qubit IBM Processors</a></h3>
+<p><strong>Authors:</strong> A. M. Tishin<br>
+<strong>Type:</strong> both · <strong>Category:</strong> quantum information and computing · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10578v1">https://arxiv.org/pdf/2605.10578v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable
+<strong>Topic relevance:</strong> 🔥 <code>QC/QI experiment</code> <strong>5/5</strong></p>
+<p><strong>Summary.</strong> The study identifies a non-adiabatic resonance window that enables quantum gates to operate up to 9.2 times faster than the conventional adiabatic limit on 127-qubit IBM processors. While demonstrating high fidelity and universality across hardware, the researchers highlight that these windows are highly sensitive to small calibration drifts. This suggests that future high-performance quantum computing will require dynamic, rather than static, control protocols.</p>
+<p><strong>Why it may be interesting.</strong> The discovery of a specific non-adiabatic regime that significantly accelerates gate operations provides a new framework for high-speed control in open quantum systems and superconducting architectures.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> Standard adiabatic gate protocols in superconducting qubits suffer from a trade-off between gate speed and decoherence, limiting performance.</p>
+<p><strong>Main result.</strong> Discovery of a non-adiabatic resonance window that allows for a 9.2-fold reduction in gate duration while maintaining high fidelities, though these windows are sensitive to calibration drifts.</p>
+<p><strong>Method.</strong> Experimental implementation on IBM 127-qubit processors (ibm_fez and ibm_kingston) using synchronous cross-backend execution and longitudinal analysis of resonance profiles.</p>
+<p><strong>Model / system.</strong> Superconducting qubits implemented on IBM Quantum 127-qubit processors (specifically ibm_fez and ibm_kingston architectures).</p>
+<p><strong>Key observables.</strong> Gate fidelity, resonance profile correlation (R), and gate duration reduction factor.</p>
+<p><strong>Important parameters / regimes.</strong> Non-adiabatic resonance window at approximately 4.9; sub-percent calibration drifts.</p>
+<p><strong>Assumptions / limitations.</strong> The universality of the non-adiabatic parameter across independent hardware architectures.</p>
+<p><strong>Paper structure.</strong> The paper introduces the problem of adiabatic trade-offs, presents the discovery of the non-adiabatic resonance window, validates the universality of the effect across different IBM backends, analyzes the impact of calibration drifts, and concludes with the need for dynamic resonance-tracking control.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Standard adiabatic protocols for superconducting qubits often face a trade-off between gate speed and decoherence. In this work, using IBM Quantum 127-qubit processors (ibm_fez and ibm_kingston), we report the discovery of a fundamental non-adiabatic resonance window at about 4.9. This window demonstrates the potential for a 9.2-fold reduction in gate duration relative to the conventional adiabatic limit, while maintaining state high fidelities within the identified resonance windows. Through synchronous cross-backend execution, we demonstrate a near-perfect correlation (R = 0.9998) in the resonance profile, confirming the universality of the non-adiabatic parameter across independent hardware architectures. However, our longitudinal analysis reveals that these high-Q windows are sensitive to sub-percent calibration drifts, which dynamically shift the system into a stochastic regime. These findings suggest that achieving next-tier quantum performance requires a transition from static gate protocols to dynamic resonance-tracking control tools. This study provides both the theoretical foundation and the experimental evidence for such ultra-fast, high-performance quantum architectures.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.09488"></a></p>
+<h3 id="coherence-long-range-transport-and-nuclear-polarization-in-a-driven-dissipative-dark-exciton-condensate"><a href="http://arxiv.org/abs/2605.09488v1">Coherence, long-range transport and nuclear polarization in a driven-dissipative dark exciton condensate</a></h3>
+<p><strong>Authors:</strong> Amit Jash, Maheswar Swar, Uri Shimon, Vladimir Umansky, Israel Bar-Joseph<br>
+<strong>Type:</strong> experiment · <strong>Category:</strong> quantum gases · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.09488v1">https://arxiv.org/pdf/2605.09488v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable
+<strong>Topic relevance:</strong> 🔥 <code>driven-dissipative phase transition</code> <strong>4/5</strong> · 🔥 <code>non-equilibrium dynamics</code> <strong>4/5</strong> · <code>spintronics-quantum-optics interface</code> <strong>3/5</strong> · <code>quantum optics experiment</code> <strong>2/5</strong></p>
+<p><strong>Summary.</strong> This paper reports the experimental discovery of a coherent condensate of dark dipolar excitons in coupled quantum wells. The condensate exhibits long-range hydrodynamic transport and induces nuclear spin polarization through the Overhauser field. These findings establish dark excitons as a tunable platform for studying strongly interacting, non-equilibrium quantum fluids.</p>
+<p><strong>Why it may be interesting.</strong> It provides a bridge between polariton condensates and matter-like excitonic systems, demonstrating how driven-dissipative dynamics and strong interactions can be used to control quantum fluids and nuclear spin polarization.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The study investigates the formation, coherence, and transport properties of a non-equilibrium condensate of dark dipolar excitons in coupled quantum wells.</p>
+<p><strong>Main result.</strong> The authors demonstrate macroscopic coherence, long-range hydrodynamic transport of density modes, and dynamic nuclear polarization driven by the dark exciton condensate.</p>
+<p><strong>Method.</strong> Experimental observation of photoluminescence (PL) darkening, changes in radiative recombination, and interference between incident and reflected exciton currents in coupled quantum wells.</p>
+<p><strong>Model / system.</strong> A driven-dissipative system of dark dipolar excitons in coupled quantum wells, characterized by long lifetimes and strong interactions.</p>
+<p><strong>Key observables.</strong> Photoluminescence darkening, radiative recombination channels, density (sound) mode propagation, Overhauser field-induced gap closing, and PL blueshift.</p>
+<p><strong>Important parameters / regimes.</strong> Dark-bright exciton gap (Delta), gain-loss competition, and millimeter-scale transport distances.</p>
+<p><strong>Paper structure.</strong> The paper reports evidence for coherence, describes the driven-dissipative condensation mechanism, details the hydrodynamic transport and nuclear polarization effects, and concludes with the implications for quantum fluid platforms.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>We report direct evidence for macroscopic coherence in a condensate of dark dipolar excitons in coupled quantum wells and show that its formation follows a non-equilibrium, driven-dissipative mechanism. The condensation transition is governed by gain-loss competition, in which the exceptionally long lifetime of dark excitons enables their dominance in mode selection. Condensate formation is revealed by photoluminescence darkening, changes in radiative recombination channels, and the emergence of long-range hydrodynamic transport manifested by propagation of density (sound) modes over millimeter-scale distances. The buildup of dark exciton density induces dynamic nuclear polarization, which closes the dark-bright exciton gap, Δ, via the Overhauser field. This leads to nuclear spin polarization across the entire mesa, far beyond the optically excited region, and produces pronounced hysteresis behavior. At Δ~ 0 the gap is locked and the condensate loss are minimal, resulting in a second threshold manifested as a photoluminescence blueshift. Coherence is revealed through interference between incident and boundary-reflected exciton currents, producing spatial modulation of the photoluminescence from the radiative reservoir and enabling extraction of the condensate coherence length. These results establish dark excitons as a platform for coherent quantum fluids in a driven-dissipative, strongly interacting regime with electrical tunability, bridging the physics of polariton condensates and matter-like excitonic systems.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.09135"></a></p>
+<h3 id="theory-and-experiment-of-chirality-induced-magnetic-nonreciprocity-manifested-by-coupling-phase"><a href="http://arxiv.org/abs/2605.09135v1">Theory and Experiment of Chirality-induced Magnetic Nonreciprocity Manifested by Coupling Phase</a></h3>
+<p><strong>Authors:</strong> Jiguang Yao, Ying Yang, Chenyang Lu, Lihua Zhong, Xiaolong Fan, Desheng Xue, C. -M. Hu<br>
+<strong>Type:</strong> both · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.09135v1">https://arxiv.org/pdf/2605.09135v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable
+<strong>Topic relevance:</strong> 🔥 <code>spintronics-quantum-optics interface</code> <strong>4/5</strong> · <code>interference shaping light</code> <strong>3/5</strong> · <code>quantum optics experiment</code> <strong>2/5</strong></p>
+<p><strong>Summary.</strong> This paper provides a unified theory and experimental validation for magnetic nonreciprocity driven by chirality. It introduces the concept of synthetic chirality enabled by phase accumulation in coupling systems. The work establishes a framework that connects field polarization to complex coupling phases, distinguishing new mechanisms from conventional ones.</p>
+<p><strong>Why it may be interesting.</strong> This is highly relevant for quantum optics and open quantum systems as it introduces a method for engineering synthetic chirality and nonreciprocal photon-matter interactions through phase control.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The study aims to unify the understanding of chirality mechanisms essential for magnetic nonreciprocity, specifically distinguishing between conventional chiral electromagnetic fields and synthetic chirality.</p>
+<p><strong>Main result.</strong> The authors establish a microscopic theoretical framework that maps field polarization to the phase of a complex coupling strength, providing a consistent formalism for both conventional and synthetic chirality.</p>
+<p><strong>Method.</strong> The work employs a unified experimental and theoretical approach, using systematic experiments to validate a theoretical framework based on phase accumulation in traveling-wave-mediated coupling systems.</p>
+<p><strong>Model / system.</strong> The system involves traveling-wave-mediated coupling systems where nonreciprocity is induced by breaking time-reversal symmetry via magnetic fields and introducing spatial asymmetry through chiral interactions.</p>
+<p><strong>Key observables.</strong> Field polarization and the phase of complex coupling strength.</p>
+<p><strong>Important parameters / regimes.</strong> Nontrivial phase accumulation in traveling-wave-mediated coupling.</p>
+<p><strong>Paper structure.</strong> The paper begins with an examination of conventional chiral interactions, moves to the investigation of synthetic chirality via phase accumulation, presents a new microscopic theoretical framework, and concludes with experimental validation and a comparison of symmetry properties.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Magnetic interactions have long served as the most robust and widely used approach for realizing nonreciprocity, with an externally applied magnetic field breaking time-reversal symmetry (TRS) and chiral photon-magnon interactions introducing spatial asymmetry. In this work, we investigate the chirality mechanisms essential for magnetic nonreciprocity from a unified experimental and theoretical perspective. We begin by examining conventional chiral interactions that generate chiral electromagnetic fields through specially designed structures, and then place particular emphasis on synthetic chirality enabled by nontrivial phase accumulation in traveling-wave-mediated coupling systems. We establish a microscopic theoretical framework that maps field polarization onto the phase of a complex coupling strength and validate it with systematic experiments, thereby providing a consistent formalism that describes both conventional and synthetic chirality. Notably, we highlight the symmetry properties and the unique features of synthetic chirality that distinguish it from conventional nonreciprocal mechanisms.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.08591"></a></p>
+<h3 id="quasiparticle-quality-factors-in-superconducting-resonators-effects-of-bath-temperature-and-readout-power"><a href="http://arxiv.org/abs/2605.08591v1">Quasiparticle Quality Factors in Superconducting Resonators: Effects of Bath Temperature and Readout Power</a></h3>
+<p><strong>Authors:</strong> Zhenyuan Sun, S Withington, Songyuan Zhao<br>
+<strong>Type:</strong> both · <strong>Category:</strong> quantum information and computing · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.08591v1">https://arxiv.org/pdf/2605.08591v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable
+<strong>Topic relevance:</strong> 🔥 <code>QC/QI experiment</code> <strong>4/5</strong> · <code>non-equilibrium dynamics</code> <strong>2/5</strong> · <code>quantum measurements</code> <strong>2/5</strong></p>
+<p><strong>Summary.</strong> The paper presents a new model to explain why superconducting resonators lose quality at low temperatures due to microwave-induced quasiparticles. By incorporating power-dependent phonon generation into the Rothwarf-Taylor equations, the authors provide a predictive tool for designing high-performance quantum sensors and processors.</p>
+<p><strong>Why it may be interesting.</strong> The study of quasiparticle dynamics and non-equilibrium phonon generation is highly relevant to understanding decoherence and dissipation in superconducting open quantum systems.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The deviation of superconducting resonator quality factors from Mattis-Bardeen predictions at low temperatures due to nonthermal quasiparticles generated by microwave readout power.</p>
+<p><strong>Main result.</strong> A macroscopic model based on modified Rothwarf-Taylor equations that accurately predicts the transition between thermally-dominated and microwave-induced loss regimes.</p>
+<p><strong>Method.</strong> Development of a macroscopic model incorporating a power-dependent phonon generation term and validation via temperature sweep measurements.</p>
+<p><strong>Model / system.</strong> NbN microstrip resonators with eta-Ta terminations subjected to varying bath temperatures and microwave readout power levels.</p>
+<p><strong>Key observables.</strong> Quality factor (Q), bath temperature, and readout power.</p>
+<p><strong>Important parameters / regimes.</strong> Temperature-dependent loss, power-dependent phonon generation, and the transition between thermal and non-thermal quasiparticle regimes.</p>
+<p><strong>Assumptions / limitations.</strong> The model assumes a macroscopic approach based on modified Rothwarf-Taylor equations and focuses on the impact of phonon generation from readout power.</p>
+<p><strong>Paper structure.</strong> The paper introduces the problem of quasiparticle-induced loss, presents a modified Rothwarf-Taylor model, validates it with experimental temperature sweeps of NbN resonators, and discusses implications for device optimization.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>The performance of superconducting resonators underpins a wide range of modern quantum technologies, yet their quality factor often deviates at low temperatures from standard Mattis-Bardeen predictions. This discrepancy is often attributed to nonthermal quasiparticles generated by microwave readout power, which limits the sensitivity of superconducting devices. We present a macroscopic model based on modified Rothwarf-Taylor equations that incorporates a power-dependent phonon generation term, providing an explicit relationship between quality factor, bath temperature and readout power. The model shows excellent agreement with temperature sweep measurements of NbN microstrip resonators with \b{eta}-Ta terminations over a wide dynamic range of readout power levels, accurately capturing the transition between thermally-dominated and microwave-induced loss regimes. This framework provides a predictive tool for optimizing superconducting resonators and advancing the design of high-Q devices for quantum sensing and quantum information processing.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10336"></a></p>
+<h3 id="strain-enhanced-coherence-in-curved-hbn-quantum-emitters"><a href="http://arxiv.org/abs/2605.10336v1">Strain-Enhanced Coherence in Curved hBN Quantum Emitters</a></h3>
+<p><strong>Authors:</strong> Eyal Shoham, Sukanta Nandi, Ayelet Teitelboim, Jeny Jose, Gil Atar, Ashwin Ramasubramaniam Tomer Lewi, Doron Naveh<br>
+<strong>Type:</strong> experiment · <strong>Category:</strong> quantum information and computing · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10336v1">https://arxiv.org/pdf/2605.10336v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable
+<strong>Topic relevance:</strong> 🔥 <code>quantum optics experiment</code> <strong>4/5</strong> · <code>QC/QI experiment</code> <strong>3/5</strong></p>
+<p><strong>Summary.</strong> The paper demonstrates that strain-induced curvature in hBN flakes can suppress phonon-induced dephasing in single-photon emitters. By creating nanoscale bubbles, the researchers achieved higher spectral purity and narrower linewidths at room temperature. This provides a new pathway for engineering high-coherence quantum light sources for integrated photonics.</p>
+<p><strong>Why it may be interesting.</strong> This work is highly relevant to quantum optics and open quantum systems as it demonstrates a mechanical method (strain engineering) to control the environment-induced decoherence of a quantum emitter at room temperature.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The coherence of single-photon emitters in hexagonal boron nitride (hBN) is limited by phonon-induced dephasing and spectral broadening at room temperature.</p>
+<p><strong>Main result.</strong> Strain-induced curvature in hBN flakes creates nanoscale bubbles that suppress phonon coupling, leading to enhanced spectral purity and narrower linewidths for quantum emitters.</p>
+<p><strong>Method.</strong> The researchers used thermal processing to create nanoscale bubbles, infrared nano-spectroscopy to probe strain-induced phonon mode splitting, and photon correlation measurements to assess single-photon purity.</p>
+<p><strong>Model / system.</strong> The system consists of single-photon emitters (defects) embedded within hexagonal boron nitride (hBN) flakes, specifically focusing on curved regions and nanoscale bubbles created by thermal strain.</p>
+<p><strong>Key observables.</strong> Debye-Waller factors, spectral linewidths, in-plane phonon mode splitting, and photon correlation measurements (g2).</p>
+<p><strong>Important parameters / regimes.</strong> Room temperature, strain gradients, and Debye-Waller factor of 0.91.</p>
+<p><strong>Assumptions / limitations.</strong> The study assumes that the observed enhancement is primarily due to the redistribution of the phonon density of states driven by strain.</p>
+<p><strong>Paper structure.</strong> The paper introduces the problem of phonon dephasing in hBN, describes the experimental creation of strain via thermal processing, presents infrared nano-spectroscopy results showing phonon mode splitting, demonstrates enhanced emitter coherence in curved regions, and provides first-principles calculations to support the phonon redistribution mechanism.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Hexagonal boron nitride (hBN) hosts robust room-temperature single-photon emitters, yet their coherence is typically limited by phonon induced dephasing and spectral broadening. Here, we show that thermally induced curvature in bulk like hBN flakes provides a strain enabled route to suppress defect phonon coupling under ambient conditions. Nanoscale bubbles formed by thermal processing generate strong through thickness strain gradients, which we directly probe by infrared nano spectroscopy. These measurements reveal strain induced splitting of in-plane phonon modes, evidencing a substantial local modification of the phonon density of states. Quantum emitters localized within these curved regions exhibit markedly enhanced room temperature spectral purity, with Debye Waller factors of 0.91 and narrower line widths than emitters in flat regions. Photon correlation measurements confirm high-purity single photon emission at room temperature. Supported by first-principles calculations, we attribute this behavior to strain driven phonon redistribution, which depletes phonons in tensile regions and accumulates them in compressive regions, thereby creating locally phonon suppressed environments for defect emitters. These results establish strain engineering as an effective route for phonon control in hBN and open a pathway toward high coherence, room-temperature quantum light sources for integrated nano photonic platforms.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.09645"></a></p>
+<h3 id="purcell-enhancement-in-layered-inse-on-the-mie-resonant-silicon-nitride-waveguide"><a href="http://arxiv.org/abs/2605.09645v1">Purcell enhancement in layered InSe on the Mie-resonant silicon nitride waveguide</a></h3>
+<p><strong>Authors:</strong> A. I. Veretennikov, E. A. Shepelev, A. S. Shorokhov, P. A. Alekseev, I. A. Eliseyev, A. A. Fedyanin, M. V. Rakhlin<br>
+<strong>Type:</strong> experiment · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.09645v1">https://arxiv.org/pdf/2605.09645v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable
+<strong>Topic relevance:</strong> 🔥 <code>quantum optics experiment</code> <strong>4/5</strong> · <code>QC/QI experiment</code> <strong>2/5</strong></p>
+<p><strong>Summary.</strong> The researchers successfully demonstrated Purcell enhancement of excitonic emission in an InSe flake by integrating it with a Mie-resonant silicon nitride waveguide. They achieved a threefold reduction in decay time, providing a scalable platform for controlling light-matter interaction in van der Waals heterostructures.</p>
+<p><strong>Why it may be interesting.</strong> The paper demonstrates practical cavity QED-like control (Purcell enhancement) over excitonic recombination in a solid-state platform, which is highly relevant for developing integrated quantum photonic and quantum information components.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> Controlling the spontaneous emission dynamics of excitons in layered van der Waals semiconductors through hybrid integration with dielectric resonators.</p>
+<p><strong>Main result.</strong> Demonstration of Purcell enhancement in InSe integrated with a Si3N4 waveguide, achieving a reduction in excitonic decay time by up to a factor of three.</p>
+<p><strong>Method.</strong> Time-resolved photoluminescence spectroscopy of an InSe flake integrated with a Mie-resonant silicon nitride waveguide.</p>
+<p><strong>Model / system.</strong> A thin InSe (indium selenide) flake integrated with a Mie-resonant silicon nitride (Si3N4) waveguide designed to overlap with the InSe photoluminescence band.</p>
+<p><strong>Key observables.</strong> Excitonic decay time, Purcell factors for out-of-plane and in-plane excitons, and photoluminescence band overlap.</p>
+<p><strong>Important parameters / regimes.</strong> Purcell factor of approximately 3 for out-of-plane excitons and 2.1 for in-plane excitons.</p>
+<p><strong>Paper structure.</strong> The paper introduces the hybrid integration approach, describes the design of the Mie-resonant Si3N4 waveguide, presents time-resolved photoluminescence data, quantifies the Purcell enhancement, and discusses the implications for quantum photonic devices.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Hybrid integration of layered van der Waals (vdW) semiconductors with dielectric resonant structures provides an effective approach for controlling excitonic emission dynamics. Here, we demonstrate Purcell-enhanced spontaneous emission from a thin InSe flake integrated with a Mie-resonant Si$_3$N$_4$ waveguide. The structure is designed to spectrally overlap with the InSe photoluminescence band and enhance coupling of excitonic emission to the guided mode. Time-resolved photoluminescence shows a reduction of the excitonic decay time by up to a factor of three relative to planar InSe. The extracted Purcell factors are approximately 3 for out-of-plane excitons and 2.1 for in-plane excitons. These results demonstrate resonator-induced control of excitonic recombination in layered InSe and highlight vdW-dielectric interfaces as a platform for integrated excitonic and quantum photonic devices.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10000"></a></p>
+<h3 id="diamond-membranes-platform-for-photonic-and-opto-mechanical-applications"><a href="http://arxiv.org/abs/2605.10000v1">Diamond membranes: platform for photonic and opto-mechanical applications</a></h3>
+<p><strong>Authors:</strong> Hsin-Hui Huang, Gediminas Seniutinas, Haoran Mu, Nguyen Hoai An Le, Eulalia Puig Vilardell, Vijayakumar Anand, Jitraporn Vongsvivut, Tomas Katkus, Meguya Ryu, Junko Morikawa, Saulius Juodkazis<br>
+<strong>Type:</strong> experiment · <strong>Category:</strong> quantum information and computing · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10000v1">https://arxiv.org/pdf/2605.10000v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable
+<strong>Topic relevance:</strong> <code>QC/QI experiment</code> <strong>3/5</strong> · <code>quantum optics experiment</code> <strong>3/5</strong> · <code>interference shaping light</code> <strong>2/5</strong> · <code>spintronics-quantum-optics interface</code> <strong>1/5</strong></p>
+<p><strong>Summary.</strong> This paper presents the fabrication and characterization of thin diamond membranes for use in photonic and optomechanical devices. The authors demonstrate precise laser-cutting techniques and analyze the optical properties of diamond gratings in the infrared range. These membranes serve as a potential platform for quantum technologies across a wide spectral range.</p>
+<p><strong>Why it may be interesting.</strong> The development of diamond-based photonic and optomechanical platforms is highly relevant for quantum optics and quantum information, as diamond can host color centers for quantum emitters and high-quality mechanical resonators.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> Developing diamond membranes as a versatile platform for photonic, quantum, and optomechanical applications across the UV-IR spectrum.</p>
+<p><strong>Main result.</strong> Demonstrated the fabrication of diamond membranes via femtosecond laser cutting and characterized the IR absorbance dichroism in diamond gratings, revealing a sign change in dichroism when the grating period is 1-2 wavelengths.</p>
+<p><strong>Method.</strong> Femtosecond laser cutting (1030 nm, 200 fs) for structuring and IR characterization in reflection and transmission modes.</p>
+<p><strong>Model / system.</strong> Diamond membranes with thicknesses ranging from 1 to 10 micrometers, including engineered diamond gratings and form-birefringent structures.</p>
+<p><strong>Key observables.</strong> IR absorbance dichroism, light intensity distribution, and polarization-dependent interference patterns.</p>
+<p><strong>Important parameters / regimes.</strong> Membrane thickness (1-10 $\mu$m), grating period (1-2 wavelengths), and laser fluence (&gt; 0.4 J/cm2/pulse).</p>
+<p><strong>Paper structure.</strong> The paper discusses the fabrication of diamond membranes, the characterization of IR properties in gratings, the demonstration of laser-based micro-structuring, and the modeling of light intensity in birefringent structures.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Diamond 1 - 10 micrometers thick membranes are platform for photonic, quantum and opto-mechanic devices with applications across UV-IR spectral ranges. IR characterization of diamond gratings in reflection and transmission showed a change of the IR absorbance dichroism between positive and negative when the grating period was 1-2 wavelengths (free space) including inside the region of the intrinsic diamond absorbance. Femtosecond laser cutting of micrometers-wide and mm-long structures are demonstrated by steps of carbonization &gt; 0.4 J/cm2/pulse (1030 nm/200 fs) and oxidation of diamond membranes. Light intensity distribution inside form-birefringent diamond structure was modeled for a scaled-down structure and wavelength to reveal characteristic interference patterns for different polarizations.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10432"></a></p>
+<h3 id="effective-dynamic-constants-for-nonequilibrium-third-principles-simulations"><a href="http://arxiv.org/abs/2605.10432v1">Effective dynamic constants for nonequilibrium third-principles simulations</a></h3>
+<p><strong>Authors:</strong> Mauro Pulzone, Iñigo Robredo-Magro, Jorge Íñiguez-González<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> statistical mechanics · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10432v1">https://arxiv.org/pdf/2605.10432v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable
+<strong>Topic relevance:</strong> <code>non-equilibrium dynamics</code> <strong>3/5</strong> · <code>Keldysh / 2PI / non-Gaussian methods</code> <strong>2/5</strong> · <code>correlated / nonlocal dissipation</code> <strong>2/5</strong> · <code>methods for driven-dissipative</code> <strong>2/5</strong></p>
+<p><strong>Summary.</strong> This paper addresses the gap in coarse-graining methods by providing a protocol to calculate the effective inertial and damping constants needed for nonequilibrium simulations. By applying this to PbTiO3, the authors demonstrate how to move beyond static free-energy landscapes to capture the full dynamics of ferroelectric materials.</p>
+<p><strong>Why it may be interesting.</strong> The development of a protocol to derive effective dissipation and inertia from underlying dynamics is highly relevant to the study of open quantum systems and the derivation of master equations for many-body dynamics.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The derivation of effective dynamic constants (inertial and viscous-damping coefficients) for coarse-grained, mesoscopic, and macroscopic simulations of nonequilibrium dynamics.</p>
+<p><strong>Main result.</strong> The authors present a protocol to compute temperature-dependent inertial and damping coefficients for electric polarization, specifically demonstrated for the ferroelectric PbTiO3.</p>
+<p><strong>Method.</strong> A computational protocol designed to bridge atomistic simulations with coarse-grained Landau-like models, focusing on the calculation of effective dynamic constants.</p>
+<p><strong>Model / system.</strong> The study focuses on the soft-mode ferroelectric material PbTiO3, treated within a coarse-grained framework using collective variables like electric polarization.</p>
+<p><strong>Key observables.</strong> Temperature-dependent inertial and damping coefficients associated with electric polarization.</p>
+<p><strong>Important parameters / regimes.</strong> Mesoscopic and macroscopic scales (micrometers and microseconds); temperature-dependent dynamics.</p>
+<p><strong>Assumptions / limitations.</strong> The system can be described using a Landau-like potential and simple equations of motion governed by effective constants.</p>
+<p><strong>Paper structure.</strong> The paper introduces the problem of missing dynamic constants in coarse-graining, presents a new calculation protocol, applies it to PbTiO3, and discusses the implications for existing literature.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Computational studies of the thermodynamic properties of materials at the mesoscopic and macroscopic scales -- involving lengths and times of at least $μ$m and $μ$s, respectively -- rely on a coarse-graining approximation such that only a few relevant collective variables are treated explicitly. Those variables typically take the form of fields defined everywhere in space or macroscopic quantities when spatial inhomogeneities can be treated implicitly. The free energy is usually expressed as a Landau-like potential whose temperature-dependent minima track stable states, characteristic equilibrium fluctuations being implicitly accounted for. Further, the response of the system to external perturbations, and its relaxation toward thermal equilibrium, are described in terms of simple equations of motion governed by effective inertial and viscous-damping constants. There is considerable literature on the problem of deriving Landau free energy potentials, from either experiment or predictive atomistic simulations, including recent efforts to develop systematic machine-learning approaches that we denote ``third principles''. Much less attention has received the calculation of the effective constants controlling the nonequilibrium macroscopic or mesoscopic dynamics. Here we tackle that problem, describing a protocol that allows us to compute the temperature-dependent inertial and damping coefficients associated to the electric polarization in representative soft-mode ferroelectric PbTiO$_{3}$. Our scheme lends itself to a widespread application, although the non-trivial behaviors found in PbTiO$_{3}$ suggest that more case studies will be needed to finetune a general and robust calculation protocol. Our results also allow us to comment on common assumptions in the literature of effective dynamic treatments of ferroelectrics and related materials.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.09088"></a></p>
+<h3 id="effect-of-spin-dependent-tunneling-and-intervalley-scattering-in-magnetic-semiconductor-van-der-waals-heterostructures-on-exciton-and-trion-polarization"><a href="http://arxiv.org/abs/2605.09088v1">Effect of spin-dependent tunneling and intervalley scattering in magnetic-semiconductor van der Waals heterostructures on exciton and trion polarization</a></h3>
+<p><strong>Authors:</strong> V. N. Mantsevich<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.09088v1">https://arxiv.org/pdf/2605.09088v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable
+<strong>Topic relevance:</strong> <code>spintronics-quantum-optics interface</code> <strong>3/5</strong> · <code>non-equilibrium dynamics</code> <strong>2/5</strong></p>
+<p><strong>Summary.</strong> This paper provides a theoretical framework to control valley pseudospin in TMD-based van der Waals heterostructures using magnetic proximity effects. It demonstrates that by tuning the relationship between tunneling and scattering rates, one can switch the sign of photoluminescence polarization. This offers a mechanism for long-distance manipulation of excitons and trions in magnetic-semiconductor heterostructures.</p>
+<p><strong>Why it may be interesting.</strong> The paper is relevant to quantum optics and open quantum systems due to its focus on the control of pseudospin dynamics and the manipulation of quasiparticle (exciton/trion) polarization via external laser excitation.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> Understanding how spin-dependent tunneling and intervalley scattering affect the polarization of photoluminescence in TMD/magnetic material van der Waals heterostructures.</p>
+<p><strong>Main result.</strong> The study reveals that the interplay between interlayer charge transfer and scattering lifetimes can allow for the switching of photoluminescence polarization sign under circularly polarized excitation.</p>
+<p><strong>Method.</strong> A self-consistent theoretical analysis of photoluminescence polarization dynamics, considering the competition between various timescales.</p>
+<p><strong>Model / system.</strong> Transition metal dichalcogenide (TMD) monolayers in contact with a 2D magnetic layer, forming a van der Waals heterostructure subject to the magnetic proximity effect.</p>
+<p><strong>Key observables.</strong> Photoluminescence (PL) polarization, spin and valley pseudospin dynamics, and the polarization sign.</p>
+<p><strong>Important parameters / regimes.</strong> Electron tunneling timescale, exciton and trion intervalley scattering lifetimes, and radiative lifetimes.</p>
+<p><strong>Assumptions / limitations.</strong> The model assumes the validity of the magnetic proximity effect in the TMD monolayer and focuses on the interplay of specific scattering and tunneling processes.</p>
+<p><strong>Paper structure.</strong> The paper presents a theoretical analysis of valley pseudospin control, proposes a self-consistent model for PL polarization, discusses the role of scattering and tunneling timescales, and generalizes the model to include bright and dark exciton dynamics.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>We present a theoretical analysis of valley pseudospin control in the transition metal dichalcogenide (TMD) monolayer by utilizing the magnetic proximity effect of 2D magnetic layer and, propose self-consistent analysis of photoluminescence (PL) polarization peculiarities in TMD/magnetic material van der Waals heterostructures. We attribute observed peculiarities to the interplay between spin-dependent interlayer charge transfer and intervalley scattering of excitons and trions. The ratio between the electron tunneling timescale and the exciton and trion intervalley scattering lifetimes and radiative lifetimes determine the PL dynamics. A possibility to switch PL polarization sign due to the quasi-particles dynamics under circularly polarized laser excitations is revealed. We also discuss generalization of the proposed model due to the careful analysis of both intervalley and intravalley scattering processes between bright and dark excitons. Obtained results allow a long-distance manipulation of exciton and trion behaviors and open the possibilities for the effective control under spin and valley pseudospin in multilayer magnetic-semiconductor van der Waals heterostructures.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.08531"></a></p>
+<h3 id="fokker-planck-framework-for-stochastic-octupole-moment-dynamics-in-chiral-antiferromagnet-mn3sn"><a href="http://arxiv.org/abs/2605.08531v1">Fokker--Planck framework for stochastic octupole moment dynamics in chiral antiferromagnet Mn3Sn</a></h3>
+<p><strong>Authors:</strong> Siyuan Qian, Shaloo Rakheja<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> numerical methods · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.08531v1">https://arxiv.org/pdf/2605.08531v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable
+<strong>Topic relevance:</strong> <code>methods for driven-dissipative</code> <strong>3/5</strong> · <code>non-equilibrium dynamics</code> <strong>2/5</strong></p>
+<p><strong>Summary.</strong> This paper presents a new numerical framework using a CUDA-accelerated Fokker-Planck solver to study the stochastic dynamics of octupole moments in Mn3Sn. The method allows for the efficient simulation of thermally assisted switching at error rates much lower than those achievable with standard Monte Carlo methods. It demonstrates that the solver is highly accurate and sensitive to the precise rotation of the octupole moment.</p>
+<p><strong>Why it may be interesting.</strong> The development of an efficient Fokker-Planck solver for stochastic dynamics and the ability to reach ultra-low error probabilities is highly relevant to researchers working on open quantum systems and non-equilibrium many-body dynamics.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> Developing an efficient way to simulate thermally assisted octupole moment dynamics and switching in the chiral antiferromagnet Mn3Sn.</p>
+<p><strong>Main result.</strong> The authors developed a CUDA-accelerated Fokker-Planck solver that can access ultra-low error probabilities for switching events, reaching regimes that are computationally inaccessible to direct Monte Carlo simulations.</p>
+<p><strong>Method.</strong> The method combines a reduced Landau-Lifshitz-Gilbert (LLG) equation with the Fokker-Planck formalism and implements it via a CUDA-accelerated numerical solver.</p>
+<p><strong>Model / system.</strong> The system is the chiral antiferromagnet Mn3Sn, specifically focusing on the dynamics of the three-sublattice octupole moment.</p>
+<p><strong>Key observables.</strong> Octupole moment dynamics, switching behavior, equilibrium distributions, relaxation trajectories, and switching times.</p>
+<p><strong>Important parameters / regimes.</strong> Out-of-plane grid resolution, thermal assistance, and field-driven switching parameters.</p>
+<p><strong>Assumptions / limitations.</strong> The use of a reduced model for the octupole dynamics is assumed to capture essential physics accurately compared to the full three-sublattice model.</p>
+<p><strong>Paper structure.</strong> The paper introduces a reduced stochastic framework, benchmarks the reduced LLG model against full dynamics, derives and implements a CUDA-accelerated Fokker-Planck solver, validates the solver against Monte Carlo simulations, and applies it to study field-driven switching.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>We develop a reduced stochastic framework for thermally assisted octupole moment dynamics in Mn3Sn by combining the reduced Landau--Lifshitz--Gilbert (LLG) equation with the Fokker--Planck formalism. The reduced model is benchmarked against the complete three-sublattice octupole dynamics and is shown to capture the essential switching behavior with good accuracy. We then derive the corresponding Fokker--Planck equation, which is implemented and solved via a CUDA-accelerated solver. The analysis shows that the octupole dynamics are highly sensitive to the out-of-plane grid resolution because ultrafast rotation of the octupole is controlled by its very small deviations from the basal plane. The solver is validated against Monte Carlo simulations through equilibrium distributions, relaxation trajectories, and switching times. Finally, we apply the method to thermally assisted field-driven switching and demonstrate efficient access to ultra-low error probabilities beyond the practical reach of direct Monte Carlo simulations.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.08381"></a></p>
+<h3 id="machine-learning-the-non-radiative-decay-modes-in-photochemical-processes"><a href="http://arxiv.org/abs/2605.08381v1">Machine learning the non-radiative decay modes in photochemical processes</a></h3>
+<p><strong>Authors:</strong> Debarshi Banerjee, Gonzalo Díaz Mirón, Alex Rodriguez, Ali Hassanali<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> disordered systems and neural networks · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.08381v1">https://arxiv.org/pdf/2605.08381v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable
+<strong>Topic relevance:</strong> <code>entanglement &amp; information structure</code> <strong>2/5</strong> · <code>methods for driven-dissipative</code> <strong>2/5</strong> · <code>non-equilibrium dynamics</code> <strong>2/5</strong></p>
+<p><strong>Summary.</strong> The paper introduces a new machine learning method called Differentiable Information Imbalance to identify which molecular motions drive non-radiative decay. By analyzing trajectory simulations, the method can simplify complex, high-dimensional motions into interpretable, low-dimensional modes. This provides a scalable way to understand the mechanisms behind electronic transitions in complex molecular systems.</p>
+<p><strong>Why it may be interesting.</strong> The use of information-theoretic machine learning to reduce the dimensionality of complex, non-adiabatic dynamics is highly relevant for understanding many-body dynamics and open quantum system evolutions.</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> Identifying the specific high-dimensional nuclear degrees of freedom that drive non-radiative decay via conical intersections in molecular dynamics simulations.</p>
+<p><strong>Main result.</strong> Development of an unsupervised, information-theoretic framework (DII) that successfully extracts low-dimensional, physically interpretable modes responsible for electronic transitions.</p>
+<p><strong>Method.</strong> An unsupervised framework based on Differentiable Information Imbalance (DII) that ranks structural descriptors by their predictive relevance to electronic observables.</p>
+<p><strong>Model / system.</strong> The method is applied to various molecular systems including the methaniminium cation, furan, L-glutamine, L-pyroglutamine-ammonium, and a photoactive molecular motor, using trajectory surface hopping (TSH) simulations.</p>
+<p><strong>Key observables.</strong> Electronic energy gaps and oscillator strengths.</p>
+<p><strong>Assumptions / limitations.</strong> The framework assumes that the underlying dynamics can be captured via trajectory surface hopping (TSH) simulations and that structural descriptors can be correlated with electronic observables.</p>
+<p><strong>Paper structure.</strong> Introduction of the challenge in high-dimensional dynamics, presentation of the DII framework, application to various molecular systems, and analysis of the distinction between localized and collective structural rearrangements.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Non-radiative decay in photoexcited molecular systems is driven by nuclear motion toward conical intersections (CIs), where electronic states become degenerate and nonadiabatic transitions occur. Identifying the nuclear degrees of freedom responsible for CI access from nonadiabatic molecular dynamics (NAD) simulations remains challenging because the underlying motions are high-dimensional and collective. Here, we introduce an unsupervised, information-theoretic framework based on Differentiable Information Imbalance (DII) to identify the nuclear coordinates governing CI access directly from trajectory surface hopping (TSH) simulations. By quantifying correlations between structural descriptors and electronic observables, including energy gaps and oscillator strengths, the method ranks nuclear degrees of freedom by predictive relevance. A multi-step protocol then extracts low-dimensional, physically interpretable modes associated with non-radiative decay. We apply the framework to the methaniminium cation, furan, L-glutamine, L-pyroglutamine-ammonium, and a photoactive molecular motor. Across all systems, the method recovers known mechanistic coordinates while revealing the relative importance of competing modes when multiple structural distortions contribute to CI access. The analysis also reveals a systematic distinction between observables: energy gaps are typically governed by a small number of localized coordinates, whereas oscillator strengths depend on more collective and distributed structural rearrangements. Overall, the DII-based framework combines predictive power with direct interpretability, providing a general and scalable route for extracting mechanistic insight from high-dimensional NAD data and constructing reduced-dimensional models of excited-state dynamics.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+<hr>
+<p>
+<a href="index.html">← Index</a>
+ · <a href="papers_08.html">← Previous</a> · <a href="papers_10.html">Next →</a>
+</p>
+<hr>
+
+</body>
+</html>

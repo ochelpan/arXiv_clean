@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2605.09909",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Symmetry-Protected Basin Localization in Variational Quantum Eigensolvers",
+  "authors": "Yangshuai Wang",
+  "abstract": "Variational quantum eigensolvers fail before optimization begins when strong correlation splits the molecular energy landscape into competing basins and the initial state selects a non-ground-state basin. We introduce a geometry-conditioned preconditioner $\\mathcal{P}_{\\mathrm{eq}}:\\mathbf{R}\\mapsto\\boldsymbolθ_0$ constrained by the $SE(3)$ covariance of the molecular Hamiltonian, so that nuclear geometry is mapped directly into circuit parameters in the correlated ground-state basin. This basin localization changes the relevant gradient statistics from concentration controlled to curvature controlled. In statevector benchmarks on six stretched molecules, $\\mathcal{P}_{\\mathrm{eq}}$ reduces Hartree--Fock initialization errors by factors of $38\\times$--$6250\\times$, reaches sub-mHa initialization in CO, LiH, and H$_8$, and places N$_2$, H$_2$O, and BeH$_2$ in the mHa-scale correlated basin. In disordered H$_{10}$ chains, equivariant basin targeting and stochastic escape reach unit success probability at fixed optimization budget. The procedure performs basin selection before the shot-limited quantum loop; the quantum circuit then refines correlation inside the selected basin.",
+  "url": "http://arxiv.org/abs/2605.09909v1",
+  "pdf": "https://arxiv.org/pdf/2605.09909v1",
+  "type": "theory",
+  "summary": "The paper introduces a method to prevent VQE optimization failures by using an equivariant neural network to initialize quantum circuit parameters. By mapping molecular geometry directly to the correct energy basin, it avoids both barren plateaus and symmetry-broken local minima. This significantly improves the accuracy and efficiency of quantum molecular simulations.",
+  "main_problem": "Variational Quantum Eigensolvers (VQE) often fail in strongly correlated regimes because the initial state is placed in a non-ground-state energy basin or suffers from barren plateaus.",
+  "main_result": "An equivariant preconditioner reduces Hartree-Fock initialization errors by 38x to 6250x, successfully placing the optimizer in the correct ground-state basin for molecules like N2 and H2O.",
+  "method": "A classical MACE-type equivariant neural network maps nuclear geometry to circuit parameters, effectively performing basin selection before the quantum optimization loop begins.",
+  "model_or_system": "Electronic structure Hamiltonians for strongly correlated molecules (e.g., N2, H2O, LiH, H8, H10 chains) using a hardware-efficient ansatz and the Born-Oppenheimer approximation.",
+  "key_observables": "Gradient variance, Hessian eigenspectrum (eigenvalues), energy error (in Hartree and mHa), and gradient statistics (concentration-controlled vs. curvature-controlled).",
+  "important_parameters": "SE(3) covariance, body-order (nu=3), radial cutoff (5.0 A), and the transition from Haar-like to basin-localized regimes.",
+  "main_assumptions": "The electronic Hamiltonian is SE(3)-equivariant; the optimization is performed within a localized, strongly convex basin.",
+  "figures_summary": "Visualizations of energy landscape topology for N2, error-tail statistics comparing random vs. equivariant initialization, and schematic of the hardware-efficient ansatz.",
+  "paper_structure": "The paper defines the failure mechanisms of VQE (barren plateaus and basin misidentification), introduces the SE(3)-equivariant preconditioner, provides mathematical proofs for gradient control in localized basins, and demonstrates numerical success across various molecular benchmarks.",
+  "why_interesting": "It provides a way to bypass the expensive 'basin discovery' phase in quantum chemistry simulations by using classical equivariant machine learning to prepare the quantum state.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.09909_figures/2605.09909_fig1.jpg",
+      "caption": "FIG. 1. Basin topology controls VQE trajectories in the strongly correlated regime. Two-parameter energy landscape of stretched N2 at R = 2.5 ˚A with Hartree–Fock and equivariant initialization trajectories overlaid. Hartree– Fock lies on the symmetry-broken side of the Coulson–Fischer instability; spin-symmetry breaking diverts the variational flow into a competing local minimum (∆E > 0.2 Ha), while Peq places θ0 in a locally positive-curvature region associated with the correlated ground-state basin (SM Note S2).",
+      "page": 1
+    },
+    {
+      "image": "2605.09909_figures/2605.09909_fig2.jpg",
+      "caption": "FIG. 2. Equivariant preconditioning places circuit parameters on the correlated branch of the PES at ini- tialization, before quantum optimization. (a) Peq maps geometry R to symmetry-consistent θinit via a single classical evaluation; (b–d) energy-error traces during variational refinement of N2 at equilibrium, stretched, and dissociation geometries, comparing Hartree–Fock and equivariant initialization against the statevector reference. When the optimizer terminates before 100 recorded calls, the final evaluated error is continued horizontally to show the terminal plateau. In stretched regimes, Hartree–Fock enters a symmetry-broken basin (∆E ≳0.2 Ha); equivariant preconditioning lowers...",
+      "page": 4
+    },
+    {
+      "image": "2605.09909_figures/2605.09909_fig3.jpg",
+      "caption": "FIG. 3. Polyatomic transfer under equivariant pre- conditioning. Energy error for the H2O O–H stretch af- ter geometry-conditioned initialization; the shaded region and dotted line mark chemical accuracy. Colors compare random initialization (red) with equivariant initialization (blue).",
+      "page": 4
+    },
+    {
+      "image": "2605.09909_figures/2605.09909_fig4.jpg",
+      "caption": "FIG. 4. Hybridizing geometric basin targeting with stochastic escape improves ground-state success un- der positional disorder. Ground-state success probability for H10 chains vs. positional disorder strength σ at fixed op- timization budget, for random (red), equivariant (blue), and hybrid (gold) initialization strategies. Equivariant precondi- tioning suppresses heavy-tail basin misidentification failures while stochasticity resolves fine-scale inter-well traps; their combination reaches success probability one across the disor- der scan (SM Figs. S1–S2).",
+      "page": 4
+    }
+  ],
+  "figure": "2605.09909_figures/2605.09909_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

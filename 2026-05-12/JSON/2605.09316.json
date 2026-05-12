@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.09316",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Neural Information Causality",
+  "authors": "Jeongho Bang, Marcin Pawłowski",
+  "abstract": "Query-separated computation forces a representation to play an operational role: data are encoded before a query is known, and a later decoder can answer only through the intermediate interface. In this regime the representation functions as a message rather than merely as a feature map. We formalize this observation by embedding information causality (IC) into representation learning, obtaining a framework called neural information causality (Neural-IC). The revised formulation separates two logically distinct statements. First, every query-separated architecture induces a random-access communication experiment and obeys the embedding inequality $I_{\\mathrm{N\\text{-}RAC}}\\le I(\\vec a:H,B)$. Second, any independently certified physical capacity bound on the interface, such as a hard $m$-bit alphabet, a finite-precision register, or a power-constrained noisy channel, implies $I_{\\mathrm{N\\text{-}RAC}}\\le C_H$. This separation avoids treating capacity as a post hoc definition and makes Neural-IC an operational diagnostic for query leakage, precision leakage, and episode-specific memory. We also provide an exact one-bit classical RAC benchmark, showing explicitly that the relevant quantum enhancement is not total information beyond the bottleneck, but fair query-conditioned access. For CHSH-type correlation layers, nested Neural-RAC protocols multiply correlation biases across depth; requiring stability of a one-bit bottleneck for arbitrary depth selects the Tsirelson threshold. We extend the analysis to asymmetric seed biases, to multi-capacity finite-depth phase diagrams, and to correlated data via a conditional information score. Controlled simulations, including straight-through binary bottlenecks and deliberately leaky ablations, verify that apparent violations are accounted for by broken query separation or undercounted capacity.",
+  "url": "http://arxiv.org/abs/2605.09316v1",
+  "pdf": "https://arxiv.org/pdf/2605.09316v1",
+  "type": "theory",
+  "summary": "This paper introduces a theoretical framework to treat neural network bottlenecks as communication channels subject to information-theoretic constraints. It demonstrates that the fundamental limits of quantum correlations, such as the Tsirelson bound, are directly linked to the stability of information retrieval in deep, query-separated architectures. This provides a new diagnostic tool for detecting information leakage in machine learning models.",
+  "main_problem": "The paper seeks to formalize a framework called Neural Information Causality (Neural-IC) to bridge the gap between the Information Causality principle in quantum theory and representation learning in query-separated neural architectures.",
+  "main_result": "The authors prove that the Neural-IC score is upper-bounded by the bottleneck capacity and demonstrate that the Tsirelamson bound emerges as a necessary stability condition to prevent information leakage in nested correlation layers.",
+  "method": "The study employs information calculus, information-theoretic bounds (such as the chain rule and data processing inequality), and the construction of hierarchical 'pyramid' protocols using CHSH-type correlation cells.",
+  "model_or_system": "The model consists of a query-separated architecture (Neural-RAC) featuring an encoder (Alice), a bottleneck/interface (message), and a decoder (Bob), utilizing shared classical or quantum resources like CHSH-type correlation layers.",
+  "key_observables": "Neural-RAC information score (I_N-RAC), success probability (P_K), and correlation bias (E).",
+  "important_parameters": "Interface capacity (C_H), number of bits (m), correlation bias (E), and the Tsirelson limit (E = 1/sqrt(2)).",
+  "main_assumptions": "The architecture is assumed to be query-separated (the representation is fixed before the query is known), and the CHSH cells in the nested protocol are assumed to be independent and isotropic.",
+  "figures_summary": "Figure 1 compares IC/RAC communication games to deep learning architectures; Figure 2 illustrates the Neural-RAC bottleneck; Figure 5 shows the schematic of the recursive pyramid protocol; Figure 13 shows the interpolation of effective bias via a quantum knob.",
+  "paper_structure": "The paper introduces the Neural-IC framework, establishes the embedding of information causality into representation learning, proves capacity-based bounds, analyzes nested protocols to derive the Tsirelson bound, and provides numerical verification via controlled simulations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.09316_figures/2605.09316_fig1.jpg",
+      "caption": "FIG. 1. Information causality (IC) and representation learning share a similar causal skeleton. (a) In the IC/RAC communication game, Alice compresses her data into a finite message of m bits; af- ter the message is sent, Bob can combine it with his (later-supplied) query to form an estimate. (b) A standard encoder–decoder pipeline has the identical structure inside a single model: the encoder com- mits to a bottleneck (hidden) representation of limited capacity be- fore the downstream query/task is revealed, and the decoder must answer using only that representation. This side-by-side view mo- tivates treating a hidden layer as a literal message: a representation is useful precisely...",
+      "page": 2
+    },
+    {
+      "image": "2605.09316_figures/2605.09316_fig2.jpg",
+      "caption": "FIG. 2. Neural-RAC as a query-separated bottleneck. The en- coder commits to a data-dependent representation H before the query arrives. The decoder later receives (H, b) and outputs β as a guess for ab. Trainable parameters are fixed before the episode; the bottleneck, not the weights, is the only data-dependent causal carrier from the sampled database to the answer.",
+      "page": 4
+    },
+    {
+      "image": "2605.09316_figures/2605.09316_fig3.jpg",
+      "caption": "FIG. 3. Classical one-bit benchmark against nested correlation protocols. The optimal classical majority code has a nonzero large-N information-score limit below the Tsirelson nested protocol, while the nested classical CHSH-cell strategy with E = 1/2 decays to zero. All curves remain below the one-bit Neural-IC bound.",
+      "page": 8
+    },
+    {
+      "image": "2605.09316_figures/2605.09316_fig4.jpg",
+      "caption": "FIG. 4. The minimal case N = 2, m = 1 reduces to a sin- gle CHSH cell. For two input bits (a0, a1) and a one-bit message budget, the Neural-RAC protocol can be represented by a bipartite CHSH/correlation cell with inputs s = a0⊕a1 and t = b and outputs (A, B). Alice transmits x = a0⊕A and Bob outputs β = x⊕B, tar- geting ab. This diagram serves as the entry point for relating Neural- RAC performance to CHSH correlators and Tsirelson-type bounds.",
+      "page": 8
+    },
+    {
+      "image": "2605.09316_figures/2605.09316_fig5.jpg",
+      "caption": "FIG. 5. Nesting (pyramid) protocol for N = 2n via depth n. A depth-n nesting of CHSH/correlation cells implements the m = 1 random access strategy for N = 2n inputs by recursively forming intermediate messages and producing a final one-bit message x. Bob uses the query bits b = (bn−1 . . . b1b0) together with the correlation outputs to recover β, schematically β = x⊕ \u0000Ln−1 k=0 Bk \u0001 . The nesting viewpoint makes the IC amplification mechanism and its CHSH/Tsirelson interpretation transparent [11].",
+      "page": 9
+    }
+  ],
+  "figure": "2605.09316_figures/2605.09316_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

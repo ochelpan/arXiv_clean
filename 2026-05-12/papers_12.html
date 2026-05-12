@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>arxiv digest — 2026-05-12</title>
+  <style>
+:root {
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #59636e;
+  --border: #d0d7de;
+  --card: #f6f8fa;
+  --link: #0969da;
+}
+body {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem 1rem 5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+  color: var(--fg);
+  background: var(--bg);
+}
+a { color: var(--link); }
+img { max-width: 100%; height: auto; }
+pre, code { background: var(--card); border-radius: 6px; }
+pre { padding: 1rem; overflow-x: auto; }
+blockquote { border-left: 4px solid var(--border); padding-left: 1rem; color: var(--muted); }
+details { margin: 0.6rem 0; }
+summary { cursor: pointer; font-weight: 600; }
+.paper-figures-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding: 0.75rem 0.25rem 1rem;
+  margin: 1rem 0 1.25rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  scroll-snap-type: x proximity;
+}
+.paper-figure-card {
+  flex: 0 0 min(260px, 72vw);
+  scroll-snap-align: start;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.55rem;
+}
+.paper-figure-card img {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  background: white;
+  border-radius: 8px;
+}
+.paper-figure-caption {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.figure-strip-hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: -0.3rem;
+}
+</style>
+  <!-- MathJax: renders $...$ inline math and $$...$$ display math, plus
+       \(...\) and \[...\]. Loaded from the official CDN; works offline
+       once cached. Configured to skip code/pre blocks so arxiv IDs that
+       look like dollar amounts don't get mangled. -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header style="background-color: #333; color: white; padding: 15px; margin-bottom: 20px;">
+  <h1 style="margin: 0; font-size: 24px;">
+    <a href="https://ochelpan.github.io/arXiv_clean/" style="color: white; text-decoration: none;">Main</a>
+  </h1>
+</header>
+
+<h1>Daily arXiv Report</h1>
+
+<hr>
+<p>
+<a href="index.html">← Index</a>
+ · <a href="papers_11.html">← Previous</a>
+</p>
+<hr>
+
+<h2>Papers 221–234</h2>
+<p><a id="paper-2605.10458"></a></p>
+<h3 id="qt-net-rethinking-evaluation-of-ai-models-in-atomic-chemical-space"><a href="http://arxiv.org/abs/2605.10458v1">QT-Net: Rethinking Evaluation of AI Models in Atomic Chemical Space</a></h3>
+<p><strong>Authors:</strong> Pablo Martínez Crespo, Stefano Ribes, Martin Rahm, Richard Beckmann, Robert S. Jordan, Marisa Gliege, Santiago Miret, Vijay Kris Narasimhan, Rocío Mercado<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> disordered systems and neural networks · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10458v1">https://arxiv.org/pdf/2605.10458v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> The paper introduces QT-Net, a new neural network architecture designed to predict atomic properties like charges and multipoles more effectively. It also proposes a new, more rigorous way to test how well these models perform on unseen chemical environments. This helps improve the accuracy of machine learning models used in molecular property prediction.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The evaluation of machine learning models for predicting atomic properties (like partial charges) is difficult due to the lack of a principled out-of-distribution evaluation protocol at the atomic level.</p>
+<p><strong>Main result.</strong> The authors introduce QT-Net, a rotationally augmented, non-equivariant graph neural network, and a new evaluation protocol using SOAP-based clustering that demonstrates improved generalization for predicting atomic multipoles and downstream molecular properties.</p>
+<p><strong>Method.</strong> The study uses a held-out evaluation protocol based on clustering atomic environments with SOAP descriptors and employs 5x5 cross-validation with Tukey's HSD for statistical comparison between E(3)-equivariant and non-equivariant models.</p>
+<p><strong>Model / system.</strong> The models are applied to the QM9 dataset, focusing on predicting electron populations and multipoles for H, C, N, and O atoms within molecular structures.</p>
+<p><strong>Key observables.</strong> Partial charges, multipoles, electron populations, and molecular dipole moments.</p>
+<p><strong>Assumptions / limitations.</strong> The evaluation assumes that clustering atomic environments by SOAP descriptors provides a valid proxy for out-of-distribution testing.</p>
+<p><strong>Paper structure.</strong> The paper proposes a new evaluation protocol, performs a statistical comparison of equivariant vs. non-equivariant models, introduces the QT-Net architecture, and validates its performance on the QM9 dataset for property prediction.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Atomic properties such as partial charges or multipoles encode chemically meaningful information that can inform downstream molecular property prediction, but their evaluation as machine learning targets has been complicated by the absence of a principled out-of-distribution evaluation protocol at the atomic level. In this work, we propose a held-out evaluation protocol that clusters atomic environments by SOAP descriptors and computes metrics accounting only for cluster labels unseen during training. Following this procedure, we use 5$\times$5 cross-validation and Tukey's HSD to run a statistically rigorous comparison of E(3)-equivariant against non-equivariant, rotationally augmented models for predicting electron populations and multipoles of H, C, N, and O atoms. Building on our results, we introduce the Quantum Topological Neural Network (QT-Net), a rotationally augmented, non-equivariant graph neural network. We show that QT-Net can be used to infer properties of atoms in molecules from QM9 outside our training set, and that these inferred properties can yield improvement when used as input features for downstream molecular property prediction. To further validate the framework, molecular dipole moments computed from QT-Net's per-atom outputs recover the ground-truth values reported in QM9. We release all code and data, including a JAX implementation of QT-Net, to support the broader use of learned QTA properties as inductive biases for atomic-scale molecular machine learning.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10509"></a></p>
+<h3 id="rare-earth-tuned-evolution-from-d-to-f-orbital-dominance-and-giant-anomalous-hall-effect-in-topological-rgage-r-ce-pr-nd-semimetals"><a href="http://arxiv.org/abs/2605.10509v1">Rare-Earth-Tuned Evolution from d- to f-Orbital Dominance and Giant Anomalous Hall Effect in Topological RGaGe (R = Ce, Pr, Nd) Semimetals</a></h3>
+<p><strong>Authors:</strong> Zhian Xu, Jian Yuan, Ze Yan, Xia Wang, Na Yu, Shihao Zhang, Yanfeng Guo<br>
+<strong>Type:</strong> both · <strong>Category:</strong> strongly correlated electrons · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10509v1">https://arxiv.org/pdf/2605.10509v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> This paper explores the RGaGe family of semimetals, revealing a large anomalous Hall effect driven by a Weyl semimetallic state. It demonstrates how tuning the rare-earth element allows for a controlled evolution from d-orbital to f-orbital dominated topology. This provides a new tunable platform for studying the interplay between magnetism and topology.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The study investigates the interplay between magnetism, electronic correlations, and topological band structures in the noncentrosymmetric rare-earth germanide family RGaGe (R = Ce, Pr, Nd).</p>
+<p><strong>Main result.</strong> The researchers discovered a significantly enhanced intrinsic anomalous Hall conductivity (AHC) in RGaGe compared to RAlGe, driven by a Weyl semimetallic state that evolves from d-orbital to f-orbital dominance as the rare-earth element changes.</p>
+<p><strong>Method.</strong> The study uses a combination of crystal growth, experimental characterization, and first-principles calculations.</p>
+<p><strong>Model / system.</strong> The system consists of noncentrosymmetric rare-earth germanide semimetals RGaGe, where R = Ce, Pr, and Nd.</p>
+<p><strong>Key observables.</strong> Anomalous Hall conductivity (AHC), magnetic anisotropy, and orbital contributions to the Fermi level states.</p>
+<p><strong>Important parameters / regimes.</strong> Temperature (specifically 2 K), magnetic ordering temperature, and the specific rare-earth element (Ce, Pr, Nd).</p>
+<p><strong>Paper structure.</strong> The paper presents crystal growth and characterization, followed by magnetic anisotropy analysis, anomalous Hall effect measurements, and theoretical first-principles calculations of orbital contributions and Weyl physics.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>The family of noncentrosymmetric rare-earth germanides RGaGe (R = Ce, Pr, Nd) provides a rich materials platform to explore the intertwined physics of strong magnetism, electronic correlations, and topological band structures. Through a combination of crystal growth, characterization, and first-principles calculations, we reveal that these compounds exhibit a pronounced uniaxial magnetic anisotropy, leading to distinct ground states: RGaGe orders ferromagnetically with moments along the crystallographic c-axis, and shows an antiferromagnetic-like structure in the ab-plane. A key finding is a significantly enhanced intrinsic anomalous Hall conductivity (AHC) compared to their well-known RAlGe counterparts, which even reaches as high as 948 Ω-1 cm-1 at 2 K in PrGaGe. Our theoretical analysis predicts that this AHC originates from a robust Weyl semimetallic state driven by inversion symmetry breaking, where Weyl points near the Fermi level couple strongly to the magnetic order. Importantly, this topological state persists above the magnetic ordering temperature, confirming its intrinsic electronic origin. Our calculation also reveals that, while the near-Fermi-level states in CeGaGe and PrGaGe are dominated by d-orbital contributions, NdGaGe exhibits significant f-orbital involvement, signaling a progressive evolution from d- to f-orbital dominated topology. These results establish the RGaGe system as a tunable platform for systematically extending the RAlGe-related family, showcasing a large anomalous Hall response and orbital evolution near the Fermi level, and advancing the understanding of the interplay between topology and magnetism in quantum materials.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.09240"></a></p>
+<h3 id="spin-elasticitya-new-paradigm-for-spintronics"><a href="http://arxiv.org/abs/2605.09240v1">Spin Elasticity:A New Paradigm for Spintronics</a></h3>
+<p><strong>Authors:</strong> Zhong-Chen Gao, Tianyi Zhang, Feifei Wang, Jingguo Hu, Peng Yand, Xiufeng Han<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.09240v1">https://arxiv.org/pdf/2605.09240v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> This paper proposes a new theoretical framework called 'spin elasticity' that applies the principles of classical elasticity to spin dynamics. It predicts new phenomena such as spin stress waves and a topological version of Hooke's law, potentially creating a new field called 'spinelastronics'.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The paper seeks to extend the concept of classical elasticity to the spin degree of freedom to understand how spin torque relates to spin morphology.</p>
+<p><strong>Main result.</strong> The authors introduce 'spin elasticity' and a 'tau-D theory' that predicts a topological Hooke's law and a new class of collective excitations called spin stress waves.</p>
+<p><strong>Method.</strong> The authors develop a theoretical framework (tau-D theory) that bridges classical elasticity with topological spin physics.</p>
+<p><strong>Model / system.</strong> The system involves the spin degree of freedom and its interaction with torque, treated through a framework analogous to classical elastic matter.</p>
+<p><strong>Key observables.</strong> spin torque, spin morphology, spontaneous oscillations, resonance, and spin stress waves.</p>
+<p><strong>Paper structure.</strong> The paper introduces the concept of spin elasticity, establishes the tau-D theory linking classical elasticity to spin physics, and predicts new phenomena like spin stress waves.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Elasticity shapes our world. For centuries, it has been regarded as a property exclusive to ordinary matter. Here we uncover its hidden existence in the spin degree of freedom. We introduce spin elasticity-a framework linking spin torque to spin morpgology. This reveals a topological Hooke's law, uncovers spontaneous oscillations and resonance, and predicts a new class of collective excitations:spin stress waves. By establishing a unfied tau-D theory bridging classical elasticity and topological spin physics, this work completes the elastic picture and opens a new frontier for spintronics-spinelastronics.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.09529"></a></p>
+<h3 id="stacking-dependent-thermoelectric-transport-in-layered-sc_2si_2te_6-from-first-principles"><a href="http://arxiv.org/abs/2605.09529v1">Stacking-dependent thermoelectric transport in layered Sc_2Si_2Te_6 from first principles</a></h3>
+<p><strong>Authors:</strong> Zhongjuan Han, Wu Xiong, Zhonghao Xia, WeiTong Huang, Jiangang He<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.09529v1">https://arxiv.org/pdf/2605.09529v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> This paper demonstrates that the stacking polymorphism in Sc2Si2Te6 significantly alters its thermoelectric properties by changing band degeneracy and phonon scattering. It concludes that the ABC stacking is optimal for high ZT and suggests that controlling stacking faults is key to enhancing performance.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The study investigates how different stacking sequences (AA, AB, and ABC) in the van der Waals material Sc2Si2Te6 affect its electronic structure, lattice dynamics, and thermoelectric performance.</p>
+<p><strong>Main result.</strong> The ABC stacking achieves the highest thermoelectric figure of merit (ZT) due to high conduction-band degeneracy, while the AB stacking shows the lowest lattice thermal conductivity. The AA stacking is identified as detrimental to thermoelectric performance.</p>
+<p><strong>Method.</strong> First-principles calculations combined with electron and phonon transport theories, including analysis of three-phonon and four-phonon scattering.</p>
+<p><strong>Model / system.</strong> The physical system is the layered van der Waals material Sc2Si2Te6, specifically examining three high-symmetry stacking polymorphs: AA, AB, and ABC.</p>
+<p><strong>Key observables.</strong> Conduction-band degeneracy, lattice thermal conductivity, and the thermoelectric figure of merit (ZT).</p>
+<p><strong>Important parameters / regimes.</strong> Stacking sequences (AA, AB, ABC), sliding barrier energy (~10 meV/atom), and phonon scattering processes (three-phonon and four-phonon).</p>
+<p><strong>Assumptions / limitations.</strong> The study assumes the validity of first-principles density functional theory and transport theories for calculating electronic and thermal properties.</p>
+<p><strong>Paper structure.</strong> The paper investigates thermodynamic stability, electronic structure, lattice dynamics, and thermoelectric performance across different stacking sequences.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Stacking polymorphism is a common characteristic of van der Waals layered materials and can substantially modify their physical properties. Here, based on first-principles calculations combined with electron and phonon transport theories, we systematically investigate the thermodynamic stability, electronic structure, lattice dynamics, and thermoelectric performance of Sc_2Si_2Te_6 with three high-symmetry stacking sequences, namely, AA, AB, and ABC. We find that the AA- and AB-stacked structures are nearly degenerate in energy with the experimentally reported ABC phase, and that the maximum sliding barrier among these stacking sequences is only about 10~meV/atom, thereby accounting for the stacking faults observed experimentally. These three stacking sequences exhibit distinct electronic structures, with the conduction-band minimum being highly sensitive to the stacking sequence. As a consequence, the conduction-band degeneracies are 12, 2, and 8 for the ABC, AA, and AB stackings, respectively, leading to markedly different electronic transport properties near the band edge. The lattice thermal conductivity is governed primarily by three-phonon scattering, whereas four-phonon scattering provides an additional reduction, particularly in the ABC stacking. Among the three structures, the AB stacking exhibits the lowest lattice thermal conductivity owing to its stronger three-phonon scattering and lower phonon group velocity. As a result, the maximum thermoelectric figure of merit, ZT, is achieved in the ABC structure, followed closely by the AB structure, whereas the AA structure shows a substantially reduced value. These results demonstrate that the stacking sequence exerts a non-negligible influence on the thermoelectric performance of Sc_2Si_2Te_6 and suggest that suppressing the formation of the AA stacking is important for achieving high thermoelectric performance.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.09394"></a></p>
+<h3 id="systematic-fine-tuning-of-mace-interatomic-potentials-for-catalysis"><a href="http://arxiv.org/abs/2605.09394v1">Systematic Fine-Tuning of MACE Interatomic Potentials for Catalysis</a></h3>
+<p><strong>Authors:</strong> Nima Karimitari, Jacob Clary, Derek Vigil-Fowler, Ravishankar Sundararaman, Gábor Csányi, Christopher Sutton<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> disordered systems and neural networks · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.09394v1">https://arxiv.org/pdf/2605.09394v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> This paper investigates how different training strategies for machine-learned interatomic potentials affect their ability to model catalytic reactions. It finds that fine-tuning large foundation models provides superior accuracy and transferability to new chemical environments compared to training models from scratch. This work provides a roadmap for creating efficient and accurate potentials for complex catalytic processes.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The performance of machine-learned interatomic potentials (MLIPs) for studying catalytic reaction pathways is highly dependent on the training set and sampling strategy.</p>
+<p><strong>Main result.</strong> Fine-tuning (FT) large foundation models is less sensitive to sampling and transfers better to out-of-distribution reactions than from-scratch (FS) training, with a large fine-tuned model achieving high accuracy even on unseen surfaces.</p>
+<p><strong>Method.</strong> The study compares nine MLIP training strategies, including from-scratch training with perturbed high-energy configurations and fine-tuning of large foundation models like MACE, evaluated on 141 different catalytic reactions.</p>
+<p><strong>Model / system.</strong> The study focuses on machine-learned interatomic potentials applied to metallic and metal-oxide catalysts, specifically covering CO2 reduction, propane dehydrogenation, hydrogen intercalation on Pd, and oxygen evolution reactions (OER).</p>
+<p><strong>Key observables.</strong> Reaction energies (Er) and reaction energy barriers (Ea).</p>
+<p><strong>Important parameters / regimes.</strong> Training set composition (FS vs FT), percentage of perturbed high-energy configurations (5%-10%), and Mean Absolute Error (MAE) in eV.</p>
+<p><strong>Assumptions / limitations.</strong> The study assumes that the accuracy of MLIPs can be significantly improved by specific sampling of high-energy configurations or by leveraging pre-trained foundation models.</p>
+<p><strong>Paper structure.</strong> The paper compares different MLIP training strategies (FS vs FT), evaluates them across a diverse set of 141 reactions, demonstrates the superior transferability of fine-tuned models to out-of-distribution tasks, and concludes with a large-scale screening of bimetallic alloys.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Once trained, machine-learned interatomic potentials (MLIPs) provide a fast and accurate way to study catalytic reaction pathways, but their performance strongly depends on the training set. Here, we compare nine MLIPs trained with different data sets and strategies, including from-scratch (FS) training and fine-tuning (FT) of large foundation models. The models are evaluated on reaction energies, $E_{r}$, and reaction energy barriers, $E_{a}$, for 141 reactions, including CO$_2$ reduction to C$_2$ and C$_3$ products, propane dehydrogenation, hydrogen intercalation on Pd, and out-of-distribution oxygen evolution reaction (OER) on metal oxides. FS models trained with 5%--10% perturbed high-energy configurations from molecular dynamics or contour exploration reduce the error by more than twofold compared with models trained only on relaxation trajectories. In contrast, FT MLIPs are less sensitive to sampling and transfer well to out-of-distribution reactions. An MLIP fine-tuned on metallic catalysts achieves a 0.30 eV MAE for OER on iridium oxide polymorphs, outperforming out-of-the-box MACE-MH-1 by 0.08 eV and the best FS model by 0.14 eV. A model fine-tuned to O and OH adsorption on metal oxides gives a 0.19 eV reaction-barrier MAE for out-of-distribution CO$_2$RR on Cu, comparable to an FS model trained on in-distribution C--C bond-breaking reactions. Finally, a large MLIP fine-tuned on 49,860 configurations gives the best overall performance across metallic and metal-oxide catalysts and was used to screen a large left-out set of bimetallic alloys, achieving a 0.15 eV MAE for $E_{r}$, even for adsorbates on unseen Miller-index surfaces such as (532). This work identifies the training configurations needed for accurate FS and FT MLIPs for catalytic reaction modeling.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10826"></a></p>
+<h3 id="the-canted-cosine-theta-hts-sextupole-demonstrator-for-fcc-ee"><a href="http://arxiv.org/abs/2605.10826v1">The Canted Cosine Theta HTS Sextupole Demonstrator for FCC-ee</a></h3>
+<p><strong>Authors:</strong> M. Koratzinos, F. Bardi, V. Batsari, I. Dimoulios, O. Kuhlmann, A. Thabuis, M. Duda<br>
+<strong>Type:</strong> experiment · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10826v1">https://arxiv.org/pdf/2605.10826v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> This paper describes the construction and testing of the first-ever Canted-Cosine-Theta (CCT) sextupole magnet using high-temperature superconducting ReBCO tape. The project aims to provide specialized magnets for the short straight sections of the FCC-ee accelerator. The study demonstrates the feasibility of using HTS technology for advanced accelerator components.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The development and testing of a high-temperature superconducting (HTS) Canted-Cosine-Theta (CCT) sextupole magnet for use in the FCC-ee accelerator.</p>
+<p><strong>Main result.</strong> The successful design, manufacture, and cryogenic testing of the first-ever HTS CCT magnet demonstrator using ReBCO tape.</p>
+<p><strong>Method.</strong> The researchers designed and manufactured a single-aperture, two-layer CCT magnet and performed testing under cryogenic conditions using HTS tapes from two different manufacturers.</p>
+<p><strong>Model / system.</strong> A single-aperture, two-layer Canted-Cosine-Theta (CCT) sextupole magnet utilizing high-temperature superconducting ReBCO tape.</p>
+<p><strong>Key observables.</strong> Cryogenic temperature measurements and magnet performance under cryogenic conditions.</p>
+<p><strong>Paper structure.</strong> The paper presents the design, manufacturing process, and experimental testing of the HTS CCT magnet, including the qualification of HTS tapes and cryogenic temperature measurements.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>A single-aperture, two-layer Canted-Cosine-Theta (CCT) sextupole magnet using high-temperature superconducting (HTS) ReBCO tape has been developed for the short straight sections (SSS) of FCC through the FCCee-HTS4 project. The magnet was designed, manufactured and tested under cryogenic conditions. Two HTS tapes from two manufacturers have been qualified for this specific application. Design and manufacturing details and cryogenic temperature measurements are presented. This demonstrator represents the first HTS CCT magnet ever constructed.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.08620"></a></p>
+<h3 id="the-superite-phase-and-phase-transition-inducing-multiscale-solidification-microstructures-and-segregations-in-steels"><a href="http://arxiv.org/abs/2605.08620v1">The superite phase and phase transition inducing multiscale solidification microstructures and segregations in steels</a></h3>
+<p><strong>Authors:</strong> Xiaoping Ma, Dianzhong Li, Zhuo Zhao, Saichao Cao, Donghao Pei, Pei Wang, Yuxi Tao, Paixian Fu, Hongwei Liu, Xiuhong Kang<br>
+<strong>Type:</strong> experiment · <strong>Category:</strong> statistical mechanics · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.08620v1">https://arxiv.org/pdf/2605.08620v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> The researchers identified a previously unknown 'superite' phase that acts as an intermediate step between liquid and solid during the solidification of steel. This discovery provides a new understanding of how complex microstructures and chemical segregations form in alloys. These findings are significant for improving the control of metal solidification processes.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The paper investigates the fundamental mechanism of alloy solidification, specifically challenging the classical direct liquid-to-solid transition model.</p>
+<p><strong>Main result.</strong> The discovery of a new 'superite' phase, revealing a three-stage liquid-superite-solid phase transformation process that governs the formation of multiscale microstructures and segregation.</p>
+<p><strong>Method.</strong> In-situ and real-time morphology observation combined with X-ray diffraction (XRD) testing during the solidification of three different steels.</p>
+<p><strong>Model / system.</strong> The physical system consists of three different types of steel alloys undergoing solidification from a liquid phase.</p>
+<p><strong>Key observables.</strong> Morphology of dendritic structures, phase composition, and solute element segregation.</p>
+<p><strong>Important parameters / regimes.</strong> Phase proportion, phase constitution, and the transition from superite to solid.</p>
+<p><strong>Assumptions / limitations.</strong> The study assumes the observed transition mode is a general mechanism applicable to the studied steels.</p>
+<p><strong>Paper structure.</strong> The paper presents the identification of the superite phase, describes the observed liquid-superite-solid transition process, and discusses the implications for understanding multiscale microstructures and segregation in metals.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Based on classical concept, solidification of alloys is a direct transition from liquid phase to solid phase, by which dendrites and dendritic segregation are produced. Through in-situ and real time morphology observation and XRD test during solidification of three steels, a new superite phase featured as statistically oriented tiny structures was identified, and a general liquid-superite-solid phase transformation process is revealed. In the early solidification stage, the liquid alloys transit to dendrites composed of superite phase. Initiated from the boundaries of dendritic arms or dendrite grains, the superite phase transits to austenite grains within an initial dendritic arm, and expels solute elements to the residual superite phase. Mixed multi-phase microstructures are subsequently produced from the residual enriched superite phase. Here, although three steels exhibit different phase proportion and phase constitution in the superite-solid transition, they all follow above general transition mode. Multiscale microstructures and segregations are produced in the transition from superite to solid. These new findings change the basic understanding about the solidification of alloys, rediscover the formation mechanism on segregations and multiscale solidification microstructures, including dendrite pattern, solid dendritic arm, dendritic segregation, the mixed multi-phase microstructures, eutectic, inclusions and precipitate. These new findings are also crucial to the control of solidification microstructures and segregation in metals.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.08387"></a></p>
+<h3 id="theory-for-ters-of-2d-materials-including-out-of-plane-raman-response"><a href="http://arxiv.org/abs/2605.08387v1">Theory for TERS of 2D materials including out-of-plane Raman response</a></h3>
+<p><strong>Authors:</strong> Raul Corrêa, Luiz G. Cançado, Ado Jorio<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.08387v1">https://arxiv.org/pdf/2605.08387v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> This paper extends the theoretical framework for Tip-Enhanced Raman Spectroscopy (TERS) to include the out-of-plane Raman response of 2D materials. It provides an analytical method to calculate field propagation and demonstrates how parameters like tip radius and coherence length affect the signal. The model is validated by showing consistency with existing graphene TERS experiments.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The existing TERS theory was limited to graphene-like systems where out-of-plane Raman response is neglected, failing to account for the full Raman response in other 2D materials like TMDs.</p>
+<p><strong>Main result.</strong> The authors developed an expanded TERS theory including out-of-plane response, providing an exact analytical expression for field propagation and identifying the importance of the sample-tip (TS) scattering contribution.</p>
+<p><strong>Method.</strong> Analytical derivation of field propagation between tip and sample and a parametric study of TERS signal variations.</p>
+<p><strong>Model / system.</strong> The system consists of a metallic tip interacting with a 2D material (such as graphene or TMDs) under Tip-Enhanced Raman Spectroscopy conditions.</p>
+<p><strong>Key observables.</strong> TERS enhancement factor, normalized tip-approach measurements, and Raman signal intensity.</p>
+<p><strong>Important parameters / regimes.</strong> Tip radius, out-of-plane Raman response, TERS coherence length, and medium refractive index.</p>
+<p><strong>Assumptions / limitations.</strong> The theory assumes the importance of the out-of-plane response is tied to the significance of the TS scattering contribution.</p>
+<p><strong>Paper structure.</strong> The paper introduces the expanded theory, provides an analytical expression for field propagation, performs a parametric study of physical variables, and concludes by applying the model to existing graphene TERS experimental data.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Tip-Enhanced Raman Spectroscopy (TERS) can be used to make nanoscale spatial measurements of 2D materials, such as graphene and transition metal dichalcogenides (TMDs). The TERS theory introduced in [Phys. Rev. X 4, 031054 (2014)], however, was tailored for graphene, whose out-of-plane Raman response is neglected. In the present work, we include the out-of-plane response in the TERS theory. In doing so, we provide an exact analytical expression for the field propagation between the tip and the sample, and show that the contribution to the TERS signal that scatters first at the sample, then at the tip (sample-tip, or TS) is important only when the out-of-plane response is significant. We extensively study the variation of TERS experimental measurements when varying physical parameters of the system, like the tip radius, the out-of-plane response, the TERS coherence length, and others. It becomes evident that the TERS enhancement is very sensitive to the out-of-plane Raman response of the phonon mode, while normalized tip-approach measurements are more sensitive to the coherence length, and we show that the medium refractive index leads to an effective tip enhancement factor $f_e$. Our results lead to the conclusion that, in general, a strong TERS enhancement is a necessary condition for investigating the physics discussed here, which here means surveying the difference in TERS signals between different Raman modes. We use our model to analyze some graphene TERS experiments, showing that they are consistent with a negligible out-of-plane Raman response and a non-zero TERS coherence length in the fitting.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10747"></a></p>
+<h3 id="theory-of-spin-splitter-magnetoresistance-in-altermagnets"><a href="http://arxiv.org/abs/2605.10747v1">Theory of Spin-splitter Magnetoresistance in Altermagnets</a></h3>
+<p><strong>Authors:</strong> Tim Kokkeler, Vitaly N. Golovach, F. Sebastian Bergeret<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10747v1">https://arxiv.org/pdf/2605.10747v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> This paper proposes a theoretical method to unambiguously identify altermagnets through a specific type of magnetoresistance called SSMR. It provides clear experimental criteria that distinguish altermagnets from other compensated magnets. This is significant for the emerging field of altermagnetism-based spintronics.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The paper aims to establish a theoretical framework to distinguish altermagnetism from conventional compensated magnets with spin-orbit coupling using transport measurements.</p>
+<p><strong>Main result.</strong> The authors identify 'spin-splitter magnetoresistance' (SSMR) as a smoking-gun signature of collinear altermagnetism, characterized by specific angular dependencies and a direct proportionality between longitudinal and transverse signals.</p>
+<p><strong>Method.</strong> The authors develop a theory of angle-dependent magnetoresistance (ADMR) for metallic altermagnets coupled to ferromagnetic insulators.</p>
+<p><strong>Model / system.</strong> The system consists of metallic altermagnets in contact with ferromagnetic insulators, focusing on the interaction between the ferromagnetic magnetization and the altermagnetic Néel vector.</p>
+<p><strong>Key observables.</strong> Angle-dependent magnetoresistance (ADMR), specifically longitudinal and transverse SSMR signals.</p>
+<p><strong>Important parameters / regimes.</strong> Relative orientation between the ferromagnetic magnetization and the altermagnetic Néel vector.</p>
+<p><strong>Assumptions / limitations.</strong> The theory focuses on metallic altermagnets coupled to ferromagnetic insulators.</p>
+<p><strong>Paper structure.</strong> The paper develops a theory for ADMR, compares SSMR to spin-Hall magnetoresistance (SMR), and establishes specific criteria for identifying altermagnetism.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>We develop a theory of angle-dependent magnetoresistance (ADMR) in metallic altermagnets coupled to ferromagnetic insulators and establish criteria that distinguish them from conventional compensated magnets with spin-orbit coupling. We show that the spin-splitter magnetoresistance (SSMR) reported by H. Chen et al. [Adv. Mater. 37, 2507764 (2025)] constitutes a smoking-gun signature of collinear altermagnetism in metallic systems. In contrast to spin-Hall magnetoresistance (SMR), SSMR exhibits three key distinctions: it depends solely on the relative orientation between the ferromagnetic magnetization and the altermagnetic Néel vector, yields a longitudinal ADMR response of opposite sign, and features a direct proportionality between longitudinal and transverse ADMR signals, absent in SMR. These results provide a clear route to unambiguously identify altermagnets in transport.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.08920"></a></p>
+<h3 id="thermodynamic-approach-for-deciphering-magneto-structural-phase-transitions-proof-of-concept-in-heusler-alloys"><a href="http://arxiv.org/abs/2605.08920v1">Thermodynamic Approach for Deciphering Magneto-Structural Phase Transitions: Proof of Concept in Heusler Alloys</a></h3>
+<p><strong>Authors:</strong> Eleonora Rusconi, Lorenzo Gallo, Victor A. L'vov, Anna Kosogor, Simone Fabbrici, Giovanna Trevisi, Francesco Cugini, Massimo Solzi, Thomas Schrefl, Franca Albertini<br>
+<strong>Type:</strong> both · <strong>Category:</strong> statistical mechanics · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.08920v1">https://arxiv.org/pdf/2605.08920v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> The paper presents a new thermodynamic method to precisely identify Curie and martensitic transformation temperatures in Heusler alloys. By accounting for how structural changes affect magnetic exchange, the authors can extract hidden characteristic temperatures from standard magnetization measurements. This approach is broadly applicable to other multiferroic and ferromagnetic materials.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> Determining characteristic temperatures of magneto-structural transitions in Heusler alloys is challenging due to the complex interplay between structural and magnetic properties.</p>
+<p><strong>Main result.</strong> A novel thermodynamic analysis reveals that structural transitions significantly impact the spin-exchange parameter, leading to a difference of at least 50 K between Curie temperatures of the austenitic and martensitic states.</p>
+<p><strong>Method.</strong> A novel thermodynamic analysis of temperature-dependent magnetization M(T) and magnetic susceptibility χ(T) data, considering the impact of structural transitions on the spin-exchange parameter.</p>
+<p><strong>Model / system.</strong> Ni50Mn25-xCuxGa25 (x = 6.25, 6.5, 6.75, 7) and Ni50.5Mn18.5Cu6.5Ga24.5 ferromagnetic Heusler alloys.</p>
+<p><strong>Key observables.</strong> Magnetization M(T), magnetic susceptibility χ(T), and the derivatives dM(T)/dT.</p>
+<p><strong>Important parameters / regimes.</strong> Curie temperatures (Tc), martensitic transformation temperatures (MT), and the spin-exchange parameter.</p>
+<p><strong>Assumptions / limitations.</strong> The analysis assumes the structural transition's impact can be modeled through its effect on the spin-exchange parameter.</p>
+<p><strong>Paper structure.</strong> The paper identifies three types of transformational behavior in specific Heusler alloys, presents experimental magnetization and susceptibility data, applies a novel thermodynamic framework to analyze the interplay between structural and magnetic phases, and concludes with the applicability of this method to multiferroic materials.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Ferromagnetic solids acquire nontrivial magnetic and caloric properties when the temperature of the structural phase transition approaches the Curie point. Deciphering magneto-structural transitions, i.e. determining their characteristic temperatures and elucidating the related properties, remains challenging. In the present paper, three types of transformational behaviour of Ni50Mn25-xCuxGa25 (x = 6.25, 6.5, 6.75, 7) and Ni50.5Mn18.5Cu6.5Ga24.5 alloys have been identified, arising from small variations in chemical composition: (i) structural martensitic transformation (MT) in the ferromagnetic phase; (ii) magneto-structural phase transition from paramagnetic austenite to ferromagnetic martensite; (iii) MT in paramagnetic phase. The temperature-dependent values of magnetization, M(T), and of magnetic susceptibility, $χ(T)$, were measured for each alloy. A novel thermodynamic analysis was used to determine the Curie points and MT temperatures. The novelty lies in considering the interplay between structural and magnetic characteristics of the alloys through the impact of the structural transition on the spin-exchange parameter. The theoretical analysis of experimental data revealed that this impact results in a large difference ($\geq$ 50 K) between the Curie temperatures computed for the austenitic and martensitic states of each alloy. The characteristic temperatures, corresponding to the extrema of the dM(T)/dT and $χ(T)$ functions, were calculated. The correlation of these temperatures with the Curie temperatures and the MT temperatures is not straightforward and depends strongly on the type of transformational behaviour (i) - (iii). The proposed approach provides a robust framework for extracting unmeasurable characteristic temperatures from standard magnetization data, applicable to ferromagnetic Heusler systems and other multiferroic ferromagnetic materials.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10630"></a></p>
+<h3 id="thermodynamics-and-dynamics-of-non-compact-prismatic-dislocation-loops-simulated-using-a-machine-learning-model"><a href="http://arxiv.org/abs/2605.10630v1">Thermodynamics and dynamics of non-compact prismatic dislocation loops simulated using a machine-learning model</a></h3>
+<p><strong>Authors:</strong> Sho Hayakawa, Sergei L. Dudarev, Max Boleininger<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> disordered systems and neural networks · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10630v1">https://arxiv.org/pdf/2605.10630v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> The researchers used a machine-learning model to study how the complex shapes of dislocation loops influence their stability and movement. They discovered that a single parameter representing geometric irregularity can predict both the thermodynamic behavior and the diffusion of these loops. This provides a more nuanced understanding of defect dynamics in materials.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> Investigating how microscopic geometric variations in self-interstitial prismatic dislocation loops affect their thermodynamic properties and climb dynamics.</p>
+<p><strong>Main result.</strong> The study identifies a single universal parameter describing morphological irregularity that determines both the thermodynamic properties and the mobility of the dislocation loops.</p>
+<p><strong>Method.</strong> Development of a machine-learning model trained on atomistic simulation data to predict formation energies, followed by statistical mechanical derivations and dynamic simulations.</p>
+<p><strong>Model / system.</strong> A self-interstitial atom dislocation loop with arbitrary, geometrically complex configurations.</p>
+<p><strong>Key observables.</strong> Formation energy, configurational free energy, thermodynamic entropy, diffusion coefficients, and effective activation energies.</p>
+<p><strong>Important parameters / regimes.</strong> Morphological irregularity parameter, temperature, and formation energy.</p>
+<p><strong>Assumptions / limitations.</strong> The ML model assumes that atomistic simulation data is sufficient to generalize across a broad range of complex configurations.</p>
+<p><strong>Paper structure.</strong> The paper first introduces an ML model for energy prediction, then uses statistical mechanics to derive thermodynamic quantities, and finally performs dynamic simulations to evaluate mobility.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>We explore how the thermodynamic properties and dynamics of a self-interstitial prismatic dislocation loop are affected by microscopic-scale variations in its geometric configuration, an aspect that rarely received attention in literature. First, we develop a machine-learning (ML) model to predict the formation energy of an arbitrary geometrically complex configuration of a self-interstitial atom dislocation loop. Trained on atomistic simulation data, the ML model achieves high predictive accuracy across a broad range of configurations, with a typical error in the 1% range. Second, from the ML model, we evaluate the density of configurational microstates as a function of loop's formation energy and derive analytical expressions valid in tractable limiting cases. Using statistical mechanics, we derive the configurational free energy, the average energy, and the thermodynamic entropy of a dislocation loop as a function of temperature. Third, we simulate the dynamics of self-climb of dislocation loops with various geometries and evaluate their diffusion coefficients and effective activation energies. Our analysis shows that there is a single universal parameter describing the morphological irregularity of loop configurations in its ground state. This parameter determines the thermodynamic properties of a loop as well as its dynamics, and simulations illustrate how the properties and mobility of a configurationally complex loop vary as functions of the irregularity parameter.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.09263"></a></p>
+<h3 id="universal-31-scaling-of-quantum-confined-stark-spectra-revealed-by-a-three-dimensional-profile"><a href="http://arxiv.org/abs/2605.09263v1">Universal 3:1 Scaling of Quantum-Confined Stark Spectra Revealed by a Three-Dimensional Profile</a></h3>
+<p><strong>Authors:</strong> Sha Han, Kebei Chen, Runnan Zhang, Juemin Yi, Wentao Song, Ke Xu<br>
+<strong>Type:</strong> both · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.09263v1">https://arxiv.org/pdf/2605.09263v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> The paper identifies a universal 3:1 scaling ratio in the peak spacings of the quantum-confined Stark effect spectrum. By using 3D visualization, the authors show that increasing the electric field expands the energy range without changing the fundamental spacing patterns. This discovery provides a new tool for designing and diagnosing electro-optic devices.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> Understanding the scaling behavior of the quantum-confined Stark effect (QCSE) spectrum under varying electric field strengths.</p>
+<p><strong>Main result.</strong> Discovery of a universal 3:1 scaling ratio between sub-bandgap and above-bandgap spectral peak spacings, which remains constant regardless of the electric field strength.</p>
+<p><strong>Method.</strong> The researchers used a novel three-dimensional (3D) visualization technique to analyze spectral patterns and derived analytical scaling laws for peak spacings.</p>
+<p><strong>Model / system.</strong> The study uses InGaN as a model system and validates the findings using GaAs systems under electroluminescence working conditions.</p>
+<p><strong>Key observables.</strong> Spectral peak spacings, redshift of the spectrum, and the Tauc background.</p>
+<p><strong>Important parameters / regimes.</strong> Electric field strength (F), sub-bandgap and above-bandgap regions, and the 3:1 coefficient ratio.</p>
+<p><strong>Assumptions / limitations.</strong> The scaling laws are assumed to be electric-field-independent and applicable to the studied semiconductor systems.</p>
+<p><strong>Figures summary.</strong> The notes mention a novel three-dimensional (3D) visualization used to reveal the scaling of peak spacings.</p>
+<p><strong>Paper structure.</strong> The paper introduces the QCSE redshift, presents the discovery of the 3:1 scaling laws, provides a 3D visualization to explain the origin of the ratio, and validates the findings across different materials and conditions.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>We report that the quantum-confined Stark effect spectrum exhibits a nearly rigid redshift while preserving its characteristic peak spacing patterns when increasing the electric field strength F. Using InGaN as a model system, we uncover two electric-field-independent scaling laws for the spectral peaks in both the sub-bandgap and above-bandgap regions and the coefficient ratio is near 3:1. With a novel three-dimensional (3D) visualization, we reveal that the sub-bandgap peak spacings scale as $\frac{12π\hbar^2}{L^2\sqrt{m_em_h}}$ while the above-bandgap peak spacings scale as $\frac{4π\hbar^2}{L^2\sqrt{m_em_h}}$, explaining the origin of the 3:1 ratio. This scaling behavior, validated in both InGaN and GaAs systems and at electroluminescence working conditions, shows that increasing F only expands the energy range and increases the number of peaks without altering the spacing. Beyond these laws, the 3D profile offers new insights into the Tauc background, Franz-Keldysh oscillations and coherence length, providing a powerful tool for the design and diagnostics of electro-optic devices.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10011"></a></p>
+<h3 id="valley-contrasting-spin-textures-in-janus-metal-phosphochalcogenides"><a href="http://arxiv.org/abs/2605.10011v1">Valley-contrasting Spin Textures in Janus Metal Phosphochalcogenides</a></h3>
+<p><strong>Authors:</strong> Zeyu Yin, Li Liang, Zhichao Zhou, Xiao Li<br>
+<strong>Type:</strong> theory · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10011v1">https://arxiv.org/pdf/2605.10011v1</a><br>
+<strong>Analysis basis:</strong> abstract only; PDF text extraction failed or PDF unavailable</p>
+<p><strong>Summary.</strong> This paper explores how the broken symmetry in Janus metal phosphochalcogenide monolayers leads to a unique coexistence of different spin textures (Ising, Weyl, and Rashba) across different momentum valleys. It also demonstrates that these properties, including Hall currents and optical responses, can be tuned using strain, offering potential for new spintronic and valleytronic devices.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> The study aims to investigate the coexistence of diverse spin textures and their coupling to the valley degree of freedom in noncentrosymmetric Janus metal phosphochalcogenides.</p>
+<p><strong>Main result.</strong> The researchers found that Janus MP2S3Se3 monolayers exhibit Ising-type spin textures at K valleys and a coexistence of Weyl-type and Rashba-type spin textures at the Gamma valley, alongside valley-dependent anomalous Hall currents and optical selectivity.</p>
+<p><strong>Method.</strong> First-principles calculations (density functional theory).</p>
+<p><strong>Model / system.</strong> Janus MP2S3Se3 monolayers, which are noncentrosymmetric 2D materials.</p>
+<p><strong>Key observables.</strong> Momentum-resolved spin textures, Berry curvature, anomalous Hall currents, optical selectivity, and band gaps.</p>
+<p><strong>Important parameters / regimes.</strong> Applied strain, which is used to tune energy differences and band gaps.</p>
+<p><strong>Paper structure.</strong> The paper investigates electronic properties via first-principles calculations, analyzes spin textures at different valleys, examines valley-dependent transport and optical properties, and discusses the effects of strain.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Momentum-resolved spin textures and potential valley-contrasting physical properties in the momentum space are two intriguing characteristics of noncentrosymmetric materials, and they have broad applications in spintronics and valleytronics. The realization of diverse spin textures within a single material, along with their further coupling to the valley degree of freedom, is highly desirable. Via first-principles calculations, we investigate electronic properties of Janus MP$_2$S$_3$Se$_3$ monolayers, which exhibits distinct spin textures at different valleys. While Ising-type spin textures are located at $K_\pm$ valleys, the symmetry breaking from the Janus structure brings about a coexistence of Weyl-type and Rashba-type spin textures at $Γ$ valley. In addition to valley-contrasting spin textures, valley dependence also occurs in Berry-curvature-driven anomalous Hall currents and optical selectivity. Besides, energy differences between $Γ$ and $K_\pm$, as well as band gaps, are highly tunable by applied strain. These findings present an intriguing coupling between diverse spin textures and multiple valleys, and pave the way for designing advanced electronic devices that leverage spin and valley degrees of freedom.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+
+<p><a id="paper-2605.10160"></a></p>
+<h3 id="ytterbium-charge-state-and-stabilization-in-the-bacafmath557math-host-by-electron-paramagnetic-resonance-and-infrared-photoluminescence"><a href="http://arxiv.org/abs/2605.10160v1">Ytterbium charge state and stabilization in the Ba(Ca)F$_2$ host by electron paramagnetic resonance and infrared photoluminescence</a></h3>
+<p><strong>Authors:</strong> David John, Shelja Sharma, Marius Stef, Gabriel Buse, Zdeněk Remeš, Anna Artemenko, Sergii Chertopalov, Vineet Sikarwar, Alan Mašláni, Jafar Fathi, Jakub Pilař, Tomáš Hostinský, Jan Zich, Tomáš Mates, Brenda Natalia Lopez Nino, Michal Hlína, Karol Bartosiewicz, Marina Konuhova, Anatoli Popov, Ján Lančok, Maksym Buryi<br>
+<strong>Type:</strong> experiment · <strong>Category:</strong> other · <strong>PDF:</strong> <a href="https://arxiv.org/pdf/2605.10160v1">https://arxiv.org/pdf/2605.10160v1</a><br>
+<strong>Analysis basis:</strong> full PDF text, analyzed in chunks</p>
+<div class="figure-strip-hint">↔ Scroll figures horizontally</div>
+<div class="paper-figures-scroll">
+<figure class="paper-figure-card">
+<img src="2605.10160_figures/2605.10160_fig1.jpg" alt="Figure 1">
+<figcaption class="paper-figure-caption"><b>Fig 1.</b> Fig. 2. A - XRD patterns of the BaF2:Yb samples (see the legend). B - XRD patterns of the CaF2:Yb samples (see the legend). C - chosen XRD peaks of the BaF2:Yb samples (see the legend). D - chosen XRD peaks of the CaF2:Yb samples (see the legend). Vertical dashed lines are eye-catching indicators demonstrating no shift of the peaks upon Yb doping. The most pronounced diffraction peaks are indexed with the corresponding Miller indices (hkl). The lattice parameters were calculated and listed in Table 2. Table 2. Lattice parameters and of the BaF2:Yb and CaF2:Yb samples.</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10160_figures/2605.10160_fig2.jpg" alt="Figure 2">
+<figcaption class="paper-figure-caption"><b>Fig 2.</b> Fig. 3. Raman spectra of the Ca(Ba)F2:Yb(0, 0.05, 0.1, 0.2%) samples. The peak at 248 cm−1 belongs to the BaF2 phase, whereas the peak at 324 cm−1 originates from the CaF2 phase. The peak at approximately 335 cm−1 can be related to the CaF2 sublattice perturbed by Yb, marked as CaF2(Yb). The rest of the peaks may be attributed to YbF₃ or oxygen-halide-related phases of unknown origin. Negative peaks in the region 100-150 cm-1 are due to the baseline subtraction. The intensity of the peaks is changing upon Yb doping. The most pronounced changes were observed in the case of the CaF2 - the larger the Yb content, the lower the peak. Moreover, the new peak at approximately 335 cm−1 is observed...</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10160_figures/2605.10160_fig3.jpg" alt="Figure 3">
+<figcaption class="paper-figure-caption"><b>Fig 3.</b> Fig. 4. The comparison of normalized Ba 2p and Cl 2p spectra of the samples for Set 1. No such signals were observed in the CaF2 set of samples. Moreover, a weak Ca signal, corresponding to a Ca concentration below 1 at.%, was detected in Set 1 samples, where no calcium was expected, suggesting possible contamination during sample preparation (remained in a crucible). Along with the Ca, Ba and F the Cl signal was detected only in the Yb doped BaF2 samples. The atomic concentrations of chemical elements detected on the surface of the Set 1 and 2 were calculated from HR XPS spectra and listed in Table 3. Table 3. The atomic concentration of chemical elements on the surface of samples...</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10160_figures/2605.10160_fig4.jpg" alt="Figure 4">
+<figcaption class="paper-figure-caption"><b>Fig 4.</b> Fig. 5. A - EPR spectra measured in the BaF2:Yb(0.05, 0.1, 0.2%) as also listed in the legend. YbBa</figcaption>
+</figure>
+<figure class="paper-figure-card">
+<img src="2605.10160_figures/2605.10160_fig5.jpg" alt="Figure 5">
+<figcaption class="paper-figure-caption"><b>Fig 5.</b> Fig. 8. A - Transmittance spectra of BaF₂:Yb and CaF₂:Yb samples (Yb contents are given in the legend). Yb3+ as well as Yb2+ transmittance bands are indicated. B - Close-up of the Yb3+ transitions. Numbers 1-9 indicate specific transitions while C, C3v, Oh indicate transitions appearing due to the specific local symmetry of Yb3+ created by the presence of interstitial fluorine [54]. The Yb3+ transitions have complex and well-studied pattern. The presence of the bands indicated as C3v and Oh (Fig. 8B) is ascribed to the presence of the interstitial fluorine for the charge compensation of Yb3+. This is in good correlation with the EPR results discussed above. The suggestion of D being...</figcaption>
+</figure>
+</div>
+<p><strong>Summary.</strong> This study compares Ytterbium incorporation in BaF2 and CaF2 host crystals to understand how host chemistry controls dopant charge states. It demonstrates that CaF2 provides a more stable environment for Yb2+ due to better ionic size matching, which is critical for optimizing fluoride-based materials for quantum and photonic applications.</p>
+<p><strong>Why it may be interesting.</strong> not directly relevant</p>
+<details>
+<summary>Detailed structure</summary>
+<p><strong>Main problem.</strong> Investigating how the host cation identity (Ba2+ vs Ca2+) affects the stabilization of Yb2+ vs Yb3+ charge states and the resulting local lattice perturbations and defect formation in fluoride crystals.</p>
+<p><strong>Main result.</strong> CaF2 is more favorable for Yb2+ stabilization due to a better ionic size match, whereas BaF2 favors perturbed Yb3+ environments with increasing dopant levels. The study reveals a decoupling between long-range structural stability and local lattice perturbations.</p>
+<p><strong>Method.</strong> A combination of X-ray diffraction (XRD), X-ray photoelectron spectroscopy (XPS), electron paramagnetic resonance (EPR), infrared photoluminescence (IR PL), and photothermal deflection spectroscopy (PDS).</p>
+<p><strong>Model / system.</strong> Yb-doped BaF2 and CaF2 single crystals (cubic fluorite structure, space group Fm-3m) with low doping levels (0.05-0.2 mol%).</p>
+<p><strong>Key observables.</strong> Yb charge states (Yb2+ vs Yb3+), g-factors, hyperfine interaction parameters, crystal-field splitting, lattice parameters, and surface chemical composition.</p>
+<p><strong>Important parameters / regimes.</strong> Doping concentrations (0.05-0.2 mol%), ionic radii of Yb2+ and Yb3+, and temperature range (10-60 K for EPR).</p>
+<p><strong>Assumptions / limitations.</strong> The study assumes the crystals are substitutionally doped and focuses on the low-concentration regime where long-range cubic symmetry is maintained.</p>
+<p><strong>Figures summary.</strong> Figure 1 shows photographs of cleaved BaF2:YbF3 and CaF2:YbF3 crystals at various concentrations.</p>
+<p><strong>Paper structure.</strong> The paper introduces the importance of lanthanide-doped fluorides, describes the crystal growth and characterization methods, presents structural and chemical results (XRD, XPS), details the magnetic and optical properties (EPR, IR PL, PDS), and concludes with implications for quantum device optimization.</p>
+</details>
+<details>
+<summary>Abstract</summary>
+<p>Lanthanide-doped fluorides are promising materials for advanced photonic and quantum applications due to their wide bandgap, low phonon energy, and chemical stability. In this work, we present a systematic comparative study of ytterbium incorporation at low doping levels (0.05--0.2 mol\%) in BaF$_2$ and CaF$_2$ single crystals, focusing on the interplay between host lattice properties, charge-state stabilization, and defect formation mechanisms. Using a combination of X-ray diffraction (XRD), X-ray photoelectron spectroscopy (XPS), electron paramagnetic resonance (EPR), transmittance, and infrared photoluminescence (IR PL), we explore how host lattice properties affect the stabilization of Yb$^{3+}$ and Yb$^{2+}$ ions. XRD confirmed cubic phase purity and lattice parameter stability in both hosts, while XPS revealed surface chemical composition variations associated with charge-compensating defects and trace impurities. EPR spectra indicated that BaF$_2$ favored perturbed Yb$^{3+}$ environments with increasing dopant levels, while CaF$_2$ maintained predominantly unperturbed sites, suggesting a more favorable ionic match for Yb$^{2+}$. Photothermal deflection spectroscopy (PDS) and IR PL results showed host-specific optical responses, with CaF$_2$ exhibiting crystal-field splitting and broader local field effects. These results reveal a clear decoupling between long-range structural stability and local lattice perturbations, and demonstrate that host cation identity governs the balance between Yb$^{2+}$ and Yb$^{3+}$ stabilization as well as defect-driven optical behavior. This offers valuable insights for optimizing rare-earth-doped fluoride crystals in laser, scintillator, and quantum device applications.</p>
+</details>
+<p><sub><a href="#top">↑ back to top</a></sub></p>
+</details>
+
+<hr>
+<p>
+<a href="index.html">← Index</a>
+ · <a href="papers_11.html">← Previous</a>
+</p>
+<hr>
+
+</body>
+</html>
