@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.11375",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "TuniQ: Autotuning Compilation Passes for Quantum Workloads at Scale for Effectiveness and Efficiency",
+  "authors": "Mohammad Abrarul Hasanat, Jason Ludmir, Tirthak Patel, Rohan Basu Roy",
+  "abstract": "Quantum processors are being integrated into HPC ecosystems as co-processors, where compilation of quantum circuits into hardware-executable form determines both output fidelity and runtime. Current compilers use a fixed pass sequence and ignore the fact that optimal pass selection varies with circuit, hardware, and noise conditions. We present TuniQ, a reinforcement learning-based system that selects compilation passes at each pipeline stage, adapting to circuit, backend, and current noise profile. TuniQ introduces several novel design components like a dual-encoder for stage-aware representation, shaped rewards for cross-stage credit assignment, and dynamic action masking for valid compilation. Evaluated across diverse quantum workloads on multiple IBM Quantum Cloud processors, TuniQ improves fidelity and reduces compilation time over the state-of-the-art IBM Qiskit transpiler, generalizes across backends without retraining, and scales strongly to utility-scale circuits with growing advantage.",
+  "url": "http://arxiv.org/abs/2605.11375v1",
+  "pdf": "https://arxiv.org/pdf/2605.11375v1",
+  "type": "both",
+  "summary": "TuniQ is an autotuning compiler that uses reinforcement learning to adaptively select quantum compilation passes based on the specific circuit and the current noise state of the hardware. It significantly improves the fidelity and speed of quantum circuit execution, particularly for large-scale workloads on IBM's quantum processors.",
+  "main_problem": "Quantum compilers currently use fixed, one-size-fits-all compilation pass sequences that fail to adapt to specific circuit structures, hardware topologies, or time-varying noise profiles, leading to suboptimal circuit fidelity and efficiency.",
+  "main_result": "The TuniQ system improves circuit fidelity by an average of 20% and reduces compilation time by up to 68% compared to the IBM Qiskit transpiler, demonstrating strong scaling as circuit size increases.",
+  "method": "A reinforcement learning approach using a Deep Q-Network (DQN) and a dual-encoder architecture that selects optimal compilation passes across six pipeline stages, conditioned on both logical circuit features and physical hardware noise.",
+  "model_or_system": "The system targets superconducting transmon qubits on IBM Quantum Cloud processors, treating them as co-processors within an HPC ecosystem and accounting for error rates, T1, and T2 decoherence.",
+  "key_observables": "Circuit fidelity (measured via Total Variation Distance and Estimated Success Probability), gate count (2Q and 1Q), circuit depth, and compilation latency.",
+  "important_parameters": "Hardware noise profiles (gate/readout error rates, T1/T2 times), circuit scale (up to 65 qubits), and compilation pipeline stages (Init, Layout, Routing, Translate, Optimize, Cleanup).",
+  "main_assumptions": "The system assumes that the impact of uncaptured environmental noise is shared across all compared baselines and that the learned policy can generalize to larger circuits without per-circuit retraining.",
+  "figures_summary": "Figure 1 compares good vs. bad transpilation in an HPC context; Figure 2 shows selective compilation outperforms Qiskit in TVD; Figure 3 demonstrates performance across different IBM backends; Figure 4 shows pass selection shifts with noise levels; Figure 7 details the dual-encoder architecture; Figure 16 illustrates strong scaling of the advantage with circuit size.",
+  "paper_structure": "The paper introduces the problem of inefficient compilation, presents the TuniQ RL-based architecture (including the dual-encoder and reward shaping), describes the experimental setup on IBM hardware, provides ablation and sensitivity studies (noise/decoherence scaling), and concludes with scalability and generalization results.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.11375_figures/2605.11375_fig1.jpg",
+      "caption": "Figure 1: A logical circuit traverses multiple compilation stages, each offering multiple pass options with different algorithmic tradeoffs. The resulting physical circuit quality varies with the selected passes. Both circuits are produced by Qiskit itself – the compact one with Qiskit (Fidelity Opti- mized), the inflated one with Qiskit (Time Optimized), and a reversed initial layout (experimental details in Sec. 4).",
+      "page": 2
+    },
+    {
+      "image": "2605.11375_figures/2605.11375_fig2.jpg",
+      "caption": "Figure 3: Pass selection varies across backends. Left: optimal passes differ for QPE across three IBM Quantum devices (blue = enabled, white = disabled). Right: selective compilation outperforms Qiskit (Fidelity Optimized) on all backends.",
+      "page": 3
+    },
+    {
+      "image": "2605.11375_figures/2605.11375_fig3.jpg",
+      "caption": "Figure 2: Optimal pass selection (selective compilation) varies by circuits (blue box means pass is enabled, white box means that it is disabled (left). Selective compilation consistently outperforms Qiskit (Fidelity Optimized) (right).",
+      "page": 3
+    },
+    {
+      "image": "2605.11375_figures/2605.11375_fig4.jpg",
+      "caption": "Figure 4: Selective compilation achieves lower TVD for Deutsch-Jozsa as device noise scales from baseline (1.0×) to reduced (0.3×). (blue = enabled, white = disabled))",
+      "page": 4
+    },
+    {
+      "image": "2605.11375_figures/2605.11375_fig5.jpg",
+      "caption": "Figure 5: Greedy pass selection achieves better intermediate metrics but worse final circuits. Effective pass selection re- quires optimizing for end-to-end quality.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.11375_figures/2605.11375_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

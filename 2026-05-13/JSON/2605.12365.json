@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.12365",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "QAP-Router: Tackling Qubit Routing as Dynamic Quadratic Assignment with Reinforcement Learning",
+  "authors": "Kien X. Nguyen, Ankit Kulshrestha, Ilya Safro, Xiaoyuan Liu",
+  "abstract": "Qubit routing is a fundamental problem in quantum compilation, known to be NP-hard. Its dynamic nature makes local routing decisions propagate and compound over time, making global efficient solutions challenging. Existing heuristic methods rely on local rules with limited lookahead, while recent learning-based approaches often treat routing as a generic sequential decision problem without fully exploiting its underlying structure. In this paper, we introduce QAP-Router, framing qubit routing based on a dynamic Quadratic Assignment Problem (QAP) formulation. By modeling logical interactions, or quantum gates, as flow matrices and hardware topology as a distance matrix, our approach captures the interaction-distance coupling in a unified objective, which defines the reward in the reinforcement learning environment. To further exploit this structure, the policy network employs a solution-aware Transformer backbone that encodes the interaction between the flow matrix and the distance matrix into the attention mechanism. We also integrate a lookahead mechanism that blends naturally into the QAP framework, preventing myopic decisions. Extensive experiments on 1,831 real-world quantum circuits from the MQTBench, AgentQ and QUEKO datasets show that our method substantially reduces the CNOT gate count of routed circuits by 15.7%, 30.4% and 12.1%, respectively, relative to existing industry compilers.",
+  "url": "http://arxiv.org/abs/2605.12365v1",
+  "pdf": "https://arxiv.org/pdf/2605.12365v1",
+  "type": "theory",
+  "summary": "This paper introduces QAP-Router, an RL-based method that optimizes quantum circuit compilation by framing qubit routing as a dynamic quadratic assignment problem. By using a Transformer architecture to capture the coupling between gate interactions and hardware topology, it significantly reduces the CNOT gate overhead compared to existing compilers. This is crucial for improving the execution fidelity of NISQ-era quantum algorithms.",
+  "main_problem": "Qubit routing is an NP-hard problem in quantum compilation where logical qubits must be mapped to physical qubits with restricted connectivity, causing an increase in SWAP gate overhead.",
+  "main_result": "The QAP-Router achieves significant reductions in CNOT gate counts, specifically 15.7%, 30.4%, and 12.1% on the MQTBench, AgentQ, and QUEKO datasets, respectively, outperforming several industry-standard compilers.",
+  "method": "The authors propose a Reinforcement Learning framework that treats qubit routing as a Dynamic Quadratic Assignment Problem (QAP), utilizing a solution-aware Transformer backbone and a lookahead mechanism to optimize routing decisions.",
+  "model_or_system": "The model targets NISQ-era superconducting quantum hardware, specifically modeling hardware topology as a distance matrix and quantum gate interactions as a flow matrix within a dynamic assignment framework.",
+  "key_observables": "Number of inserted CNOT gates and SWAP gate count.",
+  "important_parameters": "Lookahead horizon (H), decay factor (gamma) for future interactions, and the QAP-based reward function coefficients.",
+  "main_assumptions": "The approach assumes an initial qubit mapping is provided and focuses specifically on the routing task rather than the full compilation stack; it also assumes a fixed hardware distance matrix.",
+  "figures_summary": "Figure 1 shows the compilation pipeline; Figure 2 illustrates the QAP reward motivation; Figure 3 details the state space encoding and Transformer architecture; Figures 5-6 show 2D grid and IBM Tokyo-like topologies; Figures 7-12 present performance comparisons across various circuit types and gate counts.",
+  "paper_structure": "The paper introduces the qubit routing problem, formulates it as a Dynamic QAP, describes the Reinforcement Learning architecture (Transformer-based policy and value networks), details the experimental setup on various hardware topologies and datasets, and concludes with an ablation study and discussion of scalability limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.12365_figures/2605.12365_fig1.jpg",
+      "caption": "Figure 1: Overview of the quantum compilation pipeline. A quantum algorithm, expressed as a sequence of unitary transformations, is first translated into a logical circuit via circuit synthesis and optimization. Then, to execute the logical circuit on a target quantum device, qubit mapping determines an initial assignment of logical to physical qubits, followed by qubit routing that inserts SWAP operators to enable the execution of all two-qubit gates under the connectivity constraints.",
+      "page": 2
+    },
+    {
+      "image": "2605.12365_figures/2605.12365_fig2.jpg",
+      "caption": "Figure 2: Motivation for integration of QAP objective to the reward function. At time slice t = 2, we aim to schedule gate (q2, q3) by making q2 and q3 adjacent on the device. We compare two actions SWAP(q2, q6) (green) and SWAP(q2, q4) (red) that result in two reward values. In the former case, the action minimizes the distance between q2 and q3, yielding a positive reward, while the latter case does not change the distance remains unchanged.",
+      "page": 3
+    },
+    {
+      "image": "2605.12365_figures/2605.12365_fig3.jpg",
+      "caption": "Figure 3: Logical circuit to flow matrices conversion procedure and state space encoding pipeline. (a) A circuit is first divided into a sequence of time slices {ξt}T t=1, where each slice contain parallelized two-qubit gates (single-qubit gates are omitted). Each slice is then converted to a flow matrix that encode the qubit interactions, yielding {F t}T t=1. (b) The encoding procedure contains a logical qubit encoder that extracts the logical qubit features Zlogical via an attention mechanism scaled by a decay-weighted effective flow matrix ˆF t. A physical device encoder extracts the physical node features Zphysical governed by the distance matrix D and the current assignment Xt....",
+      "page": 6
+    },
+    {
+      "image": "2605.12365_figures/2605.12365_fig4.jpg",
+      "caption": "Figure 4: Comparison on the number of inserted CNOT gates across different look-ahead horizons on the 16-qubit 2D Grid device for MQTBench (left) and AgentQ (right) datasets.",
+      "page": 9
+    },
+    {
+      "image": "2605.12365_figures/2605.12365_fig5.jpg",
+      "caption": "Figure 5: 2D Grid device topology for 12, 16 and 20 qubits.",
+      "page": 15
+    }
+  ],
+  "figure": "2605.12365_figures/2605.12365_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

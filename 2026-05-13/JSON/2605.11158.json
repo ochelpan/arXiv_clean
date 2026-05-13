@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.11158",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Scalable linearized gate set tomography",
+  "authors": "Ashe Miller, Corey Ostrove, Jordan Hines, Noah Siekierski, Kevin Young, Robin Blume-Kohout, Timothy Proctor",
+  "abstract": "Characterizing errors on many-qubit quantum computers remains a key challenge to understanding and improving the performance of these devices. Current characterization methods either don't scale beyond a few qubits, or make simplifying assumptions (such as assuming stochastic Pauli error) that obscure the underlying physical error mechanisms. In this work, we present a scalable extension to gate set tomography-linearized gate set tomography-that enables characterization of many-qubit systems. Linearized gate set tomography relies on sparse error models, a linear approximation to enable efficient data fitting, and data from shallow circuits-so that the systematic error in the linear approximation is small. We demonstrate the accuracy of our technique using simulations of a ten-qubit system with coherent and stochastic errors, including coherent crosstalk, and we demonstrate that it is robust in presence of additional errors that are not included within the sparse error model ansatz.",
+  "url": "http://arxiv.org/abs/2605.11158v1",
+  "pdf": "https://arxiv.org/pdf/2605.11158v1",
+  "type": "theory",
+  "summary": "This paper introduces a scalable version of Gate Set Tomography that uses a linear approximation and sparse error models to characterize many-qubit systems. It overcomes the exponential scaling bottleneck of traditional GST, allowing for the simultaneous estimation of coherent and stochastic errors. The technique is shown to be robust and efficient for systems up to 10 qubits.",
+  "main_problem": "Standard Gate Set Tomography (GST) suffers from exponential scaling in both parameters and computational cost, making it impossible to characterize many-qubit systems. Existing scalable methods often rely on overly simplified error models that cannot distinguish between coherent and stochastic errors.",
+  "main_result": "The authors present 'linearized GST', a scalable technique that achieves polynomial scaling by using sparse error models and a linear approximation. The method is demonstrated to accurately estimate both coherent and stochastic error rates in up to 10-qubit systems, including crosstalk.",
+  "method": "The method uses a first-order Taylor expansion of the error channel to relate error parameters to changes in Pauli expectation values, transforming the problem into a linear inversion task. It leverages Clifford propagation and sparse error models to maintain computational efficiency.",
+  "model_or_system": "The study uses simulated n-qubit quantum processors (up to 10 qubits) with ring connectivity. Errors are modeled via a Lindbladian containing a sparse set of Hamiltonian (coherent) and Pauli-stochastic error generators.",
+  "key_observables": "Expectation values of Z-type Pauli observables.",
+  "important_parameters": "Error rates (Hamiltonian h_P and stochastic s_P), circuit depth, number of circuits (K), shot noise (N), and the error magnitude scale factor (c).",
+  "main_assumptions": "Errors are assumed to be Markovian and sparse (polynomial number of non-zero rates). The method relies on a first-order linear approximation, which is valid only for shallow circuits and small error rates.",
+  "figures_summary": "Figure 1 shows the protocol workflow; Figure 2 demonstrates accurate error estimation in 10-qubit simulations; Figure 3 shows estimation error scaling with dataset size and shot noise; Figure 4 shows the impact of unmodeled errors; Figure 5 shows the breakdown of the linear approximation at high error magnitudes; Figure 6 shows the design matrix is typically full rank.",
+  "paper_structure": "The paper defines the error generator formalism, explains Clifford propagation and the sparse error model, introduces the linearized GST protocol, presents simulation results for accuracy and robustness, and discusses the limits of the linear approximation and gauge freedom.",
+  "why_interesting": "This is highly relevant for researchers in open quantum systems and quantum optics as it provides a scalable framework for characterizing complex, non-unitary dynamics and crosstalk in many-body quantum processors.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.11158_figures/2605.11158_fig1.jpg",
+      "caption": "FIG. 1. Linearized GST. An overview of linearized GST, which enables scalable learning of sparse error models. A. An overview of the procedure of linearized GST, which involves (1) selecting a sparse error model, (2) sampling short circuits to run, (3) computing the linear sensitivities of various Z-type Pauli observables to the model’s parameters, (4) arranging those sensitivities into two design matrices (one for Hamiltonian and one for stochastic parameters), (5) estimating the Pauli observables for each circuit in experiment, and computing its error-free value, and then (6) solving two linear equations (one for Hamiltonian and one for stochastic parameters), by pseudo-inversion of the...",
+      "page": 4
+    },
+    {
+      "image": "2605.11158_figures/2605.11158_fig2.jpg",
+      "caption": "FIG. 2. Simulation of 10-qubit linearized GST. The accuracy of linearized GST for a 10-qubit error model containing local errors and crosstalk, using data from 1000 random circuits. A, D. The true error rates versus the estimate of linearized GST, separated into Hamil- tonian (blue) and Pauli stochastic (orange) error rates, without shot noise (A) and with N = 1000 shots for each circuit (B). The diag- onal line represents no estimation error. B, C. The distribution of the absolute differences of the estimated and true values of the error rates, for Hamiltonian and Pauli stochastic errors, respectively, with- out shot noise. E, F. The distribution of the absolute differences of the...",
+      "page": 5
+    },
+    {
+      "image": "2605.11158_figures/2605.11158_fig3.jpg",
+      "caption": "FIG. 3. Estimation error versus dataset size. The average absolute error of the estimated errors as a function of the number of measure- ments performed (the number of circuits K times the number of Pauli operators measured per circuit, which here is 55), divided into four kinds of error parameter in our error model: A. weight-one Hamilto- nian errors, B. weight-two Hamiltonian errors, C. weight-one Pauli stochastic errors, and D. weight-two Pauli stochastic errors. The dot- ted line on each plot represents the average error magnitude of each error type. In each panel, we show the estimation errors for datasets with N = 100 (blue points) N = 1000 (orange points), N = 10000 (green points),...",
+      "page": 6
+    },
+    {
+      "image": "2605.11158_figures/2605.11158_fig4.jpg",
+      "caption": "FIG. 5. Breakdown of the linear approximation. Linearized GST relies on a linear approximation that only has low approximation er- ror when the total magnitude of the errors in the circuits used in the linearized GST protocol is small. Here we demonstrate the break- down in the linearized GST estimate’s accuracy as the magnitude of the errors increase, in 5-qubit simulations. To do so, we scaled up the magnitude of the errors in an error model family, by a multiplicative “error scale” factor (the variable c in the main text). Here we show the absolute error in the linearized GST estimates of each error pa- rameter, over many different error models of each error magnitude, separated into the...",
+      "page": 7
+    },
+    {
+      "image": "2605.11158_figures/2605.11158_fig5.jpg",
+      "caption": "FIG. 4. Robustness of linearized GST to unmodeled errors. The statistics of the absolute differences of the true error rates and the es- timated error rates for linearized GST models that contain only some fraction η of the parameters in the error-generator model. Each box plot shows the total differences across one hundred and fifty different error models with a randomly-sampled fraction η of the error param- eters, versus η. The dashed line shows the mean value of the true error rates in the data-generating model.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.11158_figures/2605.11158_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

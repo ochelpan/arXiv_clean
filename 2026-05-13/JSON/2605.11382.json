@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2605.11382",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DC"
+  ],
+  "is_primary_archive": true,
+  "title": "Classic and Quantum Task-Based Intelligent Runtime for QIRs Running on Multiple QPUs",
+  "authors": "Narasinga Rao Miniskar, Elaine Wong, Vicente Leyton-Ortega, Jeffrey S. Vetter, Travis S. Humble",
+  "abstract": "High-performance computing systems are rapidly evolving into heterogeneous platforms that fuse quantum accelerators with traditional classical processing units (CPUs) and graphical processing units (GPUs). This convergence calls for runtimes capable of managing both classical and quantum workloads in a unified manner. We introduce an intelligent, task-based runtime that marries the Intelligent RuntIme System (IRIS) asynchronous scheduler with a quantum programming stack through the Quantum Intermediate Representation Execution Engine (QIR-EE). Our design allows programs written in the quantum intermediate representation (QIR) to be dispatched concurrently to a variety of back-ends, including multiple quantum simulators and nascent quantum processors, enabling genuine hybrid execution on a single node. To illustrate its practicality, we partition a 4-qubit and 20-qubit circuit into three sub-circuits using quantum circuit cutting via the QCut library. Each sub-circuit is simulated independently by the QIR-EE driver within IRIS, after which a classical post-processing step merges the simulation results to recover the outcome of the original full-circuit computation. This case study demonstrates how finer task granularity can enable the parallel execution and lower the simulation burden per quantum task while preserving overall accuracy, highlighting the feasibility of our hybrid approach.",
+  "url": "http://arxiv.org/abs/2605.11382v1",
+  "pdf": "https://arxiv.org/pdf/2605.11382v1",
+  "type": "both",
+  "summary": "This paper introduces a new runtime system designed to manage hybrid quantum-classical workloads on heterogeneous high-performance computing nodes. By treating quantum kernels as tasks in an asynchronous scheduler, it allows for the concurrent execution of quantum simulations and real hardware tasks. The work demonstrates that using circuit cutting within this framework can significantly optimize the computational load for large-scale quantum simulations.",
+  "main_problem": "The lack of unified, scalable software architectures for orchestrating concurrent classical and quantum workloads across heterogeneous high-performance computing platforms.",
+  "main_result": "The development of a task-based runtime (Q-IRIS) that enables concurrent execution of quantum and classical tasks, demonstrating that circuit cutting can reduce simulation burdens on classical hardware while maintaining accuracy.",
+  "method": "Integration of the IRIS asynchronous scheduler with a QIR Execution Engine (QIR-EE) using an isolated process and memory-mapped communication to manage QIR kernels and circuit cutting via the QCut library.",
+  "model_or_system": "A heterogeneous computing platform integrating CPUs, GPUs, and QPUs, including quantum simulators (Google QSIM) and physical trapped-ion hardware (IONQ FORTE-1).",
+  "key_observables": "Expectation value of the ZZ...Z operator (e.g., <ZZZZ>).",
+  "important_parameters": "Number of qubits (4 and 20), number of circuit cuts, and execution time stages (Create, Exec+Post, Retrieve).",
+  "main_assumptions": "The QIR-EE engine lacks thread safety, necessitating execution within an isolated process.",
+  "figures_summary": "Figure 1 shows the IRIS design hierarchy and hardware integration; Figure 2 illustrates the Q-IRIS architecture and task orchestration; Figure 3 demonstrates the wire-cutting procedure for partitioning circuits.",
+  "paper_structure": "The paper introduces the problem of siloed quantum software, presents the Q-IRIS architecture and QIR-EE driver implementation, details the circuit cutting methodology, and evaluates performance using both simulators and physical IONQ hardware.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.11382_figures/2605.11382_fig1.jpg",
+      "caption": "Fig. 1. IRIS: Intelligent RuntIme System Design with QPUs. Proposed tightly coupled integration of QIR-EE in IRIS runtime is shown in green boxes.",
+      "page": 2
+    },
+    {
+      "image": "2605.11382_figures/2605.11382_fig2.jpg",
+      "caption": "Fig. 2. IRIS with QIR-EE device (Q-IRIS) driver to connect to multiple QPUs through XACC. The QSIM simulator can be accessed separate from XACC and directly through QIR-EE via QIR-QSIM. The top green box illustrates the structure of the task graph in the form of a directed acyclic graph.",
+      "page": 4
+    },
+    {
+      "image": "2605.11382_figures/2605.11382_fig3.jpg",
+      "caption": "Fig. 3. Illustration of how to partition a 4-qubit GHZ circuit using two wire cuts, creating three 2-qubit sub-circuits. The |k⟩, |s⟩are initialized based on the measurement outcome (orange) in the previous circuit (depending on the measurement basis), and can be pre-computed. Their corresponding outputs ok, os, together with outputs y1, y2, y3, y4 is used to construct the estimator for ⟨ZZZZ⟩via the quasi-probability decomposition formula [11], [16]. The 20-qubit circuit is partitioned similarly for ⟨Z⊗20⟩estimation.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.11382_figures/2605.11382_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

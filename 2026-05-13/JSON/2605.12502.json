@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.12502",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Scalable Measurement-Based Quantum Simulation Patterns for Benchmarking",
+  "authors": "V. W. Scarola",
+  "abstract": "Measurement-based quantum computing uses measurement patterns on predefined quantum resource states to execute quantum logic. Quantum simulation offers an important use case on near-term devices. However, pattern optimization depends on the multivariable interplay between hardware and software constraints and is therefore use-dependent and highly non-trivial. Optimization of large-scale patterns under realistic assumptions remains a barrier. We announce the release of the quantum measurement pattern library QPatLib, a dataset that, in v1.0, presents patterns for use in measurement-based quantum simulation. We present the workflow for generating patterns that execute Pauli-string unitaries needed for many quantum algorithms. We provide benchmark patterns for measurement-based quantum unitary evolution. The measurement patterns are defined with different conventions for commuting Pauli-string subsets to allow scaling of pattern size and complexity. The purpose of the library is to (i) serve as a standardized testbed for pattern-optimization protocols for measurement-based quantum simulation routines, (ii) offer a suite of patterns for direct use on hardware, (iii) provide data to empirically justify pattern design principles, and (iv) provide a flexible resource for future storage and use of measurement-based patterns beyond quantum simulation.",
+  "url": "http://arxiv.org/abs/2605.12502v1",
+  "pdf": "https://arxiv.org/pdf/2605.12502v1",
+  "type": "theory",
+  "summary": "The authors introduce QPatLib, a new library of measurement patterns designed for benchmarking measurement-based quantum simulations of molecular systems. The library allows researchers to study the trade-offs between different hardware constraints and optimization strategies. It serves as a standardized resource for developing more efficient quantum simulation protocols.",
+  "main_problem": "The lack of a standardized, scalable dataset and testbed for benchmarking the optimization of measurement-based quantum simulation (MBQS) patterns under hardware constraints.",
+  "main_result": "The release of QPatLib (v1.0), a library of validated measurement patterns for simulating molecular Hamiltonians, providing a benchmark for pattern optimization and hardware-specific compactification.",
+  "method": "A bottom-up workflow that groups Pauli strings into commuting subsets, transpiles them into quantum circuits, and then converts those circuits into measurement patterns on graph states, stored in a standardized JSONL format.",
+  "model_or_system": "Measurement-based quantum computing (MBQC) using graph states to simulate the electronic structure Hamiltonians of diatomic molecules (e.g., Be2, H2, N2) via Jordan-Wigner mapping.",
+  "key_observables": "Graph state properties (nodes, edges, max degree) and measurement pattern metrics (number of Pauli measurements, pattern width, depth, and maximum layer distance).",
+  "important_parameters": "Subset grouping strategies (One-to-One, Smallest-to-Last, Full), Suzuki-Trotter error scaling, and hardware constraints like connectivity and causal flow.",
+  "main_assumptions": "The library v1.0 focuses on Pauli-string unitaries and does not yet include patterns produced by automated compactification algorithms; it assumes a first-order Suzuki-Trotter expansion.",
+  "figures_summary": "Figure 1 shows the QPatLib workflow; Figure 2 illustrates a specific measurement pattern and causal flow; Figure 3 displays a pattern for a Pauli string in Be2; Figure 4 compares circuit and measurement depth; Figure 7 shows a pattern optimized for fewer measurements.",
+  "paper_structure": "The paper introduces the library construction and workflow, demonstrates design principles through subset strategies, presents the validated dataset for various molecules, and discusses future applications for pattern compactification.",
+  "why_interesting": "It provides a standardized framework for evaluating how quantum algorithms can be mapped to physical hardware, which is crucial for the development of scalable many-body dynamics simulations on near-term devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.12502_figures/2605.12502_fig1.jpg",
+      "caption": "Figure 1: Schematic of the workflow used to define v1.0 of the measurement pattern library QPatLib. We start with a list of Pauli string unitaries used in, e.g., first order Suzuki- Trotter time evolution of a fermionic Hamiltonian. In this case the Hamiltonian is expressed as a sum of Pauli strings and we seek to build a pattern for just one Trotter step (more Trotter steps can be added by concatenating patterns). The first transpile step requires the strings to be grouped into commuting subsets. A quantum circuit is then created from the unitary of Pauli strings. The second transpile step builds a measurement pattern on a graph state, one pattern per subset. The patterns are stored in...",
+      "page": 2
+    },
+    {
+      "image": "2605.12502_figures/2605.12502_fig2.jpg",
+      "caption": "Figure 2: A schematic of the measurement pattern for ex- ecuting the identity operation using a 5-node chain graph, P5−I [See Eq. (3)]. Circles denote nodes: Inputs (red), Pauli-x or Pauli-y Measurement (blue-filled), and Output (grey-filled). The numbers in circles index nodes. The hor- izontal dashed lines denote graph state edges. The vertical dashed lines denote measurement layers and are labeled with L. The solid arrows denotes causal flow found in the graph. The byproduct operators are not shown.",
+      "page": 4
+    },
+    {
+      "image": "2605.12502_figures/2605.12502_fig3.jpg",
+      "caption": "Figure 2 plots a schematic of P5−I. While the hor- izontal dashed lines denote edges, the solid lines with arrows denote causal flow [56] (as opposed to gen- eralized flow [57, 58] or Pauli flow [59–61]). Flow shows that the measurement-layer structure preserves causality. The patterns stored in QPatLib v1.0 are all consistent with causal flow and the measurement- layer structure is chosen in the maximally delayed (i.e., minimal-depth / maximal-parallelism) conven- tion [33, 55, 57, 62, 63].",
+      "page": 4
+    },
+    {
+      "image": "2605.12502_figures/2605.12502_fig4.jpg",
+      "caption": "Figure 3: (a) An example measurement pattern that executes the unitary e−ic32 ˆ P32 on the state prepared on the input nodes (0-5), where ˆP32 = ˆI0 ˆ X1 ˆY2 ˆY3 ˆ X4 ˆI5. This pattern represents the 32nd subset of the O-O strategy for Be2 (See Table 5). The empty circle at node 23 represents a non-Pauli measurement. The graph state edge E4,17 spans 14 measurement layers to establish the longest for this subset. Output nodes are 0, 28, 35, 42, 43 and 5. (b) A schematic of the nodes and edges in the corresponding graph state where the inputs are red. (c) The operator executed by the measurement pattern acting on the encoded qubits 0-5. (d) The non-Pauli measurement at node 23 showing that...",
+      "page": 6
+    },
+    {
+      "image": "2605.12502_figures/2605.12502_fig5.jpg",
+      "caption": "Figure 4: Comparison of total depth for the circuit and measurement-based approaches versus the number of qubits encoding each molecule. Diamonds: The circuits are ob- tained by transpiling e−icπ(s) ˆ Pπ(s) for each Pauli string and concatenating each circuit (The One-to-One subset strat- egy). Circuit depth refers to the number of layers of parallel circuits. Squares: Each subset circuit is transpiled into a measurement pattern on a graph state and concatenated. The measurement depth refers to the number of layers of parallel measurements.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.12502_figures/2605.12502_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

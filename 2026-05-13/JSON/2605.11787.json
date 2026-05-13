@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2605.11787",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "CERTIFY-ED: A Multi-Layer Verification Framework for Exact Diagonalization of Quantum Many-Body Systems",
+  "authors": "Sarang Vehale, Ritu Goel",
+  "abstract": "Exact diagonalization (ED) is a workhorse technique in computational quantum many-body physics, but published ED results are rarely accompanied by machine-checkable evidence of their numerical correctness. The community typically relies on the implicit trust chain LAPACK $\\to$ user code $\\to$ result, with at most informal agreement against another package treated as confirmation. We argue that this practice is inadequate for a method whose output frequently underpins theoretical claims, and we present \\textsc{certify-ed}, a verification framework designed to be used \\emph{alongside} existing ED packages (QuSpin, XDiag, ALPS) rather than as a replacement for them. The framework consists of (i) a multi-oracle eigensolver that runs three independent LAPACK paths and reports their pairwise disagreement, (ii) thirteen logically independent validation layers covering algebraic invariants, analytic limits, alternative algorithms, arbitrary-precision reference computation, conservation laws, dynamical consistency, and finite-size scaling, and (iii) tamper-evident SHA-256 hashed certificates that downstream consumers can verify. The framework also ships an error-injection layer that confirms the entire pipeline detects six injected error classes. Running on sixteen physics models from one-dimensional spin chains to two-dimensional Kitaev honeycomb clusters, our reference implementation passes 53 of 53 unit tests and 81 of 81 individual validation tests in under thirty seconds, with maximum disagreement against QuSpin of $1.6\\times 10^{-14}$ across 320 eigenvalue comparisons, and agreement with 50-digit \\texttt{mpmath} reference values to $1.6\\times 10^{-15}$. The package is released under the MIT license on Zenodo and Github",
+  "url": "http://arxiv.org/abs/2605.11787v1",
+  "pdf": "https://arxiv.org/pdf/2605.11787v1",
+  "type": "theory",
+  "summary": "The paper introduces CERTIFY-ED, a new framework designed to verify the numerical integrity of Exact Diagonalization results. It uses multiple solvers, high-precision references, and cryptographic hashing to provide a tamper-evident certificate of correctness. This addresses a critical gap in the reliability of computational many-body physics research.",
+  "main_problem": "The lack of machine-checkable evidence and standardized verification for the numerical correctness of results produced by Exact Diagonalization (ED) in quantum many-body physics.",
+  "main_result": "The CERTIFY-ED framework successfully passed 81/81 validation tests and 53/53 unit tests, demonstrating high-precision agreement with QuSpin and 50-digit mpmath references while detecting all six classes of injected numerical errors.",
+  "method": "A multi-layer verification framework using a multi-oracle eigensolver (three independent LAPACK paths), thirteen validation layers (including algebraic invariants, analytic limits, and high-precision references), and SHA-256 hashed certificates.",
+  "model_or_system": "Finite quantum lattice Hamiltonians, including 1D spin chains and 2D Kitaev honeycomb clusters, specifically covering models like Heisenberg (XXX, XXZ, XYZ), TFIM, SSH, and Hubbard models.",
+  "key_observables": "Eigenvalues, eigenvectors, residuals, spectral sum-rule errors, and pairwise disagreement between solvers.",
+  "important_parameters": "System sizes up to approximately 2^14 dimensions; comparison against 50-digit precision references.",
+  "main_assumptions": "The framework verifies that the output is a correct solution to the provided Hamiltonian, but does not verify if the Hamiltonian itself is the correct physical model; it also assumes the underlying LAPACK libraries do not share a deep, common bug.",
+  "figures_summary": "Figure 2 shows spectral sum-rule errors across eleven models; Figure 3 demonstrates finite-size scaling toward thermodynamic limits; Figure 4 illustrates the successful detection of six injected error classes.",
+  "paper_structure": "The paper introduces the problem of numerical trust in ED, presents the architecture of the CERTIFY-ED framework (multi-oracle, validation layers, and certification), details the error-injection self-test, reports performance results against benchmarks, and discusses limitations and future work.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.11787_figures/2605.11787_fig1.jpg",
+      "caption": "Figure 1: Validator test counts. Each bar shows the number of individual tests in one validator; all 81 tests pass on the run reported here.",
+      "page": 8
+    },
+    {
+      "image": "2605.11787_figures/2605.11787_fig2.jpg",
+      "caption": "Figure 2: Spectral sum-rule errors across eleven models. Color encodes log10 of the absolute error between the trace identity and the sum of eigenvalue powers. All errors lie between 10−16",
+      "page": 9
+    },
+    {
+      "image": "2605.11787_figures/2605.11787_fig3.jpg",
+      "caption": "Figure 3: Finite-size scaling toward thermodynamic limits. Left: Heisenberg PBC ground-state energy per bond approaching the Bethe ansatz value 1/4 −ln 2. Center: free fermion half-filled E0/N →−2t/π (oscillations are shell-filling effects). Right: TFIM at criticality E0/N →−4/π.",
+      "page": 10
+    },
+    {
+      "image": "2605.11787_figures/2605.11787_fig4.jpg",
+      "caption": "Figure 4: Error-injection self-test. Six classes of error are injected into the pipeline; each must be detected by at least one validator or internal check. All six are detected.",
+      "page": 10
+    }
+  ],
+  "figure": "2605.11787_figures/2605.11787_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

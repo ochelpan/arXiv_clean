@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2605.11500",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Digital Annealer-Assisted Accuracy-First Quantum Circuit Transpilation with Integrated QUBO Mapping and Routing",
+  "authors": "Kazuma Watanabe, Hideaki Kawaguchi, Shin Nishio, Takahiko satoh",
+  "abstract": "In the Noisy Intermediate-Scale Quantum (NISQ) era, limited qubit counts and high gate error rates directly constrain circuit fidelity, making the minimization of CNOT gate counts crucial. While conventional compilers prioritize heuristic efficiency, there is a compelling need for \"accuracy-first\" transpilation that prioritizes gate reduction over compilation latency. We propose a framework leveraging the Digital Annealer (DA) via two complementary strategies: (1) Hybrid, which uses DA-driven global initial mapping combined with high-speed heuristic routing by Qiskit, and (2) Full DA, which solves mapping and routing as separate DA-assisted QUBO subproblems within an iterative workflow.   Benchmarks demonstrate that our Hybrid approach achieves an average CNOT reduction of 13.7 % (up to 57.4 %) compared to Qiskit's highest optimization level, with the largest gains on structured circuits such as GHZ and ASP where the initial layout is decisive. The Full DA approach matches Hybrid on structured circuits and outperforms ISAAQ by 23.1 % on average (maximum 90.8 %), but degrades on circuits with random or concentrated connectivity - exposing a trade-off between QUBO size and solution quality when the entire circuit is encoded in a single annealing pass. Although these global optimizations incur higher computational overhead than pure heuristics, our results indicate that for high-precision workflows where gate noise is the primary bottleneck, DA-assisted global initial placement provides a practical \"time-for-quality\" trade-off for enhancing the utility of near-term quantum hardware.",
+  "url": "http://arxiv.org/abs/2605.11500v1",
+  "pdf": "https://arxiv.org/pdf/2605.11500v1",
+  "type": "both",
+  "summary": "This paper introduces a new way to compile quantum circuits using a Digital Annealer to significantly reduce the number of error-prone CNOT gates. By prioritizing gate reduction over compilation speed, the 'accuracy-first' approach helps improve the performance of near-term quantum hardware, especially for structured algorithms.",
+  "main_problem": "The challenge of minimizing CNOT gate counts during quantum circuit transpilation (mapping and routing) to preserve circuit fidelity in the NISQ era, specifically addressing the trade-off between compilation latency and gate reduction.",
+  "main_result": "The proposed Hybrid approach achieves an average CNOT reduction of 13.7% compared to Qiskit, while the Full DA approach outperforms ISAAQ by 23.1% on average, particularly for structured circuits.",
+  "method": "The authors propose two strategies using a Digital Annealer (DA) to solve QUBO formulations: a Hybrid strategy (DA for initial mapping + Qiskit for routing) and a Full DA strategy (DA for both mapping and routing as iterative subproblems).",
+  "model_or_system": "The framework targets a 64-qubit superconducting quantum computer with an 8x8 square lattice topology. The optimization is formulated as a Quadratic Unconstrained Binary Optimization (QUBO) problem using a Hamiltonian that balances communication overhead and SWAP costs.",
+  "key_observables": "Total CNOT gate count and CNOT reduction percentage.",
+  "important_parameters": "The number of time steps (T=2) for routing to manage QUBO size, and an exponential decay weighting function for gate importance.",
+  "main_assumptions": "The framework assumes a grid-based architecture and is limited by the capacity of the Digital Annealer to handle the quadratic growth of variables in large, unstructured circuits.",
+  "figures_summary": "Figure 1 shows the transpilation workflow; Figure 2 compares CNOT counts between Full DA, ISAAQ, Qiskit, and t|ket; Figure 3 compares execution times, distinguishing between cloud communication overhead and core computation.",
+  "paper_structure": "The paper introduces the transpilation problem, defines the QUBO formulations for mapping and routing, presents the two proposed DA-based strategies, evaluates performance against classical heuristics and Ising machine compilers, and discusses limitations regarding circuit complexity and computational overhead.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.11500_figures/2605.11500_fig1.jpg",
+      "caption": "Fig. 1: Proposed transpilation workflow integrating Digital Annealer (DA) optimization. The process begins with initial mapping (Step 2), minimizing initial SWAP requirements by anticipating future dependencies. The subsequent iterative wiring phase (Steps 3–5) resolves non-executable gates by solving combinatorial optimization problems on the DA, iden- tifying efficient qubit movement.",
+      "page": 3
+    },
+    {
+      "image": "2605.11500_figures/2605.11500_fig2.jpg",
+      "caption": "Fig. 3: Execution time comparison. For DA-based methods, light-shaded bars denote cloud communication overhead, and solid bars show core computation time.",
+      "page": 6
+    },
+    {
+      "image": "2605.11500_figures/2605.11500_fig3.jpg",
+      "caption": "Fig. 2: Comprehensive comparison of equivalent CNOT counts across different transpilation methods. (a) Full DA demonstrates superior scaling over ISAAQ for most structured circuits. The ISAAQ value for asp exceeds the plot range (3205, indicated above the bar). (b) The Hybrid approach achieves competitive or lower gate counts compared to industry-standard compilers.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.11500_figures/2605.11500_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

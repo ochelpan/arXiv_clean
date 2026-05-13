@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.11529",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QuBridge: Layer-wise Fidelity Decomposition in Quantum Computation Pipeline",
+  "authors": "Kisho Sotokawa, Hideaki Kawaguchi, Shin Nishio, Takahiko Satoh",
+  "abstract": "Running a quantum circuit on current hardware involves a sequence of engineering decisions, each with tunable parameters and distinct error characteristics. Existing tools optimize each decision in isolation, leaving practitioners unable to determine how much each decision contributes to final output quality. We present QuBridge, a pipeline analysis tool that decomposes quantum computation into three decision layers and measures each layer's fidelity contribution through progressive ablation and isolation experiments. Applied to quantum teleportation under IBM-calibrated noise models, the framework surfaces three phenomena that end-to-end measurement obscures. Qubit selection narrows the worst-case fidelity band from 11.8% to under 2% with downstream layers held fixed, without changing the peak. Per-gate pulse-shape assignment adds a +0.9% residual gain whose attributed magnitude depends on upstream layout. Error-detection encoding is not uniformly advantageous, and its conditional benefit emerges for input states whose dominant error channel is detectable by the chosen code. QuBridge operates on cached calibration data without requiring live hardware access.",
+  "url": "http://arxiv.org/abs/2605.11529v1",
+  "pdf": "https://arxiv.org/pdf/2605.11529v1",
+  "type": "theory",
+  "summary": "The paper introduces QuBridge, a tool that decomposes the quantum computation pipeline into layers to identify which specific hardware optimizations contribute to final fidelity. It demonstrates that while qubit selection reduces the variance in performance, pulse-shape optimization provides small but significant gains that depend on the underlying layout. This provides a much-needed diagnostic for understanding how different error-mitigation and control strategies interact.",
+  "main_problem": "The inability to attribute fidelity losses to specific engineering decisions (qubit selection, transpilation, pulse shaping) within a complex quantum computation pipeline.",
+  "main_result": "The QuBridge framework successfully decomposes fidelity gains into layer-wise contributions, revealing that qubit selection primarily narrows the fidelity uncertainty band, while pulse-shape assignment provides small, layout-dependent residual gains.",
+  "method": "A pipeline analysis tool that uses progressive ablation and isolation experiments to decompose quantum computation into three decision layers (L1: encoding, L2: qubit selection, L3: pulse-shape assignment).",
+  "model_or_system": "Simulations based on IBM Torino (133-qubit Heron architecture) using density-matrix models with calibrated noise, including thermal relaxation (T1, T2) and Pauli-Lindblad residual terms.",
+  "key_observables": "State fidelity (F), fidelity band width (range between best and worst configurations), and layer fidelity waterfall (incremental gains per layer).",
+  "important_parameters": "Readout error threshold (tau_ro), two-qubit gate error threshold (tau_2q), and noise scale (multiplier for error rates).",
+  "main_assumptions": "The tool relies on cached calibration data rather than live hardware access and uses an analytical gate-level proxy for pulse-shape effects instead of full Hamiltonian simulation.",
+  "figures_summary": "Figure 1 shows the pipeline architecture; Figure 2 illustrates the waterfall view of fidelity decomposition and the narrowing of the fidelity band via ablation; Figure 5 compares logical vs. physical fidelity for different input states under varying noise scales.",
+  "paper_structure": "The paper introduces the attribution problem, defines the three-layer QuBridge framework, details the simulation setup on IBM hardware, presents results on qubit selection and pulse shaping, and concludes with an analysis of error-detection encoding performance.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.11529_figures/2605.11529_fig1.jpg",
+      "caption": "Fig. 1. QuBridge pipeline architecture. Three decision layers plus Results decompose quantum computation into separately tunable layers. Each layer progressively accumulates pipeline outputs (checked items), culminating in the final fidelity F at Results. Both physical (3-qubit) and error-detected (6-qubit) modes share this structure.",
+      "page": 2
+    },
+    {
+      "image": "2605.11529_figures/2605.11529_fig2.jpg",
+      "caption": "Fig. 2. Results and Pipeline Decomposition. (a) Illustrative rendering of the Waterfall view, which decomposes the +3.6% pipeline gain into Baseline, +L2 (Qubit Selection), and +L3 (Pulse-shape Assignment). Numbered badges (1, 2, 3) act as live Fidelity Actions buttons that add each data point. (b) Band width narrows as L2 and L3 are progressively optimized, confirming L2 provides the largest band narrowing.",
+      "page": 3
+    },
+    {
+      "image": "2605.11529_figures/2605.11529_fig3.jpg",
+      "caption": "Fig. 3. L2 Qubit Selection. (a) Illustrative rendering of the filter panel. Edges are colour-coded by 2Q gate error (red high, green low). Sliders τro and τ2q progressively prune high-error edges, narrowing the edge pool from 206 to 66. The surviving subgraph (highlighted triplet (66, 67, 74)) is what the user selects from. Edge count and the corresponding number of three-qubit candidate paths through the filtered subgraph are reported separately in Table II. (b) The fidelity band narrows (11.8%→1.9%) across the cumulative filter cascade. Best F=0.985 is the pipeline optimum, reached in Fig. 4b via L3 tuning.",
+      "page": 4
+    },
+    {
+      "image": "2605.11529_figures/2605.11529_fig4.jpg",
+      "caption": "Fig. 4. L3 Pulse-shape Assignment. (a) Illustrative rendering of the pulse-shape selector. The left panel shows the uniform All Square baseline (red hatched pulses for SX, CZ, Meas), and the right panel shows per-gate optimal (SX=DRAG orange, CZ=Gaussian Square blue, Meas=Square red). The 3×3 selector matrix lets users pick a shape per gate type, with the coloured cell indicating the active choice. (b) Per-gate optimal outperforms every uniform shape, achieving F=98.49%, +0.87% over the All Square baseline (Fig. 3b endpoint).",
+      "page": 5
+    },
+    {
+      "image": "2605.11529_figures/2605.11529_fig5.jpg",
+      "caption": "Fig. 5. Teleportation fidelity under increasing noise. For phase-sensitive |+⟩, logical fidelity stays below physical because the [[2, 1, 1]] code cannot detect Z errors. For T1-decay-sensitive |1⟩, conditional logical fidelity (after syndrome post-selection on {00, 11}) exceeds physical across the tested noise range as parity-changing events are removed, with the conditional gap widening as noise grows. Table III reports the corresponding acceptance rates.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.11529_figures/2605.11529_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

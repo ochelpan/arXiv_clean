@@ -1,0 +1,63 @@
+{
+  "arxiv_id": "2605.11213",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Parity Representations: Learnable Basis Discovery, Encoders, and Shadow Deployment",
+  "authors": "Sang Hyub Kim, Oliver Knitter, Jonathan Mei, Claudio Girotto, Masako Yamada, Martin Roetteler, Chi Chen",
+  "abstract": "We study parity features as representations that can be evaluated entirely classically once the binary or quantized input representation and parity words are fixed, particularly when labels depend on higher-order feature interactions or when discrete inference interfaces support perturbation robustness. A parity feature is a signed product over selected bits of a binary input: once the participating bits are known, evaluation requires no quantum resources. Reaching a useful parity representation requires solving two challenges. When the input is parity-ready (a meaningful binary string), the challenge is basis discovery: selecting useful parity words from a combinatorial search space. Otherwise, the challenge is encoding: constructing a binary vector on which parity computation is meaningful. We use hybrid quantum-classical training pipelines to address these: learnable Pauli word selection for basis discovery, learned projection encodings for continuous embeddings, and sPQC-Parity for discrete inputs. On three native-binary parity tasks with 5-10 qubits, the learned parity basis improves mean accuracy by 23.9% to 41.7% over logistic-regression and support-vector baselines. A model comparison shows that the improvement comes primarily from discovering the right parity basis, rather than from quantum moment computation at inference. On five continuous text benchmarks, learned projection recovers much of the loss introduced by dimensionality reduction and fixed binarization, exceeding the full continuous baseline on CR, SST-2, and SST-5. On three encoding-limited discrete datasets, when compared with PCA-bin as the baseline, sPQC-Parity reaches 94.6% improvement on mushroom, 3.0% on splice, and matches PCA-bin on promoter. We also analyze inference robustness under binary or quantized inference, where rounding gives exact invariance below half the quantization step.",
+  "url": "http://arxiv.org/abs/2605.11213v1",
+  "pdf": "https://arxiv.org/pdf/2605.11213v1",
+  "type": "theory",
+  "summary": "This paper introduces a method to use quantum circuits to discover optimal high-order parity features that can be deployed entirely on classical hardware. It demonstrates that quantum-trained models can significantly outperform classical baselines in both feature selection and data encoding for binary and continuous datasets.",
+  "main_problem": "The paper addresses the challenges of basis discovery (selecting useful high-order parity words) and encoding (converting non-binary data into binary vectors) for quantum machine learning tasks.",
+  "main_result": "The proposed learnable Pauli word selection improves accuracy on native-binary tasks by 2-41% and recovers signal in continuous text embeddings, demonstrating that the primary gain comes from discovering the correct basis rather than quantum moment computation.",
+  "method": "The authors use hybrid quantum-classical training pipelines with differentiable relaxations, such as learnable Pauli word selection via continuous participation logits and sPQC-Parity for discrete encoding.",
+  "model_or_system": "The model utilizes Variational Quantum Circuits (VQCs) to parameterize Pauli-Z expectation values, employing a 'shadow deployment' strategy where the quantum processor is used only for training and the final model is deployed classically.",
+  "key_observables": "Parity feature values (signed products of bits), Pauli-Z expectation values, and Hamming weight of parity words.",
+  "important_parameters": "Number of features (K=128), pool size (K_pool=256), number of qubits (up to 14), and quantization step for robustness analysis.",
+  "main_assumptions": "The effectiveness of the method relies on the ability to use a differentiable relaxation (sigmoid-based) to approximate discrete parity selection during training.",
+  "figures_summary": "Figures show accuracy gains on synthetic parity tasks, a comparison of different basis/moment sources, the recovery of signal in text benchmarks, and the robustness of the model against FGSM attacks under quantization.",
+  "paper_structure": "The paper introduces the parity representation problem, details the methods for basis discovery and encoding, presents experimental results on synthetic and text datasets, performs a model comparison to isolate the source of gain, and analyzes robustness to perturbations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.11213_figures/2605.11213_fig1.jpg",
+      "caption": "Fig. 2. FGSM robustness on binary-input datasets. Accuracy (%) under ℓ∞FGSM attack at perturbation budget ε. Solid lines = quantum parity model with input rounding to {0, 1}d; dashed lines = classical LR baseline on the same feature space. Shaded bands show ±1 std over seed. Rounding preserves exactly the clean accuracy through ε < 0.5 (all solid lines are flat); at ε = 0.5 (red boundary) the mathematical guarantee breaks and accuracy drops sharply.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.11213_figures/2605.11213_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

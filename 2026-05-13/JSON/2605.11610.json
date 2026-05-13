@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.11610",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Fast and Accurate Prediction of Lattice Thermal Conductivity via Machine Learning Surrogates",
+  "authors": "Zeyu Wang, Shuya Yamazaki, Martin Hoffmann Petersen, Masato Ohnishi, Tomiya Yamamoto, Wei Nong, Jianghai Wang, Ruiming Zhu, Masatoshi Hanai, Michimasa Morita, Toyotaro Suzumura, Zekun Ren, Junichiro Shiomi, Kedar Hippalgaonkar",
+  "abstract": "The appearance of generative models has opened vast chemical spaces in the design of functional materials. Although machine learning interatomic potentials (MLIPs) have substantially accelerated phonon calculations, high-fidelity prediction of lattice thermal conductivity \\k{appa}lat still requires accurate treatment of anharmonic interactions, which remains a key challenge for existing potentials across novel chemical spaces. To address this challenge, we present a comprehensive benchmark of 15 surrogate models for predicting \\k{appa}lat using the Phonix database, which contains 6,966 entries with anharmonic phonon properties derived from first-principles calculations. Firstly, We categorize these surrogate models into three distinct groups: Physical-informed feature descriptors combined with ML models, end-to-end deep neural networks, and pre-trained MLIP-embeddings combined with ML models. By evaluating model performance across random, space-group disjoint (testing generalization to unseen crystal symmetries), and Out-Of-Distribution splits (OOD dataset that testing extrapolation to property regimes beyond the training range) based on \\k{appa}lat, we probe both interpolation and exploration capabilities. Our results reveal that MLIP-embedded models excel in interpolation within well-sampled regions, deep neural network models especially ALiEGNN demonstrate superior robustness in OOD regimes critical for discovering novel low-\\k{appa}lat. Additionally, we find a systematic degradation in performance when the structural representation is reduced. Although surrogate models exhibit lower accuracy than direct simulations using first-principles calculation, they reduce computational costs by orders of magnitude, enabling efficient high-throughput screening of thermoelectric materials with minimal loss in generative design workflows.",
+  "url": "http://arxiv.org/abs/2605.11610v1",
+  "pdf": "https://arxiv.org/pdf/2605.11610v1",
+  "type": "theory",
+  "summary": "This paper presents a large-scale benchmark of 15 machine learning models designed to predict the lattice thermal conductivity of inorganic crystals. It identifies that equivariant graph neural networks like ALiEGNN are particularly effective at predicting properties in unseen chemical and structural regimes. This work enables much faster high-throughput screening of potential thermoelectric materials compared to traditional first-principles methods.",
+  "main_problem": "The high computational cost of first-principles calculations for predicting lattice thermal conductivity (kappa_lat) prevents large-scale screening of materials for applications like thermoelectrics.",
+  "main_result": "The ALiEGNN model demonstrates superior robustness and accuracy in out-of-distribution regimes, while MLIP-embedded models excel at interpolation; the study shows that surrogate models can reduce computational costs by orders of magnitude.",
+  "method": "A comprehensive benchmark of 15 machine learning surrogate models, including end-to-end deep neural networks, physically-informed descriptors, and MLIP-based embeddings, evaluated across random, space-group disjoint, and out-of-distribution splits.",
+  "model_or_system": "The study focuses on inorganic crystalline materials, specifically using the Phonix database of 6,966 entries, evaluating architectures like ALiEGNN (an E(3)-equivariant GNN) and various MLIP-derived embedding models.",
+  "key_observables": "Lattice thermal conductivity (kappa_lat) at 300 K, specifically the natural logarithm of kappa_lat.",
+  "important_parameters": "Low-thermal-conductivity regime (kappa_lat < 1 W m^-1 K^-1), space-group disjoint splits, and out-of-distribution (OOD) regimes.",
+  "main_assumptions": "The models assume that structural representations (graphs, embeddings, or descriptors) can sufficiently capture the anharmonic phonon interactions necessary for thermal transport.",
+  "figures_summary": "Figure 1 shows the distribution of crystal systems and thermal conductivity in the Phonix database; Figure 2 illustrates the dataset splitting strategies; Figure 3 categorizes the 15 surrogate models; Figure 4 compares model performance across different splits; Figure 5 shows the ALiEGNN architecture; Figure 6 details the MACE-based MLP architecture.",
+  "paper_structure": "Introduction to the challenge of thermal conductivity prediction; presentation of the Phonix database and benchmarking methodology; categorization of surrogate models; performance evaluation across different data splits (interpolation vs. extrapolation); discussion of structural representation expressivity; and conclusion on the trade-off between accuracy and computational efficiency.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.11610_figures/2605.11610_fig1.jpg",
+      "caption": "Figure 1: Material distribution in Phonix. (a) Distribution and percentage of crystal systems. (b) Distribution of κlat at 300 K, derived from the Phonix database[29]. The subgraph represents the percentage of materials with different κlat. Low κlat means that thermal conductivity values are lower than 1 Wm−1K−1. (c) Umap for comparing with all Materials Project structures[30].",
+      "page": 4
+    },
+    {
+      "image": "2605.11610_figures/2605.11610_fig2.jpg",
+      "caption": "Figure 2: Dataset split for the benchmark. (a) Random 80%:20% split. (b) Space-group disjoint split. (c) Out-of-distribution split.",
+      "page": 5
+    },
+    {
+      "image": "2605.11610_figures/2605.11610_fig3.jpg",
+      "caption": "Figure 3: Overview of the surrogate models categorized into three groups, with the corresponding developers indicated for each model.",
+      "page": 6
+    },
+    {
+      "image": "2605.11610_figures/2605.11610_fig4.jpg",
+      "caption": "Figure 4: The performance across the 15 surrogate models for each individual data split, with color separation into the three identified categories.",
+      "page": 9
+    },
+    {
+      "image": "2605.11610_figures/2605.11610_fig5.jpg",
+      "caption": "Figure 5: Schematic of the information passing layer in ALiEGNN, which jointly updates atomic coordinates, atom-wise features, bond and bond angle representations by integrating radial and angular embeddings with edge-gated message passing. Three layers are stacked in the ALiEGNN model.",
+      "page": 19
+    }
+  ],
+  "figure": "2605.11610_figures/2605.11610_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2605.12194",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cs.LG"
+  ],
+  "is_primary_archive": false,
+  "title": "Probing Non-Equilibrium Grain Boundary Dynamics with XPCS and Domain-Adaptive Machine Learning",
+  "authors": "Mouyang Cheng, Bowen Yu, Chu-Liang Fu, Nina Andrejevic, Matthias T. Agne, Riley Hanus, Qiwei Wan, Nathan C. Drucker, Thanh Nguyen, Andrei Fluerasu, Lutz Wiegart, Xiaoqian M Chen, Daniel Pajerowski, Yongqiang Cheng, Joshua J Turner, G. Jeffrey Snyder, Mingda Li",
+  "abstract": "Grain-boundary (GB) dynamics control the stability, mechanical, and functional response of nanocrystalline materials, but direct experimental access to their slow non-equilibrium motion has been limited. Here we establish X-ray photon correlation spectroscopy (XPCS), combined with domain-adaptive machine learning, as a quantitative probe of GB dynamics. Temperature- and grain-size-dependent two-time XPCS measurements in nanocrystalline silicon reveal pronounced departures from time-translation invariance, showing that GB relaxation can remain far from equilibrium over experimental timescales. However, direct extraction of quantitative physical information from these high-dimensional, noisy fluctuation maps faces a significant challenge. To overcome this barrier, we develop a semi-supervised learning framework that transfers physical parameter labels from continuum simulations to unlabeled experimental XPCS maps through domain-adaptive representation alignment. This AI-augmented approach enables the extraction of key kinetic parameters, including bulk diffusivity, GB stiffness, and effective GB concentration, directly from experimental XPCS measurements. Our results show how machine learning can transform indirect fluctuation signals into quantitative materials dynamics, providing a general route to study non-equilibrium defect motion in solids.",
+  "url": "http://arxiv.org/abs/2605.12194v1",
+  "pdf": "https://arxiv.org/pdf/2605.12194v1",
+  "type": "both",
+  "summary": "This paper presents a way to use machine learning to extract physical properties from noisy X-ray scattering data. By aligning simulated models with real experiments, the authors can quantify how grain boundaries move in nanocrystalline silicon even when the system is far from equilibrium.",
+  "main_problem": "The difficulty of quantifying slow, non-equilibrium grain-boundary dynamics in nanocrystalline materials and bridging the 'domain gap' between noisy experimental X-ray photon correlation spectroscopy (XPCS) data and idealized theoretical simulations.",
+  "main_result": "The development of a semi-supervised, domain-adaptive machine learning framework that successfully transfers physical parameter labels from simulations to experimental data, enabling the extraction of kinetic parameters like bulk diffusivity and grain-boundary stiffness.",
+  "method": "A combination of experimental XPCS in a GISAXS geometry and a machine learning framework using a convolutional feature extractor, a domain adaptor (using CORAL loss), and a regression loss applied to SDE-based simulations.",
+  "model_or_system": "The physical system is nanocrystalline silicon. The theoretical model is a coarse-grained continuum model using a Stochastic Differential Equation (SDE) to describe interfacial height dynamics driven by curvature and thermal fluctuations.",
+  "key_observables": "Two-time intensity-intensity correlation maps (g2(q, t1, t2)) and a non-equilibrium metric (S_noneq) measuring the breakdown of time-translation invariance.",
+  "important_parameters": "Bulk diffusivity (D), grain-boundary stiffness (Gamma), and effective grain-boundary concentration (lambda_GB).",
+  "main_assumptions": "The model assumes a coarse-grained continuum limit, that atoms away from the grain boundary are in equilibrium, and that the grain boundary morphology varies only along one direction.",
+  "figures_summary": "Fig 1 shows the integrated workflow of experiment, simulation, and AI; Fig 2 displays experimental correlation maps showing increasing non-equilibrium features with temperature; Fig 3 shows the parameter interplay and crossover regimes; Fig 4 demonstrates the failure of vanilla ML versus the success of the domain-adaptive approach via UMAP visualization.",
+  "paper_structure": "The paper introduces the problem of quantifying GB dynamics, presents the integrated experimental/simulation/ML workflow, details the domain-adaptive architecture, validates the method using temperature-dependent silicon data, and discusses the limitations of the continuum model.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.12194_figures/2605.12194_fig1.jpg",
+      "caption": "Figure 1. Integrated workflow with experiment, theory, and AI for grain-boundary dynamics. Experimentally, X-ray photon correlation spectroscopy (XPCS) measures the two-time correlation function g2(q,t1,t2), capturing non-equilibrium dynamics of the grain boundary. Theoretically, stochastic differential equation (SDE)-based simulations incorporate thermal diffusion and curvature-driven grain-boundary migration to generate theoretical g2(q,t1,t2) maps. To bridge the domain gap between theory and experiment, we employ a semi-supervised domain adaptation framework with two coupled losses: a regression loss Ly that trains theoretical g2 maps to predict (D,Γ,λGB), and a domain alignment loss Ld...",
+      "page": 3
+    },
+    {
+      "image": "2605.12194_figures/2605.12194_fig2.jpg",
+      "caption": "Figure 2. Experimental temperature-dependent XPCS dynamics and non-equilibrium behavior. a. Two-time correlation functions g2(t1,t2) measured at 299 K, 371 K, 421 K, and 471 K for the same nano-crystalline silicon sample. The results reveal increasingly non-equilibrium features in the dynamics as temperature rises. Here, g2(t1,t2) denotes g2(q,t1,t2) evaluated with in-plane momentum transfer qr = 0.045 ˚A−1 and out-of-plane qz = 0.275 ˚A−1. b. Corresponding intensity-intensity correlation slices f(τ;t1) = g2(t1,t1 +τ) at different times t1. As temperature increases, f(τ;t1) demonstrates systematic deviations between different t1, indicating a transition from near-equilibrium to...",
+      "page": 5
+    },
+    {
+      "image": "2605.12194_figures/2605.12194_fig3.jpg",
+      "caption": "Figure 3. Theoretical SDE predictions and mapping of non-equilibrium dynamics across parameter space. a. Simulated two-time correlation functions g2(t1,t2) for four representative parameter sets, showing the progression from nearly time-translation-invariant dynamics to strongly non-equilibrium behavior. Here g2(t1,t2) denotes g2(q,t1,t2) with in-plane qr = 0.045 ˚A−1. b. Corresponding intensity-intensity correlation slices f(τ;t1) = g2(t1,t1 +τ) at different starting times t1, with non-equilibrium measures Snoneq = 0.062, 0.259, 0.406, and 0.851 for the four cases in a. c. Heatmap visualization of the predicted non-equilibrium measure across pairwise parameter spaces involving bulk...",
+      "page": 6
+    },
+    {
+      "image": "2605.12194_figures/2605.12194_fig4.jpg",
+      "caption": "Figure 4. Semi-supervised domain adaptation for mapping experimental XPCS onto the theoretical parameter manifold. a. Prediction results before domain adaptation using the vanilla model trained only on simulated XPCS. Left and middle panel: predicted versus real D and λGB for simulated test data, with a test-set R2 = 0.995 and 0.893, respectively. Right panel: inferred experimental XPCS locations overlaid on the theoretical (D,λGB) parameter map, where the background colormap shows the simulated non-equilibrium measure. b. Latent feature representations visualized with UMAP before domain adaptation (left) and after contrastive domain adaptation (right). Cyan markers indicate theoretical...",
+      "page": 8
+    }
+  ],
+  "figure": "2605.12194_figures/2605.12194_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

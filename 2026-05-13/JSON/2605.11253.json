@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.11253",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "cond-mat.str-el",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Low-rank compression of two-electron reduced density matrices",
+  "authors": "Kemal Atalar, Hugh G. A. Burton, Andreas Grüneis, George H. Booth",
+  "abstract": "Two-body reduced density matrices (2RDMs) encode the essential two-electron physics of electronic states, but their quartic storage cost poses a major limitation in practical workflows. We investigate a simple protocol to compress both transition and non-transition 2RDMs into a lower-rank representation that preserves their wedge-product structure and physical symmetries under truncation. The resulting decomposition couples Coulomb and exchange channels through a common set of low-rank factors, yielding a more compact rank-sparse representation than single-channel factorizations. For correlated states, the effective rank scales linearly with system size, achieving a $\\sim99$\\% compression for the coupled-cluster 2RDM of octane while retaining chemical accuracy. We apply this to the recently introduced {\\em ab initio} eigenvector continuation workflows, where many-body wave functions are interpolated across nuclear geometries with mean-field cost. Here, 2RDMs between training states act as projectors into a subspace but their memory scaling limits applications to larger systems. The compression scheme reduces the memory cost from quartic to quadratic for a fixed error per electron. Metrics to systematically control the decomposition are investigated, enabling statistically resolved structural, dynamical and spectroscopic observables from nonadiabatic molecular dynamics simulations of photoexcited H$_{28}$ chains, interpolating from compressed near-exact DMRG training data. This establishes these structure-preserving compressed intermediates for practical correlated electronic structure workflows.",
+  "url": "http://arxiv.org/abs/2605.11253v1",
+  "pdf": "https://arxiv.org/pdf/2605.11253v1",
+  "type": "theory",
+  "summary": "The paper presents a new method to compress two-electron reduced density matrices by coupling Coulomb and exchange channels into a low-rank representation. This reduces memory requirements from quartic to quadratic scaling, enabling much larger-scale correlated electronic structure simulations and nonadiabatic dynamics without losing chemical accuracy.",
+  "main_problem": "The quartic storage cost of two-electron reduced density matrices (2RDMs) and transition 2RDMs creates a major bottleneck in electronic structure workflows as system size increases.",
+  "main_result": "A low-rank joint decomposition protocol reduces memory scaling from quartic to quadratic while preserving physical symmetries and the wedge-product structure, achieving up to 99% compression with chemical accuracy.",
+  "method": "A wedge-preserving low-rank decomposition that couples Coulomb and exchange channels through common factors, augmented with diagonal corrections and amplitude relaxation.",
+  "model_or_system": "Interacting many-electron systems, specifically tested on alkane chains (octane) and hydrogen chains (H2, H10, H28, H30) using CCSD, DMRG, and FCI methods.",
+  "key_observables": "Electronic energy, nuclear gradients, transition matrix elements, population transfer, and spectroscopic/dynamical observables.",
+  "important_parameters": "Compression error thresholds (10^-1 to 10^-3 Ha), system size (number of orbitals/electrons), and rank (number of retained vectors).",
+  "main_assumptions": "Assumes real-valued states and a spin-free formulation; assumes the effectiveness of the SAO basis for localizing corrections.",
+  "figures_summary": "Figure 1 compares rank requirements for different groupings in H-chains; Figure 2 shows low-rank decomposition for H10; Figure 3 shows energy error and rank scaling for alkanes; Figure 6 demonstrates convergence of nonadiabatic dynamics with varying compression thresholds; Figure 7 shows error reduction via relaxation and diagonal corrections.",
+  "paper_structure": "The paper introduces the 2RDM compression problem, defines the proposed joint decomposition and diagonal correction methods, demonstrates scaling and accuracy on alkanes, extends the method to transition 2RDMs for eigenvector continuation, and validates the scheme via nonadiabatic molecular dynamics simulations.",
+  "why_interesting": "This provides a highly efficient way to compress many-body information (2RDMs) while maintaining physical symmetries, which is crucial for scaling up classical simulations of many-body dynamics and wavefunction interpolation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.11253_figures/2605.11253_fig1.jpg",
+      "caption": "FIG. 1. Low-rank decomposition of CAS(2,2)SCF two-body reduced density matrices for linear H10 (top) and H30 (bot- tom) chains in a minimal basis at 1.5a0 internuclear separa- tion under different spectral decompositions.",
+      "page": 4
+    },
+    {
+      "image": "2605.11253_figures/2605.11253_fig2.jpg",
+      "caption": "FIG. 2. Low-rank decomposition of FCI two-body reduced density matrix of H10 in a minimal STO-6G basis at 1.5a0 interatomic separation, using different groupings of orbital indices, with and without diagonal corrections. Diagonal cor- rections augmenting the joint decomposition involving only Coulomb diagonals (J) as well as all three Coulomb and ex- change diagonals (JK) are shown. Upper plot characterizes the relative mean absolute error over all 2RDM elements, while the lower plot characterizes the absolute two-electron energy error from the reconstructed 2RDM.",
+      "page": 5
+    },
+    {
+      "image": "2605.11253_figures/2605.11253_fig3.jpg",
+      "caption": "FIG. 3. System size scaling of the low-rank compression. (a) Total energy error introduced by the joint decomposition of CCSD 2RDMs of alkane chains in a cc-pVDZ basis with J diagonal corrections. (b) Number of vectors required for a desired total energy error of the decomposition as the number of orbitals in the system increases.",
+      "page": 7
+    },
+    {
+      "image": "2605.11253_figures/2605.11253_fig4.jpg",
+      "caption": "FIG. 4. Compressed rank of the low-rank non-transition and transition 2-body reduced density matrices of H28 chains in minimal basis compared to their full rank (exact) form, for different maximum introduced total energy error. The dis- tribution is shown for the 44 S0 and S1 many-body states across 22 geometries, and the resulting compressed 990 (tran- sition) 2RDMs at each energy truncation threshold. The box is defined by the 25th and 75th percentile of the distribution and the median is shown by a line in the middle, while the whiskers highlight the minimum and maximum values of the distribution.",
+      "page": 10
+    },
+    {
+      "image": "2605.11253_figures/2605.11253_fig5.jpg",
+      "caption": "FIG. 5. Effect of low-rank compression of the S0 and S1 in- terpolated energies over the ‘training’ and ‘test’ geometries sampled along a nonadiabatic molecular dynamics trajectory. Mean absolute and non-parallelity energy errors are shown for different truncation thesholds with respect to full contin- uation, with 44 many-body MPS training states of H28 in a minimal basis. Right y-axis shows the compression rate of the truncation relative the full 2-body RDM. Dashed line shows x=y for the correspondence between truncation threshold and energy error.",
+      "page": 11
+    }
+  ],
+  "figure": "2605.11253_figures/2605.11253_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

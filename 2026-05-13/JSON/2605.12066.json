@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2605.12066",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Benchmarking and Resource Analysis for Augmented-Lagrangian Quantum Hamiltonian Descent",
+  "authors": "Zeguan Wu, Mingze Li, Muqing Zheng, Meng Wang, Junyu Liu, Samuel Stein, Ang Li, Yousu Chen, Chenxu Liu",
+  "abstract": "Quantum Hamiltonian Descent (QHD) is a continuous optimization algorithm based on simulating a time-dependent quantum Hamiltonian whose potential energy encodes the objective function and whose kinetic energy promotes exploration through quantum interference and tunneling. While QHD is formulated for unconstrained optimization, many real-world optimization problems are constrained and highly nonconvex. In this paper, we benchmark AL-QHD, a hybrid framework that embeds QHD within the Augmented Lagrangian Method (ALM), thereby solving a sequence of unconstrained subproblems while using ALM to enforce constraints. We evaluate AL-QHD on standard nonconvex test functions and use iterative refinement to improve solution accuracy at fixed per-run qubit cost. We also perform a gate-based resource analysis on ACOPF-derived power system subproblems constructed from power-network data to estimate the quantum-computer scale required for practical applications. Resource estimates on Texas7k-derived ACOPF instances show steep hard-gate scaling, reaching $\\sim 4.46 \\times 10^7$ entangling gates in a NISQ-oriented model and $\\sim 9.42 \\times 10^8$ T gates in a fault-tolerant model at $\\sim 5.3 \\times 10^2$ active variables. These results suggest that AL-QHD is a useful framework for studying constrained nonconvex optimization with QHD, but that practical ACOPF-scale applications would likely require large-scale fault-tolerant quantum hardware.",
+  "url": "http://arxiv.org/abs/2605.12066v1",
+  "pdf": "https://arxiv.org/pdf/2605.12066v1",
+  "type": "both",
+  "summary": "This paper introduces AL-QHD, a hybrid quantum-classical algorithm designed to solve constrained, non-convex optimization problems by embedding quantum Hamiltonian descent within the Augmented Lagrangian Method. It demonstrates that an iterative refinement technique can achieve high precision on coarse grids and provides a rigorous resource analysis showing that large-scale practical applications will likely require fault-tolerant quantum computers.",
+  "main_problem": "Extending Quantum Hamiltonian Descent (QHD) from unconstrained to constrained, highly nonconvex optimization problems and evaluating the gate-level resource requirements for practical applications like power system optimization.",
+  "main_result": "The AL-QHD framework successfully finds near-optimal feasible points in constrained landscapes, and an iterative 'zoom' mechanism allows for high-precision solutions without increasing qubit cost, though practical large-scale applications require large-scale fault-tolerant hardware.",
+  "method": "A hybrid framework (AL-QHD) embedding QHD within the Augmented Lagrangian Method (ALM), utilizing a split-step Fourier method for classical simulation and a gate-based resource analysis for NISQ and fault-tolerant regimes.",
+  "model_or_system": "A time-dependent quantum Hamiltonian where the potential energy encodes the objective function (or augmented Lagrangian) and the kinetic energy promotes exploration via tunneling, implemented using one-hot encoding of discretized continuous variables.",
+  "key_observables": "Objective function value, position error, and gate counts (entangling gates for NISQ and T-gates for fault-tolerant models).",
+  "important_parameters": "Grid resolution (r), total evolution time (T), damping schedules (a(t), b(t)), and the probability threshold (eta = 0.99) for iterative refinement.",
+  "main_assumptions": "The objective function is assumed to be continuously differentiable, and the spatial domain is truncated and discretized into a finite grid.",
+  "figures_summary": "Figure 1 shows the exponential decrease in objective value and position error as the number of zoom iterations increases; Figure 4 illustrates the scaling of T-gates required for approximating Rz rotations.",
+  "paper_structure": "The paper introduces the AL-QHD framework, explains the encoding and Hamiltonian construction, details the iterative refinement (zoom) strategy, presents benchmarks on unconstrained and constrained test functions, and concludes with a resource analysis for power system (ACOPF) subproblems.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.12066_figures/2605.12066_fig1.jpg",
+      "caption": "FIG. 1. Iterative refinement on the shifted Ackley function (32 × 32 grid, Nt = 50,000, x∗= (0.96, 0.37)). (a) QHD ob- jective value vs. refinement iterations. The objective function values for QHD with refinement are shown using blue circle markers. The red dashed line marks the 100-start L-BFGS-B baseline. QHD’s objective improves exponentially with zoom iterations and falls below the classical baseline at Z = 13. (b) Position error ∥ˆx −x∗∥2 vs. refinement iterations, with wall-clock times annotated; the dotted line shows the grid resolution limit without zoom.",
+      "page": 8
+    },
+    {
+      "image": "2605.12066_figures/2605.12066_fig2.jpg",
+      "caption": "FIG. 2. AL-QHD on the nonlinearly constrained scaled Ras- trigin function (α = 3, 64 × 64 grid, Nt = 50,000), with x∗= (0.66, 0.66). (a) QHD objective value vs. refinement it- erations. The objective function values for QHD with refine- ment are shown using blue circle markers. The red dashed line marks the 100-start SLSQP baseline. AL-QHD identifies the correct constrained basin at coarse resolution and reaches a near-optimal feasible point by Z = 3. (b) Position error ∥ˆx −x∗∥2, annotated with wall-clock times. The dashed line represents the positional error produced by the baseline solu- tion.",
+      "page": 10
+    },
+    {
+      "image": "2605.12066_figures/2605.12066_fig3.jpg",
+      "caption": "FIG. 3. Gate count scaling for one-hot encoded QHD Hamil- tonians derived from Texas7k ACOPF subgraphs. (a) re- port the NISQ-oriented model, where the red dashed curve is the total gate count, the blue curve is the hard two-qubit entangling-gate count, and the teal curve is the easy single- qubit gate count. Most of the gates are entangling gates in this case. (b-c) report the FTQC-oriented model, where in (b) the red dashed curve is the total gate count, the blue curve is the hard T-gate count from exact and synthesized rotations, and the teal curve is the easy Clifford count. In (c), we show the breakdown of the T gates. The blue curve shows the number of T gates synthesized from...",
+      "page": 12
+    },
+    {
+      "image": "2605.12066_figures/2605.12066_fig4.jpg",
+      "caption": "FIG. 4. Average H (blue), S (green), and T (orange) gate counts per synthesized rotation for approximating Rz rota- tions using gridsynth. For each ACOPF case study, the per- rotation synthesis tolerance ϵ is determined from the total number of Rz rotation gates and the target QHD-run accu- racy. At each tolerance, 5000 rotation angles are sampled uniformly from (−π, π], and the corresponding Rz(θ) gates are synthesized using the gridsynth implementation in NWQEC. The error bars indicate the standard deviation over the 5000 sampled rotation angles.",
+      "page": 15
+    }
+  ],
+  "figure": "2605.12066_figures/2605.12066_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

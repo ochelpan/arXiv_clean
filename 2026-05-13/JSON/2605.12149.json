@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.12149",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Zeno-Enhanced Probabilistic Error Cancellation with Quantum Error Detection Codes",
+  "authors": "Yi Yuan, Yuanchen Zhao, Dong E. Liu",
+  "abstract": "Probabilistic error cancellation (PEC) is unbiased but suffers exponential sampling overhead set by noise-weighted circuit volume, whereas quantum error-detecting codes (QEDCs) remove many physical faults by stabilizer post-selection but leave an undetectable logical residue. We exploit this complementarity by using post-selection to map physical noise to a weaker accepted logical channel, and then applying PEC only to the residual channel. The resulting feedback-free QED+PEC scheme interleaves Clifford logical blocks, stabilizer measurements, post-selection, and probabilistic cancellation on accepted trajectories, without real-time decoding or active recovery. A key complication is that post-selection correlates accepted fault branches through stabilizer-commutation constraints, so the sparse Pauli-Lindblad factorization underlying bare PEC no longer applies directly. We therefore construct the inverse channel perturbatively: for fixed order $K$, only accepted fault branches up to order $K$ are retained, reducing preprocessing from $2^m$ branches to $O(m^K)$ per block. The order-$K$ protocol cancels the normalized post-selected channel through degree $K$, leaving a per-block error $O(W^{K+1})$ that accumulates at most linearly. For logical GHZ-state preparation with the $[[n,n-2,2]]$ Iceberg code under circuit-level depolarizing noise and ideal stabilizer measurements, first-order QED+PEC reaches $n=200$ physical qubits and lowers sampling overhead by three to four orders of magnitude relative to standard PEC while maintaining $F\\simeq0.956$. Syndrome-noise tests show that readout-only flips mainly increase post-selection cost, whereas noisy GHZ-assisted global stabilizer extraction can remove the advantage. This identifies a discrete-Zeno trade-off: cheap detection reshapes the effective channel PEC must invert, rather than simply adding overhead.",
+  "url": "http://arxiv.org/abs/2605.12149v1",
+  "pdf": "https://arxiv.org/pdf/2605.12149v1",
+  "type": "theory",
+  "summary": "This paper introduces a hybrid error mitigation strategy that combines error detection with error cancellation. By using post-selection to remove detectable errors, the protocol simplifies the remaining noise, allowing for much more efficient error cancellation with significantly lower sampling costs.",
+  "main_problem": "The paper addresses the trade-off between the exponential sampling overhead of Probabilistic Error Cancellation (PEC) and the residual logical bias left by Quantum Error Detection Codes (QEDC).",
+  "main_result": "The authors propose a hybrid QED+PEC protocol that reduces sampling overhead by three to four orders of magnitude compared to standard PEC while maintaining high fidelity, identifying a 'discrete-Zeno' trade-off where frequent detection reshapes the effective noise channel.",
+  "method": "A feedback-free, blockwise protocol using a perturbative expansion (order-K) to construct an approximate inverse channel, combined with stabilizer post-selection to filter detectable faults.",
+  "model_or_system": "A quantum system using the [[n, n-2, 2]] Iceberg code subject to circuit-level independent sparse Pauli noise and depolarizing noise models.",
+  "key_observables": "Sampling overhead (product of post-selection penalty and PEC quasiprobability variance), logical fidelity, and the information contraction rate.",
+  "important_parameters": "Perturbative order K, detection interval T, noise weight W, and the success probability of post-selection.",
+  "main_assumptions": "Assumes Clifford logical blocks, ideal stabilizer measurements for the primary advantage demonstration, and a sparse-fault expansion model.",
+  "figures_summary": "Figure 1 illustrates the QED+PEC cycle (gates, measurement, and sampling); Figure 13 compares the maximal information contraction rate for different physical qubit counts and noise strengths.",
+  "paper_structure": "The paper introduces the QED+PEC hybrid problem, defines the mathematical framework for the perturbative inverse channel, provides error bounds and complexity analysis, and concludes with numerical benchmarks and a discussion of the Zeno-like trade-off.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.12149_figures/2605.12149_fig1.jpg",
+      "caption": "FIG. 1. Quantum circuit implementing the QED+PEC protocol. After every T layers of logical gates, stabilizer measurements perform error detection. Trajectories passing QED then undergo PEC to cancel residual logical noise.",
+      "page": 6
+    },
+    {
+      "image": "2605.12149_figures/2605.12149_fig2.jpg",
+      "caption": "FIG. 2. Circuit-level noise model for a five-qubit segment of the Iceberg code. Before each physical gate layer, every qubit or qubit pair that participates in a two-qubit gate re- ceives a two-qubit depolarizing channel D2 (error rate p2), while idle qubits receive a single-qubit depolarizing chan- nel D1 (error rate p1). Red dashed lines connect correlated two-qubit noise sources to their corresponding gate pairs. The full layer noise channel Nl is the tensor product of all such local channels, as defined in Eq. (12).",
+      "page": 11
+    },
+    {
+      "image": "2605.12149_figures/2605.12149_fig3.jpg",
+      "caption": "FIG. 4. Representative pure-PEC baseline circuit for di- rect GHZ-state preparation on eight unencoded qubits. The circuit starts from |0⟩⊗8, applies a Hadamard gate to q0, and then applies the nearest-neighbor CNOT chain CNOT0,1, CNOT1,2, . . . , CNOT6,7. In the numerical com- parison, this same unencoded GHZ preparation pattern is scaled to npure = n −2 qubits and corrected by standard PEC without error-detection post-selection.",
+      "page": 12
+    },
+    {
+      "image": "2605.12149_figures/2605.12149_fig4.jpg",
+      "caption": "FIG. 6. Decomposition of the ideal-measurement QED+PEC sampling cost for T = 1 into the QED post- selection factor Q",
+      "page": 13
+    },
+    {
+      "image": "2605.12149_figures/2605.12149_fig5.jpg",
+      "caption": "FIG. 5. Sampling overhead for logical GHZ state preparation on the [[n, n−2, 2]] code with p1 = 10−4, p2 = 10−3, assuming ideal stabilizer measurements. The noise is applied to the logical-gate blocks; syndrome-extraction circuit noise is not included. The total circuit depth increases linearly with the number of physical qubits n. (a) Total sampling overhead Ccycle versus n. Solid curves show QED+PEC for error detection intervals T = 1 through 5; the black dashed curve shows standard PEC applied to n−2 unencoded qubits. (b) Ratio CQED+PEC/CPEC versus n. The faster than linear decrease on the log scale shows that the ideal-measurement advantage grows quickly with the system size.",
+      "page": 14
+    }
+  ],
+  "figure": "2605.12149_figures/2605.12149_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

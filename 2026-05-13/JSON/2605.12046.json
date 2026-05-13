@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.12046",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Rethink the Role of Neural Decoders in Quantum Error Correction",
+  "authors": "Ge Yan, Shanchuan Li, Yuxuan Du",
+  "abstract": "Quantum error correction (QEC) is essential for enabling quantum advantages, with decoding as a central algorithmic primitive. Owing to its importance and intrinsic difficulty, substantial effort has been made to QEC decoder design, among which neural decoders have recently emerged as a promising data-driven paradigm. Despite this progress, practical deployment remains hindered by a fundamental accuracy-latency tradeoff, often on the microsecond timescale. To address this challenge, here we revisit neural decoders for surface-code decoding under explicit accuracy-latency constraints, considering code distances up to d=9 (161 physical qubits). We unify and redesign representative neural decoders into five architectural paradigms and develop an end-to-end compression pipeline to evaluate their deployability and performance on FPGA hardware. Through systematic experiments, we reveal several previously underexplored insights: (i) near-term decoding performance is driven more by data scale than architectural complexity; (ii) appropriate inductive bias is essential for achieving high decoding accuracy; and (iii) INT4 quantization is a prerequisite for meeting microsecond-scale latency requirements on FPGAs. Together, these findings provide concrete guidance toward scalable and real-time neural QEC decoding.",
+  "url": "http://arxiv.org/abs/2605.12046v1",
+  "pdf": "https://arxiv.org/pdf/2605.12046v1",
+  "type": "both",
+  "summary": "This paper re-evaluates neural decoders for surface codes by focusing on the practical constraints of real-time hardware deployment. It demonstrates that while data scale is a primary driver of performance, the architecture must possess the correct geometric inductive bias to scale, and low-precision quantization is necessary to achieve microsecond-scale decoding on FPGAs.",
+  "main_problem": "The fundamental challenge of balancing decoding accuracy with the microsecond-scale latency required for real-time, fault-tolerant quantum error correction (QEC) on FPGA hardware.",
+  "main_result": "The study reveals that near-term decoding performance is driven more by training data scale than architectural complexity, provided the architecture has the correct inductive bias, and that INT4 quantization via Quantization-Aware Training is essential for meeting hardware latency constraints.",
+  "method": "The authors evaluate five neural decoder architectures (MLP, 3D-CNN, TCN, Transformer, GNN) using a model compression pipeline involving pruning and quantization (PTQ and QAT) and assess deployability on Xilinx Versal Premium FPGAs.",
+  "model_or_system": "The study focuses on rotated surface codes with distances up to d=9, utilizing a Z-memory experiment model with circuit-level depolarizing noise and validation on Google Sycamore processor data.",
+  "key_observables": "Logical Error Rate (LER), decoding latency, FPGA resource utilization (LUTs, DSPs, BHD), and training loss (BCE).",
+  "important_parameters": "Code distance (d=3 to 9), training dataset size (up to 1 billion samples), quantization precision (INT4, W8A8), and sparsity levels (up to 90%).",
+  "main_assumptions": "The FPGA resource estimation assumes a 50% derating factor to account for routing congestion and infrastructure logic.",
+  "figures_summary": "Figure 1 shows the surface code lattice structure; Figure 3 compares LER across different architectures and training scales; Figure 4 illustrates the sensitivity of architectures to quantization (PTQ vs QAT); Figure 8 compares performance across different noise models.",
+  "paper_structure": "The paper begins by defining the accuracy-latency tradeoff in QEC, introduces a taxonomy of neural decoder architectures, details a model compression and hardware deployment pipeline, presents systematic scaling experiments regarding data and architecture, and concludes with hardware-specific validation on FPGAs.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.12046_figures/2605.12046_fig1.jpg",
+      "caption": "Figure 1. Schematic of a d = 3 rotated surface code. a) Data qubits (yellow) are located at the vertices, interleaving with two types of detector qubits (stabilizers) located on the faces. Red squares represent x-stabilizers (detecting z errors), and blue squares represent z-stabilizers (detecting x errors). b) As time goes on, the errors accumulate on the detectors.",
+      "page": 2
+    },
+    {
+      "image": "2605.12046_figures/2605.12046_fig2.jpg",
+      "caption": "Figure 2. Schematic illustration of the entire pipeline. Left: Syndrome data is processed via a causal sliding window (r = d) to maintain fault-tolerant boundaries. Middle: A diverse spectrum of neural decoders is evaluated, ranging from MLPs and 3D-CNNs to temporal models, Transformers, and topology-aware GNNs. Right: To resolve the latency bottleneck, we employ an aggressive INT4 compression pipeline (combining Pruning and QAT) to map these models onto a resource-constrained FPGA accelerator. As illustrated in the hardware micro-architecture, the Processing Element array is constructed primarily using LUTs to offload computation from scarce DSP resources, ensuring physical feasibility on...",
+      "page": 4
+    },
+    {
+      "image": "2605.12046_figures/2605.12046_fig3.jpg",
+      "caption": "Figure 3. Neural decoder benchmark on the rotated surface code. (a) LER vs. training set size with model size “large”. The dashed gray line marks the MWPM baseline; the shaded region indicates LER below MWPM. Error bars show the min–max range over three independent runs. Inset (d=9): 3D-CNN outliers at 5 × 105 and 106 samples (15.6% and 6.5%) are shown separately to preserve the main axis scale. (b) Model comparison across width ratios at the largest available training size (d=3, 5: 5 × 106; d=7, 9: 2.5 × 107). Bar heights indicate mean LER; error bars show the min-max range.",
+      "page": 7
+    },
+    {
+      "image": "2605.12046_figures/2605.12046_fig4.jpg",
+      "caption": "Figure 4. Impact of quantization and pruning on decoder fidelity. (a) Quantization sensitivity under PTQ and QAT. While 3D-CNN retains robustness at W8A8, TCN and Transformer exhibit severe degradation even at 8-bit precision, and all models fail at W4A4. However, QAT is able to recover the accuracy loss at INT4. (b) Pruning robustness based on the recovered QAT-W4A4 models. The curves track LER as unstructured sparsity increases. Vertical dotted lines mark the “breakdown point” where performance deteriorates to the MWPM level.",
+      "page": 8
+    },
+    {
+      "image": "2605.12046_figures/2605.12046_fig5.jpg",
+      "caption": "Figure 5. Syndrome extraction circuits. Standard circuit-level implementation of weight-4 stabilizers. (a) The Z-stabilizer measures parity Z1Z2Z3Z4. (b) The X-stabilizer measures parity X1X2X3X4, utilizing Hadamard gates on the ancilla to facilitate measurement in the X-basis. D denotes data qubits, A denotes stabilizers, and R denotes the unexpected errors occur on data qubits. The circuit width is scaled to fit the column.",
+      "page": 13
+    }
+  ],
+  "figure": "2605.12046_figures/2605.12046_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
