@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.13109",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR"
+  ],
+  "is_primary_archive": true,
+  "title": "QCIVET: A Quantum--Classical Pipeline Integrity Framework with Contract-Based Subtype Verification and Hash-Chained Audit Traces",
+  "authors": "Esra Yeniaras, Muhammad Amin Karimov",
+  "abstract": "Hybrid quantum--classical pipelines increasingly support applications such as drug discovery, fraud detection, and cloud quantum processing unit (QPU) auditing, yet existing integrity-verification methods remain largely classical and fail to capture quantum-stage behaviour. We propose QCIVET, a contract-based integrity-verification framework that models a hybrid pipeline as a sequence of stages with explicit specifications and audits it at both syntactic and semantic levels. Syntactic integrity is enforced through a hash-chained audit trail with optional external anchoring, while semantic integrity at quantum stages is verified using a calibrated observable-deviation test grounded in the behavioural-subtyping discipline of Liskov and Wing. We prove soundness under the diamond-norm distance between quantum channels, conditional completeness for informationally complete observable families, and compositionality under inheritance chains. We further identify a class of Z-only-sneaky overrides that evade weak single-Pauli contracts but are exposed by multi-Pauli contracts. The framework is evaluated under calibration-derived noise models from IBM Quantum Eagle r3 and Heron r2 processors, and the subtype-separation protocol is validated end-to-end on a real ibm_fez (Heron r2) processor. QCIVET is instantiated on three representative applications: variational quantum eigensolver (VQE) for drug discovery, quantum-assisted fraud detection, and customer-side auditing of cloud QPU services. The reference implementation, including a real-time verification engine with sub-millisecond per-stage commit latency, is released as open source.",
+  "url": "http://arxiv.org/abs/2605.13109v1",
+  "pdf": "https://arxiv.org/pdf/2605.13109v1",
+  "type": "both",
+  "summary": "The paper introduces QCIVET, a framework designed to verify that the quantum stages of a hybrid computing pipeline behave according to their intended specifications. It bridges the gap between classical supply-chain security and quantum hardware noise by using observable-based contracts to detect malicious or erroneous circuit substitutions. The framework was successfully validated on real IBM quantum hardware, demonstrating its ability to catch 'sneaky' attacks that pass simple verification tests.",
+  "main_problem": "Ensuring the integrity and auditability of hybrid quantum-classical pipelines against adversarial threats like specification tampering, hardware-level poisoning, and 'sneaky' circuit substitutions that bypass classical verification.",
+  "main_result": "The QCIVET framework successfully detects 'sneaky-subtype' attacks and hardware drift on real IBM Heron processors, providing a low-latency, hardware-validated runtime audit mechanism.",
+  "method": "A dual-layer auditing approach using hash-chained audit trails for structural integrity and calibrated observable-deviation tests based on Liskov-Wing behavioral subtyping for semantic integrity.",
+  "model_or_system": "Hybrid quantum-classical pipelines involving quantum subroutines (e.g., VQE, quantum kernels) executed on IBM Quantum processors, specifically the ibm_fez (Heron r2) and Eagle r3 architectures.",
+  "key_observables": "Self-adjoint operators (Pauli expectation values) used for observable-deviation contracts and informationally complete observable families.",
+  "important_parameters": "Error tolerance threshold (epsilon), diamond-norm distance between quantum channels, and classical commit latency (sub-millisecond).",
+  "main_assumptions": "Assumes the adversary cannot forge external anchors or SHA-256 hashes, and that the observable family used for verification is sufficiently informationally complete.",
+  "figures_summary": "Figures include a landscape map of quantum software contracts, a calibration window showing noise floor vs. logical deviation, and visualizations of various hash-chain tampering scenarios.",
+  "paper_structure": "The paper identifies the integrity gap in hybrid pipelines, proposes the QCIVET framework, provides formal proofs for soundness and completeness, demonstrates experimental validation on real IBM hardware across three application domains (VQE, fraud detection, cloud auditing), and compares the framework against existing classical and quantum security literature.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.13109_figures/2605.13109_fig1.jpg",
+      "caption": "Figure 1: Landscape of quantum software contract frameworks and where QCIVET sits. The three families above (blue/teal/violet) operate at the level of a single circuit, single program, or compile time. QCIVET (orange) targets a different layer: runtime integrity of a multi-stage hybrid quantum-classical pipeline under an adversarial threat model.",
+      "page": 5
+    },
+    {
+      "image": "2605.13109_figures/2605.13109_fig2.jpg",
+      "caption": "Figure 2: QCIVET workflow. A hybrid quantum-classical pipeline streams stage commits to the QCIVET engine, which performs hash-chained syntactic integrity checks at every stage and calibrated observable- deviation checks at the quantum stages (orange). On success, the result is released to the customer; on failure, the engine aborts and emits the audit trail.",
+      "page": 10
+    },
+    {
+      "image": "2605.13109_figures/2605.13109_fig3.jpg",
+      "caption": "Figure 3: Experiment 1. Per-(input, observable) deviation for the three candidates in the noiseless setting. The pattern is the operational fingerprint of Proposition 1: Bsneaky is indistinguishable from A on Z alone, but maximally exposed by X and Y . Reproduced by quantum_oop_simulation.py, function plot_experiment_1 (footnote 1).",
+      "page": 15
+    },
+    {
+      "image": "2605.13109_figures/2605.13109_fig4.jpg",
+      "caption": "Figure 4: Experiment 3. Synthetic depolarising-noise calibration of ε for Bgood. The relation is approximately linear in p for small p. Reproduced by quantum_oop_simulation.py, function plot_experiment_3 (footnote 1).",
+      "page": 16
+    },
+    {
+      "image": "2605.13109_figures/2605.13109_fig5.jpg",
+      "caption": "Figure 5: Experiment 4. δ-sweep for Bbad. The full {X, Y, Z} contract is sensitive to small δ; the {Z}-only contract is much less so. Reproduced by quantum_oop_simulation.py, function plot_experiment_4 (footnote 1).",
+      "page": 17
+    }
+  ],
+  "figure": "2605.13109_figures/2605.13109_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

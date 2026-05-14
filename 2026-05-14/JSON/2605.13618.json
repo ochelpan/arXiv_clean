@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.13618",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cs.AI"
+  ],
+  "is_primary_archive": false,
+  "title": "OpenAaaS: An Open Agent-as-a-Service Framework for Distributed Materials-Informatics Research",
+  "authors": "Peng Kang, Bixuan Li, Xiaoya Huang, Shuo Shi, Weiqiao Zhou, Zhen Li, Yu Liu, Lei Zheng",
+  "abstract": "The Materials Genome Initiative catalyzed the proliferation of centralized platforms--SaaS, PaaS, and IaaS--that aggregate computational and experimental resources for accelerated materials discovery. In parallel, breakthroughs in large language models (LLMs) and autonomous agents have created powerful new reasoning capabilities for scientific research. Yet a critical \"last mile\" problem remains: while we possess world-class models and vast repositories of materials data, we lack the organizational infrastructure to compose these capabilities securely across institutional boundaries. The development of structural and functional materials for harsh service environments--high-temperature alloys, radiation resistant steels, corrosion-resistant coatings--remains characterized by long-term iteration, mechanistic complexity, and high domain expertise--demands that exceed both monolithic agent systems and traditional centralized platforms. To address this gap we propose OpenAaaS, an open-source hierarchical and distributed Agent-as-a-Service framework that enables organized multi-agent collaboration for intelligent materials design. OpenAaaS is built on a single foundational principle: code flows, data stays still. A Master Agent plans and decomposes complex research tasks without requiring direct access to subordinate agents' managed data and computational resources. Sub-agents, deployed as near-data execution nodes, retain full sovereignty over local datasets, proprietary algorithms, and specialized hardware. This architecture guarantees that raw data never leaves its domain of origin while enabling cross-scale, cross-domain secure integration of previously isolated materials intelligence silos. We validate the framework through two representative case studies: (i) AlphaAgent, an evidence-grounded materials literature analysis executor that achieves 4.66/5.0 on deep analytical questions against single-pass RAG baselines; and (ii) an ultra-large-scale hexa-high-entropy alloy descriptor database service that demonstrates secure near-data execution and domain-specific scientific workflows under strict data-sovereignty constraints. OpenAaaS establishes a principled pathway toward \"organized research\" via agent collectives, offering a scalable foundation for next-generation materials intelligent design platforms. All source code is available at https://github.com/Wolido/OpenAaaS.",
+  "url": "http://arxiv.org/abs/2605.13618v1",
+  "pdf": "https://arxiv.org/pdf/2605.13618v1",
+  "type": "both",
+  "summary": "The paper introduces OpenAaaS, a framework that allows researchers to use AI agents to query and analyze materials data located at different institutions without moving the raw data. This approach preserves data privacy and solves the bandwidth bottleneck of transferring massive datasets, enabling a secure, interconnected network for automated materials discovery.",
+  "main_problem": "The 'last mile' problem in materials informatics: the lack of organizational infrastructure to securely integrate specialized, proprietary, or large-scale materials data across institutional boundaries without compromising data sovereignty.",
+  "main_result": "The development of OpenAaaS, a distributed Agent-as-a-Service framework that enables multi-agent collaboration using a 'code flows, data stays still' principle, successfully demonstrated via high-performance literature analysis (AlphaAgent) and secure processing of a 17.4 TB high-entropy alloy database.",
+  "method": "A three-tier hierarchical architecture (Master Agent, Network Hub, and Network Node) utilizing the Model Context Protocol (MCP) for near-data execution within Docker sandboxes to prevent raw data migration.",
+  "model_or_system": "An open-source distributed framework for materials informatics, featuring a Master Agent layer for task orchestration, a Rust-based Network Hub for routing, and localized Agent Cores for executing tasks near proprietary datasets.",
+  "key_observables": "AlphaAgent performance scores (4.66/5.0 on analytical questions), data transfer reduction (7 orders of magnitude smaller than raw database size), and alloy ductility improvements.",
+  "important_parameters": "17.4 TB database scale, 194-dimensional descriptor vectors, 5.4 x 10^10 candidate compositions, and 50 MB file relay limit.",
+  "main_assumptions": "Assumes the integrity of API-key-based authentication and relies on Docker sandboxing for security; assumes that nodes can initiate outbound connections via reverse polling to bypass firewalls.",
+  "figures_summary": "Figure 1 shows the hierarchical architecture of the framework; Figure 2 illustrates the AlphaAgent workflow/skill composition; Figure 3 compares centralized vs. near-data computing models; Figure 4 shows the HEA-Executor sub-agent workflow; Figure 5 demonstrates the task submission interface and results.",
+  "paper_structure": "Introduction of the materials informatics 'last mile' problem, description of the OpenAaaS architecture and design principles, detailed implementation of the three-tier system, case study 1 (AlphaAgent for literature analysis), case study 2 (HEA-Executor for large-scale alloy database), and discussion of future directions and limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.13618_figures/2605.13618_fig1.jpg",
+      "caption": "Figure 1: The OpenAaaS hierarchical architecture. Master Agents (Kimi CLI, Codex, Pi-mono, or custom systems) interact with the OpenAaaS Network Hub (Server + Agent Core + SQLite Module), which routes tasks to specialized Sub-agents deployed as near-data execution nodes. Sub-agents expose local resources—HEA databases, self-driving labs, materials design platforms, knowledge bases—as composable network services without migrating raw data.",
+      "page": 7
+    },
+    {
+      "image": "2605.13618_figures/2605.13618_fig2.jpg",
+      "caption": "Figure 2: Evidence-grounded skill composition of the AlphaAgent executor within OpenAaaS. The retrieval skill converts an OpenAaaS task into validated evidence through intent rewriting, iterative retrieval, evidence-sufficiency checking, and bounded query reformulation. Validated evidence supports grounded answering and, when deep reporting is requested, enters the reporting skill for paper selection, PDF parsing, structured report drafting, contract validation, and HTML rendering. The final report connects a question-centered cross-paper synthesis with linked single-paper deep reports, with feedback loops for query reformulation and draft repair.",
+      "page": 10
+    },
+    {
+      "image": "2605.13618_figures/2605.13618_fig3.jpg",
+      "caption": "Figure 2 summarizes the executor as two coupled domain skills: retrieval-grounded question answering and deep literature reporting. The retrieval skill serves as the executor’s RAG-style retrieval layer: it rewrites natural-language requests into English search intents, queries the curated materials-literature index, and returns candidate snippets and paper metadata for evidence validation. During intent rewriting, it preserves materials-specific entities, including alloy designations, phase names, heat-treatment conditions, property terms, and characterization methods. This preservation is important because small terminology changes can substantially shift the literature scope, especially...",
+      "page": 10
+    },
+    {
+      "image": "2605.13618_figures/2605.13618_fig4.jpg",
+      "caption": "Figure 3: Data-access paradigms for the HEA descriptor database. (a) Direct-agent access follows a download- and-process-locally model that imposes prohibitive bandwidth and storage demands for terabyte-scale datasets. (b) OpenAaaS-mediated retrieval deploys task execution at the data node, transmitting only lightweight task de- scriptions and filtered results across the network.",
+      "page": 12
+    },
+    {
+      "image": "2605.13618_figures/2605.13618_fig5.jpg",
+      "caption": "Figure 4: Internal workflow of the HEA-Executor. The hea-master agent coordinates three domain-specific sub-agents: (i) hea-dba parses natural-language requests into DuckDB-optimized SQL queries over Parquet-stored data, enforcing permutation invariance via unordered LIST_SORT matching; (ii) hea-ml-expert performs feature extraction, trains scikit-learn models with fixed-seed K-fold cross-validation, and outputs predictions with uncertainty quantification and feature-importance rankings; (iii) hea-writer consolidates query results, ML predictions, and analytical insights into structured deliverables. Each stage preserves intermediate states for failure-mode isolation and end-to-end...",
+      "page": 14
+    }
+  ],
+  "figure": "2605.13618_figures/2605.13618_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

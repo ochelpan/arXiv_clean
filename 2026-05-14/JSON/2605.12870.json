@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.12870",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.soft",
+    "cond-mat.stat-mech",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "PACSim: A Flexible Simulation Framework for Polymer-Attenuated Coulombic Self-Assembly",
+  "authors": "Philipp Höllmer, Nicole Smina, John P. Marquardt, Michael S. Chen, Steven van Kesteren, Stefano Sacanna, Glen M. Hocky",
+  "abstract": "Polymer-Attenuated Coulombic Self-Assembly (PACS) is a flexible experimental approach for generating crystals from simple colloidal building blocks. The central components are charged spherical particles coated with a polymer brush that prevents irreversible aggregation. Whether oppositely charged colloids crystallize, and which structures they form, depends on several factors, including colloid concentration, charge, and size, as well as the salt concentration of the solution. Molecular dynamics (MD) simulations are a powerful tool for predicting the outcomes of PACS assembly experiments and also provide particle-level insight into the assembly processes. Here, we present an open-source simulation framework, PACSim, that enables MD simulation studies of assembly by PACS across a range of experimentally relevant scenarios. PACSim is built on top of OpenMM, a flexible MD simulation framework that readily supports the implementation of different interaction potentials, as well as integration with other tools such as enhanced-sampling and machine-learning frameworks. We describe the motivation for PACSim, outline its features, report methodological advancements inspired by this framework, and provide examples of its use.",
+  "url": "http://arxiv.org/abs/2605.12870v1",
+  "pdf": "https://arxiv.org/pdf/2605.12870v1",
+  "type": "theory",
+  "summary": "The authors present PACSim, an open-source molecular dynamics framework designed to simulate the self-assembly of polymer-coated charged colloids. It allows researchers to easily model complex experimental protocols, such as dynamic changes in salt concentration, to study phase transitions and nucleation. The framework is highly extensible, supporting machine learning integration and enhanced sampling techniques.",
+  "main_problem": "The need for a flexible, open-source simulation framework to study the self-assembly, nucleation pathways, and crystal stability of Polymer-Attenuated Coulombic (PACS) colloidal systems.",
+  "main_result": "The development of PACSim, a framework that successfully demonstrates how tuning parameters like Debye length can shift nucleation from classical to non-classical pathways and how crystal structures compete via Ostwald ripening.",
+  "method": "A molecular dynamics (MD) framework built on OpenMM that utilizes custom GPU-accelerated forces, integration with PLUMED for enhanced sampling, and Python-based utilities for complex configuration generation.",
+  "model_or_system": "The system consists of charged spherical colloidal particles coated with a polymer brush in an aqueous electrolyte solution, featuring a potential composed of polymer-brush repulsion (Alexander-de Gennes) and screened Coulombic interactions.",
+  "key_observables": "Crystal structure formation, lattice spacing, radial distribution functions g(r), cluster size evolution, and potential energy trajectories.",
+  "important_parameters": "Debye length (lambda_D), particle radius, surface potential, salt concentration, temperature, and polymer brush length/density.",
+  "main_assumptions": "The use of the Derjaguin approximation for pair potentials, the low-potential approximation (psi < 60 mV), and the assumption that the polymer brush effectively suppresses strong electrostatic overlap.",
+  "figures_summary": "Figure 1 shows the effect of tuning lambda_D on the interaction potential; Figure 2 illustrates the configuration generation workflow; Figures 9-10 demonstrate nucleation trajectories and the melting of crystal seeds.",
+  "paper_structure": "The paper introduces the PACS assembly mechanism, describes the PACSim software architecture and features, details the configuration generation utilities, presents simulation results regarding nucleation and stability, and discusses performance and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.12870_figures/2605.12870_fig1.jpg",
+      "caption": "FIG. 1. Tuning parameters of the PACS potential V = VP +VE, consisting of the electrostatic interaction VE and the polymer- brush repulsion VP . We plot the pair potential between two spherical colloids. Unless specified otherwise, parameters are fixed to typical values of the brush density σ = 0.09 nm−2, brush length L = 10 nm, relative permittivity ε = 80, temperature T = 298 K, Debye length λD = 5.2 nm, particle radii rP = 85 nm and rN = 105 nm, and surface potentials ψP = 50 mV and ψN = −50 mV. (A) Varying the Debye length λD changes the position and depth of the PACS potential minimum for oppositely charged particles. (B) For a pair of identical positively charged particles with...",
+      "page": 3
+    },
+    {
+      "image": "2605.12870_figures/2605.12870_fig2.jpg",
+      "caption": "FIG. 2. (A) The ClusterGenerator in pacsim-create repli- cates cluster templates specified in LAMMPS data files to generate an initial base configuration, after which a substrate modifier adds an explicit substrate at the bottom of the sim- ulation box. (B) The LatticeBuilder in pacsim-create rescales a crystal structure from a CIF file to the colloidal length scale and expands it into a supercell, which can then be used as a crystalline seed by a seeding modifier.",
+      "page": 5
+    },
+    {
+      "image": "2605.12870_figures/2605.12870_fig3.jpg",
+      "caption": "FIG. 4. Specification of a cluster template in a LAMMPS data file that gets used by the ClusterGenerator in pacsim-create to construct a base configuration (see Fig. 3). The cluster is specified by cell information, atom information, and bond information. (The molecule ID, charge, and bond ID are ignored.)",
+      "page": 6
+    },
+    {
+      "image": "2605.12870_figures/2605.12870_fig4.jpg",
+      "caption": "FIG. 3. Configuration file for pacsim-create that sets up the ClusterGenerator to construct a base configuration by repli- cating a cluster template specified in the LAMMPS data file cluster.lmp (see Fig. 4). The generated particle positions, masses, radii, and surface potentials are stored together with the bond topology in a GSD file.",
+      "page": 6
+    },
+    {
+      "image": "2605.12870_figures/2605.12870_fig5.jpg",
+      "caption": "FIG. 6. Specification of a crystal structure in a CIF file that gets used by the LatticeBuilder in pacsim-create to con- struct a base configuration (see Fig. 5). This CIF file speci- fies a CsCl crystal structure and is available in the Materials Project (identifier mp-22865) [49].",
+      "page": 7
+    }
+  ],
+  "figure": "2605.12870_figures/2605.12870_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

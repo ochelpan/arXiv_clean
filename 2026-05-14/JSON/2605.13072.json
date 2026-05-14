@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.13072",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Neural QAOA$^{2}$: Differentiable Joint Graph Partitioning and Parameter Initialization for Quantum Combinatorial Optimization",
+  "authors": "Zubin Zheng, Jiahao Wu, Shengcai Liu",
+  "abstract": "The quantum approximate optimization algorithm (QAOA) holds promise for combinatorial optimization but is constrained by limited qubits. While divide-and-conquer frameworks like QAOA$^{2}$ address scalability by partitioning graphs into subgraphs, existing methods suffer from two fundamental limitations: i) misalignment between heuristic partitioning metrics and quantum optimization goals, and ii) topology-blind parameter initialization that leads to optimization cold starts. To bridge these gaps, we propose Neural QAOA$^{2}$, an end-to-end differentiable framework that jointly generates graph partitions and initial parameters. By integrating a generative evaluative network (GEN), our method utilizes a differentiable quantum evaluator as a high-fidelity performance surrogate to provide direct gradient guidance, enabling the joint generator to learn the intrinsic mapping from graph topology to high-quality partition and parameter configurations. Extensive experiments on 183 QUBO, Ising, and MaxCut instances (21 to 1000 variables) demonstrate that our gradient-driven approach broadly outperforms heuristic baselines, ranking first on 101 instances. It exhibits zero-shot generalization across out-of-distribution graph topologies and scales.",
+  "url": "http://arxiv.org/abs/2605.13072v1",
+  "pdf": "https://arxiv.org/pdf/2605.13072v1",
+  "type": "theory",
+  "summary": "This paper introduces a machine learning-driven approach to improve the performance of QAOA for large-scale optimization. By using a differentiable neural network to jointly optimize graph partitioning and quantum circuit parameters, it overcomes the limitations of traditional heuristic methods and enables better scalability on near-term quantum hardware.",
+  "main_problem": "The scalability of the Quantum Approximate Optimization Algorithm (QAOA) is limited by hardware qubit constraints and the inefficiency of heuristic graph partitioning and random parameter initialization.",
+  "main_result": "The Neural QAOA2 framework outperforms heuristic baselines, ranking first on 101 out of 183 tested instances, and demonstrates zero-shot generalization across unseen graph topologies and scales.",
+  "method": "An end-to-end differentiable framework using a Generative Evaluative Network (GEN) that jointly generates graph partitions and initial circuit parameters via a differentiable quantum evaluator surrogate.",
+  "model_or_system": "The study focuses on combinatorial optimization problems including MaxCut, QUBO, and Ising spin glass models, represented by cost Hamiltonians constructed from Pauli-Z operators.",
+  "key_observables": "Performance ratio (rho), solution quality relative to baseline, and Modularity Score.",
+  "important_parameters": "Circuit depth (p), number of variables (N ranging from 21 to 1000), and qubit capacity constraints (max nodes per subgraph).",
+  "main_assumptions": "The method assumes that parameters trained at depth p=1 can be effectively expanded to deeper circuits (p > 1) and relies on the accuracy of a surrogate neural network evaluator.",
+  "figures_summary": "Figure 1 shows the misalignment between heuristic metrics and quantum performance; Figure 2 details the GEN architecture; Figure 5 compares the correlation of the evaluator vs. modularity; Figure 6 shows performance across varying qubit counts.",
+  "paper_structure": "The paper introduces the scalability problem, proposes the Neural QAOA2 architecture (GEN, Joint Generator, and Quantum Evaluator), details the training strategy (distribution-level and instance-level adaptation), presents extensive benchmarking across various datasets and scales, and concludes with robustness and scalability analyses.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.13072_figures/2605.13072_fig1.jpg",
+      "caption": "Figure 1. Existing D&C frameworks suffer from two fundamen- tal limitations. Left: misalignment between partitioning metrics and optimization goals. Graph-theoretic metrics (e.g., modularity) fail to align with quantum solution quality, showing negligible correlation (Pearson’s r = 0.2859 on instance g05 100.1) with the performance ratio. Right: topology-blind parameter initialization. Random initialization suffers from cold starts; even with double optimization steps (T = 40), it fails to match our topology-aware initialization (T = 20) across all datasets.",
+      "page": 1
+    },
+    {
+      "image": "2605.13072_figures/2605.13072_fig2.jpg",
+      "caption": "Figure 2. Overview of Generative Evaluative Network. As the core engine of Neural QAOA2, GEN unifies a joint generator (gθ) and a quantum evaluator (fϕ). gθ employs an orthogonal complement head and greedy capacity discretization (visualized as a suspension bridge) to strictly enforce qubit constraints while enabling gradient backpropagation via the straight-through estimator (STE, red dashed line). fϕ serves as a differentiable surrogate guiding both distribution-level pre-training and instance-level test-time adaptation.",
+      "page": 4
+    },
+    {
+      "image": "2605.13072_figures/2605.13072_fig3.jpg",
+      "caption": "Figure 3. Problem Size Generalization. We evaluate Neu- ral QAOA2 on test instances ranging from N = 21 to N = 1000 (plotted on a log2 scale). The left panel shows the mean ¯ρ, and the right panel shows the average rank. Our method (red line) main- tains superior ranking stability across the spectrum, effectively generalizing to instances with scales unseen during training.",
+      "page": 7
+    },
+    {
+      "image": "2605.13072_figures/2605.13072_fig4.jpg",
+      "caption": "Figure 4. Dynamics of Test-Time Adaptation. Performance (left) and wall-clock time (right) vs. fine-tuning steps (plotted on a log2 scale). The red curve shows monotonic improvement, outperforming the strongest heuristic (modularity) after 64 steps. Comparison with the non-pretrained variant (blue) confirms that pre-training provides a critical initialization for rapid convergence.",
+      "page": 7
+    },
+    {
+      "image": "2605.13072_figures/2605.13072_fig5.jpg",
+      "caption": "Figure 5. Visual Analysis of Metric Misalignment. Left: quan- tum evaluator predictions vs. ground truth across 3313 unseen test data points (r = 0.9258), showing high fidelity. Right: modularity vs. ground truth on the test instance g05 100.1 (r = 0.2859), exposing a severe metric misalignment that lacks correlation with quantum performance.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.13072_figures/2605.13072_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

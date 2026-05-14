@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2605.12614",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Quantum Multi-Programming Framework to Maximize Quantum Resources for the LUCJ Ansatz",
+  "authors": "Milana Bazayeva, Abigail McClain Gomez, Kenneth M. Merz",
+  "abstract": "In the context of quantum computing, efficient resource management is crucial for optimizing throughput on cloud-based platforms and maximizing hardware utilization. In the present work, we propose an approach to tackle quantum chemistry problems via quantum multi-programming of the Local Unitary Cluster Jastrow (LUCJ) ansätze. The ground-state energy of the molecular system is obtained via Sample-based quantum diagonalization (SQD), further refined by its extended version (ext-SQD). Building upon the Qiskit Experiments package, which already supports parallel execution functionality for general tasks, we developed a novel parallel experiment class tailored for quantum chemistry problems. Cross-talk is a known issue in the multi-programming frameworks and can corrupt the ground-energy estimation of the simulated systems. To assess its impact within our approach, we simulated two conformations of the ethanol molecule: one at the equilibrium state (EtOH$_{Eq}$), and one with the O-H bond stretched to 1.2 ${Å}$ (EtOH$_{1.2}$). We defined three different layouts that we executed in a randomized fashion, alternating serial and parallel execution within 10 independent replicates. The single modality of each circuit was kept as a baseline to evaluate the effect of cross-talk induced by quantum multi-programming. The energies obtained at the first-, last- and ext-SQD iteration were compared to the classical Heat-bath Configuration Interaction (HCI) reference. Our findings highlight the viability of a quantum multi-programming workflow for quantum chemistry as the robust post-processing protocol effectively mitigates possible cross-talk induced noise. At the final step of the configuration recovery process, the energy difference relative to the HCI reference is negligible, within 0.001 kcal/mol.",
+  "url": "http://arxiv.org/abs/2605.12614v1",
+  "pdf": "https://arxiv.org/pdf/2605.12614v1",
+  "type": "both",
+  "summary": "The paper introduces a quantum multi-programming framework designed to run multiple quantum chemistry circuits simultaneously on a single QPU to increase throughput. By using a robust post-processing protocol (SQD/ext-SQD), the authors demonstrate that the accuracy of molecular energy estimations can be maintained despite the increased hardware cross-talk associated with parallel execution.",
+  "main_problem": "How to maximize quantum hardware throughput on cloud platforms via multi-programming without allowing hardware cross-talk to degrade the accuracy of quantum chemistry simulations.",
+  "main_result": "The proposed multi-programming framework effectively mitigates cross-talk-induced noise, achieving energy deviations from the classical reference as low as 0.001 kcal/mol at the final SQD iteration.",
+  "method": "Development of a novel parallel experiment class for the LUCJ ansatz using Qiskit, combined with Sample-based Quantum Diagonalization (SQD) and its extended version (ext-SQD) for error mitigation.",
+  "model_or_system": "Simulated ethanol molecules in two configurations: equilibrium (EtOHEq) and a stretched O-H bond (EtOH1.2), executed on the IBM Quantum ibm_boston QPU.",
+  "key_observables": "Ground-state energy deviation relative to the Heat-bath Configuration Interaction (HCI) reference.",
+  "important_parameters": "Qubit layouts (serial vs. parallel), number of ancilla qubits (2 to 5), and SQD sample sizes (1K, 3K, and 5K).",
+  "main_assumptions": "Manual qubit partitioning was used; circuits are kept at a single repetition; the HCI method is assumed to be a reliable ground-truth reference.",
+  "figures_summary": "Figure 1 shows the multi-programming workflow; Figure 2 illustrates different qubit layouts with buffers; Figure 3 displays the distribution of energy deviations across layouts and modes; Table 1 and 2 summarize energy errors at different SQD stages and sample sizes.",
+  "paper_structure": "Introduction to resource management challenges, description of the multi-programming framework and LUCJ ansatz, experimental setup on IBM hardware, results comparing serial vs. parallel execution, and an analysis of sampling convergence and ancilla scaling.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.12614_figures/2605.12614_fig1.jpg",
+      "caption": "Figure 1: Schematic representation of the quantum multi-programming workflow for the LUCJ ansatz. First, the experiment is constructed from individual sub-experiments. The fi- nal LUCJ ParallelExperiment is executed on the QPU (ibm boston for all results presented here). Finally, the data is retrieved and split according to the underlying sub-experiments.",
+      "page": 6
+    },
+    {
+      "image": "2605.12614_figures/2605.12614_fig2.jpg",
+      "caption": "Figure 2: Representation of the three layouts used for the LUCJ-multi-programming runs. The same layouts were also used to run the single experiment as a baseline for the parallel execution. The minimum number of buffer qubits between the two circuits is circled in red. The circuit in blue correspons to EtOH1.2, while EtOHEq is shown in pink; ancilla qubits are reported in green. Within each circuit, blue and pink is used for both spin orbitals. The different spin sectors are not distinguished in the figure, as the colors only differentiate the two circuits.",
+      "page": 11
+    },
+    {
+      "image": "2605.12614_figures/2605.12614_fig3.jpg",
+      "caption": "Figure 3 is better suited to represent the stochastic nature of the approaches used. It",
+      "page": 11
+    },
+    {
+      "image": "2605.12614_figures/2605.12614_fig4.jpg",
+      "caption": "Figure 3: Distributions of the absolute energy deviation from the HCI reference at the First- SQD-iter stage for all layouts and execution modalities, computed across 10 independent replicates. The boxes represent the interquartile range (IQR), with the median shown as a horizontal red line and its value reported above in kcal/mol. The whiskers extend to 1.5×IQR, and the circles denote outliers.",
+      "page": 13
+    }
+  ],
+  "figure": "2605.12614_figures/2605.12614_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

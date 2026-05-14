@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.13271",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "OAM-Induced Lattice Rotation Reveals a Fractional Optimum in Fault-Tolerant GKP Quantum Sensing",
+  "authors": "Simanshu Kumar, Nandan S Bisht",
+  "abstract": "Photon loss and dephasing rapidly degrade the sensitivity of quantum sensors, yet systematic methods for designing error-correcting codes whose geometry is simultaneously adapted to the sensing task and the noise channel do not exist. Here we establish that orbital-angular-momentum (OAM) encoding and Gottesman-Kitaev-Preskill (GKP) lattice geometry are structurally coupled: an OAM mode of topological charge $\\ell$ induces a phase-space rotation $θ_\\ell=\\ellπ/\\ell_{\\max}$, corresponding to a family of twisted GKP stabilizer lattices. Using an end-to-end differentiable Strawberry Fields--TensorFlow circuit, we jointly optimise $\\ell$, the lattice aspect ratio $r$, and the finite-energy envelope $ε$ to maximise quantum Fisher information subject to $P_{\\rm err}\\leq10^{-3}$. The optimum occurs at the fractional charge $\\ell=1.5$ ($θ=67.5^\\circ$), implementable with a half-integer spiral phase plate, which reduces $P_{\\rm err}$ by $23.9\\times$ relative to the square-lattice baseline while leaving $\\mathcal{F}_Q$ unchanged to within $0.2\\%$. This surpasses the best integer value ($\\ell=2$, $15.7\\times$) and arises from an exact $180^\\circ$ periodicity of the $P_{\\rm err}(θ)$ landscape, confirmed analytically and numerically. We derive a transcendental balance equation for the optimal angle $θ^*(η,γ,r)$ and prove that it decreases with both $γ$ and $η$. A Shannon-inspired metrological capacity $\\mathcal{C}=\\mathcal{F}_Q\\cdot(-\\ln P_{\\rm err})$, maximised at $\\ell=1.5$ with a $41\\%$ gain over the square lattice, quantifies the joint sensitivity--fault-tolerance resource. These results establish a geometric design principle for noise-adaptive quantum sensors and a fully open-source differentiable template extensible to other bosonic code families.",
+  "url": "http://arxiv.org/abs/2605.13271v1",
+  "pdf": "https://arxiv.org/pdf/2605.13271v1",
+  "type": "theory",
+  "summary": "This paper shows that using fractional orbital angular momentum to rotate GKP lattices can significantly suppress logical errors in quantum sensing. By optimizing the lattice geometry to match the noise channel, the researchers achieved a 23.9-fold reduction in error rates without sacrificing sensing precision.",
+  "main_problem": "Optimizing the geometry of GKP (Gottesman-Kitaev-Preskill) error-correcting codes to simultaneously maximize sensing sensitivity and maintain fault tolerance in the presence of asymmetric noise (photon loss and dephasing).",
+  "main_result": "The discovery of a fractional optimal OAM charge of l=1.5 (theta=67.5 degrees) that reduces the logical error rate by 23.9x compared to a square lattice while maintaining nearly identical Quantum Fisher Information.",
+  "method": "An end-to-end differentiable programming framework using Strawberry Fields and TensorFlow to jointly optimize lattice rotation, aspect ratio, and energy envelope via gradient descent.",
+  "model_or_system": "Continuous-variable bosonic modes using GKP states in a phase-space lattice, subject to a photon-loss channel and an anisotropic dephasing channel.",
+  "key_observables": "Quantum Fisher Information (QFI), Logical Error Rate (P_err), and Metrological Capacity (C).",
+  "important_parameters": "OAM topological charge (l), lattice rotation angle (theta), lattice aspect ratio (r), photon loss transmissivity (eta), and dephasing rate (gamma).",
+  "main_assumptions": "The derivation assumes the fault-tolerant regime where error probabilities are small; the model uses a Fock-space truncation (D=30).",
+  "figures_summary": "Training convergence for QFI and error rates, visualizations of Wigner functions showing interference fringes and noise impact, and performance comparisons of error reduction across different OAM charges.",
+  "paper_structure": "Introduction to GKP sensing optimization; description of the OAM-induced lattice rotation mechanism; presentation of the differentiable optimization framework; results showing the fractional optimum and error reduction; analytical derivation of the optimal angle and its monotonicity; discussion of experimental implementation routes and robustness.",
+  "why_interesting": "It provides a geometric design principle for noise-adaptive quantum sensors, demonstrating how structural coupling between encoding (OAM) and error correction (GKP) can be exploited to enhance fault-tolerant metrology.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.13271_figures/2605.13271_fig1.jpg",
+      "caption": "Figure 1. OAM-encoded GKP quantum sensing circuit. Input |0⟩traverses four colour-coded stages. Blue (Stage 1): GKP codeword preparation on the Fock backend; trainable ε, (θB, φB) on dashed stems. Green (Stage 2): differentiable squeezing S(ln r) and OAM twist R(θℓ) = diag(e−inθℓ) (Eq. 5), θℓ= ℓπ/ℓmax; trainable r and ℓ. Orange/red (Stage 3): phase encoding R(φ) = e−iφˆn, photon-loss Eη (Eq. 10), and dephasing Eγ (Eq. 11). Purple (Readout): adaptive homodyne HD(ψ) with trainable LO angle ψ, yielding xψ. Green dashed (Loss): L(ξ) = −FQ + λ[Perr −Pth]+; gradients ∂L/∂ξ flow back via Adam (dashed arrows).",
+      "page": 5
+    },
+    {
+      "image": "2605.13271_figures/2605.13271_fig2.jpg",
+      "caption": "fig. 3 shows the Wigner functions W(q, p) of the opti- mised GKP states for all three lattice geometries at both noise points, computed using the Strawberry Fields Fock backend on the fully trained states. These are exact",
+      "page": 5
+    },
+    {
+      "image": "2605.13271_figures/2605.13271_fig3.jpg",
+      "caption": "Figure 2. Training convergence across all six configurations. (a) Quantum Fisher information FQ vs. optimisation step. All three lattice geometries at the same noise point converge to essentially identical QFI values, confirming geometry-invariant sensitivity (Finding 1). Solid lines: η = 0.9, γ = 0.05; faded lines: η = 0.8, γ = 0.10. (b) Logical error rate Perr vs. step. At the low-noise point, OAM-twisted lattices (ℓ= 1, 2) converge well below the fault-tolerance threshold Pth = 10−3 (red dash-dot line; green shaded region = fault-tolerant regime), while the square lattice sits above it at the high-noise point. Adam optimizer, cosine annealing LR, gradient clipping at global norm 1.0;...",
+      "page": 6
+    },
+    {
+      "image": "2605.13271_figures/2605.13271_fig4.jpg",
+      "caption": "Figure 3. Wigner functions W(q, p) of optimised GKP states. Left column: low noise (η = 0.9, γ = 0.05); right column: high noise (η = 0.8, γ = 0.10). Red = positive W; blue = negative. Gold lines overlay the GKP stabiliser lattice with optimised parameters (θ∗, r∗). Computed exactly via the Strawberry Fields Fock backend on the trained states (cutoff D = 30). Row 1 (square, ℓ= 0): isotropic grid aligned with the canonical quadratures; fringes soften at higher noise. Row 2 (ℓ= 1, θ = 45◦): diagonal lattice; correction boundary midway between q and p. Row 3 (ℓ= 1.5 ⋆, θ = 67.5◦): fractional-optimum lattice; stabiliser vectors bisect the 45◦–90◦quadrant, producing the deepest Wigner negativity...",
+      "page": 7
+    },
+    {
+      "image": "2605.13271_figures/2605.13271_fig5.jpg",
+      "caption": "Figure 4. QFI and logical error rate for all three lattice geometries at two noise points. (a) Quantum Fisher information FQ (sensitivity). All three lattices converge to the same QFI at each noise point (max spread < 0.15%), confirming geometry-invariant sensitivity. (b) Logical error rate Perr (fault tolerance). The OAM-twisted lattices achieve a 7.6× (ℓ= 1) and 15.7× (ℓ= 2) reduction relative to the square baseline at the low-noise point. Hatched bars: η = 0.8, γ = 0.10 (high-noise point); solid bars: η = 0.9, γ = 0.05 (low-noise point). Red dashed line: fault-tolerance threshold Pth = 10−3. Improvement factors shown inside bars (low-noise point only).",
+      "page": 8
+    }
+  ],
+  "figure": "2605.13271_figures/2605.13271_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 2,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

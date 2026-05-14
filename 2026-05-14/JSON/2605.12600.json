@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.12600",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Fermion lattices can be simulated by same-size qubit lattices with $\\mathcal{O}(1)$ interaction overhead",
+  "authors": "Gregor Aigner, Berend Klaver, Martin Lanthaler, Wolfgang Lechner",
+  "abstract": "Local interactions among electrons underlie many complex properties of correlated materials. While the Jordan-Wigner transformation can preserve this locality along one spatial dimension, interactions along the remaining dimensions typically incur substantial overhead. We show how to simulate all geometrically local interactions on an $N$-site two-dimensional fermion lattice with no asymptotic overhead in the number of interactions and no space overhead. The primary overhead of our method is circuit depth, which on a qubit lattice matches that of fermionic swap networks, scaling as $\\mathcal{O}(\\sqrt{N})$, but reduces to $\\mathcal{O}(\\log N)$ on reconfigurable qubit arrays and to $\\mathcal{O}(1)$ in lattice-surgery-based surface-code architectures. This is enabled by dynamically reorienting the Jordan-Wigner transformation to switch the lattice dimension along which locality is preserved. Furthermore, we study fermion routing, as required for the simulation of non-local interactions. When using qubit lattices, we reach resource scaling that asymptotically matches that of qubit routing, whilst on fully connected qubit devices, a depth scaling arbitrarily close to $\\mathcal{O}(\\log N)$ is reached. This allows the fermionic fast Fourier transform to be implemented on qubit lattices with asymptotically optimal resource scaling under these locality constraints. Notably, all of our constructions naturally extend to $d$-dimensional lattices. Beyond scaling improvements, we show explicit examples of our method, including Fermi-Hubbard-model simulations of the square-, Lieb- and kagome lattice and the fermionic fast Fourier transform.",
+  "url": "http://arxiv.org/abs/2605.12600v1",
+  "pdf": "https://arxiv.org/pdf/2605.12600v1",
+  "type": "theory",
+  "summary": "This paper presents a new framework for simulating higher-dimensional fermion lattices on qubit arrays by dynamically switching between different 1D Jordan-Wigner encodings. It achieves near-optimal scaling for interaction counts and significantly reduces circuit depth for various hardware architectures. This allows for the efficient simulation of complex models like the Fermi-Hubbard model on square, Lieb, and Kagome lattices.",
+  "main_problem": "Simulating 2D and higher-dimensional fermionic lattices on qubit hardware is inefficient due to the 1D connectivity constraints of standard Jordan-Wigner mappings, which introduce significant non-local interaction overhead.",
+  "main_result": "The authors develop a method to simulate all geometrically local interactions on an N-site 2D fermion lattice with O(1) interaction overhead and no space overhead, reducing circuit depth to O(sqrt(N)) on standard lattices and O(1) on surface-code architectures.",
+  "method": "The method uses 'dynamic fermionic encoding' by switching between complementary 'boustrophedon' (snake-like) Jordan-Wigner encodings to align the encoding path with different lattice dimensions.",
+  "model_or_system": "The framework targets 2D and d-dimensional fermionic lattices, specifically implementing Fermi-Hubbard models (including NN and NNN hopping) on various geometries like square, Lieb, and Kagome lattices, as well as the Fermionic Fast Fourier Transform (FFFT).",
+  "key_observables": "not specified",
+  "important_parameters": "Scaling of gate counts (CNOTs) and circuit depth relative to the number of sites N; interaction range delta; dimensionality d.",
+  "main_assumptions": "The method assumes geometrically local interactions; the efficiency of the encoding switch depends on the underlying hardware connectivity (e.g., superconducting vs. neutral atom).",
+  "figures_summary": "Figure 1 introduces F2Q mapping and encoding switching; Figure 2 shows the mechanism for 2D JW reordering; Figures 3-4 illustrate 2D/3D boustrophedon patterns and fermion routing; Figure 5 and Figure 10 compare resource scaling (gate count and depth) against standard FSWAP networks; Figures 16-18 show implementations for Lieb and Kagome lattices.",
+  "paper_structure": "The paper begins with the motivation of F2Q mapping overhead, introduces the dynamic encoding framework and boustrophedon patterns, extends the construction to higher dimensions and complex routing, and concludes with specific applications to Hubbard models and lattice embeddings.",
+  "why_interesting": "This is highly relevant for many-body dynamics as it provides a scalable way to map complex, higher-dimensional fermionic Hamiltonians onto near-term and fault-tolerant quantum hardware without the prohibitive qubit overhead of previous methods.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.12600_figures/2605.12600_fig1.jpg",
+      "caption": "FIG. 1. Overview of the main concepts. (a) Simulating fermionic systems, such as lattice models or quantum-chemical systems, on qubit-based quantum hardware requires F2Q mappings. (b) The prototypical JW mapping imposes an ordering, represented here by arrows. To overcome the corresponding one-dimensional connectivity constraint and better exploit typical two-dimensional hardware connectivity, we employ dynamical reordering, i.e., switching between different JW orderings , e.g., JW1 and JW2. (c) Reorder primitives: A fermionic swap gate swaps both their JW order and their physical positions of two fermionic modes. In contrast, a physical qubit swap changes only the physical positions of the...",
+      "page": 2
+    },
+    {
+      "image": "2605.12600_figures/2605.12600_fig2.jpg",
+      "caption": "FIG. 2. Example of JW reordering in two dimensions from a Z-pattern (left) to a S-pattern (right). The first step consists of a basis change accomplished by CNOT ladders along each column, denoted by C↑, followed by CNOT ladders along every second row, denoted by C←. The shading indicates the gate sequence, progressing from grey to black. At a high level, this basis change accumulates information first along columns and then along every second row. Although the row-wise accumulation partially mixes with the column-wise accumulation, the row information remains encoded in the information-difference between qubits separated by two rows. At the intersections where the propagated information...",
+      "page": 3
+    },
+    {
+      "image": "2605.12600_figures/2605.12600_fig3.jpg",
+      "caption": "FIG. 3. Switching between two-dimensional boustrophedon encodings. (a) A global Z-pattern is transferred into a bous- trophedon pattern by partitioning the columns of the grid. Applying the Z-to-S transformation circuit depicted in Fig. 2 to these parts individually yields a series of interconnected S-patterns, a configuration we refer to as a boustrophedon pattern due to its alternating serpentine structure. An example is shown where a partition is introduced between columns two and three, counting from the left. (b) As detailed in Appendix E, two such complementary patterns are sufficient to cover all nearest-neighbor fermionic interactions on the lattice. In general this allows to map...",
+      "page": 4
+    },
+    {
+      "image": "2605.12600_figures/2605.12600_fig4.jpg",
+      "caption": "FIG. 4. Fermion routing. (a) An example routing problem. (b) Starting from an S-pattern ordering, the first row-wise stage PX is executed using fermionic swaps. Next we switch to a Z-pattern, enabling the column-wise stage PY to be re- alized with fermionic swaps. Finally, the original S-pattern is restored, which is appropriate for the concluding row-wise stage P ′ X. Each permutation stage, as well as the reordering, can be implemented in O( √",
+      "page": 5
+    },
+    {
+      "image": "2605.12600_figures/2605.12600_fig5.jpg",
+      "caption": "FIG. 5. Resource counts of Fermi-Hubbard simulations. The plots show CNOT counts (upper panels) and depths (lower panels) for a second-order Trotter step simulating various Hubbard models on a two-dimensional square lattice of qubits. Models: We study nearest-neighbor (NN) and next-nearest-neighbor (NNN) square lattices, as well as Lieb and kagome geometries. For NN and NNN models, we utilize an L × (2L) qubit lattice (where the factor of 2 accounts for spin and L2 is the number of unit cells) for sizes L = 4 to 10. For Lieb and kagome lattices, we employ a 3L × 2L qubit lattice (where the factor of 3 reflects the three-site unit cell) for sizes L = 2 to 5. Performance Comparison (Left): We...",
+      "page": 6
+    }
+  ],
+  "figure": "2605.12600_figures/2605.12600_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

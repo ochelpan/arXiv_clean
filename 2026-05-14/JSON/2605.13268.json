@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.13268",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Physics Guided Generative Optimization for Trotter Suzuki Decomposition",
+  "authors": "WenBin Yan",
+  "abstract": "Product formulas for Trotter Suzuki simulation remain a practical route to Hamiltonian evolution on noisy intermediate scale quantum (NISQ) hardware, yet their accuracy hinges on three coupled choices: term grouping, product formula order, and timestep allocation. Toolchains such as Qiskit and Paulihedral lean on hand tuned heuristics, while the discrete nature of grouping and order makes naive gradient based optimization awkward. We describe a generate and evaluate loop: a conditional diffusion model proposes strategies, a physics informed neural network (PINN) supplies differentiable fidelity feedback, and a graph neural network (GNN) encodes commutator structure. Training spans a hybrid space (discrete grouping and order, continuous time steps); the closed loop uses REINFORCE and a Pareto tracker. On the transverse field Ising model (TFIM), under our primary comparison setup, the method reaches 85.6% of the fidelity of a fourth order Qiskit baseline (0.856) at roughly 21.8% of the circuit depth and 19.2% of the baseline CNOT count. Under an equal depth budget, fine tuning in the loop reached a best observed fidelity of 0.9994. Updated ablations show that, for a fixed training budget and default guidance knobs, module contributions depend on the training recipe and guidance hyperparameters CFG in particular needs to be tuned jointly with compute budget. Overall, the results suggest that \"generative model and physics supervision\" is a viable angle for NISQ oriented compilation, though where it wins still depends on the operating point.",
+  "url": "http://arxiv.org/abs/2605.13268v1",
+  "pdf": "https://arxiv.org/pdf/2605.13268v1",
+  "type": "theory",
+  "summary": "This paper proposes a machine learning framework to automate the optimization of quantum circuit compilation for Trotter-Suzuki simulations. By combining generative diffusion models with physics-informed neural networks, it achieves massive reductions in circuit depth and gate counts compared to standard heuristic-based toolchains.",
+  "main_problem": "Optimizing Trotter-Suzuki decomposition for Hamiltonian evolution on NISQ hardware by simultaneously minimizing circuit depth/CNOT count and maximizing simulation fidelity.",
+  "main_result": "The method achieves significant circuit compression, reducing depth to ~21.8% and CNOT count to ~19.2% of a 4th-order Qiskit baseline while maintaining high fidelity, and shows strong generalization to molecular Hamiltonians.",
+  "method": "A closed-loop generative-and-evaluate pipeline using a Graph Neural Network (GNN) to encode Hamiltonian structure, a hybrid Diffusion model to propose decomposition strategies, and a Physics-Informed Neural Network (PINN) to provide differentiable fidelity feedback via REINFORCE optimization.",
+  "model_or_system": "The study focuses on Hamiltonian time evolution using the Transverse Field Ising Model (TFIM) and Heisenberg chains for training/testing, as well as molecular Hamiltonians (H2 and LiH) obtained via Jordan-Wigner transformation.",
+  "key_observables": "Fidelity, circuit depth, CNOT count, and PDE residual of the PINN.",
+  "important_parameters": "Qubit counts (n=4, 6, 8), coupling strength J, transverse field h, and the trade-off parameter lambda for multi-objective optimization.",
+  "main_assumptions": "The PINN assumes the ability to fit the Schrödinger equation accurately; the effectiveness of the method is dependent on the specific training regime and hyperparameter tuning (e.g., CFG).",
+  "figures_summary": "Figures include distributions of the TFIM training dataset, scaling of depth/fidelity in Heisenberg chains, and molecular scans showing fidelity and depth reduction for H2 and LiH across varying bond lengths.",
+  "paper_structure": "The paper introduces the optimization problem, describes the GNN-Diffusion-PINN architecture, details the reinforcement learning training loop, presents performance comparisons against standard SDKs (Qiskit, etc.), and evaluates generalization to out-of-distribution Heisenberg and molecular systems.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.13268_figures/2605.13268_fig1.jpg",
+      "caption": "Figure 1: Marginal statistics for the TFIM training corpus. Left to right: qubit count n, coupling J, transverse field h. Both J and h are log-uniform to span weak-to-moderate coupling.",
+      "page": 10
+    },
+    {
+      "image": "2605.13268_figures/2605.13268_fig2.jpg",
+      "caption": "Figure 2: PINN validation on ten TFIM instances. Left: post-training PDE residual vs. 10−4",
+      "page": 11
+    },
+    {
+      "image": "2605.13268_figures/2605.13268_fig3.jpg",
+      "caption": "Figure 3: Bar-style comparison (fidelity, depth, latency on a log axis). Fidelity trails the high- order baselines, but depth and CNOTs improve by ∼4×. Latency is ∼105× worse than compilers because of 1000 diffusion steps—acceptable if compilation amortizes over many executions.",
+      "page": 12
+    },
+    {
+      "image": "2605.13268_figures/2605.13268_fig4.jpg",
+      "caption": "Figure 4: Fidelity across 50 closed-loop iterations. No collapses; variance reflects REINFORCE exploration.",
+      "page": 12
+    },
+    {
+      "image": "2605.13268_figures/2605.13268_fig5.jpg",
+      "caption": "Figure 5: Example grouping heatmap. Imbalanced groups emerge naturally: singletons with high order vs. triples with lower order—patterns rarely produced by symmetry-first heuristics.",
+      "page": 13
+    }
+  ],
+  "figure": "2605.13268_figures/2605.13268_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

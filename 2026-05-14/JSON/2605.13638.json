@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.13638",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "CO-MAP: A Reinforcement Learning Approach to the Qubit Allocation Problem",
+  "authors": "Ankit Kulshrestha, Xiaoyuan Liu",
+  "abstract": "A quantum compiler is a critical piece in the quantum computing pipeline since it allows an abstract quantum circuit to be run on a physical quantum computer. One extremely important subproblem in quantum compilation is the generation of a logical to physical qubit mapping. Typically in quantum compilers this step is either implemented as a random or a heuristic based assignment that aims to minimize additional (SWAP) gate overhead in the quantum circuit.   In this paper, we present an alternative approach to solving the qubit mapping problem. Specifically, we formulate the qubit mapping problem with a combinatorial optimization (CO) objective. We then present a method to find a solution to the CO problem by training a reinforcement learning (RL) policy. We also propose a local search based post-processing algorithm to further reduce the overhead. Our results show a dramatic improvement over conventional techniques in reducing the number of SWAPs. On different real world datasets like MQTBench and Queko circuits, our trained policy achieves a \\textbf{65-85\\%} reduction in SWAP overhead when compared to existing quantum compilers.",
+  "url": "http://arxiv.org/abs/2605.13638v1",
+  "pdf": "https://arxiv.org/pdf/2605.13638v1",
+  "type": "theory",
+  "summary": "This paper proposes a reinforcement learning-based method called CO-MAP to optimize the mapping of logical qubits to physical qubits. By treating qubit allocation as a combinatorial optimization problem, the method significantly reduces the SWAP gate overhead compared to standard quantum compilers. This reduction is crucial for minimizing error and circuit depth in near-term quantum devices.",
+  "main_problem": "The qubit mapping (allocation) problem, which involves mapping abstract program qubits to physical qubits on a quantum device to minimize the number of SWAP gates required due to connectivity constraints.",
+  "main_result": "The CO-MAP reinforcement learning approach achieves a 65-85% reduction in SWAP overhead compared to existing compilers like Qiskit SABRE, with post-processing further improving results by up to 99.8% on certain benchmarks.",
+  "method": "A reinforcement learning framework using a Graph Attention Network (GAT) encoder and a Pointer Attention decoder, combined with a local search-based post-processing algorithm.",
+  "model_or_system": "The study focuses on quantum hardware topologies, specifically an 8x8 grid and the IBM heavy-hex lattice, representing the physical connectivity (coupling graph) and the entanglement pattern of the circuit (program graph).",
+  "key_observables": "SWAP gate count, circuit depth, and wall clock time.",
+  "important_parameters": "Number of program qubits (n), number of physical qubits (N), and CNOT gate count.",
+  "main_assumptions": "Assumes the number of physical qubits is greater than or equal to the number of program qubits (N >= n) and assumes all device qubits are available with high uptime.",
+  "figures_summary": "Figure 1 shows the qubit allocation process and mapping conflicts; Figure 2 illustrates the GAT encoder; Figure 3 shows the decoder process; Figure 5 displays the IBM heavy-hex lattice; Figure 7 compares SWAP counts across various circuit types.",
+  "paper_structure": "The paper introduces the qubit mapping problem, presents the CO-MAP RL architecture (encoder-decoder), details the training and post-processing algorithms, evaluates performance on MQTBench and Queko datasets, and performs ablation studies on encoding strategies and compiler optimization levels.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.13638_figures/2605.13638_fig1.jpg",
+      "caption": "Figure 1: Qubit allocation with a given program and device graph. A heuristic mapping places the highest degree logical node on the “hub” of the device graph and allocates the neighbors on the surrounding qubits. Despite the heuristics, the circuit requires insertion of four SWAP gates to manage allocation. This illustrates that no algorithm cannot find perfect mapping from arbitrary program graphs to a given topology.",
+      "page": 2
+    },
+    {
+      "image": "2605.13638_figures/2605.13638_fig2.jpg",
+      "caption": "Figure 2: The policy network encoder accepts either a program or a coupling graph and produces node-level representations using a GNN encoder.",
+      "page": 5
+    },
+    {
+      "image": "2605.13638_figures/2605.13638_fig3.jpg",
+      "caption": "Figure 3: The decoder accepts program and coupling graph node embeddings from the encoder. At each decoding step, the selected nodes are added to the solution and those nodes are masked out (light shaded nodes) during the next step in decoding. At the termination of the process, the reward is calculated as the number of SWAPs introduced with the current solution.",
+      "page": 6
+    },
+    {
+      "image": "2605.13638_figures/2605.13638_fig4.jpg",
+      "caption": "Figure 4: Time taken to produce mapping with our method vs Qiskit SABRE compiler. A) shows processing times when our pipeline uses a single GPU, B) shows processing times when only CPU is used.",
+      "page": 9
+    },
+    {
+      "image": "2605.13638_figures/2605.13638_fig5.jpg",
+      "caption": "Figure 5: The 65-qubit IBM “heavy hex” lattice device graph topology.",
+      "page": 13
+    }
+  ],
+  "figure": "2605.13638_figures/2605.13638_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

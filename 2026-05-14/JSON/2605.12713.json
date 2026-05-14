@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.12713",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Controllable Quantum Memory Capacity in Quantum Reservoir Networks with Tunable partial-SWAPs",
+  "authors": "Erik L. Connerty, Ethan N. Evans",
+  "abstract": "In the field of quantum reservoir computing (QRC), many different computational models and architectures have been proposed. From these models, we identify feedback based models -- which use a feedback mechanism to re-embed classical measurements from the QRC -- and recurrent models -- which use a multi-register approach with memory and readout qubits -- as the two major competing architectures that have been discussed and validated on hardware. In this paper, we advance upon the recurrent architectures, which employ a two register approach to endow the QRC with a fading memory. While these approaches have been validated on hardware and have demonstrated great real-world performance on noisy-intermediate-scale-quantum (NISQ) quantum processing units (QPUs), the exact mechanism through which the memory capacity arises is not completely understood or fully controllable. With this, we augment the recurrent approaches and present a hardware-realizable mechanism, which we call a tunable partial-SWAP, that allows for the direct control of the rate of memory dissipation from a QRN implemented on a gate-based QPU. The theory behind this mechanism is discussed in terms of a controlled amplitude-damping channel and validation experiments using a randomized short-term memory capacity (STMC) recall benchmark and the NARMA-5 dataset are conducted using simulation and IBM QPUs, respectively.",
+  "url": "http://arxiv.org/abs/2605.12713v1",
+  "pdf": "https://arxiv.org/pdf/2605.12713v1",
+  "type": "both",
+  "summary": "This paper proposes a new way to control how much information a quantum reservoir retains by using a tunable partial-SWAP gate. This mechanism allows researchers to tune the 'memory' of the system, helping to optimize quantum neural networks for time-series prediction tasks on noisy hardware.",
+  "main_problem": "Existing recurrent Quantum Reservoir Computing (QRC) architectures lack a controllable hyperparameter to manage memory dissipation and the 'fading memory' effect.",
+  "main_result": "The authors introduce a tunable partial-SWAP mechanism that acts as a controlled amplitude-damping channel, allowing for precise control over memory capacity and providing a purification effect that aids NISQ-era performance.",
+  "method": "The researchers implement a two-register recurrent QRN using a tunable partial-SWAP gate and validate it through STMC and NARMA-5 benchmarks using both Aer simulations and IBM QPUs.",
+  "model_or_system": "A recurrent Quantum Reservoir Network (QRN) consisting of a memory register and a readout register, implemented on gate-based IBM QPUs and classical simulators.",
+  "key_observables": "Short-term memory capacity (STMC) recall, NARMA-5 Root Mean Square Error (RMSE), and the coefficient of determination (R2) for various time delays.",
+  "important_parameters": "Partial-SWAP strength (gamma), number of qubits, number of reuploading blocks (n_repeats), and the damping probability (p).",
+  "main_assumptions": "The readout qubit is reset to the |0> state at every time-step, and the memory and readout registers are assumed to be of equal size for scalability.",
+  "figures_summary": "Figure 1 details the QRN architecture; Figure 2 shows circuit implementations of the partial-SWAP; Figures 3-5 show ablation studies on RMSE vs. gamma, qubits, and nonlinearity; Figure 6 compares simulator vs. hardware performance; Figure 7 compares QRN to classical ESN.",
+  "paper_structure": "The paper introduces the QRC architectural problem, proposes the partial-SWAP mechanism, provides a mathematical derivation of the induced amplitude-damping channel, presents experimental validation on simulators and IBM hardware, and concludes with ablation studies and comparisons to classical models.",
+  "why_interesting": "The paper provides a hardware-realizable method to implement controlled dissipation and purification in a quantum system, which is highly relevant to the study of open quantum systems and the management of noise in NISQ-era devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.12713_figures/2605.12713_fig1.jpg",
+      "caption": "Figure 2: The partial-SWAP circuit. A single parameter γ ∈ (0, 1] is used to control the strength of the memory dampening effect. This is implemented as a matrix exponential in both cases.",
+      "page": 2
+    },
+    {
+      "image": "2605.12713_figures/2605.12713_fig2.jpg",
+      "caption": "Figure 1: Proposed recurrent partial-SWAP QRN. The circuit is composed of two registers: memory and readout, labeled mem and |0⟩, respectively. a) The Recurrent Block, B, is the main outer-block and runs recurrently over the length of the time-series input T . Three subcircuits perform the information processing for the partial-SWAP QRN at each time-step. b) The Embedding Layer, input data enters in through the R(⃗Θi) gate onto the ith memory qubit through the mapping detailed in Eq. (1). A CRZ entangling layer parameterized by θi is performed at the end of each application of the reuploading scheme. c) The Memory Exchange Layer performs the partial-SWAP operation parameterized by the...",
+      "page": 3
+    },
+    {
+      "image": "2605.12713_figures/2605.12713_fig3.jpg",
+      "caption": "Figure 3: STMC Best R2 Comparison for two Configurations of the QRN. Plots depicting the coefficient of determination (R2) values for differing nqubits values. Higher is better. A context length of c = 1 is used in this experiment, giving a worst-case demonstration of memory-recall. The best partial-SWAP strength γ was chosen from each nrepeats configuration for the nqubits = 16 circuit in Figure 4 to give a more detailed look at memory performance. a) Depicts the partial-SWAP QRN with nrepeats = 1 reuploading blocks at partial-SWAP strength γ = .55. b) Depicts the partial-SWAP QRN with nrepeats = 3 reuploading blocks at γ = .65. As shown in Figure 4, the performance on the STMC task was...",
+      "page": 5
+    },
+    {
+      "image": "2605.12713_figures/2605.12713_fig4.jpg",
+      "caption": "Figure 4: STMC partial-SWAP Strength Comparison. An ablation study over various parameters of partial-SWAP strength γ and nqubits against average RMSE over 5 time-delays τ on the STMC task. Lower is better. A context length of c = 1 is used in this experiment, giving a worst-case demonstration of memory-recall. a) Depicts the partial-SWAP QRN with nrepeats = 1 reuploading blocks. b) Depicts the partial-SWAP QRN with nrepeats = 3 reuploading blocks. As hypothesized, optimal partial-SWAP strength parameters lie in the range 0 < γ < 1, and performance deteriorates when getting too close to either extreme. Overall, the best performance on this task is given by the nrepeats = 1 configuration,...",
+      "page": 6
+    },
+    {
+      "image": "2605.12713_figures/2605.12713_fig5.jpg",
+      "caption": "Figure 5: NARMA-5 Comparison for Various Configurations of partial-SWAP QRN. An ablation study over various parameters of partial-SWAP strength γ, nqubits, and nrepeats against RMSE. Lower is better. a) Denotes the task run with nrepeats = 1 reuploading blocks. b) Denotes the task run with nrepeats = 3 reuploading blocks. As predicted by the results in Figure 4, the partial-SWAP strength tends to have a clear optimal point for each configuration. Because of the need for increased nonlinearity in the NARMA-5 task, we see improved performance with nrepeats = 3 reuploading blocks. This result demonstrates that memory capacity is almost certainly dictated by the partial-SWAP strength γ, with...",
+      "page": 6
+    }
+  ],
+  "figure": "2605.12713_figures/2605.12713_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

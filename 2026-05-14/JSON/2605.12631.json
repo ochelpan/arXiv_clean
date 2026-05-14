@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.12631",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Bridging perturbation and variational approaches in brittle fracture",
+  "authors": "Serafim Egorov, Antoine Sanner, Jean Sulem, Lars Pastewka, Mathias Lebihain",
+  "abstract": "We present a variational reduced-order model for three-dimensional coplanar propagation of sharp cracks in heterogeneous perfectly brittle solids under mixed-mode I+II+III loading. The approach connects the variational fracture formulation of Francfort and Marigo (1998) and the perturbation theory of Rice (1985) by computing equilibrium crack-front configurations through minimization of the total energy defined as the sum of (i) the elastic potential energy, evaluated asymptotically from front deformations, and (ii) the dissipated energy, set by the fracture energy field.   The potential energy and its derivatives are evaluated efficiently using the Fast Fourier Transform. The resulting nonconvex box-constrained minimization problem is solved with a matrix-free Newton conjugate gradient algorithm with a trust region and physics-based preconditioning, enforcing irreversibility while resolving energy barriers and long-range elastic interactions. We validate our implementation against newly derived analytical solutions. We then perform 116,000 large-scale simulations of tensile and shear crack propagation in disordered media to quantify the impact of finite-size effects, disorder intensity, and mode mixity. The simulations reproduce the transition from smooth to intermittent crack growth, and show that mode mixity has limited influence on the onset of intermittency but induces quasi-elliptic fronts in mixed II+III loading. They reveal a size-dependent crossover from disorder-induced weakening to toughening controlled by the emergence of depinning instabilities.",
+  "url": "http://arxiv.org/abs/2605.12631v1",
+  "pdf": "https://arxiv.org/pdf/2605.12631v1",
+  "type": "theory",
+  "summary": "This paper presents a new numerical method to simulate 3D crack growth in disordered brittle materials by combining variational and perturbative approaches. It efficiently handles large-scale simulations to show how material randomness leads to intermittent crack growth and a transition between weakening and toughening regimes.",
+  "main_problem": "Developing a numerical framework that bridges variational and perturbation approaches to model 3D crack propagation in heterogeneous, perfectly brittle solids under mixed-mode loading.",
+  "main_result": "The authors demonstrate a method that captures the transition from smooth to intermittent crack growth and reveals a size-dependent crossover from disorder-induced weakening to toughening via depinning instabilities.",
+  "method": "A variational reduced-order model using a matrix-free Newton conjugate gradient algorithm with a trust region, utilizing FFT for efficient energy evaluation and JAX for automatic differentiation.",
+  "model_or_system": "3D coplanar propagation of sharp cracks in heterogeneous, isotropic, and linearly elastic, perfectly brittle solids under mixed-mode I+II+III loading.",
+  "key_observables": "Stress Intensity Factors (K_I, K_II, K_III), energy release rate (G), crack-front position/deformation, and surface area variation.",
+  "important_parameters": "Disorder intensity, mode mixity, Poisson's ratio, heterogeneity correlation length, and finite-size effects.",
+  "main_assumptions": "The material is perfectly brittle, isotropic, and linearly elastic; the crack remains sharp (no diffuse damage scale); propagation is quasi-static and coplanar.",
+  "figures_summary": "Figure 1 illustrates crack front perturbations and geometric configurations; Figure 2 shows crack propagation and energy landscapes; Figure 4 compares numerical results to analytical predictions for shear loading; Supplementary figures show convergence studies regarding discretization and step size.",
+  "paper_structure": "The paper introduces a new variational-perturbative model, derives analytical benchmarks, validates the numerical implementation against these benchmarks, and then performs large-scale simulations to study the effects of disorder and mode mixity.",
+  "why_interesting": "The study of depinning transitions and the interplay between long-range elastic interactions and quenched disorder is highly relevant to the physics of many-body systems and the dynamics of interfaces in disordered media.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.12631_figures/2605.12631_fig1.jpg",
+      "caption": "Figure 2: a. A mode I crack of initial radius aini (solid black line) propagates within its plane (xOz) under a pair of symmetric normal forces P applied at the center O. The fracture energy Gc varies with the radial coordinate r over a characteristic length scale d. b. Griffith’s criterion: the crack propagates when the energy release rate G(P, a) (thin colored dashed lines, from blue to red with increasing P) equals the local fracture energy Gc(a) (solid black line), provided the irreversibility condition a ≥aprev is satisfied (solid grey vertical line for aini = 5 d, dotted grey/black lines thereafter). c. Total energy Πtot as a function of crack radius a. Equilibrium configurations...",
+      "page": 9
+    },
+    {
+      "image": "2605.12631_figures/2605.12631_fig2.jpg",
+      "caption": "Figure 3: a. Crack propagation in a heterogeneous medium, following the configuration of Figure 2. b. Under increasing load P, the crack advances through a sequence of stable equilibrium positions (blue to orange circles). When a local drop in fracture energy (solid black line) causes instability, the crack abruptly snaps to a new configuration (red circles), controlled by the decrease of G at fixed load (dashed black line). Additional stable solutions to Griffith’s criterion G(P; a) = Gc(a) are shown as grey circles. c. Total energy Πtot as a function of crack radius a. Equilibrium configurations satisfying Eq. (1) are indicated by colored circles. Grey markers correspond to nonphysical...",
+      "page": 10
+    },
+    {
+      "image": "2605.12631_figures/2605.12631_fig3.jpg",
+      "caption": "Figure 4: a.-b. A shear crack of initial radius aini (in solid bold black line) propagates within its plane (xOz) under a pair of symmetric shear forces Q applied at the center O. Consecutive crack front positions (in solid black lines) for Poisson’s ratio ν = 0. (a.) and ν = 0.2. (b.) represent crack propagation in homogeneous fracture energy field as a result of increasing Q. The first order asymptotic solution of Eq. (22) (in red line) is compared to a crack front position at maximum computed Q. c. Relative difference of an average radius ˆa0 with reference radius a0 and d. Fourier coefficient ˆa2 of the crack front position a(θ) at maximum computed Q. Numerical results (in solid black...",
+      "page": 13
+    },
+    {
+      "image": "2605.12631_figures/2605.12631_fig4.jpg",
+      "caption": "Figure 5: a.-d. A shear crack that follows the configuration of Figure 4 propagates in a heterogeneous fracture energy field Gc(θ) (from beige to dark grey). Consecutive crack front positions (in solid black lines) for heterogeneity mode a. p = 3; b. p = 5; c. p = 8 and d. p = 32 represent crack propagation as a result of increasing point shear force Q. The first order asymptotic solution of Eq. (24) (in red line) is compared to a crack front position at maximum computed Q. e. Numerical results (in solid colored lines) and first-order asymptotic solution (in dashed black lines) for the pth Fourier coefficient ˆap of the crack front position a(θ) at maximum computed Q.",
+      "page": 14
+    },
+    {
+      "image": "2605.12631_figures/2605.12631_fig5.jpg",
+      "caption": "Figure 6: a. A shear crack propagates within its plane (xOz) under a pair of symmetric shear forces Q applied at the center O in material with non-zero Poisson’s ratio ν = 0.2. The disordered fracture energy field Gc(r, θ) varies within the rupture plane over a characteristic length scale d as shown on the inset in lower right corner. Successive equilibrium positions of the crack front during propagation are plotted in solid black lines. b. Early-time response that marks the transition between stable to intermittent crack growth, when the crack perimeter of approximate size of the Larkin length P ∼Llarkin c. Normalized average crack radius ⟨a⟩/d (solid red line), fluctuating around the...",
+      "page": 17
+    }
+  ],
+  "figure": "2605.12631_figures/2605.12631_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

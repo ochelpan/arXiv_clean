@@ -1,0 +1,86 @@
+{
+  "arxiv_id": "2605.12597",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "cs.AI",
+    "cs.LG",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "The critical slowing down in diffusion models",
+  "authors": "Luca Maria Del Bono, Giulio Biroli, Patrick Charbonneau, Marylou Gabrié",
+  "abstract": "Computational sampling has been central to the sciences since the mid-20th century. While machine-learning-based approaches have recently enabled major advances, their behavior remains poorly understood, with limited theoretical control over when and why they succeed. Here we provide such insight for diffusion models-a class of generative schemes highly effective in practice-by analyzing their application to the $O(n)$ model of statistical field theory in the Gaussian limit $n \\to \\infty$. In this analytically tractable setting, we show that training a score model with a one-layer network architecture matching the exact solution exhibits a form of critical slowing down in parameter learning. This slowing down also impacts the generation process, indicating that the well-known difficulties of sampling near criticality persist even for learned generative models. To overcome this bottleneck, we demonstrate the power of combining architectural depth with physical locality. We find that using a two-layer architecture drastically reduces the critical slowing down, with the training time scaling logarithmically rather than quadratically with system size. By introducing a local score approximation we show that this acceleration in training time can be achieved without increasing the number of neural network parameters. Taken together, these results demonstrate that diffusion models can overcome the critical slowing down through appropriate architectural design, and establish a controlled framework for understanding and improving learned sampling methods in statistical physics and beyond.",
+  "url": "http://arxiv.org/abs/2605.12597v1",
+  "pdf": "https://arxiv.org/pdf/2605.12597v1",
+  "type": "theory",
+  "summary": "This paper identifies that diffusion models inherit the critical slowing down characteristic of traditional sampling methods when approaching phase transitions. It demonstrates that architectural improvements, such as increasing network depth or implementing local score approximations, can significantly accelerate training and generation.",
+  "main_problem": "Investigating the phenomenon of critical slowing down in the training and generation processes of diffusion models near phase transitions.",
+  "main_result": "The authors show that while one-layer architectures suffer from critical slowing down (scaling as L^2), using overparameterized two-layer architectures or local score approximations can reduce training time scaling to logarithmic (log L).",
+  "method": "The study uses an analytical framework based on the n -> infinity limit of the O(n) model, analyzing gradient descent dynamics and error propagation in Fourier space.",
+  "model_or_system": "The Gaussian limit (n -> infinity) of the O(n) model of statistical field theory, characterized by a Gaussian action with a kinetic term and a mass parameter.",
+  "key_observables": "Training timescales, correlation time, Wasserstein distance, KL divergence, Frobenius norm of the covariance error, and effective mass.",
+  "important_parameters": "Effective mass (m_eff), system size (L), diffusion time (t), coupling constant (g), and learning rate (eta).",
+  "main_assumptions": "The analysis is performed in the large-n limit (n -> infinity) to ensure analytical tractability and assumes a Gaussian action.",
+  "figures_summary": "Figures illustrate the scaling of training time with system size, the impact of architecture depth on convergence, and the error scaling of the trained score kernel.",
+  "paper_structure": "The paper introduces the problem of critical slowing down, derives the analytical score function for the O(n) model, analyzes the training dynamics of one-layer vs. two-layer networks, and evaluates the impact of locality and discretization errors.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.12597_figures/2605.12597_fig1.jpg",
+      "caption": "FIG. 1. Top row: Schematic of the physical setup and critical slowing down. (a) Equilibrium d = 2 configurations of one of the field components for systems with an action as in Eq. (2), shown for different effective masses (frame colors). As meff decreases, the correlation length increases, thus giving rise to spatially extended field fluctuations. (b) Time decay of the field autocorrelation function, Eq. (5), for the same systems as in (a). As meff decreases, the autocorrelation decays increasingly slowly and hence its autocorrelation time τ increases. At criticality, τ ∼L2, where L is the linear size of the system. Bottom row: Schematic of the main results. (c) A one-layer network...",
+      "page": 4
+    },
+    {
+      "image": "2605.12597_figures/2605.12597_fig2.jpg",
+      "caption": "FIG. 2. Top: Relative error in the trained score kernel, εS, Eq. (28), under gradient descent evolution for kmin = 2π/L with L = 20 and meff = 1/2. The evolution eventually be- comes uncontrolled if η > ηmax = 2(k2 min + m2 eff) = 0.697. Bottom: Same quantity (colored data points) as a func- tion of meff for different system sizes L at fixed training time ¯t = 500. The learning rate is taken to be near the largest pos- sible one, ηL = 2f \u0000 m2 eff + (2π/L)2\u0001 with f = 0.95. Theoreti-",
+      "page": 7
+    },
+    {
+      "image": "2605.12597_figures/2605.12597_fig3.jpg",
+      "caption": "FIG. 3. Standard deviation σ(t) of the Fourier compo- nents of the fields from approximate (colored lines) and exact (Eq. (31); dashed black lines) generation (denoising) dynam- ics for: (top) a fixed training time ¯t, Eq. (34), and (bottom) a fixed relative score error ¯ε, Eq. (36). (insets) Enlarged low-t region. Setting: d = 1, k = 5, meff = 0.2, tmax = 5.",
+      "page": 9
+    },
+    {
+      "image": "2605.12597_figures/2605.12597_fig4.jpg",
+      "caption": "FIG. 4. Critical slowing down in configuration generation. Left: System size dependence of the Frobenius error of the matrix, εC from Eq. (38), scaled by that error for ¯t = 10 and L = 64 (points) for different training times. Results are fitted to the form Ae−C/L2 (dotted line). Right: Same results rescaled as ¯t/L2. The ensuing collapse follows the predicted scaling",
+      "page": 10
+    },
+    {
+      "image": "2605.12597_figures/2605.12597_fig5.jpg",
+      "caption": "FIG. 5. Error analysis for the one-layer network architecture (top row) and the two independent layer architecture (bottom row). Left column: relative error in the real part of the score, ε e F(⃗k) (Eq. (56)), for different Fourier modes as a function of training time. Right column: Characteristic decay time τ(⃗k) (black dashed line) of the covariance eigenvalue for different modes, eC(⃗k) = 1/k2. In the one-layer case, the decay time scales linearly with the covariance eigenvalue; in the two-layer case, that scaling is logarithmic. Simulation details: diffusion time t = 0.01, η = 0.01 (top row) and η = 0.005 (bottom row), L = 16, optimization performed using gradient descent over 1024...",
+      "page": 11
+    }
+  ],
+  "figure": "2605.12597_figures/2605.12597_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
