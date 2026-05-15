@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2605.14671",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cs.AI"
+  ],
+  "is_primary_archive": false,
+  "title": "Agentic Design of Compositional Descriptors via Autoresearch for Materials Science Applications",
+  "authors": "Matteo Cobelli, Stefano Sanvito",
+  "abstract": "Autoresearch offers a flexible paradigm for automating scientific tasks, in which an AI agent proposes, implements, evaluates, and refines candidate solutions against a quantitative objective. Here, we use composition-based materials-property prediction to test whether such agents can perform a task beyond model selection and hyperparameter optimization: the design of input descriptors. We introduce Automat, an autoresearch framework where a coding agent based on a large language model generates composition-only descriptors for chemical compounds and evaluates them using a random forest workflow. The agent is restricted to information derivable from chemical formulas and iteratively proposes, implements, and tests chemically motivated descriptor strategies. We apply Automat, with OpenAI Codex using GPT-5.5 as the coding agent, to the prediction of experimental band gaps in inorganic materials and Curie temperatures in ferromagnetic compounds. In both tasks, Automat improves over fractional-composition, Magpie, and combined fractional-composition/Magpie baselines, while producing descriptor families that are chemically interpretable. These results provide a demonstration that autoresearch agents can generate competitive, task-specific materials descriptors without manual feature engineering during the run. They also reveal current limitations, including descriptor redundancy, sensitivity to greedy feature expansion, and the need for explicit complexity control, descriptor pruning, and more sophisticated search strategies.",
+  "url": "http://arxiv.org/abs/2605.14671v1",
+  "pdf": "https://arxiv.org/pdf/2605.14671v1",
+  "type": "theory",
+  "summary": "This paper introduces an autonomous AI agent framework called AUTOMAT that can perform scientific feature engineering for materials science. By iteratively designing chemical descriptors from formulas, the agent achieves higher predictive accuracy for electronic and magnetic properties than traditional manual methods. This demonstrates the potential for 'autoresearch' agents to automate complex scientific discovery tasks.",
+  "main_problem": "The difficulty of designing effective, task-specific numerical descriptors for materials property prediction, which currently relies on manual and expertise-dependent feature engineering.",
+  "main_result": "The AUTOMAT framework successfully uses an AI agent to autonomously design compositional descriptors that outperform standard baselines (Magpie, fractional composition) for predicting band gaps and Curie temperatures.",
+  "method": "An 'autoresearch' framework (AUTOMAT) where an LLM-based coding agent iteratively proposes, implements, and evaluates descriptor strategies using a Random Forest workflow and a greedy accept/reject optimization loop.",
+  "model_or_system": "The study focuses on chemical compounds and inorganic materials, specifically using chemical formulas to predict experimental band gaps and Curie temperatures in ferromagnetic compounds.",
+  "key_observables": "Mean Absolute Error (MAE), Root Mean Square Error (RMSE), and R-squared (R2) values for property prediction.",
+  "important_parameters": "The agent is restricted to information derivable solely from chemical formulas; the optimization uses a held-out validation set for stopping criteria.",
+  "main_assumptions": "The agent is restricted to composition-only information (no structural data); the machine learning model architecture (Random Forest) and hyperparameters are held constant.",
+  "figures_summary": "Figure 1 shows the AUTOMAT workflow schematic; Figure 2 and 3 illustrate the trajectory of model performance and descriptor dimensionality over search iterations; Figure 4 compares final test performance across different descriptor representations.",
+  "paper_structure": "The paper introduces the problem of manual feature engineering, presents the AUTOMAT agentic framework, details the experimental setup for band gap and Curie temperature prediction, reports performance gains and descriptor evolution, and discusses limitations such as dimensionality explosion and redundancy.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.14671_figures/2605.14671_fig1.jpg",
+      "caption": "FIG. 1. Schematic representation of the AUTOMAT autoresearch workflow defined in program.md. The agent is given access to the project directory, the training/search data, and the held-out validation data. However, the held-out test set is not used during the descriptor development. At each iteration, the agent proposes a chemically motivated composition-only descriptor strategy, records its rationale and implementation plan in descriptors/idea.md, implements the corresponding Python code in descriptors/idea.py, and evaluates the resulting descriptors using a random forest model. Local accept/reject decisions are based on the mean cross-validation MAE computed on fixed folds of the...",
+      "page": 2
+    },
+    {
+      "image": "2605.14671_figures/2605.14671_fig2.jpg",
+      "caption": "FIG. 2. AUTOMAT descriptor-design trajectory for composition-only prediction of experimental band gaps. Left panel: model performance and descriptor dimensionality as functions of the autoresearch iteration. The orange curve shows the running-best MAE on the training/search cross-validation folds, which is used by the agent for local accept/reject decisions. The blue curve shows the MAE on the held-out validation set for accepted descriptor checkpoints, which is used for outer model selection. Filled markers indicate accepted descriptor modifications, open markers indicate discarded attempts, and the larger square marks the descriptor set selected for final test evaluation. Gray bars show...",
+      "page": 6
+    },
+    {
+      "image": "2605.14671_figures/2605.14671_fig3.jpg",
+      "caption": "FIG. 3. AUTOMAT descriptor-design trajectory for composition-only prediction of the experimental Curie temperature, TC, of permanent ferromagnets. Left panel: model performance and descriptor dimensionality as functions of the autoresearch iteration. The orange curve shows the running-best MAE on the training/search cross-validation folds, which is used by the agent for local accept/reject decisions. The blue curve shows the MAE on the held-out validation set for accepted descriptor checkpoints, which is used for outer model selection. Filled markers indicate accepted descriptor modifications, open markers indicate discarded attempts, and the larger square marks the descriptor set selected...",
+      "page": 8
+    },
+    {
+      "image": "2605.14671_figures/2605.14671_fig4.jpg",
+      "caption": "FIG. 4. Final held-out test performance of random forest models using different composition-only descriptor representations. Results are shown for experimental band-gap prediction in eV and Curie-temperature prediction in K. Columns report the MAE, root mean squared error (RMSE), and coefficient of determination (R2). Lower values are better for MAE and RMSE, whereas higher values are better for R2, which is upper-bounded to 1. Baselines include a fractional composition array indexed by atomic number (118 components), Magpie descriptors (132 components), and the concatenation of fractional composition and Magpie descriptors (250 components). AUTOMAT denotes the descriptor set generated by...",
+      "page": 10
+    }
+  ],
+  "figure": "2605.14671_figures/2605.14671_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

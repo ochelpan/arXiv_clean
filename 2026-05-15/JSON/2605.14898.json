@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.14898",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Generative reconstruction of 2D and 3D polycrystalline microstructures using symmetrized hyperspherical harmonics",
+  "authors": "Ali R. Safi, Paul Seibert, Santiago Benito, Alexander Raßloff, Markus Kästner, Benjamin Klusemann",
+  "abstract": "Establishing structure-property linkages in polycrystalline materials requires representative two- (2D) and three- (3D) dimensional microstructural inputs for full-field simulations. A core objective of microstructure characterization and reconstruction is the generative synthesis of 2D and 3D microstructures that reflect a target statistical ensemble using limited 2D data as a reference. This work introduces an orientation-based differentiable microstructure characterization and reconstruction framework, implemented in MCRpy, to perform reconstructions of voxelized images. Unit quaternions in combination with symmetrized hyperspherical harmonics are utilized to derive a continuous, symmetry-invariant representation of crystallographic orientations to overcome the numerical singularities and discontinuities associated with traditional Euler-based methods.   The descriptor-based reconstructions are driven by a set combining two-point spatial correlations, a novel hybrid three-point variogram, and a mean variation regularizer to capture both global texture and local interfacial topology. The framework's efficiency is demonstrated by reconstructing 3D realizations from 2D orientation data of an aluminum alloy after thermo-mechanical processing, successfully recovering both morphological features and crystallographic distribution. Systematic benchmarking indicates that second-order gradient-based optimization, utilizing the L-BFGS-B algorithm, effectively navigates the complex loss landscape to generate high-fidelity realizations with minimal residuals. This methodology provides a versatile, open-source framework for the digital synthesis of polycrystalline representative volume elements to facilitate the rapid development of microstructure-informed materials design workflows.",
+  "url": "http://arxiv.org/abs/2605.14898v1",
+  "pdf": "https://arxiv.org/pdf/2605.14898v1",
+  "type": "both",
+  "summary": "This paper introduces a new framework for the digital synthesis of 3D polycrystalline microstructures from 2D EBSD data. By using quaternions and symmetrized hyperspherical harmonics, it avoids the mathematical singularities of Euler angles, allowing for more accurate and continuous reconstruction of grain textures and morphologies.",
+  "main_problem": "The challenge of generating 3D polycrystalline microstructures from limited 2D experimental data while overcoming numerical singularities and discontinuities in traditional orientation representations.",
+  "main_result": "The development of a differentiable reconstruction framework (MCRpy) that uses unit quaternions and symmetrized hyperspherical harmonics to achieve high-fidelity, symmetry-invariant 3D reconstructions of grain morphology and texture.",
+  "method": "A gradient-based optimization approach (DMCR) using the L-BFGS-B algorithm, employing a loss function composed of two-point spatial correlations, a hybrid three-point variogram, and a mean variation regularizer.",
+  "model_or_system": "Polycrystalline materials, specifically an aluminum alloy subjected to thermo-mechanical processing, modeled via voxelized orientation fields and phase indicator functions.",
+  "key_observables": "Crystallographic texture (pole figures, ODF, IPF), grain morphology (aspect ratio, topology), and spatial correlation functions.",
+  "important_parameters": "Harmonic degree (n=8), weighting factors for loss components (w_S, w_gamma3, w_V), and quaternion normalization constraints.",
+  "main_assumptions": "The target descriptors are assumed to be statistically wide-sense stationary throughout the volume during 2D-to-3D reconstruction.",
+  "figures_summary": "Visual comparisons of orientation representations (Euler vs. SHSH); spatial correlation and variogram maps; workflow schematics; performance comparisons of different loss descriptors; and 3D reconstructed grain structures.",
+  "paper_structure": "Introduction of the MCR problem, mathematical formulation of the SHSH and quaternion-based orientation representation, description of the differentiable reconstruction framework and loss functions, demonstration of 2D-to-3D reconstruction in aluminum, and analysis of optimization convergence and descriptor sensitivity.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.14898_figures/2605.14898_fig1.jpg",
+      "caption": "Figure 1: Comparative visualization of the local crystallographic orientation state across a polycrystalline microstructure using Eulerian and neo-Eulerian mappings. The top panel displays the Eulerian representation using the three Bunge- Euler angles (ϕ1, Φ, ϕ2). The bottom panel illustrates three neo-Eulerian parametrizations: the axis-angle formulation, defined by the rotation-axis components vi and the rotation angle ω, which reaches a maximum value of approximately 1.096 for cubic symmetry; the Rodrigues vector components ρi, which scale the axis by tan(ω/2); and the unit quaternion components qi, which map the rotation onto the hypersphere.",
+      "page": 6
+    },
+    {
+      "image": "2605.14898_figures/2605.14898_fig2.jpg",
+      "caption": "Figure 2: Spatial distribution of selected SHSH basis function evaluations mapped onto the polycrystalline microstruc- ture. The basis functions ˙¨Zn λ for harmonic degree n = 8 and distinct symmetry indices λ = {1, 5, 9} are displayed in a range of [−1, 1].",
+      "page": 8
+    },
+    {
+      "image": "2605.14898_figures/2605.14898_fig3.jpg",
+      "caption": "Figure 3: Grid of auto- and cross-correlation maps for selected SHSH basis functions. The plots visualize the two- point spatial correlation function S( ˙¨Zn λ, ˙¨Zn λ′|r) for harmonic degree n = 8 and symmetry indices λ, λ′ ∈{1, 5, 9}.",
+      "page": 9
+    },
+    {
+      "image": "2605.14898_figures/2605.14898_fig4.jpg",
+      "caption": "Figure 4: Variogram maps for selected SHSH basis modes. The plots display the first-order variogram γ( ˙¨Zn λ|r) for harmonic degree n = 8 and symmetry indices λ ∈{1, 5, 9}. Each map quantifies the expected absolute difference in the respective SHSH coefficient field for a given lag vector r. The pronounced anisotropy, characterized by lower values (darker regions) extending vertically along the ry axis, signifies that the microstructural features are more continuous and exhibit longer correlation lengths in the vertical direction compared to the horizontal direction.",
+      "page": 10
+    },
+    {
+      "image": "2605.14898_figures/2605.14898_fig5.jpg",
+      "caption": "Figure 5: Schematic workflow of the DMCR framework expanded to orientation information. The pipeline begins with the extraction of a target descriptor set Dref from a reference EBSD map Mref by utilizing the SHSH transform as microstructural local state. The reconstruction is initialized from a random noise field M0 and proceeds through an iterative optimization loop. In each iteration i, the current microstructure Mi is transformed into SHSH space to compute its descriptors. The discrepancy L between the current and target descriptors is evaluated, and its gradients ∇ML are backpropagated to compute the update increment ∆M. The process repeats until the loss falls below a specified...",
+      "page": 11
+    }
+  ],
+  "figure": "2605.14898_figures/2605.14898_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

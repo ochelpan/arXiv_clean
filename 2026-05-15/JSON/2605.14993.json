@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.14993",
+  "category": "other",
+  "arxiv_categories": [
+    "physics.atom-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Accurate Modeling of Rydberg Atoms and Their Interactions: Theory and Implementation in PairInteraction",
+  "authors": "Johannes Mögerle, Frederic Hummel, Alicia Keil, Tangi Legrand, Eduard J. Braun, Henri Menke, Jonathan King, Beatriz Olmos, Sebastian Hofferberth, Hans Peter Büchler, Sebastian Weber",
+  "abstract": "Rydberg atoms provide a powerful platform for exploring strongly interacting quantum systems, both in free space and in structured electromagnetic environments, with growing applications in quantum technology. Accurately modeling their single-atom properties and mutual interactions is essential for interpreting experiments and designing new architectures. We present a unified theoretical framework for Rydberg atoms and their interactions based on multi-channel quantum defect theory (MQDT) and static electromagnetic Green's tensors. MQDT provides a precise description of Rydberg states of divalent atoms such as strontium and ytterbium, while the Green's tensor formalism provides a general and flexible approach for calculating interactions between two Rydberg atoms in arbitrary geometries, including modifications induced by nearby surfaces. We implement this framework in an updated version of the open-source PairInteraction software [Weber et al., J.~Phys.~B~50 (2017)]. The implementation leverages high-performance libraries and achieves speedups of one order of magnitude for pair-potential calculations compared to prior software. We demonstrate the capabilities of the framework through example applications to divalent atoms and show excellent agreement with experimental data for an exemplary Stark map of $^{174}$Yb. The modular software architecture enables the community to extend it further.",
+  "url": "http://arxiv.org/abs/2605.14993v1",
+  "pdf": "https://arxiv.org/pdf/2605.14993v1",
+  "type": "theory",
+  "summary": "This paper introduces an updated version of the PairInteraction software, which uses MQDT and Green's tensors to accurately model Rydberg atom interactions. The new version is significantly faster and can handle complex divalent atoms and atoms near surfaces. It is a vital resource for designing and interpreting experiments in Rydberg-based quantum technologies.",
+  "main_problem": "The need for an accurate, efficient, and scalable computational framework to model the complex single-atom properties and mutual interactions of Rydberg atoms, particularly divalent species and atoms in structured electromagnetic environments.",
+  "main_result": "The development of PairInteraction v2, an open-source software that achieves a tenfold speedup in pair-potential calculations and provides a unified framework for modeling atoms near surfaces using MQDT and Green's tensors.",
+  "method": "A unified theoretical approach combining Multi-Channel Quantum Defect Theory (MQDT) for atomic states and static electromagnetic Green's tensors for interactions, implemented via a modular C++/Python architecture.",
+  "model_or_system": "The system involves one or two Rydberg atoms (alkali or divalent species like Sr and Yb) in free space or near structured environments like cavities or conducting plates, described by a Hamiltonian including external electric/magnetic fields and dipole-dipable interactions.",
+  "key_observables": "Stark maps, Zeeman maps, pair-potential curves, van der Waals coefficients, Casimir-Polder shifts, and effective spin Hamiltonians.",
+  "important_parameters": "Effective principal quantum number (nu), angular quantum numbers (l, j, L, J, F), interatomic distance, and atom-surface distance in the static limit.",
+  "main_assumptions": "The interaction model assumes the static limit (distances much smaller than relevant wavelengths) and neglects exchange interactions at distances larger than the LeRoy radius.",
+  "figures_summary": "Figure 1 shows the physical setup and Hamiltonian construction; Figure 2 illustrates MQDT concepts and channel coupling; Figure 3 shows state labeling via quantum number variance; Figure 5 benchmarks software performance; Figure 6 compares calculated and experimental Yb Stark maps; Figure 7 shows pair-interaction potentials.",
+  "paper_structure": "The paper introduces the scientific problem, presents the theoretical framework (MQDT and Green's tensors), details the software implementation and performance gains of PairInteraction v2, validates the model against experimental Yb data, and discusses applications to surface interactions and effective spin models.",
+  "why_interesting": "It provides a highly efficient, scalable tool for researchers designing Rydberg-based quantum architectures, specifically addressing the complex physics of divalent atoms and the modification of interactions by nearby surfaces/nanostructures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.14993_figures/2605.14993_fig1.jpg",
+      "caption": "Figure 1. Considered system. (a) Two interacting Rydberg atoms, either in free space or in a structured electromagnetic environment (the figure depicts a cavity). The atoms can be alkali atoms or divalent atoms. Static electric and magnetic fields can be applied in arbitrary directions. (b) Overview of the approach used to construct the system’s Hamiltonian, starting with the formalisms applied to describe the physics.",
+      "page": 2
+    },
+    {
+      "image": "2605.14993_figures/2605.14993_fig2.jpg",
+      "caption": "Figure 2. MQDT concepts. (a) The calculation of Rydberg energies and channel coefficients with MQDT typically as- sumes that, beyond a radius rc, the potential of the ionic core is a pure Coulomb potential. As an approximation, Coulomb wave functions can remain useful at shorter distances up to a core region where irregular Coulomb functions diverge, and multi-electron effects dominate. (b) Schematic sketch of the FJ-coupled channels relevant to the S1/2 Rydberg series of 171Yb. In this example, ∣ϕ1⟩and ∣ϕ2⟩are hyperfine split ground states of the ionic core. Due to the small hyperfine splitting, resonances appear (symbolized by a red arrow) which lead to almost perfect LS-coupled states...",
+      "page": 3
+    },
+    {
+      "image": "2605.14993_figures/2605.14993_fig3.jpg",
+      "caption": "Figure 3. Labeling the angular character of the S1/2 Rydberg series of 171Yb. (a) Sketch of the FJ-coupling scheme (left) and LS-coupling scheme (right). For the consid- ered series, Jtot and Fc are non-trivial quantum numbers. (b) Average value of these quantum numbers (dotted) and their standard deviation (shaded region). As a function of the refer- ence effective principal quantum number νref, the nearly “good” quantum number oscillates between Jtot from the LS-coupling scheme and Fc from the FJ-coupling scheme. This Rydberg series is a simple example, where only two channels and some perturber states from other channels contribute, see fig. 2(b).",
+      "page": 5
+    },
+    {
+      "image": "2605.14993_figures/2605.14993_fig4.jpg",
+      "caption": "Figure 4. Schematic overview of the software archi- tecture. We separate the calculation of states and matrix elements from the generation and analysis of Hamiltonians for one and two Rydberg atoms. The former is performed by the RydState Python package. The latter is implemented in the PairInteraction Python package, which defines the classes BasisAtom/BasisPair and SystemAtom/SystemPair to repre- sent the objects required to describe the physics.",
+      "page": 7
+    },
+    {
+      "image": "2605.14993_figures/2605.14993_fig5.jpg",
+      "caption": "Figure 5. Comparison of the computational perfor- mance of PairInteraction v2 with v0.9 (on an AMD Ryzen 7 5700G with 62 GiB of RAM). A system of two in- teracting rubidium atoms is considered, with and without electric and magnetic fields of strength Ez = 0.2 V/cm and Bz = 100 G. We measure the wall-clock time for (a) construct- ing a two-atom Hamiltonian and (b) computing interaction potentials for 100 interatomic distances ranging from 2 to 3 µm for the target state ∣63P1/2, m = 1/2; 63P1/2, m = 1/2⟩. The benchmarks assume all database tables have been downloaded before. The Hamiltonian is constructed in a basis restricted to symmetrized pair states [51] with n = 59 . . .67 and l = 0 . ....",
+      "page": 9
+    }
+  ],
+  "figure": "2605.14993_figures/2605.14993_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 4,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 2,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 2,
+    "exotic spin models in light-matter": 2,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

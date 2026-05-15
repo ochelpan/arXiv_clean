@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2605.14515",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Spin chirality across quantum state copies detects hidden entanglement",
+  "authors": "Patrycja Tulewicz, Karol Bartkiewicz, Franco Nori",
+  "abstract": "Entanglement can hide in two fundamentally different ways. First, multi-copy correlations can carry information that no single-copy measurement on an unknown state is able to access. Second, bound entangled states possess a positive partial transpose, which makes them invisible to the Peres-Horodecki criterion and all moment inequalities that depend on it. Here we show that the moment difference between the partial transpose and purity decomposes exactly as a chirality-chirality correlator, where the relevant operator is the scalar spin chirality -- the same quantity that governs chiral spin liquids and the topological Hall effect. This decomposition identifies the specific physical structure that multi-copy entanglement detection probes. Using the same controlled-SWAP circuits, we develop a multi-channel spectral classifier for bound entanglement. The classifier combines realignment spectral features with chirality corrections and achieves 99.9% recall at zero false positives across all three known 3x3 bound entangled families, compared with ~40% for the CCNR criterion alone. We also introduce a marginal-noise construction that produces CCNR-invisible bound entangled states, which the classifier detects but which remain invisible to all single-parameter criteria. We validate our approach experimentally on three IBM Quantum processors and demonstrate negativity reconstruction with mean errors of 0.002-0.027, chirality detection for pure and mixed entangled states, and bound entanglement detection across two structurally distinct families (Horodecki and chessboard) on a single gate-based superconducting processor.",
+  "url": "http://arxiv.org/abs/2605.14515v1",
+  "pdf": "https://arxiv.org/pdf/2605.14515v1",
+  "type": "both",
+  "summary": "This paper introduces a method to detect undetectable bound entanglement by using spin chirality correlations across multiple copies of a quantum state. By combining these chirality features with spectral data in a machine learning classifier, the authors achieve near-perfect detection on real IBM quantum hardware.",
+  "main_problem": "Detecting 'hidden' entanglement, specifically bound entanglement (PPT states) that is invisible to standard single-copy measurements and the CCNR criterion.",
+  "main_result": "The authors prove that the difference between partial transpose and purity moments decomposes as a spin chirality-chirality correlator, and they develop a multi-channel machine learning classifier that achieves 99.9% recall for bound entanglement.",
+  "method": "The study uses controlled-SWAP circuits and randomized measurements to extract higher-order moments, combined with a Random Forest and Lasso logistic regression classifier trained on spectral and chirality features.",
+  "model_or_system": "Bipartite quantum systems in 2x2 (qubit-qubit), 2x3 (qubit-qutrit), and 3x3 (qutrit-qutrit) dimensions, implemented on IBM Heron-architecture superconducting processors (IBM Kingston, Torino, and Fez).",
+  "key_observables": "Negativity, partial transpose moments, scalar spin chirality (C3, C4), realignment matrix singular values (Sigma), and the non-Hermiticity gap (D).",
+  "important_parameters": "PPT (Positive Partial Transpose) vs NPT (Non-Positive Partial Transpose) regimes, CCNR-invisible bound entanglement, and noise levels (depolarizing noise).",
+  "main_assumptions": "The use of maximum likelihood estimation (MLE) to account for hardware degradation and the assumption that the trained classifier generalizes to unseen bound entangled families.",
+  "figures_summary": "Figure 1 shows the chirality landscape (purity vs. negativity vs. C4); Figure 3 illustrates the machine learning pipeline, including Lasso coefficients and Random Forest feature importance.",
+  "paper_structure": "The paper introduces the problem of hidden entanglement, provides a theoretical proof relating moments to spin chirality, describes the development of a multi-channel ML classifier, presents experimental validation on IBM hardware, and discusses noise robustness and efficiency.",
+  "why_interesting": "It bridges quantum information theory and condensed matter by showing that entanglement detection can be framed through the lens of spin chirality, a fundamental concept in chiral spin liquids.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.14515_figures/2605.14515_fig1.jpg",
+      "caption": "Figure 1: Chirality across quantum state copies reveals hidden entanglement. a, Chirality landscape: purity Tr[ρ2] versus negativity N versus |C4| for 107 random states (2×2 blue, 2×3 red). Black curve: pure 2×2 states. Dashed red: separable bound |C4| = 1/27. b, Detection architecture: controlled-SWAP circuits access negativity (NPT), the non-Hermiticity gap Dk (separable vs bound entangled), and the chirality fingerprint Ck (bound entanglement).",
+      "page": 4
+    },
+    {
+      "image": "2605.14515_figures/2605.14515_fig2.jpg",
+      "caption": "Figure 2: Experimental detection of hidden entanglement on IBM Torino. a, |C4| versus negativity N for the parametrised family |ψ(θ)⟩in 2×2 (squares) and 2×3 (triangles). Solid curve: |C4| = 4N 2(1 −N 2). b, Werner state chirality |C4|(p). Blue diamonds: hardware data from multiplexed k-copy SWAP tests (k = 2, 3, 4; 10 circuits, 4,000 shots) with matched-depth |00⟩ calibration; all p values reconstructed from a single experiment using LU-equivalence of Bell states (Supplementary Section S5). Solid black: theory |C4| = 3",
+      "page": 7
+    },
+    {
+      "image": "2605.14515_figures/2605.14515_fig3.jpg",
+      "caption": "Figure 3: Bound entanglement detection via machine learning. Dataset: 13,600 Carathéodory-certified 3×3 states (6,800 BE from seven families, 6,800 SEP; eight features: Σ1, G1, D1, Σ2, G2, D2, C3, C4). a, Lasso LR coefficients (22/44 non-zero). Red/blue: increases/decreases P(BE). b, RF score P(BE) sorted by state: separable (blue), then BE families. c, Hardware scores (IBM Fez) using hybrid MLE. All BE states above P = 0.5. d, ROC curves. RF: 99.9% recall at zero FP. Analytical criteria: CCNR 40%, range 58%. e, RF confusion matrix: 99.96% recall, 0.06% FP. f, Lasso LR: 93% recall, 5.2% FP.",
+      "page": 61
+    }
+  ],
+  "figure": "2605.14515_figures/2605.14515_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 4,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 2,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

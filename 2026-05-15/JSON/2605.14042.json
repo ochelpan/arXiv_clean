@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.14042",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "C-Phase-Aware Compilation for Efficient Fault-Tolerant Quantum Execution",
+  "authors": "Dhanvi Bharadwaj, Siddharth Dangwal, Yuewen Hou, Gokul Subramanian Ravi",
+  "abstract": "Achieving practical quantum advantage on fault-tolerant quantum computers (FTQC) is fundamentally constrained by the substantial spatial and temporal overheads required to map logical operations onto physical hardware. Existing compilation approaches typically adopt coarse-grained, slice-based abstractions that overlook fine-grained microarchitectural effects, such as routing contention, leading to inefficient resource utilization and limited alignment between algorithm structure and hardware capabilities.   This work presents a microarchitecture-aware compilation approach that integrates algorithmic structure directly with lattice surgery (LS) execution. By leveraging the commutativity of C-Phase operations, the method transforms inherently sequential gate sequences into concurrent multi-target interactions, effectively removing artificial dependencies and exposing significant instruction-level parallelism. To enable this, we design a dynamic, event-driven scheduling strategy that accurately models spatial layout and routing constraints, allowing operations to overlap in time while minimizing contention. Through improved coordination of computation and communication, this approach substantially reduces idle resources and achieves up to a 59.7$\\times$ reduction in execution time compared to standard baselines.",
+  "url": "http://arxiv.org/abs/2605.14042v1",
+  "pdf": "https://arxiv.org/pdf/2605.14042v1",
+  "type": "theory",
+  "summary": "This paper introduces Qomet, a compiler designed to optimize fault-tolerant quantum computing by treating the hardware layout as a continuous, dynamic resource. By exploiting the commutativity of C-Phase gates and using a cycle-accurate scheduler, it significantly reduces the time required to execute complex quantum algorithms like QAOA and QFT.",
+  "main_problem": "Existing compilers for fault-tolerant quantum computing (FTQC) use rigid, slice-based abstractions that ignore microarchitectural details, leading to high latency and inefficient resource utilization due to routing contention and artificial dependencies.",
+  "main_result": "The Qomet compiler achieves up to a 59.7x reduction in execution time by leveraging C-Phase commutativity for multi-target interactions and using a cycle-accurate, event-driven scheduler.",
+  "method": "A microarchitecture-aware co-design engine that uses multi-target grouping, routing-aware packing via Steiner trees, and a dynamic, event-driven scheduler to overlap operations and minimize qubit idling.",
+  "model_or_system": "A fault-tolerant quantum computing architecture based on the surface code, utilizing lattice surgery (LS) for logical operations (merge/split) and magic state distillation/cultivation for non-Clifford gates.",
+  "key_observables": "Execution latency (clock cycles), instructions per cycle (IPC), resource utilization, and routing footprint.",
+  "important_parameters": "Code distance (d), magic state availability (MS-Abundant vs. MS-Starved), and the number of nearest candidates (k) for magic state selection.",
+  "main_assumptions": "The approach is specifically designed for surface-code-based lattice surgery architectures and assumes a regime where quantum and classical resources are significant constraints.",
+  "figures_summary": "Figure 1 compares existing work to Qomet's speedup; Figure 2 shows the Qomet Co-Design Engine architecture; Figure 3 depicts the surface code 2D layout; Figure 4 details the temporal steps of a CNOT via lattice surgery; Figures 5-6 illustrate gate decomposition and parallelism; Figures 7-13 show performance scaling across various layouts, qubit counts, and magic state regimes.",
+  "paper_structure": "The paper introduces the problem of inefficient FTQC compilation, presents the Qomet compiler framework (grouping, packing, and rotation realization), details the event-driven scheduling and cost-aware magic state selection, and concludes with extensive benchmarks on QAOA and QFT workloads across different hardware regimes.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.14042_figures/2605.14042_fig1.jpg",
+      "caption": "Figure 2. Unlike traditional compilers that decouple program optimization from logical execution (Top), Qomet (Bottom) introduces a Co-Design Engine that fuses algorithmic properties with LS primitives. By reinterpreting sequential gate chains as simultaneous multi-target interactions, Qomet bypasses the artificial constraints of slice-based mapping. The resulting scheduled instructions account for realistic microarchitectural overheads (e.g., routing time), enabling high-density instruction execution and a marked reduction in program duration compared to serialized baselines.",
+      "page": 2
+    },
+    {
+      "image": "2605.14042_figures/2605.14042_fig2.jpg",
+      "caption": "Figure 3. (a) Logical surface code qubits (b) 2-D layout for 9 logical program qubits, where logical operations are real- ized by coupling program qubit boundaries to intermediary ancilla patches (𝑞0–𝑞8) using LS.",
+      "page": 3
+    },
+    {
+      "image": "2605.14042_figures/2605.14042_fig3.jpg",
+      "caption": "Figure 5. C-Phase is decomposed since it is not a native gate, enabling execution on standard hardware gate sets.",
+      "page": 4
+    },
+    {
+      "image": "2605.14042_figures/2605.14042_fig4.jpg",
+      "caption": "Figure 6. Eliminating false dependencies via CP-aware compilation. (1) Example circuit with two CP gates. (2) Existing approach: despite spatial independence, the compiler enforces serialization. Slices (2a–c) show the CNOT–𝑅𝑧(𝜃)–CNOT decomposition of CP(0, 1), while (2d–f) show CP(2, 0) under the same constraints. Although oper- ations such as (2d) could overlap with (2a) and (2c), false dependencies force sequential execution. (3) Qomet: exposes parallelism via multi-target C-Phase execution. Slices (3a) and (3c) show concurrent CNOT(0, 1) and CNOT(0, 2), while (3b) shows simultaneous independent teleportation from magic-state patches.",
+      "page": 4
+    },
+    {
+      "image": "2605.14042_figures/2605.14042_fig5.jpg",
+      "caption": "Figure 7. Layouts proposed in prior work with the MS- starved density: (a) Compact [35], (b) 1/2-filling [23], (c) 2/3- filling floorplan [23], and (d) Square sparse [35].",
+      "page": 9
+    }
+  ],
+  "figure": "2605.14042_figures/2605.14042_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

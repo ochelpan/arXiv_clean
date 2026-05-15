@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.15098",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AR",
+    "cs.DC",
+    "cs.PF"
+  ],
+  "is_primary_archive": true,
+  "title": "Accelerating State-Vector Quantum Simulation on Integrated GPUs via Cache Locality Optimization: A Cross-Architecture Evaluation",
+  "authors": "Gabriel Fernandes Thomaz, Jerusa Marchi, Eduarda Rodrigues Monteiro, Fernando Augusto Caletti de Barros, Evandro Chagas Ribeiro da Rosa",
+  "abstract": "The classical simulation of quantum algorithms is a crucial tool for circuit development, testing, and validation. Although acceleration using GPUs significantly reduces simulation time, most high-performance simulators rely on vendor-specific frameworks that target data-center hardware. To broaden access to quantum simulation, this work proposes a vendor-agnostic approach targeting the integrated GPUs commonly found in consumer-grade laptops. A primary challenge in state-vector simulation is its inherently poor spatial locality, which creates a memory bandwidth bottleneck. Consequently, baseline implementations experience a severe degradation in relative GPU speedup as the number of simulated qubits increases. To address this limitation, we introduce a state partitioning optimization that reorganizes the quantum state vector to maximize the last-level cache locality and minimize costly main memory fetches. We evaluate this strategy using a Quantum Phase Estimation algorithm across diverse architectures from Intel, AMD, and Apple. The experimental results demonstrate that the proposed optimization successfully mitigates performance degradation at larger qubit scales. In particular, for a 28-qubit simulation, the optimization reversed a performance deficit on an Intel Core i5, improving the GPU speedup over the CPU from 0.95x to 1.89x, and increased the Apple M1 Pro speedup from 3.71x to 5.88x. Overall, this approach yields consistent execution time improvements, demonstrating the viability of integrated GPUs for efficient quantum circuit simulation.",
+  "url": "http://arxiv.org/abs/2605.15098v1",
+  "pdf": "https://arxiv.org/pdf/2605.15098v1",
+  "type": "experiment",
+  "summary": "This paper introduces a way to make quantum circuit simulation much faster on standard consumer laptops by optimizing how data is stored in the GPU cache. By reorganizing the quantum state into blocks that fit into the processor's cache, the authors prevent the massive slowdowns typically seen when simulating larger numbers of qubits. This makes high-performance quantum simulation more accessible to researchers without expensive data-center hardware.",
+  "main_problem": "State-vector quantum simulation on integrated GPUs (iGPUs) suffers from severe performance degradation at larger qubit scales due to memory bandwidth bottlenecks and poor spatial cache locality.",
+  "main_result": "A state-partitioning optimization strategy successfully mitigates performance drops, significantly improving GPU speedup over CPU on architectures like Intel Core i5 (from 0.95x to 1.89x) and Apple M1 Pro (from 3.71x to 5.88x).",
+  "method": "The authors propose a vendor-agnostic approach using state-vector partitioning into blocks to maximize last-level cache (LLC) locality, implemented via the CubeCL framework and wgpu backend.",
+  "model_or_system": "The study focuses on the classical simulation of quantum algorithms using the state-vector method, specifically benchmarking the Quantum Phase Estimation (QPE) algorithm.",
+  "key_observables": "Wall-clock execution time, GPU speedup relative to CPU, cache miss rate (as a proxy for GPU performance), and the number of global-local qubit SWAP operations.",
+  "important_parameters": "Qubit scale (up to 28 qubits), block size (optimized to fit within L3/SLC cache capacities), and hardware architectures (Intel, AMD, and Apple).",
+  "main_assumptions": "The optimization is specifically tailored for integrated GPUs with shared memory architectures and may not directly translate to discrete GPUs.",
+  "figures_summary": "Figure 1 shows memory access patterns; Figure 2 illustrates state partitioning into blocks; Figure 3 shows the QPE circuit; Figure 4 compares execution times across architectures; Figure 5 shows the relationship between block size, cache misses, and SWAP counts; Figure 6 compares baseline vs. optimized GPU speedup.",
+  "paper_structure": "The paper introduces the memory bottleneck problem, describes the state-partitioning optimization and implementation details, presents a cross-architecture experimental evaluation, and concludes with a discussion on hardware-specific findings and future work.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.15098_figures/2605.15098_fig1.jpg",
+      "caption": "Fig. 1. Memory positions read and written when applying a single-qubit gate to qubit index 1 of a three-qubit system. The dashed line separates the regions processed by each iteration of the outer loop in Algorithm 1. Lines connecting elements represent the pairs accessed in the inner loop.",
+      "page": 4
+    },
+    {
+      "image": "2605.15098_figures/2605.15098_fig2.jpg",
+      "caption": "Fig. 2. Four-qubit system with the state divided into four blocks. Qubits 0 and 1 correspond to local qubits, whereas qubits 2 and 3 correspond to global qubits. The connecting lines represent the pairs of amplitudes accessed during the application of a gate to a specific qubit index.",
+      "page": 5
+    },
+    {
+      "image": "2605.15098_figures/2605.15098_fig3.jpg",
+      "caption": "Fig. 3. Circuit for the Quantum Phase Estimation Algorithm.",
+      "page": 5
+    },
+    {
+      "image": "2605.15098_figures/2605.15098_fig4.jpg",
+      "caption": "Fig. 4. Execution times for the QPE simulation on CPU versus integrated GPU. The top row (a–d) shows the baseline, while the bottom row (e–h) displays the execution times using the optimal state partitioning. The y-axis represents the wall-clock time in seconds on a logarithmic scale, and the x-axis indicates the number of simulated qubits. Executions range from 4 to 28 qubits, except for the AMD system (c, g), which is limited to a maximum of 27 qubits. In the optimized plots (e–h), the numbers annotated below the data points indicate the optimal block size yielding the shortest execution time.",
+      "page": 7
+    },
+    {
+      "image": "2605.15098_figures/2605.15098_fig5.jpg",
+      "caption": "Fig. 5. Performance analysis of a 27-qubit QPE simulation on CPU and integrated GPU. The top row (a–d) displays the CPU execution, while the bottom row (e–h) shows the GPU execution. The plots illustrate execution time (left y-axis), cache miss percentage (red bars, right y-axis), and SWAP count (green bars, right y-axis) for block sizes ranging from 16 to 27. Cache miss data is not available GPU executions and Apple M1 Pro CPU execution (d).",
+      "page": 7
+    }
+  ],
+  "figure": "2605.15098_figures/2605.15098_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

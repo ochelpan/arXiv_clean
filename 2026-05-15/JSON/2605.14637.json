@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.14637",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Adaptive Window Decoding based on Spatiotemporal Complementary Gap",
+  "authors": "Moeto Mishima, Riki Toshio, Kaito Kishi, Jun Fujisaki, Hirotaka Oshima, Shintaro Sato, Keisuke Fujii",
+  "abstract": "Real-time decoding plays a crucial role in practical fault-tolerant quantum computing. Window decoding, in which the decoding problem is divided into windows, is a promising approach. While reducing the window size is desirable for faster decoding, each window contains a buffer region whose size must typically be at least the code distance to avoid degrading the logical error rate, which limits how much the window can shrink. In this paper, we propose an adaptive decoding scheme in which window decoding is first performed with a small buffer size and a decoding confidence (soft information) is computed; if the confidence is low, the buffer size is enlarged and decoding is redone. This approach reduces the average decoding time, since most shots are decoded with a small buffer. A central challenge in realizing this scheme is that existing forms of soft information are not directly applicable to window decoding, especially with a small buffer. We address this challenge by introducing a new form of soft information, the spatiotemporal complementary gap, specifically designed for this setting. Numerical simulations demonstrate that the proposed scheme reduces the average buffer size by approximately 40% while maintaining the logical error rate.",
+  "url": "http://arxiv.org/abs/2605.14637v1",
+  "pdf": "https://arxiv.org/pdf/2605.14637v1",
+  "type": "theory",
+  "summary": "This paper proposes an adaptive window decoding method for surface codes that significantly reduces computational overhead. By using a new 'spatiotemporal complementary gap' to measure decoding confidence, the system can use small, fast buffers most of the time and only revert to larger, more expensive buffers when errors are likely, maintaining high accuracy with much lower average latency.",
+  "main_problem": "The bottleneck in real-time fault-tolerant quantum computing is the latency of decoding, where reducing window sizes in sliding-window decoding typically increases logical error rates due to insufficient buffer regions.",
+  "main_result": "The proposed adaptive decoding scheme reduces the average buffer size by approximately 40% while maintaining the logical error rate by using a new confidence metric called the spatiotemporal complementary gap (STCG).",
+  "method": "The authors introduce an adaptive scheme that first attempts decoding with a small buffer and uses the STCG (and its variants like path-selected STCG) as soft information to decide whether to commit the result or re-decode with a larger buffer.",
+  "model_or_system": "The study focuses on surface codes and repetition codes under both phenomenological and circuit-level noise models, utilizing a 3D decoding graph structure.",
+  "key_observables": "Logical error rate, decoding confidence (gap), average buffer size, and switching rate.",
+  "important_parameters": "Code distance (d), buffer size (r_buf), commit region (r_com), and physical error rate (p).",
+  "main_assumptions": "The study assumes the use of the Minimum-Weight Perfect Matching (MWPM) decoder and relies on an extrapolation procedure to predict performance in low-error-rate regimes.",
+  "figures_summary": "Figures illustrate the adaptive decoding workflow, the mechanics of sliding window decoding, the construction of the STCG and path-selected STCG, and numerical results showing the relationship between the gap, error rates, and buffer size efficiency.",
+  "paper_structure": "The paper introduces the decoding latency problem, describes the sliding window framework, proposes the adaptive scheme and the new STCG metrics, provides numerical validation via Monte Carlo simulations, and demonstrates performance extrapolation to low error rates.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.14637_figures/2605.14637_fig1.jpg",
+      "caption": "FIG. 1. Schematic of the adaptive window decoding scheme. By default, decoding is performed with a small buffer size, while soft information g, which quantifies the decoder’s confi- dence, is computed simultaneously. If g is smaller than a pre- determined threshold gth (i.e., the decoding result is deemed unreliable), the buffer size is enlarged to d and decoding is re- done; otherwise, the result is committed as is. This adaptive switching reduces the average decoding time while preventing degradation of the logical error rate.",
+      "page": 2
+    },
+    {
+      "image": "2605.14637_figures/2605.14637_fig2.jpg",
+      "caption": "FIG. 3. Schematic illustration of the boundary nodes used in the window. Separate boundary nodes are introduced for the two boundaries of the commit region (vcom,R and vcom,L), the two boundaries of the buffer region (vbuf,R and vbuf,L), and the virtual boundary (vvir). When performing decoding, the label ⊥is assigned to each of these five boundary nodes.",
+      "page": 4
+    },
+    {
+      "image": "2605.14637_figures/2605.14637_fig3.jpg",
+      "caption": "FIG. 2. Schematic of sliding-window decoding. Each window consists of a commit region and a buffer region. After de- coding the window, the tentative error estimate in the buffer region is discarded, and only that in the commit region is finalized. Artificial defects are generated according to the fi- nalized error estimate in the commit region, and the window advances by rcom before the next decoding step.",
+      "page": 4
+    },
+    {
+      "image": "2605.14637_figures/2605.14637_fig4.jpg",
+      "caption": "FIG. 4. Examples of logical errors caused by a small buffer size. Red lines represent the actual error chains, and blue lines represent the estimated error chains. (a) Two defects in window i are incorrectly matched to the right commit boundary and the virtual boundary, leaving an artificial defect with no partner in window i + 1, which is then matched to the left commit boundary by MWPM. (b) Two defects that should have been matched to the boundaries are instead matched to each other in window i, leading to an unanticipated single defect in window i + 1, which is then matched to the left boundary through a pair of defects.",
+      "page": 7
+    },
+    {
+      "image": "2605.14637_figures/2605.14637_fig5.jpg",
+      "caption": "FIG. 5. Difficulties in computing the complementary error within a window. (a) Leaving the buffer boundary open only yields additional errors indicated by the red lines. (b) Clos- ing the buffer boundary for both the minimum-weight and complementary errors leads to a spuriously small gap in some cases. (c) Computing the minimum-weight error with the buffer boundary open and the complementary error with it closed also leads to a spuriously small gap in some cases.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.14637_figures/2605.14637_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

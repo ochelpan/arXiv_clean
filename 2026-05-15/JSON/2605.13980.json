@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.13980",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "From Hilbert's Tenth Problem to Quantum Speedup: Explicit Oracles for Bounded Diophantine Systems",
+  "authors": "Gabriel Escrig, M. A. Martin-Delgado",
+  "abstract": "Solving non-linear Diophantine systems lies at the mathematical core of integer optimization and cryptography. While the general unbounded problem is undecidable, even over bounded integer domains it remains classically intractable in the worst case. In this work, we introduce a fully reversible quantum algorithmic framework tailored to solve arbitrary polynomial Diophantine equations over bounded integer domains. The core of our approach is the explicit, gate-level synthesis of an evaluation oracle for amplitude amplification. By coherently evaluating polynomial constraints via in-place two's complement arithmetic and routing operations into a single recycled accumulator, this garbage-free strategy achieves a compact and scalable synthesis of the underlying non-linear arithmetic. Through analytical derivations and empirical circuit simulations, we prove that the overall spatial complexity is bounded by $q = \\mathcal{O}((n + d^2)\\log_2 N)$ logical qubits for $n$ variables, maximum degree $d$, and interval length $N$. The non-Clifford Toffoli depth is upper-bounded by $\\mathcal{O}(q^2)$. This structural scaling exponent remains invariant to the variable count, modulated linearly only by the coefficients' Hamming weights. By moving beyond abstract black-box assumptions, this explicit architectural synthesis guarantees that the necessary quantum arithmetic acts as a bounded polynomial overhead. This ensures a quadratic speedup over classical exhaustive search, whether retrieving a unique assignment or dynamically enumerating an unknown number of solutions.",
+  "url": "http://arxiv.org/abs/2605.13980v1",
+  "pdf": "https://arxiv.org/pdf/2605.13980v1",
+  "type": "theory",
+  "summary": "This paper presents a concrete quantum architectural design for solving polynomial equations over integers. By explicitly synthesizing the arithmetic gates required for the oracle, the authors prove that the quantum advantage is preserved and that the computational overhead remains polynomially bounded. This provides a scalable blueprint for applying Grover-type searches to integer optimization and cryptographic problems.",
+  "main_problem": "The computational intractability of solving bounded Diophantine systems (polynomial equations over integers) and the need for an explicit, resource-efficient quantum oracle that avoids the 'black-box' assumption.",
+  "main_result": "The authors provide a gate-level synthesis of a reversible quantum arithmetic oracle that achieves a quadratic speedup over classical search while maintaining polynomial overhead in terms of qubit and gate complexity.",
+  "method": "A 'compute-utilize-uncompute' architecture using Grover's algorithm, two's complement arithmetic, and a shift-and-add engine for polynomial evaluation.",
+  "model_or_system": "A digital quantum computing framework operating on a bounded integer domain D = [-N/2, N/2 - 1]^n, utilizing quantum registers for system variables, function accumulation, and result counting.",
+  "key_observables": "Toffoli gate count, qubit requirements (spatial complexity), and amplitude amplification probability dynamics.",
+  "important_parameters": "Number of variables (n), maximum polynomial degree (d), interval length (N), and Hamming weight of coefficients (w_H).",
+  "main_assumptions": "The problem is restricted to bounded (decidable) Diophantine systems; the analysis focuses on the pre-asymptotic regime; the architecture assumes two's complement binary encoding.",
+  "figures_summary": "Figure 1 shows scaling of gate counts and qubits; Figure 2 displays amplitude amplification success probability; Figure 3 shows the Grover iteration schematic; Figure 4 and 5 illustrate specific arithmetic circuit implementations (rewiring and squaring); Figure 6 and 7 show gate complexity scaling with respect to qubits, equations, and variables.",
+  "paper_structure": "The paper begins with the mathematical definition of Diophantine systems, moves to the construction of a reversible arithmetic engine, details the gate-level synthesis of linear and quadratic oracles, provides a complexity analysis proving the preservation of quantum speedup, and concludes with empirical validation via state-vector simulations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.13980_figures/2605.13980_fig1.jpg",
+      "caption": "Figure 1: Complexity analysis of the proposed quantum architecture. Resource scaling is evaluated across 1500 Diophantine problem instances to establish empirical bounds. (Left) Log-log scaling of the Toffoli gate count as a function of the total number of logical qubits q. Data points are generated by varying the number of variables n ∈[1, 7], the maximum polynomial degree d ∈[2, 7], and the search interval length N. The empirical scaling exponent of 1.77 validates the sub-quadratic growth of the gate complexity in the pre-asymptotic regime. (Right) Total qubit requirement q versus the theoretical problem size, (n+ 1",
+      "page": 2
+    },
+    {
+      "image": "2605.13980_figures/2605.13980_fig2.jpg",
+      "caption": "Figure 2: Amplitude amplification dynamics for a strongly coupled multivariate quadratic Diophantine system. The plot displays the probability of measuring the unique target state P(|x = 3, y = 2, z = 1⟩) as a function of the number of Grover iterations. The underlying quantum oracle evaluates the explicit non-linear system: 3x2 + 2y2 + 5z2 = 40, 2xy −4yz + 3xz = 13, and −x2 + 5y −7z = −6. Each of the n = 3 variables is discretized using a 3-qubit register, yielding a global search space of size |D| = 29 = 512. The coherent search successfully navigates the complex arithmetic landscape, with the success probability peaking at 99.9% exactly at the theoretically predicted optimal step topt ≈⌊π",
+      "page": 3
+    },
+    {
+      "image": "2605.13980_figures/2605.13980_fig3.jpg",
+      "caption": "Figure 3: Schematic representation of a single Grover iteration. The circuit explicitly constructs the composite operator G = DOf, highlighting the sequential application of the Diophantine oracle (left block), which coherently evaluates the system of m polynomial equations to mark valid solution states, followed by the diffusion operator (right block), which amplifies their amplitudes.",
+      "page": 4
+    },
+    {
+      "image": "2605.13980_figures/2605.13980_fig4.jpg",
+      "caption": "Figure 4: Circuit schematic of the logical rewiring technique. The implementation is demonstrated for the evaluation of the linear function f(x, y) = 3x −2y + 7. By exploiting cost-free logical bit-shifts (rewiring), the need for full quantum multipliers is eliminated. Since the coefficient of x (cx = 3 ≡112) has a Hamming weight of wH = 2, its scalar multiplication is strictly decomposed into two sequential quantum additions. Conversely, to implement the negative coefficient cy = −2, the circuit utilizes two’s complement arithmetic: the input qubits of the y register are inverted via X gates and the carry-in bit (Cin) is set to |1⟩. The scalar factor of 2 is concurrently resolved through a...",
+      "page": 6
+    },
+    {
+      "image": "2605.13980_figures/2605.13980_fig5.jpg",
+      "caption": "Figure 5: Signed quantum squaring circuit. This schematic illustrates the in-place evaluation of a quadratic term. To prevent algorithmic self-reference conflicts, an ancillary qubit is temporarily entangled with the control bit via a CNOT gate, mediating its input to the adder. The final step, controlled by the sign bit (MSB), triggers the two’s complement subtraction logic (X inversions and Cin = |1⟩) to properly weight the negative MSB component.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.13980_figures/2605.13980_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

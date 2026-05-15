@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.14338",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Stopping Reliability in Adaptive Krylov-Shadow Quantum Fisher Information Estimation",
+  "authors": "Erjie Liu, Yangshuai Wang",
+  "abstract": "Adaptive quantum Fisher information (QFI) estimation requires a stopping rule that distinguishes accuracy from apparent numerical stability. For Krylov-shadow QFI estimators, finite Krylov order $K$ produces truncation bias, while finite sample budget $M$ produces finite-$M$ sampling-side error. We show that a width-only empirical stopping rule, based on interval width and local Krylov stability, can declare convergence at small $(K,M)$ even when the post hoc error exceeds the requested tolerance; we call this event a \\emph{false stop}. The mechanism is a narrow empirical interval centered on a biased low-$K$ estimate. We give a two-component stopping analysis that separates the Krylov and sampling terms, and we implement a guarded rule that permits a success declaration only after minimum thresholds in $K$ and $M$ and a persistence condition are satisfied. On a five-level dephasing benchmark at $n=4$ qubits, the guarded rule suppresses the false success declarations produced by the width-only empirical rule, whose false-stop rates range from $0.16$ to $0.68$ across the tested noise levels. Under the main fixed resource limit, the guarded rule refuses to make success declarations rather than accepting biased low-$K$ estimates; a separate true-relative-tolerance sampling-budget sequence then shows that, after Krylov and sampling recalibration, the same decision principle can make success declarations without observed false stops. These results show that stopping reliability is a distinct design requirement for adaptive QFI estimation: sampling precision at fixed $K$ does not by itself establish that Krylov truncation bias is controlled.",
+  "url": "http://arxiv.org/abs/2605.14338v1",
+  "pdf": "https://arxiv.org/pdf/2605.14338v1",
+  "type": "theory",
+  "summary": "The paper identifies a failure mode in adaptive QFI estimation where algorithms stop too early due to unresolved truncation bias. By introducing a 'guarded' stopping rule that enforces minimum resource thresholds, the authors significantly improve the reliability of error certification, though they note challenges in scaling this approach to larger systems.",
+  "main_problem": "The paper addresses the 'false-stop' pathology in adaptive Krylov-shadow Quantum Fisher Information (QFI) estimation, where a stopping rule prematurely declares convergence because it mistakes low sampling variance for true accuracy while ignoring significant Krylov truncation bias.",
+  "main_result": "The authors propose a 'guarded' stopping rule using eligibility thresholds and a persistence condition that suppresses false success declarations and significantly reduces median absolute error. However, they also demonstrate that the guard's effectiveness scales poorly with system size as the Krylov decay rate approaches unity.",
+  "method": "The authors develop an adaptive interface (AKS-QFI) that monitors both inter-order change (dK) and bootstrap interval width (wM). They implement a guarded rule with minimum thresholds for Krylov order (K) and sampling budget (M), alongside a persistence requirement (P).",
+  "model_or_system": "The study uses a noisy mixed-state family of n-qubit systems (n=4, 6, 8) subject to independent single-qubit dephasing and global depolarizing noise. The estimation targets the QFI of a density operator relative to a specific Hamiltonian generator.",
+  "key_observables": "Quantum Fisher Information (QFI) estimate, Krylov-stability measure (dK), empirical uncertainty interval width (wM), False-Stop Rate (FSR), and truncation bias (BK).",
+  "important_parameters": "Krylov order (K), sampling budget (M), target error tolerance (epsilon), dephasing probability (p_phi), and the persistence parameter (P).",
+  "main_assumptions": "The estimator assumes Hadamard differentiability of the density operator family and exponential decay of the Krylov truncation bias. It also assumes sub-Gaussian concentration for the sampling-side error.",
+  "figures_summary": "Figure 1 shows the clustering of width-only runs in a region of low width but high absolute error; subsequent figures illustrate the effectiveness of the guarded rule in reducing error and the scaling failure of the guard at larger system sizes.",
+  "paper_structure": "The paper identifies the false-stop mechanism, provides a two-component error analysis, introduces the guarded stopping rule, validates it via benchmarks on 4-qubit systems, and finally assesses scaling limitations for larger qubit numbers.",
+  "why_interesting": "This is highly relevant for researchers in quantum metrology and open quantum systems, as it provides a critical warning that high-precision sampling does not guarantee the control of systematic truncation errors in randomized measurement-based estimation protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.14338_figures/2605.14338_fig1.jpg",
+      "caption": "FIG. 1. Narrow empirical intervals do not certify accuracy under width-only stopping. Termination-time empirical interval width wM versus post hoc absolute error E for all runs (n = 4, five dephasing levels, 50 independent replicates per noise level). The key feature is the cluster of width-only runs in the upper-left region (wM ≤ε, E > ε): these are false stops in the sense of Eq. (15). The empirical gate can pass at the terminal low-K point, but higher-K trajectories and the reference value reveal the unresolved truncation bias identified in Remark IV.2. Guarded stopping removes this upper-left cluster by adding eligibility and persistence gates motivated by the two-component condition of...",
+      "page": 7
+    },
+    {
+      "image": "2605.14338_figures/2605.14338_fig2.jpg",
+      "caption": "FIG. 3. Width-only stopping’s low effective cost re- flects premature termination at a biased value. Median post hoc absolute error versus pϕ (n = 4, 50 independent repli- cates per point). The key feature is the divergence between rules at pϕ ≥0.18: guarded stopping reduces median error by up to a factor of 4.8 relative to width-only stopping despite using up to 16× larger effective terminal budgets at these noise levels, confirming that width-only stopping’s apparent efficiency arises from early termination at a truncation-biased estimate, the mechanism of Remark IV.2.",
+      "page": 8
+    },
+    {
+      "image": "2605.14338_figures/2605.14338_fig3.jpg",
+      "caption": "FIG. 2. Guarded stopping suppresses false success dec- larations under the default resource limit. False-stop rate (FSR, filled markers) and stop rate (SR, open markers) versus dephasing probability pϕ (n = 4, 50 independent repli- cates per point), with 95% Wilson confidence intervals. The key feature is the monotone increase of width-only FSR with pϕ (reaching 0.68 at pϕ = 0.24), while guarded-stopping FSR remains at zero throughout. Guarded SR is also zero at ev- ery tested noise level, so this fixed-resource grid measures false-success suppression; success declarations are tested in the recalibrated sampling-budget sequence of Section V E.",
+      "page": 8
+    },
+    {
+      "image": "2605.14338_figures/2605.14338_fig4.jpg",
+      "caption": "FIG. 4. Guarded calibration geometry at true 5% relative tolerance. Each point is a guarded run from the sampling-budget sequence, normalized by ε = 0.1885. All ter- minal estimates lie below the true-error threshold (horizontal dashed line). The guarded rule declares success only when the bootstrap width is also below threshold (vertical dashed line); otherwise it makes no success declaration at the terminal resource limit.",
+      "page": 9
+    },
+    {
+      "image": "2605.14338_figures/2605.14338_fig5.jpg",
+      "caption": "FIG. 5. Guard-threshold sensitivity under a resource- limited ablation. Each cell is one guard configuration (Kstop min , M stop min , P) aggregated over replicates at fixed noise (pϕ = 0.12, pdep = 0.03), ε = 0.2, resource limits (Kmax, Mmax) = (8, 512). Color and cell text give the false- stop rate. The only configuration with nonzero FSR is the weakest guard, (2, 32, 1). The default (4, 128, 2) is outlined in blue and has zero observed false stops in this ablation.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.14338_figures/2605.14338_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

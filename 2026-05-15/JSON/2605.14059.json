@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.14059",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Finite-size scaling of hetero-associative retrieval in continuous-signal-driven Ising spin systems",
+  "authors": "Andrea Ladiana",
+  "abstract": "Real-world physical signals are continuous and high-dimensional, yet the statistical-mechanics machinery of associative memory operates on discrete Ising spins. We bridge this divide through a multilayer Ising framework that couples a geometry-preserving continuous-to-Ising encoder (PCA whitening composed with SimHash random-hyperplane projection) to Kanter-Sompolinsky pseudo-inverse memory couplings, embedded directly into the local-field equations of a tri-layer hetero-associative system. The pseudo-inverse correction renders the equal-weight mixture state thermodynamically unstable, so that thermal fluctuations break the cross-modal symmetry and select a single global winner. We further establish a dynamical duality: parallel (Little) updates are structurally required to ignite the cross-modal signal avalanche from a single cued layer, whereas sequential (Glauber) sweeps resolve symmetric superpositions. The operational storage capacity obeys the Amit-Gutfreund-Sompolinsky finite-size correction $α_c(N)=α_c(\\infty)-c\\,N^{-1/2}$, extrapolating to an asymptotic operational limit $α_c(\\infty)\\approx 0.50$ under macroscopic-basin retrieval. Applied to multi-channel sleep polysomnography (PhysioNet Sleep-EDF), the architecture reconstructs the macroscopic sleep state on parietal EEG and EOG axes from a single noisy frontal-EEG cue, demonstrating cross-modal recall in the presence of quenched biological disorder.",
+  "url": "http://arxiv.org/abs/2605.14059v1",
+  "pdf": "https://arxiv.org/pdf/2605.14059v1",
+  "type": "both",
+  "summary": "This paper develops a method to map continuous, real-world data into Ising spin systems for associative memory. It demonstrates that using pseudo-inverse couplings and specific update dynamics allows for robust pattern reconstruction and the ability to disentangle overlapping signals, even when applied to noisy biological EEG data.",
+  "main_problem": "Bridging the gap between high-dimensional continuous signals and discrete Ising spin frameworks for associative memory, specifically addressing basin collapse and cross-modal retrieval.",
+  "main_result": "The authors establish a multi-layer hetero-associative framework that achieves robust cross-modal reconstruction and spontaneous symmetry breaking, with an asymptotic storage capacity of approximately 0.50.",
+  "method": "A pipeline of PCA whitening and SimHash random-hyperplane projection is used to encode continuous signals into Ising spins, combined with Kanter-Sompolinsky pseudo-inverse couplings and Monte Carlo dynamics.",
+  "model_or_system": "A tri-layer hetero-associative Ising spin system where layers are coupled pairwise using pseudo-inverse memory couplings to decorrelate patterns and stabilize retrieval.",
+  "key_observables": "Overlap (intra-class and inter-class), separation gap (delta q), Basin Collapse Index (BCI), Mattis magnetization, and storage capacity (alpha_c).",
+  "important_parameters": "Inverse temperature (beta), spin dimension (N), loading parameter (alpha), Tikhonov regularization (gamma), and bit-flip noise rate (p_flip).",
+  "main_assumptions": "Assumes SimHash entries are i.i.d. Gaussian and that PCA whitening can be performed; assumes the ability to perform sign re-binarization.",
+  "figures_summary": "Figures show magnetization dynamics, temperature-dependent phase diagrams, separation gaps between spin overlaps, and the reconstruction of sleep-state signatures from EEG/EOG data.",
+  "paper_structure": "The paper introduces the interface problem, describes the multi-layer encoding and coupling architecture, presents analytical proofs for encoding fidelity and scaling, details numerical simulations on synthetic curves, and concludes with an experimental application to human sleep polysomnography.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.14059_figures/2605.14059_fig1.jpg",
+      "caption": "FIG. 1. Concentration of spin overlaps. Panel (a): intra- class overlap qintra = N −1⟨sa · sb⟩a̸=b versus data quality r for seven spin dimensions N ∈{8, . . . , 512}, alongside the empirical SimHash prediction (dashed black) derived from measured cosine similarities in the whitened PCA space. The visible N ∈{8, 16} deviations and the collapse from N ≥32 jointly confirm the O(N −1/2) concentration of Proposition 1. Panel (b): the separation gap ∆q grows monotonically with r, indicating that class structure is faithfully encoded. Panel (c): PCA whitening spreads intra-class samples nearly isotropically (r=0.8, median angle ≈87◦), yielding modest but persistently positive overlaps. K=3...",
+      "page": 6
+    },
+    {
+      "image": "2605.14059_figures/2605.14059_fig2.jpg",
+      "caption": "FIG. 2. Cross-layer pattern completion from a clean cue. Mattis overlaps mµ = N −1ξµ·s for all K=3 patterns over MC steps. The cued layer σ (left column) is initialised with the helix archetype (µ=0); the uncued layers τ and ϕ (middle and right columns) start from random spin configurations. Rows correspond to inverse temperatures β ∈{5.0, 0.8, 0.3}. Solid lines and shaded bands are the mean and ±1 s.d. over 50 runs for the target pattern; grey traces show overlaps with the non-target patterns. Hebbian couplings; N=512.",
+      "page": 7
+    },
+    {
+      "image": "2605.14059_figures/2605.14059_fig3.jpg",
+      "caption": "FIG. 3. Sharpening effectiveness and pattern recon- struction robustness. Panel (a): BCI as the number of stored patterns grows from K=3 to 32; spectral sharpening (green dashed) reduces BCI by two orders of magnitude rela- tive to the raw archetypes (blue solid) across the entire range (N=512, r=0.8). Panel (b): reconstruction success rate under cue degradation, remaining above 95% up to 30% spin-flip corruption (vertical dotted: random-cue limit). Error bars: ±1 s.e. (K=3, 20 seeds).",
+      "page": 7
+    },
+    {
+      "image": "2605.14059_figures/2605.14059_fig4.jpg",
+      "caption": "FIG. 4. Retrieval projected back to continuous 3D space. Panel (a): ground-truth archetype curves. Panels (b– d): retrieved patterns overlaid on the ground truth for each archetype under increasing cue corruption. Semi-transparent point clouds show sampled data for the cued class. Ground truth is rendered as a neutral solid backbone, retrieval as a coloured dashed trajectory with markers; start/end symbols distinguish coincident paths. In-panel annotations report cue condition and final Mattis overlap m. β=5, 40 MC steps, Hebbian couplings.",
+      "page": 8
+    },
+    {
+      "image": "2605.14059_figures/2605.14059_fig5.jpg",
+      "caption": "FIG. 5. Mixture disentanglement: spontaneous sym- metry breaking. Mattis overlaps mµ for a 50/50 mixture of helix and Lissajous patterns, with pseudo-inverse couplings, simulated annealing (β : 0.5 →5.0), and sequential updates; columns correspond to the three layers (σ, τ, ϕ). Top row: thermal fluctuations break the initial symmetry and one com- ponent reaches m ≈1 consistently across layers. Bottom row: both components remain trapped at the spurious mixture fixed point. Overall equal-weight success rate: 58.9% over n = 500 seeds (Wilson 95% CI [54.4%, 63.0%]).",
+      "page": 8
+    }
+  ],
+  "figure": "2605.14059_figures/2605.14059_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

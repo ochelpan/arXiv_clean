@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.14219",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.SE",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Failure-Guided Fuzzing for Hybrid Quantum-Classical Programs",
+  "authors": "Lei Zhang",
+  "abstract": "Hybrid quantum-classical (HQC) algorithms, such as the Variational Quantum Eigensolver (VQE) and the Quantum Approximate Optimization Algorithm (QAOA), are central to near-term quantum computing but remain challenging to test. Sampling-based fuzzing can expose faulty or non-convergent configurations, but under realistic execution budgets, it may miss failure-prone regions in the joint space of classical optimizer settings and quantum circuit parameters.   This paper studies failure-guided fuzzing for HQC programs. It models a hybrid input as a pair of classical optimizer hyperparameters and quantum circuit parameters, and evaluates a two-phase strategy that first searches for non-convergent seeds and then locally fuzzes circuit parameters around those seeds. To understand where the gains come from, five budgeted strategies are compared: random hybrid testing, classical enumeration without fuzzing, random-seed local fuzzing, enumeration-seed local fuzzing, and concolic-seed local fuzzing. The study is implemented on a VQE instance and a QAOA MaxCut instance in Qiskit. The results show that failure-guided local fuzzing is the main driver of improvement over random testing, while concolic seed discovery provides additional benefits on VQE but is less stable on QAOA. These findings suggest that reusing failure information is a promising direction for HQC testing, but that the value of concolic seed discovery is workload-dependent.",
+  "url": "http://arxiv.org/abs/2605.14219v1",
+  "pdf": "https://arxiv.org/pdf/2605.14219v1",
+  "type": "theory",
+  "summary": "This paper proposes a new testing framework for hybrid quantum-classical algorithms that uses previously discovered failures to guide the search for new errors. By fuzzing quantum parameters around known non-convergent points, the method significantly improves the efficiency of finding bugs compared to random sampling.",
+  "main_problem": "Testing hybrid quantum-classical (HQC) algorithms like VQE and QAOA is difficult because failures (non-convergence) are rare events that are hard to find within realistic execution budgets.",
+  "main_result": "Failure-guided local fuzzing, which perturbs quantum circuit parameters around identified non-convergent seeds, is the primary driver of improvement over random testing, though the benefit of concolic seed discovery depends on the specific workload.",
+  "method": "A two-phase fuzzing strategy consisting of (1) seed discovery using random, enumerative, or concolic methods, and (2) local fuzzing by mutating quantum circuit parameters around those seeds.",
+  "model_or_system": "The study uses two hybrid quantum-classical workloads implemented in Qiskit: a 2-qubit Variational Quantum Eigensolver (VQE) and a 4-qubit Quantum Approximate Optimization Algorithm (QAOA) for the MaxCut problem on a ring graph.",
+  "key_observables": "Crash count (number of non-convergence events) and crash rate (crashes per execution budget).",
+  "important_parameters": "Number of qubits (Nq), execution budget (B), classical optimizer hyperparameters (learning rate, iteration limit), and quantum circuit parameters (rotation angles).",
+  "main_assumptions": "The study assumes noiseless simulators and focuses on a small-scale, discrete classical hyperparameter space for the concolic exploration component.",
+  "figures_summary": "Figure 1 illustrates the exponential decay of expected crashes as qubits increase; Figure 2 shows the failure-guided fuzzing workflow; Figure 3 depicts the QAOA diagram; Figure 6 shows the distribution of crash counts for QAOA.",
+  "paper_structure": "The paper introduces the testing challenge of HQC algorithms, defines the hybrid input model, proposes a two-phase failure-guided fuzzing strategy, compares five different testing strategies via VQE and QAOA case studies, and concludes with a discussion on workload dependency and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.14219_figures/2605.14219_fig1.jpg",
+      "caption": "Fig. 1: Illustration of the rare-event barrier. If a crash occurs only when a specific Nq-qubit bitstring is observed and the measurement distribution is close to uniform, then the ex- pected number of crashes under budget B is at most B ·2−Nq. Even large fixed budgets quickly fall below the expected crash as Nq grows.",
+      "page": 2
+    },
+    {
+      "image": "2605.14219_figures/2605.14219_fig2.jpg",
+      "caption": "Fig. 2: Failure-guided fuzzing workflow: crash seeds are discovered through random, enumerative, or concolic exploration, then used for local circuit-parameter fuzzing under a fixed budget.",
+      "page": 3
+    },
+    {
+      "image": "2605.14219_figures/2605.14219_fig3.jpg",
+      "caption": "Fig. 4: VQE: distribution of crash counts per trial for each strategy over T = 20 trials with budget B = 2,000. Boxes show interquartile ranges; whiskers and markers indicate spread and outliers.",
+      "page": 5
+    },
+    {
+      "image": "2605.14219_figures/2605.14219_fig4.jpg",
+      "caption": "Fig. 6: QAOA: distribution of crash counts per trial for each strategy over T = 20 trials with budget B = 2,000.",
+      "page": 5
+    },
+    {
+      "image": "2605.14219_figures/2605.14219_fig5.jpg",
+      "caption": "Fig. 5: QAOA ansatz used in the case study: depth-P QAOA for MaxCut on a 4-node ring graph, starting from |+⟩⊗n and alternating cost layers with ZZ(γℓ) rotations on each edge and mixer layers with RX(2βℓ) rotations on all qubits.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.14219_figures/2605.14219_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
