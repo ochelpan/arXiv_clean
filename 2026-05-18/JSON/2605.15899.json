@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.15899",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Solving Classical and Quantum Spin Glasses with Deep Boltzmann Quantum States",
+  "authors": "Luca Leone, Arka Dutta, Markus Heyl, Enrico Prati, Pietro Torta",
+  "abstract": "Variational neural network models have achieved remarkable success in solving ground-state problems of quantum many-body systems. However, addressing classical and quantum spin glasses remains challenging, as disorder and energy frustration give rise to an exponentially large number of local energy minima separated by high-energy barriers, hindering the efficiency of conventional Metropolis-based Monte Carlo methods. To bridge this gap, we introduce Deep Boltzmann Quantum States, a class of neural quantum states inspired by deep Boltzmann machines that inherit efficient block Gibbs sampling. We also propose two key advances in the training algorithm. Firstly, we combine natural-gradient updates with state-of-the-art stochastic optimizers. Secondly, we gradually tune the hardness of the problem Hamiltonian by interpolating from an easy to a hard regime, without the need to closely approximate the instantaneous adiabatic state at intermediate times. We match the exact solution or the best available estimate for several instances of classical and quantum Ising spin-glass models with infinite-range interactions and hundreds of spins. We also solve instances of the NP-hard Job Shop Scheduling Problem exceeding the current limitations of quantum annealing hardware. To summarize, deep neural architectures with efficient global update rules and trained within an annealing-like scheme, provide a powerful framework for solving real-world hard combinatorial optimization and for investigating disordered quantum many-body systems.",
+  "url": "http://arxiv.org/abs/2605.15899v1",
+  "pdf": "https://arxiv.org/pdf/2605.15899v1",
+  "type": "theory",
+  "summary": "This work proposes Deep Boltzmann Quantum States (DBQS) as a powerful variational ansatz for simulating quantum many-body systems, particularly spin glasses. By integrating DBQS into a Neural Quantum Annealing (NQA) framework, the authors overcome the sampling and optimization hurdles associated with these disordered systems. The method achieves state-of-the-art results on complex models, including solving NP-hard scheduling problems.",
+  "main_problem": "The paper addresses the difficulty of finding ground states for classical and quantum spin glasses due to their rugged energy landscapes with exponentially many local minima.",
+  "main_result": "The authors successfully solved instances of classical and quantum Ising spin-glass models and even the NP-hard Job Shop Scheduling Problem, exceeding current quantum annealing hardware limitations.",
+  "method": "They introduce Deep Boltzmann Quantum States (DBQS) as a variational ansatz, trained using Neural Quantum Annealing (NQA) combined with natural-gradient updates and efficient block-Gibbs sampling.",
+  "model_or_system": "The focus is on spin glass models, such as the Ising spin-glass Hamiltonian, which are characterized by disorder and energy frustration. The state is parameterized by the DBQS, which extends Boltzmann Machines to the quantum domain.",
+  "key_observables": "Variational energy $E(\theta)$, local energy $E_{\text{loc}}(x; \theta)$, and the ability to calculate these efficiently via matrix multiplications.",
+  "important_parameters": "The annealing schedule parameter $s$ (interpolating from easy to hard Hamiltonian regimes), and optimization hyperparameters (e.g., learning rates, momentum $\\mu$).",
+  "main_assumptions": "The primary assumption is that the DBQS ansatz, combined with NQA, provides a sufficiently expressive and computationally tractable representation of the true ground state wavefunction.",
+  "figures_summary": "Figures illustrate the NQA trajectory for toy models, showing the projected parameter evolution and energy landscape minimization. Tables provide quantitative comparisons of energy errors ($\\epsilon_B, \\epsilon_Q$) against exact diagonalization results for various spin glass benchmarks.",
+  "paper_structure": "The paper builds from general NQS methods (TDVP/VQA) to the specialized DBQS ansatz, emphasizing its computational advantages (block-Gibbs sampling, efficient local operator calculation). It then details the NQA training scheme, followed by extensive benchmarking across various spin glass and combinatorial optimization problems.",
+  "why_interesting": "The combination of deep learning architectures (DBMs) with quantum many-body physics provides a powerful, non-adiabatic route to solving hard optimization problems that challenge traditional quantum simulation methods.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.15899_figures/2605.15899_fig1.jpg",
+      "caption": "Figure 1. Visualization of the NQA trajectory for a 4-site Ising toy model with all-to-all random couplings. Each subplot shows the projected parameter trajectory (white line, with red and green dots marking the initial and current parameters) together with the instantaneous energy landscape at the corresponding sj, projected on a plane Σ (defined below). Throughout the variational optimization, the ansatz remains close to the minimum of the instantaneous energy, effectively guiding NQA to the global minimum of the target problem. Technical details of the plot, following Ref. [90], are as follows. At each schedule point sj, we record the instantaneous parameters and construct a real-valued...",
+      "page": 9
+    },
+    {
+      "image": "2605.15899_figures/2605.15899_fig2.jpg",
+      "caption": "Figure 2. Comparison of the typical residual energies on the 10 realizations of the SK model with N = 100 (top panel) and N = 200 (bottom panel). Each point corresponds to a differ- ent combination of ansatz and optimization protocol. Only the DBQS results employ a catalyst and complex parameters.",
+      "page": 11
+    },
+    {
+      "image": "2605.15899_figures/2605.15899_fig3.jpg",
+      "caption": "Figure 3. Residual energy histograms for the SK model with N = 100 (top panel) and N = 200 (bottom panel). Each entry corresponds to a distinct instance tackled by NQA and an RBQS/DBQS ansatz (see main text for details on the vari- ational model). Our setup solves all N = 100 spin instances and 7 out of 10 N = 200 spin instances.",
+      "page": 12
+    },
+    {
+      "image": "2605.15899_figures/2605.15899_fig4.jpg",
+      "caption": "Figure 4. (a) Interaction matrix and longitudinal field vector of the Ising problem encoding a typical JSSP square instance. The represented instance has N = 5 and is displayed after variable pruning. (b) The Gantt diagram of the corresponding optimal schedule. Colors represent operations pertaining to a specific job, whereas the index of each operation indicate their ordering within that job.",
+      "page": 14
+    },
+    {
+      "image": "2605.15899_figures/2605.15899_fig5.jpg",
+      "caption": "Figure 5. Convergence analysis for two representative N = 16 instances of the transverse-field SK model at g = 0.1. The results are obtained by optimizing a two-layer DBQS via catalyzed NQA. (a) and (c) Final variational energy ⟨HT ⟩versus final energy variance σ2. (b) and (d) Histogram of the final energies over the HPO trials. The red lines indicate the exact energies of the three lowest eigenstates, for comparison. Monte Carlo error bars are smaller than the symbol size and thus omitted.",
+      "page": 15
+    }
+  ],
+  "figure": "2605.15899_figures/2605.15899_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 3,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

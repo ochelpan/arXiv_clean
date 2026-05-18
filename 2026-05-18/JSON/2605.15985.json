@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.15985",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.stat-mech",
+    "cs.NE",
+    "physics.bio-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Thermodynamic Networks: Harnessing Non-Equilibrium Steady States for Computation",
+  "authors": "Patryk Lipka-Bartosik, Gianmichele Blasi, Javier Lalueza Puértolas, Géraldine Haack, Martí Perarnau-Llobet, Nicolas Brunner",
+  "abstract": "We introduce thermodynamic networks, a general framework for autonomous, physics-based computation using non-equilibrium steady states. These networks are modeled as a collection of finite-size reservoirs that exchange conserved quantities--such as electric charge or molecular number--while relaxing to a non-equilibrium steady state, which encodes the solution of a computational problem. We identify Negative Differential Conductance (NDC) as the critical physical property governing the computational expressivity of the thermodynamic network. While networks lacking NDC are restricted to computing monotonic functions, the presence of NDC enables universal function approximation. For the training of the network, we use protocols that take advantage of the natural tendency of the system to equilibrate. We illustrate the versatility of our approach via two different platforms: quantum dot networks and enzymatic reaction networks. Both systems can be engineered to have NDC, enabling high performance in standard benchmarks, including sine function approximation and MNIST digit classification. Overall, our work establishes a rigorous link between non-equilibrium steady states and computational expressivity.",
+  "url": "http://arxiv.org/abs/2605.15985v1",
+  "pdf": "https://arxiv.org/pdf/2605.15985v1",
+  "type": "theory",
+  "summary": "This work introduces thermodynamic networks as a general framework for computation based on physical relaxation to non-equilibrium steady states. It rigorously proves that the ability to exhibit Negative Differential Conductance (NDC) is necessary and sufficient for these networks to achieve universal function approximation. The approach is demonstrated using quantum dot and enzymatic models, establishing a deep link between non-equilibrium physics and computational power.",
+  "main_problem": "Developing a general framework for autonomous, physics-based computation using non-equilibrium steady states (NESS).",
+  "main_result": "The presence of Negative Differential Conductance (NDC) is the critical physical property that enables universal function approximation in these thermodynamic networks.",
+  "method": "The computation is modeled by finding the steady-state solution ($\\dot{\\mu}=0$) of the network dynamics, and training is achieved using implicit differentiation techniques analogous to Deep Equilibrium Models.",
+  "model_or_system": "The system is a 'thermodynamic network' modeled as a graph of mesoscopic reservoirs exchanging conserved quantities. Computation occurs when the system relaxes to a NESS, which maps an input state to a steady-state output.",
+  "key_observables": "Differential Conductance, Conductance Matrix ($G$), Steady-State Output ($\\mu^\\star$), and the ability to compute non-monotone functions like XOR.",
+  "important_parameters": "Negative Differential Conductance (NDC), Cooperativity, Input potentials ($x$), and system parameters ($\theta$).",
+  "main_assumptions": "The process is autonomous, governed only by dissipation, and the adiabatic regime ($\tau_{\text{internal}} \\ll \tau_{\text{charging}}$) is assumed for the steady-state calculation.",
+  "figures_summary": "Figures illustrate the network structure, showing how cooperative channels yield monotone responses, while NDC channels enable non-monotone maps, and demonstrate successful classification (e.g., MNIST) using NDC.",
+  "paper_structure": "The paper establishes the NESS framework, identifies NDC as the key ingredient for non-monotonicity, proves universal approximation theorems, and illustrates this concept using quantum dot and enzymatic reaction network platforms.",
+  "why_interesting": "It provides a direct physical realization of machine learning concepts (like universal approximation) using fundamental principles of non-equilibrium thermodynamics and transport physics, linking computation to dissipation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.15985_figures/2605.15985_fig1.jpg",
+      "caption": "FIG. 1. Thermodynamic networks compute by equilibrating. (a) A thermodynamic network is a graph of reservoirs (nodes) coupled by transport channels (edges) that collectively redistribute a conserved charge. The conjugate potential µ serves as both the dynamical state variable at every node and the language of input and output. The input reservoir x is clamped to a prescribed potential (bracket), hidden nodes µ1 and µ2 evolve freely, and the output y is read out at steady state. Each transport channel (rectangular box) carries a current Iαβ(µα, µβ) governed by tuneable parameters θαβ. Insets show the current–potential characteristic at fixed µβ for a family of parameter values. Cooperative...",
+      "page": 2
+    },
+    {
+      "image": "2605.15985_figures/2605.15985_fig2.jpg",
+      "caption": "FIG. 2. Quantum-dot realisation of a thermodynamic network edge. Physical implementation of an edge (α, β) using a quantum dot. Each reservoir is an electronic lead char- acterised by a chemical potential µℓand temperature Tℓ. The shaded regions represent their Fermi–Dirac occupation. The dot hosts a single energy level ϵαβ through which electrons tunnel sequentially, with rates set by the tunnel couplings Γα and Γβ. The dot energy level further shifts with the applied bias via the electrostatic shift effect, see Eq. (17). For cer- tain choices of parameters, the energy level can be swept out of the transport window (grey shading), producing negative differential conductance—the mechanism...",
+      "page": 6
+    },
+    {
+      "image": "2605.15985_figures/2605.15985_fig3.jpg",
+      "caption": "FIG. 3. Negative differential conductance in a quantum dot and its computational consequences. (a) Energy- level diagrams of a quantum dot at three operating points. At low bias µα −µβ, the dot level ϵαβ lies within the transport window between µα and µβ, and current flows freely. As the bias increases, the level is pushed above the source chemical potential, suppressing current despite the growing driving force, which is the hallmark of negative differential conductance (NDC). (b) Current–voltage characteristics for a quantum dot connected to equal temperature reservoirs Tα = Tβ with a varying electrostatic shift parameter b. For b = 1 (no NDC), the current increases monotonically with...",
+      "page": 7
+    },
+    {
+      "image": "2605.15985_figures/2605.15985_fig4.jpg",
+      "caption": "FIG. 4. Quantum dot network implementing XOR. Decision surfaces of a network of quantum dots trained on the XOR task, showing the steady-state output potential y⋆",
+      "page": 8
+    },
+    {
+      "image": "2605.15985_figures/2605.15985_fig5.jpg",
+      "caption": "FIG. 5. Thermodynamic networks of quantum dots applied to MNIST problem (digit classification). (a) Test accuracy of trained thermodynamic networks as a func- tion of the number of neurons in the single hidden layer (784 input nodes, nh hidden nodes, 10 output nodes). The curves correspond to three different regimes: linear, cooperative and NDC. All networks are trained on the MNIST dataset using gradient descent via implicit differentiation. We observe that NDC is a key ingredient for learning in this task, whereas linear and monotonic networks learn substantially worse. (b) Confusion matrix of the NDC-based thermodynamic network with nh = 30 hidden nodes computed on the test set with 300...",
+      "page": 9
+    }
+  ],
+  "figure": "2605.15985_figures/2605.15985_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 3,
+    "non-equilibrium dynamics": 4,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

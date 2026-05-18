@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.15370",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Feature Pyramid Gating for Seismic Image Segmentation",
+  "authors": "Taha Gharaibeh, Jyotsna Sharma",
+  "abstract": "Accurate salt-body delineation is essential for seismic interpretation because salt structures distort wave propagation, complicate velocity-model building, obscure reservoir geometry, and increase uncertainty in exploration and drilling decisions. Although hybrid quantum-classical models have shown competitive performance on small-scale image-classification tasks, their value for dense, pixel-level geophysical prediction remains largely untested. This work introduces quantum feature gating, a hybrid segmentation architecture that embeds a parameterized quantum circuit (PQC) at feature-fusion points within an encoder-decoder pipeline. A 4-qubit, 2-layer PQC with data re-uploading computes a learned convex combination of lateral and top-down features at each Feature Pyramid Network merge point. A global-average-pooling layer maps encoder features to a fixed 4-dimensional quantum input, decoupling the 72-parameter quantum budget from backbone size and image resolution. The method is evaluated on the 2018 TGS Salt Identification Challenge using 4,000 seismic images at 101 x 101 resolution, across two integration topologies, eight circuit variants, and six encoders with 8M to 118M parameters under five-fold cross-validation. In a controlled EfficientNetV2-L ablation at 256 x 256 resolution, replacing the three Quantum FPN Gates with element-wise addition while holding the encoder, loss schedule, splits, and threshold search fixed reduces mean IoU from 0.9389 to 0.8404, a 9.85 percentage-point gap. Inserting the same circuit as skip-connection attention in a custom U-Net improves IoU by 0.88 points over the SolidUNet baseline, showing that the PQC contribution depends on where and what it gates. These results provide controlled evidence that quantum feature fusion can improve dense seismic segmentation.",
+  "url": "http://arxiv.org/abs/2605.15370v1",
+  "pdf": "https://arxiv.org/pdf/2605.15370v1",
+  "type": "both",
+  "summary": "This paper proposes a Quantum Feature Pyramid Gating (Q-FPN) gate to enhance seismic image segmentation by improving feature fusion at the FPN merge points. It embeds a small, parameterized quantum circuit (PQC) into a standard deep learning backbone. The results show that this quantum gating mechanism provides a significant, measurable performance boost over purely classical fusion techniques, suggesting a viable application for quantum machine learning in geophysical imaging.",
+  "main_problem": "The core problem is achieving accurate, dense, pixel-level segmentation of salt bodies in seismic images, which is complicated by wave propagation distortions.",
+  "main_result": "The proposed Quantum Feature Pyramid Gating (Q-FPN) gate significantly improves segmentation performance, showing a substantial gain (e.g., 9.85 percentage points) over classical fusion methods at the FPN merge point.",
+  "method": "The method introduces a hybrid architecture embedding a Parameterized Quantum Circuit (PQC) at feature-fusion points to compute a learned, content-dependent convex combination of features.",
+  "model_or_system": "The system uses a standard encoder-decoder segmentation pipeline (like U-Net/FPN) augmented by a 4-qubit, 2-layer PQC. The PQC processes compressed feature statistics to generate a gating weight, making the gate encoder-agnostic.",
+  "key_observables": "Mean Intersection over Union (IoU) score, TGS-mAP, and the magnitude of performance improvement ($\\Delta$) when comparing quantum vs. classical gating.",
+  "important_parameters": "The quantum circuit has a fixed budget of 72 trainable parameters, operating on 4 qubits.",
+  "main_assumptions": "The primary assumption is that the quantum function space accessed by the PQC provides a superior mechanism for feature correlation and fusion compared to simple classical addition or attention mechanisms.",
+  "figures_summary": "Figures illustrate the PQC structure (4-qubit, 2-layer) and compare the performance gains (e.g., $\\Delta$ of 9.85 pp) achieved by the Q-FPN gate versus classical baselines across different encoders and resolutions.",
+  "paper_structure": "The paper introduces the Q-FPN gate, details the PQC implementation (encoding, variational layers), evaluates its performance on the TGS challenge by comparing it against classical element-wise addition and skip-connection attention, and concludes by analyzing the source of the performance gain.",
+  "why_interesting": "The work applies quantum circuit principles (PQC) to a deep learning task (image segmentation), demonstrating how quantum computation can be used as a trainable, non-linear feature transformation layer within a classical neural network architecture.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.15370_figures/2605.15370_fig1.jpg",
+      "caption": "Fig. 1: Parameterized quantum circuit used in all architectures. Four qubits initialized to |0⟩, two layers with data re-uploading. Teal boxes: RY (xi) encodings re-applied at each layer [15]. Slate boxes: general Rot(ϕ, θ, ω) rotations with trainable parameters. CNOT rings entangle adjacent qubits; Pauli-Z expectations produce four scalars in [−1, 1]. 24 variational parameters per circuit × 3 gates = 72 quantum parameters total.",
+      "page": 4
+    },
+    {
+      "image": "2605.15370_figures/2605.15370_fig2.jpg",
+      "caption": "Fig. 2: Quantum FPN Gate (one merge level). Lateral (Flat) and top-down (Ftd) feature maps are compressed by global average pooling, concatenated, projected to R4, and rescaled via a learnable s⊙tanh +b into [−π, π]. A 4-qubit, 2-layer PQC with data re- uploading (24 variational parameters; 72 total across three merge levels) produces four Pauli-Z expectations, which a linear layer and sigmoid convert to a channel-wise gate g ∈(0, 1)C. The output is the convex combination Fout = g ⊙Flat +(1−g)⊙Ftd.",
+      "page": 4
+    },
+    {
+      "image": "2605.15370_figures/2605.15370_fig3.jpg",
+      "caption": "Fig. 3: Two integration topologies for parameterized quantum circuits. (a) Skip-connection attention: the PQC modulates encoder features before they reach the decoder, acting as a per-channel filter on one feature stream. (b) FPN gating: the PQC controls how lateral encoder features and top-down features combine at each pyramid level, computing a per-channel mixing ratio between two streams. Teal blocks marked “Q” are identical 4-qubit, 2-layer PQCs; the structural difference is filter one stream versus blend two streams. See Section III-C and Section III-D.",
+      "page": 5
+    },
+    {
+      "image": "2605.15370_figures/2605.15370_fig4.jpg",
+      "caption": "Fig. 4: Gradient diagnostics for circuit variants with logged quantum-parameter gradients. (a) ℓ2 norm of quantum- parameter gradients. (b) Variance on a logarithmic axis with the barren-plateau floor for n=4 qubits overlaid. Observed variances of 7.4 × 10−8 to 1.6 × 10−7 sit roughly 105",
+      "page": 7
+    },
+    {
+      "image": "2605.15370_figures/2605.15370_fig5.jpg",
+      "caption": "Fig. 5: Skip-attention circuit variants on the SolidUNet back- bone (128 × 128, 30 epochs). Every variant shares the same classical architecture; only the quantum circuit design differs. The dashed vertical line marks the classical base- line (0.7794). Data re-uploading (qdressed_reupload, 0.7882) gives the largest gain (+0.88 pp) among the eight circuits tested, consistent with the universality argument of Pérez-Salinas et al. [15]. Increasing qubit count from 4 to 6 (qbottleneck_6q) does not surpass 4-qubit re-uploading, suggesting feature quality rather than Hilbert-space dimension bounds performance at this backbone scale. Exact values appear in Table II.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.15370_figures/2605.15370_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

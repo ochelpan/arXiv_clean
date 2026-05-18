@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.16214",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "Bridging Atomistic Simulation and Experimental Processing Timescales with Goal-Directed Deep Reinforcement Learning",
+  "authors": "Wonseok Jeong, Francesca Tavazza, Brian DeCost",
+  "abstract": "Atomic-scale modeling has advanced rapidly through integration of machine learning, yet a key bottleneck remains. Even with an accurate potential energy surface and a clear target material, we still lack a practical atomistic dynamics framework that can simulate how materials form under realistic synthesis and processing conditions. Many processing transformations are governed by rare events in non-idealized evolving environments, while direct molecular dynamics is limited by femtosecond timesteps and short accessible trajectories. Existing acceleration methods often require prior mechanistic knowledge, including reaction coordinates, collective variables, event tables, or pathway guesses, which is rarely available in real experiments. Here we present an E(3)-equivariant deep reinforcement learning framework that enables goal-directed pathway discovery without hand-crafted reaction coordinates. The framework introduces a complementary operating mode for atomistic simulation in which realistic, non-idealized environments can be addressed directly while retaining kinetic plausibility through barrier-aware rewards. As a challenging benchmark, we target silicon dry oxidation, where rare-event pathways in amorphous SiO2 are effectively inaccessible to conventional atomistic methods. We treat an O2 molecule as an agent that performs continuous rigid-body translations and rotations in a Si/a-SiO2 environment. The agent is trained with an episode-level objective that rewards verified O2 dissociation while preferring low effective activation barriers. We demonstrate that the learned policy discovers kinetically favorable O2 diffusion and dissociation pathways in a disordered Si/a-SiO2 environment, progressively improving success rate while reducing effective activation barriers over training. We also discuss how the approach can be generalized to other processing and synthesis problems.",
+  "url": "http://arxiv.org/abs/2605.16214v1",
+  "pdf": "https://arxiv.org/pdf/2605.16214v1",
+  "type": "theory",
+  "summary": "This work introduces a novel deep reinforcement learning framework to overcome the timescale gap in atomistic simulations of material processing. By treating the reactive species ($\text{O}_2$) as an agent, the model learns to discover kinetically favorable, low-barrier pathways for oxidation in disordered $\text{Si}/\text{a-SiO}_2$ environments. This advances the field by providing a mechanism to simulate complex chemical transformations inaccessible to conventional molecular dynamics.",
+  "main_problem": "The primary bottleneck in atomistic simulation is simulating material formation under realistic, long-timescale processing conditions, which are governed by rare events in complex, disordered environments.",
+  "main_result": "The proposed framework successfully discovers kinetically favorable oxygen diffusion and dissociation pathways in amorphous silicon dioxide, demonstrating progress in accessing previously inaccessible reaction regimes.",
+  "method": "The authors developed an E(3)-equivariant deep reinforcement learning (RL) framework that guides an agent ($\text{O}_2$ molecule) to perform goal-directed, barrier-aware movements within the atomic environment.",
+  "model_or_system": "The benchmark system is silicon dry oxidation ($\text{Si}/\text{a-SiO}_2$ interface), where the $\text{O}_2$ molecule acts as the agent. The simulation utilizes reactive force fields (ReaxFF) and incorporates $\text{E}(3)$ equivariance to ensure physical consistency.",
+  "key_observables": "Effective activation barrier ($E_{a, \text{eff}}$), $\text{O}_2$ dissociation success rate, interface roughness ($R_q$), and dangling-bond density.",
+  "important_parameters": "Temperature ($1000 \text{ K}$), $\text{O}_2$ molecule rigid-body translation/rotation, and the RL reward function balancing chemical progress and barrier height.",
+  "main_assumptions": "The RL trajectories are interpreted as low-barrier pathways rather than direct time evolution, and the use of ReaxFF for relaxation introduces potential inaccuracies.",
+  "figures_summary": "Figures illustrate the RL framework components, showing the agent's action space (rigid-body updates) and the combination of rewards based on chemical success and barrier estimates.",
+  "paper_structure": "The paper first identifies the simulation gap, then introduces the REALIZE RL framework, details the $\text{E}(3)$-equivariant action space factorization, applies it to the $\text{Si}/\text{a-SiO}_2$ benchmark, and concludes by discussing the physical interpretation of the discovered pathways.",
+  "why_interesting": "The integration of deep reinforcement learning with atomistic simulations to overcome kinetic barriers is highly relevant for modeling non-equilibrium processes in quantum materials, providing a pathway to simulate complex, slow chemical reactions.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.16214_figures/2605.16214_fig1.jpg",
+      "caption": "Figure 1: Overview of REALIZE, the E(3)-equivariant deep reinforcement learning framework. The environment is a Si/a-SiO2 configuration containing an O2 agent. At each step, the current atomistic configuration is encoded into actor and critic representations using a SevenNet backbone together with an environmental multipole. The policy network proposes a rigid-body update of the O2 molecule, parameterized by translation direction, translation magnitude, and bond-axis orientation. The proposed rigid-body move is applied, after which the rigid-body constraint is released and the structure is relaxed on a reactive ReaxFF potential energy surface. The resulting transition is evaluated through...",
+      "page": 5
+    },
+    {
+      "image": "2605.16214_figures/2605.16214_fig2.jpg",
+      "caption": "Figure 2: State representation used by the actor and critic. For the actor, O-centered equivariant embeddings from the SevenNet backbone are combined into a symmetric channel, SYM = 1",
+      "page": 8
+    },
+    {
+      "image": "2605.16214_figures/2605.16214_fig3.jpg",
+      "caption": "Figure 3: Autoregressive action generation in the policy network. The policy first samples a translation direction ˆd on S2. The equivariant features are then rotated into a local frame whose z-axis is aligned with the sampled direction. From this aligned representation, a forward-looking radial embedding is constructed and used together with aligned scalar features to predict the translation magnitude. In parallel, the O–O axis head predicts the directed bond orientation conditioned on the same sampled direction. This autoregressive design factorizes the action as p(ˆd, s, ˆb) = p(ˆd) p(s | ˆd) p(ˆb | ˆd) and reflects the physical coupling between where the molecule moves, how far it...",
+      "page": 10
+    },
+    {
+      "image": "2605.16214_figures/2605.16214_fig4.jpg",
+      "caption": "Figure 4: Dissociation detection and verification mechanism. After each accepted step, the environment first checks whether the O–O distance exceeds an initial geometric threshold. If not, an auxiliary oxidation criterion based on the local increase in Si oxidation state near the oxygen atoms is evaluated. A step is flagged as an initial dissociation candidate if either criterion is satisfied. Candidate events are then subjected to short molecular-dynamics verification followed by minimization. Dissociation is accepted only if the O–O distance remains above the stricter final threshold after this verification protocol. This multi-stage procedure rejects transient bond stretching and other...",
+      "page": 16
+    },
+    {
+      "image": "2605.16214_figures/2605.16214_fig5.jpg",
+      "caption": "Figure 5: Training dynamics. (a)–(c) Per-head policy convergence diagnostics for direction, magnitude, and axis components of the autoregressive action distribution. PPO clip fractions are reported on the left axis of each panel. Per-head behavioural quantities, including entropy, mean step size ⟨r⟩with ±1σ band, and the ∥τ∥correction from the geometric prior, are reported on the right axis. (d) Episode outcomes, showing rolling rates of MD-verified dissociation (blue) and O2 escape to vacuum (red), with per-episode markers along the top and bottom edges. (e) Activation-energy reward REa per episode, shown as blue points for dissociation-verified episodes only, together with rolling means...",
+      "page": 18
+    }
+  ],
+  "figure": "2605.16214_figures/2605.16214_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

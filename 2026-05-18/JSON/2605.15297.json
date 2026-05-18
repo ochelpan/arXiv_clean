@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.15297",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Towards Deploying Optimistic Quantum Fourier Transforms: An Architecture-Algorithm Co-Design Study",
+  "authors": "Pedro L. S. Lopes",
+  "abstract": "We present an architecture-algorithm co-design study of the Optimistic Quantum Fourier Transform (OQFT) under a surface-code fault-tolerant execution model for reconfigurable neutral-atom hardware. Analyzing the OQFT structure, particularly its reliance on phase-gradient resources and small-scale blocks, highlights architectural requirements for resource mobility and parallel execution. Guided by that, we introduce a hot-zone architecture that decouples data storage from processing and dynamically routes mobile resource packages (magic-state factories, bridge qubits, and phase-gradient registers) to stationary data regions. To expose dominant costs, we route rotation insertions via catalytic phase-gradient addition and heuristically micro-schedule ripple-carry adders to patch-level moves. Under this model, leading Gidney~\\cite{Gidney2018halvingcostof} and Cuccaro~\\cite{cuccaro2004} adders have similar space-time volume but require different levels of parallelism. At the algorithm level, the five-layer OQFT shows a tunable parallelism/latency trade-off: two hot zones match serial-QFT latency, four hot zones roughly halve runtime, and additional hot zones asymptotically approach constant-time execution at substantial resource cost. Across 256-2048-bit instances, the requirements for half-time performance converge to about 500 additional logical ancillae and a peak parallelism of 128 logical qubits. We also identify broader algorithm-architecture bottlenecks, including endianness mismatches between phase-gradient and data registers, addressed via cyclic phase-gradient swaps and alternating QFT reflections. Scoped to surface codes and cultivation-only magic-state factories, our analysis identifies reaction-limited operation and parallelism demand as primary drivers of resource estimation and establishes a generalizable foundation for primitive-based architectural studies.",
+  "url": "http://arxiv.org/abs/2605.15297v1",
+  "pdf": "https://arxiv.org/pdf/2605.15297v1",
+  "type": "theory",
+  "summary": "This paper presents a detailed co-design study for running the Optimistic Quantum Fourier Transform on neutral-atom quantum hardware. It introduces a 'hot-zone' architecture to manage mobile quantum resources, achieving significant speedups by optimizing the scheduling of core components like quantum adders. The work establishes critical resource requirements, showing that performance hinges on managing parallelism and reaction-limited operations.",
+  "main_problem": "The paper addresses the challenge of efficiently deploying the Optimistic Quantum Fourier Transform (OQFT) algorithm on near-term, fault-tolerant quantum hardware.",
+  "main_result": "By implementing a hot-zone architecture and optimizing adder circuits, the OQFT can achieve significant speedups, potentially halving the runtime compared to serial QFTs, provided sufficient parallelism is available.",
+  "method": "The authors employ an architecture-algorithm co-design study, simulating resource routing and scheduling across specialized hardware components.",
+  "model_or_system": "The study is scoped to reconfigurable neutral-atom hardware utilizing the surface code for fault tolerance. It models the system using a 'hot-zone' architecture that separates stationary data storage from mobile processing units.",
+  "key_observables": "Time to solution, protocol volume (space-time cost), peak Degrees of Freedom (DOF), and the required number of logical ancillae.",
+  "important_parameters": "Code distance (d=15), hot-zone count (2 to 4+), and the size of the quantum register (256–2048 bits).",
+  "main_assumptions": "The analysis assumes reaction-limited operation and is currently scoped to cultivation-only magic-state factories and surface codes.",
+  "figures_summary": "Figures illustrate the decomposition of OQFT into sub-blocks, compare T-counts across different implementations, and show macro-scale architectural layouts detailing the hot zone and data regions.",
+  "paper_structure": "The paper progresses from analyzing the OQFT structure and resource needs, to developing the hot-zone architecture, comparing and selecting optimal adder circuits (Gidney vs. Cuccaro), and finally integrating these components to analyze the full OQFT performance scaling.",
+  "why_interesting": "It provides a concrete, hardware-aware roadmap for implementing complex quantum algorithms like QFT, directly linking algorithmic complexity to physical resource constraints (mobility, parallelism) in neutral-atom platforms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.15297_figures/2605.15297_fig1.jpg",
+      "caption": "Fig. 1. Logic and resource structure of Optimistic Quantum Fourier Transforms. (a) An n-qubit QFT is truncated and decomposed into m ∼log n sub-blocks and block-phased rotations (BPR) eiXY/22m, where X and Y are the register contents of the blocks involved. Approximately commuting the blue sub-circuits past the red ones—at the cost of extra yellow log-sized QFT blocks—yields the log-depth OQFT [18]. (b) Rotation spectra (top) and T-counts (bottom) for different QFT and OQFT implementations. The OQFT naturally truncates small rotations relative to the textbook QFT, but introduces ∼44% additional rotations. Catalytic additions into a truncated phase-gradient (PG) state, as shown in (c),...",
+      "page": 3
+    },
+    {
+      "image": "2605.15297_figures/2605.15297_fig2.jpg",
+      "caption": "Fig. 2. Coarse-grained architecture overview and reaction-limited adder resource analysis review. (a) Macro-scale architecture: the system register is organized into m = 32 data blocks (blue), paired vertically. Here four pairs are displayed side by side. Surface-code logical qubits are assumed throughout. Resources (dark yellow) form a mobile gadget that, when docked to data blocks above or below, defines a hot zone as shown in (b), which can drive processing. (b) Anatomy of a hot zone: rows of ancillae (red-edged squares), magic-state factories (yellow, black-edged; fold-transversal cultivation), and phase-gradient registers. The buffer space is occupied by data qubits as needed. (c)...",
+      "page": 5
+    },
+    {
+      "image": "2605.15297_figures/2605.15297_fig3.jpg",
+      "caption": "Fig. 3. Fine-grained adder scheduling and simulated performance. (a) Microscheduled routing for one iterative block of Gidney’s controlled adder. Face and edge colors identify qubit roles. Yellow patches with black edges are T factories, grey patches are reset after measurement, and purple shading marks single-qubit gates. Green operations are classically controlled and count at half depth in our cost model. The logical-AND ancilla is assumed to start with a cultivated T state. The ∼10 steps of a logical-AND operation roughly match the T-state re-cultivation time, facilitating factory pipelining. Relative to Ref. [1], we eliminate one CNOT via a near-free SWAP during MAJ. (b) Performance...",
+      "page": 6
+    },
+    {
+      "image": "2605.15297_figures/2605.15297_fig4.jpg",
+      "caption": "Fig. 4. Mesoscale routing analysis. (a) Two near-equivalent realizations of a QFT: reversing the addition order requires only a register negation and a unit increment. In both cases the most-significant target bit shifts as the protocol progresses. (b) Cyclic swapping of the phase-gradient register (red edges) keeps addition inputs and targets aligned. At our distance and time scales, swaps can be batched in groups of seven within a single QEC cycle. Note that PG additions within a QFT block have a fixed most-significant bit in−1 = 0, not displayed. Most reverse operations can be commuted through the OQFT resulting in a single group of rearrangements in the beginning or end of protocol.",
+      "page": 8
+    },
+    {
+      "image": "2605.15297_figures/2605.15297_fig5.jpg",
+      "caption": "Fig. 5. Integrated OQFT performance as a function of register size for varying hot-zone counts. Yellow diamonds mark the regular (serial) QFT baseline. (a) Time to solution. Saturating the hot-zone count (hz = max) yields constant-time execution at the cost of a ∼6× increase in logical qubits; at fixed counts, hz = 2 suffices to match the regular QFT, while hz = 4 halves the execution time. (b) Qubit footprint. (c) Combined protocol volume as product of footprint-time. (d) Average concurrent degrees of freedom (DOF). At hz = 4, the overhead is roughly 500 logical ancillae and average 46 concurrent logical operations.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.15297_figures/2605.15297_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.16074",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "When Noisy Quantum Order Finding Remains Recoverable for Shor's Algorithm",
+  "authors": "Qingxin Yang, Stefano Markidis",
+  "abstract": "Order finding is the core subroutine of Shor's algorithm. On NISQ hardware, phase estimation output distributions are often distorted by noise, making correct order recovery difficult. We study recoverability in noisy order finding: given a measured precision-register distribution, when does standard classical post-processing still return the true order? We analyze 680 distributions from IBM quantum systems across problem instances and circuit settings. For each distribution, we apply continued-fraction post-processing with modular verification and define recoverability as whether the recovered order equals the true one. We characterize each distribution using four features: autocorrelation peak strength, normalized entropy, dominant verified mass fraction, and verified margin fraction. We evaluate these quantities using marginal feature comparisons, single-feature AUROC analysis, and multivariate tree-based classifiers. We use random-forest permutation importance to assess which quantities contribute distinct predictive information once the other features are known. To make classification behavior interpretable, we train a decision tree that exposes threshold rules for recoverable and non-recoverable distributions. We find that recoverability is strongly associated with residual comb-like structure in the measured distribution and the way verified probability mass is organized across candidate denominators. The dominant verified mass fraction is the strongest single-feature indicator of recoverability, and tree-based analysis shows it also provides the primary split in an interpretable threshold description. Some highly distorted distributions remain recoverable when one verified denominator dominates the post-processing mass, while some visibly structured distributions fail because classical post-processing favors an incorrect verified denominator.",
+  "url": "http://arxiv.org/abs/2605.16074v1",
+  "pdf": "https://arxiv.org/pdf/2605.16074v1",
+  "type": "both",
+  "summary": "This work analyzes the robustness of order finding, a key step in Shor's algorithm, when subjected to noise on current quantum hardware. By analyzing measured probability distributions, the authors find that successful recovery depends most strongly on how concentrated the verified probability mass is on the correct candidate denominator. This highlights that post-processing-aware metrics are more predictive of algorithmic success than global measures of distribution structure.",
+  "main_problem": "The paper investigates the conditions under which the true multiplicative order, a core subroutine of Shor's algorithm, can be recovered from a measured, noisy quantum phase estimation distribution.",
+  "main_result": "Recoverability is primarily governed not by the global structure of the noise-affected distribution, but by the concentration of verified probability mass on the correct candidate denominator after classical post-processing.",
+  "method": "The authors analyzed 680 measured distributions using classical post-processing (continued-fraction) and characterized them using four features: autocorrelation peak strength, normalized entropy, dominant verified mass fraction, and verified margin fraction.",
+  "model_or_system": "The study uses measured precision-register output distributions collected from IBM quantum systems simulating noisy order finding circuits. The underlying process involves the ideal comb-like structure being distorted by quantum noise.",
+  "key_observables": "Autocorrelation peak strength, Normalized entropy, Dominant verified mass fraction, and Verified margin fraction.",
+  "important_parameters": "The true multiplicative order ($r$), the measured distribution $p(y)$, and the parameters defining the noise model (e.g., $\\epsilon$ in the convolution model).",
+  "main_assumptions": "The analysis assumes the standard classical post-processing routine (continued-fraction) is applied, and it separates global distribution structure from post-processing-aware mass competition.",
+  "figures_summary": "Figures illustrate examples of recoverable/non-recoverable cases, and feature comparisons (e.g., $M_{1,frac}$ vs. $\\Delta_{ver,frac}$) show trends where higher values correlate with recoverability. Random forest permutation importance confirms $M_{1,frac}$ as the most predictive feature.",
+  "paper_structure": "The paper progresses from defining the problem (noisy order finding) to developing diagnostic features based on post-processing outcomes. It then employs statistical classifiers (AUROC, Random Forest, Decision Tree) to determine which features best predict recoverability, culminating in the identification of the dominant verified mass fraction as the key indicator.",
+  "why_interesting": "The focus on the interplay between quantum measurement noise and classical signal processing techniques (like continued fractions) provides concrete, actionable metrics for diagnosing the performance limits of quantum algorithms on NISQ hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.16074_figures/2605.16074_fig1.jpg",
+      "caption": "Figure 1: Top: Recoverability despite weak global histogram structure. Although the measured distribution is diffuse and the global structure metrics are weak, the verified candidate comparison still selects the true period, 𝑟= 6, yielding recoverability. Bottom: No recoverability despite visible peak structure. The verified candidate comparison favors an incorrect period, 𝑟= 8, over the true period, 𝑟= 2, and recoverability fails.",
+      "page": 2
+    },
+    {
+      "image": "2605.16074_figures/2605.16074_fig2.jpg",
+      "caption": "Figure 2: Residual structure and recoverability. Each point represents one instance, colored by recoverability outcome. (a) Normalized entropy 𝐻norm versus autocorrelation peak strength 𝐴peak, characterizing flatness and residual structure. (b) Dominant verified mass fraction 𝑀1,frac versus verified margin fraction Δver,frac, characterizing the organization of residual structure.",
+      "page": 4
+    },
+    {
+      "image": "2605.16074_figures/2605.16074_fig3.jpg",
+      "caption": "Figure 3: Distribution of four features by recoverability. The histograms compare runs that were not recoverable (orange) with runs that were recoverable (blue) for autocorrelation peak strength 𝐴peak, normalized entropy 𝐻norm, dominant verified mass fraction 𝑀1,frac and verified margin fraction Δver,frac. Bars show empirical density, and dashed vertical lines mark the median of each group.",
+      "page": 5
+    },
+    {
+      "image": "2605.16074_figures/2605.16074_fig4.jpg",
+      "caption": "Figure 4: Decision tree classifier for predicting recoverability. Internal nodes show split rules based on 𝐴peak, 𝐻norm, 𝑀1,frac, and Δver,frac. Terminal leaves show the final prediction, with orange indicating predicted not recoverable and blue indicating predicted recoverable. Counts are shown as [not recoverable, recoverable]. Solid black branches indicate the true condition, ≤ threshold, while dashed black branches indicate the false condition, > threshold.",
+      "page": 7
+    },
+    {
+      "image": "2605.16074_figures/2605.16074_fig5.jpg",
+      "caption": "Figure 5: Permutation importance from a random-forest clas- sifier trained on the four selected recoverability features. Importance is measured as the decrease in held-out AUROC after randomly permuting each feature. Error bars show the standard deviation across cross-validation folds.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.16074_figures/2605.16074_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
