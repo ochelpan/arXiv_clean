@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2605.16955",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "From Constraint to Code: DQI-Kit -- A Software Framework for Decoded Quantum Interferometry",
+  "authors": "Simon Thelen, Wolfgang Mauerer",
+  "abstract": "Trying to solve hard optimisation problems with quantum techniques requires transformations of domain objectives and constraints into formats compatible with a chosen quantum algorithm. This often introduces inefficiencies and overheads that limit or even endanger potential quantum advantage for current and future approaches. To understand and mitigate these inefficiencies, software toolchains are essential for implementing transformations, analysing overheads and eventually selecting optimal transformation paths. Decoded Quantum Interferometry (DQI) is a novel approach that achieves apparent quantum advantage for certain algebraic optimisation problems. It natively operates on Max-LINSAT, which is unusual for combinatorial optimisation, and creates the need for software solutions that alleviate the burden of manually transforming problems of interest into this format. We present DQI-Kit, a software framework that provides a unified, extensible interface for automatically encoding constrained optimisation problems into Max-LINSAT. Users can describe the various types of objectives and constraints that are common in industrial optimisation problems. Our framework converts these into Max-LINSAT instances via a series of problem transformations and computes an estimate of the expected performance of DQI on these instances. We provide an initial analysis of the implemented transformations, discussing inefficiencies and ways to mitigate them. DQI-Kit is the basis for our ultimate goal of establishing a standardised framework that will enable further investigations to identify practical use cases for which quantum advantage with DQI can be achieved.",
+  "url": "http://arxiv.org/abs/2605.16955v1",
+  "pdf": "https://arxiv.org/pdf/2605.16955v1",
+  "type": "theory",
+  "summary": "The authors present DQI-Kit, a new software framework designed to automate the complex process of mapping industrial optimization problems into a format suitable for the Decoded Quantum Interferometry algorithm. By providing a unified interface for encoding constraints, the tool helps identify efficient transformation paths and estimate quantum advantage potential while mitigating performance-degrading overheads.",
+  "main_problem": "The difficulty of transforming complex, domain-specific optimization problems (like MILP or SAT) into the Max-LINSAT format required for Decoded Quantum Interferometry (DQI) without introducing massive overheads or performance-degrading linear dependencies.",
+  "main_result": "The introduction of DQI-Kit, a software framework that automates the encoding of high-level constraints into DQI-compatible Max-LINSAT instances and provides tools to estimate expected quantum performance.",
+  "method": "The framework uses a multi-layered abstraction approach (MaxConstraintSat to MaxLinSat) to apply mathematical transformations, such as linearization, gadget-based encoding, and auxiliary variable introduction, to map objectives and constraints to finite field operations.",
+  "model_or_system": "The mathematical model is based on Decoded Quantum Interferometry (DQI), which utilizes the decoding of error-correcting codes over finite fields (Max-LINSAT and Max-XORSAT) to approximate solutions to combinatorial optimization problems.",
+  "key_observables": "Expected number of satisfied constraints and the approximation performance of the DQI algorithm.",
+  "important_parameters": "Minimum distance (d_min) of the underlying code, the ratio of error weight to constraints (l/m), the field order (p), and the polynomial degree (l).",
+  "main_assumptions": "The framework assumes that the performance of DQI can be estimated analytically or via sampling, and it acknowledges that current hardware cannot yet execute these industrial-scale instances.",
+  "figures_summary": "Figure 1 shows a transformation map from various problem types to DQI formats; Figure 2 illustrates integer constraint encoding; Figure 3 displays the software architecture hierarchy; Figure 4 demonstrates code usage for different problem classes.",
+  "paper_structure": "The paper introduces the encoding challenge, presents the DQI-Kit software architecture and abstraction layers, details specific mathematical transformation techniques for various constraints, analyzes the impact of these transformations on performance (identifying 'bad' structures), and concludes with future directions for standardization.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.16955_figures/2605.16955_fig1.jpg",
+      "caption": "Figure 1: Transformations between formulations implemented by DQI-Kit. Red dashed lines represent transformations that increase the number of constraints; blue dotted lines represent transformations that add additional auxiliary variables; yellow dash-dotted lines represent transformations that lead to many linearly dependent constraints often negatively impacting DQI performance; grey solid lines represent (favourable) transformations where none of the above apply.",
+      "page": 2
+    },
+    {
+      "image": "2605.16955_figures/2605.16955_fig2.jpg",
+      "caption": "Figure 2: Max-LINSAT encodings of integer constraints: Or- dering inequalities generally require a larger field order. In the example, we assume that a, b ∈{0, 1, 2}, so −4 ≤3a−2b ≤6.",
+      "page": 4
+    },
+    {
+      "image": "2605.16955_figures/2605.16955_fig3.jpg",
+      "caption": "Figure 3: Simplified class structure for the two abstraction levels of DQI-Kit: MaxLinSat for directly describing Max-LINSAT constraints and MaxConstraintSat for describing integer constraints and objectives as well as Boolean constraints.",
+      "page": 8
+    },
+    {
+      "image": "2605.16955_figures/2605.16955_fig4.jpg",
+      "caption": "Figure 4: Problem encoding and solution quality estimation in DQI-Kit: User-defined problem specifications supports two abstraction levels: in this example, higher-level MaxConstraintSat is used for knapsack and minimum vertex cover; lower- level abstraction MaxLinSat is used for maximum 3-colourable subgraph. DQI and classical solvers operate on both. For this, MaxConstraintSat instances are automatically transformed into Max-LINSAT.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.16955_figures/2605.16955_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

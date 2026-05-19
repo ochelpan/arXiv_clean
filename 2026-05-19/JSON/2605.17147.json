@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.17147",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.dis-nn",
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": true,
+  "title": "Spatial statistics for screening molecular structures",
+  "authors": "Pranoy Ray, Surya R. Kalidindi",
+  "abstract": "The dominant paradigm in computational materials discovery relies on heavily parameterized deep architectures, including message-passing graph networks and equivariant models, that require millions of DFT-labeled training structures and produce non-convex latent representations that complicate continuous optimization for inverse design. These architectures are impractical in data-scarce regimes, which is the typical case in molecular screening, and exhibit well-documented limitations in capturing chemically disordered configurations and chiral geometries. This review presents feature engineering based on spatial statistics as a physically rigorous and immediately deployable alternative. Molecular structures are encoded as voxelized scalar fields, and two-point auto- and cross-correlations are evaluated deterministically via Fast Fourier Transforms, explicitly transferring the burden of spatial pattern recognition from the learning algorithm to a closed-form, physics-informed operation. Principal component analysis of the resulting correlation maps yields low-dimensional, strictly convex representations that support lean neural networks (<100k trainable parameters) and non-parametric surrogate models, achieving sub-2% prediction error with as few as 10 training samples. Demonstrated across periodic crystals, chemically disordered high-entropy alloys, and non-periodic organic molecules, this framework enables Bayesian active learning and zero-shot extrapolation on commodity hardware, which current large-scale architectures cannot replicate at equivalent data budgets.",
+  "url": "http://arxiv.org/abs/2605.17147v1",
+  "pdf": "https://arxiv.org/pdf/2605.17147v1",
+  "type": "theory",
+  "summary": "The paper proposes replacing heavy, data-hungry deep learning architectures with a physics-informed approach using spatial statistics and FFTs. This method enables highly accurate material property prediction even with extremely small datasets and provides a convex latent space suitable for efficient molecular design.",
+  "main_problem": "Traditional deep learning models for materials discovery require massive DFT-labeled datasets and struggle with chemically disordered configurations, chiral geometries, and non-convex latent representations that hinder inverse design.",
+  "main_result": "A physics-informed feature engineering framework using spatial statistics achieves sub-2% prediction error with as few as 10 training samples and provides strictly convex representations for efficient optimization.",
+  "method": "The method uses voxelized 3D scalar fields to compute two-point auto- and cross-correlations via Fast Fourier Transforms, followed by PCA for dimensionality reduction into low-dimensional manifolds.",
+  "model_or_system": "The framework is scale-agnostic and applicable to periodic crystals (e.g., Silicon), chemically disordered high-entropy alloys, and non-periodic organic molecules (e.g., PFAS).",
+  "key_observables": "Two-point spatial correlations, pseudo-charge densities, and structural fingerprints like helicity and short-range order.",
+  "important_parameters": "Data-scarce regimes (10-30 training samples), lean neural networks (<100k parameters), and computational complexity scaling as O(S log S).",
+  "main_assumptions": "The use of non-interacting pseudo-densities neglects explicit charge transfer and electron correlation effects; 2-point statistics may smooth over rare, localized topological anomalies.",
+  "figures_summary": "Figure 1 shows structural complexity across different regimes; Figure 2 illustrates the voxelization pipeline; Figure 3 shows voxelized data for a high-entropy alloy; Figure 4 depicts the end-to-end workflow; Figure 6 shows a closed-loop autonomous discovery pipeline.",
+  "paper_structure": "The paper introduces the limitations of current GNNs, proposes a spatial statistics-based feature engineering workflow (voxelization, FFT-based correlations, PCA), demonstrates performance across various material classes (crystals, alloys, molecules), and discusses the utility for inverse design and active learning.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.17147_figures/2605.17147_fig1.jpg",
+      "caption": "Figure 1: Hierarchical structural complexity across material classes. Schematic illustrating (left - Si) perfectly periodic crystals with a small number of symmetry-inequivalent environments, (center - Wüstite: Fe1−xO) chemically disordered solid solutions with local lattice distortions and short-range order, and (right - PFOA) finite, non-periodic molecules with complex 3D conformations (helicity) and steric shielding (F atoms).",
+      "page": 2
+    },
+    {
+      "image": "2605.17147_figures/2605.17147_fig2.jpg",
+      "caption": "Figure 2: Voxelization pipeline for continuous atomic environments. The discrete, coordinate-based point-cloud of a local atomic neighborhood is systematically mapped onto a standardized cubic voxel grid. During this transformation, each voxel channel encodes specific physical attributes, such as binary occupancy, intrinsic elemental properties, or continuous pseudo-charge densities via a defined smearing function. Voxels falling within a prescribed atomic radius capture the designated elemental values, while interstitial regions remain at zero, effectively transforming the discrete Lagrangian coordinates into a continuous, multi-channel field ready for deterministic spatial statistical...",
+      "page": 5
+    },
+    {
+      "image": "2605.17147_figures/2605.17147_fig3.jpg",
+      "caption": "Figure 3: Sources of voxelized molecular structure data from DFT. Example shown for a refractory high-entropy alloy Al4Nb44Ti4Zr76, where the converged or pseudo charge density field is sampled on a regular grid to construct the voxelized representation used in the spatial feature engineering workflow.",
+      "page": 6
+    },
+    {
+      "image": "2605.17147_figures/2605.17147_fig4.jpg",
+      "caption": "Figure 4: End-to-end spatial feature engineering workflow. Discrete atomic coordinates are first embedded into voxelized eigen–microstructure and pseudo-density fields on a standardized grid. Directionally resolved two-point auto- and cross-correlations are then computed via FFTs to obtain translationally invariant structural fingerprints. Finally, PCA projects these high-dimensional statistics onto a low-dimensional, convex manifold that serves as input to lean CNNs or GPR models.",
+      "page": 7
+    },
+    {
+      "image": "2605.17147_figures/2605.17147_fig5.jpg",
+      "caption": "Figure 5: Broad applicability of the spatial statistics based feature engineering paradigms. The left panel[93] shows the Principal Component space of refractory high-entropy alloys, demonstrating the chemically agnostic grouping of elemental and multi-component systems. The right panel shows the correlation of the principal component scores with exact polarizability in PFAS, successfully isolating thermodynamic outliers and variations driven by the length of the perfluoroalkyl chain [94] .",
+      "page": 9
+    }
+  ],
+  "figure": "2605.17147_figures/2605.17147_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

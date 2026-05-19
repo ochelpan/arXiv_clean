@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.18333",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "QLIF-CAST: Quantum Leaky-Integrate-and-Fire for Time-Series Weather Forecasting",
+  "authors": "Alberto Marchisio, Aayan Ebrahim, Nouhaila Innan, Muhammad Kashif, Muhammad Shafique",
+  "abstract": "Accurate and efficient time-series forecasting remains a challenging problem for both classical and quantum neural architectures, particularly in multivariate environmental settings. This work adapts the Quantum Leaky Integrate-and-Fire (QLIF) spiking neural network for time-series regression tasks, specifically short-term multivariate weather forecasting. We extend QLIF beyond classification and demonstrate its applicability to continuous-valued prediction problems.   The QLIF-CAST model encodes neuron excitation states as single-qubit quantum superpositions, driven by Rx rotation gates and T1 relaxation decay, and is embedded within a hybrid quantum-classical recurrent architecture. We conduct two distinct evaluations. First, a controlled comparison against a parameter-matched classical LIF baseline on a multivariate weather dataset shows that QLIF-CAST achieves 15.4% lower MSE and 4.4% lower MAE, demonstrating that quantum neuronal dynamics reduce prediction error over classical equivalents. Second, a cross-domain comparative analysis with state-of-the-art quantum LSTM (QLSTM) and quantum neural network (QNN) models on air quality and wind speed benchmarks reveals that QLIF-CAST converges in up to 94% less training time, occupying a distinct position in the speed-error trade-off space. Hardware verification on IBM Marrakesh (156-qubit QPU) confirms reliable circuit execution with only 1.2% average deviation from simulation.",
+  "url": "http://arxiv.org/abs/2605.18333v1",
+  "pdf": "https://arxiv.org/pdf/2605.18333v1",
+  "type": "both",
+  "summary": "This paper introduces QLIF-CAST, a lightweight hybrid quantum neural network designed for time-series forecasting. By using shallow single-qubit circuits to model neuronal dynamics, the model significantly reduces training time compared to deeper quantum models while outperforming classical counterparts in prediction accuracy.",
+  "main_problem": "The challenge of developing efficient and accurate quantum-classical hybrid architectures for multivariate time-series weather forecasting, specifically addressing the high computational cost of deep variational quantum models.",
+  "main_result": "The QLIF-CAST model achieves 15.4% lower MSE than a classical LIF baseline and converges up to 94% faster than state-of-the-art QLSTM and QNN models, while maintaining hardware reliability on a 156-qubit QPU.",
+  "method": "The authors use a hybrid recurrent architecture with surrogate gradient training (arctan approximation) and a vectorized circuit execution strategy to achieve a 500x speedup in simulation.",
+  "model_or_system": "A hybrid quantum-classical recurrent architecture (QLIF-CAST) utilizing a depth-2, single-qubit circuit where neuron excitation states are encoded as quantum superpositions driven by Rx rotations and T1 relaxation decay.",
+  "key_observables": "Mean Squared Error (MSE), Mean Absolute Error (MAE), Root Mean Square Error (RMSE), and R-squared (R2).",
+  "important_parameters": "T1 relaxation constant of 10.0, spike threshold of 0.75, and 12-step context windows.",
+  "main_assumptions": "The model assumes that the higher error in certain benchmarks remains within operational tolerances for practical deployment and that the shallow circuit depth is sufficient to capture necessary dynamics.",
+  "figures_summary": "Fig 1 illustrates the QLIF neuron model; Fig 2 shows the classical LIF model; Fig 7 shows training/validation loss convergence; Fig 8 and 9 show forecasting performance for air quality and wind speed respectively.",
+  "paper_structure": "The paper introduces the QLIF-CAST model, describes the quantum neuronal dynamics and architecture, presents a controlled comparison against classical LIF, performs a cross-domain benchmark against QLSTM/QNN, and concludes with hardware verification on IBM Marrakesh.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.18333_figures/2605.18333_fig1.jpg",
+      "caption": "Fig. 1. QLIF neuron model. The qubit is initialized in |0⟩, rotated by Rx(ϕ) to encode the current excitation state, then rotated by Rx(θinput) to integrate the input signal. Measuring the qubit yields the updated excitation probability αnew = sin2( ϕ+θinput",
+      "page": 2
+    },
+    {
+      "image": "2605.18333_figures/2605.18333_fig2.jpg",
+      "caption": "Fig. 2. Classical LIF neuron model. The membrane potential U integrates synaptic input Iin and decays exponentially between spikes (Unew = βUprev + (1−β)Iin, β = e−1/τ). A spike is emitted when U exceeds the threshold, after which U resets to zero.",
+      "page": 2
+    },
+    {
+      "image": "2605.18333_figures/2605.18333_fig3.jpg",
+      "caption": "Fig. 3. QLSTM architecture. Each of the four classical LSTM gates (forget, input, cell, output) is replaced by a multi-qubit variational quantum circuit (VQC), with gate angles trained via parameter-shift gradient rules.",
+      "page": 3
+    },
+    {
+      "image": "2605.18333_figures/2605.18333_fig4.jpg",
+      "caption": "Fig. 4. LSTM-QNN architecture. A classical LSTM encoder performs temporal feature extraction, whose output is passed to a variational quantum neural network (QNN) before the regression head.",
+      "page": 3
+    },
+    {
+      "image": "2605.18333_figures/2605.18333_fig5.jpg",
+      "caption": "Fig. 5. Overview of the QLIF-CAST methodology. Three datasets (D1-D3) used across the two evaluation phases, with shared preprocessing steps. QLIF-CAST and Classical LIF architectures; the two pipelines are structurally identical, while only Layer 2 (the neuronal update rule) differs. Two-phase evaluation design and key results, with QPU hardware validation on IBM Marrakesh.",
+      "page": 4
+    }
+  ],
+  "figure": "2605.18333_figures/2605.18333_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

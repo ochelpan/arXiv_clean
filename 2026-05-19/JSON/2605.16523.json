@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2605.16523",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LO"
+  ],
+  "is_primary_archive": true,
+  "title": "End-to-End Formalization of Quantum Error Correction",
+  "authors": "Mattias Ehatamm, Yi Lee, Xiaodi Wu, Runzhou Tao",
+  "abstract": "Quantum error-correcting codes (QECCs) sit between noisy quantum hardware and reliable computation, so the code parameters used in practice must be trustworthy. The single number that summarizes a code's strength is its distance, yet certifying a distance lower bound is NP-hard in general, placing it beyond the reach of pen-and-paper proofs as well as direct proof-assistant scripting. As a result, distance values in the literature come either from non-scaling hand proofs, or from unverified solvers that leave a trust gap exactly where the code is supposed to provide a guarantee. We present Lean-QEC, the first Lean 4 formalization of stabilizer-code theory that delivers end-to-end, machine-checked distance certificates at industrial code sizes. Lean-QEC formalizes the linear algebra of qubit states, the Pauli group, stabilizer codes, the binary symplectic representation, classical coding theory, and the CSS and Bivariate Bicycle families. To break the combinatorial barrier, Lean-QEC translates the distance condition into a Boolean satisfiability formula through a verified reduction. The pipeline scales through a BitVec-flattened encoding that replaces Lean's Matrix representation, and an error-location encoding that reduces the variable count from $n$ to $k\\lceil \\log_2 n\\rceil$. With these, we obtain automatically-generated Lean-checked distance proofs for a large range of industrially viable qLDPC codes within the Bivariate Bicycle and Generalized Bicycle families, including [[90, 8, 10]] and [[70, 6, 9]] BB codes, with the formulation scaling up to 144 qubits when performed outside the Lean kernel. The resulting library is reusable and is designed to plug into broader Lean-based efforts toward end-to-end verification of fault-tolerant quantum computation.",
+  "url": "http://arxiv.org/abs/2605.16523v1",
+  "pdf": "https://arxiv.org/pdf/2605.16523v1",
+  "type": "theory",
+  "summary": "This paper introduces Lean-QEC, a formal verification framework in Lean 4 that automates the proof of distance bounds for large-scale quantum error-correcting codes. By bridging high-level quantum theory with efficient SAT-based computation, it enables machine-checked certificates for codes that were previously too large for manual or formal verification. This provides a critical layer of trust for the development of fault-tolerant quantum computing.",
+  "main_problem": "Certifying the distance of large-scale quantum error-correcting codes (QECCs) is NP-hard, creating a 'trust gap' between unverified symbolic solvers and unscalable manual proofs.",
+  "main_result": "The authors developed Lean-QEC, a Lean 4 library that provides end-to-end, machine-checked distance certificates for industrial-scale stabilizer codes, including Bivariate Bicycle codes up to 144 qubits.",
+  "method": "The framework uses a verified reduction to translate the distance condition into a Boolean satisfiability (SAT) problem, utilizing BitVec-flattened encoding and error-location encoding to ensure scalability within the Lean kernel.",
+  "model_or_system": "The paper focuses on stabilizer codes, specifically CSS and Bivariate Bicycle (BB) families, modeled using the Pauli group and binary symplectic representation.",
+  "key_observables": "Code distance (d), Pauli weight, and stabilizer generators.",
+  "important_parameters": "Scalability up to 144 qubits; specific verified codes include [[90, 8, 10]] and [[70, 6, 9]] BB codes.",
+  "main_assumptions": "The binary symplectic representation assumes phase information loss is irrelevant for distance arguments; the solver (CaDiCaL) is not trusted, but its output is verified via LRAT certificates.",
+  "figures_summary": "Figure 1 shows a workflow diagram of the quantum verification hierarchy; Figure 2 maps the formalized QEC stack; Figure 3 illustrates the equivalence of tensor products and unfolded Pauli operators.",
+  "paper_structure": "The paper introduces the trust gap in QEC, presents the Lean-QEC library architecture, details the mathematical formalization of the Pauli group and stabilizer codes, describes the SAT-based reduction pipeline and optimization techniques, and validates the framework with case studies ranging from the Shor code to large-scale BB codes.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.16523_figures/2605.16523_fig1.jpg",
+      "caption": "Figure 1: Verification workflow for fault-tolerant quantum programs. Lean-QEC occupies the QEC layer of this pipeline.",
+      "page": 3
+    },
+    {
+      "image": "2605.16523_figures/2605.16523_fig2.jpg",
+      "caption": "Figure 2: Map of the formalized quantum-error-correction stack. Arrows are machine-checked correspondence theorems; the rightmost layer feeds into the SAT-based distance pipeline of Section 4.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.16523_figures/2605.16523_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

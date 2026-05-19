@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.17769",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "InterQ: Communication-Aware Scheduling Across Modular QPUs with Classical and Quantum Links",
+  "authors": "Vinooth Kulkarni, Jaehyun Lee, Lauren Li, Aaron Orenstein, Xinpeng Li, Shuai Xu, Daniel Blankenberg, Vipin Chaudhary",
+  "abstract": "As quantum computing scales toward practical workloads, future systems are expected to move beyond single monolithic processors toward modular architectures that connect multiple QPUs. Different platforms realize this modularity through different communication models: superconducting systems rely on real-time classical links and dynamic-circuit coordination, trapped-ion systems use photonic interconnects for remote entanglement, and neutral-atom systems provide strong intra-core connectivity with proposed optical links for inter-core communication. This heterogeneity makes communication-aware scheduling essential for shared modular quantum cloud environments.   We present InterQ, a communication-aware scheduler for modular QPU architectures with heterogeneous communication models. InterQ jointly considers qubit capacity, placement, parallel execution, and communication-driven dependencies across distributed subcircuits, while enabling adaptive circuit cutting to reduce makespan while balancing fidelity and communication overhead. The framework distinguishes classical-link execution, where measurement and feedforward impose synchronization constraints, from quantum-link execution, where entanglement distribution and state transfer determine coordination cost.   Using a unified simulation framework to compare superconducting, trapped-ion, and neutral-atom modular systems, InterQ shows how communication models and scheduler-driven cutting decisions affect throughput, latency, and fidelity. Across evaluated workloads, InterQ exposes an architecture-dependent tradeoff: neutral-atom modular QPUs achieve the highest fidelity, superconducting systems minimize runtime, and trapped-ion systems provide a balanced intermediate profile across fidelity and makespan.",
+  "url": "http://arxiv.org/abs/2605.17769v1",
+  "pdf": "https://arxiv.org/pdf/2605.17769v1",
+  "type": "theory",
+  "summary": "The paper presents InterQ, a scheduler designed to manage quantum jobs across modular processors with different communication technologies. It demonstrates how to adaptively partition circuits to balance the costs of communication latency and sampling overhead. The study highlights how different hardware platforms like superconducting and trapped-ion systems offer distinct trade-offs between speed and fidelity.",
+  "main_problem": "Efficiently scheduling and partitioning quantum workloads across modular QPU architectures that use heterogeneous communication links (classical vs. quantum).",
+  "main_result": "The InterQ scheduler optimizes the trade-off between runtime, fidelity, and communication overhead, revealing that superconducting systems minimize runtime while neutral-atom systems achieve the highest fidelity.",
+  "method": "A communication-aware, iterative scheduling framework (InterQ) that jointly optimizes job placement, adaptive circuit cutting, and communication mode selection (LO, LOCC, or QComm) using a discrete-event simulation.",
+  "model_or_system": "Modular quantum architectures including superconducting (LOCC-based), trapped-ion (QComm-based), and neutral-atom (hierarchical/optical link) systems.",
+  "key_observables": "Throughput, latency (makespan), fidelity (LPST, TiIF), queue time, and communication costs (Bell-pair consumption, synchronization delay).",
+  "important_parameters": "Qubit capacity, communication bandwidth, entanglement generation rates, sampling overhead (scaling with number of cuts), and synchronization constraints.",
+  "main_assumptions": "Assumes a shared quantum cloud environment where jobs compete for limited communication resources and treats entanglement generation as a resource-constrained service.",
+  "figures_summary": "Figure 1 contrasts LO vs. LOCC execution semantics; Figure 2 illustrates the QComm abstraction with shared Bell-pair resources.",
+  "paper_structure": "The paper introduces the challenge of modular scheduling, defines the InterQ framework and its optimization objectives, details the hardware-specific communication models (LO, LOCC, QComm), presents a simulation-based evaluation across various hardware platforms and workloads, and concludes with an analysis of architecture-dependent trade-offs.",
+  "why_interesting": "It addresses the critical scaling bottleneck of moving from monolithic to modular quantum computing, specifically focusing on the interplay between hardware-specific interconnects (photonic vs. classical) and computational throughput.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.17769_figures/2605.17769_fig1.jpg",
+      "caption": "Fig. 1: Execution semantics of circuit cutting. In LO, cut fragments execute independently and are stitched through offline reconstruction. In LOCC, upstream measurement outcomes are transmitted over a classical link and trigger downstream conditional operations, creating explicit precedence between fragments.",
+      "page": 4
+    },
+    {
+      "image": "2605.17769_figures/2605.17769_fig2.jpg",
+      "caption": "Fig. 2: QComm abstraction used by InterQ. Remote execution across modules consumes Bell-pair resources managed by a shared Bell-pair distribution service, so latency depends on Bell-pair generation, success probability, and contention from concurrent link requests.",
+      "page": 4
+    },
+    {
+      "image": "2605.17769_figures/2605.17769_fig3.jpg",
+      "caption": "Fig. 3: Execution schedule comparison of IBM LOCC, Atom QComm, and Ionq QComm architectures for the 11-circuit workload.",
+      "page": 7
+    },
+    {
+      "image": "2605.17769_figures/2605.17769_fig4.jpg",
+      "caption": "Fig. 4: InterQ schedules for the MQT and QUEKO bench- mark workload under two communication models: (a) IonQ QComm, where scheduling is influenced by remote-operation demand and quantum-link availability, and (b) IBM adaptive LOCC mode, where no circuits are partitioned because all circuits fit within the available IBM QPU capacities.",
+      "page": 8
+    },
+    {
+      "image": "2605.17769_figures/2605.17769_fig5.jpg",
+      "caption": "Figure 5 compares the execution schedules, and Table III reports the corresponding makespan and fidelity-related met- rics. Serial Round Robin achieves better queue length, work- load changes, TiIF, and LPST, whereas InterQ reduces queue time, runtime, and wait time while improving TRF and TiRF through adaptive LOCC partitioning. The 142-qubit circuit cannot be placed directly on any 127-qubit backend and is therefore omitted from the Serial Round Robin sched- ule; InterQ partitions it into LOCC-compatible upstream and downstream fragments and schedules them across the modular backend pool.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.17769_figures/2605.17769_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 1,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

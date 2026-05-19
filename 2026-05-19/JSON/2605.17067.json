@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.17067",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Near-Optimal Quantum Time Evolution Circuits via Provably Convergent Compression",
+  "authors": "Erenay Karacan, Isabel Nha Minh Le, Matteo D'Anna, Juan Carasquilla, Christian B. Mendl, Ivan Rojkov",
+  "abstract": "Variational compression can significantly lower implementation overheads for encoding the time evolution of Hamiltonians into quantum circuits. However, they usually lack global convergence guarantees and well-established scaling behavior. In this work, we provide a recipe for choosing the initial point of such variational optimizations that guarantees convergence to a quantum circuit with near-optimal gate complexity $\\mathcal{O}\\left( N \\, t \\, \\text{polylog}(N \\, t/ε) \\right)$ for all local and translationally invariant Hamiltonians. We demonstrate our method by encoding the globally controlled time evolution of a Heisenberg antiferromagnet on a Kagome lattice. For $N = 48$ sites, evolution time $t=0.1$ and infidelity $ε\\approx1\\%$, the controlled time-evolution circuit requires 960 two-qubit B gates, for which we propose a straightforward implementation scheme for ion-trap setups. Thereby, our recipe extends digital quantum simulators toward system sizes and geometries that are challenging for classical computation.",
+  "url": "http://arxiv.org/abs/2605.17067v1",
+  "pdf": "https://arxiv.org/pdf/2605.17067v1",
+  "type": "both",
+  "summary": "This paper introduces a method for compressing quantum time-evolution circuits with guaranteed convergence to near-optimal gate complexity. By using a specific initialization strategy, the authors show that small-scale optimized circuits can be effectively scaled to simulate large, complex systems like the Kagome Heisenberg antiferromagnet. This approach significantly reduces the gate overhead required for digital quantum simulation.",
+  "main_problem": "The difficulty of implementing efficient, large-scale quantum time evolution circuits that achieve near-optimal gate complexity while providing rigorous global convergence guarantees for variational compression.",
+  "main_result": "The authors provide a recipe for choosing an initial optimization point that guarantees convergence to a near-optimal circuit with gate complexity O(N t polylog(N t/epsilon)) for local, translationally invariant Hamiltonians.",
+  "method": "A variational compression strategy (TICC) using a Trotterization-based 'warm start' and a bootstrapping approach to extend small-time-step optimized gates to larger evolution times.",
+  "model_or_system": "Local and translationally invariant Hamiltonians, specifically demonstrated on a Heisenberg antiferromagnet on a Kagome lattice, with proposed implementation on trapped-ion platforms using B-gates.",
+  "key_observables": "Evolution infidelity, gate complexity (gate count), and local infidelity.",
+  "important_parameters": "System size (N), evolution time (t), error tolerance (epsilon), and the critical time threshold (t_crit) for convergence.",
+  "main_assumptions": "The Hamiltonian is local and translationally invariant; the optimization manifold is real-analytic; the time step must be sufficiently small (below t_crit).",
+  "figures_summary": "Visualizations of the optimization protocol, comparisons of error scaling between Trotterization and optimized circuits, transferability of gates to larger systems, and gate decomposition/performance in noisy ion-trap models.",
+  "paper_structure": "Introduction of the scaling challenge, theoretical proof of convergence and convexity, demonstration of the TICC protocol on various lattices, verification of transferability to large systems, and hardware-specific gate implementation analysis.",
+  "why_interesting": "It provides a rigorous mathematical bridge between variational quantum algorithms and efficient digital simulation, offering a provable way to scale quantum simulators toward the classical complexity limit.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.17067_figures/2605.17067_fig1.jpg",
+      "caption": "Figure 1: Visualization of the proposed quantum simulation protocol. (a) A local Ansatz circuit WL of depth L is optimized to encode the controlled time evolution of time t on a small quantum system (e.g., N = 12 Kagome lattice) using a classical computer [31]. One uses an appropriate, pth order Trotterization of the time evolution with identities inserted as control layers [33–35] for the initial point, which guarantees efficient convergence to a unitary with more favorable error scaling with respect to L and t compared to Trotter error, as shown in (b) in red for Trotterization and blue for optimized circuits. (c) Optimized gates can then be used to encode dynamics of the same Hamiltonian...",
+      "page": 2
+    },
+    {
+      "image": "2605.17067_figures/2605.17067_fig2.jpg",
+      "caption": "Figure 2: Numerical demonstration of guaranteed convergence. We fix N = 6 for the Ansatz, randomly choose a 2-local, TI Hamiltonian with ∥H∥= 1 on a fixed geometry with ∆L = 3 permutation classes, set U∆t = e−iH∆t as target and track convergence behav- ior for a randomized H0, where ∥H0∥≤1 and e−iH0∆t",
+      "page": 3
+    },
+    {
+      "image": "2605.17067_figures/2605.17067_fig3.jpg",
+      "caption": "Figure 3: Kagome lattice optimization results. (Top) Evolution infidelity (9) vs. gate counts needed to encode the controlled time evolution of the HM in Eq. (7), on the N = 12 Kagome lattice. We benchmark TICC with control layers γ, against pth-order Trotterization (of r steps) with anti-commuting Pauli string insertion, as proposed by [33, 34]. Optimization with TICC yields ar- bitrary SU(4) gates, which we decompose into MS and B gates. (Bottom) PEPS verification of transferring op- timized results to larger system sizes. We use a PEPS bond dimension D = 4 for N = 27, and D = 3 for N = 48. Dashed lines represent the evolution infidelities for the N = 12 system, computed with exact...",
+      "page": 4
+    },
+    {
+      "image": "2605.17067_figures/2605.17067_fig4.jpg",
+      "caption": "Figure 4: Scaling of the controlled time evolution opera- tor (optimized via TICC), with respect to the evolution time, for various numbers of Ansatz layers L, where the number of control layers is set to a constant γ = 4 for all L values. The inverse accuracy behavior 1/ log(1/ϵ) is plotted and rescaled with L to show the data points collapsing.",
+      "page": 8
+    },
+    {
+      "image": "2605.17067_figures/2605.17067_fig5.jpg",
+      "caption": "Figure 5: (a) Decomposition of a generic SU(4) two- qubit unitary via MS gates and B gates. (b) Average infidelity comparison for decomposing a randomized ar- bitrary unitary SU(4) operation with MS-gates (eMS) vs. B-gates (eB). As eMS, we take the better performing MS gate implementation between single and double loop [62] variants. Noise parameters: T1=1s, heating rate ˙n = 1 quanta/s for all plots; electronic dephasing time (bare T2) set to 50 ms for the left plot and fractional detuning error ∆/δ set to 10−3 for the right plot. Gate times are 83.33µs, 117.85µs, 144.3µs for the single loop MS-gate, double-loop MS gate and the B-gate, respectively. (c) Infidelity of evolving a two qubit...",
+      "page": 9
+    }
+  ],
+  "figure": "2605.17067_figures/2605.17067_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

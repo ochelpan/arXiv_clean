@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.16749",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Boundary-Aware QFT Block-Encoding of Fractional Laplacians",
+  "authors": "Younes Javanmard, Sina Kazemian",
+  "abstract": "We study the quantum Fourier transform (QFT) block-encoding of the semi-discrete fractional Laplacian on bounded domains with open, zero-extension boundary conditions. In the notation of the main construction, the target operator is the finite Toeplitz truncation \\(A^{(N)}_{α,h}\\) obtained from the full-lattice semi-discrete operator with symbol \\(|ξ|^α\\). A finite QFT register, however, diagonalizes circulant matrices rather than Toeplitz truncations. The native QFT circuit therefore implements a periodic surrogate \\(\\widetilde A^{(N)}_{α,h}\\), not the open-boundary operator. We identify this mismatch through an exact Toeplitz-to-circulant aliasing identity.   To recover the open-boundary action, we zero-pad the state into a larger \\(M\\)-point QFT register, apply the same Fourier-symbol block-encoding, and compress back to the physical subspace. The resulting compressed block satisfies \\(P_{N\\to M}^{\\dagger}\\widetilde A^{(M)}_{α,h}P_{N\\to M} = A^{(N)}_{α,h}+E^{(M)}\\), where \\(E^{(M)}\\) is controlled by the tail of the semi-discrete convolution kernel. Thus, the QFT layer implements the fractional symbol, while zero-padding supplies the open-boundary geometry. The construction is an operator-compilation primitive for boundary-aware quantum simulation rather than a complete PDE solver.",
+  "url": "http://arxiv.org/abs/2605.16749v1",
+  "pdf": "https://arxiv.org/pdf/2605.16749v1",
+  "type": "theory",
+  "summary": "This paper provides a way to use the Quantum Fourier Transform to simulate fractional diffusion processes on bounded domains without the errors caused by periodic wrap-around. By padding the quantum register with zeros, the authors show how to effectively implement open boundary conditions for the fractional Laplacian. This serves as a fundamental building block for more complex quantum algorithms for solving partial differential equations.",
+  "main_problem": "Standard Quantum Fourier Transform (QFT) circuits naturally implement periodic boundary conditions, which introduces artificial 'wrap-around' aliasing errors when trying to simulate the fractional Laplacian on bounded domains with open boundaries.",
+  "main_result": "The authors prove that by zero-padding the input state into a larger M-point QFT register and then compressing it back, one can implement the open-boundary Toeplitz operator with a controllable error that vanishes as the padding increases.",
+  "method": "The method uses a padding-and-compression mechanism combined with a block-encoding of the Fourier symbol via a diagonal spectral oracle and controlled Ry rotations.",
+  "model_or_system": "The semi-discrete fractional Laplacian operator (with symbol |xi|^alpha) on bounded domains with open, zero-extension boundary conditions.",
+  "key_observables": "spectral norm of the error matrix E(M), gate complexity, and the decay of the convolution kernel tail.",
+  "important_parameters": "fractional order alpha, grid spacing h, physical dimension N, padded dimension M, and the decay rate r_alpha = min(2, 1 + alpha).",
+  "main_assumptions": "The method assumes a sufficiently large padding (M >= 2N) and relies on the specific decay properties of the kernel coefficients to bound the error.",
+  "figures_summary": "Figure 4 compares the matrix structures of Open Toeplitz vs. QFT circulant operators highlighting aliasing; Figure 5 shows the functional accuracy of the padded method compared to the target operator.",
+  "paper_structure": "The paper identifies the boundary mismatch problem, provides a mathematical proof of the aliasing identity, introduces the padding-and-compression construction, performs error analysis using the Schur test, and demonstrates a concrete quantum oracle implementation.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.16749_figures/2605.16749_fig1.jpg",
+      "caption": "FIG. 1. Illustrative four-qubit QFT decomposition. The finite QFT is the spectral layer used by the block-encoding, but by itself it imposes periodic rather than open geometry.",
+      "page": 3
+    },
+    {
+      "image": "2605.16749_figures/2605.16749_fig2.jpg",
+      "caption": "FIG. 2. Native QFT block-encoding of the periodic circulant surrogate e A(N) α,h. The frequency oracle encodes the fractional symbol as an ancilla amplitude.",
+      "page": 3
+    },
+    {
+      "image": "2605.16749_figures/2605.16749_fig3.jpg",
+      "caption": "FIG. 3. Compressed open-boundary block from zero-padding. The size-M QFT circuit is periodic on the padded register, while compression back to the first N coordinates gives (A(N) α,h + E(M))/λmax.",
+      "page": 4
+    },
+    {
+      "image": "2605.16749_figures/2605.16749_fig4.jpg",
+      "caption": "FIG. 4. Matrix structure for N = 64, h = 1, and α = 1.5. The third panel shows the absolute aliasing error on a logarithmic color scale; the highlighted corners are the wrap-around regions.",
+      "page": 6
+    },
+    {
+      "image": "2605.16749_figures/2605.16749_fig5.jpg",
+      "caption": "Figure 5 gives a direct functional comparison using three bounded-domain test functions also used in Ref. [19]. We compare the open-boundary Toeplitz target, the native QFT-circulant surrogate, and the zero-padded compressed operator. The top row overlays the operator outputs, while the bottom row shows the pointwise absolute error on a logarithmic scale. The native QFT curve plays the role of a periodic Fourier method and displays boundary artifacts, whereas the padded construction follows the open-boundary target.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.16749_figures/2605.16749_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

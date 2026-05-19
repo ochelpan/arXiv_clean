@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.17156",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Sparse Mamba Decoder for Quantum Error Correction: Efficient Defect-Centric Processing of Surface Code Syndromes",
+  "authors": "Samira Sayedsalehi, Nader Bagherzadeh, Maxim Shcherbakov, Jean-Luc Gaudiot",
+  "abstract": "Quantum error correction (QEC) is essential for building fault-tolerant quantum computers, requiring decoders that are simultaneously accurate, fast, and scalable. Most state-of-the-art neural decoders achieve high accuracy but process the full dense syndrome array of size $O(d^2 R) $regardless of the actual error rate, where d is the code distance and R is the number of measurement rounds. At physically relevant error rates (p ~ 0.1%), fewer than 5% of syndrome entries contain active detection events -- yet existing decoders process the entire syndrome volume. We introduce the Sparse Mamba Decoder (SMD), a defect-centric neural decoder that processes only the k active detection events using a 13-dimensional feature representation per defect and a Mamba state-space backbone, achieving $O(k)$ complexity. Across depolarizing, uniform circuit-level, SI1000, and Google Sycamore experimental benchmarks, SMD reduces the MWPM logical error rate by up to 49% at $d \\le 5$ under SI1000 noise, runs 95-467x faster than the Tesseract near-MLD decoder and 232-463x faster than Belief Matching, and maintains nearly constant latency (24-57 us) across d = 3-9 under uniform circuit-level noise. On the Sycamore experimental dataset, the SMD ensemble matches or slightly surpasses the dense Mamba decoder of Varbanov et al. All results are obtained on commodity NVIDIA GPUs with 7.5-16M parameters, without specialized accelerators.",
+  "url": "http://arxiv.org/abs/2605.17156v1",
+  "pdf": "https://arxiv.org/pdf/2605.17156v1",
+  "type": "both",
+  "summary": "This paper presents a new neural decoder for surface codes that exploits the sparsity of error syndromes to achieve much faster decoding speeds. By using a Mamba state-space model to process only active defects, it maintains high accuracy while scaling linearly with the number of errors rather than the total lattice size.",
+  "main_problem": "Existing neural decoders for quantum error correction (QEC) are computationally inefficient because they process dense syndrome arrays regardless of the actual error rate, leading to high latency as code distance increases.",
+  "main_result": "The Sparse Mamba Decoder (SMD) achieves O(k) complexity by processing only active detection events, providing a 95-467x speedup over near-MLD decoders and significantly reducing logical error rates under SI1000 and Sycamore experimental noise.",
+  "method": "The authors introduce a defect-centric neural decoder using a Mamba state-space model backbone that processes a 13-dimensional feature vector for each active syndrome defect.",
+  "model_or_system": "The study focuses on the rotated surface code under various noise models, including depolarizing, uniform circuit-level, and SI1000 noise, as well as experimental data from the Google Sycamore processor.",
+  "key_observables": "Logical error rate (LER), Frame Error Rate (FER), and decoding latency.",
+  "important_parameters": "Code distance (d = 3 to 11), number of measurement rounds (R), and error rate (p approx 0.1%).",
+  "main_assumptions": "The effectiveness of the decoder relies on the inherent sparsity of syndromes at physically relevant, low error rates.",
+  "figures_summary": "Figure 4 shows SMD outperforming MWPM under uniform noise; Figure 5 compares LER on Sycamore data; Figure 6 and 7 illustrate the speed-accuracy Pareto front under different noise regimes.",
+  "paper_structure": "The paper introduces the inefficiency of dense decoders, describes the SMD architecture and feature engineering, details the training protocols (curriculum learning), presents performance benchmarks against classical and neural baselines, and concludes with future directions for scaling.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.17156_figures/2605.17156_fig1.jpg",
+      "caption": "Figure 1: a) Planar layout of a rotated surface code with code distance d = 3. White circles represent data qubits, while blue circles • and pink circles • represent Z-type and X-type stabi- lizer measurement qubits, respectively. b) Circuit representation of the X-type (top) and Z-type (bottom) stabilizer measurements. Open circles (◦) denote the four data qubits coupled to each measurement qubit.",
+      "page": 3
+    },
+    {
+      "image": "2605.17156_figures/2605.17156_fig2.jpg",
+      "caption": "Figure 2: Sparse Mamba Decoder architecture. (a) Sparse defect extraction from a (d2−1) × R syndrome volume to k defect tokens d1, . . . , dk (k ≪d2R at physically relevant error rates). (b) 13-dimensional feature vector per defect: spatial coordinates (x, y), normalized time t/R, stabilizer type τ, spatial and temporal neighbor flags, boundary distances bZ, bX, and the reconstructed measurement mi,t from cumulative XOR. (c) Pipeline: per-token embedder R13 →Rdmodel, L mixer layers, masked mean pool, ResBlock readout to logical observable ˆλ. (d) One mixer layer: RMSNorm + Mamba selective scan (dstate=16, dconv=4), then RMSNorm + Gated Dense (SiLU gating, widening wgate), both with residual...",
+      "page": 5
+    },
+    {
+      "image": "2605.17156_figures/2605.17156_fig3.jpg",
+      "caption": "Figure 3: Logical error rate under depolarizing noise with perfect stabilizer measurements. The Sparse Mamba Decoder (solid lines) with dual prediction heads for λZ and λX is compared against MWPM (dotted), the Tesseract near-MLD decoder [8] (dashed), and Belief Matching [18] (dash- dotted) at distances d ∈{3, 5, 7, 9, 11}. Each data point is evaluated over 106–3 × 106 fresh samples. Inset: Log-log plot of the low-p region showing the widening gap between Mamba and all classical decoders with increasing distance.",
+      "page": 10
+    },
+    {
+      "image": "2605.17156_figures/2605.17156_fig4.jpg",
+      "caption": "Figure 4: Logical error rate under uniform circuit-level noise with R = d stabilizer measurement rounds. SMD (dotted circles) vs MWPM (solid squares) at distances d ∈{3, 5, 7, 9} and error rates p ∈[0.001, 0.005]. SMD outperforms MWPM at all distances and rates.",
+      "page": 12
+    },
+    {
+      "image": "2605.17156_figures/2605.17156_fig5.jpg",
+      "caption": "Figure 5: Mean logical error per round on the Google Sycamore experimental dataset at code distances 3 and 5. Results are averaged across X and Z bases. Error bars indicate the spread between bases. The proposed Sparse Mamba Decoder (blue, hatched) matches or outperforms the dense Mamba decoder of Varbanov et al. [12] (red) at both distances, despite processing only active defects with O(k) complexity compared to O(d2R) for dense approaches.",
+      "page": 15
+    }
+  ],
+  "figure": "2605.17156_figures/2605.17156_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

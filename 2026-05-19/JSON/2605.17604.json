@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.17604",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Schedule-dependent basin occupation in a programmable quantum annealer",
+  "authors": "Luis Lozano",
+  "abstract": "On a mixed-frustration 12-qubit Ising instance (seed 14029) run on two D-Wave generations, Advantage2 Zephyr and Advantage_system6.4 Pegasus, the late-time subsystem autocorrelation under cycled reverse annealing sits strictly between two equilibrium reference processes at the device-calibrated effective temperature: localized parallel tempering, and delocalized equilibrated path-integral simulated quantum annealing at a fixed Advantage2 pause-point transverse-field scale. The bracket holds on all three tested schedules and at both hardware calibrations. We obtain this result through two ingredients: a cycled reverse-anneal protocol (reinitialize_state=False, 50 cycles per submission) used as a Markov-chain probe of the device's pause-point dynamics, and a parallel-tempering falsification framework with bias-corrected and accelerated bootstrap 95% confidence intervals. Of eighteen tested (seed, schedule) combinations on Advantage2, three are PT-unmatched and correspond to two distinct Ising instances; an independent native-graph control with no minor embedding on a third mixed-frustration instance reproduces the same direction of mismatch. Among twenty random training instances, schedule shape modulates basin occupation on six of the thirteen multi-basin-in-readout instances, with dominant-configuration shifts of up to 38 percentage points including changes of the dominant configuration. A pre-registered linear predictor of schedule sensitivity from exhaustively computable landscape features fails on ten held-out instances, indicating that schedule sensitivity is not captured by simple linear functions of the tested landscape moments. The bracketing result revises an earlier two-pause-enhancement claim and reframes reverse-anneal schedules as instance-specific basin-occupation probes rather than universal quantum-enhancement knobs.",
+  "url": "http://arxiv.org/abs/2605.17604v1",
+  "pdf": "https://arxiv.org/pdf/2605.17604v1",
+  "type": "both",
+  "summary": "This paper investigates how different annealing schedules affect the distribution of energy basins in D-Wave quantum annealers. It demonstrates that while schedules can redistribute probability between local minima, they do not provide a universal quantum advantage over classical parallel tempering, and it corrects previous claims regarding the effectiveness of multi-pause schedules.",
+  "main_problem": "Investigating whether the shape of reverse-anneal schedules in a quantum annealer controls the final sampling distribution of energy basins beyond simple temperature rescaling, and determining if these effects are genuine quantum signatures or reproducible by classical Monte Carlo processes.",
+  "main_result": "The study finds that for certain instances, the QPU dynamics sit strictly between localized parallel tempering and delocalified path-integral annealing, and that schedule engineering can redistribute probability among basins but does not provide a universal quantum advantage, refuting previous claims of a 'two-pause enhancement'.",
+  "method": "The authors used a cycled reverse-anneal protocol on D-Wave Advantage2 and Advantage system6.4 hardware, comparing results against classical parallel tempering (PT) and path-integral simulated quantum annealing (SQA) using a bootstrap-based statistical framework.",
+  "model_or_system": "12-qubit Ising instances with mixed frustration on random 3-regular logical graphs, implemented on D-Wave Advantage2 (Zephyr) and Advantage system6.4 (Pegasus) quantum annealers.",
+  "key_observables": "Subsystem configuration autocorrelation C(k), memory order parameter M, endpoint distances to classical/quantum Gibbs targets (D_cl, D_q), and basin occupation/weight redistribution.",
+  "important_parameters": "Effective temperature (beta_eff approx 7.22 and 4.29), annealing schedules (single-pause, two-pause, quench-and-hold), and transverse-field scale (A approx 1.38 GHz).",
+  "main_assumptions": "The study assumes that the observed 'unmatched' signals are not artifacts of minor-embedding, which is supported by native-graph control experiments.",
+  "figures_summary": "Figure 5(a) compares QPU autocorrelation against PT benchmarks across various schedules; Figure 6 shows native-graph control experiments on induced subgraphs of the Zephyr hardware graph.",
+  "paper_structure": "The paper introduces the problem of schedule-dependent dynamics, describes the hardware and Ising models used, details the reverse-anneal and classical comparison protocols, presents results on basin occupation and the 'bracketing' effect, provides a native-graph control to rule out embedding artifacts, and concludes by refuting previous claims of universal quantum enhancement via two-pause schedules.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.17604_figures/2605.17604_fig1.jpg",
+      "caption": "Figure 1: Experimental protocol. (a) Subsystem/environment partition on a representative benchmark instance (seed 42, family B; λ = 0.5, W = 1): four subsystem qubits S (orange) are probed while eight environment qubits E (grey) are clamped to their initial product configuration (arrows). Edges color the longitudinal couplings Jij (blue J < 0, red J > 0), with line width proportional to |Jij|. (b) Schedule-family comparison: single-pause reverse anneal at sp = 0.4, two-pause reverse anneal s1 = 0.45 →s2 = 0.35, and quench-and-hold at sq = 0.35. (c) Cycled reverse-anneal protocol: a single submission of K = 50 anneals with reinitialize state=False produces a K-step Markov chain through the...",
+      "page": 2
+    },
+    {
+      "image": "2605.17604_figures/2605.17604_fig2.jpg",
+      "caption": "Figure 2: Instance taxonomy across the twenty training seeds. Rows are the twenty random- regular family-B seeds, sorted so the most schedule-responsive instances sit at the top and schedule- static instances at the bottom. (a) Classical local-minimum count nbasins from exhaustive steepest- descent enumeration of the 212 configurations. All seeds are multi-basin at the full-system level (nbasins ∈[8, 13]). (b) Ground-state basin volume fraction (basin of the global minimum, as a fraction of configuration space); dashed red line is the uniform-over-basins reference 1/nmax basins. (c) Schedule-induced subsystem total-variation distance TVD(P single-pause S , P two-pause S ) between single-...",
+      "page": 5
+    },
+    {
+      "image": "2605.17604_figures/2605.17604_fig3.jpg",
+      "caption": "Figure 3: Representative schedule-dependent subsystem basin-occupation shifts on four of the six responsive seeds. Empirical subsystem distribution PS for four of the six schedule- responsive seeds identified in Fig. 2, under three reverse-anneal schedules: single-pause (sp = 0.4, 100 µs; blue), two-pause (0.45 →0.35; red), and long-hold single-pause (sp = 0.35, 500 µs; green). Each panel shows the top six subsystem patterns (s1, s2, s3, s4) ranked by maximum frequency across the three schedules, with residual weight lumped into “other”. Error bars are bootstrap 95% CIs over Phase 2 atlas reads (19,200 reads per seed-schedule after pooling bath states, gauges and initial states). Seed 4096:...",
+      "page": 6
+    },
+    {
+      "image": "2605.17604_figures/2605.17604_fig4.jpg",
+      "caption": "Figure 4: Cycled reverse-anneal dynamics on Advantage2 at βeff = 7.22. Left column: seed 8192, a responsive multi-basin seed where pause depth and duration order the dynamics monotonically. Right column: seed 14029, a PT-unmatched instance (Fig. 5) that is schedule- insensitive here: all three schedules give overlapping M(k) and C(k) trajectories, yet none of them is matched by tested parallel tempering at the same β. Top row: memory order parameter M(k) = maxa̸=b TVD(PS(k | init=a), PS(k | init=b)) over 90 chains per schedule (30 chains each from three initial states S↑, S↓, Srandom); shaded bands are bootstrap 95% CIs over chain resampling. Bottom row: Markov-chain autocorrelation C(k) =...",
+      "page": 7
+    },
+    {
+      "image": "2605.17604_figures/2605.17604_fig5.jpg",
+      "caption": "Figure 5: Classical falsification with parallel tempering, path-integral SQA and a five- embedding sensitivity check. (a) QPU C(49) on Advantage2 at βeff = 7.22 versus the best- matched parallel-tempering C(49) at the same β, across all eighteen (seed, schedule) combinations in the v3 dataset. Error bars are bootstrap 95% CIs over 30 chains per QPU condition and 15 chains per PT sweep-budget (nsweeps ∈{10, 50, 200, 1000}). Grey circles: matched (QPU CI overlaps at least one tested PT configuration’s CI at the same seed). Red squares: unmatched (no PT overlap at any budget). (b) Dedicated bracket for seed 14029 at the two QPUs’ respective calibrated β: blue bars give the PT envelope width...",
+      "page": 9
+    }
+  ],
+  "figure": "2605.17604_figures/2605.17604_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.18031",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Sidecar Architectures for Hybrid AI Training and Inference: Stateful Protected Registers, Stateless Reset-and-Reprepare Circuits and Quantum Weight-State Outlook",
+  "authors": "Y. Mo, G. D. Su",
+  "abstract": "We propose a quantum sidecar architecture family for future hybrid AI training and inference. The central idea is not to store an entire Transformer in a small quantum memory, nor to claim one-shot collapse into a fully trained model or an optimal answer. Instead, we identify two physically distinct operating modes for quantum co-processors attached to classical large-model pipelines. The first is a stateful protected-register mode, in which a protected register stores a reusable quantum resource while an ancilla or temporary register performs QND-style readout. The second is a stateless reset-and-reprepare mode, in which each query prepares a task-conditioned quantum circuit, evolves over bounded training or inference control variables, measures candidate signals, resets the qubits, and repeats. We simulate the stateful mode using 2/4/6/8 protected-qubit density-matrix QND-style parity readout with one ancilla and a Qiskit cross-check. For the stateless mode, we include both an abstract candidate-update sampler and a circuit-level QAOA-style statevector sampler over structured candidate landscapes, followed by reset-overhead sensitivity analysis. The resulting framework positions quantum sidecars as bounded signal generators for optimizer-side sampling, adapter or expert selection, retrieval, routing, and reasoning-path proposal. As a speculative outlook, we introduce quantum weight-state sidecars: restricted quantum representations over model-control variables, not direct encodings of complete classical weight tensors.",
+  "url": "http://arxiv.org/abs/2605.18031v1",
+  "pdf": "https://arxiv.org/pdf/2605.18031v1",
+  "type": "theory",
+  "summary": "This paper proposes a hybrid framework where quantum processors serve as 'sidecars' to classical AI models, providing bounded signals for tasks like routing or weight updates. It explores two modes of operation: a stateful mode that preserves quantum resources and a stateless mode based on frequent resets. The study shows how these quantum primitives can act as useful priors for classical optimization and selection processes.",
+  "main_problem": "Addressing the scaling bottlenecks of large-scale classical AI by proposing a hybrid 'quantum sidecar' architecture that acts as a bounded signal generator for classical pipelines.",
+  "main_result": "The paper demonstrates that quantum sidecars can operate in two modes—stateful (preserving observables via protected registers) and stateless (reset-and-reprepare)—to provide useful priors for tasks like routing and parameter updates.",
+  "method": "The authors use density-matrix and statevector simulations of small-scale quantum circuits (4-8 qubits) under depolarizing noise, cross-checked with Qiskit utilities.",
+  "model_or_system": "The architecture involves a quantum co-processor interacting with a classical LLM, utilizing either a protected register with QND-style parity readout or a parameterized QAOA-style circuit for sampling.",
+  "key_observables": "Parity accuracy (q_t), fidelity (F_t), and probability mass of top-k update directions.",
+  "important_parameters": "Qubit counts (n=4, 6, 8), depolarizing noise levels, and reset overhead times (20 ns to 1200 ns).",
+  "main_assumptions": "The work does not claim quantum advantage; simulations are synthetic and do not represent actual hardware performance; the 'weight-state' is a speculative long-term vision.",
+  "figures_summary": "Fig 1 shows the high-level sidecar interface; Fig 2 and 3 illustrate the stability and noise-driven degradation of the 8-qubit QND readout; Fig 11 illustrates a classical software interface for a router.",
+  "paper_structure": "The paper identifies AI bottlenecks, defines the sidecar architecture and its two operational modes, simulates the performance of both modes under noise, and concludes with a speculative outlook on quantum weight-states.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.18031_figures/2605.18031_fig1.jpg",
+      "caption": "Figure 1: High-level quantum sidecar interface for LLM systems. The classical LLM system keeps the full model state, while the quantum sidecar returns bounded control signals such as expert selection, routing hints, and candidate gradient/update proposals.",
+      "page": 2
+    },
+    {
+      "image": "2605.18031_figures/2605.18031_fig2.jpg",
+      "caption": "Figure 2: Stateful protected-register QND-style readout for 8 protected qubits plus one ancilla. The ideal case is stable; noise causes gradual degradation.",
+      "page": 5
+    },
+    {
+      "image": "2605.18031_figures/2605.18031_fig3.jpg",
+      "caption": "Figure 3: Stateful scaling under depolarizing noise after 50 readout rounds.",
+      "page": 5
+    },
+    {
+      "image": "2605.18031_figures/2605.18031_fig4.jpg",
+      "caption": "Figure 4: Stateless sidecar candidate-update search. The sidecar-style sampler selects top-4 update directions more often than random or noisy classical baselines in this synthetic landscape.",
+      "page": 7
+    },
+    {
+      "image": "2605.18031_figures/2605.18031_fig5.jpg",
+      "caption": "Figure 5: Mean regret for candidate update-direction selection. Lower is better.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.18031_figures/2605.18031_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

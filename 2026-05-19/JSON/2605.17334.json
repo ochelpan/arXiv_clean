@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.17334",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.stat-mech",
+    "cs.LG",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Causal Anomaly Detection for Lithium-Ion Battery Degradation",
+  "authors": "Dieter W. Heermann, Hagen Heermann",
+  "abstract": "Reliable early detection of lithium-ion battery degradation requires health indicators that are physically interpretable and computable from routine cycler telemetry without access to the degradation region. We introduce \\textsc{CausalHealth}, a framework that applies causal graph discovery and $k$-nearest-neighbour transfer entropy to per-cycle voltage, current, temperature, and resistance time series, and organises twelve resulting anomaly scores into three signal-class bundles (Magnitude-shift, Predictive-residual, Complexity-entropy) -- with Isolation Forest reported separately as it falls below the bundle reliability threshold -- to characterise detection sensitivity across ten commissioning fractions (5--30\\,\\%). The Magnitude-shift class achieves 100\\,\\% detection across all seven tested cells spanning LFP (MIT--Stanford MATR) and LCO (NASA PCoE, CALCE CS2) chemistries, with a lead time of up to 402 cycles before conventional capacity-threshold failure on gradual-fade cells. A Reliability-Weighted Master Health Index (RWMHI) -- a cross-bundle fusion of five high-reliability detectors weighted by inverse coefficient of variation -- improves lead time by 15--52 cycles over the class median on long-lived cells while maintaining 100\\,\\% detection. Validation against electrochemical impedance spectroscopy on an NMC prismatic cell provides independent physical grounding: transfer entropy $\\mathrm{TE}(R \\!\\to\\! V)$ correlates with charge-transfer resistance $R_{\\mathrm{ct}}$ (pooled $r = +0.990$; temperature-controlled partial $r = +0.898$), and an Arrhenius analysis of both quantities yields an activation energy consistent with published NMC charge-transfer kinetics. These results are evaluated on seven cells across three benchmark datasets.",
+  "url": "http://arxiv.org/abs/2605.17334v1",
+  "pdf": "https://arxiv.org/pdf/2605.17334v1",
+  "type": "both",
+  "summary": "This paper introduces CausalHealth, a framework that uses causal inference and information theory to detect early-stage lithium-ion battery degradation. By tracking changes in the directed information flow between battery parameters, the method provides highly reliable warnings long before traditional capacity-based thresholds are reached. The approach is physically validated by correlating statistical transfer entropy with electrochemical charge-transfer resistance.",
+  "main_problem": "Developing a robust, automated pipeline for the early detection of lithium-ion battery degradation that is physically interpretable and computable from routine telemetry without needing access to the degradation region.",
+  "main_result": "The CausalHealth framework achieves 100% detection across various battery chemistries (LFP, LCO, NMC) and provides a significant prognostic lead time of up to 402 cycles before capacity failure, with the RWMHI fusion improving lead time by 15-52 cycles.",
+  "method": "The framework uses PCMCI for causal discovery and KSG-type Transfer Entropy to quantify information flow between voltage, current, temperature, and resistance, then applies a Reliability-Weighted Master Health Index (RWHMI) to fuse multiple anomaly detectors.",
+  "model_or_system": "The study analyzes lithium-ion batteries with LFP, LCO, and NMC chemistries using datasets from MIT-Stanford MATR, NASA PCoE, and CALCE CS2, with physical validation performed via Electrochemical Impedance Spectroscopy (EIS) on NMC prismatic cells.",
+  "key_observables": "Terminal voltage (V), current (I), temperature (T), resistance (R), Transfer Entropy (TE), charge-transfer resistance (Rct), and capacity State-of-Health (SOH).",
+  "important_parameters": "Commissioning fraction (fc) between 5-30%, CUSUM drift (delta) and threshold (theta), and activation energy (Ea) of approximately 39.4 kJ/mol.",
+  "main_assumptions": "The commissioning window must be large enough to provide a stable reference (minimum 10 cycles); the method infers statistical dependencies rather than proving physical causation; SOC acts as a latent confounder.",
+  "figures_summary": "Figures include PCMCI causal structure recovery, EIS cross-validation (Nyquist spectra), and plots showing the first-alarm cycle relative to the commissioning fraction and detector bundles.",
+  "paper_structure": "The paper introduces the problem of early degradation detection, describes the CausalHealth pipeline (causal discovery, feature engineering, and detector bundles), presents the RWHMI fusion method, validates the results against battery datasets, and provides physical grounding via EIS and Arrhenius analysis.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.17334_figures/2605.17334_fig1.jpg",
+      "caption": "Figure 1: PCMCI causal graph recovered from a representative cell (DV_US06 drive cycle, NMC chemistry). Node size is proportional to the number of significant outgoing links; edge width encodes the magnitude of the MCI partial-correlation coefficient at the dominant lag. Solid arrows indicate links significant at p < 0.05 (ParCorr, τmax = 3, rank transformation). The I →R and T →R links, absent under constant-current protocols, emerge when current variability CV(I) > 0.5, providing the EIS cross-validation targets discussed in Section 4.5. Note that the legend abbreviation are TE = Tranfer Entropy, NL = Nonlinear (CMIknn edges), HLT = Health scalars (internal resistance per cycle and...",
+      "page": 13
+    },
+    {
+      "image": "2605.17334_figures/2605.17334_fig2.jpg",
+      "caption": "Figure 2: Health monitoring results for MATR LFP cell b1c5 (N = 1069 cycles, 18.6 % total fade, fc = 0.10). (A) Capacity state-of-health (%) versus cycle number. The red dashed line marks the 80 % retention threshold (cfail = 510). The shaded blue region represents the prognostic lead time of 402 cycles between the RWMHI alarm at cycle 108 and end-of-life. (B) Smoothed KSG transfer entropy traces (20-cycle rolling mean) for the three dominant directed pairs. TE(R→V ) rises monotonically from cycle 850 onward, tracking the strengthening impedance-to-voltage coupling as charge-transfer resistance grows. (C) First-alarm cycle for each detector at fc = 0.10, ordered from earliest to latest. The...",
+      "page": 15
+    },
+    {
+      "image": "2605.17334_figures/2605.17334_fig3.jpg",
+      "caption": "Figure 3: Commissioning-fraction sensitivity by detector class. Solid lines: bundle-median first-alarm cycle; shaded bands: IQR (Q25–Q75). Bundles: Magnitude (Hotelling’s T 2, Window Distance, Wasserstein, Sliced Wasserstein, Deflation; blue), Predictive (GRU- CausalSSM, RC-VAE, SSM, VAE; orange), Complexity (Information Evolution, SVD, MI; green). Red dashed line: RWMHI fusion benchmark (T 2, WD, Deflation, RC-VAE, SSM), weighted by inverse CV. Annotations “n=k” indicate reduced bundle membership from missed detections; Isolation Forest (29–86 % detection) is excluded. NASA PCoE (168 cycles): all bundles are commissioning-invariant at cycles 61–62; this reflects both the rolling z-score...",
+      "page": 20
+    },
+    {
+      "image": "2605.17334_figures/2605.17334_fig4.jpg",
+      "caption": "Figure 4: EIS cross-validation for the CALB L148N58A NMC prismatic cell across 11 aging checkpoints at three temperatures. (A) Nyquist spectra at 25 °C for early, mid, and late checkpoints. The overlapping traces confirm minimal aging (2.3 % capacity fade), ruling out progressive impedance growth as a confound. (B) Ohmic resistance R0 and charge-transfer resistance Rct at all three temperatures. Rct is strongly temperature-stratified (medians: 1.48, 0.63, 0.30 mΩat 10, 25, 40 °C) while R0 varies by only 20 % over the 30 °C range. (C) TE(R→V ) versus Rct across all checkpoint–temperature pairs. Temperature clusters are stratified in the same order as Rct, and within each temperature a...",
+      "page": 21
+    },
+    {
+      "image": "2605.17334_figures/2605.17334_fig5.jpg",
+      "caption": "Figure 5: Arrhenius analysis of charge-transfer resistance for the CALB L148N58A NMC cell. (A) Arrhenius plot: ln(Rct) versus 1000/T (K−1) for median values at 10, 25, and 40 °C. Linear regression (solid line) gives activation energy Ea = 39.4 kJ mol−1 (r = 0.9999, p = 0.009), consistent with published NMC charge-transfer kinetics (35–50 kJ mol−1; Illig et al. 11, Hahn et al. 9). (B) Absolute values of Rct (red circles) and R0 (blue squares) versus temperature. The strong Arrhenius character of Rct contrasts with the weak temperature sensitivity of R0, confirming that the transfer-entropy stratification observed in Fig. 4C is driven by charge-transfer kinetics rather than bulk ionic...",
+      "page": 22
+    }
+  ],
+  "figure": "2605.17334_figures/2605.17334_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.17061",
+  "category": "other",
+  "arxiv_categories": [
+    "cs.CR",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "quantum-safe: Bridging the Post-Quantum Production Gap with a Hybrid-by-Default Python Cryptography Library",
+  "authors": "Animesh Shaw",
+  "abstract": "The August 2024 finalisation of FIPS 203 (ML-KEM), FIPS 204 (ML-DSA), and FIPS 205 (SLH-DSA) closed the algorithmic gap in post-quantum cryptography (PQC). The production gap -- hybrid combiners, versioned key formats, protocol helpers, and migration tooling -- remains open. We present quantum-safe, a Python library that closes all three critical gaps we identify, and a systematic evaluation of the nine-library ecosystem that quantifies them.   We score nine PQC libraries across eight production-readiness dimensions. Three dimensions have coverage below 35%: hybrid KEM support (11%), migration tooling (22%), and protocol integration (33%). quantum-safe scores Full on all eight. The full API reduces the hybrid KEM task from 45 lines of manual combiner code to three lines, directly lowering the risk of insecure combiner implementations.   We report the first statistically rigorous per-operation overhead measurement for a Python hybrid PQC library (3,000 iterations, CPU-pinned, bootstrapped 95% confidence intervals). A full X25519 + ML-KEM-768 handshake completes in 243 μs under Docker/Linux -- 0.5--2.5% of a typical TLS 1.3 round-trip budget. At 5,000 concurrent users, throughput holds at 2,848 ops/s with only 4.9% degradation versus the single-user baseline, confirming that liboqs releases the Python GIL during C-level operations.   We introduce Coefficient of Variation (CoV) as a practical timing side-channel proxy across all FIPS 203/204 operations. ML-KEM-768 decapsulation achieves CoV = 3.9%, within the AES-256-GCM noise floor (2.1%). ML-DSA-65 signing shows CoV = 51.5%, expected from FIPS 204 rejection sampling, not a side-channel. This CoV methodology has not previously been applied to PQC library evaluation and provides a lightweight complement to formal constant-time verification tools. All results are reproducible via a single Docker command.",
+  "url": "http://arxiv.org/abs/2605.17061v1",
+  "pdf": "https://arxiv.org/pdf/2605.17061v1",
+  "type": "experiment",
+  "summary": "This paper addresses the practical deployment challenges of post-quantum cryptography by introducing a Python library designed for 'hybrid-by-default' use. It quantifies the lack of production-ready tools in the current ecosystem and demonstrates that the new library provides high-performance, low-complexity implementations of NIST-standardized algorithms.",
+  "main_problem": "The 'production gap' in post-quantum cryptography (PQC), where despite standardized algorithms, there is a lack of practical tools for hybrid key exchange, migration, and protocol integration.",
+  "main_result": "The authors introduce 'quantum-safe', a Python library that simplifies hybrid KEM implementation from 45 to 3 lines of code, and demonstrate that its performance overhead is negligible compared to TLS 1.3 budgets.",
+  "method": "A systematic evaluation of nine PQC libraries across eight production-readiness dimensions, combined with rigorous performance benchmarking and the introduction of the Coefficient of Variation (CoV) as a timing side-channel proxy.",
+  "model_or_system": "A software-based experimental platform using Python 3.12, liboqs, and Docker/Linux environments to evaluate cryptographic primitives like ML-KEM and ML-DSA.",
+  "key_observables": "Latency (microseconds), throughput (ops/s), Coefficient of Variation (CoV) for timing stability, and Lines of Code (LOC) for API complexity.",
+  "important_parameters": "X25519 + ML-KEM-768 handshake latency, 5,000 concurrent users, and the AES-256-GCM noise floor for timing analysis.",
+  "main_assumptions": "The CoV methodology is treated as a necessary but not sufficient condition for constant-time verification; results are specific to the Python 3.12 environment.",
+  "figures_summary": "The figures include a production-readiness heatmap of existing libraries, a module architecture diagram for the new library, a comparison of code complexity (LOC), and charts showing timing stability (CoV) and latency percentiles.",
+  "paper_structure": "The paper identifies the production gap, presents the 'quantum-safe' library design, provides a comparative analysis of the existing ecosystem, details the performance and timing stability benchmarks, and concludes with the introduction of new auditing tools.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.17061_figures/2605.17061_fig1.jpg",
+      "caption": "Fig. 1. Production readiness matrix for nine PQC libraries across eight dimensions. F = Full, P = Partial, N = None. Red borders highlight the three critical gaps: Hybrid KEM, Migration Path, and Protocol Layer. quantum-safe scores Full on all eight dimensions.",
+      "page": 4
+    },
+    {
+      "image": "2605.17061_figures/2605.17061_fig2.jpg",
+      "caption": "Fig. 2. Module architecture of quantum-safe. Application code interacts only with HybridKEM and HybridSign. Protocol helpers (tls, x509, envelope) and the audit module sit above a backend abstraction layer that currently exposes liboqs-python and RustCrypto.",
+      "page": 4
+    },
+    {
+      "image": "2605.17061_figures/2605.17061_fig3.jpg",
+      "caption": "Fig. 3. Lines of code required for a complete hybrid KEM operation. liboqs- python and noble-post-quantum require manual combiner implementation. cloudflare/circl (Go) is concise but has no Python binding. quantum-safe requires three lines; hybrid is the default.",
+      "page": 5
+    },
+    {
+      "image": "2605.17061_figures/2605.17061_fig4.jpg",
+      "caption": "Fig. 4. Stacked bar decomposition of hybrid KEM latency. The Python combiner (HKDF-SHA256, PEM/CBOR serialisation, key wrapping) accounts for 37–64 µs per operation — comparable to or exceeding the underlying cryptographic primitive cost in ENV-2.",
+      "page": 6
+    },
+    {
+      "image": "2605.17061_figures/2605.17061_fig5.jpg",
+      "caption": "Fig. 5. (a) Throughput vs concurrency; (b) per-user latency vs concurrency. ENV-2 and ENV-1 show nearly identical throughput despite a 2.4× per- operation latency difference, confirming GIL release.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.17061_figures/2605.17061_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

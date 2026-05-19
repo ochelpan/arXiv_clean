@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.17587",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Large-Scale Quantum Kernels for Hyperspectral Data Classification",
+  "authors": "A. Delilbasic, A. Miroszewski, A. Wijata, J. Nalepa, J. Mielczarek, M. Riedel, G. Cavallaro",
+  "abstract": "Quantum kernel methods have emerged as a promising approach for leveraging high-dimensional feature spaces in machine learning, particularly in domains where classical kernel methods face scalability limitations. In this work, we present the first large-scale study of fidelity-quantum-kernel support vector machines for hyperspectral data classification without requiring heavy prior feature selection or dimensionality reduction. By simulating quantum kernels using tensor network contraction techniques and GPU acceleration, we overcome the computational bottlenecks traditionally associated with quantum models, achieving quadratic scaling O(n^2) in the number of qubits. Our approach enables the evaluation of quantum kernels on hyperspectral data with hundreds of spectral bands, aligning quantum feature spaces with real-world remote sensing applications. We provide an in-depth analysis of kernel bandwidth optimization, demonstrating its crucial role in mitigating exponential concentration effects and ensuring the model's ability to generalize. Experimental results on binary classification (Indian Pines and Methane Detection) and multiclass classification (Indian Pines) demonstrate that quantum kernels achieve competitive performance compared to a broad range of state-of-the-art classical baselines. As illustrative cases, on four 50-band splits selected from Indian Pines, the quantum model achieved a 78.0 pm6.2% accuracy for a binary classification task compared to 72.0 pm5.0% for the standard radial basis function (RBF) kernel. For a four-class classification task, the quantum kernel reached 83.3 pm3.1% accuracy, outperforming several state-of-the-art baselines. On five 75-band splits selected from the Methane Detection dataset, the quantum approach yielded 58.5\\pm5.0% accuracy versus 55.1\\pm2.5% for the classical counterpart...",
+  "url": "http://arxiv.org/abs/2605.17587v1",
+  "pdf": "https://arxiv.org/pdf/2605.17587v1",
+  "type": "both",
+  "summary": "This paper demonstrates that quantum kernel methods can be applied to large-scale hyperspectral imaging tasks without heavy dimensionality reduction. By using tensor network simulations and optimizing kernel bandwidth, the authors show that quantum models can outperform classical baselines in remote sensing classification.",
+  "main_problem": "The scalability of quantum kernel methods for high-dimensional hyperspectral data classification and the challenge of 'exponential concentration' where kernel values vanish as qubit counts increase.",
+  "main_result": "Quantum kernels achieve competitive or superior accuracy compared to classical RBF kernels on Indian Pines and Methane Detection datasets, provided that kernel bandwidth optimization is used to mitigate overfitting and concentration.",
+  "method": "Large-scale classical simulation using tensor network contraction (cuTensorNet) and GPU acceleration to evaluate fidelity quantum kernels with a rotation-based encoding ansatz.",
+  "model_or_system": "A quantum kernel support vector machine (QSVM) using a fidelity quantum kernel approach, where hyperspectral bands are mapped to qubits via a parameterized unitary transformation involving single-qubit rotations and CNOT entanglement.",
+  "key_observables": "Classification accuracy, kernel alignment (A), geometric difference (g), expressibility (epsilon), and kernel value distribution (mean and standard deviation).",
+  "important_parameters": "Number of qubits (n), kernel bandwidth parameter (c), and penalty term (C).",
+  "main_assumptions": "The specific family of fidelity kernels used has low entanglement, allowing for efficient classical simulation via tensor networks; the initial state is the vacuum state |0>.",
+  "figures_summary": "Figures illustrate the Loschmidt echo approach, the quantum circuit ansatz, the overall processing pipeline, runtime comparisons between statevector and tensor network simulations, and statistical analyses of kernel matrices and accuracy.",
+  "paper_structure": "The paper introduces the problem of high-dimensional QML, details the quantum kernel model and circuit architecture, describes the tensor network simulation strategy, presents experimental results on hyperspectral datasets, and concludes with a discussion on kernel statistics and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.17587_figures/2605.17587_fig1.jpg",
+      "caption": "Fig. 1: The Loschmidt echo approach to fidelity quantum kernel estimation. One starts with the initial state |0⟩, implements a unitary transformation parameterized by the first data point U(x), and then applies the subsequent inverse unitary transformation parameterized by a second data point. (a) If the second data point is similar to the first one, the combined transformation-inverse transformation U −1(y)U(x) should result in a state close to the initial |0⟩state. Conversely, if the second data point is not similar to x, then the total transformation U −1(y′)U(x) takes the state far from the initial state |0⟩. (b) The Loschmidt echo circuit is run S times in order to gather statistics...",
+      "page": 4
+    },
+    {
+      "image": "2605.17587_figures/2605.17587_fig2.jpg",
+      "caption": "Fig. 2: (a) Overall scheme of the implemented method, used to evaluate quantum kernels. The classification of unseen test spectra Xtest is performed by training a kernel method on Xtrain and optimizing its parameters to maximize accuracy on Xval. (b) Quantum circuit used for kernel computation in our method. It follows the fidelity quantum kernel approach shown in Fig. 1, the vertical dotted line marking the separation between U(xi) and U −1(xj). Each feature xi n is used as a parameter for three rotation gates, i.e., Rz, Ry, Rz, applied to each qubit n, for a total of d qubits. H represents the Hadamard gate, and ⊕ represents the CNOT gate, here applied to each qubit n ≥2 and controlled by...",
+      "page": 5
+    },
+    {
+      "image": "2605.17587_figures/2605.17587_fig3.jpg",
+      "caption": "Fig. 4: Indian Pines—optimized bandwidth parameter c∗found in the validation stage during the experiment described in the caption of Fig. 5 as a function of the number of features n. The optimization strategy is described in Section IV-B. Table I gathers the power-law and exponential fits of the above data.",
+      "page": 9
+    },
+    {
+      "image": "2605.17587_figures/2605.17587_fig4.jpg",
+      "caption": "Fig. 3: Indian Pines—run time for statevector and cuTensorNet quantum circuit simulation (up to 30 qubits) for generating Ktrain and Ktest for a single Indian Pines training split. We highlight that the computational workload is the same for each split, thus it is representative.",
+      "page": 9
+    },
+    {
+      "image": "2605.17587_figures/2605.17587_fig5.jpg",
+      "caption": "Fig. 5: Indian Pines—average train (top) and test (bottom) accuracy for binary classification of the corn-mintill (class 3) and soybean-notill (class 10) data points from the Indian Pines dataset as a function of the number of features n used. The legend distinguishes between the quantum model (described in Section III-B) and the classical model (described in Section IV-B).",
+      "page": 10
+    }
+  ],
+  "figure": "2605.17587_figures/2605.17587_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

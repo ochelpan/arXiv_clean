@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.17623",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.OC",
+    "q-fin.PM"
+  ],
+  "is_primary_archive": true,
+  "title": "Where the Quantum Lives in D-Wave Hybrid Portfolio Optimization",
+  "authors": "Luis Lozano",
+  "abstract": "We audit how much of D-Wave's hybrid quantum-classical portfolio-optimization service is actually quantum. On cardinality-constrained mean-variance-turnover instances spanning N equal to 10 to 640 with a Gurobi MIQP optimality anchor, the constraint-native LeapHybridCQM service matches Gurobi's proven optimum on all 54 instances where Gurobi proves optimality, but the mean QPU access time is only 0.034 seconds out of a 5-second wall-clock budget, roughly 0.7 percent of the run. The remaining roughly 99 percent is the service's classical decomposition, sub-problem assembly, and feasibility-aware reassembly, so the reported D-Wave hybrid win on this problem class is a constraint-native classical pipeline with a small QPU contribution rather than a quantum-sampling win. Two structural results sharpen this audit. First, the cardinality penalty contributes a dense rank-one term that makes the penalty-encoded logical graph fully connected regardless of the original covariance density, collapsing the intended density benchmark axis for all penalty-encoded paths while leaving the constraint-native sparsity intact. Second, the constraint-native service returns identical solutions at every tested wall-clock budget from 5 to 300 seconds and across 10 repeated calls, a determinism property of the service on this problem class. Together with two classical baselines, namely Gurobi MIQP and simulated annealing, and a comparison against the penalty-encoded hybrid interface, these results extend the prior constraint-native versus penalty-encoded observation of Sakuler et al. from the statement that the constraint-native interface handles constraints natively to the operational decomposition of where the win actually originates, a finding that reframes how D-Wave hybrid performance should be reported in quantum-finance benchmarks.",
+  "url": "http://arxiv.org/abs/2605.17623v1",
+  "pdf": "https://arxiv.org/pdf/2605.17623v1",
+  "type": "experiment",
+  "summary": "This paper audits D-Wave's hybrid solver, revealing that the observed performance gains in portfolio optimization stem from a classical preprocessing pipeline rather than quantum sampling. It demonstrates that the constraint-native CQM interface is significantly more efficient than the BQM approach because it avoids unnecessary graph densification.",
+  "main_problem": "Auditing the actual quantum contribution of D-Wave's hybrid service in portfolio optimization and investigating the performance gap between constraint-native (CQM) and penalty-encoded (BQM) formulations.",
+  "main_result": "The study finds that the reported hybrid advantage is primarily due to a classical decomposition pipeline rather than quantum sampling, as QPU access time accounts for only ~0.7% of the total runtime. Additionally, the CQM interface is superior because it preserves sparsity and avoids the 'density-axis collapse' caused by penalty encoding.",
+  "method": "A comparative performance audit using D-Wave hybrid solvers (LeapHybrid-CQM and LeapHybrid-BQM) against classical baselines (Gurobi MIQP and Simulated Annealing) on synthetic and real-world financial datasets.",
+  "model_or_system": "The problem is a cardinality-constrained mean-variance-turnover (MVT) portfolio optimization model, implemented on D-Wave Advantage systems using Pegasus and Zephyr topologies.",
+  "key_observables": "QPU access time, relative gap to Gurobi optimality, chain-break fractions, embedding overhead, and solution determinism/variance.",
+  "important_parameters": "Problem size (N = 10 to 640), wall-clock budgets (5s to 300s), covariance density (diagonal, block-diagonal, dense), and penalty weight (A).",
+  "main_assumptions": "The study assumes a fixed penalty weight (A=4.0) for BQM based on prior literature and focuses on a specific class of portfolio optimization problems.",
+  "figures_summary": "Figure 1 illustrates the mechanism of constraint-induced density increase; Figure 2 summarizes the advantages of CQM over BQM; Figure 6 and 7 show the divergence of BQM and SA from the optimal Gurobi baseline as problem size increases.",
+  "paper_structure": "The paper begins with an audit of QPU contribution, followed by a structural analysis of density-axis collapse in BQM, an evaluation of formulation superiority (CQM vs BQM), a study of budget saturation and determinism, and concludes with recommendations for benchmarking quantum-finance applications.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.17623_figures/2605.17623_fig1.jpg",
+      "caption": "Figure 1: Density-axis collapse under penalty encoding. Three structurally different covariance matrices (diagonal, block, dense) all become complete graphs after adding the cardinality penalty A · 11⊤. The CQM path preserves the original structure.",
+      "page": 5
+    },
+    {
+      "image": "2605.17623_figures/2605.17623_fig2.jpg",
+      "caption": "Figure 2: Formulation choice for D-Wave portfolio optimization. The constraint-native CQM path preserves sparsity, requires no penalty tuning, and achieves optimal solutions at the min- imum budget. The penalty-encoded BQM path creates a dense graph, degrades with N, and requires budget tuning.",
+      "page": 6
+    },
+    {
+      "image": "2605.17623_figures/2605.17623_fig3.jpg",
+      "caption": "Figure 3: D-Wave hybrid solver architecture. The solver iterates between classical decomposition and QPU subproblem solving. Timing fields (run_time, charge_time, qpu_access_time) are reported separately, allowing analysis of whether the QPU actively contributed to the solution.",
+      "page": 7
+    },
+    {
+      "image": "2605.17623_figures/2605.17623_fig4.jpg",
+      "caption": "Figure 4: (a) Mean chain-break fraction and (b) embedding overhead (physical / logical qubits) vs problem size for direct QPU on penalty-encoded QUBOs, split by hardware topology.",
+      "page": 8
+    },
+    {
+      "image": "2605.17623_figures/2605.17623_fig5.jpg",
+      "caption": "Figure 5: Chain-break fraction vs N split by covariance-density family (diagonal, block, dense), on Pegasus (left) and Zephyr (right). The three curves nearly overlap at each N, confirming that penalty encoding collapses the density axis.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.17623_figures/2605.17623_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

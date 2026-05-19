@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.17145",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Scaling Quantum Optimization for Unit Commitment via Pauli Correlation Encoding",
+  "authors": "Kien X. Nguyen, Ilya Safro, Xiaoyuan Liu",
+  "abstract": "Unit commitment is an important optimization problem in power system operations, classified as NP-hard. This paper presents a hybrid quantum-classical method for the unit commitment problem with time-dependent constraints, where decisions must be made about which generators to turn on/off and how much power they should produce over a planning horizon. We use a hybrid quantum-classical optimization procedure to determine the on/off schedules of the generating units and the corresponding power dispatch that satisfies operational constraints such as load balance, generator limits, ramping, and reserve requirements. We frame the optimization loop as a leader-follower structure, where the quantum optimizer leads to give the on/off decisions, and the classical optimizer follows to produce the power level schedule. Leveraging Pauli-Correlation Encoding, our method scales to horizon-wide unit commitment schedules by encoding the binary variables with far fewer qubits. By combining these components, the method can handle multi-period settings while using far fewer qubits than straightforward quantum encodings that allocate one qubit per decision variable as in prior approaches. We evaluate the approach on both small- and large-scale instances, up to 312 binary variables, and show that it reliably produces feasible schedules with competitive operating costs.",
+  "url": "http://arxiv.org/abs/2605.17145v1",
+  "pdf": "https://arxiv.org/pdf/2605.17145v1",
+  "type": "both",
+  "summary": "This paper introduces a way to solve large-scale power grid scheduling problems using much fewer qubits than previously possible. By using Pauli Correlation Encoding, the authors demonstrate that a hybrid quantum-classical algorithm can handle hundreds of decision variables, providing near-optimal solutions for complex energy management tasks.",
+  "main_problem": "Scaling the quantum optimization of the Unit Commitment (UC) problem, which is NP-hard, by addressing the prohibitive qubit requirements of traditional encoding methods for multi-period power system scheduling.",
+  "main_result": "The proposed method scales to 312 binary variables using only 15 qubits and produces feasible schedules with operating costs within 1-7% of the classical CPLEX optimum for small scales and 13-16% for large scales.",
+  "method": "A hybrid quantum-classical leader-follower architecture using Pauli Correlation Encoding (PCE) to compress variables into fewer qubits, combined with a differentiable bilevel optimization approach using a classical Quadratic Program (QP) solver.",
+  "model_or_system": "A mixed-integer quadratic bilevel optimization model for power system unit commitment, involving binary on/off decisions and continuous power dispatch subject to load balance, ramping, and reserve constraints.",
+  "key_observables": "Operating cost gap, feasibility rate, constraint violation percentage, and optimization stability (standard deviation).",
+  "important_parameters": "Number of qubits (down to 4-6 for small and 15 for large scales), number of optimization steps, ansatz depth (layers), and PCE encoding parameters.",
+  "main_assumptions": "The cost function is assumed to be quadratic, and the optimization uses a smooth surrogate/relaxation of constraints to ensure differentiability.",
+  "figures_summary": "Figure 1 shows the hybrid optimization architecture; Figure 2 and 3 show ablation studies on ansatz depth and optimization steps; Figure 4 and 5 show performance and scalability on large-scale instances.",
+  "paper_structure": "The paper introduces the UC problem and scaling challenges, details the PCE encoding and hybrid bilevel architecture, describes the gradient-based optimization strategy, presents experimental results on small and large-scale power systems, and concludes with ablation studies and limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.17145_figures/2605.17145_fig1.jpg",
+      "caption": "Fig. 1. Overview of our heuristic-assisted differentiable bilevel optimization on a 12-variable problem, which is encoded into 4 qubits. The quantum circuit produces PCE correlators that decode to a soft commitment schedule ˜y. A classical QP computes the dispatch p∗(and dual variables), which defines the training loss. Gradients are obtained by combining QP dual sensitivities with parameter-shift derivatives, and circuit parameters are updated with the Adam optimizer. After training, a threshold sweep produces a hard schedule and a final dispatch.",
+      "page": 3
+    },
+    {
+      "image": "2605.17145_figures/2605.17145_fig2.jpg",
+      "caption": "Fig. 2. Ablation study on the number of ansatz layers over the range {2, 3, . . . , 9} for both brickwork and EfficientSU2 ansatzes. We report the best operating cost across the five small-scale systems.",
+      "page": 7
+    },
+    {
+      "image": "2605.17145_figures/2605.17145_fig3.jpg",
+      "caption": "Fig. 3. Ablation study on the number of optimization steps over the range {100, 200, 500, 1000} for both brickwork and EfficientSU2 ansatzes. We report the best operating cost across the five small-scale systems.",
+      "page": 7
+    },
+    {
+      "image": "2605.17145_figures/2605.17145_fig4.jpg",
+      "caption": "Fig. 5. Ablation study on the number of optimization steps over the range {100, 200, 500, 1000} for both brickwork and EfficientSU2 ansatzes. We report the average operating cost across the five small-scale systems.",
+      "page": 8
+    },
+    {
+      "image": "2605.17145_figures/2605.17145_fig5.jpg",
+      "caption": "Fig. 4. Ablation study on the number of ansatz layers over the range {2, 3, . . . , 9} for both brickwork and EfficientSU2 ansatzes. We report the average operating cost across the five small-scale systems.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.17145_figures/2605.17145_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.17628",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.OC",
+    "q-fin.PM"
+  ],
+  "is_primary_archive": true,
+  "title": "A Penalty-Free Pipeline for Direct Quantum-Annealer Portfolio Optimization",
+  "authors": "Luis Lozano",
+  "abstract": "Direct quantum-annealer portfolio optimization is commonly formulated as a penalty-encoded QUBO and submitted to D-Wave hardware. We show that this standard formulation fails on current devices and identify the structural reason: the cardinality penalty contributes a dense rank-one term proportional to the all-ones matrix that makes the logical interaction graph complete regardless of the covariance structure. On Pegasus and Zephyr, chain-break fractions reach 83 percent at N equal to 24 and 92 percent at N equal to 49, producing no feasible samples. Attempting to fix this through topology-aware sparsification reveals a second problem: any sparsifier that removes off-diagonal entries also dilutes the cardinality constraint, so raw samples remain infeasible even when chains no longer break, and an ablation shows that for structurally favorable cases such as betting with settlement-graph priors the classical feasibility projector alone explains the result rather than the QPU. We propose dropping the penalty entirely: build an objective-only QUBO from the expected returns and the risk-scaled covariance, sample it on hardware, and enforce the cardinality constraint classically as a post-processing step. On D-Wave Advantage and Advantage2 for equities up to N equal to 49 and betting up to N equal to 48, mean chain-break fractions per sample averaged over reads drop from the range of 71 to 92 percent down to at most 0.04 percent. The QPU returns lower-energy feasible portfolios than the greedy heuristic on betting at N equal to 39 and 48, which is an energy comparison and not a proof of optimality, and the equity post-processed regret is at most 0.03 percent at all tested scales. These results establish that the penalty encoding, not the sparse hardware topology, is the binding constraint for direct QPU portfolio optimization at currently accessible scales.",
+  "url": "http://arxiv.org/abs/2605.17628v1",
+  "pdf": "https://arxiv.org/pdf/2605.17628v1",
+  "type": "both",
+  "summary": "The paper identifies that the quadratic penalty used to enforce constraints in quantum annealing is the primary cause of hardware embedding failure in portfolio optimization. By removing this penalty and handling constraints classically, the authors demonstrate a much more stable and efficient pipeline for using quantum annealers for financial tasks.",
+  "main_problem": "Standard penalty-encoded QUBO formulations for portfolio optimization create dense, complete interaction graphs that cause massive chain-break rates and infeasible samples on sparse quantum annealer topologies.",
+  "main_result": "A penalty-free pipeline that samples only the objective-only QUBO and enforces constraints classically reduces chain-break fractions from up to 92% to less than 0.04%, making direct QPU access viable.",
+  "method": "The authors propose a three-stage pipeline: topology-aware sparsification of the objective, hardware embedding on D-Wave processors, and classical greedy feasibility projection to recover the cardinality constraint.",
+  "model_or_system": "The study uses D-Wave quantum annealers (Pegasus and Zeander topologies) applied to two optimization domains: equity portfolio selection (using FF49 industry data) and sports betting (1X2 football outcomes).",
+  "key_observables": "Chain-break fraction, chain length, qubit overhead ratio, objective regret, and financial metrics like realized Sharpe ratio and ROI.",
+  "important_parameters": "Asset universe size (N up to 49), target cardinality (K), risk aversion (lambda), and penalty weight (A).",
+  "main_assumptions": "The study focuses on direct QPU access rather than hybrid solvers and does not claim quantum advantage, only improved operational viability at current scales.",
+  "figures_summary": "Figures illustrate the penalty-dilution mechanism, the proposed three-stage pipeline, scaling of chain-breaks and chain lengths, and out-of-sample financial performance comparisons.",
+  "paper_structure": "The paper identifies the structural cause of optimization failure, evaluates various sparsification and projection strategies, compares hardware topologies (Pegasus vs. Zephyr), and validates the pipeline using equity and betting datasets.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.17628_figures/2605.17628_fig1.jpg",
+      "caption": "Figure 1: Penalty-dilution mechanism. Left: the original covariance graph may be sparse (few edges). Center: adding the cardinality penalty A11⊤makes the QUBO fully connected regardless of the original structure. Right: embedding the complete graph on bounded-degree hardware requires long chains that are prone to breaking during annealing.",
+      "page": 6
+    },
+    {
+      "image": "2605.17628_figures/2605.17628_fig2.jpg",
+      "caption": "Figure 2: Settlement graph versus penalty-encoded QUBO for a 3-match betting slate (N = 9). Left: the settlement graph has 9 edges (three disconnected 3-cliques). Right: the penalty-encoded QUBO has 36 edges (complete graph K9) because the cardinality penalty A11⊤connects every pair of nodes.",
+      "page": 7
+    },
+    {
+      "image": "2605.17628_figures/2605.17628_fig3.jpg",
+      "caption": "Figure 4: Raw QPU sample cardinality collapse under penalty encoding. Left: target cardinality K relative to the all-ones (N) and random (N/2) references. Right: pre-projection feasibility rate collapses toward zero with increasing N, confirming that the QPU does not enforce the cardinality constraint at these chain-break rates.",
+      "page": 10
+    },
+    {
+      "image": "2605.17628_figures/2605.17628_fig4.jpg",
+      "caption": "Figure 4 illustrates the core diagnostic: raw QPU samples from penalty-encoded QUBOs fail to satisfy the cardinality constraint, with the feasibility rate collapsing to zero as N grows. Table 1 and Figure 5 report the full scaling trend across both case studies. At N = 24 (K = 8, λ = 2.0), the dense equity instance required 85 physical qubits on Pegasus (mean chain length 3.54) and 62 on Zephyr (mean chain length 2.58), with chain-break fractions of approximately 83%. At N = 49 (the full FF49 universe, K = 12), mean chain lengths grew to 6.59 on Pegasus and 5.23 on Zephyr, with chain-break fractions of 88% and 92% respectively. The feasible sample rate was 0% at every scale tested: zero out...",
+      "page": 10
+    },
+    {
+      "image": "2605.17628_figures/2605.17628_fig5.jpg",
+      "caption": "Figure 5: Mean chain length versus problem size for dense and best-sparse (top-k, k = 1 for equities; settlement graph for betting) QUBOs on both topologies. Dense chain lengths grow with N; the plotted sparse variants maintain unit chains at all scales. Other sparsifiers achieve near-unit chains (see Table 2).",
+      "page": 12
+    }
+  ],
+  "figure": "2605.17628_figures/2605.17628_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,81 @@
+{
+  "arxiv_id": "2605.16913",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "stat.ML",
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "cs.LG",
+    "math.PR"
+  ],
+  "is_primary_archive": true,
+  "title": "A Fourier perspective on the learning dynamics of neural networks: from sample complexities to mechanistic insights",
+  "authors": "Fabiola Ricci, Claudia Merger, Sebastian Goldt",
+  "abstract": "Neural networks trained with gradient-based methods exhibit a strong simplicity bias: they learn simpler statistical features of their data before moving to more complex features. Previous analyses of this phenomenon have largely focused on settings with (quasi-)isotropic inputs. In this work, we study the simplicity bias from a Fourier perspective, which allows us to include two key features of natural images in the analysis: approximate translation-invariance and power-law spectra. We first show experimentally that simple neural networks trained on image classification tasks first rely on amplitude information -- related to pair-wise correlations between pixels -- before exploiting phase information, which encodes edges and higher-order correlations. In view of this, we introduce a synthetic data model for translation-invariant inputs that allows precise control over amplitudes and phases while remaining tractable. We rigorously establish that for isotropic and high-dimensional inputs, classification based on phase information alone is a genuinely hard task: online stochastic gradient descent (SGD) cannot distinguish the structured inputs from noise within $n \\ll N^3$ steps, but needs at least $n \\gg N^3 \\log^2{N}$ steps. In contrast, we show both experimentally and theoretically that power-law spectra can dramatically accelerate the speed of learning phase information, even if the spectra do not help with classification. Simulations with two-layer networks trained on textures and with deep convolutional networks on ImageNet and CIFAR100 confirm this non-trivial interaction between amplitudes and phases, providing mechanistic insights into how deep neural networks can learn natural image distributions efficiently.",
+  "url": "http://arxiv.org/abs/2605.16913v1",
+  "pdf": "https://arxiv.org/pdf/2605.16913v1",
+  "type": "both",
+  "summary": "The paper explains why deep neural networks can efficiently learn complex natural images despite the inherent difficulty of learning phase information. It shows that the power-law frequency spectrum of natural images acts as a mechanism to accelerate the learning of higher-order correlations.",
+  "main_problem": "Investigating the simplicity bias in neural network learning dynamics, specifically how networks prioritize learning amplitude (pair-wise) information before phase (higher-order) information.",
+  "main_result": "Proves that learning phase information is computationally hard (cubic sample complexity) for isotropic inputs, but power-law decaying spectra in natural images dramatically accelerate this learning process.",
+  "method": "Uses a Fourier-based synthetic data model, Hermite polynomial expansions of the loss and likelihood ratio, and analysis of the stochastic dynamics of online SGD via the information exponent and population drift.",
+  "model_or_system": "A Fourier data model with translation-invariant, non-Gaussian inputs where class differences are encoded in the phases of the Discrete Fourier Transform, featuring both isotropic and power-law decaying covariance matrices.",
+  "key_observables": "Test loss, average label assignment, overlaps with DFT phase vectors (alpha_u, alpha_v), and the information exponent (k*).",
+  "important_parameters": "Sample complexity (n), dimension (N), power-law decay exponent (alpha), signal-to-noise ratio (beta), and learning rate (delta_N).",
+  "main_assumptions": "Activation functions are continuously differentiable and even; inputs are translation-invariant; analysis focuses on the high-dimensional limit (N to infinity).",
+  "figures_summary": "Figure 1 demonstrates phase importance via image reconstruction; Figure 2 shows SGD failure/success in isotropic regimes; Figure 4 illustrates the principal subspace and loss landscape changes in power-law regimes.",
+  "paper_structure": "The paper introduces the Fourier perspective, establishes the hardness of phase learning in isotropic settings, introduces the power-law model to show learning acceleration, and provides theoretical proofs and experimental validation on ImageNet/CIFAR.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.16913_figures/2605.16913_fig1.jpg",
+      "caption": "Figure 1: Learning phase vs amplitude information. a-b) Pictures of a bird and a snake from ImageNet. c-d) Fourier image reconstruction with phases φkk′ from the “bird” and amplitudes ρkk′ from the “snake” and vice versa. e) Phases of images from the “cotton” class of the ALOT texture dataset for patches of size 16 × 16 along the first Fourier mode in the x-direction. f) Uniform phase distribution. g) Performance of a classifier trained to distinguish between two texture classes: “cotton” vs. “lace” on patches of size 16 × 16 of the ALOT dataset. Top: test loss over training steps, on the original data ( ) and on data where phase information has been swapped between classes ( ). Bottom:...",
+      "page": 2
+    },
+    {
+      "image": "2605.16913_figures/2605.16913_fig2.jpg",
+      "caption": "Figure 2: Performance of SGD in classifying isotropic inputs on the Fourier data model. (Left) We run online SGD applied to the correlation loss (1) with isotropic inputs drawn from the Fourier data model (3). SGD does not weakly recover the signal at linear ( ) or quadratic ( ) sample complexity, whereas it converges to the subspace spanned by the DFT phase vectors in the cubic ( ) regime. On the y-axes, we see the norm of the projection of the perceptron weight in the said “non-Gaussian” subspace. (Right) Empirical loss landscape as a function of the overlaps between the weight vector and the DFT phase vectors, i.e. w · u and w · v. Additionally, we display one run of SGD (•) converging...",
+      "page": 7
+    },
+    {
+      "image": "2605.16913_figures/2605.16913_fig3.jpg",
+      "caption": "Figure 3: Shared principal subspace speeds up learning. a) Average squared Fourier amplitudes of image patches of “cotton” class from ALOT texture dataset, averaged over wave vectors of equal length |k| = q",
+      "page": 8
+    },
+    {
+      "image": "2605.16913_figures/2605.16913_fig4.jpg",
+      "caption": "Figure 4: Performance of SGD in classifying non-isotropic inputs on the Fourier data model. (Left) Cartoon of the principal subspace of power-law-decaying inputs sampled from the Fourier data model (3), spanned by the DFT phase vectors (u, v) and a finite number of other principal components (um, vm). (Middle) At first, online SGD quickly recovers the whole principal subspace, including the DFT phase vectors. Then, the other principal components PCs ( ), which are not useful for classification, are forgot and SGD converges within n ≲N3 steps to the subspace spanned by the DFT phase vectors ( ). Compare with Fig. 2, where no recovery happens within cubic sample complexity. Here, N = 300....",
+      "page": 11
+    }
+  ],
+  "figure": "2605.16913_figures/2605.16913_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
