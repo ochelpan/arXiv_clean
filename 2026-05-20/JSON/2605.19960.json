@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.19960",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "PEPSKit.jl: A Julia package for projected entangled-pair state simulations",
+  "authors": "Paul Brehmer, Lander Burgelman, Zheng-Yuan Yue, Gleb Fedorovich, Jutho Haegeman, Lukas Devos",
+  "abstract": "We present PEPSKit.jl, a Julia package for simulating two-dimensional quantum many-body systems with infinite projected entangled-pair states (iPEPS). PEPSKit.jl builds on the TensorKit.jl package for tensor computations and provides high-level algorithms for iPEPS simulations that support both Abelian and non-Abelian symmetries, as well as fermionic systems. This work gives an overview of the main package features, which include support for ground-state, time-evolution, and finite-temperature simulations in systems with different physical symmetries and lattice geometries. These capabilities are illustrated through various examples and technical benchmarks.",
+  "url": "http://arxiv.org/abs/2605.19960v1",
+  "pdf": "https://arxiv.org/pdf/2605.19960v1",
+  "type": "theory",
+  "summary": "The paper introduces PEPSKit.jl, a new Julia-based software package for simulating 2D quantum many-body systems using infinite projected entangled-pair states. It integrates advanced features like non-Abelian symmetries, automatic differentiation for optimization, and support for fermionic systems. The package aims to lower the entry barrier for researchers by providing a high-level, efficient, and composable framework for tensor network simulations.",
+  "main_problem": "The exponential growth of the Hilbert space in 2D quantum many-body systems makes exact simulations computationally prohibitive, and the high software barrier in the iPEPS field slows algorithmic development.",
+  "main_result": "The authors present PEPSKit.jl, a Julia package that provides a unified, optimized framework for iPEPS simulations, demonstrating significant speedups via non-Abelian symmetries and successful validation against established benchmarks.",
+  "method": "The package utilizes infinite Projected Entangled-Pair States (iPEPS) with contraction via CTMRG or boundary-MPS, employing Automatic Differentiation (AD) for variational ground-state optimization and Trotter-based time evolution.",
+  "model_or_system": "The framework targets 2D quantum many-body systems in the thermodynamic limit, including spin models (e.g., $J_1$-$J_2$ model) and fermionic models (e.g., Fermi-Hubbard model) on square and triangular lattices.",
+  "key_observables": "Energy per site, magnetization, transverse magnetization, and traces of operators.",
+  "important_parameters": "Bond dimension (D for iPEPS, chi for environment), physical dimension (d), temperature (beta), and interaction strengths (e.g., $J_2/J_1$, $U/t$).",
+  "main_assumptions": "The current release is limited to finite-range Hamiltonians on square 2D lattices, and 2D tensor network contraction remains inherently approximate.",
+  "figures_summary": "Figure 1 shows different bond environment approximations (SU, FU, NTU); Figure 2 illustrates a truncation procedure; Figures 3-5 compare package results for the Ising and $J_1$-$J_2$ models against TeNeS and HTSE; Figure 7 shows magnetization in the Fermi-Hubbard model; Figure 8 benchmarks CTMRG speedup using different symmetries.",
+  "paper_structure": "The paper introduces the computational challenges of 2D systems, presents the PEPSKit.jl package features and technical implementation (AD, symmetries, contraction), validates the package through various physical models, and provides performance benchmarks for symmetry-based speedups.",
+  "why_interesting": "It provides a highly accessible, modern tool for many-body dynamics and ground-state studies, specifically leveraging Automatic Differentiation to simplify the implementation of complex variational algorithms in 2D.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.19960_figures/2605.19960_fig1.jpg",
+      "caption": "Figure 1: Bond environment tensor for (a) the simple update scheme (which can be decomposed to two disconnected positive parts NA, NB), (b) the full update scheme, and (c) one variation of neighborhood tensor update scheme, assuming that only tensors that are nearest neighbors of A, B contribute to the bond environment.",
+      "page": 8
+    },
+    {
+      "image": "2605.19960_figures/2605.19960_fig2.jpg",
+      "caption": "Figure 2: Truncation of internal virtual bonds (red) in the 3-site cluster regarded as an open-boundary MPS in the simple update scheme with 3-site MPO gates. ˜λAB, ˜λBC are obtained by truncating λAB,λBC respectively.",
+      "page": 9
+    },
+    {
+      "image": "2605.19960_figures/2605.19960_fig3.jpg",
+      "caption": "Figure 3: Finite temperature x-magnetization 〈Sx〉and energy per site E of the trans- verse field Ising model from Eq. (27) with J = 1/4 obtained using simple update with the same settings as the TeNeS simulations of Ref. 34. The Trotter evolution step is ∆β = 0.02 for the first 50 steps, 0.01 for the following 200 steps, and 0.1 for the final 10 steps. The bond dimensions are chosen in accordance with [34] at D = 10 for the iPEPO and χ = 16 for the CTMRG environment.",
+      "page": 12
+    },
+    {
+      "image": "2605.19960_figures/2605.19960_fig4.jpg",
+      "caption": "Figure 4: Energy of the J1-J2 model at finite temperature for (a) J2/J1 = 0 and (b) J2/J1 = 0.5, obtained from simple update with SU(2) symmetry. The Trotter evolution step size is chosen at ∆β = 0.001. The bond dimensions are D ≈7 for the iPEPO, and χ = 21 for the CTMRG environment. HTSE labels the energy obtained from the high-temperature series expansion E = P",
+      "page": 12
+    },
+    {
+      "image": "2605.19960_figures/2605.19960_fig5.jpg",
+      "caption": "Figure 5: Energies (a) and magnetizations (b) of the square lattice J1-J2 model at J2/J1 = 0.5. We compare the measurements obtained from gradient-based opti- mizations with simple update runs as well as optimization data of Hasik et al. [70]. The iPEPS optimizations were run at fixed CTMRG environment dimension after which observables were evaluated at an increased χ. The precise environment di- mensions for the observable evaluations were chosen in accordance with [70] at χ = (144,192,200,252,245,270) for the respective bond dimensions D = 3,...,8.",
+      "page": 13
+    }
+  ],
+  "figure": "2605.19960_figures/2605.19960_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.19233",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.CR",
+    "cs.LG",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Machine Learning for Cyber-Physical Anomaly Detection in Unmanned Aerial Vehicles: A Leakage-Free Evaluation with Proxy-Audited Feature Sets",
+  "authors": "Carlos A. Durán Paredes, Javier E. León Calderón, Nicolás Sánchez Perea, German Darío Díaz, Camilo Segura Quintero",
+  "abstract": "Unmanned aerial vehicles (UAVs) are cyber-physical systems whose attack surface spans networked avionics and on-board sensor fusion: a compromised GPS or battery module can mimic a benign mission segment and evade naive anomaly detectors. We present a leakage-free evaluation of quantum machine learning for UAV anomaly detection on the multi-sensor TLM:UAV benchmark. Three contributions support the study. (i) A group-aware temporal protocol (B2) partitions the dataset into ten contiguous TimeUS blocks and evaluates over ten seeds, eliminating the inflation produced by random stratified splits that mix neighbouring samples. (ii) A three-mode feature audit (full/loose/strict) quantifies how much accuracy stems from instantaneous physical signals versus contextual proxies (cumulative energy, battery state, GPS trajectory). (iii) A hybrid XGBoost + Data Reuploading (DRU) classifier is benchmarked against five paired non-linear controls (raw, PCA, polynomial-2, random-RBF, and an untrained DRU map) under identical budgets. The standalone DRU does not consistently match the strongest classical baseline across seeds; however, the trained-DRU hybrid is the only model whose mean F1 macro shifts upward from full to strict (+0.05), a directional signal that the per-seed standard deviations prevent from being interpreted as a statistically established difference. The trained-DRU hybrid also records the lowest mean false-alarm rate under proxy-free evaluation, subject to the inter-seed variance reported. We frame this as an incremental, reproducible quantum-enhanced hybrid benefit, and provide an open Qiskit 2.x implementation as a benchmark for cybersecurity analytics in NISQ-era aerospace systems.",
+  "url": "http://arxiv.org/abs/2605.19233v1",
+  "pdf": "https://arxiv.org/pdf/2605.19233v1",
+  "type": "experiment",
+  "summary": "This paper presents a rigorous, leakage-free framework for evaluating quantum machine learning in the context of UAV cybersecurity. It demonstrates that a hybrid quantum-classical model can maintain better performance when stripped of contextual proxies compared to traditional classical models. The work provides an open-source implementation for benchmarking quantum-enhanced analytics in aerospace systems.",
+  "main_problem": "Evaluating the true effectiveness of Quantum Machine Learning for UAV anomaly detection by preventing information leakage from temporal correlations and contextual proxies.",
+  "main_result": "The trained-DRU hybrid model is the only architecture showing a directional increase in F1 macro when moving from feature-rich to proxy-free modes, achieving the lowest false-alarm rate.",
+  "method": "A leakage-free evaluation protocol using group-aware temporal splitting (B2) and a three-mode feature audit (full, loose, strict) to compare hybrid quantum-classical classifiers against classical non-linear baselines.",
+  "model_or_system": "The study uses the TLM:UAV benchmark dataset involving 12 sensor subsystems of an Unmanned Aerial Vehicle and a 5-qubit Data Re-uploading (DRU) circuit with 2 layers and ring entanglement.",
+  "key_observables": "F1 macro, ROC AUC, and False-Alarm Rate (FAR).",
+  "important_parameters": "5 qubits, 2 layers, RxRyZ encoding, 30 trainable parameters, and 10 contiguous TimeUS blocks for temporal splitting.",
+  "main_assumptions": "The performance differences are noted to be within the inter-seed standard deviation, meaning the quantum advantage is presented as a directional signal rather than a statistically established difference.",
+  "figures_summary": "Figure 3 illustrates the degradation of F1 macro across different paradigms, highlighting the unique performance stability of the trained-DRU hybrid.",
+  "paper_structure": "The paper introduces the UAV anomaly detection problem, defines the leakage-free evaluation protocol and feature audit modes, presents the quantum and classical model architectures, details the experimental results comparing hybrid vs. classical performance, and concludes with implementation details.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.19233_figures/2605.19233_fig1.jpg",
+      "caption": "Figure 1: Hub-and-spoke architecture of the experimental pipeline. The central hub implements the leakage-free preprocessing core: temporal ordering by TimeUS, K-block group-aware split, train-only scaling and balancing (RobustScaler →SMOTETomek), and mutual-information feature ranking under the three audit modes (full/loose/strict). From this hub, three model spokes are evaluated under identical seeds, splits, and budgets: (i) classical baselines (Logistic Regression, SVM-RBF, MLP, Random Forest, XGBoost), (ii) the standalone quantum DRU classifier (5 qubits, 2 layers, RxRyRz encoding with ring entanglement), and (iii) the hybrid family that augments XGBoost with raw, PCA, polynomial-2,...",
+      "page": 3
+    },
+    {
+      "image": "2605.19233_figures/2605.19233_fig2.jpg",
+      "caption": "Figure 2: TLM:UAV anomaly classes along TimeUS. Each anomaly type is confined to one or two segments, with only three gap-defined episodes.",
+      "page": 4
+    },
+    {
+      "image": "2605.19233_figures/2605.19233_fig3.jpg",
+      "caption": "Figure 3: F1 macro across paradigms, per feature mode. Classical models carry most of their performance from contextual proxies and degrade visibly from full to strict; the trained-DRU hybrid (rightmost) is the only model that improves under strict.",
+      "page": 5
+    },
+    {
+      "image": "2605.19233_figures/2605.19233_fig4.jpg",
+      "caption": "Figure 4: ROC AUC across paradigms. Random Forest is the most proxy-robust classical baseline; the standalone DRU is competitive in full (0.76) but degrades sharply, indicating that its raw representation still benefits from contextual signals.",
+      "page": 5
+    },
+    {
+      "image": "2605.19233_figures/2605.19233_fig5.jpg",
+      "caption": "Figure 5: False-alarm rate (FAR) on the normal class across paradigms. Under strict, the trained-DRU hybrid attains the lowest FAR (0.451), a key operational metric for an intrusion-style detector.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.19233_figures/2605.19233_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.19071",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "q-bio.GN",
+    "cond-mat.stat-mech",
+    "q-bio.MN",
+    "q-bio.QM"
+  ],
+  "is_primary_archive": true,
+  "title": "Informational blueprints reveal condition-dependent gene regulatory architectures",
+  "authors": "Doruk Efe Gökmen, Rosalind Wenshan Pan, Tom Röschinger, Stephen Quake, Hernan Garcia, Rob Phillips, Vincenzo Vitelli",
+  "abstract": "While coding regions in the genome have a direct interpretation in terms of protein products, significant fractions are non-coding and yet control essential biological functions. Unlike the genetic code, there is no \"lookup table\" that identifies where regulatory proteins, known as transcription factors (TFs), bind. Here, we extract these binding sites by distilling sequences of nucleotide letters into collective coordinates (hyperletters) representing the binding sites that are active under specific environmental conditions. Going beyond local information footprints between individual bases and expression levels, our $\\textit{information blueprint}$ algorithm compresses the global information by optimising filters that simultaneously scan an entire promoter sequence. Inspired by renormalisation-group techniques, we identify TF binding sites as coarse-grained variables combining groups of correlated mutations with the highest collective impact on gene expression. We validate our approach on experimental data for $\\textit{E. coli}$ and discover novel regulatory elements illustrating its deployment at scale across growth conditions.",
+  "url": "http://arxiv.org/abs/2605.19071v1",
+  "pdf": "https://arxiv.org/pdf/2605.19071v1",
+  "type": "both",
+  "summary": "The paper introduces a new algorithm called 'information blueprint' that identifies functional DNA binding sites by compressing nucleotide sequences into informative 'hyperletters.' By maximizing mutual information, the method can decode complex regulatory architectures, including DNA looping and overlapping binding sites, even in noisy experimental datasets.",
+  "main_problem": "Identifying the genome-wide architecture of transcriptional regulation, specifically finding transcription factor binding sites within non-coding DNA without prior knowledge of their locations.",
+  "main_result": "The development of an 'information blueprint' algorithm that uses optimal lossy compression to identify functional binding sites, successfully resolving complex regulatory motifs, overlapping sites, and DNA looping.",
+  "method": "A renormalization-group-inspired information bottleneck approach that uses a neural critic to maximize mutual information between compressed 'hyperletters' (collective coordinates) and gene expression levels.",
+  "model_or_system": "Bacterial genomes (E. coli) analyzed via Massively Parallel Reporter Assays (MPRA), using thermodynamic models of DNA-protein binding, including RNAP, repressors, and activators.",
+  "key_observables": "Mutual information I(T:mu), gene expression levels (mu), nucleotide sequences (microstates), and hyperletters (macrostate coordinates).",
+  "important_parameters": "Number of hyperletters (n), filter weights (Lambda), binding energies, noise levels, and the free energy cost of DNA looping.",
+  "main_assumptions": "Promoters are treated in isolation; the resolution of the blueprint is limited by the sampling depth of the mutation library.",
+  "figures_summary": "Schematics of the information distillation process; toy models showing mutual information peaks at binding sites; staircase plots of information gain vs. word length; and demonstrations of resolving complex architectures like DNA looping and overlapping sites.",
+  "paper_structure": "Introduction to the regulatory decoding problem; description of the Information Blueprint algorithm and optimization via neural critics; validation on synthetic thermodynamic models; application to experimental E. coli MPRA data; and analysis of robustness to noise and complex architectures like DNA looping.",
+  "why_interesting": "The method uses renormalization-group-inspired coarse-graining and information bottleneck principles to extract low-dimensional, interpretable features from high-dimensional, noisy, and complex data, which is highly relevant to many-body dynamics and effective field theories.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.19071_figures/2605.19071_fig1.jpg",
+      "caption": "Figure 1. From a nucleotide sequence to a constellation of binding sites. The spatial structure of the DNA double helix can be represented as a one-dimensional sequence of nu- cleotide letters (A, T, G, C). This is an act of coarse graining, one that discards the polymer-level physical degrees of free- dom while retaining the genetic information encoded in the base pair ordering. Here we take this one step further: we construct hyperletters from groups of nucleotide letters, each encoding the presence of a transcription factor binding site, and coarse grain the promoter sequence into a short vector T of such hyperletters. The result is a low-dimensional, in- terpretable representation of...",
+      "page": 2
+    },
+    {
+      "image": "2605.19071_figures/2605.19071_fig2.jpg",
+      "caption": "Figure 2. Finding the binding site by optimal compression. (A) Schematic of a constitutive promoter with a known RNAP binding site. (B) A toy MPRA library: each row is a mutant sequence; bar plot gives the DNA and RNA read counts whose ratio defines expression µ. (C) A linear filter Λ is used to compress each sequence into a word T ∈{0, 1}. Two filters are compared: ΛG sits on the RNAP site, ΛB misses it. (D) The table lists expression and both compressed words for every mutant. Sliding a filter across the promoter and computing I(T : µ) at each position yields a trace that peaks at the RNAP site. Conditional distributions P(µ|T) obtained by counting from the table. The good filter TG...",
+      "page": 5
+    },
+    {
+      "image": "2605.19071_figures/2605.19071_fig3.jpg",
+      "caption": "Figure 3. Resolving different TF binding sites by tuning the compression rate. Left panels: The mutual information between the sequence and the compressed word is plotted against the word length n, defining the rate of compression. Here, n corresponds to the number of binary variables Tν used to describe the promoter, and is much smaller than the genomic sequence length N. A small n forces high compression (squeezing features together), while a larger n relaxes the restriction, allowing distinct binding sites to be resolved. At small n, discrete jumps mark the resolution of each binding site; the curve then reaches a plateau once all sites are resolved, whose onset signals the number of...",
+      "page": 8
+    },
+    {
+      "image": "2605.19071_figures/2605.19071_fig4.jpg",
+      "caption": "Figure 4. Extracting binding sites of synthetic promoters. Each panel shows a different regulatory architecture. The top bars depict the ground truth locations of binding sites, while the rows below show the optimized compression filters Λν. The color map indicates the weight values: blue represents positive weights and red represents negative weights. The relative signs encode the regulatory logic: repressors (red) appear with weights opposite to RNAP (blue), whereas activators (blue) share the same sign. The experimentally determined energy matrices for each binding site are shown alongside for comparison. (A) Constitutive promoter. A single filter Λ1 recovers the bipartite RNAP binding...",
+      "page": 10
+    },
+    {
+      "image": "2605.19071_figures/2605.19071_fig5.jpg",
+      "caption": "Figure 5. Recovering regulatory architecture for arabinose operon from MPRA data. (A) Schematic of the araBAD promoter architecture. When arabinose is present, AraC binds two sites. (B) Information footprint showing mutual information I(bi : µ) at each position along the promoter in the presence of arabinose, showing at least five peaks. (C) Compressed information I(T ; µ) versus word length n plateaus at n = 3, correctly predicting three binding sites. In the absence of arabinose (red), the information remains small at all n, consistent with the loss of AraC-mediated activation. (D) In the presence of arabinose, the three optimised filters localise on the known binding sites, and the...",
+      "page": 12
+    }
+  ],
+  "figure": "2605.19071_figures/2605.19071_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

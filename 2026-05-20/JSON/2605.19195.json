@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.19195",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cs.IT",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "The Thermodynamic Costs of Simple Linear Regression",
+  "authors": "Samuel H. D'Ambrosia, Sultan M. Daniels, Michael R. DeWeese, Anant Sahai",
+  "abstract": "The construction of models from data is a significant contributor to the energetic costs of computation. Because of this, understanding how foundational thermodynamic bounds apply to modeling algorithms will be increasingly important. Here, we study the thermodynamic costs of a basic and fundamental modeling algorithm: simple linear regression. Following Landauer, we approximate the thermodynamic lower bound on irreversibly performing both exact linear regression and linear regression via stochastic gradient descent as implemented on floating-point numbers. From this, we derive energycost aware scaling laws for the optimal dataset size for training a linear regression model given a generalization error dependent demand for inference. Additionally, we discuss a method to lower bound the entropy production from the mismatch cost for algorithms with continuous input variables.",
+  "url": "http://arxiv.org/abs/2605.19195v1",
+  "pdf": "https://arxiv.org/pdf/2605.19195v1",
+  "type": "theory",
+  "summary": "This paper quantifies the minimum energy required to train linear regression models by calculating the thermodynamic costs of processing quantized data. It reveals that the number of training samples and the precision of the hardware are the dominant drivers of energy dissipation.",
+  "main_problem": "Determining the fundamental thermodynamic and energetic lower bounds (Landauer costs) associated with training machine learning models, specifically simple linear regression and SGD.",
+  "main_result": "The thermodynamic cost is primarily driven by the reduction in entropy from input to output, scaling linearly with the number of input data points and heavily influenced by floating-point precision.",
+  "method": "The authors apply Landauer's principle to quantized floating-point representations of Gaussian variables and use an Ornstein-Uhlenbeck process to model SGD dynamics.",
+  "model_or_system": "A digital computational framework using IEEE-754 floating-point arithmetic to perform simple linear regression on Gaussian-distributed datasets.",
+  "key_observables": "Landauer cost (minimum energy/work), Shannon entropy of quantized variables, Mismatch Cost (MMC), and Signal-to-Noise Ratio (SNR).",
+  "important_parameters": "Number of data points (n), floating-point precision (p), exponent bits (E), learning rate (eta), batch size (B), and Signal-to-Noise Ratio (SNR).",
+  "main_assumptions": "The computation is logically irreversible (inputs are erased); the system remains in thermal equilibrium; and floating-point bin sizes can be smoothed for analytical tractability.",
+  "figures_summary": "Figures illustrate the structure of floating-point numbers, the accuracy of entropy approximations, the relationship between entropy and mean/variance, and the landscapes of mismatch costs for regression algorithms.",
+  "paper_structure": "The paper progresses from defining the regression task and digital implementation to applying Landauer's principle, deriving entropy approximations for quantized Gaussians, and finally optimizing training parameters based on energy costs.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.19195_figures/2605.19195_fig1.jpg",
+      "caption": "Fig. 1: Floating-point structure and Gaussian approximations. (1a) The structure of a floating- point number where each box represents one bit. The true bin size function ∆(x) is plotted on log-log scale for both midpoint (black solid curve) and floor quantization (blue dotted curve) with p = 10 and E = 4 along with the smooth approximation ∆s(x) (red dashed curve). (1b) shows the entropy of Xfp which is a discrete representation of the random variable X ∼N (0, σ2) that has been clipped and midpoint quantized onto a floating-point representation with precision p = 3 and various numbers of exponent bits E. The x-axis shows the standard deviation σ of the underlying continuous distribution....",
+      "page": 10
+    },
+    {
+      "image": "2605.19195_figures/2605.19195_fig2.jpg",
+      "caption": "Fig. 2: Regimes where the approximations hold. (2a) Shows the exact discrete entropy of Xfp as p varies for each E when the underlying continuous random variable is X ∼N (0, 1). The approximation ˜H0 s(p) is also plotted as the dashed red line. Notice that the curves for E ≥4 are directly on top of each other, showing that ˜H0 s(p) is close to H(Xfp) when E is large enough to keep the probability of overflows and underflows low (see App. K). The approximation stays close to the true entropy with a large exponent and low precision. (2b) Shows the joint entropy of (Xfp, Yfp) where X ∼N (0, 1), ξ ∼N (0, 0.25) and Y = X + ξ. The approximation ˜Hs(Xfp, Yfp) is the red dashed line, and it again...",
+      "page": 11
+    },
+    {
+      "image": "2605.19195_figures/2605.19195_fig3.jpg",
+      "caption": "Fig. 3: The Landauer cost for exact zero-intercept simple linear regression. Input and output states are floating-point numbers with p = 24 and E = 8. The candidate values of the SNR = w2σ2 x/σ2 ξ are 0.062, 0.25, 1, 4, and 25. (3a) The output model approximate entropy ˜Hw s ( ˆWfp), and its dependence on the number of data samples n. (3b) The approximate entropy difference rate between the input data and the output model for various values of n. The contribution of the precision of the data p plotted here is ∆EEx p /(kBT ln[2]n) = (2n −1)p/n as the gray dots. The joint entropy of the input data is plotted as the dashed horizontal lines for each SNR value.",
+      "page": 13
+    },
+    {
+      "image": "2605.19195_figures/2605.19195_fig4.jpg",
+      "caption": "Fig. 4: Entropy dynamics of SGD. Input and output states are assumed to be single-precision floating-point numbers, with p = 24. Here ˆw0 = 1, σ2 x = 1, σ2 ξ = 1, η = 10−2, and B = 10. (4a) shows the approximate floating-point entropy of ˆW vs SGD step number k. (4b) shows the entropy difference between the input states and the SGD predictor at step k. Here the precision contribution is given by ∆ESGD p /(kBT ln[2]kB) = (2kB −1)p/(kB). The approximate joint entropy of an input sample ˜Hs(Xfp, Yfp) are the dashed lines corresponding to each w.",
+      "page": 15
+    },
+    {
+      "image": "2605.19195_figures/2605.19195_fig5.jpg",
+      "caption": "Fig. 5: Optimal dataset size for the exact linear regression formula and for stochastic gradient descent. (5a) shows the profit gained versus the dataset size n for the exact linear regression formula uEx(n) given in Eq. (178). (5c) shows u′ Ex(n), the derivative of the profit function with respect to n as given in Eq. (180). (5b) shows the profit gained versus the dataset size n for SGD uSGD(n) given in Eq. (181). (5d) shows the derivative with respect to n of the profit gained versus the dataset size for SGD as given in Eq. (183). For the profit plots, the gold stars are the maximum values with respect to each algorithm’s feasible set for each value of ρJ. For the derivative plots, the...",
+      "page": 17
+    }
+  ],
+  "figure": "2605.19195_figures/2605.19195_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

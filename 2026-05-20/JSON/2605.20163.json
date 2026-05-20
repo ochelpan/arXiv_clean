@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.20163",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Pauli Correlation Encoding for mRNA Secondary Structure Prediction: Problem-Aware Decoding for Dense-Constraint QUBOs",
+  "authors": "Triet Friedhoff, Mihir Metkar, Wade Davis, Vaibhaw Kumar, Alexey Galda",
+  "abstract": "Pauli Correlation Encoding (PCE) compresses $m$ binary variables onto $n=O(m^{1/k})$ qubits by mapping them to commuting Pauli correlators, but its continuous expectation values must be decoded into feasible binary solutions, a challenge for dense-constraint problems. We apply PCE to mRNA secondary-structure prediction, formulated as a densely constrained QUBO, and train with a QUBO-space sigmoid loss thatpreserves the QUBO penalty structure. For decoding, we introduce the Problem-Aware Guided Decoder (PAGD), which scores candidate variable commitments by combining marginal QUBO energy reduction with a trained expectation-value prior and constraint-aware feasibility pruning. On six benchmark mRNA sequences (30-60 nt, 50-240 variables, 7-14 qubits), PAGD with 100 restarts achieves 75-100 percent near-optimal recovery, defined as $P(\\mathrm{gap}<1\\%)$, for sequences up to 152 variables, compared with 0-30 percent for a sign-rounding plus local-search baseline. On the 240-variable instance, trained PAGD reaches 50 percent $P(\\mathrm{gap}<1\\%)$ at 200 restarts, outperforming untrained-circuit and random-expectation-value controls. Hardware-scale tests extend the pipeline to three 102-105 nt instances (694-745 variables, 172,000-193,000 pair constraints, 23 qubits) on IBM Heron processors. The circuits transpile SWAP-free into 480 native two-qubit gates at depth 256, and PAGD decoded gaps on QPU runs match or beat simulator means for all three instances, including exact CPLEX-optimum recovery for one sequence. These results show that PCE-trained priors can survive deployment to noisy superconducting hardware at biologically relevant scale.",
+  "url": "http://arxiv.org/abs/2605.20163v1",
+  "pdf": "https://arxiv.org/pdf/2605.20163v1",
+  "type": "both",
+  "summary": "This paper introduces a new pipeline for mRNA secondary structure prediction using quantum computing, specifically focusing on efficient variable encoding and a specialized decoder for dense constraints. It demonstrates that trained quantum circuits can be successfully deployed on noisy, large-scale superconducting hardware to find near-optimal biological structures.",
+  "main_problem": "Improving mRNA secondary structure prediction by addressing the challenges of decoding continuous expectation values from Pauli Correlation Encoding (PCE) in dense-constraint QUBO problems.",
+  "main_result": "The proposed Problem-Aware Guided Decoder (PAGD) achieves high near-optimal recovery rates (up to 100%) on simulated sequences and successfully scales to IBM Heron hardware, even recovering exact CPLEX optima for certain large-scale instances.",
+  "method": "The authors use Pauli Correlation Encoding (PCE) to compress variables, a QUBO-space sigmoid loss for training, and a new greedy decoding method (PAGD) that combines marginal energy reduction with a trained expectation-value prior.",
+  "model_or_system": "The problem is formulated as a Quadratic Unconstrained Binary Optimization (QUBO) problem representing mRNA base-pairing, implemented on IBM Heron superconducting processors using an 'Informed-k' ansatz topology.",
+  "key_observables": "Expectation values of Pauli correlators (XX, YY, ZZ) and the energy gap relative to the CPLEX-calculated optimum.",
+  "important_parameters": "Number of qubits (n), number of QUBO variables (m), circuit depth (p), number of decoder restarts (K), and nucleotide sequence length (L).",
+  "main_assumptions": "The method assumes that the mRNA secondary structure can be effectively mapped to a QUBO framework and that the learned priors from training can generalize to hardware deployment.",
+  "figures_summary": "Figures include comparisons of ansatz topologies, the hardware-aware 'Informed-k' connectivity on the IBM heavy-hex architecture, and visual representations of the predicted mRNA secondary structure folds.",
+  "paper_structure": "The paper introduces the mRNA prediction problem, details the PCE encoding and QUBO formulation, presents the new PAGD decoding method and sigmoid loss, evaluates performance on simulators, and demonstrates scalability on IBM Heron hardware.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.20163_figures/2605.20163_fig1.jpg",
+      "caption": "Fig. 1: Circuit ansatz under the layerwise parameterization adopted throughout this work: a single Ry angle θ(ℓ) is shared across all qubits within layer ℓ, and a single MS angle ϕ(ℓ) is shared across all entangling pairs in layer ℓ, yielding 2p + 1 trainable parameters at depth p. The MS-gate connectivity shown is the nearest-neighbor (NN) topology, i.e. a Hamiltonian path through the n qubits drawn here in the standard brickwork layout (alternating non-overlapping sublayers); the actual qubit pairs depend on the chosen ansatz topology (NN, Informed-k, Informed-2k, or All; see Sec. III-B).",
+      "page": 3
+    },
+    {
+      "image": "2605.20163_figures/2605.20163_fig2.jpg",
+      "caption": "Fig. 2: Ansatz-topology comparison across four benchmark sequences at PAGD-K10 (layerwise parameterization, 20 seeds per topology). Each sequence is run at its designated depth p (Table I); the shaded background separates the p=2, p=4, and p=6 regions. Four topologies are compared: nearest-neighbor (NN), problem-informed top-k pairs (Informed-k), top-2k pairs (Informed-2k), and all \u0000n 2 \u0001 pairs (All pairs). Panel (a): P(gap < 1%) with Wilson 95% CI. Panel (b): median optimality gap with interquartile range (IQR; symlog y-axis).",
+      "page": 5
+    },
+    {
+      "image": "2605.20163_figures/2605.20163_fig3.jpg",
+      "caption": "Fig. 3: Circuit-depth p selection across the six benchmark sequences (PCE, Informed-k ansatz, layerwise parameterization, 20 seeds per (m, p) configuration). Each subplot corresponds to one size class and shows the normalized median PAGD-K10 decoded gap as a function of p; the normalization rescales each sequence’s curve to [0, 1] by its own range so that the best- performing p sits at 0 and the worst at 1. Gray lines show individual sequences (annotated by m at the right edge), colored lines show the per-bin mean, and colored diamonds mark the minimum of the mean curve. Shaded vertical bands highlight the p value adopted for each size class in this work. The mean minimum lies on the shaded...",
+      "page": 6
+    },
+    {
+      "image": "2605.20163_figures/2605.20163_fig4.jpg",
+      "caption": "Fig. 4: Decoder comparison across six benchmark sequences (PCE, layerwise parameterization, Informed-k, 20 seeds). Each sequence is evaluated at the circuit depth p that minimizes median gap for that problem size: p=2 for m≤120, p=4 for m=152, p=6 for m ∈{195, 240}. (a) Near-optimal recovery rate P(gap<1%) with Wilson 95% CI. (b) Median optimality gap with IQR. Sign+LS: greedy sign-decode followed by best-improve local search. PAGD: σnoise=0.2, α=8, β=1.0; K restarts per decode. Ground truths verified by exact integer programming.",
+      "page": 7
+    },
+    {
+      "image": "2605.20163_figures/2605.20163_fig5.jpg",
+      "caption": "Fig. 2 compares the four entangling topologies at PAGD-K10 on the four largest benchmarks (m ∈ {120, 152, 195, 240}). Two patterns emerge. First, the fully- connected All pairs topology is the weakest choice at m ∈ {120, 152, 195} (≤20% P(<1%) at m=120, ≤5% at m ∈ {152, 195}; median gaps 11–54%), consistent with COBYLA struggling on the larger parameter count under the layerwise budget; at m=240 no topology achieves a sizeable P(<1%). Second, Informed-k consistently minimizes the median de- coded gap relative to NN, and matches or beats NN on P(<1%) at every size. The gain is largest where the QUBO connectivity is densest (m ≥152), and we adopt Informed-k as the default for all decoder...",
+      "page": 7
+    }
+  ],
+  "figure": "2605.20163_figures/2605.20163_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

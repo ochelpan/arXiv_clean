@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.19827",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Detrimental Agnostic Entanglement: The Case Against Hardware-Efficient Ansätze for Combinatorial Optimization",
+  "authors": "Tobias Rohe, Markus Baumann, Federico Harjes Ruiloba, Philipp Altmann, Gerhard Stenzel, Claudia Linnhoff-Popien",
+  "abstract": "Variational quantum algorithms (VQAs) for combinatorial optimization routinely employ entangling gates as a default design choice, yet the role of entanglement, in its amount and structure, remains poorly understood. This gap is particularly consequential for problems governed by diagonal Hamiltonians, whose ground states are classical product states and therefore require no entanglement in principle, raising the fundamental question of whether and how entangling gates help or hinder the variational search. We investigate this question for MaxCut by introducing two complementary control mechanisms that provide smooth, monotonic control over hardware-efficient ansatz (HEA) entanglement as quantified by the Meyer-Wallach measure $Q$, and by benchmarking against QAOA as a problem-structured reference. Tracking the entanglement trajectory $Q(t)$ throughout VQA training reveals that when the ansatz grants the optimizer indirect control over entanglement through its parameters, it consistently drives entanglement down. In line with this tendency, a fully separable ansatz outperforms all entangled hardware-efficient configurations, establishing a monotonic relationship: less problem-agnostic entanglement yields better performance. In contrast, QAOA, whose entanglement is structurally derived from the problem Hamiltonian, maintains high entanglement yet achieves competitive solution quality, demonstrating that entanglement structure, not merely quantity, determines its utility. These findings suggest that HEAs for diagonal Hamiltonians are inappropriate and that variational approaches to combinatorial optimization should prioritize problem-structured circuit designs.",
+  "url": "http://arxiv.org/abs/2605.19827v1",
+  "pdf": "https://arxiv.org/pdf/2605.19827v1",
+  "type": "theory",
+  "summary": "This paper demonstrates that the unstructured entanglement found in standard hardware-efficient quantum circuits actually hinders the optimization of combinatorial problems. It shows that while the optimizer tries to suppress this 'agnostic' entanglement, successful algorithms like QAOA rely on entanglement that is specifically structured to match the problem's symmetry.",
+  "main_problem": "Investigating whether the entanglement present in Hardware-Efficient Ansätze (HEAs) helps or hinders the variational search for combinatorial optimization problems like MaxCut.",
+  "main_result": "Problem-agnostic entanglement in HEAs is detrimental to performance, as the optimizer actively drives entanglement down to improve results; conversely, QAOA succeeds because its entanglement is structurally aligned with the problem Hamiltonian.",
+  "method": "The authors use two control mechanisms—CNOT gate deletion and CRZ parameter restriction—to monotonically reduce entanglement in HEAs and compare their performance against QAOA and product-state baselines.",
+  "model_or_system": "The study focuses on the MaxCut combinatorial optimization problem, modeled using a diagonal Ising Hamiltonian on Erdős–Rényi random graphs.",
+  "key_observables": "Meyer-Wallach entanglement measure (Q), approximation ratio (alpha), KL divergence (expressibility), and entanglement trajectories Q(t).",
+  "important_parameters": "Number of qubits (n=12), number of layers (p), edge density (p), and entanglement control factors (delta and rho).",
+  "main_assumptions": "The study assumes that for diagonal Hamiltonians, any entanglement in the final state represents a deviation from the target classical product state.",
+  "figures_summary": "Figures validate entanglement control via gate deletion and parameter restriction, show the evolution of entanglement trajectories during training, and demonstrate the monotonic correlation between reduced entanglement and improved approximation ratios in HEAs.",
+  "paper_structure": "The paper introduces the problem of entanglement in HEAs, presents new mechanisms for controlling entanglement, validates these mechanisms, compares HEA and QAOA performance, and concludes with a recommendation for problem-structured ansatz design.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.19827_figures/2605.19827_fig1.jpg",
+      "caption": "Fig. 1: HEA architectures. The circuit illustrates a single layer (repeated L = 3 times) consisting of parameterized single- qubit rotations RX(ϕ), RZ(ϕ) followed by an entangling block. (a) In the crz ring configuration (shown), entanglement is mediated by controlled-RZ gates with variational parame- ters θ, allowing the optimizer to tune entangling strength. (b) The cnot ring variant (not explicitly pictured) replaces these with fixed CNOT gates, removing θ from the parameter set. This separation of ϕ and θ enables independent initialization strategies and the controlled study of entangling resources (see Sec. IV-D).",
+      "page": 3
+    },
+    {
+      "image": "2605.19827_figures/2605.19827_fig2.jpg",
+      "caption": "Fig. 2: Validation of the two entanglement control mechanisms on the HEAs (averaged over random parameter initializations; shaded regions indicate one standard deviation). Left: Progressive CNOT gate deletion (where δ = 0 retains all CNOTs and δ = 1 removes all). Right: Controlled-rotation (CRot) parameter restriction (where ρ = 0 applies no restriction and ρ = 1 restricts all CRot parameters to zero).",
+      "page": 5
+    },
+    {
+      "image": "2605.19827_figures/2605.19827_fig3.jpg",
+      "caption": "Fig. 3: Meyer–Wallach entanglement measure Q as a function of optimizer iterations. Faint lines show individual runs; bold lines indicate the per-configuration mean.",
+      "page": 6
+    },
+    {
+      "image": "2605.19827_figures/2605.19827_fig4.jpg",
+      "caption": "Fig. 4: Aggregate and instance-level solution quality. (a) Distribution of approximation ratios per configuration. (b) Comparison of mean approximation ratio and most probable bitstring quality for QAOA and the product-state ansatz; ∆denotes the gap. (c)–(e) Instance-level correlation between entanglement summary statistics (final Q, peak Q, AUC of Q(t)) and approximation ratio for all HEA configurations; Pearson r and p-values reported per configuration.",
+      "page": 8
+    },
+    {
+      "image": "2605.19827_figures/2605.19827_fig5.jpg",
+      "caption": "Fig. 5: Solution quality (approximation ratio) under controlled entanglement reduction and across problem structure. The dashed line marks the GW bound (αGW = 0.878). (a) Progressive CNOT deletion: performance increases monotonically with the fraction of removed gates. (b) CRot parameter restriction: performance is approximately flat while entanglement remains saturated (ρ ≲0.7) and rises once the angular budget restricts entanglement generation; at ρ = 1, deactivated CRZ gates are removed (see text). (c) Approximation ratio by number of global optima; bucket size = 20.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.19827_figures/2605.19827_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

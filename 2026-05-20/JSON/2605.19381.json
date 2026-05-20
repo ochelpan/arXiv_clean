@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.19381",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Subsystem relaxation and a calibrated sampling diagnostic for programmable quantum annealers",
+  "authors": "Luis Lozano",
+  "abstract": "Programmable quantum annealers are used as open-system samplers, but it is unclear when reverse annealing erases preparation memory and what the readout represents. Here we implement a subsystem-environment protocol on two D-Wave quantum annealers, varying environment size, coupling, disorder, preparation, geometry and QPU generation. A six-qubit subsystem becomes initial-state independent when the environment is large or strongly coupled, while quenched disorder and atypical environment states arrest relaxation. Pairing the memory order parameter with the distance to a calibrated conditional-Boltzmann reference yields a diagnostic that flags rare wrong-basin trapping memory loss alone misses; memory-retaining conditions stay far from the reference (median 0.35). Relaxed ferromagnetic readouts are near-deterministic, so small distances there are a consistency check, not a thermometric test. In a mixed-frustration benchmark, the local-update model practitioners assume mispredicts QPU relaxation roughly sevenfold, whereas non-local classical sampling recovers it. We provide a subsystem-level validation protocol for quantum-annealer sampling.",
+  "url": "http://arxiv.org/abs/2605.19381v1",
+  "pdf": "https://arxiv.org/pdf/2605.19381v1",
+  "type": "both",
+  "summary": "This paper introduces a new diagnostic protocol to validate whether programmable quantum annealers are sampling from the intended thermal distribution. By using both a memory parameter and a distance-to-reference metric, the authors can detect 'wrong-basin' trapping that standard benchmarks miss. The work reveals that relaxation is driven by environment size and coupling strength but can be arrested by quenched disorder.",
+  "main_problem": "Determining the conditions under which reverse annealing erases initial-state memory in quantum annealers and developing a diagnostic to detect 'wrong-basin' dynamical trapping where the system relaxes but fails to reach thermal equilibrium.",
+  "main_result": "The authors developed a two-observable diagnostic (Memory Order Parameter and Total Variation Distance) that successfully identifies non-thermal trapping; they also found that quenched disorder arrests relaxation and that QPU relaxation dynamics are better matched by non-local classical updates than local Glauber dynamics.",
+  "method": "The study uses reverse-annealing protocols on D-Wave Advantage2 and System 6.4 QPUs, comparing experimental subsystem marginals against calibrated Boltzmann references, exact diagonalization, and classical Monte Carlo (Glauber and Parallel Tempering) simulations.",
+  "model_or_system": "A subsystem of 6 qubits coupled to an environment of up to 50 qubits via programmable couplers, governed by a time-dependent transverse-field Ising Hamiltonian with longitudinal disorder.",
+  "key_observables": "Memory Order Parameter (M), Total Variation Distance (DTV) to a conditional-Boltzmann reference, and effective inverse temperature (beta_eff).",
+  "important_parameters": "Environment size (|E|), coupling strength (lambda), quenched disorder strength (W), pause depth (sp), and pause time (tp).",
+  "main_assumptions": "The analysis is limited to small subsystem sizes (N <= 12) for exact diagonalization comparisons, and the study focuses on subsystem-level dynamics rather than the global QPU state.",
+  "figures_summary": "Figure 1 shows the reverse-anneal protocol and subsystem-environment partition; Figure 2 illustrates relaxation as a function of environment size, coupling, and pause depth; Figure 3 shows how disorder arrests relaxation; Figure 4 demonstrates the diagnostic's ability to separate relaxation regimes and identify trapping.",
+  "paper_structure": "The paper introduces the problem of non-thermal trapping, describes the experimental setup and reverse-annealing protocol, presents the development of the two-observable diagnostic, analyzes the drivers of relaxation (size, coupling, disorder), compares QPU dynamics to classical local/non-local models, and concludes with a validation protocol.",
+  "why_interesting": "This paper is highly relevant to open quantum systems and many-body dynamics as it characterizes how a finite-size environment acts as a non-universal bath and investigates the transition between memory-retaining and relaxed regimes in a programmable quantum device.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.19381_figures/2605.19381_fig1.jpg",
+      "caption": "Figure 1: Reverse-anneal protocol and subsystem–environment partition. a, Energy-landscape concept: three distinct initial preparations of the subsystem (colored balls in different potential wells) converge to the same distribution under relaxing conditions after reverse annealing in the presence of a large on-chip environment. b, Reverse-anneal schedule. The system is initialized at s = 1 (classical), ramped to a pause point sp where quantum fluctuations are reintroduced (blue-shaded region), held for a time tp, and returned to s = 1 for readout. c, Schematic of the subsystem–environment partition on the QPU topology. The subsystem S (orange, |S| = 6) is a connected cluster of qubits; the...",
+      "page": 3
+    },
+    {
+      "image": "2605.19381_figures/2605.19381_fig2.jpg",
+      "caption": "Figure 2: Subsystem relaxation with tunable environment. a, Memory order parameter M versus environment size |E| on both QPUs (sp = 0.4, λ = 0.5). b, Memory versus coupling strength λ (|E| = 50). Filled markers with solid lines: legacy SDK-default submission path. Open markers with dashed lines: regenerated on direct native-qubit submissions with auto scale=False (no chain couplers). The λ = 0 point is a decoupled control and is excluded from the monotonic crossover statement. c,d, Pause- depth sweeps on Advantage2 (c) and System 6.4 (d); lower sp shifts relaxation to weaker coupling. Plotted threshold values are nominal SDK-default quantities and inherit the auto scale systematic...",
+      "page": 5
+    },
+    {
+      "image": "2605.19381_figures/2605.19381_fig3.jpg",
+      "caption": "Figure 3: Disorder arrests relaxation. a, Memory order parameter versus disorder strength W on both QPUs (|E| = 50, λ = 0.5, sp = 0.4). Solid curves: legacy SDK-default submission path. Open triangles (dotted, red): a single-seed reproduction on Advantage system6.4 at the uniform torque compensation chain-strength path with auto scale=True, giving M = 0.54 at W = 1.5 versus the legacy 0.50. Memory rises sharply above W ≈1.5–2.0, indicating disorder-induced arrest of relaxation; the lower threshold on System 6.4 is consistent with its smaller βeff. Smaller fixed chain strengths (Supplementary Information) give weaker arrest, so the arrest magnitude here is specific to the legacy...",
+      "page": 6
+    },
+    {
+      "image": "2605.19381_figures/2605.19381_fig4.jpg",
+      "caption": "Figure 4: Effective thermal marginal. a, Fraction of relaxed disorder realizations (M ≤0.05) in the 10-seed disorder sweep (N = 12, |S| = 4, λ = 0.5, 3-regular logical graph, Advantage2). Relaxation fraction decreases from 10/10 at W = 0 to 4/10 at W = 1.25. b, Total-variation distance between the pooled subsystem marginal and the calibrated classical conditional Gibbs target at βeff = 7.219 vs disorder strength. Open circles: all 10 seeds; filled circles: relaxed subset only (error bars = s.d. across relaxed seeds). Gray band: finite-shot reference DTV ≃1",
+      "page": 9
+    },
+    {
+      "image": "2605.19381_figures/2605.19381_fig5.jpg",
+      "caption": "Figure 5: Classical and small-system controls. a, Comparison across system sizes at fixed sp = 0.4 and representative (λ, W) (see Supplementary Sec. 3 for the full Glauber and SVMC sweeps over system size, coupling strength and disorder). Glauber dynamics at the device temperature (gray diamonds) shows M = 1.0 everywhere. ED at sp = 0.4 (green triangles) shows decreasing memory with system size. The blue-shaded band indicates the QPU result for |E| ≥16 (M < 0.01). b, ED memory versus pause depth sp for three system sizes. Stronger transverse field (lower sp) drives relaxation; weaker field preserves memory. c, Crossover coupling λc (approximate nominal thresholds, defined as the λ where M...",
+      "page": 10
+    }
+  ],
+  "figure": "2605.19381_figures/2605.19381_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 4,
+    "scars & prethermalization": 2,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}
