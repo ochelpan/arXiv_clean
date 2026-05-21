@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.21486",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "cs.AI",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantifying Hyperparameter Transfer and the Importance of Embedding Layer Learning Rate",
+  "authors": "Dayal Singh Kalra, Maissam Barkeshli",
+  "abstract": "Hyperparameter transfer allows extrapolating optimal optimization hyperparameters from small to large scales, making it critical for training large language models (LLMs). This is done either by fitting a scaling law to the hyperparameters or by a judicious choice of parameterization, such as Maximal Update ($μ$P), that renders optimal hyperparameters approximately scale invariant. In this paper, we first develop a framework to quantify hyperparameter transfer through three metrics: (1) the quality of the scaling law fit, (2) the robustness to extrapolation errors, and (3) the asymptotic loss penalty due to choice of parameterization. Next, we investigate through a comprehensive series of ablations why $μ$P appears to offer high-quality learning rate transfer relative to standard parameterization (SP), as existing theory is inadequate. We find that the overwhelming benefit of $μ$P relative to SP when training with AdamW arises simply from maximizing the learning rate of the embedding layer. In SP, the embedding layer learning rate acts as a bottleneck that induces training instabilities; increasing it by a factor of width to match $μ$P dramatically smooths out training while improving hyperparameter transfer. We also find that weight decay improves the scaling law fits, while, in the fixed token-per-parameter setting, it hurts the robustness of the extrapolation.",
+  "url": "http://arxiv.org/abs/2605.21486v1",
+  "pdf": "https://arxiv.org/pdf/2605.21486v1",
+  "type": "theory",
+  "summary": "This paper provides a formal framework to quantify how well hyperparameters can be transferred from small to large neural networks. It discovers that the success of the popular muP parameterization is largely due to its ability to stabilize the training of the embedding layer. The work also explores how weight decay affects the predictability and robustness of scaling laws.",
+  "main_problem": "The paper investigates the mechanisms behind hyperparameter transferability in neural networks, specifically comparing the effectiveness of Maximal Update Parameterization (muP) versus Standard Parameterization (SP) when scaling model width.",
+  "main_result": "The authors identify that the primary driver of muP's superior learning rate transfer is the maximization of the embedding layer learning rate, which prevents training instabilities found in SP.",
+  "method": "The study uses a quantitative framework with three new metrics (scaling law fit quality, transfer robustness, and asymptotic loss penalty) and a series of 16 ablation studies on Transformer and CNN architectures.",
+  "model_or_system": "The study focuses on decoder-only Transformers and CNNs, analyzing scaling behavior as model width (n) increases, using the AdamW optimizer and the FineWeb-Edu dataset.",
+  "key_observables": "Scaling law fit error (E), transfer robustness exponent (kappa), and asymptotic loss penalty (R(infinity)).",
+  "important_parameters": "Model width (n), learning rate (eta), weight decay (lambda), and the abcd parameterization exponents controlling forward pass, initialization, and learning rate scaling.",
+  "main_assumptions": "Assumptions include a width-independent training horizon, the 'Full Alignment Assumption' for simplifying scaling exponents, and specific scaling for input/loss derivatives.",
+  "figures_summary": "Figure 1 shows the calculation of transfer metrics; Figure 2 demonstrates how adjusting the embedding layer learning rate in SP mimics muP; Figure 3 shows transfer metrics across parameterizations; Figure 4 illustrates loss gaps and stability; Figure 5 shows the impact of weight decay in fixed-step and compute-optimal regimes.",
+  "paper_structure": "The paper introduces a quantification framework for hyperparameter transfer, presents an ablation study isolating the embedding layer's role, provides a mathematical derivation of stability conditions for SGD and Adam, and concludes with an analysis of weight decay and compute-optimal scaling.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.21486_figures/2605.21486_fig1.jpg",
+      "caption": "Figure 1: Computing the three transfer metrics for µP. (a) Loss vs. log learning rate ν, with star marking the optimum ν∗(n), (b) Joint fit of the loss model (Equation (6), dashed lines), with a low predictability error E = 0.0034 , (c) Loss curves in the normalized coordinates (Equation (8)), with κ = −2.640 indicating robust transfer. (d-f) Scaling laws for optimal loss L∗(n), optimal log-learning-rate ν∗(n), and curvature H(n). In (d), the orange curve shows the best loss across parameterizations at each width, used for estimating the asymptotic loss gap R(∞).",
+      "page": 5
+    },
+    {
+      "image": "2605.21486_figures/2605.21486_fig2.jpg",
+      "caption": "Figure 2: Embedding layer learning rate is the critical difference between SP and µP. Loss vs. log learning rate ν across widths for: (a) SP with Θ(1/n) embedding learning rate; (b) SP modified to use Θ(1) embedding learning rate (SP+Embd); (c) µP modified to use Θ(1/n) embedding learning rate (µP-Embd). Speeding up the embedding in SP eliminates training instabilities and yields smooth, µP-like curves, while slowing it down in µP reintroduces SP-like instabilities. These interventions isolate the embedding learning rate as the primary driver of µP’s advantage, and show that training it fast enough is critical for stable training.",
+      "page": 6
+    },
+    {
+      "image": "2605.21486_figures/2605.21486_fig3.jpg",
+      "caption": "Figure 3: Transfer metrics for parameterizations interpolating between SP and µP. Parameterizations with ‘+’ denote incremental changes from SP towards µP, while ‘−’ denotes changes from µP towards SP. Green and red regions indicate desirable and undesirable regimes, respectively. The orange arrow highlights SP+Embd (SP with Θ(1) embedding learning rate), which matches µP across all three metrics, suggesting the embedding layer learning rate is the primary driver of µP’s advantage.",
+      "page": 7
+    },
+    {
+      "image": "2605.21486_figures/2605.21486_fig4.jpg",
+      "caption": "Figure 4: (a) Reducing the embedding learning rate from Θ(1) to Θ(1/n) in µP at step tswitch causes a persistent loss gap that grows larger for earlier switches (inset). (b) Increasing it from Θ(1/n) to Θ(1) in SP at step tswitch eliminates training instabilities and improves performance over SP (tswitch = 104).",
+      "page": 8
+    },
+    {
+      "image": "2605.21486_figures/2605.21486_fig5.jpg",
+      "caption": "Figure 5: Effect of weight decay on the three transfer metrics in the fixed-step (top) and fixed TPP (bottom) settings. In the fixed-step setting, weight decay improves predictability error E at the cost of asymptotic performance R(∞). In the TPP setting, stable parameterizations achieve near-zero R(∞), and landscape predictability trends are similar, but robustness κ degrades as weight decay increases.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.21486_figures/2605.21486_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

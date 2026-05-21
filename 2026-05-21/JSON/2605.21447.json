@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.21447",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Combining non-parametric quantum states and MERA tensor networks for ground-state optimization",
+  "authors": "Julian Schuhmacher, Alberto Baiardi, Francesco Tacchino, Ivano Tavernelli",
+  "abstract": "Hybrid tensor networks offer a promising route to enhance the expressivity of classical tensor network methods by incorporating quantum states prepared on a quantum computer. Existing approaches are limited by the variational optimization of the quantum component of the tensor network. In this work, we introduce an alternative strategy that combines a non-parametric quantum state prepared through quantum annealing and a classical isometric tensor network. The latter is variationally optimized while the former is used as a fixed, boundary tensor resource in the form of classical shadows. We demonstrate the feasibility of this approach through extensive numerical simulations on the transverse-field Ising model, showing that the optimization procedure remains robust under statistical and hardware noise. Moreover, our results indicate that our newly proposed setup improves the accuracy of the obtained ground state approximation compared to the original quantum simulation, without increasing the depth of the applied quantum circuits. Therefore, this setup offers a practical route to scale variational quantum algorithms towards the quantum utility scale.",
+  "url": "http://arxiv.org/abs/2605.21447v1",
+  "pdf": "https://arxiv.org/pdf/2605.21447v1",
+  "type": "theory",
+  "summary": "The paper introduces a new hybrid tensor network method that uses classical shadows to connect a fixed quantum state from quantum annealing to a variationally optimized MERA network. This approach improves ground-state energy accuracy for the transverse-field Ising model without increasing quantum circuit depth. The method is shown to be robust against both shot noise and simulated hardware noise, offering a practical path toward quantum utility.",
+  "main_problem": "The difficulty of efficiently representing many-body quantum wavefunctions in higher dimensions and the high resource overhead/trainability issues associated with optimizing the quantum components of hybrid tensor networks.",
+  "main_result": "The proposed hybrid approach, combining non-parametric quantum annealing states with classical MERA, improves ground-state energy accuracy without increasing circuit depth and remains robust against both statistical and hardware noise.",
+  "method": "A hybrid architecture using classical shadows to interface a fixed quantum state (prepared via digital quantum annealing) with a variationally optimized classical MERA tensor network, optimized via Riemannian gradient descent.",
+  "model_or_system": "The transverse-field Ising model (TFIM) on 1D spin chains of up to 24 sites, implemented via second-order Trotterized quantum annealing.",
+  "key_observables": "Ground-state energy approximation (relative energy error), energy variance, and operator locality/weight.",
+  "important_parameters": "Annealing time (t_final), Trotter step size (delta t), MERA bond dimension (chi), number of MERA layers (l), and hardware noise scaling factor (eta).",
+  "main_assumptions": "The quantum annealing process assumes the system remains in the instantaneous ground state (adiabatic approximation), and the accuracy is inherently limited by the quality of the initial non-parametric state.",
+  "figures_summary": "Figure 1 shows energy error vs. Trotter step; Figure 2 depicts the hybrid MERA architecture; Figure 3 compares energy reduction across system sizes; Figure 4 analyzes energy estimator variance; Figure 5 shows optimization trajectories; Figure 6 demonstrates robustness to hardware noise; Figure 7 shows the quantum circuit; Figure 8 shows operator locality transitions; Figure 9 shows variance by Pauli string weight; Figure 10 compares optimization protocols and bias.",
+  "paper_structure": "The paper introduces the hybrid architecture, describes the quantum annealing and MERA components, details the classical shadow interface and Riemannian optimization, presents numerical results on energy accuracy and noise robustness, analyzes the impact of MERA on operator locality and variance, and concludes with a discussion on resource estimation and optimization bias.",
+  "why_interesting": "This work is highly relevant for many-body dynamics and numerical methods as it provides a scalable strategy to bridge quantum hardware outputs with classical tensor network power, specifically addressing the bottleneck of state tomography and the barren plateau problem in hybrid algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.21447_figures/2605.21447_fig1.jpg",
+      "caption": "FIG. 1: Relative energy error of a quantum circuit implementing the annealing for a system with N = 24 sites via a Trotter decomposition. For large time steps ∆t, the energy error is mainly due to the Trotter error. For small time steps ∆t, the Trotter error is small enough such that the energy error saturates at a finite, limiting value due to the finite annealing time tfinal. The black stars highlight the combination of final time tfinal and time-step ∆t, that results in the quantum circuit with the closest two-qubit gate depth to 200. The red stars represent the error obtained using the quantum state obtained by using the resulting quantum circuit within our proposed hybrid MERA, and by...",
+      "page": 2
+    },
+    {
+      "image": "2605.21447_figures/2605.21447_fig2.jpg",
+      "caption": "FIG. 2: Hybrid MERA tensor network consisting of a quantum tensor (green), and two layers of the MERA. The black dots represent the fusion of the involved legs of the quantum tensor. The isometries in the MERA layers are highlighted in blue, while the unitaries are highlighted in teal. We use periodic MERA layers, which is depicted by the half-spheres for the unitaries at the edges. The contraction of the isometries and the unitaries with their respective complex conjugate over the legs with incoming arrows yields the identity, as shown in the figures on the right. The thickness of the bonds increases with their dimension.",
+      "page": 3
+    },
+    {
+      "image": "2605.21447_figures/2605.21447_fig3.jpg",
+      "caption": "FIG. 3: Ground-state energy obtained from quantum annealing (light blue circles) and subsequent improvement for a MERA with 1 (blue squares) and 2 (dark blue squares) layers for different system sizes N. The dashed line represent the energy obtained from quantum annealing with different final times tfinal.",
+      "page": 5
+    },
+    {
+      "image": "2605.21447_figures/2605.21447_fig4.jpg",
+      "caption": "FIG. 5: Optimization of a hybrid MERA applying a classical shadow interface to extract a classical representation of the QA state, and to contract it with the classical MERA layers. The dashed light (dark) blue line shows the QA (exact) energy. The dash-dotted blue line shows the energy optimization of the hybrid MERA when the interface is implemented exactly. The green lines show the energy optimization of the hybrid MERA when the classical shadow interface is used. For reference, the green solid lines show there energy of the hybrid MERA evaluated with the exact interface, using the MERA parameters obtained with the classical shadows.",
+      "page": 5
+    },
+    {
+      "image": "2605.21447_figures/2605.21447_fig5.jpg",
+      "caption": "FIG. 4: Variance of the energies obtained in figure 3 evaluated with S = 105 POVM samples for the state generated with QA (light blue circle), and for the same state combined with an optimized MERA with 1 (blue squares) and 2 (dark blue squares) layers.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.21447_figures/2605.21447_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

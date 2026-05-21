@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2605.20346",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Forced Gap Post-Selection for Quantum LDPC Codes and their Operations",
+  "authors": "Adam Wills, Theodore J. Yoder, Isaac Chuang",
+  "abstract": "We develop a simple and general post-selection strategy for high-rate quantum codes that is transferrable across decoders. After an initial baseline run, the decoder is re-run once per logical observable, and forced in these latter runs to provide a solution where the given observable has the complementary outcome. Shots are rejected that find logically complementary solutions with similar likelihoods compared to the baseline. Using the Relay-BP decoder, we benchmark the strategy on the $72$-qubit and $144$-qubit bivariate bicycle codes, as well as surgery gadgets for the latter. In comparison to previous post-selection strategies, our results offer an improved logical error rate by over a factor of $4$ on the same circuit and physical error rate, and at the same rate of post-selection. Our strategies are also lightweight, relying only on FPGA-friendly belief propagation, whereas the previous best used repeated rounds of a high-latency BP-OSD decoder.",
+  "url": "http://arxiv.org/abs/2605.20346v1",
+  "pdf": "https://arxiv.org/pdf/2605.20346v1",
+  "type": "theory",
+  "summary": "The paper introduces a new post-selection strategy for quantum LDPC codes that significantly reduces logical error rates with minimal computational overhead. By forcing the decoder to explore complementary logical outcomes, the method identifies and rejects unreliable decoding shots. This approach is particularly effective for high-rate codes and is compatible with efficient, FPGA-friendly decoders.",
+  "main_problem": "Developing an efficient and lightweight post-selection strategy for high-rate quantum LDPC codes to reduce logical error rates without the high computational overhead of existing methods.",
+  "main_result": "The proposed 'forced gap' strategy improves logical error rates by over a factor of 4 compared to previous strategies in the low post-selection regime (up to 1%) and scales linearly with the number of logical observables.",
+  "method": "A decoder-agnostic strategy involving a baseline decoding run followed by K additional runs where the decoder is forced to find corrections with complementary outcomes for each logical observable, using the Relay-BP decoder.",
+  "model_or_system": "Quantum Low-Density Parity-Check (LDPC) codes, specifically the 72-qubit and 144-qubit bivariate bicycle codes, under a circuit depolarizing noise model.",
+  "key_observables": "Logical error rate, post-selection rate, and the 'Gap' (difference in log-likelihoods between the most-likely and second-most-likely logical classes).",
+  "important_parameters": "Physical noise rates (p = 10^-3 and 2.5 x 10^-3), number of logical observables (K), and user-defined gap threshold (T).",
+  "main_assumptions": "The decoder is assumed to be able to operate on modified decoding instances; faults are assumed to occur independently; the 'Gap' is an approximation of the exact difference between logical class probabilities.",
+  "figures_summary": "Figure 1 shows the flowchart of the forced gap strategy; Figure 2 plots logical error rates vs. post-selection rate for idling codes; Figure 3 shows logical error rates for various surgery instructions.",
+  "paper_structure": "The paper introduces the problem of post-selection in high-rate LDPC codes, details the proposed forced gap algorithm, describes the Relay-BP decoder implementation and parameter optimization, presents benchmarking results on bivariate bicycle codes for both idling and surgery operations, and discusses future work regarding error floors and scaling.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.20346_figures/2605.20346_fig1.jpg",
+      "caption": "Figure 1: Overview of the Forced Gap post-selection strategy. Phase 1 (blue): the decoder is run on syndrome σ to produce a baseline correction e(0) with logical class L(0) = A·e(0). If the decoder declares erasure the instance is immediately rejected. Phase 2 (amber): for each of the K logical observables (i = 1, . . . , K), a forced run solves the modified problem (H(i), σ(i)), where an extra row appended to the parity-check matrix constrains the i-th observable to the complementary outcome 1 ⊕L(0) i . Phase 3 (pink): the corrections from all runs are pooled; the two most-likely distinct logical classes λ(0), λ(1) are identified and their log-likelihood difference, the Gap, is computed....",
+      "page": 4
+    },
+    {
+      "image": "2605.20346_figures/2605.20346_fig2.jpg",
+      "caption": "Figure 2: Simulated error rates per round for the idling [[72, 12, 6]] code, and the [[144, 12, 12]] code under post-selection, at physical noise p = 10−3 and 2.5 × 10−3, respectively. The x-axis shows “Post- selection rate”, that is, the fraction of shots that are rejected, where a curve is generated by varying the threshold T. Both codes are simulated for 6 and 12 rounds of syndrome extraction, respectively, and the logical error rate is then normalised per round (we do not normalise by the number of logical qubits). The shaded regions are 95% confidence intervals. The flat horizontal sections on the right of both graphs indicate the regions where all shots have been post-selected that...",
+      "page": 5
+    },
+    {
+      "image": "2605.20346_figures/2605.20346_fig3.jpg",
+      "caption": "Figure 3: Logical error rates of various surgery bicycle instructions [Yod+25] subject to post-selection under the forced gap strategy, all at physical noise p = 2.5 × 10−3. We present the logical error rate for the entire circuit, without normalising by the number of rounds. The number of syndrome extraction rounds that we used in our simulations of each gadget are shown above. These were chosen by optimality of the logical error rate for regular error correction without post-selection. For the in-module Y1 and inter-module X1X1 measurements, a higher number of rounds than 10, the circuit distance, was seen to give an improvement, although the differences observed were minimal.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.20346_figures/2605.20346_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

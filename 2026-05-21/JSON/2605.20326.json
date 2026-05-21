@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.20326",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Representability-Aware Neural Networks for Reduced Density Matrices: Application to Fractional Chern Insulators",
+  "authors": "Justin B. Hart, Awwab A. Azam, Thomas Li, Yunxuan Li, Ye Bi, Haining Pan, Jiabin Yu",
+  "abstract": "We develop a representability-aware and interpolable neural network (NN) framework for predicting two-particle reduced density matrices (2-RDMs). The NN incorporates a subset of representability conditions through its architecture and loss function, and can operate on different momentum meshes, enabling evaluating the representability conditions across multiple meshes, which we call interpolated representability condition. The framework can be used either to predict 2-RDMs on large momentum meshes by interpolating exact results from small meshes, or as a variational 2-RDM ansatz optimized by energy minimization on arbitrary meshes. We apply this approach to the fractional Chern insulator in the one-band projected model of twisted bilayer MoTe$_2$ at twist angle $3.89^\\circ$ and hole filling $2/3$. Trained on exact-diagonalization (ED) 2-RDMs from meshes with $12$ or $18$ momentum points using six different NN architectures, the best NN is the residual multilayer perceptron, which predicts the $6\\times6$ 2-RDM with $97.07\\%-98.18\\%$ accuracy relative to the ED 2-RDM but predicts an energy $77.353$ meV above ED ground-state energy. We then variationally optimize the NN on several meshes including $6\\times6$, predicting a $6\\times 6$ energy of just $0.104$ meV below ED while maintaining $98.94\\%-98.96\\%$ accuracy. Compared with the conventional boundary-point semidefinite programming, which gives an energy $5.560$ meV below ED with $96.40\\%-98.94\\%$ accuracy, the NN achieves a more accurate energy and similar accuracy while using only less than 1/20 as many parameters. Eventually, we add a symmetric mesh of $48$ momentum points to the variational optimization of the NN, and provide a prediction of the many-body ground-state energy and the many-body quantum metric on that mesh.",
+  "url": "http://arxiv.org/abs/2605.20326v1",
+  "pdf": "https://arxiv.org/pdf/2605.20326v1",
+  "type": "theory",
+  "summary": "The authors present a neural network framework designed to predict reduced density matrices by embedding physical N-representability constraints directly into the network. This approach allows for efficient interpolation of many-body properties across different momentum meshes and provides a highly parameter-efficient alternative to traditional semidefinite programming for studying fractional Chern insulators.",
+  "main_problem": "Developing an efficient way to predict two-particle reduced density matrices (2-RDMs) and many-body energies for large-scale strongly correlated systems without the exponential cost of Exact Diagonalization.",
+  "main_result": "The proposed representability-aware neural network, specifically a residual MLP, achieves high accuracy in predicting 2-RDMs and ground-state energies with significantly fewer parameters than traditional semidefinite programming methods.",
+  "method": "A neural network framework that incorporates N-representability conditions (Hermiticity, antisymmetry, and PSD constraints) into its architecture and loss function, utilizing both interpolation-based training and variational optimization.",
+  "model_or_system": "A one-band projected many-body model of twisted bilayer MoTe2 (tMoTe2) at a 3.89 degree twist angle and 2/3 hole filling, featuring double-gate screened Coulomb interactions.",
+  "key_observables": "Two-particle reduced density matrices (2-RDMs), many-body ground-state energy, many-body quantum metric, and static structure factor S(q).",
+  "important_parameters": "Twist angle of 3.89 degrees, hole filling of 2/3, gate distance of 20 nm, and various momentum mesh sizes.",
+  "main_assumptions": "The implementation only enforces a subset of N-representability conditions because the full set is NP-complete.",
+  "figures_summary": "Figure 1 shows the NN pipeline and loss function schematics; Figure 9 compares architecture performance via R-value and overlap; Figure 14 illustrates the scaling of accuracy against parameter count.",
+  "paper_structure": "The paper introduces the representability-aware NN framework, evaluates various architectures (MLP, KAN, SIREN, etc.) using the Richardson model, applies the method to the tMoTe2 fractional Chern insulator, compares performance against BPSDP, and concludes with scaling and generalization results.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.20326_figures/2605.20326_fig1.jpg",
+      "caption": "FIG. 1. Schematic of Representability-Aware NN (a) The input of the NN involves the Bloch momenta on cer- tain momentum meshes. The input is passed through our chosen NN architecture, and the outputs are aggregated to form a tensor Aq in Eq. (8), which is in turn used to con- struct 2 ˜D, 2 ˜Q and 2 ˜G. This pipeline supports prediction on any L1 × L2 conventional or tilted mesh in any convention as the NN can be evaluated at arbitrarily dense or arbitrarily shaped momentum meshes in the first Brillouin zone (1BZ). (b) Loss function for the interpolation training. The NNs are trained on 2-RDMs on small meshes, where we provide true ˜D, ˜Q, and ˜G through the ED calculation. (c) Loss...",
+      "page": 5
+    },
+    {
+      "image": "2605.20326_figures/2605.20326_fig2.jpg",
+      "caption": "FIG. 2. NN Parameter Efficiency for Interpolation of the 2-RDM of the one-band projected tMoTe2. We plot the NN architectures’ maximum achievable (a) Rvalue and (b) Roverlap at the indicated parameter count. The prediction is tested against ED on the conventional 6 × 6 mesh.",
+      "page": 5
+    },
+    {
+      "image": "2605.20326_figures/2605.20326_fig3.jpg",
+      "caption": "FIG. 3. Comparison of BPSDP and NN Varia- tional Optimization for 2-RDM on several conven- tional meshes. We provide BPSDP incorporating (2, 2) (blue), BPSDP incorporating (2, 2) and T1 (brown), and BPSDP incorporating (2, 2), T1, and T2 (green). We also pro- vide the prediction of the NN variational optimization with all the listed meshes as target meshes (purple). We plot (a) E −EED with E the converged/predicted energy and EED the ED ground-state energy, (b) Rvalue against the ED results, and (c) Roverlap against the ED results over various conven- tional L1 × L2 meshes. In (d), we plot the required number of real parameters for the each calculation, in log-scale.",
+      "page": 6
+    },
+    {
+      "image": "2605.20326_figures/2605.20326_fig4.jpg",
+      "caption": "FIG. 4. The plot of S(q) for the one-band projected tMoTe2. We plot S(q) from (a) the ED calculation on the conventional 6 × 6, (b) the prediction from NN variational optimization for the conventional 6 × 6 mesh, and (c) the prediction from NN variational optimization for the tilted 12× 4 mesh. Here we plot all |q| points that are smaller than half the length of the primitive reciprocal moiré lattice vector, the dahsed line labels the edge of the 1BZ, and all plots use the same color bar. Note that, we cap the color range at 25 to better visualize the behavior near the Γ point, and because of this color range, the outer part of (c) is out of range.",
+      "page": 7
+    },
+    {
+      "image": "2605.20326_figures/2605.20326_fig5.jpg",
+      "caption": "FIG. 5. Visualization of the sampling of the 1BZin the conventional meshes (a-d) and the tilted mesh (e) with M = \u0012 1 1 0 1",
+      "page": 16
+    }
+  ],
+  "figure": "2605.20326_figures/2605.20326_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

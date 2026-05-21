@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2605.20334",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Halving the cost of QROM",
+  "authors": "Danial Motlagh, Matthew Pocrnic",
+  "abstract": "Table lookup, often referred to as quantum read only memory (QROM), is one of the most widely used subroutines in quantum algorithms, and constitutes the majority share of algorithmic overheads in most practical applications of quantum computers. It involves the coherent loading of $N$ bitstrings of length $b$ in superposition, and naively has a non-Clifford cost of $N$ Toffolis. It is known that given access to $b\\, λ$ dirty qubits, one can reduce the Toffoli cost of QROM to $2\\frac{N}λ + 4b(λ- 1)$. In this work, we first present an optimization to reduce this cost to $2\\frac{N}λ + 2b(λ- 1) + 2λ-6$ by replacing the ``SelectSwap\" architecture with ``SelectCopy\". We then provide a further optimization for the qubit-constrained regime where the Toffoli cost is typically $\\sim 2\\frac{N}λ$, and reduce it to $\\sim (1+\\frac{1}{b})\\frac{N}λ$, cutting the cost by approximately $50\\%$ and effectively matching the performance of clean-qubit QROM using dirty qubits for practical values of $b$. Lastly, we provide a parametric family of methods that allow the interpolation of the prefactor of the $\\frac{N}λ $ term from $2$ to ($\\, 1+\\frac{1}{b}\\,$) to obtain the best cost for different qubit availability regimes.",
+  "url": "http://arxiv.org/abs/2605.20334v1",
+  "pdf": "https://arxiv.org/pdf/2605.20334v1",
+  "type": "theory",
+  "summary": "This paper proposes a way to significantly reduce the gate complexity of the QROM subroutine, which is a major bottleneck in many quantum algorithms. By replacing the standard SelectSwap architecture with a SelectCopy approach, the authors effectively halve the Toffoli cost in certain regimes. This allows for much more efficient data loading using available dirty ancilla qubits.",
+  "main_problem": "The goal is to reduce the computational overhead, specifically the Toffoli gate cost, of the QROM (Quantum Read-Only Memory) subroutine in fault-tolerant quantum algorithms.",
+  "main_result": "The authors achieve approximately a 50% reduction in the dominant Toffoli cost in the qubit-constrained regime, effectively matching the performance of clean-qubit QROM using dirty qubits.",
+  "method": "The paper introduces a 'SelectCopy' architecture to replace 'SelectSwap' and presents a parametric family of methods that treats a b-bit QROM as sequential smaller QROMs to optimize the cost based on available ancilla qubits.",
+  "model_or_system": "The work focuses on the algorithmic implementation of coherent table lookup (QROM) for loading N bitstrings of length b in superposition, utilizing both clean and dirty ancilla qubits.",
+  "key_observables": "Toffoli gate count (non-Clifford cost) and the number of required ancilla qubits.",
+  "important_parameters": "N (number of elements), b (bitstring length), lambda (sub-register parameter), and the availability of dirty vs. clean qubits.",
+  "main_assumptions": "Initial derivations assume N, b, and alpha are powers of 2; the efficiency is tied to the availability of dirty ancilla qubits.",
+  "figures_summary": "Figure 1 compares the cost improvement of the new QROM against the previous state-of-the-art; Figure 2 shows circuit diagrams for the SelectCopy and SelectSwap constructions; Figure 4 illustrates the circuit for the Copy operation in the Restore process.",
+  "paper_structure": "The paper identifies the QROM bottleneck, introduces the SelectCopy architecture, presents an optimization for the qubit-constrained regime, provides a parametric family of methods for cost interpolation, and concludes with a generalized theorem for non-power-of-2 parameters.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.20334_figures/2605.20334_fig1.jpg",
+      "caption": "FIG. 1. Cost comparison of our improved QROM against the previous state-of-the-art. We plot the improvement factor of our algorithm as a function of the number of elements N being loaded for different bitstring length b and number of available dirty qubits. We plot the improvement factor for the 2 ends of the spectrum α = 1 (orange) and α = b (green) in the parametric family of methods provided in this work as well as for the optimal choice of α (red). The jagged lines at the beginning correspond to the qubit unconstrained regime where the optimal λ does not yet make use of the entire dirty qubit budget.",
+      "page": 2
+    },
+    {
+      "image": "2605.20334_figures/2605.20334_fig2.jpg",
+      "caption": "FIG. 2. Comparison of the (a) “SelectSwap” QROM construction taken from Appendix A of Ref. [1] vs (b) our “SelectCopy” construction. Sel1 directly loads f(q, 0) into the clean register and f(q, r)⊕f(q, 0) into the rth dirty register for r = 1, ..., λ−1, Sel2 is similar but only goes over r = 1, ..., λ −1. This construction corresponds to α = 1 in the parametric family of methods provided in Section II D of this work.",
+      "page": 3
+    },
+    {
+      "image": "2605.20334_figures/2605.20334_fig3.jpg",
+      "caption": "FIG. 3. Our QROM construction with sequential bit packets for the case of α = b. Note that the dirty qubit registers, as well as the qubits in the output registers, are now depicted as single qubit registers. Sel and Copy operations are now loading and copying single qubit states into the output register per iteration. Recall that following Sel1 operation, each subsequent Selj loads the XOR between the new data and the prior bit in each dirty register. Finally, the “Restore” operation refers to the final dirty-qubit clean-up, which is then copied into the output register to return the desired output. This operation is detailed in Appendix B. This new construction is now available in...",
+      "page": 4
+    },
+    {
+      "image": "2605.20334_figures/2605.20334_fig4.jpg",
+      "caption": "FIG. 4. A circuit construction of the Copy operation required to perform the Restore operation highlighted outlined in Figure 3. The Sel† operation simply unloads the previous data loaded into the dirty qubits, and the final copy uses the dirty qubit registers to clean up the data register as shown. The control on the |r⟩register is taken to be a single qubit control on the corresponding sawtooth wire from the unary iteration circuit in Figure 10 of Ref. Of course, in the full operation, µ temp-ANDs must be initialized for each outcome from unary iteration [8].",
+      "page": 8
+    }
+  ],
+  "figure": "2605.20334_figures/2605.20334_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

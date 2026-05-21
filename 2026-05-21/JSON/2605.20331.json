@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.20331",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Bowtie VarQTE: A Resource-Efficient Quantum State Preparation Primitive",
+  "authors": "Marc Drudis, Alberto Baiardi, Mattia Chiurco, Francesco Tacchino, Stefan Woerner, Christa Zoufal",
+  "abstract": "The preparation of quantum states is a fundamental requirement for many quantum algorithms. A native route to preparing physically structured states is based on short-time simulation of dynamical processes, such as real or imaginary time evolution. This work presents a resource-efficient framework for the approximation thereof with \\textit{bowtie \\ac{VarQTE}} which uses classical simulation where possible and quantum resources where necessary. We introduce a framework that leverages existing causal light-cones to minimize quantum resource requirements in the evaluation of gradient and quantum geometric tensor terms by utilizing classical simulation methods for causally relevant subcircuits. This in turn enables exact parameter updates according to McLachlan's variational principle and, thereby, improves numerical stability. We conduct a comparison with a state preparation method that is based on a tensor-network compiled Trotter algorithm: approximate quantum compilation (AQC). In recent work, this approach has shown impressive performance. However, its key-bottleneck is the necessity to have a classical (approximate) representation of the target state. Our numerical experiments indicate that bowtie VarQTE can achieve comparable fidelities without this requirement. We further illustrate how bowtie VarQTE can facilitate a state-preparation pipeline that combines the simulation of imaginary and real time evolution for a sample-based quantum algorithm. In fact, results on 2D systems show how bowtie VarQTE can reduce the quantum requirements compared to standard, sample-based Krylov diagonalization calculations.   Our results indicate that VarQTE is a promising primitive for the preparation of physically structured quantum states that reduces requirements on quantum resources by leveraging existing structures and the associated possibility of enabling classical simulations.",
+  "url": "http://arxiv.org/abs/2605.20331v1",
+  "pdf": "https://arxiv.org/pdf/2605.20331v1",
+  "type": "theory",
+  "summary": "This paper introduces Bowtie VarQTE, a resource-efficient method for quantum state preparation that uses classical simulation of local light-cones to compute evolution parameters. It reduces the quantum measurement burden and improves numerical stability compared to existing variational methods. The framework is particularly effective for preparing physically structured states in 1D and 2D lattices.",
+  "main_problem": "The high computational cost of evaluating the Quantum Geometric Tensor (QGT) and gradients in Variational Quantum Time Evolution (VarQTE), which leads to excessive quantum measurements and numerical instability.",
+  "main_result": "The Bowtie VarQTE framework achieves comparable fidelity to Approximate Quantum Compiling (AQC) without requiring a classical representation of the target state, while significantly reducing quantum resource requirements by using classical simulation for local subcircuits.",
+  "method": "A hybrid framework that leverages the causal light-cone structure of parameterized circuits to decompose global evolution into smaller, classically tractable 'bowtie' subcircuits for exact evaluation of gradients and the QGT.",
+  "model_or_system": "The method is demonstrated on 1D Heisenberg chains, 2D square lattices, and 2D heavy-hex lattices using Hamiltonian Variational Ansätze (HVA).",
+  "key_observables": "Infidelity, Quantum Geometric Tensor (QGT) entries, gradients, and energy estimates.",
+  "important_parameters": "Circuit depth (L), number of qubits (N), light-cone size, and the strength of random disorder/perturbation.",
+  "main_assumptions": "The ansatz is assumed to consist of Clifford gates and parameterized Pauli rotations; the efficiency relies on the existence of local light-cones.",
+  "figures_summary": "Figure 1 shows the bowtie circuit construction; Figure 2 plots infidelity vs. time; Figure 3 shows the HVA circuit and connectivity; Figure 4 illustrates the VarQTE+SKQD workflow; Figure 5 shows light-cone size distributions and runtime; Figure 6 compares SPSA error to Clifford approximation.",
+  "paper_structure": "The paper introduces the Bowtie VarQTE framework, details the light-cone decomposition method, compares it against AQC and Trotter methods, evaluates computational scaling and FLOP counts, demonstrates application in a 2D SKQD pipeline, and analyzes the limitations of stochastic estimation methods.",
+  "why_interesting": "It provides a scalable way to prepare and evolve many-body states by intelligently partitioning tasks between classical and quantum processors, which is highly relevant for simulating many-body dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.20331_figures/2605.20331_fig1.jpg",
+      "caption": "FIG. 1: Construction of a bowtie circuit for gradient extraction of a variational parameter.",
+      "page": 3
+    },
+    {
+      "image": "2605.20331_figures/2605.20331_fig2.jpg",
+      "caption": "FIG. 2: Infidelity I versus time for AQC (blue), VarQRTE (orange), and Trotter with twice the number of layers (green) on one-dimensional Heisenberg chains. Panel (a) shows results for N = 35 with L = 4 layers for AQC and VarQRTE and L = 8 for Trotter; panel (b) shows results for N = 50 with L = 3 layers for AQC and VarQRTE and L = 6 for Trotter.",
+      "page": 5
+    },
+    {
+      "image": "2605.20331_figures/2605.20331_fig3.jpg",
+      "caption": "Fig. 2 highlights how the infidelity between the pre- pared and the target states behaves throughout the evo- lution for: (a) an N = 35 qubit system with depth L = 4 for AQC as well as VarQRTE and L = 8 for Trotter, (b) N = 50 qubits with depth L = 3 for AQC as well as VarQRTE and L = 6 for Trotter. In both cases, AQC and",
+      "page": 5
+    },
+    {
+      "image": "2605.20331_figures/2605.20331_fig4.jpg",
+      "caption": "FIG. 3: Quantum circuit ansatz. The blocks of gates (a) are applied to each colored edge (b) sequentially. The coloring of the edges and the sequence at which we apply the gates have been optimized to maximize expressibility while minimizing the light-cone sizes. If we denote the edges by Blue(B), Orange(O) and Green(G), we found the optimal sequence of gates to be: [G,B,O,B,G,B,O]. Furthermore, a final layer of single qubit rotations is added at the end of the circuit.",
+      "page": 8
+    },
+    {
+      "image": "2605.20331_figures/2605.20331_fig5.jpg",
+      "caption": "FIG. 4: Energy estimates along the SKQD pipeline. Panel (a) shows the normalized energy E(τ) of the VarQITE trajectory computed with bowtie evaluation, starting from parameters that prepare the first determinant state of the Hamiltonian. Panel (b) shows the SKQD projected-energy estimate obtained from the cumulative support formed by sampling the real-time VarQRTE Krylov states {|ψtk⟩}: after each additional time point, we construct the reduced Hamiltonian HSM and report its ground-state energy. Energies are rescaled such that EGS = 0 and EIS = 1. Real-time evolution uses time step ∆t = π/∆E = 0.015 and each Krylov state is sampled with Nshots = 104 shots.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.20331_figures/2605.20331_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

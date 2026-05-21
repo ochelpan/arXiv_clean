@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2605.21276",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.atom-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Benchmarking a machine-learning differential equations solver on a neutral-atom logical processor",
+  "authors": "Pauline Mathiot, Elio Garnaoui, Axel-Ugo Leriche, Evan Philip, Boris Albrecht, Clémence Briosne-Fréjaville, Lorenzo Cardarelli, Antoine Cornillot, Gwennolé Cournez, Luc Couturier, Julius De Hond, Rebecca El Koussaifi, Thomas Eritzpokoff, Florian Fasola, Antonio Andrea Gentile, Casper Gyurik, Clotilde Hamot, Loïc Henriet, Gaétan Hercé, Michael Kaicher, Lucas Lassablière, François-Marie Le Régent, Edgar Leroux, Yohann Machu, Hadriel Mamann, Luis Ortiz, Annie Paine, Thomas Pansiot, Arnaud Peloquin, Francisco Ponciano, Julien Ripoll, Raja Selvarajan, Adrien Signoles, Henrique Silvério, Siddhy Tan, Marie Taouzinet, Selim Touati, Louis Vignoli, Antoine Browaeys, Pascal Scholl",
+  "abstract": "We report on a performance comparison between physical and logical computations on a prototypical machine-learning application: solving differential equations using quantum kernel methods. The algorithm is implemented on an atom-based logical quantum processor, both at the physical and logical levels. We show that the kernel estimated from the logical implementation performs better than its physical counterpart on relevant metrics. We observe how such performance improvement can be traced back to specific noise-induced errors detected by the chosen encoding. We apply the computed quantum kernel to the task of solving differential equations, confirming how the superior performance of a logical quantum kernel is retained also at an end-to-end applicative level. Our findings show that experimental validation of end-to-end protocols can already highlight the positive impact of fault-tolerant implementations despite their higher quantum resource count, and guide application-informed architectural choices.",
+  "url": "http://arxiv.org/abs/2605.21276v1",
+  "pdf": "https://arxiv.org/pdf/2605.21276v1",
+  "type": "both",
+  "summary": "This paper demonstrates that a logical quantum processor can solve differential equations more accurately than a physical processor by using error detection to suppress kernel distortions. By implementing a [[4, 2, 2]] code on a neutral-atom platform, the researchers showed a significant reduction in the error of the final application-level solution. This highlights the importance of fault-tolerant architectures for practical quantum machine learning tasks.",
+  "main_problem": "Benchmarking the performance of a machine-learning differential equation solver on a neutral-atom logical processor to determine if logical qubits can mitigate kernel distortions caused by hardware noise.",
+  "main_result": "The logical implementation using a [[4, 2, 2]] error-detecting code systematically outperforms the physical implementation, significantly reducing kernel shape distortion and achieving much higher accuracy in solving non-linear differential equations.",
+  "method": "A hybrid quantum-classical workflow using quantum kernel methods and mixed-model regression to solve differential equations, compared across physical and logical qubit encodings.",
+  "model_or_system": "A neutral-atom quantum processor based on Rubidium-87 atoms in an optical tweezer array, utilizing Rydberg blockade for two-qubit gates and a zoning architecture for atom transport.",
+  "key_observables": "Quantum kernel quality (probability p00), kernel distortion (shape and amplitude alterations), and the residual (NRMSE) of the differential equation solution.",
+  "important_parameters": "Coherence times (T1 approx 5s, T2 approx 1.49s), gate fidelities (single-qubit approx 99.96%, CZ approx 98.7%), and the [[4, 2, 2]] error-detecting code.",
+  "main_assumptions": "The benchmark differential equations are chosen such that their solutions are expressible within the kernel's feature space; error models assume errors can be decomposed into Pauli and atom loss channels.",
+  "figures_summary": "Figure 1 shows the end-to-end benchmark workflow; Figure 2 details the quantum kernel circuit and regression process; Figure 3 illustrates the atomic hardware, imaging, and error-corrected circuits; Figure 4 compares the distribution of residuals for linear and non-linear DEs; Supplementary figures detail error models, hardware stability, and proxy-phasing.",
+  "paper_structure": "The paper introduces the benchmarking goal, describes the hardware platform and error-correcting encoding, details the machine-learning algorithm for solving DEs, presents the comparative results between physical and logical kernels, and concludes with an error analysis and discussion of future scaling.",
+  "why_interesting": "It demonstrates a practical application of error detection in a neutral-atom platform, showing how logical encoding can specifically target and suppress coherent errors that degrade algorithmic performance in quantum machine learning.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.21276_figures/2605.21276_fig1.jpg",
+      "caption": "FIG. 1. End-to-end benchmark comparing physical and logical quantum computations. We adopt a quan- tum kernel as the algorithmic routine to implement using ei- ther physical qubits or logical qubits. The performances upon implementation are compared both at an intrinsic level, in terms of attained kernel quality, as well as at an applicative level, when using the quantum kernel output to solve sets of differential equations within a hybrid quantum-classical framework.",
+      "page": 2
+    },
+    {
+      "image": "2605.21276_figures/2605.21276_fig2.jpg",
+      "caption": "FIG. 2. Solving differential equations using a quan- tum kernel. a. The quantum kernel κ(x, a) is computed by measuring the 00 bitstring probability p00 at the output of the displayed quantum circuit, which is equal to the inner product shown. b. Workflow of the differential equation solv- ing based on the computed quantum kernel via mixed-model regression. The quantum kernel κ(x, a) with three chosen pa- rameters {ai} (blue, green and red curve) is used as a basis to generate a trial function ftr. A loss function L evaluates the distance of ftr to the solution fsol of the equation formally defined by the differential operator D. L is then minimized using a classical algorithm to update the...",
+      "page": 3
+    },
+    {
+      "image": "2605.21276_figures/2605.21276_fig3.jpg",
+      "caption": "FIG. 3. Quantum kernel computation using a neutral atom logical processor. a. Level diagram of the relevant atomic transitions used in this work. b. Average fluorescence imaging of the atom array. We divide the space into three zones: a computation zone, a loading zone, and a storage zone. c. Circuit used to compute the physical quantum kernel. Distortions in the kernel shape can be traced back to coherent errors in the gates execution. d. Circuit used to compute the logical quantum kernel. It consists of three parts: preparing the logical state |00⟩L = (|0000⟩+ |1111⟩)/ √",
+      "page": 4
+    },
+    {
+      "image": "2605.21276_figures/2605.21276_fig4.jpg",
+      "caption": "FIG. 4. Solving differential equations using an experimentally-computed quantum kernel. a. In the space S spanned by all solutions of differential equations, up to a certain accuracy quantified by some residual, there is a subset K that can be expressed by the kernel, which is ex- pected to be enlarged by an increase in quantum volume and shrunk by processor error. A benchmark space B is defined within K b. Residual (normalized root-mean square error) while comparing the solution obtained using the kernel to the ideal solution for 1000 randomly generated differential equa- tions from B, along with a representative example. c. The kernel used to solve a nonlinear differential equation whose...",
+      "page": 5
+    }
+  ],
+  "figure": "2605.21276_figures/2605.21276_fig1.jpg",
+  "highlighted": [
+    "Antoine Browaeys"
+  ],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 4,
+    "QC/QI experiment": 5,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

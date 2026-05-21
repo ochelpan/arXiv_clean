@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.21286",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Software Between Quantum and Machine Learning -- And Down to Pulses",
+  "authors": "Maja Franz, Melvin Strobl, Jonathan Hunz, Lukas Scheller, Lucas van der Horst, Eileen Kuehn, Achim Streit, Wolfgang Mauerer",
+  "abstract": "Contemporary quantum computing platforms remain, in essence, programmable physical systems whose control is typically mediated through unitary gate abstractions. While such abstractions provide a uniform interface, they obscure important aspects of the underlying hardware and may limit the exploitation of its full capabilities. Direct operation at the control-pulse level offers a more expressive and physically faithful paradigm, enabling, for instance, the implementation of tailored error-mitigation and optimisation strategies. However, this increased expressivity comes at the cost of greater quantum software development complexity, necessitating structured and accessible tooling.   We present a software framework, integrated within the QML-Essentials package, that extends quantum machine learning (QML) methodologies to encompass pulse-level modelling. By embedding quantum optimal control techniques within a QML setting, our approach enables the seamless combination of gate-based and pulse-level representations. The framework provides a comprehensive suite of modelling and analytical capabilities. In particular, we introduce composable ansatz constructions based on interchangeable building blocks, and support for end-to-end optimisation of pulse parameters. Motivated by the central role of quantum Fourier models, we further incorporate a range of Fourier-analytic diagnostics, complemented by extended measures of entanglement. All performance-critical components are implemented in a high-performance environment using JAX and supported by a dedicated quantum simulator. Taken together, the framework facilitates reproducible and systematic investigations, while bridging the conceptual and practical divide between abstract circuit models and hardware-aware optimisation. It provides a robust foundation for future developments at the intersection of QML and quantum control.",
+  "url": "http://arxiv.org/abs/2605.21286v1",
+  "pdf": "https://arxiv.org/pdf/2605.21286v1",
+  "type": "theory",
+  "summary": "The authors present QML-ESSENTIALS, a software framework that bridges the gap between abstract quantum circuits and low-level hardware control pulses. By integrating quantum optimal control with quantum machine learning, the tool allows researchers to optimize pulse parameters directly and analyze the spectral and entangling properties of quantum models. This enables more hardware-aware and efficient development of quantum machine learning algorithms.",
+  "main_problem": "The gap between high-level, gate-based quantum machine learning (QML) abstractions and low-level, hardware-aware control pulses, which limits the ability to exploit hardware-specific features like error mitigation.",
+  "main_result": "The development of the QML-ESSENTIALS software framework, which enables seamless integration of pulse-level modeling with QML methodologies, allowing for end-to-end optimization of pulse parameters and advanced Fourier-analytic diagnostics.",
+  "method": "A high-performance Python framework built on JAX that implements Quantum Optimal Control (QOC) techniques, differentiable quantum simulation, and a suite of metrics including Fourier coefficient correlation (FCC) and entanglement measures.",
+  "model_or_system": "The framework focuses on programmable quantum computing platforms, specifically superconducting qubits (transmons) modeled as periodically driven two-level systems with time-dependent Hamiltonians.",
+  "key_observables": "Fourier spectrum (frequencies and coefficients), Fourier Coefficient Correlation (FCC), expressibility (KL-divergence), and entanglement measures (Entanglement of Formation, Concentratable Entanglement, and Meyer-Wallach).",
+  "important_parameters": "Pulse parameters (amplitude, width, duration), gate infidelities, and circuit depth.",
+  "main_assumptions": "The framework assumes a closed quantum system for certain analyses and uses the Rotating-Wave Approximation (RWA) to reduce integration stiffness during pulse simulation.",
+  "figures_summary": "Figure 1 shows a code example and the framework's structural hierarchy; Figure 2 illustrates pulse sequence diagrams; Figure 5 compares gate infidelity and pulse parameters against circuit depth; Figure 6 compares expressibility and FCC; Figure 8 compares various entanglement measures under noiseless and noisy conditions.",
+  "paper_structure": "The paper introduces the motivation for bridging the gate-pulse gap, details the QML-ESSENTIALS software architecture and JAX-based simulation, describes the implementation of Quantum Optimal Control for pulse-level gates, presents benchmarking of QML ansatz properties (Fourier and entanglement metrics), and concludes with the framework's utility for future hardware-aware QML research.",
+  "why_interesting": "It provides a unified toolset for studying how the physical dynamics of control pulses directly influence the functional properties (like spectral bias and trainability) of quantum machine learning models, which is crucial for developing robust open quantum system controllers.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.21286_figures/2605.21286_fig1.jpg",
+      "caption": "Fig. 1: Overview of our contributions to QML-ESSENTIALS with + indicating novel additions, and (+) major changes. The code example in Python on the left-hand side describes the main functionality of the framework. The solid yellow blocks on the right hand show the possibilities for defining a quantum Fourier model, based on different ansätze and encodings. Dashed red blocks show the possibilities of utilising the execution of a model, which encompasses the JAX-based [32] classical simulation of a quantum circuit and its measurement. Different input, parameter and pulse parameter values open up possibilities for a variety of applications and QOC. Dotted green blocks correspond to built-in...",
+      "page": 4
+    },
+    {
+      "image": "2605.21286_figures/2605.21286_fig2.jpg",
+      "caption": "Fig. 2: Pulse sequence diagram showing an ˆRX and ˆRY gate on the first-, a ˆRZ on the second, and a CˆZ gate on both qubits. Shaded areas show envelopes with carrier frequencies marked by thin lines. Vertical lines delimit the gate duration.",
+      "page": 6
+    },
+    {
+      "image": "2605.21286_figures/2605.21286_fig3.jpg",
+      "caption": "Fig. 4: Overview of our QOC procedure to find optimal pulse parameters p∗by minimising some cost function C. Resulting pulse parameters determine, for instance, the amplitude, width or duration of the pulse envelope, for which the available possibilities are shown at the bottom. For an ideal optimisa- tion, the state after evolution with the constructed pulse gate matches that of the target unitary gate ˆUt.",
+      "page": 6
+    },
+    {
+      "image": "2605.21286_figures/2605.21286_fig4.jpg",
+      "caption": "Fig. 3: Overview of the connectivity between basis gates and composed gates. The line type (dotted/solid) represents the number of child gates (1/2) the parent gate depends on. Labels at the bottom of each node represent the total number of pulse parameters including redundancies.",
+      "page": 6
+    },
+    {
+      "image": "2605.21286_figures/2605.21286_fig5.jpg",
+      "caption": "Fig. 5: (top) Infidelities for all available ansätze, ordered by the mean infidelity over all numbers of layers. (bottom) the number of pulse parameters for each ansatz. Ansätze of the format C* are taken from Ref. [48]. The additional ansätze, NEA, SEA and HEA refer to a non-entangling, strongly- entangling and hardware-efficient ansatz, respectively. Note that the infidelity is zero for all layers of C1 and NEA.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.21286_figures/2605.21286_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

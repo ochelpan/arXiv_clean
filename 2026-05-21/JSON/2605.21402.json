@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2605.21402",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "stat.ML",
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Memorisation, convergence and generalisation in generative models",
+  "authors": "Antoine Maillard, Sebastian Goldt",
+  "abstract": "Generative neural networks learn how to produce highly realistic images from a large, but finite number of examples - or do they simply memorise their training set? To settle this question, Kadkhodaie, Guth, Simoncelli and Mallat (ICLR '24) trained diffusion models independently on disjoint subsets of a dataset and showed that they converge to nearly the same density when the number of training images is large enough. This result raises two basic questions: how much data do you need for convergence, and what does convergence capture about learning the data distribution? Here, we address these questions by providing an exact analytical characterisation of the transition from memorisation to generalisation in linear generative models. We find that these models memorise at small load, while convergence emerges continuously when the number of samples is linear in the input dimension. Strikingly, we find that convergence is insensitive to recovery of the principal latent factors of the data, which are recovered in a sharp transition. After extending our approach to data with power-law spectra, we find the same distinction between convergence and latent recovery in our experiments with convolutional denoisers and in the data of Kadkhodaie et al. We thus show that generalisation in generative models decomposes into at least two distinct objectives: matching the bulk of the data distribution and recovering the principal latent factors. These objectives correspond to two different distances between true and learnt data distribution, and only the first one is captured by convergence.",
+  "url": "http://arxiv.org/abs/2605.21402v1",
+  "pdf": "https://arxiv.org/pdf/2605.21402v1",
+  "type": "theory",
+  "summary": "The paper provides a mathematical framework to show that generative models can learn to match the general statistics of a dataset (convergence) without necessarily recovering its key structural features (latent factors). It identifies a clear decoupling between these two stages of learning, which is crucial for understanding the true capabilities of diffusion models.",
+  "main_problem": "Investigating the transition from memorization to generalization in generative models and determining if model convergence is a reliable proxy for recovering underlying data structures.",
+  "main_result": "Generalization decomposes into two decoupled objectives: matching the bulk of the data distribution (convergence) and recovering principal latent factors (subspace recovery), with the former occurring at lower sample complexity.",
+  "method": "Analytical characterization using Random Matrix Theory, specifically the Marchenko-Pastur law and the BBP transition, applied to spiked Wishart models and extended to power-law spectra.",
+  "model_or_system": "Linear generative models using a Gaussian process where the covariance is a spiked Wishart model (Sigma = I + beta * u * u^T), later extended to power-law spectral models and real-world datasets like CelebA and ImageNet.",
+  "key_observables": "Memorization (m), Convergence overlap (q), Subspace recovery (Q), and Rotated subspace overlap (Q*).",
+  "important_parameters": "Sample complexity ratio (gamma = n/d), signal-to-noise ratio (beta), regularization strength (sigma), and power-law exponent (alpha).",
+  "main_assumptions": "The primary analytical results rely on Gaussian approximations for both the data distribution and the generative models, and focus on the high-dimensional limit.",
+  "figures_summary": "Figure 1 illustrates the three regimes (memorization, convergence, latent recovery) and the evolution of order parameters; Figure 3 shows the effectiveness of the rotated metric Q* in identifying phase transitions in power-law data.",
+  "paper_structure": "The paper introduces the problem of memorization vs. generalization, develops an exact theory for linear Gaussian models using RMT, extends the framework to power-law spectra to account for real-world image statistics, and validates the findings using diffusion models and empirical datasets.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.21402_figures/2605.21402_fig1.jpg",
+      "caption": "Figure 1: Memorisation, convergence, and latent recovery in generative models. Left: We illus- trate three regimes in generative models by sketching the principal components (top) and the covariance spectra (bottom) of the true data distribution (blue) and a distribution learnt from n samples (red) in d dimensions. For very small data sets, n = Θ(1), the model does not learn a smooth approximation of the data distribution, but memorises the training set. As the number of training samples becomes comparable to the input dimension, n ≍d, the spectra continuously converge and independently trained models produce similar outputs given the same latents, as described by Kadkhodaie et al. [1]....",
+      "page": 2
+    },
+    {
+      "image": "2605.21402_figures/2605.21402_fig2.jpg",
+      "caption": "Figure 2: Convergence and latent recovery govern different statistical distances between true and learnt distributions P⋆and ˆP. Left: Rescaled Kullback-Leibler divergence between P⋆and ˆP for two regularisation strengths σ, as a function of sample complexity γ = n/d, where n is the number of samples and d is the input dimension. The dashed lines show the upper and lower bounds of eq. (9), which only depend on the convergence overlap q. Right: Maximum-sliced distance between P⋆and ˆP (solid line), which decays asymptotically with the subspace overlap as √1 −Q, see eq. (10) (dashed line). Parameters: β = 4.",
+      "page": 6
+    },
+    {
+      "image": "2605.21402_figures/2605.21402_fig3.jpg",
+      "caption": "Figure 3: A rotated subspace overlap identifies a phase transition on data with power-law spectrum. (a): Eigenvalues λi and variances ˆσ2 i = ˆΣii of the covariance matrix ˆΣ of CelebA images (dashed-dotted) and ImageNet patches (dashed) against their index i (image width w = 64). (b) Convergence overlap q and subspace overlap Q, eqs. (5) and (7), for a linear model fitted to CelebA images as a function of sample complexity γ = n/w for image widths w ∈{16, 32, 64} (increasingly dark lines). We also plot the rotated subspace overlap Q⋆that factors out the power-law decay of the spectrum, eq. (14). (c) The same order parameters as in (b) evaluated on the power-law data model from section 4.2...",
+      "page": 7
+    },
+    {
+      "image": "2605.21402_figures/2605.21402_fig4.jpg",
+      "caption": "Figure 4: Convergence and subspace recovery in diffusion models. We plot the convergence overlap q, the naïve subspace overlap Q and the rotated subspace overlap Q⋆in the Fourier basis, eqs. (5), (7) and (14) respectively, for images sampled from diffusion models trained on CelebA. (a) Images sampled from a vanilla UNet denoiser that we trained independently on increasing large disjoint subsets of CelebA. Average and error in the mean are computed over four runs per sample complexity, see section D for details. (b) Images sampled by Kadkhodaie et al. [1] from a blind denoiser [47] using the sampling algorithm of Kadkhodaie & Simoncelli [48].",
+      "page": 9
+    }
+  ],
+  "figure": "2605.21402_figures/2605.21402_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.20491",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "math.NA",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Simple GPU-Accelerated Solver for the Schrödinger Operator with Applications to Ground States and Hamiltonian Simulation",
+  "authors": "Xinyu Liu, Xiangxiong Zhang",
+  "abstract": "We extend the tensor-product direct solver from the Laplacian to the Schrödinger operator $-Δ+ V$. When the potential $V_1$ is separable, the operator $-Δ+ V_1$ is inverted or exponentiated at cost $O(N^{1+1/d})$ in $d$ dimensions via per-axis eigendecomposition. On a single NVIDIA A100 GPU, this costs less than one second for $10^9$ degrees of freedom in 3D. For non-separable potentials $V = V_1 + V_2$, the same solver provides a preconditioner $(-Δ+ V_1)^{-1}$ for the preconditioned conjugate gradient (PCG) method and a propagator for operator-splitting time integrators. For bounded $V_2$, we prove that the preconditioned operator has a bounded condition number and a clustered spectrum with at most finitely many outlier eigenvalues, independently of the mesh size, and also independently of the domain size when $V_1$ is a confining potential. This explains the mesh- and domain-independent PCG iteration counts observed in practice. We apply this method to ground state computation via inverse iteration for linear problems and via the $a_u$ gradient flow for Gross--Pitaevskii energy in 3D, and also Hamiltonian simulation via the approximated qHOP and Magnus-2 splitting methods from 3D to 9D on a single NVIDIA GH200 GPU.",
+  "url": "http://arxiv.org/abs/2605.20491v1",
+  "pdf": "https://arxiv.org/pdf/2605.20491v1",
+  "type": "theory",
+  "summary": "The paper introduces a highly efficient GPU-accelerated solver for the Schrödinger operator that scales exceptionally well to billions of degrees of freedom. By using a tensor-product preconditioner, the authors enable rapid ground state computation and Hamiltonian simulation for complex, non-separable, and high-dimensional quantum systems.",
+  "main_problem": "Developing an efficient, GPU-accelerated solver for the Schrödinger operator, specifically addressing the loss of tensor-product structure when dealing with non-separable potentials.",
+  "main_result": "The authors present a solver that achieves $O(N^{1+1/d})$ complexity and can invert operators with $10^9$ degrees of freedom in under one second on an NVIDIA A100. They also prove that the proposed preconditioner ensures grid-independent convergence and a bounded condition number.",
+  "method": "A tensor-product direct solver using per-axis eigendecomposition for separable potentials, combined with a Preconditioned Conjugate Gradient (PCG) method using the separable part as a preconditioner for non-separable potentials. The implementation uses the Spectral Element Method (SEM) and JAX on NVIDIA GPUs.",
+  "model_or_system": "The Schrödinger operator $H = -\\Delta + V$, including separable and non-separable potentials, the Gross-Pitaevskii equation (GPE), and multi-body Coulomb Hamiltonians in 4D, 6D, and 9D.",
+  "key_observables": "Ground state energy, eigenvalues, wavefunction profiles, and inter-particle correlations.",
+  "important_parameters": "Dimension $d$, nonlinearity strength $\beta$, mesh size $h$, domain size $L$, and the Coulomb singularity regularization parameter $\\delta$.",
+  "main_assumptions": "The potential $V$ can be split into a separable part $V_1$ and a bounded non-separable part $V_2$; domains are primarily rectangular with homogeneous Dirichlet boundary conditions.",
+  "figures_summary": "Figures show PCG convergence for various potentials, the evolution of ground state profiles as nonlinearity increases, and visual slices of particle densities in 6D and 9D systems.",
+  "paper_structure": "The paper introduces the extension of the tensor-product solver to the Schrödinger operator, provides mathematical proofs for spectral clustering and preconditioner effectiveness, demonstrates high-performance GPU implementation, and applies the method to ground state computation (GPE) and high-dimensional Hamiltonian simulation.",
+  "why_interesting": "This work provides a highly scalable computational framework for simulating many-body quantum dynamics and Bose-Einstein condensates, enabling the study of high-dimensional systems (up to 9D) that were previously computationally inaccessible.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.20491_figures/2605.20491_fig1.jpg",
+      "caption": "Figure 1 also shows that the performance of the preconditioner (−∆+ V1)−1 is independent of both the domain size L and the mesh size h for the stirrer potential, while for the quartic potential, the iteration count grows with L.",
+      "page": 5
+    },
+    {
+      "image": "2605.20491_figures/2605.20491_fig2.jpg",
+      "caption": "Fig. 1. PCG convergence (relative residual vs. iteration) for (−∆+ V1 + V2) u = f, Q6 SEM, FP32, GH200. Top row: quartic potential (3.1) (left) and stirrer potential (3.2) (right), both at n = 7013, comparing the proposed preconditioner (−∆+ V1)−1 with the (−∆)−1 or PC. Bottom row: domain dependence of (−∆+ V1)−1 for the quartic potential (left, L = 8, 10, 30, 50) and the stirrer potential (right, L = 8, 10, 100). Total GPU time for each case is shown in the legend.",
+      "page": 6
+    },
+    {
+      "image": "2605.20491_figures/2605.20491_fig3.jpg",
+      "caption": "Fig. 2. Cross-sections of u at x=0, y=0, z=0, plotted on [−6, 6]3. Q20 SEM, 1993 DoFs, computed on [−8, 8]3. Each panel uses its own color scale. Left: eigenfunction initial guess (linear ground state, β=0). Center: GPE ground state, β=100. Right: GPE ground state, β=1600.",
+      "page": 12
+    },
+    {
+      "image": "2605.20491_figures/2605.20491_fig4.jpg",
+      "caption": "Fig. 3. Comparison of au flow and modified H1 flow for β = 100, Q20 SEM, 5993 ≈2.1 × 108",
+      "page": 13
+    },
+    {
+      "image": "2605.20491_figures/2605.20491_fig5.jpg",
+      "caption": "Fig. 4. Comparison of au flow and modified H1 flow for β = 1600, Q20 SEM, 9993 ≈109",
+      "page": 13
+    }
+  ],
+  "figure": "2605.20491_figures/2605.20491_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

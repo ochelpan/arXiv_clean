@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.20378",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Sampling Noise and Optimized Measurement Distribution in Imaginary-Time Quantum Dynamics Simulations",
+  "authors": "Feng Zhang, Niladri Gomes, Joshua Aftergood, Thomas Iadecola, Yong-Xin Yao, Peter P. Orth",
+  "abstract": "Variational quantum dynamics simulations (VQDS) provide a promising route to simulate real- and imaginary-time quantum dynamics on noisy intermediate-scale quantum devices using fixed-depth circuits. However, their practical performance is strongly limited by sampling noise arising from a finite number of circuit measurements. In this work, we systematically investigate the impact of sampling noise on VQDS, with a focus on ground-state preparation in one-dimensional Ising spin models using imaginary time evolution. We compare different regularization strategies for stabilizing the equations of motion and show that Tikhonov regularization provides robust performance in noisy imaginary-time evolution. We then benchmark measurement-distribution strategies that allocate shots by minimizing a cost function that characterizes the error in solving the equation of motion. Using noisy circuit simulations, we demonstrate that such optimized shot allocation can significantly improve state fidelity and reduce the total measurement cost by more than a factor of two compared to uniform shot distributions. We observe that the best results are found if a sufficiently large number of measurements is guaranteed for all circuits, suggesting that a finite fraction of shots should be distributed evenly. Our results provide practical guidelines for implementing measurement-efficient variational quantum dynamics and ground-state preparation on near-term quantum hardware.",
+  "url": "http://arxiv.org/abs/2605.20378v1",
+  "pdf": "https://arxiv.org/pdf/2605.20378v1",
+  "type": "theory",
+  "summary": "This paper proposes a method to optimize measurement shot allocation in variational quantum dynamics to mitigate the effects of sampling noise. By using Tikhonov regularization and a strategic distribution of shots, the authors show that one can achieve higher simulation fidelity with significantly fewer total measurements. This provides a practical roadmap for more efficient ground-state preparation on near-term quantum devices.",
+  "main_problem": "Addressing the impact of sampling noise (shot noise) on Variational Quantum Dynamics Simulations (VQDS), specifically regarding the instability of the Quantum Geometric Tensor inversion and the inefficient distribution of measurement shots.",
+  "main_result": "The authors demonstrate that Tikhonov regularization provides robust stability for the equations of motion and that an optimized shot allocation strategy can reduce total measurement cost by more than a factor of two while improving state fidelity.",
+  "method": "The study uses noisy circuit simulations of 1D Ising models, comparing Tikhonov regularization against eigenvalue truncation and implementing a recursive shot-allocation algorithm that minimizes a cost function related to parameter update variance.",
+  "model_or_system": "One-dimensional quantum spin models, specifically the Transverse-Field Ising Model (TFIM) and the Mixed-Field Ising Model (MFIM), used for ground-state preparation via imaginary-time evolution.",
+  "key_observables": "State fidelity, energy, Quantum Geometric Tensor (QGT) elements, and the condition number of the metric matrix.",
+  "important_parameters": "Regularization parameter (epsilon), time step (delta t), total measurement budget (M_tot), and the shot distribution ratio (r).",
+  "main_assumptions": "The variational ansatz is assumed to be sufficiently expressive, the QGT matrix is assumed to be symmetric, and raw measurements are assumed to be independent.",
+  "figures_summary": "Figure 1 shows the variational ansatz architecture; Figure 2 compares regularization performance; Figure 4 shows infidelity versus the shot distribution ratio; Figure 5 compares the efficiency of optimized vs. uniform shot allocation; Figure 6 shows performance across different evolution times.",
+  "paper_structure": "The paper introduces the problem of sampling noise in VQDS, presents a comparison of regularization techniques, introduces a new recursive algorithm for optimized shot allocation, benchmarks this algorithm using noisy simulations of the TFIM, and discusses the broader applicability of the framework to other variational algorithms.",
+  "why_interesting": "This paper is highly relevant for many-body dynamics as it provides practical, algorithmic solutions to the primary bottleneck (sampling noise) in performing quantum dynamics simulations on near-term NISQ hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.20378_figures/2605.20378_fig1.jpg",
+      "caption": "FIG. 1. Schematic illustration of one layer of parametrized unitaries in the variational ansatz (8). The blue boxes repre- sent the two-qubit operators that are ordered sequentially to allow for unrestricted qubit correlations across a single layer. The single-qubit rotation gates are shown in green boxes. Each rotation gate has its own variational parameter. The dashed red boxes indicate the three operators that are not included in the final ansatz to remove an apparent singularity in the QGT Mµν.",
+      "page": 3
+    },
+    {
+      "image": "2605.20378_figures/2605.20378_fig2.jpg",
+      "caption": "FIG. 2. Energy E and infidelity 1 −f of noiseless VQITE for the critical TFIM with N = 6 spins. Tikhonov regularization [(a) and (c)] and eigenvalue truncation [(b) and (d)] are used, respectively, to solve the equations of motion.",
+      "page": 4
+    },
+    {
+      "image": "2605.20378_figures/2605.20378_fig3.jpg",
+      "caption": "FIG. 4. The infidelity 1 −f as a function of r for various times τ of noisy VQITE simulations of the critical TFIM with N = 6. We set Mave = 104. For each r, which controls the number of minimal shots via Mmin = rMave, the infidelity 1 −f is averaged over 50 independent runs with the error bar showing the error of the mean. We employ Tikhonov regularization with ϵ = 10−2 to solve the equations of motion.",
+      "page": 5
+    },
+    {
+      "image": "2605.20378_figures/2605.20378_fig4.jpg",
+      "caption": "FIG. 3. Wavefunction infidelity 1 −f as a function of imag- inary time τ in circuit simulations considering shot noise us- ing Tikhonov regularization with ϵ = 10−4 (a), 10−3 (b) and 10−2 (c), and using the eigenvalue truncation method with ϵ = 10−4 (d). We use M = 104 shots for each circuit measur- ing Dµν, Oµ and E± µ for a total shot budget of about 4 × 106",
+      "page": 5
+    },
+    {
+      "image": "2605.20378_figures/2605.20378_fig5.jpg",
+      "caption": "FIG. 5. Infidelity 1−f as a function of Mave for uniform shot distribution for critical TFIM with N = 6 at τ = 5.5 (black points). The implementation of Algorithm 1 with r = 0.4 and Mave = 104 at the same τ is shown as the red star. The horizontal red dashed line indicates how many average measurements Mave are needed in the uniform case to achieve the same infidelity, signaling a cost reduction by about 50%. All data points are averaged over 50 independent runs.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.20378_figures/2605.20378_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
