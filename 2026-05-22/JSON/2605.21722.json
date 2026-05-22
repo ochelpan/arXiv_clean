@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.21722",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cond-mat.mtrl-sci",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "MetaDNS: Enhancing Exploration in Discrete Neural Samplers via Well-Tempered Metadynamics",
+  "authors": "Xiaochen Du, Juno Nam, Jaemoo Choi, Wei Guo, Sathya Edamadaka, Junyi Sha, Elton Pan, Yongxin Chen, Molei Tao, Rafael Gómez-Bombarelli",
+  "abstract": "Sampling from discrete distributions with multiple modes and energy barriers is fundamental to machine learning and computational physics. Recent discrete neural samplers like MDNS suffer from mode collapse and fail to sample high-energy barrier regions between modes, which is critical for free energy estimation and understanding phase transitions. We propose Metadynamics Discrete Neural Sampler (MetaDNS), a general framework integrating well-tempered metadynamics into discrete diffusion or autoregressive samplers. By maintaining an adaptive, history-dependent bias potential along selected low-dimensional coordinates, MetaDNS forces exploration of previously inaccessible regions, enabling free energy reconstruction infeasible with standard neural samplers due to a lack of high-energy samples. On challenging low-temperature benchmarks including Ising, Potts, and the copper-gold binary alloy, MetaDNS reproduces the thermodynamic distribution. Compared to MCMC-based metadynamics, MetaDNS also achieves comparable exploration requiring fewer bias deposition steps.",
+  "url": "http://arxiv.org/abs/2605.21722v1",
+  "pdf": "https://arxiv.org/pdf/2605.21722v1",
+  "type": "theory",
+  "summary": "This paper introduces MetaDNS, a method that adds a history-dependent bias to neural samplers to prevent them from getting stuck in single energy minima. This allows the sampler to explore complex landscapes and accurately calculate free energies for systems like alloys and spin models. It provides a significant speedup in both exploration and inference compared to classical Monte Carlo methods.",
+  "main_problem": "Discrete neural samplers like MDNS suffer from mode collapse and fail to explore high-energy barrier regions, preventing accurate free energy estimation and phase transition analysis.",
+  "main_result": "The MetaDNS framework successfully overcomes mode collapse, enabling the reconstruction of free energy landscapes and achieving faster exploration and inference compared to traditional MCMC-based metadynamics.",
+  "method": "Integration of well-tempered metadynamics into discrete diffusion or autoregressive samplers using an adaptive, history-dependent bias potential along selected collective variables.",
+  "model_or_system": "The method is tested on the Ising model, the Potts model (q=3), and a Cu-Au binary alloy system using cluster expansion Hamiltonians.",
+  "key_observables": "Magnetization, two-point correlation functions, energy distributions, gold concentration, free energy landscapes (PMF), and Jensen-Shannon divergence.",
+  "important_parameters": "Inverse temperature (beta), bias factor (gamma), hill width (sigma), and initial hill height (h).",
+  "main_assumptions": "Assumes the neural sampler stays close to the biased target distribution and that the learning timescale is much faster than the bias update timescale.",
+  "figures_summary": "Figure 1 shows the MetaDNS scheme; Figure 2 compares MDNS mode collapse vs MetaDNS in the Ising model; Figure 3 shows Potts model CV distributions; Figure 4 shows free energy convergence; Figure 5 illustrates Cu-Au alloy structures and concentration distributions; Figure 16 compares learning dynamics between MetaDNS and WT-MetaD.",
+  "paper_structure": "The paper identifies the mode collapse problem in neural samplers, proposes the MetaDNS framework, details the mathematical integration of metadynamics with diffusion/autoregressive models, validates the method using Ising and Potts models, demonstrates application to the Cu-Au alloy, and performs sensitivity analyses on hyperparameters.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.21722_figures/2605.21722_fig1.jpg",
+      "caption": "Figure 1. Scheme for MetaDNS. (Left) State of the art (SOTA) discrete neural samplers suffer from mode collapse at low temperatures: samples concentrate in a single deep minimum of the multi-modal energy landscape. (Middle) MetaDNS adds a history-dependent bias potential (purple) that raises the energy in frequently visited regions, flattening the landscape and encouraging exploration across energy barriers to visit multiple minima. (Right) Samples drawn from the biased distribution are reweighted to recover the true multi-modal target distribution on the original energy landscape.",
+      "page": 4
+    },
+    {
+      "image": "2605.21722_figures/2605.21722_fig2.jpg",
+      "caption": "Figure 2. Ising model results at L = 16: (a-c) Up-spin concen- tration distributions at three temperatures (β = 0.6, 0.44, 0.28). MetaDNS (ours) captures the full bimodal distribution at low tem- perature while MDNS suffers from mode collapse. (d-f) Free energy per site versus inverse temperature for x↑= 0.25, 0.5, and 0.75. Lack of samples at intermediate spin concentrations prevents MDNS from estimating free energies at low temperature.",
+      "page": 5
+    },
+    {
+      "image": "2605.21722_figures/2605.21722_fig3.jpg",
+      "caption": "Figure 3. Collective variable (CV) distributions for Potts (q = 3, L = 16) models at two temperatures: (a) low and (b) critical. 2D CV space (CV 1 vs. CV 2) comparing SW (ground truth), MDNS, MetaDNS (ours), and MCMC-based WT-MetaD. At low and critical temperatures, MDNS exhibits mode collapse, discovering only one of three modes. MetaDNS successfully covers all modes and interspace regions, matching WT-MetaD coverage.",
+      "page": 7
+    },
+    {
+      "image": "2605.21722_figures/2605.21722_fig4.jpg",
+      "caption": "Figure 4. Free energy profiles and convergence for Potts (q = 3) at L = 16 comparing MetaDNS (ours) with MCMC-based WT- MetaD. (a-c) Free energy profiles along CV 1 at high (β = 0.5), critical (β = 1.01), and low (β = 1.2) temperatures show- ing agreement with WT-MetaD. (d-f) Convergence speedup of MetaDNS over WT-MetaD at the same temperatures (RMSE vs. steps).",
+      "page": 7
+    },
+    {
+      "image": "2605.21722_figures/2605.21722_fig5.jpg",
+      "caption": "Figure 5. Cu-Au alloy results at 4 × 4 × 4. (a-b) Crystal struc- tures of Cu3Au and CuAu ordered phases. (c-e) Au concentration distributions at 500K, 680K, and 1200K showing MDNS mode collapse at 500K, capturing only the xAu = 0.5 mode, whereas MetaDNS (ours) matches the ground truth. (f) Free energy profiles at 500K showing MetaDNS (ours) agreement with WT-MetaD. (g) Convergence speedup of MetaDNS over WT-MetaD at 500K (RMSE vs. steps).",
+      "page": 8
+    }
+  ],
+  "figure": "2605.21722_figures/2605.21722_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

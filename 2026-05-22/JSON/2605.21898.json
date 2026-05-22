@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.21898",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Concatenating Algebraic Codes over High-Rate Quantum LDPC Codes",
+  "authors": "Adam Wills, Michael E. Beverland, Lev S. Bishop, Jay M. Gambetta, Patrick Rall, Vikesh Siddhu, Andrew W. Cross",
+  "abstract": "Different quantum error correction schemes trade off overhead, error suppression, and hardware connectivity. Code concatenation can relax these tradeoffs by using an outer code whose non-local connectivity is supplied by logical operations of an inner code rather than directly by hardware. Prior works showed that this can reduce memory overhead for local low-rate inner codes such as the surface code. Here, we study concatenation over non-local, high-rate inner codes. Such inner codes experience correlated errors among the many logical qubits in a single codeblock. We handle this by treating each block as a single logical Galois qudit, enabling concatenation with algebraic outer codes with excellent parameters and, crucially, list decoders. In particular, we consider a memory system formed by concatenating quantum Reed-Solomon outer codes over the gross code. For fault-tolerant syndrome extraction, we develop a Galois qudit Shor scheme using \"time-like\" Reed-Solomon protection against measurement errors. Interestingly, a lightweight fault tolerance scheme, that would fail for qubits, works well for large-alphabet qudits, suggesting a very different theory of fault tolerance for such qudits. The whole protocol is optimised via improved bicycle instruction logical error rates, novel compilation strategies, and recent decoder post-selection rules.   At uniform $10^{-3}$ physical noise, the concatenated gross code reaches the teraquop regime, which it previously could not access, with a lower space overhead than the $288$-qubit two-gross code, while offering several advantages from the engineering standpoint. Beyond our main case study, we believe the core ideas of Galois qudits, quantum Reed-Solomon outer codes, and list decoding, will prove generically powerful and highly transferable ideas across high-rate quantum architectures.",
+  "url": "http://arxiv.org/abs/2605.21898v1",
+  "pdf": "https://arxiv.org/pdf/2605.21898v1",
+  "type": "theory",
+  "summary": "This paper proposes a new quantum error correction architecture that concatenates algebraic outer codes with high-rate quantum LDPC inner codes. By treating inner code blocks as large-alphabet 'Galois qudits,' the scheme overcomes correlated error issues and provides a scalable path to the teraquop regime with significantly reduced space overhead.",
+  "main_problem": "Scaling high-rate quantum LDPC codes is difficult due to the 'discrete family' problem and the presence of correlated errors within high-rate inner code blocks. The authors seek to achieve the 'teraquop regime' with efficient space overhead and robust fault tolerance.",
+  "main_result": "The authors demonstrate that concatenating quantum Reed-Solomon outer codes over 'gross' inner codes allows access to the teraquop regime with lower space overhead than existing architectures. They also prove that a lightweight fault-tolerance scheme, which fails for qubits, is effective for large-alphabet qudits.",
+  "method": "The approach uses code concatenation where inner code blocks are treated as single logical Galois qudits. They employ list decoding, a 'time-like' Reed-Solomon protection for syndrome extraction, and a 'spacetime error mixing' technique to bound failure probabilities.",
+  "model_or_system": "A modular superconducting hardware architecture using Bivariate Bicycle (BB) codes, specifically the [[144, 12, 12]] 'gross' code, concatenated with quantum Reed-Solomon outer codes operating on large-alphabet Galois qudits (q=2048).",
+  "key_observables": "Logical error rates, space overhead (physical-to-logical qubit ratio), and block weight of errors.",
+  "important_parameters": "Physical noise rate of 10^-3, the teraquop regime (logical error rates of 10^-14 to 10^-13), and alphabet size q=2048.",
+  "main_assumptions": "Assumes catastrophic errors are predominantly localized to individual chips and that non-local connectivity costs scale non-uniformly with range and degree.",
+  "figures_summary": "Figure 1 compares space overheads across various architectures (surface code, yoked surface codes, etc.) under a 500,000 physical qubit constraint, showing the concatenated gross code's path to the teraquop regime. Figure 4 illustrates the global memory system layout and the syndrome extraction process.",
+  "paper_structure": "The paper introduces the problem of scaling qLDPC codes, proposes a concatenated architecture using Galois qudits, develops a fault-tolerant syndrome extraction protocol, provides a mathematical framework for error bounding via error mixing, and concludes with performance analysis in the teraquop regime.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.21898_figures/2605.21898_fig1.jpg",
+      "caption": "Figure 1: The space overheads of various systems, allowing a maximum size of half a million physical qubits. Concatenation allows the gross code to work in the teraquop regime relevant for the execution of many large-scale quantum algorithms. There, it offers an improved space overhead versus the two-gross code, with several engineering benefits. We show the surface code, as well as the “yoked” (concatenated) surface codes from [Gid+25]. 1D and 2D concatenated surface codes have different layouts. The denser encoding of the latter makes the information harder to access. The concatenated gross codes have the same layout as the 1D concatenated surface codes.",
+      "page": 4
+    },
+    {
+      "image": "2605.21898_figures/2605.21898_fig2.jpg",
+      "caption": "Figure 2: An overview of the moving parts of the construction and analysis. Blue text is hyperlinked.",
+      "page": 5
+    },
+    {
+      "image": "2605.21898_figures/2605.21898_fig3.jpg",
+      "caption": "Figure 3: This figure illustrates the key technical idea of packaging the logical information in one gross code into a higher-dimensional qudit. The first logical qubit, the pivot, is sacrificed to enable the logical operations required to operate the memory. The 11 non-pivot logical qubits become one larger 211-dimensional qudit.",
+      "page": 7
+    },
+    {
+      "image": "2605.21898_figures/2605.21898_fig4.jpg",
+      "caption": "Figure 4: The left-hand figure illustrates our global memory system. 2 rows of the system are sacri- ficed for the fault-tolerant generation of the cat states used for syndrome extraction of neighbouring outer codeblocks. These ancillary blocks move through the system over the course of time to extract the syndrome of other codeblocks. On the right, we illustrate a Z error affecting an outer codeblock, labelled by some vector e ∈Fn q , where Fq is the finite field of q elements. The syndrome compon- ent of the qudit X-stabiliser (γ1, γ2, . . . , γn) ∈Fn q , which is some value in Fq, is extracted using the appropriate qudit cat state which we will go on to define. Full preliminaries on...",
+      "page": 8
+    },
+    {
+      "image": "2605.21898_figures/2605.21898_fig5.jpg",
+      "caption": "Figure 5: Depiction of the fault-tolerant preparation and verification of the qudit cat state for n = 8 and R = 1. Every wire denotes a qudit, which may be imagined as the s non-pivot qubits of a cat state row gross code. The circuit proceeds via an initial non-fault-tolerant preparation, and then R rounds of fault-tolerant checking. Each set of n −1 measurements can be executed in two “layers”. In this diagram, all measurements are denoted by boxes. Those without meter symbols denote “measurement projections”, that is, measurements followed by the appropriate frame updates to ensure a trivial outcome. Those with meter symbols are not accompanied by frame updates following them. In this cat...",
+      "page": 17
+    }
+  ],
+  "figure": "2605.21898_figures/2605.21898_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

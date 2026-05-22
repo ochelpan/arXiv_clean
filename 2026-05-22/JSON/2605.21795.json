@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.21795",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "ATHENA: A Compiler For Optimized Scheduling In Distributed Quantum Computers",
+  "authors": "Won Joon Yun, Dhilan Nag, Sneha Ballabh, Jiapeng Zhao, Eneet Kaur, Poulami Das",
+  "abstract": "Distributed Quantum Computers (DQCs) enable large system sizes by connecting smaller chips via photonic interconnects. DQCs use teleportation to relocate qubits and execute CNOTs between qubits on different chips. However, non-local CNOTs are 4.3-7.7$\\times$ slower and 4$\\times$ more error-prone than local CNOTs within a chip, which degrades program fidelities. Existing compilers group CNOTs with overlapping qubits into blocks and collectively optimize teleportations for each block. However, block-level scheduling has two key drawbacks. First, it lacks lookahead ability across blocks because it selects the optimal schedule for one block before proceeding to the next. As a result, it cannot assess the impact of a teleportation on future blocks. Our studies show that naively expanding the lookahead window to include subsequent blocks does not address this issue. Second, existing approaches do not schedule future block operations or the teleportations they require until preceding blocks are fully scheduled, introducing delay and latency overheads.   We propose ATHENA, a DQC compiler that addresses these limitations using two key insights: Utility-driven Lookahead with Multi-Candidate Block Scheduling (UMS) and EPR-Capacity-Aware Early Scheduling (EES). UMS schedules a block by considering only useful future blocks in its lookahead window. A future block has utility if it shares overlapping qubits with the current block being scheduled. UMS also maintains multiple schedules during compilation, allowing it to defer commitment to globally sub-optimal schedules early in the compilation process. EES enables ATHENA to schedule future operations and their relocations early when EPR resources are available. Our evaluations show that ATHENA reduces teleportations by 34% on average and up to 65%, and reduces latency by 2$\\times$ on average and up to 2.9$\\times$ compared to the state-of-the-art.",
+  "url": "http://arxiv.org/abs/2605.21795v1",
+  "pdf": "https://arxiv.org/pdf/2605.21795v1",
+  "type": "theory",
+  "summary": "The paper presents ATHENA, a new compiler designed to optimize instruction scheduling in distributed quantum computers. By using a multi-candidate scheduling approach and early resource allocation, it significantly reduces the latency and teleportation overheads that currently bottleneck distributed quantum architectures.",
+  "main_problem": "Distributed Quantum Computers (DQCs) suffer from high latency and error rates due to inefficient scheduling of non-local CNOT gates, which require costly qubit teleportation and EPR resource management.",
+  "main_result": "The ATHENA compiler reduces teleportations by 34% on average and reduces program latency by 2x on average compared to state-of-the-art compilers like QuComm.",
+  "method": "ATHENA uses Utility-driven Lookahead with Multi-Candidate Block Scheduling (UMS) to avoid early commitment to sub-optimal schedules and EPR-Capacity-Aware Early Scheduling (EES) to increase concurrency by scheduling future operations early.",
+  "model_or_system": "A multi-chip Distributed Quantum Computer (DQC) architecture, specifically modeled on neutral-atom platforms using dual-species ($^{8TL}$Rb and $^{171}$Yb) for compute and communication qubits, featuring nearest-neighbor chip connectivity and finite EPR capacity.",
+  "key_observables": "Teleportation count, program latency, program fidelity, and effective teleportation count ($T_{eff}$).",
+  "important_parameters": "EPR capacity, latency-weighting parameter ($\\alpha$), decay factor for lookahead ($\beta$), and lookahead window size.",
+  "main_assumptions": "The lookahead window is limited to a manageable size (e.g., 4 blocks) to maintain computational tractability, and the solution tree is pruned to the top-$w$ candidates.",
+  "figures_summary": "Figure 1 compares current compilers to ATHENA's approach; Figure 2 shows the QuComm compiler's logic; Figure 3 compares latency between QuComm and ATHENA; Figure 4 illustrates the 'early commitment' problem; Figure 7 shows the utility-driven lookahead process; Figure 9 shows solution tree pruning; Figure 10 illustrates the EES mechanism.",
+  "paper_structure": "The paper introduces the problem of DQC scheduling inefficiencies, describes the ATHENA compiler architecture (including UMS and EES components), details the implementation on neutral-atom models, provides performance evaluations against the QuComm baseline using various quantum algorithms, and discusses scalability and future work.",
+  "why_interesting": "It addresses the fundamental architectural challenge of scaling quantum computers via modularity, specifically focusing on the interplay between entanglement resources (EPR pairs) and gate-level scheduling in atom-based distributed systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.21795_figures/2605.21795_fig1.jpg",
+      "caption": "Figure 1. (a) Current compilers have limited lookahead between blocks and commit to the schedule with fewest teleportations for each block while discarding the rest. They also defer scheduling future gates until preceding blocks complete. (b) Athena considers useful future blocks in its lookahead window and retains multiple candidate schedules. It also executes future operations and their teleportation early if EPR capacity is available.",
+      "page": 2
+    },
+    {
+      "image": "2605.21795_figures/2605.21795_fig2.jpg",
+      "caption": "Figure 2. DQC compilation for (a) first two blocks on (b) a 3-chip DQC using the state-of-the-art compiler QuComm [23]. QuComm groups first five CNOTs into two blocks, 𝐵1 and 𝐵2. (c) It selects 𝑆2 and relocates qubits 0 and 4 to execute 𝐵1, exhausting its EPR resources. (d) To free EPRs, QuComm relocates qubit 0 from 𝑆2 to 𝑆1. (e) It then relocates qubit 1 to 𝑆2 for 𝐵2.",
+      "page": 3
+    },
+    {
+      "image": "2605.21795_figures/2605.21795_fig3.jpg",
+      "caption": "Figure 3. (a) An example circuit with blocks 𝐵1 and 𝐵2. (b) Dependency for CNOT 𝐶is resolved after executing CNOT 𝐴. But QuComm does not schedule it until it reaches 𝐵2. The teleportation required is also scheduled only when the compiler realizes that it is necessary to schedule CNOT 𝐶. (c) In contrast, Athena relocates qubit 2 and schedules CNOT 𝐶as early as possible. This improves RELOCATE and CNOT concurrency and reduces overall program execution time.",
+      "page": 5
+    },
+    {
+      "image": "2605.21795_figures/2605.21795_fig4.jpg",
+      "caption": "Figure 4. QuComm selects Schedule-A for 𝐵1 because it costs fewer teleportations (illustrated by the box width in this Figure) than Schedule-B. But the qubit relocations from Schedule-A eventually cost more teleportations in the fu- ture block 𝐵10. In contrast, Athena also retains Schedule-B and continues to schedule subsequent blocks. This allows Athena to eventually arrive at a more optimized executable for block 𝐵10. This approach allows Athena to select block schedules that are locally sub-optimal but globally optimal (such as Schedule-B here).",
+      "page": 5
+    },
+    {
+      "image": "2605.21795_figures/2605.21795_fig5.jpg",
+      "caption": "Figure 5. Overview of Athena. It takes as input the program and initial qubit mapping and mainly focuses on instruction scheduling. This involves block formation (grouping operations into instruction blocks), an utility-driven lookahead-based scheduling involving multiple candidates, and optimizing teleportations via EPR-capacity-aware early relocate scheduling.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.21795_figures/2605.21795_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 2,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

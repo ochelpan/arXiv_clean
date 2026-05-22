@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2605.21960",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "dSABRE: A SABRE-Style Router for Multi-Core Distributed Quantum Computers",
+  "authors": "Sanjiang Li",
+  "abstract": "Minimising EPR consumption is the dominant objective when routing a quantum circuit on a distributed quantum computer (DQC). We present dSABRE, a SABRE-style router for multi-core processors that, on each iteration of a lookahead-driven loop, first resolves any intra-core front-layer gates by SWAP scoring and only falls back to scoring inter-core teleportation candidates when the intra-core front is empty. Three mechanisms drive the improvement over the state of the art: a five-term gate-centric teleportation score that generalises the local SWAP heuristic to the inter-core setting, whose explicit capacity-penalty term keeps the scorer from teleporting into saturated cores; a proactive congestion-relief pass that redistributes idle qubits out of high-demand cores before deadlock; and a BFS-layer construction of the inter-core extended set that respects DAG dependencies layer by layer rather than mixing wires in topological order. Across 18 MQT-Bench circuits at 25, 36, and 64 logical qubits, dSABRE reduces geometric-mean EPR consumption by 41-44% over TeleSABRE and by 16-68% over the gate-teleportation-based pytket-dqc, using standard Qiskit SabreLayout for the initial layout. A large-circuit QFT sweep at 100-360 qubits confirms scalability. Code and online appendices are available at https://github.com/ebony72/dsabre.",
+  "url": "http://arxiv.org/abs/2605.21960v1",
+  "pdf": "https://arxiv.org/pdf/2605.21960v1",
+  "type": "theory",
+  "summary": "The paper presents dSABRE, a new routing algorithm designed to optimize circuit execution on distributed quantum computers. By specifically addressing core congestion and optimizing the cost of inter-core entanglement, it significantly reduces the number of required EPR pairs compared to existing methods. This is crucial for scaling quantum computing architectures where remote entanglement is a bottleneck.",
+  "main_problem": "Minimizing the consumption of EPR pairs and intra-core SWAP operations when routing quantum circuits on a multi-core distributed quantum computer (DQC).",
+  "main_result": "The dSABRE router reduces geometric-mean EPR consumption by 41-44% over TELESABRE and 16-68% over pytket-dqc, demonstrating high scalability up to 360 qubits.",
+  "method": "A SABRE-style, lookahead-driven routing algorithm using a five-term gate-centric teleportation score, a proactive congestion-relief mechanism, and a BFS-layer construction for the inter-core extended set.",
+  "model_or_system": "A multi-core distributed quantum architecture consisting of multiple small quantum processing units (cores) interconnected via EPR links, modeled as a weighted graph with high-cost inter-core edges.",
+  "key_observables": "Geometric-mean EPR consumption, intra-core SWAP costs, and inter-core teleportation costs.",
+  "important_parameters": "SWAP cost (c_swap), teleportation cost (c_tele), capacity penalty (c_cap), lookahead decay parameter (gamma), and core capacity/demand thresholds.",
+  "main_assumptions": "Assumes the initial layout and communication-primitive selection stages are handled by other parts of the compilation pipeline; assumes a fixed grid-of-grids topology.",
+  "figures_summary": "Figure 1 shows a circuit representation; Figure 3 illustrates the dSABRE routing workflow; Figure 4 provides a running example of inter-core teleportation scoring on an H-grid; Table I details scoring for specific candidates.",
+  "paper_structure": "The paper introduces the routing problem, describes the dSABRE algorithm and its scoring mechanisms, presents ablation studies to validate individual components, compares performance against state-of-the-art baselines, and demonstrates scalability via large-scale QFT circuits.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.21960_figures/2605.21960_fig1.jpg",
+      "caption": "Fig. 1. DAG for a three-gate circuit on qubits q1, q2, q3. CX(q1, q2) and H(q3) share no qubit and have no incoming edges, so both appear in the initial front layer F = {g1, g2} and may execute in parallel. CX(q2, q3) depends on both via qubits q2 and q3; it enters F only after g1 and g2 have been executed. Circuit depth is 2 (two sequential layers).",
+      "page": 2
+    },
+    {
+      "image": "2605.21960_figures/2605.21960_fig2.jpg",
+      "caption": "Fig. 2. DQC architectures used in this paper (B-grid and H-grid families introduced by TELESABRE [15]). Small grey circles are qubits; teal circles are inter-core communication ports; bold lines are EPR-channel links between cores. Each core is a 4×4 grid. (a) 2×2 B-grid. (b) 2×3 H-grid.",
+      "page": 3
+    },
+    {
+      "image": "2605.21960_figures/2605.21960_fig3.jpg",
+      "caption": "Fig. 3. The DSABRE routing workflow. Each iteration drains the front layer (P1), classifies the remaining front into intra-core and inter-core gates (P2), applies one SWAP or one teleport (P3), and checkpoints when forward progress is made (P4).",
+      "page": 5
+    },
+    {
+      "image": "2605.21960_figures/2605.21960_fig4.jpg",
+      "caption": "Fig. 4. Running example for inter-core teleportation scoring (2×3 H-grid). Candidates A, B, and C below correspond row-by-row to Table I. Gate g = (q1, q2) has q1 in source core C1 (blue border) and q2 in target core C5. The router considers three candidates, each a triple (q1, cnext, (πs, πd)): A (teal) routes q1 towards C2; B (orange) routes towards C0, away from C5; C (violet) routes towards congested landing core C4 (orange border, fdst=2, where fdst counts free slots in cnext, not in ctgt). Step (1): intra-core SWAPs move q1 from p1 to staging slot ns (count shown on arrow). Step (2): a teleportation along link (πs, πd) delivers q1 to πd in cnext (dashed arc; score s annotated)....",
+      "page": 5
+    }
+  ],
+  "figure": "2605.21960_figures/2605.21960_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

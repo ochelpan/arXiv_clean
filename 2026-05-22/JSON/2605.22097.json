@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.22097",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Q-PhotoNAS: Hybrid Quantum Neural Architecture Search Framework on Photonic Devices",
+  "authors": "Farah Elnakhal, Alberto Marchisio, Nouhaila Innan, Gabriel Falcao, Muhammad Shafique",
+  "abstract": "Photonic quantum computing is a promising platform for scalable quantum machine learning, but designing effective hybrid architectures remains challenging under hardware and optimization constraints. Existing approaches rely on manually tuned architectures that fail to account for the collaboration between classical preprocessing, phase encoding, and photonic circuit structure, limiting both accuracy and hardware compatibility. In this paper, we propose a neural architecture search framework for hybrid photonic quantum-classical models that combines genetic algorithm-based search with learnable quantum phase encoding to systematically explore the joint design space of classical and quantum components. Our framework encodes 19 hyperparameters across six gene groups and evolves a population of hybrid architectures using group-based crossover, per-gene mutation, and elitism, evaluating each candidate on a short training budget before full retraining of the best found design. We evaluate our framework on two image classification benchmarks, Digits and MNIST, achieving final validation accuracies of 99.44% and 98.78%, respectively, with first-principles execution time estimates on the Quandela Ascella photonic QPU projecting single-image inference at 67 ms (Digits) and 149 ms (MNIST). Our quantum contribution analysis further shows that the photonic layer extracts non-redundant features orthogonal to the classical pathway, providing a measurable accuracy advantage over classical-only baselines. Our results demonstrate that automated architecture search is both practical and impactful for hybrid photonic systems, opening the way for systematic design space exploration of quantum AI on photonic devices.",
+  "url": "http://arxiv.org/abs/2605.22097v1",
+  "pdf": "https://arxiv.org/pdf/2605.22097v1",
+  "type": "both",
+  "summary": "The paper introduces Q-PhotoNAS, an automated framework for searching the optimal architecture of hybrid photonic quantum-classical neural networks. By using a genetic algorithm to jointly optimize classical and quantum components, the authors achieve state-of-the-art accuracy on image classification tasks. The study also quantifies the hardware-specific latency and the unique feature-extraction capabilities of the photonic layer.",
+  "main_problem": "Designing effective hybrid photonic quantum-classical architectures is challenging due to a massive, interdependent design space involving classical preprocessing, quantum phase encoding, and photonic circuit structure.",
+  "main_result": "The Q-PhotoNAS framework achieves high validation accuracies (99.44% on Digits, 99.78% on MNIST) and demonstrates that the photonic layer extracts non-redundant, complementary features to the classical pathway.",
+  "method": "A Neural Architecture Search (NAS) framework using a Genetic Algorithm (GA) to evolve 19 hyperparameters across six gene groups, combined with a learnable quantum phase encoding mechanism.",
+  "model_or_system": "A hybrid quantum-classical neural network targeting the Quandela Ascella photonic QPU, utilizing a 12-mode silicon nitride chip with thermo-optic phase shifters, directional couplers, and superconducting nanowire single-photon detectors.",
+  "key_observables": "Photon-number probability vectors in the Fock basis, validation accuracy, inter-class cosine similarity, and hardware-estimated inference latency.",
+  "important_parameters": "19 hyperparameters including network depth/width, phase encoding scale and bias, learning rate, and 12-mode photonic circuit configuration.",
+  "main_assumptions": "The evaluation is primarily simulation-based using the Merlin backend; hardware latency estimates assume specific thermal-optic reconfiguration costs and photon loss rates.",
+  "figures_summary": "Figure 1 shows the motivation for NAS via architecture complexity; Figure 2/3/5 illustrate the hybrid model pipeline and flow; Figure 4/7/8/9 detail the Q-PhotoNAS GA framework, including crossover and mutation; Figure 10 shows the hardware latency model.",
+  "paper_structure": "The paper introduces the design challenge, describes the Q-PhotoNAS GA-based framework and learnable encoding, details the experimental setup/simulation, presents performance results on MNIST/Digits, performs quantum contribution analysis, and concludes with hardware latency estimations.",
+  "why_interesting": "It presents an automated approach to optimizing variational quantum circuits on specific photonic hardware, specifically addressing the synergy between classical preprocessing and quantum phase encoding.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.22097_figures/2605.22097_fig1.jpg",
+      "caption": "Fig. 1: Motivation for automated architecture search in hybrid photonic QML. Both Digits (top) and MNIST (bottom) require four successive hand-designed attempts before reaching competitive accuracy. Each attempt is architecturally distinct from the last and requires its own training run.",
+      "page": 1
+    },
+    {
+      "image": "2605.22097_figures/2605.22097_fig2.jpg",
+      "caption": "Fig. 4: Q-PhotoNAS framework overview. Classical preprocessing (PCA + Conv2d) fuses inputs into z ∈Rd, which passes through a pre-quantum MLP and learnable phase encoder (θi = actϕ(xisi + bi) · π) before entering the photonic quantum layer (Merlin ML.QuantumLayer.simple [39]). A classical classifier head maps the Fock-basis output q to class probabilities. A genetic algorithm (pop=20, 30 generations) searches 19 hyperparameters across ∼3.7 × 1010 configurations, optimizing proxy validation accuracy. Hardware execution time is estimated via a first-principles model with Monte Carlo uncertainty quantification on the Quandela Ascella QPU.",
+      "page": 3
+    },
+    {
+      "image": "2605.22097_figures/2605.22097_fig3.jpg",
+      "caption": "Fig. 5: Sample PhotonicModel architecture: full forward pass from raw image x ∈RH×W to class prediction. Two parallel branches: (1) Conv Frontend with L blocks (Conv2d+ReLU+BN, base channels C), adaptive average pooling, linear projection to d; (2) StandardScaler+PCA compresses flattened image to d then BN1d. Concatenate and fuse via Linear(2d →d)+SiLU to z ∈Rd. Pre-Q MLP (depth p, width w, activation act) maps z higher. Phase Enc.: maps each xi to phase θi ∈(0, π) via trainable scale si, bias bi, activation actϕ ∈{σ, tanh, clamp}. Merlin QL is ML.QuantumLayer.simple [39] photonic circuit with M modes, n photons: encoding applies θ phases, beam splitter mixes modes, PS (ϕ) applies trainable...",
+      "page": 5
+    },
+    {
+      "image": "2605.22097_figures/2605.22097_fig4.jpg",
+      "caption": "Fig. 7: GA-based architecture search methodology. From dataset and search space through population evolution to the best architecture and analysis.",
+      "page": 6
+    },
+    {
+      "image": "2605.22097_figures/2605.22097_fig5.jpg",
+      "caption": "Fig. 8: Group-based crossover example. Each group is chosen independently, giving 64 possible combinations per crossover.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.22097_figures/2605.22097_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 3,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

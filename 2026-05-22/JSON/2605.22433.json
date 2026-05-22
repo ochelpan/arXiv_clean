@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.22433",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.PL",
+    "eess.SY"
+  ],
+  "is_primary_archive": true,
+  "title": "QuCtrl-BELL: A Compiler-Driven Sub-Microsecond Feedback Control Stack for Scalable Trapped-Ion Quantum Experiments",
+  "authors": "Junpeng She, Ruoyu Yan, Zhizhen Qin, Zhanyu Li, Zhongtao Shen, Zichao Zhou, Binxiang Qi, Luming Duan",
+  "abstract": "As trapped-ion quantum computing scales to larger qubit registers and more complex control protocols, classical control systems face a fundamental tradeoff: sub-microsecond board-level feedback requires tight hardware coupling, whereas maintainability and extensibility require clean, modular software abstractions. This paper presents QuCtrl-BELL (Bell), a compiler-driven software stack for trapped-ion quantum control. The design resolves this tradeoff by decoupling control flow -- including loops, branches, and synchronization -- from hardware state data. A Python-embedded domain-specific language (DSL) is lowered through a six-stage transpilation pipeline covering control flow graph (CFG) construction, static single-assignment (SSA) conversion, liveness analysis, and graph-coloring register allocation. The compiler generates deterministic distributed board-level programs and compact step-table data. A cross-board synchronization protocol supports feedback loops with latency below 700~ns without host intervention. Bell is deployed and evaluated on the QuCtrl-BELL platform (RISC-V + PXIe), demonstrating that a compiler-based infrastructure can provide programmability, deterministic timing, and modularity for scalable trapped-ion quantum control.",
+  "url": "http://arxiv.org/abs/2605.22433v1",
+  "pdf": "https://arxiv.org/pdf/2605.22433v1",
+  "type": "both",
+  "summary": "The paper presents QuCtrl-BELL, a new compiler-driven software stack designed for scalable trapped-ion quantum control. By separating control logic from hardware parameters, it enables sub-700 ns feedback loops and efficient parameter sweeps. This architecture bridges the gap between user-friendly Python programming and the strict timing requirements of large-scale quantum experiments.",
+  "main_problem": "The challenge of scaling trapped-ion quantum computing requires a control system that provides both high-level software programmability and sub-microsecond, deterministic hardware feedback latency.",
+  "main_result": "The QuCtrl-BELL stack achieves sub-700 ns end-to-end feedback latency by decoupling control flow from hardware state data, significantly reducing data transfer and memory pressure.",
+  "method": "A compiler-driven approach using a Python-embedded DSL that employs a six-stage transpilation pipeline (including CFG, SSA, and register allocation) to separate instruction streams from hardware step-tables.",
+  "model_or_system": "A distributed control platform for trapped-ion quantum computing based on a 9-slot PXIe chassis, featuring RISC-V processors, DDS/AWG boards, and a Trigger & Clock Manager (TCM) for star-topology synchronization.",
+  "key_observables": "Feedback latency (measured at 690 ns), execution queue timing resolution (4 ns), and step-table compactness.",
+  "important_parameters": "Sub-microsecond feedback threshold (<700 ns), 4 ns clock resolution, and 100 ns hardware broadcast delay.",
+  "main_assumptions": "The 700 ns synchronization overhead per readout event may limit throughput for high-frequency multi-round error correction; camera-based detection is not yet integrated into the compiler.",
+  "figures_summary": "Figure 1 shows a standard trapped-ion experiment sequence; Figure 2 depicts the PXIe hardware architecture; Figure 3 and 4 detail the software architecture and compilation pipeline; Figure 5 illustrates the synchronization protocol; Figure 6 provides an oscilloscope trace confirming the 690 ns feedback latency.",
+  "paper_structure": "The paper introduces the control tradeoff problem, describes the QuCtrl-BELL hardware and software architecture, details the six-stage compilation pipeline, presents performance evaluations regarding latency and memory efficiency, and concludes with future work.",
+  "why_interesting": "This is highly relevant for AMO physicists as it provides the necessary classical control infrastructure for implementing complex, real-time feedback protocols essential for scalable trapped-ion gates and quantum error correction.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.22433_figures/2605.22433_fig1.jpg",
+      "caption": "Fig. 1. Canonical trapped-ion experiment sequence. Experiment comprises cooling, state preparation, a coherent gate pulse, and fluorescence detection. A threshold comparison on the photon count drives a conditional action at the board level. The shot repeats m times; an outer loop sweeps parameter Xj.",
+      "page": 2
+    },
+    {
+      "image": "2605.22433_figures/2605.22433_fig2.jpg",
+      "caption": "Fig. 2. The QuCtrl-BELL hardware platform. All boards communicate via the PXIe backplane and the TCM star-bus broadcast network.",
+      "page": 2
+    },
+    {
+      "image": "2605.22433_figures/2605.22433_fig3.jpg",
+      "caption": "Fig. 3. QuCtrl-BELL software architecture. The front-end (Python DSL and node tree) and middle-end (CFG, SSA, liveness, register allocation) are shared; the back-end below the dashed boundary provides hardware-targeted assembly generation and drivers.",
+      "page": 3
+    },
+    {
+      "image": "2605.22433_figures/2605.22433_fig4.jpg",
+      "caption": "Fig. 4. Bell’s six-stage compilation pipeline. Stages 1–2 are the front-end, Stages 3–5 the middle-end, and Stage 6 emits the control program and step- table data sent to hardware via PCIe.",
+      "page": 4
+    },
+    {
+      "image": "2605.22433_figures/2605.22433_fig5.jpg",
+      "caption": "Fig. 5. Cross-board synchronization for read_ttl: (1) barrier, (2) TTL photon-count readout, (3) TCM broadcast release, and (4) branch execution on each board. Total latency is below 700 ns without host round-trips.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.22433_figures/2605.22433_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

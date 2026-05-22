@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.22463",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Reinforcement learning for ion shuttling on trapped-ion quantum computers",
+  "authors": "Maximilian Schier, Lea Richtmann, Christian Staufenbiel, Tobias Schmale, Daniel Borcherding, Michèle Heurs, Bodo Rosenhahn",
+  "abstract": "Scalable trapped-ion quantum computing is commonly realized with modular chips that feature distinct zones with specific functionalities, such as storage, state preparation, and gate execution. To execute a quantum circuit, the ions must be transported between these zones. This process is called ion shuttling. To achieve reliable computation results, the shuttling process must be optimized. However, as the number of ions increases, this becomes a high-dimensional optimization problem where optimal solutions cannot be computed efficiently. We demonstrate, to the best of our knowledge, the first use of reinforcement learning (RL) for the optimization of ion shuttling. RL is well-suited for such scenarios, as it enables learning a strategy through direct interaction with the problem. We show that our RL approach outperforms current state-of-the-art heuristic techniques, yielding a reduction in shuttling operations of up to 36.3 %. Furthermore, we show that our method is easily applicable to various chip architectures. Our approach offers a versatile method to study shuttling efficiency during chip design and, therefore, a highly relevant tool for future, more complex architectures.",
+  "url": "http://arxiv.org/abs/2605.22463v1",
+  "pdf": "https://arxiv.org/pdf/2605.22463v1",
+  "type": "theory",
+  "summary": "The paper introduces RLIonS, a reinforcement learning-based compiler designed to optimize the movement of ions in QCCD-based quantum computers. By treating shuttling as a sequential decision problem, the method significantly reduces the number of required transport operations compared to existing heuristics. This reduction is crucial for executing larger quantum circuits within the limited coherence times of trapped-ion qubits.",
+  "main_problem": "Optimizing ion shuttling sequences in QCCD-based trapped-ion quantum computers to minimize latency and overhead caused by qubit transport.",
+  "main_result": "The proposed RLIonS reinforcement learning compiler achieves up to a 36.3% reduction in shuttling operations compared to state-of-the-art heuristics and remains near-optimal relative to exact SAT solvers.",
+  "method": "A reinforcement learning approach using Proximal Policy Optimization (PPO) and a ResNet architecture, formulated as a Semi-Markov Decision Process (SMDP) with a novel sinusoidal encoding for chip states.",
+  "model_or_system": "The study focuses on the Quantum Charge-Coupled Device (QCCD) architecture for trapped-ion quantum computing, specifically evaluating X-chip and Q-chip (storage ring) layouts.",
+  "key_observables": "Number of shuttling operations (steps), shuttling duration, and compilation/inference time.",
+  "important_parameters": "Circuit depth (k_lookahead), number of ions (up to 50), and the discount rate (beta).",
+  "main_assumptions": "The model assumes deterministic transitions between states and that gates beyond a specific lookahead depth do not influence immediate decisions.",
+  "figures_summary": "Figure 1 shows the Q-chip layout; Figure 2 illustrates the RLIonS encoding pipeline from chip state to matrix; Figure 3 compares compile time and shuttling duration across methods; Figure 4 shows performance scaling with Quantum Volume; Figure 6 presents an ablation study on sinusoidal vs. linear encoding.",
+  "paper_structure": "The paper introduces the shuttling bottleneck, describes the QCCD architectures, details the RLIonS RL framework (SMDP formulation and encoding), presents benchmarking against SAT and heuristic methods, provides ablation studies on encoding and rewards, and concludes with future directions.",
+  "why_interesting": "This work is highly relevant for the development of scalable quantum hardware, as it addresses the critical classical control bottleneck of managing qubit movement to maintain coherence in trapped-ion systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.22463_figures/2605.22463_fig1.jpg",
+      "caption": "FIG. 1. Layout of the CIRQLE ion trap chip, also called Q-chip. The shown sketch has a single storage ring with a capacity of 5 qubits, which is connected to the other two reg- isters with a junction. This ring acts like a carousel with empty or filled spots: it can only transport all stored qubits simultaneously through rotations. Some operations may only move empty spots through the junction. For example, in the given configuration, a clockwise rotation of the storage ele- ment does not move any qubit through the junction. It is likely that these operations are faster on real hardware than shuttling qubits through the junction. Our proposed method can handle this due to its Semi-Markovian...",
+      "page": 2
+    },
+    {
+      "image": "2605.22463_figures/2605.22463_fig2.jpg",
+      "caption": "FIG. 2. Proposed representation. The top left shows the chip state. A chip-specific adapter translates the chip state into a cell-qubit mapping, shown in the mapping table K on the right side. The rest of the observation encoding is chip-agnostic. The directed acyclic graph of two-qubit gates (middle) is constructed from the circuit (bottom left). The depth of each gate is determined. Finally, the encoding table M is constructed. Each row refers to a cell on the given chip. The first entry per row indicates presence of a qubit (0 if the cell is empty). The next entries within a row indicate the cell location of the other operands at increasing depth up to the lookahead. The special value...",
+      "page": 7
+    },
+    {
+      "image": "2605.22463_figures/2605.22463_fig3.jpg",
+      "caption": "FIG. 3. Comparison of ion shuttling durations using trajecto- ries optimized by different methods on the QVLS X-chip. For each type of problem within the MQT dataset, the largest ex- ample (the number at the end of the problem name indicates the qubit number) that could still be optimized by the SAT solver is shown. On average, the shuttling sequences gener- ated by our proposed RL compiler are 2.6 % worse than the optimal solutions of the SAT solver and 14.0 % better than those of the heuristic compiler. The SAT solver requires 12 h per problem on average, our approach 1.1 s.",
+      "page": 9
+    },
+    {
+      "image": "2605.22463_figures/2605.22463_fig4.jpg",
+      "caption": "FIG. 4. Comparison of ion shuttling duration of our pro- posed method to the reference heuristic compiler on the QVLS X-chip for increasingly difficult quantum volume circuits. Shaded areas indicate 95 % confidence intervals. With a com- parable inference time budget, our proposed compiler finds significantly more efficient ion shuttling trajectories. The ad- vantage of our approach increases from 16.2 % on small cir- cuits up to 36.3 % on the largest ones.",
+      "page": 10
+    },
+    {
+      "image": "2605.22463_figures/2605.22463_fig5.jpg",
+      "caption": "FIG. 5. Ion shuttling duration for different architectures op- timized with our proposed RL method. Shaded areas indi- cate 95 % confidence intervals. All tested architectures are consistently optimized by our method. The generated shut- tling sequences for the standard Q-chip use significantly more steps per two-qubit gate than the X-chip for all tested prob- lem sizes. This can be mitigated by increasing the capacity of the SPAM zone from 1 to 3 qubits. Such exploratory design studies are very easy to perform using our method, as it does not require the development of new heuristics or other rules for new hardware.",
+      "page": 11
+    }
+  ],
+  "figure": "2605.22463_figures/2605.22463_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

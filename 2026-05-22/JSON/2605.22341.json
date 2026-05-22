@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.22341",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "A Boundary-Layer Mechanism for One-Third Scaling in Online Softmax Classification",
+  "authors": "Marcel Kühn, Yoon Thelge, Bernd Rosenow",
+  "abstract": "Hard-label classification is usually trained with smooth surrogate losses, most prominently softmax cross-entropy. We isolate an asymptotic mechanism by which this mismatch between smooth surrogate and discrete labels produces power-law learning curves in an online teacher-student model. After subtracting the mean logit, the thermodynamic-limit dynamics close in centered variables: a growing centered student-teacher alignment $D$ and the residual student variance $Δ$. At late times, examples away from teacher decision boundaries are already classified confidently and contribute exponentially little. Only boundary layers of width $O(D^{-1})$ remain active, while the noise of fixed-learning-rate online gradient descent maintains a nonzero $Δ$. As a function of the training time $α$ the late-time solution yields a $α^{-1/3}$ power law not only for the test loss but also for the generalization error $ε_g$, i.e., one minus test accuracy. This is much slower than the $α^{-1}$ Bayes-optimal reference for the same model. We further show that learning-rate schedules can improve the generalization error towards a $ε_g \\sim α^{-1/2}$ power law. Simulations support the predicted order parameter dynamics and learning curves. Controlled experiments with correlated Gaussian inputs and whitened pretrained features show that data structure can dominate transients. Therefore, our result is an asymptotic, complementary mechanism rather than an alternative to spectral explanations of neural scaling laws.",
+  "url": "http://arxiv.org/abs/2605.22341v1",
+  "pdf": "https://arxiv.org/pdf/2605.22341v1",
+  "type": "both",
+  "summary": "The paper provides a theoretical derivation of the 1/3 power-law scaling observed in online softmax classification. It demonstrates that this scaling arises from the dynamics of a boundary layer near decision boundaries. The authors also show that decaying the learning rate can improve the convergence exponent.",
+  "main_problem": "Understanding the origin of the 1/3 power-law scaling in the generalization error and test loss of online softmax classification.",
+  "main_result": "The study identifies a boundary-layer mechanism where the mismatch between smooth softmax loss and hard labels drives a 1/3 scaling law, which can be improved toward 1/2 via learning rate annealing.",
+  "method": "Statistical physics of learning using order-parameter methodology in the thermodynamic limit, combined with boundary-layer asymptotic analysis and numerical simulations.",
+  "model_or_system": "A one-layer K-class teacher-student model using online stochastic gradient descent with Gaussian, correlated Gaussian, and whitened ViT features.",
+  "key_observables": "Generalization error (epsilon_g), test loss (L_g), centered student-teacher alignment (D), and residual student variance (Delta).",
+  "important_parameters": "Learning rate (eta) and its decay exponent (gamma), number of classes (K), and input covariance/anisotropy (beta).",
+  "main_assumptions": "Thermodynamic limit (N to infinity), permutation symmetry, fixed features, and the 'almost-perfect-learning' regime where the margin is large.",
+  "figures_summary": "Figure 1 shows the 1/3 power law for loss and error; Figure 2 validates dynamics for K=3; Figure 3 shows the effect of learning rate schedules; Figure 5 shows robustness to input correlation; Figure 6 shows scaling with the number of classes; Figure 7 shows performance on whitened ViT features.",
+  "paper_structure": "The paper introduces the scaling problem, derives the exact macroscopic dynamics for centered variables, provides an asymptotic boundary-layer evaluation to explain the 1/3 exponent, analyzes the effect of learning rate annealing, and concludes with robustness tests against non-Gaussian and correlated input distributions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.22341_figures/2605.22341_fig1.jpg",
+      "caption": "Figure 1: Left: The 1/3 law appears not only in the test loss but also in the generalization error ϵg, i.e., one minus test accuracy. Middle: The model captures both the growth of the centered student-teacher alignment D and the rotational alignment to the teacher. Right: Near a teacher decision boundary, the late-time loss is controlled by the student boundary layer of width O(D−1). The generalization error is controlled by residual boundary fluctuations only of order √",
+      "page": 3
+    },
+    {
+      "image": "2605.22341_figures/2605.22341_fig2.jpg",
+      "caption": "Figure 2: Finite-N validation for fixed learning rates in the K = 3 online teacher–student model. The panels show the generalization error, centered overlap D, and residual variance ∆as functions of macroscopic time α = µ/N. The curves show representative seed trajectories, with envelopes indicating fluctuations across six simulation seeds. Within these fluctuations, the trajectories agree with the predicted power-law prefactors and exponents: D ∼α1/3, ∆approaches a learning-rate- dependent floor, and ϵg ∝ √",
+      "page": 6
+    },
+    {
+      "image": "2605.22341_figures/2605.22341_fig3.jpg",
+      "caption": "Figure 3: Schedule dependence in the K = 3 online teacher–student model. For η(α) ∝α−γ, the theory predicts ϵg(α) ∼α−(2+γ)/6 for 0 ≤γ < 1. Increasing γ slows the growth of the centered overlap, D ∝α(1−γ)/3 for γ < 1, but decreases the residual variance, ∆∝η(α); the latter effect improves the classification-error exponent. The γ = 1 curve is a borderline case, where the adiabatic approximation for ∆breaks down. For reference, the adiabatic predictions of Eqs. (19) and (20) are also shown.",
+      "page": 7
+    },
+    {
+      "image": "2605.22341_figures/2605.22341_fig4.jpg",
+      "caption": "Figure 5: Controlled departure from isotropic inputs. Inputs are Gaussian with diagonal covariance spectrum ⟨ξ2 i ⟩∼i−β, normalized so that the largest variance is one. Left: η = 0.5 is fixed and β is varied. Right: β = 1.0 is fixed and the learning rate is varied. Increasing β changes and lengthens the transient regime. The late-time decay remains consistent with the same boundary-layer asymptote, while smaller learning rates reduce asymptotic prefactors but can delay entry into the asymptotic regime.",
+      "page": 8
+    },
+    {
+      "image": "2605.22341_figures/2605.22341_fig5.jpg",
+      "caption": "Figure 5: Non-Gaussian robustness test using whitened pretrained features. A linear soft- max readout is trained online on whitened ViT features with teacher-generated labels. Whitening controls the covariance, while the feature distribution remains non-Gaussian. The teacher-generated labels avoid an early real-label performance floor and allow the late-time regime to be observed.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.22341_figures/2605.22341_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
