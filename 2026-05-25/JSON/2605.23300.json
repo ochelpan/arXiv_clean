@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.23300",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Local-Observable-Guided Generative Quantum Circuits for Degenerate Ground Spaces",
+  "authors": "Yiying Chen, Lingxia Zhang, Yanzheng Zhu, Kaiyan Yang, Xiao Zeng, Zizhu Wang",
+  "abstract": "Searching for degenerate ground spaces in quantum many-body systems is central to understanding spontaneous symmetry breaking and topological order. Although existing numerical methods can approximate individual ground states with high accuracy, recovering the full degenerate space remains a substantial challenge. Here we tackle this problem using a hybrid generative quantum circuit that combines a classical generative model with an expressive parameterized quantum circuit (PQC). The classical model learns a distribution over PQC parameters, enabling the sampling of an ensemble of ground states, while the PQC ensures compatibility with quantum hardware. To promote both low energy and state diversity, we define an energy-diversity objective composed of an energy-minimization term and cosine-similarity penalties derived from local observable correlators. These local descriptors provide a scalable, measurement-efficient means of distinguishing distinct ground states. We benchmark the framework on the Majumdar-Ghosh model, the Affleck-Kennedy-Lieb-Tasaki model, and the spin-1 XXZ chain, which realize distinct mechanisms of degeneracy. In all cases, the method produces a diverse ensemble whose linear span accurately reproduces the target ground space, in some instances, it identifies an approximately orthogonal basis within the learned ensemble. We further show that the framework remains robust under shot-based estimation and can still recover the degenerate ground space with a reduced measurement budget.",
+  "url": "http://arxiv.org/abs/2605.23300v1",
+  "pdf": "https://arxiv.org/pdf/2605.23300v1",
+  "type": "theory",
+  "summary": "The paper introduces a generative quantum circuit framework designed to learn the entire degenerate ground-state space of many-body Hamiltonians. By optimizing an energy-diversity objective using local observables, the method avoids mode collapse and accurately captures the geometric structure of the ground-state manifold. It demonstrates high robustness to sampling noise and successful application to various spin-chain models.",
+  "main_problem": "Recovering the full degenerate ground-state manifold of quantum many-body systems, which is challenging because existing methods often capture individual states but fail to represent the entire degenerate space without mode collapse.",
+  "main_result": "The proposed hybrid generative quantum circuit successfully reproduces the full span and internal feature-space geometry of degenerate ground spaces in the Majumdar-Ghosh, AKLT, and spin-1 XXZ models, even under finite-shot noise.",
+  "method": "A hybrid framework combining a classical generative model (VGON) with a parameterized quantum circuit (PQC), using an energy-diversity loss function based on local observable correlators to prevent representation collapse.",
+  "model_or_system": "The study benchmarks on several 1D spin models: the spin-1/2 Majumdar-Ghosh model, the spin-1 AKLT model (with symmetry-encoded qutrit mapping), and the spin-1 XXZ chain at the first-order phase transition point.",
+  "key_observables": "Local one-body magnetizations, nearest-neighbor two-body Pauli correlations, effective rank of the state matrix, ground-space overlap score, and principal angles.",
+  "important_parameters": "Energy-diversity weight (lambda_2) annealing schedule, shot-adaptive training budget, and relative error tolerance (epsilon) for rank determination.",
+  "main_assumptions": "Benchmark certification is limited to system sizes accessible by Exact Diagonalization; numerical rank determination assumes a fixed relative error tolerance.",
+  "figures_summary": "Figure 1 shows the generative architecture; Figure 2 illustrates training dynamics (energy vs. fidelity); Figures 8-9 show circuit ansatze for spin-1/2 and spin-1; Figures 10-15 present overlap decompositions and cosine-similarity heatmaps comparing exact vs. generated states.",
+  "paper_structure": "Introduction to the degeneracy problem, description of the hybrid generative architecture and energy-diversity objective, detailed implementation of circuit ansatze for different spin models, benchmarking results on MG, AKLT, and XXZ models, and analysis of robustness under finite-shot noise.",
+  "why_interesting": "This work provides a scalable way to explore degenerate manifolds and topological ground spaces using local measurements, which is highly relevant for characterizing many-body phases in both simulated and near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.23300_figures/2605.23300_fig1.jpg",
+      "caption": "FIG. 1: Generative quantum circuit architecture. The network consists of a classical generative model followed by a parametrized quantum circuit (PQC). The encoder Eω maps an input θ0 ∼P(θ0) to a low-dimensional latent distribution z ∼N(µ,σ2). The decoder Dϕ then converts z into circuit parameters θ ∼Pω,ϕ(θ), which configure a PQC with depth L. Measurements are then performed to obtain an energy-diversity objective, and the parameters (ω,ϕ) are updated iteratively.",
+      "page": 4
+    },
+    {
+      "image": "2605.23300_figures/2605.23300_fig2.jpg",
+      "caption": "FIG. 2: Training dynamics for the MG model. Shown are the batch-mean energy (red), the batch-mean pairwise fidelity (blue), and the sum of cosine similarities l(1) + l(2)",
+      "page": 6
+    },
+    {
+      "image": "2605.23300_figures/2605.23300_fig3.jpg",
+      "caption": "FIG. 3: Overlap distributions of accepted states {|ψi〉}1500 i=1 with the MG ground-state basis {|gi〉}k i=1. The plots combine probability densities (the half-violin plot on the left) with quartile statistics (the box-and-whisker plot on the right box). The broad distributions indicate a diverse generated ensemble covering the full degenerate ground space.",
+      "page": 7
+    },
+    {
+      "image": "2605.23300_figures/2605.23300_fig4.jpg",
+      "caption": "FIG. 4: Training dynamics for the symmetry-encoded AKLT model at system size N = 10. Shown are the batch-mean energy (red), the batch-mean pairwise fidelity (blue), and the sum of cosine similarities l(1) + l(2) edge (green). The inset highlights the first 200 iterations. The dynamics exhibit an initial diversity-dominated spreading stage followed by an energy-dominated concentration into the degenerate ground space. Finally, the energy converges to the ground-state energy with low batch-mean pairwise fidelity.",
+      "page": 8
+    },
+    {
+      "image": "2605.23300_figures/2605.23300_fig5.jpg",
+      "caption": "FIG. 5: Overlap distributions of accepted states {|ψi〉}1500 i=1 with the symmetry-encoded AKLT ground-state basis {|gi〉}4 i=1 at system size N = 10. The half-violin plot represents the probability density, and the box-and-whisker plot summarizes the quartiles and spread. The broad distributions indicate that all basis directions are represented across the generated ensemble.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.23300_figures/2605.23300_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 2,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

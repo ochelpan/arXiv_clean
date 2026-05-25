@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.23285",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.stat-mech",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Reinforcement Learning for Microcanonical Graph Ensemble with Assortativity Constraints",
+  "authors": "Hoyun Choi, Junghyo Jo, Deok-Sun Lee",
+  "abstract": "How network structure determines function is a fundamental question, and it can be investigated by graph ensembles with precisely controlled structural properties. Canonical approaches, formulated as exponential random graph models (ERGMs), enforce constraints only in expectation, allowing individual realizations to fluctuate around the target. Conversely, microcanonical ensembles impose hard constraints exactly, but practical sampling methods beyond fixing the degree sequence have remained out of reach. Here we introduce the Deep Microcanonical Graph Generator (DMGG), a reinforcement learning (RL) framework that transforms any given graph through degree-preserving rewirings to exactly reach a prescribed assortativity, which characterizes the degree--degree correlation of adjacent nodes. Instead of relying on the entropically dominated Metropolis--Hastings dynamics of the ERGM, DMGG employs a policy-guided search that maximally alters the joint-degree matrix. This eliminates exhaustive parameter tuning and accelerates generation by at least an order of magnitude while preserving configurational diversity. As DMGG generalizes across various graph sizes, sparsities, and topologies, it provides exact null models that allow for the quantitative isolation of secondary observables, such as the clustering coefficient. These results establish RL as a practical and powerful paradigm for generating hard-constrained graphs, opening avenues to investigate structure-function relationships free from ensemble artifacts.",
+  "url": "http://arxiv.org/abs/2605.23285v1",
+  "pdf": "https://arxiv.org/pdf/2605.23285v1",
+  "type": "theory",
+  "summary": "This paper presents a deep reinforcement learning approach to generate random graphs with exact structural constraints. By treating graph rewiring as a policy-guided search, the method significantly outperforms traditional statistical mechanics-based sampling in both speed and precision. This allows for the creation of precise null models to study how specific network properties drive complex system functions.",
+  "main_problem": "The difficulty of efficiently generating microcanonical graph ensembles that satisfy hard structural constraints, such as a specific target assortativity, without the computational burden of parameter tuning or structural fluctuations.",
+  "main_result": "The introduction of the Deep Microcanonical Graph Generator (DMGG), an RL framework that achieves target assortativity with much higher precision and an order of magnitude faster than traditional ERGM methods while preserving configurational diversity.",
+  "method": "A Reinforcement Learning framework using Proximal Policy Optimization (PPO) and a Graph Isomorphism Network (GIN) to perform directed, degree-preserving edge rewirings.",
+  "model_or_system": "Random graphs and complex networks with varying topologies (e.g., ER, BA, WS, SBM) characterized by a fixed degree sequence and a target assortativity coefficient.",
+  "key_observables": "Assortativity (rho), clustering coefficient (C), dyad-independent entropy (SDI), and the joint-degree matrix (J).",
+  "important_parameters": "Target assortativity (rho*), precision tolerance (epsilon), and the number of rewiring steps (T).",
+  "main_assumptions": "The framework assumes the ability to perform degree-preserving rewirings and focuses on the constraint of assortativity.",
+  "figures_summary": "Figure 1 compares ERGM and DMGG dynamics; Figure 2 shows convergence trajectories and scaling of precision; Figure 3 evaluates ensemble diversity and rewiring cost; Figure 4 shows rewiring steps as a function of target rho and structural evolution; Figure 5 visualizes the joint-degree matrix and flux changes.",
+  "paper_structure": "The paper identifies the limitations of canonical ensembles, introduces the DMGG RL framework, details the neural architecture and training process, benchmarks the model against ERGM in terms of speed and precision, and analyzes the scaling and structural implications of the generated ensembles.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.23285_figures/2605.23285_fig1.jpg",
+      "caption": "Fig. 1 Comparison between canonical (ERGM) and microcanonical (DMGG) graph generation under assortativity ρ constraints. a, Schematic representation of ERGM and DMGG navigating the configuration space of graphs for a given degree sequence, where each contour line indicates a set of graphs sharing the same ρ. Starting from an initial graph, both ERGM and DMGG traverse the space through sequences of rewirings. ERGM approaches the target manifold {G|ρ(G) = ρ∗} via stochastic Metropolis–Hastings dynamics, whereas DMGG uses policy-guided search that reaches the constraint more efficiently. b, In ERGM, randomly sampled rewiring proposals are accepted or rejected according to the manually tuned...",
+      "page": 3
+    },
+    {
+      "image": "2605.23285_figures/2605.23285_fig2.jpg",
+      "caption": "Fig. 2 Convergence and precision in assortativity- constrained graph generation. a,b, Evolution of assor- tativity ρ during the generation process of ERGM and DMGG, respectively. Starting from an initial Erd˝os–R´enyi (ER) graph (N = 1000 and E = 3000) with neutral assor- tativity (ρ ≈0), five trajectories for each target (indicated by color) are shown. Insets illustrate the same trajectories on a logarithmic time scale. c, Distribution of ρ mea- sured over 1000 generated graphs with target assortativity ρ∗= 0.4. d, Standard deviation of assortativity σρ versus system size N, with the same color scheme as in a and b. Dashed lines with circle markers and solid lines with square markers...",
+      "page": 4
+    },
+    {
+      "image": "2605.23285_figures/2605.23285_fig3.jpg",
+      "caption": "Fig. 3 Configurational diversity and computa- tional efficiency of DMGG. a, Dyad-independent entropy SDI({pij}) measured in the ensembles generated by ERGM and DMGG, as a function of assortativity ρ. The inset shows the deviation for each ρ, ∆SDI ≡ \u0000 SERGM DI −SDMGG DI \u0001 /SERGM DI . b, Parametric plot of SDI as a function of the number of required rewirings T, where each marker corresponds to the data for a distinct assorta- tivity in a. c, T as a function of target assortativity ρ with system sizes N = 100, 200, . . . , 6400 indicated by color gra- dient (light to dark). d, Scaling of T with system size N for fixed targets (colors). Dashed lines with circle markers and solid lines with...",
+      "page": 5
+    },
+    {
+      "image": "2605.23285_figures/2605.23285_fig4.jpg",
+      "caption": "Fig. 4 Generalization of DMGG across diverse graph families. a, Number of rewirings T required to reach target assortativity ρ in different initial topologies. Missing bars indicate target ρ values outside the physically feasible range of a given topology. b, Representative examples of graph transformation by DMGG. The initial graphs (left) with diverse topologies with assortativity ρ0 ≈0 are rewired into target configurations (right) with prescribed assortativities ρT . Node colors indicate relative degrees, and triangles contributing to the clustering coefficient C are shaded green. c, Average C of the generated ensembles from DMGG as a function of ρ, using the same color scheme as in a...",
+      "page": 6
+    },
+    {
+      "image": "2605.23285_figures/2605.23285_fig5.jpg",
+      "caption": "Fig. 5 Rewiring strategies of ERGM and DMGG. Snapshots of the joint-degree matrix J (top row) and its expected change per rewiring ∆J (bottom row) during the generation process with target ρ∗= 0.8. a, c, ERGM dynamics driven by the Metropolis–Hastings process. b, d, DMGG dynamics driven by a policy-guided process.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.23285_figures/2605.23285_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

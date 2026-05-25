@@ -1,0 +1,75 @@
+{
+  "arxiv_id": "2605.23476",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "cond-mat.mtrl-sci",
+    "math.OC"
+  ],
+  "is_primary_archive": true,
+  "title": "Non-normal spectral signatures of instability in neural network training dynamics",
+  "authors": "Souvik Ghosh",
+  "abstract": "Training instabilities in deep networks - loss spikes, oscillatory convergence, and gradient pathologies - are empirically prevalent but lack a rigorous operator-theoretic explanation. We show that the linearized update operators for practically used optimizers are generically non-normal: for Adam, non-normality is controlled by the commutator [H, M] between the Hessian and the diagonal adaptive preconditioner, while for SGD with momentum it arises from the augmented state-space structure of the update map. Applying non-normal stability theory to these operators, we derive a conservative pseudospectral precursor bound in which κ(V) serves as an early-warning indicator of transient amplification even when the spectral radius remains below one, and we establish that exceptional points of the update operator appear as the κ(V) -> \\infty limiting case of this framework. Numerical experiments on two-layer networks confirm that the spectral radius ρ(J) provides no separation between stable and unstable training phases while κ(V) separates them by approximately one order of magnitude, complementing the classical sharpness criterion with a continuous severity measure of non-normal amplification. These results establish non-Hermitian operator theory as a useful and underexplored framework for neural network optimization stability, offering a diagnostic language and proof-of-concept benchmark for understanding adaptive optimization stability.",
+  "url": "http://arxiv.org/abs/2605.23476v1",
+  "pdf": "https://arxiv.org/pdf/2605.23476v1",
+  "type": "theory",
+  "summary": "This paper identifies that the instability in neural network training arises from the non-normal nature of modern optimizers. It demonstrates that traditional stability metrics like the spectral radius are insufficient, proposing instead that the eigenvector condition number can predict transient growth and loss spikes. This provides a new mathematical language for understanding optimization stability through the lens of non-Hermitian physics.",
+  "main_problem": "The lack of a rigorous operator-theoretic explanation for training instabilities like loss spikes and oscillatory convergence in deep neural networks, particularly why standard spectral radius criteria fail to predict them.",
+  "main_result": "The authors prove that Adam and SGD with momentum are generically non-normal operators, and that the eigenvector condition number kappa(V) serves as a superior early-warning indicator for transient amplification compared to the spectral radius.",
+  "method": "Application of non-Hermitian operator theory, pseudospectral analysis, and the Kreiss matrix theorem to the linearized update maps of modern optimizers.",
+  "model_or_system": "The system consists of the training dynamics of deep neural networks, specifically modeled via linearized update operators for Adam (using a Hessian and diagonal preconditioner) and SGD with momentum (using an augmented state-space structure).",
+  "key_observables": "Eigenvector condition number kappa(V), spectral radius rho(J), Kreiss constant K(J), epsilon-pseudospectrum, and Hessian sharpness.",
+  "important_parameters": "Momentum parameter beta, learning rate eta, and the commutator [H, M] between the Hessian and preconditioner.",
+  "main_assumptions": "The analysis uses a quasi-static approximation for Adam (assuming the preconditioner evolves slowly) and focuses on the linearized regime of training dynamics.",
+  "figures_summary": "Figure 1 shows training loss spikes alongside the elevation of kappa(V) during instability; Figure 2 demonstrates the reproducibility of the spectral radius failure across different random seeds.",
+  "paper_structure": "The paper introduces the problem of instability, proves the non-normality of Adam and SGD, develops a pseudospectral stability framework, validates this with numerical experiments on two-layer networks, and discusses the connection to exceptional points and gradient clipping.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.23476_figures/2605.23476_fig1.jpg",
+      "caption": "FIG. 1. Non-normal spectral signatures of instability in neural network training. Left column: Adam optimizer (η = 0.1). Right column: SGD with momentum (η = 0.18, β = 0.9). Top row: Training loss; red dashed lines mark detected loss spikes. Middle row: Eigenvector condition number κ(Vt) (log scale); elevated by 5–50× during the instability phase (steps 15–95) for SGD+momentum. Bottom row: Spectral radius ρ(Jt) (orange dashed) and top Hessian eigenvalue λmax(Ht) (blue solid). For SGD+momentum, ρ(Jaug) remains in [1.00, 1.04] throughout, providing no separation between stable and unstable phases, while κ(Vt) separates them by approximately one order of magnitude. For Adam, ρ(Jt) grows...",
+      "page": 5
+    },
+    {
+      "image": "2605.23476_figures/2605.23476_fig2.jpg",
+      "caption": "FIG. 2. Reproducibility of the spectral radius result across five random seeds (SGD with momentum, η = 0.18, β = 0.9; 100-step warm-start at η = 0.01). Top: Eigenvector condition number κ(Vt) (mean ± 1 std); values of 30–100 are consistent with the stable-training baseline in Fig. 1. Bottom: Spectral radius ρ(Jaug) (mean ± 1 std) remains in [1.00, 1.04] through- out all five runs, confirming that ρ provides no instability sig- nal independent of initialization. The warm-start suppresses sharp loss spikes in this benchmark, so κ(V ) phase separation is not shown here.",
+      "page": 8
+    },
+    {
+      "image": "2605.23476_figures/2605.23476_fig3.jpg",
+      "caption": "FIG. 3. Non-normal precursor signal for SGD with momen- tum at β = 0.95, η = 0.18 (second parameter regime; same architecture and task as Fig. 1) Top: Training loss with 14 detected instability spikes (steps 10–169). Middle: κ(Vt) ele- vated at 50–103 during the instability phase, settling to 15–30 after convergence. Bottom: ρ(Jaug) peaks at 1.28 during the instability phase before returning to [1.00, 1.01] in the stable phase. The κ(V ) separation between phases (factor ∼30×) is consistent with the β = 0.9 result of Fig. 1, demonstrating robustness across momentum regimes.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.23476_figures/2605.23476_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

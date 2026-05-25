@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.23403",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "physics.ao-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hybrid Quantum-Classical Corrective Diffusion Modeling for Meteorological Downscaling",
+  "authors": "Rui Wang, Edoardo Pasetto, Amer Delilbasic, Morris Riedel, Kristel Michielsen, Gabriele Cavallaro",
+  "abstract": "Statistical downscaling is a crucial component of the weather modeling field, where high-resolution outputs must be reconstructed from coarse-resolution inputs with the full cost of dynamical refinement. In this work, we investigate a hybrid quantum-classical corrective diffusion model for probabilistic statistical downscaling of weather fields. The proposed model inserts variational quantum circuit layers into the most compressed bottleneck of the diffusion UNet while leaving the regression branch fully classical. This placement tests whether quantum circuits can act as compact nonlinear feature maps for latent-channel mixing. We evaluate intra-channel and cross-channel ansätze on 10m wind components. On the 2020 validation set, the hybrid models remain stable, preserve the large-scale spatial organization of the generated wind fields, and improve both MAE and CRPS relative to a classical corrective diffusion model in several configurations. Structural diagnostics further show that the hybrid variants preserve kinetic-energy spectra and windspeed distributions similar to its classical counterpart while producing controlled changes in tail behavior, extreme-windspeed localization, and joint wind field components structure. Backend studies on the 2020 validation set show negligible impact from simulated device noise at the tested circuit scale, whereas real-hardware deployment remains limited by qubit availability and execution fidelity. The 2021 out-of-distribution test shows that these in-distribution gains do not transfer uniformly under temporal shift, revealing a generalization gap that motivates future mitigation through stabilization and regularization. These results show that bottleneck-level quantum hybridization can make a nontrivial contribution to weather statistical downscaling, while also highlighting that circuit scale and hardware deployment remain key limiting factors.",
+  "url": "http://arxiv.org/abs/2605.23403v1",
+  "pdf": "https://arxiv.org/pdf/2605.23403v1",
+  "type": "both",
+  "summary": "This paper presents a hybrid quantum-classical diffusion model designed to improve the resolution of weather forecasts. By integrating variational quantum circuits into the bottleneck of a classical diffusion model, the authors demonstrate improved prediction of extreme wind events and better multivariate consistency, while also exploring the limitations of current quantum hardware.",
+  "main_problem": "Investigating whether hybrid quantum-classical variational circuits can improve the accuracy and physical realism of statistical downscaling for meteorological wind fields.",
+  "main_result": "The hybrid model improves MAE and CRPS relative to the classical baseline, particularly in extreme event localization and multivariate consistency, though a generalization gap exists for out-of-distribution temporal shifts.",
+  "method": "A hybrid quantum-classical extension of the CorrDiff diffusion model is used, inserting variational quantum circuit layers (HQConv ansatz) into the bottleneck of a classical UNet.",
+  "model_or_system": "The system involves 10m wind components (u and v) from the HRRR-mini dataset, processed through a hybrid diffusion UNet architecture with quantum layers for latent-channel mixing.",
+  "key_observables": "Mean Absolute Error (MAE), Continuous Ranked Probability Score (CRPS), kinetic-energy spectra, windspeed log-PDFs, and Fractional Skill Score (FSS) for extreme events.",
+  "important_parameters": "Number of processed channels (n_ch = 1, 3, 9), quantum ansatz variants (Block-A, Block-B, A+B), and simulated vs. real hardware (JIQCER-5) noise levels.",
+  "main_assumptions": "Assumes that quantum circuits can act as effective nonlinear feature maps for latent-channel mixing and that the bottleneck-level hybridization is sufficient for performance gains.",
+  "figures_summary": "Figure 1 shows the CorrDiff workflow; Figure 2 details the hybrid PyTorch implementation; Figure 3 breaks down the quantum ansatz; Figure 4 compares wind-speed maps; Figure 5 displays structural diagnostics like spectra and PDFs.",
+  "paper_structure": "The paper introduces the downscaling problem, describes the hybrid architecture and quantum ansatz, presents a benchmarking framework, evaluates performance and structural realism, assesses noise robustness and hardware deployment, and discusses generalization gaps.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.23403_figures/2605.23403_fig1.jpg",
+      "caption": "Fig. 2: Processing scheme of the customized PyTorch class to handle the hybridization of the quantum and the classical layers. The input feature map is split along the channel dimension: the first n channels quantum layer := N//4 (with N being the number of qubits of the ansatz) channels are processed by the quantum channel layer, while the remaining channels are passed through a classical convolutional layer. The outputs of the quantum and classical branches are then concatenated along the channel dimension.",
+      "page": 2
+    },
+    {
+      "image": "2605.23403_figures/2605.23403_fig2.jpg",
+      "caption": "Fig. 1: High-level schematic of the CorrDiff workflow pro- posed by Mardani et al. [19]. A low-resolution input is first mapped by a deterministic UNet regressor. The low-resolution input, noise signal, and regressor output are then passed to a diffusion model that predicts a residual correction. The final prediction is obtained by adding the residual to the regressor output.",
+      "page": 2
+    },
+    {
+      "image": "2605.23403_figures/2605.23403_fig3.jpg",
+      "caption": "Fig. 3: Overview of the HQConv ansatz. Panels (a)–(d) show the full circuit structure from [21], the encoding block, and the constituent A and B blocks. The HQConv ansatz uses 12 qubits and can therefore process three channels of a 2 × 2 input. In our implementation, this construction is generalized to any number of qubits that is a multiple of four, so that the number of processed channels is nqubits/4. For the special case of four qubits, corresponding to a single input channel, only block A is applied, since block B requires at least two channels.",
+      "page": 4
+    },
+    {
+      "image": "2605.23403_figures/2605.23403_fig4.jpg",
+      "caption": "Fig. 4: Representative 10 m wind-speed comparisons for the classical and hybrid CorrDiff models under matched bottleneck resolution. The conditioning input and truth are shown once for reference (a), while the CorrDiff rows display the prediction and residual fields for fully classical (b), Block-B-only ansatz with n_circuit=1 (nch = 3) (c), and Block-B-only ansatz with n_circuit=3 (nch = 9) (d). The qualitative comparison indicates that the hybrid bottleneck preserves the coarse flow organization while improving local structure relative to a classical model with the same bottleneck resolution.",
+      "page": 6
+    },
+    {
+      "image": "2605.23403_figures/2605.23403_fig5.jpg",
+      "caption": "Fig. 5: Structural realism and extreme-event localization di- agnostics on the 2020 validation set. (a,b) Directional 10 m kinetic-energy spectra along the zonal and meridional direc- tions. Low wavenumbers correspond to broad flow structures, while high wavenumbers correspond to smaller-scale variabil- ity. The deterministic UNet is strongly underpowered, whereas CorrDiff restores the missing multiscale variance but is slightly over-energetic in parts of the low-to-intermediate wavenumber range. The hybrid variants preserve the CorrDiff-like spectral slope. (c) The 10 m windspeed log-PDF shows that UNet under-represents the high-wind tail, CorrDiff produces the broadest far tail, and the...",
+      "page": 7
+    }
+  ],
+  "figure": "2605.23403_figures/2605.23403_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

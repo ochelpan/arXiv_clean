@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2605.23442",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DS"
+  ],
+  "is_primary_archive": true,
+  "title": "Ancilla-Efficient QSAMPLE Preparation for Reversible Markov Chains",
+  "authors": "Nicholas Zhao",
+  "abstract": "Preparing quantum samples (QSAMPLES), coherent encodings of stationary distributions of reversible Markov chains, is a fundamental primitive in quantum sampling, particularly for quantum simulated annealing. A central limitation of existing phase-estimation-based frameworks is the ancilla qubit overhead. In this work, we present a new end-to-end framework requiring only one ancilla qubit in the working register. The key technical ingredient is a selective phase compiler circuit using one ancilla qubit, built from a generalized quantum signal processing (GQSP)-based projector onto the 1-eigenspace of the qubitized Szegedy walk. Embedding these selective phase compilers into the fixed-point amplitude amplification (FPAA) procedure and iterating yields a quantum algorithm that, given an initial state, oracle access, lower bounds on the overlaps between adjacent states, and lower bounds on the phase gaps, outputs a QSAMPLE within any desired trace distance and thus total variation distance. The query complexity scales inversely with the square roots of both the minimum overlap and the minimum spectral gap of the Markov chains across the cooling schedule, up to polylogarithmic factors. We also perform simulations to verify how our qubit and query complexity evolve with the trace distance, and how this work compares to the previous framework. These results establish two improvements over the previous framework by Wocjan and Abeyesinghe. First, the working-register ancilla cost is reduced to one. Second, by inserting our GQSP-based selective phase compiler into the FPAA procedure, we improve the QSAMPLE transport overlap dependence from inverse minimum overlap to inverse square-root minimum overlap, relative to their Grover pi-over-three fixed-point method. Finally, as a direct application, we apply the quantum algorithm to prepare a Gibbs QSAMPLE and obtain a rigorous complexity analysis.",
+  "url": "http://arxiv.org/abs/2605.23442v1",
+  "pdf": "https://arxiv.org/pdf/2605.23442v1",
+  "type": "theory",
+  "summary": "This paper introduces a more efficient quantum algorithm for preparing quantum states that represent the stationary distributions of Markov chains. It achieves a significant reduction in the number of required ancilla qubits and improves the scaling of the computational cost relative to the overlap between states in a cooling schedule.",
+  "main_problem": "Developing an efficient quantum algorithm for preparing QSAMPLEs (coherent encodings of stationary distributions of reversible Markov chains) while minimizing ancilla qubit overhead and query complexity.",
+  "main_result": "The authors present an end-to-end framework that reduces the working-register ancilla cost to exactly one qubit and improves the query complexity dependence on the minimum overlap from 1/p_min to 1/sqrt(p_min).",
+  "method": "The approach utilizes a Selective Phase Compiler built from Generalized Quantum Signal Processing (GQSP) and integrates it with Fixed-Point Amplitude Amplification (FPAA) to rotate through a sequence of stationary states.",
+  "model_or_system": "The framework targets reversible, ergodic Markov chains on a finite state space, with a specific application to preparing Gibbs distributions for an Ising ladder model.",
+  "key_observables": "Trace distance (D_tr) and Total Variation Distance (d_TV) between the prepared and target distributions.",
+  "important_parameters": "Minimum overlap (p_min), spectral gap (delta), phase gap (Delta_W), and the number of stages in the cooling schedule (l).",
+  "main_assumptions": "The Markov chains must be reversible and ergodic; the algorithm assumes oracle access to the transition matrix and known lower bounds on overlaps and spectral gaps.",
+  "figures_summary": "Figure 1 shows the GQSP-based selective-phase compiler structure; Figure 2 illustrates the algorithm's progression; Figure 3 compares the proposed method's query complexity and ancilla overhead against previous frameworks.",
+  "paper_structure": "The paper introduces the QSAMPLE problem, presents the new GQSP-based selective phase compiler, details the integration with FPAA for an end-to-end algorithm, provides a rigorous complexity analysis, and demonstrates application to Gibbs state preparation.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.23442_figures/2605.23442_fig1.jpg",
+      "caption": "Fig. 1. Structure of the GQSP-based selective-phase compiler e Sϕ(Π0). Top: the block-level gadget (left) equals the circuit C∆,ε(W)†(Pϕ ⊗I)C∆,ε(W) . Bottom: gate-level decomposition, consists of d controlled W gates interleaved with single qubit gates R0, . . . , Rd, which are parametrized by three parameters for higher generality [15]. The second half is the adjoint circuit C∆,ε(W)† with reversed sequence R† d, . . . , R† 0 and controlled W† gates. Here d = O(∆−1 W log(1/εW)).",
+      "page": 4
+    },
+    {
+      "image": "2605.23442_figures/2605.23442_fig2.jpg",
+      "caption": "Fig. 2. Architecture of the constant-ancilla QSAMPLE preparation algorithm. Top row: the cooling schedule advances through ℓstages of stationary states |π0⟩→· · · →|πℓ⟩. Bottom row: each transition |eπi⟩→|eπi+1⟩uses the qubitized Szegedy walk, to build a GQSP-based selective-phase compiler, to then use FPAA subroutine to transport the state.",
+      "page": 6
+    },
+    {
+      "image": "2605.23442_figures/2605.23442_fig3.jpg",
+      "caption": "Fig. 3. Fixed-benchmark comparison of the resource cost of our QSAMPLE framework against Wocjan et al. [4]. The benchmark is using an open-boundary ferromagnetic 2 × 4 Ising ladder under random-scan single-site heat-bath Glauber dynamics, with lazified Markov chain Pβi = (I + Gβi)/2, where Gibbs states are annealed through inverse temperatures βi ∈{0.0, 0.3, 0.6, 0.9, 1.2} (ℓ= 4 transitions). The horizontal axis is log10(1/ε), where ε is the trace distance error. Panel A shows our algorithm (blue) achieves lower asymptotic query complexity than [4] (red). Panel B shows the ancilla qubit on our working register remains constant, whilst [4] increases polylogarithmically.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.23442_figures/2605.23442_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

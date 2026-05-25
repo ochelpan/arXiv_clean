@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.22920",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Estimating Green's functions with a robust quantum Arnoldi method",
+  "authors": "Jacob S. Nelson, Andrew B. Baczewski",
+  "abstract": "Many applications of Green's functions (GFs) require their evaluation over intervals or at multiple points, motivating quantum algorithms that return an efficiently computable functional representation rather than mere point estimates. We introduce a robust quantum Arnoldi method (ROQAM) that achieves this goal. Its robustness is derived from formulation in terms of orthogonal polynomials, which preserves the upper-Hessenberg structure of the projected matrices despite finite-precision estimation. We also show that as the iteration depth increases, the precision required for matrix-element estimation can be reduced. Resource estimates for the spectral function of a quantum impurity model indicate that ROQAM outperforms pointwise estimation via quantum singular value transformation by multiple orders of magnitude. Finally, we show that the ROQAM can be used to estimate GFs at nonzero temperatures using only a single Krylov subspace.",
+  "url": "http://arxiv.org/abs/2605.22920v1",
+  "pdf": "https://arxiv.org/pdf/2605.22920v1",
+  "type": "theory",
+  "summary": "The paper introduces the Robust Quantum Arnoldi Method (ROQAM), a new quantum algorithm for computing Green's functions over entire frequency intervals. By using the time-evolution operator and orthogonal polynomials, the method achieves significant reductions in computational cost compared to existing techniques like QSVT. It is particularly effective for studying the spectral properties of strongly correlated models like the Anderson impurity model at both zero and finite temperatures.",
+  "main_problem": "Efficiently estimating single-particle Green's functions over intervals or multiple points on a quantum computer while overcoming the exponential growth of subnormalization factors and sensitivity to finite-precision errors.",
+  "main_result": "The proposed Robust Quantum Arnoldi Method (ROQAM) provides a functional representation of Green's functions and outperforms Quantum Singular Value Transformation (QSVT) by multiple orders of magnitude in T-gate count for small-scale systems.",
+  "method": "A quantum adaptation of the Arnoldi method using orthogonal polynomials and the time-evolution operator U(dt) instead of the Hamiltonian directly to preserve the upper-Hessenberg structure and avoid subnormalization scaling.",
+  "model_or_system": "The method is demonstrated using the Single-Impurity Anderson Model (SIAM) in both zero-temperature (ground state) and non-zero temperature (Thermofield Double state) regimes.",
+  "key_observables": "Single-particle Green's functions G(omega), spectral functions A(omega), and energy eigenvalues.",
+  "important_parameters": "Krylov subspace dimension (r), time-step (dt), broadening parameter (gamma), subnormalization factor (lambda), and estimation precision (delta).",
+  "main_assumptions": "Assumes efficient access to a block-encoding of the Hamiltonian and that the initial state preparation is possible; neglects identity terms in the Jordan-Wigner transformation.",
+  "figures_summary": "Figure 1 shows the ROQAM process schematic; Figure 2 displays spectral function estimates and error vs. iteration depth; Figure 3 compares T-gate counts between ROQAM and QSVT; Figure 4-7 show spectral function convergence and error behavior across different parameters; Figure 10-11 illustrate error scaling with subnormalization and error budget strategies.",
+  "paper_structure": "The paper introduces the ROQAM algorithm, details the mathematical framework using orthogonal polynomials and unitary evolution, extends the method to finite temperatures via the TFD formalism, provides numerical validation using the SIAM, and concludes with resource estimation and error budget analysis.",
+  "why_interesting": "This is highly relevant for many-body dynamics as it provides a scalable quantum algorithm for computing spectral properties and Green's functions, which are fundamental to understanding the dynamics of correlated electron systems and open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.22920_figures/2605.22920_fig1.jpg",
+      "caption": "FIG. 1. In the quantum Arnoldi method (ROQAM) a quantum computer is used to estimate expectation values ⟨χ0|U l|χ0⟩ for l = 1, 2, ..., r. These estimates are passed to a classical processor that builds [U]. This matrix is processed into [H], a representation of the Hamiltonian in the Arnoldi basis, which can be used to estimate expectation values of functions of [H].",
+      "page": 2
+    },
+    {
+      "image": "2605.22920_figures/2605.22920_fig2.jpg",
+      "caption": "FIG. 2. Estimating the Green’s function of a SIAM with 4 bath sites using the ROQAM. In a) we show the spectral function obtained from performing ROQAM with iteration depth 1, 2, and 3, and the exact spectral function. In each case the broadening parameter, γ, is set to 0.1 times the Hubbard bandwidth. In b) we show the mean relative error versus iteration depth for the ROQAM with and without finite-precision errors. We tested the ROQAM with three different levels of initial sampling precision (δ1) and find that the noisy estimates follow the noiseless error curves until hitting a noise floor where increasing the iteration depth no longer improves the error.",
+      "page": 3
+    },
+    {
+      "image": "2605.22920_figures/2605.22920_fig3.jpg",
+      "caption": "FIG. 3. Aggregate T-gate count required to estimate the spectral function of the SIAM with 1 – 5 bath sites to be- low 1% mean relative error using the ROQAM and QSVT. For QSVT, we report estimates for Nω = 100 and Nω = 1000 equally spaced frequencies, and the single frequency with the highest T count. The ROQAM is multiple orders of magni- tude cheaper than the single hardest QSVT and it produces a converged estimate over the entire frequency interval.",
+      "page": 4
+    },
+    {
+      "image": "2605.22920_figures/2605.22920_fig4.jpg",
+      "caption": "FIG. 4. Estimates of the spectral function of SIAM with nbath = 4 with γ = 0.1 (top), 0.01 (middle) and 0.001 (bottom) in units of the Hubbard bandwidth. Each iterate adds 2 poles to the estimate of A(ω, γ). When the poles of A(ω, γ) are clustered near each other, increasing γ will combine these poles, requiring fewer iterates of the ROQAM to well approximate",
+      "page": 20
+    },
+    {
+      "image": "2605.22920_figures/2605.22920_fig5.jpg",
+      "caption": "FIG. 5. The estimates Im( ˆG(iω)) on the imaginary frequency axis (denoted iω). Because the poles of the Green’s function lie solely on the real frequency axis G(iω) is always smooth and continuous without the need for a broadening parameter. We see that after only 3 iterations Im( ˆG(iω)) begin to well approximate Im(G(iω)).",
+      "page": 20
+    }
+  ],
+  "figure": "2605.22920_figures/2605.22920_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 4,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

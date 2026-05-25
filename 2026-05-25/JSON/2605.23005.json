@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.23005",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.comp-ph",
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": false,
+  "title": "Full-Scattering-Matrix Deterministic Phonon Boltzmann Transport Simulation",
+  "authors": "Y. Sungtaek Ju",
+  "abstract": "Solutions to the phonon Boltzmann transport equation under the relaxation-time approximation (RTA) are fundamentally limited in that they do not account for the off-diagonal elements of the scattering matrix, which encode intermode energy redistribution. We find that the phonon in-scattering matrix is globally incompressible, requiring nearly its full rank for any useful Frobenius accuracy. The incompressibility worsens as the Brillouin zone is refined. We show that, despite this difficulty, one can develop a computationally efficient 3D BTE solver incorporating the complete scattering matrix by leveraging our two structural discoveries: the non-equilibrium phonon distribution inhabits a remarkably low-dimensional subspace of mode space regardless of how many phonon modes exist, and the leading singular modes of the scattering operator align selectively with this transport-active subspace. Consequently, truncation incurs negligible transport error even under large norm error. The phonon streaming operator's mode-diagonal character further motivates a hybrid architecture that exploits these two properties. When applied to nanoscale structures emulating a fin field-effect transistor, our BTE solver quantifies a geometry-independent multiplicative correction to the temperature rise predicted under RTA. Our theoretical work and resulting BTE solver help enable rigorous study of phonon transport and systematic design of devices and structures in the ballistic and quasi-ballistic phonon transport regime.",
+  "url": "http://arxiv.org/abs/2605.23005v1",
+  "pdf": "https://arxiv.org/pdf/2605.23005v1",
+  "type": "theory",
+  "summary": "This paper presents a new numerical solver for the phonon Boltzmann Transport Equation that accurately includes the full scattering matrix without the massive computational cost usually required. It achieves this by exploiting the fact that the non-equilibrium part of the phonon distribution is low-dimensional, even when the scattering operator itself is complex. This enables more precise thermal modeling in nanoscale transistors.",
+  "main_problem": "The Relaxation-Time Approximation (RTA) in the phonon Boltzmann Transport Equation (BTE) fails to account for intermode energy redistribution, but incorporating the full scattering matrix is computationally prohibitive due to its high-rank, incompressible nature.",
+  "main_result": "The authors discover that while the scattering matrix is incompressible, the non-equilibrium phonon distribution exists in a low-dimensional subspace, allowing for an efficient 3D BTE solver that captures a 11.2% correction to temperature rise over RTA.",
+  "method": "A deterministic 3D BTE solver using a finite-volume discretization and a hybrid architecture that combines dense spatial sweeps with low-rank SVD-based truncation of the in-scattering operator.",
+  "model_or_system": "Steady-state phonon Boltzmann Transport Equation (BTE) for nanoscale semiconductor structures, such as FinFET-like geometries, including three-phonon Normal and Umpland processes.",
+  "key_observables": "Effective thermal conductivity, peak temperature rise, non-equilibrium distribution deviation, and transport selectivity.",
+  "important_parameters": "Brillouin zone refinement levels, Knudsen number, device length (fin length), and scattering matrix rank.",
+  "main_assumptions": "The phonon transport is modeled in the ballistic and quasi-ballistic regimes using a linearized BTE and the Stillinger-Weber potential for scattering matrix elements.",
+  "figures_summary": "The paper includes tables comparing scattering matrix properties (rank, spectral flatness), convergence tests for BZ grid density, and validation of temperature predictions in 3D FinFET structures.",
+  "paper_structure": "The paper identifies the limitations of RTA, analyzes the incompressibility of the scattering matrix, proposes a low-rank solution-based solver, validates the method against 1D analytic solutions, and demonstrates application to 3D nanoscale devices.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.23005_figures/2605.23005_fig1.jpg",
+      "caption": "Fig. 1 SVD incompressibility of Win. Rank fraction r(ε)/Ma required to achieve Frobenius tolerance ε, for N = 3, 5, 7, 9. The shaded region (r/Ma > 80%) marks the regime with no useful compression. At ε = 1%, the required fraction is 87–91% at all grid sizes.",
+      "page": 4
+    },
+    {
+      "image": "2605.23005_figures/2605.23005_fig2.jpg",
+      "caption": "Fig. 2 Spectral density and flatness scaling. (a) Non-zero entry fraction nnz(Win)/M2 a at threshold 10−4, showing > 99% density with power-law nnz ∝M 2.00 a (R2 = 1.000). (b) Spectral flatness σ1/¯σ and 1/PR vs. Ma on log–log axes, growing as M0.53 a and M0.28 a respectively.",
+      "page": 5
+    },
+    {
+      "image": "2605.23005_figures/2605.23005_fig3.jpg",
+      "caption": "Fig. 3 Transport selectivity of the SVD truncation (N = 5, FinFET). (a) δTfW (blue, left axis) and Frobenius error (red, right axis) vs. SVD rank r. Blue band: 3.3% spread in δT; Frobenius error varies 36–65%. (b) Transport selectivity S vs. r for the 3D FinFET at N = 5 (Table S6); values 55–120× throughout.",
+      "page": 8
+    },
+    {
+      "image": "2605.23005_figures/2605.23005_fig4.jpg",
+      "caption": "Fig. 4 Validation: 1D slab BTE vs. exact analytic IMA reference. (a) Effective thermal conductivity keff vs. slab thickness L, log-linear axes. Filled red squares: BTE full-W solver (SVD r = 50). Open blue circles: BTE-RTA solver (N = 5, Nx = 100). Solid black line: analytic IMA reference Eq. (6). Dotted grey: kbulk = 148.0 W m−1 K−1. (b) Relative deviation (kRTA −kSond)/kSond vs. L. All values ≤0.37% over L = 10–1000 nm.",
+      "page": 9
+    },
+    {
+      "image": "2605.23005_figures/2605.23005_fig5.jpg",
+      "caption": "Fig. 5 Brillouin zone grid convergence. (a) TRTA(N) (blue circles) and TfW(N) (red squares) vs. BZ grid density N. (b) Normalised correction δTfW/(TRTA −T0) vs. N; grey band marks the asymptote 11.1 ± 0.3% (N ≥11). The non- monotone behaviour at N = 7, 9 reflects the Γ-centred Monkhorst–Pack sampling artefact.",
+      "page": 11
+    }
+  ],
+  "figure": "2605.23005_figures/2605.23005_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

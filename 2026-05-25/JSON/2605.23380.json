@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.23380",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.flu-dyn"
+  ],
+  "is_primary_archive": true,
+  "title": "Lowest order Carleman linearization for steady state fluid flow simulations",
+  "authors": "Luca Cappelli, Sauro Succi",
+  "abstract": "It is shown that the lowest (second) order truncation of the Carleman linearization of the fluid equations (C2) recovers not only the initial transient of the time evolution but also its late stage, namely the steady-state solution. This asymptotic property is first proved analytically for the decaying logistic with external forcing and then shown to hold to a significant degree of accuracy also for the fairly more complex case of two-dimensional fluid flows at moderate Reynolds number. This time-asymptotic property opens interesting prospects for the simulation of steady-state solutions of the fluid equations on quantum computers.",
+  "url": "http://arxiv.org/abs/2605.23380v1",
+  "pdf": "https://arxiv.org/pdf/2605.23380v1",
+  "type": "theory",
+  "summary": "The paper demonstrates that a second-order Carleman linearization can accurately recover the steady-state solutions of 2D fluid flows, even when it fails to capture the initial transient dynamics. This finding is significant because it provides a potential method for simulating nonlinear fluid dynamics on quantum computers by transforming them into a linear framework.",
+  "main_problem": "Addressing the incompatibility between the nonlinear structure of the Navier-Stokes equations and the linear framework required for quantum simulation, specifically investigating if low-order Carleman linearization can recover steady-state solutions.",
+  "main_result": "The second-order Carleman truncation (C2) successfully recovers the steady-state (asymptotic) solutions of 2D forced fluid flows at moderate Reynolds numbers, acting as a temporal filter that smooths out high-frequency transients.",
+  "method": "The authors use Carleman linearization to transform nonlinear equations into a higher-order linear form, applying a second-order truncation (C2) and evaluating it via an explicit Euler time-marching scheme on the Navier-Stokes-Hamilton-Jacobi formulation.",
+  "model_or_system": "The study focuses on two-dimensional, incompressible, viscous fluid flows (specifically Kolmogorov-like flow) at moderate Reynolds numbers, using a forced logistic decay equation as an analytical toy model.",
+  "key_observables": "Velocity field components (vx, vy), density (rho), scalar potential (chi), and L2 relative error of the velocity field.",
+  "important_parameters": "Reynolds number (Re up to ~100), forcing amplitude (f0), viscosity (nu), and the growth parameter (g2) in the toy model.",
+  "main_assumptions": "The approximation is limited to moderate Reynolds numbers and cannot capture sudden changes or detailed features of the transient phase; it assumes the steady state is the primary target for recovery.",
+  "figures_summary": "Figure 1 compares the evolution of the toy model to show steady-state recovery; Figures 2-4 demonstrate velocity field evolution and high-accuracy agreement between C2 and Navier-Stokes at low Re; Figures 5-6 show that while C2 recovers stationary states, it fails to capture sudden transient signal rises.",
+  "paper_structure": "The paper begins with an analytical proof using a forced logistic toy model, moves to the application of the C2 approximation to 2D Navier-Stokes-Hamilton-Jacobi equations, presents numerical results for various Reynolds numbers, and concludes with implications for hybrid quantum-classical fluid simulations.",
+  "why_interesting": "This is interesting because it proposes a mathematical bridge (Carleman linearization) to map nonlinear classical fluid dynamics into a linear framework suitable for quantum algorithms, suggesting a path for 'quantum-centric' hybrid simulations of complex flows.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.23380_figures/2605.23380_fig1.jpg",
+      "caption": "FIG. 1: (a) Solution of the forced logistic equation (1) with Euler time-marching (green dotted line) and a second–order Carleman linearization (solid line) in three different dynamical scenarios (g2 = 0.05,0.1,0.2). The system evolves with ∆t = 0.01 over 700 timesteps, keeping b = 1, f = 1 and varying a accordingly to g2 = bf/a2. (b) Stationary solutions of the forced logistic ˜xs and of the second–order Carleman system ˜x1 as a function of g2. Both figures show that, as g2",
+      "page": 2
+    },
+    {
+      "image": "2605.23380_figures/2605.23380_fig2.jpg",
+      "caption": "FIG. 2: Evolution of the velocity field in three different spatial locations: P0 ≡(0,0), where the flow attains its peak amplitude; P1 ≡(1.5,1.5), which shows prominent oscillations and P2 ≡(0.7,2.5), where the flow attains negative values. The initial condition in Eq. (26), with (u0, f0) = (0.05,0.009), is evolved on a 64×64 grid for 2500 timesteps. The C2 scheme recovers the stationary states for both decaying and growing local velocities. The forced velocity field vx converges towards the Navier–Stokes solution with relative error ||v (C2) x −v (NS) x ||/||v (NS) x || = 3.2×10−4. Note that the C2 dynamics resembles a temporal filter by smoothing out time oscillations of vx at P1 and P2.",
+      "page": 4
+    },
+    {
+      "image": "2605.23380_figures/2605.23380_fig3.jpg",
+      "caption": "FIG. 3: Evolution of the velocity field in three spatial locations of the previous figures. The initial condition in Eq. (26), with (u0, f0) = (0.05,0.0225) is evolved on a 64×64 grid over 2,500 timesteps. The C2 solution recovers the correct stationary state and the forced velocity field vx converges towards the Navier–Stokes solution with relative error ||v (C2) x −v (NS) x ||/||v (NS) x || = 1.9×10−4. In this scenario, the solution obtained with NSHJ perfectly matches the Navier-Stokes one, which is why the curves are virtually indistinguishable.",
+      "page": 5
+    },
+    {
+      "image": "2605.23380_figures/2605.23380_fig4.jpg",
+      "caption": "FIG. 4: Amplitude and streamlines of the velocity field at t = 0 (left-most column) and at the stationary state t = 5T for the second–order Carleman system (center column) and Navier-Stokes (right-most column). The system refers to the initial conditions in Eq. (26), where each row corresponds to different Reynolds numbers. The red dots highlight the spatial locations chosen to represent the evolution of the velocity field in Figs. 2 and 3. At t = 5T, along the forced axis, C2 approximates Navier-Stokes with maximum absolute error of O(10−5) and mean L2 relative error ||v (C2) x −v (NS) x ||/||v (NS) x || of 3.2×10−4 with Re ≈6.6 and 1.9×10−4 with Re ≈16.4.",
+      "page": 6
+    },
+    {
+      "image": "2605.23380_figures/2605.23380_fig5.jpg",
+      "caption": "FIG. 5: Evolution of the velocity field along the x–axis (top row) and the y–axis (bottom row). The figure refers to the initial condition in Eq. (28) evolved for 3000 timesteps, with ∆t = 0.03 on a 64×64 grid. We report the evolution in three spatial probes: (0,0) corresponding to the maximum, (0.7, 2.5) showing negative values and (1.5,1.5) where nonlinear effects are more pronounced. Again, C2 recovers correctly the stationary states of the Navier–Stokes equations, but not the detailed transient. Particularly, in (1.5,1.5) C2 completely misses the sudden rise of the signal. This suggests that, by its very nature, the C2 approximation is unable to capture sudden features of the flow...",
+      "page": 7
+    }
+  ],
+  "figure": "2605.23380_figures/2605.23380_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.23455",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Sequential Spatiotemporal Magnetic-Field Reconstruction via Quantum Hamiltonian Learning with NV-Center Spin-1 Hamiltonians",
+  "authors": "Hiroshi Yamauchi, Sophie Colleen Stearn, Samuel Tovey",
+  "abstract": "We propose a quantum-Hamiltonian-learning-based sequential reconstruction framework for dynamic two-dimensional magnetic fields using a local likelihood model derived from a nitrogen-vacancy center spin-1 Hamiltonian. The latent field is not observed directly; instead, local measurements are generated through nitrogen-vacancy spin dynamics governed by local magnetic-field values and a shared dipolar coupling parameter. Sequential Bayesian updates over overlapping scan windows are combined with temporal posterior propagation to reconstruct the evolving field.   Numerical experiments on synthetic maze-like magnetic-field sequences show that the proposed method recovers the dominant spatial structure, achieving a root-mean-square error of \\(7.037\\times10^{-7}\\,\\mathrm{T}\\) at the final frame. Adaptive diagnostics show decreasing expected information gain and stable local convergence. Fisher-information and leakage diagnostics reveal a sensitivity--leakage tradeoff under long-interrogation controls, and the implemented adaptive policy incorporates leakage-aware control scoring while leaving the likelihood itself unchanged. Combined horizontal and vertical scans improve reconstruction relative to single-direction acquisition. The shared coupling parameter \\(J\\) is only partially identifiable: its posterior becomes narrow but remains frame-dependent and biased.   At the final checkpoint, the coupling posterior reaches \\(J_{\\rm std}=87.0\\,\\mathrm{Hz}\\), close to a finite-time product-state reference benchmark of \\(73.3\\,\\mathrm{Hz}\\), while remaining \\(3.35\\times\\) above a gain-extrapolated ideal-state benchmark. The posterior mean, however, remains biased by \\(326.9\\,\\mathrm{Hz}\\), indicating that posterior concentration alone does not imply unbiased coupling identifiability.",
+  "url": "http://arxiv.org/abs/2605.23455v1",
+  "pdf": "https://arxiv.org/pdf/2605.23455v1",
+  "type": "theory",
+  "summary": "This paper proposes a method to reconstruct time-varying 2D magnetic fields by combining local quantum Hamiltonian learning with sequential Bayesian updates. Using NV-center spin-1 dynamics as a model, the authors demonstrate that while spatial structures can be recovered accurately, estimating global interaction parameters remains challenging due to parameter degeneracy and bias.",
+  "main_problem": "The sequential spatiotemporal reconstruction of a dynamic, 2D magnetic field from local, noisy, and overlapping observations using quantum sensors.",
+  "main_result": "The framework successfully recovers large-scale spatial structures (maze-like patterns) with low RMSE, though the global coupling parameter J remains partially identifiable and biased.",
+  "method": "A sequential Bayesian inference framework using a particle-based Monte Carlo estimator and an adaptive control policy based on expected information gain and leakage-aware scoring.",
+  "model_or_system": "A nitrogen-vacancy (NV) center spin-1 system in diamond, modeled via a rotating-frame Hamiltonian that includes local magnetic field detuning, transverse strain, and long-range dipolar interactions.",
+  "key_observables": "Ramsey-type readout operators, Classical Fisher Information (CFI), Quantum Fisher Information (QFI), and spin-1 leakage to the |-1> state.",
+  "important_parameters": "Local magnetic field magnitudes (Bt), shared dipolar coupling parameter (J), and interrogation time (T).",
+  "main_assumptions": "The study uses a numerical 'trusted-simulator' (exact diagonalization) rather than hardware-in-the-loop; it assumes an idealized binomial shot model for measurements.",
+  "figures_summary": "Figure 1 shows the transition from random prior to reconstructed field; Figure 2 shows decay of expected information gain; Figure 3 shows local convergence; Figure 4 tracks coupling J estimation; Figure 6 shows the impact of scan geometry (H vs V vs H+V).",
+  "paper_structure": "The paper defines the spatiotemporal reconstruction problem, introduces the NV spin-1 Hamiltonian model, details the sequential Bayesian/SMC framework and adaptive control policy, presents numerical results on field reconstruction and coupling estimation, and discusses metrological trade-offs and limitations.",
+  "why_interesting": "It integrates Quantum Hamiltonian Learning with spatiotemporal Bayesian filtering, addressing the complex task of reconstructing global many-body parameters (J) and local fields simultaneously in a dynamic setting.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.23455_figures/2605.23455_fig1.jpg",
+      "caption": "FIG. 1. Recovery of spatial magnetic-field structure. (a) Initial prior map at t = 0, generated from a random Bernoulli initialization, showing no coherent global organization. (b) Reconstructed field at the final analyzed frame t = 15, ob- tained through sequential inference under the NV Hamilto- nian model, with RMSE = 7.037 × 10−7 T. The emergence of the maze-like structure demonstrates that the reconstruction is achieved through inference rather than direct observation.",
+      "page": 12
+    },
+    {
+      "image": "2605.23455_figures/2605.23455_fig2.jpg",
+      "caption": "FIG. 3. Representative k-step convergence behavior for three windows. Top row: expected information gain (EIG) as a function of k. Bottom row: corresponding empirical measure- ment probabilities ¯p. The EIG decreases across steps, while ¯p stabilizes after the early updates, consistent with local pos- terior concentration.",
+      "page": 12
+    },
+    {
+      "image": "2605.23455_figures/2605.23455_fig3.jpg",
+      "caption": "FIG. 2. Adaptive measurement behavior. (a) Distribution of empirical measurement probabilities ˆp at the initial step (k = 0) and after adaptive updates (k = 11). (b) Expected information gain (EIG) as a function of the adaptive step k, showing rapid decay and saturation.",
+      "page": 12
+    },
+    {
+      "image": "2605.23455_figures/2605.23455_fig4.jpg",
+      "caption": "Figure 3 shows the detailed convergence behavior for three representative windows. While all windows exhibit a general decrease in ex- pected information gain, the initial magnitude and de- cay rate differ across spatial locations. This indicates that the local identifiability of the field depends on the underlying field configuration within each window. In particular, windows with stronger local gradients ex- hibit higher initial EIG and faster convergence, whereas more homogeneous regions show lower initial information gain and slower convergence. This heterogeneity demonstrates that the adaptive in- ference mechanism naturally allocates measurement ef- fort according to local information...",
+      "page": 12
+    },
+    {
+      "image": "2605.23455_figures/2605.23455_fig5.jpg",
+      "caption": "FIG. 5. Reconstruction error and scan strategy comparison. (a) RMSE and MAE over frames for H+V scan. (b) Compar- ison of RMSE and MAE for H-only, V-only, and H+V scans at the final frame.",
+      "page": 13
+    }
+  ],
+  "figure": "2605.23455_figures/2605.23455_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 3,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

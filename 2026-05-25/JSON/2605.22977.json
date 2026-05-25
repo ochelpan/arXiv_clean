@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.22977",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el",
+    "physics.chem-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Absorbing Many-Body Correlations into Core-Optimized Orbitals",
+  "authors": "Hao Zhang, Matthew Otten",
+  "abstract": "The cost of simulating quantum many-body systems - on classical or quantum hardware - scales with the number of variational parameters, so progress at fixed computational budget hinges on more parameter-efficient ansätze. Configuration Interaction (CI) is widely dismissed as parameter-heavy; we show this verdict is an artifact of the orbital basis. Co-optimizing the orbital basis with a sparse CI wavefunction - a method we call Core-Optimized Orbitals (COO) - absorbs a large fraction of the dynamical correlation directly into the single-particle basis, cutting the determinant count by several orders of magnitude beyond the already compact TrimCI ansatz on which it builds. On [Fe$_4$S$_4$] (54e, 36o), a billion-determinant TrimCI+COO wavefunction reaches accuracy that would require $3\\!\\times\\!10^{14}$ determinants in a localized basis. At matched accuracy, it is $8\\times$ more compact than the largest unrestricted-DMRG benchmark ($25\\times$ with PT2). Across the iron-sulfur series - from [Fe$_2$S$_2$] (30e,20o) to the P-cluster (114e,73o) - TrimCI+COO is $10$-$100\\times$ more compact than SU(2)-adapted DMRG with entanglement-minimized orbitals at matched accuracy. A tunable Hubbard-on-graph model factorizes the advantage into an orbital-basis gain and an ansatz gain, the latter capturing multi-center entanglement that resists MPS localization. COO therefore changes the picture of CI efficiency: sparse CI with optimized orbitals can outperform state-of-the-art tensor networks on strongly correlated multi-center systems.",
+  "url": "http://arxiv.org/abs/2605.22977v1",
+  "pdf": "https://arxiv.org/pdf/2605.22977v1",
+  "type": "theory",
+  "summary": "The authors present a method called Core-Optimized Orbitals (COO) that significantly improves the efficiency of Configuration Interaction by optimizing the orbital basis to absorb dynamical correlation. This approach allows for ultra-large-scale simulations of complex multi-center systems, outperforming traditional tensor network methods in parameter efficiency.",
+  "main_problem": "The computational cost of simulating strongly correlated many-body systems scales with the number of variational parameters, making traditional Configuration Interaction (CI) methods too parameter-heavy for large-scale simulations.",
+  "main_result": "The Core-Optimized Orbitals (COO) method achieves massive compression, reaching accuracies in [Fe4S4] that would require 3e14 determinants in a localized basis, and outperforms state-of-the-art DMRG by 10-100x in parameter efficiency for multi-center systems.",
+  "method": "A three-phase approach (Global Optimization, Local Refinement, and Fast Expansion) that co-optimizes a sparse CI wavefunction (TrimCI) with a single-particle orbital basis via orbital rotations.",
+  "model_or_system": "The study focuses on strongly correlated multi-center iron-sulfur clusters ([Fe2S2], [Fe4S4], and the P-cluster) and a tunable Hubbard-on-graph model used to analyze efficiency gains.",
+  "key_observables": "Energy error relative to FCI, determinant count (N_det), orbital mutual information, and wavefunction compactness (dominant-determinant weight).",
+  "important_parameters": "Determinant scales up to 5.12 billion; orbital rotation via matrix exponential of an antisymmetric matrix kappa; expansion growth factors.",
+  "main_assumptions": "Assumes that the orbital rotations learned from a small core are transferable to larger expansions and that the initial orbital guess (HF or LMO) is reasonably close to the ground state.",
+  "figures_summary": "Visualizations of orbital rotation and wavefunction collapse; energy convergence and power-law scaling of error vs. determinant count; orbital mutual information showing entanglement across atomic centers; and energy spread of initial seeds into spin basins.",
+  "paper_structure": "The paper introduces the COO method, details the three-phase TrimCI+COO workflow, demonstrates massive compression on iron-sulfur clusters, provides a theoretical decomposition of efficiency gains using a Hubbard-on-graph model, and describes the large-scale distributed GPU architecture used for billion-determinant calculations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.22977_figures/2605.22977_fig1.jpg",
+      "caption": "FIG. 1. Core Optimized Orbitals (COO). (a) Illustration of orbital rotation: the same wavefunction |Ψ⟩(8-site Hubbard- on-graph approximate ground state, Fig. 5) needs 2271 dets in LMO (left) but only 104 in COO (right). Each point is a Slater determinant, placed by multidimensional scaling (MDS); area ∝|cI|, color by sign. Bottom row: site density deviation ⟨np⟩−1 for the LMO and COO 100-det approxima- tions vs the exact FCI. (b) Convergence of COO on a 100- determinant core for [Fe4S4] (54e, 36o), BS-1 (Fe1 ↑, Fe2 ↑, Fe3 ↓, Fe4 ↓broken-symmetry state). (c) Gain transfer: or- bitals frozen at cycles 0, 1, 2, 3, 10 and expanded to ∼107",
+      "page": 2
+    },
+    {
+      "image": "2605.22977_figures/2605.22977_fig2.jpg",
+      "caption": "FIG. 2. Compression of the [Fe4S4] (54e, 36o) ground state. (a) Evar versus Ndet for TrimCI + COO with the power-law fit E(Ndet) = Eextrap + a N −α det (dashed red); the UDMRG extrapolate of Ref. [17] is shown for comparison. (b) Log–log form of (a). (c) Variational energy on a common variational-parameter axis, with semistochastic PT2 corrections and the UDMRG benchmark. (d) |E −EFCI| versus Ndet for TrimCI in COO orbitals (red hexagons) and in the starting LMO basis (blue triangles), with power-law fits (dashed; COO slope −0.24, LMO slope −0.20). Dotted line: chemical accuracy (1.6 mHa).",
+      "page": 3
+    },
+    {
+      "image": "2605.22977_figures/2605.22977_fig3.jpg",
+      "caption": "FIG. 3. TrimCI + COO across the iron-sulfur se- ries. Columns: Fe2S2 (30e, 20o), Fe4S4 (54e, 36o), P-cluster (114e, 73o). (a)–(c) Phase 0: variational energy versus orbital-optimization cycle on a 100-determinant core. (d)– (f) Phase 1+2 expansion: |Evar −EFCI| versus the log- normalized parameter budget η ≡log10 Ndet/ log10 NFCI. Hollow system-color markers: TrimCI + COO; filled teal: TrimCI+LMO. Dotted line: chemical accuracy. FCI refer- ences and trajectory data in the SM.",
+      "page": 4
+    },
+    {
+      "image": "2605.22977_figures/2605.22977_fig4.jpg",
+      "caption": "FIG. 4. Compactness beyond entanglement minimiza- tion. Top row: dominant-determinant weight p0 ≡|cmax|2",
+      "page": 5
+    },
+    {
+      "image": "2605.22977_figures/2605.22977_fig5.jpg",
+      "caption": "FIG. 5. TrimCI + COO vs DMRG on a tunable Hubbard-on-graph model. (a) Orbital mutual information Iij of [Fe4S4] in COO orbitals, re-ordered by Fe localization (Fe1, Fe2, Fe3, Fe4, S; dashed green lines mark group boundaries). (b) Hubbard-on-graph schematic at α=0.5 (L=8, U/t=4): nearest-neighbor edges −t (red, open chain), non-nn edges −αt rij with rij ∼U[0.5, 1.5] (blue, width ∝|tij|). (c)–(e) ∆E from FCI versus Nparams for α = 0, 0.5, 1.0: TrimCI + COO (red), TrimCI no-COO (orange), DMRG with chain (blue) and Fiedler (purple) orderings. (f) Parameter ratio to reach ∆E < 0.1 t: DMRG (best ordering)/COO grows from ∼1× (chain) to ∼12× (complete graph). (g) Decomposition of (f) into orbital...",
+      "page": 6
+    }
+  ],
+  "figure": "2605.22977_figures/2605.22977_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

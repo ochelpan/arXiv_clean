@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.23377",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "SAFE ma-QAOA: Surrogate-Assisted and Fine-Tuning Enhanced Multi-Angle QAOA with Parameter Distillation",
+  "authors": "Hyunwoo Kim, Youngseok Lee",
+  "abstract": "The multi-angle Quantum Approximate Optimization Algorithm (ma-QAOA) extends the Quantum Approximate Optimization Algorithm (QAOA) by assigning a larger number of independent variational parameters, thereby increasing expressivity and improving performance at low circuit depths. However, this larger parameterization makes training more difficult and requires repeated circuit evaluations for gradient-based optimization. In this work, we propose the Surrogate-Assisted and Fine-tuning Enhanced (SAFE) framework. SAFE first uses Low-Weight Pauli Propagation (LWPP) as a classical surrogate for pre-training ma-QAOA parameters before exact optimization. SAFE then applies parameter distillation, which removes angles that remain near zero after surrogate pre-training. Finally, SAFE performs exact fine-tuning by optimizing the remaining active parameters using the exact energy objective. We evaluate SAFE on instances of the Sherrington-Kirkpatrick model, two-dimensional square-lattice spin glass, and Max-Cut. SAFE with distillation provides the strongest overall results relative to exact-only: (i) a 64.3 percent reduction in active parameter count and (ii) a 94.5 percent reduction in estimated QPU workload. Within the SAFE workflow, adding distillation further reduces the optimizer steps to the near-optimal regime by 44.4 percent relative to without distillation. These results provide evidence that SAFE ma-QAOA can accelerate convergence to high-quality solutions while reducing the required quantum resources for exact fine-tuning, offering a resource-efficient route toward expressive ma-QAOA on NISQ hardware.",
+  "url": "http://arxiv.org/abs/2605.23377v1",
+  "pdf": "https://arxiv.org/pdf/2605.23377v1",
+  "type": "theory",
+  "summary": "This paper introduces the SAFE framework to optimize Multi-Angle QAOA by using a classical surrogate to pre-train parameters and a distillation step to prune unnecessary angles. This approach significantly reduces the quantum computational resources required for fine-tuning without sacrificing the quality of the final solution.",
+  "main_problem": "The high-dimensional parameter space of Multi-Angle QAOA (ma-QAOA) makes training computationally expensive and difficult due to the large number of required exact energy and gradient evaluations on quantum hardware.",
+  "main_result": "The SAFE framework achieves a 64.3% reduction in active parameters and a 94.5% reduction in estimated QPU workload while maintaining high approximation ratios and accelerating convergence.",
+  "method": "A three-stage pipeline: (1) LWPP pre-training using a truncated classical surrogate, (2) parameter distillation to remove near-zero angles, and (3) exact fine-tuning using the full energy objective.",
+  "model_or_system": "The study evaluates ma-QAOA on Ising-type Hamiltonians, specifically the Sherrington-Kirkpatrick model, 2D square-lattice spin glasses, and Max-Cut problems on random graphs.",
+  "key_observables": "Approximation ratio, first-hit step (convergence speed), and estimated QPU workload (ballpark cost).",
+  "important_parameters": "Circuit depth (p), number of qubits (n), LWPP truncation weight (w_max), and parameter distillation threshold.",
+  "main_assumptions": "The effectiveness relies on the assumption that many rotation angles remain near zero (identity) after the surrogate pre-training stage.",
+  "figures_summary": "Figure 1 shows the LWPP truncation process; Figure 2 visualizes the problem instances; Figure 3/4 shows approximation ratios across different settings; Figure 5 compares convergence speed; Figure 6 shows exact fine-tuning trajectories; Figure 7 compares energy gaps and cosine similarity.",
+  "paper_structure": "The paper introduces the ma-QAOA bottleneck, presents the three-stage SAFE framework (pre-training, distillation, fine-tuning), evaluates the method on various spin glass and combinatorial models, and analyzes the efficiency gains in terms of parameter count and hardware workload.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.23377_figures/2605.23377_fig1.jpg",
+      "caption": "Fig. 1. Pauli propagation example for the tracked Pauli word P = Z0Z1 under successive updates by RX0(θ′) and RZ0Z2(θ′′). The example shows the lower-weight branches retained by LWPP and the higher-weight branch discarded by the wmax = 2 truncation threshold.",
+      "page": 3
+    },
+    {
+      "image": "2605.23377_figures/2605.23377_fig2.jpg",
+      "caption": "Fig. 2. Problem families used in the experimental setup: a fully connected SK instance with 12 qubits, a two-dimensional square-lattice spin glass (abbreviated as 2D grid in figures and tables) on a 3 × 4 lattice, and a 12-qubit Max-Cut instance with 30% edge probability and unit weights.",
+      "page": 4
+    },
+    {
+      "image": "2605.23377_figures/2605.23377_fig3.jpg",
+      "caption": "Fig. 3. Conceptual overview of the SAFE pipeline: LWPP-based surrogate pre-training on classical hardware, followed by parameter distillation to identify a compact subspace, and final exact fine-tuning on quantum hardware or exact emulators.",
+      "page": 4
+    },
+    {
+      "image": "2605.23377_figures/2605.23377_fig4.jpg",
+      "caption": "Fig. 4. Overview of final approximation ratio performance after exact fine-tuning initialized with parameters obtained from LWPP pre-training under different distillation thresholds. Rows correspond to SK, 2D grid, and Max-Cut, and columns compare depths p = 2, 4 with LWPP truncation levels wmax = 3, 4. For each threshold, the bars report the mean and best final approximation ratios, the horizontal lines indicate the exact-only and LWPP-pre-training-only reference values, and the green labels show the average parameter reduction.",
+      "page": 6
+    },
+    {
+      "image": "2605.23377_figures/2605.23377_fig5.jpg",
+      "caption": "Fig. 5. Average first-hit step required to reach 99% of each method’s own best normalized performance during exact fine-tuning. Rows compare depths p = 2 and p = 4, columns correspond to system sizes n = 12, 16, 20, and each panel reports SK, 2D grid, and Max-Cut results for exact-only, SAFE without distillation, and SAFE with distillation under wmax = 4 and a distillation threshold of 0.3. Lower values indicate faster convergence to the near-optimal regime.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.23377_figures/2605.23377_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.22909",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Sample-efficient benchmarking of shallow all-to-all random quantum circuits",
+  "authors": "Gregory Bentsen, Bill Fefferman, Soumik Ghosh, Michael J. Gullans, Yinchen Liu",
+  "abstract": "Random circuit sampling (RCS) remains one of the most competitive frameworks for demonstrating quantum advantage in near-term noisy intermediate-scale quantum (NISQ) hardware. Unfortunately, absent error-correction, existing benchmarks to characterize these experiments, like linear cross-entropy, have been classically spoofed due to noise. Because of this, there are interesting regimes, like shallow-depth random quantum circuits, where sampling is plausibly classically intractable, but no existing benchmark can distinguish between a noisy quantum computer and an adversarial classical spoofer. In this paper, we demonstrate that the nonlinear cross-entropy provides a sample-efficient benchmark for shallow-depth all-to-all random quantum circuits whose score cleanly separates noisy quantum computers from state-of-the-art classical spoofers, even in the presence of depolarizing noise. Further, we develop a binary classifier based on the notion of heavy output generation that features logarithmic sample complexity at short depth. Our evidence comes from exact analytic expressions for all-to-all Brownian circuit ensembles derived using replica tricks, and numerical simulations that corroborate these results for discrete Haar-random unitary circuits.",
+  "url": "http://arxiv.org/abs/2605.22909v1",
+  "pdf": "https://arxiv.org/pdf/2605.22909v1",
+  "type": "theory",
+  "summary": "This paper proposes a new nonlinear cross-entropy metric to verify quantum advantage in shallow-depth random circuits. It proves that this metric is resistant to classical spoofing and is highly sample-efficient even in the presence of depolarizing noise. The work provides exact analytical solutions for these benchmarks using many-body physics techniques.",
+  "main_problem": "Existing benchmarks like linear cross-entropy (LXEB) for random circuit sampling can be classically spoofed by noise, making it difficult to verify quantum advantage in shallow-depth circuits.",
+  "main_result": "The authors demonstrate that nonlinear cross-entropy (log XEB) provides a sample-efficient benchmark that can distinguish noisy quantum computers from classical spoofers, and they develop a HOG-based classifier with logarithmic sample complexity.",
+  "method": "The study uses the replica trick and large-n mean-field techniques applied to Brownian circuit ensembles, supplemented by numerical simulations of discrete Haar-random unitary circuits.",
+  "model_or_system": "The model consists of n-qubit all-to-all Brownian quantum circuits with single-qubit depolarizing noise, which can be mapped to a quantum statistical mechanics problem with an effective many-body Hamiltonian.",
+  "key_observables": "Nonlinear cross-entropy (log XEB), Heavy Output Generation (HOG) fingerprints, and the variance of the XEB score.",
+  "important_parameters": "Circuit depth (parameterized by a), system size (n), and noise rate (gamma).",
+  "main_assumptions": "The analysis assumes all-to-all connectivity and utilizes the large-n limit and the Brownian (continuous-time) approximation of discrete circuits.",
+  "figures_summary": "Figure 1 shows the required number of samples for XEB estimation vs system size; Figure 2 illustrates the mapping to a statistical mechanics problem; Figure 6 shows numerical estimation of expected XEB and variance for discrete circuits.",
+  "paper_structure": "The paper introduces the benchmarking challenge, defines the Brownian circuit model and its mapping to an effective Hamiltonian, derives analytic expressions for the nonlinear XEB and its variance using the replica trick, validates these results with numerical simulations of discrete circuits, and proposes a new HOG-based classifier.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.22909_figures/2605.22909_fig1.jpg",
+      "caption": "FIG. 1. Brownian random circuit models gener- ate analytically tractable matrix ensembles with tun- able circuit depth βJ and noise rate γ. A system of n qubits initialized in |0⟩evolves under the Brownian circuit U (a, blue stripes) and produces an output bit- string |x⟩with probability q(x) = |⟨x| U |0⟩|2. Using the analytic expressions in Eq. (3) and (4) we plot the number m of bitstring samples (b) required to reliably estimate the nonlinear cross-entropy as a function of sys- tem size n and circuit depth 12βJ = c log n, with noise rate r = nγ/12J = 1. The requisite number of sam- ples m is linear in system size at shallow circuit depths c < 1/2 and grows as a polynomial in n at larger...",
+      "page": 2
+    },
+    {
+      "image": "2605.22909_figures/2605.22909_fig2.jpg",
+      "caption": "FIG. 2. The Choi-Jamio lkowski isomorphism (CJI) and disorder averaging allow us to map the Brownian circuit sampling problem onto a quantum sta- tistical mechanics problem at inverse temperature β. We first apply CJI to convert quantities with multiple for- ward U and inverse U † evolutions (a, for k = 2) into an expectation value on multiple replicas (b) labeled 1L,1R,2L,2R. We then take the ensemble average over the disordered couplings Jαβ ij (t) which yields a Gibbs",
+      "page": 6
+    },
+    {
+      "image": "2605.22909_figures/2605.22909_fig3.jpg",
+      "caption": "FIG. 3. Ground states of the effective Hamilto- nian H(k) eff where each solid line represents a collection of spin singlets Nn i=1(|01⟩−|10⟩)irs,LR/ √",
+      "page": 7
+    },
+    {
+      "image": "2605.22909_figures/2605.22909_fig4.jpg",
+      "caption": "FIG. 4. Brownian circuit ensembles converge to the Haar random matrix ensemble for increas- ing circuit depth 12βJ = −log a. The finite-depth Brownian sampling distributions Pa(z) for n = 100 qubits, plotted as a function of z = dq for depths a = 0.1, 0.1/2, . . . , 0.1/16 (yellow to dark green) con- verge to the infinite-depth Porter-Thomas (PT) distri- bution lima→0 Pa(z) ≡Q(z) = e−z (black). The inset (b) shows detail of the upper-left region (grey box).",
+      "page": 8
+    },
+    {
+      "image": "2605.22909_figures/2605.22909_fig5.jpg",
+      "caption": "FIG. 5. The heavy output generation classifier reliably distinguishes between a clean Brownian circuit, a noisy circuit, and the Harvard spoofing algorithm using only a single bitstring sample. The distribution S(z) over scores z = dq (a) shifts its weight about the decision boundary z∗as we tune the noise rate nγ/12J = 0, 0.01, 0.1, 1, ∞ (black to light blue), where n = 100 and a = 1/5. The clean system (γ = 0, black) exhibits ‘score repulsion’ with heavier weight at large scores z > z∗(shaded gray) relative to the classical spoofing algorithm (γ →∞, light blue) whose distribution is dominated by low scores z < z∗. The difference ∆(log z) in these two distributions, plotted versus the...",
+      "page": 12
+    }
+  ],
+  "figure": "2605.22909_figures/2605.22909_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

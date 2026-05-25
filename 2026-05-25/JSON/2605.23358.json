@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.23358",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.PL"
+  ],
+  "is_primary_archive": true,
+  "title": "A Compilation Framework for Quantum Simulation of Non-unitary Dynamics",
+  "authors": "Qifan Huang, Minbo Gao, Li Zhou, Mingsheng Ying",
+  "abstract": "Most quantum compilers assume programs are reversible unitary circuits. This fits closed-system algorithms, but not open-system simulation, where the natural program objects are quantum channels describing non-unitary dynamics. We present a channel-first compilation framework that treats channels as first-class compilation objects. Our core IR, ChannelIR, represents channels explicitly in Kraus form, a standard channel representation, with Pauli-sum structure, enabling algebraic rewrites before circuit synthesis. We instantiate the framework with LindFront, a frontend that lowers continuous-time Lindbladian generators to short-time channels, and a backend that compiles these channels to executable circuits with structure-aware optimizations. On Lindbladian and channel-simulation benchmarks, the optimized pipeline reduces gate count by up to 99% over an unoptimized channel-first baseline and scales better than circuit-first Stinespring compilation.",
+  "url": "http://arxiv.org/abs/2605.23358v1",
+  "pdf": "https://arxiv.org/pdf/2605.23358v1",
+  "type": "theory",
+  "summary": "This paper introduces a new compilation framework that treats quantum channels as primary objects rather than decomposing them into unitaries prematurely. By using a specialized intermediate representation, it enables algebraic optimizations that drastically reduce the gate and ancilla overhead for simulating open quantum systems.",
+  "main_problem": "Existing quantum compilers are optimized for unitary (closed-system) circuits, making them inefficient for simulating open-system dynamics where non-unitary quantum channels are the natural objects.",
+  "main_result": "The proposed ChannelIR framework achieves up to a 99% reduction in gate count and significantly improves compilation scalability compared to traditional circuit-first Stinespring dilation methods.",
+  "method": "A channel-first compilation pipeline using a hierarchical intermediate representation (ChannelIR) that supports Kraus form and Pauli-sum structures, combined with algebraic rewriting and structure-aware circuit synthesis (LCU and channel-LCU).",
+  "model_or_system": "The framework models open quantum systems using Lindbladian master equations, representing continuous-time dynamics through Kraus operator-sum representations and short-time channel approximations.",
+  "key_observables": "Gate count (CX, T, etc.), circuit depth, qubit count (width), and trace distance error.",
+  "important_parameters": "Markovian dynamics, Lindbladian generators, and simulation error tolerances.",
+  "main_assumptions": "The dynamics are assumed to be Markovian, and the framework focuses on the high cost of non-Clifford (T) gates in fault-tolerant computing.",
+  "figures_summary": "Figures illustrate the ChannelIR Kraus form, circuit optimization for block-encoding, the complete compilation workflow, the syntax of the IR, and performance comparisons of gate counts and simulation errors against theoretical bounds.",
+  "paper_structure": "The paper introduces the problem of abstraction mismatch, presents the ChannelIR framework and its algebraic rewrite rules, details the LindFront frontend and circuit synthesis backend, provides formal proofs for rule correctness and optimization complexity, and concludes with benchmarks on Lindbladian simulation and scalability.",
+  "why_interesting": "It provides a specialized compilation infrastructure for simulating dissipative and decohering processes, which is essential for modeling realistic many-body dynamics and open quantum systems on near-term and fault-tolerant hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.23358_figures/2605.23358_fig1.jpg",
+      "caption": "Fig. 3. Compilation workflow for the motivating example.",
+      "page": 7
+    },
+    {
+      "image": "2605.23358_figures/2605.23358_fig2.jpg",
+      "caption": "Fig. 7. Two optimization targets in the LCU implementation pipeline: (a) the channel-level multiplexor over Kraus block-encodings, and (b) the block-encoding-level multiplexor over Pauli terms.",
+      "page": 14
+    },
+    {
+      "image": "2605.23358_figures/2605.23358_fig3.jpg",
+      "caption": "Fig. 8. Flattening a 3- controlled gate.",
+      "page": 15
+    },
+    {
+      "image": "2605.23358_figures/2605.23358_fig4.jpg",
+      "caption": "Fig. 9. A channel-level SELECTC oracle with 8 Kraus operators after optimization by conditional flattening (unary iteration).",
+      "page": 15
+    },
+    {
+      "image": "2605.23358_figures/2605.23358_fig5.jpg",
+      "caption": "Fig. 10. A sketched workflow of Technique II. The first stage assigns Pauli strings into low-cost control addresses by exploiting symplectic structure, while the second stage reconstructs a monotone-control decom- position and the associated phase information for the final implementation.",
+      "page": 17
+    }
+  ],
+  "figure": "2605.23358_figures/2605.23358_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

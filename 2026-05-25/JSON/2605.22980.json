@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.22980",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Automatic De-Quantization of Quantum Programs Using Constant Propagation",
+  "authors": "Lian Remme, Alexander Weinert, Andre Waschk, Lukas Burgholzer, Robert Wille",
+  "abstract": "Quantum computing promises to solve problems beyond the reach of classical computers, but today's quantum hardware is error-prone and much slower than classical hardware. Every quantum operation is costly, making it crucial to minimize quantum resource usage in near-term algorithms. Quantum resources should only be used when they are truly essential for quantum advantage, and not wasted on operations that can be efficiently handled by classical computation.   In this work, we focus on de-quantizing quantum operations to classical computation whenever possible. The approach we propose for this is hybrid quantum-classical constant propagation, an optimization which reduces quantum operations by trading them for fast, reliable classical instructions. This is done by tracking between quantum and classical states to identify and eliminate unnecessary quantum gates and controls.   We formalize a hybrid state model for quantum-classical constant propagation, implement our optimizations in the open-source MQT Core tool, and evaluate them on benchmark circuits.   The obtained results show that quantum-classical constant propagation can reduce costly multi-qubit operations, making quantum programs more practical and robust for near-term devices. This opens the door to new hybrid compiler strategies that leverage the best of both quantum and classical worlds.",
+  "url": "http://arxiv.org/abs/2605.22980v1",
+  "pdf": "https://arxiv.org/pdf/2605.22980v1",
+  "type": "theory",
+  "summary": "This paper introduces a compiler optimization technique called hybrid quantum-classical constant propagation that identifies and replaces unnecessary quantum gates with classical instructions. By tracking both quantum and classical information, the method reduces the resource burden on error-prone NISQ hardware. The approach is implemented in the MQT Core toolkit and shows significant promise for reducing multi-qubit gate counts in complex algorithms.",
+  "main_problem": "The need to optimize NISQ-era quantum circuits by reducing costly quantum operations and replacing them with more efficient classical computations.",
+  "main_result": "The proposed hybrid quantum-classical constant propagation technique effectively reduces quantum gate counts and controlled gates, particularly when combined with measurement lifting, though it increases compilation time.",
+  "method": "A static analysis technique using a formal hybrid state model to track both quantum amplitudes and classical registers, implemented via the MQT Core compiler using MLIR.",
+  "model_or_system": "Dynamic quantum-classical circuits consisting of unitary gates, measurements, and resets, specifically targeting NISQ platforms like superconducting and trapped-ion QPUs.",
+  "key_observables": "Quantum gate count, controlled gate count, and compilation duration.",
+  "important_parameters": "Error rates of superconducting and trapped-ion hardware, and the N,M-representability limits used for abstract execution.",
+  "main_assumptions": "The optimization assumes the ability to implement dynamic circuits with classical-quantum feedback loops and relies on an artificial upper bound for state space complexity during analysis.",
+  "figures_summary": "Figures illustrate circuit transformations for measurement and Hadamard lifting, the use of hybrid union tables for state tracking, and bar charts comparing resource reduction and compilation time across various algorithms.",
+  "paper_structure": "The paper identifies the resource optimization problem, formalizes a hybrid quantum-classical machine state model, introduces specific optimization routines (constant propagation, measurement/Hadamard lifting), describes the MQT Core implementation, and evaluates performance using MQT Bench.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.22980_figures/2605.22980_fig1.jpg",
+      "caption": "Fig. 1: An example for a dynamic circuit. The left and right circuits are equivalent. The quantum control is removed in exchange for a classical condition on a gate.",
+      "page": 2
+    },
+    {
+      "image": "2605.22980_figures/2605.22980_fig2.jpg",
+      "caption": "Fig. 2: Measurement lifting in action: By commuting the measurement from Figure 2a forward to create the circuit in Figure 2b, a quantum control can be replaced with a classical control. This creates the circuit in Figure 2c and eliminates a costly two-qubit gate. All three circuits are equivalent.",
+      "page": 2
+    },
+    {
+      "image": "2605.22980_figures/2605.22980_fig3.jpg",
+      "caption": "Fig. 3: Hadamard lifting: By commuting Pauli and Hadamard gates, measurements can be lifted further, enabling more quantum resource reduction. To create the circuit in Figure 3b from Figure 3a, the Hadamard gate is lifted in front of the Pauli gate. Afterwards, the measurement is lifted in front of the Pauli gate and the result negated, to create Figure 3c. All three circuits are equivalent.",
+      "page": 3
+    },
+    {
+      "image": "2605.22980_figures/2605.22980_fig4.jpg",
+      "caption": "Fig. 6: If we have a CNOT target followed by a Hadamard gate followed by a measurement, one can change this to a measurement following the control. First, the target and control is flipped by applying four new Hadamard gates, which changes the circuit from the first to the second one. Then, the two Hadamard gates after each other cancel out, yielding the third circuit.",
+      "page": 5
+    },
+    {
+      "image": "2605.22980_figures/2605.22980_fig5.jpg",
+      "caption": "Fig. 8: The union table that results from the circuit in Figure 7. Adapted from [4, Figure 3].",
+      "page": 7
+    }
+  ],
+  "figure": "2605.22980_figures/2605.22980_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

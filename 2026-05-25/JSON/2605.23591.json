@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.23591",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "stat.ML",
+    "cond-mat.dis-nn",
+    "cs.LG",
+    "math.ST"
+  ],
+  "is_primary_archive": true,
+  "title": "Asymmetric Scaling Laws from Sparse Features",
+  "authors": "John Sous, Michael Winer",
+  "abstract": "We introduce a model for neural scaling laws under sparse activations. In the model, test loss is often dominated by rare coordinates that are never observed in the training input. This mechanism induces a novel bottleneck absent from dense models. We derive the asymptotic population loss in both the underparameterized and overparameterized regimes, and show that the loss exhibits a double-descent peak near the interpolation threshold -- where the number of parameters is just sufficient to fit the training data -- resulting in a loss curve governed by two distinct scaling exponents -- one for the overparameterized regime and one for the underparameterized regime -- with a gap determined by the degree of sparsity. Additionally, we derive a compute-optimal frontier that favors increasing dataset size over model capacity under fixed compute budgets. We also analyze gradient-descent dynamics and identify a scaling law for the probability that fixed-step gradient descent becomes unstable. We further show that the sparsity-induced effect persists under nonlinear activations.",
+  "url": "http://arxiv.org/abs/2605.23591v1",
+  "pdf": "https://arxiv.org/pdf/2605.23591v1",
+  "type": "both",
+  "summary": "This paper identifies sparsity as the mechanism behind the asymmetric scaling laws observed in large-scale neural networks. It proves that sparse features cause the error to decay at different rates for model size versus dataset size, suggesting that increasing data is more efficient than increasing model capacity when features are sparse.",
+  "main_problem": "Explaining the origin of asymmetric scaling laws in neural networks, where the power-law exponents for model size and dataset size differ due to sparse feature activations.",
+  "main_result": "The authors show that sparsity creates a bottleneck that induces a two-exponent scaling regime and shifts the compute-optimal strategy toward larger datasets rather than larger models.",
+  "method": "The study uses asymptotic analysis of Bayes-optimal loss, spectral analysis of the feature covariance matrix, and numerical experiments with linear and ReLU-activated random feature models.",
+  "model_or_system": "A random feature model where high-dimensional inputs have sparse activations following a power-law distribution and a variance structure controlled by sparsity and decay indices.",
+  "key_observables": "Test loss scaling exponents (alpha_N, alpha_D), probability of gradient descent divergence, and compute-optimal frontier.",
+  "important_parameters": "Sparsity index (alpha_1), variance decay index (alpha_2), model size (N), dataset size (D), and compute budget (C).",
+  "main_assumptions": "Assumes high-dimensional limits (M >> N, D), independent input coordinates, and a fixed random feature map (linear or ReLU).",
+  "figures_summary": "Figure 1 shows a phase diagram in the (alpha_1, alpha_2) plane delineating scaling regimes and GD stability; Figure 4 compares test loss scaling for sparse vs. dense models under ReLU activation.",
+  "paper_structure": "The paper introduces the sparse model, derives asymptotic scaling laws for under- and overparameterized regimes, analyzes compute-optimal resource allocation, investigates gradient descent stability, and validates findings via numerical experiments with nonlinear activations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.23591_figures/2605.23591_fig1.jpg",
+      "caption": "Figure 1: Phase diagram in (α1, α2). Solid black lines mark the boundary beyond which the model is well defined. Within it we identify three regimes: symmetric one-exponent scaling, asymmetric two- exponent scaling, and a GD-failure regime with its own scaling law.",
+      "page": 4
+    },
+    {
+      "image": "2605.23591_figures/2605.23591_fig2.jpg",
+      "caption": "Figure 2: Scaling collapse and double descent. We plot the rescaled loss ℓBayes ·NαN as a function of (DαD/NαN )1/αN , across a wide range of values for D, N, for fixed (α1 = 1.0, α2 = 0.3). All curves collapse onto a single universal function Sα1,α2, verifying a universal scale-invariant structure consistent with the predicted scaling law. A sharp peak emerges near ξcrit consistent with the double descent phenomenon at the interpolation threshold.",
+      "page": 8
+    },
+    {
+      "image": "2605.23591_figures/2605.23591_fig3.jpg",
+      "caption": "Figure 3: Empirical scaling of loss with compute. Each curve corresponds to test loss ℓversus total compute C for a fixed model size N, with C varied by sweeping D, for fixed (α1 = 1.0, α2 = 0.3). The dashed line denotes the predicted compute-optimal scaling ℓ∗(C) ∼C−αC. The empirical loss converges toward this frontier at high compute, just past the double descent spike for each curve demonstrating agreement between theory and experiment.",
+      "page": 10
+    },
+    {
+      "image": "2605.23591_figures/2605.23591_fig4.jpg",
+      "caption": "Figure 4: Asymmetry persists under nonlin- earity. Test loss scaling under the ReLU feature map ϕ = σ(ux), trained with Nesterov + adaptive restart; (α1, α2) = (1.0, 0.3), 5 seeds. Top: sparse; bottom: dense. Left: N-sweep at D = 50,000; right: D-sweep at N = 8000. A single exponent α ≈1.5 (dashed lines, jointly fitted with separate intercepts) describes the sparse N-, dense N-, and dense D- sweeps. The sparse D-sweep requires its own shal- lower fit, αD ≈1.2, breaking the dense-baseline sym- metry αN = αD predicted by linear theory.",
+      "page": 11
+    },
+    {
+      "image": "2605.23591_figures/2605.23591_fig5.jpg",
+      "caption": "Figure 5: Two-exponent scaling validates linear theory. Test loss scaling under the linear feature map ϕ(x) = ux, computed via the closed-form min- norm least-squares solution; (α1, α2) = (1.0, 0.3), 20 seeds. Top: sparse; bottom: dense. Left: N-sweep at D = 50,000; right: D-sweep at N = 16,000. A single exponent α ≈2.0 (dashed lines, jointly fitted with separate intercepts) describes the sparse N-, dense N-, and dense D-sweeps, in close agreement with the linear-theory prediction αN = α1 + α2 + 1 = 2.30. The sparse D-sweep requires its own shallower fit, αD ≈1.11, matching the predicted sparse exponent αD = (α1 + α2 + 1)/(α1 + 1) = 1.15 and breaking the dense-baseline symmetry αN = αD.",
+      "page": 32
+    }
+  ],
+  "figure": "2605.23591_figures/2605.23591_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
