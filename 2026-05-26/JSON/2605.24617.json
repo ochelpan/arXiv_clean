@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2605.24617",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Transformer refined quantum sampling for strongly correlated electronic structure",
+  "authors": "Xiongzhi Zeng, Ming Gong, Bowen Kan, Yi Fan, Huan Ma, Jianbin Cai, Yancheng Liu, Naibin Zhou, Tao Jiang, Shaojun Guo, Zhijie Fan, Zongkang Zhang, Yuan Li, Sirui Cao, Kai Yan, Xiaobo Zhu, Yi Luo, Honghui Shang, Zhenyu Li, Jian-Wei Pan, Jinlong Yang",
+  "abstract": "Although quantum computing offers a promising solution for strongly correlated system simulation, existing algorithms face significant bottlenecks on current noisy intermediate-scale quantum (NISQ) devices. Here, we introduce QiankunNet-QSCI, a hybrid quantum-classical framework that addresses this challenge by combining efficient quantum-sampling with a transformer neural network. An efficient unitary selected configuration Interaction (USCI) ansatz especially designed for quantum sampling is proposed to identify the most chemically significant electronic configurations on the Zuchongzhi 3.1 quantum processor. Subsequently, the transformer model QiankunNet learns from these sparse yet critical quantum data to infer and reconstruct the complete electronic wavefunction with high fidelity. Simulation of the challenging 40-qubit [2Fe-2S] ferredoxin active center achieves chemical accuracy. Simulation of the nitrogenase P-cluster in a 114-electron 73-orbital active space also reaches 12 milli-Hartree-level agreement with the best density matrix renormalization group (DMRG) result. QiankunNet-QSCI thus offers a practical route to accurate quantum-assisted electronic structure calculations on current devices.",
+  "url": "http://arxiv.org/abs/2605.24617v1",
+  "pdf": "https://arxiv.org/pdf/2605.24617v1",
+  "type": "both",
+  "summary": "This paper presents a hybrid quantum-classical framework that uses a quantum processor to sample important electronic configurations and a Transformer neural network to refine the resulting wavefunction. It successfully demonstrates high-accuracy simulations of large, strongly correlated biological clusters that are challenging for classical computers.",
+  "main_problem": "Accurately simulating strongly correlated electronic structures on NISQ-era quantum hardware, which is hindered by noise, high measurement costs, and the exponential growth of the Hilbert space.",
+  "main_result": "The QiankunNet-QSCI framework achieves chemical accuracy for a 40-qubit ferredoxin cluster and reaches 12-18 milli-Hartree agreement with DMRG for a massive 146-spin-orbital nitrogenase P-cluster.",
+  "method": "A hybrid quantum-classical approach using a Unitary Selected Configuration Interaction (USCI) ansatz for importance sampling on a quantum processor, followed by a Transformer-based neural network (QiankunNet) for denoising and wavefunction refinement.",
+  "model_or_system": "The study utilizes the Zuchongzhi 3.1 superconducting quantum processor to simulate various systems, including the H10 ring, the [2Fe-2S] ferredoxin active center, and the large-scale nitrogenase P-cluster (CAS(114e, 73o) active space).",
+  "key_observables": "Ground-state energy, absolute energy error, excitation rank, single-orbital entropy, mutual information, and sampling enrichment factor.",
+  "important_parameters": "Gate error rates (single-qubit ~0.1%, two-qubit ~0.6%), readout error (~0.6%), and the number of shots (up to 10^8).",
+  "main_assumptions": "The framework assumes a global depolarizing noise model and focuses on the importance of the chemically significant determinant sector.",
+  "figures_summary": "Figure 1 shows the workflow stages (Quantum, Data, AI); Figure 2 validates the H10 ring; Figure 4c compares energy errors against classical methods and DMRG; supplementary figures show hardware metrics, circuit depths, and sampling distributions.",
+  "paper_structure": "The paper introduces the scientific challenge, details the USCI quantum sampling and QiankunNet Transformer architecture, presents experimental implementation on Zuchongzhi 3.1, demonstrates scalability through various molecular benchmarks, and concludes with error analysis and future outlook.",
+  "why_interesting": "It demonstrates a powerful synergy between quantum hardware-native sampling and classical machine learning to overcome the limitations of NISQ noise and the exponential scaling of many-body wavefunctions.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.24617_figures/2605.24617_fig1.jpg",
+      "caption": "Fig. 1 QiankunNet-QSCI workflow. (a) Quantum workflow, in which a compact USCI ansatz is executed on quantum hardware to generate focused determinant samples. (b) Data workflow, where raw bitstrings are symmetry filtered, expanded, and assembled into a constrained subspace Hamiltonian. (c) AI workflow, in which QiankunNet is trained to denoise, complete, and refine the sampled wavefunction.",
+      "page": 4
+    },
+    {
+      "image": "2605.24617_figures/2605.24617_fig2.jpg",
+      "caption": "Fig. 2 Quantum Hardware Validation on H₁₀ Ring System. (a) Layout of the 20 qubits on Zuchongzhi 3.1 with the LUCJ entangler path highlighted in blue. (b) Qubit sub-lattice used for the 8-qubit USCI cluster highlighted in blue. (c) Absolute energy error versus iteration for QiankunNet with random initialization (orange), QiankunNet initialized with LUCJ (yellow), and QiankunNet initialized with USCI (purple). Energy errors from classical methods CISD (dotted line) and CCSD (dashed line) are provided for comparison. The shaded gray region marks the chemical accuracy threshold (1.6×10⁻³ Ha). The inset provides an enlarged view of the early iterations and the structure of H10 ring.",
+      "page": 5
+    },
+    {
+      "image": "2605.24617_figures/2605.24617_fig3.jpg",
+      "caption": "Fig. 3 Chemical-accuracy solution of the [2Fe-2S] cluster. (a) Molecular structure of the [Fe2S2(SCH3)4]2- cluster. (b) Qubit layout on Zuchongzhi 3.1 for the 40-qubit experiment. (c) Energy and absolute energy error (inset) versus the number of retained configurations. The number of determinants sampled for local energy calculation is used for QiankunNet. Hardware data for USCI-based sampling on Zuchongzhi 3.1 and LUCJ-based sampling on IBM hardware are shown together with classical baselines. The shaded region marks chemical accuracy (1.6×10⁻³ Ha). Quantum results: QiankunNet-QSCI (QiankunNet+Zuchongzhi 3.1: red star), Zuchongzhi 3.1 with USCI ansatz (Zuchongzhi 3.1: cyan squares) and...",
+      "page": 6
+    },
+    {
+      "image": "2605.24617_figures/2605.24617_fig4.jpg",
+      "caption": "Fig. 4 Wavefunction analysis of the [2Fe-2S] ground state and benchmark comparison for the P-cluster. (a) Distribution of retained configurations by excitation rank relative to the Hartree-Fock reference. (b) Single-orbital entropies for the 40 spin orbitals. (c) Energy errors for the P-cluster CAS(114e,73o) model, referenced to DMRG extrapolation,31 using different models including SHCI (ϵ=10−4), TrimCI42, DMRG (D=1000, 2000, 3000, and 4000)30, DMRG (D=5000)43 and DMRG (D=14000)31.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.24617_figures/2605.24617_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.25607",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "q-bio.NC",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Balancing structure and randomness: maximum entropy networks for context-dependent computations",
+  "authors": "Ludwig Hruza, Srdjan Ostojic",
+  "abstract": "Understanding how network function constrains neural connectivity is a central challenge in neuroscience. An influential approach is to train neural networks with gradient descent on cognitive tasks and characterize the resulting connectivity. A key limitation is that the resulting structure depends on the details of the training procedure. Here we propose a complementary normative approach based on the maximum entropy principle for network connectivity, independent of any particular learning algorithm. We describe connectivity as a probability distribution over single-neuron weights, express task requirements as constraints on this distribution, and determine the unique distribution maximizing Shannon entropy subject to these constraints. A weight scale parameter controls the balance between randomness and task-induced structure. We apply this framework to context-dependent input-selection tasks in 2-layer feed-forward networks, and show that maximum entropy inference becomes analytically tractable by mapping nonlinear networks onto gain-modulated linear models. Starting from an a priori homogeneous distribution, we find that maximizing entropy under task constraints leads to the emergence of populations of neurons, each defined by its pattern of contextual gain modulation. Increasing the number of contexts drives a transition from context-specialized to unspecialized, random populations. Increasing the weight scale drives a parallel transition from structured to random stimulus selectivity. Strikingly, this maximum entropy connectivity matches both qualitatively and quantitatively the structure of networks trained with gradient descent across different learning regimes. Our results suggest that the interplay between task constraints and entropy maximization provides a fundamental principle for understanding the relationship between structure and function in neural networks.",
+  "url": "http://arxiv.org/abs/2605.25607v1",
+  "pdf": "https://arxiv.org/pdf/2605.25607v1",
+  "type": "theory",
+  "summary": "The paper proposes a principle-based approach to neural connectivity using maximum entropy to find the most random distribution of weights that still satisfies specific task requirements. It demonstrates that this framework naturally predicts the emergence of specialized neuron populations and matches the results of standard machine learning training algorithms.",
+  "main_problem": "Understanding how neural connectivity structure is constrained by network function and addressing the dependency of current gradient-descent approaches on specific training procedures.",
+  "main_result": "The authors show that a maximum entropy approach, which maximizes Shannon entropy subject to task constraints, produces a connectivity structure that matches networks trained via gradient descent both qualitatively and quantitatively.",
+  "method": "A normative approach using the maximum entropy principle, mapping nonlinear networks onto gain-modulated linear models, and employing Lagrangian optimization and saddle-point approximations.",
+  "model_or_system": "A one-hidden-layer feed-forward neural network in the mean-field limit, performing context-dependent input-selection tasks where contextual signals act as multiplicative gains.",
+  "key_observables": "Weight correlations (between output and input weights, and between different input weights), neuron selectivity, and the probability distribution of gains.",
+  "important_parameters": "Weight scale parameter (sigma^2), number of contexts (K), and gain types (binary vs. continuous).",
+  "main_assumptions": "The network operates in the large N (mean-field) limit, neurons are independent and identically distributed (i.i.d.), and connectivity can be described by a smooth probability distribution.",
+  "figures_summary": "Figure 1 illustrates the network architecture and its mapping to a gain-modulated model; Figure 2 shows weight scatter plots; Figure 4 displays the MaxEnt distribution for continuous gains; Figure 5 compares binary and continuous gains; Figure 6 compares gradient descent training to MaxEnt predictions; Figure 7 shows numerical vs. analytical solutions for Lagrange multipliers.",
+  "paper_structure": "The paper introduces the problem of structure-function relationship, proposes a MaxEnt framework, derives the analytical solution via linearization and Lagrangian optimization, explores different regimes (varying K and weight scale), validates the theory against gradient descent simulations, and provides asymptotic analysis for large K.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25607_figures/2605.25607_fig1.jpg",
+      "caption": "Figure 1: Model structure. A: We start from a standard feed-forward network with a hidden layer of size N, receiving K stimuli u = (ua)K a=1 and one of K contextual signals ec = (δac)K a=1 through input weights I, H ∈RN×K and output weights w ∈RN, and with a non-linear activation function ϕ (Eq. (5)). B: We map this model to a gain-modulated linear network, where each contextual input is replaced by a gain pattern Dc = Dec ∈RN that modulates inputs multiplicatively in an otherwise linear network (Eq. (7)).",
+      "page": 4
+    },
+    {
+      "image": "2605.25607_figures/2605.25607_fig2.jpg",
+      "caption": "Figure 2: Maximum Entropy distribution for K = 2 contexts and binary gains. The four configurations of gains for two contexts define four populations of neurons with D = (D1, D2) = (0, 1), (1, 0), (1, 1) and (0, 0), represented in different colors. A, B: Samples (N = 5000) from the maximum entropy distribution for σ2 = 2 (panel A) and σ2 = 5 (panel B), projected onto the planes (w, I1), (w, I2) and (I1, I2). C, D: The covariance matrix of each pair of weights is represented as an ellipse for each population (direction: largest eigenvector, width and height: eigenvalues), for σ2 = 2 (panel C) and σ2 = 5 (panel D) E: Fraction of neurons in each population as a function of the weight scale σ2...",
+      "page": 7
+    },
+    {
+      "image": "2605.25607_figures/2605.25607_fig3.jpg",
+      "caption": "Figure 3: Maximum Entropy distribution for K = 10 contexts and binary gains. We condition the gain values of the first two contexts (D1, D2) = (0, 1), (1, 0), (1, 1) and (0, 0), and average over gain values in other contexts. The four resulting populations are shown in four different colors. A, B: Samples (N = 5000) from the maximum entropy distribution for σ2 = 2 (panel A) and σ2 = 5 (panel B), projected onto the planes (w, I1), (w, I2) and (I1, I2). C, D: The covariance matrix of each pair of weights is represented as an ellipse for each population (direction: largest eigenvector, width and height: eigenvalues) for σ2 = 2 (panel C) and σ2 = 5 (panel D). E: Probability of the four gain...",
+      "page": 9
+    },
+    {
+      "image": "2605.25607_figures/2605.25607_fig4.jpg",
+      "caption": "Figure 4: Maximum entropy distribution for continuous gains and K = 2 as a function of continuous valued (D1, D2) ∈[0, 1]2. A, B, C: Probability, correlation and selectivity for σ2 = 4. The most probable gain configurations are (D1, D2) = (1, 0) and (0, 1). For these two configurations, the correlations between w and I1 is maximal (equal to ±1) and of opposite sign (panel B, left). For these configurations, there is also preferential selectivity in the input weights since the correlation between I1 and I2 is maximally negative (approximately −1, B left), which is reflected in non-zero and opposite selectivity (panel C). D,E,F: Probability, correlation and selectivity for σ2 = 10. Here all...",
+      "page": 10
+    },
+    {
+      "image": "2605.25607_figures/2605.25607_fig5.jpg",
+      "caption": "Figure 5: Comparison between binary (top) and continuous gains (bottom) for different values of K. Instead of conditioning on (D1, D2) as before, we only condition on the values D1, which corresponds to how the network would operate in context c = 1. A,B,C Probability, correlation and selectivity for binary gains as a function of the weight scale σ2 when conditioned on D1 = 1 (solid lines) or D1 = 0 (dashed lines). We also added the asymptotic curves for K →∞. D,E,F: Same but for continuous gains, conditioned on D1 > 0.5 (solid lines) or D1 < 0.5 (dashed lines). For continuous gains there is a K-dependent threshold on the minimal value of σ2 that is allowed to avoid complex values in the...",
+      "page": 11
+    }
+  ],
+  "figure": "2605.25607_figures/2605.25607_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

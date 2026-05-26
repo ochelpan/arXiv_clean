@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.24271",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Streaming Molecular Dynamics Simulation Data for On-the-fly Processing and Analysis",
+  "authors": "Amruthesh Thirumalaiswamy, Lawson J. Woods, Heekun Cho, Hugo MacDermott-Opeskin, Jennifer Clark, Irfan Alibay, Yuxuan Zhuang, Oliver Beckstein, Matthias Heyden",
+  "abstract": "Only a small fraction of the data generated in state-of-the-art all-atom multi-microsecond molecular dynamics (MD) simulations is typically analyzed. With femtosecond integration steps, microsecond simulations generate billions of time steps containing atomic positions, velocities, and forces, often corresponding to petabytes of data. Since this exceeds practical storage capacities, only a subset of frames is usually written to trajectory files at intervals of 10-100 ps. While sufficient for ensemble averages and slow dynamics, this approach discards information on fast processes such as molecular vibrations, solvent dynamics, short-lived transition states, and transport phenomena that are directly related to macroscopic properties and experimental observables. Here, we introduce a streaming framework for MD simulations that provides direct access to all data generated during a running simulation. Instead of writing high-frequency output to disk, the framework enables user-defined analysis and processing routines to access simulation data in real time. To achieve this, we extend the Interactive Molecular Dynamics (IMD) protocol and implement an enhanced version, termed IMDv3, in the MD packages GROMACS, NAMD, and LAMMPS. We further introduce the Python package imdclient, which receives IMDv3 data streams and exposes them to external applications. To maximize usability, we add an imdclient-based reader to the MDAnalysis package, enabling streamed simulation data to be analyzed alongside conventional trajectory files. Benchmark results show that streaming can improve performance compared to simulations with high-frequency trajectory output. Example applications include live monitoring of custom variables, evaluation of velocity time-correlation functions with fast fluctuations, and real-time analysis of membrane pore currents.",
+  "url": "http://arxiv.org/abs/2605.24271v1",
+  "pdf": "https://arxiv.org/pdf/2605.24271v1",
+  "type": "theory",
+  "summary": "This paper presents a new streaming framework for molecular dynamics that allows simulation data to be analyzed in real-time as it is generated. By using the IMDv3 protocol, researchers can monitor fast-scale physical phenomena without the massive storage overhead or performance penalties associated with traditional high-frequency trajectory files.",
+  "main_problem": "Large-scale molecular dynamics simulations generate petabytes of data, creating a bottleneck where frequent disk writes for high-resolution trajectories degrade performance and storage limits force researchers to discard high-frequency physical information.",
+  "main_result": "The introduction of the IMDv3 protocol enables real-time data streaming from GROMACS, NAMD, and LAMMPS to a Python client, providing a performance advantage over high-frequency file I/O and allowing for on-the-fly analysis of fast physical processes.",
+  "method": "The authors developed the IMDv3 protocol for TCP/IP data streaming, implemented it in major MD engines, and created the 'imdclient' Python package with an integrated MDAnalysis reader for real-time processing.",
+  "model_or_system": "The framework is applied to all-atom molecular dynamics simulations of complex systems, including proteins (Lysozyme), solvent dynamics, and bead-spring polymers.",
+  "key_observables": "Atomic positions, velocities, forces, energies, simulation time, and box dimensions.",
+  "important_parameters": "Transmission rate (trate), buffer size, and data transfer intervals.",
+  "main_assumptions": "The current implementation does not support random access or rewinding of streamed data, and force feedback is not yet supported in all engines.",
+  "figures_summary": "Figure 1 shows the IMDv3 data flow from engine to client; Figure 2 illustrates the FIFO buffer mechanism; Figure 3 compares simulation performance across various streaming and file I/O scenarios.",
+  "paper_structure": "The paper identifies the data bottleneck problem, introduces the IMDv3 protocol and software architecture, details the implementation in major MD packages, presents benchmarking results comparing streaming to file I/O, and demonstrates real-time analysis applications.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.24271_figures/2605.24271_fig1.jpg",
+      "caption": "FIG. 1: Streaming Data using IMDv3: The schematic illustrates the information flow when using IMDv3. The simulation engine (producer, red) interacts with the receiver (client, blue), namely the imdclient package, via a TCP/IP socket interface. Here, the MDAnalysis package (yellow) calls the client and loads the streaming data into standard MDAnalysis data structures. First, the client establishes a connection with the simulation engine, which can be configured to wait for such a connection prior to starting the simulation. Once the connection is established, the simulation engine starts the simulation and streams data to the client. imdclient processes this incoming data and stores data...",
+      "page": 5
+    },
+    {
+      "image": "2605.24271_figures/2605.24271_fig2.jpg",
+      "caption": "FIG. 2: Data processing workflow for imdclient: Streaming data is received by imdclient via the TCP/IP interface and stored temporarily in an application-level buffer. This buffer is a fixed chunk of storage in the system’s memory that operates as a FIFO (first-in-first-out) data structure implemented via 2 queues – an empty queue which can store incoming data and a full queue which already has data that is ready to be processed. As the calling code requests newer frames, imdclient makes them available in the form of a Python dictionary from this full queue. See Sec. S3 B for more details.",
+      "page": 7
+    },
+    {
+      "image": "2605.24271_figures/2605.24271_fig3.jpg",
+      "caption": "FIG. 3: Streaming is > 5× faster than file I/O in GROMACS: We compare various streaming- and file I/O based scenarios in GROMACS. For conventional data writing to files, we run 3 different scenarios viz. writing positions to a TRR (trr-x) or an XTC file (xtc-x) and writing positions-velocities-forces to a TRR file (trr-xvf). These are compared with streaming the same set of data (IMDv3-x and IMDv3-xvf) over to a receiver that simply processes and loops through incoming frames. Streaming provides a significant advantage which is most pronounced at lowest streaming/file I/O frequencies. The gray dashed line at the top provides the optimal baseline performance achieved without any file I/O or...",
+      "page": 9
+    },
+    {
+      "image": "2605.24271_figures/2605.24271_fig4.jpg",
+      "caption": "FIG. 4: Streaming is > 10× faster than file I/O in LAMMPS: Comparing various streaming and file I/O scenarios in LAMMPS, as we did for GROMACS, give us interesting insights into the LAMMPS streaming implementation. For file I/O in LAMMPS, we consider writing positions to a LAMMPS dump file (lammpsdump-x) as the only scenario due to disk space constraints and high runtimes. While streaming in LAMMPS (IMDv3-x) does provide > 10 speed as compared to LAMMPSdump-x at lowest output intervals, the performance stays well below the optimal baseline. Even at the highest streaming intervals considered, streaming shows a constant deviation from the baseline. Meanwhile file I/O, while reaching closer to...",
+      "page": 10
+    },
+    {
+      "image": "2605.24271_figures/2605.24271_fig5.jpg",
+      "caption": "FIG. 5: Streaming is ∼1.5× faster than file I/O in NAMD: We perform the same comparison of streaming and file I/O scenarios for NAMD as we did for LAMMPS and GROMACS. Here, file I/O cases considered are – writing positions to a DCD file (dcd-x) and writing positions, velocities and forces to a dcd file (dcd-xvf). Unlike GROMACS, we notice that NAMD provides a slimmer advantage for streaming over file I/O at ∼1.5 for the lowest streaming/file I/O intervals. This speedup reduces at higher intervals with both scenarios asymptotically trending to the baseline. Similar to LAMMPS, the streaming curves show some deviation here, indicating a larger per-step overhead, t(0) s in the streaming...",
+      "page": 11
+    }
+  ],
+  "figure": "2605.24271_figures/2605.24271_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

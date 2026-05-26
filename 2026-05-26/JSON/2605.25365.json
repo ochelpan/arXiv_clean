@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.25365",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Parameterized Self-Attention Network for Image Classification",
+  "authors": "Wenwei Zhang, Jintao Wang, Tianyu Ye, Changgeng Liao",
+  "abstract": "Transformer now underpins modern AI as its core infrastructure. Its defining capability-dynamically focusing on the most relevant information in complex inputs-is bounded above by the self-attention scoring function. Quantum computing, with its superposition, entanglement, and probabilistic outputs, offers a fundamentally distinct computational framework for exploring beyond the design constraints of classical scoring functions. While quantum attention mechanisms have shown initial promise, existing works remain largely confined to redefining feature similarity measures, leaving the systematic use of parameterized quantum circuits (PQCs) as scoring functions largely unexplored; a substantial portion of existing schemes further rely on purely quantum architectures, precluding effective encoding of high-dimensional image inputs in the Noisy Intermediate-Scale Quantum era. We propose the Quantum Parameterized Self-Attention Network (QPSAN), implementing the self-attention scoring function via PQCs with only 5 trainable quantum parameters per layer. QPSAN computes query-key attention scores through quantum state encoding and joint measurement, yielding naturally bounded outputs without the explicit scaling of classical dot-product attention. We further establish a theoretical framework of the mathematical properties of this scoring function, demonstrating its potential to capture complex nonlinear query-key interactions, and quantifying the structural constraints of the encoding layer via effective degrees of freedom analysis. Experiments on four vision datasets show that QPSAN significantly outperforms the Vision Transformer (ViT) baseline, with the quantum representational advantage amplifying as data complexity increases. Ablation studies indicate that the performance gains may stem from the structural inductive bias of the quantum circuit rather than from parameter scale.",
+  "url": "http://arxiv.org/abs/2605.25365v1",
+  "pdf": "https://arxiv.org/pdf/2605.25365v1",
+  "type": "both",
+  "summary": "This paper introduces a hybrid quantum-classical neural network that replaces the classical dot-product attention mechanism with a parameterized quantum circuit. By leveraging quantum features like entanglement and non-monotonicity, the model achieves higher accuracy in image classification tasks compared to standard Vision Transformers.",
+  "main_problem": "The paper addresses the limitations of classical self-attention, such as linear operations and unbounded output ranges, by exploring whether a quantum-enhanced scoring function can provide superior structural inductive biases like non-separability and non-monotonicity.",
+  "main_result": "The proposed QPSAN architecture significantly outperforms the Vision Transformer (ViT) baseline on several image classification datasets, with the quantum advantage increasing alongside data complexity.",
+  "method": "The authors use a hybrid quantum-classical Variational Quantum Algorithm (VQA) framework, implementing a two-qubit Parameterized Quantum Circuit (PQC) as the attention scoring module and optimizing it via classical backpropagation.",
+  "model_or_system": "A hybrid architecture consisting of a classical Vision Transformer (ViT) backbone integrated with a Quantum Parameterized Self-Attention (QPA) module, which utilizes a two-qubit circuit with an encode-entangle-measure design.",
+  "key_observables": "The attention score $\\mu_d(q, k)$, calculated as the joint measurement probability $P(|00\\rangle) + P(|11\\rangle)$ in the computational basis.",
+  "important_parameters": "Five trainable quantum parameters: $\\theta_s$ (initial encoding), $\\gamma_d$ (difference encoding), $\\gamma_s$ (sum encoding), $\\alpha$ (entanglement), and $\\beta$ (mixer).",
+  "main_assumptions": "The proofs for non-monotonicity and asymmetry assume non-zero values for encoding and entanglement parameters; the study also assumes the ability to classically simulate the circuit for validation.",
+  "figures_summary": "Figure 1 shows the hybrid VQA architecture; Figure 2 illustrates the QPSAN architecture replacing classical dot-product; Figure 3 shows the circuit structure; Figure 8 shows the impact of various quantum noise channels on accuracy.",
+  "paper_structure": "The paper introduces the problem of classical attention limitations, proposes the QPSAN architecture, provides a mathematical framework proving the scoring function's properties (non-separability, asymmetry, non-monotonicity), presents experimental results on vision datasets, and conducts ablation and noise robustness studies.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25365_figures/2605.25365_fig1.jpg",
+      "caption": "Fig. 1. The VQA hybrid computational architecture: the quantum computer handles quantum state manipulation, while the classical computer performs parameter optimization and iterative updates.",
+      "page": 2
+    },
+    {
+      "image": "2605.25365_figures/2605.25365_fig2.jpg",
+      "caption": "Fig. 2. Overall architecture of QPSAN. The core distinction from classical ViT is the replacement of the dot-product operation with the QPA Scoring Module.",
+      "page": 4
+    },
+    {
+      "image": "2605.25365_figures/2605.25365_fig3.jpg",
+      "caption": "Fig. 3. QPA module circuit structure. The upper wire is Q0, corresponding to the d-th dimension input scalar q = Qi,d; the lower wire is Q1, corresponding to the d-th dimension input scalar k = Kj,d; the circuit runs independently for each dimension, outputting per-dimension attention score components µd via joint measurement.",
+      "page": 5
+    },
+    {
+      "image": "2605.25365_figures/2605.25365_fig4.jpg",
+      "caption": "Fig. 4. Bar chart of hyperparameter search results. C denotes the classical ViT model; Q denotes the quantum QPSAN model. Indices 1–5 on the learning rate axis correspond to learning rates 5 × 10−3, 2 × 10−3, 10−3, 5 × 10−4, and 10−4, respectively; the final training configuration is determined jointly by accuracy and training stability (measured by standard deviation), marked with a red star. Panels (c) and (g) show CF dataset search results: the combination with the highest mean accuracy has a relatively large standard deviation (C-CF: 0.012; Q-CF: 0.011), so the configuration with slightly lower accuracy but substantially smaller standard deviation (C-CF: 0.005; Q-CF: 0.0004) is selected...",
+      "page": 8
+    },
+    {
+      "image": "2605.25365_figures/2605.25365_fig5.jpg",
+      "caption": "Fig. 5. Comparison of QPSAN and ViT results on the four datasets across five evaluation metrics: validation accuracy, precision, recall, F1-score, and AUC-ROC.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.25365_figures/2605.25365_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

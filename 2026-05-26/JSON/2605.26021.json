@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.26021",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Toward General Quantum Control with Physics-Informed Large Language Models",
+  "authors": "Yusheng Zhao, Han Wang, Xin Liu, Xinjie Song, Jixi He, Lingwei Song, Yuanhe Ji, Ken Deng, Runqing Zhang, Zhiguo Huang, Ling Qian, Jize Han, Di Luo",
+  "abstract": "Quantum control is essential for quantum information science and technology, yet designing high-fidelity control protocols remains challenging due to complex optimization landscapes, hardware noise, and long pulse sequences. Existing numerical solvers often require problem-specific engineering and produce opaque control amplitudes, while naive large language models (LLMs) lack the physical consistency and long-horizon precision for reliable quantum control synthesis. Here we introduce VF-QCTRL, a physics-informed large language model framework for general quantum control that combines symbolic reasoning with optimization to propose analytic control ansätze and coherently refine their parameters through feedback. To systematically evaluate LLM-driven quantum control, we develop QCTRL-BENCH, a benchmark spanning sixteen tasks across single- and multi-qubit systems, closed and open quantum dynamics, noiseless and noisy settings, and both analytic and numerical protocols. Across the benchmark, VF-QCTRL demonstrates strong universality, accuracy, efficiency, and interpretability: it applies to generic quantum control systems without task-specific training, achieves performance competitive with or exceeding state-of-the-art conventional solvers in both noiseless and noisy regimes with query efficiency, exhibits favorable inference-time scaling and pulse resolution scaling, and derives physically interpretable analytical protocols directly from prompts. Our results establish physics-informed LLM-based quantum control as a promising paradigm for accurate, efficient, interpretable, and training-free quantum control protocol design across a broad range of quantum systems.",
+  "url": "http://arxiv.org/abs/2605.26021v1",
+  "pdf": "https://arxiv.org/pdf/2605.26021v1",
+  "type": "theory",
+  "summary": "This paper introduces VF-QCTRL, a framework that uses physics-informed large language models to propose interpretable, analytic quantum control pulses. By combining symbolic reasoning with numerical optimization, it outperforms or matches classical methods in both noiseless and noisy environments. The approach is training-free and highly scalable across various quantum platforms.",
+  "main_problem": "Designing high-fidelity quantum control protocols is difficult due to complex optimization landscapes, hardware noise, and the uninterpretability of traditional numerical solvers.",
+  "main_result": "The VF-QCTRL framework achieves performance competitive with or exceeding state-of-the-art classical solvers, providing interpretable analytic control ansatze that are robust to calibration noise.",
+  "method": "A physics-informed LLM framework that uses a Proposal Agent to generate symbolic control ansatze and a Reflection Agent to provide feedback, followed by SPSA-based numerical refinement of coefficients.",
+  "model_or_system": "A general framework applicable to diverse systems including single- and multi-qubit systems, closed and open quantum dynamics, Transmon qubits, and NMR spin systems.",
+  "key_observables": "Fidelity (state and gate overlap), query efficiency, robustness to calibration noise, and pulse-resolution scaling.",
+  "important_parameters": "Calibration noise levels (sigma = 0.02), pulse duration (T), time discretization (Nt), and coupling strengths (J).",
+  "main_assumptions": "The framework assumes that control pulses can be represented by a constrained symbolic grammar and that the LLM can reason about physical principles like counter-diabatic driving.",
+  "figures_summary": "Figure 1 illustrates the VF-QCTRL architecture and benchmark composition; Figure 2 compares fidelity across tasks in noiseless and noisy regimes; Figure 3 shows fidelity distributions under noise; Figure 5 shows alignment with analytical counter-diabatic protocols; Figure 6 shows convergence trajectories; Figure 7 compares token efficiency.",
+  "paper_structure": "The paper introduces the limitations of current methods, presents the VF-QCTRL architecture (Proposal, Reflection, and Refinement agents), introduces the QCTRL-Bench, evaluates performance across various tasks and noise regimes, and discusses scaling and interpretability.",
+  "why_interesting": "It presents a novel way to bridge symbolic physical reasoning with numerical optimization, potentially automating the discovery of robust control protocols for complex open quantum systems and many-body dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.26021_figures/2605.26021_fig1.jpg",
+      "caption": "Fig. 1: Visual summary of VF-QCTRL and QCTRL-Bench. (a) VF-QCTRL framework. Simple LLM and Hint LLM directly generate numerical pulse amplitudes, whereas VF-QCTRL provides a physics-informed large language model framework for general quantum control that combines symbolic reasoning with optimization to propose analytic control ans¨atze and coherently refine their parameters through feedback (b) Universality. Representative quantum control tasks included in QCTRL-Bench across diverse systems and dynamics. (c) Accuracy and efficiency. VF-QCTRL achieves higher fidelities and faster convergence than classical optimization and prompt-only LLM baselines. (d) Interpretability. Classical optimizers...",
+      "page": 5
+    },
+    {
+      "image": "2605.26021_figures/2605.26021_fig2.jpg",
+      "caption": "Fig. 2: Per-task best fidelity on QCTRL-Bench: VF-QCTRL versus classical and pure-LLM baselines. (a) Noiseless regime (σ = 0); the classical baseline (red dashed segment per task) is the established classical optimizer for each task (Methods, Section 3.3). (b) Calibration-noise regime (σ = 0.02); the classical baseline is exposed to the same calibration noise as VF-QCTRL. The details is documented in Methods, Section 3.4.",
+      "page": 7
+    },
+    {
+      "image": "2605.26021_figures/2605.26021_fig3.jpg",
+      "caption": "Figure 2(a) summarizes the benchmark accuracy in the noiseless setting (σ = 0) across all sixteen QCTRL-Bench tasks. We compare VF-QCTRL against two classes of baselines: established classical baselines for each task reported in the literature (e.g. GRAPE, CRAB, Krylov and reinforcement learning; see Methods, Section 3.3), and two prompt-only LLM baselines, namely Simple LLM and Hint LLM. Across the benchmark, VF-QCTRL consistently achieves high-fidelity control, reaching F ≥0.94 on every task and achieving near-unit fidelity (F ≥0.9999) on nine tasks (Figure 1b). Compared with classical optimization baselines, VF-QCTRL matches or approaches the strongest classical result on 15 out of 16...",
+      "page": 7
+    },
+    {
+      "image": "2605.26021_figures/2605.26021_fig4.jpg",
+      "caption": "Fig. 3: Distribution of per-task best fidelity at σ = 0.02 across LLM-driven methods. Each violin shows the 16 per-task best fidelities for one (model, method) cell: four models (Claude Sonnet 4.5, Gemini 3.0 Flash, GPT-OSS-120B, Qwen 3.5 Plus) × three methods (VF-QCTRL, Hint LLM, Simple LLM), giving 12 violins. Per-task fidelity convention: for VF-QCTRL, the best-of-iteration value from a single repetition per task (n = 1); for Hint LLM and Simple LLM, the best across n = 5 independent repetitions per task. Overlaid scatter points show the 16 individual per- task fidelities; the horizontal black tick inside each violin marks the mean. VF-QCTRL violins concentrate near F = 1 across all four...",
+      "page": 9
+    },
+    {
+      "image": "2605.26021_figures/2605.26021_fig5.jpg",
+      "caption": "Figure 3 stratifies the same σ = 0.02 results by the underlying LLM, showing per- task fidelity distributions for each (method, model) cell. VF-QCTRL violins concentrate near F = 1 with per-model mean fidelity in the 0.91–0.98 range across all four models, while Hint LLM and Simple LLM violins broaden into long low-fidelity tails reaching F ≈0.3–0.5 with per-model means dropping to 0.75–0.90; symbolic protocol proposal thus compresses the cross-model spread from approximately 0.12 in fidelity under the prompt-only baselines to 0.06 under VF-QCTRL. Across all three methods the four LLMs rank consistently as Qwen 3.5 Plus > Gemini 3.0 Flash > Claude Sonnet 4.5 > GPT-OSS-120B, but VF-QCTRL...",
+      "page": 9
+    }
+  ],
+  "figure": "2605.26021_figures/2605.26021_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

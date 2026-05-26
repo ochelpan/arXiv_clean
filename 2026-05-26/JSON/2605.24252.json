@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.24252",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hybrid Quantum-Classical Machine Learning Algorithms for Multi-Output Time-Series Forecasting at Utility Scale",
+  "authors": "Mackenson Polché, Varun Puram, Aditi Lal, Weronika Golletz, Joan Étude Arrow, Vardaan Sahgal, Kumar Ghosh, Giorgio Cortiana, Corey O'Meara",
+  "abstract": "Multi-output time-series forecasting in energy systems is challenging because of nonlinear dynamics, multi-scale seasonality, and strong dependencies across correlated series. In this work, we investigate two hybrid quantum-classical frameworks for multi-stream time-series forecasting on a real Smart Meter dataset comprising 103 household electricity consumption time-series, with experiments executed on the $ibm\\_marrakesh$ superconducting quantum processor. The first model, Kernelized Quantum Reservoir Computing with Repeated Measurement (KQRC-RM), combines coupled quantum reservoirs, ancilla-assisted repeated measurement, and kernelized readouts to model temporal dynamics and cross-stream correlations jointly. For a 3-stream time-series input and output, the KQRC-RM model using 114 qubits achieves an MAE of 0.0811 on MPS simulator (36.92\\% improvement over its classical analog) whereas performance degrades to an MAE of 0.1524 on hardware. The second, a Projected Quantum Kernel Gaussian Process (QGP), replaces fidelity-based kernels with projected kernels constructed from local reduced-state statistics. Using a topology-aware 100-qubit QGP model to predict 100 multi-output time-series values, we observe 49\\% of time-series outputs achieve high-accuracy predictions (MAE $<0.15$), with an average MAE of $0.082$ for this low-error group. The medium-error regime (MAE $0.15$-$0.35$) has an average MAE of $0.229$, while the high-error regime (MAE $>0.35$) has an average MAE of $0.664$. Overall, this reduces the average MAE relative to the classical GP baseline by 62.01\\% on MPS simulator and 40.37\\% on hardware. Together, these results demonstrate the feasibility of hybrid quantum machine learning for multi-input, multi-output time-series forecasting at the 100+ qubit scale on NISQ devices.",
+  "url": "http://arxiv.org/abs/2605.24252v1",
+  "pdf": "https://arxiv.org/pdf/2605.24252v1",
+  "type": "both",
+  "summary": "This paper demonstrates the application of hybrid quantum machine learning to large-scale energy demand forecasting. It shows that while quantum kernels can significantly outperform classical ones in simulation, real-world hardware noise currently limits the practical advantage on NISQ devices.",
+  "main_problem": "Investigating the feasibility and performance of hybrid quantum-classical machine learning algorithms for multi-output time-series forecasting of energy consumption at a utility scale.",
+  "main_result": "The QGP model achieved a 62.01% MAE reduction on simulator and 40.37% on hardware compared to classical GP, while KQRC-RM showed significant improvement on simulator but performance degradation on hardware due to device noise.",
+  "method": "Two hybrid frameworks were tested: Kernelized Quantum Reservoir Computing with Repeated Measurement (KQRC-RM) and Projected Quantum Kernel Gaussian Process (QGP) using local reduced-state statistics.",
+  "model_or_system": "The experiments were performed on the IBM marrakesh superconducting quantum processor and an MPS simulator, using a Smart Meter dataset of 103 residential electricity consumption time-series.",
+  "key_observables": "Mean Absolute Error (MAE), Mean Squared Error (MSE), geometric difference (gCQ), and model complexity (kappa).",
+  "important_parameters": "100+ qubit scales (114 qubits for KQRC-RM, 100 qubits for QGP), number of system qubits per customer, and hardware noise parameters (T2 dephasing and CZ gate error).",
+  "main_assumptions": "The QGP model assumes conditional independence across outputs; hardware performance is limited by NISQ-era noise, decoherence, and readout errors.",
+  "figures_summary": "Figure 1 shows the KQRC-RM circuit; Figure 2 shows the QGP feature map; Figure 3 displays geometric difference and model complexity; Figure 4 compares simulator vs hardware trajectories; Figure 5 shows per-horizon MAE; Figure 6 shows MSE for 5-customer groups; Figure 7 benchmarks against classical baselines; Figure 8 maps hardware noise; Figure 9 shows energy profiles and customer grouping; Figure 10 shows error vs qubit scaling; Figure 11 shows training loss and forecasting results; Figures 12-13 map the hardware noise landscape.",
+  "paper_structure": "The paper introduces the forecasting problem, describes the two hybrid quantum architectures (KQRC-RM and QGP), details the experimental setup on IBM hardware and simulators, presents performance benchmarks against classical models, analyzes the impact of hardware noise, and concludes with scalability and utility-scale findings.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.24252_figures/2605.24252_fig1.jpg",
+      "caption": "FIG. 1. Circuit-level view of the proposed Kernelized Quantum Reservoir with repeated measurement. Each input stream 𝑥(𝑠) 𝑡 is encoded into its system register (𝑞𝑠,0, . . . , 𝑞𝑠,𝑛𝑞−1) via a parametrized encoding unitary 𝑈(𝑠) enc. Intra-stream entangling gates propagate information within each register, while inter-stream couplings between boundary qubits introduce cross-stream interactions. Each system qubit is then coupled to a corresponding ancilla qubit (𝑎𝑠,0, . . . , 𝑎𝑠,𝑛𝑞−1), and only the ancillas are measured at each timestep. Repeated measurements",
+      "page": 3
+    },
+    {
+      "image": "2605.24252_figures/2605.24252_fig2.jpg",
+      "caption": "Fig. 1, these interactions act (i) within each individual series, and (ii) across neighboring series. Let 𝑞𝑠,𝑛𝑞−1 denote the tail qubit of series 𝑠and 𝑞𝑠+1,0 the head qubit of the next series 𝑠+1. Two-qubit entangling gates are applied along these links. The resulting reservoir unitary is",
+      "page": 3
+    },
+    {
+      "image": "2605.24252_figures/2605.24252_fig3.jpg",
+      "caption": "FIG. 2. Hardware-efficient feature map used in the QGP model with 𝑛𝑞= 5 qubits. The circuit alternates data encoding, entanglement, and data re-uploading, producing the state |𝜓(𝑥)⟩used in the projected kernel.",
+      "page": 5
+    },
+    {
+      "image": "2605.24252_figures/2605.24252_fig4.jpg",
+      "caption": "FIG. 3. (a) Geometric difference 𝑔𝐶𝑄between the quantum kernel constructed via the fidelity-based feature map and the classical Laplacian kernel as a function of √",
+      "page": 7
+    },
+    {
+      "image": "2605.24252_figures/2605.24252_fig5.jpg",
+      "caption": "FIG. 4. KQRC-RM experiments: Forecasting results for the repre- sentative triplet: (a) Customer 4, (b) Customer 8, and (c) Customer 11, comparing predictions obtained with the MPS simulator and real quantum hardware. The dashed vertical line marks the end of the training window, and the shaded region indicates the 5-step forecast horizon.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.24252_figures/2605.24252_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

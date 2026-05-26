@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.25344",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A general tensor-structured compression scheme for efficient large language models",
+  "authors": "Ying Lu, Peng-Fei Zhou, Qi-Xuan Fang, Pan Zhang, Shi-Ju Ran, Gang Su",
+  "abstract": "Large language models (LLMs) are dominated by dense linear transformations, whose storage, memory and computational overheads hinder efficient adaptation and deployment while masking the functional impacts of structural simplification. Here we present Tensor Mixture (MixT), a general tensor-structured compression scheme that replaces targeted dense linear layers with natively executable mixtures of tensor operators. Operating directly on generic linear projections instead of model-specific components, MixT is potentially applicable across Transformer-based LLMs and other dense neural mappings. We evaluate MixT on Qwen3-8B and LLaMA2-7B under a unified recovery protocol, identifying a broad compressible regime in which MMLU accuracy is largely preserved before an abrupt transition at model-specific boundaries. This transition coincides with coordinated shifts in output entropy, prediction entropy and inter-layer geometry. At the LLaMA2-7B transition boundary, MixT reduces full-model parameters by 47.5\\%, inference FLOPs by 37.1\\%, training FLOPs by 52.1\\% and peak inference memory by 60.4\\%, demonstrating its practical potential for lower-cost LLM compression.",
+  "url": "http://arxiv.org/abs/2605.25344v1",
+  "pdf": "https://arxiv.org/pdf/2605.25344v1",
+  "type": "theory",
+  "summary": "This paper introduces MixT, a method to compress large language models by replacing dense layers with efficient tensor structures. It discovers a critical-like transition boundary where further compression leads to a sharp collapse in model performance and internal geometric stability.",
+  "main_problem": "Investigating how structural simplification via tensor-structured compression affects the functional integrity and performance of Large Language Models (LLMs).",
+  "main_result": "The authors identify a stable compression regime and an abrupt transition boundary where model performance degrades sharply, accompanied by shifts in output entropy and inter-layer geometry.",
+  "method": "The MixT framework replaces dense linear layers with a mixture of tensor operators and uses a back-to-front compression strategy with a weight-matching recovery protocol.",
+  "model_or_system": "Transformer-based Large Language Models, specifically LLaMA2-7B and Qwen3-8B.",
+  "key_observables": "MMLU accuracy, Output Entropy (OE), Prediction Entropy (PE), and Inter-layer Geometry Drift.",
+  "important_parameters": "Compression depth (number of replaced blocks NB) and the number of tensor branches (NT).",
+  "main_assumptions": "The study assumes a fixed-budget post-compression recovery stage and focuses on a specific back-to-front compression sweep.",
+  "figures_summary": "Fig 1 shows the MixT architecture and parameter scaling; Fig 2 displays MMLU accuracy vs. compression depth; Fig 3 relates entropy metrics to accuracy; Fig 4 visualizes inter-layer geometry drift landscapes.",
+  "paper_structure": "The paper introduces the MixT framework, describes the compression strategy and evaluation protocol, presents results on resource efficiency and performance stability, analyzes the statistical and geometric transitions at the boundary, and concludes with future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25344_figures/2605.25344_fig1.jpg",
+      "caption": "Fig. 1 Tensor Mixture (MixT) as a controllable tensor-structured replacement for Transformer linear maps. a, MixT replaces dense projections within a Transformer block while preserving residual topology. The replaced maps include Q, K, V , O, Gate, Up and Down. Each projection is rewritten as a mixture of NT local tensor branches: the input is reshaped into local bonds, broadcast across branches, transformed by branch tensors, averaged by a factor 1/NT , and reshaped to the original output dimension. b, Operator-level parameter scaling with matrix width H. Dense linear maps scale as H2, whereas MixT reduces parameter count in an NT -dependent manner. c, Loss versus model size for dense...",
+      "page": 2
+    },
+    {
+      "image": "2605.25344_figures/2605.25344_fig2.jpg",
+      "caption": "Fig. 2 Abrupt transition boundary under progressive MixT compression. a, MMLU accuracy of Qwen3-8B as a function of the number of back-to-front replaced Transformer blocks, NB. Different markers denote different branch settings NT , which control the internal compression strength of each MixT operator. The vertical red dashed line marks the tran- sition boundary ˜ NB = 11, beyond which accuracy drops abruptly after an extended near-stable regime. b, Corresponding compression sweep for LLaMA2-7B. The transition boundary occurs at ˜ NB = 17. The inset shows the opposite replacement direction, from earlier to later layers, which produces immediate degradation without a comparable stable...",
+      "page": 4
+    },
+    {
+      "image": "2605.25344_figures/2605.25344_fig3.jpg",
+      "caption": "Fig. 3 Output-distribution statistics across compression sweeps and model scales. a, MMLU accuracy, output entropy (OE) and prediction entropy (PE) as functions of the number of compressed blocks NB for Qwen3-8B. The red dashed line marks the transition boundary ˜ NB = 11. OE measures the normalized four-way answer entropy for each question, whereas PE measures the normalized entropy of the final predicted-label distribution across the dataset. b, Corresponding output-distribution statistics for LLaMA2-7B, with the transition boundary at ˜ NB = 17. In both models, the transition is accompanied by an abrupt increase in OE and a change in dataset-level label usage captured by PE. c, OE versus...",
+      "page": 5
+    },
+    {
+      "image": "2605.25344_figures/2605.25344_fig4.jpg",
+      "caption": "Fig. 4 Inter-layer geometry drift across the LLaMA2-7B compression sweep. a, All-end-layer drift landscape for the NT = 4 back-to-front compression sweep. For each compression depth NB and start layer ℓ, the colour map shows ∆SNB (ℓ) = ⟨∆SNB (ℓ, ℓ′)⟩ℓ′>ℓ, where the average is taken over all valid end layers ℓ′. The vertical red band marks the transition boundary ˜ NB = 17, and the contour marks a high-drift region. b, Quantitative summaries of the same geometry drift. The blue curve shows the mean of ∆SNB (ℓ, ℓ′) over layer pairs near the output end, and the green circles show the mean over all valid layer pairs. The red dashed line marks ˜ NB = 17. The shaded guide bands indicate the...",
+      "page": 6
+    },
+    {
+      "image": "2605.25344_figures/2605.25344_fig5.jpg",
+      "caption": "Figure 4 shows how inter-layer geometry changes across the compression sweep. For each check- point, we compare the inter-layer similarity map with that of the dense reference and measure their absolute deviation by ∆SNB(ℓ, ℓ′), defined in Eq. 5. Larger values indicate larger departures of the corresponding layer pair from the dense model. To visualize how this drift evolves along the full compression path, we first average ∆SNB(ℓ, ℓ′) over all valid end layers ℓ′ > ℓfor each start layer",
+      "page": 6
+    }
+  ],
+  "figure": "2605.25344_figures/2605.25344_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.25974",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "PauLIB: A High-Performance Library for Processing Pauli Strings",
+  "authors": "Florian Krötz",
+  "abstract": "Processing large Pauli sums is a significant bottleneck in quantum chemistry, Pauli propagation, and Pauli-based compilation. Existing frameworks often suffer from Python interpreter overhead or utilize hash-map data structures that hinder SIMD vectorization and complicate multi-threaded merging. We present PauLIB, a header-only C++20 library designed to eliminate these bottlenecks through three key architectural choices. A bit-packed binary symplectic representation that encodes each qubit in two bits, reducing Pauli multiplication to a bitwise XOR and a population count; a sorted array layout that replaces hash maps to enable branch-predictable SIMD bulk operations; and a struct-of-arrays (SoA) memory layout that exposes contiguous word arrays for explicit SIMD vectorization. Benchmarks at 500 qubits show that single Pauli string multiplication runs at 25ns per operation-14 times faster than PauliEngine and 660 times faster than Qiskit-flat across all pair counts tested. Hamiltonian outer-product multiplication is approximately 10 times faster than PauliEngine and 45 times faster than Qiskit at all tested sizes. Greedy commutation grouping, the dominant preprocessing cost in variational algorithms, achieves up to 21,000 times speedup over PennyLane, driven by the compact bit-packed representation. The compact layout reduces the memory footprint of a one-million-term Hamiltonian at 500 qubits from 1,036MB (Qiskit) to 142MB, a 7.3 times reduction that directly enables larger problem sizes within a fixed memory budget. PauLIB is open source and provides C++ and Python interfaces.",
+  "url": "http://arxiv.org/abs/2605.25974v1",
+  "pdf": "https://arxiv.org/pdf/2605.25974v1",
+  "type": "theory",
+  "summary": "PauLIB is a high-performance C++ library designed to accelerate the manipulation of large Pauli sums. By using bit-packed symplectic representations and SIMD-optimized data layouts, it provides orders-of-magnitude speedups and much lower memory usage compared to standard Python-based quantum computing frameworks.",
+  "main_problem": "Processing large Pauli sums (millions of terms) is a major computational bottleneck in quantum chemistry and Pauli propagation due to Python overhead and inefficient data structures like hash maps.",
+  "main_result": "The PauLIB library achieves massive speedups, including 660x faster single Pauli multiplication than Qiskit and up to 21,000x faster commutation grouping than PennyLane, while significantly reducing memory footprint.",
+  "method": "A C++20 header-only library using a bit-packed binary symplectic representation, a sorted array layout for SIMD-friendly operations, and both Array-of-Structures (AoS) and Struct-of-Arrays (SoA) memory layouts.",
+  "model_or_system": "The library focuses on the Pauli group, specifically handling large-scale Pauli strings and sums used in molecular Hamiltonians (via Jordan-Wigner or Bravyi-Kitaev transforms) and quantum error correction.",
+  "key_observables": "Pauli string multiplication latency, Hamiltonian outer-product multiplication time, commutation grouping speed, and memory footprint (RSS).",
+  "important_parameters": "Benchmarks performed at 500 qubits; includes comparisons of different rotation angles (Pauli, Clifford, and non-Clifford).",
+  "main_assumptions": "The current implementation is limited by the memory capacity of a single machine.",
+  "figures_summary": "Figure 1 shows the AoS memory layout; Figure 2 shows the SoA layout; Figure 3 compares Pauli multiplication latency; Figure 4 shows Hamiltonian outer-product scaling; Figure 5 shows commutation grouping time; Figure 6 compares memory usage between PauLIB and Qiskit.",
+  "paper_structure": "The paper introduces the computational bottleneck, details the three core architectural choices (symplectic representation, sorted array, and SoA/AoS layouts), presents performance benchmarks against existing frameworks (Qiskit, PennyLane, PauliEngine), and discusses future scaling and distributed-memory directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25974_figures/2605.25974_fig1.jpg",
+      "caption": "Fig. 1. Memory layout of PauliString. The struct stores ⌈N/64⌉64-bit Z-words, ⌈N/64⌉64-bit X-words, and a one-byte flags field encoding sign (±) and imaginary phase (i).",
+      "page": 4
+    },
+    {
+      "image": "2605.25974_figures/2605.25974_fig2.jpg",
+      "caption": "Fig. 2. Memory layout of PauliSumSoA. For a sum of M terms, the struct stores ⌈N/64⌉contiguous arrays of M 64-bit Z-words, ⌈N/64⌉arrays of M 64-bit X-words, and an array of M flags bytes encoding sign (±) and imaginary phase (i).",
+      "page": 5
+    },
+    {
+      "image": "2605.25974_figures/2605.25974_fig3.jpg",
+      "caption": "Fig. 3. Time per PauliString×PauliString at 500 qubits (log scale, SoA pair_multiply). All bars are flat across pair counts. PauLIB SoA (blue, 25 ns) is 14× below PauliEngine (orange, 350 ns) and 660× below Qiskit (red, 16.5 µs).",
+      "page": 6
+    },
+    {
+      "image": "2605.25974_figures/2605.25974_fig4.jpg",
+      "caption": "Fig. 4 shows a log-log plot of the time to compute the full outer product H1 · H2 for two random 500-qubit Pauli sums of equal size N, producing N 2 output terms. The figure separates into two distinct bands. The upper band (dashed lines) contains PauliEngine, starting at 0.22 ms at N 2 = 625 and reaching 18.8 ms at N 2 = 40 000, and Qiskit, starting at 1.3 ms and reaching 84.8 ms over the same range. The lower band (solid lines) contains PauLIB AoS and SoA, starting at 0.09 ms and 0.11 ms respectively and reaching 1.9 ms and 2.4 ms — roughly ten times lower. All four lines run parallel on the log-log axes, showing O(N 2) scaling throughout. The gap between the bands is constant, confirming...",
+      "page": 6
+    },
+    {
+      "image": "2605.25974_figures/2605.25974_fig5.jpg",
+      "caption": "Fig. 4. PauliSum×PauliSum outer product time at 500 qubits vs. number of output terms N2 (log-log scale). PauLIB AoS and SoA (solid lines, lower band) are one to two orders of magnitude faster than PauliEngine and Qiskit (dashed lines, upper band), with all four lines following O(N2) scaling. At 500 qubits AoS outperforms SoA due to better cache locality.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.25974_figures/2605.25974_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2605.26032",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.CV",
+    "cond-mat.stat-mech",
+    "cs.AI",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Everything at Every Scale: Scale-Invariant Diffusion with Continuous Super-Resolution",
+  "authors": "Zixin Jessie Chen, Zhuo Chen, Archer Wang, Jeff Gore, William T. Freeman, Congyue Deng, Marin Soljačić",
+  "abstract": "Creating images from noise is image generation; reconstructing fine details from coarse inputs is super-resolution. Despite their practical differences, both can be understood as reversing information loss across scales. We introduce $\\textbf{SKILD}$, a $\\textbf{S}$cale-invariant $\\textbf{K}$-Space $\\textbf{I}$mage $\\textbf{L}$earning $\\textbf{D}$iffusion model that unifies generation and continuous super-resolution within a single unconditional framework. Both natural images and critical physical systems exhibit scale invariance, and we leverage it to design a forward process that attenuates image content from fine to coarse scales while injecting spectrum-matched Gaussian noise, making scale an explicit coordinate of the diffusion dynamics. The same trained reverse process performs generation and continuous super-resolution by varying only the starting timestep: $\\textit{no task-specific architecture, no conditioning branch, no classifier-free guidance, no retraining per scale factor}$. Empirically, SKILD reaches FID $2.65$ and Inception Score $9.63$ on unconditional CIFAR-10, performs $2\\times$--$8\\times$ super-resolution on ImageNet from a single unconditional checkpoint while outperforming conditional models across perceptual metrics, and reconstructs critical Ising models whose connected four-point correlations closely track the ground truth.",
+  "url": "http://arxiv.org/abs/2605.26032v1",
+  "pdf": "https://arxiv.org/pdf/2605.26032v1",
+  "type": "theory",
+  "summary": "The authors introduce SKILD, a diffusion model that treats scale as an explicit coordinate by manipulating image content in frequency space. This allows a single model to perform both image generation and continuous super-resolution without task-specific architectures. The model's ability to preserve the statistical self-similarity of critical physical systems like the Ising model validates its physical foundation.",
+  "main_problem": "Unifying image generation and continuous super-resolution into a single framework by leveraging the scale-invariance inherent in both natural images and critical physical systems.",
+  "main_result": "The SKILD model achieves high-quality unconditional generation on CIFAR-10 and continuous super-resolution on ImageNet, while successfully reconstructing the non-Gaussian four-point correlations of the critical 2D Ising model.",
+  "method": "A frequency-space diffusion process (SKILD) using Discrete Cosine Transform (DCT) coefficients to attenuate high-frequency modes before low-frequency modes, using spectrum-matched Gaussian noise.",
+  "model_or_system": "The framework is applied to natural images (CIFAR-10, ImageNet) and the 2D ferromagnetic Ising model on a square lattice at the critical temperature.",
+  "key_observables": "FID, Inception Score, LPIPS, SSIM, PSNR, and connected four-point correlations (fourth-order joint cumulants) in the Ising model.",
+  "important_parameters": "Scale-invariant noise schedules (log-linear and linear), SNR threshold for effective resolution, and the power-law decay exponent of the radial power spectrum.",
+  "main_assumptions": "Assumes that natural images and the studied physical systems exhibit approximate scale-invariance and power-law spectral decay.",
+  "figures_summary": "Illustrations of the scale-invariant forward process, radial power spectra showing k^-2 decay, comparison of super-resolution quality, and accuracy of reconstructed Ising four-point correlators.",
+  "paper_structure": "Introduction of the unification problem, description of the SKILD frequency-space diffusion framework, mathematical derivation of the DDPM posterior and SDE formulation, empirical validation on image datasets (CIFAR/ImageNet), and scientific validation using the critical Ising model.",
+  "why_interesting": "The paper demonstrates a deep connection between generative modeling and renormalization group theory, showing that a diffusion process designed to respect scale-invariance can accurately capture the higher-order correlations of critical systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.26032_figures/2605.26032_fig1.jpg",
+      "caption": "Figure 1: Conceptual illustration of our SKILD on a self-similar fractal image. During the forward process: (a) effective signal resolution decreases; (b) the pixel-space correlation length of the injected noise increases; and (c) for a self-similar field, the process respects the same frequency-space power spectrum across stages. (d-e) A smaller early-time patch is statistically similar to a larger late-time patch. (f-g) Radial power spectrum at corresponding early and later stages. Gray slashed regions indicate modes below the signal-to-noise ratio (SNR) threshold, where resolution is effectively lost.",
+      "page": 1
+    },
+    {
+      "image": "2605.26032_figures/2605.26032_fig2.jpg",
+      "caption": "Figure 3: Uncurated samples of generated images on CIFAR-10; more in Appendix G (Figure G.17).",
+      "page": 6
+    },
+    {
+      "image": "2605.26032_figures/2605.26032_fig3.jpg",
+      "caption": "Figure 4: (a) Linear schedule with best FID and IS on CIFAR-10 generation. Lower-frequency modes are attenuated later than higher-frequency ones. (b) Mode collapse with training steps. While IS continues to improve with training, FID converges early on and worsens at later times.",
+      "page": 6
+    },
+    {
+      "image": "2605.26032_figures/2605.26032_fig4.jpg",
+      "caption": "Figure 5: 4× super-resolution samples on ImageNet-256. The model is initialized from a 64 × 64 low-resolution forward state and reconstructs high-frequency details through the reverse process.",
+      "page": 7
+    },
+    {
+      "image": "2605.26032_figures/2605.26032_fig5.jpg",
+      "caption": "Figure 6: Continuous super-resolution on ImageNet-128. (a) Low-resolution inputs at effective resolutions 16 × 16 through 64 × 64, corresponding to 8× through 2× super-resolution factors. (b) High-resolution reconstructions produced by the same checkpoint from each effective-resolution starting state. A continuum of super-resolution factors is accessible from a single trained model.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.26032_figures/2605.26032_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

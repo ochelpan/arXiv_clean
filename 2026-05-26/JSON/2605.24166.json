@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.24166",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR"
+  ],
+  "is_primary_archive": true,
+  "title": "Optimal Quantum Differential Privacy via Fisher Information Spectral Analysis",
+  "authors": "Justice Owusu Agyemang, Jerry John Kponyo, Elliot Amponsah, Godfred Manu Addo Boakye",
+  "abstract": "The Quantum Fisher Information (QFI) metric governs a fundamental duality: it quantifies both how precisely a parameter can be estimated (metrology) and how distinguishable two quantum states are (privacy). We exploit this duality to establish a geometry-aware framework for quantum differential privacy (DP) that replaces isotropic depolarizing noise with direction-dependent noise aligned to the QFI eigenstructure of the quantum embedding. We prove six principal theorems: (1) the minimax-optimal mechanism concentrates the noise budget in the dominant QFI eigenmode, achieving $\\varepsilon = (Δ^2/2)λ_{\\max}(1-cγ)$ with $O(d/λ_{\\max})$ advantage; (2) mixed-state QFI decomposition reveals that dephasing in the adversary's basis $\\textit{increases}$ accessible information, while misaligned-basis dephasing provides constructive privacy amplification from hardware noise; (3) a tight privacy $-$ utility uncertainty relation $\\varepsilon \\cdot (1 - F) \\ge \\frac{Δ^2}{2}\\frac{\\operatorname{Tr}(F)}{d}$; (4) adaptive QFI estimation converging at $O(1/\\sqrt{n})$ yields $1.92\\times$ tighter bounds; (5) QFI-aligned composition saturates at $O(1)$ versus $O(k)$ for standard composition; and (6) hardware noise can be harnessed for privacy amplification. Adversarial vulnerabilities, Wasserstein guarantees, subspace projection, and a zero-knowledge audit protocol follow as corollaries. Results are validated on Qiskit Aer GPU simulations, IBM Quantum hardware (ibm_fez, 156 qubits), and against classical DP baselines, achieving equivalent utility at $\\varepsilon \\approx 0.001$ versus $\\varepsilon \\approx 4800$ for classical DP.",
+  "url": "http://arxiv.org/abs/2605.24166v1",
+  "pdf": "https://arxiv.org/pdf/2605.24166v1",
+  "type": "both",
+  "summary": "This paper introduces a new framework for Quantum Differential Privacy that aligns noise with the geometric structure of quantum embeddings. By targeting the most sensitive directions in the Quantum Fisher Information spectrum, the method achieves much tighter privacy guarantees than standard methods. The work also reveals that certain types of hardware noise can be leveraged to amplify privacy.",
+  "main_problem": "Current Quantum Differential Privacy (QDP) frameworks use isotropic noise that ignores the anisotropic geometry of quantum embeddings, leading to suboptimal privacy-utility trade-offs.",
+  "main_result": "The authors propose a geometry-aware noise allocation strategy aligned with the Quantum Fisher Information (QIM) eigenstructure, achieving significantly tighter privacy bounds and demonstrating that hardware dephasing can act as a constructive privacy resource.",
+  "method": "The paper uses spectral analysis of the QFI matrix, minimax optimization via KKT conditions, and adaptive estimation using Exponential Moving Averages (EMA) to design a metric-adapted quantum channel.",
+  "model_or_system": "The study utilizes 4-qubit parameterized quantum circuits (anisotropic and isotropic embeddings) and validates results on the 156-qubit IBM Quantum 'ibm_fez' processor and Qiskit Aer GPU simulations.",
+  "key_observables": "Privacy parameter (epsilon), Quantum Fisher Information (QFI) eigenvalues, fidelity, and adversarial mutual information.",
+  "important_parameters": "Privacy budget (epsilon), noise strength (gamma), maximum QFI eigenvalue (lambda_max), and the misalignment angle between dephasing and measurement bases.",
+  "main_assumptions": "Assumes a well-defined sensitivity (Delta) and specific properties of the quantum embedding manifold.",
+  "figures_summary": "Figures demonstrate the privacy-utility tradeoff, the concentration of information leakage in the top QFI mode, the reduction of distinguishability in the minimum-QFI mode, and the impact of misaligned-basis dephasing on adversarial information.",
+  "paper_structure": "The paper introduces the problem of suboptimal isotropic noise, develops a geometric framework using QFI spectral analysis, proves six principal theorems regarding optimal noise allocation, privacy-utility relations, and composition, and validates the theory through both large-scale simulations and IBM hardware experiments.",
+  "why_interesting": "This is highly relevant for researchers in open quantum systems and quantum information, as it treats hardware decoherence (dephasing) not just as an error to be corrected, but as a potential resource for enhancing privacy in quantum machine learning.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.24166_figures/2605.24166_fig1.jpg",
+      "caption": "Figure 1: Quantum circuit transpiled for ibm_fez (156-qubit Eagle r3 processor) from IBM Quantum job d7s2kscf3ras73b7h4ug. The circuit encodes 4-dimensional classical data using the native gate set {RZ, SX, X, CZ, ID} at optimization level 3. Logical qubits {0, 1, 2, 3} are mapped to physical qubits {16, 21, 22, 23} on the heavy-hex topology, with CZ entangling gates placed according to the device’s nearest-neighbor connectivity. The rotation strengths α = [3.0, 1.0, 0.3, 0.1] create a 100:1 QFI eigenvalue condition number. The circuit has depth 14 with 29 operations and produces 8-bit measurement outcomes (2 classical bits per logical qubit).",
+      "page": 7
+    },
+    {
+      "image": "2605.24166_figures/2605.24166_fig2.jpg",
+      "caption": "Figure 3: Privacy–utility tradeoff. The optimal targeted channel (red dashed) achieves substantially lower ε than isotropic depolarizing (blue solid) at the same utility. The geometric channel (green dot-dashed, linear weights) produces very small ε values but is overly conservative.",
+      "page": 13
+    },
+    {
+      "image": "2605.24166_figures/2605.24166_fig3.jpg",
+      "caption": "Fig. 5 presents the empirical privacy–accuracy Pareto frontier. The optimal channel dominates the low-ε regime (ε ∈[2, 4)), achieving 85% ac- curacy at ε = 2.3, a privacy level isotropic DP cannot match without exceeding ε > 4.",
+      "page": 13
+    },
+    {
+      "image": "2605.24166_figures/2605.24166_fig4.jpg",
+      "caption": "Fig. 7 demonstrates the QFI-aligned composition advantage. At practical noise levels (γ = 0.1), the advantage exceeds 2× by k = 20 layers and reaches 9× at k = 100. For lower noise (γ = 0.01), the crossover occurs at k = 163 lay- ers. The saturation value ε∗= (∆2/2)λmax/(cγ) decreases with increasing γ, representing the fun- damental privacy floor for infinitely deep circuits with aligned QFI structure.",
+      "page": 13
+    },
+    {
+      "image": "2605.24166_figures/2605.24166_fig5.jpg",
+      "caption": "Fig. 6 and Table 1 quantify hardware noise impact. Across four noise regimes, hardware- induced fidelity loss ranges from 0.000 (ideal) to 0.041 (high: T1 = 50 µs, T2 = 30 µs, 1Q depo- larizing 10−3, 2Q depolarizing 3 × 10−2). The loss is modest, confirming that intentional DP noise dominates privacy protection for typical QML embeddings. However, for embeddings with λmax ≲0.1, hardware noise alone provides mean- ingful privacy amplification.",
+      "page": 13
+    }
+  ],
+  "figure": "2605.24166_figures/2605.24166_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

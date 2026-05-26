@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.25913",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Native topological readout on qubit hardware: a Fibonacci-chain benchmark of measurement-compilation trade-offs",
+  "authors": "Babatunde Moses Ayeni",
+  "abstract": "Recent demonstrations of non-Abelian braiding of graph vertices on noisy intermediate-scale quantum (NISQ) superconducting processor, and the experimental realization of topological order in general on various quantum hardware platforms necessitate an important question: when does a native (topological) fusion readout genuinely help for topological anyonic Hamiltonians implemented on NISQ hardware? We use the Fibonacci anyons chain as a concrete model for understanding the trade-off between measurement cost and compilation cost in that setting. The comparison is made against a simple grouped-Pauli baseline, and is scored by a covariance-aware mean-squared-error (MSE) of the full energy estimator. We based our benchmark on two different important classes of quantum circuits, namely Floquet time-evolved and variational quantum eigensolver quantum circuits, with the underlying Hamiltonian consisting of both braiding and fusion interaction. Our analysis found that there is not a uniform best method across both problems: the fusion readout method performed better on Floquet-type circuits on both the MSE and covariance-aware sampling variance, while the grouped Pauli method performed better on VQE on the MSE but worse on sampling variance. We derive scaling laws, and compute shot-budget crossover points, where one method is operationally favored above the other. The relevance of this work extends beyond Fibonacci chains to two-dimensional topological models compiled on superconducting and other qubit-native platforms, and can be used as a guide in answering the question of when one should measure in the native operator basis of the target physics, or when it is better to fall back on Pauli-basis reconstruction.",
+  "url": "http://arxiv.org/abs/2605.25913v1",
+  "pdf": "https://arxiv.org/pdf/2605.25913v1",
+  "type": "both",
+  "summary": "This paper investigates whether measuring in the 'native' basis of a topological model is more efficient than standard Pauli-basis reconstruction on noisy quantum hardware. It finds that while native readout reduces sampling variance, the extra circuit depth required can introduce enough noise to make standard Pauli measurements more accurate for shallow variational circuits.",
+  "main_problem": "Determining the optimal measurement strategy for topological Hamiltonians on NISQ hardware by evaluating the trade-off between the sampling advantage of native (fusion) readout and the increased hardware error/bias introduced by additional compilation depth.",
+  "main_result": "While native fusion readout (FR) provides a universal advantage in sampling variance, its advantage in Mean Squared Error (MSE) is diminished or reversed in shallow circuits (like VQE) due to hardware-induced noise from the additional basis-change gates.",
+  "method": "The study compares Fusion Readout (FR) against a Grouped Pauli (PSQWC) baseline using both noiseless simulations and experiments on the IBM 'ibm_pittsburgh' superconducting processor, employing MSE scaling analysis to identify crossover shot budgets.",
+  "model_or_system": "A one-dimensional Fibonacci anyon chain model using fusion-path encoding, featuring Hamiltonians with both braiding and fusion interactions ($H_{F3}$ and $H_{BF4}$), implemented on a heavy-hex superconducting qubit architecture.",
+  "key_observables": "Fusion-channel projectors, local interaction terms, energy estimator Mean Squared Error (MSE), and covariance-aware sampling variance.",
+  "important_parameters": "Qubit number (n=5 to 11), shot budget (N=2000 to 16000), Trotter step count (s=1, 3, 6), and the crossover shot budget (Nc).",
+  "main_assumptions": "The study assumes the Fibonacci anyons are modeled via fusion-space encoding rather than physical anyonic excitations, and the Pauli baseline is chosen for transparency rather than being the most aggressive possible estimator.",
+  "figures_summary": "Figure 1 illustrates the basis change for native measurement; Figure 2 shows heatmaps of MSE and sampling variance ratios; Figure 3 compares VQE hardware benchmarks; Figure 4 displays MSE scaling fits; Figure 5 shows digital hardware MSE scaling; Figure 7 and 8 show correlations between measurement overhead and error ratios.",
+  "paper_structure": "The paper introduces the motivation for native readout, defines the Fibonacci chain model and measurement strategies, presents results from noiseless simulations, details hardware benchmarks for digital Floquet and VQE circuits, and concludes with a scaling analysis of the crossover point between methods.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25913_figures/2605.25913_fig1.jpg",
+      "caption": "FIG. 2. Digital benchmark shown as realized estimator error versus covariance-aware sampling variance. Top row: noiseless empirical MSE and mean sampling variance. Bottom row: hardware empirical MSE and mean sampling variance. Lower values favor FR. The noiseless panels isolate the native sampling advantage; the hardware panels show where realized error partially “washes out” that advantage.",
+      "page": 7
+    },
+    {
+      "image": "2605.25913_figures/2605.25913_fig2.jpg",
+      "caption": "FIG. 3. Optimized-state VQE benchmark in the same realized-error-versus-sampling language used in the main text and also Figure 2. The noiseless comparison follows the native-measurement expectation, but the hardware comparison reverses on realized MSE while leaving the covariance-aware sampling advantage of FR intact.",
+      "page": 8
+    },
+    {
+      "image": "2605.25913_figures/2605.25913_fig3.jpg",
+      "caption": "FIG. 4. Representative budget-scaling plots for one digital hardware cell and one optimized-state VQE hardware cell. Marker- only points show the empirical MSE at the sampled budgets, using circles for FR and squares for PSQWC. The overlaid solid FR and dashed PS-QWC lines are least-squares fits of the form αm + βm/N to the empirical mean-squared-error traces. The figure makes the fitted empirical-MSE scaling visible directly in the budget traces.",
+      "page": 9
+    },
+    {
+      "image": "2605.25913_figures/2605.25913_fig4.jpg",
+      "caption": "FIG. 5. Digital hardware empirical-MSE scaling fits for the selected cells (n, s) ∈{5, 7, 9, 11} × {1, 3, 6}. The point markers show the empirical MSE values for FR and PSQWC, while the solid and dashed lines show the fitted laws αm + βm/N, and dashed vertical lines mark fit positive-budget crossings that fall inside the sampled budget window. Panel annotations report the fitted crossing budget when it exists and indicate whether it lies below, within, or above the sampled range.",
+      "page": 12
+    },
+    {
+      "image": "2605.25913_figures/2605.25913_fig5.jpg",
+      "caption": "FIG. 6. Optimized-state VQE hardware empirical-MSE scaling fits for qubit counts n = 5, 7, 9, 11. Point markers show the empirical MSE values for FR and PSQWC, while solid and dashed lines show the fitted laws αm + βm/N, and dashed vertical lines mark fit positive-budget crossings that fall inside the sampled budget window. The VQE panels make clear that most fitted crossings for this workload already sit below the sampled budget range, consistent with the small fitted Nc values reported in the main text.",
+      "page": 13
+    }
+  ],
+  "figure": "2605.25913_figures/2605.25913_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

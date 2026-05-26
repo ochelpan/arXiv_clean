@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.25948",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Unified Flux Control Architecture for Fluxonium Qubits",
+  "authors": "Xianchuang Pan, Jiahui Wang, Tao Zhou, Yanbo Guo, Fei Wang, Ze Zhan, Liang Xiang, Zishuo Li, Lu Ma, Xizheng Ma, Huijuan Zhan, Tao Zhang, Kannan Lu, Xing Zhu, Guicheng Gong, Chunqing Deng, Tenghui Wang",
+  "abstract": "Control architectures that reduce hardware overhead while maintaining high-fidelity operations are essential for the continued scaling of superconducting quantum processors. Here we experimentally realize a unified control architecture for fluxonium qubits, in which both transverse ($XY$) and longitudinal ($Z$) operations are implemented through a single flux-control channel driven by a single arbitrary waveform generator channel. This architecture imposes competing requirements on the shared control channel, which must simultaneously support low-frequency flux transmission for reset operations while strongly attenuating broadband noise near the qubit transition frequency. We address this challenge through frequency-selective cryogenic filtering together with compensated waveform synthesis that corrects the pulse distortion introduced by the filtered control line. Experimentally, this approach preserves coherence times above 100 $μ$s while enabling active reset with approximately 98% fidelity and 20-ns single-qubit gates with fidelities exceeding 99.99%. We further demonstrate FPGA-native instruction-level waveform synthesis based on reusable pulse primitives for unified flux control. These results establish unified flux control as a scalable architecture for fluxonium qubits that reduces control hardware overhead while preserving high-fidelity operation.",
+  "url": "http://arxiv.org/abs/2605.25948v1",
+  "pdf": "https://arxiv.org/pdf/2605.25948v1",
+  "type": "experiment",
+  "summary": "This paper presents a way to control fluxonium qubits using only one control line for both rotation and tuning, significantly reducing the amount of hardware needed per qubit. By using digital filters to fix the signal distortion caused by the necessary noise-suppression filters, the authors achieve extremely high gate fidelities and efficient qubit reset. This architecture provides a scalable path forward for building larger superconducting quantum processors.",
+  "main_problem": "The scaling of superconducting quantum processors is limited by the hardware overhead of separate control channels for XY and Z operations, which also creates a conflict between needing high attenuation for coherence and low attenuation for rapid qubit reset.",
+  "main_result": "The authors experimentally realize a unified flux control architecture for fluxonium qubits that achieves single-qubit gate fidelities exceeding 99.99% and active reset fidelity of approximately 98% using a single control channel.",
+  "method": "The approach uses frequency-selective cryogenic filtering combined with compensated waveform synthesis via FPGA-native instruction-level FIR/IIR filtering to correct for pulse distortion caused by the low-pass control line.",
+  "model_or_system": "The system consists of fluxonium qubits (superconducting circuits) coupled to a readout resonator, controlled via a single inductive flux channel that provides both transverse (AC) and longitudinal (DC) control.",
+  "key_observables": "Coherence times (T1, T2, T2-echo), single-qubit gate fidelities, active reset fidelity, Rabi frequency, and pulse distortion/settling dynamics.",
+  "important_parameters": "Coherence times > 100 us, gate fidelities > 99.99%, 20-ns gate durations, 92 MHz low-pass filter cutoff, and fluxonium parameters Ej/h = 4.5 GHz, Ec/h = 1.1 GHz.",
+  "main_assumptions": "The noise is modeled as frequency-independent white noise from the AWG and Johnson-Nyquist thermal noise; the microwave tail is assumed to be short enough that no additional correction is required.",
+  "figures_summary": "Fig 1 shows the circuit schematic, energy spectrum, and control protocol; Fig 6 and 7 illustrate the characterization of quadrature distortions and the performance of the FIR-based waveform compensation.",
+  "paper_structure": "The paper introduces the scaling bottleneck of control hardware, describes the unified fluxonium architecture, details the hardware-software compensation methods (filtering and synthesis), presents experimental validation of coherence and gate fidelity, and concludes with the scalability of the FPGA-based approach.",
+  "why_interesting": "This work is relevant to open quantum systems and quantum optics researchers as it demonstrates a sophisticated method for managing the trade-off between environmental noise suppression (decoherence control) and strong-coupling-driven control (system manipulation) in a single-port architecture.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25948_figures/2605.25948_fig1.jpg",
+      "caption": "FIG. 1. Unified Flux Control Architecture. (a) Circuit schematic of a fluxonium qubit coupled to a single unified flux line. The control signals undergo a total attenuation of α before coupling to the qubit via a mutual inductance M. (b) Energy spectrum of the fluxonium and the readout cavity as a function of the external static flux Φdc. The dashed arrows illustrate the multiplexed control protocol at the half-flux sweet spot (Φdc = 0.5Φ0): a microwave pulse Φac drives the transverse |g⟩→|e⟩ transition for single-qubit gates, while a baseband pulse δΦdc longitudinally tunes the qubit frequency toward the cavity for rapid initialization. (c) Calculated Rabi frequency ΩR/2π (blue, left axis)...",
+      "page": 3
+    },
+    {
+      "image": "2605.25948_figures/2605.25948_fig2.jpg",
+      "caption": "FIG. 2. Experimental Demonstration of Unified Flux Control. (a) Frequency- and time-domain illustration of the pre-distortion procedure. Top: the bounded inverse filter Hinv(f) (blue), the Gaussian low-pass transfer function Hgauss(f) (orange), and the resulting effective response Hprod(f) = Hgauss(f)Hinv(f) (green). Bottom: comparison between the target input waveform (blue) and the pre-distorted waveform generated by the AWG (orange). (b) Rabi oscillations measured without pre-distortion (top, blue) and with pre-distortion (bottom, orange). Pre-distortion restores high-contrast oscillations and enables nearly complete population transfer. (c) Histograms of the rotated readout signal...",
+      "page": 4
+    },
+    {
+      "image": "2605.25948_figures/2605.25948_fig3.jpg",
+      "caption": "FIG. 3. Instruction-level Waveform Synthesis for Unified Flux Control. (a) Control architecture. A host PC sends instruction sequences via PCIe to the AWG, where waveform primitives are stored in onboard memory. The FPGA performs real-time modulation of the XY envelope at frequency ωd, applies digital filtering to the Z and XY paths (5-tap IIR and 16-tap FIR, respectively), and routes the resulting composite (XY +Z) waveform to a single DAC channel. (b) Waveform synthesis process. Left: stored primitives, including baseband flux edges and a resonant cosine envelope. Middle: assembled and modulated waveforms prior to filtering. Right: output waveforms after digital compensation. (c) Measured...",
+      "page": 5
+    },
+    {
+      "image": "2605.25948_figures/2605.25948_fig4.jpg",
+      "caption": "FIG. 4. Cryogenic Setup. Schematic detailing the low- temperature wiring inside the dilution refrigerator for unified control.",
+      "page": 8
+    },
+    {
+      "image": "2605.25948_figures/2605.25948_fig5.jpg",
+      "caption": "FIG. 5. Coherence vs. Flux. (a) Energy relaxation time T1 as a function of the external flux. (b) Pure dephasing time Tϕ extracted from Ramsey, Hahn echo, and CPMG sequences with varying numbers of refocusing π pulses as a function of the external flux.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.25948_figures/2605.25948_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 2,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

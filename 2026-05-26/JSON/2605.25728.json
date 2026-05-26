@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.25728",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Q-LEAK: Quantum-Based LEAKage Verification for Side-Channel Countermeasures",
+  "authors": "Walid El Maouaki, Alberto Marchisio, Muhammad Shafique",
+  "abstract": "Formal verification of power side-channel leakage and its countermeasures in cryptographic algorithms is challenging, as SAT-based methods fail to scale on XOR-heavy, time-unrolled cryptographic circuits with realistic leakage models. We construct compact Conjunctive Normal Form (CNF) cases modeling one-bit leakage under two-trace conditions, linking key dependence and state evolution. Classical solvers quickly reach complexity limits, so we propose Q-LEAK, a quantum-based verification approach using Grover's algorithm, compiling each CNF into an oracle and applying amplitude amplification to search in O(sqrt(N)) oracle calls, with oracles that encode the two-trace leakage predicate and the CNF constraints. Benchmarking against classical SAT shows both potential gains and practical resource limits. In noiseless tests on 5-7 variable benchmarks, Q-LEAK consistently recovered a satisfying assignment within 1-4 tries, with marked bitstrings amplified clearly above the background distribution, exceeding 20 percent probability. The evaluation of Q-LEAK on real quantum hardware revealed at least one classically verified SAT assignment, despite the presence of noise. These results point to a potential path toward quantum-assisted verification of side-channel protections.",
+  "url": "http://arxiv.org/abs/2605.25728v1",
+  "pdf": "https://arxiv.org/pdf/2605.25728v1",
+  "type": "both",
+  "summary": "This paper introduces Q-LEAK, a quantum algorithm designed to accelerate the formal verification of cryptographic side-channel countermeasures. By mapping leakage vulnerabilities to a Boolean satisfiability problem, the authors demonstrate that Grover-based search can provide a quadratic speedup over classical solvers. The approach was validated through both large-scale simulations and experiments on real IBM quantum hardware.",
+  "main_problem": "The computational difficulty of formally verifying power side-channel leakage countermeasures in cryptographic algorithms due to the exponential scaling of classical SAT solvers.",
+  "main_result": "The proposed Q-LEAK framework achieves a quadratic speedup using Grover's algorithm and successfully recovers leakage-inducing assignments in both noiseless simulations and on real IBM quantum hardware.",
+  "method": "The authors encode side-channel leakage models into Conjunctive Normal Form (CNF) and implement a quantum oracle using Grover's algorithm and the BBHT variant for unstructured search.",
+  "model_or_system": "The framework models cryptographic hardware implementations (like AES) using a one-bit leakage model under two-trace conditions, implemented via a reversible Grover oracle.",
+  "key_observables": "Probability distributions of bitstrings (peaks for SAT, flat for UNSAT), Pearson chi-squared goodness-of-fit, and Hamming weight/distance leakage patterns.",
+  "important_parameters": "Number of variables (n), clause density (rho), number of satisfying assignments (K), and the classical break-even exponent (alpha_min).",
+  "main_assumptions": "The study assumes a 1-bit leakage model and limited circuit unrolling (T=1); it also notes that current scalability is limited by oracle ancilla requirements and gate depth.",
+  "figures_summary": "Figure 1 shows the verification pipeline; Figure 2 compares classical vs. quantum scaling; Figure 3/4 details the Q-LEAK framework and oracle construction; Figure 5 shows circuit sketches; Figure 6/7 displays probability distributions and hardware histograms; Figure 8 shows the classical break-even threshold.",
+  "paper_structure": "The paper introduces the side-channel verification problem, defines the Q-LEAK algorithmic framework and oracle construction, provides a theoretical complexity analysis, presents simulation and hardware validation results, and concludes with scalability projections and limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25728_figures/2605.25728_fig1.jpg",
+      "caption": "Fig. 1. Cryptographic algorithm is implemented as a cipher in hardware, exposed to power side-channel attacks. Masking countermeasures are applied to protect intermediate values, and formal verification ensures that the final implementation remains leakage-free after synthesis.",
+      "page": 1
+    },
+    {
+      "image": "2605.25728_figures/2605.25728_fig2.jpg",
+      "caption": "Fig. 2. Asymptotic scaling of search cost versus the number of variables n on a log scale: classical worst-case scaling ∼2n (red) versus Q-LEAK with density-aware oracle cost ∼ρn · 2n/2 (green), where ρ = m/n is the clause density. For ρ = 20, the crossover occurs near n⋆≈16.8, with QLEAK showing a widening advantage for larger n.",
+      "page": 1
+    },
+    {
+      "image": "2605.25728_figures/2605.25728_fig3.jpg",
+      "caption": "Fig. 3. Overview of the main contributions of Q-LEAK. Green boxes highlight the proposed components.",
+      "page": 3
+    },
+    {
+      "image": "2605.25728_figures/2605.25728_fig4.jpg",
+      "caption": "Fig. 4. Q-LEAK framework. Compile the protected cipher and BIT model into a two-trace, T-cycle CNF, map it to an oracle UF ; then run Grover+BBHT over the variable qubits. Peaks indicate SAT (leak), near-uniform spectra indicate UNSAT (secure at the chosen model and T).",
+      "page": 4
+    },
+    {
+      "image": "2605.25728_figures/2605.25728_fig5.jpg",
+      "caption": "Fig. 4 shows the Q-LEAK flow. Starting from a protected cipher and the given BIT power-leakage model, (1) we encode logic and leakage into a CNF over key, data, randomness, and internal wires. (2) The design is duplicated into two traces and unrolled for T cycles; we tie plaintexts (P = P ′), set key constraints, and impose the chosen leakage relation to ask: Does leakage reveal the key? (3) This CNF is compiled into a reversible oracle UF and queried with the Grover/BBHT loop, then measurements return candidate assignments. Persistent high-probability bitstrings are candidate SAT witnesses and are accepted only after classical CNF evaluation. In contrast, a near-uniform distribution is...",
+      "page": 4
+    }
+  ],
+  "figure": "2605.25728_figures/2605.25728_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.25872",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Cluster moves with an entropic reservoir accelerate low-temperature simulations of three-dimensional spin glasses",
+  "authors": "Claudio Chilin, Enzo Marinari, Víctor Martín-Mayor, Giorgio Parisi, Juan J. Ruiz-Lorenzo, David Yllanes",
+  "abstract": "We present an algorithm for the simulation of three-dimensional spin glasses deep in the low-temperature phase: Parallel Tempering enhanced with Houdayer moves and with an entropic reservoir (PTHR). Although differences with the standard Houdayer algorithm are small, PTHR allows us to equilibrate a large number of samples of $L=16$ lattices with Gaussian couplings for temperatures $T\\geq 0.2$. We show that the computational complexity displays better size scaling than standard Parallel Tempering. For finite sizes, our method outperforms other cluster algorithms by a speedup factor of around 64. In close analogy with standard Parallel Tempering, PTHR's computational complexity strongly relates to temperature chaos.",
+  "url": "http://arxiv.org/abs/2605.25872v1",
+  "pdf": "https://arxiv.org/pdf/2605.25872v1",
+  "type": "theory",
+  "summary": "The authors present a new Monte Carlo algorithm, PTHR, designed to accelerate the simulation of 3D spin glasses in the deep low-temperature phase. By combining cluster moves with an entropic reservoir, the method significantly outperforms standard parallel tempering and provides a massive speedup for studying complex disordered systems.",
+  "main_problem": "Simulating three-dimensional spin glasses at very low temperatures is computationally difficult due to temperature chaos and the extreme difficulty of reaching thermal equilibrium in large systems.",
+  "main_result": "The new PTHR algorithm achieves a speedup of up to 64 times compared to previous cluster methods and allows for the equilibration of larger systems (up to L=16) at temperatures as low as T=0.2.",
+  "method": "The PTHR algorithm combines Parallel Tempering with Houdayer cluster moves and an entropic reservoir to refresh configurations and accelerate equilibration.",
+  "model_or_system": "A 3D Edwards-Anderson Ising spin glass model on a simple-cubic lattice with Gaussian-distributed random couplings.",
+  "key_observables": "Site overlap (qi), global overlap (q), link overlap (ql), Schwinger-Dyson-Young (SDY) observable (S), and temperature chaos parameter (X).",
+  "important_parameters": "Temperatures down to T=0.2 (approx. 0.21Tc), lattice sizes up to L=16, and Gaussian couplings with zero mean and unit variance.",
+  "main_assumptions": "The algorithm's efficiency is limited by the percolation of clusters in 3D, which can turn cluster moves into simple symmetry transformations.",
+  "figures_summary": "Figure 1 shows cluster size distribution; Figure 2 compares equilibration progress using the SDY observable; Figure 3 and 4 show autocorrelation times and round-trip time distributions; Figure 5 analyzes the scaling of mixing times and temperature chaos.",
+  "paper_structure": "The paper introduces the PTHR algorithm, describes the physical model and simulation setup, presents performance comparisons against standard PT and PT-ICM, analyzes the scaling and complexity related to temperature chaos, and discusses implementation optimizations like multispin coding and look-up tables.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25872_figures/2605.25872_fig1.jpg",
+      "caption": "Figure 1. Largest clusters in equilibrated configurations. Temperature dependence of the size of the six largest clusters that are present in a given pair of spin configurations, as computed for 9 different L = 14 samples. For each temperature, we present an average over equilibrated configurations. The vertical dashed lines correspond to T = 0.95 ≈Tc [38], and the horizontal ones indicate half the size of the system V/2 = 1372. Left: The blue- shaded lines in the upper half correspond to the biggest clusters of the majority (i.e., clusters with the same overlap sign as the full lattice). There are nine curves (one per sample). The orange-shaded curves are for the biggest cluster of the...",
+      "page": 5
+    },
+    {
+      "image": "2605.25872_figures/2605.25872_fig2.jpg",
+      "caption": "Figure 2. The PTHR speedup. Left: ⟨S⟩, defined in Eq.(5), against temperature, as computed for the same set of 2000 samples of L = 14 lattices in three different simulations, which employ either plain Parallel Tempering (PT) or the algorithm explained in Sec. 3 (PTHR). The orange line corresponds to PTHR with a total simulation tmax = 4×105 EMCSs, the purple line is for PTHR with tmax = 4 × 104 and the red line is PT with tmax = 4 × 105. In all three cases, we display the results from bin 0, recall Eq. (8). Right: ⟨S⟩at Tmin = 0.42 as a function of Monte Carlo time, as computed for a set of 2048 samples of L = 12 lattices simulated with PTHR (blue points) and for a set of 15000 samples...",
+      "page": 10
+    },
+    {
+      "image": "2605.25872_figures/2605.25872_fig3.jpg",
+      "caption": "Figure 3. Autocorrelation times for plain PT. Results of plain PT simulations for different minimum temperature Tmin and different linear sizes L of the 3D Edwards-Anderson model with binary couplings Jij = ±1. Notice that for binary couplings Tc = 1.102(3) [37]. Left: Histogram of the autocorrelation time τcorr for 1000 samples of L = 32 with Tmin = 0.985 ≈ 0.895Tc (purple) and Tmin = 0.703 ≈0.64Tc (green). Right: Histogram of autocorrelation times for 1000 samples of L = 32 with Tmin = 0.703 ≈0.64Tc (green), for 4000 samples of L = 24 with Tmin = 0.625 ≈0.57Tc (orange) and for 4000 samples of L = 16 with Tmin = 0.479 ≈0.44Tc (blue). Data taken from Ref. [35].",
+      "page": 12
+    },
+    {
+      "image": "2605.25872_figures/2605.25872_fig4.jpg",
+      "caption": "Figure 4. Sample-to-sample fluctuations of the mixing time for the temperature random walk. Both panels display the probability density function (pdf) for τTRW, see Eq. (12), as computed from the different samples in our simulations, see Appendix A. We give τTRW in units of the median for the corresponding distribution. The different values of the median can be found in Tables 1 and 2. We use a logarithmic scale in the vertical axis in order to enhance the visibility of outliers. Left: Pdfs for bin 0 of the simulations, recall Eq. (8), as computed for lattice sizes L = 14, 16 and 18. We know from Eq. (6) that the simulation for L = 18 has not reached thermal equilibrium. Right: Pdfs for the...",
+      "page": 13
+    },
+    {
+      "image": "2605.25872_figures/2605.25872_fig5.jpg",
+      "caption": "Figure 5. Temperature random walk and temperature chaos. This figure shows the difference between typical samples and the hardest samples we found in our simulations of 2000 samples of L = 14 lattices, with Tmin = 0.2. The hardest samples were identified following the procedure explained in Sec. 5.1. Left: Histogram of τTRW as defined in Eq. (12). The blue histogram is the computed value for the 2000 samples of L = 14, from which we computed the observables for this size in this work. The superimposed brown histogram is for the 129 hardest samples of the set. Right: Chaotic parameter as a function of the temperature T [the parameter is defined in Eq. (15), we fix T1 = Tmin = 0.2 and let T2...",
+      "page": 14
+    }
+  ],
+  "figure": "2605.25872_figures/2605.25872_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

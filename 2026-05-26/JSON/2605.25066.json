@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.25066",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "QML-PipeGuard: Drift-Aware Behavioral Fingerprinting for Quantum Machine Learning Pipeline Integrity",
+  "authors": "Esra Yeniaras",
+  "abstract": "Quantum machine learning (QML) is moving from research prototypes to deployed cloud services. As QML enters regulated industries, the integrity of the quantum stage becomes a practical concern on two fronts: noisy hardware drifts at the channel level between recalibrations, and an adversary with control over the execution environment can substitute the declared quantum channel with a behaviorally similar but mathematically distinct one. Neither concern is covered by existing QML verification work on pulse-level noise, input drift, input-perturbation robustness, or device identity. We introduce QML-PipeGuard, a contract-based framework addressing both concerns under a single mathematical machinery. It characterizes a QML pipeline at runtime by its behavioral fingerprint, the vector of observable expectation values under a tomographically structured measurement family, and operates in two modes: drift-aware monitoring that absorbs benign calibration changes within a calibrated tolerance, and adversarial detection that catches channel substitution as a violation of an informationally complete observable contract. The framework contributes a pipeline-composition treatment of the encoder-ansatz-measurement channel with a QML-specific threat model (tight frame-bound C=sqrt(3) for the single-qubit Pauli family), a finite-shot sample-complexity bound, and a tolerance decomposition separating adversarial and natural-drift contributions. We validate the framework end-to-end on a two-qubit QSVM pipeline on the IBM Heron r2 processor (ibm_fez), with a sample-complexity validation on a noise-matched simulator. The prescribed measurement budget (about 1.4e4 shots) fits in a single batched job, the sneaky channel is detected with a wide safety margin while evading the weak contract, and the typical hardware drift sits within tolerance.",
+  "url": "http://arxiv.org/abs/2605.25066v1",
+  "pdf": "https://arxiv.org/pdf/2605.25066v1",
+  "type": "both",
+  "summary": "This paper introduces a framework to verify that a quantum machine learning pipeline is executing the intended circuit rather than a substituted or degraded version. It provides a unified way to monitor for both malicious attacks and natural hardware noise using a lightweight measurement protocol. This is crucial for the secure deployment of QML in regulated cloud-based quantum services.",
+  "main_problem": "Ensuring the integrity of Quantum Machine Learning (QML) pipelines against both adversarial channel substitution and natural hardware calibration drift.",
+  "main_result": "The QML-PipeGuard framework successfully detects 'sneaky' channel substitutions on IBM Heron hardware while distinguishing them from benign hardware drift within a calibrated tolerance.",
+  "method": "A contract-based framework using behavioral fingerprinting, where a vector of observable expectation values is compared against a declared specification using a predefined tolerance.",
+  "model_or_system": "The study focuses on QML pipelines (VQC, QSVM, QNN) implemented on the IBM Heron r2 processor (ibm_fez), modeling the quantum stage as a sequence of CPTP channels.",
+  "key_observables": "A vector of observable expectation values, specifically using Pauli observable families (local Pauli, diagonal correlations, and full Pauli strings).",
+  "important_parameters": "Calibrated tolerance (epsilon_A), adversarial separation (delta), frame-bound constant (C), and measurement shot budget (N).",
+  "main_assumptions": "Assumes the adversary controls the execution environment, the QML model is already trained, and the verifier possesses a trusted reference implementation.",
+  "figures_summary": "Figure 1 shows the system model of trust between owner, environment, and verifier; Figure 4 visualizes the relationship between shot budget and error rates (TPR/FPR).",
+  "paper_structure": "The paper introduces a threat model for QML integrity, proposes the QML-PipeGuard framework, provides mathematical theorems for detection and sample complexity, and validates the approach via hardware experiments on IBM processors.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25066_figures/2605.25066_fig1.jpg",
+      "caption": "Figure 1: System model and trust boundaries. The model owner declares a specification σA for the QML pipeline (encoding Uϕ, ansatz W(θ), and measurement M). The pipeline executes inside the execution environment, which in adversarial scenarios is under the control of an adversary A who may substitute the declared channel EA with EB = S ◦EA. The trusted verifier samples observables from OA, collects measurement outcomes, checks the observable contract against the reference specification, and produces an accept/halt/log-drift decision.",
+      "page": 13
+    },
+    {
+      "image": "2605.25066_figures/2605.25066_fig2.jpg",
+      "caption": "Figure 1 summarizes the system model and trust boundaries graphically. The diagram traces the path from the model owner’s declared specification through the execution environment to",
+      "page": 13
+    },
+    {
+      "image": "2605.25066_figures/2605.25066_fig3.jpg",
+      "caption": "Figure 2: Theoretical-foundation stack for the framework. The bottom (shared) layer is the behavioral-subtyping discipline for quantum channels: channel-as-object, observable contract, and contract-preserving substitution by per-observable tolerance, developed at the general CPTP-channel level in concurrent work. The three upper layers (this paper) specialize this foundation to QML pipelines (Layer 1), add a finite-shot operational layer through Hoeffding concentration and a union bound together with a tight frame-bound constant C = √",
+      "page": 19
+    },
+    {
+      "image": "2605.25066_figures/2605.25066_fig4.jpg",
+      "caption": "Figure 3: Per-observable deviation between the honest and sneaky channels on ibm fez, with tolerance εA = 0.15 marked by the vertical line. Observable labels follow the convention Pi ≡P ⊗I for i = 1 (qubit 1) and Pi ≡I ⊗P for i = 2 (qubit 2); the correlation ob- servable is labelled Z1Z2 ≡Z ⊗Z. The single weak-family observable Z1Z2 (amber) stays at the device noise floor (deviation 0.001), passing the weak contract. The complete family (teal) exposes the substitution: deviations of 0.36–0.49 on three of the X- or Y -rotated ob- servables, well beyond tolerance. The verifier halts under the complete contract while the weak contract accepts the substitute, reproducing the structural...",
+      "page": 38
+    },
+    {
+      "image": "2605.25066_figures/2605.25066_fig5.jpg",
+      "caption": "Figure 4: Empirical TPR (sneaky detection rate) and FPR (honest false-alarm rate) as a function of shot budget per observable, weakened sneaky construction (RZ(π/6) insertion), 20 trials per setting on the Aer simulator with the IBM Heron r2 noise model. At the Corollary 1 (sampled-reference) per-observable budget nO = 2,280 (total N = 13,680), TPR reaches 1.00 and FPR drops to 0.00, comfortably bracketing the target rates (TPR target 1 −η = 0.95, FPR target η = 0.05, shown as dashed lines). At reduced budgets the FPR climbs sharply (0.15 at nO/10, 1.00 at nO/100), indicating that statistical fluctuations rather than channel deviation are driving the verifier’s decisions; the apparent...",
+      "page": 39
+    }
+  ],
+  "figure": "2605.25066_figures/2605.25066_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

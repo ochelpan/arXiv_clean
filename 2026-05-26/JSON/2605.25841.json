@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.25841",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Variational Dissipative Framework for Quantum Algorithms",
+  "authors": "Yuan Yao, Ruipeng Xing, Yongjian Gu, Yiming Huang, Xiao Yuan",
+  "abstract": "Dissipation engineering has attracted growing interest as an approach to controlling open quantum systems through engineered system-environment interactions. Standard variational quantum circuits are usually built from unitary operations and therefore explore only a restricted family of states. To go beyond this limitation, we introduce a variational dissipative framework in which ancilla-assisted engineered dissipation is incorporated into parameterized quantum algorithms. In this framework, system-only variational layers are combined with trainable dissipative modules, so that the circuit can prepare a broader class of mixed states through ancilla-assisted nonunitary transformations. Within this framework, the same ancilla-assisted dissipative block is used in two representative settings with different objectives. For ground-state search, it is integrated into a dissipative variational quantum eigensolver to improve the convergence toward low-energy states. For state recovery, it is trained as a recovery channel to suppress preparation noise and enhance fidelity with the target state. In both cases, the block is realized through parameterized system-ancilla couplings followed by ancilla reset and trace-out. Our results show that engineered dissipation can be incorporated into variational quantum circuits as a reusable trainable primitive rather than treated only as a source of noise. In this sense, the proposed framework identifies ancilla-assisted dissipative channels as a concrete variational resource that can support both optimization and recovery tasks within a unified design.",
+  "url": "http://arxiv.org/abs/2605.25841v1",
+  "pdf": "https://arxiv.org/pdf/2605.25841v1",
+  "type": "theory",
+  "summary": "This paper introduces a new variational framework that incorporates engineered dissipation into quantum algorithms using ancilla-assisted channels. It demonstrates that these dissipative modules can be trained to both find ground states more efficiently and recover noisy states, potentially offering an exponential speedup in optimization complexity.",
+  "main_problem": "Standard variational quantum algorithms are limited to unitary operations, which restricts the ansatz to pure states and makes them susceptible to noise-induced barren plateaus. The research seeks to expand the variational search space by incorporating controllable, nonunitary dissipative processes.",
+  "main_result": "The authors propose a unified dissipative framework that uses ancilla-assisted engineered dissipation as a trainable resource to both improve ground-state energy convergence and perform state recovery. They theoretically demonstrate a conditional exponential advantage in iteration complexity over standard unitary VQAs under certain landscape conditions.",
+  "method": "The framework integrates trainable dissipative modules, realized via system-ancilla unitaries followed by ancilla reset and trace-out, into parameterized quantum circuits. The authors use the GKLS master equation, Stinespring dilation, and the Polyak-Lojasiewicz (PL) inequality to analyze convergence and complexity.",
+  "model_or_system": "The model consists of a system of n qubits coupled to an m-qubit ancilla register. The dynamics are described by a combination of system-only unitary layers and ancilla-assisted dissipative blocks, tested on spin Hamiltonians including XX-type, transverse-field Ising, and XXZ models.",
+  "key_observables": "Ground-state energy expectation value, state fidelity, convergence speed (energy descent), and iteration complexity.",
+  "important_parameters": "Number of system qubits (n), number of ancillas (m), number of dissipative rounds (T), noise strength (p), and learning rate (lr).",
+  "main_assumptions": "Relies on the Born-Markov approximation, the assumption that the dissipative objective satisfies the PL condition, and that ancillas are reset to the zero state before each dissipative block.",
+  "figures_summary": "Figure 1 shows the general architecture; Figure 2 and 3 demonstrate improved energy convergence and fidelity recovery with increasing ancilla counts; Figure 4 and 5 show robustness across different noise channels and target states; Figure 7 illustrates ancilla saturation and a robustness plateau.",
+  "paper_structure": "The paper introduces the limitation of unitary ansätze, proposes the dissipative framework, details the implementation for ground-state search and state recovery, provides numerical evidence of performance gains and robustness, and concludes with a mathematical complexity analysis comparing dissipative and unitary VQAs.",
+  "why_interesting": "This is highly relevant for researchers in open quantum systems as it treats dissipation not as a nuisance but as a programmable resource for state engineering and error mitigation, providing a bridge between reservoir engineering and quantum algorithm design.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25841_figures/2605.25841_fig1.jpg",
+      "caption": "Figure 1: General architecture of the variational dissipative framework. The circuit combines a system-only variational module with an ancilla-assisted dissipative module.",
+      "page": 5
+    },
+    {
+      "image": "2605.25841_figures/2605.25841_fig2.jpg",
+      "caption": "Figure 2: Training curves of the dissipative VQE with different numbers of ancillas. Panels (a) and (b) cor- respond to different main-system sizes. As the number of ancillas increases, the energy decreases faster during training and the final converged energy becomes lower, demonstrating improved convergence speed and varia- tional accuracy.",
+      "page": 6
+    },
+    {
+      "image": "2605.25841_figures/2605.25841_fig3.jpg",
+      "caption": "Figure 3: Fidelity recovery performance for different numbers of ancillas. Introducing dissipative ancillas sig- nificantly improves the fidelity beyond the initial input value, and increasing the number of ancillas generally leads to both faster recovery and a higher final fidelity.",
+      "page": 7
+    },
+    {
+      "image": "2605.25841_figures/2605.25841_fig4.jpg",
+      "caption": "Figure 4: Robustness of the dissipative VQE across dif- ferent noise channels and Hamiltonians. (a) Compari- son under amplitude-damping, bit-flip, and depolarizing noise in the fully noisy setting. (b) Comparison for three representative Hamiltonians: an XX-type model in a transverse field, a transverse-field Ising model, and an XXZ-type model. In both cases, the dissipative VQE converges faster and reaches lower final energies than the ancilla-free baseline.",
+      "page": 7
+    },
+    {
+      "image": "2605.25841_figures/2605.25841_fig5.jpg",
+      "caption": "Figure 5: Fidelity recovery under different noise con- ditions and target states.Dashed lines denote the noisy input fidelities without dissipative recovery, while solid lines denote the results with variational dissipative re- covery. (a) Recovery of a dressed cluster target state un- der depolarizing, bit-flip, and amplitude-damping noise. (b) Recovery performance for three representative target states: the W state |ψW ⟩, the uniform superposition state |ψ+⟩, and the dressed cluster state |ψDC⟩. Unless otherwise specified, the simulations use n = 3 system qubits, m = 3 ancillas, learning rate lr = 0.8, dissipa- tive rounds T = 3, and noise strength p = 0.1.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.25841_figures/2605.25841_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

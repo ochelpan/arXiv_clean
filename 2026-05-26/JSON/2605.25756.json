@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.25756",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QGCL: Quantum-Guided Clause Learning for Cryptanalytic SAT",
+  "authors": "Walid El Maouaki, Alberto Marchisio, Muhammad Shafique",
+  "abstract": "Power side-channel attacks on AES exploit data-dependent physical leakage to recover secret keys, but turning noisy leakage observations into a verified AES-128 key remains a hard combinational search problem. SAT-assisted power side-channel cryptanalysis addresses this challenge by encoding AES semantics, key constraints, plaintext/ciphertext consistency, and leakage predicates as CNF, so that candidate keys must satisfy the exact cryptographic specification. These cryptanalytic SAT formulas are large and highly structured; our largest controlled AES-oriented power-SCA instances contain up to 39,389 variables and 137,712 clauses, making a full-formula Grover search well beyond the scale studied here and beyond currently practical near-term implementations. We propose QGCL, a Quantum-Guided Conflict-Driven Clause Learning (CDCL) framework in which Grover search is invoked only on small subformulas extracted dynamically around CDCL conflict cores. The quantum subsolver returns candidate assignments and violation scores that bias branching heuristics, while final SAT/UNSAT decisions and key verification remain classical. We evaluate QGCL on AES-oriented cryptanalytic SAT instances derived from power side-channel CNFs with leakage-derived hint configurations, measuring conflicts, restarts, decisions, and propagations. The experiments show consistent reductions in these solver-internal statistics on harder instances, with up to an 86% reduction in conflicts compared with the classical conflict-learning baseline. Parameter sweeps over the number of Grover oracle calls and the subproblem size identify a regime in which a modest quantum resource allocation captures most of the observed improvement.",
+  "url": "http://arxiv.org/abs/2605.25756v1",
+  "pdf": "https://arxiv.org/pdf/2605.25756v1",
+  "type": "both",
+  "summary": "This paper proposes a hybrid algorithm called QGCL that integrates Grover search into classical SAT solvers to accelerate AES cryptanalysis. By using quantum search to provide local heuristic hints rather than attempting a global search, it significantly reduces the computational effort required to solve massive, structured search problems.",
+  "main_problem": "The difficulty of recovering AES-128 secret keys from noisy power side-channel leakage, which is a massive and highly structured combinatorial search problem impractical for full-scale Grover search.",
+  "main_result": "The QGCL framework achieves up to an 86% reduction in solver conflicts and improves wall-time in ideal simulations by using Grover search to provide heuristic guidance to a classical CDCL solver.",
+  "method": "A hybrid quantum-classical approach (QGCL) where Grover search is invoked on small, dynamically extracted subformulas (conflict cores) to provide branching hints (variable activities and polarities) to a classical CDCL solver.",
+  "model_or_system": "The problem is modeled as a Boolean Satisfiability (SAT) problem in Conjunctive Normal Form (CNF) derived from AES-128 power side-channel leakage, simulated using the PennyLane framework on an NVIDIA GPU.",
+  "key_observables": "Solver-internal statistics including conflicts, decisions, propagations, restarts, and total wall-time.",
+  "important_parameters": "Grover budget (subproblem size), maximum number of Grover calls (C_max), mixing parameter (eta_t), and the depth of the cryptanalytic problem (T).",
+  "main_assumptions": "The effectiveness relies on a useful operating regime where quantum subproblems are small enough for near-term hardware; the framework assumes the quantum output only influences heuristics and cannot alter the logical SAT/UNSAT result.",
+  "figures_summary": "Figure 1 shows asymptotic complexity scaling; Figure 2 shows the AES side-channel workflow; Figure 3 illustrates the QGCL control flow; Figure 5 shows subformula extraction; Figure 6 compares ideal vs. noisy Grover outputs; Figure 7 compares CDCL vs. QGCL performance metrics.",
+  "paper_structure": "The paper introduces the cryptanalytic challenge, defines the QGCL hybrid framework and circuit construction, details the subformula extraction and heuristic update methods, presents experimental results on various scales and noise levels, and concludes with future work.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25756_figures/2605.25756_fig1.jpg",
+      "caption": "Fig. 1: Asymptotic scaling motivation for applying Grover search to sufficiently large extracted CNF subformulas with n Boolean variables and m clauses. The red curve represents the classical worst-case term 2n, while the green curve represents Grover-style subformula search with clause-oracle overhead, approximately m·2n/2. The crossover near n⋆≈2 log2 m marks the regime where the extracted conflict region is large enough for Grover guidance to become especially attractive. m is fixed to 200 clauses in this plot. TABLE I: Worst-case asymptotic cost of CNF-based side-channel checking with n Boolean variables and m clauses.",
+      "page": 2
+    },
+    {
+      "image": "2605.25756_figures/2605.25756_fig2.jpg",
+      "caption": "Fig. 4: Circuit sketch for SAT-oracle building blocks. (a) Clause-violation ancilla c1 for the clause C1 = (x1 ∨¬x2). X gates on the positive literal x1 retarget the control so that the multi-controlled X on c1 fires only when both literals in C1 are false (clause violated), i.e., when x1 = 0 and x2 = 1. Thus c1 = 1 encodes C1 violated. (b) Two such clause-violation bits c1, c2 are combined with a multi-controlled Toffoli to implement f ←¬c1 ∧¬c2, the CNF flag that is 1 iff no clause is violated. A controlled-Z on f applies the Grover phase to satisfying assignments. All ancillas are later uncomputed.",
+      "page": 5
+    },
+    {
+      "image": "2605.25756_figures/2605.25756_fig3.jpg",
+      "caption": "Fig. 6: Grover-subsolver output distributions for small CNF formulas used to validate the local oracle and sampling loop. For an extracted CNF with nsub variables and msub clauses, the oracle uses nsub + msub + 1 qubits. Panels (a,b) show ideal simulations: satisfiable cases amplify marked assignments, while unsatisfiable cases remain near-uniform. Panels (c,d) show noisy Fake Prague simulations, where the correct assignment is often still among the highest-probability candidates despite noise.",
+      "page": 7
+    },
+    {
+      "image": "2605.25756_figures/2605.25756_fig4.jpg",
+      "caption": "Fig. 7: Comparison of the CDCL baseline (blue) and the QGCL hybrid solver (orange) on the benchmark family with T ∈{2, 4, 8, 12}. Panels show (a) decisions, (b) propagations, (c) conflicts, and (d) restarts. Points denote individual runs; solid markers and error bars show the mean and 95% confidence interval across 10 seeds. Percentage labels indicate the relative improvement of QGCL over CDCL.",
+      "page": 8
+    },
+    {
+      "image": "2605.25756_figures/2605.25756_fig5.jpg",
+      "caption": "Fig. 9: QGCL performance when varying the Grover budget, defined as the maximum size of the extracted subformula (number of distinct variables plus clauses), on the same fixed instance used in the call-count sweep. Panels show (a) decisions, (b) propagations, (c) conflicts, and (d) restarts. The classical CDCL baseline mean and 95% confidence interval are plotted in blue; QGCL (hybrid) means and 95% confidence intervals appear in orange.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.25756_figures/2605.25756_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

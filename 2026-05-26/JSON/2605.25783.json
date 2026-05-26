@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.25783",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Q-RAIL: A Reliability-Aware Framework for Quantum Federated Learning on Heterogeneous Noisy Hardware",
+  "authors": "Walid El Maouaki, Muhammad Shafique",
+  "abstract": "Quantum federated learning (QFL) on NISQ hardware is highly sensitive to backend heterogeneity: some clients contribute informative updates, while others contribute noise-dominated drift that uniform averaging cannot distinguish. We propose Q-RAIL (Quantum Reliability-Aware Federated Inference and Learning), a circuit- and calibration-aware aggregation method for hardware-heterogeneous QFL. Q-RAIL computes a client-specific effective noise budget from backend calibration metadata together with transpiled circuit statistics. This budget is converted into stabilized aggregation weights using temperature scaling, uniform mixing, and a minimum-weight floor. Q-RAIL was evaluated across multiple experimental settings, including an ablation study, and benchmarked against state-of-the-art methods on three datasets: MNIST, Fashion-MNIST, and OrganAMNIST. On the primary MNIST benchmark under strong hardware skew, Q-RAIL improves final test accuracy from FedAvg's 0.777 to 0.877, a +10.0-point gain corresponding to about 44.8% relative error reduction, while also exceeding the strongest wpQFL baseline (0.833). At the same time, test loss drops from 0.722 to 0.585, and test AUC rises from 0.920 to 0.973. Under non-IID MNIST, Q-RAIL reaches 0.813 vs 0.722 for FedAvg. It also outperforms FedAvg in 12/12 ansatz/CX-fold stress configurations and remains stronger at 4, 10, and 15 qubit setups. Overall, the results support calibration-driven, circuit-aware aggregation as a practical path toward robust QFL on heterogeneous quantum hardware.",
+  "url": "http://arxiv.org/abs/2605.25783v1",
+  "pdf": "https://arxiv.org/pdf/2605.25783v1",
+  "type": "theory",
+  "summary": "This paper introduces Q-RAIL, a framework designed to make Quantum Federated Learning more robust to the noise and hardware differences found in NISQ devices. By weighting client updates based on the reliability of their specific hardware and circuit depth, it prevents noisy backends from degrading the global model. This approach significantly improves learning accuracy and stability in heterogeneous quantum networks.",
+  "main_problem": "Addressing hardware heterogeneity in Quantum Federated Learning (QFL), where varying noise levels and transpilation-induced circuit changes across different NISQ backends cause unreliable client updates.",
+  "main_result": "The Q-RAIL framework significantly improves QFL accuracy (e.g., a 10.0-point gain on MNIST) and robustness against 'bad clients' by using a reliability-aware aggregation method.",
+  "method": "Q-RAIL computes a client-specific effective noise budget using backend calibration metadata and transpiled circuit statistics, then applies a stabilized, temperature-scaled softmax weighting for aggregation.",
+  "model_or_system": "The study uses Variational Quantum Classifiers (VQCs) with angle-encoding feature maps and various ansatz topologies (linear, ring, full) implemented on simulated heterogeneous NISQ hardware (Qiskit FakeProvider).",
+  "key_observables": "Test accuracy, test loss, Area Under the Curve (AUC), and effective noise budget.",
+  "important_parameters": "Temperature scaling (tau), uniform mixing (beta), minimum weight floor (w_min), qubit counts (4, 10, 15), and CX-fold noise amplification.",
+  "main_assumptions": "Assumes the server has access to backend calibration metadata and transpilation statistics; focuses on the NISQ era where noise-induced device shift is a primary driver of degradation.",
+  "figures_summary": "Figure 1 shows the Q-RAIL workflow; Figure 2 ranks backends by error; Figure 3 details the methodology flowchart; Figures 4-6 show learning curves, robustness to bad clients, and scalability with client count; Figures 7-8 show heatmaps of noise budgets and accuracy relative to circuit complexity.",
+  "paper_structure": "The paper introduces the problem of hardware heterogeneity in QFL, proposes the Q-RAIL framework, details the reliability-scoring and aggregation mechanism, presents benchmarking results across various datasets and noise regimes, and discusses limitations and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25783_figures/2605.25783_fig1.jpg",
+      "caption": "Fig. 2: Ranking of candidate backends by composite error (log scale), from low-error to high-error devices, with color indicating the corresponding quality score.",
+      "page": 3
+    },
+    {
+      "image": "2605.25783_figures/2605.25783_fig2.jpg",
+      "caption": "Fig. 3: Overview of the Q-RAIL methodology: a) Input. b) Backend discovery and profiling. c) Ranking and client assignment. Here, the top-5 and bottom-5 pools are shown as an example, but the pool size is adjustable based on the full candidate backend set. d) Per-client transpilation. e) Shared QML model construction. f) Reliability-score computation. g) Stabilized reliability-aware aggregation. h) Local training. i) Server aggregation. j) Global evaluation and SOTA comparison.",
+      "page": 4
+    },
+    {
+      "image": "2605.25783_figures/2605.25783_fig3.jpg",
+      "caption": "Fig. 4: Main comparison across Configurations A and B. Global test accuracy over communication rounds for FedAvg, Q-RAIL, and wpQFL under IID (top row) and non-IID (bottom row) data partitions on MNIST, Fashion-MNIST, and OrganAMNIST. The legend is shared.",
+      "page": 9
+    },
+    {
+      "image": "2605.25783_figures/2605.25783_fig4.jpg",
+      "caption": "Fig. 5: Performance under increasing bad-client ratios. Final-round test accuracy and test loss as the proportion of low-quality clients increases from 20% to 100%. Error bars denote variability across seeds. The legend is shared.",
+      "page": 9
+    },
+    {
+      "image": "2605.25783_figures/2605.25783_fig5.jpg",
+      "caption": "Fig. 8: Ansatz and CX-fold stress test. Final test accuracy of FedAvg and Q-RAIL across linear, ring, and full entanglement patterns under increasing CX-fold values. Higher CX-fold amplifies circuit noise by repeating entangling operations.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.25783_figures/2605.25783_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

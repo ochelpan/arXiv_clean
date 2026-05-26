@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.25268",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Bipartite Cholesky Graph Networks for Many-Body Quantum Chemistry",
+  "authors": "Abdul Samad Khan",
+  "abstract": "Accurate prediction of molecular correlation energies from first principles requires resolving the {O}(N^4) electron repulsion integral (ERI) tensor. Existing graph neural network approaches to the electronic structure problem often compress this tensor into low-rank scalar features, discarding higher-order interaction structures relevant to electron correlation. In this work, we demonstrate that tensor factorization of the ERI naturally induces a structured bipartite message-passing architecture that preserves access to higher-order interaction structure more effectively than compressed orbital representations. By utilizing the density-fitted Cholesky decomposition of the ERI tensor, we derive a bipartite graph network that models orbital degrees of freedom and auxiliary interaction nodes as distinct sets, maintaining interaction topology at a reduced theoretical complexity of {O}(N^3). Evaluated on 132 geometries of six diatomic molecules with Full Configuration Interaction (FCI) reference energies, our factorized representation achieves an in-distribution Mean Absolute Error (MAE) of 0.0296 Ha under five-fold cross-validation, a substantial improvement over compressed-integral baselines. Leave-one-molecule-out validation reveals that zero-shot generalization varies by nearly a factor of four across molecular species and correlates with the structural similarity of the held-out molecule's orbital environment to the training distribution, rather than with nuclear charge asymmetry alone.",
+  "url": "http://arxiv.org/abs/2605.25268v1",
+  "pdf": "https://arxiv.org/pdf/2605.25268v1",
+  "type": "theory",
+  "summary": "This paper introduces a new graph neural network architecture that uses Cholesky decomposition to represent electron repulsion integrals in a bipartite graph structure. This approach preserves essential higher-order interaction structures while reducing computational complexity, leading to much more accurate predictions of molecular correlation energies.",
+  "main_problem": "The computational bottleneck of O(N^4) scaling in electron repulsion integrals (ERI) and the loss of higher-order interaction structures in existing graph neural network approaches to quantum chemistry.",
+  "main_result": "The Bipartite Cholesky Graph Network achieves a significantly lower Mean Absolute Error (0.0296 Ha) than compressed-integral baselines and demonstrates that generalization is driven by orbital-structural similarity.",
+  "method": "A bipartite graph neural network architecture that uses Cholesky decomposition of the ERI tensor to create a graph with orbital nodes and auxiliary interaction nodes, utilizing tensor contractions to maintain interaction topology.",
+  "model_or_system": "The model targets the correlation energy of many-body molecular systems, specifically evaluated on six diatomic molecules (CO, HF, Li2, LiH, N2, O2) using a non-relativistic electronic Hamiltonian and STO-3G basis.",
+  "key_observables": "Correlation energy (Delta E_corr) and Mean Absolute Error (MAE) in Hartrees.",
+  "important_parameters": "Scaling of the forward pass (empirical O(N^2.20) and theoretical O(N^3)) and the number of auxiliary interaction nodes.",
+  "main_assumptions": "The ERI supermatrix is assumed to be symmetric and positive semi-definite; the model currently relies on single-reference Hartree-Fock references.",
+  "figures_summary": "Figure 1 illustrates the bipartite architecture, showing orbital nodes exchanging information through auxiliary interaction nodes via Cholesky weights without direct orbital-to-orbital edges.",
+  "paper_structure": "The paper introduces the computational problem of ERI scaling, presents the Bipartite Cholesky Graph Network architecture and its derivation from tensor factorization, details the implementation and scaling, reports performance benchmarks and ablation studies, and concludes with an analysis of zero-shot generalization via leave-one-molecule-out validation.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.25268_figures/2605.25268_fig1.jpg",
+      "caption": "Figure 1: Bipartite architecture induced by the Cholesky factorization of the ERI tensor. Orbital nodes (blue circles) exchange information exclusively through auxiliary interaction nodes (red squares) weighted by the Cholesky vectors BL pq; no direct orbital-to-orbital edges exist.",
+      "page": 4
+    },
+    {
+      "image": "2605.25268_figures/2605.25268_fig2.jpg",
+      "caption": "Figure 2: Empirical computational scaling of the factorized bipartite message passing. The forward pass achieves an empirical scaling of O(N 2.20) on CPU, avoiding explicit O(N 4) edge materializa- tion.",
+      "page": 5
+    },
+    {
+      "image": "2605.25268_figures/2605.25268_fig3.jpg",
+      "caption": "Figure 3 shows the predicted potential energy surfaces (PES) for all six molecules. Predictions represent genuine out-of-fold estimates from the five-fold CV procedure; no prediction in the figure was produced by a model trained on that geometry. The model tracks the equilibrium region faithfully across all species and exhibits larger residuals near compressed geometries (bond length < 0.75 Å),",
+      "page": 5
+    },
+    {
+      "image": "2605.25268_figures/2605.25268_fig4.jpg",
+      "caption": "Figure 3: Potential energy surfaces for the six diatomic molecules. Solid lines represent FCI reference energies; crosses are genuine out-of-fold predictions of the bipartite GNN accumulated across all five CV folds. No prediction was produced by a model that had seen the corresponding geometry during training.",
+      "page": 6
+    },
+    {
+      "image": "2605.25268_figures/2605.25268_fig5.jpg",
+      "caption": "Figure 4: Zero-shot generalization error (LOMO-CV) as a function of nuclear charge asymmetry ∆Z = |ZA −ZB|. The absence of a consistent monotonic trend indicates that ∆Z alone does not explain transferability. LiH (low ∆Z, low error) and Li2 (zero ∆Z, highest error) illustrate that the dominant factor is the orbital-structural dissimilarity of the held-out species from the training distribution.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.25268_figures/2605.25268_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

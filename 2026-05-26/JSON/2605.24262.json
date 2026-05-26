@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.24262",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum non-demolition measurements as a practical primitive for fault-tolerant computation against biased noise",
+  "authors": "Christophe Vuillot, Diego Ruiz, Jérémie Guillaud, Mazyar Mirrahimi",
+  "abstract": "Leveraging noise bias, where phase-flip errors dominate over bit-flips, can drastically reduce the hardware overhead of fault-tolerant quantum computation, but existing approaches require bias-preserving CNOT gates whose implementation remains experimentally challenging and is provably impossible for strictly two-dimensional systems. We show that high-fidelity quantum non-demolition (QND) multi-qubit Pauli $Z$ measurements provide an equally powerful yet more accessible primitive. We demonstrate that such measurements can fully replace bias-preserving CNOT gates for compiling all operations required by bias-tailored error correction, including stabilizer measurements for repetition codes, XZZX surface codes, and LDPC codes. We propose concrete physical implementations of this primitive for two platforms: solid-state nuclear spins coupled to electron spin ancillas, and dissipatively stabilized superconducting cat qubits. Through circuit-level numerical simulations, we show that an asymmetric XZZX surface code implemented with weight-four QND $Z$ measurements achieves a phase-flip threshold of $\\sim\\!1.25\\%$ and provides a qubit overhead reduction of up to $6\\times$ compared to a bias-unaware surface code at noise bias $η= 10^4$. In the regime of very large bias, a repetition code with QND $Z$ measurements attains a threshold of $\\sim\\!2.3\\%$ and achieves overhead comparable to that of a bias-preserving CNOT scheme, without requiring such a gate. Our results establish QND multi-$Z$ measurements as a practical and hardware-efficient route to fault-tolerant quantum computation for a broad class of biased-noise platforms.",
+  "url": "http://arxiv.org/abs/2605.24262v1",
+  "pdf": "https://arxiv.org/pdf/2605.24262v1",
+  "type": "both",
+  "summary": "The paper proposes using multi-qubit QND Z-measurements as a practical alternative to difficult-to-implement bias-preserving CNOT gates. This approach allows for highly efficient error correction in platforms with biased noise, such as cat qubits and spin-based systems, significantly reducing the required qubit overhead.",
+  "main_problem": "Existing approaches to exploit noise bias in fault-tolerant quantum computing rely on bias-preserving CNOT gates, which are experimentally difficult to implement and impossible in strictly 2D systems. The goal is to find a more accessible primitive that achieves similar hardware efficiency.",
+  "main_result": "High-fidelity Quantum Non-Demolition (QND) multi-qubit Pauli Z measurements can replace bias-preserving CNOT gates, providing up to a 6x reduction in qubit overhead for XZZX surface codes at high noise bias. The scheme achieves phase-flip thresholds of approximately 1.25% for XZZX codes and 2.3% for repetition codes.",
+  "method": "The authors use circuit-level numerical simulations (via Stim and PyMatching) to evaluate error thresholds and qubit overhead. They also propose physical implementation protocols for multi-qubit Z-parity measurements using controlled-U operations and engineered dissipation.",
+  "model_or_system": "The paper targets platforms with biased noise (phase-flip > bit-flip), specifically solid-state nuclear spins coupled to electron spin ancillas and superconducting cat qubits stabilized via two-photon dissipation.",
+  "key_observables": "Logical error rate (LER), phase-flip threshold, qubit overhead, and measurement assignment error.",
+  "important_parameters": "Noise bias (eta) ranging from 10 to 10^8, phase-flip error rate (pz), and measurement weight (e.g., weight-4).",
+  "main_assumptions": "The assignment error of the QND measurement must be significantly smaller than the phase-flip error rate to preserve the noise bias.",
+  "figures_summary": "Figure 1 shows the QND Z-measurement mechanism; Figure 2 shows a CNOT implementation using Z-measurements; Figure 4 illustrates the setup for cat qubits; Figures 15-19 detail XZZX surface code schedules and error rate comparisons.",
+  "paper_structure": "The paper identifies the bottleneck of bias-preserving gates, proposes QND Z-measurements as a replacement, provides physical implementation paths for spin and superconducting systems, and quantifies performance gains through large-scale simulations.",
+  "why_interesting": "This is highly relevant for researchers in open quantum systems and quantum optics as it demonstrates how engineered dissipation and non-demolition measurements can be used as a fundamental building block for scalable, error-protected quantum architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.24262_figures/2605.24262_fig1.jpg",
+      "caption": "FIG. 1. Making a reliable QND Z measurement amounts to having access to a CU gate, a preparation of a state |Ψ0⟩and a reliable measurement distinguishing it from |Ψ1⟩= U |Ψ0⟩.",
+      "page": 2
+    },
+    {
+      "image": "2605.24262_figures/2605.24262_fig2.jpg",
+      "caption": "FIG. 2. (a) Circuit to implement a CX gate using a QND Z⊗3 measurement. Depending on the measurement outcome there is an X correction to be applied. In absence of a bias- preserving X gate, this correction can be stored in a Pauli frame. Moreover, the assignment error of the Z⊗3 measure- ment has to be as small as the bit-flip error probability for the protocol to preserve the bias. (b) Circuit to implement an X⊗2 parity check using a single QND Z⊗4 measurement. The measurement outcome is given by m = m1 ⊕m2. (c) Circuit to implement a ZXXZ measurement using a single QND Z⊗4 measurement. The measurement outcome is given by m = m1 ⊕m2. It can be obtained by conjugating the XX measurement in...",
+      "page": 3
+    },
+    {
+      "image": "2605.24262_figures/2605.24262_fig3.jpg",
+      "caption": "FIG. 3. Four nuclear spins (in red) are coupled to an electron spin (in blue) through hyperfine interaction and the electron spin undergoes an optical or electrical readout. Such a setup could be used to perform high-fidelity QND measurement of the Pauli operator Z4 between the four nuclear spin qubits which in turn can be used to perform the parity checks re- quired for biased-noise error correction as in Fig. 2.",
+      "page": 4
+    },
+    {
+      "image": "2605.24262_figures/2605.24262_fig4.jpg",
+      "caption": "FIG. 4. High-fidelity QND readout of Z⊗3 between three sta- bilized cat qubits. As shown in plot (a), the setup consists of three dissipatively stabilized cat qubits coupled capacitively. Each cat qubit mode aj (in blue) is coupled to its buffer mode bj (in red). The Asymmetrically Threaded SQUIDs (ATS), represented by SQUIDs shunted in the middle by an induc- tance, ensure the nonlinear interactions between the cat qubit modes and the buffer modes. By applying dc magnetic fluxes of 0 and π in the two superconducting loops of the ATS, this element engineers a potential of the form (6). The j’th ATS is pumped with an ac drive at frequency 2ωaj −ωbj, ensuring effectively an exchange of two...",
+      "page": 5
+    },
+    {
+      "image": "2605.24262_figures/2605.24262_fig5.jpg",
+      "caption": "FIG. 5. Logical error rate per syndrome cycle of the XZZX surface code implemented with MZ4 measurements, as a function of dz. Top row: |+⟩memory (X-type logical). Bottom row: |0⟩memory (Z-type logical). Columns correspond to bias η ∈{10, 100, 103}. Colors indicate phase-flip rate pz (blue: 10−3; orange: 3×10−3; red: 5×10−3); solid and dashed lines correspond to dx = 3 and dx = 5, respectively. Downward triangles (▽) mark 95% Poisson upper bounds for tasks with zero observed errors. Thin lines show the power-law ansätze of Eqs. (11)–(B2).",
+      "page": 8
+    }
+  ],
+  "figure": "2605.24262_figures/2605.24262_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 2,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 4,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
