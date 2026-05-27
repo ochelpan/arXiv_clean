@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.26261",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "GPU-accelerated finite-temperature Lanczos method for spin Hamiltonians",
+  "authors": "Shadan Ghassemi Tabrizi, Thomas D. Kühne",
+  "abstract": "We present a GPU implementation of the finite-temperature Lanczos method (FTLM) for Heisenberg spin Hamiltonians that targets workstation hardware rather than distributed-memory clusters. The Hamiltonian action is evaluated matrix-free in a row-wise gather formulation. We introduce and compare two state-to-index strategies: a compressed lookup table (CLT), which reduces lookup memory by a factor of 16 relative to a full table while retaining a fixed, branch-light access pattern, and a GPU-adapted combinatorial-ranking scheme that removes the lookup table altogether. Numerical tests against FP64 CPU references show that FP32 GPU arithmetic changes heat capacities and magnetic susceptibilities by amounts several orders of magnitude below the stochastic uncertainty of the FTLM trace estimator at typical sample sizes. Benchmarks show speedups of up to about one order of magnitude over optimized multicore CPU calculations and enable Hilbert-space sectors of dimension ~10^8 on a single workstation GPU. The MATLAB/CUDA implementation, including example input files and benchmark scripts, is openly available at https://github.com/ghasdeke/ftlm-gpu (archived at DOI: 10.5281/zenodo.20378647) under the Apache-2.0 license.",
+  "url": "http://arxiv.org/abs/2605.26261v1",
+  "pdf": "https://arxiv.org/pdf/2605.26261v1",
+  "type": "theory",
+  "summary": "This paper presents a GPU-accelerated version of the Finite-Temperature Lanczos Method designed for workstation hardware. By using a matrix-free approach and optimized indexing, it allows for much larger spin cluster simulations than traditional methods. The study demonstrates that single-precision GPU arithmetic is sufficient for calculating thermodynamic observables accurately.",
+  "main_problem": "The exponential growth of memory requirements for storing the Hamiltonian in sparse format prevents large-scale finite-temperature calculations on workstation-grade GPUs.",
+  "main_result": "The authors developed a matrix-free GPU implementation of the Finite-Temperature Lanczos Method (FTLM) that achieves 10x speedups over CPUs and enables Hilbert space dimensions of ~10^8 using single-precision arithmetic without sacrificing physical accuracy.",
+  "method": "A matrix-free, row-wise gather formulation using two state-to-index strategies: a Compressed Lookup Table (CLT) and a Combinatorial-Ranking (CR) scheme, implemented in MATLAB/CUDA.",
+  "model_or_system": "Heisenberg spin Hamiltonians for exchange-coupled spin clusters and magnetic solids, specifically applied to icosahedron and icosidodecahedron geometries with varying spin magnitudes (s = 1/2 to 2).",
+  "key_observables": "Partition function (Z), magnetic susceptibility (chi), heat capacity (C), and magnetization.",
+  "important_parameters": "Hilbert space dimension ~10^8, spin magnitude (s), total magnetization sector (M), and single-precision (FP32) vs. double-precision (FP64) arithmetic.",
+  "main_assumptions": "The implementation is optimized for workstation GPUs rather than distributed clusters and currently relies on S_z symmetry.",
+  "figures_summary": "Figure 4 and 5 show the distribution of Ritz eigenvalues and the impact of ghost eigenvalues in FP32 vs FP64; Table 3 compares wall-clock time scaling between CPU and GPU kernels.",
+  "paper_structure": "The paper introduces the computational bottleneck of Hamiltonian storage, presents the matrix-free GPU implementation and its indexing strategies (CLT and CR), evaluates numerical precision and error scales, and concludes with performance benchmarks and scaling studies.",
+  "why_interesting": "This provides a highly efficient, accessible tool for simulating the thermodynamic properties of large-scale quantum many-body systems using standard workstation hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.26261_figures/2605.26261_fig1.jpg",
+      "caption": "Figure 1: Thermodynamic observables and precision error for the antiferromagnetic icosahedron with local spin s = 1 (panels a, b) or s = 3/2 (c, d); left: heat capacity C, right: magnetic susceptibility χ. FP64 (solid blue) and FP32 (dashed red) are plotted on the linear left y-axis; both types of curves coincide at the resolution of the plot. The pointwise precision error, |ΔC| = |CFP32 − CFP64| or |Δχ| = |χFP32 − χFP64|, is plotted in black against its logarithmic right y-axis.",
+      "page": 13
+    },
+    {
+      "image": "2605.26261_figures/2605.26261_fig2.jpg",
+      "caption": "Figure 2: Multi-seed stochastic error analysis for the heat capacity and magnetic susceptibility of the icosahedron with s = 1 (a, b, c, d) or s = 3/2 (e, f, g, h). Left: 50 independent FTLM estimates (red curves, R = 100 each) and the pooled Reff = 5000 results (blue). Right: empirical and theoretical standard deviations across the 50 runs. See main text for details.",
+      "page": 15
+    },
+    {
+      "image": "2605.26261_figures/2605.26261_fig3.jpg",
+      "caption": "Figure 3: Thermodynamic observables and precision error (for details, see caption to Figure 1) for the s = 1, N = 12 Heisenberg ring (panels a, b), the s = 1/2 , N = 20 ring (c, d), the s = 1/2 dodecahedron (e, f) and the s = 1/2 icosidodecahedron (g). For the icosidodecahedron the calculation was restricted to the M = 0 sector (thus χ = 0, not shown) and only R = 8 random vectors were used.",
+      "page": 17
+    },
+    {
+      "image": "2605.26261_figures/2605.26261_fig4.jpg",
+      "caption": "Figure 4: Ghost diagnostic for the Lanczos Ritz spectrum – based on the same random starting vector for both FP64 (left) and FP32 (right) – in the M = 0 sector of the s = 1 icosahedron. Black circles: regular eigenvalues; red circles: ghosts in the Cullum– Willoughby sense.",
+      "page": 19
+    },
+    {
+      "image": "2605.26261_figures/2605.26261_fig5.jpg",
+      "caption": "Figure 5: Cluster diagnostic for the Krylov-space energy spectrum in the M = 0 sector of the s = 1 icosahedron. The weights 𝑤𝑘 are plotted on a logarithmic scale versus eigenvalues 𝜃𝑘 (in ascending order). Black circles: singletons (not flagged by the ghost diagnostic, or not assigned to a cluster), red circles: ghost-flagged Ritz values, blue circles: total weight of clusters containing ghost-flagged near-duplicate eigenvalues.",
+      "page": 20
+    }
+  ],
+  "figure": "2605.26261_figures/2605.26261_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 2,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.26544",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Adaptive Shot Allocation for Recursive QAOA via Reinforcement Learning",
+  "authors": "Euimin Lee, Shiho Kim",
+  "abstract": "Recursive QAOA (RQAOA) solves combinatorial optimization problems by using shallow quantum circuits to estimate pairwise correlations and recursively eliminate variables until a classical solver can handle the residual instance. Each elimination step requires measurement shots, and the total shot cost grows with the number of recursive stages. On near-term quantum devices, increasing shot counts can translate directly into greater exposure to hardware-level noise sources such as readout errors and decoherence, making shot-efficient execution not merely a cost-reduction measure but a factor with direct implications for solution reliability. While shot reduction has been studied broadly across NISQ algorithms, step-wise measurement control inside the recursive loop of RQAOA has received little attention. We formulate this step-wise allocation as a sequential decision problem and propose two strategies for depth-1 RQAOA on weighted Max-Cut instances. A hand-crafted heuristic assigns shots based on local indicators of step difficulty, and a tabular Double Q-learning agent learns a residual policy that adjusts this baseline under a Lagrangian-constrained objective. Both methods are evaluated under a fixed-cap fairness protocol that equalizes the per-step budget across all strategies, and the elimination rule itself is kept unchanged so that the contribution of adaptive measurement control can be isolated. On a diverse set of weighted graph instances spanning a range of sizes and structures, the heuristic reduces total shots by approximately 23% relative to uniform allocation, and the RL policy achieves a 36% reduction with a lower effective shots per success ratio than both baselines. The improvement persists on problem sizes not seen during training, suggesting that reinforcement learning can discover efficient, instance-adaptive measurement strategies in recursive quantum optimization.",
+  "url": "http://arxiv.org/abs/2605.26544v1",
+  "pdf": "https://arxiv.org/pdf/2605.26544v1",
+  "type": "theory",
+  "summary": "This paper proposes using reinforcement learning to adaptively allocate measurement shots during the recursive steps of the RQAOA algorithm. By learning to assign more resources to difficult elimination steps, the method significantly reduces the total quantum computational cost without sacrificing the quality of the optimization solution.",
+  "main_problem": "The computational bottleneck and noise sensitivity caused by inefficient, uniform measurement shot allocation in the recursive stages of the RQAOA algorithm.",
+  "main_result": "A reinforcement learning-based residual policy achieves a 36% reduction in total shots compared to uniform allocation while maintaining high solution reliability and generalizing to unseen problem sizes.",
+  "method": "A two-pronged approach using a hand-crafted heuristic baseline and a tabular Double Q-learning agent that learns a residual correction to the baseline under a Lagrangian-constrained objective.",
+  "model_or_system": "The study focuses on the weighted Max-Cut problem on d-regular graphs, modeled via an Ising Hamiltonian, using a depth-1 Recursive QAOA (RQAOA) framework.",
+  "key_observables": "Pairwise correlations (expectation values of Pauli-Z operators), success rate (approximation ratio >= 0.99), and effective shots per success (ESP).",
+  "important_parameters": "Circuit depth p=1, target success rate p*=0.95, and the 4D state descriptor including variable count, z-gap, conflict ratio, and graph distance.",
+  "main_assumptions": "The study is restricted to the noiseless regime and a fixed circuit depth (p=1) to isolate recursion-level effects from hardware noise or deeper circuit complexities.",
+  "figures_summary": "Figure 1 illustrates the RQAOA pipeline and the RL loop; Figure 3 shows normalized shot usage vs. success rate; Figure 4 shows mean ESP ratio by problem size; Figure 5 shows training diagnostics for the Lagrangian multiplier; Figure 6 compares allocation patterns between different controllers.",
+  "paper_structure": "The paper introduces the RQAOA bottleneck, proposes a reinforcement learning framework for adaptive shot allocation, details the MDP formulation and Double Q-learning implementation, presents performance evaluations across various graph sizes and complexity levels, and discusses the robustness and limitations of the learned policy.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.26544_figures/2605.26544_fig1.jpg",
+      "caption": "Fig. 1 Overview of the proposed shot-control framework for depth-1 RQAOA. (A) At each elimina- tion step t, a depth-1 QAOA circuit is executed on the current reduced graph Gt using kt measurement shots to estimate the pairwise correlation matrix M (t) uv . The edge (u∗, v∗) with the largest absolute correlation is selected, and the corresponding variable is eliminated to produce the next reduced graph Gt+1. This procedure repeats until the problem size falls below a classical-solver threshold nc, at which point the residual instance is solved exactly. (B) The RL shot-control loop operates along- side the RQAOA pipeline. Before each elimination step, a small probe measurement of kprobe shots...",
+      "page": 3
+    },
+    {
+      "image": "2605.26544_figures/2605.26544_fig2.jpg",
+      "caption": "Fig. 2 Shot reduction (%) vs. problem size n for the held-out operational subset. Each point rep- resents one policy–instance pair. The per-size mean (connected line) shows that RL achieves stable ∼36% reduction across the full range, while the Heuristic settles around ∼23%.",
+      "page": 13
+    },
+    {
+      "image": "2605.26544_figures/2605.26544_fig3.jpg",
+      "caption": "Figure 3 plots normalized shot usage against success rate for all pairs in the held-out operational subset. Relative to Uniform, the RL points are shifted toward lower shot usage while remaining in a high-success regime in the large majority of cases. The Heuristic occupies an intermediate position, with smaller shot savings and slightly higher success rates on average. The RL policy is trained with a constraint target p∗= 0.95, yet the observed success rate on the held-out operational subset is only about 0.91. This gap is not contradictory: the constraint is enforced during training on a designated base instance through the adaptive multiplier λ, whereas test-time evaluation aggregates...",
+      "page": 13
+    },
+    {
+      "image": "2605.26544_figures/2605.26544_fig4.jpg",
+      "caption": "Fig. 3 Normalized shot usage (eSmethod/eSUniform) vs. success rate for all pairs in the held-out oper- ational subset. Uniform (blue), Heuristic (orange), and RL (green). RL consistently shifts toward lower shot usage while maintaining competitive success rates; the Heuristic occupies an intermediate position.",
+      "page": 14
+    },
+    {
+      "image": "2605.26544_figures/2605.26544_fig5.jpg",
+      "caption": "Fig. 4 Mean ESP ratio by problem size n for the held-out operational subset. Values below 1.0 indicate lower effective cost per success than Uniform. Error bars show the range across instances at each n. Both Heuristic and RL improve over Uniform, with RL achieving a consistently lower ESP ratio.",
+      "page": 15
+    }
+  ],
+  "figure": "2605.26544_figures/2605.26544_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

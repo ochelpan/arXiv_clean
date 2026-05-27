@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.27210",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Qiskit QuantumKatas: Adapting Microsoft's Quantum Computing exercises for LLM evaluation",
+  "authors": "Juan Cruz-Benito, Ismael Faro",
+  "abstract": "We adapt Microsoft's QuantumKatas -- a well-established quantum computing curriculum -- from Q# to Qiskit, the most widely-adopted quantum computing framework, and package it with an evaluation framework for systematic LLM assessment. The resulting benchmark comprises 350 tasks across 26 categories, spanning fundamental gates through advanced algorithms (Grover's, Simon's, Deutsch-Jozsa), error correction, key distribution, and quantum games. Each task includes a natural language prompt, canonical solution, and deterministic test verification via classical circuit simulation. By building on the QuantumKatas' proven pedagogical design rather than creating tasks from scratch, we inherit a principled difficulty progression and comprehensive concept coverage while contributing the framework adaptation, evaluation infrastructure, and empirical analysis. We evaluate 16 LLMs across 7 prompting configurations -- a total of 39,200 model runs -- to demonstrate the benchmark's utility. Three key findings emerge: (1) the benchmark effectively differentiates model capabilities, with best-configuration pass rates ranging from 32.3% to 83.1% and a 26.1 pp average gap between frontier and open-source models; (2) models perform well at implementing known algorithms (SimonsAlgorithm 82.1%, BasicGates 81.6%) but struggle with problem encoding (SolveSATWithGrover 34.4%, DistinguishUnitaries 40.0%); and (3) chain-of-thought prompting shows a modestly bimodal effect -- it is the best strategy for three models (two of them explicitly reasoning-tuned per vendor documentation) but degrades performance for the rest, leaving it mid-pack in aggregate (56.3% mean) behind few-shot-5 (57.8%). We release the benchmark, evaluation framework, and baseline results to support research on LLM capabilities in quantum computing.",
+  "url": "http://arxiv.org/abs/2605.27210v1",
+  "pdf": "https://arxiv.org/pdf/2605.27210v1",
+  "type": "theory",
+  "summary": "This paper introduces 'Qiskit QuantumKatas,' a new benchmark designed to evaluate how well LLMs can write quantum programming code. It reveals that while top-tier models can implement standard algorithms, they struggle with complex problem encoding and that advanced prompting techniques like Chain-of-Thought are not universally effective for quantum tasks.",
+  "main_problem": "The lack of large-scale, pedagogically-structured benchmarks to evaluate the ability of Large Language Models (LLMs) to perform specialized scientific programming in the quantum computing domain.",
+  "main_result": "The study identifies a 26.1 percentage point performance gap between frontier and open-source models, finding that while models excel at implementing known algorithms, they struggle significantly with problem encoding and that Chain-of-Thought prompting can actually degrade performance for many models.",
+  "method": "The authors adapted Microsoft's Q# QuantumKatas into the Qiskit framework, creating a 350-task benchmark across 26 categories, and evaluated 16 LLMs using seven different prompting configurations via classical circuit simulation.",
+  "model_or_system": "The study evaluates 16 Large Language Models, including frontier proprietary models (e.g., GPT-5.5, Claude Opus 4.7, Gemini 3.1 Pro) and open-source models (e.g., Llama 4, Gemma 4, Mistral).",
+  "key_observables": "Model pass rates, error types (Logic, API, Circuit, Generation), and AST (Abstract Syntax Tree) similarity for solution diversity.",
+  "important_parameters": "Prompting strategies (Zero-shot, Few-shot, Chain-of-Thought), pedagogical tiers (Introductory, Intermediate, Advanced), and model architecture (Frontier vs. Open-Source).",
+  "main_assumptions": "The evaluation relies on classical circuit simulation (statevector comparison), which does not account for real-world hardware noise or decoherence; results are reported at temperature 0.",
+  "figures_summary": "Figure 1 shows pass rates distinguishing frontier and open-source models; Figure 2 uses box plots for prompting strategies; Figure 3 is a heatmap of per-model pass rates; Figure 4 visualizes task difficulty by category; Figure 5 shows the distribution of error types; Figure 6 shows performance decline across difficulty tiers.",
+  "paper_structure": "The paper introduces the need for quantum programming benchmarks, describes the adaptation of QuantumKatas to Qiskit, details the experimental setup and prompting strategies, presents results on model performance and error analysis, and concludes with limitations and future directions.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.27210_figures/2605.27210_fig1.jpg",
+      "caption": "Figure 1: Model performance on the Qiskit QuantumKatas benchmark. Bars show pass rates for each model’s best configuration, with error bars indicating 95% Wilson score confidence intervals. Blue bars indicate frontier (proprietary) models; orange bars indicate open-source models.",
+      "page": 9
+    },
+    {
+      "image": "2605.27210_figures/2605.27210_fig2.jpg",
+      "caption": "Figure 2: Effect of prompting strategies on model performance. Box plots show the distribution of pass rates across all models for each strategy. Red diamonds indicate means. Few-shot prompting modestly improves the average pass rate and reduces cross-model variance.",
+      "page": 11
+    },
+    {
+      "image": "2605.27210_figures/2605.27210_fig3.jpg",
+      "caption": "Figure 3 provides a per-model breakdown. Taken together, these results suggest a simple default: few-shot-3 or few-shot-5 with the default system prompt yields the best average-case performance, with two refinements—route reasoning-tuned endpoints (in our study, GPT-5.3-Codex and Gemini 3.1 Pro) to chain-of-thought, and let the strongest instruction-followers (GPT-5.5, GPT-OSS-120B) use zero-shot, since they derive little additional benefit from in-context examples.",
+      "page": 11
+    },
+    {
+      "image": "2605.27210_figures/2605.27210_fig4.jpg",
+      "caption": "Figure 4 visualizes category difficulty, with colors indicating the pedagogical tier each category belongs to.",
+      "page": 11
+    },
+    {
+      "image": "2605.27210_figures/2605.27210_fig5.jpg",
+      "caption": "Figure 3: Pass rate heatmap showing performance of the top 15 models across prompting strategies (zero-shot to 5-shot with default system prompt, plus chain-of-thought). Darker green indicates higher pass rates.",
+      "page": 12
+    }
+  ],
+  "figure": "2605.27210_figures/2605.27210_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

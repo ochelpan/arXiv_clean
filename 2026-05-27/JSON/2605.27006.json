@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.27006",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Sampling Data with Chains of Forward-Backward Diffusion Steps",
+  "authors": "Hyunmo Kang, Noam Itzhak Levi, Corinna Elena Wegner, Daniel J. Korchinski, Matthieu Wyart",
+  "abstract": "Sampling from learned high-dimensional distributions is a foundational computational problem. We introduce U-turn chains: Markov chains obtained by iterating short forward-backward steps of a diffusion model, in which each step proposes a move that remains on the learned data manifold and, paired with a Metropolis-Hastings correction, samples from energy-modified targets. For synthetic languages, we show that minimal U-turn dynamics undergoes an ergodicity-breaking phase transition driven by fragmentation of the data manifold; ergodicity is restored at larger U-turn magnitude. In the non-ergodic regime, low-level features relax faster than high-level ones, an ordering that inverts only at sufficiently large U-turn magnitude. We test these predictions on natural language and natural images. In both modalities, minimal U-turns relax slowly, especially for high-level features approximated by deep representations in CNNs or LLMs. The layer-ordering inversion appears only at large noise when mixing is efficient -- signatures consistent with strongly constrained, weakly mixing local dynamics. We discuss the implications of these results for sampling with diffusion models.",
+  "url": "http://arxiv.org/abs/2605.27006v1",
+  "pdf": "https://arxiv.org/pdf/2605.27006v1",
+  "type": "both",
+  "summary": "This paper investigates how diffusion-based sampling explores complex data manifolds by studying 'U-turn' Markov chains. It discovers a phase transition between ergodic and non-ergodic regimes and shows that the hierarchical stability of features in neural networks undergoes a characteristic inversion as noise levels change.",
+  "main_problem": "Understanding the ergodicity, relaxation dynamics, and hierarchical feature stability in diffusion-based sampling processes, specifically how data manifold fragmentation affects mixing.",
+  "main_result": "The authors identify an ergodicity-breaking phase transition driven by manifold fragmentation and a 'layer-ordering inversion' where deep neural network representations switch from preserving more information to decorrelating faster than early layers as noise increases.",
+  "method": "The study uses a theoretical Random Hierarchy Model (RHM) combined with empirical tests on large-scale diffusion models for text (LLaDA) and images (ConvNeXt/ImageNet), employing U-turn Markov chains and correlation analysis.",
+  "model_or_system": "The primary theoretical framework is the Random Hierarchy Model (RHM), a tree-structured grammar, while the empirical systems are masked diffusion language models and convolutional neural networks.",
+  "key_observables": "Layer-wise correlation C_l(n), relaxation time, ergodicity/mixing, rule density, and the layer-ordering inversion threshold.",
+  "important_parameters": "U-turn magnitude (noise fraction rho), rule density (f), branching factor (s), and masking fraction.",
+  "main_assumptions": "The theoretical predictions assume an exact diffusion process and a simplified tree-like hierarchical structure in the RHM.",
+  "figures_summary": "Figures illustrate the U-turn mechanism, the RHM tree structure, layer-wise correlation decay and inversion in both text and image models, and the stability of the phase diagram.",
+  "paper_structure": "The paper introduces the U-turn chain concept, develops the RHM theoretical framework for phase transitions, presents empirical validation using LLMs and CNNs, and concludes with asymptotic analysis of the inversion threshold.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.27006_figures/2605.27006_fig1.jpg",
+      "caption": "Figure 1: Left: A single U-turn move first corrupts a sample by adding noise or masking part of the input, then reconstructs it using a trained diffusion model. The U-turn magnitude controls the size of the perturbation. Middle: Iterating U-turn moves defines a Markov chain on the learned data distribution, allowing us to study whether the chain is ergodic. Right: Schematic of the Random Hierarchy Model, where visible tokens are generated from a hierarchy of latent variables through recursive production rules. This synthetic model provides a controlled setting for analyzing ergodicity and layer-wise relaxation.",
+      "page": 2
+    },
+    {
+      "image": "2605.27006_figures/2605.27006_fig2.jpg",
+      "caption": "Figure 2: Dynamics of minimal UTMC for the RHM with L = 4, s = 2. Left: Leaf-layer relaxation ˜C0(n) versus the cumulative number of masks ρdn = n, which is simply n here. For large f, the correlation decays to the finite-time ergodic baseline, whereas for smaller f it saturates at a nonzero plateau. Right: Relaxation time extracted using finite-time plateaus estimated at two choices of nmax. The peak marks the critical slowing-down near the theoretically predicted percolation threshold fper.",
+      "page": 4
+    },
+    {
+      "image": "2605.27006_figures/2605.27006_fig3.jpg",
+      "caption": "Figure 3: Left: Dynamics of the RHM with L = 4, s = 2, f = 0.125 < fper. For these parameters, minimal UTMC is non-ergodic, but UTMC with larger U-turn steps progressively reduce the long- time plateau. Right: Phase diagram for s = 2, L = 8, showing the late-time plateau normalized by the standard deviation of the overlap between independent random pairs. Light pink regions are statistically indistinguishable from the ergodic baseline, while blue regions retain memory of the initial state. The black curve marks the inversion of layer-wise relaxation ordering. The values fper and finv are theoretical predictions for minimal UTMC with ρ = 1/d.",
+      "page": 5
+    },
+    {
+      "image": "2605.27006_figures/2605.27006_fig4.jpg",
+      "caption": "Figure 4: Layer-wise relaxation across dynamical regimes. s = 2, L = 8. Left: (f, ρ) = (0.28, 0.004). In the non-ergodic regime, all layers retain finite memory. Middle: (f, ρ) = (0.22, 0.137). In the effectively ergodic, higher-slower regime, all layers eventually decorrelate, but higher layers relax more slowly. Right: (f, ρ) = (0.50, 0.004). In the effectively ergodic, higher-faster regime, the ordering is inverted and higher layers decorrelate faster.",
+      "page": 6
+    },
+    {
+      "image": "2605.27006_figures/2605.27006_fig5.jpg",
+      "caption": "Figure 5: Layer-wise latent correlation and ordering inversion in text. Left: For minimal U-turn steps, all layers relax slowly, with deeper layers in the early-to-intermediate range retaining memory of the initial text for longer. Middle: Increasing the masking fraction accelerates decorrelation across layers. Right: At large masking fraction, the layer ordering inverts: deeper representations decorrelate faster than earlier layers, consistent with the high-ρ regime predicted by the RHM. More choices of ρ are reported in App. B.1.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.27006_figures/2605.27006_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.26610",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "q-fin.CP"
+  ],
+  "is_primary_archive": true,
+  "title": "End-to-End PDE-Based Quantum Algorithms for Multi-Asset Option Pricing under Local and Stochastic Volatility",
+  "authors": "Nikita Guseynov, Nana Liu, Chi Seng Pun, Tushar Vaidya",
+  "abstract": "Multi-asset option pricing under local- and stochastic-volatility models leads naturally to high-dimensional parabolic PDEs. We develop an end-to-end quantum PDE framework for European option pricing under local-volatility Black--Scholes and Heston models. The framework takes classical contract and model data as input and returns classical estimates of selected option values. We solve the pricing PDEs after finite-difference discretization on spatial grids. For $N=2^n$ grid points per spatial direction and $d$ assets, the end-to-end gate complexity for single-point recovery, counted in elementary CNOT gates and one-qubit Pauli-axis rotations, has leading grid-size dependence $\\widetilde{O}(d^2 N^{2+d/2})$ for local-volatility Black--Scholes and $\\widetilde{O}(d^2 N^{d+2})$ for Heston. Relative to grid-based finite-difference baselines, these scalings correspond to polynomial improvement factors $N^{d/2}$ and $N^d$, respectively. These estimates translate to Clifford+T resources via standard compilation. We complement the complexity analysis with numerical benchmarks against standard classical methods. In the Heston setting, the framework recovers option prices across strikes together with the associated implied-volatility smile/skew. Overall, this work provides a complete end-to-end quantum pricing pipeline with explicit resource accounting and theoretical performance guarantees.",
+  "url": "http://arxiv.org/abs/2605.26610v1",
+  "pdf": "https://arxiv.org/pdf/2605.26610v1",
+  "type": "theory",
+  "summary": "This paper proposes a complete quantum algorithm for pricing multi-asset options under complex volatility models. By mapping PDEs to a unitary Schrödinger-like evolution, it provides a theoretical polynomial speedup over classical grid-based methods for high-dimensional problems.",
+  "main_problem": "Developing an end-to-end quantum computing framework for pricing multi-asset European options under complex local and stochastic volatility models, specifically addressing the readout bottleneck and the curse of dimensionality.",
+  "main_result": "The authors present a quantum pipeline that achieves a polynomial improvement in grid size relative to classical finite-difference baselines, specifically an improvement factor of N^{d/2} for Black-Scholes and N^d for Heston models.",
+  "method": "The framework uses 'Schrödingerisation' to map non-unitary PDEs to unitary Hamiltonian evolution, implements the dynamics via Quantum Singular Value Transformation (QSVT) and block-encoding, and recovers option prices using Quantum Amplitude Estimation (QAE).",
+  "model_or_system": "The mathematical models are multi-asset Black-Scholes (local volatility) and Heston (stochastic volatility) models, formulated as high-dimensional parabolic partial differential equations (PDEs) discretized on spatial grids.",
+  "key_observables": "European option prices, implied volatility smiles, and volatility skews.",
+  "important_parameters": "Number of assets (d), grid resolution (N), discretization error, and gate complexity in terms of CNOT and Pauli-axis rotations.",
+  "main_assumptions": "The framework is limited to European-style options and relies on finite-difference discretization; it does not account for physical qubit overhead or error-correction costs.",
+  "figures_summary": "Figure 1 shows the quantum pricing workflow; Figure 2 compares volatility profiles (flat vs. smile/skew); Figure 3 compares Heston implied volatility solvers; Figure 8 illustrates the smooth initialization function.",
+  "paper_structure": "The paper introduces the financial problem, defines the mathematical PDE framework, details the quantum pipeline (state preparation, evolution, and readout), provides complexity analysis for different models, and concludes with numerical validation against classical benchmarks.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.26610_figures/2605.26610_fig1.jpg",
+      "caption": "Fig. 1: Quantum workflow for solving the Black–Scholes (2) and Heston models (3). The W-qubit main register encodes option values over the stock-price grid (and volatility for the Heston PDE); the auxiliary nξ-qubit register implements the Schr¨odingerisation technique, mapping the dynamics to a unitary Schr¨odinger evolution. Both registers are initialized in the |0⟩state. The state preparation stage prepares (i) the smooth initialization |Φ0⟩, a C∞profile that coincides with e−ξ for ξ > 0, (ii) the payoff state (augmented by a constant component) {⃗V (T), 1}⊤. The evolution stage includes Hamiltonian evolution under the Schr¨odinger system induced by the ODE system (5), inducing V (T) →V...",
+      "page": 2
+    },
+    {
+      "image": "2605.26610_figures/2605.26610_fig2.jpg",
+      "caption": "Fig. 2: Constant-volatility Black–Scholes corresponds to a flat implied-volatility curve, whereas stochastic volatility models such as Heston can generate a smile or skew.",
+      "page": 3
+    },
+    {
+      "image": "2605.26610_figures/2605.26610_fig3.jpg",
+      "caption": "Fig. 3: Fixed-maturity Heston implied volatility smile shown in strike and forward log-moneyness coordinates (k = ln(K/FT )). Left: SSVI fits from four solvers. Centre: Relative discrepancies against the semi- analytical benchmark. Right: Sensitivity to the SSVI correlation parameter ρSSVI. The best fitted ρSSVI produces a mild skew that preserves the arbitrage-free nature of the curve (Algorithm 1). Simulation details are clarified in Appendix C.3.",
+      "page": 6
+    },
+    {
+      "image": "2605.26610_figures/2605.26610_fig4.jpg",
+      "caption": "Fig. 4: Comparison of solvers for the 1D Black–Scholes PDE. (A) Solution V (S, 0) in dollars, together with the payoff at maturity V (S, T) = max(S−K, 0) (shown only as an initial/terminal condition, not a PDE solution). (B) The same solution after normalization as a wave function, i.e. R |V (x)|2 dx = 1 (continuous notation; discretized analog used numerically). (C) Pairwise absolute differences between solvers. We compare: Quantum (Schr¨odin- gerisation), Finite-difference (implicit), Matrix exponentiation (numerical), and the analytical Black–Scholes for- mula [36, 42]. The classical baselines (matrix exponentiation and implicit finite differences) are described in Ap- pendix H. The...",
+      "page": 17
+    },
+    {
+      "image": "2605.26610_figures/2605.26610_fig5.jpg",
+      "caption": "Fig. 5: Arbitrage-free regularization of implied volatility slices. (a) Sparse quotes (red circles) with cubic interpolation of implied volatility. (b) SSVI fit to the same quotes. (c) Implied density from Breeden–Litzenberger applied to the cubic interpolation; negative regions indicate butterfly arbitrage. (d) Implied density from the SSVI slice, which is non-negative under the enforced constraints. SSVI provides an arbitrage-free benchmark for compar- ing classical and quantum Heston-PDE outputs.",
+      "page": 26
+    }
+  ],
+  "figure": "2605.26610_figures/2605.26610_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

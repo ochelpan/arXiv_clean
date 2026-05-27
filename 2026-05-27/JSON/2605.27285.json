@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.27285",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Basis-Adaptive Sparse-State Simulation of Quantum Circuits",
+  "authors": "Ch Nihar Kartikeya, Anjana K, Bijita Sarma, Sangkha Borah",
+  "abstract": "Classical simulation of many-body quantum systems remains economical only when wavefunction amplitudes stay localized in the working basis. Fixed-basis sparse-state simulators scale memory as $\\mathcal{O}(k)$ by keeping the largest computational-basis amplitudes; however, fidelity drops once entanglement or basis rotations spread weight across the Hilbert space. In this work, we introduce an algorithm called Basis-Adaptive Sparse-State Simulation (BASS), which updates each qubit's local representation basis during execution rather than locking the computational basis for the entire circuit. Before truncation, each qubit is rotated into the eigenbasis of its single-qubit reduced density matrix, following the natural-orbital idea from quantum chemistry, so the retained amplitudes stay clustered. We prove that top-$k$ selection is uniquely optimal for one-step truncation in any fixed basis and that the one-body reduced-density-matrix eigenbasis is a stationary product basis for the inverse participation ratio (PR), with a residual bounded by local entanglement coherence. We perform a systematic benchmarking over a variety of quantum circuits and demonstrate that the ratio \\(k/\\text{PR}_Z\\) (sparse budget over computational participation ratio) serves as an indicator for regimes in which adaptive measurement bases provide a performance advantage. On structured brickwork circuits, BASS achieves substantially higher fidelity than the fixed-basis approach, while incurring only a moderate increase in wall-clock time in the memory-limited regime. Moreover, for disordered Ising circuits, BASS systematically provides an improvement of approximately one order of magnitude in state overlap at a fixed computational budget.",
+  "url": "http://arxiv.org/abs/2605.27285v1",
+  "pdf": "https://arxiv.org/pdf/2605.27285v1",
+  "type": "theory",
+  "summary": "This paper presents BASS, a new algorithm for simulating quantum circuits that avoids the fidelity collapse seen in fixed-basis sparse simulators. By adaptively rotating qubits into a basis that concentrates wavefunction weight, it achieves much higher accuracy for a fixed memory budget. This allows for the simulation of larger and more entangled circuits than previously possible with standard sparse methods.",
+  "main_problem": "Classical simulation of quantum circuits using sparse-state methods suffers from rapid fidelity loss when entanglement or basis rotations spread wavefunction weight across the computational basis.",
+  "main_result": "The BASS algorithm achieves significantly higher fidelity than fixed-basis simulators in the memory-limited regime by dynamically rotating qubits into the eigenbasis of their single-quim RDM, providing up to an order of magnitude improvement in state overlap.",
+  "method": "The BASS (Basis-Adaptive Sparse-State Simulation) algorithm updates each qubit's local representation basis during execution by rotating it into the eigenbasis of its single-qubit reduced density matrix, inspired by natural-orbital ideas in quantum chemistry.",
+  "model_or_system": "The study focuses on gate-model quantum circuits, including structured brickwork circuits, Haar-random circuits, QAOA, UCCSD, and disordered Ising circuits.",
+  "key_observables": "Fidelity (F), Participation Ratio (PR), Z-basis Participation Ratio (PR_Z), Retained Probability (p_S), and the ratio k/PR_Z.",
+  "important_parameters": "Sparse budget (k), circuit depth (L), number of qubits (N), and the optimization interval (n_opt).",
+  "main_assumptions": "The effectiveness of the fidelity lower bound is most reliable in the probability-limited regime where k << PR_Z; the method assumes the single-qubit RDM eigenbasis is a good proxy for the optimal basis.",
+  "figures_summary": "Figure 1 shows a schematic of the BASS workflow comparing delocalized states in the Z-basis to concentrated states in the rotated basis. Other figures illustrate the scaling of fidelity improvement and the trade-off between runtime overhead and accuracy.",
+  "paper_structure": "The paper introduces the BASS algorithm, provides theoretical proofs for top-k optimality and RDM eigenbasis stationarity, presents numerical benchmarks across various circuit families (Brickwork, Haar, QAOA, etc.), and discusses hyperparameter robustness and fidelity estimation.",
+  "why_interesting": "It introduces a novel way to extend the reach of classical simulations of many-body dynamics by using adaptive basis selection, which is highly relevant for researchers studying the limits of entanglement growth and the complexity of quantum dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.27285_figures/2605.27285_fig1.jpg",
+      "caption": "FIG. 2. BASS algorithmic workflow. We use the sparse state representation in the accumulated product basis {Uj}. At each time step, the current gate is conjugated into the working basis as ˜Gt and then applied either (i) along a diagonal O(k) update path in the sparse state, or (ii) by directly updating entries in a hash-table representation. Between truncations, the state’s support can temporarily grow to a maximum size Khard before a top-k truncation is enforced to control memory and cost. On selected time steps, the BasisOptimize routine is invoked to improve the accumulated basis. It constructs a single global hash table for the current state, computes all single-qubit RDMs once, and...",
+      "page": 13
+    },
+    {
+      "image": "2605.27285_figures/2605.27285_fig2.jpg",
+      "caption": "FIG. 3. Fidelity and PR vs. sparse budget. (a) Fidelity F as a function of the sparse budget k. (b) PR PR as a function of k. Curves represent the geometric mean of per- trial results. Shaded regions illustrate the distribution and statistical uncertainty of the data, with bands from lightest to darkest representing the 10th–90th percentile range, the interquartile range (IQR, 25th–75th percentile), and the 95% bootstrap confidence interval for the geometric mean, respec- tively. Solid markers denote results obtained with the adap- tive basis method, while open markers denote the fixed-basis method. Circuit families considered: 1D random brickwork circuits (depth 6); random-field Ising...",
+      "page": 18
+    },
+    {
+      "image": "2605.27285_figures/2605.27285_fig3.jpg",
+      "caption": "FIG. 4. System-size scaling of adaptive-basis advan- tage. (a) Exponential-budget scaling: adaptive/fixed fi- delity ratio as a function of system size under the scaling trajectory k = 2N−1. Dashed horizontal line indicates ratio = 1 (no adaptive advantage). Brickwork and Haar-random circuits exhibit modest enhancement at intermediate system sizes before converging back toward unity as truncation pres- sure weakens, while RFIM circuits remain effectively identical to the fixed-basis method across all tested sizes. (b) Fixed- budget scaling: geometric mean adaptive/fixed fidelity ratio versus system size under fixed truncation budget k = 8192. The vertical axis is logarithmic. Under a fixed...",
+      "page": 18
+    },
+    {
+      "image": "2605.27285_figures/2605.27285_fig4.jpg",
+      "caption": "FIG. 5. Universal crossover controlled by the nor- malized truncation scale k/PRZ. Adaptive-basis/fixed- basis fidelity ratio as a function of the normalised truncation budget k/PRZ for RFIM and brickwork circuit ensembles at N = 16. The vertical dashed line indicates k/PRZ = 1, the truncation size is comparable to the state’s effective participa- tion support. For k/PRZ < 1, adaptive truncation performs better than fixed-basis truncation, with the highest improve- ments obtained for chaotic brickwork circuits (∼10-102×). RFIM states exhibit less improvement (∼1-3×) due to their more organized amplitude distributions. As k approaches PRZ, both methods converge and the fidelity ratio reaches...",
+      "page": 19
+    },
+    {
+      "image": "2605.27285_figures/2605.27285_fig5.jpg",
+      "caption": "FIG. 6. Sparsity-entanglement phase diagram for representative quantum circuit families. Results shown for N = 16 qubits with truncation budget k = 4096. The horizontal axis measures normalized PR PR/2N, quantifying Hilbert- space delocalization, while the vertical axis shows normalized bipartite entanglement entropy S/Smax. Distinct circuit families populate different regions of the diagram: RFIM (W = 2) circuits occupy the sparse-friendly, low-entanglement regime; UCCSD (L = 1) circuits sit in the highly entangled but heavily localized upper-left quadrant; QAOA (p = 3) exhibits intermediate structural growth in both resources; while Haar-random (L = 3) and Brickwork (1D and 2D) circuits...",
+      "page": 22
+    }
+  ],
+  "figure": "2605.27285_figures/2605.27285_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

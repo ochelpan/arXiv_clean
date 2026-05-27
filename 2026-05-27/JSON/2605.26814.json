@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.26814",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "cs.LG",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Neural Autoregressive Control Variates for the Quantum Monte Carlo Sign Problem",
+  "authors": "Bei Qiao, Lei Wang",
+  "abstract": "We train a pair of autoregressive models to construct zero-mean control variates to mitigate the sign problem in quantum Monte Carlo simulations. The two autoregressive networks are confined to the positive- and negative-sign sectors with strictly disjoint support, and each is exactly normalized over its sector. Their difference is therefore structurally zero-mean, providing an unbiased auxiliary observable whose correlation with the sign estimator controls the variance reduction. We implement the method within the stochastic series expansion framework, which we extend to frustrated lattices by developing an incremental loop-topology update. Sign-ergodic sampling is achieved through a twist channel, which is the unique sign-changing mechanism on non-bipartite lattices. We implement the control variates as autoregressive transformers with an end-of-sequence parity mask that enforces exact sign-sector resolution, while the incremental loop-count change and cumulative frustration parity are incorporated as topological features. On the triangular-lattice Heisenberg antiferromagnet, we benchmark the method in the small-$N$ limit. The control variate reduces the standard error of the average sign by up to an order of magnitude and that of the energy estimator by a factor of three to five, remaining effective even when the average sign drops below $10^{-3}$. This work lays out the framework and provides a proof-of-principle demonstration that autoregressive control variates can effectively mitigate the sign problem. Scaling to larger systems with physics-informed architectures is the subject of future work.",
+  "url": "http://arxiv.org/abs/2605.26814v1",
+  "pdf": "https://arxiv.org/pdf/2605.26814v1",
+  "type": "theory",
+  "summary": "The authors present a machine learning approach to mitigate the sign problem in Quantum Monte Carlo simulations by using autoregressive neural networks as control variates. By training models to represent the positive and negative sign sectors separately, they create an unbiased auxiliary observable that significantly reduces estimator variance. This proof-of-principle demonstrates that neural networks can effectively stabilize simulations of frustrated quantum systems even in regimes of extreme sign cancellation.",
+  "main_problem": "The exponential decay of the average sign in Quantum Monte Carlo (QMC) simulations of frustrated magnets, which leads to an unmanageable increase in estimator variance and signal-to-noise ratio.",
+  "main_result": "The development of a neural autoregressive control variate method that reduces the standard error of the average sign by up to an order of magnitude and the energy estimator by a factor of 3 to 5, even when the average sign is below 10^-3.",
+  "method": "Training a pair of autoregressive Transformers, constrained to disjoint positive and negative sign sectors, to construct a structurally zero-mean control variate that reduces variance without changing the underlying sampling measure.",
+  "model_or_system": "The study focuses on frustrated quantum magnets, specifically the SU(2) Heisenberg antiferromagnet on triangular and tetrahedral lattices, using the Stochastic Series Expansion (SSE) framework.",
+  "key_observables": "Average sign, energy estimator, operator count, and sign autocorrelation function.",
+  "important_parameters": "Inverse temperature (beta), system size (N), and the average sign magnitude.",
+  "main_assumptions": "The method assumes the sampling measure is fixed by the Monte Carlo dynamics and does not replace the sampler; it also assumes the training signal is decoupled from the sign problem itself.",
+  "figures_summary": "Figures illustrate topological reconnection mechanisms (split/merge/twist), probability density distributions of estimators, and comparisons of the control variate versus raw estimators across different temperatures and geometries.",
+  "paper_structure": "The paper introduces the QMC sign problem, describes the neural autoregressive control variate architecture and its structural constraints, details the SSE framework extensions for frustrated lattices, presents numerical benchmarks on small triangular clusters, and discusses scaling limitations.",
+  "why_interesting": "This work provides a novel way to use machine learning to tackle the sign problem, which is a fundamental bottleneck in the classical simulation of many-body quantum dynamics and frustrated magnetism.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.26814_figures/2605.26814_fig1.jpg",
+      "caption": "FIG. 1. Schematic overview of the workflow. Left (Sec. III): an SSE worldline configuration is converted into a compact uncolored operator string via the RSSE resummation. Middle (Sec. IV): the operator string is processed by a causal transformer with a linear output head and a residual MLP that adds ∆nl-aware corrections to bond logits. A parity EOS mask enforces sign-sector resolution, and a softmax yields the normalized parity-resolved distributions q±(x). Right (Sec. V): the resulting control variate si −c∗hi reduces the sign estimator’s fluctuations around ⟨s⟩, while the raw sign s(xi) takes only values ±1.",
+      "page": 4
+    },
+    {
+      "image": "2605.26814_figures/2605.26814_fig2.jpg",
+      "caption": "FIG. 2. Three topologically distinct reconnections when inserting an operator at a bond with legs 1,2 (bottom) and 3,4 (top). (a) Split (∆nl = +1): legs 1–2 and 3–4 connected within the same time slice; one loop splits into two. (b) Merge (∆nl = −1): legs 1–3 and 2–4 along worldlines; two loops merge into one. (c) Twist (∆nl =0): legs 1–4 and 2–3 cross- connected; loop count unchanged but internal routing rear- ranged. Only the twist channel changes the sign, and it is forbidden on bipartite lattices. Top: with operator (black bar). Bottom: after removal.",
+      "page": 6
+    },
+    {
+      "image": "2605.26814_figures/2605.26814_fig3.jpg",
+      "caption": "FIG. 3. Unbiasedness and finite-sample bias test at β = 10 on the 3-site triangular lattice. Left and middle: distribution of the numerator ⟨nh s⟩and denominator ⟨s⟩estimators over 1000 independent MCMC datasets of 106 samples each, with and without control variates. Right: distribution of the energy ratio E/N without jackknife bias correction. Dashed lines indicate exact values from ED. The CV estimator (orange) is centered on the exact value for the numerator and denominator, confirming unbiasedness, but shows a visible shift in the ratio due to finite-sample bias inherent to ratio estimators, despite achieving ∼110× variance reduction.",
+      "page": 11
+    },
+    {
+      "image": "2605.26814_figures/2605.26814_fig4.jpg",
+      "caption": "FIG. 4. Average sign ⟨s⟩on the 3-site triangular lattice as a function of β, comparing the full model (with MLP head) and the ablated model (without MLP head). Top: expectation values of CV and raw estimators, compared with ED. Bottom: SE improvement factor. The MLP head provides consistent improvement across all β values.",
+      "page": 12
+    },
+    {
+      "image": "2605.26814_figures/2605.26814_fig5.jpg",
+      "caption": "FIG. 5. Energy per site E/N on the 3-site triangular lattice as a function of β, comparing the full model (with MLP head) and the ablated model (without MLP head). Top: CV esti- mator vs. raw estimator, compared with ED (black line). Er- ror bars show one standard error. Bottom: SE improvement factor at each β. The MLP head yields a larger and more stable improvement, even at high β where the sign problem is severe.",
+      "page": 12
+    }
+  ],
+  "figure": "2605.26814_figures/2605.26814_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

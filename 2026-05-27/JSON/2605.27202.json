@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.27202",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cs.CY",
+    "cond-mat.stat-mech",
+    "physics.soc-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Queue & AI: When Faster Tasks Slow Down the Workflow",
+  "authors": "Silvia Bartolucci, Pierpaolo Vivo",
+  "abstract": "Quantifying the workplace productivity effects of Generative Artificial Intelligence is now central to economics, management, and public policy. The deployment of AI tools in customer service, writing, software development, and consulting operations has been reported to generate large per-task productivity gains, typically measured as tasks completed per worker-hour or reductions in mean handle time. We argue that such mean-based metrics can misrepresent AI's effects in workflows where tasks accumulate and compete for scarce human attention. AI assistance can generate a deceptive productivity signature: average completion times fall because AI tools typically supply a fast first draft, yet workflow-level performance deteriorates when a subset of AI errors escapes review and returns as costly downstream rework. We call this divergence between mean task speed and system-level delay the variance wedge. Depending on the operational parameters, the most time-efficient way to complete a workflow may undergo a transition between two task-processing regimes, a fully AI-assisted and a fully manual one. We formalize the mechanism as a queueing model and derive two main implications analytically. First, under congestion, reviewers rationally raise the risk threshold for checking AI outputs, reducing scrutiny precisely when it would matter the most. Second, AI assistance can stabilize an overloaded workflow only when (i) the fraction of tasks handled by AI exceeds a critical threshold, and (ii) the human attention required for review and expected rework is lower than the attention for manual completion, a requirement substantially more stringent than faster draft generation. These results suggest that AI deployment should be evaluated not only by average task speed, but by its overall effects on congestion, rework, and the robustness of human oversight under load.",
+  "url": "http://arxiv.org/abs/2605.27202v1",
+  "pdf": "https://arxiv.org/pdf/2605.27202v1",
+  "type": "theory",
+  "summary": "The paper demonstrates that using AI to speed up individual tasks can actually slow down entire workflows by introducing unpredictable rework and increasing queue congestion. It provides a mathematical framework to identify the 'variance budget' within which AI remains beneficial to system-level productivity.",
+  "main_problem": "Investigating the 'variance wedge' phenomenon where AI adoption reduces average task processing time but increases system-wide waiting times due to increased service-time variability and rework.",
+  "main_result": "AI deployment can paradoxically increase queue delays if the increased variability from errors outweighs the mean time savings; additionally, reviewers rationally reduce scrutiny as congestion increases.",
+  "method": "Application of M/G/1 and G/G/1 queueing theory, specifically using the Pollaczek-Khinchine and Kingman frameworks, alongside fixed-point analysis for endogenous congestion costs.",
+  "model_or_system": "An M/G/1 queueing model representing a workflow where tasks are routed between a manual route (low variance, high mean) and an AI-assisted route (high variance, low mean) with a feedback loop for rework.",
+  "key_observables": "Mean waiting time (Wq), utilization rate (rho), squared coefficient of variation (cs2), and the equilibrium congestion cost (theta).",
+  "important_parameters": "Arrival rate (lambda), AI-routing fraction (x), review effort (r), error probability (p), and the AI variance budget.",
+  "main_assumptions": "Poisson arrival process, fixed error process where review effort affects probability but not severity, and a single-layer human review process.",
+  "figures_summary": "Figure 1 shows the workflow schematic and the 'variance trap' distribution shift; Figure 2 shows the spike-and-tail service distribution; Figure 3 plots the maximum admissible AI variability against savings; Figure 4 shows waiting time comparisons.",
+  "paper_structure": "The paper introduces the productivity paradox, defines the queueing model and the variance wedge, derives analytical conditions for stability and efficiency, analyzes reviewer behavior under congestion, and concludes with diagnostic implications.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.27202_figures/2605.27202_fig1.jpg",
+      "caption": "Figure 1. Schematic workflow model. Panel A shows the manual route: tasks require more human time on average but have relatively low variability. Panel B shows the AI-assisted route: AI generates a draft cheaply, but human review is imperfect, so some residual errors escape and return as rework. Panel C illustrates the resulting distributional shift. AI lowers the mean service time, but creates a heavier right tail. As queueing delay depends on the second moment of service time, the rework tail may dominate the mean saving, producing longer queues despite faster average task completion.",
+      "page": 2
+    },
+    {
+      "image": "2605.27202_figures/2605.27202_fig2.jpg",
+      "caption": "Figure 2. Simulated service-time distributions for manual and AI-routed handling. Manual service time is drawn from a positive, approximately symmetric distribution with mean τH = 1 hour and squared CV c2 H ≃0.10. AI-routed service time is TA = r +MR, with fixed review time r = 0.5, escaped-error indicator M ∼Bernoulli(0.15), and Gamma-distributed rework R. The AI route has lower mean service time, τA ≃0.85, but much larger dispersion, c2 A ≃1.25. The sharp peak at r = 0.5 corresponds to AI outputs that pass review without later correction; the long right tail corresponds to escaped errors that return as rework.",
+      "page": 6
+    },
+    {
+      "image": "2605.27202_figures/2605.27202_fig3.jpg",
+      "caption": "Figure 3. Maximum admissible AI variability as a function of the mean-savings ratio s = τA/τH, computed from equation (5), for four levels of manual-system utilization, ρH ∈{0.20,0.40,0.60,0.80}, fixing the manual squared coefficient of variation at c2 H = 0.5. Each curve gives the largest AI squared coefficient of variation that is still compatible with lower mean waiting time. Points below a curve correspond to parameter combinations for which AI improves queueing performance; points above it correspond to the variance wedge, in which AI saves time on average but increases waiting time. The admissible variance rises sharply as s falls, because large mean savings create room for the queue...",
+      "page": 7
+    },
+    {
+      "image": "2605.27202_figures/2605.27202_fig4.jpg",
+      "caption": "Figure 4 shows the mean waiting time under manual (WH) and AI-routed (WA) handling as the arrival rate of tasks λ varies. We compute WH and WA specializing the M/G/1 formula in equation (3) to the x = 0 and x = 1 cases, respectively, varying the arrival rate λ, while holding the other parameters fixed. At low and moderate arrival rates, the AI-routed system has longer waits than the manual system. The reason is that the queue is not yet close to capacity, so the mean time saving from AI is not valuable enough to offset the larger second moment created by occasional rework. The two curves cross at λ ⋆≃0.76 as predicted by Eq. (7), which marks a regime transition. Below this threshold, AI...",
+      "page": 7
+    },
+    {
+      "image": "2605.27202_figures/2605.27202_fig5.jpg",
+      "caption": "Figure 4. Mean waiting time under manual (WH) and AI-routed (WA) handling as the arrival rate λ varies. The curves are computed from the M/G/1 waiting-time formula in Eq. (3). Capacity is normalised to C = 1. The manual route has mean τH = 1 and squared CV c2 H = 0.10, so its second moment is qH = τ2 H(1+c2 H). The AI-routed route has lower mean service time, τA = 0.85, but much higher variability, c2 A = 1.25, giving qA = τ2 A(1+c2 A). At low and moderate arrival rates, the AI curve lies above the manual curve: although AI saves time on the average task, the larger second moment created by occasional rework increases waiting time. The curves cross at λ ⋆≃0.76 as predicted by Eq. (7). Above...",
+      "page": 8
+    }
+  ],
+  "figure": "2605.27202_figures/2605.27202_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
