@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2605.28342",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Low-cost quantum error mitigation via auxiliary qubit return validation",
+  "authors": "Gilad Kishony, Avi Elazari, Ron Cohen, Lior Gazit",
+  "abstract": "We introduce a low-overhead technique for quantum error mitigation based on post-selection using auxiliary qubit measurements. The method exploits the structural property that, in an error-free computation, auxiliary qubits are often expected to return to the zero state after use. By selectively measuring these qubits at carefully chosen points in the circuit, erroneous shots can be identified and discarded, improving result fidelity with minimal hardware overhead.   To account for circuit noise, including measurement errors, we analyze the likelihood that a measurement outcome indicates a corrupted shot. This analysis is informed by the measurement's backward light cone, namely the set of circuit operations that could affect the outcome. Shots whose auxiliary measurement outcomes imply a corruption likelihood above a tunable threshold are rejected.   Simulations show that the method reduces the false-negative rate by approximately 10% while discarding only approximately 1% of valid shots. The threshold controls the bias-variance tradeoff inherent to post-selection, allowing the method to be adapted to the fidelity and sampling requirements of different applications.",
+  "url": "http://arxiv.org/abs/2605.28342v1",
+  "pdf": "https://arxiv.org/pdf/2605.28342v1",
+  "type": "theory",
+  "summary": "This paper introduces a low-cost error mitigation technique that uses mid-circuit measurements of auxiliary qubits to identify and discard noisy computational shots. By leveraging the fact that auxiliary qubits should return to a zero state after uncomputation, the method significantly improves result fidelity with very little sampling overhead. This approach is particularly effective for deep arithmetic circuits and can even save QPU time through early abort strategies.",
+  "main_problem": "The high susceptibility of NISQ-era quantum computations to noise and the need for low-overhead error mitigation techniques that do not require full quantum error correction.",
+  "main_result": "The proposed method reduces the false-negative rate by approximately 10% with a minimal increase in the false-positive rate of only about 1%.",
+  "method": "A post-selection technique that measures auxiliary qubits at expected reset points and uses a probabilistic likelihood model based on the backward lightcone to discard corrupted shots.",
+  "model_or_system": "Noisy Intermediate-Scale Quantum (NISQ) hardware executing deep arithmetic circuits synthesized via the Classiq platform, characterized by extensive auxiliary qubit reuse and uncomputation.",
+  "key_observables": "False-negative rate (bias), false-positive rate (variance/overhead), and auxiliary qubit measurement outcomes.",
+  "important_parameters": "Post-selection threshold (P_th), gate failure probability (p), error propagation probability (r), and measurement error probability (q).",
+  "main_assumptions": "Assumes auxiliary qubits return to the zero state after uncomputation; treats gate and measurement errors as disjoint; assumes independence of measurements within the lightcone analysis.",
+  "figures_summary": "Figure 1 shows a schematic of a synthesized circuit with qubit reuse; Figure 2 presents a tradeoff plot between false positive and false negative rates for different validation strategies.",
+  "paper_structure": "The paper introduces the problem of NISQ noise, describes the auxiliary qubit return validation method, details the probabilistic likelihood model using backward lightcones, analyzes the bias-variance tradeoff, and presents simulation results comparing different validation strategies.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.28342_figures/2605.28342_fig1.jpg",
+      "caption": "Figure 1: Example quantum circuit synthesized by the compiler, illustrating reuse of auxiliary qubits across multiple arithmetic functional blocks. Auxiliary qubits are allocated for intermediate computations and uncomputed at the end of each block, returning to the |0⟩state at the indicated reset points.",
+      "page": 6
+    },
+    {
+      "image": "2605.28342_figures/2605.28342_fig2.jpg",
+      "caption": "Figure 2: Tradeoff between false positive rate and false negative rate under a realistic noise model. Colors indicate the auxiliary validation strategy: no vali- dation, validation only at the final measurement, and validation at all expected auxiliary reset points. Different markers correspond to circuit implementations with varying width and depth.",
+      "page": 7
+    },
+    {
+      "image": "2605.28342_figures/2605.28342_fig3.jpg",
+      "caption": "Figure 2 shows the tradeoff between false positive rates (valid shots incorrectly discarded) and false negative rates (corrupted shots incorrectly retained) for the three auxiliary validation strategies across two different circuit implementations. We observe that validating auxiliary qubits at all expected reset points sub- stantially reduces the false-negative rate by approximately 10% relative to the no-validation baseline, while increasing the false-positive rate by only about 1%. This 1% false-positive rate represents the practical overhead of our method; it is the exact percentage of uncorrupted, valid samples that are lost to post- selection. Validation only at the end of the circuit...",
+      "page": 7
+    }
+  ],
+  "figure": "2605.28342_figures/2605.28342_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

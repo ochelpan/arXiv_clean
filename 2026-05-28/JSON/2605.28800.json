@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.28800",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": false,
+  "title": "A GPU-based Solver for Polarization Dynamics in Ferroelectric Materials",
+  "authors": "Ali Hasan, Edoardo Piccolo, Anna Giordano, Natalya Fedorova, Jorge Íñiguez-González, Davi Rodrigues, Giovanni Finocchio",
+  "abstract": "Ferroelectric materials can be used for the development of multiple device concepts combining non-volatility, small dimensions, low-power actuation, and electrical tunability. Such development demands efficient and precise design of simulation tools describing the polarization texture. However, most existing ferroelectric solvers are CPU-based and rely on simplified electrostatic treatments and reduced-dimensional representations of the polarization field. These approximations limit their ability to capture finite-size and boundary effects and restrict the range of domain structures and domain walls that can be realistically simulated. Here, we present a fully GPU (graphics processing units)-accelerated and scalable numerical solver, named PETASPIN_microelectrics, for computing the full polarization vector field of ferroelectric systems using the Ginzburg-Landau formalism. Our solver incorporates an optimized and validated calculation of the full electrostatic field and enables the parallel execution of multiple simulations. We systematically validated the solver with several benchmark problems, including phase transitions in BaTiO3 and ferroelectric domain wall profiles. Our simulations reproduce temperature-driven hysteretic phase transitions in BaTiO3. We also reproduce hysteresis loops and demonstrate stabilization of a three-dimensional hybrid skyrmion in a PbTiO3/SrTiO3 bilayer system. Our results show quantitative agreement with predictions from an analytical theory and prior experimental studies. The proposed solver provides an efficient, accurate platform for large-scale simulations of ferroelectric materials including stabilization of topological textures supporting predictive modeling for next-generation of ferroelectric device design.",
+  "url": "http://arxiv.org/abs/2605.28800v1",
+  "pdf": "https://arxiv.org/pdf/2605.28800v1",
+  "type": "theory",
+  "summary": "This paper introduces a new GPU-accelerated numerical solver, PETASPIN_microelectrics, designed for large-scale, high-fidelity simulations of 3D polarization dynamics in ferroelectric materials. It overcomes the limitations of previous CPU-based and uniaxial models, enabling the study of complex topological textures like skyrmions and frequency-dependent hysteresis. This tool is essential for the predictive design of next-generation ferroelectric devices.",
+  "main_problem": "Existing CPU-based ferroelectric solvers are computationally expensive for large-scale 3D simulations and often rely on simplified uniaxial models that cannot capture complex 3D structures like polarization rotation or topological textures.",
+  "main_result": "The development of PETASPIN_microelectrics, a fully GPU-acceler_rated, scalable solver that accurately reproduces temperature-driven phase transitions in BaTiO3 and demonstrates the stabilization of 3D hybrid skyrmions in PbTiO3/SrTiO3 bilayers.",
+  "method": "A GPU-native phase-field approach using CUDA C/C++ and the Thrust library, employing the finite-difference method and NVIDIA's CUDA FFT library to solve the time-dependent Ginzburg-Landau equations.",
+  "model_or_system": "The model uses the Time-Dependent Ginzburg-Landau (TDGL) formalism applied to perovskite oxides like BaTiO3, PbTiO3, and SrTiO3, incorporating Landau, gradient, and electrostatic energy contributions.",
+  "key_observables": "Polarization vector field (magnitude and rotation), domain wall profiles, hysteresis loops, electrostatic fields, and topological textures (skyrmions/vortices).",
+  "important_parameters": "Temperature (0-360 K), external electric field frequency, epitaxial strain parameter (rs), Landau and gradient coefficients, and background permittivity.",
+  "main_assumptions": "The system is modeled using the TDGL formalism; finite samples are assumed to be embedded in vacuum (P=0 outside); the Landau expansion is applied to prototypical perovskites.",
+  "figures_summary": "Figure 1 shows the effect of Landau coefficients on 180-degree domain wall profiles; Figure 3(b) illustrates the transition from vortex tubes to stabilized skyrmions via strain tuning.",
+  "paper_structure": "The paper introduces the computational bottleneck of existing solvers, presents the architecture and implementation of the new GPU solver, validates the solver against analytical domain wall profiles and phase transitions, and demonstrates advanced applications in strain-controlled skyrmion stabilization.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.28800_figures/2605.28800_fig1.jpg",
+      "caption": "Figure 1. Polarization profiles across ferroelectric domain walls and the influence of Landau and gradient energy parameters. (a) Polarization profiles of 180° domain walls along the wall-normal direction, illustrating the effect of varying the Landau coefficient 𝛼1. (b) Effect of varying the gradient constants 𝐺44 = 𝐺44",
+      "page": 8
+    },
+    {
+      "image": "2605.28800_figures/2605.28800_fig2.jpg",
+      "caption": "Figure 2. Temperature dependence of (a) polarization magnitude P and (b) Landau free energy 𝐹𝐿𝑎𝑛𝑑 and (c) number of solutions in each phase. Panel (d) presents three-dimensional visualizations of the global minima of the Landau free energy surface at representative temperatures (300 K, 250 K, and 150 K), evaluated over the first-octant polarization space ranging from (0.0, 0.0, 0.0) to (0.27, 0.27, 0.27) C m⁻². Gray surfaces indicate isoenergetic contours.",
+      "page": 10
+    },
+    {
+      "image": "2605.28800_figures/2605.28800_fig3.jpg",
+      "caption": "Figure 3. (a) scheme of the PbTiO₃ sample considered. (b)-(d) we show the cross section of the yz plane at the",
+      "page": 13
+    },
+    {
+      "image": "2605.28800_figures/2605.28800_fig4.jpg",
+      "caption": "Figure 3. (a) (P–E) hysteresis loops of the PbTiO3/SrTiO3 bilayer calculated under various external field frequencies, together with the static loop obtained by sweeping a DC external field back and forth in the field region approximately -400 to 400 MV/m. (b) The domain structure showing switching from −⟨𝑃𝑧⟩ to +⟨𝑃𝑧⟩ for an AC-field frequency 0.0017 MHz. (c) Corresponding hysteresis energy as a function of the applied AC- field frequency; (d) Time evolution of the out-of-plane polarization 𝑃𝑧 and the applied external field 𝑬𝐸𝑥𝑡 for the highest frequency considered 0.1740 MHz.",
+      "page": 14
+    },
+    {
+      "image": "2605.28800_figures/2605.28800_fig5.jpg",
+      "caption": "Figure 3(a) shows the P–E hysteresis loops of the PbTiO3/SrTiO3 for different frequency of the external",
+      "page": 14
+    }
+  ],
+  "figure": "2605.28800_figures/2605.28800_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

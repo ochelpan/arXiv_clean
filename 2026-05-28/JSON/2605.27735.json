@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.27735",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "An IQP Born Machine for Calorimeter Image Generation at 64 Qubits with Compiled-IQP Deployment",
+  "authors": "Jamal Slim, Saverio Monaco, Florian Rehm, Dirk Krücker, Kerstin Borras",
+  "abstract": "We train an instantaneous quantum polynomial-time (IQP) Born machine on real high-energy-physics calorimeter shower images at $64$ qubits and compile the trained model into a single sampling-hard IQP circuit for quantum deployment. The pipeline has three components: a Mixture-of-IQP (\\moiqp{}) architecture, whose Walsh-diagonal MMD$^{2}$ loss is classically trainable by Van den Nest Fourier Monte Carlo; the Pearson-Stabilized Correlation Kernel (\\psck{}), a positive-definite MMD kernel that biases descent toward correlation-sensitive directions through a data-evaluated Jacobian of the empirical Pearson matrix; and an exact deferred-measurement compilation of \\moiqp{} into a single IQP circuit on $\\nfeat + \\lceil \\log_2 \\Lcomp \\rceil$ qubits (\\ciqp{}). Across five seeds at $\\Lcomp = 8$, $1500$ epochs, the model reaches $\\maerho = 0.069 \\pm 0.008$ against a $0.052$ encoding-fidelity floor on the training split and $0.071 \\pm 0.008$ on a held-out test split, versus a Liu--Wang baseline at $\\maerho = 0.100$. The compiled \\ciqp{} reproduces the \\moiqp{} marginal to $0.591 \\pm 0.012$ times the Monte Carlo noise floor.",
+  "url": "http://arxiv.org/abs/2605.27735v1",
+  "pdf": "https://arxiv.org/pdf/2605.27735v1",
+  "type": "both",
+  "summary": "This paper presents a new quantum generative model designed to produce high-resolution calorimeter images for high-energy physics. By using a specialized correlation-sensitive loss function and a compilation technique, the authors achieve high-fidelity generation at 64 qubits without encountering barren plateaus.",
+  "main_problem": "Developing a scalable quantum generative model for high-resolution (64-qubit) calorimeter image generation while overcoming the limitations of existing IQP models in capturing spatial correlations and avoiding barren plateaus.",
+  "main_result": "The PSCK-MoIQP model significantly outperforms the Liu-Wang baseline in correlation reconstruction and demonstrates that the compiled cIQP circuit can be deployed on quantum hardware with sub-Monte-Carlo noise precision.",
+  "method": "A 'train-on-classical, deploy-on-quantum' workflow using a Pearson-Stabilized Correlation Kernel (PSCK) for training and a Walsh-Hadamard-based deferred-measurement compilation (cIQP) for deployment.",
+  "model_or_system": "A Mixture-of-IQP (MoIQP) architecture consisting of L independent IQP circuits sharing an Erdős-Rényi gate graph, which is compiled into a single larger IQP circuit (cIQP) using ancilla qubits.",
+  "key_observables": "Pauli-Z words/correlators, Pearson correlation matrices, Mean Absolute Error of correlations (MAE_rho), and Z-marginals.",
+  "important_parameters": "64 qubits (n=64), 8 mixture components (L=8), 8 bits per feature (B=8), and an Erdős-Rényi gate graph with average degree 6.",
+  "main_assumptions": "The PSCK loss uses a Gauss-Newton linearization which is exact at the optimum; the compilation assumes the ability to implement deferred measurement via ancilla qubits.",
+  "figures_summary": "Figures illustrate the MoIQP and cIQP architectures, compare Pearson correlation residuals between models, show per-feature distributional agreement, and plot training trajectories and gradient variance scaling.",
+  "paper_structure": "The paper introduces the scientific challenge of HEP image simulation, describes the MoIQP and cIQP architectures, details the PSCK loss function and training algorithm, presents numerical results on 64-qubit scaling and correlation accuracy, and concludes with a verification of the compilation fidelity.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.27735_figures/2605.27735_fig1.jpg",
+      "caption": "FIG. 1: Overall pipeline. Raw calorimeter shower data r ∈RD is quantile-binned and binary-encoded to bitstrings x ∈{0, 1}n with n = D · B. The MoIQP model is trained on classical hardware through Van den Nest Fourier Monte Carlo [20] evaluation of its low-order Pauli-Z correlators with the PSCK MMD objective. After training, the L components are compiled into a single IQP circuit on n + a qubits with a = ⌈log2 L⌉Walsh–Hadamard ancillas (cIQP); this compiled circuit is the object deployed on quantum hardware to generate calorimeter samples. The classical–quantum boundary separates training (Van den Nest MC) from deployment (Bremner–Jozsa–Shepherd-hard sampling).",
+      "page": 2
+    },
+    {
+      "image": "2605.27735_figures/2605.27735_fig2.jpg",
+      "caption": "FIG. 2: Single IQP Born-machine circuit. The Hadamard–diagonal–Hadamard sandwich is the defining structure of IQP circuits. The diagonal block D(θ) = Q G∈G exp(i θG Q i∈G Zi) gives one Z-phase rotation per gate G of the graph: a single-qubit RZ for weight-1 gates, a ZZ-phase rotation (CNOT–RZ–CNOT, or a native cross-resonance ZX) for weight-2 gates. Measurement in the computational basis yields samples from pθ(x) = |⟨x|U(θ)|0⟩|2.",
+      "page": 3
+    },
+    {
+      "image": "2605.27735_figures/2605.27735_fig3.jpg",
+      "caption": "FIG. 3: MoIQP as a uniform mixture of IQP Born distributions. A single IQP circuit U(θ) = H⊗nD(θ)H⊗n on a shared gate graph G is instantiated with L independent angle vectors θ(ℓ). Each instance has Born distribution pℓ(x) = |⟨x|U(θ(ℓ))|0⟩|2, and the MoIQP model distribution is their uniform average pMoIQP(x) = 1",
+      "page": 4
+    },
+    {
+      "image": "2605.27735_figures/2605.27735_fig4.jpg",
+      "caption": "FIG. 4: cIQP deployment. The L-component MoIQP is compiled into a single IQP-form circuit on n + a qubits with a = ⌈log2 L⌉ancillas. The ancillas are prepared in the uniform Walsh–Hadamard superposition |+⟩⊗a = (1/ √",
+      "page": 4
+    },
+    {
+      "image": "2605.27735_figures/2605.27735_fig5.jpg",
+      "caption": "FIG. 5: Training-split MAEρ as a function of epoch at n = 64. Solid red: PSCK seed mean across the five training seeds. Shaded band: seed-wise min–max envelope at each epoch. Orange: single-seed Liu–Wang baseline at the same L = 8 and epoch budget. Dashed line: encoding-fidelity floor on the training split (0.052). The step features every 100 epochs are cosine restarts of Adam.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.27735_figures/2605.27735_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

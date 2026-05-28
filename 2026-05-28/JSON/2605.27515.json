@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.27515",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.supr-con"
+  ],
+  "is_primary_archive": true,
+  "title": "A multilevel tensor network compression technique for simulating Lindblad dynamics in superconducting circuits",
+  "authors": "Adrien Moulinas, Xavier Waintal",
+  "abstract": "Designing superconducting quantum hardware requires simulation tools that can account for various deviations from ideal scenarios. This, in turn, requires approaches that automatically detect certain structures and leverage them to make the computation affordable. Here, we develop a tensor network based technique to simulate the Lindblad dynamics of a few interacting bosonic modes with a focus on superconducting quantum circuits. The technique detects and takes advantage of two very common situations: (i) the density matrix being pure or not far from pure and (ii) the entanglement between different modes being moderate (typically qubit-like). However, (iii) the occupation of the modes can be arbitrarily high (making naïve truncations inefficient). To leverage these features, we use three different nested levels of tensor network compression: (i) we work with a global purification of the density matrix, (ii) we compress the connection between different modes to account for the moderate entanglement and (iii) we use a quantics representation of the Fock occupation number. We showcase the technique for the simulation of large cat qubits as well as for the ionization of transmon qubits, demonstrating orders-of-magnitude speed-up with respect to brute force approaches. In the latter example, it brings the simulation, previously reported on a large supercomputing infrastructure, to laptop level. The favorable scaling with system size should bring genuine computer assisted design of these systems within scope.",
+  "url": "http://arxiv.org/abs/2605.27515v1",
+  "pdf": "https://arxiv.org/pdf/2605.27515v1",
+  "type": "theory",
+  "summary": "This paper presents a multilevel tensor network technique to simulate the dissipative dynamics of superconducting bosonic circuits. By leveraging state purity, low entanglement, and a quantized representation of Fock space, the method achieves massive reductions in memory and time complexity. This allows complex simulations of phenomena like transmon ionization to be performed on a laptop rather than a supercomputer.",
+  "main_problem": "The exponential growth of the Hilbert space dimension (the curse of dimensionality) makes simulating the Lindblad dynamics of large-scale bosonic systems, such as superconducting circuits, computationally prohibitive.",
+  "main_result": "The authors developed a multilevel tensor network compression technique that achieves orders-of-magnitude speed-ups, reducing the computational resources required for transmon ionization simulations from supercomputing scales to laptop level.",
+  "method": "A three-axis compression approach combining global purification of the density matrix, Matrix Product State (MPS) representation for low entanglement, and Quantics Tensor Train (QTT) for efficient Fock space discretization using Tensor Cross Interpolation (TCI).",
+  "model_or_system": "Superconducting quantum circuits, specifically focusing on bosonic modes in cat qubits and transmon-cavity systems subject to Lindblad master equation dynamics involving photon loss and dephasing.",
+  "key_observables": "Purity, Wigner functions, expectation values of field amplitude, transmon and cavity populations, and error rates (phase-flip and bit-flip).",
+  "important_parameters": "Bond dimensions (purity chi_mu, entanglement chi_e, and quantics chi_q), photon loss rate (kappa_2), dephasing rate (kappa_phi), and the number of bits (R) in the QTT.",
+  "main_assumptions": "The density matrix is relatively pure or not far from pure, and the entanglement between different modes is moderate (qubit-like).",
+  "figures_summary": "Figure 1 shows memory reduction across compression stages; Figure 2 illustrates the QTT construction process; Figure 3 shows error convergence of the annihilation operator; Figure 4 shows fidelity of basis conversion; Figure 12/13 show population evolution, purity loss, and Hamiltonian eigenstate branches.",
+  "paper_structure": "The paper introduces the computational problem, details the three-axis compression ansatz (Purification, MPS, and QTT), describes the numerical integration schemes (Kraus maps, TDVP, Magnus expansion), and validates the method through simulations of cat qubits and transmon ionization.",
+  "why_interesting": "It provides a highly efficient numerical framework for simulating open quantum systems with large local Hilbert spaces, specifically bridging the gap between complex many-body dynamics and accessible desktop-level computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.27515_figures/2605.27515_fig1.jpg",
+      "caption": "FIG. 1. Role of the three axes of compression for a cat qubit. The plot shows the size of the compressed density matrix versus which compression stages are activated. The compression ratio depends significantly on the ratio between the strength of the dephasing κϕ and the photon loss rate κ2 of the buffer. Bad cat qubits (large κϕ) have a more complex dynamics which is more expensive to simulate. See section IV for more details.",
+      "page": 2
+    },
+    {
+      "image": "2605.27515_figures/2605.27515_fig2.jpg",
+      "caption": "FIG. 2. Illustration of the QTT framework. Starting with a function ψ of a continuous variable x defined over an interval [a, b], we discretize it with 2R points (R = 4 here) and transform it into an R-dimensional tensor F. We then use the TCI algorithm to write this tensor as a tensor train with R tensors.",
+      "page": 3
+    },
+    {
+      "image": "2605.27515_figures/2605.27515_fig3.jpg",
+      "caption": "FIG. 3. Construction of ˆa in QTT form. Evolution of the error of the MPO representing the annihilation operator ˆa with the bond dimension χq for various R values. We observe that a bond dimension of 10 is enough to reduce both errors under 10−14, for all values of R.",
+      "page": 4
+    },
+    {
+      "image": "2605.27515_figures/2605.27515_fig4.jpg",
+      "caption": "FIG. 4. Fidelity F of the conversion between Fock and position representation. Fidelity of the conversion versus number of bits in position (Rx) and Fock (Rn) space. A co- herent state |α⟩with |α|2 = 2Rn/3 is mapped from Fock space to position space and back. The dotted black line corresponds to Rx = Rn and serves as a guide to the eye.",
+      "page": 4
+    },
+    {
+      "image": "2605.27515_figures/2605.27515_fig5.jpg",
+      "caption": "FIG. 5. Comparison of QTT bond dimension between the Fock and position basis. The time evolution is simu- lated using the Magnus-TDVP algorithm described in III A 3 for the problem described in III B. We consider QTT of sizes Rn = 10 and Rx = 12. We observe that the quantics bond dimension χq is significantly smaller in the Fock space.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.27515_figures/2605.27515_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 5
+  },
+  "citation_potential": {}
+}

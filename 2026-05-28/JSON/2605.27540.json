@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.27540",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DC"
+  ],
+  "is_primary_archive": true,
+  "title": "EFaaS: A Quantum-Classical Serverless Entangled Scheduler for Hybrid Variational Algorithms",
+  "authors": "Abolfazl Younesi, Nouhaila Innan, Alberto Marchisio, Muhammad Shafique",
+  "abstract": "As quantum computing enters the Utility Era, realizing near-term advantage relies heavily on Hybrid Variational Quantum Algorithms (VQAs). These algorithms require a tightly coupled, iterative loop between a classical CPU optimizer and a Quantum Processing Unit (QPU). However, current quantum cloud access models are bottlenecked by decoupled batch-queues that sever this loop, introducing massive Time-to-Next-Shot (TTNS) latency. This delay inflates convergence time from minutes to hours and exposes the computation to quantum hardware drift, degrading algorithmic fidelity. Unlike prior works that rely on resource-wasting static hardware reservations or state-oblivious stateless functions, we propose EFaaS, a novel serverless middleware designed specifically for hybrid quantum workflows. EFaaS fundamentally departs from existing architectures by treating classical parameter optimization and quantum circuit execution as entangled, session-aware events. Our main technical innovations are threefold: (1) a Calibration-Aware placement strategy that dynamically routes circuits to QPUs with warm calibration caches, circumventing cold-start penalties, (2) a Dual-Resource Fair Queuing scheduler that maximizes quantum utilization by strictly prioritizing active iterative loops, and (3) the \"EF-QuantumFuture\" programming abstraction, a novel primitive enabling classical speculative execution to mask compute latency. Across the evaluated baselines, EFaaS achieves TTNS reductions of 11.4%-94.3%, QDC gains of 2.02%-15.78% points, and convergence speedups of 83.2%-98.3%, while eliminating drift penalties.",
+  "url": "http://arxiv.org/abs/2605.27540v1",
+  "pdf": "https://arxiv.org/pdf/2605.27540v1",
+  "type": "theory",
+  "summary": "The paper proposes EFaaS, a serverless middleware designed to optimize the execution of hybrid quantum-classical algorithms. By treating classical optimization and quantum execution as entangled, session-aware events, it minimizes the latency and hardware drift that typically plague cloud-based quantum computing.",
+  "main_problem": "High latency and 'quantum drift' in hybrid variational quantum algorithms (VQAs) caused by decoupled, batch-queue cloud architectures that break the iterative loop between classical optimizers and QPUs.",
+  "main_result": "The EFaaS middleware achieves convergence speedups of 83.2%-98.3% and significantly reduces Time-to-Next-Shot (TTNS) by up to 94.3% while maintaining near-zero hardware drift penalties.",
+  "method": "A serverless middleware architecture using a Calibration-Aware placement strategy, a Dual-Resource Fair Queuing (DRFQ) scheduler, and an 'EF-QuantumFuture' programming primitive for speculative classical execution.",
+  "model_or_system": "A distributed hybrid quantum-classical environment consisting of a pool of QPUs (superconducting and ion-trap) and classical FaaS nodes, simulating VQE and QAOA workloads on Hamiltonians like LiH and the transverse-field Ising chain.",
+  "key_observables": "Time-to-Next-Shot (TTNS), Quantum Duty Cycle (QDC), end-to-end convergence time, and drift penalty events.",
+  "important_parameters": "Drift threshold (tau_drift), calibration validity window, and scheduling weights (alpha, beta, gamma) for session awareness, drift urgency, and fair-share.",
+  "main_assumptions": "The effectiveness of stochastic optimizers relies on the assumption of i.i.d. sampling, which is violated by hardware drift; the system assumes a discrete-event simulation model for traffic.",
+  "figures_summary": "Figure 1 shows the hybrid iterative workflow; Figure 2 details the EFaaS architecture; Figure 3 depicts the Session Awareness Engine state machine; Figure 4 illustrates the overlapping execution of classical and quantum tasks; Figure 8 and 9 show the reduction in drift events and calibration overhead.",
+  "paper_structure": "The paper introduces the latency/drift problem, proposes the EFaaS architecture and its three technical innovations, provides a mathematical model for latency and scheduling, presents experimental results via a discrete-event simulator, and performs ablation and sensitivity studies.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.27540_figures/2605.27540_fig1.jpg",
+      "caption": "Fig. 1: Iterative hybrid quantum-classical workflow for variational algorithms (VQE/QAOA), where a classical optimizer updates cir- cuit parameters based on measurements from a quantum processor, forming a feedback loop between classical and quantum domains",
+      "page": 2
+    },
+    {
+      "image": "2605.27540_figures/2605.27540_fig2.jpg",
+      "caption": "Fig. 3: Session Awareness Engine state machine. A Hot Iterator cycles between SESSION ACTIVE and CACHE VALID provided each inter-shot delay ∆t remains within τd = τdrift. If the cache expires, the engine triggers a localized recalibration before resuming the active session.",
+      "page": 5
+    },
+    {
+      "image": "2605.27540_figures/2605.27540_fig3.jpg",
+      "caption": "Fig. 2: EFaaS System Architecture. The middleware intercepts Clas- sical FaaS triggers and Quantum Execution requests (Control Plane). The “Session State Cache” maintains QPU calibration data (Cq) while the “Asynchronous Future Engine” allows the CPU to speculatively advance while awaiting QPU results.",
+      "page": 5
+    },
+    {
+      "image": "2605.27540_figures/2605.27540_fig4.jpg",
+      "caption": "Fig. 4: EF-QuantumFuture execution sequence. The Middleware returns an asynchronous Future f immediately upon submission, allowing the classical optimizer to perform speculative work (tasync) concurrently with QPU execution (tqpu). The f.resolve() call delivers ⟨H⟩once the QPU completes, and the optimizer proceeds to θi+1 without any blocking wait.",
+      "page": 5
+    },
+    {
+      "image": "2605.27540_figures/2605.27540_fig5.jpg",
+      "caption": "Fig. 7: End-to-end convergence time and EFaaS speedup ratio relative to all four baselines. EFaaS converges in a mean of 22.9 s versus 213 s for SBQ and 320 s for PF, achieving speedups of 83.2%–98.3% across the benchmark suite.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.27540_figures/2605.27540_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

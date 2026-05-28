@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.28690",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Latent-Conditioned Parameterized Quantum Circuits as Universal Approximators for Distributions over Quantum States",
+  "authors": "Quoc Hoan Tran, Koki Chinzei, Yasuhiro Endo, Hirotaka Oshima",
+  "abstract": "Many applications in quantum simulation, quantum chemistry, and quantum machine learning require not a single quantum state but an ensemble of states characterizing the heterogeneity of a target system. Preparing such ensembles state-by-state is prohibitive in both variational and fault-tolerant settings, motivating a generative-modeling approach. We introduce latent-conditioned parameterized quantum circuits (LPQCs), a hybrid quantum-classical framework in which classical neural networks map a latent variable sampled from a prior distribution to the parameters of a parameterized quantum circuit. We prove that LPQCs are universal approximators for probability measures over density operators in the $1$-Wasserstein distance, extending classical universal approximation theorems to the quantum-distribution setting. We additionally introduce a multimodal latent prior and a mixture-of-experts circuit architecture, and show that it empirically alleviates the barren plateau problem during optimization. Numerical experiments validate the framework on a synthetic multi-cluster ensemble of mixed quantum states and on a QM9-derived ensemble of 3-D molecular structures. In these tasks, LPQC outperforms recent quantum generative baselines while remaining competitive with typical classical baselines at substantially reduced output dimensionality. By leveraging classical expressivity in the latent space, LPQCs offer a tractable route to quantum generative modeling.",
+  "url": "http://arxiv.org/abs/2605.28690v1",
+  "pdf": "https://arxiv.org/pdf/2605.28690v1",
+  "type": "both",
+  "summary": "This paper introduces Latent-Conditioned Parameterized Quantum Circuits (LPQCs), a framework that uses classical neural networks to map latent variables to quantum circuit parameters. It proves that this approach can universally approximate any distribution of quantum states and shows that it effectively mitigates the vanishing gradient problem (barren plateaus). The method is successfully applied to generate complex molecular structures from the QM9 dataset.",
+  "main_problem": "The challenge of efficiently generating complex, multimodal distributions of quantum states (ensembles) and mitigating the barren plateau problem in parameterized quantum circuits (PQCs).",
+  "main_result": "The authors prove that Latent-Conditioned Parameterized Quantum Circuits (LPQCs) are universal approximators for distributions over density operators and demonstrate that they significantly alleviate barren plateaus while outperforming quantum generative baselines on molecular datasets.",
+  "method": "A hybrid quantum-classical framework where a classical neural network maps a low-dimensional latent variable to the parameters of a PQC, utilizing a Mixture-of-Experts architecture and a 1-Wasserstein distance loss function.",
+  "model_or_system": "A hybrid generative model consisting of a classical neural network (the decoder) and a parameterized quantum circuit (the generator) acting on a system of n data qubits and m ancilla qubits.",
+  "key_observables": "1-Wasserstein distance, gradient norm (to measure barren plateaus), trace distance, and molecular metrics (validity, uniqueness, novelty).",
+  "important_parameters": "Latent dimension (d), number of qubits (n), circuit depth (L), number of experts (E), and number of prior modes (M).",
+  "main_assumptions": "The latent space is compact, the prior density is positive and continuous, and the primitive gate set is dense in the unitary group.",
+  "figures_summary": "Figure 1 shows the LPQC framework schematic; Figure 2 compares performance across different expert/mode configurations; Figure 3 uses PCA/t-SNE to visualize density matrix ensembles; Figure 4 shows test loss scaling; Figure 5 and 6 illustrate gradient norm decay/stability; Figure 7 compares Wasserstein loss; Figure 8 compares LPQC to IMPE; Figure 9 showcases generated novel molecules.",
+  "paper_structure": "The paper introduces the LPQC framework, provides a mathematical proof of its universal approximation property, details architectural enhancements like Mixture-of-Experts, presents numerical experiments on synthetic ensembles, and demonstrates application to molecular generation using the QM9 dataset.",
+  "why_interesting": "It provides a rigorous theoretical foundation for quantum generative modeling and introduces a practical method to bypass the barren plateau problem, which is a central bottleneck in variational quantum algorithms and quantum machine learning.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.28690_figures/2605.28690_fig1.jpg",
+      "caption": "FIG. 1. Schematic of the LPQC framework for approximating the target distribution Q on the density matrices space D(HS). Latent variable z ∼r(z) is mapped via neural networks fℓ(z; wℓ) to gate parameters θℓ(z), which define the composite unitary U(θ(z)) = UL(θL(z)) · · · U1(θ1(z)) on HS ⊗HA. In our setting, the same z is used for all fℓ. Applying U(θ(z)) to |0⟩and tracing over the ancilla HA yields ensemble (r, ρw), which can approximate any Q arbitrarily well in the 1-Wasserstein distance W1.",
+      "page": 2
+    },
+    {
+      "image": "2605.28690_figures/2605.28690_fig2.jpg",
+      "caption": "FIG. 2. The performance of LPQC in learning the distribution of multi-clustered density matrices (n = 4 data qubits) across various configurations (M prior modes and E experts) with L = 10 PQC layers. Results are averaged across 10 experimental trials per configuration, with solid and dashed lines representing the mean and shaded regions indicating the standard deviation.",
+      "page": 6
+    },
+    {
+      "image": "2605.28690_figures/2605.28690_fig3.jpg",
+      "caption": "FIG. 4. The test loss in training LPQC to learn the distribution of multi-clustered density matrices with n qubits and L PQC layers across configurations of r(z). Results are averaged across 10 experimental trials per configuration, with solid lines representing the mean and shaded regions indicating the standard deviation.",
+      "page": 8
+    },
+    {
+      "image": "2605.28690_figures/2605.28690_fig4.jpg",
+      "caption": "FIG. 5. The average squared gradient norm, normalized by the dimension of θ, is computed by averaging over 1,024 independent trials sampled uniformly across the PQC parameter space. Results are presented for varying numbers of layers and qubits under different LPQC configurations (no-latent prior and Gaussian prior), with error bars representing the standard deviations.",
+      "page": 9
+    },
+    {
+      "image": "2605.28690_figures/2605.28690_fig5.jpg",
+      "caption": "FIG. 7. Test Wasserstein loss during training on the multi- cluster task, comparing the classical LMLP baseline against LPQC for two latent-prior configurations (M = 1 unimodal and M = 4 multimodal) at n = 4 and n = 8 qubits. Solid and dashed lines denote the mean over 10 trials; shaded regions indicate the standard deviation. Both methods reach compa- rable final losses, while LPQC converges faster in the early training phase, especially with the multimodal prior (M = 4).",
+      "page": 9
+    }
+  ],
+  "figure": "2605.28690_figures/2605.28690_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

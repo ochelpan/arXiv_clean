@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.28162",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning Logical Operations for Arbitrary Quantum Error Correction Codes",
+  "authors": "Nico Meyer, Christopher Mutschler, Dominik Seuß, Andreas Maier, Daniel D. Scherer",
+  "abstract": "Logical operations are essential for quantum computation within quantum error-correcting codes. However, discovering their physical realizations is challenging, especially for non-additive codes that lack a stabilizer description. We present a general learning-based framework that, given only an encoding circuit, constructs physical implementations of logical operations while enforcing structural properties such as transversality or shallow depth. Our approach is validated by rediscovering known logical operations of standard stabilizer codes. We then extend it to a co-design procedure, dubbed variational early fault-tolerant quantum computing (VarEFTQC), which tailors non-additive encodings to a given noise model and enforces desired logical gate sets, such as transversal IQP-type families or low-depth universal sets. A software library implements the complete learning pipeline, including loss-function variants, ansatz families, and optimization routines. Together, these results position VarEFTQC as a practical tool for discovering hardware-adapted logical gadgets for early fault-tolerant quantum computing.",
+  "url": "http://arxiv.org/abs/2605.28162v1",
+  "pdf": "https://arxiv.org/pdf/2605.28162v1",
+  "type": "theory",
+  "summary": "This paper introduces a variational framework called VarEFTQC for learning the physical implementation of logical gates in any quantum error-correcting code. By using a block-diagonal loss function, the method avoids local minima and can even co-design new non-additive codes tailored to specific hardware noise. This provides a practical tool for designing hardware-adapted logical gadgets for the early fault-tolerant era.",
+  "main_problem": "Discovering physical implementations of logical operations for arbitrary quantum error-correcting codes, particularly for non-additive codes that lack a stabilizer description.",
+  "main_result": "The authors developed the VarEFTQC framework, which successfully re-discovers known transversal gates and can co-design noise-tailored non-additive encodings with desired logical gate sets.",
+  "method": "A variational learning-based framework using parameterized unitary ansätze and a block-diagonal loss function optimized via L-BFGS to minimize fidelity error over a unitary two-design.",
+  "model_or_system": "Quantum error-correcting codes (both stabilizer and non-additive/learned) where logical qubits are encoded into larger physical Hilbert spaces, subject to various noise models including Pauli, depolarizing, and biased noise.",
+  "key_observables": "Fidelity-based operation loss, distinguishability loss, and the Gram matrix of pairwise fidelities.",
+  "important_parameters": "Code parameters (n, k, d), ansatz depth (layer repetition), and noise parameters (p_X, p_Y, p_Z).",
+  "main_assumptions": "The framework assumes access to the encoding unitary (U_enc) and focuses on gate implementation rather than decoder discovery; it also assumes independent errors on physical qubits.",
+  "figures_summary": "Figure 1 shows the learning framework schematic; Figure 2 illustrates the variational pipeline; Figure 3 shows the circuit for two-qubit gates; Figure 4 visualizes the geometric effect of loss variants on the Bloch sphere; Figure 5 shows the ansatz hierarchy; Figure 6 compares loss function success rates and ansatz depth; Figure 8/9/10/12 visualize training dynamics and Gram matrix structures.",
+  "paper_structure": "The paper introduces the problem of logical gate discovery, defines the VarEFTQC co-design framework, details the learning pipeline and loss function variants (diagonal, block-diagonal, full), validates the method on stabilizer codes, and demonstrates application to noise-tailored non-additive codes.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.28162_figures/2605.28162_fig1.jpg",
+      "caption": "FIG. 1. Schematic overview of the framework for learning logical operations. A pure state |ψ⟩is encoded into a larger ancilla system using a fixed encoding unitary Uenc. Subse- quently, a parameterized unitary UL(Ψ) implements a candi- date physical realization of a target logical operation. The parameters are trained with an operation loss, measuring the average fidelity over two-design states between prediction and target (blue lines). Structured operation ans¨atze are used to enforce transversal or low-depth properties. We extend this pipeline to incorporate an adaptable encoding Uenc(Θ), re- sulting in a co-design procedure called variational early fault- tolerant quantum computing...",
+      "page": 1
+    },
+    {
+      "image": "2605.28162_figures/2605.28162_fig2.jpg",
+      "caption": "FIG. 2. Variational learning pipeline for a logical operation U on a fixed code C using only the encoding unitary Uenc. Logical input states are drawn from a unitary two-design S on the relevant logical subsystem, encoded, and passed through the parameterized prediction UL(Ψ). The resulting encoded states are compared to the target encoded states (UρU †)L using the fidelity-based operation error ∆F , and the parameters Ψ are optimized to minimize the average-case operation loss OS(C; Ψ).",
+      "page": 6
+    },
+    {
+      "image": "2605.28162_figures/2605.28162_fig3.jpg",
+      "caption": "FIG. 3. Circuit-level view of the learning setup for a two-qubit logical gate U ∈SU(4) acting on two encoded blocks of the same code C: (a) the target operation is applied to the logi- cal state before encoding; (b) the variational prediction first encodes both logical qubits and then applies a parameterized ansatz on the 2n physical qubits. The resulting predicted state is compared to the target one using the operation error defined in Eq. (12).",
+      "page": 6
+    },
+    {
+      "image": "2605.28162_figures/2605.28162_fig4.jpg",
+      "caption": "FIG. 4. Illustration of different loss variants on the target two-design hexagon (shown in gray), embedded in the Bloch sphere (a). The diagonal variant in (b) ‘pulls’ the physical prediction (black hexagon) towards the logical target for each two-design state. The block-diagonal extension in (c) ad- ditionally ‘repulses’ physical predictions from logical targets that are to be orthogonal. The third variant of evaluating on the full set of state pairs is not explicitly shown.",
+      "page": 7
+    },
+    {
+      "image": "2605.28162_figures/2605.28162_fig5.jpg",
+      "caption": "FIG. 5. Schematic ansatz families used for learning logical op- erations. (a) For a one-qubit operation within a single code block, a strictly transversal ansatz uses the same gate on all physical qubits, while a transversal ansatz allows for differ- ent ones. We realize non-transversal ans¨atze by additionally placing a limited number of randomly located controlled two- qubit gates. (b) For two-qubit controlled gates between code blocks, the same notion of strict transversality and transver- sality holds, with control and target order fixed to be consis- tent for all physical operations. The notion of weak transver- sality extends upon this by allowing arbitrary two-qubit gates between the...",
+      "page": 9
+    }
+  ],
+  "figure": "2605.28162_figures/2605.28162_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

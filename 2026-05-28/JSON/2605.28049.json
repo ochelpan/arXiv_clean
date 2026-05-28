@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.28049",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Automated Unitary Coupled Cluster Circuit Design via Differentiable Quantum Architecture Search",
+  "authors": "Jianpeng Chen, Zirui Sheng, Cunxi Gong, Weitang Li",
+  "abstract": "Designing compact and accurate circuits for the variational quantum eigensolver (VQE) is a central challenge in near-term quantum chemistry. Existing adaptive methods such as ADAPT-VQE design circuits by iteratively selecting operators from a predefined pool guided by gradient information and greedy heuristics. In this work, we adopt differentiable quantum architecture search (DQAS) as a circuit design framework based on the UCCSD operator pool, and introduce two complementary strategies: a global mode that simultaneously optimizes all operator selections, and a layerwise mode that constructs circuits incrementally while preserving previously learned structure. By relaxing discrete operator selection into a continuous differentiable optimization, DQAS enables gradient-based exploration over the combinatorial space of UCC circuit architectures. Benchmarks on BeH2, H4, LiH, H6, and H2O (8-14 qubits) show that both strategies achieve higher accuracy and fewer CNOT gates than ADAPT-VQE in the compact circuit regime, with up to 2.7-fold accuracy improvement for H2O and CNOT reductions of 13-17% at equivalent circuit depths. Benchmarks on the qubit-excitation-based (QEB) operator pool confirm that both advantages generalize beyond UCCSD. These results demonstrate that differentiable architecture search provides an effective and generalizable framework for designing accurate and compact VQE circuits in near-term quantum chemistry.",
+  "url": "http://arxiv.org/abs/2605.28049v1",
+  "pdf": "https://arxiv.org/pdf/2605.28049v1",
+  "type": "theory",
+  "summary": "This paper presents a new method for automatically designing quantum chemistry circuits by treating operator selection as a continuous, differentiable optimization problem. By moving beyond greedy, sequential selection, the approach finds more efficient circuit architectures that are both more accurate and less computationally expensive for near-term quantum hardware.",
+  "main_problem": "Designing efficient and accurate Unitary Coupled Cluster (UCC) quantum circuits for the Variational Quantum Eigensolver (VQE) is difficult due to the combinatorial complexity of selecting optimal operators and the high CNOT gate overhead of existing greedy methods like ADAPT-VQE.",
+  "main_result": "The proposed Differentiable Quantum Architecture Search (DQAS) achieves up to 2.7-fold higher accuracy and a 13-17% reduction in CNOT gate counts compared to ADAPT-VQE in the compact circuit regime, with results generalizing to both UCCSD and QEB operator pools.",
+  "method": "The authors introduce a Differentiable Quantum Architecture Search (DQAS) framework that relaxes discrete operator selection into a continuous optimization problem using two strategies: a Global mode for simultaneous optimization and a Layerwise mode for incremental construction.",
+  "model_or_system": "The study focuses on molecular systems including BeH2, H4, LiH, H6, and H2O (8-14 qubits) using molecular Hamiltonians mapped to qubits via Jordan-Wigner transformation and evaluated at the Hartree-Fock level with the STO-3G basis set.",
+  "key_observables": "Ground-state energy expectation values, potential energy surfaces (PES), CNOT gate counts, and energy error relative to Full Configuration Interaction (FCI) benchmarks.",
+  "important_parameters": "The compact circuit regime (limited circuit depth), chemical accuracy threshold (1.6 mHa), and the comparison between UCCSD and QEB operator pools.",
+  "main_assumptions": "The method's advantage is most pronounced in the compact circuit regime and may face limitations due to gradient attenuation in much deeper circuits.",
+  "figures_summary": "Figure 1 shows the DQAS workflow and search strategies; Figure 2 illustrates training trajectories and energy convergence for LiH; Figure 3 presents potential energy curves and error scaling for BeH2, H4, and LiH; Figure 6 demonstrates performance on the QEB pool for H2O.",
+  "paper_structure": "The paper introduces the problem of circuit design, presents the DQAS framework (Global and Layerwise modes), details the optimization and implementation using TensorCircuit, provides benchmarking results against ADAPT-VQE across various molecules, and discusses generalizability and limitations.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.28049_figures/2605.28049_fig1.jpg",
+      "caption": "Figure 1: Overview of the DQAS framework for quantum ansatz design. (a) End- to-end DQAS workflow: (Step 1) operator pool definition, (Step 2) search strategy selection (global or layerwise), (Step 3) circuit evaluation and loss computation, and (Step 4) joint gradient update of architecture parameters α and variational parameters θ. (b) Schematic comparison of global search, in which all circuit layers are optimized simultaneously, and layerwise search, in which the circuit grows incrementally with committed layers frozen and a sliding window of layers searched at each step.",
+      "page": 7
+    },
+    {
+      "image": "2605.28049_figures/2605.28049_fig2.jpg",
+      "caption": "Figure 2: DQAS-Global search dynamics for LiH (d = 2.20 ˚ A, 6-operator-group ansatz). (a) Operator group (OG) diversity, measured as the number of distinct OGs sampled per batch, versus training epoch. (b) Variational energy convergence toward the FCI reference (−7.8454 Ha, gray dashed line). (c) Selected OG trajectories for layers SG 1– SG 6. (d) Maximum architecture-parameter probability (maxk αk) for each of the six layers at five representative training epochs (Ep. 0, 10, 100, 400, 2000), grouped by epoch; bar labels indicate the dominant operator group index.",
+      "page": 13
+    },
+    {
+      "image": "2605.28049_figures/2605.28049_fig3.jpg",
+      "caption": "Figure 3: DQAS-Global performance on H4 (8 qubits), BeH2 (10 qubits), and LiH (12 qubits). Columns correspond to H4, BeH2, and LiH, respectively. (a,d,g) Potential energy surfaces. (b,e,h) Absolute energy error relative to FCI versus bond length. (c,f,i) Energy error as a function of operator group count at a representative near-equilibrium geometry. The blue shaded band marks chemical accuracy (1.6 mHa).",
+      "page": 15
+    },
+    {
+      "image": "2605.28049_figures/2605.28049_fig4.jpg",
+      "caption": "Figure 4: DQAS-Layerwise performance on BeH2 (12 qubits), H6 (12 qubits), and H2O (14 qubits). Columns correspond to BeH2, H6, and H2O, respectively. (a,d,g) Potential energy surfaces. (b,e,h) Absolute energy error relative to FCI versus bond length. (c,f,i) Energy error as a function of operator group count at a representative near-equilibrium geometry. The blue shaded band marks chemical accuracy (1.6 mHa).",
+      "page": 18
+    },
+    {
+      "image": "2605.28049_figures/2605.28049_fig5.jpg",
+      "caption": "Figure 5: Circuit composition analysis for H2O (UCCSD pool, 16 operator groups): DQAS-Layerwise versus ADAPT-VQE. (a) Number of independent single and double excitation operators selected by each method versus bond length. (b) CNOT gate count versus bond length; annotations show ∆CNOT (ADAPT-VQE −DQAS-Layerwise) at each geometry. (c) Decomposition of ∆CNOT into an operator-count contribution (green, arising from differences in the number and type of selected operators) and an operator- complexity contribution (tan, arising from differences in the qubit span of the selected op- erators).",
+      "page": 20
+    }
+  ],
+  "figure": "2605.28049_figures/2605.28049_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

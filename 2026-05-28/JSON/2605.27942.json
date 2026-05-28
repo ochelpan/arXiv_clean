@@ -1,0 +1,74 @@
+{
+  "arxiv_id": "2605.27942",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DS",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum principal component analysis without eigenvector recovery",
+  "authors": "Yewei Yuan, Michele Minervini, Mark M. Wilde, Nana Liu",
+  "abstract": "Principal component analysis (PCA) is traditionally implemented through a covariance or kernel matrix, leading-eigenvector extraction, and hard rank-$k$ projection. These steps can be computationally costly in high-dimensional and quantum-data settings, sensitive to small eigengaps, and unnecessary when downstream tasks only require principal-subspace scores. Such score-based objectives are important in applications such as anomaly detection, spectral-energy profiling, and other postselection tasks. To address these needs, we introduce a measurement-based soft PCA framework replacing the hard top-$k$ projector with an entropy-regularized Fermi--Dirac filter. This filter is the unique optimizer of an entropy-regularized variational formulation of PCA and converges to the classical PCA projector in the zero-temperature limit.   This filter has a direct interpretation as a quantum measurement, which naturally suggests a quantum approach. For centered covariance operators represented by quantum feature states, a single fixed circuit, together with threshold calibration, accesses all optimal filters for different rank budgets or retained-variance levels without rank-dependent circuit updates or eigenvector recovery. For new inputs, the same calibrated quantum circuit yields soft principal subspace scores, spectral energy profiles, and postselected filtered states. The required centering of both training and test data is performed coherently inside the quantum protocol, which is particularly important for quantum data where no classical feature vectors or centered Gram matrix are directly available. By reframing PCA as a calibrated measurement task, this framework bypasses the need for iterative eigenvector extraction and achieves a dimension-independent sample complexity $O(η^{-2})$ for normalized fractional-rank or retained variance scoring at additive accuracy $η$.",
+  "url": "http://arxiv.org/abs/2605.27942v1",
+  "pdf": "https://arxiv.org/pdf/2605.27942v1",
+  "type": "theory",
+  "summary": "This paper proposes a new way to perform Quantum PCA by treating it as a measurement-based scoring task rather than an eigenvector recovery task. By using a smooth Fermi-Dirac filter, the authors bypass the need for expensive iterative computations and enable efficient, training-free processing of quantum data for tasks like anomaly detection.",
+  "main_problem": "Traditional Quantum Principal Component Analysis (qPCA) is computationally expensive due to the need for explicit eigenvector recovery and is difficult to implement for quantum-native data that requires centering. The authors aim to develop a framework that performs PCA-like tasks (scoring and filtering) without needing to reconstruct individual eigenvectors.",
+  "main_result": "The authors introduce a measurement-based 'soft PCA' framework using an entropy-regularized Fermi-Dirac filter that achieves dimension-independent sample complexity for scoring tasks. This framework allows for training-free calibration, where a single fixed quantum circuit can be used to identify optimal thresholds for various rank budgets or variance levels.",
+  "method": "The method replaces hard rank-k projectors with a smooth Fermi-Dirac filter derived from an entropy-regularized variational formulation. It utilizes a continuous-variable quantum measurement protocol involving Hamiltonian simulation of the covariance operator and a controlled thermal measurement using a non-Gaussian wavepacket.",
+  "model_or_system": "The system involves quantum feature states representing centered covariance operators. The mathematical model uses a controlled Hamiltonian evolution $U_C = e^{-i\\hat{p} \\otimes C/T_2}$, where $\\hat{p}$ is the momentum quadrature of a control qumode and $C$ is the covariance operator.",
+  "key_observables": "Principal-subspace scores, spectral-energy profiles, postselected filtered states, and the position quadrature $q$ of the control qumode.",
+  "important_parameters": "Temperature ($T$) controlling spectral smoothness, rank budget ($k$), retained variance, chemical potential ($\\mu$), and the accuracy parameter ($\\eta$).",
+  "main_assumptions": "Assumes the existence of a centered covariance operator represented by quantum feature states and requires a non-zero eigengap for the zero-temperature limit to recover hard PCA.",
+  "figures_summary": "Figure 1 provides a schematic of the implementation of the Hamiltonian evolution using a two-substep product formula involving empirical and mean-subtraction steps.",
+  "paper_structure": "The paper identifies limitations of traditional PCA, proposes an entropy-regularized soft PCA framework, derives the Fermi-Dirac filter, details the quantum implementation via thermal measurement, provides a calibration protocol for various ranks, and performs error and complexity analysis.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.27942_figures/2605.27942_fig1.jpg",
+      "caption": "Figure 1: Implementation of the Hamiltonian evolution UC ≈e−iˆp⊗Cϕ/T2 for the soft PCA. Each round applies two signed selector-swap substeps. The empirical sub- step prepares |Ω⟩= N−1/2 P i |i⟩|ϕi⟩and applies exp(−i ∆ˆp ⊗1 ⊗Sdata,aux), thereby gen- erating +¯ρϕ. The mean-subtraction substep prepares |χm⟩= |0⟩|m⟩+ |⊥⟩and applies exp(+i ∆ˆp ⊗|0⟩⟨0| ⊗Sdata,aux), thereby generating −|m⟩⟨m|. The selector |0⟩⟨0|idx is coherent, so no index postselection or α-estimation is required during Hamiltonian simulation. Repeating the two substeps for R rounds yields Eq. (4.40).",
+      "page": 15
+    },
+    {
+      "image": "2605.27942_figures/2605.27942_fig2.jpg",
+      "caption": "Figure 2: Schematic of the quantum soft PCA. A control qumode prepared in |ψT1⟩ and a data register in a generic probe state ρin undergo the joint Hamiltonian evolution UC = e−iˆp⊗C/T2. By measuring the position quadrature q of the control qumode and applying a simple classical threshold rule q > β, the protocol directly evaluates the soft PCA score Tr(MT,βT2ρin). This unified schematic applies to both the trace-budget calibration phase (e.g. ρin = I/d for rank calibration) and the downstream inference on new test inputs. A specific implementation of the quantum circuit is shown in Fig 1, and the detailed rank calibration process is illustrated in Fig. 3.",
+      "page": 17
+    },
+    {
+      "image": "2605.27942_figures/2605.27942_fig3.jpg",
+      "caption": "Figure 3: Training-free calibration of optimal soft PCA filters via quantile mapping. (a) The tail probability 1 −FC(β) decreases in a staircase-like manner. The optimal thresholds β⋆ k are found strictly at the quantiles k/d. (b) The corresponding physical position density fC(q) (solid line), composed of distinct eigenmode peaks (dashed gray lines). The thresholds vertically partition the measured distribution into adjacent quantile windows, which implement the soft spectral components DT,k. When the relevant eigengaps are large and the peaks are well separated, the thresholds tend to lie in low-density valleys, making the selected filter robust to small threshold perturbations.",
+      "page": 18
+    }
+  ],
+  "figure": "2605.27942_figures/2605.27942_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

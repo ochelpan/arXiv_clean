@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.28040",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Filter-assisted quantum subspace diagonalization via wavefunction sparsity engineering",
+  "authors": "Han Xu, Tomonori Shirakawa, Seiji Yunoki",
+  "abstract": "Subspace diagonalization techniques based on quantum sampling, such as quantum selected configuration interaction (QSCI) and sample-based quantum diagonalization (SQD), have recently emerged as promising quantum-centric approaches for approximating ground-state energies of many-body systems. However, their performance is fundamentally limited by an intrinsic trade-off between sampling efficiency and the sparsity of the ground-state wavefunction, which becomes particularly severe in strongly correlated systems. Here, we introduce a filter-assisted SQD protocol that engineers wavefunction sparsity via a quantum filter, i.e., a unitary transformation of the Hamiltonian designed to concentrate the ground-state weight onto a small number of computational basis states. Using the Gini coefficient as a robust sparsity measure, we establish a quantitative relationship between wavefunction sparsity and the resource requirements of SQD, providing theoretical bounds on the required subspace dimension and sampling cost. To realize the quantum filter, we employ a tensor-network-based circuit-encoding algorithm that maps target states to quantum circuits with controllable fidelity. We benchmark our approach on the quantum Ising model with transverse and longitudinal fields using both numerical simulations and quantum hardware experiments. Our results demonstrate that, compared with standard SQD, the proposed protocol significantly enhances wavefunction sparsity, reduces ground-state energy estimation errors by orders of magnitude, and substantially lowers sampling overhead. These findings establish filter-assisted subspace diagonalization as a powerful and scalable framework for quantum many-body calculations in the strongly correlated regime.",
+  "url": "http://arxiv.org/abs/2605.28040v1",
+  "pdf": "https://arxiv.org/pdf/2605.28040v1",
+  "type": "both",
+  "summary": "This paper introduces a new protocol called Filter-assisted SQD (FSQD) to solve the efficiency problems in quantum subspace diagonalization. By using a quantum circuit to transform the Hamiltonian, the method makes the ground-state wavefunction sparser, which drastically reduces the number of measurements needed to estimate energies accurately. The approach is validated through both large-scale numerical simulations and experiments on real quantum hardware.",
+  "main_problem": "The intrinsic trade-off in sample-based quantum subspace diagonalization (SQD) between sampling efficiency and wavefunction sparsity, which causes exponential resource growth in strongly correlated systems.",
+  "main_result": "The proposed Filter-assisted SQD (FSQD) protocol significantly enhances wavefunction sparsity and reduces ground-state energy estimation errors by orders of magnitude while substantially lowering sampling overhead.",
+  "method": "A protocol that uses a quantum filter (a unitary transformation of the Hamiltonian) implemented via a tensor-network-based circuit-encoding algorithm to concentrate ground-state weight onto fewer basis states.",
+  "model_or_system": "The study focuses on many-body systems in the strongly correlated regime, specifically using the quantum Ising model with transverse and longitudinal fields as a benchmark, with demonstrations on systems up to 100 qubits and hardware experiments on IBM's ibm_kobe processor.",
+  "key_observables": "Ground-state energy estimation error, Gini coefficient (sparsity measure), Lorenz curve, sampling overhead (number of shots), and subspace dimension.",
+  "important_parameters": "Gini coefficient (G), subspace dimension (NR), number of measurement shots (NS), and the scaling exponent (g) of the sampling overhead.",
+  "main_assumptions": "The quantum state is prepared by applying a unitary operator to the zero state, and the accuracy depends on the fidelity of the tensor-network-based circuit encoding.",
+  "figures_summary": "Figure 1 compares standard SQD with FSQD variants; Figure 2 shows the piecewise-linear approximation of the Lorenz curve; Figure 3 illustrates the MPS circuit-encoding algorithm; Figure 9 shows optimization convergence; Figure 13 shows qubit layouts on the IBM hardware.",
+  "paper_structure": "The paper identifies the SQD bottleneck, proposes the FSQD protocol, establishes theoretical resource bounds using the Gini coefficient, details the MPS-based circuit-encoding implementation, and validates the approach through numerical simulations and quantum hardware experiments.",
+  "why_interesting": "It provides a scalable framework for many-body calculations by using a quantum filter to reshape the measurement distribution, directly addressing the sampling bottleneck in quantum-centric algorithms for strongly correlated systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.28040_figures/2605.28040_fig1.jpg",
+      "caption": "FIG. 1. Schematic comparison between the standard SQD workflow and the proposed filter-assisted SQD (FSQD) protocol. In both methods, a truncated Hamiltonian matrix is constructed and diagonalized in the subspace spanned by the NR most frequently sampled computational basis states. In FSQD, a designed filter circuit C† Q (unitary ˆU † Q) transforms the original Hamiltonian ˆH into the filtered Hamiltonian ˆH′ := ˆU † Q ˆH ˆUQ, whose ground state is more strongly concentrated on the compu- tational basis state |0⟩= |0⟩⊗n. To avoid excessive sampling of the dominant |0⟩component, samplers for subspace expansion are constructed from the projected state—either by directly encoding the...",
+      "page": 3
+    },
+    {
+      "image": "2605.28040_figures/2605.28040_fig2.jpg",
+      "caption": "FIG. 2. Schematic diagram of the Lorenz curve L(x) and the graphical interpretation of the Gini coefficient G. The diagonal line corresponds to the Lorenz curve for the equal- superposition state |+⟩⊗n, and the approximate Lorenz curve La(x) is shown as a red dashed line.",
+      "page": 5
+    },
+    {
+      "image": "2605.28040_figures/2605.28040_fig3.jpg",
+      "caption": "FIG. 3. Schematic illustration of the forward and back- ward sweeps in the MPS-circuit-encoding algorithm. The top panel shows the bidirectional optimization over the local two- qubit unitary matrices Um. The middle-left panel illustrates the local tensor-network environment for optimizing the mth unitary. The middle-right panel shows the fidelity tensor ˆFm and its matrix representation Fm, from which the locally op- timal unitary matrix Um = Y †X† is obtained through the singular-value decomposition Fm = XDY . The lower panel shows the circuit CMPS, composed of local two-qubit unitaries ˆUm, which is optimized so that the all-zero product state |0⟩ is mapped approximately to the target...",
+      "page": 7
+    },
+    {
+      "image": "2605.28040_figures/2605.28040_fig4.jpg",
+      "caption": "FIG. 4. (a) Matrix representations of the original Hamiltonian ˆH [Eq. (53)] and the filtered Hamiltonian ˆH′ = ˆU † MPS,I(II) ˆH ˆUMPS,I(II) for one-layer and two-layer filters on a four-site system. (b) Corresponding tensor-network, i.e., MPO, representations. (c) Sorted weights |cI|2 and cumulative weights L(x) in the computational basis for the same four-site sys- tem. The Gini coefficient equals twice the shaded area between the Lorenz curve and the diagonal line corresponding to the equal-superposition state |+⟩⊗n. Examples are shown for |ψg⟩(blue), ˆU † MPS,I |ψg⟩(yellow), and ˆU † MPS,II |ψg⟩(brown). For the two-layer filter, the weight distribution is so strongly concentrated on...",
+      "page": 10
+    },
+    {
+      "image": "2605.28040_figures/2605.28040_fig5.jpg",
+      "caption": "FIG. 5. (a) Deviation of the Gini coefficient from unity, 1 −G, as a measure of wavefunction sparsity, plotted as a function of system size n. A fit to the ground state |ψg⟩of the original Hamiltonian ˆH gives (1 −G)N ∼20.7n, shown by the blue dashed line, whereas the filtered states generated by ˆUMPS,I and ˆUMPS,II approach the sparsest-case scaling, shown by the black dashed line. (b) Inverse Lorenz curve as functions of n for |ψg⟩(left), ˆU † MPS,I|ψg⟩(middle), and ˆU † MPS,II|ψg⟩(right). The color intensity corresponds to the target estimation error ˜ε2 = 10−1, 10−2, . . . , and 10−10, as indicated in the inset of the left panel.",
+      "page": 10
+    }
+  ],
+  "figure": "2605.28040_figures/2605.28040_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

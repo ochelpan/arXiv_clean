@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2605.28439",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Compile-Time Simplification of Classically Controlled Operations in Dynamic Circuits",
+  "authors": "Innocenzo Fulginiti, Yanbin Chen, Christian B. Mendl, Helmut Seidl",
+  "abstract": "Dynamic circuits use real-time outcomes of mid-circuit measurements, processed by a classical controller, to adapt subsequent operations during circuit execution. This additional flexibility over static circuits comes at a price. Mid-circuit measurements are typically slower and noisier than unitary gates. Furthermore, classical feedforward requires exchanging information between the quantum processor (QPU) and the classical controller, introducing latency that erodes the practical performance of dynamic circuits. We propose a compile-time optimization framework that reduces the use of classical controls in dynamic circuits while preserving their semantics. At its core, the framework uses a static analysis that symbolically executes the circuit by propagating classical information alongside the quantum state. By combining this classical-quantum information with the Probabilistic Circuit Model extended with probabilistic controls that emulate classical feedforward, we obtain an intermediate probabilistic representation of the dynamic circuit. In this representation, mid-circuit measurements and classically controlled operations can be removed or rewritten as purely unitary operations and probabilistic components. Compared to existing compile-time optimizations that target only mid-circuit measurements, our method applies to a broader class of dynamic circuits expressible in modern quantum programming languages. We evaluated our framework on randomly generated dynamic circuits, achieving about 50% classical feedforward reduction and even higher reductions in favorable settings.",
+  "url": "http://arxiv.org/abs/2605.28439v1",
+  "pdf": "https://arxiv.org/pdf/2605.28439v1",
+  "type": "theory",
+  "summary": "This paper presents a new compilation framework designed to reduce the runtime overhead of dynamic quantum circuits. By using symbolic execution at compile-time, the method simplifies or removes classically controlled operations, effectively shifting the computational burden from the quantum hardware's controller to the classical compiler.",
+  "main_problem": "Dynamic quantum circuits introduce significant hardware latency and overhead due to the feedback loop between mid-circuit measurements and classical controllers. Existing compile-time optimizations fail to simplify the classically controlled operations that depend on these measurement outcomes.",
+  "main_result": "The authors developed a two-phase compilation framework that achieves approximately a 50% reduction in classical feedforward in random circuits, with reductions up to 80% for larger circuit widths.",
+  "method": "A two-phase optimization scheme: Phase I uses symbolic execution and Classical Constant Propagation (CCP) to rewrite dynamic circuits into a probabilistic representation; Phase II samples this representation to generate executable circuit instances.",
+  "model_or_system": "Dynamic quantum circuits consisting of a quantum register of n qubits and a classical register of m bits, involving mid-circuit measurements, resets, and classically controlled operations.",
+  "key_observables": "Number of classically controlled operations, reduction in classical feedforward, and circuit width/depth scaling.",
+  "important_parameters": "Circuit width (10 to 100 qubits) and circuit depth (100 to 1000).",
+  "main_assumptions": "The 'then' and 'else' branches of controlled operations are restricted to unitary sequences; the framework uses a conservative threshold for entanglement tracking to maintain polynomial complexity.",
+  "figures_summary": "Figure 1 shows the two-phase compilation overview; Figure 2 illustrates the structure of classically controlled operations; Figure 3 shows the scaling of operation reduction relative to circuit width and depth.",
+  "paper_structure": "The paper introduces the problem of latency in dynamic circuits, proposes a two-phase framework (Phase I: Dynamic to Probabilistic; Phase II: Probabilistic to Executable), details the algorithms for classical and quantum constant propagation, provides a mathematical proof of semantic preservation, and evaluates the framework on random circuits and GHZ state preparation.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.28439_figures/2605.28439_fig1.jpg",
+      "caption": "Figure 1: Compilation overview. Phase I transforms the input dynamic circuit D into a semantically equivalent probabilistic circuit D′, where classical feedforward is represented via probabilistic constructs. Phase II instantiates D′ by compiling probabilistic constructs into standard operations, sampling an executable circuit D′′ for each execution.",
+      "page": 2
+    },
+    {
+      "image": "2605.28439_figures/2605.28439_fig2.jpg",
+      "caption": "Figure 2: Generic pattern for a classically controlled operation.",
+      "page": 3
+    },
+    {
+      "image": "2605.28439_figures/2605.28439_fig3.jpg",
+      "caption": "Figure 3: Number of classically controlled operations in the original circuits and in the optimized probabilistic circuits produced by Phase I. Values are averages over 10 random circuits per setting. Fig. 3a varies the number of qubits (width) from w = 10 to w = 100 with fixed depth d = 250, while Fig. 3b varies the depth from d = 100 to d = 1000 (step 100) with fixed width w = 25.",
+      "page": 10
+    }
+  ],
+  "figure": "2605.28439_figures/2605.28439_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
