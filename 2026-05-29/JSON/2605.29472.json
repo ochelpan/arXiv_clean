@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.29472",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "High-Fidelity ROI CT Reconstruction with Limited Quantum Resources via Hybrid Classical-Quantum Refinement",
+  "authors": "Hyunju Lee, Jeonghwa Lee, Kyungtaek Jun",
+  "abstract": "Quantum optimization for computed tomography (CT) reconstruction is constrained by the number of binary variables required for image representation, making direct whole-image quantum reconstruction difficult for large or structurally complex objects. We propose a hybrid region-of-interest (ROI) refinement framework in which a coarse global image is first reconstructed by quantum tomographic reconstruction (QTR) and quantum compressed sensing tomographic reconstruction (QCSTR), filtered backprojection (FBP), or simultaneous algebraic reconstruction technique (SART), and quantum optimization is then applied only to the selected ROI through a residual projection-image formulation. This strategy reduces the effective QUBO size while preserving high-fidelity reconstruction in the target region. Experiments on three discrete phantom samples show that both QTR/QCSTR+QTR/QCSTR and SART+QTR/QCSTR achieve accurate ROI reconstruction for moderate-size cases under a reduced-angle setting. For the largest and most complex sample, the quality of the coarse global estimate becomes critical, and the best result is obtained when a stable classical coarse reconstruction is combined with second-stage ROI-only QTR/QCSTR. Among the tested pipelines, SART+QTR/QCSTR achieves the lowest average ROI RMSE and MAE. The results indicate that the practical advantage of quantum-assisted CT reconstruction lies in reserving quantum optimization for local refinement while using classical reconstruction to stabilize the global background.",
+  "url": "http://arxiv.org/abs/2605.29472v1",
+  "pdf": "https://arxiv.org/pdf/2605.29472v1",
+  "type": "both",
+  "summary": "This paper addresses the challenge of performing high-fidelity CT reconstruction with limited quantum resources by proposing a hybrid ROI refinement framework. It first uses classical methods to establish a stable global image estimate, and then applies quantum optimization only to the Region-of-Interest (ROI) using a residual projection formulation. The results demonstrate that this targeted quantum refinement strategy is highly effective and superior to purely quantum approaches for complex, real-world imaging data.",
+  "main_problem": "The core challenge is achieving high-fidelity reconstruction of a Region-of-Interest (ROI) in Computed Tomography (CT) using quantum optimization techniques when quantum resources (qubits) are severely limited.",
+  "main_result": "A hybrid framework combining classical global reconstruction (like SART) with quantum refinement applied only to the ROI significantly outperforms purely quantum methods, with SART+QTR/QCSTR achieving the lowest reconstruction error.",
+  "method": "The authors propose a two-stage hybrid approach: first, a coarse global image is reconstructed classically; second, the problem is reformulated as a residual projection-image minimization, which is then solved using quantum optimization (QUBO) only over the ROI.",
+  "model_or_system": "The physical system is CT reconstruction, modeled by the Radon transform, where the inverse problem is solved by minimizing discrepancies between measured projections and projections derived from the reconstructed image. The quantum part is formulated as a QUBO problem.",
+  "key_observables": "Root Mean Square Error ($\text{RMSE}_{\text{ROI}}$) and Mean Absolute Error ($\text{MAE}_{\text{ROI}}$) are the primary metrics used to quantify reconstruction fidelity in the ROI.",
+  "important_parameters": "The study is particularly relevant under reduced-angle or sparse-view measurements, which exacerbate ill-posedness in the inverse problem.",
+  "main_assumptions": "The primary assumption is that the global background can be reliably stabilized by classical methods, allowing quantum resources to be efficiently focused on local, high-detail refinement.",
+  "figures_summary": "Figures illustrate the hybrid pipeline flow, showing the progression from the global estimate to the residual projection image, and comparing final reconstructed images for various phantom samples.",
+  "paper_structure": "The paper introduces the limitations of full-image quantum reconstruction, proposes the hybrid ROI refinement framework, details the residual projection-image formulation, and validates the method by comparing multiple classical/quantum pipelines on complex phantom samples.",
+  "why_interesting": "While the application is in medical imaging, the core methodology—using classical computation to stabilize a global background estimate before applying quantum optimization to a localized, constrained subspace—is a generalizable paradigm for hybrid quantum-classical solvers in inverse problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.29472_figures/2605.29472_fig1.jpg",
+      "caption": "Fig. 1. Overview of the proposed hybrid ROI-refinement pipeline for Sample 1 using the SART+QTR configuration. SART first produces the global coarse estimate 𝑰𝒈𝒍𝒐𝒃𝒂𝒍. After zero-masking the ROI in 𝑰𝒈𝒍𝒐𝒃𝒂𝒍, its projection image is subtracted from the experimental projection image 𝑷(𝜽, 𝒔) to form the residual projection image 𝑷𝒓𝒆𝒔(𝜽, 𝒔). The ROI is then refined by solving a QUBO with the D-Wave hybrid solver, and the optimized ROI is inserted back into the coarse image to obtain the final refined reconstruction.",
+      "page": 3
+    },
+    {
+      "image": "2605.29472_figures/2605.29472_fig2.jpg",
+      "caption": "Fig. 3. Final reconstruction results for the three phantom samples. Samples 1 and 2 were defined on 𝟏𝟐𝟎× 𝟏𝟐𝟎 grids, whereas Sample 3 was defined on a 𝟏𝟖𝟎× 𝟏𝟖𝟎 grid; the ROI size was 𝟔𝟎× 𝟔𝟎 in all cases. Each row corresponds to one sample, and each column shows the ground truth, QTR+QTR, FBP+QTR, and SART+QTR results. For Sample 3, the FBP+QTR and SART+QTR results were obtained using a denser angular sampling in the coarse- reconstruction stage, while the second-stage ROI refinement was performed with the same residual-based QTR formulation.",
+      "page": 6
+    },
+    {
+      "image": "2605.29472_figures/2605.29472_fig3.jpg",
+      "caption": "Fig. 2. ROI absolute difference maps |𝑮𝑻−𝒓𝒆𝒄𝒐𝒏𝒔𝒕𝒓𝒖𝒄𝒕𝒊𝒐𝒏| for the three phantom samples. Samples 1 and 2 have size 𝟏𝟐𝟎× 𝟏𝟐𝟎, whereas Sample 3 has size 𝟏𝟖𝟎× 𝟏𝟖𝟎; the ROI size is 𝟔𝟎× 𝟔𝟎 in all cases. Each row corresponds to one sample, and each column corresponds to one reconstruction pipeline. Lower intensity indicates smaller reconstruction error inside the selected ROI. In QTR+QTR, both stages used 60 projection views, and the detector-position dimension was reduced to 60 before the first-stage QTR reconstruction. For Sample 3, the FBP+QTR and SART+QTR results used 180- view coarse reconstruction and 60-veiw second-stage QTR refinement.",
+      "page": 6
+    },
+    {
+      "image": "2605.29472_figures/2605.29472_fig4.jpg",
+      "caption": "Fig.4. . Final reconstruction results for the phantom sample. Sample was defined on a 𝟏𝟖𝟎× 𝟏𝟖𝟎 grid; the ROI size was 𝟔𝟎× 𝟔𝟎 in all cases. Each row corresponds to one sample, and each column shows the ground truth, QCSTR+QCSTR, FBP+QCSTR, and SART+QCSTR results.",
+      "page": 7
+    },
+    {
+      "image": "2605.29472_figures/2605.29472_fig5.jpg",
+      "caption": "Fig. 5. X-ray projection images of a mixed sample composed of a high- X-ray-MAC inner specimen embedded within a low-X-ray-MAC outer sample. To investigate the detectability of an internal crack, an artificial crack was introduced into the inner specimen, and projection images were obtained at two angles differing by 90°: (a) and (b).",
+      "page": 7
+    }
+  ],
+  "figure": "2605.29472_figures/2605.29472_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

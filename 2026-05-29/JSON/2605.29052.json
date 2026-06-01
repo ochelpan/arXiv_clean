@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2605.29052",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Quantum Algorithm for Simulating Nonunitary Dynamics Governed by Nonautonomous Linear Ordinary Differential Equations",
+  "authors": "Pouya Khazaei, Eitan Geva",
+  "abstract": "Nonautonomous linear ordinary differential equations of the form $\\dot{v}(t) = A(t)\\, v(t)$, where $A(t)$ is non-skew-symmetric, are often used to describe nonunitary dynamics in a variety of fields that range from open quantum system dynamics to economic modeling. Because quantum computing hardware is designed to natively implement unitary transformations, existing algorithms for solving such equations on quantum hardware are based on the assumption that the nonunitary propagator is known, and use dilation techniques to embed the nonunitary dynamics within the unitary dynamics of a larger system. However, with the exception of cases where the nonunitary propagator is known in closed form, it needs to be calculated and manipulated on a classical computer at each time step. In this paper, we propose a quantum algorithm that does not require a priori knowledge of the explicit nonunitary propagator and effectively performs the dilation on the quantum hardware. Our algorithm combines a dilation scheme that uses singular value decomposition (SVD) to write the nonunitary propagator as a sum of unitaries with simulating the dynamics of the SVD factors on the quantum hardware. The population-only time-convolutionless quantum master equation describing photoinduced charge transfer in a solvated molecular triad is used as a demonstrative example of the applicability of the algorithm and its sensitivity to noise.",
+  "url": "http://arxiv.org/abs/2605.29052v1",
+  "pdf": "https://arxiv.org/pdf/2605.29052v1",
+  "type": "theory",
+  "summary": "This paper introduces a quantum algorithm, q-SVD-EOM, designed to simulate nonunitary quantum dynamics governed by time-dependent ODEs. It achieves this by decomposing the evolution operator via Singular Value Decomposition and evolving the resulting unitary and diagonal factors directly on quantum hardware. The method successfully demonstrates its applicability to molecular charge transfer dynamics, offering a promising route for simulating open quantum systems on near-term quantum computers.",
+  "main_problem": "The paper addresses the challenge of simulating nonunitary dynamics governed by nonautonomous linear ODEs ($\\dot{v}(t) = A(t)v(t)$) on quantum hardware.",
+  "main_result": "A novel quantum algorithm, q-SVD-EOM, was proposed that simulates the evolution by directly propagating the Singular Value Decomposition (SVD) factors ($U, V, \\Sigma_{\\pm}$) on the quantum computer, bypassing the need for classical calculation of the nonunitary propagator.",
+  "method": "The method decomposes the nonunitary propagator using SVD ($\\Phi(t) = U(t)\\Sigma(t)V^\\dagger(t)$) and then evolves the factors $U, V, \\Sigma_{\\pm}$ by casting their dynamics into coupled ODEs solvable via quantum gates (e.g., using Cayley transforms).",
+  "model_or_system": "The algorithm is demonstrated using a model for photoinduced charge transfer dynamics in a solvated molecular triad, governed by a time-dependent rate matrix derived from a quantum master equation.",
+  "key_observables": "The donor population $\\hat{\rho}(t)$ and the time evolution of the SVD factors ($U(t), V(t), \\Sigma_{\\pm}(t)$).",
+  "important_parameters": "Time-dependent rate coefficients ($k_{D\to A}(t), k_{A\to D}(t)$) and the simulation time scale (e.g., $\tilde{t}=50 \text{ au}$).",
+  "main_assumptions": "The algorithm assumes the ability to integrate the derived ODEs for the SVD factors directly on quantum hardware, and its performance is tested against ideal and noisy quantum backends.",
+  "figures_summary": "Figure 3 compares the time evolution of the donor population $PD(t)$ obtained via classical Runge-Kutta (RK2), ideal quantum simulation, and noisy quantum simulations on two different hardware backends.",
+  "paper_structure": "The paper introduces the problem of nonunitary dynamics, details the limitations of existing methods, proposes the q-SVD-EOM algorithm by deriving the factor evolution equations, and validates the method using a charge transfer model simulation.",
+  "why_interesting": "This work provides a concrete, quantum-native pathway to simulate open quantum system dynamics, which are notoriously difficult for quantum hardware designed for unitary evolution, making it highly relevant for quantum simulation in AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.29052_figures/2605.29052_fig1.jpg",
+      "caption": "FIG. 2. A snapshot of the CPC60 molecular triad, in the bent conformation, solvated in liquid THF.",
+      "page": 12
+    },
+    {
+      "image": "2605.29052_figures/2605.29052_fig2.jpg",
+      "caption": "FIG. 3. Comparison of PD(t) as obtained by integrating Eq. 51 on a classical computer via the second-order",
+      "page": 15
+    }
+  ],
+  "figure": "2605.29052_figures/2605.29052_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 3,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

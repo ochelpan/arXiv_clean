@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2605.29969",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Prototype-Guided Latent Alignment for Data-Efficient Fine-Tuning of Molecular Foundation Models",
+  "authors": "Rushikesh Pawar, Harshit Rawat, Ayush Kumar, Phani Motamarri",
+  "abstract": "Machine learning interatomic potentials (MLIPs) have transformed materials discovery by leveraging graph neural networks (GNNs) to predict material properties with near density functional theory (DFT) accuracy. While large-scale pretrained foundation models offer transferable baseline representations, they frequently struggle to generalise to out-of-distribution (OOD) target systems -- a common challenge in modelling complex or chemically diverse materials. Fine-tuning is the standard remedy, but the high cost of generating DFT-labelled configurations confines adaptation to data-scarce regimes, where over-parameterised GNNs amplify overfitting and degrade target-domain performance. To address this, we propose a prototype-based alignment approach for data-efficient fine-tuning of MLIPs. Our method identifies local structural similarities between the source and target domains by grouping atoms with analogous chemical environments based on their latent representations. Each target-domain atom's energy contribution is aligned to its source-domain prototype, introducing an inductive bias that anchors fine-tuned representations to the pretrained structure, encouraging effective reuse of learned interactions and improving generalisation without restrictive assumptions on the target chemistry. We evaluate our method on the rMD17 benchmark using equivariant MACE and invariant SchNet across varying data budgets, and extend evaluation to the MACE-OFF foundation models on the SPICE dataset. Our approach consistently improves predictive accuracy in the low-data regime, reducing energy MAE by up to 18% over standard fine-tuning baselines.",
+  "url": "http://arxiv.org/abs/2605.29969v1",
+  "pdf": "https://arxiv.org/pdf/2605.29969v1",
+  "type": "both",
+  "summary": "This paper introduces a prototype-guided latent alignment technique to improve the data efficiency of fine-tuning Molecular Foundation Models (MLIPs). By anchoring the learning process to structural prototypes derived from source data, the method mitigates overfitting and poor generalization when applied to novel, data-scarce chemical systems. It demonstrates superior predictive accuracy compared to standard fine-tuning baselines.",
+  "main_problem": "Large-scale pre-trained foundation models for MLIPs fail to generalize to out-of-distribution (OOD) target materials, especially when labeled data is scarce.",
+  "main_result": "The proposed prototype-guided alignment method significantly improves predictive accuracy in low-data regimes, achieving up to an 18% reduction in energy MAE over standard fine-tuning.",
+  "method": "The approach aligns target atom energy contributions to structural prototypes derived from the source domain by minimizing a novel Nodal Energy Alignment Loss (L_NEAL).",
+  "model_or_system": "The study focuses on Machine Learning Interatomic Potentials (MLIPs) implemented via Graph Neural Networks (GNNs) like MACE and SchNet, applied to molecular systems.",
+  "key_observables": "Energy Mean Absolute Error (MAE) and Force MAE (reported in meV or meV/Å).",
+  "important_parameters": "Low-data regimes (e.g., 5-20 training examples), alignment loss weight (lambda_NEAL), and the epoch threshold for loss application (N_NEAL).",
+  "main_assumptions": "The method assumes that local structural similarities between source and target domains imply analogous energy contributions, allowing for prototype-based guidance.",
+  "figures_summary": "Figures illustrate the three-stage workflow: Prototype Extraction (clustering source latents), Prototype Assignment (mapping target latents to nearest prototype), and Prototype Alignment (minimizing energy latent distance).",
+  "paper_structure": "The paper introduces the problem of OOD generalization in MLIPs, details the prototype-based alignment mechanism (including loss formulation), presents experimental validation on benchmarks like rMD17 and MACEOFF23, and concludes with ablation studies confirming the necessity of the alignment term.",
+  "why_interesting": "While focused on condensed matter potentials, the core methodology—using latent space clustering and alignment to enforce inductive biases from source data onto scarce target data—is highly relevant to developing robust ML models for complex quantum many-body systems where data is expensive.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.29969_figures/2605.29969_fig1.jpg",
+      "caption": "Figure 1: Prototype latent alignment workflow: The pipeline proceeds in three stages to produce a fine-tuned model. Prototype Extraction: Latent representations (hj) from a source subset (D′ s) are projected via PCA and clustered using a Gaussian Mixture Model to obtain source interaction prototypes (µI, ΣI). Prototype Assignment: Target samples (Dt) are passed through the foundation model to obtain latents (hj), which are similarly projected, and assigned to the closest interaction prototype via Mahalanobis distance (dM), entirely within the interaction latent space. Prototype Alignment: The assigned distance (dM) is minimized by aligning target nodal energy latents (ej) with the...",
+      "page": 3
+    },
+    {
+      "image": "2605.29969_figures/2605.29969_fig2.jpg",
+      "caption": "Figure 2: Architectural overview of MACE with interaction and nodal energy latents. For atom j in molecule i, its local 1-hop neighborhood is embedded into an initial interaction latent h(0) j . This representation is iteratively refined through L interaction blocks, producing updated latents h(l) j . At each stage, readout networks map these interaction latents to nodal energy latents. These contributions, together with atomic energy terms, are aggregated to obtain the final nodal energy, from which total energy is computed and forces are derived as energy gradients with respect to atomic positions (Figure inspired by Batatia et al. [2022]).",
+      "page": 4
+    },
+    {
+      "image": "2605.29969_figures/2605.29969_fig3.jpg",
+      "caption": "Figure 3: Source and target molecules used in the rMD17 transfer setup in ST1.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.29969_figures/2605.29969_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

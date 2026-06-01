@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.30142",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Koopman--von Neumann Molecular Dynamics for Green--Kubo Transport Coefficients",
+  "authors": "Masari Watanabe, Hirofumi Nishi, Taichi Kosugi, Shigekazu Hidaka, Ryo Sakurai, Yu-ichiro Matsushita",
+  "abstract": "We formulate the Green--Kubo transport coefficients of classical molecular dynamics as a readout problem for quantum algorithms using the Koopman--von Neumann (KvN) representation. Both NVE and Nosé--Hoover-type NVT dynamics are derived as unitary evolutions on Hilbert spaces associated with the corresponding classical phase spaces. Numerical benchmarks on finite grids show that the discretization error in the correlation function decreases as a power law in the number of grid points $N_z$. Equivalently, with $N_z=2^{n_z}$, the error decreases exponentially in the register size $n_z$, so a target accuracy $ε$ requires $n_z=\\mathcal{O}(\\log(1/ε))$ qubits. To read out a transport coefficient, we input a flux-excited state to quantum phase estimation (QPE). The probability $P_0$ of measuring the QPE ancilla register in the all-zero state corresponds to a Bartlett-windowed Green--Kubo integral. With maximum-likelihood amplitude estimation, the statistical estimation of $P_0$ defined by this QPE oracle improves from the $N_{\\rm queries}^{-1/2}$ scaling of direct shot sampling to scaling close to $N_{\\rm queries}^{-1}$. Our circuit-resource analysis shows that one step of the NVE propagator can be built with $\\mathcal{O}(n^2)$ CX gates, where $n=n_x+n_p$ is the total number of position and momentum qubits. For the NVT propagator, the centered-difference Pauli-decomposition implementation of the Nosé--Hoover friction term scales as $\\mathcal{O}(n_ξn_p\\,2^{n_p})$, where $n_p$ and $n_ξ$ are the numbers of momentum and thermostat qubits, respectively. The proposed framework is a concrete step toward translating the principles of quantum algorithms into the transport-coefficient calculations required in practical molecular simulation.",
+  "url": "http://arxiv.org/abs/2605.30142v1",
+  "pdf": "https://arxiv.org/pdf/2605.30142v1",
+  "type": "theory",
+  "summary": "This paper develops a quantum algorithm framework to calculate Green-Kubo transport coefficients from classical molecular dynamics. It uses the Koopman-von Neumann representation to map classical dynamics onto unitary quantum evolutions, which are then simulated using Quantum Phase Estimation. The results demonstrate improved statistical scaling and provide resource estimates for implementing these complex simulations on quantum hardware.",
+  "main_problem": "The paper formulates the calculation of Green-Kubo transport coefficients from classical molecular dynamics as a readout problem solvable by quantum algorithms using the Koopman-von Neumann (KvN) representation.",
+  "main_result": "The framework successfully maps classical dynamics (NVE/NVT) to unitary quantum evolutions, and the transport coefficients are read out via Quantum Phase Estimation (QPE) with improved statistical scaling.",
+  "method": "The core method involves linearizing classical Liouville evolution into a unitary quantum evolution using the KvN representation, followed by estimating the required correlation function via QPE and Maximum-Likelihood Amplitude Estimation (MLAE).",
+  "model_or_system": "The model is classical molecular dynamics, encompassing NVE (Hamiltonian) and Nosé-Hoover NVT dynamics, applied to systems like those found in lithium-ion batteries.",
+  "key_observables": "Green-Kubo transport coefficients (e.g., diffusion coefficient), the probability $P_0$ of the QPE ancilla register being zero, and the time-dependent velocity autocorrelation function (VACF).",
+  "important_parameters": "The required qubit resources scale polynomially for NVE ($O(n^2)$ CX gates) but exhibit exponential scaling for NVT ($O(n_\\xi n_p 2^{n_p})$).",
+  "main_assumptions": "The framework assumes the existence of a Hermitian KvN generator for both NVE and NVT flows, and the statistical estimation relies on MLAE improving scaling from $N^{-1/2}$ to $N^{-1}$.",
+  "figures_summary": "Figures illustrate the conceptual workflow (MD $\to$ KvN-MD $\to$ QPE), show quantum circuits for NVE and NVT propagators, and present convergence studies comparing KvN results against classical MD references.",
+  "paper_structure": "The paper develops the KvN formalism for NVE and NVT dynamics, details the quantum circuit implementation for the propagators, maps the Green-Kubo integral to a QPE readout, and finally analyzes the resource scaling and convergence of the resulting estimator.",
+  "why_interesting": "This work provides a concrete, quantum-algorithm-based pathway to calculate time-dependent, non-equilibrium properties (transport coefficients) that are central to understanding complex condensed matter systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.30142_figures/2605.30142_fig1.jpg",
+      "caption": "FIG. 1. Conceptual diagram of Green–Kubo transport-coeﬀicient readout using KvN-MD and QPE. The phase-space density of classical MD is represented as a KvN wave function, and NVE or Nosé–Hoover-type NVT dynamics are treated as a real-time KvN propagator. When the time evolution of the flux-excited state is input to QPE, a Bartlett-windowed Green–Kubo estimator is obtained from the bin-zero probability of the ancilla register.",
+      "page": 2
+    },
+    {
+      "image": "2605.30142_figures/2605.30142_fig2.jpg",
+      "caption": "FIG. 2. Quantum circuits for KvN propagators and QPE readout. (a) Multi-particle NVE one-step propagator in drift–kick–drift form. The bundled registers |q⟩and |p⟩contain all classical degrees of freedom, and the slash denotes a multi- qubit register. The QFTs Fq and Fp are tensor products over the corresponding coordinate registers. The diagonal phases",
+      "page": 7
+    },
+    {
+      "image": "2605.30142_figures/2605.30142_fig3.jpg",
+      "caption": "FIG. 3. VACF convergence and finite-grid effects in the two-particle coupled cosine system. The upper and lower rows show the NVE and Nosé–Hoover NVT results, respectively. The system is defined by Eq. (67) with V0 = 5, ε = 1.2, m = T0 = 1, and Np = 64. The left column shows the short-time VACF, the middle column shows the deviation |∆c(t)|/c(0) from the MD reference, and the right column shows the peak deviation as a function of Nq. The peak deviation decreases empirically as approximately N −1.17 q for NVE and N −1.57 q for NVT. These exponents are empirical fits for this validation system and should not be interpreted as universal exponents.",
+      "page": 10
+    },
+    {
+      "image": "2605.30142_figures/2605.30142_fig4.jpg",
+      "caption": "FIG. 4. Comparison between the Green–Kubo inte- gral and the KvN Bartlett estimator. (a) NVE dynamics with Nq = 128. (b) Nosé–Hoover-type NVT dynamics with Nq = 48. The blue curve shows the cumulative Green–Kubo integral DGK(t) = ∫t 0 Cvv(t′) dt′ obtained from the classical MD velocity autocorrelation function, while the yellow dia- monds show the KvN Bartlett estimator DBart(manc). The lower axis gives the physical time t, and the upper axis gives m = log2(t/∆t). The red line shows a first-order extrapola- tion in 1/K using the m = 9, 10, 11 points, and the green line shows the classical long-time reference ⟨DGK⟩100≤t≤400.",
+      "page": 12
+    },
+    {
+      "image": "2605.30142_figures/2605.30142_fig5.jpg",
+      "caption": "Figure 4 shows a numerical validation of the QPE bin- zero readout for the two-particle coupled cosine system. We apply the same readout formula to both NVE dy- namics and Nosé–Hoover-type NVT dynamics. The blue curve is the finite-time Green–Kubo integral DGK(t), ob-",
+      "page": 12
+    }
+  ],
+  "figure": "2605.30142_figures/2605.30142_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

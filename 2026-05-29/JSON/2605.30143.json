@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.30143",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "End-to-End Molecular Dynamics with a Langevin Thermostat on Quantum Circuits",
+  "authors": "Masari Watanabe, Hirofumi Nishi, Taichi Kosugi, Shigekazu Hidaka, Ryo Sakurai, Yu-ichiro Matsushita",
+  "abstract": "We construct a quantum-circuit framework for finite-temperature molecular dynamics in the canonical ensemble (NVT) with a Langevin thermostat, connecting canonical state preparation to subsequent physical-property readouts. The classical nuclear phase-space distribution is encoded as a Koopman--von Neumann (KvN) wave function, and canonical state preparation is formulated as Langevin-type Fokker--Planck relaxation. The Hamiltonian Liouville flow, momentum friction, and momentum diffusion are decomposed into separate circuit blocks. The friction block is represented by a symmetrized momentum-space dilation, whereas the diffusion block is implemented as a cosine filter realized by probabilistic imaginary-time evolution (PITE). We analytically quantify the leading-order temperature bias caused by replacing the Gaussian diffusion kernel with this PITE-realized cosine filter. This analysis yields an internal-temperature correction that targets the desired physical equilibrium distribution. As a proof-of-concept demonstration connecting quantum chemistry to KvN nuclear dynamics, we study the H$_2$ molecule. Numerical simulations show relaxation from a nonequilibrium phase-space distribution to a canonical KvN state. From this canonical state, we demonstrate two complementary readouts: a dynamical quantum-phase-estimation readout of the vibrational density of states associated with the H--H stretch coordinate and a static canonical evaluation of the transition-state-theory (TST) rate constant. This work demonstrates, in a minimal molecular system, a circuit-level protocol that connects Langevin canonical state preparation to physical-property calculations, providing a concrete step toward quantum--classical hybrid molecular dynamics on quantum computers.",
+  "url": "http://arxiv.org/abs/2605.30143v1",
+  "pdf": "https://arxiv.org/pdf/2605.30143v1",
+  "type": "theory",
+  "summary": "This paper develops a quantum-circuit framework to simulate molecular dynamics in the canonical ensemble using a Langevin thermostat. It encodes the classical phase-space density as a Koopman-von Neumann wave function, allowing for the preparation of equilibrium states on a quantum computer. The protocol successfully calculates key physical observables, such as the VDOS and TST rate constant, for the H2 molecule.",
+  "main_problem": "To construct a quantum-circuit framework for performing finite-temperature molecular dynamics in the canonical ensemble (NVT) using a Langevin thermostat.",
+  "main_result": "The authors successfully demonstrate an end-to-end quantum protocol that prepares the canonical phase-space state and uses it to calculate both the vibrational density of states (VDOS) and the Transition-State-Theory (TST) rate constant for the H2 molecule.",
+  "method": "The dynamics are mapped onto a quantum circuit sequence that decomposes the Langevin evolution into Hamiltonian, friction, and diffusion blocks, with the diffusion block implemented via Probabilistic Imaginary-Time Evolution (PITE).",
+  "model_or_system": "The system is the H2 molecule, modeled using the Born-Oppenheimer approximation. The dynamics are governed by the Langevin equation, whose Fokker-Planck evolution is encoded in the Koopman-von Neumann (KvN) wave function.",
+  "key_observables": "Vibrational Density of States (VDOS) via Quantum Phase Estimation (QPE) and the Transition-State-Theory (TST) rate constant.",
+  "important_parameters": "Target physical temperature ($T_{\text{phys}}$), friction coefficient ($\\gamma$), and the time step ($\\Delta t$).",
+  "main_assumptions": "The Born-Oppenheimer approximation is retained, and the quantum simulation requires an analytical correction to account for the leading-order temperature bias introduced by the PITE-realized cosine filter.",
+  "figures_summary": "Figure 1 summarizes the workflow from electronic structure to VDOS (via QPE) and TST rate constant. Figure 8 compares finite-particle phase-space samples to the analytically encoded canonical KvN density.",
+  "paper_structure": "The paper details the mathematical derivation of the Langevin dynamics, maps the evolution onto a quantum circuit structure (decomposing the Liouville flow), and then demonstrates the application of this circuit pipeline to calculate both dynamical (VDOS) and static (TST) properties.",
+  "why_interesting": "This work provides a concrete, circuit-level protocol for quantum-classical hybrid molecular dynamics, directly linking quantum computation to fundamental statistical mechanics problems like canonical ensemble preparation and rate theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.30143_figures/2605.30143_fig1.jpg",
+      "caption": "FIG. 1. End-to-end Koopman–von Neumann (KvN)–Langevin molecular-dynamics pipeline. The H2 electronic structure provides the Born–Oppenheimer potential and Hellmann–Feynman force, which are embedded as an R-dependent KvN force kick. Repeated KvN–Langevin updates prepare a canonical nuclear phase-space state, from which two observables are read out: the Raman-active vibrational density of states by quantum phase estimation and the transition-state-theory rate constant from a canonical flux expectation.",
+      "page": 3
+    },
+    {
+      "image": "2605.30143_figures/2605.30143_fig2.jpg",
+      "caption": "FIG. 2. Quantum-circuit diagram for the many-particle KvN–Langevin one-step evolution. (a) Overall one- step circuit UPITE(σH) UF(∆t) UNVE(∆t) used for canonical state preparation. (b) Implementation of the many-particle UNVE(∆t) block, showing the drift–kick–drift structure based on a second-order symmetric Suzuki–Trotter decomposition, UNVE(∆t) ≃U1(∆t/2) U2(∆t) U1(∆t/2). (c) PITE/cos-filter implementation of UPITE(σH), representing the diffusion block in the momentum Fourier space.",
+      "page": 5
+    },
+    {
+      "image": "2605.30143_figures/2605.30143_fig3.jpg",
+      "caption": "FIG. 3. One-qubit Pauli representation of the H2 elec- tronic structure. (a) Coeﬀicients a(R), b(R), and c(R) in the reduced Hamiltonian ˆHe(R) = a(R)ˆIe +b(R) ˆZe +c(R) ˆ Xe. (b) Ground-state PES relative to its minimum, compared with the FCI/STO-3G reference. This representation supplies V (R) and F(R) for the KvN force kick used in the molecular- dynamics simulations.",
+      "page": 6
+    },
+    {
+      "image": "2605.30143_figures/2605.30143_fig4.jpg",
+      "caption": "FIG. 4. Canonical state preparation and relaxation toward the H2 bond. (a)–(f) Log-scale snapshots of the phase-space density |ψ(R, P, t)|2. An initial wave packet on the dissociation side moves toward the bond-length region and relaxes under the KvN–Langevin thermostat. (g) Mean internuclear distance ⟨R⟩(t). (h) Kinetic temperature Tkin(t), with Tphys = 947 K and the corrected internal temperature Tint = 942 K. (i) Kullback–Leibler divergence DKL(ρ(t)∥ρeq) from the canonical reference distribution.",
+      "page": 7
+    },
+    {
+      "image": "2605.30143_figures/2605.30143_fig5.jpg",
+      "caption": "FIG. 5. LCU+QPE circuit for the VDOS readout. (a) The LCU unitary Uα prepares the branch-selective states |α±⟩∝ˆA± |ψeq⟩with a flag qubit. (b) QPE is applied to |α±⟩using the Hamiltonian KvN time evolution, and the flag and phase ancilla measurements give the branch-resolved fre- quency distributions.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.30143_figures/2605.30143_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

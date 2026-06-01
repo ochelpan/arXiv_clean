@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.31544",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "More efficient Clifford+T synthesis for small-angle rotations and application to Trotterization",
+  "authors": "Marius Bothe, Christoph Sünderhauf, Michael J. Witham, Earl T. Campbell, Nick S. Blunt",
+  "abstract": "Clifford+T synthesis of rotation gates is an important routine in fault-tolerant quantum compilation. While Clifford+T synthesis is scalable, it has a high overhead of tens of T gates per rotation in practice, translating to high resource estimates for many fault-tolerant algorithms. However, these well-known results, including those using probabilistic mixtures [Quantum 7, 1208 (2023)], are independent of the rotation angle $θ$, requiring $O(\\log 1/δ)$ T gates. We show that it is possible to do much better for small angles, reducing the T cost to $\\tilde O(θ^2/δ)$, and returning to existing $O(\\log1/δ)$ results in the worst case. This is particularly important since many algorithms, such as Trotterization, are dominated by small-angle rotations. Further, we perform a detailed theoretical and numerical study of quasi-probabilities, which can further reduce the total T cost of large circuits by orders of magnitude with only a small overhead in sample complexity. We also develop a scheme based on quasi-probability mixtures of Clifford+T fallback channels. We derive new $θ$-dependent formulas that can be used for resource estimation of fault-tolerant quantum algorithms. As an application of our results, we show that the gate cost of Trotterization circuits compiled to a Clifford+T gate set is constant in the small Trotter step size limit, and can be reduced by orders of magnitude even for large step sizes. The cost of fault-tolerant Trotterization for a variety of applications should be re-examined in light of these results. Our work dispels the widely-stated claim that Clifford+T rotation synthesis has a high cost independent of $θ$, and further develops a scalable quasi-probability method for rotation synthesis. We also expect our results to bring forward useful early fault-tolerant quantum computing by reducing required magic state resources.",
+  "url": "http://arxiv.org/abs/2605.31544v1",
+  "pdf": "https://arxiv.org/pdf/2605.31544v1",
+  "type": "theory",
+  "summary": "This work significantly improves the theoretical understanding of synthesizing rotation gates for fault-tolerant quantum computing. By developing angle-dependent resource estimation formulas, the authors demonstrate that the T gate cost for small rotations scales favorably with $\theta^2$, rather than remaining high and independent of the angle. This has major implications for the resource requirements of quantum simulation algorithms like Trotterization.",
+  "main_problem": "The paper addresses the high resource overhead associated with synthesizing arbitrary-angle rotation gates ($Z_\theta$) using Clifford+T gates in fault-tolerant quantum computation.",
+  "main_result": "They show that for small rotation angles ($\theta$), the T gate cost can be significantly reduced from an angle-independent scaling to $\tilde{O}(\theta^2/\\delta)$, and they develop scalable quasi-probability methods for resource estimation.",
+  "method": "The authors employ advanced techniques involving quasi-probability and probability mixtures of quantum channels, alongside optimizing the Linear Combination of Channels (LCC) representation for the rotation gate.",
+  "model_or_system": "The focus is on synthesizing the $RZ(\theta) = e^{i\theta Z}$ rotation gate using a Clifford+T gate set, which is critical for implementing quantum algorithms like Trotterization.",
+  "key_observables": "T gate cost (resource estimate), average T gate count, and the total error ($\\epsilon_{\text{total}}$).",
+  "important_parameters": "Rotation angle $\theta$, error parameter $\\delta$, and the Trotter step size $t$.",
+  "main_assumptions": "The analysis relies on comparing quasi-probability mixtures ($\\lambda^{-1}$) against standard probability mixtures ($\\epsilon_{\\diamond}$), and assumes the applicability of the LCC representation.",
+  "figures_summary": "Figures compare average T gate counts across different regimes ($\theta$ vs. $\\delta$), illustrating the crossover from angle-independent to angle-dependent scaling, and showing the advantage of quasi-probabilities over standard methods.",
+  "paper_structure": "The paper builds from initial LCC representations to probability/quasi-probability mixtures, derives angle-dependent resource formulas, and applies these results to show cost reductions for Trotterization circuits.",
+  "why_interesting": "The findings provide concrete, resource-aware improvements for compiling quantum simulation circuits, directly impacting the feasibility estimates for fault-tolerant quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.31544_figures/2605.31544_fig1.jpg",
+      "caption": "Figure 1. Average T gate counts to implement a rotation channel Zθ in the ancilla-free scheme for two different formulations of our results, first in terms of quasi-probability mixtures with L1 norm λ (results marked as “×”), and second in terms of strict probability mixtures with diamond norm error ε⋄(results marked as “+”). The black dashed-dotted line indicates the previous angle-independent formula for the mixed diagonal approximation from Kliuchnikov et al [19]. Data points represent the obtained results for different angles, θ, for the quasi-probability and quantum channel approaches. We see that, while results for all angles eventually converge to the angle-dependent formula, for...",
+      "page": 5
+    },
+    {
+      "image": "2605.31544_figures/2605.31544_fig2.jpg",
+      "caption": "Figure 2. Average T gate cost to implement a first-order Trotterization circuit using the quasi-probability Clifford+T approach, as a function of Trotter step size. The system is the Fe(II)-Porphyrin complex in a (32e,29o) active space and using localized orbitals. The total evolution time is fixed to T = 100 Ha−1. The ancilla-free Clifford+T synthesis scheme is used. Results in blue show the costing results using the previous angle-independent formula, while the results in red used our angle-dependent formula. The cost of Trotterization becomes independent of the step size in the limit of small steps sizes, while the cost is reduced by two orders of magnitude even for large step sizes....",
+      "page": 7
+    },
+    {
+      "image": "2605.31544_figures/2605.31544_fig3.jpg",
+      "caption": "Figure 3. Regions of the complex plane for selecting the under- and over-rotation in the mixed diagonal approximation of Ref. [19]. The target angle is θ, and γ = arcsin( p",
+      "page": 11
+    },
+    {
+      "image": "2605.31544_figures/2605.31544_fig4.jpg",
+      "caption": "Figure 4. Schematic overview of methods for various regimes of θ and δ = λ −1. (a) shows the preferable method in each regime. In the main plot, Figure 1, this crossover is visible at δ just below θ2. (b) summarizes our analysis in Section V of the method with the under-rotation fixed as the identity. Results are approximately the same for δ = ε⋄, see Appendix F.",
+      "page": 13
+    },
+    {
+      "image": "2605.31544_figures/2605.31544_fig5.jpg",
+      "caption": "Figure 5. Example region, defined in Eq. (51), for selecting the over-rotation with quasi-probabilities. Each unitary with upper left entry u = x+iy inside the shaded region has a sample complexity λ, Eq. (43), within the desired target λmax. Here we take θ = 0.1 and λmax = 1.08 as an illustrative example. The shading indicates the sampling probability p, Eq. (40) (and thereby average T count, p·T-count), which varies within the region. The lower end of the region is at the target angle θ due to the assumption φ > θ, while the upper end of the region is at angle α, Eq. (44). As λmax increases, α and the area size increase.",
+      "page": 15
+    }
+  ],
+  "figure": "2605.31544_figures/2605.31544_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

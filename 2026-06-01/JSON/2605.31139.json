@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.31139",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Shallow Electronic State Preparation for Quantum Chemistry with Quantum Monte Carlo Pre-Selection",
+  "authors": "Eline Welling, Lila Cadi-Tazi, Alex J. W. Thom, Maria-Andreea Filip",
+  "abstract": "Quantum computers hold great promise for molecular simulation, but noise remains a fundamental obstacle. We introduce a Quantum Monte Carlo (QMC) pre-screening procedure that constructs compact, physically motivated Givens rotation ansätze tailored to realistic quantum hardware. By identifying the most important wavefunction contributions early in a QMC simulation, we build circuits that are shallower that conventional alternatives while preserving number symmetry. Benchmarked on Quantinuum System Model H1, QMC-prescreened circuits outperform more complex ansätze under realistic noise conditions. The method offers a practical path toward chemical accuracy on quantum devices, by providing an adjustable trade-off between expressivity and circuit depth to generate shallow circuits suited to current high-noise devices, as well as deeper, more expressive circuits that can be deployed on future lower-noise devices.",
+  "url": "http://arxiv.org/abs/2605.31139v1",
+  "pdf": "https://arxiv.org/pdf/2605.31139v1",
+  "type": "both",
+  "summary": "This paper introduces a novel Quantum Monte Carlo (QMC) pre-screening technique to construct shallow, hardware-efficient quantum circuits for molecular electronic structure calculations. By using Givens rotations, the method significantly reduces circuit depth compared to standard UCC ansätze, enabling chemical accuracy on current noisy quantum devices. This provides a crucial, tunable trade-off between computational power and hardware feasibility for quantum chemistry.",
+  "main_problem": "The core challenge is developing quantum algorithms for molecular electronic structure simulation that are shallow enough to run reliably on current, noisy quantum hardware.",
+  "main_result": "The proposed QMC-Givens ansatz provides a significantly shallower and more hardware-efficient alternative to conventional Unitary Coupled Cluster (UCC) methods, especially in the presence of noise.",
+  "method": "The authors combine Quantum Monte Carlo (QMC) pre-screening to identify crucial wavefunction components with the use of Givens rotation ansätze within the Variational Quantum Eigensolver (VQE) framework.",
+  "model_or_system": "The work focuses on simulating the electronic structure of small molecules ($\text{LiH}$, $\text{BeH}_2$, $\text{N}_2$) using fermionic operators mapped to qubits. Benchmarking was performed on the Quantinuum System Model H1.",
+  "key_observables": "Ground state energy, circuit depth, Hardware Quantum Credits (HQC) cost, and the Spearman rank correlation coefficient ($\rho$) quantifying parameter importance.",
+  "important_parameters": "The trade-off between circuit expressivity (depth) and circuit depth is a key parameter space explored, tailored for current high-noise devices.",
+  "main_assumptions": "The controlled Givens ansatz is used for its relative ease of classical implementation; furthermore, the final analysis suggests that zero-initialization might outperform QMC-initialization for certain systems.",
+  "figures_summary": "Figures illustrate the correlation between early determinant spawning and final amplitudes (Fig. 1, 2), compare energy error vs. parameters (Fig. 3), and compare initialization strategies (Fig. 4).",
+  "paper_structure": "The paper introduces the QMC-Givens method as an improvement over UCC for quantum chemistry. It details the QMC pre-screening procedure, benchmarks the ansatz on molecular systems using hardware metrics (HQC), and concludes by demonstrating the practical advantages of shallow circuits on noisy hardware.",
+  "why_interesting": "This work directly addresses the gap between theoretical quantum chemistry requirements and the physical limitations of near-term quantum hardware by proposing a resource-aware ansatz construction technique.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.31139_figures/2605.31139_fig1.jpg",
+      "caption": "Fig. 1 BeH2: Boxplots show the distribution of iterations at which each determinant is first spawned across 10 independent QMC-Givens runs of BeH2. Medians are indicated by vertical lines, with boxes spanning the interquartile range. Crosses (×) mark the absolute value of the average coefficient of each determinant at convergence, averaged over the same 10 runs. Determinants are given an index and then ordered by spawning iteration in the plot; those spawned earlier tend to carry larger weights in the converged wavefunction.",
+      "page": 4
+    },
+    {
+      "image": "2605.31139_figures/2605.31139_fig2.jpg",
+      "caption": "Fig. 2 N2: Average determinant coefficient magnitude versus median spawning iteration across 10 independent QMC-Givens runs. Each cross marks one determinant, with color indicating the standard deviation of its spawning iteration across the 10 runs. Although individual spawning events show substantial run-to-run variation, the overall ordering is reproducible across runs: determinants with larger converged coefficients are consistently spawned earlier in the sampling (see Table I).",
+      "page": 5
+    },
+    {
+      "image": "2605.31139_figures/2605.31139_fig3.jpg",
+      "caption": "Fig. 3 N2 binding curve. Solid curves show statevector VQE energies for the QMC-Givens ansatz (30 excitation parameters) and QMC-UCCSD ans¨atze with 10 and 30 parameters. The black dashed curve is the exact ground-state energy obtained by full diagonalization of the electronic Hamiltonian in this basis. We note that as this is a stochastic procedure, some variation in the results is possible.",
+      "page": 5
+    },
+    {
+      "image": "2605.31139_figures/2605.31139_fig4.jpg",
+      "caption": "Fig. 4 Performance of the QMC-Givens and QMC-UCC ans¨atze for LiH, BeH2, and N2. Columns correspond to molecular systems, as indicated at the top. All energies were computed using 1000 shots; where applicable, error bars are estimated from 10 independent samples. a) - c): Energy accuracy as a function of HQC cost for increasing circuit sizes, shown for H1 hardware, the H1-1E noisy emulator, and ideal statevector simulations. d) - e): HQC cost versus number of variational parameters for QMC-Givens and QMC-UCC circuits. f) - i): Energy accuracy versus number of parameters, comparing QMC-Givens and QMC-UCC on the H1-1E emulator (upper curves) and the statevector simulator (lower curves).",
+      "page": 6
+    },
+    {
+      "image": "2605.31139_figures/2605.31139_fig5.jpg",
+      "caption": "Fig. 5 QMC-Givens and QMC-UCC ansatz circuits for LiH with 5 parameters.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.31139_figures/2605.31139_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.29521",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Ground-state estimation of the Heisenberg model on frustrated lattices with Sample-based Krylov Quantum Diagonalization",
+  "authors": "Calvin Brooks, Henry Zou, Trevor David Rhone",
+  "abstract": "Quantum spin simulations of frustrated lattices remain challenging for both classical and quantum algorithms, particularly in parameter regimes relevant to quantum spin liquid (QSL) phases. In this work, we apply Sample-based Krylov Quantum Diagonalization (SKQD) to estimate the ground state of the antiferromagnetic XXZ Heisenberg model on the $J_1$--$J_2$ square lattice, the Kagome lattice, and a 1D chain, studying system sizes from 12 to 72 spins. In our application of SKQD, we identify a ZZ deformation of $Δ=2$ as a sufficiently sparse Hamiltonian and introduce two modifications to the SKQD framework tailored to spin models: a canonical bitstring compression scheme that preserves the effectiveness of configuration recovery under spin-flip degeneracy, and the use of multiple Krylov subspaces to improve ground state coverage without any increase in quantum resources. For the 1D chain and Kagome lattice, SKQD achieves sub-percent ground-state energy errors at system sizes up to 24 spins, including a relative error of $0.002\\%$ on the 12-site Kagome lattice, surpassing the best prior VQE result of $0.01\\%$ on the same system while requiring no variational optimization. SKQD further extends to system sizes well beyond the reach of prior quantum algorithm studies, reaching 72 spins across all three geometries. Beyond 24 spins, accuracy degrades to relative errors of $19\\%$--$36\\%$ at 72 sites, but the gradual scaling of error with system size suggests these limits are set by available shot budgets and circuit depth rather than fundamental algorithmic constraints. Although classical tensor network methods remain state-of-the-art for these models, this work establishes a new benchmark for quantum simulation of the frustrated Heisenberg model and demonstrates SKQD as a scalable, hardware-compatible approach for studying strongly correlated spin systems.",
+  "url": "http://arxiv.org/abs/2605.29521v1",
+  "pdf": "https://arxiv.org/pdf/2605.29521v1",
+  "type": "theory",
+  "summary": "This work introduces Sample-based Krylov Quantum Diagonalization (SKQD) to estimate the ground state of the Heisenberg model on frustrated lattices. By tailoring the method with bitstring compression and multiple subspace sampling, the authors achieve high accuracy for small systems, outperforming prior variational quantum algorithms. It establishes a new benchmark for quantum simulation in strongly correlated magnetism, while also mapping out the resource limitations for larger systems.",
+  "main_problem": "The primary challenge is accurately estimating the ground state energy of the Heisenberg model on geometrically frustrated lattices, which is difficult for both classical and quantum simulation methods.",
+  "main_result": "The proposed Sample-based Krylov Quantum Diagonalization (SKQD) method achieves sub-percent ground-state energy errors for small systems (up to 24 spins) on various lattices, surpassing prior VQE results without variational optimization.",
+  "method": "SKQD constructs a Krylov subspace from time-evolved measurement samples and performs a classical diagonalization within this subspace, incorporating novel modifications for spin models like bitstring compression and multiple subspace sampling.",
+  "model_or_system": "The study focuses on the antiferromagnetic XXZ Heisenberg model, applied to three distinct frustrated geometries: the $J_1-J_2$ square lattice, the Kagome lattice, and a 1D chain.",
+  "key_observables": "Ground-state energy error (relative error), average spin occupancy vector, and the dimension of the $S_z=0$ Hilbert subspace.",
+  "important_parameters": "System sizes ranging from 12 to 72 spins; the anisotropy parameter $\\Delta$ (specifically $\\Delta=2$ was tested); and the available shot budget/circuit depth.",
+  "main_assumptions": "The degradation of accuracy at large sizes is attributed to resource limitations (shot budget/circuit depth) rather than fundamental algorithmic failure. The method relies on projecting the Hamiltonian onto a sampled, reduced Hilbert space.",
+  "figures_summary": "Figures illustrate SKQD convergence (monotonic improvement with shots), comparisons of energy errors across different lattice sizes and $\\Delta$ values, and scaling plots showing gate depth/count vs. Krylov order $k$.",
+  "paper_structure": "The paper introduces SKQD, details its modifications (compression, multiple subspaces), applies it to the three lattices, presents quantitative results showing sub-percent accuracy at small sizes, and discusses the scaling limitations imposed by system size and hardware resources.",
+  "why_interesting": "The development of SKQD offers a quantum algorithm alternative to VQE for strongly correlated spin systems, providing a scalable, hardware-compatible approach to study complex magnetic phases like quantum spin liquids.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.29521_figures/2605.29521_fig1.jpg",
+      "caption": "FIG. 1: Examples of lattices studied in this work. (Left) 4 × 4 square lattice. Nearest-neighbor (J1) interactions are shown as solid black lines and next-nearest-neighbor (J2) interactions as dashed red lines. (Right) 2 × 2 × 3 Kagome lattice. The unit cell consists of three sites arranged in a triangle, tiled into a 2 × 2 supercell.",
+      "page": 2
+    },
+    {
+      "image": "2605.29521_figures/2605.29521_fig2.jpg",
+      "caption": "FIG. 2: Example of Dimer/singlet initial state preparation on 6 qubits.",
+      "page": 4
+    },
+    {
+      "image": "2605.29521_figures/2605.29521_fig3.jpg",
+      "caption": "FIG. 3: SKQD convergence for the ∆= 2 XXZ Heisenberg model on 24-qubit systems across three lattice geometries: the 1D chain (k=20 Trotter steps), Kagome 2 × 4 × 3 lattice (k=5), and J1–J2 3 × 8 square lattice (k=5). Top row: Energy estimates (in units of E/J) as a function of SKQD iteration, with dashed lines indicating the exact-diagonalization reference. Bottom row: Corresponding relative error |ESKQD −Eref|/|Eref|. SKQD converges monotonically to sub-percent accuracy across all three geometries. All circuits were executed on ibm_pittsburgh (Heron r3) with 106 total shots per run.",
+      "page": 6
+    },
+    {
+      "image": "2605.29521_figures/2605.29521_fig4.jpg",
+      "caption": "Figure 4 shows SKQD energy estimates for the 24-site Kagome lattice as a function of iteration number across a range of total shot counts from 100k to 1000k, with",
+      "page": 6
+    },
+    {
+      "image": "2605.29521_figures/2605.29521_fig5.jpg",
+      "caption": "FIG. 4: SKQD energy estimates for the 2 × 4 × 3 Kagome lattice (24 sites, ∆= 2, k = 8 Krylov steps) as a function of iteration number for total shot counts ranging from 100k to 1000k. The red dashed line indicates the DMRG ground-state reference energy. Convergence improves monotonically with shot count, and the 1000k curve has not fully plateaued at 20 iterations, indicating that further increases in shot count would yield additional accuracy gains.",
+      "page": 8
+    }
+  ],
+  "figure": "2605.29521_figures/2605.29521_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 3,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

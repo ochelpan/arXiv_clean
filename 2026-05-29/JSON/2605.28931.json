@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.28931",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.other"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning quantum ground states in the space of measurement outcomes",
+  "authors": "Kartiek Agarwal",
+  "abstract": "We investigate variational learning of quantum many-body ground states directly in measurement space using autoregressive neural networks. In particular, we represent quantum states via probability distributions of outcomes over a symmetric informationally complete positive operator-valued measure (SIC-POVM). The probability distribution is encoded in the parameters of an autoregressive neural-network-based on gated recurrent units (GRUs). Ground states are obtained by gradient descent that updates the probability distribution to minimize the energy with respect to a given Hamiltonian, while enforcing positivity constraints that ensure that the distribution of measurement outcomes correspond to a physical quantum state. We analyze the role of constraint enforcement (hierarchy of positivity conditions), variety of neural network architectures (multiple layers, dilation, and modifications of input data) in determining the success of this approach. We benchmark our approach on one-dimensional transverse-field Ising model and the Heisenberg model, along with gapping fields, for system sizes up to L=128, illustrating its efficacy across a wide variety of models.",
+  "url": "http://arxiv.org/abs/2605.28931v1",
+  "pdf": "https://arxiv.org/pdf/2605.28931v1",
+  "type": "theory",
+  "summary": "This paper introduces a method to find quantum ground states by optimizing a neural network that models the probability distribution of measurement outcomes. By enforcing physical constraints, such as the positive semi-definiteness of the operator Gram matrix, the method successfully simulates complex 1D quantum spin models. It represents a significant advancement in using machine learning to bridge the gap between theoretical quantum mechanics and experimental measurement data.",
+  "main_problem": "The paper addresses the challenge of variational learning of quantum many-body ground states directly in the space of experimentally measurable measurement outcomes.",
+  "main_result": "The proposed method successfully obtains ground states for 1D spin models up to $L=128$, demonstrating efficacy across both gapped and gapless systems.",
+  "method": "It uses autoregressive neural networks (GRUs) to model the probability distribution over outcomes from a SIC-POVM, minimizing the energy expectation value subject to complex positivity constraints on the reconstructed density matrix.",
+  "model_or_system": "The approach is benchmarked on 1D spin models, specifically the transverse-field Ising model and the Heisenberg model, for system sizes up to $L=128$.",
+  "key_observables": "Ground state energy density ($\\Delta E/L$), local spin polarization, and two-point correlation functions ($\\langle \\Pi_i \\Pi_j \rangle$).",
+  "important_parameters": "System size ($L$), operator weight ($w$), operator range ($R$), and stochastic noise thresholds ($\tau, s$).",
+  "main_assumptions": "The core assumption is that the quantum state can be accurately represented by a probability distribution over measurement outcomes, and the method relies on enforcing positivity constraints on the Gram matrix of Pauli observables.",
+  "figures_summary": "Figures illustrate the POVM dual operators, the dual-stream GRU architecture, and comparisons of calculated correlations (e.g., for the critical TFIM model) against established results like DMRG.",
+  "paper_structure": "The paper details the theoretical framework (POVM representation, GRU encoding), the optimization procedure (minimizing energy subject to PSD constraints), and extensive benchmarking across various 1D spin models, comparing results to established numerical techniques.",
+  "why_interesting": "This work offers a novel, data-driven pathway to quantum simulation that bypasses the explicit construction of complex wavefunctions or density matrices, making it highly relevant for simulating systems where measurement data is the primary input.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.28931_figures/2605.28931_fig1.jpg",
+      "caption": "FIG. 1. POVM dual operators Fi (blue dots) for a single qubit sit at the ends of the minimal tetrahedron which fully encapsulates the Bloch (unit) sphere representing all possible physical states. The coordinates (x, y, z) reflect the ampli- tude of σx, σy, σz in the dual operators. The inferred density matrix resides in the convex hull of the tetrahedron by con- struction. It can capture all the possible physical states, but for certain values of the POVM outcome probabilties, one also can obtain unphysical states. Increasing the number of POVM outcomes does not result in the shrinking of this con- vex hull to more tightly wrap the space of physical states.",
+      "page": 3
+    },
+    {
+      "image": "2605.28931_figures/2605.28931_fig2.jpg",
+      "caption": "FIG. 2. Dual stream architecture. Two parallel RNNs are simulated, GRUπ which is fed the site parity (−1)j and, GRU0 which is not. We can consider the two streams as being attuned to momentum k = π, 0 sectors, respectively. The output of these two GRU streams is fed into a Fusion head (details in main text), from which logits denoting the POVM measurement outcomes is output. These logits are fi- nally used to compute outcome probabilities using a Softmax head.",
+      "page": 8
+    },
+    {
+      "image": "2605.28931_figures/2605.28931_fig3.jpg",
+      "caption": "FIG. 3. Correlations in the XX channel, X0X∗ j , where X∗ j = Xj for j ̸= 0, and X∗ 0 = I, obtained via training (green) and DMRG (red) for the critical TFIM model, HTFIM, with different GRU architectures—standard architecture with no site parity information for (a) NL = 1 and (b) NL = 2 are shown, along with the results for the dual stream architec- ture in (c) with NL = 2. Adding more layers helps improve correlations but providing parity information is essential in addressing long range correlations. Operator range R = 4 is used in obtaining these results.",
+      "page": 12
+    },
+    {
+      "image": "2605.28931_figures/2605.28931_fig4.jpg",
+      "caption": "FIG. 4. Correlations in the XX channel, X0X∗ j , where X∗ j = Xj for j ̸= 0, and X∗ 0 = I, obtained via training (green) and DMRG (red) with different operator ranges (a) R = 2, (b) R = 4 and (c) R = 8.",
+      "page": 13
+    },
+    {
+      "image": "2605.28931_figures/2605.28931_fig5.jpg",
+      "caption": "FIG. 5. (a) Computation of the energy variance per site, ∆H2/L and (inset) deviation of energy density from DMRG result, ∆E/L for the TFIM gapped with a Z field, HGapped TFIM, as a function of the training step, for various buffer and gradient batch sizes, B and G, respectively. (b) Maximum deviation in any XX, YY, or ZZ correlators from DMRG results, max{ X0X∗ j , Y0Y ∗ j , Z0Z∗ j }, as a func- tion of training step, for various values of B, G. The esti- mation of these values is obtained using an inference batch size I = B; this is generally sufficient to estimate ∆E/L and the deviation in correlations, but not for ∆H2/L which is in- ferred by summing O(L2) operators of weight w = 4....",
+      "page": 14
+    }
+  ],
+  "figure": "2605.28931_figures/2605.28931_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 4,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.30141",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Overcoming the Matrix-Product-State Encoding Barrier via DMRG-Guided Probabilistic Imaginary-Time Evolution",
+  "authors": "Masari Watanabe, Hirofumi Nishi, Taichi Kosugi, Shinji Tsuneyuki, Yu-ichiro Matsushita",
+  "abstract": "Ground-state preparation is a fundamental task in quantum simulation, because the overlap of the prepared state with the true ground state significantly affects the overall cost of subsequent quantum algorithms. We propose a three-stage framework in which a matrix product state (MPS) of an $N$-site system obtained by the density-matrix renormalization group (DMRG) is loaded onto an $N$-qubit quantum register through an optimization-free matrix product disentangler (MPD) encoding circuit, and the residual error is then reduced by probabilistic imaginary-time evolution (PITE). We demonstrate that the central-bond Schmidt rank of intermediate states during MPS encoding grows logistically with the number of layers. Its inflection point $L^{*}$ marks the boundary of the efficient encoding regime. Beyond this point, the gain in fidelity slows rapidly, and the number of additional MPD layers required to reach a target infidelity $\\varepsilon$ empirically scales as $\\mathcal{O}(N^5\\log(N/\\varepsilon))$. To avoid this encoding-only tail, we stop the encoder at $L^{*}$ and suppress the remaining excited-state components by PITE, with the linear PITE schedule fixed deterministically from the ground-state energy, the effective gap, and the reference overlap estimated by DMRG. Numerical experiments on the spin-$1/2$ staggered-field Heisenberg chain show that the framework avoids very deep encoding circuits and substantially suppresses the post-selection overhead intrinsic to PITE. Combining classical preprocessing by DMRG, optimization-free MPS encoding, and deterministically scheduled PITE, the present framework offers a practical hybrid route to ground-state preparation in quantum simulation.",
+  "url": "http://arxiv.org/abs/2605.30141v1",
+  "pdf": "https://arxiv.org/pdf/2605.30141v1",
+  "type": "theory",
+  "summary": "This paper presents a novel, practical hybrid protocol for preparing quantum ground states by combining classical DMRG calculations with quantum circuit techniques. It overcomes the inherent 'encoding barrier' of mapping Matrix Product States (MPS) to qubits by stopping the encoding at an optimal point $L^*$. The resulting state is then refined using Probabilistic Imaginary-Time Evolution (PITE), offering a resource-efficient route for quantum simulation.",
+  "main_problem": "The primary challenge addressed is efficiently preparing the ground state of a quantum system for subsequent quantum algorithms, as the initial state overlap dictates overall computational cost.",
+  "main_result": "The authors propose a practical hybrid framework combining DMRG pre-processing, an optimization-free MPS encoding, and deterministically scheduled Probabilistic Imaginary-Time Evolution (PITE).",
+  "method": "The method involves a three-stage process: 1) Classical DMRG to obtain an MPS representation of the ground state. 2) Encoding this MPS into a quantum circuit using an MPD circuit, stopping at an efficiency-defined point $L^*$. 3) Refining the state using PITE to suppress residual excited-state components.",
+  "model_or_system": "The framework is demonstrated on the spin-1/2 staggered-field Heisenberg chain, which is governed by a local Hamiltonian. The analysis compares the resource scaling against simpler initial states like the Néel product state.",
+  "key_observables": "Central-bond Schmidt rank, fidelity ($F$), infidelity ($\text{IF}$), and resource costs (raw and post-selection-weighted circuit depth, $\text{Dpost}$).",
+  "important_parameters": "The inflection point $L^*$ marks the boundary of efficient encoding; the scaling of required depth beyond $L^*$ is shown to be $\\mathcal{O}(N^5 \\log(N/\\epsilon))$ for encoding-only refinement.",
+  "main_assumptions": "The MPD encoding circuit is built using rank-2 approximations, leading to the observed Schmidt-rank growth barrier. The PITE schedule is fixed deterministically using parameters derived from the initial DMRG calculation.",
+  "figures_summary": "Figures illustrate the three-stage workflow (DMRG $\to$ MPS Encoding $\to$ PITE). Key figures show the logistic growth of the Schmidt rank, the exponential decay of infidelity beyond $L^*$, and the system-size dependence of resource costs ($\text{Dpost}$) comparing the proposed method to simpler initializations.",
+  "paper_structure": "The paper details the theoretical motivation (ground-state preparation cost), analyzes the encoding barrier using Schmidt rank diagnostics, proposes the $L^*$ stopping criterion, and finally details the resource scaling and implementation of the PITE refinement stage.",
+  "why_interesting": "This work provides a concrete, resource-aware protocol for quantum simulation initialization, directly addressing the practical limitations of state preparation in near-term quantum hardware by hybridizing classical tensor network methods with quantum evolution.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.30141_figures/2605.30141_fig1.jpg",
+      "caption": "FIG. 1. Proposed three-stage workflow. DMRG provides an MPS and low-energy information as classical inputs. Sequential MPS encoding then prepares a quantum initial state up to L∗layers. The ground-state component is refined by deterministically scheduled PITE, whose schedule uses the approximate ground-state energy, effective gap, and reference overlap from DMRG.",
+      "page": 3
+    },
+    {
+      "image": "2605.30141_figures/2605.30141_fig2.jpg",
+      "caption": "FIG. 2. Sequential MPS encoding circuit for N = 6 and L = 2. Each MPD layer ˆUl consists of one single-qubit gate and N −1 two-qubit gates. The gate labels are ordered from G[1] at the upper-left to G[N] at the lower-right in each layer. The vertical wire order follows the MPS site order, with site 1 at the top and site N at the bottom. These gates are constructed directly from the left-canonical MPS tensors by kernel completion, without optimization [14]. For state preparation, the adjoint Uenc = ˆU † 1 ˆU † 2 is applied to |0⟩⊗N.",
+      "page": 3
+    },
+    {
+      "image": "2605.30141_figures/2605.30141_fig3.jpg",
+      "caption": "FIG. 4. Layer dependence of the per-site infidelity IF(l)/N and the normalized central Schmidt rank χcut(l)/χmax. Upper row: IF(l)/N. Lower row: χcut(l)/χmax. Columns correspond to hz = 0, 0.01, 0.5, 1 from left to right. Dashed curves in the lower row are logistic fits of Eq. (16). As hz increases, the final infidelity decreases and the Schmidt-rank growth becomes slower.",
+      "page": 5
+    },
+    {
+      "image": "2605.30141_figures/2605.30141_fig4.jpg",
+      "caption": "FIG. 6. Eﬀicient encoding boundary L∗and the ac- curacy reached there. (a) System-size dependence of the inflection point L∗, with dashed linear fits. (b) Per-site infi- delity IF(L∗)/N at the inflection point. Within this size range L∗scales approximately linearly with N, while IF(L∗)/N sat- urates with N.",
+      "page": 6
+    },
+    {
+      "image": "2605.30141_figures/2605.30141_fig5.jpg",
+      "caption": "FIG. 5. System-size and gap dependence of the lo- gistic growth rate γ. Markers show the fitted growth rates for each N and hz. A larger gap localizes correlations and suppresses the long-range spreading of the residual, lowering γ.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.30141_figures/2605.30141_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

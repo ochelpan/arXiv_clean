@@ -1,0 +1,86 @@
+{
+  "arxiv_id": "2605.31009",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.acc-ph",
+    "cond-mat.mtrl-sci",
+    "cond-mat.supr-con",
+    "cs.CE",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Explicit Turn Resolution with Anisotropic Homogenisation for Efficient 3D Magneto-Thermal Finite-Element Simulation of Large-Scale No-Insulation HTS Magnets",
+  "authors": "Louis Denis, Erik Schnaubelt, Julien Dular, Mariusz Wozniak, Benoît Vanderheyden, Christophe Geuzaine",
+  "abstract": "No-insulation (NI) and metal-insulation (MI) high-temperature superconducting (HTS) magnets require three-dimensional (3D) models to describe the current distribution around critical current defects. In this work, we design and validate the EXTRA homogenisation method, standing for explicit turn resolution with anisotropic homogenisation method. It allows 3D magneto-thermal finite-element (FE) simulations of large-scale magnets to be performed with high accuracy at a reasonable computational cost. The method combines the anisotropic homogenisation of turn-to-turn contact layers (T2TCLs) and their neighbouring winding turns with the explicit resolution of specific T2TCLs. In particular, the inner- and outermost winding turns and adjacent contact layers are explicitly resolved to properly describe the current distribution near current leads. In addition, the method is able to simulate local $J_{\\textrm{c}}$ defects for a broad range of turn-to-turn contact resistances, provided the winding turns and T2TCLs next to the defect are explicitly resolved. For efficiency, the resolved T2TCLs are modelled using the surface contact approximation. The consistency of the proposed method is first verified on a 50-turn single pancake benchmark. It is shown to reproduce AC losses and temperature distributions obtained with a turn-resolved FE reference model, for both nominal operation and during thermal runaway. The computational efficiency of the EXTRA method is demonstrated with the simulation of a stack of three 150-turn pancake coils, for which computation time is reduced by a factor of up to 13 with respect to a turn-resolved FE reference model. Finally, the results of a large-scale 3D FE simulation, currently out of reach of turn-resolved models, are provided for an insert HTS magnet with 10,000 turns. The EXTRA method is open-source and input files to reproduce all results are made available.",
+  "url": "http://arxiv.org/abs/2605.31009v1",
+  "pdf": "https://arxiv.org/pdf/2605.31009v1",
+  "type": "theory",
+  "summary": "This paper introduces the EXTRA homogenisation method, a novel technique for performing 3D Finite-Element simulations of massive HTS magnets. It efficiently reduces computational load by homogenizing most turns while explicitly resolving critical areas near contacts or defects. This allows researchers to simulate unprecedentedly large magnets while maintaining high accuracy compared to full turn-resolved models.",
+  "main_problem": "Developing an efficient and accurate 3D Finite-Element (FE) simulation method for the magneto-thermal behavior of large-scale No-Insulation (NI) High-Temperature Superconducting (HTS) magnets.",
+  "main_result": "The proposed EXTRA homogenisation method achieves significant computational speedups (up to 13x) while maintaining accuracy, enabling simulations of magnets with 10,000 turns, which was previously computationally infeasible.",
+  "method": "The method combines anisotropic homogenization of turn-to-turn contact layers (T2TCLs) with the explicit resolution of critical turns (inner/outermost) to balance computational cost and physical accuracy.",
+  "model_or_system": "The system is a large-scale HTS magnet, modeled as stacked pancake coils. The simulation solves coupled magneto-thermal equations in 3D, accounting for current distribution, heat generation, and material properties.",
+  "key_observables": "AC losses, temperature distributions, current density ($\\vec{J}$), and magnetic field ($\\vec{H}$) evolution during operation and thermal runaway.",
+  "important_parameters": "Number of turns (up to 10,000), contact resistance ($R_{cl}$), and local critical current density ($J_c$).",
+  "main_assumptions": "The method relies on the Surface Contact Approximation (SCA) for homogenized layers and assumes that local defects only require explicit resolution of neighboring turns.",
+  "figures_summary": "Figures illustrate the conceptual geometry of the coil, the principle of separating turns into homogenized and resolved sections, and convergence studies comparing the new method against turn-resolved reference models.",
+  "paper_structure": "The paper introduces the physical challenge, details the mathematical formulation of the coupled FE equations, rigorously derives the EXTRA homogenization procedure by separating turns, validates the method on smaller benchmarks, and concludes with large-scale simulations demonstrating efficiency and accuracy.",
+  "why_interesting": "While focused on superconducting magnets, the core contribution is a sophisticated, multi-scale numerical technique (anisotropic homogenization combined with adaptive resolution) that is highly relevant to developing efficient solvers for complex, multi-physics systems in condensed matter theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.31009_figures/2605.31009_fig1.jpg",
+      "caption": "Figure 1: Reference model visualised on a conceptual pancake coil geometry. Top view (left) and coil cross- section (center), along a single CC turn cross-section (right). Copper terminals Ωc,t are shown in brown, while the homogenised bare CC turns Ωc,b are shown in light gray. The terminal CLs Γcl,t are shown in green, while the turn-to-turn CLs Γcl,w are shown in blue. The winding longitudinal entries Γw,0 are shown in dark gray. The global and local winding coordinates are shown in the left panel, as well as the turn index convention. The homogenisation of the layered structure of the CC into effective anisotropic material properties in Ωc,b is summarised in the right panel, with the...",
+      "page": 3
+    },
+    {
+      "image": "2605.31009_figures/2605.31009_fig2.jpg",
+      "caption": "Figure 2: Principle of the proposed EXTRA homogenisation method on a conceptual HTS magnet cross- section containing a localised Jc defect represented in red. (Left) In the reference model, all bare CC turns Ωc,b, terminal Γcl,t and turn-to-turn Γcl,w CLs are resolved. (Right) In the EXTRA homogenised model, specific resolved turns Ωc,r (in contact with the terminals and the Jc defect) are described with their resolved effective material properties, while all other turns are merged into homogenised turns Ωc,h that account for the T2TCL properties. Terminal CLs Γcl,t, as well as T2TCLs Γcl,r between the resolved turns, are explicitly resolved. The T2TCLs Γcl,p between homogenised and...",
+      "page": 6
+    },
+    {
+      "image": "2605.31009_figures/2605.31009_fig3.jpg",
+      "caption": "Figure 3: Homogenisation of the radial electric resistivity of the T2TCLs illustrated with the EXTRA homogenised method on a conceptual pancake coil made of 10 turns. Top view of the magnet (left), with a localised Jc defect in turn 6, and corresponding normalised radial resistivity distribution (right) in the turn-resolved reference (ref.) and EXTRA homogenised (hom.) models. Turns {0,5,6,7,9} are resolved (in light gray), while turns {1,2,3,4,8} are homogenised (in dark gray). The distinction between the terminal CLs (solid green lines), the resolved T2TCLs (solid blue lines) and the partially-homogenised T2TCLs (dashed violet lines) is similar to what is shown in Fig. 2. The top view...",
+      "page": 7
+    },
+    {
+      "image": "2605.31009_figures/2605.31009_fig4.jpg",
+      "caption": "Figure 4: Visualisation of the normal vector ⃗n on the reference (left) and EXTRA homogenised (right) meshes. The normal vector is defined as a piecewise constant vector along the discretised winding mesh, and it does not vary along the z-direction. The reference mesh is shown with dashed lines next to the homogenised mesh with solid lines. The transition layer between neighbouring effective turns of different thicknesses is shown (right). In this figure, the meshes are significantly coarser along the longitudinal direction than practical meshes, for clearer visibility.",
+      "page": 8
+    },
+    {
+      "image": "2605.31009_figures/2605.31009_fig5.jpg",
+      "caption": "Figure 5: Source current Isrc during the sudden discharge test and central axial magnetic flux density Bz computed with the reference and EXTRA homogenised (N e t = 50 and N e t = 10) models, with Rcl,t = 10−6 Ωm2. The right figure focuses on the quasi-exponential decay during the discharge. Both figures share the same legend.",
+      "page": 10
+    }
+  ],
+  "figure": "2605.31009_figures/2605.31009_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

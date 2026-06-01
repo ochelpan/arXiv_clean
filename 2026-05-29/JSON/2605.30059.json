@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.30059",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.stat-mech",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Ridge Regression from Poisson Resetting: A Renewal Perspective on Spectral Regularization",
+  "authors": "Petar Jolakoski",
+  "abstract": "We connect stochastic resetting from non-equilibrium statistical physics with ridge regularization in statistical learning. For linear gradient flow, resetting to the origin at rate $r$ produces stationary mean $(X^\\top X+rI)^{-1}X^\\top y$, exactly the ridge estimator with penalty $λ=r$. This uses the known Laplace-transform relationship between ridge regression and exponential-time averaging of gradient flow, with the exponential time now interpreted as the stationary age associated with Poisson resetting. We then extend this identity to general renewal reset laws: the exponential reset time distribution is the unique renewal law whose stationary mean reproduces scalar ridge in every eigendirection as an exact filter identity for every positive curvature, while non-exponential renewal laws generate alternative spectral filters. At the fluctuation level, we study a separate additive Ornstein-Uhlenbeck extension with constant diffusion, interpreted as a stylized SGD approximation. In this setting, the equality holds only at the level of the mean, since the reset process has a nonzero stationary covariance from accumulated OU noise and reset-timing variance, whereas deterministic ridge is a fixed estimator with the same center. Stylized experiments compare the deterministic renewal-induced filters directly and illustrate when filters induced by non-exponential reset-time laws can differ predictively from ridge. The results for the stationary mean and the induced spectral filters are established for continuous-time gradient flow with isotropic resetting on quadratic objectives; the covariance and risk formulas additionally assume additive noise with state-independent covariance.",
+  "url": "http://arxiv.org/abs/2605.30059v1",
+  "pdf": "https://arxiv.org/pdf/2605.30059v1",
+  "type": "theory",
+  "summary": "This work bridges non-equilibrium statistical physics and machine learning by showing that stochastic resetting dynamics can exactly reproduce the result of ridge regression in the stationary mean. It develops a general framework showing that the specific distribution of reset times dictates the resulting spectral filter, offering insights into the statistical cost of using random resetting versus deterministic regularization.",
+  "main_problem": "The paper connects the mathematical framework of stochastic resetting from non-equilibrium statistical physics to the established regularization technique of ridge regression in statistical learning.",
+  "main_result": "The stationary mean of the gradient flow process subjected to Poisson resetting exactly reproduces the ridge estimator, demonstrating a deep connection between these two seemingly disparate fields.",
+  "method": "The analysis uses continuous-time gradient flow equations, solving for the stationary mean by incorporating the reset rate into the differential equation, and generalizing this to arbitrary renewal reset laws.",
+  "model_or_system": "The model is linear regression, $J(\\mathbf{w}) = \frac{1}{2} \\|\\mathbf{X}\\mathbf{w} - \\mathbf{y}\\|^2$, whose dynamics are governed by a continuous-time gradient flow, which is perturbed by a Poisson or general renewal resetting process.",
+  "key_observables": "The stationary mean estimator ($\\mathbf{m}_\\infty$), the spectral shrinkage filter $g_S(\\mu)$, and the total estimation risk $R(r; \beta_0)$.",
+  "important_parameters": "The reset rate $r$ (acting as the regularization parameter $\\lambda$), the noise levels ($\\sigma^2_\\eta$, $\\sigma^2$), and the spectral eigenvalues ($\\mu_i$).",
+  "main_assumptions": "The analysis assumes the noise is additive and the process can be modeled by a renewal structure; the equality holds exactly only at the level of the mean, not for individual paths.",
+  "figures_summary": "Figures illustrate gradient-flow trajectories showing the match at the mean, and compare risk landscapes for different reset-time laws (Poisson vs. Periodic vs. Gamma) showing how the optimal regularization parameter shifts.",
+  "paper_structure": "The paper progresses by first establishing the exact identity for Poisson resetting (matching ridge), then generalizing the spectral filter to arbitrary renewal laws, and finally analyzing the full statistical risk (including variance costs) by comparing different reset-time laws against the ideal ridge penalty.",
+  "why_interesting": "The connection between non-equilibrium dynamics (stochastic resetting) and fundamental ML regularization techniques (Ridge) provides a novel physical interpretation for regularization, potentially guiding the design of physical learning algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.30059_figures/2605.30059_fig1.jpg",
+      "caption": "Figure 1: Gradient-flow trajectories with and without Poisson resetting in a two-parameter linear regression problem. The left panel shows a weakly identified coeﬀicient, corresponding to a predictor with low variance, while the right panel shows a strongly identified coeﬀicient. Blue curves are trajectories with resetting at rate r, the black curve is their ensemble mean, and the orange curve is the corresponding trajectory without resetting. In each panel, the dashed red line is the ridge/reset target (X⊤X+rI)−1X⊤y, the dash-dotted blue line is the minimum-norm OLS solution (X⊤X)+X⊤y, and the dotted purple line is the true coeﬀicient used to generate the data. The shaded red and blue...",
+      "page": 4
+    },
+    {
+      "image": "2605.30059_figures/2605.30059_fig2.jpg",
+      "caption": "Figure 2: Two-mode comparison of ridge and renewal-induced shrinkage. Each panel fixes two representative directions, a weak feature with µτ = 1 and a strong feature with µτ = 10, where τ = E[S] is the mean reset interval. The solid curves show the retained fraction that ordinary ridge would produce on those two features as the dimensionless ridge strength λτ varies. The dashed horizontal lines show the retained fractions generated by the indicated reset-time law, namely gS(1) and gS(10). The dotted vertical lines mark the ridge strengths needed to match the weak and strong features separately.",
+      "page": 8
+    },
+    {
+      "image": "2605.30059_figures/2605.30059_fig3.jpg",
+      "caption": "Figure 3: Renewal law risk beyond the mean. Top row: risk decomposition at fixed mean reset interval τ as the reset-time law is varied from Poisson/exponential resetting (k = 1) through Erlang laws to the periodic limit (k →∞). Solid curves show the exact renewal formulas after averaging over observation noise, and markers show empirical estimates from exact snapshots. Colors denote total risk (black), mean-estimator contribution (purple), accumulated SGD variance (blue), and timing variance (orange). The two panels compare a weak mode with µτ = 1 and a strong mode with µτ = 5. Bottom row: best reset-time law class and corresponding gain over Poisson resetting across curvature µτ and...",
+      "page": 14
+    },
+    {
+      "image": "2605.30059_figures/2605.30059_fig4.jpg",
+      "caption": "Figure 4: Validation-tuned non-exponential filters on the spiked covariance model. (a) Representative filter curves at γ = 1.5, with periodic and Erlang-3 filters each using its own validation- tuned mean reset interval. The gray fill shows the Marchenko-Pastur continuous density, blue ticks mark positive sample spikes, gray ticks mark positive sample bulk eigenvalues, and the red dashed line marks the Marchenko-Pastur edge. (b) Sample spectrum compared with the Marchenko-Pastur law, including the point mass at zero when p > ntrain. (c) Absolute retained-fraction gap from ridge, |g(µ) −gridge(µ)|, as a function of the training eigenvalue for the same representative problem. (d) Relative...",
+      "page": 16
+    },
+    {
+      "image": "2605.30059_figures/2605.30059_fig5.jpg",
+      "caption": "Figure 5: Block-covariance example with correlated nuisance features. (a) Validation-tuned Gamma-family filters on a representative split. (b) Population eigenvalue distribution for the rep- resentative model, with signal-carrying modes separated from nuisance modes. The inset shows the underlying block covariance matrix, with the predictive block outlined in white and nuisance blocks in yellow. (c) Retained-fraction gap from ridge, |g(µ) −gridge(µ)|, across the spectrum. (d) Relative test-MSE gain over ridge as the number of nuisance blocks increases. Shaded bands show 95% Monte Carlo intervals computed as ±1.96 paired standard errors for the gain over ridge.",
+      "page": 17
+    }
+  ],
+  "figure": "2605.30059_figures/2605.30059_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.30822",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.soft"
+  ],
+  "is_primary_archive": true,
+  "title": "Using graph neural networks to predict many-body interactions in amorphous materials",
+  "authors": "Mehryar Jannesari Ghomsheh, Donald L. Koch, Sarah Hormozi",
+  "abstract": "Many-body interactions govern the complex behavior of many amorphous materials, from metallic glasses to biological tissues, yet are often replaced by pairwise additive frameworks for computational efficiency. Here, we use classical density functional theory (DFT) to study a model soft glass of solvent-free polymer-grafted nanoparticles (PGNs), where the absence of solvent forces grafted chains to uniformly fill the interstitial space, generating strong angular-dependent many-body interactions between the cores. We show that NequIP, an equivariant message-passing graph neural network (GNN), learns the high-dimensional, rugged potential energy landscape of the system and reproduces classical DFT energies across a range of PGN design parameters at four orders of magnitude lower cost. Systematic analysis of GNN hyperparameters offers physical insights into the range, anisotropy, and effective body order of interactions. GNN-driven Monte Carlo simulations reveal locally favored icosahedral-like structures at equilibrium, and strikingly, recover equilibrium structures in agreement with experiments, despite the network being trained only on high-energy, out-of-equilibrium configurations.",
+  "url": "http://arxiv.org/abs/2605.30822v1",
+  "pdf": "https://arxiv.org/pdf/2605.30822v1",
+  "type": "theory",
+  "summary": "This work introduces NequIP, an equivariant GNN, to overcome the limitations of pairwise potentials in modeling amorphous materials like PGNs. By training on high-energy configurations sampled via DFT, the network accurately predicts the system's complex potential energy landscape. This allows for the simulation of equilibrium structures, revealing local icosahedral ordering, which is crucial for understanding glassy dynamics.",
+  "main_problem": "Accurately modeling the complex, high-dimensional, and rugged potential energy landscape (PEL) associated with many-body interactions in amorphous materials, which are often restricted to computationally cheaper pairwise-additive frameworks.",
+  "main_result": "The proposed GNN, NequIP, successfully learns the complex PEL by training on out-of-equilibrium data and accurately predicts the system's equilibrium structure, matching experimental observations.",
+  "method": "The authors employ an equivariant message-passing Graph Neural Network (GNN) trained on energy data derived from classical Density Functional Theory (DFT) simulations of out-of-equilibrium configurations.",
+  "model_or_system": "The system studied is a model soft glass composed of solvent-free polymer-grafted nanoparticles (PGNs). The interactions are governed by the polymer free energy, leading to strong, angular-dependent many-body forces.",
+  "key_observables": "Potential energy landscape (PEL), equilibrium structure (e.g., icosahedral-like local order), pair distribution function, and static structure factor.",
+  "important_parameters": "Grafting density ($\\sigma_g$), core volume fraction ($\\phi_c$), and the GNN hyperparameters ($l_{\text{max}}=3, n_l=3$).",
+  "main_assumptions": "The core relaxation is assumed to be much slower than individual polymer relaxation, allowing for a Born-Oppenheimer-like approximation.",
+  "figures_summary": "Figures illustrate the computational workflow (out-of-equilibrium sampling $\rightarrow$ GNN training $\rightarrow$ equilibrium prediction). They compare structural metrics (like bond order parameters and Voronoi volumes) and energy predictions between the GNN, DFT, and experimental results.",
+  "paper_structure": "The paper details the physical model (PGNs and polymer-mediated interactions), describes the computational framework (DFT sampling of high-energy states), introduces the NequIP GNN architecture, and validates its predictive power by running GNN-driven Monte Carlo simulations to reach equilibrium.",
+  "why_interesting": "The ability to use ML potentials trained on high-energy, non-equilibrium data to predict low-energy, equilibrium states is a powerful paradigm for simulating complex, glassy systems where traditional sampling methods fail.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.30822_figures/2605.30822_fig1.jpg",
+      "caption": "Figure 1. Overview of the computational framework. Out-of-equilibrium particle configurations, 𝒟(R), are sampled via hard-sphere dynamics and their many-body potential energies are evaluated with classical DFT, producing a dataset 𝒟(R, 𝐸) that spans the high-energy region of the PEL (top left). The GNN is trained on this dataset. Each particle is represented as a node connected to its neighbors within a cutoff radius, 𝑟cut, and node features are updated using tensor representations of increasing angular resolution, 𝑙= 0, 1, 2, . . . . The trained GNN drives MC simulations, enabling exploration of the deep minima of the PEL (bottom left) that are inaccessible during training. The equilibrium...",
+      "page": 3
+    },
+    {
+      "image": "2605.30822_figures/2605.30822_fig2.jpg",
+      "caption": "Figure 2. Schematic of solvent-free PGNs. (a) Polymers uniformly fill the void space for a given configuration of particles. (b) Same configuration as (a) but with an arbitrary displacement of a random particle (shown in red). (c) Displacement of a single particle creates a cascade of polymer rearrangements to minimize the free energy by reaching a uniform number density.",
+      "page": 4
+    },
+    {
+      "image": "2605.30822_figures/2605.30822_fig3.jpg",
+      "caption": "Figure 3. Classical DFT results for 100 PGNs with a core volume fraction of 𝜙𝑐= 0.1, polymer molecular weight of 𝑀𝑤= 5 𝑘𝐷𝑎, and a grafting density of 𝜎𝑔= 1.8 chains/𝑛𝑚2. The normalized number density of the grafted polymers is shown across multiple planes for (a) the system with excess implicit solvent, displaying significant density fluctuations, and (b) the solvent-free system, showing a uniform density distribution. The dark blue regions represent the cores. Per particle energy distribution, shifted by the mean, for (c) the system with solvent and (d) the solvent-free system. The red vertical lines represent the standard deviation.",
+      "page": 5
+    },
+    {
+      "image": "2605.30822_figures/2605.30822_fig4.jpg",
+      "caption": "Figure 4. (a) Parity plot comparing GNN predictions to classical DFT energies for solvent-free PGNs across varying design parameters. The energies are shifted by the mean value, 𝜇, and scaled by the standard deviation, 𝜎𝐸, for each sample. All samples have a polymer molecular weight of 𝑀𝑤= 5 𝑘𝐷𝑎, except for the sample with a grafting density of 𝜎𝑔= 1.0 chains/𝑛𝑚2 which has 𝑀𝑤= 9 𝑘𝐷𝑎. (b) The energy MAE as a function of the normalized cutoff radius. In (b)-(d), the left y-axis corresponds to energy MAE of validation dataset normalized by the standard deviation of energy, and the right y-axis shows MAE per particle. (c) The energy MAE as a function of number of message-passing layers for...",
+      "page": 7
+    },
+    {
+      "image": "2605.30822_figures/2605.30822_fig5.jpg",
+      "caption": "Figure 5. (a) Per particle energy distribution for out-of-equilibrium configurations (sampled by hard-sphere dynamics and used for training GNN) and equilibrium configurations evaluated by GNN and classical DFT for the sample with 𝜙𝑐= 0.1 and 𝜎𝑔= 1.8 chains/𝑛𝑚2. (b) Equilibrium pair distribution function and (c) static structure factor for solvent-free PGNs with different design parameters. (d) Nearest neighbors distance normalized by particle diameter predicted by GNN-driven MC simulations compared with experimental measurements for solvent-free PGNs with polymer molecular weight of 𝑀𝑤= 5 𝑘𝐷𝑎.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.30822_figures/2605.30822_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

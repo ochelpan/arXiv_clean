@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.30676",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Experimental Implementation of the Quantum Volunteer's Dilemma on NISQ Hardware: Noise Analysis and Digital-Twin Validation",
+  "authors": "Germán D. Díaz Agreda, Jhon Alejandro Andrade Hoyos, Carlos A. Durán Paredes, Sebastián Cajas Ordoñez, Noah Dane Hebdon, Siong Thye Goh, Dax Enshan Koh",
+  "abstract": "We present an experimental implementation of the multiplayer Quantum Volunteer's Dilemma on noisy intermediate-scale quantum (NISQ) hardware, executed on the ibm_kingston backend via Qiskit Runtime. The game is evaluated for N = 2 to 9 players under four transpiler optimization levels, with 20 independent repetitions per configuration and 2048 shots per circuit, including post-processing readout error correction via mthree. Target-state fidelity decays with system size but remains above 70% (corrected) through N = 9. With readout correction, the global average payoff reproduces the quantum theoretical benchmark exactly for N <= 6 and exceeds the classical Nash equilibrium across the full tested range. Optimization level 2 is selected as the reference configuration after gate count analysis reveals that levels 2 and 3 produce identical transpiled circuits, with level 2 achieving superior fidelity stability. A Hamming distance analysis of raw measurement counts shows that single-qubit errors dominate at small N, with multi-qubit contributions growing beyond N = 6. A calibration-based digital twin captures global payoff trends but exhibits a linear fidelity decay profile that diverges from the hardware behavior at large N, exposing the limits of first-order independent per-qubit noise models. These results demonstrate that aggregate quantum advantage in multiplayer games is robust to NISQ noise conditions across the full tested range, while the practical observability of state-level advantage is constrained to N <= 8 under post-processed readout correction.",
+  "url": "http://arxiv.org/abs/2605.30676v1",
+  "pdf": "https://arxiv.org/pdf/2605.30676v1",
+  "type": "experiment",
+  "summary": "This work experimentally tests the Quantum Volunteer's Dilemma on NISQ hardware to quantify quantum advantage under noise. The results show that while the aggregate payoff remains quantum-enhanced, the fidelity of the desired quantum state degrades rapidly, limiting observable advantage to smaller system sizes. The study critically compares hardware performance against idealized noise models, highlighting the need for advanced error mitigation.",
+  "main_problem": "To experimentally determine if a quantum advantage exists in the multiplayer Quantum Volunteer's Dilemma when implemented on noisy intermediate-scale quantum (NISQ) hardware.",
+  "main_result": "The global average payoff robustly exceeds the classical Nash equilibrium across the tested range, demonstrating aggregate quantum advantage despite noise. However, the practical observability of state-level advantage is limited to $N \\le 8$ under readout correction.",
+  "method": "The study uses experimental measurements on superconducting quantum processors, comparing raw data against readout-corrected results and a theoretical 'Digital Twin' simulation.",
+  "model_or_system": "The system is the multiplayer Quantum Volunteer's Dilemma, implemented using the EWL quantization protocol on the ibm_kingston NISQ backend. The analysis systematically varies the number of players ($N=2$ to $9$) and transpiler optimization levels.",
+  "key_observables": "Target-state fidelity, global average payoff, and the comparison against the classical Nash equilibrium payoff.",
+  "important_parameters": "Number of players ($N$), readout error correction effectiveness, and the transition point where single-qubit errors give way to multi-qubit contributions ($N \\approx 6$).",
+  "main_assumptions": "The Digital Twin model assumes first-order, independent per-qubit noise channels, which fails to capture higher-order effects like crosstalk or temporal drift at large $N$.",
+  "figures_summary": "Figures compare target-state fidelity decay across different noise mitigation levels and show the comparison between target-state weighted payoff and the global average payoff relative to classical benchmarks.",
+  "paper_structure": "The paper follows a structure of problem definition (Quantum Volunteer's Dilemma), methodology (NISQ implementation, error mitigation, Digital Twin comparison), results presentation (fidelity decay, payoff analysis), and concluding discussion on the limits of quantum advantage observability.",
+  "why_interesting": "It provides a concrete, game-theoretic testbed for assessing the practical limits of quantum advantage in the presence of realistic, non-ideal hardware noise, which is crucial for developing fault-tolerant quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.30676_figures/2605.30676_fig1.jpg",
+      "caption": "Fig. 1 Quantum circuit implementing the N-player Quantum Volunteer’s Dilemma following the EWL protocol. The circuit consists of: (i) an entangling operator J = e−i π",
+      "page": 9
+    },
+    {
+      "image": "2605.30676_figures/2605.30676_fig2.jpg",
+      "caption": "Fig. 2 Target-state fidelity P(|1⟩⊗N) as a function of the number of players for all four optimization levels. a) raw QPU measurements. b) readout-corrected measurements. Shaded bands represent 95% t-Student confidence intervals across 20 repetitions.",
+      "page": 13
+    },
+    {
+      "image": "2605.30676_figures/2605.30676_fig3.jpg",
+      "caption": "Figure 4 compares the target-state fidelity P(|1⟩⊗N) obtained from raw QPU mea- surements, readout-corrected QPU measurements, and the Digital Twin simulation, all at optimization level L2. The Digital Twin was executed with 20 independent random seeds to assess model stability under stochastic variation; the low variance across seeds confirms that the model’s stochastic component is small relative to its systematic noise structure. For N ≤6, the Digital Twin overestimates the noise present in the raw QPU data, that is, it predicts a lower fidelity than what is experimentally observed. For N > 6, the model transitions to underestimating the noise in the raw counts: the hardware degrades...",
+      "page": 13
+    },
+    {
+      "image": "2605.30676_figures/2605.30676_fig4.jpg",
+      "caption": "Fig. 3 Heatmap of measurement outcome counts grouped by Hamming distance from the target state |1⟩⊗N, aggregated over 20 repetitions at optimization level 2. Each row corresponds to a player count N; columns represent Hamming distances dH = 0, 1, . . . , N. Color intensity encodes normalized count frequency.",
+      "page": 14
+    },
+    {
+      "image": "2605.30676_figures/2605.30676_fig5.jpg",
+      "caption": "Figure 5 presents two complementary but distinct payoff metrics at optimization level L2. Panel (a) shows the target-state weighted payoff contribution P(|1⟩⊗N)·(b−c/N): the share of the total expected payoff attributable solely to the |1⟩⊗N outcome, which decreases as that state loses probability to noise. Panel (b) shows the global average payoff Πi summed over all 2N outcomes: the full game-theoretic result that a player actually receives, which includes contributions from non-target states. These two metrics can behave very differently under noise: panel (a) tracks how well the",
+      "page": 14
+    }
+  ],
+  "figure": "2605.30676_figures/2605.30676_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

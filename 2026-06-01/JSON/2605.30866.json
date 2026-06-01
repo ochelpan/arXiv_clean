@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2605.30866",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Generative Quantum Data Embeddings for Supervised Learning",
+  "authors": "Jaewoong Heo, Daniel K. Park",
+  "abstract": "Many practically relevant applications of quantum machine learning involve classical data, for which performance depends critically on how inputs are embedded into quantum states. Yet the use of a fixed embedding circuit ansatz remains standard practice. We propose an energy-based generative learning framework that synthesizes gate sequences to optimize embedding structures and refine data-tailored parameters, using a fidelity-based surrogate objective to guide the search toward improved class distinguishability. Empirically, the method improves classification performance across diverse settings, while also revealing datasets where architecture search within the present embedding family yields only limited additional gains. We explain this saturation by deriving bounds on the achievable empirical risk in terms of the Wasserstein distance in the input space, showing that classical data geometry provides an \\emph{a priori} diagnostic for regimes in which substantial gains from embedding optimization are unlikely. The results establish a practically useful and theoretically motivated framework for searching effective quantum data embeddings through generative optimization, with the attainable gains diagnosed through the geometry of the underlying classical data.",
+  "url": "http://arxiv.org/abs/2605.30866v1",
+  "pdf": "https://arxiv.org/pdf/2605.30866v1",
+  "type": "theory",
+  "summary": "This paper introduces a generative, energy-based framework to optimize quantum data embeddings for supervised learning, moving beyond fixed circuit designs. It uses an LLM to search for optimal quantum circuits and refines them with learnable biases. Crucially, it provides a theoretical bound linking the achievable quantum classification error to the 1-Wasserstein distance of the input data, offering a diagnostic tool for embedding optimization.",
+  "main_problem": "The core problem is improving the performance of supervised quantum machine learning (QML) when using classical data inputs by optimizing the quantum data embedding structure.",
+  "main_result": "The proposed generative framework successfully optimizes embedding structures, and the achievable performance gains are diagnosable using the Wasserstein distance of the underlying classical data geometry.",
+  "method": "The authors use an energy-based generative learning framework, employing a Large Language Model (LLM) to synthesize and optimize quantum circuit sequences, guided by a fidelity-based surrogate objective.",
+  "model_or_system": "The system involves mapping classical inputs $x$ to quantum states $\rho_{\\Phi}(x)$ via an embedding circuit $\\Phi$. The optimization targets the structure of $\\Phi$ itself, moving beyond fixed ansatzes.",
+  "key_observables": "QKSVM classification accuracy, the trace distance $D_{tr}(\rho_+(\\Phi), \rho_-(\\Phi))$, and the 1-Wasserstein distance $W_1(\\hat{P}_+(x), \\hat{P}_-(x))$ between class-conditional distributions.",
+  "important_parameters": "The fidelity-based surrogate objective $\\ell_{ij}(\\Phi)$ and the geometric bound derived from the Wasserstein distance.",
+  "main_assumptions": "The process separates discrete architecture search (LLM/EGAS) from continuous parameter refinement (learnable bias function), and the performance is bounded by the geometry of the classical input space.",
+  "figures_summary": "Figures demonstrate the EGAS training process, the reduction in surrogate energy ($\\Delta E$) upon refinement, and split-wise comparisons of QKSVM accuracy versus classical baselines.",
+  "paper_structure": "The paper develops from establishing the fundamental limit on class separation via the trace distance, proposing the generative search (EGAS) using fidelity loss, and finally refining the best structures using learnable biases, all while providing a geometric diagnostic via the Wasserstein distance.",
+  "why_interesting": "The rigorous connection drawn between the achievable quantum classification error and the classical Wasserstein distance provides a powerful, data-geometry-informed diagnostic tool for quantum algorithm design.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.30866_figures/2605.30866_fig1.jpg",
+      "caption": "FIG. 1. Demonstration of the trace-distance upper bound as a func- tion of the input-space 1-Wasserstein distance. The simulations use a single-layer ZZ feature map (left) and a double-layer ZZ feature map (right). To control the Wasserstein distance between the two classes, the distribution of one class is fixed while the other is spatially trans- lated.",
+      "page": 4
+    },
+    {
+      "image": "2605.30866_figures/2605.30866_fig2.jpg",
+      "caption": "FIG. 2. Overview of the Energy-based Generative Architecture Search (EGAS) training. In each iteration, a generative pre-trained transformer (GPT) parameterized by 𝜃autoregressively samples 𝑀 candidate sequences, 𝑠1, . . . , 𝑠𝑀. Each sequence is an ordered length- 𝐷list of subcircuit tokens drawn from the predefined pool C. The sequences are translated into quantum embedding circuits and evalu- ated using a quantum simulator or hardware. This evaluation assigns an energy value 𝐸(𝑠𝑚) to each circuit based on the pairwise fidelity surrogate loss. The evaluated sequence-energy pairs (𝑠𝑚, 𝐸(𝑠𝑚)) are stored in a replay buffer B. During the update phase, the GPT pa- rameters are updated by a...",
+      "page": 4
+    },
+    {
+      "image": "2605.30866_figures/2605.30866_fig3.jpg",
+      "caption": "FIG. 3. Surrogate energy reduction (Δ𝐸) achieved by continuous bias refinement on the Phishing Website dataset. The x-axis labels 𝐺and 𝐵denote the ten unique lowest-energy and ten unique highest-energy circuit architectures identified during EGAS, respectively. Each can- didate embedding was refined ten times. Blue circles represent the mean energy reduction, and error bars indicate the standard deviation over repeated runs.",
+      "page": 6
+    },
+    {
+      "image": "2605.30866_figures/2605.30866_fig4.jpg",
+      "caption": "FIG. 4. Continuous parameter refinement across eight datasets: PW, WDGV1, Pol, DB, WC, WQ, MGT, and EGSSD. The y-axis shows the mean surrogate energy reduction Δ𝐸. For each dataset and group, ten embeddings were considered, each with ten repetitions, and the summary statistics are plotted. Blue circles and error bars represent the mean and standard deviation for group 𝐺, and red squares and error bars represent the mean and standard deviation for group 𝐵. The dashed line at 𝑦= 0 is used to indicate the sign of the bias refinement effect.",
+      "page": 6
+    },
+    {
+      "image": "2605.30866_figures/2605.30866_fig5.jpg",
+      "caption": "FIG. 6. Dataset-level dispersion of QKSVM test accuracy across the evaluated quantum embeddings. For each evaluated embedding, we first compute the mean test accuracy over the ten train-test splits. For each dataset, the bar height gives the interquartile range (IQR) of these mean accuracies over the fixed quantum baselines (ZZ and NQE) and the EGAS-derived candidate embeddings from the 𝐺and 𝐵groups, both before and after bias refinement. The classical linear SVM baseline is excluded from this dispersion. A larger IQR indi- cates stronger variation in classification accuracy across the evaluated embeddings, whereas a smaller IQR indicates relative insensitivity to the embedding choice.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.30866_figures/2605.30866_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

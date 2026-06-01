@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.31248",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Trainable Quantum Spectral Models for Partial Differential Equations",
+  "authors": "Gabriel Mejia, Eileen Kuehn, Melvin Strobl, Achim Streit",
+  "abstract": "This work studies trainable quantum spectral models (QSMs) for solving linear partial differential equations (PDEs). Instead of learning solutions directly in physical space, QSMs learn the inverse differential operator in a spectral representation, embedding prior knowledge of the equation's natural basis.   We systematically study the expressibility and trainability of several QSM architectures, ranging from near-diagonal to fully parameterized unitaries. In particular, we introduce a family of richer spectral models that interpolate between purely diagonal operators and fully mixing unitaries through a parameterized mixer controlled by $ε$. Our results reveal an intermediate regime, typically around $ε\\approx 0.5$, where models achieve the best tradeoff between expressibility and trainability. Beyond this threshold, increased circuit complexity degrades convergence without improving accuracy.   Among the architectures considered, models inspired by the inverse step of the Harrow-Hassidim-Lloyd (HHL) algorithm achieve the fastest training convergence while maintaining high solution fidelity. Numerical experiments on the (variable-coefficient) Poisson and Helmholtz equations show that trainable operations in the spectral basis outperform standard variational quantum circuits acting directly in the computational basis. These advantages appear through faster convergence, more stable gradients, and more accurate recovery of the reference solution spectrum, particularly through stronger suppression of spurious high-frequency components, even when the operator is not exactly diagonal in the chosen spectral basis. Our results identify operator-aware spectral representations as a promising route toward trainable and physically grounded quantum methods for scientific computing.",
+  "url": "http://arxiv.org/abs/2605.31248v1",
+  "pdf": "https://arxiv.org/pdf/2605.31248v1",
+  "type": "theory",
+  "summary": "This paper proposes using trainable Quantum Spectral Models (QSMs) to solve PDEs by learning the inverse operator in a spectral basis rather than the physical basis. By structuring the quantum circuit based on the PDE's natural basis, the models achieve faster convergence and higher fidelity compared to generic quantum circuits. This highlights that incorporating physical structure into quantum algorithms is crucial for practical scientific computation.",
+  "main_problem": "Developing trainable quantum spectral models (QSMs) to efficiently solve linear Partial Differential Equations (PDEs) by learning the inverse differential operator in a spectral basis.",
+  "main_result": "Operator-aware spectral representations significantly outperform generic quantum circuits, showing faster convergence and more stable gradients for solving PDEs.",
+  "method": "The approach involves mapping the PDE problem into a spectral basis and designing parameterized quantum circuits (QSMs) that operate on this transformed representation, rather than the physical basis.",
+  "model_or_system": "The models are tested on linear PDEs, including the Poisson and Helmholtz equations, and variable-coefficient versions. The quantum circuit learns the inverse operator $A^{-1}$ via a parameterized unitary $M_\theta$ acting in the spectral domain.",
+  "key_observables": "Mean Squared Error (MSE), Fidelity ($F$), mode-wise spectral error ($E_k$), gradient variance ($\text{Var}(\\partial \theta_i L)$), and convergence speed.",
+  "important_parameters": "The mixing parameter $\\epsilon$ in richer spectral models, which controls the trade-off between expressibility and trainability, with an optimal regime found around $\\epsilon \\approx 0.5$.",
+  "main_assumptions": "The performance gains are observed even when the chosen spectral basis does not perfectly diagonalize the underlying differential operator.",
+  "figures_summary": "Figures illustrate the training loss and fidelity improvements of spectral models over generic circuits, show mode-wise spectral error concentration in spectral models, and compare gradient variance across different model architectures.",
+  "paper_structure": "The paper systematically introduces QSMs, compares various architectures (diagonal, richer spectral, HHL-inspired) against HEA baselines, analyzes the expressibility vs. trainability trade-off using the mixing parameter $\\epsilon$, and validates performance on multiple benchmark PDEs.",
+  "why_interesting": "This work provides a structured, physically informed quantum ansatz for scientific computing, suggesting that incorporating prior knowledge (like spectral decomposition) into quantum algorithms can overcome limitations in raw expressibility.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.31248_figures/2605.31248_fig1.jpg",
+      "caption": "Fig. 1. Compact schematic of the richer spectral architecture Bϵ. Trainable diagonal spectral layers D(θ(ℓ)) are interleaved with forward and reverse entangling mixers, which introduce controlled coupling between spectral modes. The parameter β(ϵ) controls the mixer strength.",
+      "page": 3
+    },
+    {
+      "image": "2605.31248_figures/2605.31248_fig2.jpg",
+      "caption": "Fig. 2. HHL-inspired model. In the spectral basis, each mode |k⟩controls a sequence of ancilla rotations RY (θk). Post-selection of the ancilla induces the learned spectral filtering, followed by the inverse transform Q to recover the solution state in physical coordinates.",
+      "page": 3
+    },
+    {
+      "image": "2605.31248_figures/2605.31248_fig3.jpg",
+      "caption": "Fig. 3. Training loss evolution Ltrain = median( 1",
+      "page": 5
+    },
+    {
+      "image": "2605.31248_figures/2605.31248_fig4.jpg",
+      "caption": "Fig. 5. Mode-wise spectral error Ek = median(|ˆuθ,k −ˆuk|2). All spectral models, except the richer spectral model with ϵ > 0.5, accurately recover dominant modes and suppress spurious high-frequency components.",
+      "page": 5
+    },
+    {
+      "image": "2605.31248_figures/2605.31248_fig5.jpg",
+      "caption": "Fig. 6. Mode-wise gradient power Gk. All spectral models, except the richer spectral model with ϵ > 0.5, exhibit better sensitivity on the gradients of modes of the true solution.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.31248_figures/2605.31248_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

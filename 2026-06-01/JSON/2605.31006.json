@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.31006",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum State Preparation via Neural Network Encoding in Quantum Machine Learning",
+  "authors": "Kevin W. Aoun, Florian J. Kiwit, Carlos A. Riofrío, Samer Saab, Charbel Al Bateh, Joe Tekli, Andre Luckow",
+  "abstract": "A central challenge in quantum machine learning is the state preparation bottleneck that describes the prohibitive computational cost of loading high-dimensional classical data into a quantum state. Although amplitude encoding can represent $2^n$-dimensional data using only $n$ qubits in principle, preparing arbitrary states remains computationally expensive, typically requiring variational optimization of a parameterized quantum circuit for each individual data instance. In this work, we propose a method that avoids iterative optimization by training a classical neural network to map input data directly to the continuous parameters of a fixed quantum circuit. We demonstrate the generation of quantum image states with high fidelity on data not seen during training. Since all optimization is performed once during training, the resulting model encodes new inputs in a single inference step, providing a scalable pathway for data loading in near-term quantum algorithms. We validate our method on the MNIST and Fashion-MNIST datasets, achieving fidelities up to 0.992 on unseen images and reducing the per-data-instance runtime by more than 5000-fold.",
+  "url": "http://arxiv.org/abs/2605.31006v1",
+  "pdf": "https://arxiv.org/pdf/2605.31006v1",
+  "type": "both",
+  "summary": "This work tackles the computational bottleneck of preparing quantum states from classical data by training a classical neural network to output the necessary parameters for a fixed quantum circuit. By shifting optimization offline, the method achieves state preparation with high fidelity and a massive speedup, demonstrating a scalable pathway for near-term QML applications.",
+  "main_problem": "The primary challenge addressed is the 'state preparation bottleneck' in Quantum Machine Learning (QML), which involves the prohibitive computational cost of loading high-dimensional classical data into a quantum state.",
+  "main_result": "The authors successfully demonstrated a scalable method by training a classical neural network to map input data directly to quantum circuit parameters, achieving high fidelity (up to 0.992) on unseen images with a massive runtime speedup (over 5000-fold).",
+  "method": "They propose training a classical Convolutional Neural Network (CNN) encoder to generate the continuous parameters ($\theta$) for a fixed Parameterized Quantum Circuit (PQC), bypassing the need for iterative optimization for every data instance.",
+  "model_or_system": "The system involves encoding classical image data (MNIST/Fashion-MNIST) into quantum states using two types of PQCs: a Center-sequential circuit and an FRQI-native circuit. The encoding relies on amplitude encoding principles.",
+  "key_observables": "Fidelity (Linfid), Peak Signal-to-Noise Ratio (PSNR), and Structural Similarity Index (SSIM) are used to quantify state preparation quality and image reconstruction accuracy.",
+  "important_parameters": "Circuit depth ($D \\in \\{2, 4, 6, 8\\}$), number of qubits ($n=11$ for $32 \times 32$ images), and the number of trainable weights in the CNN encoder ($\\approx 749,000$).",
+  "main_assumptions": "The approach assumes that the data structure allows for approximation by quantum states, and the core assumption is that offloading optimization to an offline training phase is beneficial.",
+  "figures_summary": "Figures illustrate the direct state preparation pipeline ($x \to E(x) \to \theta \to |\\psi\rangle$), compare the architectural designs of the two PQCs, and show image reconstructions comparing the proposed FRQI encoding against other methods.",
+  "paper_structure": "The paper first identifies the state preparation bottleneck, proposes the CNN-to-PQC parameter mapping, details the two ansatz architectures (Center-sequential vs. FRQI-native), and validates the method on MNIST and Fashion-MNIST using multiple reconstruction metrics and runtime comparisons.",
+  "why_interesting": "While focused on data loading rather than fundamental quantum dynamics, the efficiency gains and the use of classical ML to control quantum circuits are highly relevant to developing practical quantum algorithms for physical simulations or data analysis.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.31006_figures/2605.31006_fig1.jpg",
+      "caption": "FIG. 1. Hierarchical (Z-order) pixel indexing. Pixels are tra- versed by recursively partitioning the image into quadrants. This mapping reduces the entanglement entropy of the target state.",
+      "page": 2
+    },
+    {
+      "image": "2605.31006_figures/2605.31006_fig2.jpg",
+      "caption": "FIG. 2. Direct state preparation framework. Input images x are encoded via a CNN E(x) into PQC parameters θ ∈RNparams. The circuit generates a quantum state |ψ(θ)⟩trained to match the ground-truth FRQI state, |ψtarget⟩, via an infidelity loss.",
+      "page": 3
+    },
+    {
+      "image": "2605.31006_figures/2605.31006_fig3.jpg",
+      "caption": "FIG. 3. Architectural designs for the quantum generator and constituent gate decompositions. (a) center- sequential circuit: an integrated layer design where the color qubit and address register are entangled through a sequential arrangement of multi-qubit blocks. (b) FRQI-specific circuit: a structured layer implementation for a 4 × 4-pixel image. The process begins with Hadamard (H) gates preparing an initial uniform superposition across all qubits. The layer is partitioned into two functional blocks: an entangling address-qubits block, which utilizes alternating N2 and N3 blocks to create correlations within the address register, and controlled rotations, where the color qubit undergoes...",
+      "page": 4
+    },
+    {
+      "image": "2605.31006_figures/2605.31006_fig4.jpg",
+      "caption": "FIG. 4. Validation infidelity vs. training epoch for circuit depths D ∈{2, 4, 6, 8}. Red curves correspond to MNIST and blue curves to Fashion-MNIST; within each color family, darker shades indicate greater depth. (a) MNIST, FRQI ansatz. (b) MNIST, center-sequential ansatz. (c) Fashion-MNIST, FRQI ansatz. (d) Fashion-MNIST, center-sequential ansatz. Both architectures show consistent improvement with depth. F-MNIST converges to lower infidelity than MNIST at equivalent depth, though the FRQI ansatz at D ∈{6, 8} (Nparams = 468 and 624) exhibits some training instability on both datasets.",
+      "page": 5
+    },
+    {
+      "image": "2605.31006_figures/2605.31006_fig5.jpg",
+      "caption": "FIG. 5. Scaling of the infidelity with an increase in circuit pa- rameters Nparams for the FRQI and center-sequential ans¨atze on MNIST and Fashion-MNIST. Each marker corresponds to a circuit depth D ∈{2, 4, 6, 8}. The shaded areas show the 25th-75th percentiles, scaled down for visual purposes. At matched parameter counts, FRQI consistently achieves higher fidelity, confirming that the gain is architectural rather than a consequence of increased model capacity. Red denotes MNIST and blue denotes Fashion-MNIST; darker shades cor- respond to the FRQI ansatz and lighter shades to the center- sequential ansatz.",
+      "page": 5
+    }
+  ],
+  "figure": "2605.31006_figures/2605.31006_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

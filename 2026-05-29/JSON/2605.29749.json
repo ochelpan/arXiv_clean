@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2605.29749",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "physics.soc-ph",
+    "cond-mat.stat-mech",
+    "physics.data-an"
+  ],
+  "is_primary_archive": true,
+  "title": "Community detection in subject-subject networks from psychometrics data",
+  "authors": "Arianna Armanetti, Luca Cecchetti, Eiko Fried, Diego Garlaschelli, Miguel Ibáñez-Berganza",
+  "abstract": "Identifying subgroups of respondents in psychometric data is traditionally addressed with Latent Class Analysis, which requires the number of classes to be specified a priori and can perform poorly when strong inter-item correlations violate local independence assumptions. We propose a network-theoretic alternative based on community detection in subject-subject similarity networks. To suppress the systematic artifacts induced by the factor structure of the items, the similarity is computed in a low-dimensional factor-score space and the null model for modularity maximisation is obtained by removing the leading (global) mode of the similarity matrix, rather than via the standard Newman--Girvan model. The significance of a detected partition is then assessed against a column-wise resampling null through four complementary observables: the modularity, the differential entropy of the eigenvector point cloud at two neighbourhood scales, and the overlap of the within- and between-community similarity histograms. On a synthetic benchmark with controlled mixture signal, all four metrics correctly identify the homogeneous case as null-compatible -- including the demanding regime of a dataset dominated by a single factor -- and exhibit a graded departure from the null as the cluster separation grows. Applied to 14 widely used psychometric scales, the pipeline isolates a small group of datasets supporting a genuine and directly interpretable modular structure, while the remaining scales fall either in a mixed-signal regime or in one compatible with a single homogeneous community. The significance analysis is independent of the specific community-detection algorithm and provides an operational way to test for modular subject-level structure in questionnaire data.",
+  "url": "http://arxiv.org/abs/2605.29749v1",
+  "pdf": "https://arxiv.org/pdf/2605.29749v1",
+  "type": "theory",
+  "summary": "This work proposes a robust, network-theoretic framework to detect hidden community structures in psychometric data by analyzing subject-subject similarity networks. It overcomes limitations of traditional methods by projecting data into a factor-score space and using a sophisticated null model derived from spectral analysis. The resulting pipeline provides a principled, multi-metric test for genuine population heterogeneity in complex datasets.",
+  "main_problem": "The paper addresses the challenge of identifying genuine population heterogeneity (subgroups) within psychometric data, moving beyond the limitations of traditional methods like Latent Class Analysis (LCA). It seeks a robust, network-theoretic approach to detect underlying modular structure.",
+  "main_result": "The proposed pipeline, which uses community detection on similarity networks derived from factor-score projections and assesses significance using four complementary observables, successfully isolates a small subset of psychometric scales exhibiting genuine, interpretable modular structure.",
+  "method": "The core method involves projecting high-dimensional item-response data onto a low-dimensional factor-score space, constructing a similarity network, and then applying community detection (e.g., Leiden) while rigorously testing the significance of the detected partition against a resampling null model.",
+  "model_or_system": "The system is subject-subject similarity networks derived from psychometric data (Likert scale responses). The analysis models the data structure by first fitting a factor analysis model to obtain factor scores, which are then used to compute the similarity matrix for community detection.",
+  "key_observables": "Modularity (Q), differential entropy of the eigenvector point cloud, overlap of within/between-community similarity histograms, and the maximum eigenvalue ($\\lambda_0$) used for null model subtraction.",
+  "important_parameters": "The number of latent factors ($F$), the number of resamplings ($T=150$), and the choice of neighborhood scales ($k_{low} \\sim 0.1 N$ and $k_{high} \\sim 0.8 n_{comm}$) for entropy estimation.",
+  "main_assumptions": "The method assumes that genuine structure can be separated from artifacts caused by item redundancy (addressed via factor-score projection) and global response tendencies (addressed via spectral null model subtraction).",
+  "figures_summary": "Figures summarize the performance of the four significance metrics across synthetic datasets, showing how the metrics correctly identify the null case and quantify the departure from null as cluster separation increases. The analysis also compares the CD approach against LCA performance.",
+  "paper_structure": "The paper progresses by first identifying the limitations of LCA, then proposing the network-theoretic alternative involving factor-score projection and spectral null modeling. It details the four complementary significance observables, validates the pipeline on synthetic data, and finally applies it to 14 real psychometric scales.",
+  "why_interesting": "While the application domain is psychology, the underlying mathematical machinery—using spectral methods, community detection, and multi-observable significance testing on high-dimensional correlation/similarity matrices—is highly relevant to analyzing complex, structured data in condensed matter physics, such as identifying phase boundaries or distinct magnetic phases from correlation functions.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.29749_figures/2605.29749_fig1.jpg",
+      "caption": "FIG. 1: Two-dimensional PCA projections of subject similarity matrices for three synthetic datasets, coloured by the communities detected by the community detection algorithm. The equal-factors and dominant-factor datasets are drawn from a single homogeneous population (no planted community structure); mixture-4 contains four equally-sized subgroups with distinct response profiles. Top row: similarity computed directly in the M-dimensional item-response space. Bottom row: similarity computed in the F-dimensional factor-score space. Community detection is done in both cases maximising the modularity of the similarity matrix after removal of its leading eigenvector of the similarity matrix...",
+      "page": 5
+    },
+    {
+      "image": "2605.29749_figures/2605.29749_fig2.jpg",
+      "caption": "FIG. 2: Significance metrics for the ten synthetic datasets. Panel (A): Modularity Q (Eq. (6)). Panel (B): Differential entropy ˆH of the (Kcons −1)-dimensional eigenvector point cloud (Eq. (14)) at kNN = ⌊0.1 N⌋= 100 (loose). Panel (C): Within- vs. between-community similarity histogram overlap (Eq. (15)). Panel (D): Cloud entropy at kNN ≈0.8 ncomm (strict). Across-dataset comparisons of the entropy value are not meaningful since the embedding dimension Kcons −1 varies; the test is intra-dataset (empirical value vs. its own null). In every panel the shaded background marks datasets for which the run-integrated resampling p-value of Eq. (10) satisfies p(O) < 0.05 under the appropriate...",
+      "page": 9
+    },
+    {
+      "image": "2605.29749_figures/2605.29749_fig3.jpg",
+      "caption": "FIG. 3: Significance metrics for the 14 real datasets, structured as in Fig. 2. Panels: (A) modularity Q, (B) cloud entropy at klow, (C) within- vs. between-community similarity histogram overlap, (D) cloud entropy at khigh. Shaded background marks datasets for which the run-integrated resampling p-value of Eq. (10) satisfies p(O) < 0.05 under the appropriate one-sided test (right tail for Q, left tail for the cloud entropy and the overlap); the z-score annotated on each violin is the secondary effect-size diagnostic of Eq. (11). Cloud-entropy values are not comparable across datasets since the embedding dimension Kcons −1 varies; the test is intra-dataset.",
+      "page": 12
+    },
+    {
+      "image": "2605.29749_figures/2605.29749_fig4.jpg",
+      "caption": "FIG. 4: Per-item deviations from the global mean (∆average item response) for each detected community, shown for RWAS and GCBS. Each column is a community; each row is an item. Cool colours indicate above-average responses, warm colours below-average.",
+      "page": 13
+    },
+    {
+      "image": "2605.29749_figures/2605.29749_fig5.jpg",
+      "caption": "FIG. 5: LCA partitions projected onto the first two principal components (PCA) for six datasets used in the compar- ison of Figure 6. Top row: three synthetic mixtures generated with the item-response probability model (Section A, N = 800, M = 60, K = 4, q = 6) at increasing signal strengths (ξ ≈0.1, 0.35, 0.85 for mixture-1, mixture-2, mixture-4 respectively). Bottom row: three real datasets (RWAS, GCBS, PWE), each subsampled to N ≤1000 subjects. In all panels, K is selected via Parametric Bootstrap Likelihood Ratio Test (BLRT) and each colour represents one latent class. On synthetic data, LCA recovers coherent partitions only at high signal strength; at low-to-intermediate signal the...",
+      "page": 20
+    }
+  ],
+  "figure": "2605.29749_figures/2605.29749_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

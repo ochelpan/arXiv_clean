@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.31449",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Support Vector Machine with a Scalable Quantum Kernel",
+  "authors": "Anant Agnihotri, Michael Krebsbach, Florentin Reiter, Thomas Wellens",
+  "abstract": "Quantum support vector machines are classification algorithms that rely on quantum-generated kernels. The fidelity quantum kernel commonly used in quantum support vector machines suffers from exponential concentration as system size increases, preventing an efficient scaling beyond fewqubit systems. We introduce the Hamming quantum kernel, a classical post-processing method that is based on the same measurement outcomes as the fidelity quantum kernel. However, it avoids the exponential concentration problem by using the full measurement statistics rather than a single fidelity value. We evaluate the approach on both classical data (MNIST) and synthetic data generated from quantum circuits, using systems ranging from 2 to 27 qubits. Throughout the simulations, the Hamming quantum kernel outperforms the fidelity quantum kernel whenever 15 or more qubits are used. Furthermore, for synthetic quantum data, our method consistently outperforms the classical Gaussian kernel. This demonstrates that the Hamming quantum kernel improves the expressivity and robustness at larger qubit scales without requiring any additional quantum ressources.",
+  "url": "http://arxiv.org/abs/2605.31449v1",
+  "pdf": "https://arxiv.org/pdf/2605.31449v1",
+  "type": "both",
+  "summary": "This paper introduces the Hamming quantum kernel (HQK) to overcome the exponential concentration problem plaguing standard quantum kernels in Support Vector Machines. By utilizing the full measurement statistics weighted by Hamming weight, the HQK maintains high classification accuracy even as the number of qubits increases significantly. This demonstrates a scalable and robust method for quantum feature mapping.",
+  "main_problem": "The standard fidelity quantum kernel suffers from exponential concentration when scaling to large quantum systems, limiting its practical use in Support Vector Machines (QSVMs).",
+  "main_result": "The proposed Hamming quantum kernel (HQK) successfully mitigates this concentration issue, showing superior and stable performance compared to the standard fidelity kernel and classical kernels for systems with 15 or more qubits.",
+  "method": "The HQK is a classical post-processing method that utilizes the full measurement statistics of quantum circuits, weighted by the Hamming weight, rather than relying on a single fidelity value.",
+  "model_or_system": "The work uses QSVMs trained on two types of data: classical MNIST digits (reduced via PCA) and synthetic data generated from quantum circuits. The core model involves comparing the performance of three kernels: RBF (classical), FQK, and HQK.",
+  "key_observables": "Test accuracy, kernel matrix values, and the theoretical distinguishability $D(P_0, P_1)$.",
+  "important_parameters": "Number of qubits ($n$, ranging from 2 to 27), the HQK weighting parameter ($\\lambda$), and the RBF bandwidth ($\\gamma$).",
+  "main_assumptions": "The HQK assumes that similar data points lead to measurable shifts in the Hamming distributions, and the analysis relies on the ability to perform full measurement statistics.",
+  "figures_summary": "Figures compare test accuracy vs. dimensionality ($n$) for MNIST and quantum data, consistently showing HQK outperforming FQK and RBF at large $n$. One figure illustrates the concentration issue in FQK versus the informative kernel from HQK.",
+  "paper_structure": "The paper introduces the problem of FQK concentration, details the HQK formulation using full measurement statistics, and then evaluates the method by comparing its performance against RBF and FQK across multiple classification tasks (MNIST, synthetic quantum data) as the system size increases.",
+  "why_interesting": "While the focus is on machine learning kernels, the underlying challenge—extracting robust, scalable information from quantum measurements—is central to quantum information processing and quantum characterization.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.31449_figures/2605.31449_fig1.jpg",
+      "caption": "FIG. 1. Illustration of the quantum kernel method presented in this work: (a) The datapoints xi are real vectors with n = 2 to n = 27 dimensions. We use different datasets including MNIST data downscaled by Principle Component Analysis, on the one hand and synthetic data originating from a quantum process, on the other hand. (b) Pairs of datapoints xi and xj are compared to one another using an n qubit quantum circuit. The underlying assumption is that datapoints of the same class are more similar than datapoints of different classes, leading to a higher probability of measuring the all-zero bitstring. The FQK uses this probability as kernel entries, ignoring all other bitstrings. Instead,...",
+      "page": 2
+    },
+    {
+      "image": "2605.31449_figures/2605.31449_fig2.jpg",
+      "caption": "FIG. 2. (a) Quantum circuits Vα (α = 0 or 1) used to generate quantum datasets. (I) Depending on the binary label α, the initial state is either |0⟩⊗nq (for α = 0) or |1⟩⊗nq (for α = 1), nq is the number of qubits in the circuit. (II) A sequence of ZZ-rotations, i.e., exp(−i ϕ",
+      "page": 6
+    },
+    {
+      "image": "2605.31449_figures/2605.31449_fig3.jpg",
+      "caption": "FIG. 3. Comparison of test scores for classification of MNIST digits 0 and 1. (a) HQK hyperparameter optimization: Cross- validation scores as a function of λ for different numbers of qubits (see inset). The value of λ selected for the test set eval- uation is 0.08 (vertical dashed line). (b) Test accuracy for the different kernels (RBF: classical Gaussian kernel, FQK: standard fidelity quantum kernel and HQK: Hamming quan- tum kernel, see inset) as a function of data dimensionality n (or, equivalently, number of qubits used for the quantum kernels). Mean values (solid lines) and standard deviations (shaded regions) for five independent runs are shown. For all kernels, two principal...",
+      "page": 7
+    },
+    {
+      "image": "2605.31449_figures/2605.31449_fig4.jpg",
+      "caption": "FIG. 4. Same as Fig. 3, for classification of MNIST dig- its 0 and 6. (a) The optimized value of the HQK hyperpa- rameter λ for this dataset is 0.1 (vertical dashed line). (b) Maximum test accuracy is achieved at eight principal com- ponents (n = 8), enabling near-perfect classification of 0 and 6. Beyond n = 8, additional dimensions introduce more noise than relevant information. FQK accuracy drops for larger n, whereas HQK remains relatively stable and almost reaches RBF performance, demonstrating higher robustness to noisy data than FQK.",
+      "page": 8
+    },
+    {
+      "image": "2605.31449_figures/2605.31449_fig5.jpg",
+      "caption": "FIG. 5. Same as Figs. 3 and 4, for classification of odd and even MNIST digits. (a) The optimal value of the HQK hyper- parameter λ selected for this dataset is 0.30 (vertical dashed line). (b) Test accuracy peaks at approximately 0.85 for the RBF kernel. This is due to the limited number of training samples, with an average of only 10 samples per digit within each class, making classification more challenging. However, the comparative behavior of FQK and HQK remains consis- tent: FQK accuracy drops for larger n, whereas HQK remains stable. Both HQK and RBF plateau at high n, while FQK shows a continued downward trend.",
+      "page": 9
+    }
+  ],
+  "figure": "2605.31449_figures/2605.31449_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

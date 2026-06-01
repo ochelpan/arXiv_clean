@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.30252",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum optimization beyond QUBO for industrial logistics and scheduling",
+  "authors": "Juan F. R. Hernandez, Pavle Nikacevic, Enrique Solano, Chinonso Onah, Agneev Guin, Arne-Christian Voigt, Archismita Dalal",
+  "abstract": "The increasing complexity of industrial scheduling and transport routing problems motivates the study of alternative optimization formulations and computational paradigms. In this work, we study how higher-order unconstrained binary optimization (HUBO) formulations of such problems map onto quantum optimization workflows in both noisy and fault-tolerant regimes. We consider three representative logistics and manufacturing use cases and formulate each as a HUBO problem. This captures process intricacies, such as highly correlated assembly-line scheduling rules, which are difficult to express faithfully with the standard quadratic (QUBO) form, while at the same time reducing the number of binary variables required in the quantum mapping, thus lowering qubit demand. We compare the HUBO formulations with corresponding QUBO encodings, highlighting a key trade-off: while HUBO reduces qubit requirements through compact binary encoding, it introduces higher-order interaction terms that increase circuit depth, limiting feasibility on current quantum hardware. The proposed formulations are validated using classical solvers across several problem instances and benchmark small routing problem instances using bias-field digitized counterdiabatic quantum optimization in classical simulation. We complement these results with a resource and scalability analysis, focusing on the capacitated vehicle routing problem as a representative large-scale industrial use case. Our analysis indicates that while HUBO formulations offer advantages in qubit scaling compared to QUBO encodings, their practical implementation is constrained by gate fidelity, coherence, and circuit depth, making hybrid quantum-classical workflows and early fault-tolerant quantum hardware the most plausible settings for their practical use.",
+  "url": "http://arxiv.org/abs/2605.30252v1",
+  "pdf": "https://arxiv.org/pdf/2605.30252v1",
+  "type": "theory",
+  "summary": "This work investigates using quantum optimization to solve complex industrial logistics problems, proposing Higher-Order Unconstrained Binary Optimization (HUBO) as an improvement over standard QUBO. While HUBO reduces the required number of qubits, it significantly increases circuit depth due to higher-order terms. The authors conclude that current hardware limitations necessitate a shift toward hybrid quantum-classical workflows for practical application.",
+  "main_problem": "The paper addresses the need for quantum optimization methods that can accurately model complex industrial scheduling and routing problems, moving beyond the limitations of standard Quadratic Unconstrained Binary Optimization (QUBO).",
+  "main_result": "Higher-Order Unconstrained Binary Optimization (HUBO) formulations are necessary to faithfully encode complex constraints, offering better qubit scaling than QUBO, but their practical implementation is limited by increasing circuit depth.",
+  "method": "The authors compare HUBO and QUBO encodings for problems like CVRP and scheduling, validating them using classical solvers and benchmarking quantum execution via Bias-Field Digitized Counterdiabatic Quantum Optimization (BF-DCQO) in simulation.",
+  "model_or_system": "The models involve mapping logistics problems (e.g., CVRP, assembly scheduling) into Hamiltonians, comparing quadratic (QUBO) vs. higher-order (HUBO) penalty terms. The quantum simulation uses BF-DCQO, which evolves the system Hamiltonian $H(\\lambda)$ over time.",
+  "key_observables": "Qubit count, circuit depth (number of two-qubit gates), approximation ratio, and quantum gate fidelity.",
+  "important_parameters": "Gate fidelity ($f_{2q}$), coherence time, and the required penalty coefficients ($\\lambda$) for constraint enforcement.",
+  "main_assumptions": "The primary assumptions involve the feasibility of hybrid quantum-classical workflows and the necessity of fault-tolerant hardware for large-scale problems.",
+  "figures_summary": "Figures illustrate the workflow for QUEST and CVRP, comparing two-qubit gate counts for QUBO vs. HUBO under different connectivity assumptions, and showing approximation ratios for different solvers.",
+  "paper_structure": "The paper progresses from identifying the limitations of QUBO for complex constraints to developing the HUBO framework for three specific industrial problems (QUEST, CVRP, Scheduling). It details the Hamiltonian construction, compares resource scaling (qubits vs. gates), and concludes by advocating for hybrid quantum-classical approaches.",
+  "why_interesting": "The detailed analysis of resource scaling, gate overheads, and the explicit comparison between QUBO and HUBO provides a rigorous theoretical roadmap for when and how quantum computation can tackle real-world combinatorial optimization challenges.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.30252_figures/2605.30252_fig1.jpg",
+      "caption": "FIG. 1. High-level QUEST workflow from the set of breakers and surfers, through HUBO encoding and iterative BF-DCQO evolution, to decoding and validation of the final breaker–surfer matching. In the central panel, the quantum circuit represents the p-th BF-DCQO iteration: single-qubit Ry rotations prepare the biased initial state, the digitized counterdiabatic evolution implements the problem Hamiltonian, and measurement outcomes are used to update the bias field for the next iteration.",
+      "page": 5
+    },
+    {
+      "image": "2605.30252_figures/2605.30252_fig2.jpg",
+      "caption": "FIG. 2. Two-qubit gate operations needed to encode QUEST circuits as a function of number of qubits, corresponding to breaker (surfer) counts from 3 to 12. The circuits transpiled to IBM Kingston (heavy- hex) and IBM Miami (square-lattice). In the IBM Miami QUBO case, 11 and 12 breaker instances are not included since they require more qubits than available.",
+      "page": 5
+    },
+    {
+      "image": "2605.30252_figures/2605.30252_fig3.jpg",
+      "caption": "FIG. 3. Approximation ratios for simulated annealing quadratized HUBO (104 shots and 106 sweeps) and BF-DCQO HUBO (stat- evector simulation, 3 bias-field iterations, 104 shots each). The BF- DCQO HUBO results were obtained with the full Hamiltonian up to 5 breakers, while the instances larger than that used the reduced Hamiltonian.",
+      "page": 6
+    },
+    {
+      "image": "2605.30252_figures/2605.30252_fig4.jpg",
+      "caption": "FIG. 4. Transpiled two-qubit gate counts for a subset of CVRP in- stances under three connectivity assumptions. The all-to-all results were obtained using the IBM Aer simulator, while the heavy-hex and square-lattice results were obtained by transpiling to IBM Kingston and IBM Miami, respectively.",
+      "page": 7
+    },
+    {
+      "image": "2605.30252_figures/2605.30252_fig5.jpg",
+      "caption": "FIG. 5. Approximation ratios obtained for simulated annealing on the quadratized HUBO formulation using 104 shots and 106 sweeps, and for BF-DCQO on the HUBO formulation using statevector sim- ulation with 10 bias-field iterations and 104 shots per iteration.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.30252_figures/2605.30252_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

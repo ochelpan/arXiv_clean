@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.29964",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Neutral-Atom Quantum Compiler with Application-Specific Layout and Hub-Assisted Shuttling",
+  "authors": "Takahiko Satoh, Takaharu Yoshida",
+  "abstract": "Compiling arbitrary-connectivity NISQ circuits onto monolithic single-zone neutral-atom devices is constrained by a finite interaction range and a minimum separation between simultaneously addressable sites. Under the minimum-separation constraint, the SWAP-only configuration of our pipeline does not return a schedule within a practical time budget on a range of circuits, including circuits as small as nine qubits. We address this with hub traps, a small number of dynamically placed empty traps that serve as transit waypoints, together with a per-gate rule that chooses between SWAP-based routing and hub-mediated shuttling. We evaluate the compiler on seventeen benchmarks using analytic estimates of execution time and a per-layer fidelity proxy, comparing against a placement-matched baseline and against ablations of our own pipeline. Hub traps make these otherwise-unsolved circuits compile in seconds to minutes and remove SWAP gates entirely on every completed circuit, so their role is to enable routing rather than only to optimize fidelity. The benefit is concentrated on routing-dominated circuits and is absent on routing-free ones, which we separate by the structure of the interaction graph. On the most routing-dominated circuit the fidelity proxy improves by up to three orders of magnitude over the placement-matched baseline. The gain comes primarily from eliminating SWAP overhead, as the absolute fidelities there remain low.",
+  "url": "http://arxiv.org/abs/2605.29964v1",
+  "pdf": "https://arxiv.org/pdf/2605.29964v1",
+  "type": "theory",
+  "summary": "This paper presents a novel quantum compiler for neutral-atom quantum processors that overcomes limitations imposed by physical constraints like minimum site separation. By introducing 'hub traps' as dynamic waypoints, the compiler intelligently chooses between SWAP-based routing and atom shuttling to generate executable schedules. This approach successfully compiles complex, routing-dominated circuits that were previously intractable, significantly improving both feasibility and fidelity.",
+  "main_problem": "The core challenge is compiling arbitrary-connectivity quantum circuits onto monolithic neutral-atom devices while respecting physical constraints like finite interaction range and minimum site separation.",
+  "main_result": "The introduction of dynamically placed 'hub traps' and a decision rule between SWAP-based routing and hub-mediated shuttling enables the compilation of circuits previously deemed unsolvable within practical time budgets.",
+  "method": "The authors propose a two-step compiler: first, an application-specific placement optimization, followed by a transport-aware transpilation that dynamically selects the optimal routing mechanism (SWAP vs. shuttle) based on a time/fidelity cost model.",
+  "model_or_system": "The system is a neutral-atom quantum processor utilizing optical tweezer arrays where two-qubit gates are mediated by Rydberg interactions. The compilation must manage atom movement (shuttling) and gate execution under geometric constraints.",
+  "key_observables": "Execution time, fidelity proxy (combining gate fidelities and decoherence), SWAP gate count, and shuttle gate count.",
+  "important_parameters": "Rydberg blockade radius ($r_b$), minimum separation distance ($d_{min}$), and the cost model parameters for SWAP vs. shuttling.",
+  "main_assumptions": "The method assumes the two-step pipeline (placement then movement optimization) is superior, and its benefit is concentrated on circuits requiring long-range routing.",
+  "figures_summary": "Figures illustrate the two-step pipeline, the hub placement heuristic, and performance comparisons showing fidelity ratios and resource breakdowns (SWAP vs. shuttle) across various benchmark circuits.",
+  "paper_structure": "The paper details the physical constraints, introduces the two-step compiler (placement $\rightarrow$ transport-aware transpilation), develops the cost model for routing decisions, and validates the full pipeline against multiple ablations and baselines.",
+  "why_interesting": "This work directly addresses the hardware-software interface for quantum computing using neutral atoms, providing a concrete, physics-informed compilation tool that overcomes fundamental geometric limitations of the physical platform.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.29964_figures/2605.29964_fig1.jpg",
+      "caption": "FIGURE 1. Constraint model captured by our compiler: (a) Rydberg blockade restricts feasible CZ interactions (within rb) and parallel two-qubit operations, (b) minimum separation dmin for safe addressing and motion, and (c) transport primitives (SWAP and hub-mediated shuttling with optional eviction).",
+      "page": 3
+    },
+    {
+      "image": "2605.29964_figures/2605.29964_fig2.jpg",
+      "caption": "FIGURE 2. Two-step pipeline used in this work. Step 1 produces a circuit-aware placement and a normalized blockade radius. Step 2 adds hub traps and generates a schedule by selecting SWAP vs. shuttling/eviction on demand.",
+      "page": 3
+    },
+    {
+      "image": "2605.29964_figures/2605.29964_fig3.jpg",
+      "caption": "FIGURE 4. Illustration of the hub placement heuristic (strategic2). Candidate sites are generated from CZ geometry (midpoints of long-range CZ pairs) and filtered by the minimum-separation constraint. Feasible candidates are greedily selected by the endpoint-proximity score weighted by CZ counts.",
+      "page": 4
+    },
+    {
+      "image": "2605.29964_figures/2605.29964_fig4.jpg",
+      "caption": "FIGURE 3. Grid-based A* precomputation for collision-avoiding shuttling distances. Exclusion zones around traps encode the minimum-separation constraint; pairwise distances are cached and reused during transpilation.",
+      "page": 4
+    },
+    {
+      "image": "2605.29964_figures/2605.29964_fig5.jpg",
+      "caption": "FIGURE 5. Distribution of the normalized blockade radius rb returned by the placement optimizer (seed=0). The physical operating point fixes r(phys) b = 6 µm; rb determines the distance scaling factor.",
+      "page": 6
+    }
+  ],
+  "figure": "2605.29964_figures/2605.29964_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 3,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

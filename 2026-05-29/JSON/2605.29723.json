@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2605.29723",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Treewidth-Aware Gate Cut Selection for Reducing Transpilation Overhead on Superconducting Quantum Devices",
+  "authors": "Hana Ebi, Shin Nishio, Takahiko Satoh",
+  "abstract": "On superconducting quantum devices with sparse qubit connectivity, transpilation of long-range two-qubit interactions inserts additional SWAP gates, increasing hardware cost and execution error. Gate cutting via quasi-probability decomposition (QPD) can remove a selected two-qubit gate and thereby reduce routing overhead, but its sampling cost makes cut placement critical. We propose TW2S, a graph-only two-stage gate-cut selection method that operates on the circuit interaction graph without backend-specific transpilation at selection time. Stage 1 analyzes a min-fill elimination trace and scores edges by their contribution to a treewidth upper bound. Stage 2 ranks the resulting candidates by edge betweenness centrality with a degree penalty to identify routing bottlenecks. Across grid, Watts-Strogatz, barbell, and stochastic block model benchmarks transpiled to IBM's FakeSherbrooke backend, TW2S consistently outperforms random cut selection when the interaction graph contains identifiable sparse cuts. The advantage is governed not by absolute graph density but by moderate community structure and accessible inter-community edges. We further derive a mean-squared-error breakeven condition showing that, under a shared total shot budget, QPD is beneficial only when the ECR reduction is large enough and the signal strength is sufficient. Under an expanded per-subcircuit budget the signal-strength requirement is substantially relaxed. In noisy simulations of the J1-J2 transverse-field Ising model, TW2S achieves $Δ$ECR = 47 for n = 8, compared with approximately 9 for random selection, and yields lower estimation error than the uncut baseline in the tested strong-signal regime, with larger gains at increased shot budgets. These results position graph-structural cut selection as a practical compiler-side tool for turning circuit cutting into a targeted routing-reduction strategy.",
+  "url": "http://arxiv.org/abs/2605.29723v1",
+  "pdf": "https://arxiv.org/pdf/2605.29723v1",
+  "type": "both",
+  "summary": "This paper introduces TW2S, a novel graph-structural algorithm designed to select optimal two-qubit gates for 'cutting' in quantum circuits to minimize transpilation overhead on superconducting hardware. By leveraging graph metrics like treewidth and betweenness centrality, TW2S identifies structural bottlenecks, leading to significant, quantifiable reductions in required native gates compared to random selection. This positions graph-based analysis as a practical compiler tool for quantum compilation.",
+  "main_problem": "The primary challenge is minimizing the hardware overhead (SWAP gates) incurred during the transpilation of quantum circuits with long-range interactions onto superconducting quantum devices with sparse connectivity.",
+  "main_result": "The proposed TW2S method consistently outperforms random cut selection by identifying structural bottlenecks in the interaction graph, leading to significant reductions in required two-qubit gates ($\\Delta \text{ECR}$).",
+  "method": "TW2S is a two-stage, graph-only selection algorithm that first scores edges based on their contribution to the treewidth upper bound (Stage 1) and then ranks candidates using edge betweenness centrality with a degree penalty (Stage 2).",
+  "model_or_system": "The work focuses on superconducting quantum devices, using the FakeSherbrooke backend for testing. Benchmarks include synthetic graphs (Grid, Watts-Strogatz, SBM) and the physically relevant J1-J2 transverse-field Ising model.",
+  "key_observables": "$\\Delta \text{ECR}$ (reduction in ECR gates), Mean Squared Error (MSE) for breakeven analysis, Treewidth, Edge Betweenness Centrality.",
+  "important_parameters": "The mixing ratio ($\\mu = p_{out}/p_{in}$) in SBM graphs, the total shot budget, and the signal strength $|\\langle H \rangle_{\text{ideal}}|$.",
+  "main_assumptions": "The selection process relies solely on graph-structural properties, avoiding backend-specific transpilation calls at selection time. The benefit of cutting is conditional on a breakeven analysis involving signal strength.",
+  "figures_summary": "Figures illustrate the TW2S pipeline (Circuit $\to$ Interaction Graph $\to$ Cut), show $\\Delta \text{ECR}$ advantages across various graph families (Grid, WS, SBM), and plot the relationship between the mixing ratio ($\\mu$) and the structural advantage.",
+  "paper_structure": "The paper introduces the problem of transpilation overhead, details the QPD mechanism, proposes the two-stage TW2S algorithm using graph metrics (treewidth, betweenness), validates the method on synthetic graphs and the J1-J2 TFIM model, and concludes with a rigorous breakeven analysis.",
+  "why_interesting": "This work provides a crucial compiler-side tool for quantum hardware optimization, directly addressing the gap between abstract quantum circuits and the physical constraints of near-term quantum processors.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2605.29723_figures/2605.29723_fig1.jpg",
+      "caption": "FIGURE 1. Overview of the proposed TW2S cut selection pipeline. (A) A quantum circuit is represented as an interaction graph, where nodes correspond to qubits and edges correspond to two-qubit gates. (B) TW2S selects the cut position in two stages. Stage 1 uses a min-fill treewidth ordering to identify candidate edges that lie on sparse inter-community boundaries, and Stage 2 ranks these candidates by edge betweenness centrality with a degree penalty to select the final cut. (C) The selected edge is cut via quasi-probability decomposition (QPD), splitting the original circuit into smaller sub-circuits that can be executed independently on a noisy device and recombined to estimate the target...",
+      "page": 2
+    },
+    {
+      "image": "2605.29723_figures/2605.29723_fig2.jpg",
+      "caption": "FIGURE 2. Empirical QPD win rate in the (∆ECR, M) plane, restricted to strong-signal configurations (|⟨H⟩ideal| > 0.5). Left: shared (×1) strategy. Right: per-subcircuit ×1.5 (×9 total) strategy. Each cell aggregates over all configurations sharing the same ∆ECR, with R = 5 repetitions per configuration. Green = QPD wins; red = baseline wins.",
+      "page": 4
+    },
+    {
+      "image": "2605.29723_figures/2605.29723_fig3.jpg",
+      "caption": "FIGURE 3. QPD win rate at M = 10,000 shots in the (∆ECR, |⟨H⟩ideal|) plane for shared (×1, left) and per-subcircuit ×1.5 (×9, right) strategies. Color encodes win rate (green = QPD wins, red = baseline wins). Odd-step configurations cluster near |⟨H⟩ideal| ≈0 (bottom), even-step configurations at |⟨H⟩ideal| ≳2.4 (top).",
+      "page": 4
+    },
+    {
+      "image": "2605.29723_figures/2605.29723_fig4.jpg",
+      "caption": "FIGURE 4. Mean ∆err as a function of pecr (rows) and pmeas (columns), for M ∈{5K, 100K} and two strategies (shared budget, top; per-subcircuit ×1.5, bottom). Blue dashed box: IBM FakeSherbrooke operating point.",
+      "page": 5
+    },
+    {
+      "image": "2605.29723_figures/2605.29723_fig5.jpg",
+      "caption": "FIGURE 5. Example of a min-fill elimination trace on an interaction graph. At each step, the vertex with the fewest required fill edges, shown as red vertices, is eliminated, and missing edges are added among its current neighbors, shown as green vertices, to form a clique. The figure illustrates how bags B(v) = {v} ∪N(v) and fill edges F (v) arise during elimination, which are later used to score candidate cut edges in Stage 1.",
+      "page": 7
+    }
+  ],
+  "figure": "2605.29723_figures/2605.29723_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
