@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.00368",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Signal Processing for Linear PDEs: Circuit Design and Experimental Validation",
+  "authors": "Hyeongjin Kim, Revathi Jambunathan, Jan Balewski, Daan Camps",
+  "abstract": "Quantum algorithms offer new avenues for solving partial differential equations (PDEs). While the potential for end-to-end quantum advantage is at present not well understood, recent literature presents explicit circuit constructions for solving certain classes of linear PDEs in the frequency domain and thus offers concrete examples to study. In this work, we develop end-to-end implementations of these quantum circuits compiled to machine-level instructions and benchmark them in both numerical simulations and IBMQ hardware experiments. We focus on the advection, wave, and Poisson equations and study quantum circuits that propagate the dynamics in frequency space via the quantum Fourier transform using approximate methods based on a first-order approximation which offer compact representations with uncontrollable approximation error, and polynomial approximation methods based on quantum signal processing (QSP) leading to deeper circuits with tunable algorithmic error. In addition, we experimentally demonstrate that the QSP-augmented algorithm can provide accurate solutions under realistic hardware constraints. Finally, we extend our method to address non-homogeneous Dirichlet boundary conditions and verify it numerically for a Poisson equation with source term obtained from high-fidelity physics simulations of a capacitively coupled plasma.",
+  "url": "http://arxiv.org/abs/2606.00368v1",
+  "pdf": "https://arxiv.org/pdf/2606.00368v1",
+  "type": "both",
+  "summary": "This paper presents an end-to-end quantum circuit implementation for solving linear PDEs, including advection, wave, and Poisson equations. By comparing Small-Angle Approximation (SAA) against Quantum Signal Processing (QSP), the authors demonstrate that QSP offers superior accuracy for simulating these dynamics on NISQ hardware. The methodology is successfully generalized to handle complex non-homogeneous boundary conditions derived from plasma physics simulations.",
+  "main_problem": "Developing and benchmarking end-to-end quantum algorithms for solving linear Partial Differential Equations (PDEs) like advection, wave, and Poisson equations.",
+  "main_result": "The Quantum Signal Processing (QSP) augmented algorithm was experimentally shown to provide more accurate solutions than the Small-Angle Approximation (SAA) method under realistic NISQ hardware constraints.",
+  "method": "The approach involves transforming PDEs into the frequency domain using the Quantum Fourier Transform (QFT) and then implementing the time evolution operator using either SAA or the more robust QSP polynomial approximation.",
+  "model_or_system": "The study focuses on three linear PDEs: advection, wave, and Poisson equations. The implementation is benchmarked on numerical simulations and actual IBMQ quantum hardware, utilizing techniques like odd extension for boundary conditions.",
+  "key_observables": "The state $|\\psi(x, t)\rangle$ at time $t$, the difference ($\\Delta$) between quantum and classical solutions, and the Root Mean Squared Error (RMSE).",
+  "important_parameters": "Time ($t$), system size ($N$), and the truncation degree ($d$) used in the QSP approximation.",
+  "main_assumptions": "The SAA method suffers from uncontrollable approximation error, while the QSP method requires post-selection for the Poisson solver, leading to very low success probabilities on current hardware.",
+  "figures_summary": "Figures compare classical, SAA, and QSP quantum simulations for the advection equation, showing QSP's superior convergence. Other figures illustrate the circuit construction and the application to the Poisson equation with plasma source terms.",
+  "paper_structure": "The paper introduces the quantum simulation workflow (QFT $\rightarrow$ Solve in Frequency Space $\rightarrow$ Inverse QFT). It details the comparison between SAA and QSP for the advection equation, then extends the methodology to solve the Poisson equation with non-homogeneous Dirichlet boundary conditions, culminating in hardware benchmarking.",
+  "why_interesting": "This work provides concrete, implementable quantum circuits for simulating fundamental physical dynamics (PDEs), directly bridging theoretical quantum algorithms with measurable results on near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.00368_figures/2606.00368_fig1.jpg",
+      "caption": "Fig. 1. (a) Our methodology for running the quantum circuit on a quantum processing unit (QPU) consists of (1) an initial state preparation step to load the state |ψ(x, t = 0)⟩at time t = 0, (2) an inverse quantum Fourier transform (QFT) to transform the problem to frequency space, (3) solve the system in frequency space using small-angle approximation (SAA) or quantum signal processing (QSP), and (4) transforming back to position space using QFT to obtain |ψ(x, t)⟩. This prepares the state |ψ(x, t)⟩at time t. (b) We develop end-to-end implementations for simulating the advection equation (left), wave equation (middle), and Poisson equation (right).",
+      "page": 2
+    },
+    {
+      "image": "2606.00368_figures/2606.00368_fig2.jpg",
+      "caption": "Fig. 3. Three numerical solutions to the advection equation (3.1) with r = 1 and discretized on 26 = 64 grid points. We solve the advection equation starting with the Gaussian wave-packet (3.10) at times t = 0, 0.15, 0.3, 0.45. The real part of the solution ψR is shown on the top panel. Orange solid lines are obtained from a traditional PDE solver ψclassical R . Blue dashed lines and black dotted lines correspond to the quantum circuit solutions using SAA and QSP, respectively. The bottom panel depicts the difference from the classical solution: ∆= ψR −ψclassical R .",
+      "page": 8
+    },
+    {
+      "image": "2606.00368_figures/2606.00368_fig3.jpg",
+      "caption": "Fig. 4. Solving the advection equation (3.1) using the Jacobi-Anger expansion (3.9). We initialize with the Gaussian wavepacket (3.10) and compute ψ(x, t = 0.45). (a) We compare the quantum solution ψ(x, t = 0.45) using different truncation orders d against the classical solution ψclassical(x, t = 0.45) (dashed orange line) for n = 8 qubits (N = 28 = 256 grid points). (b,c) We plot ψ −ψclassical against d and d/2n = d/N, respectively, for different n. The dotted black line indicates the scaling crossover d∗/2n = 0.45, aligning with t = 0.45.",
+      "page": 9
+    },
+    {
+      "image": "2606.00368_figures/2606.00368_fig4.jpg",
+      "caption": "Fig. 5. IBMQ hardware results for solving the advection equation. We solve the advection equa- tion (3.1) at t = 0, 0.125, 0.25, 0.375, 0.5 on a classical computer (orange solid line) and on quantum hardware (blue dot for SAA (3.6) and black square for QSP with Jacobi-Anger expansion (3.9)). The top panel shows |ψ|2 and the bottom panel shows the error compared to the classical simulation, ∆= |ψ|2 −|ψclassical| 2. For the quantum results, we use IBM’s ibm miami with 1, 000 shots per run. We compute and display the root mean squared error (RMSE) to evaluate the quantum circuit’s overall performance. Parameters used: n = 4 system qubits (n + 1 = 5 total qubits for QSP-based circuits), r = 1,...",
+      "page": 10
+    },
+    {
+      "image": "2606.00368_figures/2606.00368_fig5.jpg",
+      "caption": "Fig. 6. Numerical solutions to the wave equation. Here, we initialize ψ(t = 0) with a Ricker wavelet (4.9) and evaluate at different times t. The real part of the solution ψR is plotted on the top panel, while the bottom panel shows the difference from the classical solution. Parameters used: n = 6 qubits and c = 1.",
+      "page": 11
+    }
+  ],
+  "figure": "2606.00368_figures/2606.00368_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

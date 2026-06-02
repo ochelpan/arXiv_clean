@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.02018",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Branch-Aware Quantum Constant Propagation for Dynamic Quantum Circuits",
+  "authors": "Innocenzo Fulginiti, Yanbin Chen",
+  "abstract": "Compile-time optimization is important for improving the efficiency and reliability of quantum circuits on current noisy hardware. While many existing methods simplify circuits using structural patterns or quantum-state information, most of them target only unitary circuits and do not support dynamic circuits with mid-circuit measurements and classical feedforward. In this work, we present Branch-Aware Quantum Constant Propagation (BQCP), a compile-time analysis for dynamic circuits. BQCP extends Quantum Constant Propagation (QCP) by tracking the classical information produced by mid-circuit measurements together with the corresponding post-measurement quantum states across different execution branches. This enables path-sensitive reasoning inside conditional blocks and more precise information propagation than QCP. To keep the analysis scalable, we bound both the size of the quantum-state representation and the number of tracked branches. Using the information inferred by the analysis, we apply semantics-preserving simplifications to circuit operations. We prove the soundness of both the analysis and the simplifications. Experimental results on both application-driven and synthetic benchmarks show that, on dynamic circuits, our method consistently achieves larger reductions than other existing passes including QCP.",
+  "url": "http://arxiv.org/abs/2606.02018v1",
+  "pdf": "https://arxiv.org/pdf/2606.02018v1",
+  "type": "theory",
+  "summary": "This paper introduces Branch-Aware Quantum Constant Propagation (BQCP), a compile-time optimization technique for dynamic quantum circuits. BQCP extends standard constant propagation by explicitly tracking the classical outcomes and resulting quantum states across all possible execution branches. This allows for precise, path-sensitive simplification, leading to significantly optimized circuits compared to methods that ignore classical control flow.",
+  "main_problem": "Improving the efficiency and reliability of quantum circuits running on noisy hardware by performing compile-time optimizations.",
+  "main_result": "The proposed Branch-Aware Quantum Constant Propagation (BQCP) method consistently achieves larger circuit reductions than existing passes, especially on dynamic circuits involving mid-circuit measurements.",
+  "method": "BQCP extends Quantum Constant Propagation (QCP) by tracking the classical information and corresponding post-measurement quantum states across all possible execution branches induced by conditional logic.",
+  "model_or_system": "The analysis targets dynamic quantum circuits operating on an $n$-qubit register $Q$ and a classical register $C$. The state is tracked as an abstract state $B$, which is a finite disjunction of abstract branches, combining classical and quantum information.",
+  "key_observables": "Circuit simplification (reduction in the number of unitary gates, measurements, resets, and conditionals) and the resulting semantically equivalent, optimized circuit.",
+  "important_parameters": "The analysis is controlled by two bounds: $n_{\text{max}}$ (for quantum state representation size) and $b_{\text{max}}$ (for the total number of tracked execution branches).",
+  "main_assumptions": "The analysis relies on bounding the number of branches ($b_{\text{max}}$) and the quantum state representation size ($n_{\text{max}}$) to maintain polynomial time complexity, accepting potential over-approximation when these bounds are hit.",
+  "figures_summary": "Figures illustrate the comparison between an original dynamic circuit and the semantically equivalent, simplified circuit derived using BQCP, demonstrating the removal of redundant operations.",
+  "paper_structure": "The paper introduces the problem of optimizing dynamic circuits, details the BQCP framework by defining abstract state representations for classical and quantum components, and systematically defines transfer functions for measurements, resets, and conditionals to enable sound, path-sensitive simplification rules.",
+  "why_interesting": "This work directly addresses the practical compilation challenges for near-term quantum hardware by providing a rigorous, state-of-the-art optimization pass that accounts for the complex classical control flow inherent in modern quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.02018_figures/2606.02018_fig1.jpg",
+      "caption": "Fig. 1: Dynamic circuit example assuming all qubits are initially in |0⟩and all classical bits are 0: Fig. 1a shows the original circuit, and Fig. 1b shows a semantically equivalent simplified circuit.",
+      "page": 3
+    },
+    {
+      "image": "2606.02018_figures/2606.02018_fig2.jpg",
+      "caption": "Fig. 2: Example of BQCP eliminating an unreachable Toffoli gate: Fig. 2a shows the original circuit, while Fig. 2b shows the simplified circuit. The first two qubits are prepared in the Bell state (|01⟩+ |10⟩)/ √",
+      "page": 6
+    },
+    {
+      "image": "2606.02018_figures/2606.02018_fig3.jpg",
+      "caption": "Fig. 3: Example of a block-local simplification with BQCP: Fig. 3a shows the original circuit, while Fig. 3b shows the corresponding simplified circuit.",
+      "page": 7
+    },
+    {
+      "image": "2606.02018_figures/2606.02018_fig4.jpg",
+      "caption": "Fig. 4: Random circuits: Comparison of the mean number of operations (unitary, measurement, reset, and conditional) for the original unoptimized circuits and the circuits obtained after applying QCP (with nmax = 512) and BQCP (with nmax = 512, bmax = 8), as a function of the size parameter dim. Results are averaged over 10 circuits for each dim.",
+      "page": 9
+    },
+    {
+      "image": "2606.02018_figures/2606.02018_fig5.jpg",
+      "caption": "Fig. 5: Random circuits: Mean execution time and standard deviation of BQCP with nmax = 512 for different values of bmax, over 10 circuits for each dim. Fig. 5a shows the mean execution time, and Fig. 5b shows the standard deviation.",
+      "page": 10
+    }
+  ],
+  "figure": "2606.02018_figures/2606.02018_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

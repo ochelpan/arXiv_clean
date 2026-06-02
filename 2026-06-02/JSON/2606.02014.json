@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.02014",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Lie Algebra-Based Quantum Optimal Controls Interpolation",
+  "authors": "Piero Luchi, Francesco Pederiva",
+  "abstract": "We present a framework combining Lie group theory and feed-forward neural networks to efficiently generate quantum optimal control pulses for arbitrary unitary operations in superconducting qubit systems, bypassing the need for explicit optimization at inference time. The exponential scaling of the Hilbert space dimension with qubit number makes standard optimization approaches computationally prohibitive when large ensembles of distinct propagators must be processed, a bottleneck that is particularly acute in Trotterized quantum simulation. Our method addresses this limitation by pre-computing a representative set of control pulses via Lie group theory and training neural networks to map target propagators to their corresponding pulses. We demonstrate the approach on superconducting qubit systems of 2, 3, and 4 qubits, finding high reconstruction fidelity for specific combinations of Lie algebra parameters. As a physically motivated benchmark, we apply the methodology to reconstruct control pulses for the Trotter propagators of a neutrino system undergoing collective flavor oscillations. The successful generalization across system types demonstrates that a single model -- trained once on hardware-specific random propagators -- can serve as a universal control-pulse generator for any target quantum system of compatible Hilbert space dimension, offering a promising route toward scalable quantum simulation.",
+  "url": "http://arxiv.org/abs/2606.02014v1",
+  "pdf": "https://arxiv.org/pdf/2606.02014v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, scalable method called LA-CPR to generate quantum optimal control pulses for arbitrary unitary operations in superconducting qubits. By mapping the unitary structure onto a Lie algebra and training neural networks, it bypasses the need for computationally expensive optimization at runtime. This allows for the rapid design of control sequences for complex quantum simulations, such as those modeling neutrino oscillations.",
+  "main_problem": "The paper addresses the computational bottleneck in quantum optimal control by developing a method to generate control pulses for arbitrary unitary operations without requiring explicit, time-consuming optimization at inference time.",
+  "main_result": "The proposed Lie Algebra-based Control Pulse Reconstruction (LA-CPR) framework successfully trains neural networks to map target unitaries to their required control pulses, achieving high reconstruction fidelity for systems up to 4 qubits.",
+  "method": "It combines Lie group theory to parameterize the space of target unitaries ($SU(N)$) with feed-forward neural networks trained on a dataset of pre-optimized control pulses to enable fast, non-iterative pulse generation.",
+  "model_or_system": "The study focuses on controlling superconducting qubit systems, modeling the dynamics using Hamiltonians involving drift, interaction, and time-dependent control terms. The underlying mathematical structure is the Lie group $SU(N)$ acting on the $N$-dimensional Hilbert space.",
+  "key_observables": "Reconstruction Fidelity ($F$), Single-qubit von Neumann Entropy ($S_k$), and the control envelopes ($\\Omega_x(t), \\Omega_y(t)$).",
+  "important_parameters": "Number of qubits ($N_q=2, 3, 4$), sampling radius ($z$), and time step ($\\delta t$).",
+  "main_assumptions": "The method assumes that the target unitaries can be effectively sampled from a neighborhood of the identity element within the Lie group, and that the required controls can be approximated by a mapping learned from this sampled data.",
+  "figures_summary": "Figures illustrate the reconstruction fidelity vs. dataset size and sampling radius, and show the reconstructed control field profiles for various qubit numbers and physical applications like neutrino oscillations.",
+  "paper_structure": "The paper first establishes the physical problem (QOC bottleneck), then details the mathematical framework using Lie algebra theory to parameterize the unitary space. It introduces the LA-CPR method involving dataset sampling, NN training, and finally demonstrates its application to complex systems like neutrino flavor oscillations.",
+  "why_interesting": "This work provides a powerful, scalable tool for quantum control, moving beyond iterative optimization methods by leveraging deep learning on the underlying mathematical structure of quantum evolution, which is highly relevant for designing complex quantum circuits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.02014_figures/2606.02014_fig1.jpg",
+      "caption": "FIG. 1: Example of controls ϵ1(t) for different values of the parameters γ1, γ2, γ3 in the generator of SU(2), as shown in the text. Small changes in the parameters lead to small changes in the controls, which is a consequence of the smooth manifold structure of SU(2). In this work this feature is crucial to interpolate between controls.",
+      "page": 5
+    },
+    {
+      "image": "2606.02014_figures/2606.02014_fig2.jpg",
+      "caption": "FIG. 2: Representative example of the control field Ωx(t) reconstructed by the LA-CPR method for a 3-qubit system with z = π/4. Upper panel: time-domain profile of the exact (target) control and its LA-CPR reconstruction; the inset reports the corresponding fidelity. Lower panel: frequency spectra of both signals. The peak at ∼0.03 GHz reflects the qubit–qubit interaction frequencies (see Tab. III); peaks above 1 GHz correspond to individual qubit transition frequencies; the feature near 3 GHz is a second-order harmonic artifact introduced by the optimizer due to the finite temporal discretization of the pulse.",
+      "page": 8
+    },
+    {
+      "image": "2606.02014_figures/2606.02014_fig3.jpg",
+      "caption": "FIG. 3: Average fidelity of the LA-CPR method as a function of the training dataset size, for z = π/8 (left), z = π/4 (center), and z = π/2 (right). Upper row: mean fidelity on the test set versus training dataset dimension, with curves for Nq = 2, 3, 4 qubits; error bars indicate one standard deviation across independent training runs. Lower row: heatmaps of the same data, where each cell reports the mean fidelity ± one standard deviation as a function of the training dataset dimension (102, 103, 104) and the number of qubits (Nq = 2, 3, 4); the color scale spans fidelities from 0 to 1 and provides a direct visualization of the joint dependence on dataset size and system dimension. In all...",
+      "page": 9
+    },
+    {
+      "image": "2606.02014_figures/2606.02014_fig4.jpg",
+      "caption": "FIG. 4: Reconstruction fidelity of the LA-CPR method for the neutrino Trotter propagator Uneutr = e−i δt Hneutr, shown as a function of the time step δt and the number of neutrinos Nn, for z = π/8 (left), z = π/4 (center), and z = π/2 (right). All models are trained on a dataset of 20 000 elements. The fidelity decreases systematically with both δt and z: larger time steps displace the target propagators away from the group identity, while larger values of z broaden the training distribution, both increasing the difficulty of the reconstruction task.",
+      "page": 10
+    },
+    {
+      "image": "2606.02014_figures/2606.02014_fig5.jpg",
+      "caption": "FIG. 5: Single-qubit von Neumann entropy Sk of the output state |ψ⟩= U |ψ0⟩for the exact (solid) and reconstructed (dashed) neutrino propagators, shown for Nn = 2, 3, 4 neutrinos and z = π/8 (top), z = π/4 (middle), and z = π/2 (bottom). The number over the bars represent the differences between them. The exact and reconstructed entropy profiles are in close agreement for small z, while the discrepancy grows with increasing z, mirroring the trend observed in the gate fidelity and confirming that reconstruction accuracy degrades as the training distribution broadens.",
+      "page": 11
+    }
+  ],
+  "figure": "2606.02014_figures/2606.02014_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

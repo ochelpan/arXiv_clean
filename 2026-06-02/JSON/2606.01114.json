@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.01114",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cs.DC",
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": false,
+  "title": "Magnum.np.distributed: Accelerating Finite Difference Micromagnetic Simulations with Multiple GPUs",
+  "authors": "Tsz Chung Cheng, Yuichiro Kurokawa, Hiromi Yuasa",
+  "abstract": "Micromagnetic simulations are essential tools in nanomagnetism and spintronics research. Although widely adopted solvers like Mumax3 and the Python-native magnum.np use GPU acceleration to improve performance, these tools are limited to single-device computation. In this work, we present the first Python-native multi-GPU micromagnetic framework by extending magnum.np with PyTorch Distributed. This leverages high-speed communication and computation across multiple GPUs while retaining the benefits of ease of installation, platform-agnostic design, and compatibility with Python. For computationally intensive demagnetisation effective-field calculations, we achieve a 7.0x speedup across 8 GPUs connected via NVLink, whereas Halo exchange required for Heisenberg exchange shows limited scaling due to kernel dispatch latency. We also demonstrated the framework's versatility by achieving a 6.8x speedup in demagnetisation field computation on CPU with NUMA pinning via the MPI backend of PyTorch Distributed. Faster turnaround times will enable researchers to explore larger, more complex systems and accelerate the design cycle for novel spintronic devices.",
+  "url": "http://arxiv.org/abs/2606.01114v1",
+  "pdf": "https://arxiv.org/pdf/2606.01114v1",
+  "type": "theory",
+  "summary": "This work presents a novel, Python-native, multi-GPU framework built on PyTorch Distributed to accelerate micromagnetic simulations. By efficiently distributing the computational mesh, the authors achieve substantial speedups in calculating critical effective fields like the demagnetization field. This advancement allows researchers to model larger and more complex spintronic devices previously out of reach due to computational limitations.",
+  "main_problem": "The primary goal is to accelerate computationally intensive finite difference micromagnetic simulations, which are essential for studying nanomagnetism and spintronics.",
+  "main_result": "The authors achieved significant speedups, reporting up to a 7.0x acceleration for demagnetization field calculations across 8 GPUs via NVLink, and a 6.8x speedup on CPU using NUMA pinning.",
+  "method": "They extended the Python-native FDM solver `magnum.np` by integrating PyTorch Distributed to enable efficient, multi-GPU computation across sharded simulation meshes.",
+  "model_or_system": "The simulations model micromagnetism using the Landau-Lifshitz-Gilbert (LLG) equation, applied to systems like permalloy magnets and Pt/Gd/Co/Ni stacks.",
+  "key_observables": "Simulation time per iteration step, calculated effective fields (demagnetization, exchange), and magnetization components ($M_z$, in-plane components).",
+  "important_parameters": "The simulation size can reach $23.6$ million cells; performance is benchmarked across various hardware, including H100 GPUs and multi-socket CPUs.",
+  "main_assumptions": "The framework assumes the simulation mesh can be sharded along one axis, and performance scaling is limited by communication overheads like halo exchange latency.",
+  "figures_summary": "Figures illustrate the schematic of the distributed 3D FFT implementation, comparisons of simulated magnetization components for standard problems, and performance scaling plots comparing GPU vs. CPU execution times.",
+  "paper_structure": "The paper details the extension of the solver using PyTorch Distributed, presents performance benchmarks across different effective field calculations (demagnetization, exchange), and validates the results against established solvers like Mumax3.",
+  "why_interesting": "While focused on classical micromagnetics, the core contribution is a highly optimized, portable, and scalable numerical framework using modern deep learning infrastructure (PyTorch Distributed) for solving complex partial differential equations, which is highly relevant for simulating quantum many-body dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.01114_figures/2606.01114_fig1.jpg",
+      "caption": "Figure 1. Schematic diagram of the distributed 3D FFT implementation. The magnetisation is first split along the x-axis using slab decomposition. The magnetisation is padded, and the FFT is computed along the y and x axes. An all-to-all transpose is then performed to shard the vectors along the y-axis, followed by zero-padding and FFT computation along the x-axis. Then, a point-to-point multiplication is performed using the demagnetisation kernel. For the backward pass, the steps are reverted with truncation replacing padding and inverse FFT replacing the forward FFT.",
+      "page": 3
+    },
+    {
+      "image": "2606.01114_figures/2606.01114_fig2.jpg",
+      "caption": "Figure 2. Simulated magnetisation components in the muMAG standard problem 4. The results from Mumax3 and the original non-distributed version of magnum.np were compared with those from the distributed implementation using 8 ranks. The results match both references, validating the implementation of the distributed LLG-RKF45 solver, demagnetisation, and exchange effective field.",
+      "page": 5
+    },
+    {
+      "image": "2606.01114_figures/2606.01114_fig3.jpg",
+      "caption": "Figure 3. Performance (time per iteration) of various effective fields on two single-node NVIDIA H100 Hopper GPU systems: HBM3 (solid lines, 3,352 GB/s/GPU, up to 8 GPUs via NVSwitch) and HBM2e (dashed lines, 2,396 GB/s/GPU, up to 4 GPUs via NVLink). (a) The demagnetisation field is computationally and communication-intensive; performance gains begin at around 106 cells on both systems. Despite the 40% difference in memory bandwidth, both systems exhibit near-identical relative scaling, confirming that speedup is governed by the algorithm’s communication-to-computation ratio. (b) The exchange field requires a halo exchange at each slab boundary. Significant overhead is observed below 106...",
+      "page": 6
+    },
+    {
+      "image": "2606.01114_figures/2606.01114_fig4.jpg",
+      "caption": "Figure 4. Performance (time per iteration) of the demagnetisation field. Non-distributed magum.np was evaluated on a single NVIDIA H100 HBM3 GPU, and a CPU compute node with 2 Intel Xeon Platinum 8490H 60-core CPUs (no NUMA-pinning). The distributed magnum.np implementation enabled NUMA-based pinning to reduce cross-NUMA communication and yielded a significant performance gain at 106 cells, bringing it to within 10 times slower than a single GPU.",
+      "page": 7
+    },
+    {
+      "image": "2606.01114_figures/2606.01114_fig5.jpg",
+      "caption": "Figure 5. A simulated i-DMI inducing multilayer. (a) Mz at the top layer after relaxation via LLG-RKF45 solver. (b) A zoom-in view of (a) with arrows depicting in-plane components. (c) Cross-section across a domain wall where arrows depict the x and z-components. A vortex is formed in the film with weak i-DMI.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.01114_figures/2606.01114_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 1,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.01852",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cs.DC",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Parallelizing Large-Scale Tensor Network Contraction on Multiple GPUs",
+  "authors": "Feng Pan, Hanfeng Gu, Paul Springer, Xipeng Li",
+  "abstract": "Exact tensor network contraction underpins quantum circuit simulation, quantum error correction, combinatorial optimization, and many-body dynamics. The dominant parallelization strategy, slicing, scales exponentially and incurs redundant computation. We present a multi-GPU framework that instead distributes intermediate tensors across devices with explicit communication, converting a fixed contraction path into a communication-efficient schedule via GEMM-oriented mode reordering and communication-aware mode distribution planning. Within a single DGX H100 node (8 GPUs, NVLink), distribution delivers $7$--$173\\times$ extra speedup beyond embarrassingly parallel slicing, capturing nearly all of the available compute reduction (87--101%) because NVLink's high bandwidth keeps communication small relative to compute. Scaling the same four workloads to 1024 H100 GPUs over InfiniBand, the extra speedup beyond slicing ranges from $42\\times$ to $67{,}869\\times$, demonstrating that communication-aware distributed contraction far surpasses slicing-based scaling limits for frontier tensor networks.",
+  "url": "http://arxiv.org/abs/2606.01852v1",
+  "pdf": "https://arxiv.org/pdf/2606.01852v1",
+  "type": "experiment",
+  "summary": "This paper presents a novel, communication-aware multi-GPU framework to accelerate large-scale tensor network contractions, which are vital for quantum simulation. By intelligently reordering modes and distributing intermediate tensors across multiple GPUs, it overcomes the exponential scaling limits of traditional slicing methods. The results demonstrate massive, super-linear speedups, pushing the boundaries of what is computationally feasible for complex quantum systems.",
+  "main_problem": "The core challenge is accelerating exact tensor network (TN) contraction, which is fundamental to simulating quantum circuits and many-body systems, because standard parallelization techniques like slicing are inefficient.",
+  "main_result": "The proposed communication-aware distribution framework achieves massive speedups (up to 67,869x extra speedup over slicing) on large GPU clusters, significantly surpassing the scaling limits of existing methods.",
+  "method": "The authors introduce an offline scheduling strategy involving GEMM-oriented mode reordering and communication-aware mode distribution planning to convert a fixed contraction path into an efficient, overlapping multi-GPU execution schedule.",
+  "model_or_system": "The work focuses on Tensor Networks (TNs) used to model quantum circuits, quantum error correction codes, and many-body dynamics on lattices (e.g., hexagonal, triangular). The implementation utilizes cuTENSORMp on NVIDIA DGX H100 nodes.",
+  "key_observables": "Extra speedup beyond embarrassingly parallel slicing, projected full-contraction time, and complexity reduction ($R_P$).",
+  "important_parameters": "Scaling from 8 GPUs (NVLink) to 1024 GPUs (InfiniBand); the ratio of communication cost to arithmetic computation cost.",
+  "main_assumptions": "The framework assumes an existing, fixed binary contraction path from an upstream optimizer, and the performance is limited by the interconnect bandwidth (communication).",
+  "figures_summary": "Figures illustrate the theoretical complexity reduction across various workloads versus GPU count, and detail the end-to-end workflow from a fixed path to the annotated, overlapping execution schedule.",
+  "paper_structure": "The paper details the limitations of slicing, proposes the two-stage offline planning (reordering and distribution planning), describes the runtime execution via cuTENSORMp, and validates the method through extensive scaling benchmarks on both single and multi-node hardware.",
+  "why_interesting": "This work provides a critical computational tool for simulating complex quantum many-body systems by efficiently managing the massive data movement inherent in tensor network contractions, directly impacting the feasibility of large-scale quantum simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.01852_figures/2606.01852_fig1.jpg",
+      "caption": "Fig. 1. Theoretical complexity reduction from distributing intermediate tensors across GPUs for six workloads: (a) quantum circuit simulation (Zuchongzhi n60m24), (b) exact QEC decoding (distance-7 rotated surface code), (c) independent-set enumeration on King’s subgraphs, and many-body dynamics on (d) rectangular, (e) hexagonal, and (f) triangular lattices. Red curves show log10(total FLOPs); blue curves show the number of sliced indices. In all cases, contraction cost drops rapidly—often close to exponentially—as more GPUs contribute shared memory. Many-body panels show mean ± std over 15 independent path-finding runs.",
+      "page": 5
+    },
+    {
+      "image": "2606.01852_figures/2606.01852_fig2.jpg",
+      "caption": "Fig. 2. End-to-end workflow. The offline planner takes a fixed contraction path and applies two transformations: mode reordering produces GEMM- ready tensor layouts via lifetime ordering, and distribution planning selects distributed modes and redistribution points via DP search. The resulting annotated schedule is replayed at runtime by the cuTENSORMp executor with compute–communication overlap.",
+      "page": 6
+    },
+    {
+      "image": "2606.01852_figures/2606.01852_fig3.jpg",
+      "caption": "Fig. 4. Slicing vs. distribution. (a) Slicing fixes indices to create independent sub-tasks with no communication but redundant computation. (b) Distribution partitions a single tensor across GPUs, reducing total FLOPs at the cost of communication that our planner minimizes.",
+      "page": 7
+    },
+    {
+      "image": "2606.01852_figures/2606.01852_fig4.jpg",
+      "caption": "Fig. 3. GEMM-oriented mode reordering on a two-step subtree. Dashed edges show connections to the rest of the contraction tree. Panel A: arbitrary local orders plus the downstream request I5 = gahe. Panel B: the backward pass visits step 2 and then step 1; at each visit, each input is rebuilt as “shared modes in consumer order, then modes reduced here.” Panel C: the resulting tree has [retained | reduced] operand layouts (dashed split line), with modes shaded by remaining lifetime and reduction status. The output I4 interleaves modes from I1 and I2 by lifetime, so step 2 can use I4 as [retained | reduced] without a transpose.",
+      "page": 7
+    },
+    {
+      "image": "2606.01852_figures/2606.01852_fig5.jpg",
+      "caption": "Fig. 5. DP redistribution-point selection for the Zuchongzhi n60m24 bench- mark on 8 H100 GPUs. The shaded area shows the distributed tensor’s output size along the use-chain. Blue dots are equations where distributed modes are kept (no communication); red diamonds mark DP-chosen redistributions. The DP avoids redistributing on the 256 GB plateau, instead concentrating transfers in the valley and at local minima of the second peak.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.01852_figures/2606.01852_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

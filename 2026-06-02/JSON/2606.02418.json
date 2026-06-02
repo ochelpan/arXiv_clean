@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.02418",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Evolutionary Discovery of Bivariate Bicycle Codes with LLM-Guided Search",
+  "authors": "Juan Cruz-Benito, Andrew W. Cross, David Kremer, Ismael Faro",
+  "abstract": "Quantum LDPC code discovery requires searching large algebraic design spaces while reliably certifying the parameters and equivalence classes of any candidates found. We introduce an LLM-guided evolutionary workflow in which language models mutate Python programs that generate bivariate-bicycle and perturbed bivariate-bicycle code ansätze. Across five campaigns, the system performed approximately 1{,}650 evolutionary iterations, screened about $2 \\times 10^5$ candidate codes, and required ${\\sim}140$ hours of computation and ${\\sim}$US\\$400 in LLM inference cost. Candidate codes are evaluated through a staged validation pipeline combining $\\mathrm{GF}(2)$ rank computation, distance estimation and certification, mixed-integer linear programming, BLISS Tanner-graph deduplication, decomposability analysis, and local-Clifford equivalence checks. At block length $n \\leq 360$, the workflow identifies 465 distinct candidate codes: 97 CSS bivariate-bicycle codes and 368 non-CSS perturbed variants. The CSS search recovers known high-performing codes and finds new finite-length representatives, including an indecomposable [[288,16,12]] code and higher-weight codes with up to $k = 50$ at distance $d = 8$. The non-CSS search produces perturbed codes matching the gross-code figure of merit at [[144,12,12]], along with additional high-distance candidates reported as certified values or upper bounds according to MILP status. Overall, these results show that LLM-guided program evolution can serve as a practical tool for structured quantum-code discovery when paired with independent evaluation.",
+  "url": "http://arxiv.org/abs/2606.02418v1",
+  "pdf": "https://arxiv.org/pdf/2606.02418v1",
+  "type": "theory",
+  "summary": "This paper introduces an LLM-guided evolutionary search method to discover new and high-performing quantum LDPC codes, specifically Bivariate Bicycle variants. By combining generative AI with rigorous mathematical verification (like MILP), the authors efficiently explore massive code design spaces. The results confirm that this AI-assisted approach is a powerful, practical tool for advancing quantum error correction theory.",
+  "main_problem": "The core challenge is the systematic and reliable discovery of high-performing quantum Low-Density Parity-Check (qLDPC) codes within vast algebraic design spaces.",
+  "main_result": "The LLM-guided evolutionary workflow successfully identified 465 distinct candidate codes, including new representatives and demonstrating that the method is a practical tool for structured quantum-code discovery.",
+  "method": "The authors employed an LLM-guided evolutionary workflow where language models mutate Python programs generating code ansätze, followed by a rigorous, multi-stage validation pipeline including MILP and graph theory checks.",
+  "model_or_system": "The focus is on Bivariate Bicycle (BB) and perturbed Bivariate Bicycle (PBB) quantum error-correcting codes, which are defined by polynomial structures over finite fields, suitable for near-term fault-tolerant quantum computing.",
+  "key_observables": "Code parameters ($n, k, d$), Figure of Merit (FOM = $kd^2/n$), and error rates (LER, $p_L$) under various noise models.",
+  "important_parameters": "Block length $n \\le 360$, noise probability $p$ (e.g., up to 8%), and the computational cost ($\\sim 140$ hours, $\\sim$US\\$400).",
+  "main_assumptions": "The reported LERs are lower bounds on the optimal depolarizing threshold, and the comparison between CSS and PBB codes is noted to be decoder-dependent.",
+  "figures_summary": "The figures summarize code parameters, performance metrics (FOM, LER), and comparison of simulation bounds versus exact MILP distances across various noise channels.",
+  "paper_structure": "The paper establishes the need for better code discovery methods, introduces the LLM-guided evolutionary framework, details the staged validation pipeline (from rank computation to MILP), and concludes with performance comparisons under noise models.",
+  "why_interesting": "The integration of large language models into the highly structured, combinatorial search space of quantum error correction codes represents a novel computational paradigm for theoretical quantum information science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.02418_figures/2606.02418_fig1.jpg",
+      "caption": "FIG. 1. Evolution pipeline. An LLM proposes diffs to a seed generator ansatz G(ℓ, m); each mutant is screened by a multi- stage cascade (Stage 1: k-only, Stage 2: BP-OSD distance) and inserted into a MAP-Elites archive that feeds back con- text to the LLM. Campaigns 4–5 add in-loop MILP exact dis- tance (Stage 3, added in response to BP-OSD overestimation discovered in Campaigns 1–3; see Sec. VI E); Campaigns 1–3 use post-hoc MILP (dashed bypass). Post-campaign verifica- tion (MILP distance computation →BLISS deduplication → Tanner-graph decomposability →LC equivalence for PBB) ensures all reported codes are genuine.",
+      "page": 5
+    },
+    {
+      "image": "2606.02418_figures/2606.02418_fig2.jpg",
+      "caption": "FIG. 2. Rate–distance landscape across all five campaigns. Left panels: k vs. d with Pareto frontier (dashed). Right panels: FOM = kd2/n vs. block length. Top: 97 CSS codes (weight-6 and weight-8); bottom: 368 non-CSS PBB codes. Red markers: Bravyi et al. [2] baselines; dotted line: FOM = 12 (gross code). The [[288, 24, 12]] (d = 12, k = 24) is a direct sum of two gross codes (Sec. VI A); the highest-k indecomposable code at d = 12 is [[288, 16, 12]] (k = 16). Among weight-6 codes, k > 24 implies d ≤4; weight-8 codes reach k = 50 at d = 8; non-CSS codes occupy the same envelope.",
+      "page": 12
+    },
+    {
+      "image": "2606.02418_figures/2606.02418_fig3.jpg",
+      "caption": "FIG. 4. Distance revisions across 154 Campaigns 1–3 poly- nomial representations. 147 (95.5%) had bounds tightened under the 150k-trial multi-decoder protocol, with mean reduc- tion ∼8.4 points. Even tightened bounds remain gross over- estimates: MILP reveals dtrue = 2 for codes with dBP ≤24.",
+      "page": 14
+    },
+    {
+      "image": "2606.02418_figures/2606.02418_fig4.jpg",
+      "caption": "FIG. 3. Block logical error rate vs. physical bit-flip rate p for six CSS and four non-CSS codes (100,000 shots per rate, BP-OSD with OSD-CS order 7). Dashed line: LER = p. Weight-6 codes with d ≥12 achieve LER < p through p ≈5%; the PBB [[360, 12, ≤24]] and [[72, 4, 8]] achieve LER < 1% at p = 8%. The weight-8 [[288, 50, 8]] (d = 8, k = 50) crosses LER = p between p = 2% and 3%, illustrating the rate– distance tradeoff.",
+      "page": 14
+    },
+    {
+      "image": "2606.02418_figures/2606.02418_fig5.jpg",
+      "caption": "FIG. 1. Per-batch distance distributions under the 150,000-trial multi-decoder protocol. Red dashed lines show the global minimum across all 30 batches. The gross code (k = 12) is perfectly stable; all four higher-k codes show inter-batch variance. The three evolution-highlighted codes (dMILP = 2, 4, 6) show dramatic overestimation; even the [[288, 24, 12]] (dMILP = 12; a direct sum of two gross codes) has OSD0 medians ≈2.4× the true distance, with only 2 of 30 batches finding the exact value.",
+      "page": 26
+    }
+  ],
+  "figure": "2606.02418_figures/2606.02418_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

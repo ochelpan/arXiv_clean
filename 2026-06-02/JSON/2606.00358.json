@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2606.00358",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Software-based compensation of AC-line-induced control errors in qubits and qudits",
+  "authors": "Gaurav A. Tathed, Nicholas C. F. Zutt, Collin J. C. Epstein, Crystal Senko",
+  "abstract": "AC mains power line-synchronous disturbances are a common source of coherent, time-dependent error in precision quantum-control experiments. We show that when these disturbances are reproducible with respect to the mains phase, their effect can be measured in a line-triggered frame and compensated through software updates to control sequences. In our system, the disturbances manifest as magnetic-field-induced shifts in the energy level structure of a trapped $^{137}\\text{Ba}^+$ ion, resulting in time-dependent detunings between the ion transitions and a local oscillator, as well as additional phases accumulated on superpositions of energy levels. We demonstrate a compensation protocol that corrects for the instantaneous oscillator detuning during control pulses, and for the phase accumulated by the energy levels between pulses. The calibrated AC line contribution to the detuning is reduced by $21(9)\\times$, while the fitted AC phase amplitude is reduced below the measurement uncertainty. We then study gate performance on a magnetic-field-sensitive qubit and find that uncompensated mains-synchronous errors produce time-dependent fluctuations that make the usual randomized-benchmarking decay model unreliable. With compensation enabled, these fluctuations are suppressed sufficiently to recover a standard benchmarking decay and extract an average gate fidelity of $99.93(1)\\%$. Finally, we extend the framework to multilevel qudit control and apply it to a single-qudit Bernstein-Vazirani algorithm, where AC compensation increases the success probability on a 16-level qudit from $10(7)\\%$ to $70(9)\\%$. These results show that reproducible line-synchronous noise can be treated as a calibrated control-frame error and corrected without additional hardware.",
+  "url": "http://arxiv.org/abs/2606.00358v1",
+  "pdf": "https://arxiv.org/pdf/2606.00358v1",
+  "type": "experiment",
+  "summary": "This paper presents a novel, software-only technique to compensate for systematic errors induced by the AC mains power line in trapped-ion quantum computing. By precisely measuring the line-synchronous detuning and phase accumulation, the authors update control pulses to cancel these deterministic errors. This results in substantial improvements in gate fidelity and the successful execution of complex qudit algorithms.",
+  "main_problem": "AC mains power line-synchronous disturbances introduce coherent, time-dependent errors (detuning and phase) into precision quantum control experiments, degrading gate fidelity.",
+  "main_result": "A software-based compensation protocol successfully mitigates these errors, recovering high gate fidelities (99.93%) and significantly boosting the success probability for qudit algorithms (e.g., 10% to 70%).",
+  "method": "The authors measure the line-synchronous error components (detuning and phase) in a line-triggered frame and update the control pulse sequences accordingly to cancel the deterministic error contribution.",
+  "model_or_system": "The experiment uses a trapped $^{137}\text{Ba}^+$ ion as a quantum system, controlling transitions in both qubit and multilevel qudit regimes. The error is modeled as a time-dependent magnetic-field-induced shift in energy levels.",
+  "key_observables": "Average gate fidelity ($F_{avg}$), success probability ($\text{P}_{\text{succ}}$) for algorithms like Bernstein-Vazirani, residual detuning ($\\delta\\omega(t)$), and accumulated phase ($\\Phi_{AC}(t)$).",
+  "important_parameters": "The compensation reduces the calibrated AC line contribution to detuning by factors up to $21(9)\times$, and the phase residual by $90\times$.",
+  "main_assumptions": "The method assumes the noise perturbation is reproducible with respect to the mains electrical phase, allowing for deterministic calibration.",
+  "figures_summary": "Figures illustrate the compensation protocol, showing the required detuning and phase corrections, and compare gate performance (e.g., Randomized Benchmarking decay or qudit success probability) with and without compensation enabled.",
+  "paper_structure": "The paper first identifies the problem of line-synchronous noise, details the measurement of detuning and phase using line-triggered Ramsey sequences, develops the software compensation protocol for both detuning and phase, and finally validates the method by testing gate fidelity via RB and algorithmic performance on qudits.",
+  "why_interesting": "This work provides a crucial, non-hardware-intensive method for error mitigation in trapped-ion quantum computing, directly addressing a major source of systematic noise that limits scalability.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.00358_figures/2606.00358_fig1.jpg",
+      "caption": "FIG. 1. Compensation protocol and AC line-synchronous magnetic-field reproducibility. (a) Control sequence starting at the line-trigger time origin. All pulse frequencies and phases are programmed relative to a common waveform start, with pulse j applied at time tj. (b) Example line-synchronous magnetic-field perturbation ∆B(t) (at purely 60 Hz) in the line-trigger- referenced time coordinate. (c) Corresponding transition frequency detuning and programmed laser frequency. For pulse j, the applied frequency offset is chosen to match the instantaneous detuning, ∆ω(comp) j = δω(tj), as indicated by the vertical arrow. (d) Phase accumulated by the qubit, ΦAC(t), due to the line-synchronous...",
+      "page": 3
+    },
+    {
+      "image": "2606.00358_figures/2606.00358_fig2.jpg",
+      "caption": "FIG. 2. Experimental measurement and compensation of AC line-synchronous detuning and phase errors. (a) Pulse sequence used to measure the instantaneous AC line-synchronous detuning. Each shot is synchronized to the line trigger, followed by a variable trigger delay TLT, and then a fixed-time Ramsey experiment. The analyzer phase is varied to extract the transition detuning at the selected trigger delay. (b) Measured detuning versus TLT with compensation disabled and enabled. The trigger delay is scanned over one full period of the line signal to reconstruct the detuning throughout the AC cycle. Without compensation, the fitted detuning follows the calibrated AC line signal, shown by the...",
+      "page": 5
+    },
+    {
+      "image": "2606.00358_figures/2606.00358_fig3.jpg",
+      "caption": "FIG. 3. Haar-randomized benchmarking of magnetic-field-sensitive and magnetic-field-insensitive optical transitions with and without AC line-synchronous compensation. (a) Randomized benchmarking with compensation disabled. The magnetic- field-sensitive transition, with sensitivity κ ≈3.2 MHz/G, exhibits large sequence-dependent fluctuations and cannot be well described by the zeroth-order randomized-benchmarking decay model, indicating coherent errors from uncompensated line- synchronous detuning during the random sequences. The comparatively magnetic-field-insensitive transition, with sensitivity approximately 40 Hz/G, is less affected and gives a fitted average fidelity of Favg =...",
+      "page": 8
+    },
+    {
+      "image": "2606.00358_figures/2606.00358_fig4.jpg",
+      "caption": "FIG. 4. Qudit Bernstein–Vazirani algorithm performance with and without line-synchronous compensation. (a) Measured output distribution for a d = 16 qudit Bernstein–Vazirani experiment with AC line-synchronous compensation disabled. The probability is broadly distributed over incorrect measured values, giving an average success probability of Psucc = 10(7)%. (b) Output distribution for the same d = 16 experiment with AC line-synchronous compensation enabled. The population is concentrated along the diagonal, where the measured value equals the hidden value, increasing the success probability to Psucc = 70(9)%. The color scale in panels (a) and (b) denotes the measured probability in...",
+      "page": 9
+    }
+  ],
+  "figure": "2606.00358_figures/2606.00358_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

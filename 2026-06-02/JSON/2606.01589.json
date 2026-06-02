@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.01589",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Towards Heisenberg Scaling: Measurement-Efficient Non-Orthogonal Quantum Eigensolver",
+  "authors": "Hang Ren, Yipei Zhang, Thilo Scharnhorst, K. Birgitta Whaley",
+  "abstract": "The Non-Orthogonal Quantum Eigensolver (NOQE) provides an accurate framework for electronic-structure calculations, but the estimation of its Hamiltonian and overlap matrix elements relies on sampling and requires $O(1/\\varepsilon^2)$ circuit repetitions to achieve additive precision $\\varepsilon$. Here, we reformulate this matrix-element estimation step as a collection of amplitude-estimation tasks and integrate iterative quantum amplitude estimation into the NOQE workflow. The resulting protocol achieves near-Heisenberg query complexity $O(1/\\varepsilon)$ for these estimation tasks, by replacing incoherent statistical averaging with coherent amplitude amplification. We present explicit circuit constructions and the corresponding implementation procedure. Numerical simulations for the electronic states of the hydrogen molecule show that the proposed method reaches chemical accuracy with substantially fewer total queries than the original sampling-based protocol. Overall, this work provides a measurement-efficient route to high-precision energy estimation and illustrates how sampling-limited quantum algorithms can be systematically reformulated to leverage quantum coherence and achieve lower measurement costs.",
+  "url": "http://arxiv.org/abs/2606.01589v1",
+  "pdf": "https://arxiv.org/pdf/2606.01589v1",
+  "type": "theory",
+  "summary": "This paper addresses the measurement bottleneck in the Non-Orthogonal Quantum Eigensolver (NOQE) by replacing inefficient sampling with Iterative Quantum Amplitude Estimation (IQAE). By reformulating matrix element estimation as amplitude estimation, the authors achieve a significant reduction in query complexity from $O(1/\\epsilon^2)$ to $\tilde{O}(1/\\epsilon)$. This demonstrates a general principle for making quantum algorithms more measurement-efficient.",
+  "main_problem": "The primary challenge is improving the measurement-limited scaling of the Non-Orthogonal Quantum Eigensolver (NOQE) used for electronic structure calculations.",
+  "main_result": "The authors propose an IQAE–NOQE protocol that replaces sampling-based estimation with coherent amplitude amplification, achieving a near-Heisenberg query complexity of O(1/epsilon).",
+  "method": "The method reformulates matrix element estimation as amplitude estimation tasks and integrates Iterative Quantum Amplitude Estimation (IQAE) into the NOQE workflow.",
+  "model_or_system": "The work applies to electronic structure calculations, specifically estimating the Hamiltonian and overlap matrices for molecular systems like the hydrogen molecule ($\text{H}_2$).",
+  "key_observables": "Electronic energies, Overlap matrix elements ($S_{ij}$), and Hamiltonian matrix elements ($H_{ij}$).",
+  "important_parameters": "Target additive precision $\\epsilon$, and the scaling improvement from $O(1/\\epsilon^2)$ to $\tilde{O}(1/\\epsilon)$.",
+  "main_assumptions": "The original NOQE method's cost is dominated by sampling-based measurement, which the IQAE approach systematically reformulates to leverage quantum coherence.",
+  "figures_summary": "Figures compare the resource scaling, showing the quadratic improvement in query complexity from the original sampling method to the proposed IQAE method, and demonstrate energy convergence for $\text{H}_2$.",
+  "paper_structure": "The paper first identifies the $O(1/\\epsilon^2)$ bottleneck in NOQE, then introduces IQAE to map estimation to amplitude estimation, details the circuit construction for both overlap and Hamiltonian terms, and concludes with numerical simulations comparing the resource efficiency.",
+  "why_interesting": "This work provides a concrete example of how to systematically improve the resource scaling of a quantum algorithm by replacing statistical averaging with coherent quantum techniques, which is a major theme in quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.01589_figures/2606.01589_fig1.jpg",
+      "caption": "Figure 1: Circuit diagram of the original NOQE method [1], modified to absorb the basis rotations into the ansatz operators eˆτi(j) (see text). Two N-qubit non-orthogonal ansatz states, |ψi⟩and |ψj⟩, are prepared and combined using controlled operations to enable modified Hadamard tests that measure Hij and Sij. After measuring these matrix elements, one solves the generalized eigenvalue problem (Eq. 2) to obtain the electronic energies. This circuit requires 2N + 1 qubits. A more compact version using N +1 physical qubits and requiring longer circuits was also presented in Ref. [1].",
+      "page": 2
+    },
+    {
+      "image": "2606.01589_figures/2606.01589_fig2.jpg",
+      "caption": "Figure 2: Overview of the NOQE and IQAE–NOQE workflows. (a.1) In the original NOQE protocol, non-orthogonal ansatz states |ψi⟩= eˆτi |ψUHF⟩are prepared and the overlap and Hamiltonian matrix elements between these states are estimated via statistical sampling, leading to a measurement cost scaling as O(1/ε2). (a.2) In IQAE–NOQE, the same matrix elements are coherently encoded as amplitudes of a quantum state A |0n⟩, with A constructed from state-preparation unitaries, and are estimated using iterative quantum amplitude estimation, achieving a near-Heisenberg scaling of ˜O(1/ε). (b) The estimated overlap and Hamiltonian matrices are assembled. (c) Solving the resulting generalized eigenvalue...",
+      "page": 7
+    },
+    {
+      "image": "2606.01589_figures/2606.01589_fig3.jpg",
+      "caption": "Figure 3: Circuit structure for IQAE–NOQE. (a) Standard IQAE setting, where an operator A prepares a state encoding the target amplitude, followed by repeated applications of the Grover operator Qk and measurement. (b) Construction of the state-preparation operator A for NOQE matrix-element estimation. Here A is built from the NOQE ansatz-state preparation and auxiliary unitaries, typically of the form V eˆτi e−ˆτj V †, such that the desired overlap or Hamiltonian matrix element is encoded into the measurement probability. (c) Definition of the Grover operator Q = A CZ A† CZ, which amplifies the encoded amplitude and enables near-Heisenberg scaling in the estimation of matrix elements. Here...",
+      "page": 7
+    },
+    {
+      "image": "2606.01589_figures/2606.01589_fig4.jpg",
+      "caption": "Figure 4: Conceptual resource comparison between the original sampling-based NOQE and IQAE–NOQE. In the original NOQE protocol, each circuit execution uses the ansatz state-preparation blocks eˆτi(j) for the two ansatz states i(j) once, including their correlation operators and basis-rotation blocks. These can be viewed as having a reference circuit depth D = O(1). The matrix elements are then estimated by repeated sampling. Reaching additive precision ε requires R = O(1/ε2) repetitions, giving QNOQE = 1 × R = O(1/ε2) total queries. In IQAE–NOQE, the estimation is performed using a sequence of circuits with different Grover depths D1, D2, . . . , Dmax, where Dmax = O(1/ε). If the circuit at...",
+      "page": 8
+    },
+    {
+      "image": "2606.01589_figures/2606.01589_fig5.jpg",
+      "caption": "Figure 5: Cumulative total query count Qtotal as a function of the IQAE iteration index t for the full H2 numerical experiment. Here Qtotal(t) denotes the accumulated number of IQAE queries up to iteration t, summed over all IQAE subroutines entering the overlap and Hamiltonian matrix reconstruction, rather than the query count for a single matrix element. At each iteration index t, we report the median cumulative query count across the trials that reached iteration t, and the error bars denote the interquartile range (25%–75%). The plot ends at t = 7 because no trial in this set of experiments required more than seven IQAE iterations, demonstrating a stable and reproducible stopping...",
+      "page": 9
+    }
+  ],
+  "figure": "2606.01589_figures/2606.01589_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

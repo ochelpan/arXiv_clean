@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.00932",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning with Active Quantum Subspaces: Scalable Hybrid Advantage without Full Quantum Data-Encoding",
+  "authors": "Jeongho Bang, Wooyeong Song, Kyoungho Cho, Taewan Kim, Yongsoo Hwang",
+  "abstract": "We study whether quantum learning advantage can persist without fully embedding a large classical input into a highly superposed quantum state. To address this question, we introduce active quantum subspace data-encoding, in which only an information-bearing subset of the input is lifted to a quantum representation while the remaining variables stay classical. For this model, we define a projected hybrid readout and prove three structural results. First, the projected hybrid kernel is positive semidefinite and its sample regularized dimension is bounded by the number of projected observables, so the dimension blow-up of naive global kernels is avoided. Second, we give a necessary and sufficient criterion for improvement over a purely classical predictor in squared loss: the projected quantum sector must contain a direction that lies outside the classical feature span and correlates with the classical residual. Third, in a realizable noisy-oracle setting, we derive a PAC sample-complexity bound proportional to the inverse square of the oracle reliability. We then show, for a canonical Clifford active-subspace family under local dephasing noise, that this reliability can remain inverse-polynomial even when the encoding gate complexity grows polynomially with system size. Hence, the polynomial encoding cost does not by itself destroy the hybrid learning advantage. A sixty-four-qubit family and a synthetic contextual classification task illustrate how one projected quantum feature can compress a useful high-order interaction into a low-dimensional hybrid model. Our results generalize QRAM-free hybrid learning and provide a scalable route toward NISQ-compatible quantum advantage without full quantum data-encoding.",
+  "url": "http://arxiv.org/abs/2606.00932v1",
+  "pdf": "https://arxiv.org/pdf/2606.00932v1",
+  "type": "theory",
+  "summary": "This work proposes 'active quantum subspace data-encoding' to achieve quantum machine learning advantage by only encoding the most informative parts of a large classical input into a quantum state. The authors prove that this approach avoids the exponential resource scaling of full quantum encoding while maintaining statistically efficient learning guarantees. This offers a scalable, NISQ-compatible pathway for quantum advantage.",
+  "main_problem": "Investigating whether quantum learning advantage can be achieved scalably without fully encoding large classical inputs into highly superposed quantum states.",
+  "main_result": "The authors prove that a scalable hybrid advantage can be maintained by using active quantum subspace data-encoding, which keeps the quantum contribution low-dimensional and polynomially costly.",
+  "method": "They introduce Active Quantum Subspace Data-Encoding (AQSE) and derive structural results concerning the projected hybrid kernel, the necessary conditions for quantum improvement, and PAC sample-complexity bounds.",
+  "model_or_system": "The model involves partitioning an input $\\mathbf{x}$ into a classical part $\\mathbf{x}_C$ and an active quantum part $\\mathbf{x}_Q$, encoding the quantum information using a polynomial-cost gate sequence on a subset of qubits.",
+  "key_observables": "Projected hybrid kernel, projected quantum feature map $\\Phi_Q(x)$, oracle reliability $\beta(x)$, and sample complexity $N$.",
+  "important_parameters": "The number of projected observables ($M$), the oracle reliability ($\beta$), and the polynomial scaling of the encoding gate complexity ($G_{enc}(n) = \text{poly}(n)$).",
+  "main_assumptions": "The analysis relies on the projected hybrid kernel being positive semidefinite and the existence of a direction in the quantum sector orthogonal to the classical span that correlates with the residual error.",
+  "figures_summary": "Figures illustrate the comparison between full data quantumization and active subspace encoding, showing the projected model's superior performance and controlled effective degrees of freedom compared to global kernels.",
+  "paper_structure": "The paper builds theoretically by defining the AQSE model, proving structural properties of the resulting kernel (Theorem 1), establishing the necessary and sufficient condition for quantum advantage (Theorem 2), and finally deriving the PAC sample-complexity bounds under noise (Theorem 3).",
+  "why_interesting": "It provides a concrete, theoretically bounded framework for achieving quantum advantage in machine learning that is directly relevant to near-term, resource-constrained quantum hardware (NISQ).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.00932_figures/2606.00932_fig1.jpg",
+      "caption": "FIG. 1. Two views of data encoding for hybrid quantum learning. In a full quantum data-encoding approach, one attempts to load all relevant structure of the classical input into a quantum state and then process it with a global quantum model. In the active-quantum-subspace data- encoding approach proposed here, the input is split into a classical part xC and a selectively quantum-encoded part xQ. Only the information- bearing subset is lifted into a coherent quantum sector, while the remaining variables stay classical. The projected readout keeps the quantum contribution low-dimensional and statistically controlled. The main analytical question of this paper is when one can simultaneously...",
+      "page": 2
+    },
+    {
+      "image": "2606.00932_figures/2606.00932_fig2.jpg",
+      "caption": "FIG. 2. Sixty-four-qubit toy family. Panel (a) shows the architecture of Eq. (82): qubits 1–6 are the active phase qubits, qubits 7 and 8 are the informative context bits, and the remaining 56 qubits stay on the classical path at data loading while still being available to the fixed Clifford block ˆV64. Panels (b) and (c) show two-dimensional slices of the exact projected feature q(x) for the two parities (−1)b7+b8 = ±1 after fixing ϕ3 = ϕ6 = π/2 and ϕ4 = ϕ5 = 0. Thus the familiar cos ϕ1 cos ϕ2 pattern survives as a visible slice of a much larger active-subspace model.",
+      "page": 11
+    },
+    {
+      "image": "2606.00932_figures/2606.00932_fig3.jpg",
+      "caption": "FIG. 3. Benchmark numerics for the 64-qubit toy family. Panel (a) shows clean-test accuracy versus the number of training samples N under 10% symmetric label noise. The low-order classical baselines remain near chance. An exact degree-eight interaction-only baseline on the selected 14 variables becomes nontrivial but still remains well below the hybrid projected model, which reaches essentially perfect accuracy by N = 640. Panel (b) reports the explicit feature dimensions. The exact degree-eight selected family uses 3003 features, while the cumulative interaction-only family up to degree 8 would use 12,910; Appendix E records both counts.",
+      "page": 12
+    },
+    {
+      "image": "2606.00932_figures/2606.00932_fig4.jpg",
+      "caption": "FIG. 4. Residual screening for candidate active subspaces. Panel (a) plots the finite-sample screening score from Proposition A.2 against the independent test-risk gain obtained by adding the corresponding candidate feature to the classical regressor. Each point is a candidate 4-subset from an eight-generator family; colors indicate its overlap with the true active support, and the exact support is marked explicitly. Panel (b) shows the distribution of the screening scores versus support overlap. Across the runs used here, the mean Pearson correlation between the screening score and the observed test-risk gain is 0.984, and the exact support is selected as the top-scoring candidate in every...",
+      "page": 12
+    },
+    {
+      "image": "2606.00932_figures/2606.00932_fig5.jpg",
+      "caption": "FIG. 5. Noise scaling and the β−2 0 sample demand. Panel (a) shows clean-test accuracy for several (a, Λ) pairs after rescaling the horizontal axis by Nβ2 0, where β0 = Λca 0 is the oracle reliability floor. The learning curves nearly collapse after this rescaling. Panel (b) reports the sample size N95 needed to reach 95% clean accuracy versus β−2 0 ; the fitted line is approximately linear in β−2 0 , in agreement with Theorem 3.",
+      "page": 13
+    }
+  ],
+  "figure": "2606.00932_figures/2606.00932_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "2606.02235",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Optimized Point Addition Circuits for Elliptic Curve Discrete Logarithms",
+  "authors": "André Schrottenloher",
+  "abstract": "Shor's algorithm represents the main threat of quantum computers to cryptography. In order to precisely understand its feasibility, many authors have worked towards reducing its costs, either at the logical level (assuming a fault-tolerant architecture), or at the physical level (taking into account the constraints of envisioned hardware). In particular, recent works by Chevignard et al. (CRYPTO 2024) and Gidney (arXiv 2025) used improved arithmetic to significantly reduce the qubit cost of factoring RSA public keys.   Even more recently, Babbush et al. (arXiv 2026) improved the cost of computing elliptic curve discrete logarithms, with a reduction of a factor 2 to 3 in gate count and qubit count compared to a previous work by Litinski (arXiv 2023). Their result relies on optimized point addition circuits on elliptic curves over prime fields. However they did not reveal their logical quantum circuits, relying instead on a zero-knowledge proof.   In this paper, we detail a quantum logical circuit architecture which gives similar results as Babbush et al., with a slightly higher number of qubits (around 1.5% increase) and a slightly smaller Toffoli gate count (between 6.5% and 10% reduction) for the curve secp256k1. We also give gate counts for a generic variant of the circuit, which is valid for any prime field.",
+  "url": "http://arxiv.org/abs/2606.02235v1",
+  "pdf": "https://arxiv.org/pdf/2606.02235v1",
+  "type": "theory",
+  "summary": "This paper presents an optimized quantum logical circuit architecture for performing point addition on elliptic curves, a critical subroutine for breaking discrete logarithm cryptography via Shor's algorithm. By redesigning the underlying modular arithmetic using a space-efficient, two-stage EEA approach, the authors achieve resource costs comparable to the best published results. This work provides a detailed blueprint for implementing complex quantum algorithms on near-term or fault-tolerant quantum hardware.",
+  "main_problem": "The primary goal is to reduce the quantum resource cost (qubit and gate count) required to compute elliptic curve discrete logarithms, which is a major threat posed by Shor's algorithm to modern cryptography.",
+  "main_result": "The authors detail a quantum logical circuit architecture for point addition that achieves results comparable to recent state-of-the-art work, offering a slight reduction in Toffoli gates compared to previous methods.",
+  "method": "The optimization involves implementing the Extended Euclidean Algorithm (EEA) in a two-step process: an Euclidean algorithm circuit followed by a Bézout reconstruction circuit to enable in-place modular multiplication.",
+  "model_or_system": "The model is a quantum circuit designed for point addition on elliptic curves over prime fields, specifically targeting the secp256k1 curve. The circuits operate at the logical level, abstracting away error correction details.",
+  "key_observables": "Qubit count, Toffoli gate count (CCX, CCZ, And gates), and the total resource cost for running Shor's algorithm.",
+  "important_parameters": "The bit-size of the curve (e.g., 256 bits), the failure probability (stated to be at most $2^{-13.3}$), and the asymptotic space complexity ($\\approx 4.355n + O(\\sqrt{n})$ qubits).",
+  "main_assumptions": "The circuits are not exact and include a failure probability. The analysis often relies on approximations, such as using only the most significant bits (MSBs) for modular arithmetic steps.",
+  "figures_summary": "Table 1 compares qubit and Toffoli gate counts for point addition circuits across different methods. Table 2 compares the total resource cost for running Shor's algorithm.",
+  "paper_structure": "The paper builds upon prior work by first detailing the structure of point multiplication via windowed addition. It then focuses on optimizing the core modular arithmetic components by adapting the EEA into a space-saving, two-step process (Euclidean Algorithm $\to$ Bézout Reconstruction) to achieve in-place modular multiplication.",
+  "why_interesting": "While focused on cryptography, the detailed quantum circuit optimization techniques—especially the space-saving arithmetic implementations—represent advanced quantum circuit design principles applicable to any complex quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.02235_figures/2606.02235_fig1.jpg",
+      "caption": "Fig. 1. “Compression” circuit mapping 3 pairs (b0, b0&b1) into 5 bits. On valid inputs, the last bit is always 0 and can be reused.",
+      "page": 11
+    }
+  ],
+  "figure": "2606.02235_figures/2606.02235_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

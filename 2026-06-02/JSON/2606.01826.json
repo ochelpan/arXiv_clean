@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.01826",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Revisiting the Quantum-Guided Cluster Algorithm: Improvements and Numerical Experiments",
+  "authors": "Peter J. Eder, Sarah Braun",
+  "abstract": "We study correlation-guided cluster algorithms for solving the Max-Cut problem that iteratively try to improve solutions by updating clusters of nodes. Building on the recently proposed quantum-guided cluster algorithm (QGCA) [arXiv:2508.10656], which leverages precomputed two-point correlations to guide collective updates, we extend the cluster construction by incorporating next-nearest-neighbor (NNN) information. We evaluate this extension across different correlation sources on random regular graphs and non-degenerate tile-planted instances. Notably, we observe particularly strong performance on non-degenerate instances and provide a scaling analysis for this class. Finally, we outline an extension toward a correlation-guided Markov-chain Monte Carlo algorithm, whose detailed analysis remains an open direction for future work.",
+  "url": "http://arxiv.org/abs/2606.01826v1",
+  "pdf": "https://arxiv.org/pdf/2606.01826v1",
+  "type": "experiment",
+  "summary": "This work revisits and significantly extends the Quantum-Guided Cluster Algorithm (QGCA) for solving Max-Cut problems on spin glasses. By incorporating structural information like next-nearest-neighbor correlations and developing an MCMC variant, the authors demonstrate substantial performance gains over classical methods. The findings highlight the power of using quantum-derived information to accelerate sampling and optimization in disordered quantum systems.",
+  "main_problem": "The paper addresses the NP-hard Max-Cut problem by improving classical optimization algorithms using quantum-inspired correlation information.",
+  "main_result": "The Quantum-Guided Cluster Algorithm (QGCA), especially when incorporating Next-Nearest-Neighbor (NNN) information or advanced correlations like SDP, significantly outperforms standard Simulated Annealing and simpler cluster updates.",
+  "method": "The core method is an iterative cluster update algorithm guided by precomputed two-point correlations derived from various sources (SDP, QAOA, thermal MC).",
+  "model_or_system": "The model is the Max-Cut problem on undirected graphs, mathematically equivalent to finding the ground state of an Ising spin glass Hamiltonian. The analysis is performed on random regular graphs and tile-planted instances.",
+  "key_observables": "Percentage of optimal solutions found, Time-to-Solution (TTS), autocorrelation functions of magnetization and energy, and approximation ratios.",
+  "important_parameters": "Inverse temperature ($\beta$), QAOA depth ($p=1, 3$), graph degree (e.g., 3, 27), and the inclusion of NNN interactions.",
+  "main_assumptions": "The analysis often assumes the validity of the MCMC formulation for sampling the Boltzmann distribution and relies on the quality of the input correlation sources.",
+  "figures_summary": "Figures compare optimal solution percentages and autocorrelation decay rates for various algorithms (QGCA vs. SA vs. SSF) across different graph degrees and correlation depths.",
+  "paper_structure": "The paper builds from the basic correlation-guided CA, extends it to include NNN information, and culminates in developing and analyzing its extension into a full Markov-Chain Monte Carlo (MCMC) sampling algorithm.",
+  "why_interesting": "The use of quantum-inspired correlations (like those from QAOA or SDP) to guide classical sampling algorithms for hard optimization problems is highly relevant to developing efficient simulation techniques for complex quantum many-body systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.01826_figures/2606.01826_fig1.jpg",
+      "caption": "FIG. 1: Illustration of the cluster-building process, characterizing the pseudocode function CreateCluster() for NNNs, similar to [1, Figure 3]. Starting from a randomly selected seed node (here, i = 1), neighboring vertices are iteratively considered for inclusion in the cluster with probability ˜p(i,j) link from Equation (6), determined by the correlation matrix Z. Accepted nodes undergo a shrinking step before further expansion, while rejected nodes have their edge to the cluster removed. © 2025 IEEE.",
+      "page": 4
+    },
+    {
+      "image": "2606.01826_figures/2606.01826_fig2.jpg",
+      "caption": "FIG. 2: The plots in (a) and the left panel of (b) show the percentage of optimal solutions found as a function of the number of iterations for the CA considering next-nearest neighbors (NNN) guided by various correlations, as well as nearest neighbors (NN) guided by coupling constants (CCs). In (a), the same graph instances as in [1] are used, while in (b) ten random 40-regular graphs of size n = 100 are considered. Together, these subfigures illustrate the performance of the CA guided by CCs, semidefinite programming (SDP) correlations, and thermal correlations sampled from Monte Carlo (MC) simulations at different inverse temperatures βs for NNN interactions. The right panel of (b) shows...",
+      "page": 7
+    },
+    {
+      "image": "2606.01826_figures/2606.01826_fig3.jpg",
+      "caption": "FIG. 3: The percentage of optimal solutions found is shown for the CA with nearest neighbor (NN) and next-nearest neighbor (NNN) interactions, guided by QAOA correlations at different depths and coupling constants (CCs). The graphs have regular degree 27 with n = 28 nodes; 50 mutations with 50n iterations are performed. In (a), the link probability ˜plink using CCs is evaluated at each iteration when adding a node to the cluster: updates with ˜plink < 0 are rejected, updates with ˜plink = 0 are accepted, and correlations are considered only otherwise. In (b), this evaluation using CCs is omitted.",
+      "page": 8
+    },
+    {
+      "image": "2606.01826_figures/2606.01826_fig4.jpg",
+      "caption": "FIG. 4: The percentage point differences in optimal solutions found are shown for n = 28 for the CA considering nearest neighbors (NNs) and next-nearest neighbors (NNNs), using QAOA correlations at depth three, coupling constants (CCs), and for simulated annealing (SA). Each data point is obtained from 50 mutations with 50n iterations. The left panel presents the difference between the QAOA-guided CAs and the CC-guided CAs, the middle panel shows the individual performance differences for both approaches, and the right panel compares the CC-guided CAs with SA.",
+      "page": 9
+    },
+    {
+      "image": "2606.01826_figures/2606.01826_fig5.jpg",
+      "caption": "FIG. 5: In (a), the times to solution (TTS) with successful run probability r = 99 % are shown for the CA considering next-nearest neighbor (NNN) interactions guided by thermal correlations (MC) on graphs with n = 100 and degrees three, 20, and 40, together with the coupling-constant (CC) version of the CA and simulated annealing (SA). The values in brackets on the x-axis denote the mean approximation ratios of the samples used to compute the correlations guiding the CA. In (b), bar diagrams are shown that indicate, for each of the ten graph instances and inverse sample temperatures βs, whether the thermal samples contain an optimal solution.",
+      "page": 10
+    }
+  ],
+  "figure": "2606.01826_figures/2606.01826_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

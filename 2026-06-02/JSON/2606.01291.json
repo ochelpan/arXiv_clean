@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2606.01291",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Algorithm for Distributed Reduction of Entanglements (QADR): A Trainable and Simulation-Efficient QML Framework",
+  "authors": "Syed Farhan Ahmad, Gregory T. Byrd",
+  "abstract": "Training Variational Quantum Circuits (VQCs) under Noisy Intermediate-Scale Quantum (NISQ) constraints introduces severe computational limitations: classical statevector simulation memory scales exponentially ($\\mathcal{O}(2^n)$), and global cost functions suffer from barren plateaus where gradient variance decays exponentially ($\\mathcal{O}(1/2^n)$). This paper introduces and evaluates the Quantum Algorithm for Distributed Reduction of Entanglements (QADR), a hybrid quantum-classical machine learning framework that decomposes a global $n$-qubit VQC into localized sub-circuits operating approximately within the causal light cones of individual target qubits. QADR reduces classical simulation memory scaling from $\\mathcal{O}(2^n)$ to $\\mathcal{O}(n \\cdot 2^{2d+1})$ for a light cone radius $d$, while naturally mitigating global barren plateaus. We benchmark QADR against standard global VQCs, Support Vector Machines (SVM), and two customized classical parameter-matched neural networks (CANN and PMNN) on the MNIST dataset and the high-dimensional NASA IMS wind turbine drivetrain diagnostic task. QADR demonstrates excellent scalability, operating successfully at $n_{\\text{features}}=2000$ where standard global VQCs crash due to memory exhaustion, while matching or exceeding the performance of optimized classical architectures.",
+  "url": "http://arxiv.org/abs/2606.01291v1",
+  "pdf": "https://arxiv.org/pdf/2606.01291v1",
+  "type": "both",
+  "summary": "This paper introduces QADR, a novel hybrid framework designed to overcome the exponential memory and barren plateau issues plaguing VQC training. By decomposing the quantum circuit into localized sub-circuits based on causal light cones, QADR achieves polynomial scaling in system size. It demonstrates that this approach maintains high classification accuracy even on massive, high-dimensional datasets where standard global quantum methods fail.",
+  "main_problem": "The paper addresses the severe computational limitations encountered when training Variational Quantum Circuits (VQCs) under NISQ constraints, specifically exponential memory scaling and barren plateaus.",
+  "main_result": "The proposed QADR framework successfully scales to high-dimensional feature spaces (up to 2000) where global VQCs fail, matching or exceeding the performance of optimized classical machine learning models.",
+  "method": "QADR decomposes a global VQC into localized sub-circuits operating within the causal light cones of individual qubits, which are then processed by a classical orchestrator.",
+  "model_or_system": "The model is a hybrid quantum-classical machine learning framework applied to parameterized quantum unitaries (VQCs). It simulates quantum circuits on classical hardware, focusing on feature extraction from localized quantum expectations.",
+  "key_observables": "Classification accuracy (MNIST, NASA IMS), ROC-AUC, and computational scaling complexity (memory and time).",
+  "important_parameters": "Number of qubits ($n$), light cone radius ($d$), and feature dimensionality ($n_{\text{features}}$).",
+  "main_assumptions": "The core assumption is that localizing the circuit operations via causal light cones can effectively approximate the global entanglement structure while drastically reducing computational overhead.",
+  "figures_summary": "Figures illustrate the causal cone geometry, the QADR pipeline decomposition, and compare theoretical statevector simulation complexity between global and localized approaches.",
+  "paper_structure": "The paper introduces the problem limitations, proposes the QADR decomposition method, details the hybrid training pipeline (local expectation gathering $\rightarrow$ classical projection), and benchmarks performance against global VQCs and advanced classical ML models on multiple datasets.",
+  "why_interesting": "While focused on ML, the concept of decomposing global quantum computations based on locality (causal light cones) is highly relevant to simulating complex quantum many-body systems or quantum field theories where entanglement structure dictates computational feasibility.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.01291_figures/2606.01291_fig1.jpg",
+      "caption": "Fig. 1. Causal cone geometry for n = 9, d = 2. Top (interior cone): target q4 sits at the center of a full-width 2d+1 = 5-qubit cone (d qubits left + target + d right). Bottom (boundary cone): target q1 is only one hop from the left edge, so the cone is clipped to four qubits, with one left neighbor instead of two. There are always exactly 2d boundary cones.",
+      "page": 2
+    },
+    {
+      "image": "2606.01291_figures/2606.01291_fig2.jpg",
+      "caption": "Fig. 2. QADR Pipeline: an n-qubit classification task is decomposed into n fixed-width local sub-circuits, each operating within its causal light cone C(i, d). Local ⟨Ztarget⟩expectation values are fused by a lightweight Classical Orchestrator, reducing simulation memory from O(2n) to O(n · 22d+1) while preserving end-to-end trainability.",
+      "page": 3
+    },
+    {
+      "image": "2606.01291_figures/2606.01291_fig3.jpg",
+      "caption": "Fig. 3. Theoretical statevector simulation amplitude complexity comparison between Global VQC (O(2n)) and QADR (O(n·22d+1)) with a cone radius of d = 2 on a logarithmic scale.",
+      "page": 3
+    },
+    {
+      "image": "2606.01291_figures/2606.01291_fig4.jpg",
+      "caption": "Fig. 4. ROC curves for QADR and SVM at nfeatures = 2000 (SelectKBest) on the NASA IMS fault classification task. Only these two architectures were capable of operating at this scale where a “curve of dimensionality” exists. QADR achieves an ROC-AUC of 0.9995 versus 0.9958 for SVM.",
+      "page": 4
+    }
+  ],
+  "figure": "2606.01291_figures/2606.01291_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
