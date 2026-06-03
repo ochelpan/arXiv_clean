@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.03891",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Quantum Error Mitigation for Unitary k-Designs",
+  "authors": "Ayush Pancholy, K. Birgitta Whaley",
+  "abstract": "Quantum circuit ensembles that have the properties of unitary k-designs represent applications where there is no obvious bias toward any particular Pauli support, as is the case in simulating systems exhibiting ''quantum chaos,'' which range from quantum dynamics near black holes to gapless spin fluid analysis. However, noisy hardware makes quantum circuits prone to a myriad of error sources, of which depolarizing and coherent error can be particularly destructive. To combat depolarizing error, popular techniques typically involve circuit or gate folding, which can be time-intensive procedures due to increased circuit depth and shot overhead. Other tensor-network-based mitigation techniques suffer from intractability in high-entanglement regimes. In this work, we leverage the structure of unitary k-design Pauli support distributions by introducing a technique we name ''circuit balancing,'' along with gate benchmarking data, in order to estimate circuit-wide depolarization. We describe how to invert the diagnosed circuit depolarization even in the presence of coherent error, via Pauli twirling. We provide asymptotics to estimate the number of twirls needed to maintain a desired output fidelity. We test our method numerically in a variety of simulation settings and find that it can significantly reduce average random circuit infidelity. Further, we employ our methods to find significant infidelity reductions when running a random circuit ensemble on a contemporary superconducting quantum computer, IBM Fez. Overall, we show that the method effectively reduces gate-based error for unitary k-designs without incurring any two-qubit gate overhead.",
+  "url": "http://arxiv.org/abs/2606.03891v1",
+  "pdf": "https://arxiv.org/pdf/2606.03891v1",
+  "type": "both",
+  "summary": "This paper presents a novel, overhead-free error mitigation protocol for quantum circuits approximating unitary k-designs. It combines 'circuit balancing' with Pauli twirling to estimate and invert global depolarization caused by both depolarizing and coherent noise. The technique demonstrates significant fidelity improvements on superconducting quantum hardware, making complex simulations more feasible on noisy devices.",
+  "main_problem": "Developing efficient quantum error mitigation techniques for quantum circuits representing unitary k-designs, especially in the presence of both depolarizing and coherent errors, without incurring significant quantum overhead.",
+  "main_result": "The proposed method significantly reduces average random circuit infidelity on both simulated and real superconducting quantum hardware (IBM Fez) without adding two-qubit gate overhead.",
+  "method": "The authors introduce 'circuit balancing' to estimate global depolarization by leveraging the structure of k-design Pauli support distributions, followed by inverting the noise model using Pauli twirling.",
+  "model_or_system": "The work analyzes quantum circuits approximating unitary k-designs, relevant for simulating quantum chaos (e.g., near black holes). Testing is performed on superconducting quantum computers (IBM Fez) and simulated for various connectivity graphs.",
+  "key_observables": "Mean Hellinger distance, Loschmidt echo survival probability, and estimated global depolarizing parameters ($\\lambda_{\text{avg}, 2Q}$).",
+  "important_parameters": "Depolarizing parameter ($\\lambda$), coherent error angle ($\theta$), circuit depth, and the number of twirls ($t$).",
+  "main_assumptions": "The method assumes the availability of regular device benchmarking data and relies on asymptotic scaling arguments for the required number of twirls.",
+  "figures_summary": "Figures compare Hellinger distance reduction across different error models (depolarizing only vs. depolarizing + coherent) and show that circuit balancing and twirling stabilize fidelity on real hardware.",
+  "paper_structure": "The paper progresses from establishing the need for mitigation in k-designs, deriving theoretical bounds for global depolarization on structured graphs, introducing circuit balancing to optimize local error variance, and finally applying Pauli twirling to invert the noise model for practical error suppression.",
+  "why_interesting": "The focus on mitigating errors in circuits designed to mimic complex physical dynamics (like quantum chaos) is highly relevant for simulating strongly correlated or non-equilibrium quantum systems using current NISQ hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.03891_figures/2606.03891_fig1.jpg",
+      "caption": "FIG. 1. Our approach for deriving each noisy gate’s contri- bution to global depolarization. (a) Assume we have some circuit, each of whose qubit pairs experiences the same num- ber of two-qubit gates, and each of whose qubits experiences the same number of single-qubit gates. (b) We can write the local depolarizing elements under our assumption that single- qubit gates all have depolarizing parameter λ1 and two-qubit gates have depolarizing parameter λ2. (c) Depolarizing error channels commute, so we can gather the two-qubit depolariz- ing elements in blocks of fully-connected motifs; likewise, we gather single-qubit depolarizing elements in complete layers of gates. In this case, we find...",
+      "page": 3
+    },
+    {
+      "image": "2606.03891_figures/2606.03891_fig2.jpg",
+      "caption": "FIG. 2. Example device connectivity graphs, where qubits are denoted by nodes, and connections by edges. In (a), qubits are connected in a star configuration; more qubits are added by radially connecting them to a central qubit. In (b), qubits are connected in a circular configuration.",
+      "page": 5
+    },
+    {
+      "image": "2606.03891_figures/2606.03891_fig3.jpg",
+      "caption": "FIG. 3. An example of circuit balancing. (a) Suppose we have conducted a routine set of benchmarking on a three- qubit device and found this approximate relationship over the depolarizing parameters corresponding to the pairwise two- qubit gates. (b) We are given a circuit using four two-qubit gates, which amount two four local depolarizations. Without circuit balancing, the total local depolarization on each two- qubit pair is different. (c) By permuting the qubit labels in the register (which is simply a form of layout selection for an all-to-all connected device), we enforce similar total local depolarization across qubit pairs. (d) Using the relationships determined through benchmarking...",
+      "page": 6
+    },
+    {
+      "image": "2606.03891_figures/2606.03891_fig4.jpg",
+      "caption": "FIG. 4. We construct 10 approximate unitary 2-designs for several register sizes (depicted on the x axis), and we plot the mean Z-basis measurement distribution Hellinger distance from the ideal (depicted on the y axis; lower is better) for both the mitigated and unmitigated methods. Mean distance is reduced by at least 92% in each case. The error model here contains only depolarization (no coherent errors).",
+      "page": 10
+    },
+    {
+      "image": "2606.03891_figures/2606.03891_fig5.jpg",
+      "caption": "FIG. 5. A comparison of methods over 10 asymmetric Haar- random circuits, run on 10 simulated backends with different error profiles. In this case, the error models contain only gate-based depolarization (no coherent error), but the uniform distribution from which error per gate is selected broadens as the bound on the depolarizing error increases along the x axis. Top: the mean Hellinger distance from the ideal (lower is better) of the three methods are compared over various gate error ranges for 6-qubit random unitaries. Even for fixed circuit balancing optimization, there is a broad error regime where mitigation with circuit balancing outperforms the default and is more resilient to...",
+      "page": 10
+    }
+  ],
+  "figure": "2606.03891_figures/2606.03891_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

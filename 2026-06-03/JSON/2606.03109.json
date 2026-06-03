@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.03109",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Game, Set, Quantum: Parameterized Quantum Circuit for Correlated Equilibrium in Bayesian Games",
+  "authors": "Param Pathak, Vidhi Oad, Nouhaila Innan, Adarsh Ganesan, Muhammad Shafique",
+  "abstract": "Strategic decision-making among many agents under incomplete information is central to economics, security, and multi-agent artificial intelligence (AI). Computing equilibria in such settings is challenging because the joint type-action space grows exponentially with the number of players. In binary-type, binary-action Bayesian games, an explicit representation over type-action profiles requires O(22n) entries, making direct linear-programming (LP) formulations memory intensive at moderate player counts. We propose a hybrid quantum-classical framework for approximating Bayes correlated equilibrium using a parameterized quantum circuit (PQC). The PQC represents the conditional strategy distribution with O(nL) trainable parameters, where n is the number of players and L is the circuit depth; for the largest setting studied here, n = 10 and L = 2, this corresponds to 60 trainable angles. The circuit is trained by gradient-based regret minimization with a negative entropy regularizer and a curriculum schedule over player counts. On a poker-style Bayesian game with two to ten players, the proposed solver achieves lower mean clipped regret than MCCFR across all tested player counts and lower regret than DCFR up to eight players, while DCFR performs best at ten players. These results show that compact PQC parameterizations can provide a viable variational representation for approximate equilibrium computation, while highlighting the roles of ansatz expressivity, optimization strategy, and classical simulation cost.",
+  "url": "http://arxiv.org/abs/2606.03109v1",
+  "pdf": "https://arxiv.org/pdf/2606.03109v1",
+  "type": "theory",
+  "summary": "This paper proposes using a Parameterized Quantum Circuit (PQC) within a hybrid quantum-classical framework to approximate Bayes correlated equilibria in Bayesian games. By parameterizing the conditional strategy distribution, the method bypasses the exponential memory bottleneck of classical formulations. The results show that this quantum approach yields superior performance compared to established classical algorithms for moderate numbers of players.",
+  "main_problem": "The paper addresses the computational challenge of finding equilibria in Bayesian games, where the explicit representation of the joint type-action space grows exponentially.",
+  "main_result": "The proposed quantum solver achieves lower mean clipped regret than MCCFR across all tested player counts for up to eight players, demonstrating a viable variational representation for approximate equilibrium computation.",
+  "method": "A hybrid quantum-classical framework is used, employing a Parameterized Quantum Circuit (PQC) to represent the conditional strategy distribution, trained via gradient-based regret minimization.",
+  "model_or_system": "The model is a binary-type, binary-action Bayesian game, and the quantum computation is performed on a PQC operating on $2n$ qubits (type and action registers).",
+  "key_observables": "Mean clipped regret, maximum positive deviation gain ($\\epsilon_{\\max}$), and memory usage scaling ($\\mathcal{O}(2^{2n})$ vs $\\mathcal{O}(nL)$).",
+  "important_parameters": "Number of players ($n$), circuit depth ($L$), learning rate ($\\eta_t$), and entropy regularization coefficient ($\tau_t$).",
+  "main_assumptions": "The method is a variational approximation, meaning convergence to an exact equilibrium is not guaranteed unless the target distribution lies within the PQC's reachable family.",
+  "figures_summary": "Figures compare the mean clipped regret of the quantum solver, MCCFR, and DCFR across increasing player counts ($n$), showing the quantum solver's advantage up to $n=8$.",
+  "paper_structure": "The paper introduces the problem, details the PQC architecture and the hybrid quantum-classical training workflow (including regret minimization and entropy regularization), presents comparative results against classical baselines, and discusses scaling and noise effects.",
+  "why_interesting": "While the application is in game theory, the core methodology—using a PQC to compress an exponentially large state space into a polynomially parameterized variational form—is a powerful technique relevant to simulating complex quantum many-body states or high-dimensional quantum processes.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.03109_figures/2606.03109_fig1.jpg",
+      "caption": "FIG. 1: Runtime memory of the LP reference solver as the player count increases. The dashed line marks the typical 8 GB system-memory limit. At n = 10, the solver reaches 10.2 GB before termination, reflecting the cost of explicit optimization over the type-action distribution.",
+      "page": 2
+    },
+    {
+      "image": "2606.03109_figures/2606.03109_fig2.jpg",
+      "caption": "FIG. 2: Overview of the quantum regret minimization workflow. The method enumerates type profiles, uses a PQC to sample action distributions, computes clipped regret with a negative entropy regularizer, and updates circuit parameters using parameter-shift gradients, gradient clipping, learning-rate annealing, entropy decay, and curriculum progression. The loop returns the learned strategy distribution σ∗(a | θ).",
+      "page": 4
+    },
+    {
+      "image": "2606.03109_figures/2606.03109_fig3.jpg",
+      "caption": "FIG. 3: Hybrid PQC architecture for approximate Bayes correlated equilibrium computation. The type register encodes private type profiles, while the action register samples joint action recommendations. Each layer applies type-conditioned rotations, local action rotations, and ring entangling blocks, yielding 3nL = O(nL) trainable parameters.",
+      "page": 5
+    },
+    {
+      "image": "2606.03109_figures/2606.03109_fig4.jpg",
+      "caption": "FIG. 4: Mean clipped regret of the quantum solver across player counts on the matched utility benchmark. The regret remains below 0.30 across all tested cases, with the lowest value observed at n = 2. The nonmonotonic value at n = 8 reflects the behavior of the specific curriculum run rather than a general scaling claim.",
+      "page": 10
+    },
+    {
+      "image": "2606.03109_figures/2606.03109_fig5.jpg",
+      "caption": "FIG. 5: Mean clipped regret of MCCFR across player counts on the matched utility benchmark. MCCFR decreases from 0.481 at n = 2 to 0.323 at n = 10, but remains above the quantum solver and DCFR across the tested range.",
+      "page": 11
+    }
+  ],
+  "figure": "2606.03109_figures/2606.03109_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

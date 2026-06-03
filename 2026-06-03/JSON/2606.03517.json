@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.03517",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Scalable On-Hardware Training of Quantum Neural Networks and Application to Clinical Data Imputation",
+  "authors": "Natansh Mathur, Panagiotis Kl. Barkoutsos, Masako Yamada, Martin Roetteler, Iordanis Kerenidis",
+  "abstract": "Training quantum neural networks (QNNs) on quantum hardware is currently bottlenecked by the cost of gradient estimation: standard parameter-shift methods require a number of circuit evaluations that grows quadratically with the number of trainable parameters, making hardware-based optimisation impractical beyond small system sizes. In this work, we introduce a training framework that reduces this cost to logarithmic in the number of qubits, making gradient-based QNN optimisation feasible on near-term hardware at increasing scales.   Our framework combines three co-designed ingredients: (i) a structured, subspace-preserving Butterfly circuit architecture with $O(n \\log n)$ parameters and logarithmic depth; (ii) a layer-wise training strategy that confines on-hardware optimisation to one small, well-structured layer at a time; and (iii) a parallelised parameter-shift rule that exploits the commuting structure within each Butterfly layer to extract all gradients in a constant number of circuit executions. Together these reduce the number of distinct circuit evaluations per optimisation step from $O(n^2)$ to $O(\\log n)$.   We validate the framework on clinical data imputation using the MIMIC-III electronic health record dataset, a demanding benchmark sensitive to optimisation instability and model variance. Hybrid classical-quantum models are trained directly on IonQ Forte Enterprise trapped-ion hardware at 16 qubits without performance degradation relative to ideal or noisy simulation and via tensor-network simulation at 32 qubits, with 32-qubit inference executed on hardware. The resulting models match or exceed strong classical neural baselines in downstream patient survival prediction while exhibiting reduced variance across runs, demonstrating that the proposed framework enables practical, scalable QNN training under realistic hardware constraints.",
+  "url": "http://arxiv.org/abs/2606.03517v1",
+  "pdf": "https://arxiv.org/pdf/2606.03517v1",
+  "type": "both",
+  "summary": "This paper presents a novel, scalable training framework for QNNs designed to overcome the quadratic scaling bottleneck of gradient estimation on quantum hardware. By combining a structured Butterfly circuit with a layer-wise training strategy and parallel gradient evaluation, the authors reduce the cost to $O(\\log n)$. They successfully demonstrate this approach by training hybrid QNNs on trapped-ion hardware for clinical data imputation, achieving performance comparable to state-of-the-art classical methods while exhibiting lower variance.",
+  "main_problem": "Training Quantum Neural Networks (QNNs) on near-term quantum hardware is bottlenecked by the prohibitively high cost of gradient estimation using standard parameter-shift methods.",
+  "main_result": "The authors introduce a framework that reduces the gradient estimation cost from $O(n^2)$ to $O(\\log n)$ circuit evaluations per step, enabling scalable, hardware-feasible QNN training.",
+  "method": "The framework combines a structured Butterfly circuit architecture, a layer-wise training strategy, and a parallelized parameter-shift rule that exploits the commuting structure within each layer.",
+  "model_or_system": "The model is a hybrid classical-quantum QNN utilizing a Butterfly ansatz. The physical platform is demonstrated on IonQ Forte Enterprise trapped-ion hardware (16 qubits), with simulation up to 32 qubits.",
+  "key_observables": "Area Under the ROC Curve (AUC) for downstream patient survival prediction, and the reduction in circuit evaluations per optimization step.",
+  "important_parameters": "The complexity scales as $O(\\log n)$ circuit evaluations per step, and the hardware training limit is demonstrated at 16 qubits.",
+  "main_assumptions": "The layer-wise training approach is a greedy approximation, and the framework relies on exploiting the commuting structure within the Butterfly layers.",
+  "figures_summary": "Figures illustrate the QNN architecture modules, the layer-wise training workflow, and performance comparisons showing hardware-trained models matching or exceeding classical baselines.",
+  "paper_structure": "The paper first identifies the gradient estimation bottleneck, then proposes the three-part co-designed framework (Butterfly circuit, layer-wise training, parallel gradient rule). It validates this on clinical data imputation using MIMIC-III, showing hardware feasibility and competitive performance against classical methods.",
+  "why_interesting": "The work directly addresses the practical scalability of quantum machine learning by providing a concrete, hardware-aware optimization technique that reduces resource scaling from polynomial to logarithmic.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.03517_figures/2606.03517_fig1.jpg",
+      "caption": "FIG. 1. The quantum component of the hybrid imputation pipeline, shown for n = 8 qubits, consists of three mod- ules. (i) Non-Gaussian state initialisation: each group of four qubits is prepared in the entangled state |ϕ⟩= (|0011⟩+ |1100⟩)/ √",
+      "page": 3
+    },
+    {
+      "image": "2606.03517_figures/2606.03517_fig2.jpg",
+      "caption": "FIG. 2. Layer-wise training workflow for the Butterfly quan- tum neural network. Smaller n/2-qubit Butterfly subcircuits are trained first (classically or on quantum hardware) and then frozen. A final coupling layer is added to form an n- qubit circuit, and only this newly introduced layer is opti- mised on quantum hardware using parallel parameter-shift, substantially reducing measurement and optimisation cost.",
+      "page": 5
+    },
+    {
+      "image": "2606.03517_figures/2606.03517_fig3.jpg",
+      "caption": "FIG. 3. Overview of the hybrid classical-quantum imputation pipeline. Given a partially observed patient vector, observed features (green) are used as inputs and missing entries (orange) are predicted. The Quantum circuit has multiple components. The first orange box corresponds to the Magic State Loader (Section II A 1), the second blue box corresponds to the data loader (Section II A 2) and the final red box signifies the trainable PQC (Section II A 3).",
+      "page": 7
+    },
+    {
+      "image": "2606.03517_figures/2606.03517_fig4.jpg",
+      "caption": "FIG. 4. Downstream survival prediction AUC for a classi- cal 16 × 16 neural network trained classically and a hybrid classical-quantum neural network with a 16-qubit quantum layer trained directly on the IonQ Forte Enterprise trapped- ion processor (16-Qubit Hybrid DeepImputer). Both models share the same overall architecture; inference is performed on a classical simulator in both cases. The hybrid model achieves a higher median AUC with reduced variance across random seeds, demonstrating that on-hardware training via the par- allel parameter-shift rule yields models competitive with clas- sical counterparts.",
+      "page": 10
+    },
+    {
+      "image": "2606.03517_figures/2606.03517_fig5.jpg",
+      "caption": "FIG. 5. Comparison of the 16-Qubit hybrid neural net- work model performance when the quantum neural network is trained using ideal simulation, noisy simulation, and direct execution on IonQ Forte Enterprise hardware. No statisti- cally significant degradation is observed when moving from simulation to hardware. The inference was performed on the classical simulator for all.",
+      "page": 10
+    }
+  ],
+  "figure": "2606.03517_figures/2606.03517_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
