@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.04279",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Derivative Informed Learning of Exchange-Correlation Functionals",
+  "authors": "Eike S. Eberhard, Luca A. Thiede, Abdul Aldossary, Andreas Burger, Nicholas Gao, Vignesh Bhethanabotla, Alán Aspuru-Guzik, Stephan Günnemann",
+  "abstract": "Machine-learned (ML) exchange-correlation (XC) functionals aim to replace human-designed density functional approximations by learning directly from reference data, but they still do not consistently outperform traditional $\\mathcal{O}(N^4)$-scaling hybrid functionals. We study a hybrid-distillation setting in which $\\mathcal{O}(N^3)$-scaling ML-XC functionals are trained to reproduce B3LYP/def2-SVP targets. We introduce Derivative Informed XC-Loss (DI-Loss), a loss that incorporates additional information from the reference hybrid functional by supervising first and second derivatives of the energy on the Grassmannian of admissible density matrices. Rather than only matching the self-consistent fixed point, DI-Loss aligns the local first- and second-order response of the learned functional with that of the target functional. Across four evaluated architectures, DI-Loss consistently improves the main energy metrics. Averaged uniformly across architectures, the total-energy MAE decreases by 66% relative to energy and density supervision alone. The density-sensitive mean-field energy metric $E_ρ$ improves from $1.2$ to $0.8$ mEh on average, while dipole and $\\mathcal{L}_2$ density errors do not improve uniformly. We further show that densities from the distilled functionals reduce hybrid-functional SCF iterations by up to 50%. In downstream TDDFT calculations, Hessian supervision improves excited-state predictions, with XCdiff reducing the mean excitation-energy MAE by 19 - 35%.",
+  "url": "http://arxiv.org/abs/2606.04279v1",
+  "pdf": "https://arxiv.org/pdf/2606.04279v1",
+  "type": "theory",
+  "summary": "This paper proposes a novel training methodology, Derivative Informed Learning (DI-Loss), to train machine-learned Exchange-Correlation functionals for DFT. By supervising not only the energy but also its first and second derivatives, the ML models achieve significant accuracy improvements and dramatically accelerate the convergence of subsequent, expensive quantum chemical calculations.",
+  "main_problem": "The core challenge is improving the accuracy and computational efficiency of Exchange-Correlation (XC) functionals in Density Functional Theory (DFT) by overcoming the limitations of traditional approximations.",
+  "main_result": "The introduction of Derivative Informed XC-Loss (DI-Loss), which supervises first and second functional derivatives, significantly improves energy metrics and reduces the required Self-Consistent Field (SCF) iterations by up to 50%.",
+  "method": "The authors employ a 'hybrid-distillation' setting, training computationally cheaper Machine Learning (ML) functionals to mimic high-accuracy, expensive reference functionals (like B3LYP) by incorporating derivative information into the loss function.",
+  "model_or_system": "The work is situated within the framework of DFT, focusing on approximating the unknown XC functional, Exc[rho]. The models are trained on molecular systems (e.g., QM9, QM40) and are designed to scale efficiently (e.g., O(N^3)).",
+  "key_observables": "Total energy Mean Absolute Error (MAE), density-sensitive mean-field energy metric (E_rho), required SCF iterations, and mean excitation-energy MAE from TDDFT.",
+  "important_parameters": "The loss function weights ($\\alpha_E, \\alpha_\rho, \\alpha_\nabla, \\alpha_H$) and the scaling of the training process (e.g., using the shifted softplus activation).",
+  "main_assumptions": "The primary assumption is that constraining the local response (gradient and Hessian) of the functional, rather than just matching the fixed-point energy, provides superior training signals.",
+  "figures_summary": "Figures compare the reduction in SCF iterations (up to 50%) and show quantitative improvements in MAE for both ground-state energies and excited-state predictions when using the derivative-informed loss.",
+  "paper_structure": "The paper introduces the ML-XC framework, details the DI-Loss formulation by incorporating energy, density, gradient, and Hessian supervision, presents results showing performance gains across various architectures and benchmarks, and discusses efficiency gains in downstream calculations.",
+  "why_interesting": "This work directly addresses the computational bottleneck in quantum chemistry by using ML to build highly accurate, yet scalable, approximations for fundamental physical interactions (the XC functional).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.04279_figures/2606.04279_fig1.jpg",
+      "caption": "Figure 1. Diagnostic toy example: energy-density of mGGA functionals distilled from SCAN. Each panel plots the ratio of learned to target energy density (y-axis) against the dimension- less density gradient s (x-axis), a standard semi-local input fea- ture (Appendix E.1). Rows are the three architectures, columns three density regimes set by (n, τ), and a perfect functional traces the line at one. The bottom row shows the importance-weighted (ωquadrature × ρ × |εtarget|) distribution of s on an ethanol quadrature grid, marking where errors carry energetic weight. Energy super- vision deviates from the target even in the data-rich region. The gradient and Hessian terms (+∇, +H) remove these...",
+      "page": 6
+    },
+    {
+      "image": "2606.04279_figures/2606.04279_fig2.jpg",
+      "caption": "Figure 2. Distillation of O(N 4)-scaling B3LYP into O(N 3)-scaling ML-XC functionals. We train on QM9 molecules with up to 7 heavy atoms and evaluate out-of-distribution on a random QM40 subsplit, fixed across all models, at the B3LYP/def2-SVP level of theory. Bars give the mean MAE over random seeds, error bars the standard error of that mean, and the jittered dots resolve the per-molecule errors that the means average over. DI-Loss sharpens the energetic quantities (Etot, Exc) and leaves the density metrics (µρ, L2[ρ]) near the E + ρ baseline across the three semi-local architectures. On the more expressive EG-XC architecture the added terms improve the densities, lowering L2[ρ], whereas...",
+      "page": 7
+    },
+    {
+      "image": "2606.04279_figures/2606.04279_fig3.jpg",
+      "caption": "Figure 3 shows that this results in a significant reduction in the required number of solver iterations relative to standard MINAO initialization for B3LYP. The traditional semi-local initialization baseline reduces the relative iteration count to about 65%, while distilled ML-XC densities reduce it further to about 50% across all architectures. This acceleration effect is largely unaffected by DI-Loss. Distillates trained only with E+ρ already provide low-RIC initializations, and derivative supervision changes RIC only marginally relative to the gain from distillation itself.",
+      "page": 7
+    },
+    {
+      "image": "2606.04279_figures/2606.04279_fig4.jpg",
+      "caption": "Figure 3. Relative iteration count (RIC) for B3LYP calcula- tions initialized from SCAN or distilled ML-XC densities on QM9, trained on molecules with up to 7 heavy atoms and evaluated on 1000 randomly selected molecules with exactly 9 heavy atoms, fixed across all runs. RIC is the number of B3LYP iterations re- quired from a given initial density, normalized by standard MINAO initialization. SCAN reduces the iteration count to about 65% of MINAO, while distilled ML-XC densities reduce it further to about 50% across all architectures. Hence functional distillation provides a secondary use as initializers for subsequent calculations with more expensive traditional functionals. Here...",
+      "page": 7
+    },
+    {
+      "image": "2606.04279_figures/2606.04279_fig5.jpg",
+      "caption": "Figure 4. Hessian supervision improves TDDFT excited-state accuracy across functionals and molecule sizes. Each cell reports the mean absolute error (MAE, meV) of the lowest five vertical excitation energies against B3LYP, averaged over nmol molecules at each heavy-atom count. Rows group the three neural functionals (NNmGGA, XCdiff, Skala-mGGA). Within each functional, the three sub-rows add training signal cumulatively, from energy and density (E + ρ), to first derivatives (+∇), to the full DI-Loss with the Hessian (+∇+ H). Columns give the excited states (1–5) and their mean MAE. The dashed line separates in-distribution QM9 molecules from larger out-of-distribution molecules from QM9 and...",
+      "page": 8
+    }
+  ],
+  "figure": "2606.04279_figures/2606.04279_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

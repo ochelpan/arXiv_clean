@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.04689",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "QPredSGG: Hybrid Quantum Predicate Learning for Long-Tailed Scene Graph Generation",
+  "authors": "Prerana Ramkumar, Nouhaila Innan, Muhammad Shafique",
+  "abstract": "Scene Graph Generation (SGG) requires relational reasoning over objects and their interactions, but performance is often limited by severe long-tail predicate imbalance. Classical SGG models frequently rely on dataset statistics, leading to biased predictions toward frequent relations rather than fine-grained semantic predicates. Although existing debiasing strategies improve mean recall, predicate classification in current frameworks still often depends on large classical decision modules with high parameter cost. This work introduces a hybrid quantum predicate classifier for SGG by replacing the classical predicate head in Causal Feature Enhancement Network (CFEN) with a Quantum Predicate Head (QP-Head) trained using weighted cross-entropy. To the best of our knowledge, this is among the first studies to evaluate a hybrid quantum architecture for scene graph predicate classification on Visual Genome 150. We study the effect of qubit count, encoding strategy, entangling structure, and circuit depth on relational prediction. The best 4-qubit QP-Head uses Amplitude Embedding and Strongly Entangling Layers to compress 4096-dimensional pair features into a 16-dimensional quantum-compatible representation, corresponding to a 256$\\times$ reduction. It achieves an mR@100 of 57.25%, compared with 41.1% for the classical CFEN reference, while using only 96 trainable quantum parameters. Scaling to 8 qubits maintains strong long-tail performance, reaching an mR@100 of 55.38% with 384 quantum parameters, while the depth analysis shows a trade-off between expressibility and runtime overhead. These results suggest that compact hybrid quantum predicate heads can support parameter-efficient long-tail relational classification in complex visual reasoning tasks.",
+  "url": "http://arxiv.org/abs/2606.04689v1",
+  "pdf": "https://arxiv.org/pdf/2606.04689v1",
+  "type": "both",
+  "summary": "This paper introduces a Quantum Predicate Head (QP-Head) to enhance Scene Graph Generation by addressing the long-tail imbalance of predicate labels. By replacing a large classical classifier with a compact, hybrid quantum module, the authors achieve state-of-the-art mean recall scores while drastically reducing the number of trainable parameters. This validates the use of quantum circuits for parameter-efficient relational reasoning in complex vision tasks.",
+  "main_problem": "Scene Graph Generation (SGG) performance is hampered by severe long-tail predicate imbalance, causing models to over-rely on frequent relations.",
+  "main_result": "The proposed 4-qubit hybrid quantum head achieved an mR@100 of 57.25%, significantly outperforming the classical baseline (41.1%) while remaining highly parameter-efficient.",
+  "method": "The authors replace the classical predicate head in an existing network with a Quantum Predicate Head (QP-Head), which processes compressed relational features through a trainable Variational Quantum Circuit (PQC).",
+  "model_or_system": "The system is a hybrid quantum-classical model applied to visual scene graph reasoning. The QP-Head uses quantum encoding (Amplitude/Angle) and trainable entangling layers (e.g., SEL) to map high-dimensional features into a quantum state for classification.",
+  "key_observables": "Mean Recall ($\text{mR}@K$), Global Recall ($\text{R}@K$), trainable quantum parameters, KL divergence from Haar-random distribution, and inference latency.",
+  "important_parameters": "Qubit count ($n \\in \\{4, 8\\}$), circuit depth ($L$), and the use of Weighted Cross-Entropy (WCE) loss.",
+  "main_assumptions": "The study assumes that compact hybrid quantum heads can effectively capture the complex, long-tail relational structure in visual data while maintaining computational feasibility.",
+  "figures_summary": "Figures illustrate the general SGG framework, the four-stage experimental pipeline (baseline $\rightarrow$ quantum architecture $\rightarrow$ training $\rightarrow$ analysis), and representative quantum circuit structures.",
+  "paper_structure": "The paper follows a structured comparison: first establishing a classical baseline (CFEN); second, defining the quantum architecture search space (qubits, embedding, depth); third, training using a bias-aware loss (WCE); and finally, analyzing the trade-off between semantic performance, quantum expressibility, and computational overhead.",
+  "why_interesting": "The work demonstrates a concrete application of quantum circuits (PQC) to solve a challenging, classically difficult machine learning problem (long-tail classification), providing quantitative metrics on parameter efficiency and performance gains.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.04689_figures/2606.04689_fig1.jpg",
+      "caption": "Fig. 1: The framework and general architecture of SGG. (a) Structural breakdown of semantic triplets, illustrating the relationships between entities. (b) The end-to-end pipeline transforms visual input into a structured graph.",
+      "page": 1
+    },
+    {
+      "image": "2606.04689_figures/2606.04689_fig2.jpg",
+      "caption": "Fig. 2: The four-stage experimental pipeline. Stage 1 establishes the Visual Genome dataset and CFEN classical baseline. Stage 2 defines the quantum architecture search space across qubit count, embedding strategy, circuit depth, and entangling template. Stage 3 performs bias-aware class-balanced training and checkpointing. Stage 4 aggregates semantic metrics, quantum quality indicators, and computational-overhead measurements.",
+      "page": 4
+    },
+    {
+      "image": "2606.04689_figures/2606.04689_fig3.jpg",
+      "caption": "Fig. 3: Representative QP-Head circuit structures. (a) Basic Entangling Layers. (b) Strongly Entangling Layers. Both circuits process encoded predicate features through a variational quantum block and terminate with measurements that produce expectation values for the classical readout.",
+      "page": 4
+    },
+    {
+      "image": "2606.04689_figures/2606.04689_fig4.jpg",
+      "caption": "Fig. 4: Training dynamics of the 4-qubit QP-Head under standard CE and WCE losses using angle embedding and Basic Entangling Layers. The left graph shows training under standard CE, while the right graph shows training under WCE. WCE improves mR@50 and mR@100 more consistently while maintaining stable global recall, showing that class-balanced training improves long-tail predicate recognition without degrading overall relationship recall.",
+      "page": 7
+    },
+    {
+      "image": "2606.04689_figures/2606.04689_fig5.jpg",
+      "caption": "Fig. 5: Training dynamics of the 8-qubit QP-Head with Ampli- tude Embedding and 4-layer Strongly Entangling Layers. The graph shows R@50, R@100, mR@50, and mR@100 across training epochs. The 8-qubit configuration maintains stable global recall while improving long-tail predicate recognition across training.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.04689_figures/2606.04689_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

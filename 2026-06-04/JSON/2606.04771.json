@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2606.04771",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Pushing the Classical Frontier of 1D Fermi-Hubbard Quench Dynamics Beyond Current Quantum Simulations",
+  "authors": "Roman Rausch, Sukhbinder Singh, Saeed S. Jahromi, Augustine Kshetrimayum, Roman Orus",
+  "abstract": "Establishing quantum advantage requires comparison against the best achievable classical simulation. The Q-CTRL team recently simulated quench dynamics of the one-dimensional Fermi-Hubbard model on an IBM processor, completing a $L=60$ evolution to time $t=6$ in under three minutes and claiming a $3000\\times$ speedup over classical Time-Dependent Variational Principle (TDVP) simulation at bond dimension $χ=4096$. Their classical benchmark required over 160 hours on a CPU cluster, failed to converge in the high-entanglement regime $t\\in[5.2,6]$, and left the most challenging window of the experiment unverified. Here, we push the boundaries of classical simulation by exploiting the full $\\mathrm{U}(1)\\times\\mathrm{SU}(2)$ symmetry of the Fermi-Hubbard Hamiltonian combined with GPU-accelerated tensor contractions. Reaching bond dimensions up to $χ\\approx62{,}000$ on four NVIDIA H200 GPUs -- among the largest ever achieved in TDVP simulations and fifteen times larger than Q-CTRL's classical baseline -- we achieve fully converged results across the entire simulation window, including rigorous certification of the previously unresolved high-entanglement regime $t\\in[5.2,6]$. We further advance the classical frontier to $t=7$, which lies beyond the quantum hardware experiment and any previously verified classical evolution of the full wavefunction. At the bond dimension comparable to Q-CTRL's best classical run, our GPU implementation completes in $\\sim\\!100$ minutes, directly reducing the claimed $3000\\times$ quantum advantage to $\\sim\\!36\\times$. These results substantially narrow the quantum-classical performance gap and establish a new standard for tensor-network benchmarking of large-scale quantum simulations.",
+  "url": "http://arxiv.org/abs/2606.04771v1",
+  "pdf": "https://arxiv.org/pdf/2606.04771v1",
+  "type": "theory",
+  "summary": "This paper pushes the classical simulation frontier for the 1D Fermi-Hubbard model by implementing a highly optimized, GPU-accelerated TDVP algorithm that exploits the full U(1)xSU(2) symmetry. The authors successfully certify the dynamics in previously inaccessible, high-entanglement regimes and extend the simulation time beyond current quantum hardware limits. This work significantly narrows the quantum-classical performance gap, establishing a new standard for benchmarking large-scale quantum simulations.",
+  "main_problem": "To rigorously establish the true quantum-classical performance gap for simulating quench dynamics in the 1D Fermi-Hubbard model, especially in highly entangled regimes.",
+  "main_result": "The authors significantly advance classical simulation by exploiting full U(1)xSU(2) symmetry and GPU acceleration, narrowing the claimed quantum advantage from 3000x to ~36x and certifying dynamics up to t=7.",
+  "method": "Time-Dependent Variational Principle (TDVP) implemented using Matrix Product States (MPS) and heavily optimized with GPU-accelerated tensor contractions and symmetry exploitation.",
+  "model_or_system": "The one-dimensional Fermi-Hubbard model (FHM) is studied under quench dynamics from a half-filled Néel state. The Hamiltonian is $H = -t \\sum_{\\langle i,j\rangle,\\sigma} (c^\\dagger_{i\\sigma}c_{j\\sigma} + h.c.) + U \\sum_i n_{i\\uparrow}n_{i\\downarrow}$.",
+  "key_observables": "Site-resolved spin-up occupations $\\langle n_{i\\uparrow} \rangle$, Root-Mean-Square Error (RMSE) relative to quantum simulations, and the evolution of the bond dimension $\\chi(t)$.",
+  "important_parameters": "System size $L=60$, high-entanglement window $t \\in[5.2, 6]$, and bond dimensions reaching $\\chi \\approx 62,000$.",
+  "main_assumptions": "The primary approximation is the use of the MPS ansatz within the TDVP framework. The authors assume that the full U(1)xSU(2) symmetry can be fully exploited for computational efficiency.",
+  "figures_summary": "Figures illustrate the convergence of observables (e.g., $\\langle n_{46\\uparrow} \rangle$) across time, comparing results from insufficient symmetry ($U(1)\times U(1)$) versus the full symmetry ($U(1)\times SU(2)$). Runtime comparisons quantify the speedup achieved by the GPU implementation.",
+  "paper_structure": "The paper first establishes the physical problem and the limitations of previous quantum claims. It then details the advanced classical methodology, focusing on symmetry exploitation and GPU optimization. The core results demonstrate convergence across the high-entanglement regime and extend the simulation time beyond current quantum hardware capabilities.",
+  "why_interesting": "This work directly addresses the computational boundary between quantum and classical simulation for strongly correlated systems, providing a crucial, highly optimized classical benchmark that forces a re-evaluation of quantum advantage claims in condensed matter physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.04771_figures/2606.04771_fig1.jpg",
+      "caption": "Figure 1: Main results. (a) TDVP time evolution of ⟨n46↑⟩up to t = 8 for L = 60 fermions with ϵtol = 10−4. Our U(1)×U(1) curve at χ = 4096 reproduces the Q-CTRL iTensor calculation and confirms non-convergence beyond t ≈5. Our U(1)×SU(2) TDVP with χ ≈30,000 achieves convergence in t ∈[5.2, 6] (shaded blue) and our results are reliable in t ∈[6, 7] (shaded green), extending beyond the quantum simulation window. (b) Absolute deviation of ⟨n46↑⟩from the χ ≈62,000 reference at each bond dimension. (c) RMSE of our TDVP data against Q-CTRL’s published values of ⟨n20↑⟩, ⟨n29↑⟩, and ⟨n40↑⟩. (d) Wall-clock runtimes: ITensor TDVP on CPU cluster (1) vs. our GPU implementation (same legend as (a)).",
+      "page": 15
+    },
+    {
+      "image": "2606.04771_figures/2606.04771_fig2.jpg",
+      "caption": "Figure 2: Classical benchmarks for the Q-CTRL quantum simulation results of Fig. 3 in Ref. (1). (a) Expectation value ⟨ni↑⟩(up-spin density at site i) as a function of evolution time t, computed with our U(1) × SU(2) TDVP at χ ≈62,000 (float32, ϵtol = 10−4). Results already converged for t ≤6 using χ = 30, 000 (Fig S5). (b)–(d) Site-resolved values at i = 20, 29, 40 compared directly with the Q-CTRL quantum simulation results.",
+      "page": 16
+    }
+  ],
+  "figure": "2606.04771_figures/2606.04771_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 3,
+    "non-equilibrium dynamics": 4,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

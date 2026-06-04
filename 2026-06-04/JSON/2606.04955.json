@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.04955",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Expressibility, Noise, and Error Mitigation in VQE Ansatz Selection",
+  "authors": "Peter Annis, Abe Kassem, Evan Coleman",
+  "abstract": "The variational quantum eigensolver (VQE) is a promising algorithm for near-term quantum chemistry applications, but selecting optimal ansatz circuits remains challenging. Expressibility, a metric quantifying a circuit's ability to explore the Hilbert space, has been proposed as a guide for ansatz selection, but recent work showed it inconsistently predicts VQE performance under realistic noise for $H_2$. We extend this investigation to cover both $H_2$ and $H_3^+$ under four execution scenarios: ideal, noisy, and noisy with zero-noise extrapolation (ZNE) or probabilistic error cancellation (PEC). We find that error mitigation does not reliably restore expressibility's predictive power. ZNE reduces error for only 4 of 12 $H_2$ circuits and 4 of 6 $H_3^+$ circuits, while PEC actually increases error in 11 of 12 $H_2$ circuits and all 6 $H_3^+$ circuits. We reproduce and extend Saib et al.'s key finding that circuit rankings scramble under noise (Spearman $ρ\\approx -0.1$ between ideal and noisy rankings), and identify a new result: ZNE largely preserves noisy rankings ($ρ= +0.80$ for $H_2$) while PEC actively reorders them ($ρ= -0.22$). Noisy expressibility, computed from density matrix simulations, strongly predicts unmitigated performance for $H_3^+$ (Pearson $r = +0.91$, $p = 0.01$), but this metric is computationally intractable at scale. We demonstrate that zero-cost circuit topology metrics such as two-qubit gate count provide comparable or superior predictive power for PEC degradation ($r = +0.96$ for $H_3^+$), while standard expressibility best predicts noisy and ZNE performance for $H_2$ ($r = +0.74$ and $r = +0.77$).",
+  "url": "http://arxiv.org/abs/2606.04955v1",
+  "pdf": "https://arxiv.org/pdf/2606.04955v1",
+  "type": "theory",
+  "summary": "This paper investigates how circuit expressibility predicts VQE performance for quantum chemistry problems under realistic noise. It finds that error mitigation techniques do not restore expressibility's predictive power, and instead suggests that simple, zero-cost circuit topology metrics can be highly effective predictors of energy error. The findings guide the selection of robust ansatz circuits for noisy quantum hardware.",
+  "main_problem": "The primary challenge addressed is selecting optimal ansatz circuits for the Variational Quantum Eigensolver (VQE) algorithm, balancing circuit expressibility against noise accumulation.",
+  "main_result": "Error mitigation techniques like ZNE and PEC do not reliably restore the predictive power of expressibility, and zero-cost topology metrics can offer comparable or superior predictive power for certain noise regimes.",
+  "method": "The authors systematically investigate VQE performance across four noise scenarios (ideal, noisy, ZNE, PEC) for small molecular Hamiltonians, correlating energy error with various circuit metrics.",
+  "model_or_system": "The study uses quantum chemistry simulations, calculating ground state energies for $\text{H}_2$ and $\text{H}_3^+$ using molecular Hamiltonians mapped to Pauli operators. The analysis compares different ansatz structures (e.g., ring vs. alternating entanglement).",
+  "key_observables": "VQE energy error ($\\Delta E$), Spearman ($\rho$) and Pearson ($r$) correlation coefficients between circuit metrics and error, and the performance of error mitigation protocols.",
+  "important_parameters": "Noise levels (depolarizing, amplitude damping), circuit depth, and the specific error mitigation techniques (ZNE, PEC).",
+  "main_assumptions": "The analysis relies on comparing metrics derived from density matrix simulations, which is computationally intractable for larger systems (e.g., beyond 10 qubits).",
+  "figures_summary": "Figures illustrate the energy error ($\\Delta E$) for $\text{H}_2$ and $\text{H}_3^+$ across different noise conditions, and show the structural comparison of various ansatz circuits for $\text{H}_2$, $\text{H}_3^+$, $\text{LiH}$, and $\text{BeH}_2$.",
+  "paper_structure": "The paper establishes the VQE framework, introduces expressibility as a predictor, tests this prediction under various noise models and error mitigation techniques (ZNE/PEC), and concludes by comparing the predictive power of expressibility against simpler, zero-cost topological metrics.",
+  "why_interesting": "This work directly addresses the practical limitations of near-term quantum computation by providing quantitative guidance on which circuit metrics are most robust predictors of performance when noise and error mitigation are involved.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.04955_figures/2606.04955_fig1.jpg",
+      "caption": "Fig. 1. Circuit rankings across conditions for H2 (1 = best). Rankings scramble from Ideal to Noisy (𝜌= −0.10), are largely preserved under ZNE (𝜌= +0.80), and are actively reordered by PEC (𝜌= −0.22).",
+      "page": 8
+    },
+    {
+      "image": "2606.04955_figures/2606.04955_fig2.jpg",
+      "caption": "Figure 2 summarizes these results. The Ideal column is uniformly green (low error), while the PEC column is almost",
+      "page": 8
+    },
+    {
+      "image": "2606.04955_figures/2606.04955_fig3.jpg",
+      "caption": "Fig. 2. Energy error |Δ𝐸| (Hartree) for all 12 H2 circuits across four conditions. Color scale is logarithmic; cell values show exact errors. PEC increases error for 11 of 12 circuits, often by >200%.",
+      "page": 9
+    },
+    {
+      "image": "2606.04955_figures/2606.04955_fig4.jpg",
+      "caption": "Fig. 3. Scatter plots of four candidate metrics against noisy VQE error (|Δ𝐸|, COMBINED/NONE) for H2 (top) and H3+ (bottom). Noise-weighted gates, expected infidelity, and 2Q gate count all produce identical correlations within each molecule due to collinearity. Noisy expressibility is the strongest predictor for H3+ (𝑟= +0.91) but adds little for H2 (𝑟= +0.25).",
+      "page": 10
+    },
+    {
+      "image": "2606.04955_figures/2606.04955_fig5.jpg",
+      "caption": "Fig. 4. All 12 H2 ansatz circuits (4 qubits). Circuits 1–8 share the same gate count (8×1Q, 4×2Q) but differ in gate types and entanglement patterns. Circuits 9–12 use two layers (16×1Q, 6×2Q).",
+      "page": 16
+    }
+  ],
+  "figure": "2606.04955_figures/2606.04955_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
