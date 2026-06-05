@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.05387",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Feature Encoding in Quantum Machine Learning: A Survey and Practical Guidelines",
+  "authors": "Vincenzo Sammartino",
+  "abstract": "The encoding of classical data into quantum states constitutes the primary performance bottleneck in Quantum Machine Learning (qml) on Noisy Intermediate-Scale Quantum (nisq) devices. No existing framework jointly characterises resource cost, expressivity, and noise robustness, nor provides actionable selection guidelines for practitioners. This survey addresses that gap through a systematic review of 66 primary works (2017-2026) assembled via a PRISMA-adapted protocol across five academic databases. Four principal contributions are made. First, a three-axis cost-expressivity-robustness taxonomy classifies all major encoding families - basis, angle, dense-angle, amplitude, data re-uploading, and IQP - along independently measurable axes. Second, closed-form depth-fidelity bounds under nisq decoherence channels identify the critical gate-error rate p* ~ 10^-3 below which amplitude encoding is viable. Third, a unified treatment of Fourier expressivity, barren-plateau onset, and quantum kernel concentration as functions of the encoding circuit provides the first joint trainability analysis. Fourth, a five-regime decision framework maps (D, n, p, tau) - feature dimension, qubit budget, error rate, and task type - to a hardware-grounded encoding recommendation. The central finding is that for p >= 10^-3, shallow angle-based encodings consistently outperform amplitude encoding in practice, despite the latter's exponential qubit advantage.",
+  "url": "http://arxiv.org/abs/2606.05387v1",
+  "pdf": "https://arxiv.org/pdf/2606.05387v1",
+  "type": "theory",
+  "summary": "This survey systematically reviews quantum feature encoding techniques for QML on noisy hardware. It develops a comprehensive taxonomy classifying encodings based on cost, expressivity, and robustness. The central finding is that practical performance favors shallow angle encodings over exponentially powerful amplitude encodings when device error rates are non-negligible.",
+  "main_problem": "The encoding of classical data into quantum states is identified as the primary performance bottleneck limiting Quantum Machine Learning (QML) on Noisy Intermediate-Scale Quantum (NISQ) devices.",
+  "main_result": "For current noise levels ($p \\gtrsim 10^{-3}$), shallow angle-based encodings consistently outperform theoretically superior but noise-sensitive amplitude encoding in practice.",
+  "method": "The authors conducted a systematic literature review and developed a multi-faceted decision framework that jointly characterizes resource cost, expressivity (via Fourier analysis), and noise robustness for various encoding families.",
+  "model_or_system": "The study analyzes the mapping of classical feature vectors $x \\in \\mathbb{R}^D$ to quantum states $|\\psi(x)\rangle$ using parameterized quantum circuits (PQCs) on NISQ hardware. The comparison spans multiple encoding types: basis, angle, amplitude, and IQP.",
+  "key_observables": "State fidelity ($\\mathcal{F}$), resource cost (qubit count $n$, gate count $g_2$, circuit depth $d$), Fourier expressivity (frequency spectrum $\\Omega$), and the critical error rate ($p^*$).",
+  "important_parameters": "Feature dimension ($D$), qubit budget ($n$), physical error rate ($p$), and task type ($\tau$). Critical thresholds include $p^* \\approx 10^{-3}$ for amplitude encoding viability.",
+  "main_assumptions": "The analysis relies on modeling decoherence using CPTP maps under NISQ conditions, and it assumes that the performance trade-offs can be captured by analyzing these measurable resource metrics.",
+  "figures_summary": "A three-axis taxonomy visualizes the trade-off between Expressivity, Noise Robustness, and Qubit Efficiency. A five-regime decision framework guides practitioners based on input parameters $(D, n, p, \tau)$.",
+  "paper_structure": "The paper systematically reviews existing literature to establish a comprehensive taxonomy of encoding families, derives theoretical bounds relating depth/fidelity to error rates, unifies the analysis across trainability metrics (Fourier spectrum, barren plateaus), and culminates in a practical five-regime decision framework.",
+  "why_interesting": "This work provides crucial, hardware-aware guidelines for applying QML theory to real-world NISQ devices by quantifying the trade-offs between theoretical power and physical noise limitations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.05387_figures/2606.05387_fig1.jpg",
+      "caption": "Fig. 1. PRISMA-adapted screening flow for the systematic corpus assembly. Five databases were queried using three thematic Boolean strings (see section 2). The final corpus of 62 primary works covers the period 2017–2026.",
+      "page": 5
+    },
+    {
+      "image": "2606.05387_figures/2606.05387_fig2.jpg",
+      "caption": "Fig. 2. Three-axis cost–expressivity–robustness taxonomy for the four principal encoding families. Each axis is normalised to [0, 1]: Expressivity = log-normalised Fourier degree from theorem 1; Noise Robustness = encoding-layer fidelity 𝐹enc at 𝑝2 = 3 × 10−3, 𝐷= 64 from proposition 2; Qubit Efficiency = log2(𝐷) /𝑞(E, 𝐷), normalised so that amplitude encoding scores 1.00. No encoding dominates all three axes simultaneously; the Pareto analysis in section 7 resolves this trilemma for specific hardware regimes.",
+      "page": 10
+    },
+    {
+      "image": "2606.05387_figures/2606.05387_fig3.jpg",
+      "caption": "Fig. 3. Annotated decision tree for encoding selection (Algorithm 1). Decision nodes (blue diamonds) test hardware feasibility conditions derived analytically in sections 4 and 5; the critical thresholds 𝑝∗ amp and 𝑝∗ IQP are computed via eq. (21) for the given (𝐷, 𝐹min). Leaf nodes (green rectangles) give encoding recommendations for each of the five regimes. The orange dashed path is the fallback triggered by a failed fidelity check in Regime 4; annotation boxes (grey) state the relevant analytical expressions inline. All inputs are defined in ??.",
+      "page": 24
+    },
+    {
+      "image": "2606.05387_figures/2606.05387_fig4.jpg",
+      "caption": "Figure 4 plots the Pareto frontier in the two-dimensional space of expressivity (Fourier degree, as a proxy for model",
+      "page": 24
+    },
+    {
+      "image": "2606.05387_figures/2606.05387_fig5.jpg",
+      "caption": "Fig. 4. Pareto frontier in the expressivity–robustness plane at 𝑝1 = 10−3, 𝑝2 = 3 × 10−3, 𝐷= 64. All fidelity values are computed analytically from proposition 2 as 𝐹enc = (1 −𝑝2)𝑔2 (1 −𝑝1)𝑔1, using gate counts from table 3. Expressivity is measured as the maximum Fourier degree per feature dimension (theorem 1); amplitude encoding’s “Full” label denotes access to the complete 2𝑛-dimensional Hilbert space, incommensurable with the integer Fourier-degree scale. The grey band marks the feasibility region 𝐹≥𝐹min = 0.90 (??). The re-uploading family (orange squares) traces a continuously tunable curve that crosses the feasibility threshold between 𝐿= 3 and 𝐿= 4 at the stated hardware parameters.",
+      "page": 25
+    }
+  ],
+  "figure": "2606.05387_figures/2606.05387_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

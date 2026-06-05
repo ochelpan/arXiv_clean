@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.06456",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum element-wise transforms",
+  "authors": "Zane M. Rossi, Rahul Sarkar",
+  "abstract": "Quantum algorithms for basic numerical linear algebraic tasks have proven essential for translating diverse problems to a unified quantum computational context. Many of these tasks -- e.g., applying a polynomial function to the spectrum of a matrix embedded in a unitary process (a so-called block encoding), or taking linear combinations of block encodings -- are well-addressed by techniques like quantum singular value transformation (QSVT) or linear combination of unitaries (LCU). However, there exist useful matrix transforms whose realization by existing quantum algorithms is unclear or inefficient. In this work we construct improved quantum algorithms for some of these transforms, the simplest of which is a polynomial function applied element-wise. We show the space required to compute quantum element-wise transforms can be reduced exponentially in the degree of the applied function compared to prior work, and raise and rectify errors in previous constructions. We present our algorithms alongside applications to machine learning, simulation, and signal processing.",
+  "url": "http://arxiv.org/abs/2606.06456v1",
+  "pdf": "https://arxiv.org/pdf/2606.06456v1",
+  "type": "theory",
+  "summary": "This paper develops advanced quantum algorithms to efficiently compute element-wise transforms of matrices encoded within unitaries. By introducing optimized circuit techniques and analyzing resource scaling, it significantly reduces the required auxiliary space compared to previous methods. This advances the practical feasibility of applying complex mathematical functions to quantum simulation problems.",
+  "main_problem": "The authors aim to construct improved, resource-efficient quantum algorithms for performing element-wise transforms (QEWTs) on matrices block-encoded within unitary processes.",
+  "main_result": "They achieve significant improvements in auxiliary space complexity for QEWTs compared to prior work, particularly by developing techniques like the 'weaving lemma' and utilizing controlled unitaries.",
+  "method": "The methods involve constructing quantum circuits that manipulate block encodings of operators, drawing heavily on concepts from Quantum Singular Value Transformation (QSVT) and specialized subroutines like swap-copy gates.",
+  "model_or_system": "The work operates within the framework of quantum computation using 'block encoding,' where an $n$-qubit operator is represented as a sub-block of a larger unitary matrix. The focus is on manipulating these encodings to realize element-wise functions ($f \\circ M$).",
+  "key_observables": "Resource complexity metrics including query complexity, auxiliary space usage (e.g., scaling as $O(a + n \\log d)$), and gate/depth complexity.",
+  "important_parameters": "Polynomial degree ($d$), block encoding parameters $(\\alpha, a, \\epsilon)$, and the structure of the target function $f$.",
+  "main_assumptions": "The analysis relies on various sufficient assumptions to manage worst-case behavior when multiplying ill-conditioned block encodings, and assumes access to specific controlled unitary operations.",
+  "figures_summary": "Figures illustrate circuit constructions for key subroutines, such as the swap-copy operation (Figure 1) and the general structure of compression gadgets used for matrix products (Figure 8).",
+  "paper_structure": "The paper builds from foundational concepts like block encoding definitions and error propagation rules to develop specific circuits. It progresses through techniques for element-wise products, controlled powers, and finally presents optimized constructions achieving low space complexity.",
+  "why_interesting": "This work provides concrete algorithmic blueprints for implementing complex mathematical operations (like element-wise functions) on quantum hardware using the block encoding paradigm, which is crucial for simulating physical systems or running ML algorithms in a quantum context.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.06456_figures/2606.06456_fig1.jpg",
+      "caption": "FIG. 2. Simplified depiction of a specific instance of the weaving lemma (Lem. II.2). Here (∗) is a quantum process that catalytically uses copies of |0⟩(possibly on many qubits) in a register r0 by swapping the contents of r0 with this process’ r1 register (i.e., a blocked operator, Def. II.8). The use by (∗) of the contents of r0 is indicated by an allocation (a) followed by a freeing (f). If this process itself can sequentially call copies of (∗), then the total required copies of register r0, here denoted by r′ 0, r′′ 0 , . . . , grows with the depth of the tree induced by recursive function calls (seen by the re-use of r0 across protocols at the same depth).",
+      "page": 14
+    },
+    {
+      "image": "2606.06456_figures/2606.06456_fig2.jpg",
+      "caption": "FIG. 3. Depiction of the circuit for clean element-wise products of block encodings, i.e., block encodings of Ir1 ⊗(A ◦B)r3 using auxiliary space r4r2. Note if r4r2 is in the all-zeros state, then the state |0n⟩in r0 is necessarily used catalytically. Here the (+) notation indicates projection- controlled addition with target register r4 used for the compression gadget (see Lem. A.1); when r2 is not a single qubit, this is a Π-controlled addition on r4 for Π a projector with form (I−|0⟩⟨0|r2). Note also the non-standard ordering of registers to make depiction easier. In our recursive construction, each U(I⊗∗) is replaced by an analogous circuit which acquires (1) a new copy of r0 for each...",
+      "page": 18
+    },
+    {
+      "image": "2606.06456_figures/2606.06456_fig3.jpg",
+      "caption": "FIG. 4. Two equivalent, simplified depictions of the circuit in Fig. 3. On the left the unitary-valued function W takes two unitary-valued inputs, here denoted (∗L) and (∗R), which in our setting will both be block encoding unitaries of matrices that have the form (I ⊗M) for some square matrix M. This unitary-valued function (i.e., a circuit with holes) is further condensed on the right, where the free arguments (or holes) are suppressed. Note that wires with slashes represent multi-qubit registers, between which swap gates denote qubit-wise swaps. Additionally, the projection controlled addition operators (see Lem. A.1), here with their targets denoted with (+), have their controls...",
+      "page": 18
+    },
+    {
+      "image": "2606.06456_figures/2606.06456_fig4.jpg",
+      "caption": "FIG. 5. A depiction of the first level of the recursive use of the circuit form of Fig. 3 by itself, making use of both forms of the condensed notation introduced in Fig. 4. Note here that the register used for the compression gadget, r4, is not duplicated, and remains the target for the addition gadgets of protocols deeper in the recursive construction. A new register of size n, namely r′ 0, is however initialized to |0⟩, with a new copy introduced at each level of recursion, though re-used between subroutines at the same level, given the catalytic behavior of the original circuit. This catalysis succeeds under the assumption that all block encodings are successfully applied (equivalently,...",
+      "page": 19
+    },
+    {
+      "image": "2606.06456_figures/2606.06456_fig5.jpg",
+      "caption": "FIG. 9. The quantum circuit to apply, controlled on the single-qubit register r5, either A = A◦1 or (A◦A) = A◦2 to the register r1r3 (assuming successful post-selection of r0r2r4 in the all-zeros state). Note that if the permutations were not controlled that this would apply either (A ◦I) or (A ◦A) for r5 = |0⟩, |1⟩respectively, which is equivalent iff A is diagonal. In the controlled version of our recursive construction these controlled permutations, at each level, would become multi-controlled permutations applied only when not all of the inputs A, B are the identity matrix.",
+      "page": 42
+    }
+  ],
+  "figure": "2606.06456_figures/2606.06456_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

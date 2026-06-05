@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2606.05777",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Periodic Symmetry-Adapted Encoding: Qubit Reduction in Crystalline Electronic Structure",
+  "authors": "Dario Picozzi",
+  "abstract": "We extend the symmetry-adapted encoding (SAE) framework to periodic electronic structure, enabling qubit-efficient quantum simulation of crystalline materials. By constructing a $Γ$-point supercell Hamiltonian from a folded $k$-point calculation and systematically identifying all applicable space-group symmetry generators -- including spin-parity, point-group, and crystal translation symmetries -- we obtain qubit Hamiltonians with fewer qubits than the Jordan--Wigner starting point. We benchmark diamond, silicon, 3C-SiC, MgO, NaCl, CsCl, h-BN, wurtzite AlN, $α$-quartz SiO$_2$, and MgF$_2$ using active spaces chosen to preserve complete near-degenerate frontier manifolds across cubic, hexagonal, trigonal, and tetragonal space groups. Across the suite the periodic SAE removes 4--8 qubits. The B2 CsCl benchmark realises eight independent Boolean generators, i.e. a symmetry group isomorphic to $\\mathbb{Z}_2^8$, reducing CAS(6,7) from 14 to 6 qubits. This exceeds the $\\mathbb{Z}_2^5$ maximum of molecular SAE, where only two spin parities and at most three independent Boolean point-group generators are available, because the folded crystal supplies three additional half-translation symmetries. Noiseless UCCSD-VQE benchmarks against exact diagonalisation in the active-space sector show that the reduced encodings preserve the target energies to well below chemical accuracy while reducing variational parameter counts by $3$--$8\\times$ and CNOT counts by up to $309\\times$. The largest circuit savings occur when translation and point-group generators act independently in the active space, demonstrating that periodic symmetry can be converted directly into both qubit and ansatz compression. The method is implemented in the open-source QuantumSymmetry package and requires no manual specification of symmetry generators.",
+  "url": "http://arxiv.org/abs/2606.05777v1",
+  "pdf": "https://arxiv.org/pdf/2606.05777v1",
+  "type": "theory",
+  "summary": "The paper introduces Periodic Symmetry-Adapted Encoding (SAE) to drastically reduce the qubit count needed for simulating crystalline electronic structures on quantum computers. By incorporating crystal translation symmetries into the symmetry constraints, it achieves substantial resource savings—up to 309x in CNOT gates—while maintaining high energy accuracy compared to standard encodings.",
+  "main_problem": "The primary goal is to enable qubit-efficient quantum simulation of crystalline materials by adapting symmetry reduction techniques from molecular systems to periodic electronic structures.",
+  "main_result": "The proposed Periodic Symmetry-Adapted Encoding (SAE) successfully reduces the required number of qubits and computational resources (CNOT counts, VQE evaluations) significantly compared to standard Jordan-Wigner encodings across ten benchmark crystals.",
+  "method": "The method extends Symmetry-Adapted Encoding by incorporating crystal translation symmetries alongside point-group and spin-parity generators. These symmetries are used to constrain the Hamiltonian via Boolean linear equations, projecting the system onto a smaller, symmetry-adapted qubit subspace.",
+  "model_or_system": "The model involves simulating the electronic structure of various crystalline materials (e.g., diamond, CsCl) using an active space derived from a supercell Hamiltonian constructed by folding $k$-point calculations to the $\\Gamma$-point. The simulation is mapped onto qubits via the Jordan-Wigner transformation.",
+  "key_observables": "Qubit count reduction (e.g., 14 to 6 for CsCl), CNOT gate counts, variational parameter counts, and preservation of target energies below chemical accuracy.",
+  "important_parameters": "The number of independent Boolean generators ($n_g$), the size of the active space (CAS(6,7)), and the specific crystal structure symmetries ($\\mathbb{Z}_2^8$ for CsCl).",
+  "main_assumptions": "The method assumes that the physical sector remains the global minimum when projected onto the symmetry-adapted subspace, and that all relevant symmetry generators can be identified and commute.",
+  "figures_summary": "Figures illustrate resource savings: Qubit count drop (e.g., CsCl 14 $\to$ 6), reduction in VQE objective evaluations ($\\approx 3\times$ fewer), and significant CNOT gate compression, demonstrating the efficiency of periodic SAE.",
+  "paper_structure": "The paper introduces the problem by extending molecular SAE to periodic systems. It details the Hamiltonian construction via supercells and symmetry identification (spin-parity, point-group, translation). Results are presented through benchmarking on ten crystals, comparing resource costs against JW encoding, and validating energy preservation using UCCSD-VQE benchmarks.",
+  "why_interesting": "This work provides a concrete, scalable method to reduce the exponential scaling of quantum resources required for solid-state physics simulations by systematically exploiting crystal symmetries, which is crucial for applying quantum computing to materials science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.05777_figures/2606.05777_fig1.jpg",
+      "caption": "FIG. 1: Geometry of the CsCl B2 crystal in the (2, 2, 2) simple-cubic supercell, used as the largest-reduction example. Cs atoms are purple and Cl atoms green; bonds are drawn between nearest-neighbour Cs–Cl pairs and the supercell border is shown as a thin black frame. Left: the supercell decomposes into eight primitive cells, with one primitive cell highlighted by a translucent red volume. Centre: a half-supercell translation along a primitive lattice vector maps each atom onto an equivalent atom modulo the supercell period. In CsCl all three Cartesian half translations are retained as independent Z2 generators. Right: a representative oblique mirror plane of the Pm3m space group....",
+      "page": 4
+    },
+    {
+      "image": "2606.05777_figures/2606.05777_fig2.jpg",
+      "caption": "FIG. 2: CsCl CAS(6,7) active space used for the largest-reduction example. The CAS(6,7) active window contains the three occupied frontier orbitals transforming as the Γ− 4 triplet, followed by four virtual orbitals: the Γ+ 1 state and the three symmetry-equivalent X+ 1 star partners. The labels in parentheses on the Γ− 4 panels denote the Cartesian component selected by the mirror eigenvalues; the labels on the X+ 1 panels denote the star arm with translation eigenvalue −1 along the corresponding primitive lattice direction. All orbitals are rendered on the same CsCl supercell view as Fig. 1. Red and blue isosurfaces denote opposite signs of the orbital amplitude.",
+      "page": 6
+    },
+    {
+      "image": "2606.05777_figures/2606.05777_fig3.jpg",
+      "caption": "FIG. 3: The ten periodic benchmark systems, shown as the (2, 2, 2) supercells used in the calculations. The set spans cubic, hexagonal, trigonal, and tetragonal examples and is ordered to match the columns of Table I.",
+      "page": 7
+    },
+    {
+      "image": "2606.05777_figures/2606.05777_fig4.jpg",
+      "caption": "FIG. 4: Resource reduction across the ten benchmark systems. (a) Every system drops four to eight qubits, with CsCl reducing the register from 14 to 6 qubits. (b) For the four systems where both JW- and SAE-VQE were fully optimised, SAE converges in 2.8–3.9× fewer VQE objective evaluations. (c) SAE removes one to three orders of magnitude of two-qubit gates; CsCl and α-quartz show the largest CNOT compressions (309× and 92×, respectively). Numerical values match Table I.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.05777_figures/2606.05777_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

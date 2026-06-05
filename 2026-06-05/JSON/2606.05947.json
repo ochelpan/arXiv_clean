@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.05947",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Double-bracket quantum algorithms for thermal state preparation",
+  "authors": "Andrew Wright, Reyhaneh Aghaei Saem, Supanut Thanasilp, Yudai Suzuki, Zoë Holmes",
+  "abstract": "We propose quantum algorithms for preparing thermal states via the simulation of the thermofield double states. The key idea is to leverage double-bracket quantum algorithms to implement imaginary-time evolution on thermofield double states, whose reduced state realizes the Gibbs state. Our method, termed double-bracket thermofield double (DB-TFD), introduces two variants. The first, the vanilla DB-TFD algorithm, directly implements imaginary-time evolution using double-bracket quantum imaginary-time evolution. The second, poly DB-TFD, employs double-bracket quantum signal processing to approximate the imaginary-time evolution operator via a polynomial transformation. We demonstrate that the complexity of the poly DB-TFD algorithm scales exponentially with the inverse temperature in a broad practical regime. This scaling is consistent with existing methods, and numerical simulations support the corresponding theoretical bound. We further demonstrate the utility of DB-TFD in quantum Boltzmann machines for generative modeling, achieving improved performance compared with variational imaginary-time evolution approaches. These results establish DB-TFD as a promising route for thermal state preparation in the near-term and early-fault-tolerant regimes.",
+  "url": "http://arxiv.org/abs/2606.05947v1",
+  "pdf": "https://arxiv.org/pdf/2606.05947v1",
+  "type": "theory",
+  "summary": "The paper introduces Double-bracket Thermofield Double (DB-TFD) algorithms for preparing thermal quantum states. It details two approaches, vanilla and poly DB-TFD, which simulate imaginary-time evolution on the TFD state using double-bracket techniques. The main finding is that Poly DB-TFD offers a theoretically favorable scaling compared to existing methods, making it promising for near-term quantum hardware.",
+  "main_problem": "The primary goal is developing quantum algorithms to efficiently prepare thermal (Gibbs) states $\rho(\beta)$ for general many-body Hamiltonians.",
+  "main_result": "The proposed Double-bracket Thermofield Double (DB-TFD) algorithm provides a promising, non-variational route for thermal state preparation whose complexity scales favorably with inverse temperature ($\beta$).",
+  "method": "The method utilizes double-bracket quantum algorithms to simulate imaginary-time evolution on the Thermofield Double (TFD) state. Two variants are proposed: vanilla DB-TFD and Poly DB-TFD, which uses polynomial approximations.",
+  "model_or_system": "The theory applies to general quantum systems described by a Hamiltonian $H_s$, utilizing the TFD state $|\text{TFD}(\beta)\rangle$ as a purification of the target thermal state $\rho(\beta)$. Benchmarks include XXZ, TFIM, and Heisenberg models.",
+  "key_observables": "Query complexity ($N_{\text{tot}}$), circuit depth, iteration count, and error bounds ($\\epsilon$).",
+  "important_parameters": "Inverse temperature ($\beta$), target precision ($\\epsilon$), polynomial degree ($p$ or $k$), and the contraction coefficient $A(k)$.",
+  "main_assumptions": "The analysis relies on bounding various algorithmic errors (product formula, intrinsic) and assumes specific scaling regimes for error coefficients.",
+  "figures_summary": "Figures compare iteration scaling between vanilla and poly DB-TFD methods; one figure shows the contraction coefficient $A(k)$ across different models/sizes; another compares training loss trajectories for generative modeling.",
+  "paper_structure": "The paper develops the theory by first establishing the link between TFD evolution and thermal states, then detailing the two algorithmic variants (vanilla vs. poly), followed by rigorous error analysis using product formulas, and concluding with complexity comparisons against variational methods.",
+  "why_interesting": "This work directly addresses a fundamental problem in quantum simulation—preparing equilibrium states—by proposing advanced quantum circuit techniques that aim to surpass the limitations of current NISQ-era algorithms like Variational Quantum Eigensolver (VQE) variants.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.05947_figures/2606.05947_fig1.jpg",
+      "caption": "FIG. 1. Overview of Double-bracket Thermofield Double (DB- TFD) approaches for thermal state preparation. (a) The reduced state of imaginary-time evolution applied to a thermofield double state gives the target thermal state. To implement imaginary-time evolution, we employ the double-bracket quantum algorithm frame- work. (b) We introduce two variants: the vanilla DB-TFD ap- proach and the poly DB-TFD approach. The number of iterations required by the vanilla DB-TFD method scales as O(eβ/ε), as established in Lemma 1. In contrast, Lemma 2 shows an exponen- tial improvement of the number of iterations O( p",
+      "page": 2
+    },
+    {
+      "image": "2606.05947_figures/2606.05947_fig2.jpg",
+      "caption": "FIG. 2. Scaling of the contraction coefficients across different sys- tems and system sizes. The contraction coefficient A(k) is evalu- ated for different systems (XXZ, TFIM, and the Heisenberg model), system sizes n, and polynomial order k. In particular, we observe A(k) < k, suggesting that the growth of the contraction coefficient is slower than the assumption in Eq. (28). For a given k, the val- ues of A(k) remain similar across the considered systems and system sizes. This observation suggests that the contraction coefficient ex- hibits only a weak dependence on the specific system and its size.",
+      "page": 7
+    },
+    {
+      "image": "2606.05947_figures/2606.05947_fig3.jpg",
+      "caption": "FIG. 3. Error between poly DB-TFD with infinite and finite measurement shots. We compare the impact of statistical noise in the estimation of energy and variance required to determine the parameters (s, θ). In particular, we compare results obtained using poly DB-TFD with infinite measurement shots and with a total of Nshots = 103, 105, 107 (divided uniformly between the Pauli terms that need to be measured) per iteration. In contrast to the analytical results in App. F.1, no exponential growth with respect to k is ob- served even for Nshots = 103. Since the results obtained with 105",
+      "page": 8
+    },
+    {
+      "image": "2606.05947_figures/2606.05947_fig4.jpg",
+      "caption": "FIG. 5. Training loss trajectories for poly DB-TFD with different polynomial degrees k. We consider a generative modeling task for the XXZ model to assess how effectively poly DB-TFD with poly- nomial degrees k = 2, 3, 4 reduces the loss. At each training epoch, the thermal state required for computing the loss gradient is prepared using the DB-TFD approaches. Even a small number of iterations yields a training-loss trajectory that closely matches that obtained us- ing the exact thermal state.",
+      "page": 9
+    },
+    {
+      "image": "2606.05947_figures/2606.05947_fig5.jpg",
+      "caption": "FIG. 4. Number of queries for poly DB-TFD to obtain the ther- mofield double state at different inverse temperatures β. We nu- merically evaluate the number of queries required by poly DB-TFD to achieve a thermal state with precision ε = 0.01. Here, we con- sider three models: one-dimensional XXZ, TFIM, and Heisenberg model. For comparison, we include reference scalings proportional to exp(β). The fitting suggests an overall scaling of exp(O(β)) in line with the analysis based on the assumed practical regime of con- traction coefficient in Eq. (28).",
+      "page": 9
+    }
+  ],
+  "figure": "2606.05947_figures/2606.05947_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

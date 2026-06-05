@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.05311",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Setting angles in quantum approximate optimization at utility-scale",
+  "authors": "Maosheng Guo, Joel Jurado Diaz, Anurag Ramesh, Conrad J. Haupt, Alberto Baiardi, Dimitrios Athanasakos, M. Emre Sahin, Oscar Wallis, George Pennington, Christian Arenz, Sebastian Brandhofer, Georgios Korpas, Ieva Čepaitė, J. A. Montañez-Barrera, Jakub Marecek, Davide Venturelli, Stephan Eidenbenz, David E. Bernal Neira, Daniel J. Egger",
+  "abstract": "The quantum approximate optimization algorithm (QAOA) is a powerful heuristic that seeks to solve combinatorial optimization problems using quantum hardware and classical optimization in tandem. Various methods exist to train the parameterized quantum circuits that serve as an ansatz in QAOA. However, which method works best to identify optimal angles for a given problem instance remains poorly understood, especially at utility-scale, i.e., $100$ qubits or more. In this work, we address this challenge through utility-scale benchmarks from which we distill operational guidance for QAOA practitioners. First, we investigate approximation techniques, such as matrix product states and Pauli propagation, to find optimal angles. Second, we train QAOA on small-scale representative problems and transfer the angles to larger ones. We then validate the results on quantum hardware for utility-scale problem instances that can be meaningfully executed. In this way, we identify insights for QAOA angle setting strategies that work best for problems at the utility scale, including as a function of resource cost for the search. Crucially, the operational implications we draw from our benchmarks will help quantum optimization practitioners execute QAOA end-to-end pipelines efficiently on current and future hardware.",
+  "url": "http://arxiv.org/abs/2606.05311v1",
+  "pdf": "https://arxiv.org/pdf/2606.05311v1",
+  "type": "both",
+  "summary": "This paper addresses the critical challenge of setting optimal parameters for QAOA at utility scale. By benchmarking various angle-setting strategies—including tensor network approximations and Pauli propagation—against real quantum hardware results, it offers actionable guidance for quantum optimization practitioners. The findings help streamline the end-to-end pipeline necessary to apply these algorithms effectively.",
+  "main_problem": "The primary challenge is determining optimal parameters (angles) for the Quantum Approximate Optimization Algorithm (QAOA) when applied to large-scale, utility-size combinatorial optimization problems.",
+  "main_result": "The authors provide operational guidance by benchmarking various angle-setting strategies—such as parameter transfer and approximate evaluation methods—to efficiently execute QAOA end-to-end on current and future quantum hardware.",
+  "method": "They compare multiple angle-setting techniques (e.g., MPS, Pauli Propagation, fixed angles, iterative interpolation) using utility-scale benchmarks to identify the most robust approach for practical implementation.",
+  "model_or_system": "The core model is QAOA, which uses parameterized quantum circuits built from alternating cost and mixer unitaries ($U_C(\\gamma), U_M(\beta)$). The application targets combinatorial optimization problems like MaxCut on graphs up to 100+ qubits.",
+  "key_observables": "Optimal angles ($\theta^\\star$), approximation ratio, energy expectation value $\\langle H_C \rangle$, and hardware sampling time.",
+  "important_parameters": "Circuit depth ($p$), system size (utility-scale, $N \\ge 100$ qubits), and resource cost for the search optimization.",
+  "main_assumptions": "The work assumes that practical guidance derived from systematic benchmarks can guide practitioners despite the underlying NP-hard nature of finding true optimal angles.",
+  "figures_summary": "Figures illustrate the end-to-end utility-scale QAOA process, comparing energy convergence across different methods (TNs vs. PP) and showing hardware validation results for varying depths on specific graph structures.",
+  "paper_structure": "The paper systematically reviews angle setting techniques, moving from physics-inspired schedules to parameter transfer and machine learning approaches, culminating in rigorous benchmarking against both classical approximations (MPS, PP) and actual quantum hardware measurements.",
+  "why_interesting": "It provides a crucial bridge between theoretical understanding of QAOA limitations and the practical engineering required for running these algorithms on noisy, near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.05311_figures/2606.05311_fig1.jpg",
+      "caption": "Figure 1. Utility-scale quantum approximate optimization. Good QAOA angles β⋆and γ⋆are found with classical computers. The angles may be optimized with a classical optimizer, and the energy evaluated on (a) representative structured problems [3], (b) small-scale representative problem instances with an exact energy evaluation, and (c) the utility-scale problem instance, but with an approximate energy evaluation. The utility-scale problem instance (d) informs the QAOA circuit (e) with the near-optimal angles β⋆and γ⋆. (f) Only the sampling of good candidate solutions x, shown as bitstrings, is done on the quantum hardware.",
+      "page": 3
+    },
+    {
+      "image": "2606.05311_figures/2606.05311_fig2.jpg",
+      "caption": "Figure 2. Convergence of a 100 qubit depth-four QAOA on ibm_boston. (a) Energy of the 5% best samples as a function of the number of COBYLA iterations. (b) Duration required to obtain the samples from the QPU as measured by the user (QPU time) and the time it took to compute the objective to minimize from the samples (CPU time). The inset (c) shows the improvement in the cumulative distribution of the quantum samples (green solid curve) over uniform sampling (red dashed curve). The best measured quantum sampled achieves a 91.5% approximation ratio.",
+      "page": 7
+    },
+    {
+      "image": "2606.05311_figures/2606.05311_fig3.jpg",
+      "caption": "Figure 3. Impact of the SAT mapping on five random in- stances of three-regular graphs with 40 nodes (a) and (b), and 100-node graphs (c) and (d). Panels (a) and (c) show the rel- ative error between the MPS energies and the exact energies. Panels (b) and (d) show the duration of the energy evaluation for different bond dimensions. Each marker is the average of five instances and the error bars show the standard deviation.",
+      "page": 8
+    },
+    {
+      "image": "2606.05311_figures/2606.05311_fig4.jpg",
+      "caption": "Figure 4. Pauli propagation as an evaluator of QAOA state energy for random k-regular graphs with n = 100 nodes and p = 1 layer. The node degree k is changed to vary the graph density k/(n −1). Panels (a) and (b) show the absolute er- ror in energy estimated by Pauli Propagation compared to the exact energy. Panels (c) and (d) show duration of each computation for a given graph density and set of parameters W and MAC. The energy for graphs with density above 40% is not computed for W = 4 and low MAC ≤10−4 are not presented in the plots as these were too time- and memory- intensive.",
+      "page": 9
+    },
+    {
+      "image": "2606.05311_figures/2606.05311_fig5.jpg",
+      "caption": "Figure 6. Comparison of the achieved energy values for the Fourier, Fixed Angles, Interp., and TQA methods, and the PP evaluation method with different results for MIS (a) and Max- Cut (b). We use ten 40-node random three-regular graphs. The markers and error bars indicate the mean and standard deviation, respectively, of the energy over the ten instances.",
+      "page": 12
+    }
+  ],
+  "figure": "2606.05311_figures/2606.05311_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

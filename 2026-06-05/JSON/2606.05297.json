@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.05297",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "hep-lat",
+    "nucl-th"
+  ],
+  "is_primary_archive": true,
+  "title": "Continuous-variable ADAPT-VQE for bosonic lattice models",
+  "authors": "Dimitrios Athanasakos, Gloria Tejedor-García, Jack Y. Araz, Mafalda Ramôa, Bharath Sambasivam, Sophia E. Economou, Felix Ringer",
+  "abstract": "We present a continuous-variable adaptive variational quantum eigensolver (CV-ADAPT-VQE). As concrete examples, we consider the ground-state preparation for (i) the Bose-Hubbard model and (ii) the bosonic Kitaev chain, including its extension with an on-site Kerr interaction. The former conserves the total boson number, while the latter conserves global parity. We construct symmetry-preserving operator pools tailored to each case and show, using GPU-based classical simulations, that CV-ADAPT-VQE results in significantly shallower circuits compared to Hamiltonian-based VQE approaches. Our results point toward direct applications in quantum simulations of condensed-matter systems, quantum chemistry, and high-energy physics.",
+  "url": "http://arxiv.org/abs/2606.05297v1",
+  "pdf": "https://arxiv.org/pdf/2606.05297v1",
+  "type": "theory",
+  "summary": "The paper presents Continuous-variable ADAPT-VQE to find ground states for bosonic lattice models like the Bose-Hubbard and Kitaev chains. It demonstrates that this continuous-variable approach generates significantly shallower quantum circuits than standard VQE methods. By incorporating symmetry constraints and advanced optimization techniques, it offers a powerful tool for simulating complex condensed matter physics problems.",
+  "main_problem": "The primary goal is to efficiently prepare the ground state of bosonic lattice models using quantum algorithms, specifically addressing circuit depth limitations.",
+  "main_result": "The Continuous-variable ADAPT-VQE approach was shown to yield significantly shallower circuits compared to traditional Hamiltonian-based VQE methods for these systems.",
+  "method": "The authors employ CV-ADAPT-VQE, an adaptive variational quantum eigensolver that constructs the ansatz by selecting symmetry-preserving bosonic operators from a tailored pool. This is contrasted with HVA-CV-VQE, which uses unitaries derived directly from the Hamiltonian terms.",
+  "model_or_system": "The study focuses on bosonic lattice models, including the Bose-Hubbard (BH) model and the bosonic Kitaev chain (BKC), sometimes extended with an on-site Kerr interaction. These systems are modeled using continuous variables described by quadrature operators ($\\hat{q}, \\hat{p}$).",
+  "key_observables": "Ground state energy expectation value ($E$), circuit depth, fidelity ($I$), and the total boson number $\\langle \\hat{N}_{tot} \rangle$.",
+  "important_parameters": "System size ($N_S$), local Fock cutoff dimension ($D$), interaction strengths ($J, U, \\Delta$), and chemical potential ($\\mu$).",
+  "main_assumptions": "Classical simulations require truncating the infinite Hilbert space to a finite dimension $D$. The ADAPT-VQE relies on constructing an ansatz from operators respecting known global symmetries.",
+  "figures_summary": "Figures illustrate energy error ($\\Delta E$) and infidelity ($I$) convergence versus gate count for BH and BKC models, comparing standard vs. tiled operator pools, and showing the impact of warm-up circuits and Hessian recycling on optimization steps.",
+  "paper_structure": "The paper introduces CV-ADAPT-VQE for bosonic systems (BH/BKC), details the mathematical framework using continuous variables, compares its performance against HVA-CV-VQE, and discusses advanced optimizations like operator tiling and Hessian recycling to improve resource scaling.",
+  "why_interesting": "This work directly addresses the practical implementation challenges of simulating interacting quantum many-body systems on near-term quantum hardware by optimizing the required circuit depth using adaptive techniques tailored for bosonic Hamiltonians.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.05297_figures/2606.05297_fig1.jpg",
+      "caption": "FIG. 1: Schematic illustration of the CV-ADAPT-VQE ground state preparation algorithm presented in this work. The state after n iterations is denoted by |ψ(n)⟩, which depends on the variational parameters of n gates, collectively denoted by ϑ (n). Depending on the lattice Hamiltonian, we choose a suitable operator pool that incorporates sym- metry constraints of the ground state.",
+      "page": 3
+    },
+    {
+      "image": "2606.05297_figures/2606.05297_fig2.jpg",
+      "caption": "FIG. 2: Expectation value of the total boson number across the lattice ⟨ˆNtot⟩for the ground state of the BKC model without (left) and with an additional on-site Kerr interaction (right). We show the result for different values of the model parameters ∆and µ for a lattice with NS = 3 sites, J = 1, U = −1 for the interaction term, periodic boundary conditions, and a local Hilbert space truncation of D = 6. The dashed golden line in the left panel indicates the stability condition, while the markers × and ◦denote the parameter choices (∆= 0.5, µ = −3.1) and (∆= 0.5, µ = −2.7), respectively, which are used for the variational ground state preparation presented in section V.",
+      "page": 5
+    },
+    {
+      "image": "2606.05297_figures/2606.05297_fig3.jpg",
+      "caption": "FIG. 3: Hamiltonian-based VQE ans¨atze for the Bose-Hubbard model (left) and the bosonic Kitaev chain (right) for NS = 3 lattice sites and periodic boundary conditions. For the bosonic Kitaev chain with an additional on-site Kerr interaction, another set of corresponding single-qumode Kerr gates is included previous to the rotation gates.",
+      "page": 6
+    },
+    {
+      "image": "2606.05297_figures/2606.05297_fig4.jpg",
+      "caption": "FIG. 4: The energy difference between the variational energy and the exact ground-state energy ∆E (solid lines, left axis), and the infidelity I (dashed lines, right axis), is shown as a function of the number of variational gates for the BH model. Panels (a) and (b) show the results for the attractive (ΛBH = +4.0) and repulsive (ΛBH = −4.0) BH models, respectively, for NS = 4 lattice sites and Ntot = 12 bosons with a local qumode cutoff of D = 13. As an example, in panel (a), we also plot the magnitude of the gradient associated with the gate selected by ADAPT |gr,init| (gray dotted line), i.e., the gate with the largest gradient at each iteration, using the scale of the left axis for...",
+      "page": 9
+    },
+    {
+      "image": "2606.05297_figures/2606.05297_fig5.jpg",
+      "caption": "FIG. 5: The energy difference between the variational energy and the exact ground-state energy (solid lines, left axis), together with the infidelity (dashed lines, right axis), for the HVA-CV-VQE (blue) and CV-ADAPT-VQE (red) algorithms as a function of the number of gates for the BKC model. The model parameter choices for the two rows are µ = −3.1 (top) and µ = −2.7 (bottom), which are in the unstable and stable regimes, respectively, see Fig. 2. In each row, the number of lattice sites NS increases from 3 to 5 (left to right). For all simulations, the local qumode cutoff is D = 6.",
+      "page": 10
+    }
+  ],
+  "figure": "2606.05297_figures/2606.05297_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

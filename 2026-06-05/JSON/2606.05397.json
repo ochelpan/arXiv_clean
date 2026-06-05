@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.05397",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Multi-Qubit Dyadic Phase Fixing for Fault-Tolerant Quantum Compilation",
+  "authors": "Justin Kalloor, Mathias Weiden, Ed Younis, John Kubiatowicz, Costin Iancu",
+  "abstract": "Fault-tolerant quantum computing requires translating application-level quantum circuits into the Clifford+$T$ gate set, where the $T$ gate is the dominant resource cost. Phase kickback is an ancilla-based technique that can dramatically reduce $T$-count for rotations with dyadic angles, but has previously been limited to highly structured circuit families. We present Dyadic Phase Fixing (DPF), a general multi-qubit synthesis tool that extends phase kickback to general quantum circuits. DPF uses numerical unitary synthesis to greedily extract dyadic angle rotations from any input circuit. Combined with a decision matrix to automatically size the final phase gradient register, our end-to-end workflow achieves up to 70% reduction in $T$-count compared to \\texttt{gridsynth} and up to 60% compared to Repeat-Until-Success synthesis on a diverse set of benchmarks. We map these compiled circuits to a surface-code architecture to evaluate space-time volume, demonstrating up to a 60\\% reduction in this metric as well. However, for some circuits and mapping strategies the two metrics diverge significantly, demonstrating that $T$-count alone is a useful but incomplete proxy for fault-tolerant program costs.",
+  "url": "http://arxiv.org/abs/2606.05397v1",
+  "pdf": "https://arxiv.org/pdf/2606.05397v1",
+  "type": "theory",
+  "summary": "The paper introduces Dyadic Phase Fixing (DPF), a general synthesis tool that optimizes the compilation of quantum circuits into the T-gate restricted set required for fault tolerance. By extending phase kickback, DPF significantly reduces the necessary number of costly T gates compared to existing methods. Crucially, it also warns that while T-count is important, physical resource metrics like space-time volume must be considered alongside gate count minimization.",
+  "main_problem": "The primary challenge is efficiently compiling arbitrary quantum circuits into the fault-tolerant Clifford+T gate set while minimizing the resource cost, dominated by T gates.",
+  "main_result": "The proposed Dyadic Phase Fixing (DPF) synthesis achieves significant reductions (up to 70%) in T-gate count compared to established methods like gridsynth on diverse benchmarks.",
+  "method": "DPF extends phase kickback by using numerical unitary synthesis to greedily extract dyadic angle rotations from general circuits, optimizing the trade-off between T-count reduction and ancilla overhead.",
+  "model_or_system": "The work models fault-tolerant quantum computation implemented on architectures like the surface code. The compilation process translates high-level unitaries into a sequence of Clifford and $Rz$ gates, which are then mapped to physical operations.",
+  "key_observables": "T-gate count (primary metric), space-time volume, approximation error ($\\epsilon$), and ancilla qubit overhead.",
+  "important_parameters": "The precision threshold $\\epsilon$, the size of the phase gradient register ($k_{reg}$), and the choice between different Pauli basis computation schemes (LPBC vs. HPBC).",
+  "main_assumptions": "T-count is a useful but incomplete proxy for total fault-tolerant cost, as space-time volume can diverge from T-count savings due to CNOT overhead.",
+  "figures_summary": "Figures compare T-gate counts across benchmarks (QFT, QAE, etc.) showing DPF's advantage over baseline methods; other figures detail the decision matrix comparing synthesis techniques and plot resource costs vs. register size.",
+  "paper_structure": "The paper introduces the problem of fault-tolerant compilation, details the DPF method using unitary synthesis and a decision matrix to select optimal phase kickback parameters, presents quantitative results showing T-count reduction, and concludes by analyzing the limitations regarding space-time volume overhead.",
+  "why_interesting": "This work directly addresses resource optimization in quantum computation, which is critical for realizing large-scale quantum processors. The detailed analysis of cost trade-offs (T-count vs. volume) provides crucial guidelines for compiler design relevant to any physical platform.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.05397_figures/2606.05397_fig1.jpg",
+      "caption": "Fig. 1: T-gate counts for the Quantum Fourier Transform circuit, comparing Rz decomposition via Phase Kickback against standard rotation synthesis (gridsynth). Phase kickback achieves signifi- cantly lower T-counts for angles of the form 2π",
+      "page": 3
+    },
+    {
+      "image": "2606.05397_figures/2606.05397_fig2.jpg",
+      "caption": "Fig. 2: Standard bus architecture for surface code qubit patches ( [16], [21], [28]). The routing qubits (blank squares) allow for logical all-to-all connectivity. Pauli Products (red, green, and purple regions) in the same cycle can be scheduled in parallel if there are non- overlapping paths through the routing qubits. The perimeter contains magic state cultivation qubits (yellow) which generate resource states as per [13]. When the resource states have a T state ready, they can be used in a Pauli measurement. The final space-time volume of the mapped circuit is the number of logical cycles × all of the qubits in the architecture (data, routing, and resource).",
+      "page": 4
+    },
+    {
+      "image": "2606.05397_figures/2606.05397_fig3.jpg",
+      "caption": "Fig. 3: High-level overview of our end-to-end compilation workflow. We accept a logical circuit in any gate set along with an acceptable approximation error tolerance. The circuit is partitioned into blocks and each block is simplified with BQSKit-FT [33]. Each block is then passed to our Dyadic Phase Fixing routine, which greedily extracts dyadic Rz rotations from the circuit. The resulting circuit is decomposed to the Clifford+T gate set and can be mapped to a given QEC code and architecture.",
+      "page": 4
+    },
+    {
+      "image": "2606.05397_figures/2606.05397_fig4.jpg",
+      "caption": "Fig. 4: Decision matrix comparing T-gate counts between Phase Kickback and gridsynth as a function of approximation error threshold and number of fixed Rz gates, shown for k = 10 (left) and k = 20 (right). Green indicates configurations where phase kickback achieves fewer T gates; Blue indicate where standard gridsynth is preferable. phase kickback model uses the adder T-count of [12] together with the phase gradient state preparation cost. By sweeping over all candidate k values from 4 to kmax, the compiler selects the register size kreg that minimizes the overall T- gate count according to these models. When the decision matrix determines that no value of k yields a net benefit, the...",
+      "page": 5
+    },
+    {
+      "image": "2606.05397_figures/2606.05397_fig5.jpg",
+      "caption": "Fig. 5: Normalized T-gate counts across all benchmarks, comparing Baseline compilation, Naive Phase Kickback (Naive PK), and Dyadic Phase Fixing Synthesis (DPF Synth) at error thresholds of 10−3 and 10−5.",
+      "page": 7
+    }
+  ],
+  "figure": "2606.05397_figures/2606.05397_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

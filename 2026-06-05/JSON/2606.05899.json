@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.05899",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "High-Dimensional Theory of LoRA Fine-Tuning in a Solvable Attention Model",
+  "authors": "O. Duranthon, F. Boncoraglio, L. Zdeborová",
+  "abstract": "We develop a high-dimensional statistical theory of low-rank adaptation (LoRA) in attention models, capturing the interplay between pre-training and fine-tuning. We introduce a solvable framework in which a single-head attention layer is first pre-trained on a data-abundant task and subsequently adapted via a rank-one LoRA update on limited data. In the high-dimensional limit, both stages admit a sharp asymptotic characterization in terms of a finite set of order parameters, yielding explicit predictions for test errors and representation alignment. Our analysis shows that the impact of pre-training on LoRA is summarized by an effective noise term, from which we derive prescriptions for the optimal pre-training procedure. We also demonstrate a regime with a mismatch between the value of the test error and representation quality, and propose an application of our theory to active fine-tuning.",
+  "url": "http://arxiv.org/abs/2606.05899v1",
+  "pdf": "https://arxiv.org/pdf/2606.05899v1",
+  "type": "theory",
+  "summary": "This paper establishes a comprehensive high-dimensional statistical theory for understanding how low-rank adaptation (LoRA) fine-tuning performs after extensive pre-training. By mapping the problem onto order parameters derived from free energy minimization, it quantifies performance losses via an 'effective noise' term. The results offer actionable insights into optimizing both the pre-training and subsequent fine-tuning regimes.",
+  "main_problem": "The paper develops a high-dimensional statistical theory to characterize Low-Rank Adaptation (LoRA) fine-tuning in attention models, analyzing the interplay between extensive pre-training and limited fine-tuning data.",
+  "main_result": "The performance of LoRA is characterized by an effective noise term derived from order parameters, providing explicit predictions for test errors and suggesting optimal procedures like active fine-tuning or map recalibration.",
+  "method": "The analysis employs high-dimensional statistical physics techniques, including the replica method and free entropy maximization, to derive asymptotic characterizations of learning dynamics in the limit of infinite dimensions.",
+  "model_or_system": "The model is a single-head attention layer undergoing pre-training on abundant data followed by fine-tuning via a rank-one LoRA update. The analysis focuses on Gaussian input sequences for tractability.",
+  "key_observables": "Test errors ($E', E$), representation overlap, effective noise ($\\Delta_{\text{eff}}$), and order parameters (e.g., $Q, M$).",
+  "important_parameters": "High-dimensional limits ($D \to \\infty$), pre-training regularization strength ($\\lambda$), fine-tuning sample size ratio ($\rho$), and rescaling factors ($\beta$).",
+  "main_assumptions": "The analysis relies on the high-dimensional limit, Gaussian input sequences for tractability, and specific structural assumptions about the attention mechanism (e.g., tied keys/queries).",
+  "figures_summary": "Figures illustrate how recalibrating the frozen pre-trained map ($\\hat{W}$) using a factor $\beta/\beta^\\star$ improves downstream LoRA transfer, and show the effect of pre-training on fine-tuning performance parameterized by effective noise.",
+  "paper_structure": "The paper builds from foundational high-dimensional theory (defining order parameters) to deriving state-evolution equations for both training stages. It then applies this framework to analyze specific phenomena like active fine-tuning, map recalibration, and the comparison against Bayes-optimal benchmarks.",
+  "why_interesting": "This work bridges statistical physics tools (replica theory, free energy minimization) directly into modern deep learning optimization problems (LoRA), providing rigorous theoretical guarantees on generalization bounds in high dimensions.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.05899_figures/2606.05899_fig1.jpg",
+      "caption": "Figure 1: Fine-tuning test error E′ versus pre-training regularization λ for λ′ ∈{0.05, 1, ∞}, at α = 0.1, α′ = 3, T = 3, κ0 = κ = 1, and noise levels ∆= 0.5 (left) and ∆= 2 (right). Insets show E′ versus λ′ at the optimal λ. Solid lines are state-evolution predictions; square markers are D = 150 simulations averaged over four runs. Vertical dark-red dashed lines mark curve minima, and the black dashed line is the Bayes-optimal benchmark. The cases λ′ = ∞and λ = ∞correspond respectively to no LoRA adaptation ( ˆw = 0) and LoRA-only fine-tuning ( ˆW = 0).",
+      "page": 7
+    },
+    {
+      "image": "2606.05899_figures/2606.05899_fig2.jpg",
+      "caption": "Figure 2: Effect of pre-training on the fine-tuning task. Fine-tuning test error E′ vs ∆eff = ∆/2 + Q0 −2M + Q, parameterized by fixing M = 1 and varying Q0 = Q. Left: ∆= 0; right: ∆= 2. Lines are the theoretical predictions; dots are simulations at D = 104 over five independent runs. T = 3, λ′ = 0.5, σ softmax.",
+      "page": 8
+    },
+    {
+      "image": "2606.05899_figures/2606.05899_fig3.jpg",
+      "caption": "Figure 3: Fine-tuning input samples form the pre-training set e = 1. Left: pre-training train error L and test error E; center: fine-tuning test error E′; right: fine-tuning overlap ow; vs regularizations λ and λ′. Lines are the theoretical predictions; dots are simulations at D = 103",
+      "page": 9
+    },
+    {
+      "image": "2606.05899_figures/2606.05899_fig4.jpg",
+      "caption": "Figure 4: Active fine-tuning. Left: fine-tuning test errors E′( ˆW, ˆw) and E′( ˆW, ˆwActFT); inset: difference between the test errors ∆E′; right: overlaps ow; vs ∆eff = ∆/2 + Q0 −2M + Q, parameterized by fixing M = 1 and varying Q0 = Q; for different labeling ratios ρ. Lines are the theoretical predictions; dots are simulations at D = 104 over five independent runs. We minimize E′ over λ′ ∈{0.1, 0.2, 0.5, 1} for each point. ¯α′ = 100, T = 3, ∆= 0, σ softmax.",
+      "page": 11
+    },
+    {
+      "image": "2606.05899_figures/2606.05899_fig5.jpg",
+      "caption": "Figure 5: Effect of pre-training on the fine-tuning task for the rescaled identity activation σ : x 7→x/T. Fine-tuning test error E′ versus ∆eff = ∆/2 + Q0 −2M + Q. Left: test error; right: excess test error with respect to the value at ∆eff = 0. Lines are theoretical predictions; dots are simulations at D = 5 × 103 over five independent runs. T = 3.",
+      "page": 24
+    }
+  ],
+  "figure": "2606.05899_figures/2606.05899_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

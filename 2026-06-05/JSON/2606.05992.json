@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2606.05992",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Rapid Gaussian Boson Sampling Circuit Screening for GKP States Creation via a Two-Stage Machine Learning Surrogate",
+  "authors": "Mohammad Amin Khanpour, Hossein Davoodi Yeganeh",
+  "abstract": "Gottesman-Kitaev-Preskill (GKP) states are essential non-Gaussian resources for fault-tolerant photonic quantum computing, enabling logical qubit encoding with intrinsic robustness against errors. Several approaches to GKP state preparation have been explored, including measurement-based protocols in circuit QED and trapped-ion systems, cat-state breeding, and photon-subtraction schemes. However, these methods are either restricted to specific platforms or require deep non-Gaussian resource chains with exponentially low success probabilities. Gaussian Boson Sampling (GBS) offers a compelling all-photonic alternative by generating non-Gaussian states through measurement-induced nonlinearity, without the need for matter-based ancilla or active feedforward. Nevertheless, its practical implementation is limited by the exponential computational cost of evaluating matrix hafnians-#P-complete functions that govern photon-number probabilities. To address this challenge, we introduce a two-stage Histogram Gradient Boosting surrogate pipeline that predicts, without any hafnian computation, the optimal heralding pattern, circuit fidelity, and post-selection probability for candidate GBS circuits, while reserving exact quantum simulation exclusively for surrogate-selected candidates. Trained on circuit configurations across 3-5 optical modes, the surrogate achieves 90.0% GKP-detection accuracy on a held-out set, representing a 23.7 percentage-point improvement over the baseline, with a fidelity mean absolute error of 0.032 and a log-scale post-selection probability $R^2 = 0.837$, reducing the total simulation burden by approximately 90%.",
+  "url": "http://arxiv.org/abs/2606.05992v1",
+  "pdf": "https://arxiv.org/pdf/2606.05992v1",
+  "type": "theory",
+  "summary": "The paper introduces an ML-based surrogate pipeline to efficiently screen candidate circuits for generating GKP states using Gaussian Boson Sampling. By predicting performance metrics like fidelity and success probability without calculating computationally prohibitive hafnians, it reduces simulation time by 90%. This framework allows researchers to focus expensive quantum simulations only on the most promising circuit designs.",
+  "main_problem": "The core challenge is developing a scalable method to generate Gottesman-Kitaev-Preskill (GKP) states, which are crucial non-Gaussian resources for fault-tolerant photonic quantum computation.",
+  "main_result": "A two-stage Machine Learning surrogate pipeline was developed that predicts GKP circuit viability with 90.0% accuracy, drastically reducing the computational load by approximately 90% compared to full hafnian calculations.",
+  "method": "The authors employed a cascade ML architecture (Stage 1 for pattern prediction, Stage 2 for fidelity/probability regression) acting as a gatekeeper before performing expensive, exact quantum simulations on promising candidates.",
+  "model_or_system": "The system is photonic quantum computation utilizing Gaussian Boson Sampling (GBS). GKP states are encoded by leveraging the periodicity of the wavefunction lattice in phase space, making them robust against small errors.",
+  "key_observables": "GKP state fidelity ($F$), post-selection probability, Wigner function, and Wigner logarithmic negativity ($\text{WLN}$).",
+  "important_parameters": "Number of optical modes (3–5), squeezing amplitudes/strengths ($\\Delta$), and circuit parameters defining the interferometer structure.",
+  "main_assumptions": "The surrogate is a computational filter, not a replacement for simulation; systematic failure modes exist when test circuits deviate from the training distribution's sign conventions for squeezing parameters.",
+  "figures_summary": "Figures likely compare ML-predicted vs. simulated fidelity and probability on holdout sets, visually confirming GKP state characteristics (e.g., Wigner functions) for successful versus failed candidates.",
+  "paper_structure": "The paper establishes the need for GKP states in photonic QC, identifies the computational bottleneck of hafnian evaluation in GBS, proposes the two-stage ML surrogate pipeline, details its training and application, and validates its efficiency by comparing predictions against full quantum simulations.",
+  "why_interesting": "This work directly addresses the practical scalability barrier in continuous variable quantum computing by replacing intractable exponential calculations with machine learning surrogates, a key theme for theoretical quantum information scientists.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.05992_figures/2606.05992_fig1.jpg",
+      "caption": "FIG. 1. GBS circuit schematic for GKP state preparation. The circuit consists of (left to right): single-mode squeezing gates on all nmodes input modes, a rectangular Clements beamsplitter interferometer, photon-number-resolving (PNR) detectors post-selecting on herald pattern m = (m1, . . . , mnmodes−1) on the first nmodes −1 modes, and the undetected output mode which collapses into the heralded GKP state.",
+      "page": 5
+    },
+    {
+      "image": "2606.05992_figures/2606.05992_fig2.jpg",
+      "caption": "FIG. 2. Two-stage ML surrogate pipeline block diagram. Stage 1 (Pattern Classifier) takes the circuit parameter vector and configuration metadata as input and outputs the predicted herald pattern. Stage 2 (Fidelity and Probability Regressors) takes the same input augmented with the Stage 1 pattern statistics and outputs predicted fidelity F and log-probability y = log10(p). If F ≥0.90, the circuit is passed to exact quantum simulation (Strawberry Fields + thewalrus) for confirmed validation.",
+      "page": 6
+    },
+    {
+      "image": "2606.05992_figures/2606.05992_fig3.jpg",
+      "caption": "FIG. 3. Scatter plot of ML-predicted vs. simulation-confirmed fidelity (left) and log10 post-selection probability (right) on the 170-sample holdout set. Points are coloured by circuit mode count (nmodes ∈{3, 4, 5}). The dashed diagonal line indicates perfect agreement. The shaded band indicates ±0.05 fidelity error. Points above or below the F = 0.90 threshold line that are misclassified by the surrogate are highlighted.",
+      "page": 10
+    },
+    {
+      "image": "2606.05992_figures/2606.05992_fig4.jpg",
+      "caption": "FIG. 4. Representative Wigner functions W(q, p) from the exact simulation step, plotted over q, p ∈[−3, 3] (in units of √π). (a) Circuit C1 (nmax = 8, three modes, ∆= 10 dB, WLN = 0.700): characteristic GKP lattice structure with prominent negativity (red/blue regions) at phase-space lattice points. (b) Circuit C7 (nmax = 8, three modes, ∆= 5 dB, WLN = 0.022): the GKP pattern is visually present but with negligible negativity, consistent with near-classical behaviour. (c) Circuit F1 (nmax = 12, five modes, ∆= 11 dB, sign +): the Wigner function bears no resemblance to a GKP state, consistent with Fsim = 0.307, confirming the catastrophic surrogate failure.",
+      "page": 12
+    }
+  ],
+  "figure": "2606.05992_figures/2606.05992_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}
