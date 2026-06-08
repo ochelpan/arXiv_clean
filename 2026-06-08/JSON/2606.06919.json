@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.06919",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el",
+    "cond-mat.supr-con"
+  ],
+  "is_primary_archive": true,
+  "title": "Scalable Quantum Algorithms for Gutzwiller Projection",
+  "authors": "Byungmin Kang, Hyunwoong Kwon, Vito W. Scarola, Kwon Park",
+  "abstract": "Quantum simulation requires highly accurate input states. Gutzwiller-projected Bardeen-Cooper-Schrieffer (BCS) states provide physically motivated input states for solving strongly correlated lattice models, but their preparation on a quantum computer is hindered by the non-trivial nature of the Gutzwiller projection. We construct scalable quantum algorithms for this task by combining a circuit construction for arbitrary BCS states with the amplitude amplification for Gutzwiller projection (AAGP) procedure. AAGP yields a quadratic reduction in the number of projection queries compared with measurement-based postselection and leads to substantially improved fault-tolerant resource scaling. For projected BCS states optimized for the square-lattice $t$-$J$ model, we find that the projected-state weight decreases exponentially with system size, but the quadratic improvement is still large enough at physically relevant finite sizes to make a decisive practical difference. In particular, for a 100-site benchmark, AAGP reduces the required number of projection queries by about seven orders of magnitude. These results establish AAGP as an enabling input-state preparation protocol for projected BCS states in quantum simulation.",
+  "url": "http://arxiv.org/abs/2606.06919v1",
+  "pdf": "https://arxiv.org/pdf/2606.06919v1",
+  "type": "theory",
+  "summary": "The paper presents scalable quantum algorithms to prepare the Gutzwiller-projected BCS state, which serves as an essential input for simulating strongly correlated electron models like the $t$-$J$ model. By employing Amplitude Amplification (AAGP), the required computational resources scale quadratically better than previous measurement-based techniques. This breakthrough moves projected state preparation from a theoretical hurdle to a potentially deployable protocol for quantum simulation.",
+  "main_problem": "The core challenge is preparing physically accurate input states for quantum simulation of strongly correlated lattice models, specifically due to the non-trivial Gutzwiller projection.",
+  "main_result": "The proposed Amplitude Amplification for Gutzwiller Projection (AAGP) algorithm achieves a quadratic speedup in required projection queries compared to measurement-based methods. This makes state preparation practically feasible at relevant finite system sizes.",
+  "method": "The authors develop and analyze the AAGP quantum circuit, which uses amplitude amplification techniques derived from Grover's search structure to estimate the overlap between the desired Resonating Valence Bond (RVB) state and the initial BCS ansatz. The full BCS state itself is constructed using Givens rotations applied after diagonalizing a Bogoliubov-de Gennes Hamiltonian.",
+  "model_or_system": "The work focuses on strongly correlated lattice models, particularly the $t$-$J$ model derived from the Hubbard model, relevant to high-temperature superconductivity. The target state is the Gutzwiller-projected BCS state $|\\psi_{\text{RVB}}\rangle = \\mathcal{P}_G |\\psi_{\text{BCS}}\rangle$.",
+  "key_observables": "The probability weight $W = |\\langle\\psi_{RVB}|\\psi_{BCS}\rangle|^2$ is the key observable, and the required number of projection queries ($O(1/\\sqrt{W})$ vs. $O(1/W)$) quantifies the algorithmic improvement.",
+  "important_parameters": "System size (e.g., 100 sites), pairing gap ($\\Delta$), hole doping concentration ($x$), and the desired success tolerance ($\\delta$).",
+  "main_assumptions": "The analysis assumes that while the weight $W$ decreases exponentially with system size, the quadratic speedup of AAGP is large enough to provide a decisive practical advantage at finite sizes. The BCS state construction relies on mapping fermionic operators via Bloch-Messiah decomposition.",
+  "figures_summary": "Figures illustrate the workflow for Gutzwiller projection using amplitude amplification (AAGP), show the structure of the quantum circuit involving Givens rotations, and demonstrate the convergence of success probability versus iteration number.",
+  "paper_structure": "The paper systematically builds the necessary components: first, defining the physical problem and the BCS state construction; second, detailing the inefficient measurement-based projection method; third, introducing and analyzing the AAGP algorithm using amplitude amplification theory (including recursion relations solved via Chebyshev polynomials); and finally, calculating the overlap weight $W$ for specific models like the $t$-$J$ model.",
+  "why_interesting": "This work is highly relevant as it develops a concrete quantum computational primitive—scalable state preparation—essential for simulating complex many-body phenomena in condensed matter physics that are intractable classically.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.06919_figures/2606.06919_fig1.jpg",
+      "caption": "FIG. 1. Many-body Hilbert space and workflow schematics (a) A schematic of the energy spectra expected from a strongly repulsive lattice model where the lower en- ergy manifold has no double occupancies (blue dashes) and the high energy states have at least one double occupancy (red dashes). The lattice schematics contain Ns = 16 sites. Four states are possible at each site: empty (a hole), a spin up fermion (red sphere), a spin down fermion (blue sphere), and doubly occupied. 4Ns basis configurations superpose to de- fine many-body eigenstates. Gutzwiller projection excludes doubly occupied basis configurations. (b) Schematic work- flow showing a quantum algorithm with an input BCS state...",
+      "page": 1
+    },
+    {
+      "image": "2606.06919_figures/2606.06919_fig2.jpg",
+      "caption": "FIG. 2. Overall structure of the amplitude amplification algorithm for the Gutzwiller projection. The measurement-based projection algorithm measures double occupancy at every site and postselects the outcome with no double occupancy. UBCS is the unitary operator that creates the BCS state from the vacuum or the null state |0⟩= |0⟩⊗N. PG imple- ments the Gutzwiller projection by measuring double occupancy at every site using CCNOT gates. The amplitude amplification algorithm replaces PG with a series of unitary operations U(k) aa with k = 1, · · · , L, where L is determined by two factors: (i) the probability weight of the RVB state within the BCS state, W, and (ii) the desired tolerance,...",
+      "page": 3
+    },
+    {
+      "image": "2606.06919_figures/2606.06919_fig3.jpg",
+      "caption": "FIG. 3. Demonstration of the amplitude amplification algorithm. (a) Evolution of the success probability |αn|2 as a function of n/L with L = 200001, starting from the initial value, W = 6.5 × 10−11, to the targeting value, 1 −δ2 with δ = 0.4, which is illustrated by the dark curve. In the actual implementation of the amplitude amplification algorithm, W is not known precisely beforehand and must be estimated. Consequently, its true value, Wtrue, might differ from the estimated one. The light red and blue curves illustrate how |αn|2 would evolve if Wtrue were below or above the estimated value, W = 6.5 × 10−11, respectively. On the right side of the figure, the final success probability...",
+      "page": 9
+    },
+    {
+      "image": "2606.06919_figures/2606.06919_fig4.jpg",
+      "caption": "FIG. 4. Probability weight of the RVB state within the BCS state. Panels (a), (b), and (c) show the phase diagram of the overlap between the RVB state and the exact ground state of the t-J model as a function of pairing amplitude ∆and hole doping concentration x for finite-size systems with Ns = 10, 18, and 20, respectively. Note that Ns represents the number of sites in finite-size systems. To cover the full range of pairing amplitude from zero to infinity, the y-axis of Panels (a), (b), and (c) is scaled as tan−1(∆/t). The color bar on the right shows the overlap scale, with bright yellow indicating unity and black indicating zero. Green curves trace the maximum overlap as a function of x...",
+      "page": 13
+    },
+    {
+      "image": "2606.06919_figures/2606.06919_fig5.jpg",
+      "caption": "FIG. 5. Schematic diagram of the Bloch-Messiah decomposition generating the full BCS state. Horizontal lines represent individual qubits. Numbers inside the boxes indicate the qubit index, while numbers outside the curly brackets indicate the number of qubits within the enclosed length.",
+      "page": 16
+    }
+  ],
+  "figure": "2606.06919_figures/2606.06919_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.07314",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.SE",
+    "cs.ET",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QBugLM: An Agentic Benchmarking Framework for LLM-based Quantum Software Debugging",
+  "authors": "An B. B. Pham, Hoa T. Nguyen, Muhammad Usman",
+  "abstract": "Quantum software bugs often yield silent, incorrect outputs rather than explicit errors, making them particularly difficult to detect and repair with conventional techniques. Although large language models (LLMs) have shown strong performance on classical software engineering tasks, their ability to debug quantum code remains largely unexplored. To bridge this gap, we propose QBugLM, a multi-agent framework that automates the quantum software debugging pipeline, from taxonomy-driven bug injection to LLM-based detection and repair, and finally to simulation-based validation, for framework-agnostic OpenQASM 3.0 programs. We further conduct a comprehensive case study using QBugLM to benchmark two LLMs, Claude 4.6 Sonnet and Qwen3 Coder Next, across different prompting strategies, bug categories, and quantum programs. Our results show that iterative feedback is critical, as a single retry raises Pass@1 from below 25% to above 80%. Moreover, simpler structured prompting can even outperform Chain-of-Thought and ReAct for reasoning-capable models under fixed-resource constraints. Our work takes initial steps toward benchmarking LLM capabilities for debugging quantum programs and offers practical insights to support future efforts in automated quantum software repair.",
+  "url": "http://arxiv.org/abs/2606.07314v1",
+  "pdf": "https://arxiv.org/pdf/2606.07314v1",
+  "type": "experiment",
+  "summary": "This paper introduces QBugLM, a novel multi-agent framework designed to automatically benchmark and repair bugs in quantum software written in OpenQASM 3.0. By systematically injecting various bug types and testing LLMs like Claude and Qwen, the authors demonstrate that iterative refinement is key to successful debugging. The work provides practical insights into using AI for automated quantum code repair.",
+  "main_problem": "Quantum software bugs often result in silent, incorrect outputs, making them hard to detect; a systematic benchmark for LLM debugging of quantum code is needed.",
+  "main_result": "Iterative feedback significantly boosts repair success (Pass@1 from <25% to >80%), and simpler structured prompting can outperform CoT/ReAct under resource constraints.",
+  "method": "The authors developed QBugLM, a multi-agent framework that automates bug injection (QBugGen), detection (QBugFind), repair (QBugFix), and validation (QBugCheck) for OpenQASM 3.0 code.",
+  "model_or_system": "The focus is on debugging quantum programs written in the OpenQASM 3.0 standard, tested across five canonical circuits (Deutsch-Jozsa, Grover, etc.) using a multi-agent LLM pipeline.",
+  "key_observables": "Pass@1 metric for repair success, Total Variation Distance ($\\delta$) for output comparison, and gate count difference $|\text{Gref} - \text{Gfixed}|$.",
+  "important_parameters": "The number of retries ($K$), the acceptable distance threshold ($\\varepsilon_\\delta = 0.05$), and resource constraints (token/cost).",
+  "main_assumptions": "Validation assumes execution on a noiseless quantum simulator to isolate logical errors from hardware noise.",
+  "figures_summary": "Figures illustrate the QBugLM pipeline, show Pass@1 improvements across prompting strategies (Structured > CoT/ReAct), and compare performance metrics like token consumption vs. accuracy at multiple retry levels.",
+  "paper_structure": "The paper introduces the QBugLM framework components (QBugGen, QBugFind, QBugFix, QBugCheck) and then conducts a comprehensive case study benchmarking LLMs across different bug types and prompting strategies to evaluate repair efficacy and cost-efficiency.",
+  "why_interesting": "While focused on software engineering, the rigorous testing of quantum algorithms (like Deutsch-Jozsa or Grover) against systematic bugs provides benchmarks for validating complex quantum circuit implementations, which is crucial for any physical realization of quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.07314_figures/2606.07314_fig1.jpg",
+      "caption": "Fig. 1. Overview of the QBugLM framework",
+      "page": 3
+    },
+    {
+      "image": "2606.07314_figures/2606.07314_fig2.jpg",
+      "caption": "Fig. 2. Pass@1 of Qwen3 Coder Next and Claude Sonnet 4.6 across three prompting strategies on the Bernstein-Vazirani (BV) circuit. Structured prompting achieves the highest Pass@1 for both models.",
+      "page": 4
+    },
+    {
+      "image": "2606.07314_figures/2606.07314_fig3.jpg",
+      "caption": "Fig. 3. Pass@1 per bug category at zero and two retries for both LLMs on the BV circuit with structured prompting.",
+      "page": 5
+    },
+    {
+      "image": "2606.07314_figures/2606.07314_fig4.jpg",
+      "caption": "Fig. 4. Average total token consumption (bars) and Pass@1 (dashed lines) per mutant per bug category at two retries for both LLMs.",
+      "page": 5
+    },
+    {
+      "image": "2606.07314_figures/2606.07314_fig5.jpg",
+      "caption": "Fig. 5. Average wall-clock time per mutant per bug category at two retries for both LLMs.",
+      "page": 5
+    }
+  ],
+  "figure": "2606.07314_figures/2606.07314_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

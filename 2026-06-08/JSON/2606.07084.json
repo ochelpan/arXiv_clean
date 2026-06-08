@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.07084",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Projector Quantum Variational Ansatz",
+  "authors": "Thomas Dumontier, Robin Ollive, Stephane Louise",
+  "abstract": "Quantum computing offers several algorithms to compute the ground state of a problem Hamiltonian. The most desirable algorithms belong to the Fault Tolerant QuantumComputing (FTQC) regime, such as quantum algorithms with repetitive structure like Quantum Phase Estimation (QPE) and Quantum Signal Processing (QSP). However, in the Noisy In-termediate Scale Quantum (NISQ) regime, the most realistic approaches involve Variational Quantum Eigensolver (VQE) algorithms and their variants. VQE is an algorithm that searches for a parametrized unitary matrix called an ansatz whose purposeis to transform an easily prepared initial state into the groundstate of a given Hamiltonian. Adaptive Derivative-AssembledPseudo-Trotter (ADAPT)-VQE is a variant of VQE that im-proves this approach by constructing the ansatz iteratively so that the associated quantum circuit is as shallow as possible. A major difference between FTQC (i.e. not variational) algorithms and VQE is that FTQC algorithms do not construct a state transitiondirectly. Instead, they construct a projector that identifies the ground state using ancillary qubits that flag the good solution. The desired state is then obtained via amplitude amplification orpost-selection. In this work, we propose a VQE ansatz whose structure is more similar to that of an FTQC algorithm. Depending on its parametrization, this ansatz can be equivalent to either an Intermediate Scale Quantum (ISQ)-QSP or to an ADAPT-VQE quantum circuit structure. Our experimental results show that this first proposal of Projector Variational Ansatz (PVA) converges with a shallower ansatz than the usual ADAPT-VQE.",
+  "url": "http://arxiv.org/abs/2606.07084v1",
+  "pdf": "https://arxiv.org/pdf/2606.07084v1",
+  "type": "both",
+  "summary": "The paper introduces the Projector Variational Ansatz (PVA), a novel VQE structure designed to incorporate principles from fault-tolerant quantum computing. By using ancillary qubits for subspace projection, PVA improves upon standard ADAPT-VQE by achieving chemical accuracy with shallower circuits and fewer required variational parameters on small molecules.",
+  "main_problem": "The primary goal is to efficiently compute the ground state energy of a problem Hamiltonian using quantum algorithms, particularly in the Noisy Intermediate Scale Quantum (NISQ) regime.",
+  "main_result": "The proposed Projector Variational Ansatz (PVA) demonstrates convergence with shallower circuits than standard ADAPT-VQE variants for molecular simulations, achieving chemical accuracy with fewer required layers.",
+  "method": "The work develops and compares several variational ansatz structures (like PVA) designed to mimic the projector nature of Fault Tolerant Quantum Computing (FTQC) algorithms within the VQE framework. These methods are optimized using classical optimizers like L-BFGS-B or SPSA, sometimes requiring post-selection via ancillary qubits.",
+  "model_or_system": "The simulations focus on molecular electronic structure calculations ($\text{H}_4$, $\text{BeH}_2$, etc.), where the Hamiltonian is derived from fermionic operators and mapped onto qubit Pauli strings using Jordan-Wigner transformation. The initial state is typically the Hartree-Fock reference state.",
+  "key_observables": "Energy Error ($\\Delta E$), CNOT Count (circuit depth), Success Probability ($P_{\text{succ}}$), and convergence rate relative to standard ADAPT methods.",
+  "important_parameters": "The NISQ regime constraints, ansatz parametrization $\\{\theta\\}$, and the required chemical accuracy threshold ($\\Delta E < 1.6 \times 10^{-3} \text{ Ha}$).",
+  "main_assumptions": "The primary assumption is that incorporating projector-like structures into VQE can bridge the gap between shallow NISQ circuits and deep, high-fidelity FTQC algorithms.",
+  "figures_summary": "Figures illustrate quantum circuits for various ansatzes (ISQ-QSP, ADAPT-VQE, PVA) and show convergence plots comparing energy error versus circuit layers/CNOTs for different molecules ($\text{H}_4$, $\text{LiH}$).",
+  "paper_structure": "The paper first introduces the limitations of NISQ algorithms compared to FTQC methods. It then proposes the PVA ansatz structure, detailing its mathematical equivalence and implementation via ancillary qubits. The core is a comparative study showing PVA's superior performance over standard ADAPT-VQE across multiple molecular systems under both exact statevector and finite-shot simulations.",
+  "why_interesting": "This work directly addresses the resource scaling challenge in quantum chemistry simulation, proposing an algorithmic modification (PVA) that aims to reduce circuit depth—a critical bottleneck for implementing complex Hamiltonians on near-term hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.07084_figures/2606.07084_fig1.jpg",
+      "caption": "Fig. 1. Quantum circuit of the ISQ-QSP algorithm that measures the expectation value of the summand c H1. Here: c Hp = c H1 + c H2. The dashed box delimits the QSP part; the rest of the circuit is the c Hi expectation value measurement on the lower part of the energy spectrum. Note that the c Hp expectation value is upper bounded by the value ∆by the filtering done by the QSP.",
+      "page": 3
+    },
+    {
+      "image": "2606.07084_figures/2606.07084_fig2.jpg",
+      "caption": "Fig. 4. Quantum circuit used to measure an expectation value of the state prepared by the Projector-ADAPT-VQE ansatz at the jth iteration: ⟨φj| c Hi |φj⟩.",
+      "page": 4
+    },
+    {
+      "image": "2606.07084_figures/2606.07084_fig3.jpg",
+      "caption": "Fig. 5. Performance comparison of the PVA versus standard Qubit-ADAPT-VQE and Fermionic-ADAPT-VQE",
+      "page": 5
+    },
+    {
+      "image": "2606.07084_figures/2606.07084_fig4.jpg",
+      "caption": "Fig. 6. Quantum circuit that represents the part (dotted boxes) of the exponentialized operator from which the CNOT count differs (δ value) between the different operator pools. Respectively from left to right: eit b Z b Z b Z b Z b Z, eit b Z b Z b Z b Z b Z b Z, eit( b Zbσbσbσbσ+ d h.c.), eit( b Zbσbσbσbσ b Z+ d h.c.).",
+      "page": 6
+    },
+    {
+      "image": "2606.07084_figures/2606.07084_fig5.jpg",
+      "caption": "Fig. 7. Finite shots simulation of our PVA method for H4 and LiH",
+      "page": 6
+    }
+  ],
+  "figure": "2606.07084_figures/2606.07084_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
