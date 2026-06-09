@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.08349",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math-ph",
+    "physics.flu-dyn"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum algorithms for stochastic nonlinear differential equations",
+  "authors": "Sergey Bravyi, Adam Byrne, Mykhaylo Zayats, Sergiy Zhuk",
+  "abstract": "Stochastic nonlinear dynamics underlie many models in engineering and computational physics, yet accurate high-dimensional simulation remains challenging. We present a quantum algorithm for a broad class of $N$-dimensional stochastic differential equations with dissipation and quadratic drift. The algorithm applies to strongly nonlinear systems with all-to-all interactions, thereby extending the scope of previously known quantum algorithms that were limited to weak nonlinearity and sparse systems. For norm-preserving drifts, a condition satisfied by key fluid dynamics discretizations, our method approximates expectation values of low-order correlation functions with rigorous error bounds at a cost polynomial in $\\log{(N)}$ and linear in the evolution time. Our main technical advance is a subroutine for simulating an auxiliary system of $N$ interacting quantum harmonic oscillators with cost polylogarithmic in $N$. Finally, we formulate turbulence models, including Navier-Stokes and damped Euler equations, within this framework, opening a route to quantum simulation of strongly nonlinear SDEs governing turbulence and nonlinear wave dynamics.",
+  "url": "http://arxiv.org/abs/2606.08349v1",
+  "pdf": "https://arxiv.org/pdf/2606.08349v1",
+  "type": "theory",
+  "summary": "The paper introduces a novel quantum algorithm designed to simulate high-dimensional stochastic nonlinear differential equations, particularly those modeling turbulence. By reformulating the problem as solving an evolution equation in the Fock space of harmonic oscillators, it achieves polynomial scaling with system size N and linear scaling with time t for specific physical models. This opens a pathway for quantum simulation beyond previously limited weak or sparse nonlinearity regimes.",
+  "main_problem": "The core challenge is developing quantum algorithms capable of accurately simulating high-dimensional stochastic nonlinear differential equations (SDEs) arising in complex physical systems like fluid dynamics.",
+  "main_result": "The authors present a framework showing that quantum simulation can efficiently estimate observables for strongly nonlinear, divergence-free quadratic SDEs with costs polynomial in log(N) and linear in time.",
+  "method": "The approach reformulates the problem by solving the backward Kolmogorov equation (bKE) using second quantization on an auxiliary system of interacting quantum harmonic oscillators, employing regularization techniques to manage infinite dimensionality.",
+  "model_or_system": "The primary models analyzed are $N$-dimensional SDEs with quadratic drift and dissipation, exemplified by the damped Euler-Bardina (dEB) model relevant for turbulence. The dynamics are mapped onto a linear evolution equation in the Fock space of harmonic oscillators.",
+  "key_observables": "Expected values of low-order correlation functions or observables $u_0(\\mathbf{X}(t))$, such as first or second moments, which are estimated via quantum expectation value measurements.",
+  "important_parameters": "The efficiency depends critically on the divergence-free condition ($\text{div}(\\mu f) = 0$) and specific scaling conditions relating initial state norms to noise variances ($\\sum x_i^2 / \\pi_i = O(1)$).",
+  "main_assumptions": "Key assumptions include the applicability of regularization procedures to truncate the infinite-dimensional Kolmogorov operator while maintaining controlled error bounds, and that the system exhibits divergence-free properties.",
+  "figures_summary": "Figures illustrate the quantum simulation workflow (converting ODEs to SDEs), showing the use of $N$ harmonic oscillators and the convergence of sample variance in projections for fluid dynamics models like dEB.",
+  "paper_structure": "The paper builds conceptually by first establishing the general framework for simulating quadratic SDEs via the bKE, then detailing the technical steps involving regularization and quantum simulation using Fock space operators, and finally applying this to concrete physical examples like the dEB model.",
+  "why_interesting": "This work directly tackles the computational bottleneck of nonlinear dynamics—a major area where quantum computation promises advantage by linearizing complex evolution into solvable quantum operator forms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.08349_figures/2606.08349_fig1.jpg",
+      "caption": "Figure 1: Quantum simulation workflow. A quadratic ODE for a state vector X(t) ∈RN is converted into a stochastic differential equation (SDE) by adding random noise. Rather than tracking the full state vector, the quantum algorithm estimates the noise-averaged value of a scalar observable u0 : RN →R evaluated at the solution X(t) for a given target initial condition x ∈RN. As a function of t and x, this expected value satisfies the Kolmogorov equation. Embedding this equation into the Hilbert space of N quantum harmonic oscillators and applying a regularization procedure then enables efficient quantum simulation.",
+      "page": 6
+    },
+    {
+      "image": "2606.08349_figures/2606.08349_fig2.jpg",
+      "caption": "Figure 2: Monte Carlo simulation of dEB. Rows 1-2; a realization of the velocity field for the SDE Eq. (2) describing the discretized dEB model with an additional deterministic forcing Eq. (10). Rows 3-5; the same SDE without deterministic forcing. The first two columns show the averaged velocity field, and the third column shows the expectation v(t, x).",
+      "page": 15
+    },
+    {
+      "image": "2606.08349_figures/2606.08349_fig3.jpg",
+      "caption": "Figure 3: Generation of the turbulent initial condition. Profiles of the first component of the velocity V = (V1, V2) for the dEB model Eq. (192) with Kolmogorov forcing Eq. (198) over t ∈[0, tturb].",
+      "page": 80
+    },
+    {
+      "image": "2606.08349_figures/2606.08349_fig4.jpg",
+      "caption": "Figure 4: Sample variance in projection coefficients. Unbiased sample variance in all N coefficients Xi(T) and X2 i (T) at the final time T = 3.0.",
+      "page": 81
+    },
+    {
+      "image": "2606.08349_figures/2606.08349_fig5.jpg",
+      "caption": "Figure 5: Unfiltered expectation v(t, x). Comparison of the expected value v(t, x) for observable u0,ξ∗(X(t)) with the filter w(pi) for (α, β) = (10−2, 1.6) versus the “unfiltered” observable with (α, β) = (0, 0), over t ∈[tturb, T].",
+      "page": 82
+    }
+  ],
+  "figure": "2606.08349_figures/2606.08349_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

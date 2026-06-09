@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.09756",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Perturbative Contrastive Physical Learning",
+  "authors": "Kyungeun Kim, Amanuel Anteneh, Israel Klich, Olivier Pfister, J. M. Schwarz",
+  "abstract": "Responses to perturbations are key to understanding physical systems. The ability to contrast such responses by comparing how a system reacts under slightly different conditions provides a mechanism for learning. Here, we introduce Perturbative Contrastive Physical Learning (PCPL), a general framework in which learning emerges from measurable contrasts between physical states produced by controlled changes to inputs, boundary conditions, parameters, or interpreter functions. PCPL unifies and extends prior approaches: Equilibrium Propagation is rooted in contrasts between free and nudged equilibria in energy-based systems, while Frequency Propagation corresponds to contrasts extracted from sinusoidally driven, frequency-demodulated responses. We show that contrast-driven updates can reflect either local sensitivities or global inverse-problem structure, yet do not require centralized gradient computation. Instead, effective learning geometry emerges implicitly from the system's own physical response, allowing learning behavior to arise without an external processor or explicit backpropagation. We demonstrate PCPL in two platforms: (i) spring networks that update bond stiffness using measured displacements and forces, and (ii) continuous-variable photonic circuits trained via x quadrature measurements and finite-difference estimates of the Jacobian. Both platforms successfully learn classification tasks. We further show that a continuous-variable photonic circuit can be trained to implement analog multiplication, illustrating a step toward more autonomous physical learning systems.",
+  "url": "http://arxiv.org/abs/2606.09756v1",
+  "pdf": "https://arxiv.org/pdf/2606.09756v1",
+  "type": "both",
+  "summary": "This paper introduces Perturbative Contrastive Physical Learning (PCPL), a general framework that enables machine learning by analyzing measurable contrasts in a physical system's response to small perturbations. It demonstrates this principle using both mechanical springs and continuous-variable photonic circuits, showing that complex tasks like classification and analog multiplication can be achieved without explicit backpropagation or centralized gradient computation.",
+  "main_problem": "To develop a general learning framework that derives parameter updates from measurable contrasts between physical states induced by controlled perturbations, bypassing the need for explicit centralized gradient computation.",
+  "main_result": "The proposed Perturbative Contrastive Physical Learning (PCPL) framework successfully applies to both mechanical spring networks and continuous-variable photonic circuits, demonstrating autonomous learning capabilities.",
+  "method": "Learning is achieved by measuring the difference (contrast) between a system's response under perturbed conditions ($z_n$) versus its free response ($z_f$), allowing for updates analogous to gradient descent without explicit backpropagation.",
+  "model_or_system": "The framework is demonstrated on two platforms: (i) mechanical spring networks whose stiffness parameters are learned from measured displacements/forces, and (ii) continuous-variable photonic circuits using Gaussian operations and quadrature measurements.",
+  "key_observables": "Measurable contrasts ($\\Delta z = z_n - z_f$), classification accuracy (e.g., 97.7% for CV circuits), and the effective weight vector $W$ in the linear readout approximation.",
+  "important_parameters": "Perturbation magnitude ($\\epsilon$), learning rate ($\\eta$), and circuit parameters like beam splitter angles ($\theta$) and squeezing levels ($s$).",
+  "main_assumptions": "The core assumption is that measurable contrasts are sufficient to approximate necessary gradient information, relying on linear response theory approximations (Jacobian linearization) for the updates.",
+  "figures_summary": "Figures illustrate schematic comparisons of PCPL modes (A vs. B), decision boundaries in feature spaces using spring networks, and circuit diagrams showing the implementation of multipliers and parameter updates in photonic circuits.",
+  "paper_structure": "The paper introduces PCPL by unifying prior contrast-based methods (EP, Frequency Propagation). It details two operational modes (Mode A: self-referenced contrast; Mode B: target-referenced contrast), applies this to a mechanical spring network for classification, and extends the methodology to continuous-variable photonic circuits, culminating in implementing an analog multiplier.",
+  "why_interesting": "The work provides a concrete physical realization of gradient descent principles using only measurable differences between states, which is highly relevant for designing autonomous quantum or optical computation systems where direct gradient calculation is intractable.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.09756_figures/2606.09756_fig1.jpg",
+      "caption": "FIG. 1. Schematic for PCPL with Mode A (implicit target) and Mode B (explicit target).",
+      "page": 3
+    },
+    {
+      "image": "2606.09756_figures/2606.09756_fig2.jpg",
+      "caption": "FIG. 2. Spring Network Schematic. The green nodes are fixed and the 4 blue nodes denote where the input forces containing the Iris dataset information are applied.",
+      "page": 6
+    },
+    {
+      "image": "2606.09756_figures/2606.09756_fig3.jpg",
+      "caption": "FIG. 3. Decision boundaries of case 2 and case 3 for a classical spring network in a gravitational field: Left - Hybrid system classification using adaptive thresholds in Ftotal vs. displacement space achieves 100% test ac- curacy. Right - Pure mechanical system classification using Etotal (linear strain energy) with gap-based energy thresholds achieves 96% accuracy, where both stiffness matrix K and masses b are trained via Jacobian pseu- doinverse with parameter perturbation.",
+      "page": 8
+    },
+    {
+      "image": "2606.09756_figures/2606.09756_fig4.jpg",
+      "caption": "FIG. 4. Four-mode Gaussian photonic circuit for linear classification. Each mode is initialized in vacuum |0⟩, displaced by D(xi), and rotated by R(ϕi), giving UR = diag(eiϕ1, . . . , eiϕ4). This can be implemented by phase modulating lasers of tunable power. The first beam splitter layer UL1 = BS01(θ1, ϕ1) ⊕BS23(θ2, ϕ2) and second layer UL2 = BS02(θ3, ϕ3) ⊕BS13(θ4, ϕ4) mix the modes using 8 trainable parameters. The fixed concentration layer Uf = BS03(π/4, 0) · BS01(π/4, 0) concentrates information into mode 0. x-quadrature mean measurements yields ⟨ˆx0⟩= P",
+      "page": 10
+    },
+    {
+      "image": "2606.09756_figures/2606.09756_fig5.jpg",
+      "caption": "FIG. 5. Classification accuracy via mini-batch pseudoin- verse nudging. (a) distribution of photonic measure- ment outcomes by class showing clear separation be- tween Class 0 (blue, centered at -1), Class 1 (orange, centered at 0), and Class 2 (green), achieving 100.0% classification accuracy. (b) Training convergence using mini-batch pseudoinverse nudging with batch size N = 5 and learning rate η = 0.1, reaching nearly perfect accu- racy within 10 epochs.",
+      "page": 12
+    }
+  ],
+  "figure": "2606.09756_figures/2606.09756_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 2,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 1,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 1,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 3,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

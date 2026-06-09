@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.08053",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.NA"
+  ],
+  "is_primary_archive": true,
+  "title": "Numerical solution of the nonlinear Dirac equation by a splitting variational quantum algorithm",
+  "authors": "Qian Zuo, Ying He, Xiaofei Zhao",
+  "abstract": "In this work, we propose an operator-splitting variational quantum algorithm, termed Dirac-sVQA, for simulating the nonlinear Dirac equation (NLDE). The main difficulty arises from the state-dependent nonlinear interaction, its time-discrete update depends explicitly on the intermediate spinor state and, in general, cannot be implemented as a fixed state-independent unitary circuit. To address this difficulty, we decompose the NLDE evolution into a structured linear Dirac substep and a nonlinear variational correction. The linear substep is implemented by a spinor-Fourier Dirac propagator on a joint position-spin register, preserving the spin-momentum coupling and mass-induced spin evolution of the Dirac operator. The nonlinear correction is reformulated as a measurement-based variational update through a small set of overlap, self-channel, and cross-channel observables. We provide the corresponding quantum circuits and derive measurement-aware resource and complexity estimates. Numerical experiments in several nonlinear regimes show that Dirac-sVQA accurately captures both the total density and the componentwise spinor dynamics, agrees well with classical Fourier pseudospectral splitting solutions, and exhibits stable error behavior over time. These results provide numerical evidence for the feasibility of operator-splitting variational quantum simulation for nonlinear relativistic wave equations.",
+  "url": "http://arxiv.org/abs/2606.08053v1",
+  "pdf": "https://arxiv.org/pdf/2606.08053v1",
+  "type": "theory",
+  "summary": "The paper presents Dirac-sVQA, a novel operator-splitting variational quantum algorithm designed to simulate the nonlinear Dirac equation. It tackles the difficulty of state-dependent non-unitary evolution by decomposing the problem into a unitary linear step and a measurable nonlinear correction term. The results demonstrate that this hybrid approach accurately captures complex spinor dynamics, providing strong evidence for applying VQA methods to nonlinear relativistic wave equations.",
+  "main_problem": "The primary goal is to develop a quantum algorithm capable of numerically simulating the time evolution governed by the nonlinear Dirac equation (NLDE).",
+  "main_result": "The proposed Dirac-sVQA successfully captures both total density and componentwise spinor dynamics, showing convergence rates comparable to advanced classical splitting methods.",
+  "method": "It employs an operator-splitting variational quantum algorithm that separates the evolution into a unitary linear substep (using Fourier transforms) and a state-dependent nonlinear correction implemented via measurement-based variational updates.",
+  "model_or_system": "The system is modeled by the 1D NLDE, which describes the time evolution of a complex-valued spinor field $\\Psi(t, x)$ involving spin-momentum coupling. The nonlinearity $F(\\Psi)$ makes the evolution state-dependent and non-unitary.",
+  "key_observables": "Total density ($\rho$), componentwise spinor dynamics ($|\\Psi_0|^2, |\\Psi_1|^2$), Root Mean Square Error (RMSE), Overlap ($E_{\text{ov}}$), Self-channel ($E_{\text{self}}$), and Cross-channel ($E_{\text{cross}}$) expectation values.",
+  "important_parameters": "Nonlinearity coupling constants ($\\lambda_1, \\lambda_2$), timestep size ($\tau$), and ansatz circuit depth ($d$).",
+  "main_assumptions": "The nonlinear term is approximated by reformulating the state-dependent map as minimizing a measurable cost function using specialized quantum measurements (D-QNPU).",
+  "figures_summary": "Figures illustrate measurement circuits for nonlinear observables, temporal convergence showing $\\mathcal{O}(\tau)$ error scaling, and diagnostics comparing ansatz expressibility ($\text{DKL}$) versus numerical accuracy ($\text{RMSE}$).",
+  "paper_structure": "The paper introduces the NLDE, details the operator splitting into linear (SFDP) and nonlinear parts, describes the quantum implementation of each part using QFTs and a D-QNPU, formulates the measurable cost function, and concludes with numerical benchmarking against classical solvers.",
+  "why_interesting": "This work directly addresses the challenge of simulating non-unitary, state-dependent dynamics (like those in many interacting quantum systems) on near-term quantum hardware by mapping them onto variational optimization problems using measurement techniques.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.08053_figures/2606.08053_fig1.jpg",
+      "caption": "Fig. 1. Overall circuit realization of eU(θt) = USFDP(τ)U(θt). The circuit is read from right to left. The rightmost block prepares the input spinor state, Fx = QFT ⊗Is maps the position register to the Fourier basis, U(D) kin implements the momentum-controlled kinetic spin rotation, and F† x returns the state to the position basis. The leftmost gate rβ = Rz(2τ) applies the mass-induced spin rotation on the spin qubit; equivalently, its lift to the full position-spin register is Rβ = Ix ⊗rβ.",
+      "page": 14
+    },
+    {
+      "image": "2606.08053_figures/2606.08053_fig2.jpg",
+      "caption": "Fig. 2. Measurement circuit for the self-channel observable Eself. Each data wire denotes an (n + 1)-qubit register, consisting of n position qubits and one spin qubit.",
+      "page": 15
+    },
+    {
+      "image": "2606.08053_figures/2606.08053_fig3.jpg",
+      "caption": "Fig. 3. Measurement circuit for the cross-channel observable Ecross. The spin-flip gate XS = I⊗n x ⊗Xs is applied unconditionally to the first data register to prepare |a′⟩= XS|a⟩.",
+      "page": 16
+    },
+    {
+      "image": "2606.08053_figures/2606.08053_fig4.jpg",
+      "caption": "Fig. 4. Representative Dirac-sVQA solutions for the three benchmark cases. The three panels correspond to Case I, Case II, and Case III, respectively. For clarity, only representative final-time profiles are shown.",
+      "page": 18
+    },
+    {
+      "image": "2606.08053_figures/2606.08053_fig5.jpg",
+      "caption": "Fig. 5. Temporal accuracy of Dirac-sVQA for the three nonlinear benchmark cases. The first, second, and third columns correspond to Case I, Case II, and Case III, respectively.",
+      "page": 18
+    }
+  ],
+  "figure": "2606.08053_figures/2606.08053_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 3,
+    "quantum measurements": 4,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

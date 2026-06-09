@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2606.09705",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "When Do Local Score Models Extrapolate Across Size? A Diagnostic Theory and Benchmark",
+  "authors": "Wenjie Xi",
+  "abstract": "Scientific generative modeling often requires size transfer, where models trained on small systems are evaluated on larger ones. While translation-invariant architectures enable this evaluation, we show that architectural locality alone does not guarantee stable size extrapolation. Instead, stable extrapolation is governed by the quasi-locality of the Gaussian-smoothed score. Through Tweedie's formula, far-away perturbations can influence local score components via posterior covariance, meaning a local model succeeds only if its receptive field covers the smoothed score's response range. We formalize this mechanism, proving a size-uniform comparison theorem for local marginals under reverse diffusion. We also introduce Finite-Depth Local Flow (FDLF), a white-box diagnostic benchmark with exact scores, densities, and controllable response ranges. Empirically, we validate the interplay between spatial mixing, smoothed-score quasi-locality, and model receptive fields. Under spatial mixing, the smoothed score remains quasi-local relative to the receptive field, enabling stable extrapolation. Conversely, when spatial mixing weakens, the score's locality rapidly degrades, causing size transfer to fail.",
+  "url": "http://arxiv.org/abs/2606.09705v1",
+  "pdf": "https://arxiv.org/pdf/2606.09705v1",
+  "type": "both",
+  "summary": "The paper rigorously diagnoses when local score models can generalize from small to large physical systems by focusing on the quasi-locality of the Gaussian-smoothed score. It introduces a novel benchmark (FDLF) and proves that stable extrapolation requires the model's receptive field to encompass the true, long-range response dictated by the underlying physics. This provides a crucial theoretical bridge between deep learning generalization theory and statistical mechanics.",
+  "main_problem": "The central problem is determining the conditions under which local score models, trained on small systems, can reliably extrapolate their learned rules to much larger physical systems in generative modeling.",
+  "main_result": "Stable size extrapolation requires that the underlying Gaussian-smoothed score exhibits quasi-locality relative to the model's receptive field, not just architectural locality. Failure occurs when spatial mixing weakens or the true response range exceeds the model's capacity.",
+  "method": "The authors develop theoretical theorems and introduce a white-box diagnostic benchmark called Finite-Depth Local Flow (FDLF) to systematically test score extrapolation across varying system sizes.",
+  "model_or_system": "The framework uses generative models based on reverse diffusion processes applied to physical systems, tested using controlled lattices (e.g., 2D/3D cubic lattices) and benchmarked against known physics like the Ising model near criticality.",
+  "key_observables": "Clean-score relative RMSE ($\text{RMSE}_{\text{score}}(L)$), Response Tail $T_{L,\\sigma}(i; R, x)$, and local marginal distributions ($d_{BL}$).",
+  "important_parameters": "System size ($L$), Receptive Field Size ($\text{Reff}$), Noise level ($\\sigma$), and the critical parameter $\beta/\beta_c$ for stress tests.",
+  "main_assumptions": "The primary assumption is that stable extrapolation depends on the quasi-locality of the *smoothed* score, which must be covered by the model's receptive field. The theoretical bounds are explicitly local (fixed patches) and do not guarantee global convergence.",
+  "figures_summary": "Figures demonstrate that short-range interactions maintain low error across increasing system sizes ($L$), while long-range stress teachers show failure, confirming that coverage of the score's response range is critical for successful extrapolation.",
+  "paper_structure": "The paper builds from theoretical formalisms (quasi-locality theorems) to introducing a rigorous diagnostic benchmark (FDLF), and finally validates these concepts through structured experiments testing short-, medium-, and long-range correlation structures.",
+  "why_interesting": "This work provides a powerful, physics-informed diagnostic tool for assessing the generalization capabilities of deep learning models trained on physical systems, directly linking ML performance to fundamental statistical properties like spatial correlation decay.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.09705_figures/2606.09705_fig1.jpg",
+      "caption": "Figure 1: Fixed-architecture pure-CNN size extrapolation on the 2D FDLF benchmark, aggregated over three indepen- dent training seeds. Models use B = 1 residual block, hence Reff = 4, are trained only at L = 16, and are evaluated at larger sizes. Short-range simple and short-range structured teachers show stable score and near-response errors across L, while the long-range stress teacher has substantially larger error and degrades under the same protocol. Error bars are s.e.m. across training seeds.",
+      "page": 6
+    },
+    {
+      "image": "2606.09705_figures/2606.09705_fig2.jpg",
+      "caption": "Figure 2: Pure-CNN receptive-field sweep on the 2D FDLF benchmark, aggregated over three independent training seeds. Models are trained at L = 32 and evaluated at L = 64. The x-axis is the effective CNN radius induced by the number of 3 × 3 convolutional residual blocks. Left: the short-range simple teacher is stable even at small radius, while the medium-range teacher improves substantially as the receptive field grows. Right: the same medium-range teacher shows decreasing near/far response error, whereas the long-range stress teacher retains high far-response error. Error bars are s.e.m. across training seeds.",
+      "page": 7
+    },
+    {
+      "image": "2606.09705_figures/2606.09705_fig3.jpg",
+      "caption": "Figure 3: Hard-valid mixed discrete-continuous check. Models are trained at L = 8 and evaluated up to L = 40. Local teachers remain stable; teachers with larger far-field response have poorer or degrading score and response errors. The inset reports the teacher’s own far-to-near response ratio.",
+      "page": 8
+    },
+    {
+      "image": "2606.09705_figures/2606.09705_fig4.jpg",
+      "caption": "Figure 4: Boundary response of the smoothed score near the Ising critical point. A local CNN with radius R = 5 is evaluated at distance d = 4, inside its nominal receptive field. The exact response grows strongly as β/βc →1, and the learned response underestimates it, especially at intermediate noise scales.",
+      "page": 9
+    }
+  ],
+  "figure": "2606.09705_figures/2606.09705_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

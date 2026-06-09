@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.09734",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Adaptive directional gradients for parameterised quantum circuits",
+  "authors": "Brian Coyle, Snehal Raj, Virag Umathe, El Amine Cherrat, Elham Kashefi",
+  "abstract": "Training parameterised quantum circuits (PQCs) on quantum hardware is bottlenecked by the measurement cost of gradient estimation, which under the parameter-shift rule scales linearly in the number of trainable parameters and dominates the total shot budget of training at scale. In this work, we propose a framework of forward gradient estimators for PQCs, based on the forward mode of automatic differentiation, that yields an unbiased estimator of the gradient by averaging a freely tunable number of random directional derivatives and recovers SPSA, random coordinate descent, and the parameter-shift rule as limiting cases, with no ancilla qubits or controlled-gate overhead. We prove that stochastic quantum forward gradient descent converges under standard assumptions, with an explicit second-moment expansion that interpolates between the single-direction extreme of SPSA and the full-gradient extreme of parameter-shift. Within this framework we derive QUIVER (Quantum Iterative V-adaptive Estimator Rule), an adaptive optimiser for parameterised circuits whose update rule follows from a closed-form minimum measurement-cost allocation. We show numerically that forward gradients train Hamming-weight-preserving orthogonal quantum neural networks with up to 60 qubits and 1770 parameters on the ECG5000 and MNIST datasets orders of magnitude more efficiently than the parameter-shift rule. We also demonstrate that our proposed QUIVER optimiser can outperform iCANS and gCANS measurement-frugal optimisers on optimisation problems using the quantum approximate optimisation algorithm and quantum simulation with the variational quantum eigensolver.",
+  "url": "http://arxiv.org/abs/2606.09734v1",
+  "pdf": "https://arxiv.org/pdf/2606.09734v1",
+  "type": "both",
+  "summary": "The paper introduces an advanced forward gradient estimator framework to overcome the prohibitive measurement cost associated with calculating gradients for large parameterised quantum circuits. By adaptively optimizing both the number of random directions and the shots allocated per direction, the proposed QUIVER optimizer significantly outperforms established methods across various quantum machine learning benchmarks.",
+  "main_problem": "Training parameterised quantum circuits (PQCs) is bottlenecked by the measurement cost of gradient estimation, which scales poorly with the number of trainable parameters.",
+  "main_result": "A forward gradient estimator framework, combined with an adaptive optimizer (QUIVER), achieves orders of magnitude more efficient training than standard methods like the Parameter-Shift Rule for large quantum neural networks.",
+  "method": "The authors propose a forward gradient estimator based on the forward mode of automatic differentiation, averaging random directional derivatives to reconstruct the full gradient efficiently. They combine this with an adaptive optimizer that jointly optimizes the number of directions and measurement shots.",
+  "model_or_system": "The work focuses on training PQCs used in Variational Quantum Algorithms (VQA) like VQE and QNNs. Benchmarks include classifying ECG5000 data, MNIST images, solving QAOA MaxCut problems, and estimating ground states for TFIM Hamiltonians.",
+  "key_observables": "Energy error ($|E - E_0|$), approximation ratio ($r$), Mean Squared Error (MSE) of the gradient estimator, and total measurement shot count.",
+  "important_parameters": "Number of parameters ($N$), number of random directions sampled ($V$), shots per direction ($M$), step size ($\\epsilon$), and learning rate ($\\eta$).",
+  "main_assumptions": "The analysis relies on assumptions regarding the convergence properties (e.g., PL condition locally) and uses central finite-difference approximations for directional derivatives, which introduce bias.",
+  "figures_summary": "Figures compare the measurement shot costs of various gradient estimators (PS vs. Forward) showing significant savings with forward gradients; other figures show performance comparisons across multiple benchmark tasks (QAOA, VQE, MNIST) demonstrating superior convergence rates for QUIVER.",
+  "paper_structure": "The paper systematically reviews existing gradient estimation techniques (PS, SPSA, RCD), introduces the unified forward gradient estimator parameterized by $V$, develops the adaptive optimization strategy (QUIVER) via joint $(V, M)$ minimization, and validates this approach across multiple complex quantum machine learning benchmarks.",
+  "why_interesting": "This work provides a concrete, resource-aware algorithmic improvement for variational quantum algorithms, directly addressing the primary computational bottleneck in scaling up near-term quantum hardware applications.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.09734_figures/2606.09734_fig1.jpg",
+      "caption": "FIG. 1. Overview of the forward gradient framework and the quiver optimiser. (a) Variational/QML algorithm training loop: a parametric quantum model U(θ) (preceded by a data-encoding unitary Uenc(x)) is measured to produce a loss L(θ) suited to a range of tasks (quantum simulation, combinatorial optimisation, machine learning). A gradient estimator e∇L feeds back into U(θ) to update its parameters. (b) Gradient estimators e∇L, shown as random directions probed in the N-dimensional parameter space at fixed per-direction shot count M. The parameter-shift rule (PS) evaluates 2N circuits per step covering all N basis directions (cost 2NM). SPSA draws a single random direction (2M shots). RCD...",
+      "page": 3
+    },
+    {
+      "image": "2606.09734_figures/2606.09734_fig2.jpg",
+      "caption": "FIG. 2. Forward gradients match or exceed all baselines across four problem domains: quantum optimisation, quantum simulation, time-series classification, and image classification. Each panel compares the best forward gradient configuration against the parameter-shift rule (PS), SPSA (V = 1) and RCD on the total measurement shots axis. All stochastic methods are run at a matched per-step shot budget B = 1000; PS uses M = 10 shots per parameter and its per-step cost therefore grows as 2NM. (a) QAOA MaxCut, n = 16, depth 3, N = 99, best forward V = 10. (b) VQE ground-state estimation (transverse-field Ising model, n = 10, d = 8), N = 160, best forward V = 10. (c) ECG5000 time-series...",
+      "page": 9
+    },
+    {
+      "image": "2606.09734_figures/2606.09734_fig3.jpg",
+      "caption": "Fig. 4 compares forward methods against the parameter-shift rule. Despite using a fixed per-step bud- get (independent of N), forward gradients reach compa- rable or superior accuracy to PS at all system sizes. The accuracy gap between forward and exact gradients re- mains small (1–2 percentage points) up to n = 60, while the total shot cost is a fraction of that required by PS. The best-performing forward configuration uses V = 10 at most system sizes, with V = 25 preferred at n = 60.",
+      "page": 9
+    },
+    {
+      "image": "2606.09734_figures/2606.09734_fig4.jpg",
+      "caption": "Fig. 3 compares forward gradient methods against SPSA and RCD at a fixed shot budget per step. For- ward gradients with V ≥10 outperform single-direction methods (V = 1), with the gap widening at larger N. At n = 60 (N = 1770), SPSA collapses to 63.8% while forward methods with V = 25 match the exact gradient baseline at 76.0%.",
+      "page": 9
+    },
+    {
+      "image": "2606.09734_figures/2606.09734_fig5.jpg",
+      "caption": "FIG. 3. Forward gradients consistently outperform SPSA and RCD at matched shot budget. ECG5000: forward gradient methods (V > 1) vs SPSA (V = 1) and RCD. Each panel shows a different system size n. For- ward gradients with V = 10 consistently outperform single- direction methods.",
+      "page": 10
+    }
+  ],
+  "figure": "2606.09734_figures/2606.09734_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

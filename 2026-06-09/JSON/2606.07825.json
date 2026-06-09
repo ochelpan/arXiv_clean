@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2606.07825",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Projected Inverse Iteration: An Eigenvalue Approach to Ground-State Computation with Neural Quantum States",
+  "authors": "Hang Zhang, Victor Armegioiu, Juan Carrasquilla, Siddhartha Mishra, Johannes Müller, Jannes Nys, Marius Zeinhofer",
+  "abstract": "Deep learning offers a powerful approach to quantum many-body problems via neural network wavefunctions, but their optimization remains a severe bottleneck. Existing optimization methods, including natural gradient descent and stochastic reconfiguration, suffer from spectral gap-dependent convergence that limits their effectiveness on systems fraught with competing orders and nearly degenerate ground states, such as frustrated magnets and strongly correlated electron materials. Here, we introduce Projected Inverse Iteration (PII) by re-framing the ground-state search as an eigenvalue problem. PII achieves rapid, gap-insensitive convergence while preserving the favorable polynomial computational scaling of stochastic reconfiguration. Demonstrated on challenging two-dimensional spin systems, including the highly frustrated $J_1$-$J_2$ model, PII outperforms standard optimization techniques and presents a promising algorithmic strategy for discovering complex quantum states in the presence of small spectral gaps. More broadly, PII can be interpreted as a novel natural gradient method tailored for eigenvalue problems, opening up its application to related challenges within deep learning.",
+  "url": "http://arxiv.org/abs/2606.07825v1",
+  "pdf": "https://arxiv.org/pdf/2606.07825v1",
+  "type": "theory",
+  "summary": "This paper introduces Projected Inverse Iteration (PII) as an advanced eigenvalue approach for finding the ground state energy using Neural Quantum States. PII reframes the problem to leverage classical inverse iteration, which is shown to be robust and fast even when the system has small spectral gaps. It provides a superior alternative to standard gradient descent methods like Stochastic Reconfiguration for complex quantum simulations.",
+  "main_problem": "The primary challenge is efficiently optimizing variational wavefunctions (Neural Quantum States) to find the ground state energy of quantum many-body systems.",
+  "main_result": "Projected Inverse Iteration (PII) achieves rapid, gap-insensitive convergence for ground-state finding, significantly outperforming standard gradient methods like Stochastic Reconfiguration (SR) when spectral gaps are small.",
+  "method": "The authors reframe the ground-state search as an eigenvalue problem and adapt classical inverse iteration by projecting the update direction onto the finite-dimensional tangent space of the variational manifold.",
+  "model_or_system": "The methods are tested on challenging two-dimensional spin systems, including the highly frustrated J1-J2 model and the Transverse-Field Ising Model (TFIM).",
+  "key_observables": "Convergence rate ($\rho$), relative error ($\\epsilon$), ground state energy ($E_0$), spectral gap ($\\Delta = E_1 - E_0$), and spectral spread ($\\Gamma$).",
+  "important_parameters": "The choice of energy shift parameter ($\tau$) and the regularization strength ($\\lambda$) are critical hyperparameters.",
+  "main_assumptions": "The analysis relies on deriving algorithms from non-parametric functional settings, though practical implementation uses Galerkin projection onto the tangent space defined by neural network parameters.",
+  "figures_summary": "Figures compare PII's superior convergence speed and gap insensitivity against SR's degradation when spectral gaps are small; other figures illustrate the effect of energy shifts ($\tau$) on stability.",
+  "paper_structure": "The paper establishes the problem (NQS optimization), introduces PII as an eigenvalue approach, provides theoretical convergence bounds for both PII and SR based on Riemannian geometry, and validates PII's superior performance across various physical models.",
+  "why_interesting": "For AMO physicists working with complex Hamiltonians or open quantum systems where ground state properties are key, this offers a robust numerical tool that bypasses the known limitations of gradient-based optimization methods in near-degenerate regimes.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.07825_figures/2606.07825_fig1.jpg",
+      "caption": "Fig. 1 Visualization of SR (red) and PII (cyan) for the Hamiltonian ˆH = diag(1, 10, 0) and a linear normalized state vector on the sphere S. Figure A visualizes the optimization dynamics on the sphere, and Figure B shows the corresponding energy error. PII converges in essentially a single step for the shift value τ = 10−8. SR with learning rate η = 0.1 converges slowly with oscillating iterates, due to the large eigenvalue spread (Γ = 10) and the small spectral gap (∆= 1).",
+      "page": 3
+    },
+    {
+      "image": "2606.07825_figures/2606.07825_fig2.jpg",
+      "caption": "Fig. 2 Spectral-gap dependence distinguishes PII from SR. A, Optimization trajectories for the 4 × 4 TFIM in a regime with a small spectral gap (h/J = 2, ∆= 0.015), plotted as relative error ε versus iteration for PII, SR and Adam, where ε = |(EViT −EED) /EED|. All runs use the same number of Monte Carlo samples (M = 32,768) and a positive real-valued ViT ansatz (4 layers, hidden dimension d = 20, and h = 2 heads). PII uses a learning rate η = 1.0 and Tikhonov regularization λ = 0.01, whereas SR uses η = 0.01 and λ = 10−4. Adam is included as a standard first-order baseline, with its best learning rate η = 0.01. B, The same comparison in a larger-gap regime (h/J = 4, ∆= 3.25). PII shows...",
+      "page": 6
+    },
+    {
+      "image": "2606.07825_figures/2606.07825_fig3.jpg",
+      "caption": "Fig. 3 Shift undershooting stabilizes PII in a quasi-degenerate TFIM. Relative ground- state energy error versus iteration for the 4×4 TFIM at h/J = 2. A, Without undershooting (τ = E0), Monte Carlo noise prevents PII from converging for small batch sizes (M = 512 and M = 4096). B, With undershooting (τ = 1.2 E0), trajectories stay stable across batch sizes. C, In the noise-free full-sum limit, sweeping τ = αE0 follows the predicted contraction rPII, showing a direct trade-off between robustness and speed. All trajectories use λ = 0.1 and η = 1.0. All results are produced with a real-valued RBM ansatz (hidden-variable density α = 4 [6]).",
+      "page": 8
+    },
+    {
+      "image": "2606.07825_figures/2606.07825_fig4.jpg",
+      "caption": "Fig. 4 PII acceleration at large 10 × 10 lattices. Energy per site during the optimization, comparing SR and PII for three canonical 2D spin- 1",
+      "page": 9
+    }
+  ],
+  "figure": "2606.07825_figures/2606.07825_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 3,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

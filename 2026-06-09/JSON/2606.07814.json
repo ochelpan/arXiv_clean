@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.07814",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hamiltonian-Guided Leverage Embedding: Robust Subspace Compression for Efficient QAOA Parameter Estimation",
+  "authors": "Sumanta Mukherjee, Kalyan Dasgupta, Surya Shravan Kumar Sajja, Kameshwaran Sampath, Abhishek Singh, Dhriti Verma, Dzung Phan, Jayant Kalagnanam",
+  "abstract": "The Quantum Approximate Optimization Algorithm (QAOA) is a hybrid quantum-classical framework for combinatorial optimization on near-term quantum devices. A central bottleneck is the classical estimation of its variational parameters γ and β, which must be optimized over a high-dimensional, non-convex landscape corrupted by sampling noise. We observe that the classical feature matrices constructed from QAOA measurement samples exhibit pronounced low-rank structure, and exploit this property for noise-robust, reduced-dimension parameter search. We present the Hamiltonian-Guided Leverage Embedding (HGLE) algorithm - a hybrid pipeline that encodes low-energy quantum samples into a weighted Ising feature matrix and compresses it via leverage-score row sampling, provably preserving the dominant rank-rsubspace geometry. The compressed representation drives a classical trust-region loop for (γ, β) estimation at a fraction of the original cost. We provide formal guarantees for rank preservation and energy approximation error, and demonstrate robustness across problem types (Max-Cut, Maximum Independent Set) and graph topologies of varying density.",
+  "url": "http://arxiv.org/abs/2606.07814v1",
+  "pdf": "https://arxiv.org/pdf/2606.07814v1",
+  "type": "theory",
+  "summary": "This paper introduces Hamiltonian-Guided Leverage Embedding (HGLE) to solve the computational bottleneck in optimizing QAOA parameters. HGLE exploits the inherent low-rank structure of measurement data by compressing it using leverage-score sampling. This allows for robust, resource-efficient parameter estimation for solving hard combinatorial optimization problems on near-term quantum hardware.",
+  "main_problem": "The primary challenge is efficiently estimating the variational parameters ($\\gamma$ and $\beta$) for QAOA, which involves optimizing over a high-dimensional, noisy, non-convex landscape.",
+  "main_result": "The proposed Hamiltonian-Guided Leverage Embedding (HGLE) algorithm significantly reduces computational cost by compressing the measurement feature matrix into a low-rank subspace while preserving critical geometric information.",
+  "method": "HGLE is a hybrid pipeline that uses leverage-score row sampling to compress the weighted Ising feature matrix derived from QAOA measurements, allowing classical optimization in a much lower dimension.",
+  "model_or_system": "The work focuses on the Quantum Approximate Optimization Algorithm (QAOA) applied to combinatorial problems like Max-Cut and MIS. The system is modeled by an Ising Hamiltonian ($H_C$) acting on qubits.",
+  "key_observables": "Approximation Ratio (solution quality relative to optimum), Circuit Evaluation Count, Energy Landscape $\\hat{E}(\\gamma, \beta)$.",
+  "important_parameters": "Variational parameters ($\\gamma, \beta$), retained rank ($r$), bandwidth ($k$) for sparsification, and the leverage score sampling rate ($m/N$).",
+  "main_assumptions": "The core assumption is that the classical feature matrices derived from QAOA measurements exhibit a pronounced low-rank structure that can be robustly captured by leverage-score sampling.",
+  "figures_summary": "Figures compare optimization trajectories (HGLE vs. standard), show energy landscape sensitivity to rank/regularization, and plot scaling results for approximation ratios and circuit budgets across varying qubit counts and depths.",
+  "paper_structure": "The paper introduces the bottleneck of QAOA parameter estimation, details the HGLE algorithm using leverage-score compression on the feature matrix $\\mathbf{A}$, provides formal error bounds based on rank preservation ($\\kappa_r$), and validates the method's performance across various graph problems (Max-Cut/MIS) and hardware constraints (sparsification).",
+  "why_interesting": "While focused on optimization, the techniques developed—low-rank approximation of quantum measurement data—are highly relevant for characterizing complex quantum states or simulating dynamics in strongly correlated systems where full state vector evolution is intractable.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.07814_figures/2606.07814_fig1.jpg",
+      "caption": "Fig. 1: Pipeline comparison. Left: Standard QAOA loop with cost O(N · d) per iteration. Right: HGLE-QAOA inserts two stages (purple): (1) constructing a weighted Ising feature matrix A ∈RN×d, and (2) leverage-score compression to ˜A ∈Rm×d with m ≪N. The optimizer then works in a rank-r surrogate space with formal argmin-preservation guarantees (Corollary 5).",
+      "page": 3
+    },
+    {
+      "image": "2606.07814_figures/2606.07814_fig2.jpg",
+      "caption": "Fig. 2: System-dependent Hamiltonian energy landscapes. Top row: Three graph instances of increasing sparsity (dense, moderate, sparse). Middle row: QAOA energy landscape ⟨HC⟩(γ, β) for the Maximum Independent Set (MIS) problem on each graph. Bottom row: Corresponding landscapes for the Max-Cut problem. Dense graphs produce highly rugged landscapes with numerous local min- ima and narrow basins, while sparser graphs yield smoother contours with more accessible global structure. The landscape topology also varies markedly between problem types: MIS landscapes exhibit isolated, irregularly shaped basins, whereas Max-Cut landscapes display greater periodicity along γ. These system- and...",
+      "page": 4
+    },
+    {
+      "image": "2606.07814_figures/2606.07814_fig3.jpg",
+      "caption": "Fig. 3: Optimization trajectories on the QAOA energy landscape. Contours show ⟨HC⟩(β, γ) for a Max-Cut instance at depth p=1. Red stars: HGLE-enabled iterates converge quickly within a deep basin. Blue squares: randomly initialized search wanders through flat and mixed-sign regions before reaching a minimum.",
+      "page": 7
+    },
+    {
+      "image": "2606.07814_figures/2606.07814_fig4.jpg",
+      "caption": "Fig. 4: Sensitivity of the HGLE energy landscape to regularization τ and retained rank r. Each panel shows the predicted energy ˆFr(β, γ) for a 7-vertex Max-Cut instance at depth p=1. Rows vary the regularization strength (τ = 0.1, 0.2, 0.3); columns vary the retained rank (r = 500, 100, 5). At r ≥100, the landscape is well- resolved and largely insensitive to τ, confirming robust compression. At r = 5 the surrogate degrades significantly, with shallower energy values and loss of contour structure.",
+      "page": 7
+    },
+    {
+      "image": "2606.07814_figures/2606.07814_fig5.jpg",
+      "caption": "Fig. 5: Sample enrichment (8-node Max-Cut). Violin plots of ⟨HC⟩at iterations 1, 10, 30. Rank-25 concentrates near optimal (most negative) energies by iteration 30; No HGLE retains a broader distribution extending toward less favorable energies.",
+      "page": 7
+    }
+  ],
+  "figure": "2606.07814_figures/2606.07814_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

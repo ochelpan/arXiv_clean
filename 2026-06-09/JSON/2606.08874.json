@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.08874",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": true,
+  "title": "Impact of gate-voltage noise on silicon spin-qubit variational quantum eigensolvers",
+  "authors": "Xinning Wang, Bohdan Khromets, Zachery Merino, Jonathan Baugh",
+  "abstract": "Quantum computers offer a route to outperform classical methods in tasks such as molecular simulation, motivating hybrid algorithms like the Variational Quantum Eigensolver (VQE) for near-term devices. Silicon spin qubits are a promising platform for scalable quantum computation, but their performance is limited by hardware imperfections -- most notably charge-noise-induced potential fluctuations and static miscalibration of gate-electrode voltages -- which degrade quantum gate fidelities and, ultimately, algorithmic accuracy. Here we develop a hardware-algorithm co-simulation framework for silicon quantum-dot processors that links 3D electrostatics to effective $g$-factors and exchange couplings, and propagates voltage-level noise through realistic control pulses. Using VQE for $\\mathrm{H}_2$ ground-state energy estimation as a circuit-level testbed, we study both static scaling/offset errors on the gate-electrode voltages and stochastic fluctuations modeled as random-telegraph noise with tunable amplitudes and switching times. At the gate level, we show that exchange-based two-qubit gates are roughly an order of magnitude more sensitive to these types of noise than ESR-driven single-qubit rotations. Quantum process tomography and Kraus-operator analysis further distinguish coherent and incoherent contributions and quantify the fraction of error that is, in principle, correctable by a compensating unitary. Embedding these noise models into the VQE circuit, we identify regimes of miscalibration strength and noise switching time compatible with chemically accurate energy estimates, and discuss how statistical post-processing based on the full distribution of noisy energy estimates could further improve accuracy.",
+  "url": "http://arxiv.org/abs/2606.08874v1",
+  "pdf": "https://arxiv.org/pdf/2606.08874v1",
+  "type": "theory",
+  "summary": "This paper rigorously analyzes how gate-voltage noise impacts silicon spin qubits used in variational quantum eigensolvers. By developing a co-simulation framework, the authors quantify that two-qubit gates are highly susceptible to voltage noise, while also demonstrating that advanced error mitigation techniques can partially recover fidelity when noise dynamics are characterized by their switching time.",
+  "main_problem": "The study assesses how hardware imperfections, specifically gate-voltage noise (static miscalibration and dynamic charge noise), degrade the performance of Variational Quantum Eigensolvers (VQE) when applied to silicon spin qubits.",
+  "main_result": "Two-qubit gates are significantly more sensitive to voltage noise than single-qubit rotations due to the nonlinear dependence of exchange coupling on gate voltages. Furthermore, unitary error correction can partially mitigate noise effects if the noise switching time is short relative to the gate duration.",
+  "method": "The authors developed a hardware-algorithm co-simulation framework combining 3D electrostatics for parameter extraction with quantum process tomography (QPT) and Lindblad master equation simulations to model noisy gate operations.",
+  "model_or_system": "The system is silicon spin qubits in double quantum dots, whose dynamics are governed by an effective spin Hamiltonian derived from solving the Schrödinger equation using parameters ($\\delta g$, $J$) extracted via Stark-shift models. Noise is modeled as Random Telegraph Noise (RTN) or systematic voltage scaling/offset errors.",
+  "key_observables": "Gate fidelities ($F$), reconstructed noise channels ($\\chi_{\text{err}}$), coherence angle ($\\Theta$), and the achievable chemical accuracy for ground-state energy estimation in VQE.",
+  "important_parameters": "Noise amplitude ($A$), switching time ($\tau$), gate duration ($t_g$), and voltage miscalibration parameters ($\\sigma_a, \\sigma_b$).",
+  "main_assumptions": "The analysis relies on an effective-potential approximation for electrostatics and treats noise sources (like RTN) as independent or correlated stochastic processes.",
+  "figures_summary": "Figures illustrate the dependence of gate infidelity on miscalibration strength ($\\sigma_a, \\sigma_b$) and the crossover behavior of fidelity versus noise switching time ($\tau/t_g$).",
+  "paper_structure": "The paper systematically develops from modeling the physical hardware (electrostatics $\to$ effective Hamiltonian) to implementing noise models (static vs. dynamic RTN), benchmarking key gates ($\text{RX}, \\sqrt{\text{SWAP}}, \text{CZ}$), and finally applying these diagnostics within the VQE circuit context.",
+  "why_interesting": "This work provides crucial, quantitative design rules for realizing scalable quantum hardware by directly linking device-level noise sources (voltage fluctuations) to algorithmic performance metrics (VQE accuracy).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.08874_figures/2606.08874_fig1.jpg",
+      "caption": "FIG. 1. Schematic of a double-QD device used for the one and two-qubit logic gate simulations: (a) side view, (b) front view. Electrons, accumulated at the Si/SiO2 interface, are laterally confined in QDs under the positive plunger gate voltages V1 and V2. The confining potential is further controlled by a grounded screening gate and the tunnel gate voltage W1. Barrier gates B1, B2 are kept at 0 V throughout the simulations. The electrostatic potential Φ(⃗r) shown here was calculated for V1 = V2 = 0.2 V, W1 = −0.1 V.",
+      "page": 2
+    },
+    {
+      "image": "2606.08874_figures/2606.08874_fig2.jpg",
+      "caption": "FIG. 2. Voltage dependence of effective spin Hamiltonian parameters in a double-QD device. (a) Gate-induced variations of the electron g-factors for dot 1 and dot 2 as functions of the plunger gate voltages V1 and V2, and the tunnel gate voltage W1. All quantities in panel (a) are shown relative to a reference (idling) voltage point (V1, V2, W1) = (0.2765 V, 0.2765 V, 0 V). (b) Exchange coupling J as a function of the tunnel gate voltage W1 and the inter-dot detuning V1 −V2. In panel (b), the exchange coupling is evaluated relative to a reference voltage point (V1, V2, W1) = (0.2765 V, 0.2765 V, 0.1 V), highlighting the exponential dependence of the inter-dot exchange on tunnel gate voltage.",
+      "page": 3
+    },
+    {
+      "image": "2606.08874_figures/2606.08874_fig3.jpg",
+      "caption": "FIG. 3. Representative noisy voltage control pulse used to implement an RX(π/2) gate on qubit 1 in the two-qubit sim- ulation, while qubit 2 undergoes a simultaneous identity op- eration. The controls V1 and V2 denote plunger-gate voltages and W1 denotes the interdot barrier-gate voltage. The ideal waveform realizes the target gate operation, whereas the su- perimposed fluctuations correspond to sampled random tele- graph voltage noise. These noisy control voltages are mapped directly onto the time-dependent Hamiltonian through the voltage-dependent parameters gi(⃗V ) and Ji(⃗V ).",
+      "page": 4
+    },
+    {
+      "image": "2606.08874_figures/2606.08874_fig4.jpg",
+      "caption": "FIG. 4. (a) Simulated voltage-noise time series and (b) corresponding power spectral densities (PSDs) for five RTN switching times, τ ∈{10−8, 10−7, 10−6, 10−5, 10−4} s, at fixed RMS amplitude A = 1 mV. For each value of τ (with τ = ⟨τ0⟩= ⟨τ1⟩), the charge-noise signal on a given gate is constructed as a normalized sum of Nrtn = 50 independent RTN realizations [Eq. (4)]. The time series extend beyond the single-gate duration tg = 10 µs and span the timescale of a simulated variational single-shot experiment, texp = 130 µs; only the first 50 µs are shown for clarity.",
+      "page": 4
+    },
+    {
+      "image": "2606.08874_figures/2606.08874_fig5.jpg",
+      "caption": "FIG. 5. Simulated gate infidelity under static voltage miscalibration for (a) RX(π/2) (tg = 10 µs), (b) Hadamard (tg = 10 µs), and (c) √",
+      "page": 7
+    }
+  ],
+  "figure": "2606.08874_figures/2606.08874_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 3,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

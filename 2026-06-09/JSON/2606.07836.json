@@ -1,0 +1,86 @@
+{
+  "arxiv_id": "2606.07836",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.stat-mech",
+    "cs.AI",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Agentic multi-fidelity learning of quasiparticle and excitonic properties",
+  "authors": "Arnab Neogi, Aaron Forde, Christopher A. Lane, Sergei Tretiak, Jian-Xin Zhu",
+  "abstract": "Many-body GW-Bethe-Salpeter equation calculations are essential for accurate simulations of electronic structure and optical properties in modern low-dimensional nanomaterials. However, these methods are computationally demanding and can exhibit localized numerical instabilities or convergence failures that are difficult to detect within high-throughput workflows. We introduce an agent-guided multi-fidelity framework for correcting GW-Bethe-Salpeter excited-state landscapes in strained MoS2-WS2 bilayers. Across stacking registries, strain branches and reciprocal-space samplings, the workflow identifies spike-like excursions, near-zero-gap collapse and cross-fidelity inconsistencies associated with fragile long-wavelength dielectric screening. A structural agent evaluates calculations by assigning confidence weights and selectively using a small number of high-accuracy reference points. Machine learning models then transfer information across related systems and apply Gaussian process corrections to recover improved quasiparticle gaps and exciton binding energies, with calibrated uncertainty estimates. The approach corrects numerically induced artifacts without erasing physical strain dependence and substantially improves agreement with higher-fidelity references relative to a no-agent baseline. These results show that reliable surrogate learning for excited-state materials requires explicit diagnosis of numerical fragility, not direct interpolation of raw first-principles data points. The proposed framework is readily transferable to other optoelectronic nanomaterials characterized by strong quantum confinement, such as quantum dots, nanoribbons, layered two-dimensional semiconductors, and hybrid perovskite nanostructures.",
+  "url": "http://arxiv.org/abs/2606.07836v1",
+  "pdf": "https://arxiv.org/pdf/2606.07836v1",
+  "type": "theory",
+  "summary": "This paper introduces an agent-guided multi-fidelity framework to overcome numerical instabilities in GW-BSE calculations for 2D nanomaterials. By using a structured 'agent' layer to diagnose data quality across multiple simulation fidelities, the authors train machine learning models on curated, reliable information. This results in corrected, uncertainty-quantified predictions of electronic and excitonic properties that are robust against computational artifacts.",
+  "main_problem": "Accurately simulating electronic structure and optical properties (quasiparticle/excitonic gaps) in low-dimensional nanomaterials using computationally expensive GW-BSE calculations, which are prone to numerical instabilities.",
+  "main_result": "An agent-guided multi-fidelity framework successfully corrects numerically induced artifacts in excited-state landscapes while preserving genuine physical strain dependence, significantly improving surrogate model accuracy over raw data interpolation.",
+  "method": "The approach combines a structured 'agent' layer for diagnosing calculation quality (e.g., spike detection) with machine learning models (Graph Attention Networks and Gaussian Processes) to transfer information across different fidelity levels.",
+  "model_or_system": "The study focuses on strained MoS2-WS2 bilayers, representing 2D van der Waals heterostructures characterized by strong quantum confinement and sensitivity to strain and stacking registry.",
+  "key_observables": "Quasiparticle bandgaps (GW direct/fundamental), exciton binding energies, oscillator strengths, and dielectric screening ($\\epsilon_{\text{diag}}(G)$).",
+  "important_parameters": "Strain ($\\epsilon \\in [-12\\%, 12\\%]$), stacking registries, and multiple reciprocal-space sampling fidelities ($k$-meshes).",
+  "main_assumptions": "The core assumption is that numerical failures are structured artifacts (e.g., in long-wavelength screening) that can be diagnosed by an agent layer, allowing the model to distinguish them from physical signals.",
+  "figures_summary": "Figures illustrate the workflow schematic, raw observable evolution across strain, specific anomaly regimes linked to mesh sensitivity, and comparative parity plots showing superior performance with the agent vs. no-agent baseline.",
+  "paper_structure": "The paper details a closed-loop process: 1) Generating multi-fidelity data; 2) Employing an agent layer to diagnose numerical fragility via diagnostics (spikes, cross-mesh disagreement); 3) Training a transfer learning model using trust weights and sparse anchors; 4) Applying Gaussian Process correction for uncertainty quantification.",
+  "why_interesting": "The methodology of explicitly diagnosing and correcting structured numerical artifacts before applying ML surrogate models is highly relevant to any field relying on high-throughput, computationally intensive simulations where convergence issues are common.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.07836_figures/2606.07836_fig1.jpg",
+      "caption": "FIG. 1. Agent-guided workflow for corrected strain-dependent GW-BSE properties. Schematic overview of the closed-loop workflow used to construct corrected excited-state data for strained MoS2-WS2 bilayers. The input design space consists of four stacking registries and two strain branches over ϵ ∈[−12%, 12%]. For each configuration, multi-fidelity first- principles calculations are performed through DFT relaxation, GW quasiparticle calculations, and BSE exciton calculations using three k-mesh fidelities, 12 × 12 × 1, 15 × 15 × 1, and 21 × 21 × 1. A structured agent layer then evaluates the resulting dataset through anomaly detection, convergence assessment, and anchor selection. Spike-like...",
+      "page": 2
+    },
+    {
+      "image": "2606.07836_figures/2606.07836_fig2.jpg",
+      "caption": "FIG. 2. Raw multi-fidelity excited-state landscapes across strain. Strain-dependent excited-state observables for the MoS2-WS2 bilayer dataset across stacking registries, strain branches, and reciprocal-space samplings. (a) GW direct bandgap. (b) Direct exciton binding energy, defined from the difference between the GW direct gap and the direct optical excitation energy. (c) Lowest-exciton binding energy, Eb. (d) Lowest bright exciton energy, E1. Across broad regions of the strained design space, the raw landscapes evolve smoothly and reflect the expected sensitivity of band alignment, dielectric screening, and excitonic response to deformation. Selected stacking-strain environments,...",
+      "page": 4
+    },
+    {
+      "image": "2606.07836_figures/2606.07836_fig3.jpg",
+      "caption": "FIG. 3. Representative anomaly-prone regime and its dielectric-screening origin. (a) GW direct bandgap as a function of strain for SP stacking under the c-strain branch, comparing coarse and refined reciprocal-space samplings. Highlighted points identify localized spike anomalies and near-zero-gap configurations. (b) Corresponding exciton binding energy along the same structural branch, showing that the anomalous behavior appears simultaneously in quasiparticle and excitonic observables. (c,d) Diagonal microscopic dielectric screening, ϵdiag(G), for representative positive and negative c- strain configurations in the same anomaly-prone environment. The strong mesh sensitivity in the...",
+      "page": 5
+    },
+    {
+      "image": "2606.07836_figures/2606.07836_fig4.jpg",
+      "caption": "FIG. 4. Closed-loop reconstruction of corrected excited-state trajectories. Representative corrected one-dimensional reconstructions obtained after agent-guided triage, graph-based transfer learning, and Gaussian-process residual correction. The available multi-fidelity first-principles data are shown together with the final corrected trajectories and predictive uncertainty bands. The examples include corrected GW direct bandgap and corrected exciton binding energy along the SP c-strain branch, an environment that contains localized numerical excursions in the raw coarse-fidelity data. The corrected trajectories suppress isolated artifacts inherited from anomaly-prone inputs while...",
+      "page": 6
+    },
+    {
+      "image": "2606.07836_figures/2606.07836_fig5.jpg",
+      "caption": "FIG. 5. Agent-Guided anomaly triage improves surrogate model accuracy Parity plots comparing predicted and reference excited-state targets for models trained without and with the structured agent layer. (a) GW direct bandgap without agent-guided data triage. (b) GW direct bandgap with agent-guided trust weighting and anchor selection. (c) Exciton binding energy without agent guidance. (d) Exciton binding energy with agent guidance. Without the agent, the surrogate is trained on a mixture of physical signal and numerically contaminated labels, leading to large systematic deviations and poor agreement with higher-fidelity references. With the agent, suspicious coarse-fidelity points are...",
+      "page": 7
+    }
+  ],
+  "figure": "2606.07836_figures/2606.07836_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

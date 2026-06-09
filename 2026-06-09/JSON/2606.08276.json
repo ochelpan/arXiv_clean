@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.08276",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "QnRL: Quantum-Native Reinforcement Learning",
+  "authors": "Alexander DeRieux, Walid Saad",
+  "abstract": "Quantum reinforcement learning (QRL) is a promising approach to learn effective decision strategies across several applications with stochastic environments. Instead of directly modeling the random variables that govern these environments, existing QRL architectures indirectly approximate environment behavior by estimating expected outcomes, which limits their expressive power and adaptive potential. Overcoming such challenges requires a novel QRL approach that exploits the distributional nature of quantum computers to directly model environment random variables as quantum state distributions. Hence, in this paper, a novel framework dubbed quantum-native reinforcement learning (QnRL) is proposed. QnRL is a distributional RL framework that learns conditional distributions naturally in Hilbert space via superimposed and entangled quantum states. Thus, QnRL can directly model the behavior of stochastic learning environments via the natural properties of quantum systems. QnRL accomplishes this via a novel, proposed quantum amplitude kickback (QuAK) algorithm that enables comparing the $n$-th power of the $m$-th moment of multiple superimposed distributions. It is theoretically proven that a conditional action policy distribution is distilled from the moments of a quantum generative model entirely within Hilbert space via QuAK, and optimized via QnRL. This complex distribution composition is also shown to provide extra dimensions for expressing environment correlations that are unknown to purely classical and classically-sampled quantum distributional models. Experimental results across diverse environments show that QnRL achieves up to $82.9\\%$ higher evaluation scores, with up to $94.3\\%$ fewer parameters on average, more accurately estimates the expected return for unseen observations, and better adapts to varying stochastic conditions compared to the baseline.",
+  "url": "http://arxiv.org/abs/2606.08276v1",
+  "pdf": "https://arxiv.org/pdf/2606.08276v1",
+  "type": "both",
+  "summary": "This paper introduces Quantum-Native Reinforcement Learning (QnRL), a framework that overcomes the limitations of classical and prior quantum RL by representing probability distributions as complex quantum states. It utilizes a novel QuAK algorithm to analyze these distributions directly in Hilbert space, leading to superior performance across diverse simulated environments.",
+  "main_problem": "Existing Quantum Reinforcement Learning (QRL) methods limit expressive power by only estimating expected outcomes, failing to model the full probability distributions governing stochastic environments.",
+  "main_result": "The proposed QnRL framework achieves significantly higher evaluation scores and requires fewer parameters than baselines by natively modeling conditional return distributions in Hilbert space.",
+  "method": "It introduces Quantum-Native Reinforcement Learning (QnRL), which uses a novel Quantum Amplitude Kickback (QuAK) algorithm to analyze moments of superimposed quantum state distributions directly within the complex Hilbert space.",
+  "model_or_system": "The system extends classical DRL by representing return and policy distributions as superimposed, entangled quantum states in a combined action-return Hilbert space ($H_A \\otimes H_Z$). The core mechanism involves Variational Quantum Circuits (VQC) for distribution generation.",
+  "key_observables": "Evaluation scores, expected total reward, conditional action policy distribution $P(A|x)$, and the ability to capture complex correlations via phase/amplitude components.",
+  "important_parameters": "Action qubits ($q_A$), return qubits ($q_Z$), moment order ($m$), expectation exponent ($n$), circuit depth ($L$).",
+  "main_assumptions": "The primary assumption is that quantum computation can provide an advantage by keeping the entire distributional learning process within the complex Hilbert space, avoiding classical measurement sampling loss.",
+  "figures_summary": "Figures illustrate the four core stages of QnRL: Return distribution generation (superposition), moment analysis via QuAK, action selection based on moments, and final model optimization.",
+  "paper_structure": "The paper details the system model expansion from classical to quantum settings, introduces the QnRL framework and the QuAK algorithm in dedicated sections, presents comprehensive results across multiple challenging environments, and concludes with detailed hyperparameter comparisons.",
+  "why_interesting": "It provides a concrete methodology for embedding complex statistical learning problems (like DRL) directly into quantum circuit operations, offering insights into how quantum information theory can solve computational bottlenecks in AI.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.08276_figures/2606.08276_fig1.jpg",
+      "caption": "FIGURE 1. General design of our QnRL framework. A QnRL agent generates superimposed quantum conditional return distributions (blue) for all actions given an environment observation, and then runs QuAK algorithm (green) to derive an action distribution relative to the normalized n-th power of the m-th moment of each conditional return distribution. Action selection (white) is performed by measuring the action qubits. During training, the agent updates the quantum distributional model by generating discounted return distributions for selected target actions (orange), realigns the atoms of this target distribution (red), and then computes policy loss relative to this target distribution...",
+      "page": 7
+    },
+    {
+      "image": "2606.08276_figures/2606.08276_fig2.jpg",
+      "caption": "FIGURE 2. High-level view of action selection process in QnRL using QuAK algorithm. The agent generates a superimposed quantum state (dashed orange) that is the distribution of returns conditioned on an input observation for every action. The agent then applies a nonlinear value map via Kraus operator (yellow) followed by a quantum reset operation (purple) to map the superimposed distributions of returns into a distribution of actions, where the probability of each action is proportional to the normalized n-th power of the m-th moment of its return distribution. The agent then measures the action qubits (white) to determine the best action.",
+      "page": 8
+    },
+    {
+      "image": "2606.08276_figures/2606.08276_fig3.jpg",
+      "caption": "FIGURE 3. Quantum circuit for our proposed conditional return distribution generator U π z | x,a, which has cascaded layers of encoding (green), entanglement (yellow), and variational (blue) operators, followed by a final QFT (purple). In this work we use two variations of entanglement, which are circular entanglement (left), and layer offset entanglement (right) respectively.",
+      "page": 9
+    },
+    {
+      "image": "2606.08276_figures/2606.08276_fig4.jpg",
+      "caption": "FIGURE 4. Quantum circuit for QuAK algorithm (gray). An initial action distribution (green) is used to seed the cascaded generation of conditional return distributions (orange), followed by cascaded nonlinear return-value maps via Kraus operator (red), and a final reset over the return qubits (purple) to generate an action distribution that is proportional to the normalized n-th power of the m-th moment of each respective return distribution. Measurements on the action qubits (white) sample from this weighted distribution.",
+      "page": 11
+    },
+    {
+      "image": "2606.08276_figures/2606.08276_fig5.jpg",
+      "caption": "FIGURE 5. Comparison of CartPole metrics (a) train episode reward, (b) evaluation episode reward, and (c) model parameter count for best model configuration of C51 (orange) and QnRL (blue). Training performance averaged over 4 seeds, evaluation performance averaged over 10 seeds, with ±1 std. dev. shown. These figures generally show that QnRL achieves higher and more stable training and evaluation performance with a significantly fewer parameters.",
+      "page": 15
+    }
+  ],
+  "figure": "2606.08276_figures/2606.08276_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

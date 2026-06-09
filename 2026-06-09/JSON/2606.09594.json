@@ -1,0 +1,70 @@
+{
+  "arxiv_id": "2606.09594",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "math.ST",
+    "cond-mat.stat-mech",
+    "math-ph",
+    "math.NA"
+  ],
+  "is_primary_archive": true,
+  "title": "Constraint residuals, graph posteriors, and determinant-corrected full-space targets in Bayesian inverse problems",
+  "authors": "Jonathon Cottom, Emilia Olsson",
+  "abstract": "Bayesian inverse problems constrained by state equations are often sampled in a full parameter-state space by penalising the residual, rather than in a reduced space where the state is eliminated. We show that these formulations are not automatically equivalent as posterior measures. For finite-dimensional discretisations of equality-constrained inverse problems, assume the state equation \\(c(θ,u)=0\\) has a unique solution \\(u=G(θ)\\) and nonsingular state Jacobian \\(\\D_u c\\). The reduced posterior, its graph lift, and the zero-noise residual posterior are then distinct. A local change of variables shows that an uncorrected Gaussian residual penalty converges, after marginalisation over \\(u\\), to the reduced density multiplied by \\(\\abs{\\det \\D_u c(θ,G(θ))}^{-1}\\). Thus algebraically equivalent residuals can define the same feasible set but different limiting posteriors. We derive determinant corrections for unweighted, weighted, and rescaled residual penalties that have the graph-lifted reduced posterior as their hard-constraint limit. The result separates feasibility from posterior calibration: driving the residual to zero is not sufficient for exact sampling of the graph-lifted reduced posterior unless the sampling or correction step targets the corresponding corrected density.",
+  "url": "http://arxiv.org/abs/2606.09594v1",
+  "pdf": "https://arxiv.org/pdf/2606.09594v1",
+  "type": "theory",
+  "summary": "This work resolves a critical ambiguity in Bayesian inverse problems where state equations constrain parameters. It proves that simply minimizing the residual (a full-space penalty) does not yield the correct posterior measure; instead, a determinant correction involving the state Jacobian must be applied to correctly sample the reduced manifold.",
+  "main_problem": "The paper addresses the mathematical ambiguity when defining target measures for Bayesian inverse problems constrained by state equations, comparing naive full-space penalty methods against reduced-space formulations.",
+  "main_result": "A determinant correction factor, involving the state Jacobian determinant, must be applied to the standard residual penalty to ensure that the limit of the penalized sampler correctly targets the graph-lifted reduced posterior measure.",
+  "method": "The authors use theoretical analysis comparing different limiting distributions derived from penalizing residuals in the full parameter-state space versus projecting onto the constraint manifold. They derive and implement determinant corrections for these penalties.",
+  "model_or_system": "The context is general PDE-constrained Bayesian inverse problems, modeled by a state equation $c(\theta, u) = 0$, where $\theta$ are unknown parameters (e.g., conductivity coefficients) and $u$ is the resulting state variable. The analysis relies on finite-dimensional discretizations of these systems.",
+  "key_observables": "The primary observables are the posterior probability density functions ($\\pi_{\text{red}}$, $\\pi_{\\Gamma}$, $\\pi_{\rho}$), and the convergence of sampling diagnostics like effective sample size and $\\hat{R}$.",
+  "important_parameters": "The key parameters include the unknown coefficients $\theta$, the state variable $u$, the penalty strength $\rho \to \\infty$, and the state Jacobian determinant $|\\det D_{uc}|$.",
+  "main_assumptions": "Assumptions require that the state equation has a unique solution $u=G(\theta)$ with a nonsingular state Jacobian, and the results are stated for finite-dimensional discretizations.",
+  "figures_summary": "Figures compare residual tube volume changes, hard-constraint marginals, the effect of missing Jacobian correction, and the result using the determinant-corrected audit.",
+  "paper_structure": "The paper establishes the problem by contrasting reduced vs. full-space sampling; it then derives the necessary determinant corrections for various penalty types (unweighted, weighted); finally, it presents these corrected targets as mathematically rigorous alternatives to naive residual minimization.",
+  "why_interesting": "While focused on statistical inference rather than quantum dynamics, the mathematical machinery of manifold constraints and Jacobian determinants is highly relevant when parameterizing complex physical systems derived from PDEs in quantum physics or condensed matter theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.09594_figures/2606.09594_fig1.jpg",
+      "caption": "Figure 1: Analytic scalar example and software-level residual-scaling diagnostic. (a) Scaling ca = exp(θ)(u−θ2) leaves the graph unchanged but changes residual-tube volume. (b) The naive hard-constraint limit is reweighted by exp(−θ), while the corrected limit matches the graph posterior. (c) The missing residual-volume factor and compensating determinant correction. (d) The detcorr residual-scaling audit: corrected equivalent targets agree to roundoff because the state-Jacobian and weighted-residual volume corrections are both included, while the uncorrected negative control differs at O(10−1).",
+      "page": 13
+    },
+    {
+      "image": "2606.09594_figures/2606.09594_fig2.jpg",
+      "caption": "Figure 2: Section 6 validation-scale benchmark generated from the detcorr implementation. The corrected full-space finite-penalty marginal is visually indistinguishable from the reduced-space reference, as predicted by Theorem 1, while the naive full-space marginal is biased by the missing state-Jacobian volume factor.",
+      "page": 15
+    }
+  ],
+  "figure": "2606.09594_figures/2606.09594_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

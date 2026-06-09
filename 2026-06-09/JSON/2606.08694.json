@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.08694",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.soft",
+    "cond-mat.stat-mech",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Discovering and decoding latent mean-field structure with variational autoencoders",
+  "authors": "Marco Biroli, Max Welling, Vincenzo Vitelli",
+  "abstract": "Generative models are increasingly used to capture correlations in many-body systems, but the representations they learn remain largely opaque to physical interpretation. Here, we establish an intuitive criterion that quantifies the capacity of a variational autoencoder (VAE) to faithfully reconstruct the joint probability distribution of a many body system. In a nutshell, a bound on the VAE capacity is obtained by comparing the rate of the latent channel to the bipartite mutual information of the data. Using this bound, we show that the conditionally independent decoder of any successful VAE is structurally identical to a finite-size mean-field factorization. Hence, a successful reconstruction is direct evidence for a latent mean-field theory and the microscopic parameters of that theory can be read off the trained decoder. We validate these conclusions on a hierarchy of solvable models with scalar (Curie-Weiss), vector (Hopfield) and tensor (Maier-Saupe) order parameters, recovering the full Hopfield pattern matrix from equilibrium samples alone. We find that, when applied to Salamander retinal recordings, a two-latent VAE reproduces the population statistics with only two effective collective variables allowing us to recover the `stored patterns' of the neural population and write a generalized Hopfield model which correctly models the experimental data.",
+  "url": "http://arxiv.org/abs/2606.08694v1",
+  "pdf": "https://arxiv.org/pdf/2606.08694v1",
+  "type": "both",
+  "summary": "The paper proposes that Variational Autoencoders (VAEs) can be used to diagnose the underlying physics of complex many-body systems. By analyzing the information capacity required for successful reconstruction, the authors prove that a VAE's structure must correspond to an effective mean-field approximation. This allows researchers to extract microscopic physical parameters from trained neural network weights using diverse models like spin glasses and biological data.",
+  "main_problem": "The core problem is understanding how Variational Autoencoders (VAEs) can capture the complex, non-factorizable correlations inherent in the joint probability distributions of many-body physical systems.",
+  "main_result": "The authors establish that a successful VAE reconstruction implies that the underlying physics must admit an effective latent mean-field factorization, allowing microscopic parameters to be read directly from the trained decoder weights.",
+  "method": "They use information-theoretic bounds (comparing latent channel rate to bipartite mutual information) and test this hypothesis across various physical models using VAEs. The analysis compares the model's capacity against known theoretical limits for correlation capture.",
+  "model_or_system": "The study validates its findings on a hierarchy of solvable models, including Curie-Weiss (scalar), Hopfield (vector), and Maier-Saupe (tensor) order parameters, and applies it to experimental data from salamander retinal recordings.",
+  "key_observables": "Total Correlation ($T_C|z$), Overlap Distribution $P(q)$, Magnetization $\\langle|m|\rangle$, Susceptibility, and the generalized Hopfield energy functional.",
+  "important_parameters": "Critical temperature ($\beta_c$ for CW), number of stored patterns ($P$ for Hopfield), latent dimension ($d$), and the information bound $I_{\text{bip}}(p)$.",
+  "main_assumptions": "The primary assumption is that the VAE's conditional independence decoder structure (factorization) must match the true underlying physics, which they show leads to a mean-field description.",
+  "figures_summary": "Figures illustrate the comparison of $P(q)$ between VAE predictions and independent models; one figure details the recovery of the full Hopfield pattern matrix from equilibrium samples alone; another compares VAE predictions against empirical retinal firing rate statistics.",
+  "paper_structure": "The paper develops a theoretical criterion relating VAE capacity to physical correlations, applies this framework to analytically solvable mean-field models (CW, Hopfield), and validates the findings by recovering parameters for tensor systems (Maier-Saupe) and analyzing real neural data.",
+  "why_interesting": "This work provides a powerful, data-driven diagnostic tool—the VAE structure itself—to test theoretical assumptions about how correlations manifest in physical systems, bridging deep learning with condensed matter theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.08694_figures/2606.08694_fig1.jpg",
+      "caption": "FIG. 1. Discovering mean-field structures. The top row (a) schematically illustrates our approach on a toy example. Suppose we had snapshots of sunflower fields. Training a regular low-dimensional VAE on these images will discover the effective mean-field acting on these flowers, i.e. the angle of incidence of the sun, despite no picture of the sun every being shown during training. Applying the same method on computer generated equilibrium samples of the Curie-Weiss model of magnetism allows us to recover this mean field model exactly. On the bottom row (b-c-d) we show how VAE samples (orange squares) recover the true distribution (blue circles) which matches the theory (gray line) for a...",
+      "page": 2
+    },
+    {
+      "image": "2606.08694_figures/2606.08694_fig2.jpg",
+      "caption": "FIG. 2. VAE architecture. A detailed view of the conditional VAE architecture (a). The correlated degrees of freedom (e.g. spins, neurons, nematics) are concatenated with the temperature at which they were sampled and given to an encoder (blue) which outputs the mean and variance of the posterior distribution q(z|x) ∼N(µ, σ2). The temperature is given to a hyper-network (green) which predicts the weights of a spline flow network (orange) which builds the prior distribution pψ(z) through invertible transformations of a Gaussian random variable u ∼N(0, 1). With the reparameterization trick [11] (≈) the latent z is sampled from the encoder prediction and given to the decoder (blue) which...",
+      "page": 4
+    },
+    {
+      "image": "2606.08694_figures/2606.08694_fig3.jpg",
+      "caption": "FIG. 3. Hierarchy of models. Each row is one system; from top to bottom: the two-dimensional Ising model (a-b-c), the Curie-Weiss model (d-e-f), the Hopfield model with P = 4 stored patterns (g-h-i), and the Maier-Saupe nematic (j-k-l). The left column (a-d-g-j) shows a sketch of the model under investigation. All degrees-of-freedom are correlated (exemplified by the gray lines) and hence not independent. The middle column (b-e-h-k) shows the uncovered mean-field description that the VAE extracts from the correlated data. The right column (c-f-i-l) displays the conditional total correlation TC|z of Eq. (20), estimated through the variational lower bound of Eq. (45) as a function of...",
+      "page": 5
+    },
+    {
+      "image": "2606.08694_figures/2606.08694_fig4.jpg",
+      "caption": "FIG. 4. Recovery of microscopic mean-field parameters from the trained decoder. On the left (a), Hopfield pattern overlap matrix. Each entry (µ, ν) is the per-site overlap ⟨ˆξν|ξµ⟩/N between the µ-th true pattern and the ν-th pattern extracted from the VAE. The matrix is diagonal with unit modulus along the diagonal proving that all P = 4 patterns are perfectly recovered from equilibrium samples alone. On the right (b), each panel is a scatter of one independent component Zαβ (from left to right Z00, Z11, Z01, Z02, Z12) of the nematic tensor Z against the MLP prediction from the encoder posterior mean µ(ˆx); the dotted line is Z = ˆZ and points are colored by the temperature T/J ranging...",
+      "page": 7
+    },
+    {
+      "image": "2606.08694_figures/2606.08694_fig5.jpg",
+      "caption": "FIG. 5. Application to experimental Salamander retinal recordings. On the top row (a-b-c), we show the stored Hopfield patterns (a-b) and external field (c) recovered from the trained VAE decoder weights. We can see a large fraction of mostly ‘silent’ neurons, strongly inhibited by the external field and two non-trivial patterns. On the bottom row (d-e-f), we show a series of observables for the neural dataset. On the left (d), is the per-word firing rate on the salamander retina dataset of Ref. [24] for the trained VAE (orange) and an independent model baseline (gray). The VAE points scatter tightly around the diagonal across six decades while the independent model systematically...",
+      "page": 9
+    }
+  ],
+  "figure": "2606.08694_figures/2606.08694_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 4,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2606.08690",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "High Precision Qubit-Efficient Variational Continuous Optimization via Amplitude Estimation",
+  "authors": "Parth Danve",
+  "abstract": "Optimization of continuous-variable objectives on standard gate-based quantum computers via variational algorithms such as QAOA is typically approached by first discretizing each decision variable into a finite binary representation. This increases qubit requirements and restricts solution precision through fixed-resolution encodings. We propose a qubit-efficient variational framework for continuous optimization that instead encodes each decision variable into the squared amplitude or equivalently, the measurement probability of a single qubit state. This removes explicit discretization from the variable representation while remaining entirely within the standard qubit circuit model unlike methods like CV-QAOA employing qumode based hardware to achieve the same. To read out encoded variables, we propose using amplitude estimation rather than naive sampling or tomographic reconstruction, with the goal of improving precision scaling for continuous-value recovery. We outline how amplitude-estimation error propagates to decision-variable error and then to objective-value error under standard regularity assumptions, suggesting a distinct width-versus-precision tradeoff relative to discretized approaches. In particular, the framework replaces the logarithmic increase in qubits needed for finer binary precision with a constant cost of one qubit per decision variable, while shifting accuracy requirements into the estimation procedure. We position this approach relative to traditional discretized variational formulations, and argue that it provides a promising new direction for continuous optimization on standard qubit architectures.",
+  "url": "http://arxiv.org/abs/2606.08690v1",
+  "pdf": "https://arxiv.org/pdf/2606.08690v1",
+  "type": "theory",
+  "summary": "This paper presents a novel variational framework for continuous optimization on standard quantum hardware by encoding variables into single-qubit measurement amplitudes rather than using binary discretization. By employing iterative Quantum Amplitude Estimation (IQAE) for readout, the method achieves superior resource scaling—linear in qubits and quadratically better in circuit depth compared to discretized approaches—thereby enabling high-precision computation without prohibitive hardware overheads.",
+  "main_problem": "The challenge of performing continuous optimization on standard gate-based quantum computers without resorting to resource-intensive discretization.",
+  "main_result": "The proposed amplitude-based framework achieves a qubit cost scaling linearly with the number of variables ($\\Theta(n)$) while improving readout complexity from quadratic ($O(\\epsilon^{-2})$) to linear ($O(\\epsilon^{-1})$) in estimation error, outperforming discretized methods significantly.",
+  "method": "It encodes each continuous variable into the measurement probability (squared amplitude) of a single qubit and uses iterative Quantum Amplitude Estimation (IQAE) for high-precision readout, bypassing explicit binary encoding.",
+  "model_or_system": "The work is situated within the standard gate-based quantum circuit model, applying variational algorithms to minimize objective functions $f(\\mathbf{x})$ defined over real variables $\\mathbf{x} \\in \\mathbb{R}^n$.",
+  "key_observables": "Objective function value error ($\\delta_F$), variable precision ($\\eta$ or $\\epsilon$), and the number of required qubits.",
+  "important_parameters": "The ratio between desired objective precision ($\\delta_F$) and the resource scaling factors ($n, K, R$).",
+  "main_assumptions": "The primary decoding map is assumed to be a bounded affine map; the objective function $f$ must be $K$-Lipschitz continuous with respect to the $\\ell_\\infty$-norm.",
+  "figures_summary": "Figures illustrate the comparison between discretized and amplitude-based variational circuits, detailing the structure of the single-qubit encoding and the adaptive IQAE readout procedure for multiple variables.",
+  "paper_structure": "The paper first establishes the limitations of traditional discretization. It then introduces the qubit-efficient amplitude-encoding framework, details the superior IQAE readout technique, and concludes by providing a rigorous resource comparison (Table II & III) against the discretized baseline across both qubit count and circuit execution complexity.",
+  "why_interesting": "While focused on quantum computation theory, the efficiency gains in scaling resources ($\\Theta(n)$ qubits vs. $\\Theta(n \\log(\\dots))$) are crucial for any physical implementation, including those involving complex Hamiltonian simulation or optimization routines relevant to AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.08690_figures/2606.08690_fig1.jpg",
+      "caption": "Fig. 1. Standard discretized variational circuit for n continuous decision variables. Each variable xi is encoded into a dedicated register of bi qubits as in (1), and a joint variational ansatz V (ϕ) acts across all registers. Measurement bitstrings are decoded via (2) and passed to a classical optimizer which updates ϕ iteratively. Total qubit count grows as Pn i=1 bi, increasing logarithmically with the required precision 1/ηi per variable.",
+      "page": 2
+    },
+    {
+      "image": "2606.08690_figures/2606.08690_fig2.jpg",
+      "caption": "Fig. 2. Proposed amplitude-based variational circuit for n continuous decision variables. Each variable xi is encoded into the measurement probability pi of a single qubit as in (3). The readout block estimates pi; the choice of readout procedure and its precision scaling are discussed in Section IV. Estimated probabilities ˆpi ≈pi are decoded classically using a decoding map as xi = g(ˆpi) and passed to a classical optimizer which updates ϕ iteratively.",
+      "page": 3
+    },
+    {
+      "image": "2606.08690_figures/2606.08690_fig3.jpg",
+      "caption": "Fig. 3. IQAE circuit for qubit i in round k. The oracle Ai = V (ϕ)|i prepares |ψi(ϕ)⟩, followed by mk applications of Qi from (6). Measurement outcomes update the confidence interval for pi = sin2(θi).",
+      "page": 4
+    }
+  ],
+  "figure": "2606.08690_figures/2606.08690_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.08794",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Graph Neural Networks for Fast Operator Selection in Adaptive VQE",
+  "authors": "Javad Vahedi, Hadi H. Arefi",
+  "abstract": "Adaptive variational quantum algorithms like ADAPT-VQE construct tailored ansätze by iteratively selecting operators from a pool using gradient-based criteria. While this avoids oversized parameter spaces, repeatedly scanning the full pool incurs a classical cost that scales linearly with pool size-a major bottleneck for systems with long-range interactions or large operator sets. Here, we reformulate adaptive operator selection as a graph-based decision problem and introduce a graph neural network (GNN) policy that predicts the next entangling operator directly from the interaction graph and state-dependent observables. Training data are generated from exact simulations of disordered long-range spin chains, using gradient magnitudes as supervision signals. The learned policy accurately reproduces the dominant structure of the greedy gradient-based selection rule, significantly outperforming heuristics based solely on interaction strength. Integrated into a variational quantum eigensolver (VQE) workflow, this GNN-VQE approach achieves energy errors close to standard ADAPT-VQE while drastically reducing full-pool gradient evaluations. To test transferability beyond spin models, we evaluate the policy on small active-space molecular benchmarks (LiH and BeH_$2$). We find the GNN is highly effective as a shortlist generator: exact rescoring over just a few GNN-proposed candidates recovers near-oracle rollout behavior while searching only a small fraction of the pool. These results demonstrate that adaptive circuit construction contains learnable structure that can be exploited to accelerate variational quantum algorithms.",
+  "url": "http://arxiv.org/abs/2606.08794v1",
+  "pdf": "https://arxiv.org/pdf/2606.08794v1",
+  "type": "theory",
+  "summary": "The paper introduces using Graph Neural Networks (GNNs) to accelerate Adaptive VQE by learning which quantum operators are most likely to improve the ground state energy. By predicting these operators from the system's interaction graph instead of exhaustively checking every possibility, it significantly reduces classical computational overhead while maintaining high accuracy.",
+  "main_problem": "The primary challenge is mitigating the classical computational bottleneck associated with repeatedly scanning a large operator pool during adaptive quantum circuit construction in VQE.",
+  "main_result": "A Graph Neural Network (GNN) policy can learn to predict the optimal next entangling operator, achieving energy errors competitive with full gradient-based methods while drastically reducing the required classical overhead.",
+  "method": "The authors reformulate adaptive operator selection as a graph decision problem, training a GNN on simulated gradient magnitudes derived from quantum state evolution. The trained GNN acts as an efficient shortlist generator for subsequent exact rescoring.",
+  "model_or_system": "The work is initially developed using disordered long-range spin chains with power-law decaying interactions ($J_{ij} \\propto |r_i - r_j|^{-\\alpha}$). It is later benchmarked on small molecular active spaces (LiH, BeH2) mapped to qubit Hamiltonians.",
+  "key_observables": "Energy expectation value ($\\Delta E$), Mean Rank of the selected operator, and computational scaling complexity relative to pool size $|E|$.",
+  "important_parameters": "Interaction decay exponent $\\alpha$, circuit depth $T$, and the number/size of candidate operators in the pool.",
+  "main_assumptions": "The core assumption is that the process of adaptive circuit construction contains a learnable, exploitable structure that can be approximated by graph message passing. The GNN acts as a shortlist generator rather than a perfect oracle replacement.",
+  "figures_summary": "Figures compare energy error vs. depth for various selection strategies (Gradient Oracle vs. GNN vs. Heuristics) and show the computational scaling advantage of the GNN approach over full gradient evaluations.",
+  "paper_structure": "The paper introduces the problem, details the graph representation of the Hamiltonian/operators, describes the GNN architecture trained on simulated gradients from spin chains, validates performance against heuristics, and concludes with transferability tests on molecular benchmarks.",
+  "why_interesting": "This work directly addresses the scaling bottleneck in quantum algorithms by replacing expensive physical measurements (gradient evaluations) with fast classical inference, a crucial step for applying VQE to large, complex systems relevant to AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.08794_figures/2606.08794_fig1.jpg",
+      "caption": "FIG. 1. Schematic of the graph-based representation and learned GNN policy used for adaptive operator selection in the long-range spin-system setting studied in this work. 1. System-to-graph mapping: The disordered spin chain is represented as an interaction graph in which nodes v(t) i correspond to spins and edges e(t) ij correspond to candidate two-qubit generators Pij. Node features combine static geometric quantities with state-dependent observables, while edge features combine static interaction information, two-spin correlators, and operator-variance information. 2. Learned GNN policy for operator selection: Node and edge features are first embedded into latent representations using...",
+      "page": 3
+    },
+    {
+      "image": "2606.08794_figures/2606.08794_fig2.jpg",
+      "caption": "FIG. 2. Training dynamics and operator-selection performance of the learned GNN policy. (a) Training and validation accuracy during optimization of the pointer-based graph neural network. The model is trained to predict the operator with the largest gradient magnitude based on the interaction graph and state-dependent observables. (b) Mean rank of the correct operator among all candidate edges during training. Lower values indicate better agreement with the greedy gradient oracle used to generate supervision labels. (c) Comparison with simple baselines. The learned policy significantly outperforms both random edge selection and a heuristic that always selects the strongest coupling Jij. (d)...",
+      "page": 5
+    },
+    {
+      "image": "2606.08794_figures/2606.08794_fig3.jpg",
+      "caption": "FIG. 3. Energy expectation value as a function of circuit depth t across different operator-selection strategies, averaged over disordered long-range spin chain realizations. The trajec- tories represent a discrete rollout using the fixed small-angle update rule (θ) from dataset generation prior to global pa- rameter reoptimization. The learned GNN policy consistently outperforms both the random and static strongest-coupling baselines. A visible performance gap remains relative to the exact gradient oracle, which utilizes perfect local commuta- tor information. Error bars denote the standard error across disorder realizations.",
+      "page": 7
+    },
+    {
+      "image": "2606.08794_figures/2606.08794_fig4.jpg",
+      "caption": "FIG. 4. Energy error ∆E = E −E0 as a function of circuit depth T for different operator-selection strategies after full variational reoptimization of circuit parameters. This figure therefore probes the quality of the compiled ansatz topology induced by each selection strategy, rather than the quality of the intermediate rollout trajectory shown in Fig. 3. ADAPT- VQE achieves the lowest energy error by selecting operators using gradient information at each iteration. The GNN-VQE approach replaces this gradient evaluation with a learned pol- icy based on graph-structured features. While the resulting circuits exhibit larger energy errors than those obtained with ADAPT-VQE, the learned policy...",
+      "page": 8
+    },
+    {
+      "image": "2606.08794_figures/2606.08794_fig5.jpg",
+      "caption": "FIG. 5. Scaling of adaptive circuit construction with operator pool size |E|. (a): Time required to select T operators during circuit construction. ADAPT-VQE evaluates the commutator gradient for every operator in the pool, leading to a selection cost that increases approximately linearly with |E|. The GNN-based policy predicts the next operator via a neural-network forward pass, replacing explicit gradient scans by classical inference. In the present small-scale classical simulations, however, the measured wall-clock selection time remains larger than ADAPT-VQE due to graph-construction and inference overhead, even though the qualitative dependence on |E| is similar. (b): Energy error ∆E =...",
+      "page": 10
+    }
+  ],
+  "figure": "2606.08794_figures/2606.08794_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

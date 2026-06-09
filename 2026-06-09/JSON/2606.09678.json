@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.09678",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "The dynamic 4.8.8 Floquet code",
+  "authors": "Aliki A. Capatos",
+  "abstract": "Fault-tolerant quantum memories depend on the syndrome extraction circuit as much as on the underlying code. Ancilla-free or dynamic circuits are an effective way to improve this circuit layer. For the 6.6.6 honeycomb Floquet code, making the circuit dynamic raises the threshold and lowers the qubit overhead, but at the cost of halving the spatial code distance. A dynamic construction for the 4.8.8 lattice layout was conjectured to preserve full distance. I confirm this and give a dynamic measurement circuit for the CSS 4.8.8 Floquet code. To benchmark it, I construct and compare four circuit-level implementations on a torus, including two dynamic variants (with and without mid-circuit resets), the standard ancilla-based circuit, and a pipelined ancilla-based circuit. Under circuit-level depolarising noise, the reset dynamic circuit reaches a per-round threshold of $0.463\\%$ $(0.490\\%)$ with MWPM (BP+matching), while the no-reset variant reaches the highest threshold of all four circuits at $0.512\\%$ $(0.574\\%)$. The standard ancilla-based circuit only achieves $0.228\\%$ $(0.240\\%)$, but the pipelined schedule reaches $0.478\\%$ $(0.489\\%)$. The reset dynamic circuit also has a faster-growing timelike distance, with $2\\le d_t/n_{\\mathrm{qec}}\\le 3$ asymptotically against a tight $3/2$ for the other three, and running it for fewer rounds gives the smallest spacetime volume in the fast-reset regime, while the no-reset variant is smallest in the slow-reset regime. The 4.8.8 dynamic circuits therefore see the expected threshold gain and overhead reduction without the spatial-distance cost, demonstrating the advantage of dynamic syndrome extraction in Floquet codes.",
+  "url": "http://arxiv.org/abs/2606.09678v1",
+  "pdf": "https://arxiv.org/pdf/2606.09678v1",
+  "type": "theory",
+  "summary": "This paper rigorously compares four different circuit implementations for syndrome extraction in the 4.8.8 Floquet code to improve fault tolerance. By analyzing thresholds, distance preservation, and resource overheads, the authors demonstrate that dynamic circuits offer significant advantages over traditional ancilla-based methods. The 'no-reset' dynamic variant emerges as superior by maximizing error thresholds while maintaining desirable physical properties.",
+  "main_problem": "The research aims to optimize fault-tolerant quantum memory by designing superior syndrome extraction circuits for Floquet codes.",
+  "main_result": "Dynamic syndrome extraction methods, particularly the 'no-reset' variant, significantly improve error thresholds and reduce resource overhead compared to standard ancilla-based circuits without sacrificing code distance.",
+  "method": "The authors compare four circuit implementations (ancilla-based vs. dynamic with/without reset) by simulating performance under depolarizing noise using techniques like Minimum-Weight Perfect-Matching decoding.",
+  "model_or_system": "The study focuses on the 4.8.8 honeycomb Floquet code, which encodes two logical qubits on a torus lattice geometry ($L \times L$). The analysis involves comparing circuit-level metrics across different scheduling schemes.",
+  "key_observables": "Error threshold (per-round), spatial distance ($d_{\text{spatial}}$), timelike distance ($\frac{dt}{n_{\text{qec}}}$), and spacetime volume ($V$).",
+  "important_parameters": "The linear size of the torus ($L$), physical error rate ($p$), and target logical error rates (e.g., $10^{-12}$).",
+  "main_assumptions": "The analysis assumes nearest-neighbor measurements are sufficient, and specific hardware timing models are used for resource overhead comparisons.",
+  "figures_summary": "Figures illustrate the lattice structure, dynamic scheduling over sub-rounds, and comparative plots showing thresholds vs. error rates, as well as distance bounds ($\text{dgraph}$ vs $\text{dhyper}$) for different circuit variants.",
+  "paper_structure": "The paper systematically compares four syndrome extraction circuits (ancilla/pipelined vs. dynamic/reset) by first establishing the theoretical framework, then benchmarking performance metrics like threshold and distance, and finally comparing resource overheads using spacetime volume calculations.",
+  "why_interesting": "This work directly addresses hardware-level constraints in quantum computation by optimizing circuit depth and connectivity for topological codes, which is crucial for scaling up quantum processors.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.09678_figures/2606.09678_fig1.jpg",
+      "caption": "FIG. 1. (a): Part of the static 4.8.8 lattice on a torus. The data qubits (black dots) sit at the vertices of a {4, 8, 8} tiling of the torus. Faces are 3-coloured – red and blue octagons with green squares filling the gaps. Red/blue octagons support weight-8 plaquette stabilisers and green squares support weight-4 plaquette stabilisers. In the Floquet version of the code, the X/Z flavour is set dynamically by the schedule. The two non-contractible cycles Xh (horizontal) and Xv (vertical) are the two independent X-type logical operators. The corresponding Z-type logicals have the same support by CSS symmetry, giving k = 2 logical qubits encoded in n = 4L2 data qubits. The logicals shown...",
+      "page": 3
+    },
+    {
+      "image": "2606.09678_figures/2606.09678_fig2.jpg",
+      "caption": "FIG. 2. Two consecutive sub-rounds of the reset dynamic 4.8.8 Floquet circuit. Both sub-rounds use the same 4-TICK CX −M −R −CX gadget, differing only in the basis. The left half (rXX) measures XX checks on every red edge, in the X basis. The right half (gZZ) measures ZZ checks on every green edge, in the Z basis. Because the data graph is bipartite and the two-colouring alternates which class is contracted, the measured (contracted) qubit changes between sub-rounds. In the rXX half, the central qubit c is measured with its red-edge neighbour aX as partner, while in the gZZ half, the green-edge neighbour aZ is measured with c now acting as its partner. Each three-wire group thus shows one...",
+      "page": 4
+    },
+    {
+      "image": "2606.09678_figures/2606.09678_fig3.jpg",
+      "caption": "FIG. 3. One rXX sub-round (or, for the pipelined ancilla-based circuit, one full Floquet period) of each variant’s circuit of a part of the 4.8.8 lattice, showing the evolving stabiliser support. Each panel is one TICK. Stabilisers are coloured polygons, with blue for Z and red for X. For a full period, the un-pipelined ancilla-based and reset dynamic variants go through 24 TICKs total, the no-reset dynamic 18, and the pipelined ancilla-based variant only 8. For the full period of each variant, see here. Row 1 (ancilla-based, un-pipelined): one XX check measurement in four TICKs – R on the ancillas, CX1, CX2, M on the ancillas. Row 2 (ancilla-based, pipelined): one full Floquet period in 8...",
+      "page": 6
+    },
+    {
+      "image": "2606.09678_figures/2606.09678_fig4.jpg",
+      "caption": "FIG. 4. (a): Spatial distance dspatial versus L for the four 4.8.8 variants. nwarmup = ntail = 2 and nqec = L. (b): Timelike- distance bounds for the four variants. The slope of this chain length versus nqec gives dt/nqec, the timelike distance per Floquet period [11]; one 4.8.8 period contains six sub-rounds. Filled markers and solid lines show dgraph, which ignores hyperedges and gives an upper bound on dt. The x-axis starts at 4 because fewer rounds introduce boundary effects.",
+      "page": 8
+    },
+    {
+      "image": "2606.09678_figures/2606.09678_fig5.jpg",
+      "caption": "Figure 4(a) shows dspatial vs L for each variant. L is the linear size of the torus, where the code is de- fined on an L × L grid of square-octagon unit cells, giving n = 4L2 data qubits and k = 2 logical qubits. The distance d is the circuit-level distance, the small- est number of circuit errors that together cause an un- detected logical error. I confirm dspatial = L for all four variants using two independent methods on the noisy circuit. First, after dropping the non-local detec- tors (Appendix G), Stim’s shortest graphlike error returns the minimum-weight graphlike logical fault directly. I confirm this on both independent non-contractible X-cycles (horizontal and vertical). Second,...",
+      "page": 8
+    }
+  ],
+  "figure": "2606.09678_figures/2606.09678_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

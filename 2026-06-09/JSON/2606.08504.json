@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.08504",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Pure and mixed Dicke state ansatz for equality and inequality constraints in variational quantum eigensolver",
+  "authors": "J. V. S Scursulim",
+  "abstract": "Combinatorial optimization can be addressed with quantum computing through variational quantum algorithms, but a central challenge in this approach is to design an ansatz expressive enough to explore the feasible subspace of the Hilbert space where the optimal solution lies. Another major challenge is tuning the Lagrange multipliers in penalty terms to enforce feasibility and guarantee solution quality. To address both challenges, we propose the first feasibility-preserving mixed Dicke state ansatz for Hamming weight constrained combinatorial optimization, extending the density matrix formalism to structurally encode equality and inequality constraints directly into the quantum circuit, thereby eliminating the need for penalty terms in the objective function. The proposed framework handles both constraint types, with the pure Dicke state ansatz recovered as a special case corresponding to equality constraints, and generalizes to multiple constraint groups via tensor products of individual pure or mixed Dicke states. We validate the proposed approach in the context of combinatorial portfolio optimization across three experimental scenarios with increasing constraint complexity, using the CMA-ES optimizer and comparing its performance against random search with replacement restricted to the feasible subspace. As the feasible search space grows, the proposed ansatz demonstrates a clear advantage over random search in terms of the number of objective function calls required to identify high-quality solutions. Hardware experiments on IBM NISQ processors confirm that noise mitigation and circuit transpilation optimizations remain open challenges for practical deployment. The framework is general and directly applicable to other combinatorial optimization problems with Hamming weight constraints.",
+  "url": "http://arxiv.org/abs/2606.08504v1",
+  "pdf": "https://arxiv.org/pdf/2606.08504v1",
+  "type": "both",
+  "summary": "This paper introduces a novel mixed Dicke state ansatz designed for Variational Quantum Eigensolvers tackling combinatorial optimization with hard equality and inequality constraints. By structurally encoding these constraints into the quantum circuit, it eliminates the need for penalty terms common in VQAs. The method is validated to outperform random search significantly as the problem complexity increases.",
+  "main_problem": "The core challenge is designing a variational quantum circuit ansatz expressive enough for constrained combinatorial optimization problems without relying on computationally expensive penalty terms.",
+  "main_result": "The proposed mixed Dicke state ansatz successfully encodes both equality and inequality constraints directly into the quantum circuit, demonstrating clear advantages over random search as the feasible search space grows.",
+  "method": "The authors utilize a Variational Quantum Eigensolver (VQE) framework, adapting the density matrix formalism to construct a feasibility-preserving ansatz based on pure and mixed Dicke states.",
+  "model_or_system": "The problem is mapped onto finding the ground state energy of an Ising Hamiltonian. The quantum state space is explored using Dicke states, which are generalized via tensor products to handle multiple constraint groups.",
+  "key_observables": "Probability of finding the optimal solution ($P(x = x^*)$), expectation value $\\langle H \rangle$, and the reduced density matrix $\\sigma(\\vec{\\alpha}, \\vec{\theta})$.",
+  "important_parameters": "Constraint complexity (number/type of constraints), number of objective function calls ($n_{\text{calls}}$), and hardware noise levels.",
+  "main_assumptions": "The framework assumes that the optimal solution can be found by minimizing the expectation value over the constrained subspace, although achieving perfect convergence requires many iterations.",
+  "figures_summary": "Figures compare the probability of finding the optimum versus objective function calls for VQE-Dicke against random search; another figure shows sampled portfolio points relative to the classical efficient frontier.",
+  "paper_structure": "The paper introduces the need for constraint enforcement in VQAs, proposes the mixed Dicke state ansatz structure (extending pure states), validates this approach using combinatorial portfolio optimization across increasing complexity scenarios, and concludes with hardware performance analysis on NISQ devices.",
+  "why_interesting": "This work provides a concrete, structured method to embed complex physical constraints directly into quantum circuits, which is crucial for applying VQE to real-world constrained problems in quantum simulation or computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.08504_figures/2606.08504_fig1.jpg",
+      "caption": "Figure 1: An example of a quantum circuit that generates a pure Dicke state ansatz for VQE. In this figure, the circuit shown prepares the parameterized quantum state |D4 2(⃗θ)⟩.",
+      "page": 3
+    },
+    {
+      "image": "2606.08504_figures/2606.08504_fig2.jpg",
+      "caption": "Figure 2: An example of a quantum circuit that creates a mixture of Dicke states as an ansatz for VQE. In this figure, the circuit shown creates a mixture of two quantum states, |D4 2(⃗β)⟩and |D4 3(⃗γ)⟩, where the preparation probability of each state is regulated by the parameterized rotation gate RY (α). Note that the measurements only acts on the qubits where Dicke states are prepared, then they can be interpreted as a partial trace and providing us a mixture of quantum states.",
+      "page": 4
+    },
+    {
+      "image": "2606.08504_figures/2606.08504_fig3.jpg",
+      "caption": "Figure 3: Probability of finding the optimal solution P(x = x∗) as a function of the number of objective function calls ncalls for Scenarios I (left, |FI| = 561), II (center, |FII| = 1419), and III (right, |FIII| = 45000), using the CMA-ES optimizer. Each curve corresponds to a different number of measurement shots, and each point represents the empirical success probability estimated over 100 independent runs, where success is defined as the optimal bitstring x∗having non-zero sampling probability after training with the corresponding number of objective function calls. The dashed black curve shows the expected performance of random search with replacement restricted to the feasible search...",
+      "page": 7
+    },
+    {
+      "image": "2606.08504_figures/2606.08504_fig4.jpg",
+      "caption": "Figure 4: Discrete efficient frontier for Scenarios I (left), II (center), and III (right), showing portfolios sampled from the experiment in which the target bitstring x∗was observed with the highest sampling probability after training, selected among 100 independent runs per scenario. Each point represents a feasible portfolio, colored by Sharpe ratio. The dashed line indicates the discrete efficient frontier computed via classical mean-variance optimization. In all three scenarios, the proposed ansatz successfully identifies portfolios on or near the efficient frontier.",
+      "page": 7
+    },
+    {
+      "image": "2606.08504_figures/2606.08504_fig5.jpg",
+      "caption": "Figure 5: Estimator standard deviation σ⟨O⟩as a function of nshots illustrating the 1/√nshots decay. The dashed line indicates the noiseless statevector limit, recovered as nshots →∞.",
+      "page": 13
+    }
+  ],
+  "figure": "2606.08504_figures/2606.08504_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

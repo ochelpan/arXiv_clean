@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.09469",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hardware-Aware QAOA for Honeypot Traffic Partitioning on 100+ Qubit IBM Quantum Processors",
+  "authors": "Cameron V. Cogburn, Casimer DeCusatis, Evan Spillane",
+  "abstract": "Denial-of-service (DoS) and distributed denial-of-service (DDoS) mitigation requires separating malicious traffic from benign traffic while minimizing disruption to legitimate users. Prior work proposed mapping honeypot traffic partitioning to a weighted MaxCut problem and solving the resulting graphs with variational quantum algorithms. We extend this proof of principle direction with a reproducible event-level honeypot-to-QUBO pipeline, labeled temporal bipartite benchmark graphs with 16, 32, 66, and 110 event nodes, QAOA executions on IBM quantum hardware, classical heuristic baselines, a noiseless matrix product state reference, and a routing overhead analysis across quantum processor architectures. The largest benchmark is a 110-node, 181-edge instance executed on three IBM backends. Our results show that a shallow QAOA can execute real traffic partitioning workloads at the utility scale, while backend architecture and routing overhead affect objective quality, security metrics, and observed runtime. Because simple classical heuristics can solve the current labeled benchmark graphs, these experiments are not a quantum advantage claim. Instead, we deliberately use a fixed, shallow QAOA implementation to enable controlled comparisons across problem sizes and hardware architectures. This work establishes a hardware feasibility and architecture benchmark framework, and demonstrates that MaxCut cost, security quality, routing overhead, and runtime must be reported as separate metrics for cybersecurity relevant quantum optimization.",
+  "url": "http://arxiv.org/abs/2606.09469v1",
+  "pdf": "https://arxiv.org/pdf/2606.09469v1",
+  "type": "experiment",
+  "summary": "This work develops a comprehensive hardware benchmark framework to test using QAOA for solving traffic partitioning problems derived from honeypot network data. By running the algorithm on multiple IBM quantum processors, the authors demonstrate that while shallow circuits are feasible at utility scale, backend architecture and routing overhead significantly impact performance metrics beyond just the optimization objective.",
+  "main_problem": "Mitigating Denial-of-Service (DoS) attacks by separating malicious honeypot traffic from benign traffic, modeled as a weighted MaxCut problem.",
+  "main_result": "The study establishes a hardware feasibility benchmark showing that shallow QAOA can execute real traffic partitioning workloads at the utility scale, though it does not claim quantum advantage due to classical solvability of benchmarks.",
+  "method": "Variational Quantum Algorithms (QAOA) are applied to QUBO formulations derived from labeled temporal bipartite graphs representing honeypot traffic events.",
+  "model_or_system": "The system uses current IBM superconducting quantum processors (e.g., ibm_boston, ibm_miami) for execution on benchmark graphs up to 110 nodes. The problem is formulated as maximizing a weighted MaxCut objective.",
+  "key_observables": "MaxCut cost ratio ($\rho_C$), Attack Recall, Benign Preservation, Quarantine Precision, Balanced Security Score, Transpiled Depth, Two-Qubit Gate Counts, and Observed Runtime.",
+  "important_parameters": "Graph sizes (16 to 110 nodes), QAOA depth ($p=1$ fixed ansatz), and specific IBM quantum backend architectures.",
+  "main_assumptions": "The benchmark graphs are intentionally simple enough that classical heuristics can solve them, meaning the results do not constitute a claim of quantum advantage. The analysis requires reporting optimization quality separately from security metrics.",
+  "figures_summary": "Figures compare QAOA cost ratios and balanced security scores across scaling graph sizes (H16-H110) and show architecture-dependent routing overheads for the largest instance (H110).",
+  "paper_structure": "The paper follows a workflow: defining the DoS mitigation problem as MaxCut $\\rightarrow$ constructing labeled temporal bipartite benchmarks $\\rightarrow$ executing QAOA on multiple IBM backends $\\rightarrow$ comparing results against classical heuristics and analyzing hardware overheads.",
+  "why_interesting": "While focused on cybersecurity, the rigorous benchmarking of quantum circuit overhead (depth, gate counts) across different physical architectures for a complex optimization problem provides valuable data for understanding near-term NISQ device limitations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.09469_figures/2606.09469_fig1.jpg",
+      "caption": "Fig. 1. Workflow used in this study. Labeled honeypot event traces are converted into temporal bipartite MaxCut benchmark graphs, solved with QAOA hardware runs and classical baselines, and evaluated with both optimization and security metrics.",
+      "page": 5
+    },
+    {
+      "image": "2606.09469_figures/2606.09469_fig2.jpg",
+      "caption": "Fig. 2. Boston QAOA cost ratio scaling over H16, H32, H66, and H110. Error bars indicate sample standard deviation over five seeds (124–128) for H16–H66 and six seeds (124–129) for H110.",
+      "page": 5
+    },
+    {
+      "image": "2606.09469_figures/2606.09469_fig3.jpg",
+      "caption": "Fig. 3. Balanced security score for the Boston QAOA scaling ladder. This metric averages attack recall and benign preservation.",
+      "page": 5
+    },
+    {
+      "image": "2606.09469_figures/2606.09469_fig4.jpg",
+      "caption": "Fig. 4. Noiseless finite-shot MPS QAOA baseline compared with ibm_boston hardware QAOA. Both workflows use p = 1, COBYLA, 1024 shots, and 15 optimizer evaluations. Markers show means and error bars show sample standard deviations. The MPS baseline and the Boston hardware both use five seeds (124–128) for H16, H32, and H66, while H110 included an additional sixth seed (129).",
+      "page": 7
+    },
+    {
+      "image": "2606.09469_figures/2606.09469_fig5.jpg",
+      "caption": "Fig. 5. QAOA hardware cost ratios compared with best of 1000 random, greedy local search, and simulated annealing. Greedy local search and simulated annealing reach the class-defined reference objective on all four labeled temporal bipartite benchmark graphs.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.09469_figures/2606.09469_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

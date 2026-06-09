@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2606.09778",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Who Earns the Safety? Intervention-Aware Quantum Predictive Control with Safety Attribution",
+  "authors": "Yifan Wang",
+  "abstract": "Hard safety filters are increasingly placed downstream of learned controllers to guarantee constraint satisfaction at run time. Yet a filtered controller that never violates a constraint may still have learned nothing about safety: the filter can silently repair an incompetent upstream policy, so that post-filter success measures the filter, not the policy. We argue that safe policy learning should ask who earns the safety - the policy or its protective layers - and we make this question measurable. We introduce Intervention-Aware Variational Quantum Differentiable Predictive Control (IA-VQC-DPC), which (i) trains a compact variational quantum circuit (VQC) policy under a primal-dual intervention budget that penalizes reliance on a differentiable Control-Barrier-Function (CBF) projection, and (ii) is evaluated with a safety-attribution protocol that decomposes the executed-trajectory correction into a CBF term and a deployment runtime-guard term, and stress-tests the policy with guard-off evaluation. On closed-loop, high-fidelity BOPTEST building-control emulators (5 seeds, 60 episodes per method), intervention-aware training significantly lowers the quantum policy's raw pre-filter violation and total safety-layer reliance (both p < 10^-4) with no significant energy regression; at an equal approximately 400-parameter budget the quantum policy is significantly safer and more comfortable than a matched classical policy. Guard-off evaluation confirms the improvement is policy-level and exposes a valuable negative result: a learned differentiable energy head is only safe when paired with a distribution-aware runtime guard. The attribution protocol is general beyond quantum policies and buildings.",
+  "url": "http://arxiv.org/abs/2606.09778v1",
+  "pdf": "https://arxiv.org/pdf/2606.09778v1",
+  "type": "both",
+  "summary": "This paper proposes an advanced quantum predictive control method to solve the problem of safety attribution in constrained learning. By explicitly penalizing reliance on external safety filters during training, the authors demonstrate that their quantum policy learns genuinely safer behaviors than classical counterparts when tested rigorously. This methodology provides a general framework for quantifying how much 'safety' is truly earned by the learned model versus its protective wrappers.",
+  "main_problem": "The paper addresses the 'filter-masking problem' where safety filters can mask an upstream policy's incompetence, making it unclear whether safety is earned by the learned policy or its protective layers.",
+  "main_result": "An intervention-aware quantum control method significantly improves raw pre-filter safety and reduces reliance on external safety layers compared to baseline methods. Furthermore, this improvement is shown to be intrinsic to the policy itself when tested without the safety guards.",
+  "method": "The authors introduce Intervention-Aware Variational Quantum Differentiable Predictive Control (IA-VQC-DPC), which trains a VQC policy using a primal-dual intervention budget that penalizes over-reliance on differentiable safety projections.",
+  "model_or_system": "The work is tested in closed-loop, high-fidelity BOPTEST emulators simulating building HVAC control systems. The core components involve a Variational Quantum Circuit (VQC) acting as the policy, constrained by sequential Control-Barrier-Function (CBF) projection and runtime guards.",
+  "key_observables": "Raw pre-filter violation ($\text{Vpre}$), post-filter violation ($\text{Vpost}$), total safety-layer reliance ($c_{tot} = c_{CBF} + c_{guard}$), energy consumption, and the comparison of these metrics across different policy versions.",
+  "important_parameters": "The training uses a primal–dual intervention budget constraint; capacity is compared at an equal approximate 400-parameter budget between quantum and classical policies.",
+  "main_assumptions": "Standard safety metrics are insufficient because they conflate filter success with true policy competence, necessitating the explicit decomposition of safety corrections into distinct terms (CBF vs. guard).",
+  "figures_summary": "Figures illustrate the concept of filter masking versus intervention-aware training, and show the results of safety attribution evaluation, confirming that improvements are policy-level.",
+  "paper_structure": "The paper first establishes the problem of safety misattribution using filters, then introduces IA-VQC-DPC with its specialized loss function. It details the safety attribution protocol and evaluates performance on building control emulators, culminating in guard-off tests to prove intrinsic policy safety gains.",
+  "why_interesting": "While the application is classical control theory (HVAC), the methodology involves training quantum circuits (VQC) for optimal control under strict physical constraints, which has implications for designing robust quantum controllers.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.09778_figures/2606.09778_fig1.jpg",
+      "caption": "Figure 1: Who earns the safety? (Left) A compact variational quantum circuit (VQC) policy proposes an action that a differentiable Control-Barrier-Function (CBF) projection and a deployment runtime guard edit before execution, so a post-filter loop can look safe even when the raw policy is not. (Center) Intervention-aware training adds a primal–dual intervention budget that penalizes reliance on the safety layers, pushing the policy to be intrinsically close to safe. (Right) Our safety-attribution evaluation decomposes the executed correction into a CBF term and a runtime-guard term and adds a guard-off stress test, so measured safety is credited to the policy that earned it rather than to...",
+      "page": 2
+    },
+    {
+      "image": "2606.09778_figures/2606.09778_fig2.jpg",
+      "caption": "Figure 2: Safety attribution on guarded closed loops (n=60). (a) Total correction decomposes into CBF and runtime-guard parts: the headline “correction reduction” of raw clones is mostly deployment guard, not learned safety. (b) Raw pre-filter violation with 95% CIs: only the rule-based controller is grossly unsafe pre-filter; among learned policies, intervention-aware training keeps the compact VQC’s raw violations low.",
+      "page": 5
+    },
+    {
+      "image": "2606.09778_figures/2606.09778_fig3.jpg",
+      "caption": "Figure 3: Equal-parameter (≈400) comparison with 95% CIs. The intervention-aware quantum policy is significantly safer (pre/post-filter) and more comfortable than a matched- capacity classical policy.",
+      "page": 6
+    },
+    {
+      "image": "2606.09778_figures/2606.09778_fig4.jpg",
+      "caption": "Figure 4: Guard-off evaluation. (a) Removing the runtime guard, IA-VQC still has significantly lower raw pre-filter violation than VQC-raw (∆=−0.33, p<10−4): the gain is policy-level. (b) Without the guard, the learned-energy-head IA-MLP is exploited out of distribution and its energy ex- plodes (2.6 × 106 kWh), while IA-VQC remains stable— motivating the guarded design.",
+      "page": 6
+    }
+  ],
+  "figure": "2606.09778_figures/2606.09778_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

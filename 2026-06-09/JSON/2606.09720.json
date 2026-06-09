@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2606.09720",
+  "category": "other",
+  "arxiv_categories": [
+    "physics.atom-ph",
+    "cond-mat.quant-gas",
+    "physics.ins-det",
+    "physics.optics"
+  ],
+  "is_primary_archive": true,
+  "title": "Long-term laser frequency stabilization with an FPGA-controlled scanning cavity",
+  "authors": "R. Forti, R. Panza, A. Muzi Falconi, S. Sbernardori, A. Vardé, M. Marinelli, A. Carini, F. Scazza",
+  "abstract": "We present an FPGA-based implementation of a scanning transfer cavity lock (STCL) for laser frequency stabilization, allowing for the simultaneous stabilization of multiple laser sources with respect to a single reference laser by means of a continuously scanned Fabry-Perot cavity. By exploiting the FPGA architecture to simultaneously perform cavity scanning, peak detection, and feedback actuation, we minimize latency and allow independent control loops for several lasers within a single device, offering direct scalability. The system performance is analyzed through heterodyne measurements from short ($<1\\,$s) to long ($\\sim20\\,$hours) timescales. The end-to-end locking performance is validated through atomic spectroscopy of ytterbium atoms in a magneto-optical trap, demonstrating sub-MHz absolute frequency stability over several hours for the stability transfer across $\\sim 150\\,$nm in the visible-wavelength range. Importantly, we demonstrate a novel fast-scanning approach based on acousto-optic modulator (AOM) frequency modulation, enabled by the low detection latency of our FPGA implementation. This increases significantly the effective locking bandwidth and reduces the intrinsic noise of the system with respect to standard piezo-actuated scanning of the cavity length, allowing to reach sub-$100\\,$kHz long-term stability and offering perspectives for laser-line narrowing. Owing to its modularity, low cost and ease of implementation within the open-source PyRPL firmware package for the STEMlab Red Pitaya platform, our architecture offers a compact and flexible alternative to existing STCL and locked-cavity implementations, providing a practical approach to the operation of a state-of-the-art cold-atom experiment without relying on any atomic references for laser stabilization.",
+  "url": "http://arxiv.org/abs/2606.09720v1",
+  "pdf": "https://arxiv.org/pdf/2606.09720v1",
+  "type": "experiment",
+  "summary": "The paper details an advanced laser stabilization system using an FPGA-controlled Scanning Transfer Cavity Lock (STCL). By integrating cavity scanning and feedback actuation onto a single, low-latency digital platform, the authors achieved superior stability. The novel use of AOM modulation further boosts bandwidth, providing a highly practical and scalable tool for state-of-the-art cold-atom experiments.",
+  "main_problem": "The primary challenge addressed is achieving long-term, high-stability laser frequency stabilization for multiple sources simultaneously, while minimizing electronic latency limitations.",
+  "main_result": "The FPGA-controlled system demonstrated sub-MHz absolute frequency stability over several hours across a large spectral range and achieved significantly improved noise rejection by using AOM scanning over traditional piezo actuation.",
+  "method": "The authors implemented a Scanning Transfer Cavity Lock (STCL) architecture, utilizing an FPGA to perform cavity scanning, peak detection, and feedback control in parallel. They enhanced this by replacing standard piezo scans with fast AOM-assisted frequency modulation for superior bandwidth.",
+  "model_or_system": "The system uses a Fabry-Perot optical cavity whose length is scanned while multiple slave lasers are locked to the resonance peaks observed during the scan. The control electronics rely on an FPGA platform (Red Pitaya) running custom firmware, allowing for real-time processing of error signals.",
+  "key_observables": "Sub-MHz absolute frequency stability over hours; normalized peak positions ($N_i$); Allan deviation of the beat note frequency ($\\delta f(t)$).",
+  "important_parameters": "Visible wavelength range ($\\sim 150$ nm); long timescales (up to 20 hours); high bandwidth capability exceeding $100$ kHz.",
+  "main_assumptions": "The system assumes that the cavity resonance width is sufficient for accurate peak detection, and environmental drifts (like air pressure) can be measured and compensated for via auxiliary sensors.",
+  "figures_summary": "Figures illustrate the STCL block diagram, the optical setup using AOM strobing, heterodyne beat note measurements comparing AOM vs. piezo scanning modes, and long-term stability plots derived from atomic spectroscopy.",
+  "paper_structure": "The paper details the theoretical basis of STCL, presents the FPGA implementation overcoming latency limits, validates performance through both heterodyne measurements (short/medium term) and atomic spectroscopy (long term), and concludes by highlighting the modularity and scalability of the AOM-enhanced architecture.",
+  "why_interesting": "This work represents a significant engineering advance in optical metrology for AMO physics. The integration of high-speed, low-latency FPGA control directly addresses practical limitations in scaling complex quantum experiments that rely on precise frequency referencing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.09720_figures/2606.09720_fig1.jpg",
+      "caption": "FIG. 1. Simplified scheme of the STCL system. (a) Block diagram of our STCL system. The STCL control block actuates on the frequency of a slave laser, gating at the same time its injection into the optical cavity. The connected scan control block handles the scanning of the cavity length, and gates the injection of the reference laser into the cavity. A photodetector (PD) measures the cavity transmission signal and supplies it to the STCL control block. (b) Illustration of the typical cavity transmission signal, alongside the piezo displacement ramp (red), for multiple injected lasers: reference laser (green) and controlled lasers (violet, yellow). Each laser beam is coupled into the cavity...",
+      "page": 2
+    },
+    {
+      "image": "2606.09720_figures/2606.09720_fig2.jpg",
+      "caption": "FIG. 2. Block diagram of the internal operations executed by the main FPGA device. The Red Pitaya provides the voltage ramp to the cavity piezo and reads the PD signal of the cavity transmission. This signal is processed to identify the position of the relevant peaks, which are stabilized by digital PID modules actuating on the cavity ramp and on the slave laser frequency. The position of the slave laser is referenced to the normalized distance between the two (L and R) reference peaks. The Red Pitaya also outputs triggers to synchronize the cavity scan and to gate the laser lights. Auxiliary Red Pitayas implement a similar scheme without the ramp generator and without feedback on the...",
+      "page": 5
+    },
+    {
+      "image": "2606.09720_figures/2606.09720_fig3.jpg",
+      "caption": "FIG. 3. Screenshot of the graphical user interface of the newly implemented ScanCavity module in PyRPL. The interface allows to control all parameters of the STCL procedure and to visualize the cavity transmission during the scan. Colored horizontal bars define the range during which each laser is coupled into the cavity: by coupling each beam only within its range, we avoid cross-talks between independent sources and detection of spurious peaks. Each laser is locked to the center of its range, which can be resized and repositioned manually by drag-and-drop, even while the locks are engaged. Each slave laser PID setpoint can also be precisely adjusted through keyboard input.",
+      "page": 6
+    },
+    {
+      "image": "2606.09720_figures/2606.09720_fig4.jpg",
+      "caption": "FIG. 4. Heterodyne measurements between reference and controlled lasers at 556 nm. (a) Sketch of the acquisition setup. The two laser beams are overlapped and interfered at a fast photodetector. (b) Comparison between beat note frequency deviations with the STCL control loop active (green) or inactive (orange). (c) Allan deviation of the acquired beat note frequency with the control loop active including the correction of scan drifts (solid green), excluding correction of the scan drifts (dashed olive) and inactive (solid orange). (d) Comparison between the closed-loop beat note stability over 20 hours with (green) and without (olive) active drift correction. The inset shows histograms of...",
+      "page": 7
+    },
+    {
+      "image": "2606.09720_figures/2606.09720_fig5.jpg",
+      "caption": "FIG. 5. Power spectral density (PSD) of the beat note frequency between reference and controlled lasers at 556 nm. Measurements for different settings of the STCL control are displayed: open loop (orange), closed loop with piezo-scanning (green), closed loop with AOM-scanning (red, see Section VI). The system noise floor in the piezo-scanning mode is also shown (black). Inset: a higher-frequency span of the PSD is shown, where the closed-loop piezo-scanning operation is compared to the noise floor across the ≃100 Hz control bandwidth.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.09720_figures/2606.09720_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 1,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 1,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

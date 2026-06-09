@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.08707",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Simulating quantum circuits with a neural statebank",
+  "authors": "Taige Wang, Liang Fu",
+  "abstract": "Predicting the output of quantum circuits is a central bottleneck for verifying quantum processors because a generic wavefunction grows exponentially with system size. We introduce a neural statebank that learns this wavefunction along the circuit trajectory. Each layer is stored as an autoregressive Transformer checkpoint trained from local gate updates to the preceding checkpoint, producing a compact neural representation that can evaluate amplitudes and generate independent samples. On long-range circuits combining entanglement, magic, and non-diagonal branching, a 0.3-million-parameter statebank reaches $\\sim 10^{-2}$ infidelity at 34 qubits, outperforming the other tested approximate simulators while using far less memory than exact state-vector evolution. The same architecture accurately simulates quantum approximate optimization, Clifford+$T$, and Clifford circuits.",
+  "url": "http://arxiv.org/abs/2606.08707v1",
+  "pdf": "https://arxiv.org/pdf/2606.08707v1",
+  "type": "theory",
+  "summary": "The paper proposes a neural statebank architecture to overcome the exponential scaling problem in simulating quantum circuits. By training autoregressive Transformers layer-by-layer, it creates a compact neural representation of the wavefunction trajectory. This method achieves high fidelity on large, complex circuits while drastically reducing memory requirements compared to exact simulation.",
+  "main_problem": "Predicting the output of quantum circuits is computationally intractable due to the exponential growth of the wavefunction, creating a bottleneck for verifying quantum processors.",
+  "main_result": "The proposed neural statebank successfully simulates complex quantum circuits up to 34 qubits with low infidelity while requiring significantly less memory than exact state-vector evolution.",
+  "method": "It introduces an autoregressive Transformer checkpoint that learns the wavefunction trajectory layer by layer, approximating the full circuit evolution using a compact neural representation.",
+  "model_or_system": "The model simulates quantum circuits acting on N qubits. The system is characterized by its state vector $|\\psi\rangle$ and its evolution through sequential unitary gates ($U = U_D \\cdots U_1$).",
+  "key_observables": "Infidelity (error rate) of the simulation, memory scaling relative to qubit number (N), and computational time.",
+  "important_parameters": "System size (N up to 34 qubits), circuit depth/number of layers, entanglement structure (magic gates, non-diagonal branching).",
+  "main_assumptions": "The method assumes that the state evolution can be accurately captured by an autoregressive neural network trained sequentially on local gate updates. The primary limitation is accumulated error over deep circuits.",
+  "figures_summary": "Figures compare memory usage and final infidelity across various simulators (State-Vector, MPS, Statebank) on demanding benchmarks like HCZCH; other figures benchmark the method on QAOA and Clifford circuits.",
+  "paper_structure": "The paper introduces the statebank concept by addressing the exponential scaling problem. It details the autoregressive Transformer architecture for checkpointing, presents training procedures using local gate updates, and validates its performance against established simulators across diverse circuit families (HCZCH, QAOA, etc.).",
+  "why_interesting": "This work provides a novel, memory-efficient computational tool to simulate quantum dynamics that goes beyond the limitations of both full state-vector storage and specialized tensor network methods for highly entangled or structured circuits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.08707_figures/2606.08707_fig1.jpg",
+      "caption": "FIG. 1. Statebank training. A circuit is decomposed into layers U1, U2, . . ., which produce intermediate wavefunc- tions |ψ0⟩, |ψ1⟩, . . .. Instead of storing these states as full 2N-component vectors, the simulator represents each one by an autoregressive Transformer checkpoint. To train checkpoint θℓ, samples and amplitudes from θℓ−1 are combined with the exact local action of Uℓto define targets for the next state.",
+      "page": 2
+    },
+    {
+      "image": "2606.08707_figures/2606.08707_fig2.jpg",
+      "caption": "FIG. 2. HCZCH benchmark. a, HCZCH circuit shown for N = 8 qubits. b, Representative layer-by-layer training diagnostics. Diagonal layers are monitored by phase error, whereas CH and CNOT layers are monitored by local-unitary overlap error. c, Memory use. Exact state-vector storage reaches 128 GiB at N = 34, while the Transformer statebank remains near 3 GiB over the widths studied. d, Final infidelity. The statebank remains near 10−2 from N = 22 to 34, whereas MPS and near-Clifford perturbation deteriorate at larger width. e, Amplitude-query time. Tensor-network contraction is competitive for selected amplitudes, but the statebank gives fastest amortized queries after training. f,...",
+      "page": 3
+    },
+    {
+      "image": "2606.08707_figures/2606.08707_fig3.jpg",
+      "caption": "Fig. 3(a) and 3(b) benchmark the quantum approxi- mate optimization algorithm (QAOA) at p = 2, a central variational circuit family for near-term optimization and quantum algorithm design [45–50]. At generic angles, QAOA is non-Clifford, providing a natural test beyond stabilizer-based simulation. The statebank treats the di- agonal cost layers as phase updates and the mixer layers as one-qubit local updates. The fidelity remains close to unity from N = 22 to 34.",
+      "page": 3
+    },
+    {
+      "image": "2606.08707_figures/2606.08707_fig4.jpg",
+      "caption": "Fig. 3(c) and 3(d) test a two-block H-CNOT-T circuit. This family is important because H, CNOT, and T form a standard universal gate set [51–54]. The same check- pointing procedure learns the branching induced by H and the basis mixing induced by CNOT, while treating the T layers as diagonal phase updates.",
+      "page": 3
+    },
+    {
+      "image": "2606.08707_figures/2606.08707_fig5.jpg",
+      "caption": "Fig. 3(e) and 3(f) use a purely Clifford circuit as a control. This is not a regime in which a neural simulator should be expected to outperform specialized stabilizer",
+      "page": 3
+    }
+  ],
+  "figure": "2606.08707_figures/2606.08707_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
