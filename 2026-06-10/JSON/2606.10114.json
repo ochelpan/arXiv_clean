@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.10114",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Cryogenic Hybrid Photonic/CMOS Controller Architecture for Scalable Superconducting Qubit Control",
+  "authors": "Bowen Liu, Zhaoran Rena Huang",
+  "abstract": "Scaling superconducting quantum computers toward thousands of qubits remains a difficult control hardware problem. It requires hardware that reduces room-temperature to cryogenic wiring and cryogenic power while preserving in-fridge programmability for microwave pulse generation. This work develops a 4 K hybrid photonic/CMOS control architecture in which optical fibers distribute shared shaped pulse templates, while local cryogenic CMOS (Cryo-CMOS) circuits provide transmission control, amplitude programming, sample-and-hold envelope shaping, LO-tone and phase selection, and microwave upconversion, enabling both single-qubit and two-qubit gate generation within the same control path. Compared with fully Cryo-CMOS controllers, this architecture reduces per-channel active dissipation by moving high-speed sampled RF/IF waveform synthesis and waveform-memory access out of each cryogenic channel. Compared with purely photonic-link qubit-control approaches, it adds local 4 K programmability for pulse selection, amplitude scaling, timing updates, and LO-phase control, while remaining compatible with room-temperature real-time feedback and quantum error correction (QEC) workflows. We present architecture-level first-order models for 4 K power dissipation, waveform-memory scaling, and controller-induced fidelity limits, and cross-check the dominant fidelity terms using a three-level transmon simulation. The analysis shows that shared optical pulse template distribution with local 4 K envelope programming is a feasible path toward scalable superconducting qubit control.",
+  "url": "http://arxiv.org/abs/2606.10114v1",
+  "pdf": "https://arxiv.org/pdf/2606.10114v1",
+  "type": "both",
+  "summary": "The paper introduces a novel hybrid photonic/CMOS controller architecture designed to overcome the severe scaling challenges in superconducting qubit control. By using optical fibers to distribute pulse templates and local 4 K CMOS circuits for fine-grained programming, it drastically reduces power consumption compared to fully sampled cryogenic electronics. The analysis confirms this approach is feasible by meeting stringent error budget requirements while maintaining programmability.",
+  "main_problem": "Scaling superconducting quantum computers requires a control hardware architecture that minimizes wiring density, cryogenic heat load, and controller-induced errors.",
+  "main_result": "The proposed hybrid photonic/CMOS architecture successfully mitigates scaling bottlenecks by using optical links for shared pulse templates while retaining local 4 K programmability, achieving low power dissipation and error rates below the target threshold.",
+  "method": "The authors developed a template-based control framework, modeling power dissipation and gate errors using first-order approximations derived from comparing the proposed architecture against high-speed RF-AWG baselines.",
+  "model_or_system": "The system involves superconducting transmon qubits controlled by microwave pulses generated via an optical path (room T $\rightarrow$ 4 K) followed by local Cryo-CMOS processing. The error analysis is cross-checked using a three-level Transmon Hamiltonian simulation.",
+  "key_observables": "Controller-induced gate fidelity ($\\epsilon$), 4 K power dissipation ($\\mu\text{W}/\text{ch}$), and waveform storage requirements (bits).",
+  "important_parameters": "Target operation fidelity of $99.9\\%$ ($10^{-3}$ error budget); operating temperature range (mK to 4 K); pulse durations ($10-500 \text{ ns}$).",
+  "main_assumptions": "The analysis relies on first-order models for power and error, assuming feasibility of cryogenic components like MRRs and PDs; full device calibration is not performed.",
+  "figures_summary": "Figures illustrate waveform examples (single/two-qubit gates), the optical multi-tone LO distribution path, and comparative plots showing power dissipation vs. RF-AWG baselines and error contributions vs. $10^{-3}$ budget.",
+  "paper_structure": "The paper progresses by identifying scaling limitations, proposing the hybrid architecture to solve these limits (combining photonic links with local CMOS), quantifying feasibility through detailed power modeling against alternatives, and finally validating the approach via first-order error analysis cross-checked with numerical simulations.",
+  "why_interesting": "This work directly addresses the physical engineering bottleneck of quantum computing hardware by proposing a scalable, low-power control interface that integrates photonics and cryogenics, which is crucial for building large-scale quantum processors.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.10114_figures/2606.10114_fig1.jpg",
+      "caption": "Fig. 1. Representative superconducting qubit gate pulse shapes: (a) smooth single-qubit envelope, (b) DRAG-like I/Q pulse, (c) square Gaussian two- qubit envelope, and (d) GRAPE-based optimized I/Q waveform.",
+      "page": 3
+    },
+    {
+      "image": "2606.10114_figures/2606.10114_fig2.jpg",
+      "caption": "Fig. 2. Proposed hybrid cryogenic photonic/CMOS control architecture. (a) System level partitioning across room temperature, the 4 K controller stage, and the mK qubit stage. (b) Room-temperature optical pulse template generation. (c) 4 K photonic/CMOS controller, where a shared optical pulse train is distributed within local small-fan-out channel groups, locally transmission-programmed by microring modulators, photodetected into an electrical envelope, optionally held or buffered, and mixed with a selected LO tone to generate the qubit-control drive.",
+      "page": 4
+    },
+    {
+      "image": "2606.10114_figures/2606.10114_fig3.jpg",
+      "caption": "Fig. 4. Local control of a shared optical pulse train. (a) Single-qubit gate operation: a slow DAC stores a channel amplitude code or bias point, while local transmission-control logic passes scheduled input pulses, blocks unscheduled pulses, and amplitude-scales the selected pulse. (b) two-qubit gate operation: the detected envelope charges a hold node, the S/H window maintains a flat-top level, and a controlled release/reset generates the falling edge of a Square Gaussian output envelope.",
+      "page": 5
+    },
+    {
+      "image": "2606.10114_figures/2606.10114_fig4.jpg",
+      "caption": "Fig. 3. Optical multi-tone LO-distribution path. A room-temperature reference LO and PLL array generate multiple phase-coherent RF/LO tones, which are encoded as microwave subcarriers on an optical carrier and delivered to the 4 K stage. A cryogenic PD recovers an electrical multi-tone LO bus. At 4 K, an RF distribution network feeds channel-specific band-pass filters (BPF) or resonant selectors. Each selected LO tone then passes through an on-chip LO phase selector, which provides phase-coded LO signals routed to the local mixers.",
+      "page": 5
+    },
+    {
+      "image": "2606.10114_figures/2606.10114_fig5.jpg",
+      "caption": "Fig. 4 illustrates the principle for single and two-qubit gates. For single-qubit gates example, as shown in Fig. 4(a), the shared input is a train of Gaussian optical pulses. A low speed DAC programs the MRR transmission for a scheduled gate, thereby setting the amplitude of the corresponding pulse in the shared Gaussian train and blocking unwanted pulses by using a near zero transmission state. For two-qubit gates, shown in Fig. 4(b), the controller forms a Square Gaussian envelope by adding a local sample-and-hold stage to the shared optical pulse template. The pulse charges an envelope node to the programmed amplitude and provides the smooth turn-on edge. The S/H circuit then holds this...",
+      "page": 5
+    }
+  ],
+  "figure": "2606.10114_figures/2606.10114_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 1,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

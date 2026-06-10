@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.10757",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Dynamical Partition Functions of Stochastic Dynamics via Variational Flows",
+  "authors": "Zequn Lin, Ying Tang",
+  "abstract": "Nonequilibrium thermodynamics is governed by the dynamical partition function, and its computation in high-dimensional continuous-state dynamics is a longstanding challenge. The Feynman-Kac formalism provides a rigorous representation for generating functions of arbitrary path observables; however, practical evaluation beyond low dimensions or the weak-noise limit is hindered by the curse of dimensionality and the exponentially growing replica demands of trajectory-based methods. Here we develop a mesh-free neural variational framework that realizes the Feynman-Kac theorem with generative flow models, recasting tilted stochastic evolution as a time-dependent optimization problem. This approach enables the direct computation of both finite-time and asymptotic trajectory thermodynamics in a unified manner. The method applies to general observables, enabling the evaluation of work, entropy production, and current fluctuations. We demonstrate the accuracy and scalability of this method in various nonequilibrium systems including high-dimensional cases.",
+  "url": "http://arxiv.org/abs/2606.10757v1",
+  "pdf": "https://arxiv.org/pdf/2606.10757v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel neural variational framework that computes the dynamical partition function for stochastic processes by reformulating the problem as an optimization task. By using Normalizing Flows within a TDVP scheme, it accurately calculates key non-equilibrium observables like work and entropy production in high-dimensional systems. This offers a scalable alternative to traditional path integral methods.",
+  "main_problem": "The core challenge is computing the dynamical partition function for continuous-state stochastic dynamics, which governs non-equilibrium thermodynamics.",
+  "main_result": "The authors develop a mesh-free neural variational framework that successfully computes finite-time and asymptotic trajectory thermodynamics in high dimensions with high accuracy.",
+  "method": "They reframe the problem as minimizing the KL divergence of a tilted Fokker-Planck evolution, parameterizing the evolving density using Normalizing Flows (NF) within a Time-Dependent Variational Principle (TDVP) framework.",
+  "model_or_system": "The method applies to general continuous-state stochastic systems described by SDEs, such as Ornstein-Uhlenbeck processes and high-dimensional overdamped Langevin dynamics. The analysis is validated across various dimensions up to 100.",
+  "key_observables": "Dynamical partition function ($Z_t(\\lambda)$), work, entropy production, current fluctuations, Scaled Cumulant Generating Function (SCGF) $\\psi(\\lambda)$, and the rate function $I(a)$.",
+  "important_parameters": "The noise strength ($D$), the path observable weighting ($\\lambda$), and system dimensionality ($d$).",
+  "main_assumptions": "The framework relies on parameterizing the evolving density using Normalizing Flows (NF) and treating the evolution as a variational inference problem.",
+  "figures_summary": "Figures illustrate the computational flow involving the tilted FPE, NF ansatz, and the variational training loop minimizing KL divergence. Later figures show tracking of mean dynamics and covariance for high-dimensional systems.",
+  "paper_structure": "The paper introduces the theoretical mapping to a time-dependent optimization problem, details the Normalizing Flow/TDVP implementation using gradient descent on the tangent space, validates it across multiple physical benchmarks (OU process, $S^1$, 16D), and finally analyzes computational scaling.",
+  "why_interesting": "This work provides powerful, scalable numerical tools to calculate non-equilibrium quantities like entropy production and free energy differences in complex systems where traditional path integral methods fail due to dimensionality.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.10757_figures/2606.10757_fig1.jpg",
+      "caption": "FIG. 1. Computational framework for evaluating the dynamical partition function via normalizing flow. (a) Continuous- state stochastic dynamics are governed by a tilted Fokker-Planck operator Lλ, which introduces a source term −λO(x) and breaks probability conservation. The central goal is to compute the dynamical partition function Zt(λ). (b) The normalizing flow ansatz parameterizes a normalized probability distribution pθ(x) by applying an invertible transformation to a simple latent distribution pz(z), providing exact likelihood computation via the Jacobian determinant. (c) The decoupled variational training loop on the probability manifold M. The unnormalized density ρ is decomposed...",
+      "page": 3
+    },
+    {
+      "image": "2606.10757_figures/2606.10757_fig2.jpg",
+      "caption": "FIG. 2. Time evolution of the two-dimensional OU process driven by a protocol force. (a) The red curve represents the free energy difference ∆F(t) estimated from normalizing flow. The dashed black curve denotes the exact solution. Inset: Absolute error. (b) Trajectories of the first moments ⟨x1⟩t and ⟨x2⟩t of the biased ensemble under drift protocol µ(t). Solid lines (blue and red) indicate the empirical means estimated from flow model at each time step. Black dashed and dotted lines correspond to the exact evolution.",
+      "page": 3
+    },
+    {
+      "image": "2606.10757_figures/2606.10757_fig3.jpg",
+      "caption": "FIG. 3. Large deviations for a nonequilibrium driven dif- fusion process on the unit circle S1. (a) The SCGF ψ(λ) of the time-averaged current versus the conjugate tilting pa- rameter λ. Blue open circles (◦) indicate discrete evaluations obtained from our framework (computed at 10 points). The black dashed line is the reference computed via spectral diag- onalization of the tilted generator. The asymmetry of ψ(λ) reflects the broken detailed balance induced by the constant non-conservative drive γ. (b) The corresponding rate func- tion I(a) governing the empirical current fluctuations a. Red crosses (×) are derived from the numerical Legendre trans- form and match the reference (black...",
+      "page": 4
+    },
+    {
+      "image": "2606.10757_figures/2606.10757_fig4.jpg",
+      "caption": "FIG. 4. Large deviations of entropy production for the 16- dimensional diffusion process at ϵ = 0.1. (a) The SCGF ψ(λ) computed via the neural ansatz (blue open circles (◦)) quantitatively matches the benchmark results from Fig. 7 in Ref. [42]. (b) The corresponding rate function I(s) obtained via numerical Legendre transform.",
+      "page": 4
+    },
+    {
+      "image": "2606.10757_figures/2606.10757_fig5.jpg",
+      "caption": "FIG. 5. Scaling behavior of the computational cost with re- spect to system dimensionality d. The blue solid line shows the empirical wall-clock time per full evolution step, measured on a single NVIDIA A100 GPU with a fixed ensemble size of 8,000. The black dashed line indicates the theoretical O(d2) polynomial scaling. The empirical performance aligns closely with this theoretical bound.",
+      "page": 7
+    }
+  ],
+  "figure": "2606.10757_figures/2606.10757_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 3,
+    "non-equilibrium dynamics": 4,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

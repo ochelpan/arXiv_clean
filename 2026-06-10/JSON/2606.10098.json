@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.10098",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.CE",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "VQA for Dynamic Portfolio Optimization: Sampling Strategies, Optimizer Scheduling, and Hardware-Aware Ansatz Design",
+  "authors": "Mohammad Kashfi Haghighi",
+  "abstract": "Variational quantum algorithms are increasingly explored for optimization problems at scales relevant to near-term quantum devices. Their practical performance depends strongly on design choices such as the sampling objective, classical optimizer, and ansatz layout before and after hardware transpilation. We study these factors for dynamic portfolio optimization, a multi-period financial problem balancing return, risk, transaction costs, cash-interest effects, and constraints. Using a sampling-based VQA framework on a 150-qubit dynamic portfolio instance, we evaluate several components of the optimization workflow. We propose a specific adaptive CVaR schedule that gradually tightens the sampled tail used for optimization, together with a two-stage optimizer combining global exploration with Particle Swarm Optimization and local refinement with the Nakanishi-Fujii-Todo optimizer. We also study ansatz depth and sequential growth strategies. Finally, we introduce two hardware-aware ansatz-layout modifications: a data-guided colored layout that assigns correlated variables to qubits connected by entangling gates, and a heavy-hex-native deep-chain layout designed to increase native two-qubit interaction depth without additional routing overhead after transpilation. Simulator studies select CVaR, optimizer, and depth configurations, while the ansatz comparison is performed on the ibm_quebec QPU. The results show that sampling strategy, optimizer scheduling, and hardware-aware layout design materially affect performance. In the reported QPU layout comparison, the proposed heavy-hex-native deep-chain layout achieves the best final objective value and CVaR-tail performance among the tested layouts. Although we do not observe quantum advantage over a state-of-the-art exact classical solver, our results provide practical guidance for improving VQA performance on near-term hardware.",
+  "url": "http://arxiv.org/abs/2606.10098v1",
+  "pdf": "https://arxiv.org/pdf/2606.10098v1",
+  "type": "both",
+  "summary": "This work applies Variational Quantum Algorithms to solve dynamic portfolio optimization problems. It systematically investigates how crucial design choices—including adaptive sampling strategies, multi-stage classical optimization, and hardware-aware ansatz layouts (like HNDC)—impact performance on real quantum processors. The results guide the development of practical VQA protocols for near-term quantum devices.",
+  "main_problem": "The paper addresses dynamic portfolio optimization (DPO), a complex multi-period financial problem, by mapping it onto a Variational Quantum Algorithm (VQA) framework.",
+  "main_result": "The proposed Heavy-Hex Native Deep-Chain (HNDC) ansatz layout achieved the best performance on the physical QPU compared to other hardware-aware layouts. The study provides practical guidance for improving VQA performance despite not achieving quantum advantage over classical solvers.",
+  "method": "It employs a sampling-based VQA approach using Conditional Value-at-Risk (CVaR) estimation, combined with an adaptive two-stage classical optimization schedule (PSO $\to$ NFT).",
+  "model_or_system": "The model is a 150-qubit DPO instance. The physical platform involves superconducting qubits, specifically tested on the ibm quebec QPU, requiring careful consideration of hardware connectivity and transpilation overhead.",
+  "key_observables": "Final objective value, CVaR-tail performance, circuit depth, and gate count after transpilation.",
+  "important_parameters": "Problem size ($N_q=150$), optimization parameters ($\\lambda, \\delta, \nu$, etc.), sampling budget (e.g., $N_{\text{shots}}$), and CVaR tail parameter $\\alpha$.",
+  "main_assumptions": "The study assumes that hardware-aware layout design and advanced scheduling can significantly improve VQA performance on near-term noisy devices, even if quantum advantage is not demonstrated.",
+  "figures_summary": "Figures compare the performance of various ansatz layouts (Bilinear, Colored, DGC, HNDC) on the QPU across different optimization settings; kernel density estimates visualize how optimized circuits bias sampling towards better objective values compared to random samples.",
+  "paper_structure": "The paper details the DPO formulation, introduces the VQA framework using CVaR estimation, proposes and evaluates advanced components like adaptive CVaR scheduling and two-stage optimizers, and rigorously compares multiple hardware-aware ansatz layouts (DGC, HNDC) on a physical QPU.",
+  "why_interesting": "While focused on finance, the core methodology—designing quantum circuits to respect underlying hardware connectivity while maximizing computational depth/expressivity—is directly relevant to developing algorithms for complex many-body Hamiltonians in AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.10098_figures/2606.10098_fig1.jpg",
+      "caption": "Figure 1: Baseline hardware-efficient layouts used in this work. The bilinear layout applies CZ gates along a one-dimensional nearest-neighbor path using alternating sublayers. The colored layout parti- tions the hardware coupling graph into three edge-color classes, where each color class forms a matching and can be executed in parallel.",
+      "page": 8
+    },
+    {
+      "image": "2606.10098_figures/2606.10098_fig2.jpg",
+      "caption": "Figure 2: Example HNDC mapping. Colors denote different portfolio time steps. The blue component shows the assignment for time step t = 0, with each qubit labeled by (t, i, k), denoting time index, asset index, and binary-encoding bit. k = 2 is the MSB. The layout increases local two-qubit interaction depth using native hardware edges while preserving hardware-compatible inter-component connections.",
+      "page": 10
+    },
+    {
+      "image": "2606.10098_figures/2606.10098_fig3.jpg",
+      "caption": "Figure 3: Comparison of fixed and adaptive CVaR strategies over 10 independent runs. (a) Best objective value observed at the final iteration. (b) Final CVaR value evaluated using a common α = 0.1 level for all configurations. In (a) and (b), the horizontal line inside each box indicates the median; the annotated value is the mean across runs. (c) Evolution of the mean CVaR objective evaluated using the same common α = 0.1 level. Lower values indicate better portfolio objective values.",
+      "page": 12
+    },
+    {
+      "image": "2606.10098_figures/2606.10098_fig4.jpg",
+      "caption": "Figure 4: Comparison of classical optimizers under fixed CVaR level α = 0.1 over 10 independent runs. (a) Best objective value observed at the final iteration. (b) Final CVaR value of the sampled distribution. In (a) and (b), the horizontal line inside each box indicates the median; the annotated value is the mean across runs. (c) Evolution of the mean CVaR objective during optimization. Lower values indicate better portfolio objective values.",
+      "page": 13
+    },
+    {
+      "image": "2606.10098_figures/2606.10098_fig5.jpg",
+      "caption": "Figure 5: Comparison of ansatz repetition depth and sequential growth under fixed CVaR level α = 0.1 and the PSO→NFT optimizer over 10 independent runs. (a) Best objective value observed at the final iteration. (b) Final CVaR value of the sampled distribution. In (a) and (b), the horizontal line inside each box indicates the median; the annotated value is the mean across runs. (c) Evolution of the mean CVaR objective during optimization. Lower values indicate better portfolio objective values.",
+      "page": 14
+    }
+  ],
+  "figure": "2606.10098_figures/2606.10098_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

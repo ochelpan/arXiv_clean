@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.10349",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.str-el",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Magnetic HIP-NN for spin dynamics in disordered itinerant magnets",
+  "authors": "Supriyo Ghosh, Yunhao Fan, Sheng Zhang, Kipton Barros, Gia-Wei Chern",
+  "abstract": "We present a magnetic extension of the Hierarchically Interacting Particle Neural Network (HIP-NN) that enables large-scale simulations of electron-mediated spin dynamics in disordered itinerant magnets. The resulting magnetic HIP-NN (mHIP-NN) incorporates rotationally invariant spin correlations directly into hierarchical message-passing layers, enabling the network to learn emergent magnetic energy landscapes and effective local fields from coupled geometric-spin environments while preserving spin-rotation symmetry. As a benchmark application, we consider structurally disordered itinerant $s$-$d$ exchange models in which the effective magnetic forces arise dynamically from the instantaneous electronic structure and are computationally prohibitive to evaluate using conventional exact-diagonalization-based approaches. We show that mHIP-NN accurately reproduces the local torques governing Landau-Lifshitz-Gilbert dynamics and faithfully captures the nonequilibrium evolution of spatial spin correlations following thermal quenches. Our results establish symmetry-aware hierarchical message-passing networks as an efficient and scalable framework for large-scale simulations of frustrated itinerant spin systems and nonequilibrium magnetic dynamics. More broadly, because the learned energy functional remains fully differentiable with respect to both atomic coordinates and spin variables, the framework also provides a natural foundation for spin-dependent interatomic potentials and coupled atom-spin dynamics.",
+  "url": "http://arxiv.org/abs/2606.10349v1",
+  "pdf": "https://arxiv.org/pdf/2606.10349v1",
+  "type": "theory",
+  "summary": "This work introduces mHIP-NN, a magnetic neural network extension designed to simulate spin dynamics in disordered itinerant magnets. It overcomes computational barriers by learning the effective magnetic energy landscape and local torques directly from microscopic electronic calculations. The method successfully reproduces non-equilibrium spin correlation evolution, establishing a scalable ML framework for coupled atom-spin systems.",
+  "main_problem": "Developing an efficient, scalable framework to simulate electron-mediated spin dynamics in disordered itinerant magnets, circumventing the computational bottleneck of repeated exact electronic structure calculations.",
+  "main_result": "The magnetic HIP-NN (mHIP-NN) accurately reproduces local torques and captures non-equilibrium spin correlation evolution by learning effective interactions directly from microscopic data.",
+  "method": "The authors employ a specialized Graph Neural Network architecture that incorporates rotationally invariant spin correlations into message-passing layers to construct a differentiable energy functional for coupled atom-spin dynamics.",
+  "model_or_system": "The system is disordered itinerant magnets governed by an s-d exchange Hamiltonian. The dynamics are simulated using the Landau-Lifshitz-Gilbert (LLG) equation, where effective magnetic fields arise from electronic structure calculations.",
+  "key_observables": "Local torques ($\\mathbf{T}_i$), non-equilibrium spatial spin correlations ($C(\\mathbf{r}, t)$), and the characteristic correlation length $\\xi(t)$.",
+  "important_parameters": "The model handles structural disorder, itinerant electron hopping amplitudes (e.g., $e^{-|\\mathbf{r}_i-\\mathbf{r}_j|/l}$), and spin-spin coupling strengths.",
+  "main_assumptions": "The primary assumption is that the complex effective magnetic interactions can be accurately approximated by a differentiable ML potential trained on data generated from exact diagonalization simulations.",
+  "figures_summary": "Figures illustrate the spatial decay of interaction terms (Hessian matrix elements) confirming locality, and show the time evolution of spin-spin correlation functions $C(\\mathbf{r}, t)$ comparing ED-LLG to ML-LLG results.",
+  "paper_structure": "The paper introduces mHIP-NN for coupled atom-spin dynamics, details its graph structure using invariant descriptors ($r_{ij}, b_{ij}$), benchmarks it against LLG dynamics by predicting local torques, and finally demonstrates its ability to track non-equilibrium spin correlation growth ($\\xi(t)$).",
+  "why_interesting": "The framework provides a powerful ML tool for simulating complex many-body quantum dynamics (spin/electron coupling) that are typically intractable due to the need for repeated solving of electronic structure equations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.10349_figures/2606.10349_fig1.jpg",
+      "caption": "FIG. 1. Schematic illustration of the magnetic HIP-NN framework for electron-mediated spin dynamics in disordered itinerant magnets. (a) Localized Heisenberg spins {Si} embedded in an amorphous lattice are mapped onto rotationally invariant bond features bij = Si · Sj, which are combined with geometric information associated with inter-site distances rij. These quantities define the local environments used to construct hierarchical feature representations {zi} on each magnetic site. (b) Within the interaction layer, neighboring feature vectors z(ℓ) j are weighted by learned distance-dependent functions v(rij) together with the spin-correlation features bij, and are subsequently processed...",
+      "page": 3
+    },
+    {
+      "image": "2606.10349_figures/2606.10349_fig2.jpg",
+      "caption": "FIG. 2. Spatial dependence of the Hessian matrix elements Hij = ∂2E/∂Sx i ∂Sx j evaluated from the ML-generated energy functional at different times during the ED-LLG simulations: (a) t = 0, (b) t = 100, (c) t = 500, and (d) t = 2000. The Hes- sian elements are plotted as a function of the intersite distance rij. The shaded region denotes the forbidden short-distance regime rij < rmin in the underlying spin-glass model. The rapid decay of Hij demonstrates the locality and stability of the learned magnetic interactions throughout the dynamical evolution.",
+      "page": 7
+    },
+    {
+      "image": "2606.10349_figures/2606.10349_fig3.jpg",
+      "caption": "FIG. 3. (a) Parity plot of the mHIP-NN predicted torque components, TML i = Si × HML i , versus the exact ED results for the training (blue) and test (red) datasets. Each point corresponds to one Cartesian component of the local torque vector. (b) Distribution of the prediction error δ = T ML−T ED",
+      "page": 8
+    },
+    {
+      "image": "2606.10349_figures/2606.10349_fig4.jpg",
+      "caption": "FIG. 4. Spin-spin correlation function C(r) at different times following a thermal quench, obtained from ED-LLG and ML- LLG simulations: (a) t = 0, (b) t = 100, (c) t = 500, and (d) t = 2000. The close agreement between the ED and ML results demonstrates that the learned force-field model accu- rately reproduces the nonequilibrium spin dynamics and the evolution of spatial magnetic correlations.",
+      "page": 8
+    },
+    {
+      "image": "2606.10349_figures/2606.10349_fig5.jpg",
+      "caption": "Figure 3 demonstrates the strong predictive perfor- mance of the mHIP-NN model for the local torque Ti = Si × Hi throughout the spin dynamics. As shown in the parity plot of Fig. 3(a), the predicted torque components closely follow the exact ED results for both the training and test datasets, with only small deviations from the diagonal line. The corresponding error distributions in Fig. 3(b) are sharply peaked around zero and exhibit very small variance, indicating both high accuracy and excel- lent generalization capability of the model. From the test dataset, we estimate a coefficient of determination of approximately R2 ∼0.98 and a mean-squared error of order MSE ∼10−5. The close...",
+      "page": 8
+    }
+  ],
+  "figure": "2606.10349_figures/2606.10349_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 1,
+    "spintronics-quantum-optics interface": 3,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 1,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 3,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

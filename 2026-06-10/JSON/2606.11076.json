@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.11076",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.AR",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Coset Ensemble Decoder for Quantum Error Correction with Algorithm-Hardware Co-Design",
+  "authors": "Shuang Liang, Jubo Xu, Giulio Bassanino, Qianzhou Wang, Yidong Zhou, Yuncheng Lu, Zhiwen Mo, Paul H. J. Kelly, Bo Yuan, Wayne Luk, Hongxiang Fan",
+  "abstract": "Reliable large-scale quantum computation relies on fault-tolerant architectures, where quantum error correction (QEC) continuously extracts and decodes error syndromes in real time. A critical component in QEC is the decoder, a classical subsystem that must simultaneously deliver high logical accuracy and ultra-low latency. This paper presents a novel algorithm-hardware co-design that improves the accuracy-latency trade-off over existing approaches such as vanilla Minimum-Weight Perfect Matching (MWPM) and Union-Find (UF) decoders. At the algorithmic level, we introduce coset ensemble decoding, which improves UF decoding by explicitly exploiting logically equivalent cosets. Our method performs ensemble forest exploration to generate multiple coset-consistent candidates and aggregates them to approximate coset-level maximum-likelihood decoding. We further reduce computational and memory complexity via reverse-order elimination and lossless graph compression, without sacrificing accuracy. At the hardware level, we design a domain-specific architecture that temporally reuses resources, avoiding the code-distance-proportional resource growth in prior spatial architectures. Several optimizations, such as multi-bank memory hashing and hierarchical ID mapping, are proposed to mitigate pipeline stalls and memory conflicts under highly concurrent access patterns. Under a circuit-level depolarizing noise model, our co-design approach achieves a better accuracy-latency trade-off than prior MWPM- and UF-based decoders, while reducing FPGA LUT consumption by up to 8.2 times compared with reported UF-based decoder resources. The tunable candidate number further exposes a flexible design knob, enabling users to tailor decoding performance to the requirements of different fault-tolerant workloads. Our implementation is publicly available at https://github.com/IMSeonL/coset-ensemble-decoder.",
+  "url": "http://arxiv.org/abs/2606.11076v1",
+  "pdf": "https://arxiv.org/pdf/2606.11076v1",
+  "type": "both",
+  "summary": "This paper presents a novel algorithm-hardware co-design decoder for Quantum Error Correction (QEC) that improves upon existing methods by explicitly considering logically equivalent error cosets. By combining ensemble forest exploration with specialized, resource-efficient hardware architecture, the system achieves superior accuracy and latency trade-offs compared to state-of-the-art decoders on surface codes.",
+  "main_problem": "The core challenge is designing a Quantum Error Correction (QEC) decoder that achieves both high logical accuracy and ultra-low latency for reliable large-scale quantum computation.",
+  "main_result": "The proposed coset ensemble decoding co-design significantly improves the accuracy-latency trade-off over vanilla MWPM and UF decoders, while drastically reducing hardware resource consumption (up to 8.2x reduction in LUTs).",
+  "method": "The authors introduce coset ensemble decoding, which approximates the intractable coset maximum-likelihood rule using ensemble forest exploration, coupled with a domain-specific, pipelined hardware architecture featuring hierarchical ID mapping and multi-bank memory hashing.",
+  "model_or_system": "The work analyzes error correction on surface codes under circuit-level depolarizing noise. The decoding process must resolve ambiguities (degeneracy) where multiple physical errors yield the same syndrome but different logical outcomes.",
+  "key_observables": "Logical Error Rate (LER), decoding latency, FPGA LUT consumption, and System Infidelity ($\\hat{C}(R)$).",
+  "important_parameters": "Code distance ($d$), physical error rate ($p$), and tunable candidate number ($K$).",
+  "main_assumptions": "The approach is an approximation to the optimal coset ML decoding; hardware optimizations assume specific concurrent memory access patterns that can be managed by hashing.",
+  "figures_summary": "Figures compare LER vs. code distance for MWPM, UF, and the proposed method; latency breakdowns show bottlenecks in clustering pipelines; architectural diagrams detail multi-bank hashing and hierarchical ID mapping.",
+  "paper_structure": "The paper progresses from identifying the need to solve coset ML decoding (due to degeneracy) to proposing the ensemble forest exploration algorithm. It then details the hardware co-design, including specific memory management techniques (hashing/ID mapping), followed by extensive benchmarking comparing accuracy and latency against state-of-the-art decoders.",
+  "why_interesting": "While focused on digital quantum computation, the rigorous analysis of resource scaling, pipeline stalls, and trade-offs between algorithmic complexity and hardware implementation is highly relevant to designing control electronics for complex AMO or superconducting qubit systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.11076_figures/2606.11076_fig1.jpg",
+      "caption": "Fig. 1. Layout of surface code (left) and syndrome behavior with correspond- ing matching for X and Z errors on data qubits (right).",
+      "page": 2
+    },
+    {
+      "image": "2606.11076_figures/2606.11076_fig2.jpg",
+      "caption": "Fig. 2. Two matching examples: the blue (left) belongs to coset 1 with logical error Lb, the purple (right) to coset 2 with logical error Lp. Dashed lines indicate alternative error paths.",
+      "page": 3
+    },
+    {
+      "image": "2606.11076_figures/2606.11076_fig3.jpg",
+      "caption": "Fig. 3. Latency breakdown for code distances 3 (left) and 11 (right) on a two- stage baseline without optimizations. Clustering Pipeline Stall and Clustering Pipeline Busy are cycles spent inside the pipelined clustering engine (stalled vs. productive); Spanning Tree and Peeling are cycles spent in the post- clustering traversal modules.",
+      "page": 4
+    },
+    {
+      "image": "2606.11076_figures/2606.11076_fig4.jpg",
+      "caption": "Fig. 4. Graph compression.",
+      "page": 6
+    },
+    {
+      "image": "2606.11076_figures/2606.11076_fig5.jpg",
+      "caption": "Fig. 5 shows a two-stage architecture aligned with the algorithm: a fully pipelined clustering engine feeds K parallel Ensemble Forest Exploration (EFE) instances and a Voting module. Clustering is a streaming growth-and-merge compu- tation that naturally maps to a seven-stage pipeline (S1–S7). Each EFE instance then performs a stateful forest traversal followed by ROE; because this traversal state cannot be time- multiplexed without overwriting in-flight adjacency data, the K instances are replicated and run in parallel. Adjacency- list construction overlaps with clustering, and after clustering terminates each EFE instance traverses under a distinct priority scheme before the Voting...",
+      "page": 6
+    }
+  ],
+  "figure": "2606.11076_figures/2606.11076_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

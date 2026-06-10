@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.10343",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "nucl-th",
+    "math-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Neural-network solution of subtracted three-body Faddeev integral equations near the Efimov limit",
+  "authors": "Lucas A. Souza",
+  "abstract": "We apply a deep-neural-network (DNN) ansatz to the symmetrized spectator vector of the subtracted three-body Faddeev integral equation for identical bosons near the Efimov limit. The network is trained by minimizing the residual of the discretized integral equation, while the positive binding scale associated with the three-body energy is treated as a trainable parameter. Deterministic diagonalization of the same discretized kernel is used only as an a posteriori numerical benchmark. As preliminary validation, the neural-solver strategy is tested on the analytically solvable hydrogen radial problem. At unitarity, the DNN reproduces the Efimov ground-state binding scale with a DNN--deterministic deviation of $0.022\\%$, while the first excited state is recovered to $0.002\\%$. The deterministic solver recovers the universal Efimov scaling ratio $e^{2π/s_0}\\simeq 515.03$, and the neural method traces the bound-state branches as a function of the inverse scattering length $1/a$ by continuation from the unitary solution. These results indicate that DNN-based residual minimization can provide a compact and differentiable representation of a renormalized few-body integral-equation solution in a regime governed by discrete scale invariance.",
+  "url": "http://arxiv.org/abs/2606.10343v1",
+  "pdf": "https://arxiv.org/pdf/2606.10343v1",
+  "type": "theory",
+  "summary": "The authors apply Deep Neural Networks (DNNs) to solve the three-body Faddeev integral equation for bosons near the Efimov regime. By minimizing the residual of the discretized equation while treating the binding energy as a trainable parameter, they create a compact and differentiable representation of the solution. This method successfully reproduces universal physical constants and allows for smooth continuation of the spectrum across varying interaction strengths.",
+  "main_problem": "The paper addresses the challenge of solving the three-body Faddeev integral equation for identical bosons near the Efimov limit, a problem characterized by scale invariance and renormalization.",
+  "main_result": "A Deep Neural Network (DNN) trained via residual minimization successfully reproduces known universal physics, such as the Efimov ground-state binding scale at unitarity with high accuracy.",
+  "method": "The core method involves using a DNN ansatz to represent the spectator vector solution of the discretized integral equation, minimizing the residual loss while jointly training the three-body binding energy parameter.",
+  "model_or_system": "The system is three identical bosons interacting via a zero-range s-wave force. The physics is governed by the subtracted spectator Faddeev integral equation, which requires renormalization due to ultraviolet divergences.",
+  "key_observables": "Three-body binding energy ($\\epsilon_3$), Efimov scaling ratios ($\\epsilon(n)/\\epsilon(n+1)$), and the dependence of these quantities on the inverse scattering length ($1/a$).",
+  "important_parameters": "The three-body binding scale ($\\epsilon_3$) is a trainable parameter, and the system is analyzed across varying $1/a$, including the unitary limit ($1/a=0$).",
+  "main_assumptions": "The method assumes that the solution can be represented by a DNN ansatz and relies on comparing results against deterministic diagonalization as an *a posteriori* benchmark.",
+  "figures_summary": "Figures compare DNN solutions to exact radial wave functions for Hydrogen benchmarks, plot the continuation of $E_3$ vs. $1/a$, and show training convergence plots for the residual loss and energy parameter.",
+  "paper_structure": "The paper first establishes the physical problem (Faddeev equation near Efimov limit), details the DNN formulation using residual minimization with a trainable energy, validates this approach on the Hydrogen atom benchmark, and finally applies it to trace the universal Efimov spectrum across varying scattering lengths.",
+  "why_interesting": "This work demonstrates a powerful application of machine learning—using differentiable physics constraints (residual minimization) to solve complex, non-linear few-body quantum problems that are analytically intractable or numerically demanding.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.10343_figures/2606.10343_fig1.jpg",
+      "caption": "FIG. 1. Schematic representation of the DNN solver for the subtracted Faddeev integral equation. The logarithmic momentum x = log(q/µ3) is fed into a feed-forward neural network, which outputs the symmetrized spectator vector uθ(x). The binding energy ϵ3 = exp(s3), with s3 = log ϵ3, is a trainable parameter and enters the residual of the discretized integral equation. The total loss combines the equation-informed residual with normalization and, when required, orthogonality constraints. The dashed feedback arrow indicates that gradients flow back through the kernel B(ϵ3, 1/a) to both the network weights θ and the energy parameter s3.",
+      "page": 5
+    },
+    {
+      "image": "2606.10343_figures/2606.10343_fig2.jpg",
+      "caption": "FIG. 2. The DNN curves closely follow the analytical results; the 2s node at ρ = 2 is correctly captured.",
+      "page": 5
+    },
+    {
+      "image": "2606.10343_figures/2606.10343_fig3.jpg",
+      "caption": "FIG. 4. DNN–deterministic relative deviation ∆E3, Eq. (21), for the first four three-body bound states. The boxplot shows the distribution of ∆E3 over all values of 1/a for which the DNN was continued. The deterministic benchmark is a nu- merical reference obtained from the same discretized kernel, not an exact analytical solution.",
+      "page": 7
+    },
+    {
+      "image": "2606.10343_figures/2606.10343_fig4.jpg",
+      "caption": "FIG. 3. Efimov spectrum E3 as a function of the inverse scattering length for the first four three-body bound-state branches. Solid curves denote the deterministic solution obtained by diagonalizing the discretized subtracted kernel. Dotted curves denote the DNN continuation with trainable energy. The gray dashed line marks the atom-dimer thresh- old E2 = −1/a2 in the units used here (ℏ= m = µ3 = 1). The unitary limit is indicated by the vertical black line.",
+      "page": 7
+    },
+    {
+      "image": "2606.10343_figures/2606.10343_fig5.jpg",
+      "caption": "FIG. 5. Training convergence of the DNN solver for the Efimov ground state at unitarity. (a) Residual loss Lres (red squares) and total loss Ltotal (blue circles) vs. epoch. (b) Trainable binding-energy parameter ϵ(DNN) 3 vs. epoch; the dashed line marks the deterministic reference ϵ(det) 3 = 9.2699 × 10−3.",
+      "page": 7
+    }
+  ],
+  "figure": "2606.10343_figures/2606.10343_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

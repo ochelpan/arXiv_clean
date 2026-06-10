@@ -1,0 +1,86 @@
+{
+  "arxiv_id": "2606.11064",
+  "category": "other",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "cond-mat.dis-nn",
+    "cond-mat.mtrl-sci",
+    "cond-mat.str-el",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "The UZH protocol: Separating errors and constructing improved CP2K basis sets and pseudopotentials",
+  "authors": "Hossein Mirhosseini, Tiziano M. A. Müller, Matthias Krack, Thomas D. Kühne, Jürg Hutter",
+  "abstract": "Reliable density-functional simulations require numerical settings whose residual errors are smaller than the chemical and materials trends being interpreted. In CP2K/Quickstep, this requirement is complicated by the joint use of atom-centered Gaussian basis sets and norm-conserving pseudopotentials: a code-to-code discrepancy usually contains both contributions. We present the UZH protocol, a closed-loop CP2K workflow that calibrates molecularly optimized Gaussian basis sets on small molecules, validates the resulting settings in unary-crystal equation-of-state benchmarks, identifies whether the limiting approximation is the Gaussian basis or the pseudopotential. The diagnosis is then used to revise the parameter files. The central diagnostic is a three-way comparison between production CP2K-GTH-UZH calculations, SIRIUS calculations using the same Goedecker--Teter--Hutter pseudopotential in a systematic plane-wave representation, and all-electron full-potential linearized augmented-plane-wave SIRIUS references. This construction decomposes the practical CP2K error into a Gaussian-basis component and a pseudopotential component. The protocol distinguishes basis-limited noble-gas and heavy-element cases from pseudopotential-limited transition-metal cases, guides targeted revisions with the CP2K basis and pseudopotential optimizers, and produces improved MOLOPT basis sets and GTH pseudopotentials as explicit outputs of the workflow. The UZH protocol is therefore constructive: it does not merely measure or reduce errors a posteriori, but allows turning verification outliers into validated CP2K parameter files for simulations across molecules and condensed phases.",
+  "url": "http://arxiv.org/abs/2606.11064v1",
+  "pdf": "https://arxiv.org/pdf/2606.11064v1",
+  "type": "theory",
+  "summary": "This paper introduces the UZH protocol, a systematic workflow designed to diagnose and correct numerical errors in Density Functional Theory calculations that combine Gaussian basis sets and pseudopotentials. By comparing results from three different calculation formalisms, it successfully separates the total error into distinct contributions from the basis set and the pseudopotential itself. This constructive approach allows researchers to generate improved, validated parameter files for accurate simulations across various materials.",
+  "main_problem": "Reliable DFT simulations require numerical settings whose residual errors are smaller than the chemical/material trends being studied, which is complicated by combining Gaussian basis sets and pseudopotentials.",
+  "main_result": "The UZH protocol successfully decomposes the total computational error into distinct Gaussian-basis and pseudopotential components, allowing for targeted, constructive revisions to generate validated parameter files.",
+  "method": "A closed-loop workflow involving a three-way comparison between CP2K calculations, SIRIUS plane-wave calculations, and all-electron references to systematically isolate and correct approximation errors.",
+  "model_or_system": "The methodology applies to molecular systems, liquids, and condensed phases simulated using DFT within the CP2K/Quickstep framework, focusing on core-valence interactions.",
+  "key_observables": "Error decomposition ($\\Delta_{\text{basis}}$ vs. $\\Delta_{\text{pp}}$), relative bond-length errors (ER), average molecular polarizabilities ($\bar{\\alpha}$), and equation-of-state error ($\\epsilon$ metric).",
+  "important_parameters": "Gaussian basis set size (e.g., DZVP to TZV2P), pseudopotential type (GTH), and the condition number of the overlap matrix $\\kappa_B(M)$.",
+  "main_assumptions": "The total error is assumed to be a sum of independent contributions from the Gaussian basis approximation and the pseudopotential transferability.",
+  "figures_summary": "Figures compare initial vs. improved total practical errors, showing separation into basis-limited (noble gases) and pseudopotential-limited (transition metals) error sources; Table II guides optimization based on these component comparisons.",
+  "paper_structure": "The paper introduces the problem of combined code discrepancies, details the UZH protocol's three-way comparison methodology, presents molecular calibration benchmarks to guide basis set improvement, and finally applies this systematic diagnosis to solid-state equation-of-state calculations for targeted parameter refinement.",
+  "why_interesting": "While focused on condensed matter DFT, the rigorous error decomposition technique is a sophisticated example of developing robust computational frameworks, which shares methodological rigor with advanced many-body theory development.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.11064_figures/2606.11064_fig1.jpg",
+      "caption": "FIG. 1. Error decomposition in the UZH protocol. CP2K- GTH-UZH compared with SIRIUS-FP-LAPW gives the total practical error. CP2K-GTH-UZH compared with SIRIUS- GTH-UZH isolates the Gaussian-basis contribution. SIRIUS- GTH-UZH compared with SIRIUS-FP-LAPW isolates the pseudopotential contribution.",
+      "page": 4
+    },
+    {
+      "image": "2606.11064_figures/2606.11064_fig2.jpg",
+      "caption": "Figure 1 summarizes this diagnostic construction and shows which pairwise comparison yields the total, Gaussian-basis, and pseudopotential contributions. In practice, the comparisons are performed not at a single volume but over equation-of-state curves. We use the ε metric of the verification project6,",
+      "page": 4
+    },
+    {
+      "image": "2606.11064_figures/2606.11064_fig3.jpg",
+      "caption": "FIG. 2. Relative bond-length errors for the molecular calibra- tion set. The error is ER = |dCP2K −dG16|/|dG16|, where dG16 is the Gaussian 16/def2-QZVP all-electron reference bond length. DZVP, TZVP, and TZV2P are CP2K/GPW calcula- tions with GTH-UZH pseudopotentials. The PBE, TPSS, and PBE0 panels test transferability across exchange-correlation levels. In the PBE panel, SVP, TZVPP, and QZVPP are CP2K/GAPW all-electron calculations with corresponding UZH-MOLOPT basis sets and provide an internal all-electron CP2K comparison. Outliers are omitted to emphasize median and interquartile behavior.",
+      "page": 6
+    },
+    {
+      "image": "2606.11064_figures/2606.11064_fig4.jpg",
+      "caption": "FIG. 3. Relative errors for average molecular polarizabilities, ER = |¯αCP2K −¯αG16|/|¯αG16|, for the PBE and PBE0 subsets. Polarizabilities are the most demanding molecular response test in this set because they require sufficient diffuse flexibil- ity; TPSS data are omitted because this property was not available for the corresponding CP2K calculations.",
+      "page": 7
+    },
+    {
+      "image": "2606.11064_figures/2606.11064_fig5.jpg",
+      "caption": "Figure 4 compares the total practical error of the initial and improved CP2K-GTH-UZH settings relative to the SIRIUS-FP-LAPW reference. In the initial settings, sev- eral elements exhibit ε > 1 for at least two unary struc- tures, including noble gases, some transition metals, and heavier main-group elements. After applying the UZH protocol, the corresponding CP2K-GTH-UZH-improved map is substantially cleaner, with the largest residual deviations confined to a smaller set of chemically inter- pretable cases. The completed map in the lower panel fills entries not recomputed with the improved settings by retaining the corresponding initial values, providing a full-period overview on the same...",
+      "page": 7
+    }
+  ],
+  "figure": "2606.11064_figures/2606.11064_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

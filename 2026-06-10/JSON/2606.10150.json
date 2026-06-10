@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.10150",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "hep-ex",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Towards the implementation of a quantum classifier",
+  "authors": "Lorenzo Confalonieri, Adrián Pérez Salinas, Stefano Carrazza",
+  "abstract": "In this work, we investigate the use of a quantum circuit as a binary classification model in the context of quantum machine learning. We call this model, binary quantum classifier.   First, we describe fundamental concepts of quantum computing and introduce the computational tool used: Qibo, an open-source framework for efficient quantum simulations and quantum hardware control. Then, we describe how to design a binary quantum classifier for the classification of images and small arrays of variables by showing how to input data in the circuit, defining a quantum circuit model Ansatz with trainable parameters and a loss function, and implementing multiple minimizers. We test our quantum classifier with two data sets. The first one is the MNIST data set which is composed of handwritten digits (reduced to only handwritten zeros and handwritten ones for binary classification). We study the behavior of different minimizers by increasing the number of layers of the Ansatz. The second data set represents two different high energy collisions that can occur at colliders such as LHC (CERN). Due to in-time proton-proton interactions known as pile-up, we distinguish two different data sets: \"without pile-up\" and \"with pile-up\". These collisions can be represented by images of size 32x32 or by six high-level variables that we call features. By increasing the size of the training data set and the number of layers of the Ansatz, we search for the best minimizer. Splitting the data set in training set and test set, we compute: ROC curve, AUC score, confusion matrices and test set accuracy. For \"with pile-up\" images, we compare the results obtained with the quantum classifier with a small convolutional neural network.   We conclude that is possible to build a binary quantum classifier with a quantum circuit and we highlight its performances and limitations in comparison with classical technologies.",
+  "url": "http://arxiv.org/abs/2606.10150v1",
+  "pdf": "https://arxiv.org/pdf/2606.10150v1",
+  "type": "both",
+  "summary": "This paper demonstrates the feasibility of using a quantum circuit as a binary classifier for tasks ranging from digit recognition to distinguishing particle collisions at colliders. It details a hybrid training methodology involving VQCs and classical optimization, achieving results comparable to small neural networks in simulation. The work highlights both the potential power and the significant limitations (like barren plateaus) of current quantum machine learning implementations.",
+  "main_problem": "The work investigates building a binary quantum classifier using quantum circuits for tasks like image classification (MNIST) and particle physics process discrimination (jet tagging).",
+  "main_result": "A binary quantum classifier can be built, showing performance comparable to small CNNs on jet images, but the overall approach is limited by model expressiveness and current simulation constraints.",
+  "method": "The study employs a hybrid quantum-classical approach, using Variational Quantum Circuits (VQC) trained via classical optimizers (like COBYLA or Powell) to minimize loss functions (e.g., Mean Squared Error).",
+  "model_or_system": "The model is a parameterized quantum circuit Ansatz built with qubits and trainable rotation gates ($R_Y(\theta)$), simulated using the Qibo framework on classical computers.",
+  "key_observables": "Classification accuracy, ROC curve, AUC score, confusion matrices, and test set accuracy comparing quantum results to CNN benchmarks.",
+  "important_parameters": "Number of qubits (up to 10 for $32\times 32$ images), number of Ansatz layers, training data size, and choice of classical minimizer/loss function.",
+  "main_assumptions": "The primary limitations noted are the potential failure due to Barren Plateaus in gradient-based optimization and that current results are simulations, not real hardware measurements.",
+  "figures_summary": "Figures systematically plot training vs. test accuracy across varying parameters (layers, data size, loss function) for MNIST digits and jet images under 'with' and 'without pile-up' conditions.",
+  "paper_structure": "The paper first introduces the concept of the binary quantum classifier, details the input encoding methods for small arrays and images, describes the VQC Ansatz structure, and then systematically tests performance across multiple datasets (MNIST, LHC jets) by varying optimization parameters and comparing results to classical CNNs.",
+  "why_interesting": "While focused on ML applications rather than fundamental AMO physics, the reliance on parameterized quantum circuits and the discussion of barren plateaus are central topics in quantum information theory relevant to simulating complex quantum dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.10150_figures/2606.10150_fig1.jpg",
+      "caption": "Figure 2.1: Simple diagram that shows how the hybrid method works.",
+      "page": 10
+    },
+    {
+      "image": "2606.10150_figures/2606.10150_fig2.jpg",
+      "caption": "Figure 3.2: Quantum classifier circuit for the classification of 8x8 images. The first dashed box is the Ansatz and the second one represents the final rota- tions. Rotations RY(θ) are trainable. Dashed horizontal lines between Ansatz and final rotations indicate the possibility to concatenate multiple Ans¨atze.",
+      "page": 17
+    },
+    {
+      "image": "2606.10150_figures/2606.10150_fig3.jpg",
+      "caption": "Figure 3.3: Accuracy of the train set (on the left) and the test set (on the right) for different minimizers and by increasing the number of layers. The loss function used is “square”. The quantum classifier circuit has 6 qubits and it is illustrated in Figure 3.2. The number of shots is 1000.",
+      "page": 17
+    },
+    {
+      "image": "2606.10150_figures/2606.10150_fig4.jpg",
+      "caption": "Figure 3.4: Accuracy of the train set (on the left) and the test set (on the right) for different minimizers and by increasing the number of layers. The loss function used is “ce”. The quantum classifier circuit has 6 qubits and it is illustrated in Figure 3.2. The number of shots is 1000.",
+      "page": 17
+    },
+    {
+      "image": "2606.10150_figures/2606.10150_fig5.jpg",
+      "caption": "Figure 4.1: The picture on the left shows an example of the class “0”; on the right an example of class “1”. Both images belong to the “without pile-up” data set. A darker pixel stands for a lower value.",
+      "page": 21
+    }
+  ],
+  "figure": "2606.10150_figures/2606.10150_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
