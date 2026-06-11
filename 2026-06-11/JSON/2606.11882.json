@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.11882",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.stat-mech",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Tensor-Network Algorithm for Many-Body Trace Norms",
+  "authors": "Seunghun Lee, Eun-Gook Moon",
+  "abstract": "Trace norms are fundamental to quantum information theory, yet in many-body systems their evaluation remains a major computational bottleneck, as it generally requires diagonalizing exponentially large operators. Here, we overcome this bottleneck by introducing a controlled tensor-network algorithm for estimating the trace norm of matrix product operators without full diagonalization. The key idea is to combine Zolotarev's rational approximation to the sign function with a variational formulation solved using a density-matrix-renormalization-group-like algorithm. The resulting approximation is systematically improvable, with its accuracy controlled by the rational approximation parameters and the spectral weight near zero. Beyond the reach of exact diagonalization, we demonstrate controlled trace-norm calculations for entanglement negativity, quantum fidelity and quantum Fisher information, achieving substantially improved accuracy over polynomial-based Lanczos approaches. Our results establish trace-norm-based quantities as practical tensor-network observables, opening a route toward tensor-network studies of quantum information in mixed states.",
+  "url": "http://arxiv.org/abs/2606.11882v1",
+  "pdf": "https://arxiv.org/pdf/2606.11882v1",
+  "type": "theory",
+  "summary": "The paper presents a novel tensor-network algorithm to overcome the computational bottleneck of evaluating trace norms for many-body operators. By combining Zolotarev's rational approximation with a DMRG-like variational solver, it achieves controlled and systematically improvable estimates for key quantum information measures like entanglement negativity. This opens a practical pathway for studying mixed states in large quantum systems using tensor networks.",
+  "main_problem": "The primary challenge is efficiently calculating trace norms of Matrix Product Operators (MPOs) for large many-body quantum systems, as exact diagonalization is computationally infeasible.",
+  "main_result": "The authors introduce a controlled tensor-network algorithm that estimates these trace norms and related quantities with systematically improvable accuracy, surpassing the limitations of polynomial-based Lanczos methods.",
+  "method": "The technique combines Zolotarev's rational approximation for the sign function with a variational formulation solved using a Density-Matrix Renormalization Group (DMRG)-like algorithm to estimate $\text{Tr}[|A|]$.",
+  "model_or_system": "The method is applied to general many-body quantum systems described by MPOs, benchmarking its utility on observables like entanglement negativity and quantum fidelity for states such as decohered cluster states.",
+  "key_observables": "Trace norm ($\\|A\\|_1$), Entanglement Negativity ($N(\rho)$), Quantum Fidelity ($F(\rho, \\sigma)$), and Quantum Fisher Information (QFI).",
+  "important_parameters": "The approximation accuracy is controlled by the spectral cutoff $\\ell$ and the rational approximation degree $r$. The system dynamics are governed by noise parameters like $p$ in decoherence models.",
+  "main_assumptions": "The method assumes that the required trace norm can be accurately approximated via the variational minimization problem, and it compares favorably against Lanczos methods which rely on polynomial approximations.",
+  "figures_summary": "Figures illustrate the Zolotarev approximation of the sign function; they also show convergence studies comparing the relative error of the estimated trace norm using this method versus a standard Lanczos approach for various physical states.",
+  "paper_structure": "The paper first introduces the computational bottleneck and proposes the core variational/rational approximation technique. It then details its application to calculate specific quantum information measures (negativity, fidelity) on benchmark systems, concluding with convergence studies comparing it against existing numerical techniques.",
+  "why_interesting": "This work provides a powerful, scalable tool for calculating non-local correlation measures (like entanglement negativity) in large quantum systems that are otherwise intractable due to the exponential scaling of required matrix operations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.11882_figures/2606.11882_fig1.jpg",
+      "caption": "FIG. 1. (a) The sign function sgn(x) (blue solid curve) and Zolotarev’s rational approximation Zℓ,r(x) (red dashed curve). The approximation works well on [1, −ℓ]∪[ℓ, 1] (blue- shaded region) and breaks down for |x| < ℓ(red-shaded re- gion). (b) Relative error of the absolute-value approximation xZℓ,r(x), bounded by a constant Crρ−(2r+1) (green dashed line) within the blue-shaded region. The parameters used are ℓ= 10−7 and r = 20.",
+      "page": 1
+    },
+    {
+      "image": "2606.11882_figures/2606.11882_fig2.jpg",
+      "caption": "FIG. 2. (a) Local linear system obtained by differentiating the objective function Eq. (6) with respect to complex-conjugate of the local tensor Xk of the variational MPS |X⟩. The orange and yellow boxes depict the MPO A and the variational MPS |X⟩, respectively, while the checkered patterns indicate Hermitian conjugation. The matrix M and vector ⃗B are constructed from the left and right environment tensors VL,R and WL,R, analogous to DMRG. (b) The simplified local linear system [see Eq. (7)] obtained after bringing |X⟩into the mixed canonical form.",
+      "page": 2
+    },
+    {
+      "image": "2606.11882_figures/2606.11882_fig3.jpg",
+      "caption": "FIG. 3. (a) Estimated half-chain entanglement negativity N of the decohered cluster state ρ of length L under the phase- flip noise. The dashed curve shows the exact value in Eq. (8). The dotted vertical line marks pc = 1 −1/ √",
+      "page": 3
+    },
+    {
+      "image": "2606.11882_figures/2606.11882_fig4.jpg",
+      "caption": "FIG. 4. Histogram of the estimated negativity for 20 instances of random separable mixed states ρ = Pq i=1 piσi,1 ⊗σi,2 with chain length L = 20 and q ≤3. The parameters used are ℓ= 10−7, r = 20 and χ = 50.",
+      "page": 4
+    },
+    {
+      "image": "2606.11882_figures/2606.11882_fig5.jpg",
+      "caption": "FIG. 5. (a) Graphical illustration of the MPO representation of A = TrHp[|ψσ⟩⟨ψρ|], constructed from the MPS purifica- tions |ψρ⟩and |ψσ⟩of the mixed states ρ and σ, whose fidelity is to be estimated. Black (magenta) legs of |ψρ,σ⟩represent the physical (ancillary) Hilbert space Hp (Ha). (b) Estimated normalized quantum Fisher information fQ = FQ/L2 of the GHZ state of length L under amplitude damping noise. The solid curve shows the exact value given in Eq. (13). (c) Ad- ditive error of the estimated fQ. The parameters used are ℓ= 10−12, r = 30 and χ ≤20. For θ, we use θ = 0.05, 0.03, and 0.025 for L = 10, 20, and 30, respectively.",
+      "page": 4
+    }
+  ],
+  "figure": "2606.11882_figures/2606.11882_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 4,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

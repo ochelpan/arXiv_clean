@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.11814",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Sparsified Kolmogorov-Arnold Networks for Interpretable Quantum State Tomography",
+  "authors": "Xinge Wu, Huaxin Wang, Jiajun Liu, Ruiqing He, Jiandong Shang, Hengliang Guo, Qiang Chen",
+  "abstract": "Machine-learning approaches to quantum state tomography can achieve high reconstruction fidelity, but the physical structure used by the trained model often remains implicit. Here we ask whether a sparsified Kolmogorov-Arnold Network (KAN) can be used not only as a regressor, but also as an inspectable reconstruction rule whose internal organization can be checked against known Pauli structure. We study a controlled three-qubit GHZ-family benchmark in which all 63 non-identity Pauli expectation values are used to reconstruct three GHZ-subspace variables: the population imbalance $z$, the real off-diagonal component $c$, and the imaginary off-diagonal component $s$. Under finite-shot sampling and depolarizing noise, external ablation identifies the extended 12-channel GHZ-relevant Pauli set from the 63 measurements, with exact top-12 recovery across the tested shot counts and depolarizing-noise strengths. These support patterns remain stable across multi-seed random-initialization and noise-level analyses, and collapse under random-label controls. The dominant pruned input-hidden-output pathways organize Z-type population observables and X/Y off-diagonal observables in a pattern consistent with the analytic GHZ Pauli grouping, and sparse formula recovery recovers the canonical signed Pauli relations. The contribution of the KAN is therefore pathway-level structural interpretability within a neural reconstruction model, rather than superior sparse regression. Together with negative controls, these probes provide a consistency chain for auditing learned reconstruction rules against known physical structure.",
+  "url": "http://arxiv.org/abs/2606.11814v1",
+  "pdf": "https://arxiv.org/pdf/2606.11814v1",
+  "type": "theory",
+  "summary": "The paper introduces using Sparsified Kolmogorov-Arnold Networks (KANs) for Quantum State Tomography on a three-qubit GHZ state. It argues that the KAN's value lies not in superior prediction accuracy compared to linear models, but in its pathway structure, which can be inspected to confirm that the model has learned the correct underlying Pauli symmetries and physical relationships.",
+  "main_problem": "To develop an interpretable machine learning framework for Quantum State Tomography (QST) that audits the learned reconstruction rule against known physical Pauli structure, rather than just maximizing fidelity.",
+  "main_result": "The Sparsified Kolmogorov-Arnold Network (KAN) successfully identifies and organizes the minimal set of GHZ-relevant Pauli channels required for reconstruction, demonstrating pathway-level structural interpretability consistent with analytic quantum theory.",
+  "method": "The authors train a KAN to map 63 measured Pauli expectation values onto three target variables ($z, c, s$) derived from a controlled three-qubit GHZ state. Interpretability is assessed via external ablation, pathway analysis, and sparse formula recovery against known Pauli relations.",
+  "model_or_system": "The system is a controlled three-qubit GHZ-family benchmark used to generate 63 non-identity Pauli expectation values as inputs. The model employs a Sparsified Kolmogorov-Arnold Network (KAN) architecture for reconstruction, which is compared against sparse linear baselines.",
+  "key_observables": "Population imbalance ($z$), real/imaginary off-diagonal coherence components ($c, s$), and the importance ranking of the 63 Pauli expectation values.",
+  "important_parameters": "Three qubits; GHZ state parameters ($\theta, \\phi$); Noise levels (finite-shot sampling, depolarizing noise $p=0.20$).",
+  "main_assumptions": "The primary assumption is that structural interpretability (pathway organization) provides a unique and valuable contribution over mere predictive accuracy, especially when the underlying physics is near-linear.",
+  "figures_summary": "Figures illustrate the entire inspection workflow: mapping 63 Pauli inputs to $(z, c, s)$ via KAN, followed by ablation studies and pathway analysis compared against the analytic GHZ reference structure.",
+  "paper_structure": "The paper establishes the problem of opaque ML models in QST. It details the controlled GHZ benchmark setup and the use of KANs. The core contribution is the multi-faceted diagnostic suite (ablation, pathway scoring) which proves structural consistency with Pauli theory, concluding that interpretability is the key gain.",
+  "why_interesting": "This work bridges quantum information science with modern AI interpretability techniques by providing a rigorous method to validate if an ML model has learned the *physical laws* governing a system, rather than just memorizing correlations from training data.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.11814_figures/2606.11814_fig1.jpg",
+      "caption": "FIG. 1. Sparsified KAN tomography workflow. A full 63-channel Pauli-expectation vector is mapped to the GHZ-subspace variables (z, c, s) by a compact KAN and compared with the analytic GHZ Pauli reference. After training and pruning, the retained model is inspected through external ablation, pathway analysis, hidden-subspace probes, sparse Pauli formula recovery, selected-channel retraining, and negative controls.",
+      "page": 3
+    },
+    {
+      "image": "2606.11814_figures/2606.11814_fig2.jpg",
+      "caption": "FIG. 2. Reconstruction of GHZ-subspace variables under finite-shot and depolarizing noise. (a) Finite-shot measurement noise: GHZ-subspace fidelity (left axis) and RMSE over (z, c, s) (right axis) versus shot count. (b) Depolarizing noise: clean-target fidelity (left axis) and clean-target RMSE (right axis) versus depolarizing probability. Line samples and curve labels are shown in the upper-right corner of each panel. All values are averaged over seeds 0–4; error bars denote ± one standard deviation.",
+      "page": 7
+    },
+    {
+      "image": "2606.11814_figures/2606.11814_fig3.jpg",
+      "caption": "FIG. 3. Input-level analyses identify GHZ-relevant Pauli channels. All panels use the 1000-shot condition. (a) Mean external- ablation importance, defined as the increase in clean-target RMSE after zeroing each Pauli channel and averaged over seeds 0–4; canonical GHZ-relevant measurements appear as top-ranked channels. (b) Mean external-ablation importance after random permutation of the 63 input columns and retraining, averaged over shuffled seeds 0–2 and mapped back to the original Pauli labels; the same GHZ-relevant channels remain top-ranked. (c) Decoy-channel control: after appending 24 Gaussian, shuffled- Pauli, or variance-matched decoy channels and recomputing top-20...",
+      "page": 8
+    },
+    {
+      "image": "2606.11814_figures/2606.11814_fig4.jpg",
+      "caption": "FIG. 4. Aggregated pathway scores for each output variable, obtained by summing |scalei,h| · |scaleh,o| over hidden units. (a–c) Top Pauli channels ranked by aggregated score to z, c, and s, respectively. Dark green bars denote canonical GHZ-relevant channels for the displayed output, pale green denotes other GHZ-relevant channels, and gray denotes non-GHZ channels. (d) Routing schematic for the canonical Pauli groups associated with the population, real off-diagonal, and imaginary off-diagonal outputs. Scores use absolute edge strengths and quantify routing importance without encoding algebraic sign. All panels are from a representative seed-0 KAN at the 1000-shot condition.",
+      "page": 8
+    },
+    {
+      "image": "2606.11814_figures/2606.11814_fig5.jpg",
+      "caption": "FIG. 5. Hidden-subspace alignment metrics across 20 random initializations at 1000 shots. Bars show held-out R2 from linear probes trained on hidden activations (targets z, c, s, the (c, s) plane, and the full (z, c, s) vector), together with canonical correlations from CCA-style alignment (first component of the full space, and the two components of the (c, s) plane). Error bars denote ± one standard deviation across seeds. The vertical axes are zoomed to show small variations.",
+      "page": 10
+    }
+  ],
+  "figure": "2606.11814_figures/2606.11814_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.11530",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Locally Acting Grover Mixers for Constraint-Preserving QAOA",
+  "authors": "Minjin Choi, Dongkeun Lee, Junghee Ryu",
+  "abstract": "The Grover mixer quantum alternating operator ansatz (GM-QAOA) employs the Grover mixer to confine the quantum evolution to the feasible subspace defined by the problem. Its mixing unitary, however, requires a global multi-controlled phase-shift gate acting on all qubits, resulting in substantial circuit overhead on near-term quantum devices. In this work, we propose locally acting Grover mixers tailored to initial states that admit a product structure over disjoint qubit subsystems, which may be obtained by encoding only a subset of problem constraints into the initial state preparation. The proposed method preserves the search space defined by the initial state while significantly lowering implementation cost, as the global multi-controlled phase-shift gate is replaced with local operations on disjoint subsystems. Numerical simulations on the exact-cover problem and the traveling salesman problem (TSP) demonstrate that the proposed method achieves convergence behavior comparable to that of the original GM-QAOA, while using shallower circuits with fewer gates. We further compare two constraint encoding strategies for the TSP, encoding only a subset of constraints versus all constraints into the initial state preparation, and show that the former combined with the proposed mixer yields markedly more compact circuits at the point where comparable solution quality is achieved.",
+  "url": "http://arxiv.org/abs/2606.11530v1",
+  "pdf": "https://arxiv.org/pdf/2606.11530v1",
+  "type": "theory",
+  "summary": "The paper introduces a novel, resource-efficient variant of the Grover mixer for QAOA by exploiting product structures in the initial state preparation. This modification replaces computationally expensive global multi-controlled gates with simpler, local operations on disjoint subsystems. Simulations confirm that this approach maintains convergence quality while drastically reducing circuit overhead, making it more viable for near-term quantum hardware.",
+  "main_problem": "The primary challenge is minimizing circuit overhead when applying QAOA to constrained optimization problems on near-term quantum devices.",
+  "main_result": "The proposed locally acting Grover mixers achieve convergence comparable to the original method while significantly reducing gate count and circuit depth, especially when using partial constraint encoding for TSP.",
+  "method": "The authors propose replacing the global multi-controlled phase-shift gate in GM-QAOA with local operations by tailoring the mixer to initial states possessing a product structure over disjoint qubit subsystems.",
+  "model_or_system": "The work is situated within the QAOA framework for solving constrained combinatorial optimization problems, specifically demonstrated on the Exact-Cover Problem and the Traveling Salesman Problem (TSP). The quantum circuit relies on alternating application of cost Hamiltonian evolution ($U_P$) and a modified Grover mixer ($U_M$).",
+  "key_observables": "Solution probability vs. number of layers ($p$); Circuit complexity metrics (e.g., CNOT gates, depth); Solution quality.",
+  "important_parameters": "The mixing parameter $\beta$; the QAOA layer count $p$; the choice of constraint encoding (full vs. partial).",
+  "main_assumptions": "The method's primary advantage relies on the initial state $|\\psi_0\rangle$ admitting a product structure over disjoint subsystems, which is often achieved by encoding only a subset of constraints.",
+  "figures_summary": "Figures illustrate the schematic of GM-QAOA layers and the circuit for the product-structured variant. Comparison plots show solution probability vs. $p$ for both methods on Exact-Cover and TSP instances, demonstrating comparable convergence.",
+  "paper_structure": "The paper introduces the limitations of standard GM-QAOA due to global gates; it then proposes the local mixer based on product structure decomposition; results are validated via numerical simulations on benchmark problems (Exact-Cover, TSP), concluding with a comparison of constraint encoding strategies.",
+  "why_interesting": "This work directly addresses hardware constraints by proposing structural modifications to quantum algorithms, which is crucial for making variational quantum algorithms practical on NISQ devices. The focus on decomposing global gates into local ones has implications for circuit compilation and noise mitigation in quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.11530_figures/2606.11530_fig1.jpg",
+      "caption": "FIG. 1: Schematic illustration of GM-QAOA. The circuit begins with the state-preparation unitary V, followed by alternating phase- separation unitaries UP(γ) and mixing unitaries UM(β). Here, X rep- resents the Pauli-X gate, and Zϕ is the phase-shift gate defined as Zϕ = |0⟩⟨0| + eiϕ |1⟩⟨1|. The final state is measured in the computa- tional basis to obtain approximate solutions.",
+      "page": 2
+    },
+    {
+      "image": "2606.11530_figures/2606.11530_fig2.jpg",
+      "caption": "FIG. 2: Circuit illustration of the product-structured variant of the Grover mixer for an initial state of product form |ψ0⟩= |ψ(1) 0 ⟩⊗|ψ(2) 0 ⟩. The state-preparation unitary decomposes as V = V1⊗V2, where each Vj independently prepares the j-th subsystem state |ψ(j) 0 ⟩. The mix- ing unitary UM(β(1), β(2)) is implemented as two independent blocks, each realized using a multi-controlled phase-shift gate acting within its respective subsystem.",
+      "page": 3
+    },
+    {
+      "image": "2606.11530_figures/2606.11530_fig3.jpg",
+      "caption": "FIG. 3: Solution probability as a function of the number of layers p for the exact-cover instance in Eq. (12) using GM-QAOA and the proposed method. For each method and each value of p, the parame- ters are randomly initialized 30 times. The markers indicate the mean solution probability over these runs, and the shaded bands represent the standard deviation. The two methods exhibit comparable conver- gence behavior as p increases.",
+      "page": 4
+    },
+    {
+      "image": "2606.11530_figures/2606.11530_fig4.jpg",
+      "caption": "FIG. 4: Solution probability as a function of the number of layers p for the TSP using GM-QAOA and the proposed method. Plots (a), (b), and (c) correspond to three instances of the four-city TSP (nine qubits) with different city locations, as illustrated in the insets, where circles represent cities and the filled circle indicates the starting and ending point of the tour. The simulation setting follows that of Figure 3. Across all three instances, the convergence behavior of the proposed method remains comparable to that of GM-QAOA.",
+      "page": 5
+    },
+    {
+      "image": "2606.11530_figures/2606.11530_fig5.jpg",
+      "caption": "FIG. 5: Resource trade-offs between GM-QAOA and the proposed method for TSP instance (a), as a function of the number of layers p. (a) Total number of circuit executions required during optimization. (b) Number of CNOT gates required to implement the mixing unitary, obtained after decomposition into the {RX, RY, RZ, CNOT} gate set. (c) Relative error of the expectation value ⟨HC⟩evaluated by applying a depolarizing noise model with one- and two-qubit gate error rates ϵ1 = 10−4 and ϵ2 = 10−3 to the decomposed mixing unitary. Error bars represent the standard deviation over random parameter samples, and the proposed method has lower relative error with reduced variance.",
+      "page": 6
+    }
+  ],
+  "figure": "2606.11530_figures/2606.11530_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

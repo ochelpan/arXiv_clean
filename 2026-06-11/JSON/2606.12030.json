@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.12030",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Measurement-Free Toric-Code Memory in Array Globally Controlled Rydberg Array",
+  "authors": "Han Wang, Yusheng Zhao, Xiuhao Deng, Jinguo Liu",
+  "abstract": "The central prerequisite of any fault-tolerant quantum architecture is a quantum memory: a block of encoded physical qubits whose logical state is actively preserved against noise across many rounds of error correction. In neutral-atom Rydberg arrays, realizing such a memory is obstructed not by the entangling gates themselves, which are already fast and high-fidelity, but by the auxiliary operations that a conventional error-correction cycle requires: mid-circuit fluorescence measurement, inter-zone atom transport, and locally focused single-qubit addressing. Each of these introduces latency, atom loss, or optical crosstalk that exceeds the cost of the underlying gates by orders of magnitude. These costs accumulate cycle after cycle, progressively degrading the very logical information the code is meant to protect. Here we propose a protocol that stabilizes a toric-code quantum memory without moving, measuring or local addressing atoms. The key is to use a three-species Rydberg atom array for the complete stabilizer cycle, including syndrome extraction, coherent correction, and ancilla reset, under global, species-selective laser pulses. Numerical simulation of a $4 \\times 4$ rotated toric code shows a longer qubit lifetime when the physical error rate is below a pseudo-threshold $p^\\star \\approx 0.034$. The scheme offers a concrete, hardware-efficient route to topological quantum memory in neutral-atom platforms.",
+  "url": "http://arxiv.org/abs/2606.12030v1",
+  "pdf": "https://arxiv.org/pdf/2606.12030v1",
+  "type": "theory",
+  "summary": "The paper presents a novel protocol to build fault-tolerant quantum memories using the toric code within Rydberg atom arrays, crucially avoiding slow or error-prone mid-circuit measurements and atom movements. By employing global laser pulses to execute syndrome extraction and correction steps, they demonstrate a viable, hardware-efficient path toward scalable topological quantum computation in neutral atoms.",
+  "main_problem": "The primary challenge is realizing a fault-tolerant quantum memory in neutral-atom Rydberg arrays without incurring significant overheads from conventional error correction operations like mid-circuit measurement or atom transport.",
+  "main_result": "The authors propose and simulate a protocol that stabilizes the toric code using only global, species-selective laser pulses for syndrome extraction, coherent correction, and ancilla reset.",
+  "method": "The methodology involves mapping standard stabilizer measurements onto sequences of global OR-Toffoli and CCX sweeps, which are implemented via tailored Rydberg pulse sequences.",
+  "model_or_system": "The system is a three-species neutral-atom Rydberg array implementing the toric code on an $L \times L$ lattice. Dynamics are modeled using the Lindblad master equation for gate fidelity and Matrix Product States (MPS) for full code simulation.",
+  "key_observables": "Qubit lifetime, logical error rate ($p_L$), gate fidelities ($\bar{F}_{\text{ccx}}^{\text{PC}}$, $\bar{F}_{\text{or-Toffoli}}^{\text{PC}}$), and the pseudo-threshold physical error rate ($p^\\star$).",
+  "important_parameters": "Pseudo-threshold $p^\\star \\approx 0.034$; gate times ($\text{T}_{\text{OR}} \\approx 244 \text{ ns}$, $\text{T}_{\text{CCX}} = 95 \text{ ns}$); decay rates and coupling strengths.",
+  "main_assumptions": "The protocol assumes that global pulses can effectively replace local addressing, and the simulation relies on specific approximations for gate implementation (e.g., assuming commutation of sweeps with stabilizers).",
+  "figures_summary": "Figures illustrate the measurement-free protocol overview, a tick-by-tick walkthrough of an X-error correction sub-cycle using global pulses, and multi-round fidelity decay curves comparing corrected vs. uncorrected states.",
+  "paper_structure": "The paper first identifies the overhead problem in Rydberg arrays; it then details the three-species system and the measurement-free protocol using OR-Toffoli/CCX sweeps; subsequent sections validate these gates at the single-gate level (Lindblad simulation) before scaling up to full code simulations using MPS.",
+  "why_interesting": "This work provides a concrete, hardware-efficient blueprint for topological quantum memory by circumventing major experimental bottlenecks (measurement and transport) inherent in current neutral-atom platforms. It bridges high-level QEC theory with low-level pulse engineering.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.12030_figures/2606.12030_fig1.jpg",
+      "caption": "Figure 1: Overview of the measurement-free, movement-free quantum-memory protocol on a multi-species Rydberg atom array. (a) Lattice: blue spheres, data qubits (species D) at lattice vertices; red spheres, ancilla species A1 at Z-plaquette centers; green spheres, ancilla species A2 at X-plaquette centers. The green and red shaded region represents the different plaquette regions FX and FZ. Three species-selective global laser fields address D, A1, and A2 independently; the torus sketch on the right emphasizes the periodic-boundary layout, with the dashed magenta and orange loops marking the two independent non-contractible cycles that support the logical operators ¯X1,2 and ¯Z1,2. (b)...",
+      "page": 3
+    },
+    {
+      "image": "2606.12030_figures/2606.12030_fig2.jpg",
+      "caption": "Figure 2: Tick-by-tick walkthrough of one X-error correction sub-cycle on the 4×4 rotated toric code, showing how a single injected X-error propagates through the measurement-free protocol. Blue discs represent data qubits and red/green discs represent A1/A2 ancillas (faint dots are not affected by injected error). 1. Toric-code ground state |ψ0⟩, all stabilizers +1, ancillas in |0⟩. 2. An X-error is injected on data qubit D⋆(red circle, label X); the two adjacent Bp plaquettes (pink shading) now carry −1 eigenvalues, but no syndrome has yet been written to the ancillas. 3. H (open): a global Hadamard pulse rotates all A1 ancillas to |+⟩and all data qubits by H; under this rotation the...",
+      "page": 4
+    },
+    {
+      "image": "2606.12030_figures/2606.12030_fig3.jpg",
+      "caption": "Figure 3: Pulse-level model and phase-corrected fidelity of the per-triple unitaries on a single (D, A1, A′ 1) cell. State labels (subscript a for ancilla, d for data): ancilla ground states |0⟩a , |1⟩a and Rydberg |r⟩a; data ground states |A⟩≡|0⟩d , |B⟩≡|1⟩d, intermediate |P⟩d, and Rydberg |R⟩d (full level assignments in Methods, Section 4.2.1). (a) or-toffoli pulse sequence: two ancilla square π-pulses on |1⟩↔|r⟩at Ωc (blue) bracket a sixth-order super-Gaussian Raman drive Ωp on the data |A, B⟩↔|P⟩transition (red); the data |P⟩↔|R⟩drive ΩR (purple dashed) is held constant throughout. (b) ccx pulse sequence: two ancilla π-pulses on |0⟩↔|r⟩at Ωcc (teal) bracket three target sub-pulses on...",
+      "page": 7
+    },
+    {
+      "image": "2606.12030_figures/2606.12030_fig4.jpg",
+      "caption": "Figure 4: Logical-memory benchmarks for the 4×4 rotated toric code. (a) Multi-round fidelity evolution under i.i.d. depolarizing noise at physical error rate p = 0.01 over n = 128 independent Monte-Carlo trials. Blue circles: corrected run — every round applies the full measurement-free or-toffoli + ccx syndrome-extraction, correction, and projective ancilla-reset cycle, with the depolarizing channel of Equation (5) fired once at the start of each round; the mean fidelity decays gently from ¯F ≈0.99 at round 1 to ¯F ≈0.81 at round 50. Red squares: uncorrected reference (no correction gates fire); the mean fidelity falls rapidly from ¯F ≈0.79 at round 1 to statistical zero ( ¯F =0.000) by...",
+      "page": 9
+    },
+    {
+      "image": "2606.12030_figures/2606.12030_fig5.jpg",
+      "caption": "Figure 5: Pulse-level unitary simulation of the complete X-error sub-cycle on the nine-atom unit cell (coherent Hamiltonian evolution, no Lindblad decay). (a) Nine-atom unit cell used in the verification: four data qubits (D) and five A1 ancillas (A) with the lattice adjacency of the rotated toric code. (b) Pulse envelopes for all driving fields during one complete or- toffoli+ccx cycle at the lattice-spacing a = 4 µm operating point of Section 4.2.1 (TOR ≈ 244 ns, TCCX = 95 ns); yellow shading marks the or-toffoli stage, green shading the ccx stage. (c,f) No-error inputs: |00000⟩and |11011⟩are returned to their initial states after the full cycle, confirming that the protocol leaves...",
+      "page": 15
+    }
+  ],
+  "figure": "2606.12030_figures/2606.12030_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 4,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 2,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

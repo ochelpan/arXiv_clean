@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.11340",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Q-DICE: Quantum Distributed Interconnect Compiler and Emulator",
+  "authors": "Michael Silver, Zachary Vernec, Hans-Arno Jacobsen",
+  "abstract": "As distributed quantum computing (DQC) offers a leading path towards scalable quantum computation, the ability to benchmark distributed algorithms under realistic conditions becomes critical for system co-design. However, without access to physical systems, researchers lack tools to evaluate distribution protocols. We introduce Q-DICE (Quantum Distributed Interconnect Compiler and Emulator), a hardware-aware emulation environment for benchmarking distributed quantum circuits on classical simulators and on NISQ-era monolithic hardware. This work provides three core contributions: (1) a programmatic scheme to construct distributed QPU backends, utilizing two novel techniques - QPU slicing and stitching - to facilitate distributed circuit mapping, (2) a methodology for modeling nonlocal link noise using physically motivated Kraus operators and stochastic error channels, and (3) a boundary-aware circuit mapping algorithm enforcing distributed QPU topology constraints during transpilation. Together, these components constitute a distribution-aware compiler and noise-modeling engine that faithfully enforces the physical limitations of distributed quantum hardware within existing execution environments. We validate Q-DICE against a multitude of experimentally demonstrated quantum circuits, including a distributed Grover's search on optically linked trapped-ion hardware, achieving a worst-case fidelity deviation of 4% between simulated and experimental results. These findings demonstrate Q-DICE's capacity to accurately reproduce real distributed quantum system behavior across platforms, streamlining experimentation with distributed quantum algorithms and architectures.",
+  "url": "http://arxiv.org/abs/2606.11340v1",
+  "pdf": "https://arxiv.org/pdf/2606.11340v1",
+  "type": "both",
+  "summary": "This paper introduces Q-DICE, a comprehensive emulator designed to benchmark distributed quantum computing algorithms by accurately simulating the physical limitations and noise sources inherent in connecting multiple QPUs. It achieves this through novel compiler techniques like QPU slicing/stitching and detailed modeling of nonlocal link errors. The work is crucial for accelerating hardware co-design by providing a reliable tool to test complex, large-scale quantum network protocols.",
+  "main_problem": "Benchmarking distributed quantum algorithms (DQC) is difficult because current tools cannot realistically simulate or emulate the physical constraints of connecting multiple Quantum Processing Units (QPUs).",
+  "main_result": "The proposed Q-DICE emulator accurately models complex noise sources and topological constraints, achieving a low fidelity deviation when simulating established protocols like Grover's search on trapped-ion hardware.",
+  "method": "Q-DICE provides a compiler/emulator framework using programmatic techniques (slicing/stitching) to map circuits onto distributed backends while incorporating physically motivated noise models (Kraus operators).",
+  "model_or_system": "The system models Distributed Quantum Computing, connecting multiple QPUs via virtual nonlocal links. It supports modeling both Hamiltonian-mediated (superconducting) and entanglement-mediated (photonic/trapped-ion) link noise.",
+  "key_observables": "Fidelity deviation between simulation and experiment; Graph state fidelity; Success rate of benchmark algorithms (e.g., Grover's search, Deutsch-Jozsa).",
+  "important_parameters": "Link error probabilities ($p$), coherence times ($T_1, T_2$), link interaction times ($t_{\text{link}}$), and the degree of topological constraint violation.",
+  "main_assumptions": "Standard transpilers fail to respect virtual QPU boundaries; the algorithm uses a constrained random search which does not guarantee global optimality for layout selection.",
+  "figures_summary": "Figures illustrate QPU topologies, circuit partitioning (slicing/stitching), and benchmark results comparing simulated fidelity across different noise models (e.g., Gate Teleportation fidelity vs. link error rate).",
+  "paper_structure": "The paper introduces the problem gap in DQC benchmarking, details the three core components of Q-DICE (mapping scheme, nonlocal noise modeling, boundary-aware transpilation), validates it across multiple benchmark circuits (Grover's, GHZ, Deutsch-Jozsa), and concludes with advanced topology analysis (ring-of-rings).",
+  "why_interesting": "The rigorous incorporation of physical link noise models (Kraus operators) into a compiler framework is highly relevant for theorists designing fault-tolerant quantum networks, as it moves beyond idealized gate sets.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.11340_figures/2606.11340_fig1.jpg",
+      "caption": "Fig. 1. IBM Nairobi monolithic superconducting 27-qubit QPU topology and error map. Graph nodes indicate qubits, with respective colors referring to single gate error rates (in this case for the Hadamard gate). Graph edges represent qubit-qubit connections, with respective colors referring to the error rate of a native two-qubit gate on these qubits. Side bars indicate single-qubit readout error rates.",
+      "page": 3
+    },
+    {
+      "image": "2606.11340_figures/2606.11340_fig2.jpg",
+      "caption": "Fig. 4. Stitched distributed QPU system. Green nodes indicate communication ancilla qubits, with green edges indicating a virtual nonlocal link between, separating two virtual QPUs.",
+      "page": 4
+    },
+    {
+      "image": "2606.11340_figures/2606.11340_fig3.jpg",
+      "caption": "Fig. 2. IBM Marrakesh monolithic superconducting Heron 156-qubit QPU coupling map. Red lines indicate user-defined cuts for QPU slicing. Green nodes indicate user-defined communication ancilla qubits for QPU stitching.",
+      "page": 4
+    },
+    {
+      "image": "2606.11340_figures/2606.11340_fig4.jpg",
+      "caption": "Fig. 3. Partitioned IBM Marrakesh processor. Red line indicates virtual nonlocal link, separating two virtual QPUs. We refer to these sparse, modular structures as “butterfly backends,” reflecting their uniquely shaped and low- connectivity modular topologies similar to near-term DQC architectures.",
+      "page": 4
+    },
+    {
+      "image": "2606.11340_figures/2606.11340_fig5.jpg",
+      "caption": "Fig. 5. Gate teleportation circuit. The dashed box labeled “Nonlocal Link” encloses the entanglement generation and distribution subcircuit consumed by the teleportation. The dashed box labeled “Teleported Gate” encloses the operation applied at Node 2 conditioned on classical measurement outcomes from Node 1.",
+      "page": 6
+    }
+  ],
+  "figure": "2606.11340_figures/2606.11340_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 3,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.11496",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Logical error estimation from syndrome data of surface-code experiments",
+  "authors": "Evangelia Takou, Cesar Benito, Arian Vezvaee, Daniel A. Lidar, Kenneth R. Brown",
+  "abstract": "Decoders for quantum error correction (QEC) experiments rely on detector error models (DEMs), which encode, for each error, its probability and the detectors and logical observables it flips. Here we show that estimating DEM event probabilities from experimental syndromes is feasible, avoids independent device benchmarking, and produces useful decoder priors for estimating and reducing decoded logical error probabilities. We evaluate our methods using open-source data from surface-code memory experiments performed on Google's Willow chip, and we carry out analogous surface-code experiments on IBM's \\texttt{ibm\\_miami} processor. Despite the different physical error scales of the Google and IBM devices, in both cases our estimated DEMs improve logical error probabilities relative to baseline device-informed DEMs, typically at the $5\\%-10\\%$ level and with larger gains in some IBM cases, without additional calibration circuits, decoder fine-tuning, or supervised fitting to logical outcomes.",
+  "url": "http://arxiv.org/abs/2606.11496v1",
+  "pdf": "https://arxiv.org/pdf/2606.11496v1",
+  "type": "both",
+  "summary": "The paper introduces a novel technique to estimate the Detector Error Model (DEM) probabilities directly from raw syndrome measurement data of surface code experiments. By using these empirically derived DEMs as decoder priors, the authors demonstrate significant and reliable reductions in the estimated logical error rate compared to standard noise models on state-of-the-art quantum hardware. This method offers a powerful, model-agnostic tool for improving QEC performance analysis.",
+  "main_problem": "The core problem is estimating the Detector Error Model (DEM) event probabilities directly from experimental syndrome data to improve quantum error correction (QEC) decoders, thereby reducing estimated logical error probabilities.",
+  "main_result": "Syndrome-estimated DEMs consistently reduce the decoded logical error probability relative to baseline device-informed models on both Google and IBM hardware, often achieving improvements of $5\\%-10\\%$ or more.",
+  "method": "The authors estimate event probabilities by analyzing detector moments (e.g., $\\langle v_i \rangle$, $\\langle v_i v_j \rangle$) from raw syndrome data, avoiding the need for independent device benchmarking or supervised fitting to final logical outcomes.",
+  "model_or_system": "The work focuses on surface-code memory experiments performed on superconducting quantum processors (Google Willow and IBM miami). The formalism uses a Detector Error Model (DEM) that maps physical detector events to syndrome measurements.",
+  "key_observables": "Logical Error Probability ($\text{LEP}$ or $P_L$), fractional percent change in $\text{LEP}$ ($\\Delta P_L$), detector-pair covariances ($C_{ij}$), and entanglement infidelity ($\text{EF}$).",
+  "important_parameters": "Code distance ($d=3, 5, 7$), number of syndrome extraction cycles ($r$), and the type of dynamical decoupling (DD) applied.",
+  "main_assumptions": "The primary assumption is that detector moments are sufficient to infer reliable event probabilities. Limitations include handling negative correlators by setting probabilities to zero and benchmarking only on stochastic circuit-level noise initially.",
+  "figures_summary": "Figures compare $\\Delta P_L$ for various code distances ($d=3, 5, 7$) across different DEM priors (estimated vs. reference) on both Google and IBM hardware; other figures show detector covariances, time evolution of rates, and entanglement infidelity comparisons.",
+  "paper_structure": "The paper develops the formalism for syndrome-based DEM estimation using moment calculations, applies this method to analyze memory experiments on two different quantum processors, compares the resulting logical performance against established noise models, and discusses scaling laws and diagnostics like crosstalk.",
+  "why_interesting": "This work provides a practical, data-driven methodology for characterizing hardware noise in QEC that bypasses complex Hamiltonian reconstruction, which is highly relevant to experimental condensed matter/quantum physics groups working on superconducting or trapped-ion qubits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.11496_figures/2606.11496_fig1.jpg",
+      "caption": "FIG. 1. Logical error probability comparison for the d = 3 surface-code memory experiments on Google Willow. (a) Fractional percent change in LEP for Z-memory experiments versus syndrome (synd.) extraction cycle. Each panel corresponds to a different subsystem (subs.) of the device. (b) Same as in (a) for X-memory experiments. All bars are plotted using ∆PL(A|B) [Eq. (1)], with the SI1000 DEM used as the reference. The yellow bars show ∆PL(RL|SI1000), where RL denotes the reinforcement-learning optimized model (RL opt.). The blue bars show ∆PL(estSI1000|SI1000), where estSI1000 denotes the DEM whose rates are estimated from syndrome data using the SI1000 detector-logical support and the...",
+      "page": 3
+    },
+    {
+      "image": "2606.11496_figures/2606.11496_fig2.jpg",
+      "caption": "FIG. 2. Logical error probability comparison for the d = 5 and d = 7 surface-code memory experiments on Google Willow. Panels (a),(b) show the fractional percent change in LEP for the d = 5 Z- and X-memory experiments, respectively, versus syndrome-extraction cycle; each subpanel corresponds to a different subsystem. Panels (c),(d) show the corresponding d = 7 Z- and X-memory results. As in Fig. 1, all bars are plotted using ∆PL(A|B) [Eq. (1)] with B = SI1000. The yellow, blue, and pink bars show ∆PL(RL|SI1000), ∆PL(estSI1000|SI1000), and ∆PL(estRL|SI1000), respectively, with the same definitions as in Fig. 1. Error bars and the red dashed curve are also as in Fig. 1.",
+      "page": 3
+    },
+    {
+      "image": "2606.11496_figures/2606.11496_fig3.jpg",
+      "caption": "FIG. 3. The unrotated d = 3 surface code on ibm miami is ar- ranged on a 5 × 5 grid, with the upper-left qubit identified as qubit 12 on the ibm miami device. Data qubits (green circles) lie along the edges of the square lattice (black lines). Pla- quette regions (blue) define Z-type stabilizers, while vertex regions (red) define X-type stabilizers. These stabilizers are measured simultaneously by transferring syndrome informa- tion to bare ancilla qubits (red and blue circles) via the dashed and solid syndrome–data couplings. In contrast, Ref. [1] im- plemented the rotated form of the ZXXZ surface code [27] on the Willow chip.",
+      "page": 4
+    },
+    {
+      "image": "2606.11496_figures/2606.11496_fig4.jpg",
+      "caption": "FIG. 4. Logical performance on ibm miami for the d = 3 un- rotated surface code. (a) Fractional percent change in LEP, ∆PL = (P estIBM L −P IBM-like L )/P IBM-like L × 100%, versus syn- drome extraction cycle. Each panel shows either Z- or X- memory, without DD or with XY4. Negative values indicate an LEP reduction for the estimated DEM relative to the IBM- like DEM. (b) Corresponding logical error probabilities, PL, for the IBM-like and estimated DEMs. Error bars show the standard deviation.",
+      "page": 4
+    },
+    {
+      "image": "2606.11496_figures/2606.11496_fig5.jpg",
+      "caption": "FIG. 5. Detector correlations and detector-event structure for ibm miami. (a),(b) Detector-pair covariances Cij = ⟨vivj⟩− ⟨vi⟩⟨vj⟩for (a) the X- and (b) the Z-memory d = 3 experiments at r = 19, shown without DD and with XY4. The Z-memory without DD exhibits negative covariances, consistent with the negative-correlator issue discussed in the text. The detector index is a flattened space-time index over all 12 detector locations in all 19 syndrome-extraction cycles, hence i ∈{1, . . . , 228}. (c),(e) Shot-resolved detector-event patterns for the same X- and Z-memory data for the r = 9 circuits, using the flattened detector index. (d),(f) Detector firing rates for the corresponding round,...",
+      "page": 11
+    }
+  ],
+  "figure": "2606.11496_figures/2606.11496_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

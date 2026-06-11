@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.12056",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Clifford disentanglers for entanglement reduction in molecular electronic structure simulations",
+  "authors": "Longfei Chang, Zibo Wu, Yunzhi Li, Haiqi Liu, Jiajun Ren, Mingpu Qin, Zhendong Li, Wei-Hai Fang",
+  "abstract": "Entanglement is a key bottleneck limiting the efficiency of tensor-network and quantum simulations of molecular electronic structures. Here, we systematically assess and extend Clifford disentanglers as a structure-preserving approach to entanglement reduction: they can modify the entanglement structure of qubit wavefunctions while retaining the Pauli-string form of qubit Hamiltonians. To enable a practical search over Clifford transformations, we classify Clifford operators by their action on the Schmidt spectrum across a bipartition, reducing the two- and four-qubit search spaces to 20 and 91392 representatives, respectively. Embedded in an iterative Clifford-augmented matrix product state framework, these transformations reduce the energy errors at fixed bond dimension for the molecular test cases studied and mitigate the dependence on orbital orderings and fermion-to-qubit mappings. We further show that Clifford disentanglers can also benefit quantum simulations such as the shallow-circuit variational quantum eigensolver calculations. Together, these results establish Clifford disentanglers as a useful structure-preserving entanglement-engineering tool for tensor-network and quantum simulations of molecular electronic structure, while also clarifying their correlation dependence and motivating future developments.",
+  "url": "http://arxiv.org/abs/2606.12056v1",
+  "pdf": "https://arxiv.org/pdf/2606.12056v1",
+  "type": "theory",
+  "summary": "The paper introduces Clifford disentanglers as a structured method to reduce entanglement in simulating molecular electronic structures using tensor networks. By applying these transformations, the authors significantly improve energy accuracy and robustness of methods like DMRG and VQE at fixed computational resources. This establishes them as a valuable 'entanglement-engineering' tool for quantum chemistry simulations.",
+  "main_problem": "Entanglement is a major bottleneck limiting the efficiency of tensor-network and quantum simulations for molecular electronic structures.",
+  "main_result": "Clifford disentanglers are established as a useful, structure-preserving tool that reduces entanglement and improves energy accuracy in both DMRG (CAMPS) and VQE calculations at fixed bond dimensions.",
+  "method": "The authors systematically assess Clifford disentanglers by classifying them based on their action on the Schmidt spectrum to reduce search space. These transformations are applied within an iterative Matrix Product State framework to preprocess Hamiltonians.",
+  "model_or_system": "The study focuses on molecular electronic structure problems, using fermionic Hamiltonians mapped onto qubit representations (e.g., Jordan-Wigner mapping). Simulations involve systems like H12 and N2.",
+  "key_observables": "Bipartite entanglement entropy ($S_{1/2}(\rho_A)$), relative energy error ratio ($\\eta_E$), Inverse Participation Ratio (IPR), and sensitivity to orbital ordering ($\\sigma_X$).",
+  "important_parameters": "Bond dimension ($M$), basis set size, and the specific choice of Clifford gates (2Q vs 4Q).",
+  "main_assumptions": "The approach assumes that entanglement reduction via structured Clifford transformations can significantly improve simulation accuracy without fundamentally altering the physics captured by the fixed bond dimension.",
+  "figures_summary": "Figures illustrate the schematic process of disentangler application in DMRG/VQE workflows, show the linear correlation between energy error improvement and entropy reduction, and compare energy errors across different molecular systems and mappings.",
+  "paper_structure": "The paper introduces the problem (entanglement bottleneck), proposes Clifford disentanglers as a solution, details the systematic search methodology using equivalence classes, validates the method by showing improved results in DMRG/VQE for various molecules, and discusses limitations regarding basis set size dependence.",
+  "why_interesting": "This work provides concrete algorithmic tools to manage entanglement structure within tensor network simulations of quantum chemistry, directly impacting how efficiently we can simulate complex molecular interactions on classical or near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.12056_figures/2606.12056_fig1.jpg",
+      "caption": "Figure 1: Schematic illustration of the determination of Clifford disentanglers from an MPS and the applications in DMRG and VQE. (a) Local 2Q or 4Q Clifford gates are applied sequentially to an MPS to reduce entanglement. For each bond, representatives of the relevant equivalent classes are tested to minimize the bipartite entropy Sm,m+1. The sweeping process is repeated until the entropy converges, yielding the optimized disentangler C∗ D within this local search protocol. The transformed Hamiltonian can be used in subsequent DMRG and VQE. (b) In CAMPS, DMRG first produces an MPS |ΨMPS⟩; then C∗ D is determined from the obtained MPS and the disentan- gled MPS C∗ D|ΨMPS⟩is truncated to the...",
+      "page": 4
+    },
+    {
+      "image": "2606.12056_figures/2606.12056_fig2.jpg",
+      "caption": "Figure 2: Schematics of 2Q and 4Q Clifford op- erators in the same equivalence class. (a) Two 2Q Clifford operators C2 and C′ 2 belong to the same class if they differ only by arbitrary 1Q Clifford operators C1 and C′ 1 acting on the two qubits. (b) Two 4Q Clifford operators C4 and C′ 4 belong to the same class if they differ only by arbitrary 2Q Clifford operators C2 and C′ 2 acting on qubits (1, 2) and (3, 4), respectively.",
+      "page": 5
+    },
+    {
+      "image": "2606.12056_figures/2606.12056_fig3.jpg",
+      "caption": "Figure 3: Bond-length dependence of the relative energy error ratio ηE (solid lines) between DMRG and CAMPS and the ratio of the maximum entanglement entropies ηS (dashed lines) for the MPS obtained from conventional DMRG and after Clifford disentangling step. Upper: JW mapping, Lower: parity mapping.",
+      "page": 6
+    },
+    {
+      "image": "2606.12056_figures/2606.12056_fig4.jpg",
+      "caption": "Figure 4: Correlation between the relative energy error ratio ηE obtained from DMRG and CAMPS and the ratio of the maximum entanglement entropies ηS for the MPS before and after Clifford disentangling step. Data for both JW and parity mappings in Figure 3 are used and fitted using ηE = exp[k(ηS −1)].",
+      "page": 6
+    },
+    {
+      "image": "2606.12056_figures/2606.12056_fig5.jpg",
+      "caption": "Figure 5: Spreadness of the ground-state wave- function for the original Hamiltonian and the Clifford-transformed Hamiltonian. (a,b) Prob- ability distributions of the exact ground-state wavefunction for the H12 system in the STO- 3G basis (OAO, Jordan–Wigner mapping, bond length 1 ˚A). Panels (a) and (b) correspond to the 3 × 4 and 2 × 2 × 3 geometries, respec- tively. The probabilities of the 100 most signif- icant configurations are plotted, with the Clif- ford disentanglers obtained from DMRG calcu- lations using three values of M (32, 64, and 128) for comparison. (c,d) Inverse participation ra- tio (IPR) of the exact ground state as a function of the bond length for the 3 × 4 and 2 × 2...",
+      "page": 7
+    }
+  ],
+  "figure": "2606.12056_figures/2606.12056_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 4,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

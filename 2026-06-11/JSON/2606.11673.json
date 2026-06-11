@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.11673",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Higher-Order Token Interactions via Quantum Attention",
+  "authors": "Jian Xu, Chao Li, Delu Zeng, John Paisley, Qibin Zhao",
+  "abstract": "Standard dot-product self-attention computes, in a single layer, only pairwise (order-2) interactions between tokens; representing a generic order-$k$ interaction is known to require either super-quadratic resources in one layer or composition across depth. We introduce \\textbf{Quantum Higher-Order Attention (QHA)}, a shallow, hardware-realizable quantum attention head that, via data re-uploading and an all-to-all non-Clifford entangler, synthesizes order-$k$ token interactions inside the circuit and exposes them through a local single-qubit read-out. We prove (i) an expressivity separation: any single standard self-attention layer with embedding dimension $m$, $H$ heads and $p$-bit precision satisfying $mHp=o(N/\\log\\log N)$ cannot represent the order-$k$ correlation family that one QHA head represents with circuit depth $O(\\log k)$ ($O(k)$ two-qubit gates); and (ii) a trainability guarantee for its local-design instantiation: with a local read-out and $O(\\log n)$ depth the gradient variance is $Ω(1/\\mathrm{poly}(n))$ (no barren plateau), which we confirm empirically -- while being explicit that the more expressive all-to-all instantiation we benchmark is trained empirically and shows exponentially decaying gradients. Empirically, at a $6.5\\times$ smaller parameter budget, QHA generalizes hidden-subset parity of every order $k\\le6$ from disjoint inputs, whereas the larger classical attention head collapses past order~2; consistent with theory, the size of the advantage tracks the target's Fourier degree - largest for parity and shrinking when low-order structure is present. As an application, QHA serves as a compact high-order interaction detector across three domains - genetic epistasis, learning-parity-with-noise, and graph triangle detection - reaching the noise ceiling at the smallest parameter budget where field-standard linear methods fail.",
+  "url": "http://arxiv.org/abs/2606.11673v1",
+  "pdf": "https://arxiv.org/pdf/2606.11673v1",
+  "type": "both",
+  "summary": "This paper introduces Quantum Higher-Order Attention (QHA), a shallow quantum circuit designed to model interactions of arbitrary order $k$. It theoretically proves that QHA can represent correlations beyond the capability of standard single-layer classical attention mechanisms. Empirically, QHA demonstrates superior performance and parameter efficiency when detecting complex, high-order feature dependencies in tasks like genetic epistasis.",
+  "main_problem": "Standard self-attention mechanisms are fundamentally limited to pairwise (order-2) interactions, making it difficult to model higher-order correlations ($k>2$) efficiently.",
+  "main_result": "The proposed Quantum Higher-Order Attention (QHA) head can synthesize and represent order-$k$ token interactions using a shallow quantum circuit depth $O(\\log k)$, achieving an expressivity separation from classical attention layers.",
+  "method": "The QHA synthesizes high-order correlations through data re-uploading, an all-to-all non-Clifford entangler, and a local single-qubit read-out measurement.",
+  "model_or_system": "The model is the Quantum Higher-Order Attention (QHA) head, which operates on $n$ qubits representing tokens. It utilizes specific quantum gates (RZ, RZZ) to encode high-order entanglement before measuring a local single-qubit expectation value.",
+  "key_observables": "Test accuracy on high-order tasks (e.g., parity), parameter efficiency ($\text{acc} - 0.5) / \text{params}$, and the order of interaction ($k$).",
+  "important_parameters": "Circuit depth $O(\\log k)$, number of qubits $n$, and the target interaction order $k$.",
+  "main_assumptions": "The advantage demonstrated is an inductive-bias and representational separation, not necessarily an exponential speedup; also, the local read-out forces the high-order structure to be synthesized internally.",
+  "figures_summary": "Figures illustrate the QHA circuit components (encoder, entangler, readout) and compare performance metrics like accuracy across varying interaction orders ($k$) for classical vs. quantum models.",
+  "paper_structure": "The paper establishes a theoretical expressivity separation using communication complexity arguments, proves trainability via barren plateau analysis, and then validates the concept empirically by applying QHA to high-order tasks like epistasis detection on both simulators and real hardware.",
+  "why_interesting": "It provides a concrete quantum circuit architecture (QHA) that explicitly targets overcoming known limitations in classical machine learning models regarding feature interaction complexity, which is relevant for modeling complex physical systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.11673_figures/2606.11673_fig1.jpg",
+      "caption": "Figure 1: QHA head: per-qubit data re-uploading encoder, an all-to-all non-Clifford RZZ entangler, and a local single-qubit read-out feeding a linear head; L blocks. The order-k interaction is synthe- sised inside the circuit and exposed on a single-qubit marginal.",
+      "page": 3
+    },
+    {
+      "image": "2606.11673_figures/2606.11673_fig2.jpg",
+      "caption": "Figure 2: An explicit QHA circuit (n=4, L=1): Hadamards and RZ data re-uploading, all \u00004 2 \u0001 =6 RZZ couplings (all-to-all), a trainable RY layer, and a single-qubit ⟨Z⟩read-out (not shown).",
+      "page": 4
+    },
+    {
+      "image": "2606.11673_figures/2606.11673_fig3.jpg",
+      "caption": "Figure 3: Test accuracy vs. interaction order k (disjoint split, n=12, mean±std over 7–8 seeds for parity (left, matching Table 1) and 3 for the junta (right)). Left (hidden-subset parity): all Fourier mass sits at degree k, so the classical head (1922 params) collapses toward chance for k ≥3 while QHA (296 params) stays at ceiling — a maximal separation. Right (generic order-k junta): the random target carries low-degree mass that the low-degree-biased classical head can exploit, so it stays near ceiling and only begins to drop at k=5; QHA again holds at ceiling. The gap thus tracks the target’s Fourier degree, exactly as the theory predicts.",
+      "page": 6
+    },
+    {
+      "image": "2606.11673_figures/2606.11673_fig4.jpg",
+      "caption": "Figure 4: Order-k vs. qubit-count n phase diagram (parity, mean test accuracy). Classical attention (left) is reliable only at order 2; QHA (middle) is at ceiling almost everywhere (n=8 is data-limited by the 256-point cube); the difference (right) localizes the quantum advantage to the high-order region.",
+      "page": 7
+    },
+    {
+      "image": "2606.11673_figures/2606.11673_fig5.jpg",
+      "caption": "Figure 5: Hardware qubit-scaling on IBM Heron: hardware accuracy (blue) tracks the noiseless simulator (grey) up to n=10 and stays ≥0.95 through n=14, even as the raw ⟨Z⟩correlation (red) decays — the linear read-out absorbs the noise.",
+      "page": 7
+    }
+  ],
+  "figure": "2606.11673_figures/2606.11673_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

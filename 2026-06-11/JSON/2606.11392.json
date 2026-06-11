@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.11392",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Compressed minimum-purity time evolution for late-time quantum dynamics",
+  "authors": "Moksh Bhateja, Jonas B. Rigo, Markus Schmitt",
+  "abstract": "Unitary time evolution of initially simple quantum many-body states rapidly generates entanglement and complex correlations, which limits direct numerical simulations. The late-time dynamics of physical observables, however, typically exhibits an effective simplicity in the form of hydrodynamics or kinetic theory. This leads to the question whether microscopic equations of motion can remain accurate and tractable up to long time scales by discarding irrelevant information in a controlled manner. Here, we introduce compressed minimum-purity time evolution (CoMPuTE) as an approach to keep track of a consistent set of reduced local density matrices, closing the hierarchical equations of motion using a minimum-purity principle. In benchmark applications we demonstrate (i) accurate description of energy diffusion in the one-dimensional mixed-field Ising model, (ii) the applicability to genuinely out-of-equilibrium Floquet dynamics starting from a pure state, and (iii) the limitations of the local reduced density matrix approximation when describing transport in the XXZ chain at $Δ=1$ that is governed by increasingly non-local integrals of motion. The CoMPuTE method enhances computational efficiency in comparison to the closely related local-information time evolution algorithm, opening a possible route towards an extension to systems in higher spatial dimensions.",
+  "url": "http://arxiv.org/abs/2606.11392v1",
+  "pdf": "https://arxiv.org/pdf/2606.11392v1",
+  "type": "theory",
+  "summary": "The paper introduces CoMPuTE, an advanced algorithm designed to simulate the long-time quantum dynamics of many-body systems by efficiently managing entanglement growth. It achieves this by using a minimum-purity principle based on Rényi-2 entropy to systematically truncate and reconstruct information within local density matrices. This allows for accurate study of transport phenomena in models like the Ising and XXZ chains, significantly improving computational feasibility over previous methods.",
+  "main_problem": "The core challenge is simulating unitary time evolution for quantum many-body systems at late times, which generates excessive entanglement, by systematically discarding irrelevant information while maintaining accuracy for physical observables.",
+  "main_result": "The proposed CoMPuTE method significantly reduces computational complexity compared to prior methods (like LITE) by using Rényi-2 entropy, allowing accurate simulation of energy diffusion and out-of-equilibrium dynamics over extended time scales.",
+  "method": "CoMPuTE tracks reduced local density matrices ($\rho_{\\ell}^n$) by closing the hierarchical equations of motion using a minimum-purity principle based on Rényi-2 entropy. It employs an information-lattice approach with defined recovery and truncation steps to manage computational resources.",
+  "model_or_system": "The method is benchmarked on various quantum many-body systems, including the one-dimensional mixed-field Ising model for energy diffusion, driven Floquet spin chains, and the XXZ chain for transport studies. The dynamics are governed by standard unitary time evolution equations.",
+  "key_observables": "Energy diffusion coefficient ($D_E(t)$), local reduced density matrices ($\rho_{\\ell}^n$), purity gain ($\\gamma_\\ell^n$), and the crossover time ($t_{\text{cross}}$) for transport breakdown.",
+  "important_parameters": "Truncation parameters ($\\ell_{\\min}, \\ell_{\\max}$), positive information thresholds ($q_{\\ell^*}, q_{\\max}$), and system-specific coupling constants (e.g., $\\Delta$ in the XXZ chain).",
+  "main_assumptions": "The primary assumption is that physical observables at late times can be accurately captured by tracking a consistent set of reduced local density matrices, even when discarding information via minimum-purity projection. A key limitation noted is that superdiffusion relies on increasingly non-local operators, eventually exceeding the method's truncation scale.",
+  "figures_summary": "Figures illustrate the time evolution of diffusion coefficients ($D_E(t)$) for the Ising model and XXZ chain, showing systematic convergence with increasing simulation depth ($\\ell_{\\min}$), alongside plots detailing purity gain diagnostics.",
+  "paper_structure": "The paper introduces CoMPuTE as an improvement over LITE by replacing von Neumann entropy with Rényi-2 entropy to achieve $O(d^{2\\ell})$ scaling. It details the hierarchical update, information removal/recovery steps using minimum-purity projection, and validates this framework across multiple physical benchmarks (Ising, Floquet, XXZ).",
+  "why_interesting": "This work provides a powerful, scalable numerical tool for studying non-equilibrium quantum dynamics in 1D systems. The focus on systematic information management via purity diagnostics is highly relevant to understanding how complexity builds up and where approximations break down in strongly correlated systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.11392_figures/2606.11392_fig1.jpg",
+      "caption": "FIG. 1. Schematic illustration of the CoMPuTE control cycle on the subsystem hierarchy, analogous to the LITE approach. (a) Reduced density matrices ρℓ n are retained up to the max- imum level ℓmax. Higher-level density matrices required by the hierarchical equations of motion are reconstructed from overlapping lower-level marginals by recovery, as indicated by the shaded regions. Once the top retained level has accumu- lated too much large-scale structure, a removal step resets the active evolution to the lower truncation level ℓmin. (b) Purity gain for Hamiltonian Eq. 29 (hL = 0.25J, hT = −0.525J) and initial state ρinit = N7 n=1 \u0000 2",
+      "page": 2
+    },
+    {
+      "image": "2606.11392_figures/2606.11392_fig2.jpg",
+      "caption": "FIG. 2. Panels (a)–(f) show the time-dependent diffusion coefficient DE(t) obtained with CoMPuTE (red) and LITE (blue) for increasing working scale ℓmin = 3, . . . , 8 at fixed ℓmax = 9. Each panel is computed for the information- removal threshold of qmax = 0.5%. The annotation log ∆Dav reports the logarithm of the average absolute deviation be- tween the time-averaged diffusion coefficient, quantifying that CoMPuTE closely matches LITE across all shown ℓmin. The inset in (f) shows the extracted plateau value ¯DE as a func- tion of qmax, demonstrating a broad stability window in which ¯DE depends only weakly on qmax. (g) Empirical runtime scal- ing of entropy evaluation versus subsystem...",
+      "page": 7
+    },
+    {
+      "image": "2606.11392_figures/2606.11392_fig3.jpg",
+      "caption": "FIG. 3. Time-averaged diffusion coefficient ¯DE (averaged over t ∈[20, 100]) as a function of truncation parameters (ℓmin, ℓmax) for qmax = 0.5%. The diffusion coefficients vary weakly with ℓmax at fixed ℓmin, while increasing ℓmin system- atically increases ¯DE and drives it toward a converged value.",
+      "page": 8
+    },
+    {
+      "image": "2606.11392_figures/2606.11392_fig4.jpg",
+      "caption": "FIG. 4. Time-dependent diffusion coefficient DE(t) for in- creasing ℓmin at fixed ℓmax = ℓmin + 1, shown for two information-removal thresholds: (a) qmax = 0.5% and (b) qmax = 2.0%. At late times (here t ≳20), a diffusive plateau emerges and becomes progressively more stable as ℓmax is in- creased, enabling a more reliable estimate of the diffusion con- stant. Panel (c) highlights the convergence of the extracted plateau value ¯DE with ℓmin and demonstrates its robustness with respect to varying qmax.",
+      "page": 8
+    },
+    {
+      "image": "2606.11392_figures/2606.11392_fig5.jpg",
+      "caption": "FIG. 5. Driven Floquet dynamics for a chain with N = 20. Panels (a)–(c) compare ED (black dashed), DMT (black dotted) [25], and CoMPuTE for increasing values of ℓmin (solid colors) using the static energy density ⟨Hstatic⟩/N, the local correlator ⟨σz 9σz 10⟩, and the second R´enyi entropy S2 of the leftmost three sites. The red dashed line marks the onset of the thermal regime. In panels (a)–(c), the late-time regime was simulated explicitly only with CoMPuTE at ℓmin = 7, because simulations with larger ℓmin already capture the transient regime, establishing that they also reproduce the correct late-time behavior. Panels (d) and (e) show the level-resolved purity gain normalized by the...",
+      "page": 10
+    }
+  ],
+  "figure": "2606.11392_figures/2606.11392_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 4,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 3,
+    "non-equilibrium dynamics": 4,
+    "scars & prethermalization": 1,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

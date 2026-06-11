@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.12058",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "stat.ML",
+    "cond-mat.dis-nn",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Phase Transitions in Attention: A Bayesian Theory of Copy Head Emergence",
+  "authors": "Itay Lavie, Kirsten Fischer, Andrey Lekov, Frederic Van Maele, Zohar Ringel, Moritz Helias",
+  "abstract": "Attention is the key mechanism underlying in-context learning in transformers, and attention patterns have been observed empirically to emerge abruptly during training. We present a Bayesian theory of feature learning in attention; we then focus on how the copy subcircuit in the first layer of an induction head is learned by analyzing a single-layer softmax attention network trained on a copy task. We derive a closed-form posterior over the attention matrix and reduce it to a low-dimensional order parameter space. This reduction reveals a phase transition in the amount of training data, which we verify using both Bayesian sampling and standard training with Adam. We contrast our results with linear attention and find that softmax attention exhibits a \\emph{first-order phase transition} while in linear attention an initial \\emph{second-order phase transition} is followed by a smooth, continuous evolution toward the structured attention pattern (\\emph{crossover}). Our work provides a first-principles theoretical account of the abrupt emergence of the copy subcircuit, reminiscent of the one observed in training large language models.",
+  "url": "http://arxiv.org/abs/2606.12058v1",
+  "pdf": "https://arxiv.org/pdf/2606.12058v1",
+  "type": "theory",
+  "summary": "This work applies statistical mechanics concepts, specifically phase transition theory, to understand how transformer attention mechanisms learn structured circuits. By deriving an effective action for both softmax and linear attention, the authors predict that softmax exhibits a sharp first-order transition while linear attention shows a smoother second-order evolution when learning copying behavior.",
+  "main_problem": "The paper aims to provide a first-principles theoretical account of how specific, structured attention patterns (like the 'copy subcircuit') emerge abruptly during the training of transformer models.",
+  "main_result": "It distinguishes between softmax and linear attention mechanisms, finding that softmax exhibits a sharp, first-order phase transition upon learning the copy circuit, while linear attention shows a smoother second-order transition followed by crossover.",
+  "method": "The authors develop a Bayesian theory of feature learning, reducing the high-dimensional posterior over the attention matrix to a low-dimensional order parameter space governed by an effective action.",
+  "model_or_system": "The system analyzed is a single-layer softmax or linear attention network trained on a synthetic copy task. The analysis uses concepts from statistical physics, treating learning dynamics as phase transitions in the model's energy landscape.",
+  "key_observables": "Order parameters ($\\hat{c}_1, \\hat{c}_G$ or $\\hat{a}_1, \\hat{a}_G$), loss per token, and the transition order (first-order vs. second-order).",
+  "important_parameters": "Training data amount ($P$), sequence length ($L$), model dimension ($d_{\text{model}}$), and the specific attention kernel (softmax vs. linear).",
+  "main_assumptions": "The analysis relies on reducing the posterior to a low-dimensional order parameter space, using saddle-point approximations, and assuming an ansatz for the attention matrix structure.",
+  "figures_summary": "Figures illustrate the difference in transition behavior: softmax shows sharp jumps (first-order) vs. linear showing gradual changes (second-order/crossover) as data $P$ increases.",
+  "paper_structure": "The paper builds from deriving a Bayesian theory for attention, reducing it to an effective action over order parameters, and then applying this framework to quantitatively distinguish the phase transition orders between softmax and linear attention mechanisms.",
+  "why_interesting": "It provides a rigorous theoretical physics lens (phase transitions) to explain emergent computational capabilities in deep learning models, drawing parallels to critical phenomena studied in condensed matter theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.12058_figures/2606.12058_fig1.jpg",
+      "caption": "Figure 1: Copy head formation unfolds in multiple stages, with qualitatively distinct behavior for linear and softmax attention. Left: Attention patterns for linear (purple) and softmax (blue) attention from the trained model (top per color) and theory (bottom per color) for different amounts of training data P. (i) P = 20: the attention layer does not contribute in the linear case and softmax attention remains at its uniform pooling default; (ii) P = 100: after the second-order phase transition for linear attention, all tokens are attended to equally; (iii) P = 300: the copy pattern begins to appear; (iv) P = 800: it sharpens into the correct shift-by-one pattern. Right: Loss per token as...",
+      "page": 2
+    },
+    {
+      "image": "2606.12058_figures/2606.12058_fig2.jpg",
+      "caption": "Figure 2: Different topologies of actions Slin(ˆc1, ˆcG) and Ssoftmax(ˆaG; P). Linear attention (left): Contour plots of action at increasing dataset size P, corresponding to the attention stages (i), (ii), (iv) in Fig 1. From left to right: (i) the action has a single minimum at the origin - the model does not use the context; (ii) after the second-order phase transition, a minimum at nonzero ˆc1 emerges, corresponding to uniform pooling attention where the model attends to the entire context equally; (iv) finally, the landscape reorganizes and large ˆcG is preferred. The minimum deepens and splits, and two possible solutions are formed, but one is preferred and leads to lower loss values....",
+      "page": 6
+    },
+    {
+      "image": "2606.12058_figures/2606.12058_fig3.jpg",
+      "caption": "Figure 3: Linear attention exhibits a second-order phase transition and subsequent gradual crossover. Left: Scalar order parameters ˆc1, ˆcG measured from models trained with Adam (circles) and SGLD (diamonds) compared to the theory predictions (dashed) as a function of the amount of training data or sample complexity P. At the phase transition, ˆc1 rises sharply from zero, while ˆcG remains near zero; beyond P ≈400, ˆc1 declines while ˆcG rises, marking the crossover from uniform pooling to copy attention; theory tracks the empirically observed behavior closely. Center and right: Phase diagram of copy subcircuit emergence. We show the loss per token as a function of training se- quences P...",
+      "page": 7
+    },
+    {
+      "image": "2606.12058_figures/2606.12058_fig4.jpg",
+      "caption": "Fig. 2 (left panels) illustrates the topology of the action S(ˆc1, ˆcG) for different P values. At P < P ∗ ˆc1, the action has a single minimum at the origin. At P = Pˆc1 ≈23, a new minimum at nonzero ˆc1 emerges continuously and the sections reveal the characteristic flat-then-tilted shape of a Landau- type second-order phase transition (see App. A); enabling the model to exploit in-context unigram statistics. Beyond this, as P increases toward PˆcG ≈322, the saddle at the origin becomes a maximum, driving ˆcG away from zero and the crossover from context pooling to copying. Critically, this reorganization is not a second phase transition: the symmetry is already broken at Pˆc1.",
+      "page": 7
+    },
+    {
+      "image": "2606.12058_figures/2606.12058_fig5.jpg",
+      "caption": "Figure 4: Softmax attention exhibits a first-order phase transition. Left: Scalar order parameters ˆa1, ˆaG measured from models trained with Adam (circles) and SGLD (diamonds) compared to the theory predictions (dashed lines) as a function of the amount of training data or sample complexity P. At the phase transition the value of ˆaG jumps marking a first-order phase transition. Note that the dots corresponding to SGLD are often covered by the diamonds corresponding to Adam due to their precise agreement. Center and right: Phase diagram of copy subcircuit emergence. We show the loss per token as a function of training sequences P vs. sequence length L for V = 5 fixed (center), and vs....",
+      "page": 9
+    }
+  ],
+  "figure": "2606.12058_figures/2606.12058_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

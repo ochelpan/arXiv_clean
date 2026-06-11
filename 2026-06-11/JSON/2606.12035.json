@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2606.12035",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Shadow Engineering of Quantum Processes",
+  "authors": "Tian-Ci Tian, De-Tao Jiang, Wei-Ming Zhu, Wei-You Liao, Hong-Wei Li, He-Liang Huang",
+  "abstract": "Characterizing quantum processes is essential for hardware benchmarking, error diagnosis, and algorithm verification. While recent work [PRX QUANTUM \\textbf{4}, 040337 (2023)] extended classical shadows from quantum state to quantum process, enabling efficient single-channel $\\mathcal{E}$ property prediction, its applicability to composite processes $f(\\mathcal{E}_1, \\mathcal{E}_2,\\cdots, \\mathcal{E}_k)$ remains unexplored. We introduce shadow engineering, a framework encoding the classical shadows of processes into sparse transfer matrices to predict $f(\\mathcal{E}_1, \\mathcal{E}_2,\\cdots, \\mathcal{E}_k)$ properties with proven polynomial sample complexity, matching single-channel efficiency while exponentially lower than quantum process tomography. Crucially, this approach repurposes existing $\\mathcal{E}_m$-shadow data without physical execution of $f(\\mathcal{E}_1, \\mathcal{E}_2,\\cdots, \\mathcal{E}_k)$, enabling flexible quantum process characterization with minimal hardware overhead. We demonstrate the framework's effectiveness and practicality on a superconducting quantum processor for typical applications such as error mitigation and Hamiltonian dynamical simulation. This framework unlocks new capabilities for predicting complex quantum behaviors without physical re-execution, with immediate applications in near-term device calibration and quantum simulation.",
+  "url": "http://arxiv.org/abs/2606.12035v1",
+  "pdf": "https://arxiv.org/pdf/2606.12035v1",
+  "type": "both",
+  "summary": "The paper introduces 'shadow engineering,' a novel technique to characterize complex quantum processes by encoding individual channel information into sparse transfer matrices. This allows researchers to predict properties of composite operations (like sequential gates or time evolution) with polynomial resource scaling, significantly outperforming traditional methods like QPT on real superconducting hardware.",
+  "main_problem": "The core problem is efficiently characterizing complex, composite quantum processes $f(\\mathcal{E}_1, \\dots, \\mathcal{E}_k)$ for hardware benchmarking, avoiding the exponential resource scaling of Quantum Process Tomography (QPT).",
+  "main_result": "Shadow engineering provides a scalable framework to predict properties of these composite processes using only classical shadows from individual channels, achieving polynomial sample complexity.",
+  "method": "The authors encode single-channel process information into sparse transfer matrices ($\\hat{T}_E$) and then use algebraic manipulation (e.g., matrix multiplication for concatenation) to construct the transfer matrix for the composite process $\\hat{T}_f$.",
+  "model_or_system": "The framework is tested on a superconducting quantum processor, characterizing noise channels ($\\mathcal{E}_M$) and simulating Hamiltonian dynamics (TFIM model). The theory applies to general CPTP maps acting on $n$-qubit states.",
+  "key_observables": "Expected values of observables $\text{Tr}[O \\cdot f(\\mathcal{E}_1, \\dots, \\mathcal{E}_k)(\rho)]$, error mitigation ratios ($r$), and magnetization/correlation functions in dynamics simulations.",
+  "important_parameters": "Qubit count ($n$), truncation parameter ($\\kappa$), sample sizes ($N_1, N_2$), and physical parameters like gate errors and coherence times.",
+  "main_assumptions": "The method assumes that the composite process structure $f$ allows for an algebraic relationship between the constituent transfer matrices. It also relies on truncating observables to low-weight Pauli operators ($\\kappa$-truncation) to manage complexity.",
+  "figures_summary": "Figures illustrate the three-step framework (shadow $\to$ matrix $\to$ prediction), benchmarking against prior art, and applying the method to error mitigation and Hamiltonian dynamics simulations on superconducting hardware.",
+  "paper_structure": "The paper builds from theory by defining the shadow engineering framework using transfer matrices for single processes. It then extends this algebraically to predict composite operations (adjoints, concatenations) and finally validates its use in practical applications like error mitigation and time-evolution simulation.",
+  "why_interesting": "This work provides a powerful, resource-efficient tool that bypasses the exponential scaling bottleneck of full process tomography, making complex quantum characterization feasible for near-term noisy hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.12035_figures/2606.12035_fig1.jpg",
+      "caption": "FIG. 1. Shadow engineering: framework, key cases, and applications. (a) The framework proceeds in three steps: (1) Obtain classical shadows of single-step channels E1, . . . , Ek and convert them into sparse transfer matrices; (2) Combine these matrices to construct the transfer matrix of the composite process f(E1, . . . , Ek); (3) Estimate Tr[O(f(E1, · · · , Ek))(ρ)] via the obtained composite transfer matrix. (b) Sparse transfer-matrix encoding: First, evolve random product states under under E and perform randomized Pauli measurements on the outputs [7, 12]. Then, map input-outcome index pairs to matrix entries, building a row-normalized 6n×6n sparse matrix (stored in compressed sparse...",
+      "page": 2
+    },
+    {
+      "image": "2606.12035_figures/2606.12035_fig2.jpg",
+      "caption": "FIG. 3. Adjoint channel estimation and its application to er- ror mitigation using shadow engineering on a quantum proces- sor. (a) The 6-qubit noisy process EM is implemented with cir- cuit layers ranging from 1 to 4 (see SM for circuit details); deeper layers introduce stronger noise. Shadow engineering (predicting Tr[OE† M(ρ)]) achieves root-mean-square error (RMSE) comparable to the method of Ref. [25] (predicting Tr[OEM(ρ)]), with both meth- ods showing a slight increase in error as the layer depth grows. (b) Error-mitigation performance, quantified by the reduction ratio r = |h(ρnoisy, O) −Tr[Oρ]|/|Tr[Oρnoisy] −Tr[Oρ]|. For each layer (i.e., each EM), r decreases as more classical...",
+      "page": 4
+    },
+    {
+      "image": "2606.12035_figures/2606.12035_fig3.jpg",
+      "caption": "FIG. 2. Prediction performance of shadow engineering for esti- mating Tr[OE† 1(ρ)] and Tr[OE2E1(ρ)]. (a) Using 104-105 classical shadows for 2-8 qubits, the RMSE for predicting Tr[OE† 1(ρ)] with shadow engineering is comparable to that of predicting Tr[OE1(ρ)] using the method in Ref.[25]. (b) For 2-4 qubits with 104-105 clas- sical shadows, shadow engineering significantly outperforms QPT in predicting Tr[OE† 1(ρ)] and Tr[OE2E1(ρ)].",
+      "page": 4
+    },
+    {
+      "image": "2606.12035_figures/2606.12035_fig4.jpg",
+      "caption": "FIG. 4. Hamiltonian dynamical simulation using shadow engineering on a quantum processor. (a) Predicting Tr[OEH(tK)(ρ)] ≈ Tr[Oe−iHtK(ρ)] for tK = K × t1 (K = 1, · · · , 4) with a 4-qubit Haar random initial state. Shadow engineering predictions (blue boxplots), extrapolated from classical shadows acquired at t1, are compared with the method of Ref. [25] (orange boxplots), which uses classical shadows directly acquired at each time point tK. Both methods achieve comparable accuracy relative to the ideal evolution (red dashed line), with shadow engineering showing steady improvement with increasing sample size. Only one boxplot is shown at t1 since the two methods are equivalent there. (b)...",
+      "page": 5
+    }
+  ],
+  "figure": "2606.12035_figures/2606.12035_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

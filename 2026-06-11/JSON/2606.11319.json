@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.11319",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning from almost nothing: How neural networks survive heavy input corruption",
+  "authors": "Justin Tahmassebpur, Asadullah Bhuiyan, Hyejin Kim, Omri Lesser",
+  "abstract": "Learning from imperfect data is a central theme in machine learning, connecting practical questions of robustness to fundamental questions of learnability. Here we examine attribute noise: learning from corrupted inputs while keeping the labels intact, a setting that has received considerably less analytical attention than its label-noise counterpart. We consider two types of corruption models: additive noise and replacement noise. Through experiments with multi-layer perceptrons (MLPs) on corrupted classification datasets, we find that neural networks remain robust, maintaining well-above-chance accuracy even when inputs are >90% corrupted -- far beyond human recognition. To understand this robustness, we analyze infinite-width networks in the heavy-corruption regime using a mean-field-inspired approach and derive a leading-order decision rule for the classification outcome: the network implements a prototype rule, the nearest-class-mean, assigning each test point to the class whose training-set average it most closely resembles. This leading-order decision rule is universal across a broad range of MLP architectures, holding for any depth, as well as a wide class of activation functions and noise distributions. The same centroid mechanism closely matches finite-width network behavior in our experiments and provides an interpretable and analytically tractable account of why learning can succeed even when individual training examples carry almost no signal.",
+  "url": "http://arxiv.org/abs/2606.11319v1",
+  "pdf": "https://arxiv.org/pdf/2606.11319v1",
+  "type": "both",
+  "summary": "This paper theoretically and empirically demonstrates that neural networks remain remarkably robust when trained on inputs corrupted by heavy noise. By analyzing the system in the infinite-width limit using NTK theory, the authors prove that the network's decision rule collapses to a simple nearest-class-mean classifier, providing an interpretable understanding of learning from severely degraded data.",
+  "main_problem": "The paper investigates how well neural networks can learn a classification rule when their input data is heavily corrupted by noise, while the corresponding labels remain perfectly clean.",
+  "main_result": "In the high-noise limit, the network's decision boundary simplifies to a universal nearest-class-mean (centroid) classifier, regardless of specific architectural details like depth or activation function.",
+  "method": "The analysis combines theoretical tools from the Neural Tangent Kernel (NTK) framework with perturbation theory and mean-field approximations for infinite-width networks. These are validated against numerical experiments on finite-width MLPs.",
+  "model_or_system": "The model is a Multi-layer Perceptron (MLP) trained on classification tasks using datasets like MNIST. The core physical concept analyzed is the network's response to input corruption, modeled by additive or replacement noise applied to the features.",
+  "key_observables": "Test accuracy vs. corruption probability ($p$), and the derived decision rule which is proportional to the overlap between the test point and class centroids.",
+  "important_parameters": "Corruption probability ($p > 90\\%$), network width/depth, and the noise type (additive vs. replacement).",
+  "main_assumptions": "The analysis relies on approximations valid in the high-noise limit ($\\epsilon \to 1$) and often assumes i.i.d. data with bounded moments for symmetry arguments.",
+  "figures_summary": "Figures demonstrate that test accuracy remains robust even when training inputs are highly corrupted (e.g., $p=0.75$ yields $\\sim 80\\%-90\\%$ MNIST accuracy). Theoretical predictions consistently match empirical results across various noise models and architectures.",
+  "paper_structure": "The paper progresses from identifying the core problem (attribute noise) to developing analytical tools (NTK, perturbation theory) to derive a leading-order decision rule. This theoretical derivation is then rigorously tested against extensive numerical simulations covering different corruption types and network parameters.",
+  "why_interesting": "This work provides an analytic understanding of generalization in highly noisy regimes, showing that the underlying mechanism reduces to simple geometric averaging (centroiding), which has parallels in physical systems where complex interactions simplify under extreme noise or disorder.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.11319_figures/2606.11319_fig1.jpg",
+      "caption": "FIG. 1. Test accuracy vs. corruption probability p for width-128, 3-layer ReLU MLPs trained with cross-entropy loss on images with i.i.d. pixel replacement noise. Three class-balanced datasets are shown: (a) MNIST, (b) Fashion-MNIST, and (c) KMNIST. Below each panel we demonstrate the noise model by showing representative examples of images subject to replacement noise at increasing p. For each p, an MLP is trained on a dataset where each pixel is independently replaced with uniform noise with probability p; the test set is left clean. Accuracy metrics are averaged over 100 independent noisy training realizations per p value, and shaded bands surrounding each curve represent one standard...",
+      "page": 2
+    },
+    {
+      "image": "2606.11319_figures/2606.11319_fig2.jpg",
+      "caption": "FIG. 2. Visualization of the two corruption models used in this work applied to an MNIST image. The top panel shows the replacement noise model, where each pixel is indepen- dently replaced with uniform noise with probability p; see Eq. (1). The bottom panel shows the additive noise model, where each pixel is replaced by a convex combination of the clean pixel and an independent noise variable, with mixing parameter p; see Eq. (2). The panels show increasing corrup- tion levels p.",
+      "page": 3
+    },
+    {
+      "image": "2606.11319_figures/2606.11319_fig3.jpg",
+      "caption": "FIG. 3. Train-time and test-time corruption in MNIST data: Accuracy vs. train corruption level ptrain, for several values of test corruption ptest. We observe a non-monotonic behav- ior, where the optimal ptrain (dots in the figure) is near ptest, rather than 0. All networks and hyperparameters are the same as in Fig. 1.",
+      "page": 4
+    },
+    {
+      "image": "2606.11319_figures/2606.11319_fig4.jpg",
+      "caption": "FIG. 4. Numerical verification of the high-noise theory. All networks used to create the data in this figure are width-2048, 3-layer erf MLPs, trained with mean squared error (MSE) loss on noisy (a) MNIST, (b) Fashion-MNIST, and (c) KMNIST with N = 4000. Main panels: mean clean-test accuracy versus replacement-noise strength p for a nested ensemble of 20 noisy training sets and 10 MLPs per noisy set (red curve). Error bars show one standard deviation. The grey-dashed curve is the mean clean-test accuracy of the fitted effective model in Eq. (16). Insets: output-level comparison at p = 0.97, using a nested ensemble of 100 noisy training sets and 50 MLPs per noisy set. Each point corresponds...",
+      "page": 6
+    },
+    {
+      "image": "2606.11319_figures/2606.11319_fig5.jpg",
+      "caption": "FIG. 5. Empirical test of the scaling suggested by Eq. (17). Each curve shows the mean clean-test accuracy of an ensemble of width-2048, 3-layer erf MLPs trained with MSE loss on MNIST with replacement noise at p = 0.97, as a function of training-set size N for fixed feature dimension d. Error bars show one standard deviation. Larger values of d are obtained by resizing the original MNIST images using bilinear interpolation.",
+      "page": 7
+    }
+  ],
+  "figure": "2606.11319_figures/2606.11319_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
