@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2606.13284",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Where a Quantum Reservoir Works: A Transferable Operating Band",
+  "authors": "Markus Baumann, Itamar Fink, Johannes Wittmann, Claudia Linnhoff-Popien, Jonas Stein",
+  "abstract": "In quantum reservoir computing, a fixed quantum system transforms an input signal, while learning reduces to training a simple linear readout on its measured outputs. Since the quantum dynamics themselves are never optimized, the method is well suited to today's hardware. Yet these dynamics must still be chosen carefully, because their settings remain fixed throughout training and inference. It therefore remains an open question where, in its control space, a fixed quantum system learns well. We address this question for a dissipative reservoir by mapping performance over three central physical controls: the strength of the input drive, the coupling between neighboring qubits, and the rate of dissipation. Good performance concentrates in a single, well-defined operating region of this control space. This region transfers across tasks and reservoir initializations, and the same memory-defined regime persists under architectural changes. It is also mechanistically grounded, since it disappears whenever any of the mechanisms that create it is removed. Finally, the region can be located cheaply before any task is run, using a simple memory diagnostic.",
+  "url": "http://arxiv.org/abs/2606.13284v1",
+  "pdf": "https://arxiv.org/pdf/2606.13284v1",
+  "type": "theory",
+  "summary": "The paper identifies a specific, transferable 'operating band' in the parameter space of a dissipative quantum reservoir that guarantees good performance across multiple learning tasks. By systematically testing and ablating individual physical mechanisms (like damping or mixing), the authors prove that this regime requires the joint action of all components. This provides a crucial diagnostic tool for designing stable quantum machine learning hardware.",
+  "main_problem": "The core problem is determining the optimal, fixed operating regime for a quantum reservoir system so that it can perform well on various learning tasks without requiring dynamic optimization during training.",
+  "main_result": "Good performance concentrates in a single, transferable 'operating band' within the control parameter space ($\beta, \\lambda, \\gamma$), whose existence depends mechanistically on the joint action of all physical components (e.g., damping and mixing).",
+  "method": "The authors map performance across three key physical controls by defining an operating band using a stability criterion based on validation percentile rank across multiple tasks.",
+  "model_or_system": "The system is a dissipative quantum reservoir implemented on a small qubit architecture, evolving via input driving, local mixing ($U_{\text{mix}}$), ZZ coupling ($U_\\lambda$), and amplitude damping ($D_\\gamma$).",
+  "key_observables": "Validation percentile rank ($\text{r}_{j,s}$), Memory Capacity ($\text{MC}$), Information-Processing Capacity ($\text{IPC}$).",
+  "important_parameters": "Input drive strength ($\beta$), Coupling strength ($\\lambda$), Dissipation rate ($\\gamma$).",
+  "main_assumptions": "The analysis is restricted to simulated instances of this specific reservoir architecture family, and practical noise/calibration issues are ignored.",
+  "figures_summary": "Figures show the consistent location of the operating band across different tasks (Fig. 1), demonstrate that ablating any core mechanism destroys the band (Fig. 3), and illustrate that memory capacity alone can locate this optimal regime before task testing (Fig. 4).",
+  "paper_structure": "The paper establishes the problem by noting fixed dynamics, then maps performance over three controls to find a stable 'Operating Band.' It rigorously tests this band's necessity and transferability by ablating individual physical mechanisms or comparing it against simpler diagnostics like memory capacity.",
+  "why_interesting": "This work provides concrete guidelines for designing quantum machine learning hardware by identifying robust operating regimes in the control space, which is crucial for realizing practical, stable quantum computation devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13284_figures/2606.13284_fig1.jpg",
+      "caption": "Fig. 1. The good operating region is essentially the same whichever task we score. Each panel maps validation rank over input drive β and coupling λ at fixed damping γ = 0.12. Brighter means better rank. Panel (a) uses all four tasks; panels (b) to (e) each drop one. Gold circles mark the top validation quintile across tasks and seeds; the star is the band’s medoid. The basin and circles barely move when a task is dropped, so the band is not an artifact of any single task.",
+      "page": 2
+    },
+    {
+      "image": "2606.13284_figures/2606.13284_fig2.jpg",
+      "caption": "Fig. 2. Controlled forgetting is necessary for the regime. Each panel maps validation rank over (β, λ) at the damping rate γ named in its title (brighter = better); gold circles are the B20,0.7 band points at that γ. The band is essentially empty at γ = 0.01 and fills in from γ = 0.12 to 0.30.",
+      "page": 3
+    },
+    {
+      "image": "2606.13284_figures/2606.13284_fig3.jpg",
+      "caption": "Fig. 3. Mechanism ablations destroy the operating band. (a) Selection frequency in the original reservoir: for each coordinate (β, λ), the color shows how often it reaches top-quintile validation rank across the 80 task–seed replicates; gold circles mark the B20,0.7 band. (b)–(d) Validation-rank loss for three representative ablations named in the panels, with darker colors indicating larger deterioration. The strongest losses occur at the original band coordinates.",
+      "page": 3
+    },
+    {
+      "image": "2606.13284_figures/2606.13284_fig4.jpg",
+      "caption": "Fig. 4. Memory alone locates the band before any task is run. (a) Task-free memory-capacity map, log(1 + MC), on the γ = 0.12 slice of Fig. 1; gold points lie in the memory-rich region. (b) Higher memory predicts lower validation rank (Spearman ρs = −0.88). (c) Screening by each diagnostic’s top-ranked fraction: MC and information-processing capacity (IPC) recover good settings far faster than random selection, whereas raw feature diversity (Vfeat) barely beats chance.",
+      "page": 4
+    }
+  ],
+  "figure": "2606.13284_figures/2606.13284_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

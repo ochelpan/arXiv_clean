@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.12806",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Reservoir Computing for Short-Term Power Load Forecasting in Resource-Constrained Energy Systems",
+  "authors": "Mansi Od, Param Pathak, Nouhaila Innan, Muhammad Shafique",
+  "abstract": "Short-term load forecasting is essential for reliable energy management, but practical deployment on edge devices requires models that remain accurate under limited memory, finite measurement budgets, and hardware noise. This work proposes a hardware-efficient Quantum Reservoir Computing (QRC) framework for energy load forecasting, where a fixed quantum reservoir transforms temporal input windows into high-dimensional features and only a classical Elastic Net readout is trained. To reduce deployment cost, the trained readout is compressed using post-training fixed-point quantization at bit widths from 8 to 2 bits. The framework is evaluated on the Tetouan and Spain energy load datasets under exact statevector simulation, 512-shot finite sampling, and realistic hardware-noise models from IBM FakeTorino and IBM FakeMarrakesh. Results show that 6-bit readout precision preserves full-precision forecasting performance while reducing readout memory by 81.2%. Below this point, degradation becomes dataset dependent, with Tetouan showing stronger sensitivity and Spain degrading more gradually. Hardware-noise validation further shows that the trained readout transfers to noisy reservoir states without retraining. These findings support quantized QRC as a resource-aware forecasting approach for near-term quantum time-series applications.",
+  "url": "http://arxiv.org/abs/2606.12806v1",
+  "pdf": "https://arxiv.org/pdf/2606.12806v1",
+  "type": "both",
+  "summary": "This work proposes using Quantum Reservoir Computing (QRC) for energy load forecasting, designed specifically for deployment on memory-limited edge devices. The key innovation is applying post-training fixed-point quantization to the classical readout weights while keeping the quantum reservoir fixed. Results demonstrate that 6-bit precision maintains high accuracy while drastically reducing memory footprint, proving a resource-aware approach for near-term quantum time-series applications.",
+  "main_problem": "Developing accurate Short-Term Load Forecasting (STLF) models for resource-constrained edge devices while maintaining performance under limited memory, finite measurement budgets, and hardware noise.",
+  "main_result": "The framework successfully quantizes the readout to 6-bit precision, preserving full-precision forecasting performance while achieving an 81.2% reduction in readout memory.",
+  "method": "A Quantum Reservoir Computing (QRC) framework is used where a fixed quantum reservoir transforms temporal inputs into high-dimensional features, and only a classical Elastic Net readout is trained and subsequently compressed via post-training fixed-point quantization.",
+  "model_or_system": "The system uses a QRC architecture with an entangled quantum reservoir state derived from time-series data. The training involves optimizing the linear readout layer using Elastic Net regularization on aggregated reservoir features, followed by aggressive low-bit quantization for deployment.",
+  "key_observables": "Forecasting accuracy (RMSE, MAPE), Readout memory reduction percentage, and performance stability across varying bit widths ($\\{8, 6, 4, 3, 2\\}$).",
+  "important_parameters": "Quantization bit width ($k$), Number of qubits ($N$), Reservoir size/feature dimension, Noise sources (finite-shot sampling, IBM FakeTorino/Marrakesh noise models).",
+  "main_assumptions": "The quantum reservoir remains fixed throughout the process; only the classical readout weights are quantized and trained. The performance degradation below 6 bits is dataset-dependent.",
+  "figures_summary": "Figures illustrate the QRC framework pipeline, compare RMSE vs. Bit Width showing stability at 6 bits, and validate forecast predictions under both ideal simulation and realistic hardware noise conditions for two energy datasets (Tetouan and Spain).",
+  "paper_structure": "The paper details the QRC model setup, describes the Elastic Net training process, introduces the Post-Training Quantization pipeline with residual refinement, and validates the entire framework across multiple noise regimes and bit widths.",
+  "why_interesting": "While focused on energy forecasting, the core methodology—combining quantum feature mapping (reservoir) with highly resource-constrained classical ML readout (quantized Elastic Net)—is a novel paradigm for developing hardware-efficient AI models applicable to complex physical simulations or data analysis in quantum computing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.12806_figures/2606.12806_fig1.jpg",
+      "caption": "Fig. 1: Conceptual overview of the proposed hardware-efficient QRC forecasting framework. Energy load data is encoded into a fixed quantum reservoir, transformed into reservoir features, and mapped to load forecasts through a quantized classical readout. The framework is evaluated under exact simulation, finite-shot sampling, and realistic IBM backend-noise models.",
+      "page": 2
+    },
+    {
+      "image": "2606.12806_figures/2606.12806_fig2.jpg",
+      "caption": "Fig. 2: Overview of the proposed QRC forecasting framework. The pipeline constructs T = 24 input windows, extracts 5N observables per time step from a fixed quantum reservoir, compresses the temporal states into 245 aggregated features, and trains an Elastic Net readout for load prediction. After training, the readout is quantized to {8, 6, 4, 3, 2}- bit fixed-point precision and evaluated under finite-shot and hardware-noise settings. The GA search is performed offline to select N, L, encoding, and coupling strength κ for each dataset.",
+      "page": 3
+    },
+    {
+      "image": "2606.12806_figures/2606.12806_fig3.jpg",
+      "caption": "Fig. 3: Quantum reservoir circuit at one time step. Each of the N qubits receives the double rotation RZ(π˜x) · RY (π˜x) for feature encoding, followed by a frozen Haar random Rot(α, β, γ) gate and a brickwork entangling block whose CNOT offset alternates between even and odd pairs across layers. The encode and entangle pattern repeats L times before measurement of single qubit Pauli expectations ⟨Zi⟩, ⟨Xi⟩, ⟨Yi⟩ and nearest neighbour correlators ⟨ZiZi+1⟩, ⟨XiXi+1⟩, yielding 5N observables per step.",
+      "page": 4
+    },
+    {
+      "image": "2606.12806_figures/2606.12806_fig4.jpg",
+      "caption": "Fig. 4: ElasticNet readout training pipeline. Standardized reservoir features R and targets y feed a 5 fold cross validated grid search over the regularization strength α (30 log spaced values) and the mixing ratio ρ ∈{0.05, 0.1, 0.15, 0.2}, which set the ℓ1 and ℓ2 penalty weights λ1 = αρ and λ2 = α(1 −ρ). The selected combination yields a sparse weight vector ˆw whose predictions are inverse scaled to physical units.",
+      "page": 4
+    },
+    {
+      "image": "2606.12806_figures/2606.12806_fig5.jpg",
+      "caption": "Fig. 5: Post training quantization (PTQ) pipeline. The trained FP32 weights pass through an optimal clipping search over [0.5σ, ∥w∥∞] followed by uniform rounding to a k bit grid with step size ∆= 2c∗/(2k −1). Three rounds of iterative residual refinement then fit a Ridge correction on the prediction error and re-quantize, suppressing the systematic bias that grows at low bit widths. The procedure produces five deployable readouts at {8, 6, 4, 3, 2} bits with corresponding memory savings of {75, 81.2, 87.5, 90.6, 93.7}%.",
+      "page": 5
+    }
+  ],
+  "figure": "2606.12806_figures/2606.12806_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

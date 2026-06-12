@@ -1,0 +1,69 @@
+{
+  "arxiv_id": "2606.12816",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Graph Reinforcement Learning for Calibration-Aware Quantum Circuit Routing",
+  "authors": "Yash Vardhan Tomar, Dheeraj Peddireddy, Vaneet Aggarwal",
+  "abstract": "Quantum circuit routing is a key step in compiling programs for noisy intermediate-scale quantum processors. Routes that appear efficient by standard overhead metrics can still lose fidelity when they pass through poorly calibrated couplers. We study a calibration-aware graph reinforcement-learning router that uses same-day IBM Heron r2 calibration data to choose hardware-edge SWAPs. We train the policy with proximal policy optimization and evaluate it with exact simulated fidelity across nine Munich Quantum Toolkit (MQT) Bench circuits and three calibration snapshots. Across these evaluations, pooled mean exact fidelity is $0.727$, compared with $0.440$ for SABRE-best20 and $0.481$ for target-aware SABRE. Fidelity gains come with higher routed two-qubit counts and are concentrated in the 5q and 8q circuit families; under the fixed tree action graph, all 10q families favor SABRE-best20. Overall, our results show that calibration-aware learned routing can improve fidelity beyond gate-count-driven compilation.",
+  "url": "http://arxiv.org/abs/2606.12816v1",
+  "pdf": "https://arxiv.org/pdf/2606.12816v1",
+  "type": "both",
+  "summary": "The paper proposes using graph reinforcement learning to optimize quantum circuit routing on noisy quantum processors. By incorporating real-time calibration data, the learned router selects paths that maximize fidelity rather than just minimizing gate count. This demonstrates that intelligence derived from hardware characterization can yield significant performance gains over traditional compilation methods.",
+  "main_problem": "Quantum circuit routing for NISQ devices is challenged by hardware imperfections, as standard metrics fail to account for varying coupler error rates across different paths.",
+  "main_result": "A calibration-aware graph reinforcement learning router achieved a pooled mean exact fidelity of 0.727, significantly outperforming established baselines like SABRE-best20 (0.440).",
+  "method": "The authors trained an RL agent using Proximal Policy Optimization (PPO) to select hardware SWAPs based on real-time calibration data.",
+  "model_or_system": "The work simulates quantum computation on NISQ processors, modeling the environment as a calibrated backend graph incorporating readout and two-qubit error rates from same-day calibration snapshots.",
+  "key_observables": "Exact simulated state fidelity ($\\mathcal{F}$), routed two-qubit count ($g_{2Q}$), and circuit depth are tracked against established baselines.",
+  "important_parameters": "The performance is sensitive to the size of the circuit (5q vs 10q) and the availability of alternative, high-fidelity routing paths.",
+  "main_assumptions": "The comparison relies on reproducible SABRE-family baselines due to differing evaluation harnesses; furthermore, fixed action graphs limit optimal path exploration for larger circuits.",
+  "figures_summary": "Figure 1 illustrates how circuit inputs and calibration data are encoded into a graph structure for the RL router. Table II quantifies fidelity gains versus added two-qubit gates compared to SABRE-best20.",
+  "paper_structure": "The paper introduces the problem of hardware-aware routing, details the RL formulation (state, action, reward using PPO), presents the methodology using calibration data for training, and concludes with comparative results against state-of-the-art benchmarks.",
+  "why_interesting": "This work directly addresses the practical gap between theoretical quantum algorithms and noisy physical hardware by integrating machine learning into the compilation stack, which is crucial for advancing NISQ applications.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.12816_figures/2606.12816_fig1.jpg",
+      "caption": "Fig. 1. Routing-state graph construction. (a) Circuit inputs consist of the remaining circuit, front blocking gate 𝑔𝑡, and lookahead gates 𝐺𝑡. (b) Current non-identity placement 𝑀𝑡: 𝐿→𝑃and calibration snapshot 𝜅are encoded on 𝐺𝐵= (𝑃, 𝐸, 𝜅); node labels show logical occupants, and red rings mark the blocked front-gate operands. A solid 𝑝3–𝑝4 edge marks a legal SWAP edge on the shortest path. (c) Message passing produces node embeddings, the edge head scores legal SWAPs, and the red logit identifies the inserted SWAP.",
+      "page": 2
+    },
+    {
+      "image": "2606.12816_figures/2606.12816_fig2.jpg",
+      "caption": "Fig. 2. Benchmark exact fidelity and routed two-qubit (2Q) counts. (a,b) Snapshot means with matched cells and bootstrap intervals. (c,d) Circuit-family means. Fidelity gains coincide with additional 2Q gates on families where calibration-aware routing helps.",
+      "page": 4
+    }
+  ],
+  "figure": "2606.12816_figures/2606.12816_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

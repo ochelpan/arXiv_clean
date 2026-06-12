@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.13150",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Robust Pretty Good Measurement via Hybrid Classical-Quantum Pseudoinverse Approximation and Circuit-Level Realization",
+  "authors": "Bikash K. Behera, Andrés Camilo Granda Arango, Giuseppe Sergioli, Roberto Giuntini",
+  "abstract": "Pretty Good Measurement (PGM) is a near-optimal strategy for quantum state discrimination, but its practical realization becomes unstable when the ensemble operator is singular or ill-conditioned. We introduce a numerically robust PGM formulation based on the Moore-Penrose pseudoinverse, replacing the standard inverse square root with a threshold-regularized variant that remains well-defined across different spectral regimes. We develop a hybrid classical-quantum framework that combines pseudoinverse-based spectral preprocessing with quantum circuit realizations using block-encoding and spectral-transformation techniques. The framework incorporates support awareness, yielding physically meaningful measurement operators even in rank-deficient cases, and employs oblivious amplitude amplification to improve circuit-level success probabilities. Extensive numerical and circuit-level simulations show close agreement between theoretical predictions and quantum circuit outputs. Experiments on synthetic and real datasets, including ill-conditioned and degenerate scenarios, demonstrate stable discrimination performance where standard PGM becomes numerically unstable. The results establish a practical hybrid classical-quantum framework for robust quantum state discrimination and extend previous circuit-based implementations of the PGM testing stage toward pseudoinverse-aware measurement design.",
+  "url": "http://arxiv.org/abs/2606.13150v1",
+  "pdf": "https://arxiv.org/pdf/2606.13150v1",
+  "type": "both",
+  "summary": "This paper introduces a robust method to perform quantum state discrimination using the Pretty Good Measurement (PGM) protocol. It overcomes the instability of standard PGM by employing the Moore-Penrose pseudoinverse and threshold regularization, creating a practical hybrid classical-quantum framework for circuit implementation. The results demonstrate stable performance even when the underlying ensemble operator is ill-conditioned or rank-deficient.",
+  "main_problem": "The primary challenge is achieving a numerically stable, circuit-level implementation of Pretty Good Measurement (PGM) for quantum state discrimination when the ensemble operator is singular or ill-conditioned.",
+  "main_result": "The authors propose and validate a hybrid classical-quantum framework using the Moore-Penrose pseudoinverse and threshold regularization to ensure robust measurement operators even in rank-deficient regimes.",
+  "method": "They combine spectral preprocessing (classically calculating the regularized pseudoinverse) with quantum circuit realizations involving block-encoding, spectral transformations, and Oblivious Amplitude Amplification.",
+  "model_or_system": "The work analyzes quantum state discrimination for an ensemble $\\{p_i, \rho_i\\}$ of mixed states. The core mathematical object is the ensemble operator $S = \\sum p_i \rho_i$, which dictates the measurement operators $M_i$.",
+  "key_observables": "Measurement operators ($M_i$), Success Probability ($P_{\text{succ}}$), Trace Gap ($\\Delta$), and Total Variation Distance (TVD) between theoretical and simulated probabilities.",
+  "important_parameters": "The regularization threshold ($\tau$) is crucial, balancing stability against accuracy; the number of classes ($K$) also dictates complexity and performance scaling.",
+  "main_assumptions": "The framework assumes that spectral information required for the pseudoinverse can be extracted classically (hybrid approach), although future work aims for full quantum realization.",
+  "figures_summary": "Figures illustrate the overall pipeline, showing how thresholding stabilizes the measurement operators, and compare theoretical predictions against ideal and noisy simulator outputs across various parameter sweeps.",
+  "paper_structure": "The paper systematically develops the theory by replacing standard inverses with pseudoinverses, details the hybrid classical-quantum circuit realization using block-encoding, validates the method through extensive numerical simulations on synthetic and real datasets, and analyzes performance trade-offs based on regularization parameters ($\tau$ or $\\alpha$).",
+  "why_interesting": "This work provides a concrete, implementable protocol for quantum state discrimination that directly addresses major practical limitations (ill-conditioning) encountered when translating theoretical optimal measurements into NISQ hardware circuits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13150_figures/2606.13150_fig1.jpg",
+      "caption": "Fig. 1: Overall framework of the proposed support-aware and threshold-regularized hybrid classical-quantum PGM framework for classification. The pipeline consists of density-operator construction, support-aware pseudoinverse regularization, purified-access block- encoding, spectral transformation, construction of the intermediate unitary f W, oblivious amplitude amplification, and final measurement-based classification.",
+      "page": 5
+    },
+    {
+      "image": "2606.13150_figures/2606.13150_fig2.jpg",
+      "caption": "Fig. 2: Performance analysis of the proposed pseudoinverse-based PGM under different conditions. (a) Retained effective rank as a function of threshold τ, showing removal of unstable eigenvalues. (b) Corresponding success probability, demonstrating robustness across a wide threshold range. (c) Robustness under depolarizing noise, where performance degrades with increasing noise strength. (d) Scaling behavior with respect to the number of classes, indicating increased difficulty in state discrimination for larger ensembles.",
+      "page": 10
+    },
+    {
+      "image": "2606.13150_figures/2606.13150_fig3.jpg",
+      "caption": "Fig. 3: Scaling and regularization behavior of the pseudoinverse-based PGM. (a) Success probability decreases with increasing number of classes K, reflecting reduced distinguishability among quantum states. (b) Implementation complexity proxies increase with K, indicating higher resource requirements. (c) Mean success probability decreases with regularization strength α, as stronger mixing reduces state separability. (d) Implementation complexity proxies decrease with α, showing improved spectral conditioning and reduced implementation cost. Error bars (where applicable) denote standard deviation over random mixed ensembles.",
+      "page": 13
+    },
+    {
+      "image": "2606.13150_figures/2606.13150_fig4.jpg",
+      "caption": "Fig. 4: Performance and conditioning behavior of the pseudoinverse-based PGM under geometric separation and spectral regularization. (a) Success probability increases with the angle between quantum states, reflecting improved distinguishability. (b) Implementation complexity proxies decrease with increasing angle, indicating better conditioning of the ensemble operator. (c) Success probability remains stable across a wide range of threshold values τ, demonstrating robustness to spectral truncation. (d) Implementation complexity proxies decrease significantly with increasing τ, showing that removing small eigenvalue components improves conditioning and reduces computational cost.",
+      "page": 14
+    },
+    {
+      "image": "2606.13150_figures/2606.13150_fig5.jpg",
+      "caption": "Fig. 5: Confusion matrices for the four-class trained PGM classifier. (a) Theoretical PGM predictions obtained directly from the trained POVM elements. (b) End-to-end implementation on the ideal quantum simulator using the Naimark-dilation-based circuit realization. (c) End-to-end implementation on the noisy quantum simulator. All three panels show strong agreement on classes 0 and 3, while the dominant classification difficulty occurs between the middle classes 1 and 2, where the underlying states are more strongly overlapping.",
+      "page": 16
+    }
+  ],
+  "figure": "2606.13150_figures/2606.13150_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

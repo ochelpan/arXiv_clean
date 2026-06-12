@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2606.13454",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "physics.optics",
+    "cond-mat.dis-nn",
+    "cs.ET",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Optical Implementation of Equilibrium Propagation Using Spatial Photonic Ising Machines",
+  "authors": "Dimitri Vanden Abeele, Daniele Veraldi, Davide Pierangeli, Claudio Conti, Serge Massar",
+  "abstract": "Equilibrium Propagation offers a compelling alternative to traditional machine learning for training energy-based networks. Here we demonstrate a hybrid optical-digital implementation of EP using a Spatial Photonic Ising Machine (SPIM). The SPIM exploits the gauge transformation method to optically encode both continuous neuron states and rank-1 binary trainable patterns as phase modulations via a spatial light modulator, with inference realized using a finite difference scheme. The experimental system is evaluated on the Wine classification dataset. The potential of this approach, including the use of continuous couplings and structured coupling matrices, is evaluated numerically on the more complex MNIST dataset. Our work provides a concrete pathway toward energy-efficient physical implementations of Equilibrium Propagation.",
+  "url": "http://arxiv.org/abs/2606.13454v1",
+  "pdf": "https://arxiv.org/pdf/2606.13454v1",
+  "type": "both",
+  "summary": "The paper presents a novel method to implement Equilibrium Propagation, an advanced energy-based learning technique, using a Spatial Photonic Ising Machine. By encoding the required energy calculations optically via phase modulations on an SLM, they demonstrate a pathway toward ultra-low-power physical hardware for training neural networks. The results confirm high accuracy comparable to simulation benchmarks.",
+  "main_problem": "The primary goal is to demonstrate a low-energy, physical implementation of Equilibrium Propagation (EP), an energy-based learning framework, using optical hardware.",
+  "main_result": "The authors achieved high test accuracies on the MNIST dataset both experimentally and numerically, validating the viability of this hybrid optical-digital approach for machine learning training.",
+  "method": "They employ a Spatial Photonic Ising Machine (SPIM) to optically evaluate the energy functional associated with EP. Gradient calculations are performed using finite difference schemes combined with digital processing.",
+  "model_or_system": "The system uses SPIMs, which encode spins and couplings into the spatial degrees of freedom of coherent light propagating through a Spatial Light Modulator (SLM). The underlying physics involves calculating Ising-like Hamiltonians derived from the EP energy functional.",
+  "key_observables": "Test set accuracy (%) on MNIST/Wine datasets, average cost, and gradient components ($\\partial E/\\partial \theta$).",
+  "important_parameters": "Trainable parameters include coupling strengths $\\{J_{in}, J_{dyn}\\}$ and pattern weights $\\{\\lambda_k, \\xi_{k,i}\\}$. Key regimes involve the rank $K$ of the Mattis problems and the number of hidden units $N_d$.",
+  "main_assumptions": "The approach relies on approximating complex derivatives using finite differences (e.g., $\\pm\\pi/4$ phase shifts) and assumes that structured architectures can overcome limitations of simple all-to-all connectivity.",
+  "figures_summary": "Figures illustrate the EP process, the experimental SPIM setup, and show test accuracy scaling versus coupling rank $K$ or hidden units $N_d$ for MNIST simulations.",
+  "paper_structure": "The paper moves from defining the theoretical framework of EP (energy functional) to detailing the physical mapping onto the SPIM Hamiltonian. It then describes the hybrid optical-digital gradient calculation methods, validates performance on Wine experimentally, and finally presents extensive numerical results on MNIST across various parameter regimes.",
+  "why_interesting": "This work directly bridges concepts from statistical physics (Ising models, energy minimization) with modern machine learning paradigms (EP). The use of photonics to realize complex many-body interactions is highly relevant for quantum optics applications in computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13454_figures/2606.13454_fig1.jpg",
+      "caption": "FIG. 1. (a) Equilibrium Propagation implemented using SPIM. EP follows a bi-level optimization. During infer- ence the energy is minimized using a combination of opti- cal measurements and digital terms. During learning the en- ergy landscape is modified to include the cost, correspond- ing to the additional force ±β∂C/∂sm. The trainable pa- rameters θ = {λ, ξ} are updated according to how the vari- ables conjugate to θ respond, at equilibrium, to the nudg- ing. The variables ∂E/∂λk are evaluated optically, while the variables ∂E/∂ξk,i are evaluated digitally. (b) Experimental setup. The SPIM evaluates the value of Mattis Hamiltonians Hk ∝1",
+      "page": 3
+    },
+    {
+      "image": "2606.13454_figures/2606.13454_fig2.jpg",
+      "caption": "FIG. 2. Experimental Results. (a) Average cost and accu- racy over 7 independent training runs (4 epochs of 71 steps, 2 samples per step, moving average over 20 samples). (b) Av- erage confusion matrix of 7 independently trained networks, evaluated on the test set.",
+      "page": 4
+    },
+    {
+      "image": "2606.13454_figures/2606.13454_fig3.jpg",
+      "caption": "FIG. 3. Numerical simulations of EP using SPIM on the MNIST dataset. (a) Test accuracy versus rank K for Nd = 510. The maximum rank shown (K = 700) is larger than the theoretical maximum of 510. (b) Test accuracy versus the number of hidden units (Nd −10), with rank scaling as K ≈0.7Nd. The horizontal axis is logarithmic in both plots.",
+      "page": 4
+    },
+    {
+      "image": "2606.13454_figures/2606.13454_fig4.jpg",
+      "caption": "FIG. 4. Two-layer structured architecture. The network uses two SPIMs (l = 1, 2). Clamped inputs u1 are projected via Jin 1 , while remaining neurons couple through J1,2. Outputs u3 are nudged toward targets y.",
+      "page": 7
+    },
+    {
+      "image": "2606.13454_figures/2606.13454_fig5.jpg",
+      "caption": "FIG. 5. Schematic of the focal plane division method to encode multiple Mattis problems simultaneously on a single SPIM. (a) The Spatial Light Modulator is used to encode a series of Mattis problems and blazed gratings onto the optical beam’s phase profile, while (b) exploiting gauge encoding for spins and interaction coefficients. (c) A cylindrical lens fo- cuses the propagating beam in the x-direction. The induced phase shift from the blazed gratings creates a set of distinct spots on the camera plane (d). The intensity of each spot provides the value of the corresponding Mattis Hamiltonian.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.13454_figures/2606.13454_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 2,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 1,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 1,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 3,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

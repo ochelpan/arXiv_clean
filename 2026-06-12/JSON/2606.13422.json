@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2606.13422",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG",
+    "physics.flu-dyn"
+  ],
+  "is_primary_archive": true,
+  "title": "Foundations of Practical Quantum Advantage in Quantum-Informed Machine Learning for Predicting Chaos",
+  "authors": "Maida Wang, Xiao Xue, Minh Chung, Peter V. Coveney",
+  "abstract": "We develop theoretical foundations for a practical quantum-advantage mechanism in quantum-informed machine learning for chaotic dynamical systems. A family of k-indexed higher-order quantum statistical priors (Q-Priors) hosts the k-point marginal of the invariant measure on n_q = kq qubits, extending the single-site construction of prior work. We prove a two-stage advantage. In the representation stage, superposition and entanglement compactly store non-factorisable spatial correlations of the invariant measure on n_q qubits. In the extraction stage, joint Bell measurements on two copies estimate any post hoc Pauli functional with a copy-pair count independent of n_q, whereas any adaptive single-copy protocol for the corresponding full-Pauli read-out requires Omega(2^(n_q)) copies; this is a provable quantum-classical separation in copy-measurement complexity. The two-copy read-out is realised in simulation and on IQM superconducting processors. Two case studies instantiate the mechanism in workflows of independent scientific value: a turbulent channel-flow study in which the two-copy read-out yields a named non-diagonal correlator of the invariant measure (the velocity-direction coherence), and a medium-range weather forecasting workflow on the European Centre for Medium-Range Weather Forecasts ERA5 reanalysis in which the diagonal k <= 2 Q-Prior steers a Koopman rollout, improves anomaly-correlation skill by 10-39% across 48-240 h lead times, and reduces the long-horizon collapse of rollouts onto a static mean field. The two conditions of our practical-advantage definition are met at complementary levels, identifying a candidate route to practical quantum advantage before fault-tolerant hardware.",
+  "url": "http://arxiv.org/abs/2606.13422v1",
+  "pdf": "https://arxiv.org/pdf/2606.13422v1",
+  "type": "both",
+  "summary": "The paper proposes using Quantum-Informed Machine Learning (QIML) to improve forecasts of chaotic systems by encoding system statistics into a compact quantum prior. It proves a significant computational speedup by showing that joint Bell measurements on two copies can efficiently read out complex correlations, an advantage demonstrated in both fluid dynamics and weather forecasting simulations.",
+  "main_problem": "Developing a theoretically grounded, practical quantum advantage mechanism within Quantum-Informed Machine Learning (QIML) for predicting complex chaotic dynamical systems.",
+  "main_result": "The authors prove a two-stage advantage: using superposition/entanglement to compactly store non-factorizable correlations in a Q-Prior, and achieving an exponentially faster read-out of Pauli statistics via joint Bell measurements compared to classical single-copy protocols.",
+  "method": "They introduce k-indexed higher-order quantum statistical priors (Q-Priors) that encode the invariant measure's marginals. This is coupled with a classical Koopman rollout, constrained by the quantum prior information.",
+  "model_or_system": "The framework applies to chaotic systems like turbulent channel flow and medium-range weather forecasting using ERA5 data. The core computational element involves encoding system statistics into a quantum state on $n_q$ qubits.",
+  "key_observables": "Velocity-direction coherence (non-diagonal correlator in turbulence); Anomaly Correlation Coefficient (ACC) improvement of 10-39% in weather forecasting; provable separation in measurement copy complexity ($M_Q$ vs $M_C$).",
+  "important_parameters": "Number of qubits ($n_q=kq$), correlation order ($k$), and the required fidelity ($\\eta, \\delta$) for quantum advantage demonstration.",
+  "main_assumptions": "The existence of a well-defined invariant measure for the chaotic system; the ability to perform two-copy Bell measurements on superconducting hardware (IQM).",
+  "figures_summary": "Figures illustrate the comparison between quantum and classical copy costs, showing the exponential separation. One figure compares QIML results across different baselines for turbulent flow, highlighting directional coherence recovery.",
+  "paper_structure": "The paper establishes the theoretical foundation by defining the two-stage advantage (Representation $\rightarrow$ Extraction). It then validates this mechanism through two distinct case studies: turbulence (demonstrating non-diagonal correlation read-out) and ERA5 weather forecasting (improving long-term prediction skill via diagonal priors).",
+  "why_interesting": "This work directly addresses the interface between quantum computation and classical scientific modeling, providing a concrete, near-term pathway to demonstrating quantum advantage in complex physical simulations before fault-tolerant hardware is available.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13422_figures/2606.13422_fig1.jpg",
+      "caption": "FIG. 1. Two-stage quantum advantage architecture for QIML. Stage 1 is representation: a compact quantum register stores the Q-Prior (Appendix A, generalising [22]), whereas an explicit classical register or probability table loses the compression advantage. Stage 2 is extraction/read-out: Bell measurements on two copies of ρ(k) θ estimate post hoc Pauli statistics with MQ independent of nq at fixed accuracy and confidence. Adaptive single-copy read-out for the corresponding full Pauli task requires MC = Ω(2kq). The output is the numerical Q-Prior statistic used by the downstream classical model. The entire architecture is thus implemented as QIML [22].",
+      "page": 4
+    },
+    {
+      "image": "2606.13422_figures/2606.13422_fig2.jpg",
+      "caption": "FIG. 2. Post hoc Bell read-out of trained Q-Priors in simulation and on superconducting hardware. (A) Cryostat and qubit- connectivity maps of the two IQM Quantum Computers superconducting processors used: 20-qubit Garnet (nq ≤10) and 54-qubit Emerald (nq = 12–16); highlighted sites host the 2nq-qubit two-copy register. (B) Stage-2 extraction for the ERA5- trained Q-Prior in noiseless simulation: Bell estimates against exact |tr(Pρ)| for 22 diagonal and non-diagonal Paulis at a single nq, evaluated post hoc from a single Bell record of 1.2 × 105 copy pairs; shaded band ±η = 0.2 (distinct from the per-nq 8-observable test set tabulated in Appendix D). (C) Stage-1 representation for the prior...",
+      "page": 6
+    },
+    {
+      "image": "2606.13422_figures/2606.13422_fig3.jpg",
+      "caption": "FIG. 3. QIML on turbulent channel flow, a chaotic system that jointly closes Definition 1. (A) Velocity-direction phase field θ = arg(vx+ivy) of a representative snapshot (wall-normal y versus streamwise x), the intrinsic phase of the vector field, encoded one site per qubit. (B) Recurrent rollout in Lyapunov-time units (one step = 0.01 Lyapunov time): the ground truth and the QIML (Koopman with k ≤2 Q-Prior) prediction preserve the turbulent structure, whereas the Koopman-only, FNO and MNO baselines drift or collapse. The ground-truth and the Koopman/FNO/MNO baseline rollouts are from [22]; only the QIML rollout is computed here. (C) Directional coherence C(r) = |⟨ei(θA−θB)⟩| versus...",
+      "page": 8
+    },
+    {
+      "image": "2606.13422_figures/2606.13422_fig4.jpg",
+      "caption": "FIG. 4. QIML applied to weather forecasting. Panel A shows the QIML weather pipeline. Solid links represent the single-site and pairwise k ≤2 priors instantiated in the reported case study, connecting illustrative teleconnection nodes (e.g., PNA, NAO, MJO, IOD, SOI). Dashed higher-order links indicate k ≥3 Q-Prior extensions whose read-out tasks are covered by the theoretical results of this work. A parametrised quantum generator on nq = kq qubits is trained from samples so its induced low-order Q-Prior statistics match the data; the extracted Q-Prior statistics enter the Koopman autoregressive model through a differentiable statistical constraint. Panels B and C show representative Z500...",
+      "page": 9
+    }
+  ],
+  "figure": "2606.13422_figures/2606.13422_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 2,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.13045",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "A solvable model for unsupervised federated learning",
+  "authors": "Giovanni Catania, Aurélien Decelle, Gianluca Manzan, Beatriz Seoane, Daniele Tantari",
+  "abstract": "We introduce a theoretical framework for analyzing federated learning in a generative setting through a teacher-multiple interacting students scenario, in which each student receives a distinct realization of the data, either through a different noise corruption or by accessing a different subset, possibly of varying size. Using theoretical tools in equilibrium disordered system, we analytically show that interactions among students systematically enhance learning performance: highly noisy students require fewer samples to recover the underlying pattern, while low-noise students achieve a larger overlap with the ground-truth signal. We derive the optimal Bayesian conditions for teacher recovery as functions of the sample complexity, noise level, and interaction strength, and validate these predictions through numerical simulations. The resulting dynamics can be mapped onto equilibrium sampling in a Restricted Boltzmann Machine with a structured hidden layer, providing a principled theoretical understanding of how interactions improve distributed generative modeling.",
+  "url": "http://arxiv.org/abs/2606.13045v1",
+  "pdf": "https://arxiv.org/pdf/2606.13045v1",
+  "type": "theory",
+  "summary": "This theoretical work develops a framework using statistical physics tools to model federated learning as an inference problem. It analytically proves that interactions between students significantly boost the ability to recover a hidden generative signal from noisy, distributed data. The key insight is mapping this cooperative process onto equilibrium sampling in structured neural network models.",
+  "main_problem": "The paper analyzes how interactions among multiple students enhance learning performance when inferring an underlying generative teacher pattern from local, potentially noisy or incomplete data realizations in a federated setting.",
+  "main_result": "Cooperative student interactions are systematically beneficial, reducing the sample complexity required for recovery in high-noise regimes and enhancing overlap with the ground-truth signal compared to isolated learning.",
+  "method": "The analysis employs theoretical tools from equilibrium disordered systems, utilizing the replica trick to compute the quenched free energy density in the thermodynamic limit.",
+  "model_or_system": "The system models a teacher generating patterns (Mattis model) and multiple students receiving data via two mechanisms: student-dependent noise (SDN) or dataset partitioning (SDD). The interactions are captured by coupling terms in an extended Hamiltonian, mapped onto an RBM structure.",
+  "key_observables": "Magnetization ($m$), pairwise overlap ($q_{uv}$), critical sample complexity ($\\alpha_c$), and the free energy density $f(\\Lambda)$.",
+  "important_parameters": "Student number ($y$), coupling strength ($\\gamma$), noise levels ($r$), and data loads ($\\alpha_u$). The analysis explores limits like $y \to \\infty$ and $\\gamma \to \\infty$.",
+  "main_assumptions": "The derivation relies heavily on the Replica Symmetric (RS) ansatz for overlap matrices and various saddle-point approximations in the thermodynamic limit.",
+  "figures_summary": "Figures illustrate phase diagrams showing transitions between Paramagnetic, Signal-Retrieval, and Spin-Glass phases as a function of noise/data load. They compare coupled vs. isolated learning thresholds ($\\alpha_c$).",
+  "paper_structure": "The paper progresses by first establishing the general theoretical framework using disordered systems tools (replica trick), then analyzing specific scenarios like SDN and SDD, deriving order parameter equations via variational principles, and finally characterizing phase transitions by solving determinant conditions.",
+  "why_interesting": "While focused on ML, the mathematical machinery—using replica theory to analyze collective inference in complex interacting systems—is highly relevant to understanding glassy dynamics or pattern retrieval in quantum memory models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13045_figures/2606.13045_fig1.jpg",
+      "caption": "FIG. 1. Phase diagrams for the recovery of the teacher pattern from samples generated at ˆβ = 0.8, using data corrupted at different noise levels parametrized by r. (a) Working- alone (WA) scenario, in which students do not interact. The paramagnetic (P), spin-glass (SG), and signal-retrieval (sR) phases are indicated, with background colors corresponding to the uncorrupted data limit (r = 1) analyzed in [22, 26]. As the noise level increases (i.e., as r decreases), the sR phase progressively shifts toward larger values of α. (b) Homogeneous-corruption SDN scenario with corruption level r = 0.7. Different color lines indicate the retrieval region associated with varying numbers of students...",
+      "page": 3
+    },
+    {
+      "image": "2606.13045_figures/2606.13045_fig2.jpg",
+      "caption": "FIG. 3. First student’s magnetization (m1) heat-map for the 2-student interacting system at fixed inverse temperature β = 0.5 with baseline noise ˆβ = 0.8 for the SDD scenario. The heterogeneous dataset size effect is described by the magnetization values of the first student in the (α1, α2) plane, for two values of γ. (a): γ = 1; (b): γ = 4. A blue line denotes the sR transition of Eq.(4). The magnetization of student u = 2 has the same behavior upon the exchange α1 ↔α2.",
+      "page": 4
+    },
+    {
+      "image": "2606.13045_figures/2606.13045_fig3.jpg",
+      "caption": "FIG. 2. Comparison of the magnetization obtained from the replica computation (solid and dashed lines) with Monte Carlo (MC) simulations (shaded areas) for a two-student system using the SDN ansatz at β = 0.5, ˆβ = 0.8. (a) SDN-homogeneous ansatz (r = 0.7) and SDN-heterogeneous ansatz (r1 = r2 = 0.7) both with γ = 1, compared against the WA baseline at the same corruption rate (r = 0.7). (b) SDN-heterogeneous ansatz with asymmetric corruption (r1 = 0.7, r2 = 0.5) and γ = 1, compared against the WA baseline (r = 0.7). In both panels, the WA student requires larger values of α to retrieve the teacher. The effect of the coupling in the SDN-homogeneous case significantly reduces the retrieval...",
+      "page": 4
+    },
+    {
+      "image": "2606.13045_figures/2606.13045_fig4.jpg",
+      "caption": "FIG. 4. Representation of the RBM associated with the interacting teacher-student model. Each student can be represented as one RBM with weights ηu,µ i (red dotted lines) connecting visible (ξu i ) and hidden (x(u) µ ) units. Each ξu i is further connected via a second hidden unit zu to the other u-RBMs accounting for the cooperation term.",
+      "page": 5
+    },
+    {
+      "image": "2606.13045_figures/2606.13045_fig5.jpg",
+      "caption": "FIG. 5. Phase diagram of the 2-student interacting system with corruption coefficients r1 = 0.7, r2 = 0.5 for baseline noise set to ˆβ = 0.8. Left: γ = 1. In the paramagnetic (P) and spin-glass (SG) regions, recovering the teacher is impossible. For larger dataset sizes (α), the students enter the signal retrieval region (sR), where they learn by generalization. The compharison with the WA case shows the coupled model reduce the critical load αc w.r.t. the solo r = 0.7. Right: γ = 2. In this case the sR phase is enlarged, both at high temperature (the transition appears sooner than the γ = 1) and at low temperature. Bottom: On top of the same phase diagram of γ = 1 the red solid curve...",
+      "page": 19
+    }
+  ],
+  "figure": "2606.13045_figures/2606.13045_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 1,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 3,
+    "interference shaping light": 0,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

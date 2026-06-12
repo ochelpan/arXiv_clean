@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2606.13457",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "math.NA",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Reduced basis algorithm for solving nonlinear differential equations on quantum computers",
+  "authors": "Monica Lăcătuş, Matthias Möller, Sauro Succi",
+  "abstract": "As quantum computing moves toward scientific computing applications, nonlinear differential equations remain a central challenge since quantum evolution is intrinsically linear. In this work, we introduce a reduced basis algorithm (RBA) for polynomial nonlinear ordinary differential equations (ODEs) and spatially discretized partial differential equations (PDEs). After time discretization, the method composes the resulting polynomial update map over $m$ timesteps, identifies the reduced monomial basis appearing in this composed map, and constructs a linear RBA operator whose action recovers the exact $m$-timestep nonlinear dynamics. Thus, at the level of the chosen discrete update rule, the method introduces no additional approximation error beyond the time discretization error. The qubit number requirement is governed by the size of the reduced monomial basis. For an $n$-dimensional polynomial ODE system of degree $p>1$, the lifted register requires at most $q_m^{\\mathrm{ODE}} = O(nm\\log p)$ qubits in the full basis scenario. For PDEs discretized on $N^D$ grid points, a locality-based construction requires at most $q_m^{\\mathrm{PDE}} = O(D\\log N + n m^{D+1}\\log p)$ qubits. Hence, the dependence on the grid size remains logarithmic, while the nonlinear overhead is controlled by local reduced basis size. The main computational burden is moved from the quantum computer to a classical preprocessing step, where the reduced monomial basis and RBA operator are constructed for the chosen timestep window. Through numerical tests on the Lorenz system and the one-dimensional Burgers equation, we verify that the RBA reproduces the corresponding discrete time nonlinear dynamics exactly, while exposing the trade-off between timestep composition, reduced basis growth, and locality.",
+  "url": "http://arxiv.org/abs/2606.13457v1",
+  "pdf": "https://arxiv.org/pdf/2606.13457v1",
+  "type": "theory",
+  "summary": "This paper introduces a Reduced Basis Algorithm (RBA) designed to simulate nonlinear differential equations on quantum computers. It achieves this by linearizing the exact time-stepping map over multiple steps using only a reduced set of necessary monomials. The method successfully reproduces known classical solutions for models like the Lorenz and Burgers equations, demonstrating polynomial scaling in system size while keeping the error confined to the initial time discretization.",
+  "main_problem": "Developing efficient quantum algorithms to solve nonlinear differential equations (ODEs and PDEs), which is challenging because quantum evolution is intrinsically linear.",
+  "main_result": "The Reduced Basis Algorithm (RBA) successfully linearizes the exact discrete time-stepping map of nonlinear dynamics, allowing it to be represented by a linear operator acting on a reduced monomial basis.",
+  "method": "The method involves composing the polynomial update map over $m$ timesteps and then constructing an equivalent linear RBA operator that acts only on a significantly smaller, reduced set of necessary monomials.",
+  "model_or_system": "The approach is tested on canonical nonlinear systems like the Lorenz system (ODE) and the viscous Burgers equation (PDE). The core mechanism applies to any polynomial nonlinear ODE or PDE discretized via methods like the explicit Euler scheme.",
+  "key_observables": "State vector $z(t)$, post-selection success probability ($p_{\text{succ}}$), and the required qubit count for encoding the reduced basis operator.",
+  "important_parameters": "The number of timesteps ($m$), the dimensionality ($n$ or $D$), the polynomial degree ($p$), and the grid size ($N$).",
+  "main_assumptions": "The primary assumption is that the nonlinear dynamics can be accurately represented by a polynomial whose necessary monomials are sparse enough to allow for basis reduction. The error introduced is limited only to the underlying time discretization scheme.",
+  "figures_summary": "Figures show phase-space trajectories confirming that the RBA solution matches standard finite-difference Euler solutions, and plots illustrate the dramatic reduction in required monomial basis dimensions when using the reduced basis compared to the full basis.",
+  "paper_structure": "The paper introduces the RBA framework for both ODEs and PDEs, details the construction of local/global operators, validates the method on the Lorenz system (ODE), extends it to the Burgers equation (PDE), and discusses scaling improvements via variable rescaling.",
+  "why_interesting": "It provides a concrete, polynomial-scaling quantum algorithm blueprint for simulating complex nonlinear dynamics that are central to many areas of AMO physics, such as plasma or fluid simulations, overcoming the limitations of direct Hamiltonian simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13457_figures/2606.13457_fig1.jpg",
+      "caption": "FIG. 1. Numerical verification of the RBA representation for the Lorenz system, where the reference solution is obtained by the clas- sical explicit Euler method. The two phase-space trajectories agree up to floating-point round-off.",
+      "page": 11
+    },
+    {
+      "image": "2606.13457_figures/2606.13457_fig2.jpg",
+      "caption": "FIG. 2. Block-encoding post-selection success probability for the Lorenz RBA operator as a function of the number of composed timesteps m. The unscaled representation uses the physical variables directly, while the scaled representation constructs the RBA map in normalized variables.",
+      "page": 12
+    },
+    {
+      "image": "2606.13457_figures/2606.13457_fig3.jpg",
+      "caption": "FIG. 3. Numerical verification of the local RBA construction for the one-dimensional viscous Burgers equation. The solution is evolved to T = 0.4 from u(x,0) = sinx using N = 256, ν = 0.03, and h = 0.0025. The RBA solution is obtained by applying the m = 2 local lifted representation over successive two-timestep windows, with the lifted variables reconstructed from the current state at the beginning of each window. The reference solution is given by the standard finite-difference Euler implementation. The two profiles agree up to floating-point round-off.",
+      "page": 16
+    }
+  ],
+  "figure": "2606.13457_figures/2606.13457_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

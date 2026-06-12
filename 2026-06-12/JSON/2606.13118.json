@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.13118",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hamiltonian-Aware ADAPT Variational Quantum Eigensolver for Molecular Ground-State Simulation",
+  "authors": "Runhong He, Chao Liu, Xin Hong, Qiaozhen Chai, Junyuan Zhou, Ji Guan, Guolong Cui, Shenggang Ying",
+  "abstract": "Designing compact ansätze in Variational Quantum Eigensolver (VQE) is crucial for solving energetic problems of practical molecules on near-term quantum devices. However, existing Adaptive Derivative-Assembled Pseudo-Trotter (ADAPT) ansätze face two challenges: improper operator selection and accumulation of degraded operators. In this paper, we propose the Hamiltonian-Aware (HA) ADAPT-VQE algorithm to address these issues. First, we establish a novel excitation operator selection criterion. It breaks the local constraint of existing criteria by incorporating Hamiltonian information, prioritizes physically meaningful excitation operators, and incurs no extra classical or quantum computational overhead. Furthermore, we develop a problem-adaptive method for discriminating and pruning redundant excitation operators stemming from improper selection and inevitable degradation. This method balances redundant operator pruning and convergence guarantee, and is applicable to ansätze with arbitrary scales. Systematic numerical experiments on typical strongly correlated molecular systems demonstrate that our HA-ADAPT-VQE avoids energy plateaus and outperforms baseline algorithms in terms of energy error, ansatz size, and measurement cost. This work offers an efficient, robust ansatz construction paradigm, facilitating the development and practical deployment of large-scale VQE in quantum chemistry.",
+  "url": "http://arxiv.org/abs/2606.13118v1",
+  "pdf": "https://arxiv.org/pdf/2606.13118v1",
+  "type": "theory",
+  "summary": "The paper introduces Hamiltonian-Aware ADAPT-VQE, an advanced algorithm designed to improve the construction of quantum circuits for molecular ground-state energy calculations. By incorporating explicit knowledge of the underlying molecular Hamiltonian into operator selection and refining pruning techniques, it achieves superior accuracy while drastically reducing computational overhead compared to current state-of-the-art methods.",
+  "main_problem": "The core challenge is designing compact, efficient quantum circuits (ansätze) for Variational Quantum Eigensolver (VQE) to accurately simulate the ground-state energy of practical molecules on near-term quantum hardware.",
+  "main_result": "The proposed Hamiltonian-Aware ADAPT-VQE algorithm significantly outperforms existing methods by achieving higher accuracy with smaller ansätze and drastically reduced measurement costs for molecular systems like H2O and BeH2.",
+  "method": "It introduces a novel operator selection criterion that incorporates local Hamiltonian information, moving beyond simple parameter magnitude checks. It also implements a problem-adaptive pruning strategy to maintain ansatz compactness while guaranteeing convergence.",
+  "model_or_system": "The study focuses on molecular electronic structure simulation using the molecular Hamiltonian ($\\hat{H}$) in second quantization form. The methods are benchmarked across small molecules (BeH2, H2O, NH3) at stretched bond lengths to induce strong electron correlation.",
+  "key_observables": "Variational energy error (compared to FCI), ansatz size (number of operators), and measurement cost (total number of fermionic Hamiltonian terms evaluated).",
+  "important_parameters": "Chemical precision threshold ($10^{-3}$ Hartree); the coupling strength derived from the Hamiltonian coefficients, $|h_{a_i}\\sin(2\theta^*_i)|$.",
+  "main_assumptions": "The primary approximations involve using the UCCSD ansatz structure and assuming that incorporating local Hamiltonian information provides a sufficient guide for operator selection.",
+  "figures_summary": "Figures compare energy error vs. ansatz size/measurement cost across algorithms; Figure 4 compares parameter magnitudes ($\theta^*_i$ vs. $|h_i \\sin(2\theta^*_i)|$) to show the benefit of Hamiltonian awareness; Figure 5 illustrates the effectiveness of operator pruning.",
+  "paper_structure": "The paper first establishes the limitations of existing ADAPT-VQE variants (ADAPT, Param-ADAPT) regarding locality and plateaus. It then details the HA-ADAPT-VQE algorithm, which integrates Hamiltonian information into selection and adds an adaptive pruning step. Finally, it presents systematic numerical experiments on multiple molecules comparing performance metrics.",
+  "why_interesting": "This work directly addresses resource constraints (circuit depth/measurement count) in quantum chemistry simulations, providing a physically informed method to build complex ansätze necessary for simulating strongly correlated electronic systems relevant to AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13118_figures/2606.13118_fig1.jpg",
+      "caption": "Figure 1: Excitation operators are divided into three categories according to their parameter magnitudes and positions: (1) Operators with parameter mag- nitudes exceeding the predefined threshold are non- redundant (marked in blue); (2) Operators below the threshold and located before the last non-redundant operator are redundant candidates and can be re- moved (marked in red); (3) The remaining operators are tentatively retained to guarantee iterative conver- gence (marked in yellow).",
+      "page": 4
+    },
+    {
+      "image": "2606.13118_figures/2606.13118_fig2.jpg",
+      "caption": "Figure 2: Schematic comparison of ADAPT-VQE and the proposed HA-ADAPT-VQE. Unique modules are highlighted in blue (ADAPT-VQE) and orange (HA-ADAPT-VQE), whereas shared operations are colored green. Their core differences lie in (1) the operator selection criterion and (2) the ansatz pruning step. The sub-Hamiltonian based local VQE optimization and hot-starting techniques, inherited from Param-ADAPT- VQE, are introduced to reduce measurement overhead.",
+      "page": 6
+    },
+    {
+      "image": "2606.13118_figures/2606.13118_fig3.jpg",
+      "caption": "Figure 3: (a−c) Evolution of energy error with iteration count; (d−f) corresponding measurement cost as a function of energy error for BeH2, H2O, and NH3 at uniformly stretched bond lengths of 2.25, 2.40, and 2.40 Å, respectively.",
+      "page": 8
+    },
+    {
+      "image": "2606.13118_figures/2606.13118_fig4.jpg",
+      "caption": "Figure 4: Comparison of |θ∗ i | and weighted |hi sin(2θ∗ i )| for several excitation operators at the 6th iteration of HA-ADAPT-VQE (see Figure 3(b)). Op- erators are sorted by |θ∗ i |.",
+      "page": 9
+    },
+    {
+      "image": "2606.13118_figures/2606.13118_fig5.jpg",
+      "caption": "Figure 3(f) shows that Param-ADAPT-VQE con- sumes the highest measurement cost of 1.28 × 1010",
+      "page": 9
+    }
+  ],
+  "figure": "2606.13118_figures/2606.13118_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

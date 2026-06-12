@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.12770",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.flu-dyn"
+  ],
+  "is_primary_archive": true,
+  "title": "Explicit Quantum Circuit Simulation of Nonlinear 1-Dimensional Fluid with Carleman-linearized Boltzmann Method",
+  "authors": "Keita Kanno, Kazumasa Ueno, Hayato Higuchi, Morimasa Okamoto, Yuya Yoshizuru, Ryoya Ishimaru, Towa Takagi, Kentaro Sakamoto",
+  "abstract": "Quantum computation of fluid dynamics has attracted growing attention as a key application of fault-tolerant quantum computers anticipated in the coming decade, with lattice Boltzmann methods emerging as a particularly promising approach. Explicit and efficient elementary-gate-level circuit simulations, however, have so far been demonstrated only in the linear case. Here we include the leading nonlinearity through second-order Carleman linearization of the one-dimensional Boltzmann equation, and demonstrate, via explicit quantum-circuit simulation, the preparation of the final-time state using a Taylor-expansion-based ODE solver based on the quantum singular value transformation. With this construction, we analyze the gate and qubit complexities, which scale logarithmically with the grid size, the nonlinearity captured by the higher-order Carleman linearization, and the practical utility of higher-order expansions in the Taylor ODE solver. The construction provides a concrete baseline for computational cost reduction and further developments such as extensions to higher dimensions, complex geometries, and the extraction of physical quantities, towards industrially useful quantum CFD.",
+  "url": "http://arxiv.org/abs/2606.12770v1",
+  "pdf": "https://arxiv.org/pdf/2606.12770v1",
+  "type": "theory",
+  "summary": "The paper details the simulation of nonlinear fluid dynamics using an explicit quantum circuit approach. It tackles the nonlinearity by employing Carleman linearization on the Boltzmann equation, transforming it into a solvable linear ODE system. The time evolution is then computed efficiently using Quantum Singular Value Transformation (QSVT), providing detailed complexity analysis for future quantum CFD applications.",
+  "main_problem": "The primary goal is to simulate the complex, nonlinear dynamics of a one-dimensional fluid governed by the Boltzmann equation using quantum computation.",
+  "main_result": "The authors successfully constructed explicit quantum circuits that encode the time evolution matrix for the linearized system, demonstrating scaling laws and achieving high accuracy compared to classical benchmarks.",
+  "method": "The approach combines Carleman linearization of the nonlinear Boltzmann equation into a linear ODE, which is then solved using a Taylor expansion-based Ordinary Differential Equation (ODE) solver implemented via Quantum Singular Value Transformation (QSVT).",
+  "model_or_system": "The system models a 1D fluid dynamics problem, utilizing the Lattice Boltzmann Method framework. The nonlinearity is handled by approximating $1/\rho$ and linearizing the resulting ODE using Carleman expansion up to second or third order.",
+  "key_observables": "Gate and qubit complexities (scaling logarithmically with grid size), effective condition number $\\kappa(L)$, and pointwise residual error compared to the continuous BGK reference solution.",
+  "important_parameters": "Grid size ($N_x$), time steps ($N_t$), Carleman truncation order ($N_C=2, 3$), and Taylor expansion order ($N_K$).",
+  "main_assumptions": "The core assumptions involve the validity of the Taylor approximation for $1/\rho$ around $\rho=1$, and the convergence properties of the Carleman linearization method.",
+  "figures_summary": "Figures illustrate the block-encoding quantum circuit structures ($O_{A11}, O_{A12}$), the general time-evolution matrix structure ($U_L$), and various error analyses comparing simulation results against classical reference solutions across different truncation orders.",
+  "paper_structure": "The paper systematically builds the quantum simulation by first linearizing the nonlinear PDE (Carleman method), then discretizing the resulting ODE into a matrix form, and finally implementing the time evolution operator using block-encoded oracles within QSVT circuits.",
+  "why_interesting": "This work provides a concrete roadmap for applying advanced quantum algorithms (QSVT) to solve complex, non-equilibrium many-body dynamics problems that are central to condensed matter physics, moving beyond simple linear Hamiltonians.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.12770_figures/2606.12770_fig1.jpg",
+      "caption": "FIG. 3. Oracle circuit OA11 for the first-order Carleman matrix. SWAP denotes bitwise SWAP between registers, blank hexagons means that the register is a control (with some condition) for the gate, hexagons with a value in it means that the gate is applied conditioned on the register being in that value. RY gate symbols may collectively represent multiple applications of RY with different angles, depending on the values in the registers. Xbb is the bounce-back velocity reversal applied on the lowest bit. Other details are in the main text.",
+      "page": 6
+    },
+    {
+      "image": "2606.12770_figures/2606.12770_fig2.jpg",
+      "caption": "FIG. 4. Oracle circuit OA12. SWAP denotes bitwise SWAP between registers, blank hexagons means that the register is a control (with some condition) for the gate, hexagons with a value in it means that the gate is applied conditioned on the register being in that value. The RY gate symbol collectively represent multiple applications of RY with different angles, depending on the values in the registers. Xbb is the bounce-back velocity reversal applied on the lowest bit. The final SWAP gate is a one-bit swap between bit 1 of |·⟩i1 and bit 0 of |·⟩q2. Other details are in the main text.",
+      "page": 7
+    },
+    {
+      "image": "2606.12770_figures/2606.12770_fig3.jpg",
+      "caption": "FIG. 5. Oracle circuit OA for the second-order Carleman block encoding. Hexagons with a value in it means that the gate is applied conditioned on the register being in that value.",
+      "page": 7
+    },
+    {
+      "image": "2606.12770_figures/2606.12770_fig4.jpg",
+      "caption": "FIG. 6. Block encoding circuit UL for the L-matrix (NK = 3, nk = 2). Blank hexagons means that the register is a control (with some condition) for the gate, hexagons with a value in it means that the gate is applied conditioned on the register being in that value, while bold 1 means all-1’s in the register, i.e., 1 = 2nA i −1. RY gate symbols may collectively represent multiple applications of RY with different angles, depending on the values in the registers. Other details are in the main text.",
+      "page": 10
+    },
+    {
+      "image": "2606.12770_figures/2606.12770_fig5.jpg",
+      "caption": "FIG. 7. QSVT circuit for polynomial transformation of the block-encoded L-matrix. Hexagons with 0 in it means that the gate is applied conditioned on the register being all-0’s. The signal-processing qubit (top wire) is acted upon by dQSVT+1 phase rotations eiϕjZ, interleaved with alternating applications of UL and U † L. The ancilla register |0⟩a includes all ancilla qubits of the L-matrix block encoding (row labels |·⟩iA and |·⟩iL, and target |0⟩t). The system register |ψ⟩encodes the time-step, spatial, and velocity indices.",
+      "page": 10
+    }
+  ],
+  "figure": "2606.12770_figures/2606.12770_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

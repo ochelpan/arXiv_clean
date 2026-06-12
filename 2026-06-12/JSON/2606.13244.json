@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2606.13244",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Coupling-Grouped XY-QAOA for Joint Anomaly-Feature Selection",
+  "authors": "Pauli Taipale",
+  "abstract": "Selecting anomalous samples and explanatory features under fixed budgets defines a coupled constrained-optimization problem. Sequential feature-first selection ranks features before choosing samples, which can overlook features whose utility depends on which samples are selected, especially when scores are calibrated from reference data that may be limited, noisy, or drifting. We instead formulate the task as joint sample-feature selection under the same fixed counts. In the analyzed formal model, calibration-error sensitivity grows linearly with the number of samples for feature-first ordering but stays constant for joint selection. We introduce Coupling-Grouped XY-QAOA, a constraint-preserving grouped-angle variant for the resulting optimization problem. On matched sparse IBM Heron R3 benchmarks, a hardware-aware implementation reduces circuit depth by 45.9%-61.3% and two-qubit gates by 2.6%-5.2% relative to Qiskit optimization level 3 on the CZ-basis target. It enables, to our knowledge, the largest reported width-depth configurations for constraint-preserving bipartite-selection QAOA hardware executions with feasible-sector retention: 64 qubits at p=2 and 36 qubits at p=3. The 20-qubit p=5 runs retain 63% valid samples. Across 36-64 qubits, fixed-angle runs yield lower-energy feasible samples than matched random-feasible sampling. Warm starts reduce the gap to strict-feasible classical references by 57.5%-80.5%, and near-budget repair matches the sparse classical reference at 36 qubits. Benchmarks show gains in balanced fixed-budget regimes, and noiseless simulations show that problem-structured angle grouping improves over same-depth XY-QAOA and matched-parameter, type-preserving randomization controls. Overall, the results support calibrated joint selection and hardware-realizable constrained-mixer execution in the tested regimes.",
+  "url": "http://arxiv.org/abs/2606.13244v1",
+  "pdf": "https://arxiv.org/pdf/2606.13244v1",
+  "type": "both",
+  "summary": "The paper tackles joint anomaly and feature selection by formulating it as a constrained optimization problem solvable via QAOA. It introduces Coupling-Grouped XY-QAOA, a specialized quantum circuit variant that maintains strict budget constraints while significantly reducing required quantum resources on real hardware. The results validate the method's effectiveness for large-scale, resource-limited quantum computation.",
+  "main_problem": "The paper addresses joint anomaly-feature selection, a constrained optimization problem that is superior to sequential feature-first methods because it accounts for the mutual dependence between selected samples and features.",
+  "main_result": "The proposed Coupling-Grouped XY-QAOA method achieves significant hardware resource reductions (up to 61.3% depth reduction) on IBM Heron R3, demonstrating feasibility for large-scale constrained bipartite selection problems.",
+  "method": "It formulates the problem as a QUBO/Ising model and optimizes it using a specialized QAOA variant called Coupling-Grouped XY-QAOA (CG-XY-QAOA), which is designed to preserve exact cardinality constraints on quantum hardware.",
+  "model_or_system": "The optimization targets selecting subsets of anomalous samples ($S$) and explanatory features ($F$) subject to fixed budgets ($k, m$). The physical platform is the IBM Heron R3 superconducting qubit processor, utilizing a constrained-mixer QAOA ansatz.",
+  "key_observables": "Circuit depth reduction (45.9%-61.3%), two-qubit gate reduction (2.6%-5.2%), feasibility retention rates at high qubit counts (e.g., 64 qubits at p=2), and the objective energy gap relative to classical references.",
+  "important_parameters": "Fixed budgets $k$ and $m$; QAOA depth parameter $p$; hardware connectivity constraints; weight balancing parameter $\rho$.",
+  "main_assumptions": "The method assumes that the problem can be accurately mapped to a QUBO Hamiltonian, and it relies on specific hardware-aware ansatzes (like Block XY mixer) to enforce budget constraints without penalty terms.",
+  "figures_summary": "Figures illustrate circuit structures for different QAOA variants (e.g., tensor-Dicke initialization), resource scaling sweeps across qubit counts, and comparisons of performance metrics like BK hit rates and energy gaps between grouped vs. tied scheduling.",
+  "paper_structure": "The paper progresses from establishing the theoretical necessity of joint selection over sequential methods, deriving the constrained QUBO Hamiltonian, proposing the CG-XY-QAOA ansatz for constraint preservation, and finally validating this approach through extensive benchmarking on IBM Heron R3 hardware across varying qubit counts and depths.",
+  "why_interesting": "This work provides a concrete, resource-aware quantum algorithm implementation (CG-XY-QAOA) for a highly relevant data science problem (anomaly detection), directly addressing the practical challenges of mapping complex constraints onto near-term NISQ hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13244_figures/2606.13244_fig1.jpg",
+      "caption": "Figure 1: Logical CG-XY-QAOA circuit for exact-budget bipartite selection (p = 1 layer). The example uses N = 4, k = 2, D = 3, m = 1 with tensor-Dicke initialization. Hardware runs use the feasible-basis and classical warm-start initialization specializations in Section 4.3. The diagonal cost layer contains sample/feature fields and retained bilinear RZZ rotations, followed by independent Block XY mixers that preserve each register’s Hamming weight. For p > 1, cost and mixer layers repeat with the parameterization in Table 1.",
+      "page": 14
+    },
+    {
+      "image": "2606.13244_figures/2606.13244_fig2.jpg",
+      "caption": "Figure 2: Fully grouped cost-plus-mixer CG-XY-QAOA gives positive same-depth noiseless score lift in every plotted perturbation cell. The panel reports ∆α = αfully grouped −αtied over the planted-bicluster depth sweep over signal strength µ, where α = ( ¯C −E[C])/( ¯C −C⋆) equals one at the exact feasible optimum and zero at the unconstrained-uniform reference. Full pooled α values are reported in Supplementary Section S9.1.",
+      "page": 20
+    },
+    {
+      "image": "2606.13244_figures/2606.13244_fig3.jpg",
+      "caption": "Figure 3: Sparse-cost scaling across hardware targets. Hardware-aligned cost layouts reduce submitted two-qubit resources across the IQM Emerald square-lattice and IBM Heron R3 heavy- hex targets. Each point is the median over 20 transpiler seeds. Bands show interquartile ranges.",
+      "page": 22
+    },
+    {
+      "image": "2606.13244_figures/2606.13244_fig4.jpg",
+      "caption": "Figure 4: Implementation-path scaling on hardware-aligned sparse benchmark circuits. All curves use the same retained cost terms, preselected hardware patch, initial layout, basis initialization, bilinear-CG parameterization, representative fixed angles, physical backend, and transpiler seed. The curves compare Opt-3 on the standard CZ-basis target, Opt-3 on the fractional-gate target, and paths that add Block XY fusion and edge-colored transport ordering. The fractional paths use the fractional-gate target and submit RZZ two-qubit gates. The two-qubit-gate panels group paths that coincide in submitted two-qubit count into CZ-basis and fractional-gate classes. Across these matched circuits,...",
+      "page": 22
+    }
+  ],
+  "figure": "2606.13244_figures/2606.13244_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

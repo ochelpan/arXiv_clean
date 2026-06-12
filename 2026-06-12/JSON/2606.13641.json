@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.13641",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Generalized two-qubit Hamiltonian for Projective Quantum Feature Maps",
+  "authors": "Rafael Simões do Carmo, Edson Amaro Junior, Felipe Fanchini",
+  "abstract": "Projected quantum feature maps provide a strategy for using quantum processors as feature generators for classical machine-learning models. Building on counterdiabatic Ising-glass and one-dimensional Heisenberg PQFMs, we introduce a generalized two-qubit Hamiltonian-based PQFM that provides a unified way to encode classical features through local Pauli fields and pairwise two-qubit Pauli interactions. This construction allows distinct classical variables to be embedded along different Pauli axes of the same qubit, increasing the information density of shallow circuits while remaining compatible with hardware constraints. We develop and implement these methods in pqfmlib, a publicly available Python library for constructing, executing, and benchmarking Hamiltonian-based PQFMs.We then benchmark the generalized Hamiltonian PQFMs against reference PQFMs on four biomedical classification datasets under a nested cross-validation protocol with paired statistical tests. Quantum features are generated using both IBM quantum processors with up to 156 qubits and statevector simulations. Our results show that the generalized two-qubit Hamiltonian family provides the most consistent pattern of statistically supported gains over matched classical baselines, although the performance of all methods depends on the dataset, encoding strategy, measured observables, and hardware conditions. These findings support generalized Hamiltonian PQFMs as a promising route toward near-term quantum utility.",
+  "url": "http://arxiv.org/abs/2606.13641v1",
+  "pdf": "https://arxiv.org/pdf/2606.13641v1",
+  "type": "experiment",
+  "summary": "The paper proposes and rigorously tests generalized two-qubit Hamiltonian Projected Quantum Feature Maps (PQFMs) as an advanced method to encode classical data features onto quantum circuits. By allowing multiple feature encodings per qubit axis, the framework increases information density while remaining hardware-compatible. The results demonstrate that these generalized maps offer a promising pathway for achieving measurable performance gains in quantum machine learning tasks.",
+  "main_problem": "The core problem is generating high-quality, explicit classical features from quantum states using quantum processors for use in classical machine learning models.",
+  "main_result": "A generalized two-qubit Hamiltonian family of Projected Quantum Feature Maps (PQFMs) provides a promising and consistent route toward achieving statistically supported gains over matched classical baselines on biomedical datasets.",
+  "method": "The authors construct PQFMs by defining data-dependent Hamiltonians that evolve the quantum state, followed by measuring local Pauli expectation values to extract explicit classical features.",
+  "model_or_system": "The models are based on generalized two-qubit Hamiltonian structures (e.g., XYZ type) applied to qubits, extending previous work like CD-Ising-glass and Heisenberg maps. The feature encoding allows for multi-axis assignment of classical variables onto the Pauli axes of the qubits.",
+  "key_observables": "Local single-qubit ($\\langle \\sigma^a_j \rangle$) and two-qubit ($\\langle \\sigma^a_j \\sigma^b_k \rangle$) Pauli expectation values, which form the explicit classical feature vector $x'$.",
+  "important_parameters": "The analysis is performed across multiple biomedical datasets (e.g., Molecular Toxicity, Breast Cancer), varying qubit counts (up to 156), and different Hamiltonian structures (diagonal, cross-axis, full).",
+  "main_assumptions": "Performance gains are shown to be highly dependent on the specific dataset, the chosen encoding strategy, the measured observables, and the underlying hardware conditions.",
+  "figures_summary": "Figures illustrate circuit representations of PQFMs for various qubit counts and feature map types (e.g., single-layer diagonal XYZ PQFM). Tables summarize quantitative performance metrics (AUC, F1) across multiple datasets and QPU architectures.",
+  "paper_structure": "The paper introduces the generalized Hamiltonian framework, details multi-axis encoding strategies, benchmarks these maps against established methods on several biomedical classification tasks using nested cross-validation, and concludes by assessing empirical quantum utility.",
+  "why_interesting": "This work bridges condensed matter physics concepts (Hamiltonian engineering, spin models) with applied machine learning, providing a concrete framework for mapping complex physical interactions into feature spaces relevant for near-term quantum computation benchmarking.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13641_figures/2606.13641_fig1.jpg",
+      "caption": "Figure 1: Circuit representation of a CD-Ising-glass with eight features mapped onto a four-qubit register. After initialization with Hadamard gates, each encoding layer applies local rotations Ry(2θi) followed by two-qubit interaction blocks UY Z+ZY (θij). The local angles encode the one-body fields hi, which are assigned from normalized classical input features, while the interaction angles encode the couplings Jij, obtained from pairwise feature correlations, here estimated through mutual information, as defined in Eq. 20. The multilayer structure enables multi-feature encoding on a fixed qubit register by assigning different feature blocks to successive encoding layers. The feature...",
+      "page": 4
+    },
+    {
+      "image": "2606.13641_figures/2606.13641_fig2.jpg",
+      "caption": "Figure 2: Example of the 4-qubit encoding 3 features using Heisenberg PQFM. Each qubit first undergoes a local Haar- random unitary transformation, denoted by U1, . . . , U4. The entangling stage, grouped here as Block 1, then applies the sequence of two-qubit rotations RZZ, RY Y , and RXX to the disjoint pairs (q0, q1) and (q2, q3), followed by the same se- quence on the central pair (q1, q2). More blocks can be added for encoding more features. The corresponding rotation an- gles are denoted by θ0, θ1, and θ2, where θi = 2γηi, γ is a scaling parameter, and ηi is defined in Eq. 24.",
+      "page": 6
+    },
+    {
+      "image": "2606.13641_figures/2606.13641_fig3.jpg",
+      "caption": "Figure 3: Circuit representation of a of a single-layer diagonal XYZ PQFM with twelve features mapped onto a four-qubit register by a multi-axis feature encoding. After Hadamard initialization, each qubit receives three local rotations, Rx, Ry, and Rz, allowing three distinct normalized classical features to be encoded per qubit through the active Pauli axes. The subsequent two-qubit rotations implement the diagonal interaction channels XX, Y Y , and ZZ, with angles determined by mutual-information coefficients between the features assigned to the corresponding qubit-axis slots. The nearest-neighbor chain shown here is illustrative; in the hardware-aware implementation, the interaction...",
+      "page": 8
+    },
+    {
+      "image": "2606.13641_figures/2606.13641_fig4.jpg",
+      "caption": "Figure 4: Nested validation protocol used for model selection and external performance estimation.",
+      "page": 10
+    },
+    {
+      "image": "2606.13641_figures/2606.13641_fig5.jpg",
+      "caption": "Figure 5: Paired statistical improvements over the classical baseline for the Molecular Toxicity dataset. Panel (a) shows the CD-Ising-glass PQFM, panel (b) the Heisenberg map, and panel (c) the XYZ feature-map family introduced in this work. The plotted intervals correspond to the mean paired deltas and 95% confidence intervals. Colors indicate the qubit budget used in each configuration, with blue, orange, and green corresponding to 52, 78, and 156 qubits, respectively. The labels in parentheses indicate the measured observable used to extract the corresponding quantum features. Unless otherwise annotated, results correspond to ibm_kingston; panel (b) uses ibm_marrakesh.",
+      "page": 11
+    }
+  ],
+  "figure": "2606.13641_figures/2606.13641_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 1,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 3,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.13010",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QuBE/Qubex: an integrated hardware-software system for superconducting qubit experiments with broadband control",
+  "authors": "Akinori Machino, Kazuhisa Ogawa, Takefumi Miyoshi, Hidehisa Shiomi, Shinichi Morisaka, Ryo Matsuda, Nilton F. G. Filho, Koichiro Ban, Takafumi Miyanaga, Keisuke Koike, Ryutaro Ohira, Toshi Sumida, Yoshinori Kurimoto, Yuuya Sugita, Yosuke Ito, Yasunari Suzuki, Peter A. Spring, Shiyu Wang, Hiroto Mukai, Arvind Mamgain, Shuhei Tamate, Yutaka Tabuchi, Yasunobu Nakamura, Makoto Negoro",
+  "abstract": "Achieving high-fidelity operation in large-scale superconducting qubit systems requires not only control hardware with broad frequency coverage, low crosstalk, and tight synchronization but also software that coordinates system configuration, experiment execution, and data analysis. Here we present an integrated qubit-control system that combines broadband microwave hardware with a pulse-level software stack for scalable superconducting qubit experiments. The hardware provides broadband microwave coverage, including an instantaneous span of up to 1.6 GHz from a control output, while the software reduces setup and calibration overhead through automated configuration and built-in experiment workflows. We validate the system on a 64-qubit fixed-frequency transmon chip through full-chip frequency identification and representative demonstrations, including multi-unit far-detuned cross-resonance calibration and benchmarking that yields a measured two-qubit gate fidelity of 98.34%, and multilevel readout beyond the computational subspace. By disclosing the hardware architecture and releasing the software stack as open source, this work provides an inspectable hardware-software foundation for scalable superconducting qubit control experiments.",
+  "url": "http://arxiv.org/abs/2606.13010v1",
+  "pdf": "https://arxiv.org/pdf/2606.13010v1",
+  "type": "experiment",
+  "summary": "The paper introduces QuBE/Qubex, a comprehensive hardware-software system designed to control large superconducting qubit arrays. It details how this integrated stack automates complex tasks like broadband calibration and multilevel readout on 64 qubits. This work significantly advances the engineering feasibility of scaling quantum computation by providing an open, functional platform.",
+  "main_problem": "The core challenge is achieving high-fidelity, scalable quantum operations on large superconducting qubit arrays by integrating complex control hardware with sophisticated software orchestration.",
+  "main_result": "The integrated QuBE/Qubex system successfully demonstrated multi-unit far-detuned cross-resonance calibration and multilevel readout fidelity exceeding 95%, validating a robust platform for scaling superconducting qubits.",
+  "method": "The authors employed an automated, layered software stack (Qubex) to manage hardware resources (QuBE), enabling complex characterization routines like Hamiltonian tomography and randomized benchmarking on a 64-qubit chip.",
+  "model_or_system": "The platform is a 64-qubit fixed-frequency transmon superconducting qubit chip. The control system uses broadband microwave electronics capable of generating signals across multiple GHz spans, synchronized via shared clock references.",
+  "key_observables": "Measured two-qubit gate fidelity (98.34%), multilevel readout state assignment fidelity ($\bar{F}$), and phase stability standard deviations ($\\sigma < 0.456^\\circ$).",
+  "important_parameters": "Instantaneous frequency span up to 1.6 GHz; operating temperature range from room temperature down to mK levels.",
+  "main_assumptions": "The system assumes the ability to map abstract quantum operations onto specific, resolved microwave hardware settings (LO, CNCO, FNCO, AWG) via a systematic decomposition formula.",
+  "figures_summary": "Figures detail the hardware architecture (QuBE rack), the software control stack mapping, frequency allocation maps of the 64-qubit chip, and measurement results like phase stability traces and gate fidelity benchmarks.",
+  "paper_structure": "The paper progresses from introducing the need for integrated control to detailing the layered Qubex software model, characterizing hardware capabilities (broadband output, signal integrity), demonstrating advanced measurements (CR calibration, multilevel readout), and finally benchmarking performance on a large-scale chip.",
+  "why_interesting": "This work provides an industrial-grade blueprint for scaling quantum processors by solving the critical interface problem between complex analog microwave electronics and high-level digital control logic, which is highly relevant to open quantum systems research.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13010_figures/2606.13010_fig1.jpg",
+      "caption": "FIG. 1. System overview. (a) Photograph of the implemented QuBE control system. (b) Schematic of the hardware–software control stack used in this work. The Qubex software framework maps user-facing workflows through its experiment, measure- ment, pulse, and system layers, while the QuBE hardware platform provides clock distribution and synchronization, mi- crowave signal generation, and readout capture for quantum processing unit (QPU) operation.",
+      "page": 2
+    },
+    {
+      "image": "2606.13010_figures/2606.13010_fig2.jpg",
+      "caption": "FIG. 2. Hardware-side organization of the QuBE platform. (a) Representative transmit (Tx) and receive (Rx) signal chains within one QuBE unit. The Tx chain combines waveform gen- eration implemented in the FPGA, FNCO/CNCO frequency shifts, DAC conversion, and shared-LO upconversion, while the Rx chain performs shared-LO downconversion, ADC dig- itization, DDC processing, and capture in the FPGA. The RF DAC/ADC signal chains are implemented using AD9082 mixed-signal converters. (b) Clock-distribution scheme for synchronized multi-unit operation. A rubidium-based 10-MHz clock is distributed as 100-MHz PLL/LO references, 250-MHz FPGA clocks, and 62.5-kHz timing references for up to 12 QuBE...",
+      "page": 3
+    },
+    {
+      "image": "2606.13010_figures/2606.13010_fig3.jpg",
+      "caption": "FIG. 3. Hardware-setting resolution in Qubex. System information, including qubit and resonator frequencies, wiring maps, and port assignments, is resolved into an experiment model that maps the quantum system to the control system. Target frequencies are then resolved into QuBE frequency settings consisting of LO, CNCO, FNCO, and AWG waveform- frequency terms.",
+      "page": 4
+    },
+    {
+      "image": "2606.13010_figures/2606.13010_fig4.jpg",
+      "caption": "FIG. 4. Broadband output capability of the QuBE controller. (a) Output power from representative control, readout, and pump ports across their operating bands. (b) Multi-tone output spectrum from one control output port, where two digital channels synthesize tones separated by 1.6 GHz at the same physical output.",
+      "page": 5
+    },
+    {
+      "image": "2606.13010_figures/2606.13010_fig5.jpg",
+      "caption": "FIG. 5. Signal integrity and channel isolation of the QuBE controller. (a) Two-tone IMD measurement for a control channel. The programmed tones are placed around 9.75 GHz with offsets of 5 MHz and calibrated to approximately −6 dBm per tone. The smaller side peaks are the third-order IMD products, which are at least 56.4 dB below the driven tones. (b) Neighboring-port crosstalk measurement between driven P5 and adjacent P6 output ports. The P6 crosstalk peak is 88.0 dB below the P5 target-port output.",
+      "page": 5
+    }
+  ],
+  "figure": "2606.13010_figures/2606.13010_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

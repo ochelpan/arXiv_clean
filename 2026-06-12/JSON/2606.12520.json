@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.12520",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.supr-con",
+    "cond-mat.dis-nn",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": true,
+  "title": "Charting the emergent low-dimensional manifold of quantum materials",
+  "authors": "Jason Z. Kim, Omri Lesser, Debanjan Chowdhury",
+  "abstract": "The periodic table of elements transformed chemistry by revealing simple organizing principles underlying atomic behavior. Despite decades of effort, no analogous framework has emerged for crystalline materials -- their microscopic complexity and vast configurational space have defied reduction to fundamental organizing principles. Current databases catalog thousands of synthesized materials, but extracting predictive, interpretable models from this wealth of data remains a formidable challenge. Here we demonstrate that the materials landscape possesses a hidden geometric organization that can be unveiled through unsupervised nonlinear dimensionality reduction. Applying differential geometry techniques to the Inorganic Crystal Structure Database (ICSD), we reveal that just a few combinations of microscopic descriptors capture the vast majority of variance in material properties. This low-dimensional embedding autonomously segregates superconductors from ordinary materials and further distinguishes superconducting families in ways that transcend chemical similarity alone. Remarkably, the discovered geometric organization directly governs critical temperatures ($T_c$) across diverse superconducting families, enabling accurate $T_c$ predictions without any knowledge of the pairing mechanism. Our approach uncovers emergent organizing principles that control macroscopic quantum behavior, offering a new paradigm in how we build models of complex quantum materials directly from experimental data.",
+  "url": "http://arxiv.org/abs/2606.12520v1",
+  "pdf": "https://arxiv.org/pdf/2606.12520v1",
+  "type": "theory",
+  "summary": "This work introduces a novel machine learning framework using $\\Gamma$-autoencoders to map the vast, complex space of crystalline materials onto a low-dimensional geometric manifold. By analyzing this embedding, the authors reveal emergent organizing principles that govern macroscopic properties like superconductivity. This provides an unsupervised and highly predictive tool for designing new quantum materials based purely on structural descriptors.",
+  "main_problem": "The challenge is developing an organizing framework for crystalline materials that can predict macroscopic quantum behavior, such as superconductivity, from their complex microscopic structure.",
+  "main_result": "A low-dimensional geometric manifold was successfully constructed in the feature space, demonstrating that only a few combinations of microscopic descriptors govern key properties like the critical temperature (Tc).",
+  "method": "The study employs unsupervised nonlinear dimensionality reduction using a specialized $\\Gamma$-autoencoder ($\\Gamma$AE) trained on high-dimensional graph features derived from crystal structures.",
+  "model_or_system": "The physical system is crystalline materials, analyzed using feature vectors built from atomic and geometric properties (up to third-order clusters) sourced from the Inorganic Crystal Structure Database (ICSD).",
+  "key_observables": "Critical temperature ($T_c$), low-dimensional latent coordinates ($\\{Z_j\\}$), clustering significance (z-score), and predictive accuracy ($R^2$ for $T_c$).",
+  "important_parameters": "Feature dimensionality (up to 2,121 dimensions), regularization parameters ($\\alpha, \\gamma$) in the loss function, and latent space dimension ($k=3$ used in examples).",
+  "main_assumptions": "The underlying physical organization of materials can be captured by a smooth, low-dimensional manifold structure that is preserved during nonlinear dimensionality reduction.",
+  "figures_summary": "Figures illustrate the construction of the geometry-preserving manifold, show how superconducting families cluster significantly within this embedding, and demonstrate the predictive power of latent coordinates for $T_c$.",
+  "paper_structure": "The paper progresses from identifying the need for a structural organizing principle to detailing the $\\Gamma$AE methodology, demonstrating successful clustering of SCs, and finally quantifying feature importance by correlating gradients in the latent space with variations in $T_c$.",
+  "why_interesting": "While focused on condensed matter, the core methodology—using deep generative models (autoencoders) combined with differential geometry to extract low-dimensional physical invariants from high-dimensional data—is highly relevant for modeling complex quantum many-body systems where explicit Hamiltonians are intractable.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.12520_figures/2606.12520_fig1.jpg",
+      "caption": "FIG. 1. Featurization, ΓAE, and geometry preserving manifolds. (a) Up to third-order graphs are used to include features that are products of atomic properties (see Table I) of each node. (b) Data (x) is compressed to z in the latent space by the encoder neural network, followed by a decoder neural network to minimize the difference between the reconstructed data (ˆx) and x, while regulating the geometry (see Appendix B). (c) The Γ-autoencoder (ΓAE) constructs a geometry-preserving, low-dimensional manifold in feature space (left), using the latent space (right) as its coordinate system, so that distances and angles are preserved and the manifold bends smoothly along latent-space directions.",
+      "page": 3
+    },
+    {
+      "image": "2606.12520_figures/2606.12520_fig2.jpg",
+      "caption": "FIG. 2. Three-dimensional embedding. (a) The embedding for all ICSD materials features three main clusters (see inset), with a clear organization in terms of their superconducting Tc. (b–c) Embedding of only the superconducting materials when they are (b) included vs. (c) excluded from the ΓAE training process. The autoencoder consistently embeds the superconducting materials, including individual families (e.g. cuprates) in the same location without even encountering them during training. (d) Pairwise distance between each superconductor and 400 randomly selected materials in the two embeddings in (b) and (c) demonstrates their high correlation (Pearson r = 0.998). (e) Comparison of the...",
+      "page": 4
+    },
+    {
+      "image": "2606.12520_figures/2606.12520_fig3.jpg",
+      "caption": "FIG. 3. Geometric clustering of superconducting families. (a) Superconducting materials colored by family across the embedding. (b) The z < −2 scores for the pairwise distance, including for the “other” (i.e. conventional) superconductors, demonstrates their significant clustering tendencies beyond chemical similarity. (c) Clustering of superconducting cuprates (red dots) beyond compounds containing Cu and O (blue dots) The in-group pairwise distance normalized by the group size is statistically significantly lower for superconducting cuprates compared to the latter. The purple dashed line is the z-score for cuprate superconductor distances relative to the distribution of distances of all...",
+      "page": 5
+    },
+    {
+      "image": "2606.12520_figures/2606.12520_fig4.jpg",
+      "caption": "FIG. 4. Geometric interpretability of superconducting Tc (a) Distribution of Cohen’s d values for the correlation between microscopic features and ∇Tc (top inset) defined in latent space; only ≈60 features have d > 0.2 (bottom inset). Local environment of superconducting clusters and trajectories of increasing ∇Tc obtained by slicing along the Z3 axis and projecting onto the Z1–Z2 plane in (b) and (c). The colored dots and their sizes represent superconducting Tc. The trajectories associated with the top 20 decoded latent space features (based on Cohen’s d value; see red arrow) are highlighted in bottom panel. (d) Gaussian process prediction model for Tc based on the three latent space...",
+      "page": 6
+    },
+    {
+      "image": "2606.12520_figures/2606.12520_fig5.jpg",
+      "caption": "FIG. 5. Clustering complexity across featurizations. Three-dimensional embeddings for (a) Purely compositional features (see Ref. [27]). (b) First-order graph-based features. (c) First and second-order graph-based features.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.12520_figures/2606.12520_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}
