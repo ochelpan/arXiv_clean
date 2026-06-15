@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.14206",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Fourier analysis of quantum neural network with non-linear data embedding",
+  "authors": "Haiyue Kang, Martin Sevior, Muhammad Usman",
+  "abstract": "Fourier analysis has become a crucial tool for understanding the expressivity of Variational Quantum Circuit (VQC) models, as well as an important indicator of barren plateaus (BP). While existing literature has only studied angle-embedded VQCs in a noiseless environment, here we develop the Fourier analysis of VQCs with non-linear data embedding, with particular focus on amplitude embedding, which provides a naturally compact encoding scheme. We first investigate a subtle difference in the domain of input features within amplitude embedding that leads to a distinct expressivity of the zero-frequency Fourier coefficient. By assuming that the ensemble of unitaries generated from the parameter space forms at least a 2-design with respect to the unitary group, we derive, via Weingarten calculus, that the mean of the Fourier coefficients is concentrated at zero, and the variance scales at an exponentially decaying order with respect to the multi-dimensional frequency magnitude. When a noise channel with unitary Kraus operators and probabilities $\\{p_k\\}$ is taken into account, the variance is further suppressed by a factor $\\left(\\sum_k p_k^2\\right)^{Q}<1$, where $Q$ is the number of channel instances applied. Furthermore, we demonstrate and validate the analytical results through simulations, both noiseless and noisy, including a case where target functions are decomposed into non-integer frequencies, highlighting the practical utility of the approach. Our results establish a rigorous Fourier framework for amplitude-encoded VQCs, offering both theoretical guarantees on expressivity, hence trainability scaling in the frequency domain, as well as practical simulations for deployment on noisy quantum devices.",
+  "url": "http://arxiv.org/abs/2606.14206v1",
+  "pdf": "https://arxiv.org/pdf/2606.14206v1",
+  "type": "theory",
+  "summary": "This work develops a comprehensive Fourier analysis framework to quantify the expressivity and trainability of Variational Quantum Circuits (VQCs) using non-linear amplitude embedding. It theoretically proves that choosing a non-negative input domain over a symmetric one is critical for model performance, as it allows the network to learn constant functions. Furthermore, the analysis quantifies how noise suppresses the variance of these Fourier coefficients, providing theoretical guarantees for deployment on noisy quantum hardware.",
+  "main_problem": "The paper aims to rigorously analyze the expressivity and trainability of Variational Quantum Circuit (VQC) models, particularly concerning how different data embedding techniques affect learning capabilities.",
+  "main_result": "Amplitude embedding provides a superior framework compared to angle embedding because its non-negative domain encoding allows the model to learn constant functions ($c_0 \neq 0$), while theoretical analysis shows that noise suppresses the variance of Fourier coefficients exponentially with channel applications.",
+  "method": "The core method involves developing a Fourier analysis for VQCs, using Weingarten calculus and moment calculations (first and second moments) to derive analytical bounds on the mean and variance of the Fourier coefficients under both noiseless and noisy conditions.",
+  "model_or_system": "The system is a Variational Quantum Circuit (VQC) used as a quantum neural network. The analysis compares two data encoding methods: angle-embedding and amplitude-embedding, which dictates how classical input features are mapped onto the quantum circuit's unitary evolution.",
+  "key_observables": "Fourier coefficients ($c_\\omega$), variance ($\text{Var}_\theta(c_\\omega)$), mean expectation value ($E_\theta[c_\\omega]$), and Mean Squared Error (MSE) of the trained model.",
+  "important_parameters": "Noise strength ($p_{\text{depol}}$), number of channel instances ($Q$), frequency magnitude ($\\|\\omega\\|_1, \\|\\omega\\|_2$), and the choice of encoding domain (symmetric vs. non-negative).",
+  "main_assumptions": "The analysis assumes that the ensemble of unitaries generated from the parameter space forms at least a 2-design with respect to the unitary group, which simplifies moment calculations.",
+  "figures_summary": "Figures illustrate the comparison between symmetric and non-negative encoding regarding $c_0$ convergence (Figure 2), show exponential decay of coefficient variance with frequency norm (Figure 3), and compare standard error scaling under depolarizing noise (Figure 5 & 6).",
+  "paper_structure": "The paper progresses by first establishing the general Fourier framework, then contrasting angle vs. amplitude embedding based on domain choice (symmetric vs. non-negative) to analyze $c_0$. It subsequently derives moment equations for noisy channels using Weingarten calculus and validates these results through extensive simulations.",
+  "why_interesting": "The rigorous mathematical characterization of expressivity via the frequency spectrum provides deep insights into the limitations of quantum machine learning models, which is crucial for designing practical, noise-resilient quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.14206_figures/2606.14206_fig1.jpg",
+      "caption": "FIG. 1. (a) The general workflow to train a quantum neural network with a variational quantum circuit. First, a training dataset {(xi, yi)} ⊂X ×Y is prepared, where each classical input features xi are encoded onto the quantum state, together with the trainable variational circuits, denoted as U(xi, θ). The circuit is executed, and the expectation values with respect to some Hermitian observable O are evaluated. After each batch, the expectation values, as the currently fitted function values fθ(x), are fed into the cost function to compare with the actual values. Finally, the parameters are optimized according to some rule based on the gradient descent method on the cost function...",
+      "page": 3
+    },
+    {
+      "image": "2606.14206_figures/2606.14206_fig2.jpg",
+      "caption": "FIG. 2. The values of the sampled Fourier coefficients with (a) non-negative encoding and (b) symmetric encoding, plotted for the real part. The crosses at the end denote the values of the corresponding Fourier coefficients of the target function to fit. Notably, when using non-negative encoding, c0 is clearly well trained towards the target Fourier coefficient, whereas for symmetric encoding it perfectly remains at 0. The training iteration has a one-to-one mapping to the training sample size, with 400 points as one batch trained together per iteration.",
+      "page": 6
+    },
+    {
+      "image": "2606.14206_figures/2606.14206_fig3.jpg",
+      "caption": "FIG. 3. Variance of the Fourier coefficients under non- negative amplitude embedding VQC model with simplified condition on observable O ∈Pn discussed as in Equation 26, plotted against the (a) L1 and (b) L2 frequency norms. The right panel plots the variance of the coefficients averaged over all common frequencies (∥ω∥1 ≤4 and ∥ω∥2 ≤∥(2, 2)∥2) for each qubit count. The integral I(ω) is evaluated numeri- cally via Mathematica, with its error ϵ estimated according to ϵ = α + βI(ω), where α = 10−3, β = 10−5 are the absolute and proportional tolerance, respectively. However, due to re- strictions on computation resources, Monte Carlo methods are used to evaluate I(ω) for the d = 8 case, where...",
+      "page": 7
+    },
+    {
+      "image": "2606.14206_figures/2606.14206_fig4.jpg",
+      "caption": "FIG. 4. (a) Test-set MSE versus the number of training samples. (b) Left panel: stochastic batch-wise MSE (lines). Right panel: mean squared gradient (scattered dots), also plotted against the number of training samples. (c) The mean absolute deviation of the sampled Fourier coefficients from their zero-valued targets, E ω∈Ω, cω=0(∣cω −c′ ω∣). where cω and c′ ω denote the",
+      "page": 8
+    },
+    {
+      "image": "2606.14206_figures/2606.14206_fig5.jpg",
+      "caption": "FIG. 5. (a) Left axis: empirical mean of the standard errors of the Fourier coefficients versus the L1 norm of their frequency,",
+      "page": 9
+    }
+  ],
+  "figure": "2606.14206_figures/2606.14206_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

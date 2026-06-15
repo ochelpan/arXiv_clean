@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.13811",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Aligning Quantum Operators with Large Language Models",
+  "authors": "Rogerio Feris, Yunchao Liu, Pengyuan Li, Hang Hua, David Kremer",
+  "abstract": "Can Large Language Models (LLMs) understand and reason about quantum operators? Despite their remarkable capabilities in mathematics and symbolic reasoning, LLMs remain inherently blind to quantum representations such as unitary matrices. In this work, we take a step toward bridging this gap by introducing an approach that maps unitary operators into the latent space of an LLM, enabling unified modeling over quantum and linguistic inputs. We instantiate this idea on Clifford+T circuit synthesis over a Pauli rotation gate set, where our model achieves results competitive with state-of-the-art methods and scales consistently with training data, with no signs of saturation. Our approach further enables language-conditioned synthesis, allowing gate constraints unseen during training to be specified directly in natural language. This work suggests a path toward quantum--aware foundation models that can natively interpret and reason about quantum operations, which could have broader implications reaching across quantum compilation and algorithm discovery.",
+  "url": "http://arxiv.org/abs/2606.13811v1",
+  "pdf": "https://arxiv.org/pdf/2606.13811v1",
+  "type": "theory",
+  "summary": "The paper addresses the challenge of making Large Language Models understand quantum mechanics by mapping unitary operators into the LLM's latent space. It introduces an autoregressive synthesis method that predicts quantum gates sequentially, conditioned on both the current state (via PTM) and natural language instructions. This approach significantly outperforms existing quantum compilation methods, suggesting a path toward quantum-aware foundation models.",
+  "main_problem": "The core problem is bridging the gap between Large Language Models (LLMs), which are inherently blind to quantum representations like unitary matrices, and the need for them to reason about these operations.",
+  "main_result": "The proposed multimodal alignment framework successfully enables language-conditioned synthesis of quantum circuits, achieving state-of-the-art performance competitive with complex baselines across various circuit lengths.",
+  "method": "The authors map unitary operators (represented as Pauli Transfer Matrices) into the LLM's latent space using a lightweight encoder and projector. Synthesis is performed autoregressively by predicting one gate at a time based on the residual PTM state, conditioned on both visual (PTM) and textual inputs.",
+  "model_or_system": "The system involves synthesizing quantum unitaries ($U$) for Clifford+T circuits over a Pauli rotation gate set. The representation used is the real-valued Pauli Transfer Matrix (PTM), which captures the unitary transformation in a matrix form suitable for embedding into an LLM.",
+  "key_observables": "Fidelity ($F(P)$) of synthesis progress, defined as $\text{Tr}(P)/4^n$, where success is marked when $F \\ge 0.999$. Success rates and mean fidelity are key comparative metrics against baselines.",
+  "important_parameters": "The size of the system ($n$-qubits), the patch size used for encoding (e.g., $16\times 16$), and the training data scale (up to 9.2M circuits).",
+  "main_assumptions": "The framework assumes that the PTM representation can be effectively projected into the LLM's latent space, allowing the model to treat quantum state evolution as a sequence prediction task.",
+  "figures_summary": "Figures illustrate the overall multimodal alignment workflow (U -> PTM -> Encoder -> LLM Input). Other figures compare synthesis success rates and fidelity traces against established baselines like greedy search and RL approaches across varying circuit lengths.",
+  "paper_structure": "The paper introduces the problem gap, details the multimodal alignment architecture using PTMs as visual inputs alongside text. It presents results showing superior scaling and performance over existing quantum compilation methods, culminating in demonstrations of language-conditioned synthesis capabilities.",
+  "why_interesting": "This work is highly relevant because it proposes a novel paradigm for integrating symbolic reasoning (LLMs) with structured physical computation (quantum circuits), potentially leading to automated discovery or optimization tools for quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13811_figures/2606.13811_fig1.jpg",
+      "caption": "Fig. 1. Overview of our approach. A target unitary U is converted to its Pauli Transfer Matrix (PTM), which is partitioned into non-overlapping patches and encoded by a lightweight encoder. An MLP projector maps the resulting patch embeddings into the token space of a pretrained LLM, where they are concatenated with text embeddings from the context (current fidelity and previous gates) and an instruction prompt. The LLM autoregressively generates a sequence of Pauli rotation gates (e.g., IYYZ, ZIII) that compile the target unitary. At each synthesis step, the residual PTM is re-encoded and fed back as a new visual input, enabling the model to condition each gate prediction on the remaining...",
+      "page": 3
+    },
+    {
+      "image": "2606.13811_figures/2606.13811_fig2.jpg",
+      "caption": "Fig. 3. Fidelity over 800 synthesis steps on 200 Haar-random 4-qubit unitaries. The 150g model achieves substantially higher fidelity than the 15g model, suggesting that training on longer circuits improves generalization to arbitrary unitaries.",
+      "page": 5
+    },
+    {
+      "image": "2606.13811_figures/2606.13811_fig3.jpg",
+      "caption": "Fig. 2. Per-gate success rate on 2,000 held-out circuits (1–15 gates, fidelity threshold τ = 0.999). RL and MDL beam search results are taken from their respective publications as approximate comparisons (see text). Overall weighted success rates shown in the legend.",
+      "page": 5
+    },
+    {
+      "image": "2606.13811_figures/2606.13811_fig4.jpg",
+      "caption": "Fig. 4. Fidelity traces for training oracle sequences and model predictions at test time. The model’s predictions generalize beyond the training data, most strikingly in (b), where fidelity rises, then drops, and finally recovers to 1.0.",
+      "page": 6
+    },
+    {
+      "image": "2606.13811_figures/2606.13811_fig5.jpg",
+      "caption": "Fig. 5. Text-conditioned synthesis on unseen constraint configurations. (a) Overall success rate (similar for the three settings) and gate-level constraint compliance per constraint type. The large drop when removing constraint text from the prompt confirms that the model actively conditions on the instruction rather than producing compliant outputs by default, while the gap between LLM and random initialization shows that pretrained language understanding is critical for interpreting unseen placement constraints. (b) Qualitative examples for constrained and unconstrained prompts.",
+      "page": 6
+    }
+  ],
+  "figure": "2606.13811_figures/2606.13811_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

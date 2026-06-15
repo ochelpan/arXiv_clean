@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.13890",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "q-bio.CB",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Mean First Passage Time for Persistent Random Walks in Annular Search Domains",
+  "authors": "Fatemeh Saghafifar, Daniel Coombs",
+  "abstract": "We study the mean first-passage time of a random walker to a small absorbing target at the center of a two-dimensional annulus with a specularly reflecting outer boundary. The problem is motivated by natural killer cell migration toward a target cancer cell, where the goal is to quantify how long it takes immune cells to reach the target and how search efficiency depends on directional persistence and chemotactic bias. Cell motion is modeled as a velocity-jump process. We first consider a correlated random walk with a von Mises turning kernel, with a concentration parameter controlling directional persistence. We then extend the model to a biased correlated random walk using a phase-shifted turning kernel that represents preferential motion, for example following a concentration gradient. Our analysis combines closed-form benchmarks for simple and biased random walks, Fourier-mode reductions of the transport equations for the correlated and biased correlated models, and a fast-turning perturbation expansion that gives an analytical correction to the diffusion-limit mean first-passage time for the random walker. Our analytical results are supported by numerical methods that include a semi-Lagrangian solver in radial and angular coordinates, a stationary discretisation designed to handle biased transport, and an event-driven Monte Carlo simulator for cross-validation. Together, our results provide a framework relating persistent and biased immune-cell motion to target-search times in confined two-dimensional domains.",
+  "url": "http://arxiv.org/abs/2606.13890v1",
+  "pdf": "https://arxiv.org/pdf/2606.13890v1",
+  "type": "theory",
+  "summary": "This work develops a comprehensive theoretical and numerical framework to calculate how directional persistence affects the search efficiency of cells moving in an annular space. By modeling the random walk using correlated processes, the authors derive analytical corrections to the mean first-passage time, confirming that persistent motion significantly accelerates target finding compared to purely diffusive movement.",
+  "main_problem": "The study quantifies the mean first-passage time (MFPT) for a random walker to reach an absorbing target within a confined two-dimensional annular domain.",
+  "main_result": "Directional persistence ($\\kappa$) significantly reduces the search time compared to isotropic motion, with this benefit saturating at high persistence values. The MFPT can be accurately determined by combining diffusion-limit approximations with boundary layer corrections.",
+  "method": "The analysis employs a combination of analytical techniques (Fourier mode reductions, perturbation expansions) and advanced numerical solvers (semi-Lagrangian methods, event-driven Monte Carlo simulations).",
+  "model_or_system": "The model is a velocity-jump process describing cell migration in an annulus ($a < r < R$). It incorporates correlated random walks (CRW) via von Mises turning kernels to simulate directional persistence and can be extended to biased motion.",
+  "key_observables": "Mean First Passage Time ($\bar{T}$ or $T_{MFPT}$), relative gap between numerical solvers, effective diffusivity ($D_{\text{eff}}$).",
+  "important_parameters": "Persistence parameter ($\\kappa$), annulus radii ($a$ and $R$), turning rate ($\\mu$), bias strength ($d\tau$).",
+  "main_assumptions": "The analysis assumes a 2D annular geometry, constant speed motion, and relies on approximations like the fast-turning limit for analytical tractability.",
+  "figures_summary": "Figures illustrate schematics of the domain, mesh grading strategies (power-law graded meshes), and comparisons between direct solver results and Monte Carlo simulations showing convergence diagnostics.",
+  "paper_structure": "The paper progresses from defining the physical problem and modeling various random walk types to deriving analytical approximations in limits ($\\kappa \to 0$ or $\\kappa \to \\infty$), followed by rigorous numerical implementation using advanced solvers and extensive cross-validation against MC simulations.",
+  "why_interesting": "While focused on biological transport, the mathematical framework—solving time-dependent partial differential equations (PDEs) with complex boundary conditions and incorporating memory effects via kernels—is highly relevant to non-equilibrium statistical mechanics problems in confined geometries.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13890_figures/2606.13890_fig1.jpg",
+      "caption": "Figure 1: Schematic of the search problem. (a) A general confined domain with an absorbing small target (green node). (b) The simplified annular geometry, where the inner boundary r = a is absorbing and the outer boundary r = R is specularly reflecting. (c) Definition of the absolute heading ϕ, polar angle θ, and relative heading ψ = ϕ −θ.",
+      "page": 4
+    },
+    {
+      "image": "2606.13890_figures/2606.13890_fig2.jpg",
+      "caption": "Figure 2: Power-law graded radial mesh on the annulus, shown at β = 3, Nr = 41, Nψ = 36 for visual clarity (the production runs use larger Nr, Nψ; see Subsection 5.1). Radial cells cluster toward the reflecting outer boundary r = R in order to resolve the persistence-induced wall layer of width w(κ) ≈5.41 κ−1.27, while the angular grid remains uniform. The formula givesa uniform radial mesh when β = 1.",
+      "page": 11
+    },
+    {
+      "image": "2606.13890_figures/2606.13890_fig3.jpg",
+      "caption": "Figure 3: Semi-Lagrangian backward-characteristic step. (a) From a grid node (ri, ψj), the characteristic equation is integrated backward by ∆τ to an off-grid foot point (rd, ψd). The value at the foot point is obtained by bilinear interpolation from the surrounding cell. (b) If the backward characteristic reaches the outer wall r = R before the end of the step, the velocity is specularly reflected according to v 7→v −2(v · ˆn)ˆn, equivalently ψ 7→π −ψ, and the remaining time ∆τ −t∗is integrated to the final foot point.",
+      "page": 12
+    },
+    {
+      "image": "2606.13890_figures/2606.13890_fig4.jpg",
+      "caption": "Figure 4: Validation workflow. The direct (r, ψ) solver and the event-driven Monte Carlo simulator are run independently at the same parameter values. Their angle-averaged MFPTs are compared using the relative gap. Small gaps indicate convergence, gaps near the observed semi-Lagrangian ceiling indicate the limitation of the pseudo-time formulation, and larger gaps indicate under resolution or transition to the strong persistence regime.",
+      "page": 14
+    },
+    {
+      "image": "2606.13890_figures/2606.13890_fig5.jpg",
+      "caption": "Figure 5: Persistence sweep and validation of the direct semi-Lagrangian solver in the annulus a < r < R with absorbing inner boundary at r = a and specularly reflecting outer boundary at r = R. Parameters: a = 1, R = 5, walker speed s = 1, turning rate µ = 3. Grid: graded mesh with clustering exponent β and radial/angular node counts (Nr, Nψ) chosen per κ fol- lowing (4.1); pseudo-time step ∆τ ∈[0.007, 0.05]. (a) Angle-averaged MFPT profiles from the direct (r, ψ) transport solver across the persistence sweep κ ∈{0, 0.5, 1, 2, 3, 4, 5}. Increas- ing κ decreases the MFPT over the validated range κ ∈[0, 5]. The κ = 10 curve is shown only to illustrate the onset of the high-persistence...",
+      "page": 16
+    }
+  ],
+  "figure": "2606.13890_figures/2606.13890_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

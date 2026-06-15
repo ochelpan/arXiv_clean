@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.13779",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Computational regimes in matrix-product-state-based quantum trajectory simulations",
+  "authors": "Aaron Sander, Simon Cichy, Martin Eigel, Jens Eisert, Maximilian Fröhlich, Tom Peham, Robert Wille",
+  "abstract": "Efficient simulation of open quantum systems is central to modeling noisy quantum hardware and many-body dynamics. In trajectory-based tensor network methods, cost is often associated with trajectory-level quantities such as entanglement growth or bond dimension. However, the total cost of a fixed-accuracy simulation also depends on statistical sampling, and the interplay between per-trajectory complexity and sampling effort remains poorly understood. Here we introduce a cost-resolved framework for matrix product state (MPS)-based quantum trajectory simulations that decomposes total cost into memory per trajectory, runtime per trajectory, and sampling effort. We show that physically equivalent stochastic unravelings of the same Lindblad dynamics do not necessarily reduce total cost, but instead redistribute cost between trajectory complexity and statistical convergence. This trade-off is quantified by two dimensionless inflation factors: a bond dimension inflation $α$ and a sampling inflation $κ$, which together determine the preferred unraveling under hardware-dependent memory and parallelism constraints. We provide a practical protocol for extracting $(α,κ)$ from modest pilot simulations and demonstrate it using benchmarks across multiple noise channels. The resulting decision maps show that the computationally favorable unraveling can change with noise strength, time-step resolution, system size, and available parallelism. These results establish unraveling choice as a hardware-aware simulation design problem rather than an intrinsic optimization of trajectory entanglement alone.",
+  "url": "http://arxiv.org/abs/2606.13779v1",
+  "pdf": "https://arxiv.org/pdf/2606.13779v1",
+  "type": "theory",
+  "summary": "This paper develops a comprehensive cost framework for MPS-based simulations of open quantum systems by analyzing the trade-off between trajectory complexity and statistical sampling effort. It introduces two inflation factors, $\\alpha$ and $\\kappa$, to quantify how different mathematical representations (unravelings) affect computational cost. The key finding is that the optimal simulation strategy depends critically on the specific hardware resources available, not just the physics of the noise.",
+  "main_problem": "The total computational cost of simulating open quantum systems using MPS-based stochastic trajectories depends on a complex interplay between per-trajectory complexity (entanglement) and statistical sampling effort, which is poorly understood.",
+  "main_result": "The choice of physically equivalent stochastic unraveling is not an intrinsic optimization but rather a hardware-aware design problem, determined by dimensionless inflation factors $(\\alpha, \\kappa)$ relative to available memory and parallelism.",
+  "method": "The authors introduce a cost-resolved framework that decomposes total simulation cost into three components: per-trajectory memory, runtime, and sampling effort. They quantify the trade-off using two inflation factors, $\\alpha$ (bond dimension) and $\\kappa$ (sampling size).",
+  "model_or_system": "The study models open quantum systems whose evolution is governed by Lindblad master equations. Simulations are performed on 1D systems using Matrix Product States (MPS) techniques.",
+  "key_observables": "Bond inflation factor ($\\alpha$), sampling inflation factor ($\\kappa$), total wall time ratios ($T_A/T_B$), and the peak average trajectory bond dimension ($\\chi$).",
+  "important_parameters": "Noise strength, time-step resolution ($\\delta t$), system size ($L$), available parallelism ($P$), and physical memory ($M$).",
+  "main_assumptions": "The analysis assumes that total cost can be separated into distinct channels (memory, runtime, sampling) and models the resource constraints using specific scaling laws for finite parallelism.",
+  "figures_summary": "Figures map out decision geometries in planes of hardware resources $(M, P)$ or $(\\alpha, \\kappa)$, showing which unraveling is computationally favored under different noise conditions.",
+  "paper_structure": "The paper establishes the need for cost analysis in trajectory simulations, develops a resource-accounting framework using $\\alpha$ and $\\kappa$, benchmarks this framework across various noise channels, and concludes by mapping out hardware-aware decision maps to guide simulation design.",
+  "why_interesting": "This work provides crucial practical guidelines for simulating realistic open quantum systems on near-term noisy hardware, moving beyond simple entanglement measures to account for resource limitations like memory bandwidth and parallel processing capability.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.13779_figures/2606.13779_fig1.jpg",
+      "caption": "FIG. 1. Analytical redistribution of computational cost between bond dimension and sampling requirements. Decision geometry in the (α, κ) plane for two physically equivalent unravelings A and B, where α = χA/χB quantifies relative per-trajectory complex- ity and κ = NB/NA quantifies relative sampling cost. The curves κ = α3 and κ = α5 correspond to the decision boundaries in the thread-limited and memory-limited regimes, respectively. Be- low each curve, the reduction in per-trajectory cost associated with smaller bond dimension outweighs the increased number of trajecto- ries; above it, the sampling overhead dominates. Only in the inter- mediate region α3 < κ < α5 does the preferred...",
+      "page": 5
+    },
+    {
+      "image": "2606.13779_figures/2606.13779_fig2.jpg",
+      "caption": "FIG. 2. Finite-size bond dimension trends in the TJM depolarizing benchmark. (a,b) Peak average trajectory bond dimension χ as a function of system size L and discretized noise parameter δp = γδt for (a) Pauli-jump and (b) measurement-based unravelings. White contours denote constant χmax. (c) Bond inflation ratio α = χmax,A/χmax,B as a function of system size L and δp. Results are obtained for a transverse-field Ising chain initialized in a N´eel state, evolved to T = 5 with δt = 0.1 under local depolarizing noise using the TJM update rule.",
+      "page": 7
+    },
+    {
+      "image": "2606.13779_figures/2606.13779_fig3.jpg",
+      "caption": "FIG. 3. Monitoring-resolution dependence of bond dimension in (γ, δt) space. (a,b) Peak trajectory bond dimension χ for L = 65 as a function of noise strength γ and time step δt for unravelings A and B. Dashed lines indicate contours of constant δp = γδt. (c) Bond inflation ratio α = χA/χB as a function of γ and δt. Results are shown up to T = 5 using N = 30 trajectories to characterize systematic bond dimension trends.",
+      "page": 9
+    },
+    {
+      "image": "2606.13779_figures/2606.13779_fig4.jpg",
+      "caption": "FIG. 4. Schematic discretization-controlled computational regimes. Conceptual map in (γ, δt) space summarizing the behavior in Fig. 3. For small δt, fine monitoring suppresses trajectory bond dimension χ but increases the number of updates required to reach fixed physical time. For larger δt, bond dimension becomes weakly- dependent on γ and memory usage dominates resource requirements. Boundaries are schematic and indicate smooth crossovers rather than sharp transitions.",
+      "page": 9
+    },
+    {
+      "image": "2606.13779_figures/2606.13779_fig5.jpg",
+      "caption": "FIG. 5. Sampling requirements in a small-system exact-reference benchmark. (a,b) Number of trajectories N(ε = 0.04) required for the trajectory-averaged correlator ⟨X4X5⟩to reach a fixed absolute deviation from exact reference evolution, shown as functions of noise strength γ and time step δt for a 10-site system evolved to T = 2. Dashed contours indicate constant δp = γδt. (c) Sampling inflation factor κ = NB/NA, quantifying the relative trajectory count required by unravelings A and B to reach the same reference-accuracy threshold. Because exact evolution is available for this small system, the extracted trajectory counts measure absolute error relative to the Lindblad reference; for...",
+      "page": 10
+    }
+  ],
+  "figure": "2606.13779_figures/2606.13779_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 4,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 5
+  },
+  "citation_potential": {}
+}

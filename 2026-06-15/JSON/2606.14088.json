@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.14088",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "OQMD: Single-Qubit Rotation Control Improves Low-CNOT Multiclass Quantum Classification",
+  "authors": "Michael A. Magid, Melissa Zeynep Ertem, Jun Suzuki",
+  "abstract": "Near-term variational classifiers incur substantial error and latency from two-qubit gates, yet practitioners often assume that additional entangling depth is the default route to higher accuracy. This work studies Optimal Quantum Measurement Decoding (OQMD): optimizing how quantum outcomes are mapped to classical labels by training a readout layer before measurement, jointly with the variational circuit, without adding CNOTs. Experiments use trainable triple single-qubit rotations as one concrete, hardware-native realization of OQMD; other single-qubit parametrizations fit the same classical outer loop. On the Iris benchmark with a 30-point stratified test split, the best observed 0-CNOT configuration with OQMD reaches 83.33\\% accuracy, with a 96\\% at 9 CNOTs, exceeding the best 18-CNOT controls (56.67\\%) and the best 18-CNOT configuration with OQMD (66.67\\%) under a common protocol. A six-point CNOT-depth series from 0 to 18 (fixed optimizer, iteration budget, random-seed count, and ZXZ readout) shows that the highest raw scores need not occur at the largest template, so aggregate complexity is not summarized by CNOT count alone. Because run-level accuracies are discrete and non-Gaussian, we emphasize best-observed scores and, where a global comparison of pooled runs is required, Mann--Whitney $U$ tests rather than parametric tests on means. Across architectures, OQMD shows statistically consistent but magnitude-dependent gains: large peak lifts on minimal circuits coexist with a small pooled mean shift on complex 18-CNOT runs ($p\\approx 0.03$) that is not ``universal'' in the sense of uniformly large practical effects.%",
+  "url": "http://arxiv.org/abs/2606.14088v1",
+  "pdf": "https://arxiv.org/pdf/2606.14088v1",
+  "type": "both",
+  "summary": "This work introduces Optimal Quantum Measurement Decoding (OQMD), a technique that boosts quantum classification accuracy by training the readout process using only single-qubit gates. Experiments on the Iris dataset show that OQMD provides significant performance gains, sometimes surpassing those achieved with deeper, more complex circuits, highlighting that measurement optimization is crucial for near-term quantum computation.",
+  "main_problem": "The work addresses improving low-CNOT quantum classification accuracy by optimizing how measurement outcomes are mapped to classical labels, a technique called Optimal Quantum Measurement Decoding (OQMD). This aims to boost performance without incurring the high error rates associated with adding more two-qubit gates.",
+  "main_result": "OQMD significantly improves peak classification accuracy, notably achieving 83.33% on minimal circuits (0 CNOTs), which surpasses the best results from deep, complex circuits (18 CNOTs). This suggests that readout optimization can yield substantial gains even when entanglement depth is limited.",
+  "method": "The core method involves jointly optimizing trainable single-qubit rotations applied immediately before measurement with the parameters of a variational quantum circuit. Performance comparison relies on analyzing best-observed peak accuracies using statistical tests like Mann–Whitney U, rather than mean values.",
+  "model_or_system": "The study uses Variational Quantum Classifiers (VQCs) tested on the Iris dataset for multiclass classification. The model structure involves an initial feature map, a variational ansatz parameterized by $\theta$, and the novel OQMD readout layer parameterized by $\\phi$.",
+  "key_observables": "Classification accuracy ($\\%$), CNOT count (depth proxy), Peak hold-out test accuracy ($\text{Acc}_{\\max}$), Learning improvement ($\\Delta$), Mann–Whitney U statistics.",
+  "important_parameters": "CNOT depth (ranging from 0 to 18), number of trainable single-qubit rotation parameters, optimization algorithm choice (e.g., COBYLA, L-BFGS-B).",
+  "main_assumptions": "The analysis emphasizes peak performance over mean performance due to the discrete and non-Gaussian nature of run-level accuracies; it also assumes that OQMD's overhead is negligible compared to CNOT gate errors.",
+  "figures_summary": "Figures illustrate circuit comparisons (minimal vs. complex), learning curves showing optimization progress, and heatmaps summarizing peak accuracy gains across different rotation codes and optimizer choices.",
+  "paper_structure": "The paper establishes the problem of VQC limitations due to measurement error; it introduces OQMD as a readout-layer fix; it details experimental comparisons across varying CNOT depths (0 to 18); finally, it presents quantitative results showing performance gains and discusses the implications for hardware resource trade-offs.",
+  "why_interesting": "While focused on quantum machine learning, the methodology of optimizing measurement bases via trainable single-qubit rotations is relevant to understanding how local control fields can enhance readout fidelity in complex quantum measurements, which has parallels in sensing or state preparation protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.14088_figures/2606.14088_fig1.jpg",
+      "caption": "Figure 1: Circuit diagrams for Architecture 1 (minimal): H + RZ feature encoding, single RY ansatz layer, ZXZ OQMD rotations, 0 CNOT gates (left). Architecture 3 (complex): ZZFeatureMap (12 CNOT) + RealAmplitudes (6 CNOT) + OQMD (0 CNOT) = 18 CNOT total (right). OQMD adds measurement optimization with zero CNOT overhead in both cases.",
+      "page": 5
+    },
+    {
+      "image": "2606.14088_figures/2606.14088_fig2.jpg",
+      "caption": "Figure 2: OQMD concept: Standard VQC (a) measures in the computational basis, while OQMD (b) first applies trainable rotation gates to measure in an optimized basis. This adds expressivity without CNOT gates.",
+      "page": 6
+    },
+    {
+      "image": "2606.14088_figures/2606.14088_fig3.jpg",
+      "caption": "Figure 3: Detailed circuit comparison: CONTROL versus OQMD on the minimal architec- ture. (a) CONTROL (parity readout, no OQMD). (b) OQMD adds ZXZ triple rotations before measurement (no additional CNOTs). Peak accuracies appear in Table 2.",
+      "page": 7
+    },
+    {
+      "image": "2606.14088_figures/2606.14088_fig4.jpg",
+      "caption": "Figure 4: Summary of factorial means (left: 0 vs. 18 CNOT) and six-point mean OQMD gains with 95% CIs (right). Panel (b) annotates Pearson r on peak max-to-max margins (r ≈−0.45, Table 5); an ordinary least squares fit to mean gains would yield a different r (specifically r ≈−0.91) and is not used as a headline statistic. Peaks and Mann–Whitney tests are in Table 2. Gray dashed line: random baseline (33.33%).",
+      "page": 11
+    },
+    {
+      "image": "2606.14088_figures/2606.14088_fig5.jpg",
+      "caption": "Figure 5: Minimal circuit performance (0 CNOT): pooled accuracy distributions for CON- TROL (N=200 runs) and OQMD (N=800 runs). Top: normalized step histograms (binned empirical frequencies, not kernel density). Bottom: box-and-mean summary. OQMD pool is shifted decisively rightward of CONTROL; the multimodal shape reflects the discrete ac- curacy grid (multiples of 1/30) combined with the mix of rotation codes, optimizers, and seeds. Peaks and Mann–Whitney results appear in Table 2; pooled run-level statistics are annotated in the bottom panel.",
+      "page": 13
+    }
+  ],
+  "figure": "2606.14088_figures/2606.14088_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

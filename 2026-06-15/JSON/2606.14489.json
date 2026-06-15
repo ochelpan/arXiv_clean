@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.14489",
+  "category": "quantum gases",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Physics-Informed Variational Quantum Classifier for Phase Detection in Strongly Correlated Matter",
+  "authors": "Hugo Catalá, Ezequiel Valero, Germán Rodrigo",
+  "abstract": "The characterisation of quantum phases in strongly correlated systems is a crucial milestone for the deployment of quantum sensors. In this work, we present a Physics-Informed Variational Quantum Classifier (VQC) designed to detect the topological phase transition between the Fermi polaron quasiparticle and the molecular bound state. Unlike conventional Machine Learning approaches, our quantum architecture is constructed via the Trotterised time-evolution of an effective Hamiltonian, ensuring that the learnable parameters correspond to interpretable physical quantities. We show that the VQC efficiently discovers the optimal interferometric protocol, specifically the evolution time and effective bath interactions required to maximise the visibility of Ramsey fringes, thereby clearly distinguishing the Bose-Einstein Condensate (BEC) and Bardeen-Cooper-Schrieffer (BCS) regimes. Furthermore, we report the validation of this classifier on the QRed superconducting quantum processor (BSC-CNS). Despite the intrinsic hardware noise and decoherence, the VQC preserves the relative ordering of the topological phases. We demonstrate that the physics-informed architecture achieves a linear gate complexity $\\mathcal{O}(N)$, bypassing the exponential memory wall of classical simulation and ensuring scalability to many-body regimes.",
+  "url": "http://arxiv.org/abs/2606.14489v1",
+  "pdf": "https://arxiv.org/pdf/2606.14489v1",
+  "type": "both",
+  "summary": "The authors propose and implement a Physics-Informed Variational Quantum Classifier (VQC) to detect topological phase transitions in strongly correlated fermionic systems, such as the BEC-BCS crossover. By encoding the system dynamics via Trotterized time evolution, the VQC achieves linear scaling complexity ($\\mathcal{O}(N)$). This approach successfully demonstrates robust phase classification on superconducting quantum hardware despite inherent noise.",
+  "main_problem": "The core problem is characterizing quantum phases, specifically detecting the topological phase transition between the Fermi polaron quasiparticle and the molecular bound state (BEC-BCS crossover) in strongly correlated matter.",
+  "main_result": "A Physics-Informed Variational Quantum Classifier (VQC) was developed that successfully distinguishes these phases on both simulated and noisy superconducting quantum hardware, demonstrating linear scaling complexity.",
+  "method": "The VQC is constructed using the Trotterized time-evolution of an effective Hamiltonian derived from Ramsey interferometry protocols, ensuring physical interpretability in its parameters.",
+  "model_or_system": "The system models ultracold Fermi gases involving an impurity coupled to a bath of fermions. The dynamics are governed by an effective Hamiltonian whose evolution is mapped onto quantum gates for classification.",
+  "key_observables": "Ramsey fringes visibility, the expectation value of Pauli-Z on the ancilla qubit ($\\langle Z_0 \rangle$), and the resulting phase probability $\\hat{y}(x)$.",
+  "important_parameters": "The system is analyzed across BEC and BCS regimes, with key learned parameters being the optimal Trotter step size ($\\delta t$) and effective bath-bath interaction ($U_{ff}$).",
+  "main_assumptions": "The method assumes that the classification can be achieved by measuring the interferometric correlation $\\langle Z_0 \rangle$, and it relies on the VQC structure to enforce physical constraints.",
+  "figures_summary": "Figures illustrate the VQC architecture, the learned quantum phase diagram showing decision boundaries governed by Ramsey fringes for $N=4$ and $N=10$, and comparisons between ideal simulation versus noisy hardware measurements.",
+  "paper_structure": "The paper introduces the physical problem (phase detection), details the physics-informed VQC methodology based on Trotterization, presents results validating phase separation on superconducting hardware, and concludes by comparing its linear scaling advantage ($\\mathcal{O}(N)$) against classical exponential simulation limits ($\\mathcal{O}(2^{2N})$).",
+  "why_interesting": "This work directly bridges quantum computation with fundamental condensed matter physics problems (BEC-BCS crossover), providing a scalable quantum sensing tool that circumvents the memory wall of classical simulations for many-body systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.14489_figures/2606.14489_fig1.jpg",
+      "caption": "Figure 1. Physics-Informed VQC Architecture for Polaron Phase Detection. (A) Schematic representation of the Ramsey interferometry protocol. The state preparation phase initialises the impurity and the Fermi sea bath modes via a CNOT entanglement and an Ry(Θ) rotation. The temporal dynamics are governed by Nsteps = 4 identical variational layers (Ustep), conditioned on the ancilla qubit (q0). The measurement on the ancilla yields the expectation value ⟨Z0⟩, which is strictly mapped to the phase probability via a linear transformation. (B) Gate-level decomposition of a single Trotter evolution step (Ustep). The effective Hamiltonian is natively encoded using controlled-Rzz(ϕ) and Rz(ϕ) gates...",
+      "page": 3
+    },
+    {
+      "image": "2606.14489_figures/2606.14489_fig2.jpg",
+      "caption": "Figure 2. Learned Quantum Phase Diagram (N = 4). Phase boundary inferred by the Physics-Informed VQC for a target system of N = 4 qubits. The dashed line delineates the BEC-BCS crossover, explicitly defined at ˆy(x) = 0.5. The markers represent the synthetic training data. The boundary is strictly governed by the underlying Ramsey fringes [13]. This confirms that the VQC natively relies on coherent quan- tum interference, rather than classical geometric separation, to distinguish the phases.",
+      "page": 4
+    },
+    {
+      "image": "2606.14489_figures/2606.14489_fig3.jpg",
+      "caption": "Figure 3. Scaled Quantum Phase Diagram (N = 10). Phase boundary inferred by the physics-informed VQC for an extended register of N = 10 qubits, corresponding to a many- body bath of M = 4 Cooper pairs. The dashed line delineates the BEC-BCS crossover, explicitly defined at ˆy(x) = 0.5. The data points denote the sampled training distributions for the BEC (blue circles) and BCS (red squares) regimes. The model successfully scales with a larger Hilbert space.",
+      "page": 4
+    },
+    {
+      "image": "2606.14489_figures/2606.14489_fig4.jpg",
+      "caption": "Figure 4. Demonstration on QRed with N = 4 qubits. Classifier output for five representative points across the phase diagram. The dashed line marks the theoretical deci- sion boundary at ˆy(x) = 0.5. Error bars indicate the 1σ statis- tical dispersion of three independent runs with Nshots = 1024 each.",
+      "page": 5
+    },
+    {
+      "image": "2606.14489_figures/2606.14489_fig5.jpg",
+      "caption": "Figure 5. Demonstration on QRed with N = 10 qubits. Classifier output for five representative points across the phase diagram. The dashed line marks the theoretical deci- sion boundary at ˆy(x) = 0.5. Error bars indicate the 1σ statis- tical dispersion of three independent runs with Nshots = 1024 each. Due to the increased circuit depth and hardware noise, the raw signals exhibit larger compression than for N = 4 qubits.",
+      "page": 6
+    }
+  ],
+  "figure": "2606.14489_figures/2606.14489_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 2,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 2,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 1,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

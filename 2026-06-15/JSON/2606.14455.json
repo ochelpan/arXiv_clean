@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.14455",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Optimal Decoding of Small Codes by Density Matrix Propagation",
+  "authors": "Anthony Benois, Pierre Cussenot, Grégoire Misguich, Nicolas Sangouard, Kiara Hansenne",
+  "abstract": "Accurate and efficient decoding is a crucial component for achieving fault-tolerant quantum computing. Realistic circuit-level noise introduces temporal correlations and degeneracy, making optimal (maximum-likelihood) decoding computationally intractable in general. As a result, practical decoders rely on heuristic approximations, and it is generally difficult to quantify how suboptimal they are, as this strongly depends on the code and noise model considered. In this work, we study the accuracy of practical decoding algorithms under circuit-level noise by comparing them against a maximum likelihood decoding benchmark. Our approach propagates the density matrix through the full memory experiment and computes the optimal decoding decision for each syndrome history. We introduce pruning techniques with rigorous bounds, allowing us to access larger numbers of syndrome-extraction rounds. We apply this framework to small instances of the repetition code and a cellular automaton code, and benchmark minimum-weight perfect matching (MWPM), belief propagation with ordered statistics decoding (BP+OSD), Tesseract, and Planar decoders against optimal decoding. While standard decoders remain close to optimal for the repetition code, we find significant deviations for the cellular automaton code, with BP+OSD deteriorating already in experimentally relevant noise regimes. Moreover, the pruning method developed here highlights that, at low physical error rates, only a narrow fraction of syndrome histories contributes significantly to the logical error rate.",
+  "url": "http://arxiv.org/abs/2606.14455v1",
+  "pdf": "https://arxiv.org/pdf/2606.14455v1",
+  "type": "theory",
+  "summary": "This paper rigorously analyzes quantum error correction decoding under realistic circuit noise, comparing heuristic decoders against an optimal maximum-likelihood benchmark using Density Matrix Propagation. By developing pruning methods to manage the exponential complexity of syndrome histories, the authors quantify how much performance is lost by practical algorithms compared to theory. This work advances the understanding of fault tolerance feasibility for complex codes.",
+  "main_problem": "The core challenge is achieving accurate and efficient decoding for fault-tolerant quantum computation when subjected to realistic circuit-level noise, which introduces temporal correlations.",
+  "main_result": "The study benchmarks various practical decoders against an optimal maximum-likelihood benchmark, finding significant performance degradation for some algorithms (like BP+OSD) in relevant noise regimes.",
+  "method": "The authors employ Density Matrix Propagation (DMP) to compute the optimal decoding decision by tracking the density matrix through syndrome measurement histories. They use pruning techniques to manage the exponential complexity of the full syndrome tree exploration.",
+  "model_or_system": "The work analyzes Quantum Error Correction (QEC) using stabilizer codes, such as the repetition code and cellular automaton/triangular codes. The noise is modeled as circuit-level noise affecting syndrome measurements over multiple rounds.",
+  "key_observables": "Logical Error Rate ($\\epsilon_L$), conditional post-measurement state ($\\varrho_s$), and the fraction of relevant syndrome histories contributing to $\\epsilon_L$.",
+  "important_parameters": "Physical error rate ($p$), code distance ($d$), number of syndrome extraction rounds ($r$), and the computational complexity scaling with $2^{ns}$.",
+  "main_assumptions": "The primary approximation is using pruning techniques to bound the summation over exponentially many possible syndrome histories, yielding a lower bound ($\\epsilon_{\text{low}}^L$) on the true error rate.",
+  "figures_summary": "Figures illustrate matching graphs for specific codes (e.g., $T_2$), showing how error mechanisms relate to detectors and logical observables under noise. Other figures compare $\\epsilon_L$ vs. physical error rate ($p$) for different decoders, highlighting the required fraction of syndrome histories needed for accuracy.",
+  "paper_structure": "The paper develops from establishing the need for optimal decoding benchmarks (DMP) to detailing the mathematical framework ($\\varrho_s$, TLS decomposition), and finally applying this framework by comparing multiple state-of-the-art decoders across various code families under increasing noise levels, while analyzing computational bottlenecks.",
+  "why_interesting": "This work is highly relevant as it tackles the practical limitations of fault tolerance by providing rigorous benchmarks for decoding algorithms. The techniques developed for bounding error rates via partial syndrome information are crucial for scaling QEC simulations beyond current limits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.14455_figures/2606.14455_fig1.jpg",
+      "caption": "FIG. 2. Logical error rate as a function of the physical error rate p for the triangular code T with (a) r = 3 and (b) r = d rounds, using various decoders at distances d = 3 and d = 5. Shaded regions indicate statistical error bars obtained from N = 109 samples. The DMP simulations were performed without pruning for d = 3. For d = 5, pruning was used and the plotted values correspond to the lower bound εlow L . The cutoff was chosen such that the gap εup L −εlow L remained around 10% of εlow L , making the gap negligible on the scale of the figure. The computation of all the DMP data points took over 125 000 hours on a single work station CPU. For d = 5 and r = d, the total number of...",
+      "page": 7
+    },
+    {
+      "image": "2606.14455_figures/2606.14455_fig2.jpg",
+      "caption": "FIG. 3. Fraction of syndrome histories explored to obtain a 30% gap between the upper and lower bounds on the logical error rate (red, left axis) for the distance-five triangular code T2 with r = 2 and r = 3 rounds. The corresponding prun- ing cutoff is shown on the right axis (blue). For a number of rounds r = 2 and r = 3, the total number of syndrome histories is 221 > 2 × 106 and 228 > 2 × 108, respectively.",
+      "page": 7
+    },
+    {
+      "image": "2606.14455_figures/2606.14455_fig3.jpg",
+      "caption": "FIG. 4. Total number of syndrome histories (blue) and minimal number required to approximate the logical error rate within 1% relative error (red) for the repetition code across various code parameters. The relevant syndromes are selected based on their largest contributions to the logical error rate, ps p(fail | s), and the percentage indicates their fraction relative to the total. The physical error rate is p = 10−3.",
+      "page": 12
+    },
+    {
+      "image": "2606.14455_figures/2606.14455_fig4.jpg",
+      "caption": "FIG. 5. Representative paths in the syndrome tree for the distance-5 repetition code (r = 5 rounds, which leads to a syndrome history of length (r + 1)(d −1) = 24). Black violin plots show the full distribution of syndromes. Grey paths represent typical paths from the top 0.1% of syndromes contributing most to the logical error rate εL, while coloured paths are selected examples from these grey paths. The yellow path illustrates that, after one and two rounds (syndrome lengths 4 and 8), most syndromes contribute more than it, yet it becomes one of the highest-contributing paths after all d rounds. The physical error rate is p = 10−3.",
+      "page": 13
+    },
+    {
+      "image": "2606.14455_figures/2606.14455_fig5.jpg",
+      "caption": "FIG. 6. Logical error rate as a function of the physical error rate p for the repetition code with r = d rounds, using various decoders at distances d = 3 and d = 5. Shaded regions indicate statistical error bars. We used N = 108 shots except for the Planar decoder for which we used N = 107 shots. The Planar and DMP decoders are ML, in contrast to the others. The DMP simulations were realised without pruning and are therefore exact to machine precision.",
+      "page": 14
+    }
+  ],
+  "figure": "2606.14455_figures/2606.14455_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}
