@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2606.15350",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "math.NA",
+    "cond-mat.str-el",
+    "cs.DS",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Linear algebra at exponential scale via tensor network dimension reduction",
+  "authors": "Chris Camaño, Ethan N. Epperly, Raphael A. Meyer, Joel A. Tropp",
+  "abstract": "Many problems in modern scientific computing are challenging because of a \\emph{curse of dimension}, where their mathematical formulation involves objects whose dimension is \\emph{exponential} in the nominal \"size\" of the problem. Tensor networks can provide a compact representation for exponentially large vectors and matrices that arise in applications, but these representations do not always lead to reliable algorithms. This paper develops and analyzes techniques for randomized dimension reduction of tensor network data. These techniques support a suite of efficient algorithms for provably solving exponential-scale linear algebra problems, including trace estimation and eigenvalue approximation. The paper includes several stylized illustrations from quantum many-body physics with ambient dimension up to $2^{200}$.",
+  "url": "http://arxiv.org/abs/2606.15350v1",
+  "pdf": "https://arxiv.org/pdf/2606.15350v1",
+  "type": "theory",
+  "summary": "This paper introduces randomized dimension reduction techniques using random Matrix Product States (rMPS) to solve linear algebra problems on exponentially large matrices arising in quantum physics. By projecting these high-dimensional operators onto a low-rank rMPS subspace, it enables efficient computation of observables like partition functions and traces that were previously computationally inaccessible.",
+  "main_problem": "The core challenge is solving linear algebra problems whose computational resources scale exponentially with system size due to the curse of dimension.",
+  "main_result": "Randomized dimension reduction techniques, specifically using random Matrix Product States (rMPS), allow for provably efficient estimation of quantities like partition functions and traces at exponential scales.",
+  "method": "The authors develop and analyze randomized algorithms that replace direct computation with low-dimensional projections derived from rMPS test matrices. These methods adapt standard linear algebra estimators (like the Girard–Hutchinson estimator) to the tensor network structure.",
+  "model_or_system": "The primary physical model is quantum many-body physics, exemplified by calculating the partition function $Z(\beta)$ for Hamiltonians like the PTFIM, which leads to exponentially large matrices ($2^n \times 2^n$). The mathematical framework relies on representing these operators and states using Matrix Product States (MPS) and Operators (MPO).",
+  "key_observables": "Partition function $Z(\beta)$, trace estimation $\text{Tr}(e^{-\beta H})$, eigenvalue approximations, and various norms ($\\|A\\|_*$, $\\|A\\|_F$).",
+  "important_parameters": "System size exponent ($n$), local dimension ($d$), bond dimension ($\\chi$), and the ratio $\\chi/n$ which dictates algorithmic scaling.",
+  "main_assumptions": "The analysis assumes that rMPS test matrices provide a sufficiently good embedding (subspace injection) to preserve necessary geometric properties for accurate estimation, particularly when the bond dimension $\\chi \\gtrsim n$.",
+  "figures_summary": "Figure 1 demonstrates rMPS-based trace estimation for $n=70$ requiring only megabytes of storage. Figure 2 shows convergence of variance estimators towards Gaussian behavior as $\\chi/n$ increases. Figure 3 compares the accuracy of the rMPS Girard–Hutchinson estimator against theoretical bounds.",
+  "paper_structure": "The paper progresses by first identifying the exponential scaling problem, then introducing tensor networks (MPS/MPO) for representation, developing randomized dimension reduction via rMPSs, and finally applying these tools to specific linear algebra tasks like trace estimation and Nyström approximation with rigorous error bounds.",
+  "why_interesting": "This work is highly relevant as it provides concrete, scalable numerical machinery to tackle quantum many-body problems that are intractable for exact diagonalization or standard tensor methods due to the sheer size of the Hilbert space.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.15350_figures/2606.15350_fig1.jpg",
+      "caption": "Figure 1: Exponential-scale linear algebra. Computational resources to estimate the partition function Z(β) = Tr(e−βH) of the PTFIM Hamiltonian H ∈R2n×2n (3.8) with increasing order n using the XNysTrace algorithm implemented with dense, sparse (CSR), and tensor network data formats with both rMPS and Gaussian–Kronecker test vectors. From left to right, the panels report the memory, wall-clock time, and number of applications of the primitive ω 7→e−βHω required to estimate Z(β) to 1% relative error. Markers track the median over 10 trials, and shaded regions bound the 10% and 90% quantiles. Dense and sparse matrix computations quickly expend the available memory, and Gaussian–Kronecker...",
+      "page": 3
+    },
+    {
+      "image": "2606.15350_figures/2606.15350_fig2.jpg",
+      "caption": "Figure 1 shows the results. For tensor order n = 70, the rMPS-based implementation of XNysTrace can estimate the partition function to 1% relative error using megabytes of storage and minutes of computation. By using rMPSs and efficient tensor network methods to store and apply the Hamiltonian H, we can extend the XNysTrace algorithm to perform trace estimation at exponential scale. As a baseline, we compare against the performance of Gaussian–Kronecker vectors that have the form ω = ϕ(1) ⊗· · · ⊗ϕ(n) with iid Gaussian ϕ(i) ∼NR(0, I2). Gaussian–Kronecker vectors are widely used in the literature [2,4,15,17,18,74,75,101], and they also enable us to implement XNysTrace at exponential scale....",
+      "page": 3
+    },
+    {
+      "image": "2606.15350_figures/2606.15350_fig3.jpg",
+      "caption": "Figure 2: Convergence of rMPSs to Gaussian behavior. (Left) Normalized variance of quadratic form trace estimator Var(ω∗Aω)/ Tr(A)2 evaluated across rMPS bond dimension χ ∈[1, 100]. As the rMPS bond dimension χ approaches n, the variance of the rMPS quadratic form converges to that of a dense Gaussian random vector. (Right) Relative error ∥A −bA∥∗/∥A∥∗for a randomized Nystr¨om approximation bA as a function of approximation rank. In both panels, the matrix is chosen adversarially: A = QQ∗+ 10−5I ∈ R210×210 where Q consists of the first 20 columns of the orthogonal Walsh–Hadamard matrix. Sample variances are computed using 500 random samples; the markers track the median over 20 trials;...",
+      "page": 7
+    },
+    {
+      "image": "2606.15350_figures/2606.15350_fig4.jpg",
+      "caption": "Figure 3: rMPS Girard–Hutchinson: Dependence on spectral decay. MPS Girard–Hutchinson estimator (Algorithm 1) used to estimate to the partition function Z(β) = Tr(e−βH) of the classical 1D Ising Hamiltonian (3.4) with n = 50 sites and β ∈{0.1, 1, 10}. The markers track the median relative error over 60 trials; shaded regions connect the 25% and 75% quantiles. The black line ( ) shows the predicted behavior for standard Gaussian probes, and the red line ( ) illustrates the Monte Carlo error decay 1/ √",
+      "page": 14
+    },
+    {
+      "image": "2606.15350_figures/2606.15350_fig5.jpg",
+      "caption": "Figure 4: Nystr¨om approximation at exponential scale. Estimates via funNystr¨om for the von Neumann entanglement entropy (3.7) of the half-chain reduced density matrix ρA ∈C2100×2100 associated with the ground state of the 200-site periodic transverse-field Ising Hamiltonian (3.8). The markers track the median over 60 trials; shaded regions are bounded by the 10% and 90% quantiles. (Left) Relative entropy errors |S(ρA) −S(bρA)|/|S(ρA)| as a function of the embedding dimension k for each bond dimension χ ∈{1, 2, 4, 8, 16, 32, 64}. (Right) Approximate eigenvalues of bρA for rank-100 approximation produced by MPS GramNystr¨om for several values of χ compared with the exact eigenvalues. See...",
+      "page": 18
+    }
+  ],
+  "figure": "2606.15350_figures/2606.15350_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

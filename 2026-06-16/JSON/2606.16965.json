@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.16965",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET",
+    "cs.SE"
+  ],
+  "is_primary_archive": true,
+  "title": "How Many Shots Are Enough for a Quantum Circuit?",
+  "authors": "Giuseppe Bisicchia, Alessandro Bocci, Ernesto Pimentel, Antonio Brogi",
+  "abstract": "Quantum algorithms require repeated circuit executions, known as shots, to estimate output distributions accurately. Determining the minimal number of shots needed to meet a target accuracy is crucial to reduce costs and resource usage, especially on today's noisy and expensive quantum hardware. In this paper, we address the shot optimisation problem in a black-box setting, where no assumptions are made about the structure of the quantum circuit or the noise model of the backend. We introduce IncrementalExecution, a novel online framework that dynamically determines when to stop executing shots based on the principle of point of diminishing returns: the point at which additional shots no longer significantly alter the empirical distribution of a fixed circuit. The framework supports customisable policies for shot management, enabling flexible trade-offs between execution cost and result fidelity within static execution scenarios. We assess our proposal through an extensive experimental evaluation spanning 33,750 framework configurations across 180 unique static quantum circuit-backend combinations, for a total of 7.3M independent experiments. Unlike prior work that relies on problem-specific knowledge or algorithm-dependent assumptions (e.g., variational or adaptive workflows), our approach is applicable to a large set of static circuits and immediately deployable on current quantum cloud platforms.",
+  "url": "http://arxiv.org/abs/2606.16965v1",
+  "pdf": "https://arxiv.org/pdf/2606.16965v1",
+  "type": "experiment",
+  "summary": "This paper addresses the critical challenge of efficiently determining the minimum number of shots needed for a quantum circuit execution to reach sufficient accuracy. It introduces IncrementalExecution, an online framework that operates without needing specific knowledge of the noise model or circuit structure. This makes it a highly general and practical tool for optimizing resource usage on current noisy quantum hardware.",
+  "main_problem": "The core problem is determining the minimum number of quantum circuit shots required to achieve a target statistical accuracy, thereby minimizing resource usage on expensive quantum hardware.",
+  "main_result": "A novel black-box framework, IncrementalExecution, was proposed that dynamically determines the optimal stopping point by detecting the point of diminishing returns in the empirical output distribution for static circuits.",
+  "method": "The method introduces an online framework that monitors the change in the empirical distribution over successive shot batches, comparing it against a reference estimate (like the full budget estimate) to signal when further shots yield negligible improvement.",
+  "model_or_system": "The work focuses on executing quantum circuits on Noisy Intermediate-Scale Quantum (NISQ) devices or cloud platforms. The analysis is restricted to static, non-variational circuits where the circuit structure remains fixed across all measurements.",
+  "key_observables": "Empirical output distribution ($\\hat{P}_n$), divergence metrics (Total Variation Distance, Hellinger distance, Jensen–Shannon divergence), and the point of diminishing returns signal.",
+  "important_parameters": "Target accuracy thresholds ($\\delta$), hard shot budgets ($B$), look-back window size ($\tau$), and circuit/backend configurations (e.g., 180 unique combinations).",
+  "main_assumptions": "The primary assumption for the online method is that the underlying process is stationary (static circuits); it explicitly avoids assumptions about noise models or variational parameter updates.",
+  "figures_summary": "Figures and tables provide extensive quantitative comparisons, showing how required shot counts vary across different circuit types (QFT, QAOA, random), increasing noise levels ($\\delta$), and comparing results from the proposed method against theoretical bounds (Weissman/Hoeffding).",
+  "paper_structure": "The paper progresses by first defining the general problem of sample optimization in a black-box setting. It then reviews existing specialized methods (analytical, adaptive) before introducing IncrementalExecution as a generalized, online solution based on detecting distributional stabilization.",
+  "why_interesting": "While focused on shot counting rather than Hamiltonian simulation, the rigorous statistical analysis and comparison against theoretical bounds provide valuable insights into the fundamental resource scaling laws governing quantum computation fidelity.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.16965_figures/2606.16965_fig1.jpg",
+      "caption": "Fig. 1. Empirical behaviour of static quantum circuit output distributions as the shot count increases. Each line corresponds to a circuit–backend pair.",
+      "page": 12
+    },
+    {
+      "image": "2606.16965_figures/2606.16965_fig2.jpg",
+      "caption": "Figure 1 presents empirical evidence of these dynamics. Each line corresponds to a unique pair consisting of a",
+      "page": 12
+    },
+    {
+      "image": "2606.16965_figures/2606.16965_fig3.jpg",
+      "caption": "Fig. 2. Heatmaps for 𝜖0.01, 0.025, 0.05, 0.1, and 0.25, for all the divergence metrics and 𝛿values considered.",
+      "page": 21
+    },
+    {
+      "image": "2606.16965_figures/2606.16965_fig4.jpg",
+      "caption": "Fig. 3. Heatmaps for Delta and DMA stopping criterion policies, for all the divergence metrics and 𝛿values considered.",
+      "page": 22
+    },
+    {
+      "image": "2606.16965_figures/2606.16965_fig5.jpg",
+      "caption": "Fig. 4. Heatmaps for stability window 𝑘1, 3 and 5, for all the divergence metrics and 𝛿values considered.",
+      "page": 23
+    }
+  ],
+  "figure": "2606.16965_figures/2606.16965_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 2,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

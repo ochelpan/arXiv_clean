@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.16425",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CC"
+  ],
+  "is_primary_archive": true,
+  "title": "Worst-case depth hierarchy for shallow quantum circuits",
+  "authors": "Min-Hsiu Hsieh, Michael de Oliveira, Sathyawageeswar Subramanian, Xingjian Zhang",
+  "abstract": "Circuit depth is a central resource in complexity theory. While bounded-depth classical circuits admit well-understood hierarchy theorems, the internal structure of constant-depth quantum computation remains comparatively unexplored.   We prove an explicit depth hierarchy theorem for $\\mathsf{QNC}^0$. For each $d\\ge 12$, we construct a family of two-round interactive problems on which no depth-$(d-1)$ quantum circuit can achieve near-perfect success, regardless of gate set, circuit size, or ancillary qubits. In contrast, we prove that our construction admits realizations by simple bounded fan-in quantum circuits of depth larger than $d$ by a small constant factor. Moreover, all bounded fan-in classical circuits of sublogarithmic depth (in the input size) fail to achieve perfect success on these tasks for every $d$, yielding a hierarchy of problems that show unconditional quantum advantage of $\\mathsf{QNC}^0$ over $\\mathsf{NC}^0$.   A key obstacle is the scarcity of lower bound techniques for quantum circuits. To address this, we develop methods to analyze how depth affects a circuit's ability to realize nonlocal correlations amongst its output qubits in a fine-grained manner. Our approach exploits the correspondence between constraint systems and nonlocal games, translating group-theoretic constructions into rigid operator-valued constraint systems and then into non-local games. In particular, we construct constraint systems whose unique faithful operator-valued solutions require every perfect strategy, and every near-perfect strategy to a fixed precision, to implement multi-controlled phase operations. This reduces to a nonlocal unitary-synthesis problem, yielding depth lower bounds for both shallow quantum and classical circuits.   These results show that increasing depth strictly increases computational power within $\\mathsf{QNC}^0$, establishing a genuinely quantum hierarchy.",
+  "url": "http://arxiv.org/abs/2606.16425v1",
+  "pdf": "https://arxiv.org/pdf/2606.16425v1",
+  "type": "theory",
+  "summary": "The paper establishes an explicit and unconditional depth hierarchy theorem for constant-depth quantum circuits ($\text{QNC}^0$). By mapping computational tasks to nonlocal games defined by operator constraints, the authors prove that increasing circuit depth strictly increases computational power. This provides a rigorous measure of quantum advantage based solely on the required depth of the quantum circuit.",
+  "main_problem": "The central problem is establishing an explicit, unconditional depth hierarchy for constant-depth quantum computation ($\text{QNC}^0$), demonstrating that increasing circuit depth strictly increases computational power.",
+  "main_result": "The authors prove a depth hierarchy theorem showing that certain two-round interactive problems require quantum circuits of depth $\\Omega(d)$ to solve perfectly, while shallower circuits fail with significant probability. This establishes an unconditional quantum advantage over classical $\text{NC}^0$ computation based purely on circuit depth.",
+  "method": "The methodology involves translating the computational problem into a rigid operator-valued constraint system derived from group theory and nonlocal games. Lower bounds are established by showing that perfect solutions require implementing multi-controlled phase operations, which necessitates deep circuits.",
+  "model_or_system": "The model is quantum computation realized via bounded fan-in quantum circuits over the Clifford+T gate set. The complexity is analyzed using two-round interactive problems and constraint systems derived from abelian groups like $\\mathbb{Z}_m^2$.",
+  "key_observables": "Circuit Depth ($d$), Success Probability ($\\epsilon(d)$), Multi-controlled phase operations (e.g., $C_{m-1}(\\mathbb{Z})$).",
+  "important_parameters": "Depth $d$, precision $\\epsilon$, and the number of qubits/labels $m$.",
+  "main_assumptions": "The lower bound proofs rely on constructing constraint systems whose unique faithful solutions require specific non-Clifford gates, and later sections address robustness under approximate state preparation.",
+  "figures_summary": "Figure 1 schematically represents the established quantum depth hierarchies. Figure 2 shows logical dependencies for analyzing the quantum-input relation problem; Figure 3 shows dependencies for the classical verifier construction.",
+  "paper_structure": "The paper develops from establishing the basic hierarchy using nonlocal games (Chunk 1), refining this by connecting it to operator constraints and self-testing in semi-quantum settings (Chunks 2, 4, 6), deriving specific depth lower bounds related to multi-controlled gates (Chunk 7), and finally analyzing upper bounds for generalized Toffoli gates (Chunk 8).",
+  "why_interesting": "This work provides fundamental complexity results by quantifying the resource cost of quantum computation in terms of circuit depth, which is a key metric for physical implementation constraints.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.16425_figures/2606.16425_fig1.jpg",
+      "caption": "Figure 1: Schematic representation of the quantum depth hierarchies established in this work. The dashed box encloses the hierarchy obtained from the quantum-input classical-output relation problems. The interactive version preserves the same quantum hierarchy using only classical transcripts, while remaining unsolvable by sublogarithmic-depth classical circuits in input size n. Up to the constant-factor gap between our lower and upper depth thresholds (∆1, ∆2, ...), this yields an infinite discrete hierarchy.",
+      "page": 4
+    },
+    {
+      "image": "2606.16425_figures/2606.16425_fig2.jpg",
+      "caption": "Figure 3: Logical dependencies among the main ingredients in our analysis of the classical-verifier construction underlying Theorem 1.2 (see Theorem 5.4 for its formal version). Note that the dependency indicated by the arrow → ∗is not direct. Its use additionally requires combining Lemma A.8 with Protocol 3, Lemma B.3, and Lemma B.4, as in the proof of Theorem 1.1.",
+      "page": 11
+    },
+    {
+      "image": "2606.16425_figures/2606.16425_fig3.jpg",
+      "caption": "Figure 4: The circuit to measure some zi upon input question label qA.",
+      "page": 27
+    },
+    {
+      "image": "2606.16425_figures/2606.16425_fig4.jpg",
+      "caption": "Figure 5: Representation of the Clifford-basis test protocol. Round 1. The verifier selects a random Clifford operation Cc ∈{CNOT, Swap, X, I} together with the qubit registers on which it is to be applied. The verifier then instructs Charlie, via a classical label c, to perform the corresponding gate-teleportation procedure and return the measurement outcomes y. Round 2. The verifier computes the Pauli correction rc,y determined by Charlie’s measurement outcomes and sends questions corresponding to the Clifford-rotated parallel Mermin–Peres relations described in Figure 6, with the questions updated according to the correction rc,y.",
+      "page": 35
+    },
+    {
+      "image": "2606.16425_figures/2606.16425_fig5.jpg",
+      "caption": "Figure 6: Action of Clifford operations on the variables of the Mermin–Peres constraint system. Each vertex represents a variable from Eq. (2.1), and each directed edge represents the action of a Clifford operation mapping one variable to another under conjugation. When extended to the parallel Mermin–Peres constraint system (Definition 2.2), these transformations encode the relators implementing the action α in the semidirect product structure Pm ⋊α AGL(m, 2), defining the underlying operator-valued constraint system of the Clifford-basis test protocol.",
+      "page": 36
+    }
+  ],
+  "figure": "2606.16425_figures/2606.16425_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

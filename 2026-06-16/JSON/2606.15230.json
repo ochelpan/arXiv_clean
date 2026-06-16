@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.15230",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Benchmarking Quantum Extreme Learning based on Gaussian Boson Sampling",
+  "authors": "Daniel Montesinos, Gian Luca Giorgi, Roberta Zambrini",
+  "abstract": "Reservoir models offer a hardware-efficient learning paradigm for noisy intermediate-scale quantum devices by exploiting untrained quantum dynamics as a fixed feature map and restricting optimization to a simple classical readout layer. We propose a quantum extreme learning machine implemented using gaussian boson sampling and an encoding strategy that achieves high classification accuracy while reducing optical resource requirements. Classical inputs are jointly encoded in the squeezing parameters and in the interferometer unitary, enabling sampling-based, highly nonlinear feature maps while leveraging large-scale GBS output statistics, which are conjectured to be classically intractable. We systematically compare multiple families of quantum features accessible in the same setup and find that photon-number sampling probabilities provide the best performance, consistent with their higher effective feature dimensionality. Finally, we benchmark against classical nonlinear baselines and analyse robustness under noisy scenarios, showing competitive performance with fewer trainable parameters and indicating practical promise for near-term photonic implementations.",
+  "url": "http://arxiv.org/abs/2606.15230v1",
+  "pdf": "https://arxiv.org/pdf/2606.15230v1",
+  "type": "theory",
+  "summary": "This paper proposes using Gaussian Boson Sampling (GBS) within a Quantum Extreme Learning Machine (QELM) framework to perform classification tasks. It shows that encoding classical data into the interferometer's unitary matrix and squeezing parameters generates highly nonlinear, potentially intractable quantum features. The results demonstrate competitive performance against classical methods while maintaining resource efficiency for near-term photonic devices.",
+  "main_problem": "Developing resource-efficient quantum feature maps for machine learning by leveraging Gaussian Boson Sampling (GBS) to encode classical data into complex quantum states.",
+  "main_result": "The proposed Quantum Extreme Learning Machine (QELM) achieves competitive classification accuracy compared to classical baselines while utilizing fewer trainable parameters, with photon-number sampling providing the best performance.",
+  "method": "Classical inputs are jointly encoded into squeezing parameters and the interferometer unitary matrix ($\\hat{U}$), generating quantum features via Photon Number Resolving (PNR) detection, which are then read out using Ridge regression.",
+  "model_or_system": "The physical platform is Gaussian Boson Sampling (GBS) implemented with a linear optical interferometer fed by squeezed vacuum states. The model is a QELM that maps classical data $\\mathbf{x}_j$ to quantum feature expectation values $O_{ij}(\\mathbf{x}_j)$.",
+  "key_observables": "Photon number sampling probabilities ($\\hat{\\Pi}_n$), photon-number moment observables, and quadrature covariance observables.",
+  "important_parameters": "Number of optical modes ($M$, e.g., 5 or 12); noise levels (e.g., 0.1 to 0.25).",
+  "main_assumptions": "The GBS output probabilities are conjectured to be classically hard to compute; the encoding strategy allows data embedding in both squeezing parameters and the interferometer unitary.",
+  "figures_summary": "Figures illustrate the QELM workflow (Fig. 1), decision boundaries on synthetic tasks like 'two moons' (Fig. 2a), and test set accuracy vs. noise level for various models (Fig. 2b).",
+  "paper_structure": "The paper details the QELM architecture, describing input encoding via squeezing/unitary decomposition (CS decomposition), defining feature extraction using PNR detection, benchmarking performance against classical ELMs on tasks like moons and MNIST, and analyzing resource scaling.",
+  "why_interesting": "It directly applies advanced quantum optics techniques (GBS, squeezed states) to a machine learning problem, providing concrete benchmarks for near-term photonic quantum computation feasibility.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.15230_figures/2606.15230_fig1.jpg",
+      "caption": "FIG. 1: Schematic overview of the QELM based on GBS. External input samples xraw j undergo classical preprocessing (normalization and, when required, reduction via PCA) to generate the classical feature vector xj ∈Rdx. These features modulate the squeezing strengths and phases applied to each of the M optical modes, producing an input-dependent Gaussian state. This state is then processed by a linear interferometer ˆU(xj), and photon-number-resolving detection is used to extract a set of quantum features Oij(xj), corresponding to the probabilities of selected Fock outcomes. Finally, the resulting feature vector is fed into a classical Ridge regression layer, which produces the prediction...",
+      "page": 3
+    },
+    {
+      "image": "2606.15230_figures/2606.15230_fig2.jpg",
+      "caption": "FIG. 2: a) Decision Boundaries: QELM using Fock probabilities on the two-moon (top) and concentric circles (bottom) binary classification tasks. The results are shown for data noise levels (0.1 and 0.25), showcasing the model’s ability to maintain separation despite increasing noise. The background colour corresponds to the model prediction, while the coloured dots indicate the correct class. Dots with a yellow border correspond to misclassified points. b) Test Set Accuracy vs. Noise Level: This panel plots the classification accuracy on the test set against the noise level for all classical and quantum learning models on the Circles and Moons tasks. Points are the median across 10...",
+      "page": 5
+    },
+    {
+      "image": "2606.15230_figures/2606.15230_fig3.jpg",
+      "caption": "FIG. 3: a) Comparative Performance and Resource Analysis for Different Quantum and Classical Models (see color legend): Presents the test(bars)/train(dots) set accuracy (left y-axis) and number of trainable parameters (right y-axis, red cross markers) for two different image classification datasets (MNIST, OrganC). Points/bar height are the median across 10 repetitions with different random seeds, and error bars correspond to the 25th and 75th percentiles. From left to right, the quantum models correspond to increasing output feature dimensionality (see App. C). b) Noisy Quantum Features Performance: Accuracies of quantum models when Gaussian random noise is introduced to the quantum...",
+      "page": 6
+    },
+    {
+      "image": "2606.15230_figures/2606.15230_fig4.jpg",
+      "caption": "FIG. 4: Different encoding strategies: Performance Comparison on MNIST task using only the first six PCA components to encode information in the GBS device with different strategies. ESϕ, ESr, EU",
+      "page": 7
+    },
+    {
+      "image": "2606.15230_figures/2606.15230_fig5.jpg",
+      "caption": "FIG. 5: Scaling of the output feature dimension for the different measurement schemes considered in this work as a function of the number of optical modes M. For comparison, the linear scaling of the classical ELM feature space with respect to its number of internal neurons is also shown.",
+      "page": 13
+    }
+  ],
+  "figure": "2606.15230_figures/2606.15230_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 3,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

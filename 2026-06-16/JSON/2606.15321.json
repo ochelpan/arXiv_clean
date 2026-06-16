@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.15321",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": false,
+  "title": "Symmetry-aware generative design of flat-band materials beyond known crystal-net prototypes",
+  "authors": "Yihao Wei, Ivan Savochkin, Artem Mishchenko, Xiangwen Wang, Qian Yang",
+  "abstract": "Flat electronic bands underlie a range of strongly correlated and topological phenomena, whose design in real materials has so far relied on a small catalogue of named geometric motifs such as kagome, Lieb, and pyrochlore nets. This discrete catalogue is by no means to exhaust the geometries that support flat bands in real compounds, as band flatness is a property of network connectivity. Here we combine a continuous geometric representation of crystal sublattices, with a symmetry-constrained generative model, to access a broader design space for materials hosting flat bands. The key step is to choose sublattice motifs that are outside the known geometric clusters, ensuring the novelty of the generated structures. We then introduce SkeleGen, which pins these unconventional skeletons to symmetry-compatible Wyckoff positions while denoising the surrounding chemistry, resulting in 9,352 crystal candidates that survive stability and flatnessscreening. Band flatness is confirmed using high throughput full DFT calculations, which agree well also with the tight-binding spectra of the isolated skeletons, supporting a geometric origin of the band flatness. We demonstrate \"out-of-distribution\" motifs as a new design principle to dramatically expand geometric repertoire for materials discovery, potentially beyond flat bands.",
+  "url": "http://arxiv.org/abs/2606.15321v1",
+  "pdf": "https://arxiv.org/pdf/2606.15321v1",
+  "type": "theory",
+  "summary": "This work introduces SkeleGen, a novel computational framework that overcomes the limitations of cataloged crystal motifs by treating flat-band connectivity as a continuous geometric property. By using symmetry-aware generative models guided by latent space analysis, the authors successfully designed and screened thousands of chemically plausible materials predicted to host exotic flat electronic bands.",
+  "main_problem": "The design of flat electronic bands for strongly correlated and topological phenomena is limited by a small, known catalogue of geometric crystal motifs.",
+  "main_result": "The authors developed SkeleGen to generate 9,352 novel, stable crystal candidates that retain the desired flat-band character traceable to unconventional sublattices.",
+  "method": "A symmetry-aware generative model (SkeleGen) combines continuous geometric representation with structural constraints derived from Graph Neural Networks trained on sublattice embeddings.",
+  "model_or_system": "The focus is on electronic band structure arising from specific lattice connectivity patterns, modeled by identifying and embedding 'flat-band skeletons' within larger crystal structures. Validation involves high-throughput DFT calculations.",
+  "key_observables": "Band flatness (dispersionless bands), Novelty score ($\text{S}_{\text{novelty}}$), Flatness score ($S_{\text{total}}$).",
+  "important_parameters": "DFT calculation parameters (PBEsol functional, PAW potentials); Latent space thresholds (e.g., 50th percentile for novelty).",
+  "main_assumptions": "The electronic properties are primarily determined by the connectivity of the underlying sublattice skeleton, allowing a geometric design principle to guide material discovery.",
+  "figures_summary": "Figures illustrate the workflow: mapping known vs. unexplored latent space regions (UMAP), detailing the four-step constrained generation pipeline (SkeleGen), and showing representative candidates with their derived band structures.",
+  "paper_structure": "The paper follows a progression from identifying the limitation of existing motifs to developing a continuous geometric representation via GNNs, generating novel skeletons using SkeleGen under symmetry constraints, and finally validating these generated structures through high-throughput DFT calculations.",
+  "why_interesting": "While focused on solid-state physics, the methodology—using generative AI (diffusion/GNN) constrained by fundamental physical symmetries to explore vast chemical spaces—is highly relevant for designing quantum materials with specific electronic properties.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.15321_figures/2606.15321_fig1.jpg",
+      "caption": "Fig. 1 Unconventional flat-band geometries and their realization. Left: stripping a flat-band material to its bare sublattice, a nearest-neighbour tight-binding model reproduces the dispersionless band of the full DFT calculation, indicating that band flatness originates from network connectivity. Centre: validated flat-band sublattices embedded in a continuous geometric space form known clusters (kagome, Lieb, pyrochlore) separated by a sparsely populated unexplored region, where gray points represent unclustered sublattices; outliers are ranked by a novelty score Snovelty, the latent-space distance to the nearest known family. Right: an unconventional skeleton (e.g. the oxygen sublattice...",
+      "page": 3
+    },
+    {
+      "image": "2606.15321_figures/2606.15321_fig2.jpg",
+      "caption": "Fig. 2 Workflow of unconventional flat-band material generation. The overall pipeline is shown in the top panel. Starting from the Materials Project (MP) database, flat-band screening and tight-binding analysis identify flat-band materials and extract non-trivial sublattices, whose GNN- encoder embeddings are clustered and classified by RCSR prototypes to discover unconventional geometries. These motifs are expanded through symmetry- and structural-constrained generation, in which the constrained skeleton M c t and the unconstrained component M u t are recombined at each diffusion step into the full structure Mt. Candidates are then screened by the GNN surrogate model and validated with...",
+      "page": 4
+    },
+    {
+      "image": "2606.15321_figures/2606.15321_fig3.jpg",
+      "caption": "Fig. 3 Geometric latent space analysis of flat-band sublattices and identification of unconventional motifs. a, UMAP projection of GNN-encoded latent embeddings for 1,852 non- trivial flat-band sublattices, colored by HDBSCAN cluster ID. Clusters that coincide with catalogued crystal net prototypes are labeled (e.g., flu: fluorite, crs: cristobalite and xay: deltahedron); the remaining clusters recur across the database but are not dominated by certain catalogue. Top-10 novelty outliers (yellow stars) and representative outliers (blue stars) are highlighted; grey points denote unclustered or catalogued points. Insets show three-dimensional and top-view visualizations of representative...",
+      "page": 7
+    },
+    {
+      "image": "2606.15321_figures/2606.15321_fig4.jpg",
+      "caption": "Fig. 4 SkeleGen framework and statistics of screened candidate materials. a, Overview of the constrained generation pipeline. Step 1: a rigid flat-band-hosting sublattice with unconventional geometry is selected as the structural skeleton. Step 2: sublattice sites are populated with predeter- mined species and lattice lengths are sampled from bond-length distributions. Step 3: a compatible space group Gfull is sampled, constrained atoms are matched to Wyckoff positions, and the remaining positions are completed by a dynamic-programming sampler, yielding a full Wyckoff configuration. Step 4: DiffCSP++ performs constrained diffusion in which the skeleton atoms follow a predefined trajectory...",
+      "page": 8
+    },
+    {
+      "image": "2606.15321_figures/2606.15321_fig5.jpg",
+      "caption": "Fig. 5 Selected showcases of generated flat-band materials. For each candidate, the upper- left panel shows the generated crystal structure; the upper-right panel shows a 3D view of the crystal net that corresponds to the constrained sublattice and produces a flat band in the nearest-neighbour model; the middle-left panel shows a c-direction top view of the same crystal net; the middle-right panel shows the nearest-neighbour tight-binding band structure of the isolated skeleton; and the lower panel shows the DFT band structure with bands projected onto the constituent elements, alongside the corresponding element-projected density of states. All DFT energies are referenced to the Fermi...",
+      "page": 10
+    }
+  ],
+  "figure": "2606.15321_figures/2606.15321_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

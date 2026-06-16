@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.16375",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Scalable Graph State Generation with O(1) Local Feedforward in Quantum Networks",
+  "authors": "Xiaoyi Zheng, Chan-Tong Lam, Lin Chen, Zheng Xing",
+  "abstract": "The development of quantum networks faces a key challenge: the contradiction between probabilistic long-range entanglement generation and finite coherence time. Existing routing protocols typically focus on global state computation or path optimization. As the network scales up, classical delays accumulate and exacerbate decoherence, leading to a decrease in entanglement fidelity. To reduce routing decision delays to levels far below the coherence time of qubits, we propose a protocol based on local measurement and classical feedforward. This protocol reduces the local decision complexity to amortized O(1) level, ensuring that the decision delay is always much smaller than the coherence time of qubits. We map this protocol onto a dual-species trapped-ion platform and perform hybrid simulations. The results show that the proposed protocol performs well in terms of both resource efficiency and time feasibility. Noise analysis indicates that readout fidelity is the main bottleneck of this protocol, but noise suppression can be achieved by employing an erasure transformation in the dual-species architecture, combined with spatial multiplexing and branch independence, thereby ensuring the generation of high-fidelity star subgraphs. This protocol provides a clear path to achieving high-fidelity star subgraphs. These subgraphs can serve as general modules, merging to construct arbitrary subgraphs, providing a feasible solution for future fault-tolerant distributed quantum computing.",
+  "url": "http://arxiv.org/abs/2606.16375v1",
+  "pdf": "https://arxiv.org/pdf/2606.16375v1",
+  "type": "both",
+  "summary": "This paper introduces a scalable protocol for generating high-fidelity graph states in quantum networks using a dual-species trapped-ion platform. By employing local measurements and classical feedforward with O(1) complexity, it bypasses latency bottlenecks associated with global synchronization. Furthermore, the integration of erasure conversion significantly boosts fidelity, paving a path toward fault-tolerant distributed quantum computing.",
+  "main_problem": "The primary challenge is generating large-scale, high-fidelity graph states in quantum networks while overcoming decoherence limitations imposed by finite coherence times.",
+  "main_result": "The authors propose a low-latency protocol achieving amortized O(1) decision complexity, which maintains high fidelity even for large networks through error mitigation techniques like erasure conversion.",
+  "method": "The protocol relies on local measurements and classical feedforward, simplifying complex state evolution by exploiting the condition that measured qubit neighborhoods form an independent set. It combines iterative subgraph fusion with center node migration.",
+  "model_or_system": "The work is mapped onto a dual-species trapped-ion platform using ${}^{138}\text{Ba}^+$ for communication and ${}^{171}\text{Yb}^+$ for storage qubits, simulating the construction of star graph states.",
+  "key_observables": "Entanglement fidelity ($F$), resource efficiency (entanglement cost $\text{Cent}$), decision delay relative to coherence time, and effective logical error rate ($\\epsilon_{eff}$).",
+  "important_parameters": "Coherence time ($T_{\text{mem}}^{2} \\approx 1.0\text{ s}$), measurement error rates ($\\epsilon_m$), and network size parameters ($m, n$).",
+  "main_assumptions": "The core assumption enabling low latency is that the neighborhood of a measured qubit forms an independent set, which simplifies complex byproduct operators to local single-qubit corrections.",
+  "figures_summary": "Figures illustrate the protocol architecture (initial vs. target star graph), step-by-step construction using three protocols (Subgraph Generation, Center Transformation, Star Fusion), and quantitative comparisons of resource scaling ($\text{Cent}$, $\rho$) and fidelity decay under noise.",
+  "paper_structure": "The paper details the theoretical foundation by deriving measurement rules for graph states, then presents a multi-protocol workflow (Protocols 1-3) to build large topologies. Finally, it analyzes scalability using error mitigation techniques like erasure conversion.",
+  "why_interesting": "It provides concrete, hardware-aware protocols that directly address the time/fidelity trade-off in quantum networking, which is crucial for scaling up distributed quantum computation architectures built on trapped ions.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.16375_figures/2606.16375_fig1.jpg",
+      "caption": "FIG. 1. Protocol Architecture and Topology Evolution. (a) Initial Resource State. The blue lines represent Bell states. Relay nodes (hexagons) are linearly connected via Bell states, and each terminal node (square) shares a Bell state with its nearest relay node. (b) Target Graph State. The final star-shaped graph (yellow edges represent CZ connections). The topology center is arbitrarily specified, and the final graph only contains terminal nodes; all relay nodes are no longer present in the final graph after measurement.",
+      "page": 3
+    },
+    {
+      "image": "2606.16375_figures/2606.16375_fig2.jpg",
+      "caption": "FIG. 2. Core topological operations governing graph state evolution. (a) Protocol 1: Subgraph Generation. Relay nodes (hexagons) transform pre-shared Bell pairs (blue lines) into star-shaped subgraphs centered on qubit T2 via local Hadamard gates (purple), CZ operations (yellow lines), and X-measurements (red). (b) Protocol 2: Center Transformation. Dynamic migration of the topological center from node T to A is achieved by measuring T (red) and applying conditional corrections on A (green), without consuming additional entanglement. (c) Protocol 3: Star Fusion. Two independent stars GA and GB are merged by entangling center CA with bridge node B1, followed by the measurement of B1. This...",
+      "page": 5
+    },
+    {
+      "image": "2606.16375_figures/2606.16375_fig3.jpg",
+      "caption": "FIG. 3. End-to-end workflow for scalable star graph construction. (a) Parallel Initialization: Simultaneous execution of Protocol 1 by all relay nodes to form local subgraphs (blue boxes). (b) Initial Fusion: Protocol 3 merges the first two subgraphs via bridge node measurement (green box). (c) Center Migration: Protocol 2 shifts the center to a new relay node (red box). (d)-(g) Iterative Expansion: Alternating execution of fusion and migration protocols progressively expands the topology. (h)-(i) Finalization: The final center is designated among terminal nodes, and all remaining relay nodes are decoupled, yielding the target user-plane star graph (i).",
+      "page": 7
+    },
+    {
+      "image": "2606.16375_figures/2606.16375_fig4.jpg",
+      "caption": "FIG. 4. Resource Utilization. (a) The entanglement cost per qubit, Cent, matches the prediction of the analytical formula (Eq. 4) and converges to the asymptotic limits ≈1.33 (n = 3) and ≈1.16 (n = 6). (b) The gate density exhibits a bounded saturation mode, highly matching the prediction of the model ρ ≈cbase +coverhead/n−ccorr/mn (dashed line). This confirms the existence of initialization overhead at small scales, but the control complexity asymptotically saturates to a constant, thus verifying the amortized O(1) scalability.",
+      "page": 8
+    },
+    {
+      "image": "2606.16375_figures/2606.16375_fig5.jpg",
+      "caption": "FIG. 5. Temporal Feasibility. The red solid line indicates the 1.0 s coherence limit of 171Yb+ memory qubits. The dark blue solid line represents the total execution time of the protocol, and the green dashed line represents the latency caused by classical communication and processing. Simulation results show that the security margin is ≈80×, and classical communication time accounts for approximately 33% of the total latency. This indicates that the protocol operates under low-latency conditions.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.16375_figures/2606.16375_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 2,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

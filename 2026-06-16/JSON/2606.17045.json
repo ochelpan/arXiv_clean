@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.17045",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Compact Spin-Charge Separated Neural Quantum States for Valence-Bond States",
+  "authors": "Ang-Kun Wu, Louis Primeau, Yixin Zhang, Jingtao Zhang, Adrian Del Maestro, Yang Zhang",
+  "abstract": "Neural-network quantum states (NQS) provide a flexible nonlinear representation of quantum many-body wavefunctions, but their efficiency depends sensitively on whether the architecture reflects the sign structure and constrained Hilbert space of the target state. In this work, we propose a solvable-point-guided strategy: design the architecture at an exactly solvable point where the correct local rules can be read off, then refine to the non-exact regime by enlarging only the kernel size and hidden dimension. The strategy is built from four physics-motivated designs: a stride-matched local-rule convolution, geometric pooling, a sign-resolving $\\tanh(x^{2k+1})$ activation, and explicit spin-hole sector separation. We test this approach on quasi-one-dimensional valence-bond-solid (VBS) states and their doped soliton variants (sVBS), the exact ground states of a $t$-$J$-like model with a single mobile hole. In finite-size benchmarks, this architecture reaches high fidelity for the exact sVBS state with substantially fewer parameters than generic fully connected, convolutional, and transformer baselines tested under the same setup. For the spin sector, the learned local rule transfers from small to larger systems without retraining. Away from the solvable point, increasing kernel size and hidden dimension systematically improves accuracy, and the model shows approximately $L^2$ parameter scaling in the gapless regime for system size $L$, compared with approximately $L^4$ for matrix-product states in the same regime. Our work establishes a recipe for compact NQS in sign-structured, constrained Hilbert spaces and paves the pathway to physics-informed architectures for the broader $t$-$J$ and Hubbard families.",
+  "url": "http://arxiv.org/abs/2606.17045v1",
+  "pdf": "https://arxiv.org/pdf/2606.17045v1",
+  "type": "theory",
+  "summary": "The authors propose a novel, physics-informed design strategy for Neural Quantum States (NQS) aimed at efficiently representing complex many-body wavefunctions like Valence-Bond Solids. By guiding the network architecture using knowledge from exactly solvable limits, they create compact models that outperform generic deep learning baselines in terms of parameter efficiency and accuracy. This establishes a powerful framework for simulating strongly correlated electron systems.",
+  "main_problem": "Developing efficient, physically informed Neural Quantum States (NQS) representations for quantum many-body wavefunctions that possess complex sign structures and constrained Hilbert spaces.",
+  "main_result": "The proposed physics-guided NQS architecture achieves high fidelity in representing Valence-Bond-Solid (VBS) states with significantly fewer parameters than generic baselines, showing favorable parameter scaling ($L^2$ vs $L^4$) compared to Matrix Product States.",
+  "method": "A 'solvable-point-guided strategy' is used: designing the NQS architecture based on an exactly solvable point (where local rules are known) and then refining it by enlarging kernel size or hidden dimension for non-exact regimes.",
+  "model_or_system": "The study focuses on quasi-one-dimensional VBS states and their doped soliton variants ($\text{sVBS}$), which are the exact ground states of a $t\text{-}J$-like model. The underlying physics involves strongly correlated electron interactions.",
+  "key_observables": "Fidelity of the NQS representation, variational energy ($E$), and parameter scaling with system size ($L$).",
+  "important_parameters": "Coupling constants ($J_1, J_2$) defining the regime (exactly solvable when $J_1=J_2$); System size $L$.",
+  "main_assumptions": "The success relies on identifying an exactly solvable point to guide initial architecture design; VMC optimization is used for benchmarking.",
+  "figures_summary": "Figures illustrate the minimal NQS architecture using convolutional layers and geometric pooling, comparing Mean Squared Loss (MSL) across different activation functions, and showing energy benchmarks in both exactly solvable and non-exact regimes.",
+  "paper_structure": "The paper introduces the problem of efficient NQS design for constrained systems. It details a physics-motivated architecture incorporating local convolutions, geometric pooling, and specialized activations. Results are presented by testing on VBS/sVBS states, comparing parameter scaling against MPS, and finally discussing optimization techniques like Stochastic Reconfiguration (SR) in Variational Monte Carlo (VMC).",
+  "why_interesting": "This work provides a concrete recipe for building highly compact and expressive NQS tailored to the specific symmetries and local constraints inherent in strongly correlated electron models, which is crucial for advancing quantum simulation beyond simple mean-field approaches.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.17045_figures/2606.17045_fig1.jpg",
+      "caption": "FIG. 1. The neural-network architecture for the quasi-one- dimensional VBS state. A convolutional layer with kernel size 2 and stride 2 extracts the local singlet-pairing rule on each dimer. The activation function tanh \u0000 x2k+1\u0001 separates the three local classes with amplitudes +1, 0, and −1. Geometric pooling combines the resulting features multiplicatively, reflecting the product structure of the VBS wavefunction. A final fully connected layer outputs the scalar wavefunction coefficient. Inset: tanh \u0000 x2k+1\u0001 for differ- ent values of k. Input: each spin is encoded as a one-hot vector, ↑→(1, 0)T , ↓→(0, 1)T (expanded to 4 dimensional space for zero and double occupancy), processed as input...",
+      "page": 2
+    },
+    {
+      "image": "2606.17045_figures/2606.17045_fig2.jpg",
+      "caption": "FIG. 2. Mean squared loss (MSL) for learning the local pairing rule of the VBS state with different activation functions at system size L = 16, with Hilbert-space dimension 12,870. In all cases, the neural network uses kernel size 2 and hidden dimension 16 with learning rate 10−2.",
+      "page": 3
+    },
+    {
+      "image": "2606.17045_figures/2606.17045_fig3.jpg",
+      "caption": "FIG. 3. Neural-network architecture for the quasi-one-dimensional soliton VBS state with a single hole. The input configuration is sepa- rated into spin and hole degrees of freedom. The spin branch follows the same structure as in Fig. 1, up to the final output layer. After geo- metric pooling, the spin features are combined with the hole-position features and passed through a small fully connected layer to capture the resonant superposition of different VBS configurations. The final activation function is tanh \u0000 x3\u0001 , which empirically performs better than tanh(x) and ReLU(x).",
+      "page": 4
+    },
+    {
+      "image": "2606.17045_figures/2606.17045_fig4.jpg",
+      "caption": "FIG. 4. Comparison of ground states as a function of J2 ∈[0, 2] at fixed t1 = 1, t2 = 0.5, and J1 = 1 for system size L = 13. The top, middle, and bottom panels show the MPS bond dimension χ, the neural-network fidelity, and the relative energy error, respec- tively. At the exactly solvable point J2 = J1, the ground state is the sVBS state and the minimal network with kernel size 2 and hidden dimension 16 is sufficient to achieve a relative infidelity of ∼10−4. Away from this point, the fidelity to the exact sVBS state decreases, while increasing the kernel size and hidden dimension systematically improves the neural-network approximation. From the DMRG per- spective, the departure from the...",
+      "page": 6
+    },
+    {
+      "image": "2606.17045_figures/2606.17045_fig5.jpg",
+      "caption": "FIG. 5. The number of model parameters required by different ansatz states in the non-exact case J1 = 1, J2 = 0.9, t1 = 1, and t2 = 0.5. For the neural-network ansatz, the number of parameters is determined by requiring either the fidelity error or the relative energy error to be below 1%, averaged over 10 runs. For MPS, the bond dimension is determined by an SVD cutoff of 10−12. The dashed curves are polynomial fits, giving approximately L4 scaling for MPS and L2 scaling for the VBS neural-network ansatz. The black dashed line indicates the many-body gap.",
+      "page": 7
+    }
+  ],
+  "figure": "2606.17045_figures/2606.17045_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

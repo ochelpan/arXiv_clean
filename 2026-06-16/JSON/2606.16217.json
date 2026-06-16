@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2606.16217",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "math.NA",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "symveig: Verified eigenvalue enclosures for symmetry-decomposed Hermitian matrices",
+  "authors": "Sarang Vehale, Ritu Goel",
+  "abstract": "Exact diagonalization of quantum lattice Hamiltonians returns floating-point eigenvalues whose accuracy is not certified: rounding error, eigensolver behaviour, and ill-conditioning can corrupt a result without warning. We present \\texttt{symveig}, a pure NumPy/SciPy package that computes rigorous, machine-checkable enclosures of all eigenvalues of a Hermitian matrix, with an optional symmetry-sector decomposition. For a matrix that commutes with an abelian conserved quantity diagonal in the working basis (for example the total magnetization of a spin model), the package verifies each symmetry sector independently. Because each sector block is much smaller than the full matrix, this yields enclosures that are both tighter (by a factor of $3$-$9$ across system sizes $L = 4$-$12$) and dramatically faster (a wall-clock speedup of up to $130\\times$ at $L = 12$) than verifying the full matrix, while never forming or diagonalizing it. Every enclosure half-width is a guaranteed upper bound on the distance from a computed eigenvalue to the nearest true eigenvalue under IEEE~754 round-to-nearest arithmetic, obtained by explicit floating-point error analysis with no heuristic slack. The implementation requires neither INTLAB nor MATLAB, bringing rigorously verified eigenvalue enclosure into the standard scientific-Python stack used in computational physics. We validate the package on $1$D Heisenberg (open and periodic), $J_1$-$J_2$ Heisenberg, and $2$D Heisenberg lattices, confirming that every computed eigenvalue is contained in its enclosure across all tested configurations.",
+  "url": "http://arxiv.org/abs/2606.16217v1",
+  "pdf": "https://arxiv.org/pdf/2606.16217v1",
+  "type": "theory",
+  "summary": "This paper introduces 'symveig,' a novel package that computes mathematically rigorous enclosures for the eigenvalues of Hermitian quantum Hamiltonians. By exploiting symmetries to decompose large matrices into smaller, independent sectors, it achieves both significantly tighter bounds and massive speedups compared to full diagonalization methods. This provides computational physicists with unprecedented certainty regarding their calculated spectral properties.",
+  "main_problem": "The core problem is obtaining rigorous, machine-checkable enclosures for all eigenvalues of Hermitian matrices derived from quantum Hamiltonians, circumventing the uncertified nature of standard floating-point diagonalization results.",
+  "main_result": "The package successfully computes guaranteed eigenvalue enclosures that are significantly tighter (3–9x) and dramatically faster (up to 130x speedup) than verifying the full matrix spectrum by exploiting symmetry conservation laws.",
+  "method": "It uses a specialized, rigorous bounding technique based on the Bauer–Fike theorem, enhanced by explicit floating-point error analysis (Higham's $\\gamma_k$) and dramatically accelerated via symmetry-sector decomposition.",
+  "model_or_system": "The method is validated on quantum lattice Hamiltonians, including 1D Heisenberg chains (open/periodic), J1–J2 Heisenberg models, and 2D Heisenberg lattices. These systems are characterized by conserved quantities like total magnetization ($S_z$).",
+  "key_observables": "Rigorous eigenvalue enclosures $[\\mu_i - h_i, \\mu_i + h_i]$, spectral gaps, and certified ground-state energies.",
+  "important_parameters": "System size $L$ (tested up to 12), the matrix norm $\\|A\\|_F$, and the degree of symmetry conservation ($S$).",
+  "main_assumptions": "The method assumes the conserved quantity is exactly diagonal in the working basis; furthermore, the rigorous bound used is dominated by a worst-case error term ($\\gamma_4 n \\|A\\|_{\text{F}}$) when full rigor is applied.",
+  "figures_summary": "Figures demonstrate data collapse confirming scaling laws for enclosure widths ($h \\propto d_s \\|A\\|_F$), and show the substantial speedup achieved by using sector decomposition over global diagonalization.",
+  "paper_structure": "The paper introduces the problem of uncertified eigenvalues, details the mathematical framework involving rigorous error bounding (Bauer-Fike), presents the efficiency gain via symmetry-sector path analysis, validates the method on multiple lattice models, and concludes with performance comparisons.",
+  "why_interesting": "For theorists studying strongly correlated systems using numerical methods, this provides a crucial tool to move beyond approximate results. It allows for quantitative verification of spectral properties (like gaps or ground state energies) with mathematical certainty within standard computational environments.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.16217_figures/2606.16217_fig1.jpg",
+      "caption": "Figure 1: Maximum per-sector enclosure half-width versus ds ∥As∥F , for every sector of every model and size. The data collapse onto the line h ≈6 u ds ∥As∥F (u = 2−53) across more than four orders of magnitude, demonstrating that the rigorous half-width is a predictable function of sector dimension and norm.",
+      "page": 11
+    },
+    {
+      "image": "2606.16217_figures/2606.16217_fig2.jpg",
+      "caption": "Figure 2: Ratio of the maximum global enclosure half-width to the maximum sector enclosure half-width, as a function of system size L, for all model families. The sector decomposition is uniformly tighter, with the advantage growing with sy4tem size.",
+      "page": 11
+    },
+    {
+      "image": "2606.16217_figures/2606.16217_fig3.jpg",
+      "caption": "Figure 3: Wall-clock speedup of the sector path over the global baseline versus system size L (logarithmic vertical axis). The dotted line marks parity. The speedup grows rapidly with size as the cost of the full dense eigendecomposition comes to dominate the global path.",
+      "page": 12
+    },
+    {
+      "image": "2606.16217_figures/2606.16217_fig4.jpg",
+      "caption": "Figure 4: Per-sector maximum enclosure half-width for the 1D Heisenberg chain at L = 10 (logarithmic vertical axis), labelled by sector dimension d. The half-width grows with sector dimension, in agreement with the scaling law of Figure 1.",
+      "page": 13
+    }
+  ],
+  "figure": "2606.16217_figures/2606.16217_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.15414",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "stat.CO"
+  ],
+  "is_primary_archive": true,
+  "title": "Cluster-based Message-Passing (CluMP) Optimization for Complex QUBO Problems",
+  "authors": "Paolo Rissone, Stefan Boetcher, Alfonso Amendola, Simone Sala, Federico Ricci-Tersenghi",
+  "abstract": "Quadratic Unconstrained Boolean Optimization (QUBO) problems are widespread in both industrial applications and scientific studies. A QUBO problem corresponds to the optimization of a system of Ising spins defined on a generally sparse and heterogeneous graph. When the QUBO problem contains conflicting requests, the corresponding Ising system is frustrated, generating a complex energy landscape, which is hard to explore and optimize. Despite extensive algorithmic and hardware developments, finding low-energy configurations in these systems remains challenging (e.g., local-update heuristics typically become trapped in metastable states), especially when the (possibly frustrated) interactions generate extended correlated domains.   We introduce CluMP (Cluster-based Message-Passing), an algorithm that performs collective updates on connected clusters of spins using information from Belief Propagation (BP). By controlling the amount of frustration within clusters, CluMP enables BP convergence on large subgraphs and proposes nonlocal rearrangements involving up to hundreds of spins in a single move. We benchmark CluMP against state-of-the-art local-update heuristics on spin-glass models defined on several graph topologies, including random regular graphs and lattice regular graphs in two and three dimensions. Cluster moves consistently bypass local trapping and reach lower energies with fewer effective operations than single-spin dynamics. These results demonstrate that frustration-tolerant cluster updates can be implemented efficiently on sparse graphs. The CluMP framework provides a scalable strategy for large-scale combinatorial optimization and inference problems, where exploiting medium- and long-range correlations is key to navigating complex energy landscapes.",
+  "url": "http://arxiv.org/abs/2606.15414v1",
+  "pdf": "https://arxiv.org/pdf/2606.15414v1",
+  "type": "theory",
+  "summary": "The paper introduces CluMP, a cluster-based message-passing algorithm designed to optimize frustrated QUBO problems by performing collective updates on connected spin clusters. It demonstrates that this approach efficiently navigates complex energy landscapes, significantly outperforming local update methods like Simulated Annealing. The work is crucial for understanding the computational challenges in simulating disordered quantum systems.",
+  "main_problem": "The core problem is efficiently finding low-energy configurations (ground states) of complex Quadratic Unconstrained Boolean Optimization (QUBO) problems, which model frustrated Ising spin systems.",
+  "main_result": "Cluster-based Message-Passing (CluMP) significantly outperforms local update heuristics by performing collective updates on large clusters, allowing the system to bypass local energy barriers in highly frustrated landscapes.",
+  "method": "The algorithm uses Belief Propagation (BP) theory to guide collective spin updates across connected clusters. A variant, R-CluMP, enhances this by using population annealing and resampling to stabilize low-energy exploration.",
+  "model_or_system": "The model is an Ising spin system defined on a general graph structure, often studied via QUBO formulations. The complexity arises from 'frustration,' where conflicting couplings create rugged energy landscapes with many metastable states.",
+  "key_observables": "Energy gap ($\\Delta E_{\\min}/E_{\text{best}}$), average number of elementary operations ($\\langle \text{nelem} \rangle$), and success rate (proportion of runs reaching the true ground state).",
+  "important_parameters": "Frustration level ($\\phi$) controls cluster size; connectivity ($C$) and coupling type (Gaussian vs. $\\pm 1$ integer) dictate landscape structure.",
+  "main_assumptions": "The method relies on zero-temperature limits of BP updates, which can be sensitive to boundary conditions and graph topology. Furthermore, the advantage diminishes when the energy landscape is dominated by discrete degeneracies from integer couplings.",
+  "figures_summary": "Figures compare convergence trajectories ($\\Delta E$ vs. operations) and success rates for CluMP/R-CluMP against SA and $\tau_{EO}$ on both Lattice Regular Graphs (LRGs) and Random Regular Graphs (RRGs), showing superior performance metrics for cluster methods.",
+  "paper_structure": "The paper introduces the challenge of frustrated QUBO optimization, details the CluMP mechanism using BP, presents the R-CluMP enhancement, benchmarks the method across various graph types and coupling distributions, and concludes by analyzing how landscape degeneracy affects algorithmic advantage.",
+  "why_interesting": "This work provides a powerful, scalable simulation technique for sampling complex energy landscapes inherent in spin glasses. The analysis of how continuous vs. discrete couplings affect optimization algorithms is highly relevant to understanding the limitations of classical solvers when modeling quantum many-body systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.15414_figures/2606.15414_fig1.jpg",
+      "caption": "FIG. 1. Clusters at controlled frustration. Starting from a random seed (green), a connected cluster is grown until the number of frustrated loops reaches the threshold, ϕ. A loop is frustrated when the product of its couplings is negative. Examples on a 2d LRG show that increasing ϕ yields larger clusters (blue nodes) and a higher number of frustrated loops (violet plaquettes). Boundary nodes (grey), adjacent to at least one external edge but not belonging to the cluster, define the interface with the rest of the graph. Note that for ϕ = 0, the cluster reduces to a single node.",
+      "page": 2
+    },
+    {
+      "image": "2606.15414_figures/2606.15414_fig2.jpg",
+      "caption": "FIG. 2. BP on frustrated clusters. Zero-temperature BP updates (Eqs. (6)) on clusters with increasing frustration ϕ for 2d and 3d lattice regular graphs (LRGs; A,B) and random regular graphs with C = 10 (RRGs; C), at V ∼102–104 (100 runs, 28 iterations). LRGs show rapid loss of convergence with increasing ϕ (2d most sensitive), while RRGs remain stable up to ϕ ∼103, allowing clusters up to |C| ∼0.8V . Box plots show medians, interquartile ranges (IQRs), and 1.5 IQR whiskers.",
+      "page": 3
+    },
+    {
+      "image": "2606.15414_figures/2606.15414_fig3.jpg",
+      "caption": "FIG. 3. CluMP performance. Performance of τEO, SA, CluMP, and R-CluMP on LRGs (d = 2, 3; A,B) and RRGs (C). Ten samples per graph family, 102 runs per sample. Top: resampled convergence trajectories show the best-so-far energy as a function of the number of elementary operations, nelem (see text). Middle: success rate (blue circles) and average number of effective single-spin iterations (red triangles) to reach Ebest. Bottom: violin plots of the normalized gap ∆Emin/Ebest with embedded box plots (median, IQR, 1.5 IQR whiskers). Cluster methods achieve smaller gaps and higher success rates, with the largest speedup on LRGs.",
+      "page": 4
+    },
+    {
+      "image": "2606.15414_figures/2606.15414_fig4.jpg",
+      "caption": "FIG. 4. Statistics of CluMP updates. Correlation between cluster energy change ∆EC(n) and number of flipped spins for LRGs in 2d (A), in 3d (B), and C = 10 RRGs (C). Data aggregate all iterations, runs, and samples for CluMP (top) and R-CluMP (bottom). Marginals show distributions of ∆EC and flip counts; colors indicate BP iterations to convergence (blue: fast, red: slow). Cluster moves may flip up to O(102) spins, largely independent of ∆EC, enabling single-cluster-flip transitions between nearly isoenergetic states. In LRGs, slow BP convergence correlates with ∆EC > 0; in RRGs, this correlation weakens. Resampling in R-CluMP strongly suppresses ∆EC > 0 updates.",
+      "page": 5
+    },
+    {
+      "image": "2606.15414_figures/2606.15414_fig5.jpg",
+      "caption": "FIG. 5. CluMP performance under different boundary conditions. Effects of hard (blue squares) and soft (red circles) BP boundary conditions in RRGs with connectivity C = 4 (A) and C = 10 (B). Hard boundary conditions generally yield higher BP convergence rates (top panels), but significantly degrade CluMP performance at low connectivity (bottom panels), effectively reducing the maximum frustration threshold and limiting the accessible cluster size. In contrast, soft boundary conditions produce more robust and reproducible performance across different graph instances.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.15414_figures/2606.15414_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 4,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

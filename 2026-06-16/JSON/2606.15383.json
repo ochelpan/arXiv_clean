@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2606.15383",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "math-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum optimal control of steady orbits",
+  "authors": "Shebha Anandhi Jegadeesan, Yujie Zhao, Robert Hunter, Hassane El Mkami, Maximilian Keitel, Callum Musselwhite, Graham Smith, Guinevere Mathies, Ilya Kuprov",
+  "abstract": "Periodically driven dissipative systems can settle into steady orbits - fixed loops on their dynamical manifolds. In quantum mechanics, steady orbits occur in cooling engines (used to initialise quantum devices), coherent oscillators (such as lasers and masers), precision metrology devices (atomic clocks, optical and spin magnetometers), and magnetic resonance (steady state free precession, dynamic nuclear polarisation). Steady orbits and stroboscopic steady states are a promising target for quantum optimal control, but the numerical complexity is prohibitive: the infinite loop defeats gradient ascent pulse engineering (GRAPE) which relies on explicit numerical propagation in the time domain.   Here we propose an efficient quantum control strategy for stroboscopic steady states and limit cycles that are approached asymptotically when a control sequence is repeated infinitely many times. The formalism is different from Floquet-Lindblad state engineering and effective Hamiltonian theories: it finds control sequences that drive a dissipative quantum system towards a steady orbit passing through user-specified waypoints. The software implementation (same numerical complexity scaling as GRAPE) is done for the Spinach library.",
+  "url": "http://arxiv.org/abs/2606.15383v1",
+  "pdf": "https://arxiv.org/pdf/2606.15383v1",
+  "type": "both",
+  "summary": "This paper introduces an advanced optimal control technique, SO-GRAPE, designed to steer dissipative quantum systems toward stable, asymptotically approached steady orbits or limit cycles. By modifying the standard GRAPE framework with waypoint projectors, it overcomes the computational hurdle posed by infinite time evolution. This method is demonstrated successfully in optimizing complex pulsed DNP sequences for solid-state NMR, showing how realistic hardware limitations must be incorporated into theoretical control design.",
+  "main_problem": "The core problem is developing an efficient quantum optimal control strategy for reaching asymptotically approached steady orbits or limit cycles in periodically driven, dissipative quantum systems.",
+  "main_result": "The authors propose and implement a 'steady-orbit GRAPE' method that successfully drives the system towards these asymptotic states while maintaining computational complexity comparable to standard GRAPE techniques.",
+  "method": "The approach extends Gradient Ascent Pulse Engineering (GRAPE) by incorporating waypoint projectors into the Liouville space evolution. It uses Newton-Raphson methods to efficiently calculate the steady state, avoiding direct simulation of infinite time propagation.",
+  "model_or_system": "The system is a periodically driven dissipative quantum system modeled using the density operator formalism ($\rho$). Applications include cooling engines, lasers, atomic clocks, and specifically, pulsed Dynamic Nuclear Polarization (DNP) experiments in solid-state NMR.",
+  "key_observables": "Fidelity of approach to the steady orbit, longitudinal nuclear magnetization ($Z = \\sigma_I / I$), and the asymptotic state $\rho_{\text{ss}}$.",
+  "important_parameters": "The number of discrete time steps ($N$), the control sequence period, and instrumental parameters like filter functions ($\\mathcal{H}$) and Rabi frequency distributions.",
+  "main_assumptions": "The method assumes dissipation is present to ensure the desired orbit is an attractor. It also relies on the existence of an inverse for $(1 - P)$, guaranteed by strong dissipation.",
+  "figures_summary": "Figures illustrate the contrast between standard GRAPE (targeting a fixed state) and the proposed method (enforcing passage through waypoints). Later figures detail experimental setups, filter function measurements comparing ideal vs. realistic hardware assumptions, and final magnetization histograms.",
+  "paper_structure": "The paper introduces the theoretical challenge of steady-state control for dissipative systems, details the SO-GRAPE formalism using waypoint projectors in Liouville space, applies this method to optimize DNP pulse sequences by incorporating measured instrumental filter functions, and concludes with comparisons against ideal assumptions.",
+  "why_interesting": "This work is highly relevant as it tackles a major computational bottleneck—controlling asymptotic states—in open quantum systems. The extension of GRAPE to limit cycles provides a powerful new tool for designing robust control pulses in quantum optics and metrology.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.15383_figures/2606.15383_fig1.jpg",
+      "caption": "Figure 1. A schematic illustration of steady orbit optimal control. The system starts at the initial state ρ0 and evolves under a periodic external control sequence. The original gradient ascent pulse engineering GRAPE method26,27 designs a one-off control sequence that takes the system to a fixed destination state σ. The formalism proposed here designs instead a periodic control sequence that makes the system approach the blue attractor loop in the state space, con- strained by waypoint projectors Wn enforcing a state (red flag) or a subspace (red area). Such problem settings are not supported by existing average Hamiltonian and Floquet-Lindblad type theories, but they are common in...",
+      "page": 2
+    },
+    {
+      "image": "2606.15383_figures/2606.15383_fig2.jpg",
+      "caption": "Figure 2. Simplified schematic of the HiPER pulsed EPR/DNP spectrometer operating at 3.4 T. Integration of an arbitrary waveform generator (AWG) into the heterodyning enables con- venient pulse shaping at 94 GHz and coherent quadrature detection of the EPR signal. For further details, see the papers describing HiPER76 and its upgrades77.",
+      "page": 8
+    },
+    {
+      "image": "2606.15383_figures/2606.15383_fig3.jpg",
+      "caption": "Figure 3. Distribution of the electron Rabi frequencies in the HiPER instru- ment at 7.5 dB attenuation. Obtained from a finite element simulation of the shorted waveguide containing the sample tube and sample. Reproduced from Figure 8 of Zhao et al.77 For DNP pulse sequence optimisation, this distribution was approximated by a uniform distribution between 5 and 25 MHz.",
+      "page": 9
+    },
+    {
+      "image": "2606.15383_figures/2606.15383_fig4.jpg",
+      "caption": "Figure 4. HiPER instrument filter function including the detection circuit. (Left panel) Ideal X-inverse-X pulse se- quence (the phases of the pulses alternate between 0° and 180°, pulse duration 18 ns) as measured by the instrument (top left), as programmed into the AWG (middle left), and as modelled by Spinach when the filter function is applied to the ideal sequence (bottom left). (Right panel) Filter function of the HiPER instrument in the time domain (top right, real and imaginary components shown) and in the frequency domain (bottom right).",
+      "page": 9
+    },
+    {
+      "image": "2606.15383_figures/2606.15383_fig5.jpg",
+      "caption": "Figure 5. Waveform distortions induced in HiPER’s ex- citation branch. (Top panel) Transmission spectrum and (bottom panel) filter function kernel (in-phase and out-of- phase components). The indicated window function was applied to the transmission spectrum before extraction of the filter function by the inverse Fourier transform.",
+      "page": 10
+    }
+  ],
+  "figure": "2606.15383_figures/2606.15383_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

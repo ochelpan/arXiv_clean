@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2606.16288",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Reconstruction of detector error model for quantum error correction",
+  "authors": "Cheng Ye, Pan Zhang",
+  "abstract": "Fault-tolerant quantum computing fundamentally relies on the accurate characterization of circuit-level noise to optimize decoding algorithms. However, extracting complex multi-body error correlations remains challenging. Contemporary greedy inference algorithms can suffer from statistical distortion, discarding true physical mechanisms while introducing many unphysical false positives. Here, we introduce the Correlation-Analysis-based Hypergraph Reconstruction (CAHR) algorithm, a globally consistent framework to invert experimental syndrome statistics directly into discrete physical hypergraphs. By coupling exact algebraic correlation equations with a top-down concurrent-pruning strategy, CAHR recovers the fault topology without false positives for both $d=5$ rotated surface codes and dense 8-body 2D color codes in our benchmark settings. Furthermore, we show that exact continuous parameter extraction in dense codes is limited by a \\textit{variance cascade}, where absolute statistical variance accumulates linearly from high- to low-degree mechanisms. This motivates a two-stage inference paradigm: utilizing CAHR to extract the fault topology, followed by continuous probability optimization. This provides a practical approach for characterizing and decoding highly correlated noise in realistic quantum hardware.",
+  "url": "http://arxiv.org/abs/2606.16288v1",
+  "pdf": "https://arxiv.org/pdf/2606.16288v1",
+  "type": "theory",
+  "summary": "The paper presents the CAHR algorithm to reconstruct complex error hypergraphs governing detector noise in Quantum Error Correction codes. It demonstrates that by separating topology discovery from parameter fitting, it can accurately model multi-body errors even with finite experimental data. This methodology is vital for advancing practical fault-tolerant quantum computing hardware.",
+  "main_problem": "The core challenge is accurately characterizing complex, multi-body error correlations (high-order hyperedges) from raw experimental syndrome statistics for fault-tolerant quantum computation.",
+  "main_result": "The proposed CAHR algorithm successfully reconstructs the exact physical hypergraph topology for both surface and color codes with zero false positives when sufficient statistics are available. Furthermore, structural topology is shown to be more critical for decoder performance than precise continuous parameter estimation under noise.",
+  "method": "A Correlation-Analysis-based Hypergraph Reconstruction (CAHR) algorithm is introduced, which uses exact algebraic correlation equations derived from the Detector Error Model (DEM) and a top-down concurrent-pruning strategy to invert syndrome statistics into discrete hypergraphs.",
+  "model_or_system": "The system modeled is Quantum Error Correction (QEC), specifically analyzing detector error models represented as hypergraphs. The analysis uses concepts like moment equations derived from the Tensor Network Detector Error Model (TNDEM) applied to codes like the rotated surface code and 2D color code.",
+  "key_observables": "Syndrome variables ($\\sigma_i$), correlation moments ($M_{\\alpha}$), physical error probabilities ($p_{\\alpha}$), and the final Logical Error Rate ($p_L$) from decoding simulations.",
+  "important_parameters": "Sample size (number of shots, e.g., $5 \times 10^6$ to $1.5 \times 10^7$), code distance ($d=5$), and hyperedge order (up to 8-body).",
+  "main_assumptions": "The analysis assumes the Pauli error model for noise, relies on a two-stage inference paradigm (topology first, then parameters), and uses Gaussian approximations when analyzing variance cascades.",
+  "figures_summary": "Figures compare end-to-end decoding performance ($p_L$) between an 'Inference DEM' (derived from noisy data) and a 'Given DEM Topology' (ideal structure), showing the latter is far more robust. One figure illustrates the additive accumulation of inference errors (variance cascade) across code depth.",
+  "paper_structure": "The paper introduces CAHR as a globally consistent framework, details its two-stage process (topology discovery followed by parameter optimization), validates it on specific codes (surface/color), and concludes by comparing the operational robustness of topology reconstruction versus simple parameter fitting.",
+  "why_interesting": "This work provides rigorous mathematical tools to extract physical structure from noisy quantum measurements, which is crucial for designing reliable fault-tolerant hardware protocols. The explicit handling of high-order correlations addresses a major bottleneck in current QEC characterization techniques.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.16288_figures/2606.16288_fig1.jpg",
+      "caption": "FIG. 1. Hierarchical accumulation of absolute and relative inference errors (the variance cascade). Data is shown at the sample sizes required for zero-false-positive topological reconstruction. (a) Surface code (5 × 106 shots) and (b) color code (1.5 × 107 shots) show a clear inflation of absolute error as hyperedge degree decreases due to algebraic downward subtraction. The horizontal dash-dotted lines denote the multi-body correlation truncation threshold (ϵmulti). (c) In the surface code, the relative error is strongly suppressed at lower degrees (degrees 1 and 2) because the intrinsic error probabilities in the denominator are comparatively large. (d) In the color code, the large...",
+      "page": 5
+    },
+    {
+      "image": "2606.16288_figures/2606.16288_fig2.jpg",
+      "caption": "FIG. 2. End-to-end BP-OSD decoding performance and ablation analysis isolating topological vs. parameter sensitivity. Logical error rates (pL) are evaluated by collecting 200 (surface code) and 400 (color code) logical errors per point. Data spans three regimes corresponding to 1%, 10%, and 100% of the statistics required for DEM reconstruction without false positives. For both the (a) surface code and (b) color code, the unpruned Inference DEM fails at low statistics due to dense false-positive short cycles. By contrast, the Given DEM Topology (where the exact ideal topology is fed directly into the global correlation analysis with the pruning threshold set to zero, ϵ = 0, solely clipping...",
+      "page": 7
+    },
+    {
+      "image": "2606.16288_figures/2606.16288_fig3.jpg",
+      "caption": "FIG. 3. Tensor network formulation of the Detector Error Model. (a) Graphical representation of the TNDEM architecture. Each de- tector corresponds to an XOR tensor, which enforces a logical parity constraint for propagating Pauli errors. Independent physical error mechanisms are represented by diagonal tensors, parameterized by their fault probability pe and identity probability 1 −pe. (b) Visu- alization of the exact tensor contraction corresponding to Eq. (B1). By projecting the detector indices onto specific boundary conditions, the global network contraction naturally decouples into a product of independent scalar contributions.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.16288_figures/2606.16288_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
