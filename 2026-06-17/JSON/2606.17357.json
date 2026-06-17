@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.17357",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Pulse-optimised circuit elements for scalable and noise-resilient quantum chemistry",
+  "authors": "Henrik Gothen, Christopher K. Long, Djamila Hiller, Yunming Qian, Crispin H. W. Barnes, Normann Mertig, David R. M. Arvidsson-Shukur",
+  "abstract": "Useful chemistry calculations on near-term quantum processors are hindered by current algorithmic runtimes. We develop a methodology to significantly reduce these runtimes. Typically, variational quantum eigensolver (VQE) algorithms are implemented as sequences of primitive gates. Our methodology instead relies on gradient-ascent pulse engineering to construct hardware-tailored pulses for the direct implementation of VQEs. As problem sizes increase, it quickly becomes intractable to optimise a pulse that implements an entire VQE ansatz circuit. However, leading VQEs are constructed in a modular fashion. A problem-tailored VQE is assembled from parameterised circuit elements that simulate hopping between two or four electronic spin orbitals. We show that these circuit elements can be implemented more efficiently using hardware-tailored pulses. We numerically demonstrate our methodology on a silicon spin-qubit quantum processor. We find that common circuit elements, known as single- and double-qubit excitations, can be implemented in less than 289 ns and 927 ns, respectively. Compared with conventional gate-based implementations, our pulse-accelerated qubit excitations provide a scalable approach for faster and therefore more noise-robust quantum chemistry simulations by reducing VQE runtimes by up to a factor of 15.3.",
+  "url": "http://arxiv.org/abs/2606.17357v1",
+  "pdf": "https://arxiv.org/pdf/2606.17357v1",
+  "type": "both",
+  "summary": "The paper presents a novel technique using pulse engineering to drastically speed up fundamental circuit operations required for Variational Quantum Eigensolver (VQE) calculations. By optimizing hardware-specific pulses instead of relying on standard gate sequences, the authors achieve significant run-time reductions (up to 15x). This advancement makes quantum chemistry simulations more feasible and robust against noise on near-term silicon spin-qubit processors.",
+  "main_problem": "Current quantum chemistry calculations are limited by slow algorithmic runtimes on near-term quantum processors.",
+  "main_result": "The authors demonstrated that pulse engineering can accelerate qubit excitations for VQE elements by up to a factor of 15.3 compared to conventional gate-based methods, leading to more noise-robust simulations.",
+  "method": "They developed a methodology using gradient-ascent pulse engineering (GRAPE) to construct hardware-tailored pulses that directly implement required quantum circuit elements, bypassing full circuit optimization.",
+  "model_or_system": "The work is applied to simulating molecular energy levels using the Variational Quantum Eigensolver (VQE) on a silicon spin-qubit quantum processor. The underlying physics involves electron spin qubits governed by Heisenberg chain Hamiltonians.",
+  "key_observables": "Execution times for single- and double-qubit excitations, infidelity ($I$), Minimum Evolution Time ($\text{MET}$), and the acceleration factor compared to gate-based methods.",
+  "important_parameters": "Excitation strength ($\theta$), pulse duration ($T$), coherence time ($T_2^* \\approx 100 \\mu\text{s}$), and target infidelity threshold ($\\epsilon$).",
+  "main_assumptions": "The methodology assumes that high-fidelity pulses for various excitation strengths can be obtained by interpolating between pre-optimized pulse shapes.",
+  "figures_summary": "Figures illustrate the decomposition of required excitations into primitive gates, compare gate-based vs. pulse-based execution times (showing large speedups), and map out the Minimum Excitation Time ($\text{MET}$) as a function of excitation strength and time.",
+  "paper_structure": "The paper first identifies the runtime bottleneck in VQE for quantum chemistry. It then proposes using gradient-ascent pulse engineering to create efficient, hardware-tailored pulses for fundamental qubit excitations (single/double). The core is the numerical demonstration comparing these optimized pulses against standard gate sequences, concluding with scalability analysis.",
+  "why_interesting": "This work directly addresses the practical implementation gap in quantum chemistry by providing a concrete, hardware-aware method to accelerate crucial computational steps on solid-state qubits, which is highly relevant for AMO physicists studying open quantum systems dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.17357_figures/2606.17357_fig1.jpg",
+      "caption": "Figure 1. VQE circuit to prepare an estimate of the LiH ground state. Starting from a 12-qubit Hartree– Fock state, the circuit uses SWAP operations and single- and double-qubit excitations [Eqs. (3) and (4)] to approximate the groundstate of LiH. A classical optimiser is used to fine-tune the excitation strength (θi) of the circuit elements. The cir- cled numbers on the SWAP operations indicate the number of nearest-neighbour SWAP operations required in a linear architecture. The circuit was constructed using numerical simulations of the QEB-ADAPT-VQE algorithm [12].",
+      "page": 2
+    },
+    {
+      "image": "2606.17357_figures/2606.17357_fig2.jpg",
+      "caption": "Figure 2. Decomposition of qubit-excitation elements into primitive gates. The top panel displays the circuit for a single-qubit excitation; the bottom panel displays the circuit for a double-qubit excitation [12]. The qubit-excitation elements require 10 and 34 gates, respectively.",
+      "page": 4
+    },
+    {
+      "image": "2606.17357_figures/2606.17357_fig3.jpg",
+      "caption": "Figure 3. Schematic of a silicon MOS device. Single- electron spin-qubits (arrows) are confined in Si (light grey) by potential wells (solid curve) created by plunger (semitranspar- ent blue) and barrier gates, also called J-gates (purple/pink) on top of an SiOx layer (dark grey). The J-gates control the potential barriers between electrons, and thus, the exchange interactions. The electrons’ spatial wavefunctions are shown as blue shaded bell curves. Each electron spin is subject to a static, external, magnetic field. A time-dependent magnetic field can be generated by a microwave antenna (orange). The white arrows illustrate the action of the double-qubit excita- tion.",
+      "page": 4
+    },
+    {
+      "image": "2606.17357_figures/2606.17357_fig4.jpg",
+      "caption": "Figure 4. Performance of pulse-based qubit excitations. Infidelity of a single- (left) and double- (right) qubit excitation plotted as a function of excitation strength θ and pulse duration T. Dark regions indicate (θ, T)-combinations for which we found low-infidelity pulses that approximate a qubit-excitation well. Lighter colours indicate regions of high infidelity, where we were unable to find pulses that approximate qubit excitations. The blue dashed line (where the infidelity equals 10−5) marks the transition between these regions. The inset highlights a vertical cut through our data. Each black dot represents the outcome of the most successful pulse simulation at a fixed T. At large...",
+      "page": 6
+    },
+    {
+      "image": "2606.17357_figures/2606.17357_fig5.jpg",
+      "caption": "Figure 5. Pulse shape vs pulse strength. The optimised pulse shapes of double-qubit excitations are plotted for five excitation strengths θ in the interval [ 8",
+      "page": 7
+    }
+  ],
+  "figure": "2606.17357_figures/2606.17357_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 1,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

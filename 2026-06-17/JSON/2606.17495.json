@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.17495",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Impact of Network Constraints on Fault-Tolerant Distributed Quantum Computing",
+  "authors": "Eneet Kaur, Shahrooz Pouryousef, Nitish Kumar Chandra, Hassan Shapourian, Jiapeng Zhao, Ramana Kompella, Reza Nejabati",
+  "abstract": "As we move towards scalable and modular quantum computing, quantum data centres become imperative. Existing analyses typically treat network constraints in isolation or through simplified models, leaving the interplay between error correction operations and communication resources underexplored. In this work, we present an end-to-end simulation framework that jointly models surface-code operations, internal QPU connectivity, and realistic network constraints including finite entanglement generation rates, limited communication qubits, and bandwidth contention, producing execution latency, from which logical error rate estimates are obtained. The framework is modular by design, allowing individual components such as routing heuristics, scheduling policies, and network topologies to be independently replaced. Numerical evaluation reveals distinct operating regimes in which the optimal resource allocation and code distance selection shift depending on the network characteristics. These results point to tradeoffs in the design of distributed quantum computing architectures that are not visible when computation and communication are modeled separately.",
+  "url": "http://arxiv.org/abs/2606.17495v1",
+  "pdf": "https://arxiv.org/pdf/2606.17495v1",
+  "type": "theory",
+  "summary": "This paper develops a comprehensive simulation framework to analyze fault-tolerant distributed quantum computing across modular QPUs. It jointly models error correction overheads with realistic network constraints, such as limited entanglement generation rates and bandwidth contention. The key finding is that system design requires careful tradeoff analysis, as communication bottlenecks can impose performance penalties that outweigh the benefits of higher code distances.",
+  "main_problem": "The work addresses how network constraints fundamentally impact the performance and feasibility of fault-tolerant quantum computation when scaling to modular, distributed architectures.",
+  "main_result": "The study reveals critical tradeoffs where communication overheads (like entanglement generation latency) can negate the error suppression gains achieved by increasing code distance in distributed systems.",
+  "method": "It employs an end-to-end simulation framework that jointly models surface-code operations, internal QPU connectivity, and realistic network limitations like finite entanglement rates and bandwidth contention.",
+  "model_or_system": "The system is a Quantum Data Center (QDC) composed of multiple interconnected QPUs utilizing surface codes for fault tolerance. The model incorporates lattice surgery protocols to realize logical gates across the network.",
+  "key_observables": "Execution latency, estimated logical error rates (TLER), and circuit makespan ($t_{total}$).",
+  "important_parameters": "Code distance ($d$), Entanglement-to-Photon Rate (EPR rate), Syndrome extraction time ($T_{syn}$), Idle noise multiplier ($k$), and Seam noise factor ($\\lambda$).",
+  "main_assumptions": "The analysis often assumes uniform entanglement generation rates across links and simplifies the complex stochastic nature of error events into mean-field approximations.",
+  "figures_summary": "Figures illustrate architectural comparisons (monolithic vs. distributed), lattice surgery protocols for local/remote CNOTs, network topologies like Fat-trees, and plots showing TLER scaling versus physical error rate under varying noise regimes.",
+  "paper_structure": "The paper develops a systematic framework by first compiling logical circuits to lattice-surgery primitives, then scheduling these operations considering resource contention (ancilla assignment), and finally calculating the total time/error based on network timing models (e.g., slow vs. fast EPR regimes).",
+  "why_interesting": "For AMO physicists working on quantum networking or trapped ions, this work provides quantitative metrics showing how physical interconnect limitations (like photon loss rates) translate directly into fundamental limits on achievable logical qubit fidelity.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.17495_figures/2606.17495_fig1.jpg",
+      "caption": "FIG. 1. (a) Monolithic single-processor design hosting all physical qubits with local nearest-neighbor connectivity. Logical qubits (dashed boundaries) are encoded within local patches. For simplicity, ancilla qubits for parity measurements are not shown. (b) Modular networked architecture distributing computation across multiple independent quantum processing units. Communication qubits at module boundaries enable inter-QPU entanglement distribution.",
+      "page": 3
+    },
+    {
+      "image": "2606.17495_figures/2606.17495_fig2.jpg",
+      "caption": "FIG. 2. Lattice surgery for logical CNOT operations. (a) Local lattice surgery: control-ancilla (ZZ) and ancilla-target (XX) measurements along patch boundaries. Duration: 4d·Tsyn. (b) Remote lattice surgery across QPUA and QPUB. The ancilla-target interaction requires O(d) Bell pairs per syndrome round via communication qubits. Total: O(d2) Bell pairs. (c) EPR timing. Fast:TEPR ≤Tsyn. Slow: TEPR > Tsyn: remote rounds stall, extending duration to 2d · Tsyn + 2d · TEPR.",
+      "page": 6
+    },
+    {
+      "image": "2606.17495_figures/2606.17495_fig3.jpg",
+      "caption": "FIG. 3. Fat-tree topology connecting distributed quantum processing units. QPUs reside at the leaves (within pods or racks which host multiple QPUs along with edge and aggregate switches) of the network and are connected via edge, aggregation, and core switches. Quantum links represent a unified physical interconnect supporting both classical communication and entanglement distribution.",
+      "page": 7
+    },
+    {
+      "image": "2606.17495_figures/2606.17495_fig4.jpg",
+      "caption": "FIG. 4. End-to-end latency modeling workflow.",
+      "page": 9
+    },
+    {
+      "image": "2606.17495_figures/2606.17495_fig5.jpg",
+      "caption": "FIG. 5. This figure shows the ancilla scaling regimes. The parameters of the circuit are 30 logical qubits, w = ∞, Qcomp = 35, two communication qubits and d = 20.",
+      "page": 12
+    }
+  ],
+  "figure": "2606.17495_figures/2606.17495_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
