@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2606.18422",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Gatekeepers and Hallucinations: A Layered Evaluation Framework for LLM-Driven Quantum Circuit Generation",
+  "authors": "Christopher Coleman, Sharon Marfatia",
+  "abstract": "As large language models (LLMs) become embedded in quantum simulation workflows (IDE copilots, notebook assistants, agentic pipelines), evaluation must move beyond functional correctness to anticipate and catch structured failures before they propagate through expensive pipelines. We present a layered evaluation framework for materials-informed Variational Quantum Eigensolver (VQE) circuit generation: (i) a gatekeeper screening rubric across seven physical and framework criteria; (ii) a circuit fidelity analysis comparing model outputs against analytical and reference-implementation values for H2/STO-3G/Jordan-Wigner/UCCSD, with ansatz classification and gate-composition breakdown; and (iii) design entropy, a run-to-run behavioral consistency metric. We surface a taxonomy of five distinct LLM failure modes (geometry hallucination, nonexistent API usage, runtime integration failures, constraint violations, and plausible-but-unverifiable output), each with distinct detectability profiles and structural to the task rather than to any one model. A forensic audit of the evaluation platform's own source code further establishes that two apparent model failures originated in the harness through silent fallback-template substitution, demonstrating that evaluation infrastructure belongs inside the same trust boundary as the models it tests. Applied across multiple foundation models on a Materials Project integrated pipeline, the framework shows that gatekeeper-style validation is necessary, not optional, for reliable deployment.",
+  "url": "http://arxiv.org/abs/2606.18422v1",
+  "pdf": "https://arxiv.org/pdf/2606.18422v1",
+  "type": "theory",
+  "summary": "This paper introduces a comprehensive, multi-layered evaluation framework designed to rigorously test LLMs generating quantum circuits for chemistry simulations. It moves beyond checking if code runs by assessing physical validity, structural consistency (design entropy), and adherence to known chemical principles. The findings emphasize that robust validation infrastructure is as critical as the models themselves for reliable deployment.",
+  "main_problem": "The core challenge is developing robust evaluation methods for Large Language Models (LLMs) when they are tasked with generating complex, executable quantum circuits for scientific simulations.",
+  "main_result": "A layered evaluation framework incorporating gatekeeper rubrics, circuit fidelity checks against reference values, and design entropy proves necessary to reliably deploy LLM-assisted quantum circuit generation in practice.",
+  "method": "The authors propose a three-part validation system: (1) A rubric screening across seven criteria; (2) Fidelity analysis comparing generated circuits to known analytical/reference implementations; and (3) Design entropy measurement for behavioral consistency.",
+  "model_or_system": "The focus is on Variational Quantum Eigensolvers (VQE) applied to molecular systems, specifically using the $\text{H}_2/\text{STO-3G}/\text{Jordan–Wigner}/\text{UCCSD}$ mapping. The evaluation platform itself is an agentic pipeline integrating LLMs with quantum chemistry workflows.",
+  "key_observables": "Five failure modes (e.g., geometry hallucination, nonexistent API usage), rubric scores (0-4), circuit depth/gate counts, and design entropy values.",
+  "important_parameters": "The fidelity of the generated ansatz relative to analytical expectations; temperature ($T$) for testing model stability.",
+  "main_assumptions": "The framework assumes that LLM failures can be categorized structurally rather than being tied to a specific model architecture. A significant limitation noted is the reliance on single-rater scoring for rubrics.",
+  "figures_summary": "Figures illustrate the system architecture, VQE circuits, rubric heatmaps showing model performance across criteria, and radar plots/graphs detailing design entropy and temperature stability of generated code.",
+  "paper_structure": "The paper introduces the problem space (LLMs in quantum workflows), details the layered evaluation framework components (gatekeeper, fidelity check, entropy), presents empirical results using multiple models on molecular systems, and concludes with a discussion on infrastructure auditing and future improvements.",
+  "why_interesting": "This work directly addresses the reliability bottleneck for integrating advanced AI tools into computational physics pipelines, providing necessary validation metrics beyond simple functional testing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.18422_figures/2606.18422_fig1.jpg",
+      "caption": "FIG. 1: System architecture, circuit structure, and screening overview. (A) Agentic pipeline schematic showing tool-mediated Materials Project retrieval via MCP server, multi-agent orchestration (Supervisor, Coordinator, DFT, and Structure agents), Amazon Braket circuit execution, and the generative AI model pool evaluated in this work. (B) Schematic VQE circuit for H2/STO-3G/Jordan–Wigner/UCCSD (mp-241) illustrating how Materials Project data encodes into gate structure: bond length and spin state determine the Hartree–Fock reference initialization; orbital count and electron number determine the singles and doubles excitation layers; the measurement layer feeds the classical optimizer....",
+      "page": 2
+    },
+    {
+      "image": "2606.18422_figures/2606.18422_fig2.jpg",
+      "caption": "FIG. 2: Circuit fidelity and ansatz classification (H2/STO-3G/JW/UCCSD, mp-241). (A) Ansatz classification per model from code inspection. Colour encodes failure detectability: pale red = silent (output looks valid), pale blue = runtime (requires execution to detect), grey = overt (visible in output). HF ref. and correct molecule are binary checks. Entries for Llama 3 70B and DeepSeek R1 correspond to harness-substituted templates rather than model generations (Sec. V A, Harness audit). (B) Variational parameter count, circuit depth, and CX gate count for models producing numeric output, normalised to the reference values (dashed line; params = 3, analytic; depth = 73 and CX = 24, Qiskit...",
+      "page": 4
+    },
+    {
+      "image": "2606.18422_figures/2606.18422_fig3.jpg",
+      "caption": "FIG. 3: Design entropy and temperature stability (model-reported metrics). (A) Normalized design entropy by model and ansatz family, computed from the empirical distribution of distinct (depth, two-qubit gate count, parameter count) tuples across repeated Prompt 2 v3 runs (crystalline silicon, mp-149). Higher entropy indicates broader exploration; lower entropy indicates template-driven generation. (B) Temperature stability of Claude Sonnet 4.5 across T ∈{0.1, 0.3, 0.5, 0.7, 1.0} (Prompt 1, H2/mp-241, n = 5 runs). Left axis: structural similarity to the T = 1.0 reference (green line). Right axis: variation from the canonical template (red bars). All outputs pass a functional checklist of 8...",
+      "page": 5
+    },
+    {
+      "image": "2606.18422_figures/2606.18422_fig4.jpg",
+      "caption": "FIG. 4: AWS service architecture for the QMI multi-agent platform. Numbered components correspond to the request flow described in the text. (1–3) User traffic enters via Amazon CloudFront (with AWS Shield and Certificate Manager for security) and is routed through an Application Load Balancer to the Elastic Beanstalk container. (4–6) Inside the EC2 instance, a Docker-containerised Streamlit application hosts the Strands Agents runtime. (7–8) Amazon Cognito handles user authentication; AWS Secrets Manager provides secure credential storage for all API keys. (9–10) The Supervisor Agent routes queries to Amazon Bedrock, which provides access to all eight foundation models evaluated in this...",
+      "page": 9
+    }
+  ],
+  "figure": "2606.18422_figures/2606.18422_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
