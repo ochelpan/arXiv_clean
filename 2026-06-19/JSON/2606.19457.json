@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.19457",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient classical representation and quantum state preparation of complete active space wavefunctions",
+  "authors": "Hamza Jnane",
+  "abstract": "Quantum computers promise to solve the electronic structure problem for a large class of molecules. However, the performance of relevant quantum algorithms hinges on preparing initial states with substantial overlap with the target eigenvector. For classically challenging molecules with strong electron correlation, starting from multi-reference states, such as complete active space (CAS) wavefunctions is necessary. Unfortunately, the most advanced state preparation protocols applied to such states result in a gate complexity that scales exponentially with the active space size $d$. In fact, even encoding a CAS state classically is traditionally believed to be intractable for chemically relevant systems. Here, we draw insights from the recently introduced Quantum Paldus Transform (QPT) to show that there exists an efficient classical representation of CAS states and to design a new state preparation routine outperforming previous ones. The QPT represents a transformation from the Fock basis to a friendlier symmetry-adapted basis. Our main contribution consists in showing that CAS states expanded in this basis can efficiently be represented as a matrix product state (MPS) with a bond dimension scaling as $O(d^2)$. One can then efficiently load the MPS on a quantum computer and use the inverse QPT to transform the state to the Fock basis. Moreover, our method can easily be extended to the efficient preparation of CAS states in first quantisation with similar complexity. Crucially, we demonstrate that the complexity of both state preparation protocols only grows polynomially as $O(d^3)$ , which constitutes to the best of our knowledge an exponential improvement over the state of the art.",
+  "url": "http://arxiv.org/abs/2606.19457v1",
+  "pdf": "https://arxiv.org/pdf/2606.19457v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel and efficient method for preparing initial states corresponding to Complete Active Space (CAS) wavefunctions on quantum computers. By transforming the problem into a symmetry-adapted basis, they show that CAS states can be represented as Matrix Product States with polynomial bond dimension scaling. This leads to an overall state preparation complexity of $O(d^3)$, representing an exponential improvement over prior art for simulating strongly correlated electronic systems.",
+  "main_problem": "The core challenge is developing quantum algorithms capable of efficiently preparing initial states with high overlap to the target eigenvector for simulating strongly correlated molecules.",
+  "main_result": "The authors show that by utilizing the Quantum Paldus Transform (QPT) into a symmetry-adapted basis, CAS states can be represented as Matrix Product States (MPS) with polynomial bond dimension scaling ($O(d^2)$).",
+  "method": "They propose a three-step protocol: 1) Representing the CAS state as an MPS in the Unitary Group Algebra (UGA) basis. 2) Loading this MPS onto a quantum computer. 3) Applying the inverse QPT to transform the state into the Fock basis.",
+  "model_or_system": "The system is the electronic structure problem of molecules, specifically requiring the accurate description of strong electron correlation using Complete Active Space (CAS) wavefunctions.",
+  "key_observables": "Gate complexity/Circuit depth, which scales polynomially as $O(d^3)$ for state preparation in the Fock basis.",
+  "important_parameters": "The active space size ($d$) is the key parameter; the exponential scaling of traditional methods is overcome by polynomial scaling.",
+  "main_assumptions": "The efficiency relies on mapping the CAS state to a structured, symmetry-adapted basis (UGA) where an MPS representation with $O(d^2)$ bond dimension is possible.",
+  "figures_summary": "Figures illustrate the structure of the MPS representation and the sequential quantum circuit required for preparing the MPS state, involving bond and temporary registers.",
+  "paper_structure": "The paper builds from identifying the intractability of CAS states in the Fock basis to introducing the QPT into a symmetry-adapted (UGA) basis. It then proves the efficient MPS representation ($\\chi=O(d^2)$), details the quantum circuit for preparing this MPS, and finally combines these steps with the inverse QPT to achieve an overall $O(d^3)$ complexity.",
+  "why_interesting": "The polynomial scaling achieved ($O(d^3)$) represents a major algorithmic breakthrough compared to exponential state preparation methods, making complex molecular simulations feasible on near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.19457_figures/2606.19457_fig1.jpg",
+      "caption": "FIG. 1. A particular walk on a Shavitt graph (red) among all the potential configurations for d = 3 (faded red). Each black node corresponds to a different triplet (a, b, c) and each edge represents a different transition as presented in Table I. For clarity, each δi is associated with an edge with a different angle. For a fixed N and S, all walks start from the root (0, 0, 0) and end at the same node (yellow nodes). For in- stance, for N = 3 and S = 1/2 the final node is (1, 1, 1). The highlighted path (0, 0, 0) →(0, 1, 0) →(0, 2, 0) →(1, 1, 1) corresponds to adding a spin-up electron in the first orbital, followed by a second spin-up electron in the second orbital, and a spin-down...",
+      "page": 4
+    },
+    {
+      "image": "2606.19457_figures/2606.19457_fig2.jpg",
+      "caption": "FIG. 2. MPS representation of the expansion coefficient of a state in the UGA basis. Each tensor Aδi i is depicted as a red circle. The physical index δi labels the transition at orbital i, and each virtual index vi encodes the intermediate configuration (ai, bi, ci) of the first i orbitals.",
+      "page": 6
+    },
+    {
+      "image": "2606.19457_figures/2606.19457_fig3.jpg",
+      "caption": "FIG. 3. Sequential quantum circuit for preparing an MPS in the UGA basis. At each step, a new 2-qubit physical register is introduced, while the bond and temporary registers are propagated as input from the previous unitary. After the last unitary, the bond and temporary registers are uncomputed and back to the all-zero state.",
+      "page": 7
+    },
+    {
+      "image": "2606.19457_figures/2606.19457_fig4.jpg",
+      "caption": "FIG. 4. State preparation of the physical register. Each rotation is controlled on the temporary register in order to apply the correct angle. While they are schematically represented as controlled on the temporary register, each rotation will be controlled by b different qubits: the ones representing the angle we wish to apply (and by b + 1 qubits for those acting on pi,1 as it is additionally controlled on pi,2). The red dashed line separates the part of the circuit preparing the modulus and phases.",
+      "page": 12
+    },
+    {
+      "image": "2606.19457_figures/2606.19457_fig5.jpg",
+      "caption": "FIG. 5. Illustration of the circuit performing the last step of our state preparation protocol, where the bond index registers are updated depending on the state of the physical register. Each box represents an addition on O(log χ) qubits. The con- trol pattern and corresponding action reflect the information presented in Table I. The standard control notation is used here, i.e. a black (white) dot requires the state of the qubit to be |1⟩(|0⟩).",
+      "page": 12
+    }
+  ],
+  "figure": "2606.19457_figures/2606.19457_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

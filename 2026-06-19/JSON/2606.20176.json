@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.20176",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum-Accelerated Self-Consistent Field: A Hybrid Algorithm",
+  "authors": "Alexis Ralli, Tim Weaving, Thomas M. Bickley, Peter V. Coveney, Peter J. Love",
+  "abstract": "We present the Grover adaptive search self-consistent field (GAS-SCF) algorithm. GAS-SCF leverages quantum arithmetic to construct an efficient oracle that marks target states (Fock states) which improve upon some initial classical energy estimate. Amplitude amplification then increases the probability of measuring these states. This approach offers a theoretical quadratic speed-up for the optimization problem encountered in SCF quantum chemistry and establishes a baseline against which structured optimization algorithms, such as QAOA and DQI may be compared. In this work, we classically simulate three examples as proofs of concept of the algorithm, the largest consisting of 26 qubits. We then extend our analysis to two larger systems, with O3 representing the largest case at 330 qubits. These examples are chosen to probe classically challenging SCF regimes. Achieving chemically relevant applications of GAS-SCF will require large-scale, fault-tolerant quantum hardware.",
+  "url": "http://arxiv.org/abs/2606.20176v1",
+  "pdf": "https://arxiv.org/pdf/2606.20176v1",
+  "type": "theory",
+  "summary": "The paper proposes the Grover Adaptive Search Self-Consistent Field (GAS-SCF) algorithm to solve electronic structure problems by treating the SCF minimization as a QUBO optimization problem. It leverages quantum arithmetic and amplitude amplification to achieve a theoretical quadratic speedup over classical search methods. While demonstrating potential on small systems, its full utility is contingent upon fault-tolerant, large-scale quantum hardware.",
+  "main_problem": "The paper develops a quantum algorithm, GAS-SCF, to accelerate the Self-Consistent Field (SCF) calculation, which is an optimization problem in quantum chemistry.",
+  "main_result": "GAS-SCF theoretically offers a quadratic speedup for the SCF optimization by using Grover's search mechanism within a hybrid classical/quantum framework. The authors demonstrate its potential on small molecular systems, finding energy improvements over classical benchmarks.",
+  "method": "The method combines quantum arithmetic (using QFT) to construct an oracle that marks target Fock states satisfying energy criteria, followed by amplitude amplification via Grover's algorithm. This is wrapped in a classical outer loop that iteratively updates the Molecular Orbital basis set.",
+  "model_or_system": "The model is electronic structure calculation using the Hartree-Fock approximation, formulated as minimizing an expectation value over a Quadratic Unconstrained Binary Optimization (QUBO) problem defined by molecular orbital occupancies. Systems tested include H3-, LiH, and O2/O3.",
+  "key_observables": "Minimum energy expectation value ($\\langle\\vec{x}| H_{\text{QUBO}} |\\vec{x}\rangle$), overlap between true wavefunctions and reference determinants, and the probability of measuring the optimal bitstring as a function of search repetitions ($L$).",
+  "important_parameters": "The required number of qubits scales with the size of the system (up to 330 qubits mentioned), and the complexity depends on the structure of the QUBO coefficients.",
+  "main_assumptions": "Achieving chemically relevant results requires large-scale, fault-tolerant quantum hardware. The analysis relies on classical simulation of the quantum steps and assumes specific circuit constructions for arithmetic operations (e.g., QFT-based addition).",
+  "figures_summary": "Figures detail the full GAS-SCF algorithm flow, the quantum circuits for implementing necessary components like quantum addition in the Fourier basis, state marking based on energy thresholds, and reflection operators.",
+  "paper_structure": "The paper first introduces the SCF problem mapped to QUBO. It then details the GAS-SCF hybrid algorithm, showing circuit implementations for arithmetic (QFT/Fourier Basis) and constraint enforcement (particle number). Finally, it presents results comparing GAS-SCF performance against classical benchmarks on various molecules.",
+  "why_interesting": "This work directly tackles a fundamental problem in quantum chemistry—the SCF calculation—by mapping its optimization structure onto a known quantum speedup primitive (Grover's search), providing a concrete roadmap for near-term quantum simulation algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.20176_figures/2606.20176_fig1.jpg",
+      "caption": "FIG. 1: Full outline of GAS-SCF algorithm (equation 3). Refer to Algorithms 1 and 2 in [20] for the procedure to update the MO basis. The initial MO basis may be set to any standard choice, such as Löwdin or canonical or similar. Here, “adequate\" refers to an energy that has converged, outperforms classical SCF solutions, or satisfies a predefined (possibly spectral-based) threshold for advancing the algorithm to the MO basis optimization stage.",
+      "page": 3
+    },
+    {
+      "image": "2606.20176_figures/2606.20176_fig2.jpg",
+      "caption": "FIG. 2: Outline of the full quantum circuit to implement the Grover Adaptive Search Self-Consistent Field (GAS-SCF) algorithm. Here the search space is over the uniform superposition of computational states: |s⟩= H⊗n |0⟩⊗n. Figure 3 provides an alternate construction, where the state on the first n-qubit register is different. The ˆA and f(⃗x) gates are defined in Figure S.1 and Figure S.5 in the supporting information. The former encodes the negative reference value (−y) setting a threshold, while the latter encodes the cost function for different binary states in the QUBO register state, as observed by the controls. The gates defined with clear circular controls, with projectors inside...",
+      "page": 5
+    },
+    {
+      "image": "2606.20176_figures/2606.20176_fig3.jpg",
+      "caption": "FIG. 3: Outline of the full quantum circuit to implement Grover Adaptive Search Self-Consistent Field (GAS-SCF) algorithm searching over Dicke states. Here, a Dicke state |d⟩is prepared on the n-qubit register. This restricts the search space to bitstrings with the correct number of alpha and beta electrons and therefore the symmetry flagging step in Figure 2 is no longer needed. The ˆA and f(⃗x) gates are defined in Figure S.1 and Figure S.5 in the supporting information. An alternative compilation is provided in the Supplemental Information S.V, which gives the corresponding T-gate cost. In this realization no QFT † is required.",
+      "page": 6
+    },
+    {
+      "image": "2606.20176_figures/2606.20176_fig4.jpg",
+      "caption": "FIG. 4: GAS-SCF results for increasing number of iterations L (left) and (2L + 1)θ (right) where initial y was selected so that GAS-SCF would only amplify the ground state. The overlap between the true ground state |ψopt⟩ and the circuit statevector |ψQUBO⟩is plotted for H3 – ■(uniform input |s⟩), H3 – • (Dicke input |d⟩) and LiH ♦ (Dicke input |d⟩). Qubit counts in the legend parenthesis provide the total number of qubits including all ancilla registers. Note θ for each system is arcsin(1/ √",
+      "page": 9
+    },
+    {
+      "image": "2606.20176_figures/2606.20176_fig5.jpg",
+      "caption": "FIG. 5: GAS-SCF Dicke simulation result for OH–. The y = −780 (classical PySCF value) was used to seed the GAS-SCF routine. (a) Illustrates the overlap of the QUBO statevector with |ϕ⟩that is an equal superposition of the 12 Fock states with lower energy than the PySCF solution. (b) Results of the L = 4 statevector sampling simulation with 10, 000 shots. The x-axis gives the index of the sampled bitstring in base-10 (converting to binary gives the Fock state). The left y-axis gives the error between the GAS-SCF and PySCF RHF solution (scatter), where a negative value indicates GAS-SCF finding a better result. We see that in all cases a better bitstring over PySCF is obtained. The right...",
+      "page": 10
+    }
+  ],
+  "figure": "2606.20176_figures/2606.20176_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

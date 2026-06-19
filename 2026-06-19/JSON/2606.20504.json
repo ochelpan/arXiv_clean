@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.20504",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Entropy Estimation in Multi-Qutrit Systems via Variational and Classical Neural Networks",
+  "authors": "Sai Sakunthala Guddanti, Anil Prabhakar, Ria Rushin Joseph",
+  "abstract": "We present a systematic study of von Neumann entropy estimation in multi-qutrit quantum systems using two complementary approaches: variational quantum algorithms (VQAs) and classical convolutional neural networks (CNNs), evaluated using an ideal (noise-free) quantum simulator. For systems up to three qutrits, we construct and evaluate 11 hardware-efficient SU(3)-inspired ansatzes. A parameter sweep shows that estimation accuracy is primarily determined by the number of trainable parameters, provided sufficient entanglement is present. Based on this study, we fix the parameter count to approximately 120 for subsequent experiments, observing that increasing entangling-gate counts beyond a threshold yields only marginal improvements. For larger systems (two to five qutrits), we use a CNN trained on measurement outcomes from tensor-product mutually unbiased bases. The model achieves accurate and stable predictions and exhibits a systematic improvement in performance with system size, with the highest errors for two-qutrit systems and the lowest for five-qutrit systems. Notably, using only 12.5% of the measurements required for full state tomography is sufficient to reach 90th-percentile absolute errors of approximately 0.13-0.16 nats for both four- and five-qutrit systems. The CNN model is also robust to shot noise and generalizes well to out-of-distribution states. Overall, within the simulated settings studied here, our results indicate a transition in practical methods: VQAs are effective for small systems, while CNN-based estimators offer improved scalability and robustness for larger qutrit systems.",
+  "url": "http://arxiv.org/abs/2606.20504v1",
+  "pdf": "https://arxiv.org/pdf/2606.20504v1",
+  "type": "theory",
+  "summary": "The paper proposes two complementary techniques—Variational Quantum Algorithms (VQAs) and Convolutional Neural Networks (CNNs)—to estimate the von Neumann entropy of multi-qutrit quantum states. It finds that while VQAs are accurate for small systems, CNNs provide superior scalability and robustness when analyzing larger qudit systems by learning features directly from measurement data.",
+  "main_problem": "The core problem is estimating the von Neumann entropy of quantum states in multi-qutrit systems, which is computationally hard due to the exponential scaling of full state tomography.",
+  "main_result": "A trade-off exists between VQAs and CNNs: VQAs are effective for small systems due to physical constraints, while CNNs offer superior scalability and robustness for larger qutrit systems by learning directly from measurement statistics.",
+  "method": "The study compares two methods: Variational Quantum Algorithms (VQAs) using parameterized unitaries on the quantum hardware side, and classical Convolutional Neural Networks (CNNs) trained on tensor-product measurements of mutually unbiased bases.",
+  "model_or_system": "The system under study is multi-qutrit quantum states ($d=3$ per qutrit), analyzed for systems ranging from two to five qutrits. The methods are tested using ideal, noise-free quantum simulation environments.",
+  "key_observables": "Von Neumann entropy $S(\rho)$, estimation error (e.g., 90th-percentile absolute error in nats), and measurement probabilities derived from various bases.",
+  "important_parameters": "The number of trainable parameters ($\\approx 120$ fixed for VQAs) and the fraction of measurements used ($12.5\\%$ sufficient for high accuracy in large systems).",
+  "main_assumptions": "The analysis is primarily conducted within simulated, noise-free settings; full state tomography is assumed to be infeasible.",
+  "figures_summary": "Figures illustrate specific VQA ansatzes (A1-A11) and the CNN architecture. Key plots show error dependence on parameters/gates for VQAs, and error vs. system size/measurement bases for both methods, demonstrating scalability differences.",
+  "paper_structure": "The paper systematically introduces entropy estimation in multi-qutrit systems, details the VQA approach (using GMR gates to align basis with eigenbasis), presents the CNN approach using MUB measurements, and concludes by comparing their performance across different system sizes, establishing a clear methodological guideline.",
+  "why_interesting": "This work directly addresses resource estimation in quantum information processing. The comparison between physically constrained variational methods and data-driven machine learning estimators provides crucial guidance on which computational paradigm is best suited for scaling quantum characterization tasks beyond small proof-of-concept systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.20504_figures/2606.20504_fig1.jpg",
+      "caption": "Fig. 1: Three-qutrit variational circuit ansatzes A1, A4, A5, A6, A7, and A8 are shown for single layer. Each circuit consists of layers of local GMR gates interleaved with entangling operations (CSUM gates). In the figures, the ordered index pairs (i, j) label the generator class: i < j denotes symmetric generators, i > j antisymmetric generators, and i = j diagonal generators; this notation is used solely to distinguish generator types. Each ansatz is denoted as [B]L, where B represents a variational block composed of symmetric (S), antisymmetric (A), and diagonal (D) GMRs followed by an entangling layer (E), and L is the number of layers.",
+      "page": 4
+    },
+    {
+      "image": "2606.20504_figures/2606.20504_fig2.jpg",
+      "caption": "Fig. 2: Three-qutrit variational circuit ansatzes A2, A11, A3, A9 and A10. Circuits follow the same GMR index notation as in Fig. 1. Ansatzes A3, A9 and A10 are shown over two layers to highlight alternating entanglement connectivity, while A2 and A11 are shown for a single layer. Hadamard-type basis-change gates are omitted for clarity in A3.",
+      "page": 5
+    },
+    {
+      "image": "2606.20504_figures/2606.20504_fig3.jpg",
+      "caption": "Fig. 3: Schematic of the CNN-based entropy estimator. Measurement outcome distributions from different bases are processed by convolutional layers and combined via fully connected layers to predict the entropy. Only two bases are shown for illustration.",
+      "page": 7
+    },
+    {
+      "image": "2606.20504_figures/2606.20504_fig4.jpg",
+      "caption": "Fig. 4: Parameter study using Ansatz 1 on a 60% mixed 3- qutrit state. The entropy estimation error decreases with in- creasing number of trainable parameters under ideal simulation conditions.",
+      "page": 7
+    },
+    {
+      "image": "2606.20504_figures/2606.20504_fig5.jpg",
+      "caption": "Fig. 5: Absolute prediction error in the estimation of von Neumann entropy for two- and three-qutrit quantum states as a function of the percentage of mixedness. Two-qutrit states have negligible error while all ansatzes for three-qutrit VQA perform similar.",
+      "page": 7
+    }
+  ],
+  "figure": "2606.20504_figures/2606.20504_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 4,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

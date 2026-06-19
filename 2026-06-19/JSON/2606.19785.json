@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.19785",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": false,
+  "title": "Boltzmann-constrained extraction of spin splitting and momentum relaxation in d-wave altermagnets",
+  "authors": "Y. X. Gao, Z. W. Fan, Q. S. Yao, Y. D. Ji, H. Geng",
+  "abstract": "Altermagnets exhibit spin-split electronic structure without requiring spin-orbit coupling, but transport measurements generally mix intrinsic spin splitting with extrinsic scattering. We examine this identifiability problem for a two-dimensional d-wave altermagnet within a unified semiclassical framework spanning ballistic to diffusive transport. The spin-dependent Fermi-surface anisotropy produces a pronounced size effect, where vastly different longitudinal velocities cause the two spin channels to exhibit markedly different effective relaxation lengths within the same device geometry. However, the altermagnetic coupling $α$ and the momentum relaxation time $τ_0$ strongly compensate each other in longitudinal conductance, creating a severe parameter degeneracy. To lift this degeneracy, we formulate a physics-informed neural network (PINN) to act as a differentiable Boltzmann solver that strictly enforces contact injection, local particle conservation, and global current continuity. Driven by sparse conductance spectra, this neural solver leverages the Fermi-level dependence of transport to unlock the coupled parameters simultaneously, achieving sub-percent accuracy even under moderate measurement noise. These results show that combining the Fermi-level dependence of transport with strict physical constraints provides a robust route to separating spin splitting from scattering in altermagnetic conductors.",
+  "url": "http://arxiv.org/abs/2606.19785v1",
+  "pdf": "https://arxiv.org/pdf/2606.19785v1",
+  "type": "theory",
+  "summary": "This work addresses the difficulty of separating intrinsic spin splitting from scattering effects in altermagnets by formulating an inverse transport problem. The authors developed a Physics-Informed Neural Network (PINN) acting as a differentiable Boltzmann solver to enforce strict physical constraints. This novel methodology allows for the robust, simultaneous extraction of both key material parameters ($\\alpha$ and $\tau_0$) from measured conductance data.",
+  "main_problem": "The primary challenge is resolving the parameter degeneracy when separating intrinsic spin splitting ($\\alpha$) from extrinsic scattering ($\tau_0$) in transport measurements of d-wave altermagnets.",
+  "main_result": "By employing a Physics-Informed Neural Network (PINN) constrained by local and global conservation laws, the authors successfully lift this degeneracy to accurately extract both $\\alpha$ and $\tau_0$.",
+  "method": "The study uses a differentiable Boltzmann solver implemented via PINNs to solve the semiclassical transport equation in an inverse mode optimization framework.",
+  "model_or_system": "The system is a two-dimensional d-wave altermagnet described by a Hamiltonian leading to spin-dependent dispersions. Transport is modeled using the semiclassical Boltzmann equation, bridging ballistic and diffusive regimes.",
+  "key_observables": "Longitudinal conductance ($G$), local electrochemical potential profile ($\bar{g}(x)$), and spin-resolved non-equilibrium distributions ($g_{\\uparrow/\\downarrow}$).",
+  "important_parameters": "Altermagnetic coupling ($\\alpha$) and momentum relaxation time ($\tau_0$). The analysis spans diffusive, crossover, and ballistic transport regimes.",
+  "main_assumptions": "The model assumes a semiclassical regime, linear response expansion, and that the local electrochemical potential is shared across spin channels due to non-magnetic contacts. It neglects SOC, magnetic domains, and coherent interference.",
+  "figures_summary": "Figures illustrate the successful reproduction of Boltzmann solutions across regimes (forward mode) and show how the PINN approach allows joint inversion by constraining the fit trajectory away from the compensation valley towards the true physical solution.",
+  "paper_structure": "The paper establishes the theoretical framework using the semiclassical Boltzmann equation, develops a differentiable solver via PINNs to handle forward calculations, and then applies this solver in an inverse mode optimization loop constrained by current continuity to simultaneously solve for $\\alpha$ and $\tau_0$.",
+  "why_interesting": "While focused on condensed matter transport, the core methodology—using PINNs to enforce complex physical conservation laws (like particle/current continuity) within a non-linear PDE framework for parameter identification—is highly relevant to solving open quantum system dynamics or many-body problems where exact analytical solutions are intractable.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.19785_figures/2606.19785_fig1.jpg",
+      "caption": "Figure 1. Boltzmann-constrained route from microscopic parameters to transport observables. (a) A two-dimensional altermag- netic channel is driven by a small source-drain bias. The spin-resolved Fermi contours and schematic spin-split band dispersions along kx and ky illustrate the minimal dispersion ε↑↓(k) = ℏ2(k2 x + k2 y)/(2m) ± α(k2 x −k2 y), with the Fermi contours shown for α = 0.4. The measured longitudinal conductance depends on both the altermagnetic coupling (α) and momentum relaxation time (τ0). (b) Forward mode: for fixed microscopic parameters, a differentiable representation of gσ(x, θ) is optimized subject to the Boltzmann equation, directional contact injection, and current...",
+      "page": 4
+    },
+    {
+      "image": "2606.19785_figures/2606.19785_fig2.jpg",
+      "caption": "Figure 1 summarizes the route from the minimal d-wave altermagnetic channel to the differentiable forward and inverse transport problems: panel (a) connects the spin- resolved Fermi contours and spin-split band dispersions to the source–drain geometry, while panels (b) and (c) distinguish the fixed-parameter forward mode from the parameter-learning inverse mode. The integral formulation above can be solved by spa- tial and angular discretization, but the inverse problem requires the forward map {α, τ0} 7→G(EF ) to be evalu- ated and differentiated repeatedly. We therefore employ",
+      "page": 4
+    },
+    {
+      "image": "2606.19785_figures/2606.19785_fig3.jpg",
+      "caption": "Figure 2. Local electrochemical-potential profile ¯g(x) across diffusive, crossover, and ballistic regimes. Blue solid curves are dense-discretization Boltzmann solutions and red dashed curves are differentiable-solver results. (a)–(c) Normal metal, α = 0. (d)–(f) d-wave altermagnet, α = 0.4. From left to right, lf/Lx = 0.2, 1.0, and 5.0, with EF = 1.0.",
+      "page": 6
+    },
+    {
+      "image": "2606.19785_figures/2606.19785_fig4.jpg",
+      "caption": "Figure 3. Spin-resolved nonequilibrium distributions in a d-wave altermagnetic channel. The heat maps show (a) g↑(x, θ) and (b) g↓(x, θ) for α = 0.4, EF = 1.0, and lf/Lx = 1.0. The contrasting textures reflect the spin-dependent longitudinal velocities produced by the altermagnetic Fermi-surface anisotropy.",
+      "page": 6
+    },
+    {
+      "image": "2606.19785_figures/2606.19785_fig5.jpg",
+      "caption": "Figure 4. Single-parameter inversion of the altermagnetic coupling α with fixed τ0. (a) Relative error versus the number of conductance data points Ndata. (b) Representative optimization trajectory for Ndata = 8 and target α = 0.4. (c) Relative error under Gaussian noise in the conductance data; points are averaged over three independent runs.",
+      "page": 7
+    }
+  ],
+  "figure": "2606.19785_figures/2606.19785_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 1,
+    "spintronics-quantum-optics interface": 2,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

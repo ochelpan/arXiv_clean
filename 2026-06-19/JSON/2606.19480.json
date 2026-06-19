@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2606.19480",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "physics.comp-ph",
+    "astro-ph.CO",
+    "cond-mat.stat-mech",
+    "gr-qc"
+  ],
+  "is_primary_archive": true,
+  "title": "sft-wick: A formalism and package for Feynman-diagram expansion and evaluation in stochastic field theories",
+  "authors": "Zheng Zhang",
+  "abstract": "When stochastic field dynamics are cast into a path-integral formulation, perturbation theory becomes systematic but the resulting expansion quickly grows combinatorially large. The setting targeted here includes multi-component, multi-dimensional fields with matrix propagators, tensor-valued couplings, and non-Gaussian driving noise specified by arbitrary $n$-point cumulants. Wick pairings grow factorially, and component indices must be routed through the tensor-valued vertices. The useful output is not a raw contraction list, but a diagram table: one entry per topology, with multiplicities, coupling sums, signs, and causal constraints resolved. We present sft-wick, an open-source Python package that constructs these diagram tables and computes their integrals numerically. Given an action and an observable, it enumerates topologically distinct Feynman diagrams, derives their algebraic coefficients, and evaluates the resulting diagram integrals from user-supplied response and cumulant functions. The core algorithm enumerates spatial topologies before routing component indices, avoiding contraction-by-contraction Wick expansion. Response-field constraints, including vanishing response-response contractions, the ito prescription, and the absence of causal response loops, are enforced during enumeration. Predictions are validated against direct Langevin simulation, agreeing to within the simulation's statistical noise.",
+  "url": "http://arxiv.org/abs/2606.19480v1",
+  "pdf": "https://arxiv.org/pdf/2606.19480v1",
+  "type": "theory",
+  "summary": "This paper introduces sft-wick, a computational package designed to systematically calculate perturbative expansions in complex stochastic field theories using the MSR formalism. It overcomes combinatorial explosion by enumerating Feynman diagrams based on spatial topology rather than direct Wick contractions. The tool provides both symbolic diagram tables and numerical predictions for correlation functions, validating its approach against direct Langevin simulations.",
+  "main_problem": "Developing a systematic and computationally tractable method for performing perturbative expansions and evaluating Feynman diagrams arising from stochastic field theories formulated via the path integral.",
+  "main_result": "The authors present sft-wick, an open-source Python package that automates the calculation of diagram tables and numerically evaluates integrals for multi-component stochastic systems.",
+  "method": "It uses the Martin–Siggia–Rose (MSR) formalism to map stochastic differential equations onto a path integral, which is then expanded perturbatively using Wick's theorem applied via topological enumeration rather than direct contraction.",
+  "model_or_system": "The theory applies to multi-component Stochastic Partial Differential Equations (SPDEs) governed by Langevin-type dynamics. The formalism handles matrix propagators and non-Gaussian driving noise specified by arbitrary cumulants.",
+  "key_observables": "Correlation functions, specifically the equal-time two-point correlation function $\\langle\\varphi_a(x, t) \\varphi_b(y, t)\rangle_S$, are computed as primary observables.",
+  "important_parameters": "The calculation depends on the response propagator ($R$) and the correlation propagator ($C$), which are derived from the linear dynamics operator ($\\hat{D}$) and cumulant functions of the noise $\\eta^a$.",
+  "main_assumptions": "Key assumptions include adopting the Itô prescription, enforcing causal constraints (retarded propagators), and relying on Wick's theorem for Gaussian free theories.",
+  "figures_summary": "Figures illustrate Feynman diagrams at various orders (up to fourth order) for correlation functions, comparing perturbative predictions against direct Langevin simulation data to demonstrate convergence.",
+  "paper_structure": "The paper first derives the MSR path integral formulation for SPDEs. It then details the perturbative expansion using Dyson series and Wick's theorem. The core contribution is the sft-wick package, which implements a topology engine to systematically generate diagram tables before numerical evaluation of integrals.",
+  "why_interesting": "While focused on classical stochastic fields, the rigorous application of path integrals, perturbation theory, and systematic diagrammatic expansion techniques are highly relevant for analyzing quantum open systems where noise or dissipation is modeled stochastically.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.19480_figures/2606.19480_fig1.jpg",
+      "caption": "Figure 1: Space–time evolution of a single realisation. Top two panels show the physical fields φ1 and φ2 building up correlated fluctuations from zero initial conditions; bottom two panels show the driving fields η1 and η2 that source them, with spatial correlation length σx and temporal correlation σt = 0.3. Colour scales are separate for φ and η because the time-integrated physical fields have considerably larger amplitude than the drivers.",
+      "page": 15
+    },
+    {
+      "image": "2606.19480_figures/2606.19480_fig2.jpg",
+      "caption": "Figure 2: Feynman diagrams for ⟨φa(x, t) φb(y, t)⟩ with the cubic interaction vertex (−i) F (3) abd φaφbψd. Top: zeroth order (single C-propagator). Bottom: second order (six distinct topologies with multiplicities). Blue solid: C-propagator; red dashed with arrow: R-propagator; circles: external points; squares: interaction vertices.",
+      "page": 17
+    },
+    {
+      "image": "2606.19480_figures/2606.19480_fig3.jpg",
+      "caption": "Figure 3: Two-point correlators at r = 0.5 σx versus time. Top: perturbative predictions (dotted: ξ(0); dashed: ξ(0+2); solid: ξ(0+2+4)) and simulation (markers with error bars). Bottom: residual ξpert −ξsim with combined uncertainty band. Left: ξ11; right: ξ22.",
+      "page": 18
+    },
+    {
+      "image": "2606.19480_figures/2606.19480_fig4.jpg",
+      "caption": "Figure 4: Correlators versus spatial separation at three times. Dotted: ξ(0); solid: ξ(0+2+4); markers: simulation. Rows: ξ11 and ξ22; columns: t = 1, 15, 30.",
+      "page": 19
+    },
+    {
+      "image": "2606.19480_figures/2606.19480_fig5.jpg",
+      "caption": "Figure 5: Perturbative convergence at r = 0.4 σx, t = 3. (a) Cumulative sum for ξ11 (hatched bars) and ξ22 (solid bars); dashed lines mark the simulation values. (b) Per-order contributions |ξ(n)|, showing geometric suppression ∼λn/2.",
+      "page": 20
+    }
+  ],
+  "figure": "2606.19480_figures/2606.19480_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 1,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 4,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

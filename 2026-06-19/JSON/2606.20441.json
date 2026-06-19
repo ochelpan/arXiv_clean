@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.20441",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Computing noise-canceling observables via Pauli propagation",
+  "authors": "Andrew Eddins, Caleb Johnson, Alberto Baiardi, Francesco Tacchino, Ewout van den Berg, Roy Elkabetz, Vinay Tripathi, Swarnadeep Majumder, Max Rossmannek, Liran Shirizly, Abhinav Kandala",
+  "abstract": "The pursuit of quantum advantage is driving the co-evolution of quantum processors and classical simulation methods. Despite advances in scale and quality, the accuracy of quantum simulation is ultimately limited by error rates and sampling overheads. Similarly, while classical simulation methods such as Pauli propagation have made remarkable progress, their accuracy is ultimately limited by the exponential growth of operator paths and the truncations needed to control memory and runtime. Here we show that these complementary limitations can be mitigated by embedding Pauli propagation within a hybrid error-mitigation framework that reduces quantum sampling overhead while achieving lower truncation errors with fewer classical resources than traditional Pauli propagation alone. In this framework, a target observable is classically propagated through noise-canceling inverse channels, producing a modified observable that is measured directly on a quantum processor. We prototype two implementations and benchmark their performance numerically on canonical models that challenge traditional Pauli propagation. We also perform experiments on a quantum processor using 56 superconducting qubits, revealing the tradeoffs of their respective truncation strategies. These results illustrate how classical and quantum resources can be orchestrated to extend observable estimation beyond the limits of either approach alone, providing a foundation for quantum-centric supercomputing and future demonstrations of quantum advantage.",
+  "url": "http://arxiv.org/abs/2606.20441v1",
+  "pdf": "https://arxiv.org/pdf/2606.20441v1",
+  "type": "both",
+  "summary": "The paper introduces a hybrid method combining Pauli propagation with noise-canceling inverse channels to estimate ideal quantum observables from noisy hardware measurements. By constructing a modified observable ($\tilde{O}$), the authors mitigate errors and reduce sampling overhead compared to standard error correction techniques. This framework offers a pathway toward realizing quantum advantage by efficiently extracting accurate physical information from imperfect quantum processors.",
+  "main_problem": "The primary challenge is mitigating accuracy limitations in quantum simulation arising from hardware noise (error rates/sampling overheads) and the exponential complexity of classical methods like Pauli propagation.",
+  "main_result": "A hybrid framework embedding Pauli propagation within a noise-canceling inverse channel successfully estimates ideal observables by measuring a modified observable ($\tilde{O}$) on noisy hardware, outperforming traditional methods.",
+  "method": "The authors propose two specific techniques—Propagated Noise Absorption (PNA) and Euclid—to construct $\tilde{O}$ by classically backpropagating the target observable through noise-canceling inverse channels derived from Pauli evolution rules.",
+  "model_or_system": "The work is benchmarked on canonical quantum models, specifically using superconducting qubits (up to 56 qubits) whose dynamics are modeled via Trotterized Hamiltonian evolution under a sparse Pauli-Lindblad noise model.",
+  "key_observables": "Noise-canceling observables ($\tilde{O}$), the expectation value $\\langle \tilde{O} \rangle$, and diagnostic quantities like truncation bias relative to the ideal noiseless value of $+1$.",
+  "important_parameters": "Error Per Layered Gate (EPLG) target values ($\\approx 2 \times 10^{-3}$); Pauli order ($k$) and Dyson order ($p$); approximation thresholds ($\\epsilon$).",
+  "main_assumptions": "The core approximations involve truncating the exponentially complex Pauli expansions based on coefficient magnitude or limiting the number of terms/steps, and assuming validity in the weak noise regime for certain derivations.",
+  "figures_summary": "Figures illustrate the comparison between PNA, Euclid, and naive lightcone reductions; they show diagrammatic representations (Steps and Bubbles) used in the perturbative expansion of $\tilde{O}$ coefficients.",
+  "paper_structure": "The paper develops the theory by first introducing the limitations, then detailing the mathematical framework for constructing $\tilde{O}$ via Pauli propagation rules (diagrammatically), followed by numerical benchmarking on canonical models, and concluding with experimental validation on a superconducting quantum processor.",
+  "why_interesting": "This work provides advanced theoretical tools for error mitigation that directly address the resource scaling issues inherent in simulating complex quantum dynamics, which is highly relevant to understanding noise effects in open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.20441_figures/2606.20441_fig1.jpg",
+      "caption": "FIG. 1. Classically propagated noise cancellation schemes. a) Propagated noise absorption (PNA) transforms the ideal circuit into an equivalent pairing of the noisy hardware gate layers combined with a modified, noise-canceling observable. The noisy gate layers are produced by classically propagating equal and opposite antinoise to the end of the circuit. Propagating the observable backwards through this evolved antinoise embeds noise cancellation into the resulting observable ˜O, such that estimating ⟨˜O⟩on the noisy hardware produces the ideal expectation value. b) Euclid constructs ˜O by backpropagating O through a noise deconvolution map consisting of the inverse noisy circuit followed...",
+      "page": 2
+    },
+    {
+      "image": "2606.20441_figures/2606.20441_fig2.jpg",
+      "caption": "FIG. 2. Euclid diagrams. The inverse noisy circuit C−1 noisy is represented as a blue box, while the ideal circuit Cideal is represented as a red box. The line diagram indicates the cosine branch is taken for all gates, yielding a backpropagated Pauli equal to the original Pauli observable, O. The bubble diagram indicates the sine branch is taken for the jth gate in both C−1 noisy and Cideal, again yielding Pauli PjPjO = O, but with a different coefficient. In the step diagram, the sine branch is taken either in C−1 noisy or in Cideal. The final operator is PjO, and the operator after the application of Cideal is O (PjO) if the sine branch is taken in C−1 noisy (Cideal).",
+      "page": 3
+    },
+    {
+      "image": "2606.20441_figures/2606.20441_fig3.jpg",
+      "caption": "FIG. 3. 9-qubit numerics. a) A 3-by-3 square lattice of qubits is evolved first forwards, then backwards in time under the second-order Trotterization of the transverse-field Ising Hamiltonian. A parameter θ sets the RX (orange) and RZZ (blue) gate angles. CNOT gates are transpiled to H- conjugated CZ primitive gates (not shown). Each two-qubit gate layer is followed by the action of one of four unique Pauli- Lindblad noise models (red). b,c) Expectation values ⟨Z⊗9⟩ versus number of Trotter steps in U (first half of circuit) with θ = 0.05, for (b) PNA and (c) Euclid. All truncation set- tings greatly reduce bias compared to unmitigated results, with the highest settings retaining accuracy...",
+      "page": 4
+    },
+    {
+      "image": "2606.20441_figures/2606.20441_fig4.jpg",
+      "caption": "FIG. 4. 20-qubit numerics. Numerically-simulated results for a circuit similar to that in Fig. 3a on a 4-by-5 qubit grid. PNA (max terms=104) or Euclid (K = 6) largely eliminate the bias present in the unmitigated result. The PNA compu- tation, including 106 simulated QPU shots at 2 kHz sampling frequency, was both faster and more accurate than a direct computation of the noiseless circuit via Pauli propagation.",
+      "page": 5
+    },
+    {
+      "image": "2606.20441_figures/2606.20441_fig5.jpg",
+      "caption": "FIG. 5. Mitigation of 56-qubit experiments. Raw and mitigated expectation values of a) site-averaged magnetiza- tion PN q Zq/N and b) Z88Z118, measured as a function of gate angle θ (see Sec. III text). Right inset shows qubit connectiv- ity, highlighting the nominal four-step lightcones of the Z88 (blue) and Z118 (purple) measurements. The ideal expecta- tion values of these mirror circuits are all +1 (black horizontal line). Mitigation reduces error at all points. Including more terms when computing ˜O reduces truncation bias. Compari- son with 108-term Pauli-propagation simulations of the noisy circuit (squares) supports attributing residual error in the PNA-mitigated experiments to...",
+      "page": 6
+    }
+  ],
+  "figure": "2606.20441_figures/2606.20441_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 2,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

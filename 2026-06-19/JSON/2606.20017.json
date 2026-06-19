@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.20017",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "All-valid-state HOBO encoding for constrained combinatorial optimization on NISQ devices",
+  "authors": "Juncheng Wang, Takumi Kanezashi, Daisuke Tsukayama, Koki Awaya, Reo Saito, Jun-ichi Shirakashi, Tetsuo Shibuya, Hiroshi Imai",
+  "abstract": "Continued advancements in quantum computing have stimulated growing interest in translating quantum technologies into real-world applications. Consequently, the investigation of practically motivated NP-hard problems is of significant value. This study investigates the performance of a variational quantum eigensolver (VQE) in addressing the traveling salesperson problem (TSP) through noiseless simulations representative of noisy intermediate-scale quantum (NISQ) devices using higher-order binary optimization (HOBO) encodings. We construct a HOBO Hamiltonian with an efficient binary representation and propose an all-valid-state HOBO (AVS-HOBO) scheme based on cyclic mapping that eliminates one penalty term and reuses states that would otherwise be invalid. Using TSP instances of up to 20 cities, we compare the original HOBO and AVS-HOBO encodings from multiple perspectives, including the energy convergence behavior and the approximation, tour-length, and feasibility ratios. In addition to simulations, we perform computations on real quantum hardware with different device architectures, where we not only compare the performances of different chips but also investigate the effects of different error-mitigation methods on actual quantum machines. The results indicate that AVS-HOBO encoding enhances the practical reliability of VQE on NISQ devices and improves scalability for larger TSP instances, with broader applicability to constrained quantum optimization problems.",
+  "url": "http://arxiv.org/abs/2606.20017v1",
+  "pdf": "https://arxiv.org/pdf/2606.20017v1",
+  "type": "both",
+  "summary": "This paper improves the formulation of constrained combinatorial optimization problems like TSP for NISQ devices by introducing the AVS-HOBO encoding. It uses VQE on simulated and real quantum hardware to demonstrate that AVS-HOBO significantly enhances solution feasibility and stability compared to existing methods. This work advances the practical viability of quantum computing for complex, real-world optimization tasks.",
+  "main_problem": "The study addresses constrained combinatorial optimization problems, specifically formulating and solving the Traveling Salesperson Problem (TSP) using quantum computation.",
+  "main_result": "The proposed All-valid-state HOBO (AVS-HOBO) encoding significantly enhances the practical reliability and scalability of VQE for TSP on NISQ devices compared to standard HOBO or QUBO encodings.",
+  "method": "The core method is using the Variational Quantum Eigensolver (VQE) algorithm, which minimizes the expectation value of a problem Hamiltonian constructed via specialized binary encoding schemes.",
+  "model_or_system": "The model involves mapping the TSP to an Ising/Hamiltonian form. The system utilizes VQE on simulated and real NISQ quantum hardware, comparing QUBO, HOBO, and AVS-HOBO encodings.",
+  "key_observables": "Energy convergence behavior, Approximation Ratio (AR), Length Ratio (LR), Feasibility Ratio (FR), and Residual Energy ($\text{Eres}$).",
+  "important_parameters": "TSP instances up to 20 cities; penalty coefficients ($A$); error mitigation techniques like Matrix-free measurement mitigation ($\text{Mthree}$) and Dynamical Decoupling ($\text{DD}$).",
+  "main_assumptions": "The analysis assumes the applicability of VQE on NISQ devices, acknowledging that hardware noise degrades performance but AVS-HOBO mitigates this better.",
+  "figures_summary": "Figures compare convergence (Eres) and solution quality metrics (AR, LR, FR) across different encoding schemes (HOBO vs. AVS-HOBO) for increasing TSP sizes, showing AVS-HOBO's superior stability.",
+  "paper_structure": "The paper introduces the problem (TSP), compares QUBO/HOBO encodings, details the novel AVS-HOBO scheme using cyclic mapping, and validates its performance through extensive simulations and tests on real quantum hardware while analyzing error mitigation effects.",
+  "why_interesting": "It provides a concrete, near-term application of quantum algorithms to NP-hard optimization problems, directly comparing encoding efficiency and robustness against realistic noise models relevant for current quantum hardware development.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.20017_figures/2606.20017_fig1.jpg",
+      "caption": "FIG. 1. Hamiltonian construction method. (a) One possible route for a 3-city TSP. (b) Mapping rule from the TSP to qubits. (c) QUBO encoding and (d) HOBO encoding for the tour in (a). In the QUBO encoding, each qubit corresponds to a city index, whereas in the HOBO encoding, the binary string formed by all qubits at each time step represents a city index. Filled and open circles denote 1 and 0, respectively.",
+      "page": 2
+    },
+    {
+      "image": "2606.20017_figures/2606.20017_fig2.jpg",
+      "caption": "FIG. 2. Cyclic mapping used in AVS-HOBO to replace the constraint term HHOBO valid . Here, n is the number of qubits; n = 3 can generate 8 distinct states. bi denotes the city index. In this figure, we illustrate the case of 5 cities. bvalid denotes valid states, whereas binvalid denotes unusable states.",
+      "page": 4
+    },
+    {
+      "image": "2606.20017_figures/2606.20017_fig3.jpg",
+      "caption": "FIG. 3. Ratio of feasible states in the Hilbert space for different encoding methods, where feasible states are those that satisfy both TSP constraints. (a) Comparison among AVS-HOBO, HOBO, and QUBO encodings for TSP sizes up to 12 cities. The number of feasible states in QUBO differs significantly from that in HOBO, and for 12 cities, the ratio is already close to zero. (b) As the number of cities is further increased, the advantage of AVS-HOBO over HOBO becomes more evident.",
+      "page": 5
+    },
+    {
+      "image": "2606.20017_figures/2606.20017_fig4.jpg",
+      "caption": "FIG. 4. Solution energy landscape. (a) Results obtained using the original HOBO method. The horizontal axis shows the coefficient A1/W max ij , which represents the strength of the constraint penalty. Although the original problem formulation contains two constraint terms, here we focus on the optimized term A1. As can be seen in the figure, as the constraint penalty becomes stronger, the energies of feasible solutions remain unchanged because they incur no penalty, whereas the energies of infeasible solutions increase accordingly. This enlarges the energy gaps and can make the energy exploration process more difficult and slower. (b) Results obtained using the AVS-HOBO method. Because this...",
+      "page": 5
+    },
+    {
+      "image": "2606.20017_figures/2606.20017_fig5.jpg",
+      "caption": "FIG. 5. Relationship between the residual energy and the iteration number for the TSP. The figure shows the residual energies of 20 different instances under three different conditions for each problem size: (a) 6-city size; (b) 7-city size; (c) 8-city size; (d) 9-city size; (e) 16-city size; and (f) 20-city size. In the figure, both the solid and dashed lines represent the average values over 20 different instances for the corresponding methods, while the shaded area represents the min-max range determined by the maximum and minimum values among the different instances.",
+      "page": 7
+    }
+  ],
+  "figure": "2606.20017_figures/2606.20017_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

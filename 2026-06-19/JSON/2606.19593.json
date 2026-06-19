@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.19593",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Stalls and Spequlation: Pipelined Execution for Fault Tolerant Quantum Computation",
+  "authors": "Aditi Awasthi, Gokul Subramanian Ravi, Jonathan Mark Baker",
+  "abstract": "Fault-tolerant quantum computation requires the coordinated action of three distinct systems: classical control logic, quantum hardware, and classical error decoders. Current scheduling models treat logical operations as atomic, hiding the fact that these subsystems operate sequentially and spend significant time idle. We present a pipelined execution framework that decomposes each logical operation into its component stages i.e. Control, Execute, and Decode. Building on this, we discuss some speculation strategies that allow successor operations to begin processing before their predecessors have completed decoding. We evaluate our framework on several common benchmarks and show that pipelining with speculation reduces total pipeline steps by 20-40% compared to a no-speculation baseline. The most aggressive strategy consistently outperforms conservative alternatives, even though partial rollback is needed at times, because the per-rollback penalty is small relative to the parallelism gained. We further show that speculation facilitates load balancing by distributing work more evenly across the heterogeneous subsystems of a fault-tolerant quantum computer, converting idle time into useful computation while also saving on execution time.",
+  "url": "http://arxiv.org/abs/2606.19593v1",
+  "pdf": "https://arxiv.org/pdf/2606.19593v1",
+  "type": "theory",
+  "summary": "This paper proposes a pipelined execution framework for fault-tolerant quantum computation by decomposing operations into Control, Execute, and Decode stages. By introducing speculative scheduling strategies, the authors demonstrate that overlapping these sequential steps significantly reduces overall computational time compared to treating operations as atomic units. This work provides crucial architectural insights for building practical, high-throughput quantum processors.",
+  "main_problem": "Current scheduling models for fault-tolerant quantum computation treat logical operations as atomic, failing to account for the sequential idle time across classical control, quantum hardware, and error decoding subsystems.",
+  "main_result": "Implementing a pipelined execution framework with speculation reduces total pipeline steps by 20-40% compared to non-speculative baselines, significantly improving throughput.",
+  "method": "The authors decompose logical operations into sequential stages (Control $\rightarrow$ Execute $\rightarrow$ Decode) and apply speculative scheduling techniques analogous to classical pipelining.",
+  "model_or_system": "The model simulates fault-tolerant quantum computation using surface codes/lattice surgery, treating the process as a three-stage pipeline. The system is analyzed by comparing different speculation strategies (Aggressive, Commute-Aware, T-Cautious).",
+  "key_observables": "Reduction in total pipeline steps (20-40% saving), stage utilization smoothing, and the performance hierarchy among scheduling strategies.",
+  "important_parameters": "The ratio of stage durations (assumed 1:1:1 for simplicity) and the frequency/cost associated with speculative rollbacks are key parameters.",
+  "main_assumptions": "Key assumptions include exploiting algebraic properties (Clifford group commutation) to enable speculation, and initially assuming balanced hardware timing across stages.",
+  "figures_summary": "Figures illustrate the three-stage pipeline structure; Figure 4 quantifies percentage savings for different strategies; Figure 5 shows how speculation smooths out bursty utilization across subsystems.",
+  "paper_structure": "The paper introduces the problem of atomic operation modeling, proposes the pipelined framework (Control/Execute/Decode), details speculative scheduling mechanisms, evaluates performance against baselines using various benchmarks, and concludes by discussing load balancing benefits.",
+  "why_interesting": "While focused on quantum computation architecture rather than AMO physics directly, the underlying concept of managing sequential dependencies across heterogeneous subsystems—especially when dealing with error correction overheads—is highly relevant to designing complex quantum control systems built from physical platforms like trapped ions or superconducting circuits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.19593_figures/2606.19593_fig1.jpg",
+      "caption": "Fig. 2: Three-stage execution pipeline for a logical operation. The Control stage handles classical pre-processing, the Execute stage performs physical gate application and syndrome measurement, and the Decode stage runs classical error decoding",
+      "page": 3
+    },
+    {
+      "image": "2606.19593_figures/2606.19593_fig2.jpg",
+      "caption": "Fig. 3: Gate progression through Control (yellow), Execute (blue), and Decode (orange) stages. Left column: no injection error occurs. Right column: injection failure occurs, requiring correction. Each row shows a different scheduling strategy.",
+      "page": 4
+    },
+    {
+      "image": "2606.19593_figures/2606.19593_fig3.jpg",
+      "caption": "Fig. 4: Percentage savings in pipeline steps of each speculation strategy relative to the no-speculation baseline. Aggressive speculation achieves the largest savings on most benchmarks",
+      "page": 5
+    },
+    {
+      "image": "2606.19593_figures/2606.19593_fig4.jpg",
+      "caption": "Figure 4 shows the percentage cycle savings of each strategy relative to the no-speculation baseline. Speculation consistently reduces cycle time. Every strat- egy achieves positive savings on all benchmarks; there is no circuit where speculation hurts, confirming that the pipelining benefit is robust. Aggressive speculation achieves the largest savings on almost all benchmarks. On circuits with deep T-gate depen- dency chains (ising_n26, knn_n25), it achieves ∼40% reduction in pipeline steps. One might expect the aggressive strategy to suffer due to the 50% injection failure rate. We mea- sured pnon-commute i.e. the fraction of T gate successors that do not commute with the S/S† correction...",
+      "page": 5
+    },
+    {
+      "image": "2606.19593_figures/2606.19593_fig5.jpg",
+      "caption": "Fig. 5: Pipeline stage utilization (smoothed) for representative benchmarks under four scheduling strategies. Without speculation, utilization is bursty. With speculation, all three subsystems sustain overlapping activity",
+      "page": 6
+    }
+  ],
+  "figure": "2606.19593_figures/2606.19593_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

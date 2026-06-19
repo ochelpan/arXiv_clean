@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.20513",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.IT"
+  ],
+  "is_primary_archive": true,
+  "title": "Approximating optimal decoding of quantum LDPC codes with narrow frontiers",
+  "authors": "Anthony Leverrier, Rüdiger Urbanke",
+  "abstract": "We introduce the Frontier decoder, a pruned dynamic-programming decoder for sparse quantum decoding problems. Frontier processes error variables in a chosen order, merges prefixes with the same residual syndrome and logical label, and approximates logical-coset posterior masses by retaining only a narrow scored frontier. Without pruning, the recursion is exact ordered inference with exponential complexity.   In the code-capacity setting, the decoder reaches thresholds close to optimal for the surface code and the color code. In the circuit-level noise model, it achieves state-of-the-art performance with a very small average retained list size: less than 100 for the gross code $[[144,12,12]]$ at a physical error rate of $0.001$. When the list size is constant, the decoder has linear complexity, suggesting the possibility of low-latency implementations.",
+  "url": "http://arxiv.org/abs/2606.20513v1",
+  "pdf": "https://arxiv.org/pdf/2606.20513v1",
+  "type": "theory",
+  "summary": "The paper introduces the Frontier decoder, an efficient approximation algorithm designed to solve the computationally hard problem of optimal quantum LDPC decoding. By pruning the state space during a dynamic programming traversal, it achieves near-optimal performance for various quantum error-correcting codes while keeping the computational complexity manageable and low-latency.",
+  "main_problem": "The primary goal is to develop an efficient method for approximating the optimal decoding of quantum Low-Density Parity Check (LDPC) codes.",
+  "main_result": "The proposed Frontier decoder achieves state-of-the-art performance, reaching thresholds close to optimal for surface and color codes under various noise models while maintaining a very small average computational overhead.",
+  "method": "It employs a pruned dynamic-programming approach that processes error variables in an ordered sequence, merging states with identical residual syndromes and logical labels while retaining only the most promising 'frontier' of possibilities based on a heuristic score.",
+  "model_or_system": "The work focuses on quantum error correction using LDPC codes (e.g., surface code, color code). The decoding process is modeled as finding the most probable recovery operation given an observed noisy syndrome record, which involves tracking syndromes and logical labels across variable processing steps.",
+  "key_observables": "Full Logical Frame Error Rate (FER), average/peak retained list size ($|F_t|$), and the final maximum log-mass for each possible logical class ($\\log bZ(F)_\\lambda(s)$).",
+  "important_parameters": "The noise level ($p$), the score gap ($\\Delta$), and the hard memory cap ($K$) are crucial parameters controlling the approximation quality versus computational cost.",
+  "main_assumptions": "The method approximates exact inference by pruning states based on a heuristic score, which assumes that the best path remains within a narrow frontier. The suffix-compatibility score relies on approximations of row marginals.",
+  "figures_summary": "Figures illustrate the decoding process steps (e.g., transition diagrams for BB codes), compare FER vs. noise level ($p$) against other decoders, and analyze computational efficiency metrics like average versus peak retained list sizes and latency tail distributions.",
+  "paper_structure": "The paper introduces the Frontier decoder mechanism by detailing its ordered recursion structure, establishing its exactness when unpruned, and then presenting results comparing its performance (thresholds, FER) against established methods for various quantum codes under realistic noise models.",
+  "why_interesting": "This work provides a highly scalable algorithmic tool for decoding complex quantum error-correcting codes. For AMO physicists working on quantum computation, it offers concrete benchmarks and insights into the feasibility of fault-tolerant quantum memory and processing using structured codes.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.20513_figures/2606.20513_fig1.jpg",
+      "caption": "Figure 1: Standard surface-code factor model and its ordered-matrix representation. Left: one CSS side of a small planar surface-code patch, with local factors xji, bulk checks of degree four, boundary checks of degree two, and one logical-label row L. Right: the same incidence pattern written as the ordered matrix H, with columns in the order π = (j1, . . . , jn). After step t, the processed columns are π≤t, the unprocessed columns are π>t, and the active check set Γt is exactly the set of blue rows, namely the rows touching both sides of the cut. The active residual qt = sΓt ⊕HΓt,π≤tx≤t ∈F|Γt| 2 is therefore a vector with one residual syndrome bit for each blue row; the decoder stores qt...",
+      "page": 5
+    },
+    {
+      "image": "2606.20513_figures/2606.20513_fig2.jpg",
+      "caption": "Figure 2: One transition of the pruned ordered-frontier recursion on a BB code [[72, 12, 6]] under circuit-level noise. Retained states branch on the next binary detector variable, duplicate active-boundary labels are merged by summing their masses, and the merged candidates are scored by S = P + αC before score-gap pruning. In this boundary, the state count changes 30 →60 →52 →31.",
+      "page": 7
+    },
+    {
+      "image": "2606.20513_figures/2606.20513_fig3.jpg",
+      "caption": "Figure 3: Rotated-surface code-capacity depolarizing-noise behavior for correlated Pauli Frontier decoding. Left: full FER versus physical depolarizing probability p. The dashed line marks pc = 0.189, the optimal threshold obtained by computing the critical probability of a statistical-mechanics model [39]. Right: average retained list size 1",
+      "page": 9
+    },
+    {
+      "image": "2606.20513_figures/2606.20513_fig4.jpg",
+      "caption": "Figure 4: Hexagonal color-code code-capacity bit-flip benchmark for Frontier decoding. Left: FER versus physical bit-flip probability p. Right: average retained list size, 1",
+      "page": 9
+    },
+    {
+      "image": "2606.20513_figures/2606.20513_fig5.jpg",
+      "caption": "Figure 5 compares Frontier decoding against correlated minimum-weight perfect matching [6, 7, 41] for the rotated surface code under depolar- izing circuit-level noise at p = 0.002. The plot displays the results for a memory-Z experiment rather than considering both X and Z decod- ing. Each experiment considers d noisy syndrome extraction rounds and reports the corresponding FER per round. It is interesting to fit the per-round logical error rate PL(d) ∝Λ−⌊(d+1)/2⌋ (24)",
+      "page": 9
+    }
+  ],
+  "figure": "2606.20513_figures/2606.20513_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
