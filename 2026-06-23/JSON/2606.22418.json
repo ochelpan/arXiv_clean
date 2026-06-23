@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.22418",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Three-Layer Architecture for Fault-Tolerant Quantum Computing",
+  "authors": "Zhirao Wang, Zhou You, Yiming Huang, Tianyi Li, Ying Li, Xiao Yuan, Yuan Yao",
+  "abstract": "Fault tolerance is an indispensable prerequisite for constructing large-scale universal quantum computers. Drawing philosophies from classical computer architecture, this paper presents a hardware-agnostic three-layer high-level architectural framework for generic fault-tolerant quantum computation. Guided by the real execution workflows of fault-tolerant quantum algorithms, the proposed model is decoupled from specific physical qubit hardware platforms and quantum error correction codes, serving as a universal abstract standard rather than a platform-specific implementation scheme. Special attention is devoted to the intermediate Fault-Tolerance Layer, which serves as the architectural bridge between application-level logical programs and hardware-level execution. We systematically characterize its five internal components, the interfaces and data exchanged among them, and the execution, correction, and adaptation paths that together enable logical synthesis, fault-tolerant resources management, decoding, and runtime fault-tolerant control. An end-to-end example is further provided to illustrate the full-stack operating pipeline of fault-tolerant quantum algorithms under this framework. Given the increasing emphasis on modular, heterogeneous, and cross-layer fault-tolerant quantum systems, our architecture provides a unified foundational model for organizing such designs.",
+  "url": "http://arxiv.org/abs/2606.22418v1",
+  "pdf": "https://arxiv.org/pdf/2606.22418v1",
+  "type": "theory",
+  "summary": "This paper proposes a universal, three-layer architectural framework to solve the integration challenge in fault-tolerant quantum computing. It introduces an explicit Fault-Tolerance Layer that acts as a standardized intermediary between high-level algorithms and specific physical hardware backends. This modular design aims to create a unified standard for organizing future heterogeneous quantum systems.",
+  "main_problem": "Developing a comprehensive, hardware-agnostic architectural framework for fault-tolerant quantum computation that unifies the gap between high-level algorithmic intent and low-level physical execution.",
+  "main_result": "The authors propose a standardized three-layer architecture featuring an explicit Fault-Tolerance Layer to mediate communication and resource management across application, logical compilation, and hardware domains.",
+  "method": "The framework is defined by abstracting the quantum stack into three layers (Application, FT, Hardware) and specifying five critical cross-layer interfaces ($\text{AppSubmit}$, $\text{SynMeasure}$, etc.) to manage data flow and control signals systematically.",
+  "model_or_system": "The model is a conceptual architectural framework rather than a specific physical implementation. It abstracts over various platforms (superconducting, trapped ions, neutral atoms) and error correction codes (Surface Code, qLDPC).",
+  "key_observables": "Syndrome measurement streams, execution status reports ($\text{AppReport}$), hardware diagnostics (e.g., fidelity degradation), and logical/physical instruction streams.",
+  "important_parameters": "Logical vs. physical qubit overhead, gate fidelities ($\\ge 99.999\\%$), coherence times, and the required resource management across layers.",
+  "main_assumptions": "The primary assumption is that a standardized intermediate architectural layer can successfully decouple algorithmic intent from platform-specific implementation details to manage complexity.",
+  "figures_summary": "Figure 1 illustrates the overall three-layer architecture with its five cross-layer interfaces. Figure 2 (mentioned) details the internal components and data exchange within the Fault-Tolerance Layer.",
+  "paper_structure": "The paper systematically introduces the necessity of fault tolerance, reviews existing architectural limitations across programming/compilation/hardware layers, proposes the three-layer model, details the five modular subsystems within the FT layer, and concludes with an end-to-end example pipeline.",
+  "why_interesting": "It provides a high-level systems view necessary for theorists designing complex quantum algorithms, as it formalizes how algorithmic requirements must map onto physical constraints across different hardware modalities.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.22418_figures/2606.22418_fig1.jpg",
+      "caption": "FIG. 1. Overall three-layer architecture. The Application Layer is responsible for algorithm specification and logical intermediate represen- tation (IR) generation. The Fault-Tolerance Layer is the architectural center of the stack and coordinates synthesis, fault-tolerant resources allocation, transpilation, decoding, and adaptive scheduling. The Hardware Layer abstracts the physical quantum device and native opera- tions. The downward interfaces are AppSubmit, which carries logical program descriptions and constraints from the Application Layer to the Fault-Tolerance Layer, and PhysDispatch, which carries backend-executable physical instructions from the Fault-Tolerance Layer to the...",
+      "page": 7
+    },
+    {
+      "image": "2606.22418_figures/2606.22418_fig2.jpg",
+      "caption": "FIG. 2. Internal module of the Fault-Tolerance Layer. The layer is decomposed into five functional modules: Synthesizer, Resource Allocator, Transpiler, Decoder, and Controller. The arrows indicate the principal internal data flows among these modules. In particular, the Synthesizer emits the logical instruction stream ISA𝐿to the Resource Allocator and receives Budget hints in return; the Resource Allocator emits a fault-tolerant ResourcePlan to the Transpiler and a DecodeConfig object to the Decoder; the Transpiler emits backend-executable instructions ISA𝑃to the Controller and a DecodeContext object to the Decoder; the Decoder emits a CorrectionStream to the Controller; and the Controller...",
+      "page": 9
+    },
+    {
+      "image": "2606.22418_figures/2606.22418_fig3.jpg",
+      "caption": "FIG. 3. Internal logic of the Synthesizer. The module receives the logical circuit through AppSubmit and applies a threshold-based synthesis rule to each rotation gate. For a given threshold 𝜃th, a rotation is either kept as a direct logical rotation primitive or decomposed into a Clifford+𝑇 representation. The resulting candidate logical instruction stream ISA𝐿is then checked against the current resource budget by the Resource Allocator. If the candidate is feasible, the current threshold is accepted and the resulting ISA𝐿is finalized; otherwise, the threshold is adjusted and synthesis is repeated.",
+      "page": 11
+    },
+    {
+      "image": "2606.22418_figures/2606.22418_fig4.jpg",
+      "caption": "FIG. 4. Internal logic of the Resource Allocator. The allocator receives a candidate logical instruction stream ISA𝐿from the Synthesizer and explores a joint design space over factory configurations, code realizations, and layout candidates. For each candidate, it selects code parameters from the target reliability budget, evaluates factory throughput and layout constraints, and estimates the resulting spacetime cost. Feasible realizations are retained as valid ResourcePlan candidates, and the minimum-cost plan is selected. The resulting ResourcePlan is sent to the Transpiler, while the corresponding DecodeConfig is sent to the Decoder.",
+      "page": 12
+    },
+    {
+      "image": "2606.22418_figures/2606.22418_fig5.jpg",
+      "caption": "FIG. 5. Internal logic of the Transpiler. The module receives a ResourcePlan from the Resource Allocator. This plan determines the active code realization, fault-tolerant resources organization, and scheduled logical operations to be executed. The Transpiler then lowers the corresponding logical instruction stream according to the selected code family and logical-operation protocol, producing two outputs: a backend-executable physical instruction stream ISA𝑃for the Controller and a DecodeContext object for the Decoder.",
+      "page": 13
+    }
+  ],
+  "figure": "2606.22418_figures/2606.22418_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

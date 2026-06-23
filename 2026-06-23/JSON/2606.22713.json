@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.22713",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "An interpretable closed form for entanglement entropy from bitstrings, guided by a graph neural network",
+  "authors": "Anas Saleh",
+  "abstract": "The empirical bitstring distribution is the most accessible observable on Rydberg-atom arrays, but the bipartite von~Neumann entropy it constrains is far costlier to obtain. We present a six-term linear closed form for the entropy, built on bitstring-derivable physics scalars, and characterize its accuracy, portability, scaling behaviour, and calibration cost. The feature set is selected with guidance from a trained graph neural network: probing the network localizes its entropy prediction to the two-point correlators on the bipartition boundary, and an exhaustive ground-truth search restricted to those boundary correlators isolates the form. It reaches $0.024$~nats mean absolute error in distribution: $6.4$ times the network's error, but in a form a human can read and apply without retraining. Fit once and applied unchanged, it has lower error than the base network on five of six out-of-distribution pools and ties the sixth. An independent density-matrix renormalization-group study to one hundred atoms -- five times the reach of exact diagonalization -- settles the size-extrapolation question: coefficients frozen at small size fail at scale, but the failure is structured. Refit per size the form holds to $25$--$50$~mnat (cross-validated); two of its six slopes follow clean inverse-size laws, one a downward curving growth, and the others are trendless; the fitted laws deploy the form label-free at roughly $40$--$80$~mnat. The result fixes a label-budget rule: at large sizes, a few dozen labels recalibrate the closed form to match a fine-tuned in-distribution ensemble on the same features, while nonlinear ML models pull ahead only given large labelled datasets.",
+  "url": "http://arxiv.org/abs/2606.22713v1",
+  "pdf": "https://arxiv.org/pdf/2606.22713v1",
+  "type": "both",
+  "summary": "The paper introduces a novel, human-readable closed-form equation to estimate entanglement entropy from measurable bitstring data in quantum simulators. This form is derived by using advanced machine learning techniques (GNNs) only to guide feature selection, resulting in an estimator that balances the high accuracy of black-box models with the interpretability required for physical insight.",
+  "main_problem": "The core challenge is accurately estimating bipartite von Neumann entanglement entropy ($S_{vN}$) for quantum many-body systems, as direct measurement is prohibitively difficult.",
+  "main_result": "The authors propose a six-term linear closed form derived from bitstring-derivable physics scalars that achieves accuracy comparable to complex machine learning models while remaining human-interpretable and portable across different physical regimes.",
+  "method": "The approach combines insights from Graph Neural Networks (GNNs) to guide feature selection, followed by an exhaustive symbolic search restricted to boundary correlators to derive a simple, linear equation.",
+  "model_or_system": "The work is primarily demonstrated on quantum simulation platforms using Rydberg-atom arrays and analyzed for various 1D/2D lattice Hamiltonians (e.g., TFIM, XXZ).",
+  "key_observables": "Bipartite von Neumann entanglement entropy ($S_{vN}$), empirical bitstring distribution, classical mutual information ($I$), and two-point boundary correlators.",
+  "important_parameters": "System size ($N$ up to 100 atoms via DMRG), Mean Absolute Error (MAE) in nats, and the structure of the bipartition cut ($E_b$).",
+  "main_assumptions": "The most informative features for $S_{vN}$ are localized to the two-point correlators on the bipartition boundary; furthermore, the closed form requires refitting its coefficients when extrapolating across different system sizes.",
+  "figures_summary": "Figures compare MAE across various models (GNN vs. Closed Form) on in-distribution and out-of-distribution pools, showing the closed form's robustness. Other figures detail scaling laws for the six feature coefficients derived from DMRG simulations.",
+  "paper_structure": "The paper progresses by first identifying the measurement bottleneck ($S_{vN}$), then using GNN analysis to pinpoint crucial boundary features, and finally deriving a simple linear combination of these features that maintains high accuracy across different physical models and system sizes.",
+  "why_interesting": "This work directly addresses the practical gap between highly accurate but opaque ML predictors (like GNNs) and simple analytic bounds. By creating an interpretable surrogate model, it provides a powerful tool for experimental quantum simulation groups working with Rydberg arrays.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.22713_figures/2606.22713_fig1.jpg",
+      "caption": "Figure 1: Headline summary. (a) MAE on the in-distribution eval pool and the six OOD pools for the base GNN ([5], sky blue), the fine-tuned GNN (bluish-green, hatched), the six-feature closed form Eq. 1 (orange), and the classical mutual information I (vermilion), log scale. The fine-tuned column is the published checkpoint fine-tuned in [5] for the Ny = 7, 8 ladder and applied unchanged; it is hatched because its strong results there reflect training targeted at that size regime, not the fit-once generalization of Eq. 1 and the base GNN—the like-for-like comparison is Eq. 1 versus the base GNN. Pools right of the separator are OOD relative to the GNN’s training distribution. Eq. 1 has...",
+      "page": 2
+    },
+    {
+      "image": "2606.22713_figures/2606.22713_fig2.jpg",
+      "caption": "Figure 2: Eq. 1 residuals on the evaluation set. Left: residual versus predicted ˆ SvN—the spread widens with the prediction. Middle: residual by system size Ny—the interquartile range and tails grow with Ny. Right: quantile–quantile plot, confirming heavy tails. The dispersion concentrates at higher entropy, consistent with corr(|r|, S)=0.47.",
+      "page": 9
+    },
+    {
+      "image": "2606.22713_figures/2606.22713_fig3.jpg",
+      "caption": "Figure 3: Shot-noise stress test on a random 5,000-row sample of the evaluation pool: MAE versus the number of measurement shots S for Eq. 1, XGBoost, and the mutual-information baseline I.",
+      "page": 10
+    },
+    {
+      "image": "2606.22713_figures/2606.22713_fig4.jpg",
+      "caption": "Figure 4: Eq. 1 slopes refit per size on the balanced half cut, ED (N =8–20, circles) and DMRG (N =24– 100, squares), with 95% bootstrap intervals; solid/dashed curves are the best and runner-up parametric laws by AICc (weighted R2 in the legends). The anchor slope b1 grows and curves downward; the two correlator-kernel slopes b2, b3 decay as 1/N (an inverse square root fits comparably); b4, b5 show no resolv- able trend; b6 vanishes beyond N ≈15.",
+      "page": 12
+    },
+    {
+      "image": "2606.22713_figures/2606.22713_fig5.jpg",
+      "caption": "Figure 5: Held-out per-hook Ridge-probe R2 for SvN, I, and the six features. Peaks at the readout (R2 ≥0.996 for SvN, ≥0.92 for every feature).",
+      "page": 14
+    }
+  ],
+  "figure": "2606.22713_figures/2606.22713_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "entanglement & information structure": 5,
+    "Rydberg arrays": 4,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

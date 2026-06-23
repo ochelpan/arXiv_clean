@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.21762",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Dynamical Decoupling using Universal Optimal Tracking",
+  "authors": "Amit Devra, Emanuel Malvetti, Niklas J. Glaser, Abhishek Agarwal, Ivan Rungger, Santana Lujan, Max Werninghaus, Stefan Filipp, Leo Van Damme, Steffen J. Glaser",
+  "abstract": "Dynamical decoupling (DD) is a widely used and resource-efficient technique for error suppression, but conventional DD relies on periodically repeating a short pulse block to refocus the qubit state during idle periods. Imperfections in this block cause residual errors to accumulate, ultimately degrading state recovery over long idle times. Here, we introduce a universal optimal tracking approach that extends the original tracking concept to a fully state-independent setting for designing DD sequences. By monitoring the qubit's evolution at predefined waypoints during optimization, the method dynamically compensates residual errors while preserving regular refocusing. Experimental demonstrations on a superconducting-qubit platform confirm the suppression of error accumulation under static control imperfections, in agreement with numerical predictions. Complementary simulations further show that optimal-tracking-based sequences maintain strong performance under time-dependent noise. These results establish optimal tracking as a practical and hardware-agnostic approach to designing short, robust DD sequences suitable for noisy quantum devices.",
+  "url": "http://arxiv.org/abs/2606.21762v1",
+  "pdf": "https://arxiv.org/pdf/2606.21762v1",
+  "type": "both",
+  "summary": "This work introduces Universal Optimal Tracking (U-TRACK), a sophisticated method for designing Dynamical Decoupling sequences that actively correct residual errors block-by-block. By optimizing these novel XUR pulse structures, the authors demonstrate superior noise suppression compared to traditional methods like XY4 or UR40 on superconducting qubits. This establishes U-TRACK as a practical and highly robust tool for extending quantum coherence times in noisy hardware.",
+  "main_problem": "The primary goal is designing robust Dynamical Decoupling (DD) sequences to suppress environmental noise and prevent error accumulation during long idle periods in quantum computation.",
+  "main_result": "A novel Universal Optimal Tracking (U-TRACK) approach yields XUR pulse sequences that dynamically compensate for residual errors at every block, significantly outperforming conventional periodic schemes like XY4 or UR40, especially under low-frequency noise.",
+  "method": "The authors use a combination of gradient optimization (GRAPE) and global search techniques (Genetic Algorithm) to optimize the phases of multiple pulse blocks simultaneously, ensuring high fidelity across intermediate checkpoints.",
+  "model_or_system": "The work is demonstrated on superconducting-qubit platforms (e.g., transmon processors). The underlying physics involves controlling qubit evolution under noise sources like frequency detuning and amplitude errors ($\\epsilon, \\delta$).",
+  "key_observables": "Process fidelity ($F$) measured over long idle times; average fidelity ($\bar{F}$) calculated across parameter error grids $(\\epsilon, \\delta)$; robustness profiles against Random Telegraph Noise (RTN).",
+  "important_parameters": "Noise regimes defined by the switching rate $\\lambda$ of RTN (e.g., low-frequency vs. high-frequency); pulse parameters include amplitude errors ($\\epsilon$) and detuning ($\\delta$).",
+  "main_assumptions": "The U-TRACK method assumes that error compensation can be achieved block-by-block, leading to non-periodic optimal sequences; simulations often rely on specific pulse shapes like DRAG pulses.",
+  "figures_summary": "Figures compare the fidelity decay of UR40, XY4, and U-TRACK4 across various noise regimes (static, low-frequency RTN), demonstrating U-TRACK's superior sustained performance. Later figures detail process fidelity vs. error parameters ($\\epsilon, \\delta$) for multiple blocks.",
+  "paper_structure": "The paper introduces the limitations of standard DD methods, proposes and optimizes the U-TRACK framework using global optimization algorithms, validates its performance against various noise models (static, time-dependent RTN), and finally compares it experimentally/numerically against established sequences like XY4 on superconducting hardware.",
+  "why_interesting": "For a theoretical physicist in this area, the development of an algorithm that moves beyond simple periodic repetition to dynamically compensate for accumulated errors represents a significant conceptual leap in quantum control theory. The combination of optimization techniques (GA + GRAPE) applied to physical constraints is highly relevant.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.21762_figures/2606.21762_fig1.jpg",
+      "caption": "FIG. 1. Comparison of the design principles of two conven- tional DD sequences (UR40, top row, and XY4, middle row) with the novel tracking-based approach introduced in this pa- per (U-TRACK4, bottom row). On the left, the white arcs represent propagators U(tm, tn) designed to approximate the identity operator I from time point tm to time point tn for 0 ≤m < n ≤10. Yellow dashed lines indicate propagators that, by direct transitivity, also approximate the identity op- erator. On the right, fidelities measuring the proximity of U(tm, tn) to I, averaged over a range of frequency detunings and pulse-amplitude deviations, are shown. Trivial diagonal entries with U(tn, tn) = I are grayed out....",
+      "page": 2
+    },
+    {
+      "image": "2606.21762_figures/2606.21762_fig2.jpg",
+      "caption": "FIG. 2. Effect of three dynamical decoupling sequences on qubit dynamics, shown on the Bloch sphere (top) and as pulse waveforms (bottom). Each row corresponds to one sequence (UR40, XY4, U-TRACK4); each sphere is a snapshot in time, progressing from t = 0 to t = 40 Tπ, where Tπ is the duration of one π-pulse. Points mark qubit states initialized on X (blue), Y (red), and Z (yellow). Each evolves under a different detuning strength; a tight cluster therefore indicates resilience to detuning errors, while a spread or displaced set of points indicates sensitivity. Ideally, every point returns to its starting position by T = 40 Tπ. UR40 achieves a very robust state recovery at T but not at...",
+      "page": 4
+    },
+    {
+      "image": "2606.21762_figures/2606.21762_fig3.jpg",
+      "caption": "FIG. 3. Process fidelities of different dynamical decoupling sequences as functions of pulse-amplitude error ϵ and frequency detuning δ, which are intentionally engineered in the quantum device. For each sequence, the top row shows experimental measurements, while the bottom row shows the corresponding simulation results. Each column corresponds to the fidelity obtained after 4, 8, 20, and 40 π-pulses, respectively, with each π-pulse having a duration of Tπ = 128 ns. The dotted rectangle shows the parameter ranges over which the U-TRACK4 sequence was optimized with assigned weights in the central region, as described in Appendix A. Technical details of the experimental implementation and...",
+      "page": 6
+    },
+    {
+      "image": "2606.21762_figures/2606.21762_fig4.jpg",
+      "caption": "FIG. 4. First row: Five representative samples of detuning versus time under random telegraph noise (RTN) generated with a switching rate λ = 0.5 MHz, and detuning levels of ±0.5 MHz, illustrating the stochastic variability of noise. Second row: Simulated sequence fidelity at the idle time (T = 5.12 µs, corresponding to 40 π-pulses) computed for 500 samples (λ = 0.5 MHz, δ(t)/(2π) = ±0.5 MHz). Results are shown for the three dynamical decoupling sequences indicated in the legend. ¯F denotes the average fidelity over the 500 samples. Third row: Average fidelity over 2,000 samples as a function of λ, shown for different detuning levels as indicated in the legend. The different-colored strips...",
+      "page": 7
+    },
+    {
+      "image": "2606.21762_figures/2606.21762_fig5.jpg",
+      "caption": "FIG. 6. Top: Optimized U-TRACK4 pulse phases for 10 blocks (solid blue). For comparison, the closest approxi- mating XUR4 sequence (defined in the main text) is shown in red dotted. Bottom: The four distinct UR± 4,k pulses (k = 0, 1, 2, 3). UR± 4,1 is equivalent to XY4 and UR± 4,0 equals the MLEV4 sequence [38, 52, 57]. The remaining two cases are obtained by applying a cyclic phase shift and possibly adding a global phase offset. Details about the pulse opti- mization are provided in Appendix A.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.21762_figures/2606.21762_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

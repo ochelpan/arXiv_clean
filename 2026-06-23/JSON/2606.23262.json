@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2606.23262",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Tuning Quantum MPS",
+  "authors": "Anna Leonteva, Maxime Outteryck, Guido Masella",
+  "abstract": "Matrix Product State (MPS) methods are among the most effective approaches for the classical simulation of quantum circuits, but their practical performance depends strongly on simulator hyperparameters, and default settings are often suboptimal. In this work, we propose a two-stage framework for automatic hyperparameter selection for quantum MPS simulation. In the first stage, we perform offline single-objective CMA-ES optimization under a fidelity constraint and construct a database of circuit--configuration--performance evaluations. In the second stage, we define a set of static circuit features designed to capture MPS-relevant structural properties and train a circuit-aware hybrid ranking model to recommend configurations for different quantum circuits. We evaluate the approach on multiple scalable circuit families using leave-one-family-out and size-based validation. The results show that offline optimization often improves over default settings, although the magnitude of the gain depends strongly on the backend, circuit family, and circuit scale. The learned predictor recovers a meaningful fraction of this gain, with better performance under size-based validation than under family-based transfer, but generally remains below the offline optimum.",
+  "url": "http://arxiv.org/abs/2606.23262v1",
+  "pdf": "https://arxiv.org/pdf/2606.23262v1",
+  "type": "theory",
+  "summary": "The paper introduces a novel two-stage framework to automate hyperparameter tuning for MPS simulations of quantum circuits. It first optimizes settings offline using CMA-ES and then trains a hybrid ranking model on circuit features to predict optimal configurations for new circuits. This allows researchers to efficiently manage the complex, high-dimensional search space inherent in state-of-the-art quantum simulation techniques.",
+  "main_problem": "The core problem is developing an automated, data-driven method to select optimal hyperparameters for Matrix Product State (MPS) simulation of quantum circuits.",
+  "main_result": "A two-stage framework combining offline CMA-ES optimization with a circuit-aware hybrid ranking model can predict good configurations, recovering a meaningful fraction of the performance gain over default settings.",
+  "method": "The approach uses an initial offline optimization phase to build a database, followed by training a complex ensemble ranking model on static circuit features to predict optimal parameters for unseen circuits.",
+  "model_or_system": "The system under study is the simulation of quantum circuits using the Matrix Product State (MPS) method across various quantum backends (Qiskit and MIMIQ).",
+  "key_observables": "Run time ($T$), Fidelity ($F$), run time ratio ($r$), and fidelity gap ($\\Delta F$).",
+  "important_parameters": "Hyperparameters $\theta$ (five backend parameters), fidelity constraint ($\tau=99\\%$), and various mixing coefficients for the ranking model.",
+  "main_assumptions": "The prediction model's performance is compared against an ideal offline optimum, and size-based validation was found to be more reliable than family-based transfer.",
+  "figures_summary": "Figures compare speedup distributions from offline optimization across circuit families for Qiskit and MIMIQ, and show the predictive model's speedup under one-family-out vs. size-based validation.",
+  "paper_structure": "The paper details a two-stage process: first, building an optimization database via CMA-ES; second, training a hybrid ranking model using circuit features to predict optimal configurations for generalization.",
+  "why_interesting": "This work directly addresses the practical limitations of simulating complex quantum dynamics by providing a machine learning tool to optimize simulation parameters, which is crucial for scaling tensor network methods.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.23262_figures/2606.23262_fig1.jpg",
+      "caption": "Fig. 1. Speedup (ratio of default params. run time / optimized param. run time) by circuit family for Qiskit (blue) and MIMIQ (orange). Each box plot represents the distribution of speedup values across circuit instances with varying qubit counts. The median is shown by the central line, and the dashed horizontal line at 1 indicates no improvement. The vertical axis is shown on a logarithmic scale.",
+      "page": 10
+    },
+    {
+      "image": "2606.23262_figures/2606.23262_fig2.jpg",
+      "caption": "Figure 1 compares the distribution of offline optimization speedup across circuit families for Qiskit and MIMIQ. Speedup is defined as the ratio of default to optimized run time, so values above one indicate improvement. For each circuit family, the box plot aggregates the speedup values obtained for the available circuit instances at different qubit counts. The central line indicates the median, the box spans the interquartile range, and the whiskers show the spread of the observed values. Compact distributions indicate more consistent gains across instances, whereas wider ones indicate larger variability with circuit size. The two backends exhibit clearly different behavior. For Qiskit,...",
+      "page": 10
+    },
+    {
+      "image": "2606.23262_figures/2606.23262_fig3.jpg",
+      "caption": "Fig. 2. Prediction speedup (ratio of default to predicted run time) by circuit family for Qiskit (blue) and MIMIQ (orange) under one-family-out validation. The black line shows the median, boxes the interquartile range, and whiskers the variability across instances. The dashed line at 1 indicates no improvement. The vertical axis is logarithmic.",
+      "page": 12
+    },
+    {
+      "image": "2606.23262_figures/2606.23262_fig4.jpg",
+      "caption": "Fig. 3. Prediction speedup (ratio of default to predicted run time) by circuit family for Qiskit (blue) and MIMIQ (orange) under size-based validation. The black line shows the median, boxes the interquartile range, and whiskers the variability across instances. The dashed line at 1 indicates no improvement. The vertical axis is shown on a logarithmic scale.",
+      "page": 12
+    }
+  ],
+  "figure": "2606.23262_figures/2606.23262_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

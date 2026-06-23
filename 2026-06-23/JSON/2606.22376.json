@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.22376",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Vibe Calibration: Autonomous Bring-up of a 112-Qubit Superconducting Quantum Processor by a Skill-Orchestrating Language Agent",
+  "authors": "Huikai Xu, Jiaxiu Han, Shigang Ou, Cheng Ye, Zisong Shen, Jing Gao, Yijia Wang, Tianrui Che, Yu Song, Weiyang Liu, Lei Wang, Lin-Feng Zhang, Pan Zhang, Hai-Feng Yu",
+  "abstract": "Superconducting quantum computing is one of the most mature solid-state platforms for quantum computation, with processors exceeding one hundred qubits. Yet further scaling toward fault-tolerant quantum computing is increasingly constrained by calibration complexity. Conventional scripts are brittle to anomalous signals, and expert judgment is bounded by cognitive bandwidth and serial operation time, failing to keep pace with system scale. Here we report Vibe Calibration, an autonomous calibration system orchestrated by large language model agents, which distills expert tacit knowledge into reusable Skills. Each Skill is organized as a decision tree that packages parameterized measurement commands, quantitative acceptance criteria, and audit records, enabling autonomous execution and self-healing. We capture this knowledge through a three-phase human-in-the-loop distillation process and fine-tune a large language model on validated trajectories. On a 112-qubit processor with frequency-tunable transmons, the system autonomously completes calibration of 108 out of 112 qubits in 4.7 hours, achieving a 4--5$\\times$ speedup over manual calibration of the full 112 qubits. A cross-validated comparison with expert manual calibration on a 16-qubit subset shows agreement on 14 out of 16 qubits. More importantly, the model demonstrates transferable calibration workflows across devices. While low-level control scripts require minor interface adaptation for different hardware platforms, the core decision logic and task orchestration generalize to new processors, demonstrating a reusable laboratory interface rather than a memorized script.This work demonstrates, for the first time, fully autonomous calibration of a hundred-qubit superconducting processor through reusable and auditable Skills, removing a critical barrier to scalable quantum hardware operation.",
+  "url": "http://arxiv.org/abs/2606.22376v1",
+  "pdf": "https://arxiv.org/pdf/2606.22376v1",
+  "type": "experiment",
+  "summary": "The paper introduces Vibe Calibration, an autonomous system using LLM agents to automate the complex and expert-dependent process of calibrating large superconducting quantum processors. By formalizing expert knowledge into structured 'Skills,' the system achieves significant speedups and robustness compared to manual operation. This work establishes a reusable, auditable infrastructure for scaling quantum hardware operations.",
+  "main_problem": "The calibration complexity of superconducting quantum processors is a major bottleneck for scaling toward fault-tolerant quantum computing, as conventional scripts are brittle and expert judgment is limited.",
+  "main_result": "The system autonomously completed calibration on a 112-qubit processor in 4.7 hours, achieving a $4–5\times$ speedup over manual methods while demonstrating transferable core decision logic across devices.",
+  "method": "An autonomous calibration system, Vibe Calibration, orchestrates complex workflows by distilling expert tacit knowledge into reusable, auditable 'Skills' structured as decision trees.",
+  "model_or_system": "The physical platform is a superconducting quantum processor featuring 112 frequency-tunable transmon qubits. The methodology involves using Large Language Model agents to execute these Skills via parameterized measurement commands and quantitative acceptance criteria.",
+  "key_observables": "$T_1$ relaxation time, Ramsey dephasing time ($T_{R2}$), Rabi frequencies, S21 readout response, and visibility.",
+  "important_parameters": "112 qubits; 4.7 hours (autonomous runtime); $4–5\times$ speedup over manual calibration.",
+  "main_assumptions": "The core assumption is that expert knowledge can be formalized into reusable Skills, allowing the system to pursue the *purpose* of a measurement rather than just mimicking specific human actions.",
+  "figures_summary": "Figures illustrate the three-phase evolution from human supervision to full autonomy (Fig. 1), detail the decision tree structure of a qubit-characterization Skill (Fig. 2, Fig. 4), and compare autonomous vs. manual characterization results for $T_1$ and $T_{R2}$ on the 112-qubit device (Fig. 3).",
+  "paper_structure": "The paper details a phased development: initial single-qubit calibration, scaling to 16 qubits, and culminating in the full 112-qubit system. The structure emphasizes distilling expertise into Skills, executing multi-step pipelines (Spectrum $\rightarrow$ Power Rabi $\rightarrow$ SingleShot $\rightarrow$ T1 $\rightarrow$ Ramsey), and demonstrating generalization.",
+  "why_interesting": "This work is highly relevant as it tackles the operational bottleneck of quantum hardware by treating calibration not as a set of fixed scripts but as an abstract, reusable, agentic workflow that can be generalized across different physical architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.22376_figures/2606.22376_fig1.jpg",
+      "caption": "FIG. 1. Three-phase evolution from human-guided to fully autonomous operation of Vibe Calibration. Phase 1 (Human-Guided): a human expert supervises every iteration, reviewing plotted results and directing the orchestrator that drives an LLM to generate device-control code, run measurements, and analyze data; trajectories that the expert validates are summarized by the LLM into a first-generation skill library (Skills v1). Phase 2 (Semi-Autonomous): the agent operates the skill library on its own, calling on a remote expert only when an unknown error is encountered; each debugging episode is distilled back into the library, augmenting Skills v2 with explicit error-handling logic. Phase 3...",
+      "page": 2
+    },
+    {
+      "image": "2606.22376_figures/2606.22376_fig2.jpg",
+      "caption": "FIG. 2. Distilled qubit-characterization Skill as a unified decision tree. The workflow exposes two top-level routes that converge on a shared single-qubit characterization chain. Route A (left, blue) handles fixed-frequency or pre-fluxed devices: 1D S21 fixes the readout frequency, 1D spectroscopy proposes a candidate f01, topology groups are formed, and the shared chain (including Time Rabi, Power Rabi, single-shot / readout optimization, T1, and Ramsey) runs to completion. Route B (right, orange) adds the flux-arrangement branch required for tunable multi-qubit devices: S21-vs-flux, spectrum-vs-flux, a multi-path dynamic-programming ridge fit, and a flux-arrangement dry-run plan precede...",
+      "page": 3
+    },
+    {
+      "image": "2606.22376_figures/2606.22376_fig3.jpg",
+      "caption": "FIG. 3. Side-by-side comparison of autonomous-agent and manual qubit characterization on a 112-qubit tunable transmon device. (a) Optical image of the 112-qubit frequency-tunable transmon processor (left) and a schematic of its qubit connectivity (right): dots denote qubits and links denote tunable couplers, forming a tilted square lattice of 7 qubits per row over 16 rows in which each interior qubit is coupled to its four diagonal neighbours. (b) Cumulative distributions of the energy-relaxation time T1 and the Ramsey dephasing time T R 2 over all characterized qubits, for the manual (blue) and agent (red) campaigns (T1 solid, T R 2 dashed; logarithmic time axis). Legend counts report the...",
+      "page": 6
+    },
+    {
+      "image": "2606.22376_figures/2606.22376_fig4.jpg",
+      "caption": "Figure 1. Validation loss curves over training for all four fine-tuning runs.",
+      "page": 14
+    },
+    {
+      "image": "2606.22376_figures/2606.22376_fig5.jpg",
+      "caption": "Figure 2. Unified Skill workflow redrawn as two main columns. The left column shows the one-dimensional characterization route. The right column shows the flux-tunable multi-qubit route, which performs flux arrangement before entering the shared characterization chain.",
+      "page": 16
+    }
+  ],
+  "figure": "2606.22376_figures/2606.22376_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

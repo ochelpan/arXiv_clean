@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.22316",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.NI"
+  ],
+  "is_primary_archive": true,
+  "title": "Making Quantum Networks Work: Routing, Calibration, and Programmable Quantum Repeaters",
+  "authors": "Vinay Kumar",
+  "abstract": "The quantum internet enables distribution of quantum states across distant nodes, supporting secure communication, distributed computing, and quantum sensing. Unlike classical networks, it is constrained by the no cloning theorem, probabilistic entanglement generation, decoherence, and hardware drift, making classical abstractions inadequate. Scalable quantum networking therefore requires new architectures, protocols, and optimisation methods that explicitly account for these limitations.   This thesis studies the architecture, routing, and operation of quantum networks under realistic constraints, focusing on bipartite entanglement distribution over quantum repeater networks. Key metrics include end to end fidelity, throughput, scalability, and fairness. At the network layer, routing strategies are developed beyond assumptions of homogeneous nodes and full network knowledge. Routing under heterogeneous repeater efficiencies shows how partial knowledge of node quality improves fidelity and reduces path blocking. A grey box routing approach is then introduced, where path selection relies only on topology and end to end estimates, achieving robustness and fairness without detailed link information.   At the link layer, calibration and hardware drift are addressed through a calibration aware model separating activation and calibration phases. For linear repeater chains, an optimal calibration schedule is derived to balance operation time and calibration overhead. This is extended to general topologies with shared links, where a greedy orchestration heuristic is proposed.   Finally, the thesis connects network protocols with hardware via an instruction set architecture for programmable quantum repeater nodes based on NV centers, enabling coherent programmability and linking physical operations to higher layer protocols.",
+  "url": "http://arxiv.org/abs/2606.22316v1",
+  "pdf": "https://arxiv.org/pdf/2606.22316v1",
+  "type": "theory",
+  "summary": "This thesis addresses the complexity of building scalable quantum networks by integrating three previously separate domains: routing, link calibration, and hardware programmability. It develops a cross-layer framework that allows protocols to function reliably even with partial knowledge of imperfect physical links. The result is a comprehensive model for programmable quantum repeaters necessary for long-distance quantum communication.",
+  "main_problem": "The core challenge is designing scalable quantum networks by developing integrated protocols for routing, managing link imperfections via calibration, and implementing programmable hardware at the repeater nodes.",
+  "main_result": "The thesis proposes a cross-layer framework where grey-box routing achieves robustness using partial knowledge, while explicit calibration schedules and an Instruction Set Architecture (ISA) enable reliable operation despite hardware drift.",
+  "method": "The work combines theoretical protocol development with architectural modeling, deriving optimal scheduling algorithms for link calibration and proposing a concrete ISA interface for physical quantum repeaters.",
+  "model_or_system": "The system is a quantum network designed for long-distance entanglement distribution. It models components like qubits (e.g., NV centers), entanglement swapping operations, and the interaction between network protocols and underlying hardware control layers.",
+  "key_observables": "End to end fidelity ($\\mathcal{F}_{\text{ete}}$), Blocking Probability (BP), Throughput ($T$), and operational efficiency metrics.",
+  "important_parameters": "Link fidelity decay rate ($\\Gamma_e$), calibration overhead time, network topology parameters, and the size/capability of the programmable node register.",
+  "main_assumptions": "The research moves beyond assuming full or static knowledge of link properties, instead modeling partial knowledge and dynamic hardware limitations as fundamental constraints.",
+  "figures_summary": "Figures illustrate entanglement generation schemes (MeetInTheMiddle, Sender-Receiver), network topologies (Grid/Cylindrical), and performance comparisons showing how BP and Fidelity vary with node quality ($\\xi$) under different routing algorithms.",
+  "paper_structure": "The paper progresses by first establishing the need for a cross-layer view; it then details routing strategies using grey-box approaches, followed by developing calibration-aware models for link operation, culminating in the proposal of an ISA for programmable repeater nodes.",
+  "why_interesting": "It provides a comprehensive blueprint for realizing quantum internet infrastructure by explicitly linking high-level network protocols (routing) to low-level physical control mechanisms (ISA/calibration), which is crucial for experimental realization using solid-state qubits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.22316_figures/2606.22316_fig1.jpg",
+      "caption": "Figure 2.1: Examples of different types of entanglement. a) a bipartite entangled state depicted by the Bell state; b) two forms of tripartite entanglement, one following the GHZ state and the other the W state; c) a bipartite hyperentanglement in two degrees of freedom, combining polarisation and spatial modes (taken from [3])",
+      "page": 39
+    },
+    {
+      "image": "2606.22316_figures/2606.22316_fig2.jpg",
+      "caption": "Figure 2.2: a) Teleportation: Teleportation of Alice’s qubit 𝐴1 from state |Ψ⟩0 to Bob’s qubit 𝐵(yielding state |Ψ⟩with fidelity |⟨Ψ0|Ψ⟩|2) is achieved via a Bell state measurement on qubits 𝐴1 and 𝐴2. Alice then communicates the resulting classical bits (𝑚0𝐴and 𝑚1𝐴) to Bob, who applies the appropriate quantum operations on 𝐵based on these outcomes. b) Entanglement Swapping: Entanglement swapping between Alice and Bob is achieved by converting two bipartite entangled pairs—one between Alice and repeater 𝑅𝑥(qubits 𝐴and 𝑅𝑥1) and one between repeater 𝑅𝑥and Bob (qubits 𝑅𝑥2 and 𝐵)—into a direct (end-to-end) entanglement between Alice and Bob (qubits 𝐴and 𝐵). This process is executed by...",
+      "page": 43
+    },
+    {
+      "image": "2606.22316_figures/2606.22316_fig3.jpg",
+      "caption": "Figure 2.3: Using extra qubit resources to boost error resilience. a) Entanglement purification: Each EPR pair is paired with an additional, sacrificial EPR pair to enhance its fidelity (modified from [5]); b) Quantum error correction: Each EPR pair is supported by extra qubits arranged as encoded EPR pairs to reduce the error rate (modified from [44])",
+      "page": 46
+    },
+    {
+      "image": "2606.22316_figures/2606.22316_fig4.jpg",
+      "caption": "Figure 2.4: Entanglement generation schemes. a) MeetInTheMiddle: Each of two distant stations holds one half of an EPR pair. The entangled qubits are sent to an intermediate station, where entanglement swapping establishes a direct end-to-end entanglement between the remote stations; b) SenderRecever: An entangled qubit generated at the source station is transmitted to the destination station. Here, entanglement swapping between this qubit and one from the destination’s EPR pair creates a direct entanglement link between the stations; c) MidPointSource: An intermediate station produces an EPR pair and sends one qubit to the source station and the other to the destination station. At each...",
+      "page": 49
+    },
+    {
+      "image": "2606.22316_figures/2606.22316_fig5.jpg",
+      "caption": "Figure 2.5: A schematic of the global quantum internet.",
+      "page": 50
+    }
+  ],
+  "figure": "2606.22316_figures/2606.22316_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

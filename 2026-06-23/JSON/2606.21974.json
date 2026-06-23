@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.21974",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Fine-Tuning Large Language Models for Quantum Reasoning",
+  "authors": "Katherine Ip, Casey R. Myers, Udaya Parampalli, James Quach, Peiyong Wang",
+  "abstract": "Large language models (LLMs) exhibit abilities beyond natural language modelling and text generation. Recent advances in their reasoning capabilities have spurred interest in applying LLMs to complex scientific tasks requiring deep domain expertise and sophisticated reasoning. Quantum computing, as a highly specialised field with significant knowledge barriers and hardware constraints, could greatly benefit from such advancements. However, a key open question that first must be answered is: How can we develop fine-tuning pipelines that instil genuine quantum reasoning in LLMs, rather than task-specific pattern matching? We study this question through quantum circuit simulation as a training objective, where the model must predict the measurement probability distribution resulting from a sequence of quantum gate operations. We propose and compare two fine-tuning pipelines: (1) Supervised Fine-Tuning (SFT) on explicit gate-by-gate state-vector simulation traces, and (2) a two-stage SFT+Group Relative Policy Optimisation (GRPO) approach that sequentially applies SFT followed by GRPO with verifiable rewards. Our findings show that SFT achieves near-perfect in-distribution and gate-count extrapolation accuracy, significantly outperforming both the base model and the GPT-OSS-120B baseline. SFT+GRPO trades some in-distribution precision for better generalisation to larger qubit systems that SFT alone cannot handle. Both pipelines significantly outperform the baselines, demonstrating that targeted fine-tuning on explicit reasoning traces is an effective strategy for advancing quantum reasoning in LLMs.",
+  "url": "http://arxiv.org/abs/2606.21974v1",
+  "pdf": "https://arxiv.org/pdf/2606.21974v1",
+  "type": "theory",
+  "summary": "The paper investigates methods to teach Large Language Models (LLMs) genuine quantum reasoning by training them on explicit quantum circuit simulation traces. By comparing Supervised Fine-Tuning (SFT) against a more advanced SFT+GRPO pipeline, the authors demonstrate that multi-stage RL fine-tuning significantly improves the model's ability to extrapolate its reasoning to larger and more complex quantum systems.",
+  "main_problem": "The core challenge is developing fine-tuning pipelines for Large Language Models (LLMs) that instill genuine quantum reasoning capabilities, moving beyond mere task-specific pattern matching.",
+  "main_result": "Targeted multi-stage fine-tuning, particularly combining Supervised Fine-Tuning (SFT) with Group Relative Policy Optimisation (GRPO), significantly advances LLM performance on quantum circuit simulation compared to baselines.",
+  "method": "The study uses quantum circuit simulation as a training objective, comparing SFT on explicit state-vector traces against an advanced two-stage SFT+GRPO approach guided by verifiable rewards.",
+  "model_or_system": "The system involves simulating quantum circuits (sequences of gates) to predict the final measurement probability distribution. The LLM architecture is a transformer decoder stack, trained to generate step-by-step reasoning traces that mimic state evolution.",
+  "key_observables": "Measurement probability distribution, step-by-step state fidelity, In-distribution accuracy, Gate-count extrapolation accuracy, and Total Variation Distance (TVD).",
+  "important_parameters": "Qubit count (system size), number of gates (circuit depth/length), and the fine-tuning hyperparameters for SFT and GRPO.",
+  "main_assumptions": "The primary assumption tested is whether observed high performance reflects genuine understanding or merely memorization of structured training examples. The analysis often relies on approximations like rounding amplitudes to two decimal places.",
+  "figures_summary": "Figures illustrate state fidelity degradation with complexity, the convergence of training loss for SFT, and how GRPO helps mitigate token-limit violations during extrapolation tasks.",
+  "paper_structure": "The paper introduces the problem (quantum reasoning gap), details the methods (SFT vs. SFT+GRPO), presents results across multiple evaluation sets (in-distribution, gate/system size extrapolation), and concludes by analyzing generalization failures.",
+  "why_interesting": "This work directly addresses how advanced AI models can be engineered to handle complex physical simulations required in quantum information science, potentially creating powerful tools for algorithm design or circuit verification.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.21974_figures/2606.21974_fig1.jpg",
+      "caption": "Figure 3: Train and validation loss of SFT training for the Non-parameterised (left) and Pa- rameterised (right) circuit sets. Both sets converge within one epoch (390 steps).",
+      "page": 15
+    },
+    {
+      "image": "2606.21974_figures/2606.21974_fig2.jpg",
+      "caption": "Figure 4: Step-by-step quantum state fidelity of the SFT model during inference, evaluated on the Non-parameterised (left) and Parameterised (right) circuit sets. Fidelity remains above 99% throughout for the Non-parameterised set, while the Parameterised set exhibits a steeper decline with gate depth yet stays above 95% in aggregate, demonstrating that the model maintains a coherent intermediate quantum state representation across both settings. Notably, 5-qubit circuits show the most pronounced fidelity decline in both sets, reflecting the increased diﬀiculty of tracking quantum state evolution over circuits with greater system size.",
+      "page": 16
+    },
+    {
+      "image": "2606.21974_figures/2606.21974_fig3.jpg",
+      "caption": "Figure 5: Training dynamics of the GRPO stage for the Non-parameterised and Parameterised circuit sets. Mean reward (left), actor entropy (centre), and mean response length (right) are plotted against training step. Both sets show a pattern of rising reward that is accompanied by declining entropy and shorter responses, indicating that the model converges toward more accurate and concise reasoning strategies. The Non-parameterised set converges faster than Parameterised set, reflecting the greater task complexity of parameterised circuits. Despite the difference in reward levels, entropy and response length converge to similar values across both sets by the end of training.",
+      "page": 17
+    },
+    {
+      "image": "2606.21974_figures/2606.21974_fig4.jpg",
+      "caption": "Figure 6: Three-stage TVD progression and token-limit violation counts. (top) Mean TVD across the base model, Stage 1 SFT, and SFT+GRPO for the Non-parameterised and Parame- terised sets on the three evaluation sets. (bottom) Number of samples whose generation exceeds the 32,768-token limit at each stage. The sharp rise in token-limit violations at Stage 1 SFT for the Parameterised set explains the elevated TVD at that stage. Stage 2 GRPO suppresses this by learning more concise reasoning strategies.",
+      "page": 18
+    },
+    {
+      "image": "2606.21974_figures/2606.21974_fig5.jpg",
+      "caption": "Figure 7: Mean TVD as a function of circuit complexity for the Non-Parameterised Set (left column) and Parameterised Set (right column), broken down by number of qubits (top), circuit depth (middle), and number of gates (bottom). The number of qubits shows the strongest correlation with TVD degradation, followed by the number of gates, while circuit depth has the least influence.",
+      "page": 19
+    }
+  ],
+  "figure": "2606.21974_figures/2606.21974_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

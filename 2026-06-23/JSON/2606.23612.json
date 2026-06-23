@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2606.23612",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR"
+  ],
+  "is_primary_archive": true,
+  "title": "A quantum algorithm for one-shot signatures",
+  "authors": "Gopikrishnan Muraleedharan, Minh Thuy Truc Pham, Vir Pathak, Thomas Gardner, Chuanqi Zhang, QPerfect, Gavin K. Brennen",
+  "abstract": "We provide a pre-obfuscation circuit-level implementation of an efficient one shot signature scheme, which has known applications to delegated signatures, secured token transfer, and publicly verifiable randomness. The algorithm consists of two stages: a key generation stage where a classical public key/quantum secret key pair is produced, and a signing stage where the quantum secret key is processed with a message string to produce a classical signature. There is no algorithmic error in the construction and the signed message can be efficiently checked by a classical verifier. Our scheme works by preparing a superposition over elements of a random affine coset determined by the output of a puncturable pseudorandom function, together with a circuit that tests coset membership. The logical qubit number scales like $Θ( κ\\log(r) + n + l)$ and the gate complexity scales like $Θ(n^3 + nl)$, where $r$ is the public key size, $n+l$ is the signature size, $l$ is the message size, and $κ= Ω(n)$ is the cryptographic security parameter. We provide explicit qubit and gate counts for varying $n$ and identify the circuit components where obfuscation would be required for security against classical and quantum polynomial time attacks.",
+  "url": "http://arxiv.org/abs/2606.23612v1",
+  "pdf": "https://arxiv.org/pdf/2606.23612v1",
+  "type": "theory",
+  "summary": "This paper presents an advanced, circuit-level quantum algorithm for One-Shot Signatures (OSS), which enforces that a quantum key can only be used once. While providing detailed resource estimates and showing how OSS enables secure delegation chains, the authors identify that the practical realization is currently bottlenecked by the lack of efficient Quantum Indistinguishability Obfuscators.",
+  "main_problem": "The paper focuses on developing an explicit, circuit-level quantum algorithm for One-Shot Signatures (OSS) to create fundamentally secure, single-use cryptographic primitives.",
+  "main_result": "They provide resource estimates showing the logical qubit and gate complexity scaling for Key Generation and Signing, while identifying that the primary remaining bottleneck is the development of efficient Quantum Indistinguishability Obfuscators (qIO).",
+  "method": "The method involves adapting existing cryptographic constructions (like those based on PPRF/GGM) into quantum circuits, analyzing resource costs, and leveraging advanced concepts like classical Information Obfuscation (iO) to secure the underlying components.",
+  "model_or_system": "The model is purely theoretical, dealing with abstract quantum circuits operating on qubits. It utilizes cryptographic primitives such as Puncturable Pseudorandom Functions (PPRF), Goldreich-Goldwasser-Micali (GGM) constructions, and concepts from quantum information theory like the no-cloning theorem.",
+  "key_observables": "Logical qubit number ($\\Theta(\\kappa \\log(r) + n + l)$) and Gate complexity ($\\Theta(n^3 + nl)$).",
+  "important_parameters": "Cryptographic security parameter $\\lambda$, public key size $r$, signature size $n+l$, message size $l$, and the security parameter $\\kappa$.",
+  "main_assumptions": "The security relies on computational hardness assumptions (e.g., distinguishing PPRF from random) and assumes the availability of fully succinct classical iO, while acknowledging that practical qIO remains a major open problem.",
+  "figures_summary": "Figures illustrate the workflow diagram for the multi-bit OSS protocol, detailing the sequence of KeyGen, Sign, and Verify steps, as well as sample structures for GGM tree evaluation paths.",
+  "paper_structure": "The paper progresses by first establishing the necessity of OSS for quantum security primitives. It then details the construction using PPRF/GGM, analyzes resource requirements via circuit complexity scaling, discusses extensions like Signature Delegation Chains, and concludes by pinpointing the need for practical quantum obfuscation tools to complete the plain-model implementation.",
+  "why_interesting": "For a theoretical physicist interested in quantum information, this work provides a concrete, highly technical example of how fundamental quantum principles (like no-cloning) are mapped onto complex cryptographic protocols, pushing the boundaries of what is computationally feasible in quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.23612_figures/2606.23612_fig1.jpg",
+      "caption": "Figure 1: Signature delegation protocol. To mitigate risks from Bob’s quantum capabilities, Alice uses a post-quantum signature scheme, generating a signing key (PQC.sk) and verification key (PQC.vk). The blue arrows indicate classical communication that are public.",
+      "page": 6
+    },
+    {
+      "image": "2606.23612_figures/2606.23612_fig2.jpg",
+      "caption": "Figure 3: Workflow diagram of the multi-bit OSS protocol. The dashed boxes represent the part of the circuits that need to be obfuscated and are distributed as classical instructions contained in CRS. Note that in Sign even though the control register |⃗y⟩representing the public key is classical, it should be treated as a quantum register since those gates it controls are to be obfuscated. The bottom section outlines the corresponding classical verification protocol, which efficiently evaluates signature validity using the provided CRS parameters. The binary matrix inversion inside ˜ Graff operation can be easily done by reversing the classical sequence of gates used to perform binary...",
+      "page": 8
+    },
+    {
+      "image": "2606.23612_figures/2606.23612_fig3.jpg",
+      "caption": "Figure 4: Sample GGM tree with r = 3. The output of the PRG is G(k) = G0∥G1. Evaluating the GGM PPRF on input 011 results in F(k, 011) = G011 = G1(G01) = G1(G1(G0(k)))",
+      "page": 10
+    },
+    {
+      "image": "2606.23612_figures/2606.23612_fig4.jpg",
+      "caption": "Figure 5: Puncturing the GGM tree at 011. The puncturing key is k011 = {G1, G00, G010}. The punctured path is marked with a red dashed line, and the puncturing key’s nodes are in blue boxes.",
+      "page": 11
+    }
+  ],
+  "figure": "2606.23612_figures/2606.23612_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.21715",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Evaluation of Variational Quantum Classifiers (VQC) for Cyberattack Detection in the NISQ Era",
+  "authors": "Angelos Thomos, Theodore Andronikos",
+  "abstract": "This paper investigates the effectiveness and structural limits of Variational Quantum Classifiers (VQC) for detecting network anomalies in the era of Noisy Intermediate-Scale Quantum (NISQ) systems. Using the official 20\\% research subset of the NSL-KDD dataset, a 4-qubit classifier featuring a 24-parameter trainable ansatz was developed, utilizing amplitude encoding to embed 16 principal components. On a held-out partition of this subset, the model achieved a consistent binary-classification accuracy of 88\\%. A comparative evaluation with two fundamentally different optimizers, COBYLA and SPSA, found that the observed performance plateau is not attributable to convergence to local minima, a result we interpret as consistent with an encoding-related expressibility limit rather than an optimization artifact. An architectural parity comparison with a classical neural network (a Tiny MLP with four nodes, achieving 97\\% accuracy) highlighted the expressiveness gap associated with data overcompression into restricted quantum states. The model was trained on a class-balanced set spanning the 22 raw NSL-KDD attack categories and evaluated in-sample as a probe of representational capacity: under this configuration the VQC reached only 9\\% accuracy and exhibited a degenerate mode collapse onto a small subset of classes. We interpret this behavior as consistent with the loss of linear separability induced by excessive compression in the quantum probability space, while explicitly noting that our experiments do not isolate the encoding from the ansatz depth, optimizer budget, and measurement-decoding scheme (see Limitations). Motivated by these observations and by Cover's theorem, we outline an alternative paradigm: a 16-qubit VQC with angle encoding that expands the Hilbert-space representation rather than relying on aggressive classical dimensionality reduction.",
+  "url": "http://arxiv.org/abs/2606.21715v1",
+  "pdf": "https://arxiv.org/pdf/2606.21715v1",
+  "type": "experiment",
+  "summary": "This work evaluates Variational Quantum Classifiers (VQC) for cyberattack detection using limited qubits. The study demonstrates that forcing high-dimensional network data into a small quantum state via amplitude encoding severely limits the model's representational capacity compared to classical neural networks. The authors conclude that future quantum advantage requires abandoning aggressive feature compression in favor of broader Hilbert space representations.",
+  "main_problem": "The paper investigates the structural limits of Variational Quantum Classifiers (VQC) for detecting network anomalies in the Noisy Intermediate-Scale Quantum (NISQ) era.",
+  "main_result": "Aggressive data compression via Amplitude Encoding into a small number of qubits severely restricts the VQC's expressiveness, leading to performance ceilings significantly below classical benchmarks.",
+  "method": "The authors developed and tested a 4-qubit VQC using amplitude encoding on the NSL-KDD dataset, comparing its performance against classical MLPs and analyzing optimization convergence.",
+  "model_or_system": "The model is a hybrid quantum-classical circuit consisting of state preparation (Amplitude Encoding), a trainable parameterized ansatz (RealAmplitudes), and Z-basis measurement. It operates on NISQ devices simulated via statevector simulators.",
+  "key_observables": "Binary classification accuracy (88% achieved vs 97% classical MLP); in-sample diagnostic accuracy (9%); mode collapse behavior.",
+  "important_parameters": "4 qubits, 24 trainable parameters, 16 principal components (from PCA), COBYLA/SPSA optimizers.",
+  "main_assumptions": "The primary limitation is the aggressive dimensionality reduction imposed by amplitude encoding; furthermore, the results do not isolate the encoding from ansatz depth or optimizer budget.",
+  "figures_summary": "Figures illustrate t-SNE projections of class overlaps and confusion matrices comparing VQC performance against classical baselines (Tiny MLP).",
+  "paper_structure": "The paper systematically details data preprocessing (PCA, Target Encoding), constructs the 4-qubit VQC pipeline, evaluates it using multiple optimizers, compares results to classical MLPs, and concludes by proposing a shift towards uncompressed angle encoding.",
+  "why_interesting": "While focused on cybersecurity, the core technical challenge—quantifying the expressibility gap between quantum circuits and classical models when data is compressed—is highly relevant to understanding resource limitations in variational quantum algorithms for complex physical simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.21715_figures/2606.21715_fig1.jpg",
+      "caption": "Figure 1: Visualizing the complex dataset distribution using a t-SNE projection on the official 20% NSL- KDD research subset.",
+      "page": 6
+    },
+    {
+      "image": "2606.21715_figures/2606.21715_fig2.jpg",
+      "caption": "Figure 2: VQC architecture showcasing the state preparation block followed by a RealAmplitudes-style ansatz.",
+      "page": 8
+    },
+    {
+      "image": "2606.21715_figures/2606.21715_fig3.jpg",
+      "caption": "Figure 3: Detailed architecture of the RealAmplitudes ansatz (reps=5), highlighting the parameterized 𝑅𝑦rotation layers and the linear entanglement topology.",
+      "page": 9
+    },
+    {
+      "image": "2606.21715_figures/2606.21715_fig4.jpg",
+      "caption": "Figure 4: Performance evaluation of the classical baseline: Confusion Matrix of the 4-Node Tiny MLP, simulating the extreme dimensional constraint of the quantum architecture.",
+      "page": 12
+    },
+    {
+      "image": "2606.21715_figures/2606.21715_fig5.jpg",
+      "caption": "Figure 5: Confusion matrix for the imbalanced four-class VQC experiment, visually demonstrating the model’s complete failure to predict minority classes (R2L and U2R).",
+      "page": 14
+    }
+  ],
+  "figure": "2606.21715_figures/2606.21715_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
