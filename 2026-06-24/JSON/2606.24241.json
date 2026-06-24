@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2606.24241",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Evaluating the solution performance of the augmented Lagrangian function on Ising machines",
+  "authors": "Shunsuke Awai, Takuro Itoh, Keita Takahashi, Kotaro Tanahashi, Shu Tanaka",
+  "abstract": "We apply the augmented Lagrangian function (ALF) as a formulation for Ising machines and evaluate its performance by time-to-epsilon (\\mathrm{TT\\varepsilon}). The ALF has been well studied in continuous optimization for its numerical stability and convergence, and its advantage over the penalty function formulation is demonstrated here through the following results. Using the quadratic knapsack problem as a benchmark, we examine the dependence of \\mathrm{TT\\varepsilon} on the hyperparameters μand λ. The augmented Lagrangian formulation reduces \\mathrm{TT\\varepsilon} by roughly an order of magnitude compared with the penalty function formulation, keeping μsmall while obtaining feasible solutions and, for representative parameter settings, reaching high-precision solutions earlier in the search. These findings indicate that the augmented Lagrangian function is a promising formulation for improving the solution performance of Ising machines.",
+  "url": "http://arxiv.org/abs/2606.24241v1",
+  "pdf": "https://arxiv.org/pdf/2606.24241v1",
+  "type": "both",
+  "summary": "This paper compares two methods—the Augmented Lagrangian Function (ALF) and the standard penalty function—for encoding constraints into Ising machine Hamiltonians. By benchmarking against the QKP using $\text{TT}\\epsilon$, the authors demonstrate that ALF significantly improves solution performance by allowing for a better balance between satisfying constraints and optimizing the objective function, even with smaller penalty coefficients.",
+  "main_problem": "The study evaluates the performance of using an augmented Lagrangian function (ALF) formulation versus a standard penalty function for solving constrained combinatorial optimization problems on Ising machines.",
+  "main_result": "The ALF significantly reduces the time-to-epsilon ($\text{TT}\\epsilon$) by approximately an order of magnitude compared to the penalty function, especially when keeping the penalty coefficient $\\mu$ small.",
+  "method": "Performance is evaluated using the time-to-epsilon ($\text{TT}\\epsilon$), which measures the computation time required to find a solution satisfying both feasibility and objective precision. The comparison involves analyzing how different constraint handling Hamiltonians affect this metric.",
+  "model_or_system": "The problem is mapped onto an Ising model/QUBO Hamiltonian, representing constrained combinatorial optimization problems like the Quadratic Knapsack Problem (QKP). Two primary formulations are compared: $H_{AL}$ using ALF and $H_P$ using a penalty function.",
+  "key_observables": "Time-to-epsilon ($\text{TT}\\epsilon$), constraint violation, normalized objective value, feasibility probability ($p_{\\epsilon}(\tau)$).",
+  "important_parameters": "Hyperparameters $\\mu$ (penalty coefficient) and $\\lambda$ (Lagrange multiplier); the relative scales of the objective and constraint energy terms.",
+  "main_assumptions": "The comparison is based on solving the QKP instance 'r 100 50 5' using a specific annealing engine, and results are limited to tested parameter grids.",
+  "figures_summary": "Figures show heatmaps of $\text{TT}\\epsilon$ across the $\\lambda-\\mu$ space for both ALF and PF formulations, demonstrating that positive $\\lambda$ allows for lower $\text{TT}\\epsilon$ with smaller $\\mu$. Temporal evolution plots compare how quickly the objective value plateaus.",
+  "paper_structure": "The paper introduces the problem formulation (Ising/QUBO) and the two constraint methods ($H_P$ vs $H_{AL}$). It then details the evaluation metric ($\text{TT}\\epsilon$) and presents comparative results across parameter sweeps, culminating in a discussion of why ALF maintains better energy balance.",
+  "why_interesting": "The work directly addresses how advanced mathematical techniques from continuous optimization (like ALM) can be adapted to improve heuristic search performance on quantum-inspired hardware for discrete problems, which is highly relevant to understanding the limitations and enhancements of current NISQ devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.24241_figures/2606.24241_fig1.jpg",
+      "caption": "Fig. 1. Distribution of TTε (ε = 0.05) in the λ −µ space for the problem instances treated in this study. Panels (a), (b), and (c) correspond to the instances ‘r 100 50 5’ (W = 983), ‘r 200 50 9’ (W = 1105), and ‘r 300 50 4’ (W = 1957), respectively. The blue line corresponds to the penalty function formulation (λ = 0). The computation was performed under identical conditions 50 times each, with µ in steps of 5 over the range from 0 to 100 and λ in steps of 50 over the range from −500 to 500. The white region indicates the region where no solution within a relative error of ε from the optimal objective value was obtained.",
+      "page": 8
+    },
+    {
+      "image": "2606.24241_figures/2606.24241_fig2.jpg",
+      "caption": "Fig. 2. Temporal evolution of the incumbent solution within the execution time of 1 s in the Fixstars Amplify AE. ALF denotes the augmented Lagrangian function (ALF), and PF denotes the penalty function (PF). The error bars in the time-axis (horizontal) direction arise from the fact that the timing of data acquisition is not strictly identical across trials.",
+      "page": 8
+    },
+    {
+      "image": "2606.24241_figures/2606.24241_fig3.jpg",
+      "caption": "Fig. 3. Distribution of the feasibility in the λ −µ space for the problem instance ‘r 100 50 5’ treated in this study. The feasibility is the empirical probability that the returned item-selection vari- ables satisfy the original QKP constraint. The weight is W = 983. When the feasibility becomes 1.0 at µ = 0 due to the addition of the Lagrange multiplier term, the obtained solution is the trivial solution in which no item is selected.",
+      "page": 9
+    },
+    {
+      "image": "2606.24241_figures/2606.24241_fig4.jpg",
+      "caption": "Fig. 4. Distributions in the λ −µ space for the problem instance ‘r 100 50 5’ (W = 983). Panel (a) shows the constraint violation, and panel (b) shows TTε (ε = 0.05). The computation was performed under identical conditions 50 times each, with µ in steps of 1 over the range from 1 to 40 and λ in steps of 5 over the range from 0 to 150. In panel (a), the constraint violation at each point is the average value of the constraint violation obtained over 50 trials under the same hyperparameter setting. The trajectories in both panels show the parameter transitions when the hyperparameters are updated according to the augmented Lagrangian method, and the starting point of each trajectory...",
+      "page": 11
+    }
+  ],
+  "figure": "2606.24241_figures/2606.24241_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

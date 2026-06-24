@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2606.24789",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DS"
+  ],
+  "is_primary_archive": true,
+  "title": "Faster algorithm for achieving minimal-size quantum decision diagrams",
+  "authors": "Juul Sanders, Sebastiaan Brand, Arend-Jan Quist, Tim Coopmans",
+  "abstract": "The decision diagram (DD) data structure enables fast linear-algebra calculations by bringing vectors into a normal form and subsequently merging equivalent ones, yielding a minimally-sized DD modulo the equivalence relation. A fruitful application area is quantum-circuit simulation, where the vectors represent quantum states. The Local Invertible Map Decision Diagram (LIMDD) type, merges LIM-equivalent (typically Pauli-gate equivalent) vectors, can efficiently simulate Clifford circuits as well as some high-T-count circuits, and has theoretically been proven exponentially faster for simulation than other well-developed data structures, including other common DD variants. However, these exponential advantages have not fully materialized yet in existing implementations, for which the normal-form procedure, which is a highly complex algorithm, is either absent or only partially implemented. We here present a novel normal-form algorithm for Pauli-LIMDDs, achieving a worst-case speedup from $O(n^3)$ to $O(n^2)$ for an $n$-qubit DD node with a single child node while keeping the $O(n^3)$ run time in case of two distinct children nodes. We implement the algorithm as part of QolDDer, our Pauli-LIMDD simulator for quantum circuits, written from scratch in C/C++. The implementation realizes the theoretically-proven advantages of Pauli-LIMDDs on Clifford circuits, is significantly faster than the existing LIMDD simulators on such circuits, and on a public quantum-circuit data set often outperforms them by an order of magnitude. In the future, we envision that our work will enable further application and development of LIMDD variants, not only for quantum design tasks, but also for analysis of linear-algebra-based systems in general.",
+  "url": "http://arxiv.org/abs/2606.24789v1",
+  "pdf": "https://arxiv.org/pdf/2606.24789v1",
+  "type": "theory",
+  "summary": "The paper presents a novel and significantly faster algorithm to construct minimal-size Pauli-LIMDDs for representing quantum states. By rigorously enforcing canonical forms using advanced group theory techniques, the authors demonstrate that these diagrams can simulate quantum circuits exponentially faster than existing methods. This breakthrough improves the practical realization of theoretical speedups in quantum computation simulation.",
+  "main_problem": "The primary goal is developing a faster, more efficient algorithm for constructing minimal-size quantum decision diagrams (Pauli-LIMDDs) to simulate quantum circuits.",
+  "main_result": "A novel normal-form algorithm achieves significant speedups in the worst-case complexity of node processing, realizing theoretically proven exponential advantages over existing simulation structures like QMDDs.",
+  "method": "The authors introduce and implement a refined normal-form procedure for Pauli-LIMDDs, which involves complex group-theoretic calculations (like adapted Zassenhaus procedures) to enforce canonicality rules such as 'high determinism' and 'max precedence'.",
+  "model_or_system": "The model is quantum circuit simulation where quantum states $|\\psi\rangle$ are represented by vectors in $\\mathbb{C}^{2^n}$ and encoded using specialized data structures like Local Invertible Map Decision Diagrams (LIMDDs).",
+  "key_observables": "Run time, final node count, and the ability to represent highly entangled states efficiently.",
+  "important_parameters": "The complexity improvements are quantified by reducing worst-case time from $O(n^3)$ to $O(n^2)$ for certain node types.",
+  "main_assumptions": "The core assumption is that enforcing full canonicity (the max-reduced form) is necessary and sufficient to realize the exponential speedup over less canonical representations.",
+  "figures_summary": "Figures illustrate the structure of DDs, compare vector representations across QMDD and LIMDD formats, detail normalization rules (low/max precedence), and show performance comparisons on benchmark sets like RandCliff and MQT-Bench.",
+  "paper_structure": "The paper builds from defining the need for canonicalization in LIMDDs to presenting the novel $O(n^2)$ algorithm for single-child nodes, followed by rigorous proofs establishing that the resulting max-reduced form is unique for any given quantum state.",
+  "why_interesting": "This work directly impacts the computational feasibility of simulating complex quantum circuits, which is crucial for understanding dynamics in many-body systems or designing quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.24789_figures/2606.24789_fig1.jpg",
+      "caption": "Fig. 1.",
+      "page": 4
+    },
+    {
+      "image": "2606.24789_figures/2606.24789_fig2.jpg",
+      "caption": "Fig. 2. In this figure, it is shown how a vector of size 2n is represented as a decision tree of depth n. A QMDD (c) represents this vector more succinctly by factoring out scalars and storing these on edges. The LIMDD representation (d) compresses the data even further by putting Kronecker products of local (2 × 2) matrices on the edges (d).",
+      "page": 5
+    },
+    {
+      "image": "2606.24789_figures/2606.24789_fig3.jpg",
+      "caption": "Fig. 3. Normalization rules that bring LIMDD nodes to their reduced form [37], as- suming reduced children u, w. Reproduced and adjusted from [37, Fig.11] (CC-BY 4.0).",
+      "page": 7
+    },
+    {
+      "image": "2606.24789_figures/2606.24789_fig4.jpg",
+      "caption": "Fig. 3 for how to update (v, L). For Pauli-LIMDDs, for the final rule (d), high determinism, an O(n3) algorithm exists [37], which we improve upon in Sec. 3.",
+      "page": 7
+    },
+    {
+      "image": "2606.24789_figures/2606.24789_fig5.jpg",
+      "caption": "Fig. 5. Run times and node counts of canonical and semi-canonical versions of our Pauli-LIMDD simulator QolDDer on the RandCliff benchmark set. Note the log-log scales, on which a monomial function (x 7→xk) shows up as a straight line. The dotted grey line visualizes break-even, meaning equal run times or node counts.",
+      "page": 14
+    }
+  ],
+  "figure": "2606.24789_figures/2606.24789_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

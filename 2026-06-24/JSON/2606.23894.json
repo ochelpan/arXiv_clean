@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.23894",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "When does dissipation help neural surrogates learn open quantum dynamics?",
+  "authors": "Alauddin Ahmed",
+  "abstract": "Dissipation is usually viewed as an obstacle to predicting quantum dynamics, yet it can also contract trajectories toward steady states and thereby suppress accumulated prediction errors, leaving it unclear whether dissipation ultimately helps or hinders the learnability of open quantum dynamics. We investigate this question using Neural Ordinary Differential Equation (NODE) surrogates for open Heisenberg XYZ spin chains. Closed-system learnability deteriorates rapidly with system size, culminating in a static-prediction collapse at four qubits; dissipation reverses this trend, creating a broad high-fidelity regime at intermediate system sizes, while at four qubits a fidelity-aware objective recovers learnable rollout structure that is absent under closed-system training. Comparison against static and steady-state baselines reveals that dissipation improves performance through two fundamentally different mechanisms: at weak-to-moderate dissipation the surrogate captures nontrivial transient dynamics and substantially outperforms trivial predictors, whereas at stronger damping high fidelity increasingly reflects trajectory simplification toward the steady state rather than improved learned dynamics. These results show that dissipation can enhance the learnability of open quantum dynamics, but that fidelity alone is insufficient to distinguish genuine dynamical learning from steady-state trivialization: dissipative contraction and trajectory simplification are distinct effects that peak in different regimes and should be disentangled when evaluating learned quantum-dynamical surrogates.",
+  "url": "http://arxiv.org/abs/2606.23894v1",
+  "pdf": "https://arxiv.org/pdf/2606.23894v1",
+  "type": "theory",
+  "summary": "The paper explores whether dissipation aids or hinders the ability of neural networks to learn open quantum dynamics in spin chains. It finds that while closed-system learning fails at larger sizes, moderate dissipation restores high fidelity by suppressing prediction errors. Crucially, it distinguishes between genuine dynamical learning and mere trajectory simplification toward a steady state.",
+  "main_problem": "The study investigates whether incorporating dissipation into open quantum dynamics helps or hinders the ability of Neural Ordinary Differential Equation (NODE) surrogates to accurately learn the system's time evolution.",
+  "main_result": "Dissipation can enhance learnability, particularly in weak-to-moderate regimes, by suppressing prediction errors; however, high fidelity at strong damping often reflects trivial steady-state contraction rather than genuine dynamical learning.",
+  "method": "The authors train NODE surrogates using various loss functions—comparing standard state Mean Squared Error (MSE) against physics-informed, fidelity-aware objectives incorporating trace distance constraints.",
+  "model_or_system": "The system is an open Heisenberg XYZ spin chain simulated via the GKSL master equation. Dissipation is introduced through local dephasing and amplitude damping channels acting on qubits up to $n=4$.",
+  "key_observables": "Trajectory-averaged Uhlmann fidelity ($\bar{F}_{\text{avg}}$), late-time vs. early-time fidelity gap ($\\Delta F$), minimum eigenvalue ($\\lambda_{\\min}$), and comparison against static/steady-state predictors.",
+  "important_parameters": "System size ($n=2, 3, 4$ qubits), dimensionless dissipation strength ($\\gamma/J \\in \\{0.01, 0.1, 1, 10, 100\\}$), and loss function weighting parameters ($\\lambda_{TD}$).",
+  "main_assumptions": "The analysis assumes that the use of fidelity-aware losses is necessary to overcome the static collapse observed when using only state-MSE training for larger systems.",
+  "figures_summary": "Figures illustrate $\bar{F}_{\text{avg}}$ vs. $\\gamma/J$ showing optimal regimes, and compare late-time versus early-time fidelity ($\\Delta F$) to distinguish genuine dynamics from simple error suppression.",
+  "paper_structure": "The paper systematically compares learning performance across different system sizes ($n=2, 3, 4$) and dissipation strengths ($\\gamma/J$), contrasting the failure modes of standard MSE training with the recovery achieved using advanced fidelity-aware loss functions.",
+  "why_interesting": "This work directly addresses the intersection of quantum many-body physics (open systems) and machine learning methodologies, providing crucial guidelines on how to train neural models for complex physical dynamics while distinguishing true learning from numerical artifacts.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.23894_figures/2606.23894_fig1.jpg",
+      "caption": "Figure 1: Trajectory-averaged fidelity ¯Favg versus dimensionless dissipation strength γ/J at D = 2000, one line per system size n (markers show three-seed means; error bars show the seed standard deviation). The n = 2 and n = 3 curves use standard state-MSE training; the n = 4 curve uses the fidelity-aware loss (λTD = 0.1; §3.2) and includes the γ/J = 100 bounding point. n = 2 saturates near unity; n = 3 shows a broad sweet spot at γ/J ∈{0.1, 1} with a slight roll-off at γ/J = 10; n = 4 recovers monotonically and saturates by γ/J = 100, with the favorable regime shifted toward stronger damping relative to n = 3. The closed-system (γ = 0) point is offset to the left of the logarithmic axis...",
+      "page": 6
+    },
+    {
+      "image": "2606.23894_figures/2606.23894_fig2.jpg",
+      "caption": "Figure 1 provides an overview of the central result: trajectory-averaged fidelity ¯Favg as a function of dis- sipation strength γ/J for each system size. The trends summarized there—near-saturation at n = 2, an inte- rior sweet spot at n = 3, and a damping-shifted recovery at n = 4—are developed in detail in this section and §5.",
+      "page": 6
+    },
+    {
+      "image": "2606.23894_figures/2606.23894_fig3.jpg",
+      "caption": "Figure 2: Neural ODE learnability across the n × γ sweep. (a) Trajectory-averaged fidelity ¯Favg. (b) The late-versus-early fidelity gap ∆F = ¯Flate −¯Fearly; positive values indicate higher accuracy in the late-time window. Cells marked with an asterisk (∗) at n = 4 were trained with the fidelity-aware loss (λTD = 0.1; §3.2); all other cells use standard state-MSE training. The γ/J = 100 column is a separately added bounding experiment for the n = 4 row only (§3.3); it is left blank at n = 2 and n = 3. Blank (grey) cells indicate combinations that were not simulated. See §3.3 for cell counts.",
+      "page": 7
+    },
+    {
+      "image": "2606.23894_figures/2606.23894_fig4.jpg",
+      "caption": "Figure 3: Closed-system (γ = 0) static-prediction collapse at n = 4. (a) True (solid) versus predicted (dashed) density-matrix populations ρjj(t) for a representative n = 4 test trajectory (the six most dynamically varying populations are shown); the true populations oscillate while the prediction is essentially frozen. (b) Flat-vector temporal-variance ratio Var(vpred)/Var(vtrue) across three seeds for n = 3 (partial learning, ≈18%) and n = 4 (static collapse, 0.003–1.16%); bars show seed means and points show individual seeds. The dashed line marks the 10% collapse threshold of the diagnostic.",
+      "page": 8
+    },
+    {
+      "image": "2606.23894_figures/2606.23894_fig5.jpg",
+      "caption": "Figure 4: Trained NODE surrogate ¯Favg (solid, with seed standard deviation) versus the best trivial predictor at each γ (dashed; the higher of the static ρ(0) and steady-state |0 . . . 0⟩⟨0 . . . 0| baselines, per Table 1), for n = 4 at D = 2000. The curves cross near γ/J ≈0.57 (interpolated in log γ be- tween the γ/J = 0.1 and γ/J = 1 points): the surrogate adds value over trivial predictors at weak-to-moderate dissipation (left), and is matched or overtaken by the steady-state predic- tor under strong dissipation (right), where high ¯Favg reflects trajectory simplification rather than richer learned dynamics.",
+      "page": 9
+    }
+  ],
+  "figure": "2606.23894_figures/2606.23894_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

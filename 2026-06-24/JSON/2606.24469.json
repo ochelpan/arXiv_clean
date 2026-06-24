@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2606.24469",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "When to Skip Syndrome Extraction in Surface-GKP Codes",
+  "authors": "Vaughn Sohn, Changhun Oh",
+  "abstract": "Fault-tolerant quantum error correction requires repeated syndrome extraction to address errors induced by the syndrome-extraction circuit itself. However, repeated syndrome extraction incurs significant overhead in terms of gate count and ancilla consumption (e.g., Gottesman-Kitaev-Preskill (GKP) states). Moreover, noisy syndrome extraction can itself inject additional errors into the data qubits. To address these issues, we propose a concrete adaptive skipping scheme for the surface-GKP code, a representative GKP-concatenated architecture, that uses analog information naturally generated during inner GKP correction. At each round, the scheme selects one of four actions: measuring both Z-type and X-type surface-code stabilizers, measuring only one type, or skipping both types and reusing previous syndromes. The decision is based on a reliability comparison between reusing the previous syndrome value and performing a new noisy syndrome extraction. Using circuit-level simulations, we show that the adaptive skipping scheme can reduce the number of surface-code stabilizer measurements while maintaining logical error rates comparable to or lower than those of the full-measurement baseline. The improvement is most pronounced when gate and measurement noise are larger than idle noise, so that avoiding unnecessary syndrome extraction reduces the noise injected into the code. These results indicate that analog information from inner GKP correction can be used not only to improve decoding but also to reduce the measurement overhead of outer-code syndrome extraction.",
+  "url": "http://arxiv.org/abs/2606.24469v1",
+  "pdf": "https://arxiv.org/pdf/2606.24469v1",
+  "type": "theory",
+  "summary": "This paper introduces an adaptive scheme for Quantum Error Correction on Surface-GKP codes designed to reduce measurement overhead. It determines, at each step, whether the noise from performing a full syndrome measurement outweighs the benefit of fresh information. By intelligently skipping measurements when reliability is high, it maintains low error rates while significantly reducing resource consumption.",
+  "main_problem": "The primary challenge is mitigating the significant overhead and noise introduced by repeated syndrome extraction circuits required for fault-tolerant quantum error correction.",
+  "main_result": "An adaptive skipping scheme was proposed that reduces stabilizer measurements while maintaining logical error rates comparable to or lower than full measurement baselines, especially when active circuit noise dominates idle noise.",
+  "method": "The authors developed a decision rule comparing the reliability of reusing previous syndrome information (inferred from analog GKP outcomes) against performing a new noisy extraction.",
+  "model_or_system": "The work focuses on the Surface-GKP code, which uses GKP states within an outer surface code structure. The analysis models noise using Gaussian displacement channels and Binary Symmetric Channels for syndrome corruption.",
+  "key_observables": "Logical error rates ($\\chi_L$), number of surface-code stabilizer measurements, and effective standard deviations ($\\sigma_A^Z, \\sigma_A^X$) for edge weights in the decoding graph.",
+  "important_parameters": "Noise parameters include active syndrome-extraction noise ($\\sigma$), idle noise ($\\sigma_{idle}$), and GKP state preparation noise ($\\sigma_{gkp}$). The decision depends on comparing these relative strengths.",
+  "main_assumptions": "The protocol uses an approximation for the global success probability, restricts decisions to four global actions, and assumes that zero-weight assignment correctly models skipping without penalty in the decoding graph.",
+  "figures_summary": "Figures illustrate the code architecture, the noisy syndrome extraction process as a BSC, finite-round performance comparisons between adaptive vs. full measurement baselines across noise regimes, and decoding graphs showing zero-weight time-like edges for skipped rounds.",
+  "paper_structure": "The paper progresses from identifying the overhead problem to modeling the noise (BSC/Gaussian channels), developing the quantitative decision score based on success probabilities ($\text{p}_{\text{skip}}^{\text{succ}}$ vs. $\text{p}_{\text{meas}}^{\text{succ}}$), and finally simulating the adaptive strategy's performance across various noise regimes.",
+  "why_interesting": "The ability to use analog information from one part of the quantum process (inner GKP correction) to guide resource management in another (outer surface code syndrome extraction) is a key concept for optimizing physical implementations of fault-tolerant quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2606.24469_figures/2606.24469_fig1.jpg",
+      "caption": "FIG. 1. Surface-GKP code architecture. (a) Mapping of GKP states onto the Bloch sphere. Each logical state is illustrated as a Wigner function in phase space. (b) Circuit descriptions for GKP stabilizer measurement. The measurement symbols q and p denote homodyne measurement of the position and momentum quadratures, respectively. The symbol ⊕denotes the SUM gate, ⊖denotes the inverse-SUM gate, and the filled circle indicates the control mode. (c) Distance-5 surface-GKP code. White nodes denote data qubits. Grey, red, and green nodes represent ancilla qubits for GKP, X-type, and Z-type stabilizer measurements, respectively. (d) Circuit descriptions for surface-GKP stabilizer measurement.",
+      "page": 3
+    },
+    {
+      "image": "2606.24469_figures/2606.24469_fig2.jpg",
+      "caption": "FIG. 2. Conditional logical Pauli error probability for a GKP qubit given the measurement outcome r for a single quadrature. The solid line represents the conditional error probability Pr(E | r; σ), while the dashed line represents the unconditional error probability Pr(E; σ), which is independent of r.",
+      "page": 5
+    },
+    {
+      "image": "2606.24469_figures/2606.24469_fig3.jpg",
+      "caption": "FIG. 3. Model of noisy syndrome extraction process as a Binary Symmetric Channel (BSC). The target syndrome difference A becomes the observed syndrome difference B with flip probability ϵ.",
+      "page": 6
+    },
+    {
+      "image": "2606.24469_figures/2606.24469_fig4.jpg",
+      "caption": "FIG. 4. Overview of the adaptive measurement strategy. At each round t, GKP stabilizer measurements are always performed to correct small displacement errors and obtain analog information. The protocol then selects an action a = (aZ, aX), where aP determines whether the P-type surface-code stabilizers are measured or skipped. Measured components are obtained from surface-code stabilizer measurements, while skipped components reuse the previous syndrome value. The resulting syndrome history is then used for MWPM decoding after T rounds.",
+      "page": 7
+    },
+    {
+      "image": "2606.24469_figures/2606.24469_fig5.jpg",
+      "caption": "FIG. 5. Decoding with skipped stabilizer measurements. When a round is skipped, the previous syndrome value is reused and no detection event is generated. The corresponding time-like edge, shown as the gray dashed line, is retained with weight w = 0, so paths such as (1) and (2) can pass through the skipped interval without additional penalty.",
+      "page": 8
+    }
+  ],
+  "figure": "2606.24469_figures/2606.24469_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 3,
+    "quantum measurements": 4,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
