@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.00235",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning Low-Energy Subspace Overlaps in Many-Body Systems with Measurement-Based and Coherent Quantum Strategies",
+  "authors": "Shamminuj Aktar, Rishabh Bhardwaj, Tanmoy Bhattacharya, Stephan Eidenbenz",
+  "abstract": "Predicting the overlap of quantum states with specified low-energy subspaces is a key diagnostic for quantum many-body dynamics, with direct applications in state preparation, subspace-based algorithms, and the study of thermalization. We study the supervised prediction of subspace overlaps O_K between time-evolved states and K-dimensional low-energy eigenspaces of a 10-qubit Heisenberg spin chain following a local perturbation. We compare two quantum information extraction strategies: measurement-based learning, in which classical shadow features are processed by convolutional neural networks, and coherent quantum learning, in which quantum convolutional neural networks process the state directly. We further introduce physics-informed variants for both approaches, including Hamiltonian-aware shadows and QCNN gates aligned with the Heisenberg exchange structure. Across five dataset configurations spanning weak, moderate, and strong quench regimes, physics-informed QCNNs achieve stable performance, with mean test-set coefficients of determination R^2 = 0.753-0.846. Shadow-based methods show stronger regime dependence: they outperform QCNNs in the moderate-quench regime, reaching R^2 = 0.886, but underperform in weak and strong quenches at default shot budgets, where the best shadow results are R^2 = 0.615 and 0.672, respectively. Hardware validation on Quantinuum and IBM noise models shows that arbitrary state preparation is the dominant limitation, requiring approximately 2,044 two-qubit gates and causing near-complete depolarization before inference. These results identify a regime-dependent tradeoff between measurement-based and coherent quantum learning, with shadow methods excelling when the target remains locally accessible and physics-informed QCNNs providing more robust performance across dynamical regimes.",
+  "url": "http://arxiv.org/abs/2607.00235v1",
+  "pdf": "https://arxiv.org/pdf/2607.00235v1",
+  "type": "both",
+  "summary": "The paper investigates predicting how much a time-evolved quantum state remains in its low-energy manifold after a quench in a Heisenberg spin chain. It compares measurement-based shadow learning against coherent Quantum CNNs, finding that no single method is universally superior; the best approach depends critically on whether the system dynamics are weakly, moderately, or strongly perturbed.",
+  "main_problem": "The core problem is the supervised prediction of subspace overlaps ($\\mathcal{O}_K$) between time-evolved quantum states and specified low-energy eigenspaces following a local quench.",
+  "main_result": "The optimal learning strategy for predicting these overlaps is highly dependent on the quench regime: physics-informed QCNNs are robust, while measurement-based shadow methods excel in moderate quench regimes but fail in weak/strong quenches.",
+  "method": "The study compares two quantum information extraction strategies—measurement-based (using classical CNNs on randomized measurements) and coherent quantum learning (using Quantum Convolutional Neural Networks)—to learn the overlap observable.",
+  "model_or_system": "The system is a 10-qubit one-dimensional Heisenberg spin chain, whose dynamics are studied after being subjected to a local perturbation (quench). The Hamiltonian governs the time evolution $|\\psi(t)\rangle = e^{-iHt} |\\psi_0\rangle$.",
+  "key_observables": "The primary observable is the subspace overlap $\\mathcal{O}_K$, quantified by the coefficient of determination ($R^2$) when predicting it from quantum measurements.",
+  "important_parameters": "Quench strength ($h$), which defines five dataset configurations (D1-D5) spanning weak, moderate, and strong quench regimes; measurement shot budgets ($\text{Shots}$).",
+  "main_assumptions": "The dominant limitation observed during hardware validation is the resource cost and noise associated with arbitrary state preparation circuits.",
+  "figures_summary": "Figures illustrate distributions of $\\mathcal{O}_K$ across different quench strengths, compare $R^2$ scores between shadow CNNs and QCNNs across regimes, and show predicted vs. true overlaps for various models.",
+  "paper_structure": "The paper introduces the problem setup (Heisenberg chain, subspace overlap), details two competing learning paradigms (Shadow vs. QCNN), presents results showing regime-dependent performance trade-offs, validates findings on noisy hardware, and concludes with a comparison of resource costs.",
+  "why_interesting": "This work directly addresses how to extract complex, non-local many-body information (like subspace purity) from quantum measurements using machine learning techniques, providing crucial insights into the limitations of current quantum characterization methods for dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.00235_figures/2607.00235_fig1.jpg",
+      "caption": "FIG. 1: Distributions of OK across the five dataset configurations. Overlaps concentrate near unity in the weak- quench regime (D1) and spread toward lower values as the quench strength increases (D2, D3). Datasets D4 and D5 share the same quench range as D2–D3 but restrict the target overlap orders to even and odd values of K, respectively.",
+      "page": 3
+    },
+    {
+      "image": "2607.00235_figures/2607.00235_fig2.jpg",
+      "caption": "FIG. 2: High-level comparison of the two quantum information extraction strategies. The input state |ψ(t)⟩= e−iHt |ψ0⟩is the time-evolved ground state of H0 under the post-quench Hamiltonian H. (a) Measurement-based pipeline: one of three randomized measurement protocols (Pauli, Clifford, or Pauli on Hamiltonian-aware pre-rotation H0-rot) produces a feature tensor of shape (C, N), which is processed by a 1D CNN together with normalized scalar inputs (h, t, i0). (b) Coherent pipeline: the statevector is loaded via arbitrary state preparation, processed through alternating brickwork convolutional and pooling layers that halve the active qubits at each stage, and the final ⟨Z⟩is mapped to the...",
+      "page": 4
+    },
+    {
+      "image": "2607.00235_figures/2607.00235_fig3.jpg",
+      "caption": "FIG. 3: Shadow measurement protocols. (a) Pauli shadow: random single-qubit Pauli rotations yield 3N local expecta- tion features via median-of-means (8 groups, 500 shots). (b) Two-qubit Clifford shadow: random 2Q Clifford circuits in alternating brickwork pairing yield 6N features including nearest-neighbor correlators (8 groups, 1,000 shots). (c) Hamiltonian-aware shadow: e−iτH0 pre-rotation consisting of nearest-neighbor Ising exchange gates (XX, Y Y , ZZ) and single-qubit Z rotations representing the longitudinal field hz P",
+      "page": 5
+    },
+    {
+      "image": "2607.00235_figures/2607.00235_fig4.jpg",
+      "caption": "FIG. 4: Convolutional and pooling gate structures for the four QCNN variants. (a) Standard Simple: Rot + CNOT (6 params) with CRZ+CRY+CRX pooling (3 params). (b) Standard Deep: same gate applied twice per block. (c) Heisenberg QCNN: local rotations (RZ, RX) followed by Ising exchange (XX, Y Y , ZZ) mirroring H0 (7 params), with exchange-based pooling and RY (4 params). (d) Heisenberg QCNN+: adds post-rotation for enhanced express- ibility (11 params); same pooling as (c).",
+      "page": 6
+    },
+    {
+      "image": "2607.00235_figures/2607.00235_fig5.jpg",
+      "caption": "FIG. 5: Test-set R2 as a function of cumulative overlap order K for all seven models across the five dataset configura- tions at the measurement budgets listed in Table II. Each panel shows one dataset: D1 (weak quench), D2 (moderate quench), D3 (strong quench), D4 (full range, even K), and D5 (full range, odd K). Values show mean R2 averaged over three independent runs. Both measurement-based and coherent strategies successfully learn subspace overlaps, but relative performance depends strongly on the quench regime. Supplementary Table IV gives the corresponding R2 values averaged over all K.",
+      "page": 8
+    }
+  ],
+  "figure": "2607.00235_figures/2607.00235_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 3,
+    "non-equilibrium dynamics": 4,
+    "scars & prethermalization": 2,
+    "measurement-induced transitions": 2,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

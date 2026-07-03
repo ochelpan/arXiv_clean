@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.01072",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Optimizing Symmetry Informed Probabilistic Error Cancellation",
+  "authors": "Tom O'Leary, Daniel J. Egger, Dieter Jaksch",
+  "abstract": "We show that combining quantum error detection (QED) with probabilistic error cancellation (PEC) gives more accurate and lower-variance estimates than PEC alone, provided that the symmetry measurements required for QED are carefully chosen. Because noisy symmetry measurements can negate the benefits of the PEC+QED approach, we cast the selection of measurement configurations as a classical optimization problem that systematically suppresses the impact of noise. Applying optimized PEC+QED to GHZ-state output distributions and to simulating the time-dynamics of a generalized superfast encoded Fermi-Hubbard model, we find consistent improvements over PEC. For GHZ states, the optimization over symmetry measurement configurations is essential for achieving an advantage. For the Fermi-Hubbard model, PEC+QED improves observable estimation on a $2 \\times 2$ lattice and for larger systems the mitigation overheads can be reduced by measuring only subsets of stabilizers. Our results demonstrate the importance of circuit-specific tailoring of QEM techniques and that fault-tolerant design principles may already provide value for near-term devices.",
+  "url": "http://arxiv.org/abs/2607.01072v1",
+  "pdf": "https://arxiv.org/pdf/2607.01072v1",
+  "type": "theory",
+  "summary": "The paper presents a method combining Quantum Error Detection (QED) and Probabilistic Error Cancellation (PEC) to estimate expectation values from noisy quantum circuits. By optimizing which symmetries are measured, the technique systematically reduces estimation variance compared to using PEC or QED in isolation. This is demonstrated successfully when simulating dynamics for models like the Fermi-Hubbard model.",
+  "main_problem": "The primary goal is to improve quantum estimation accuracy and reduce variance when estimating expectation values of noisy quantum circuits, surpassing standard Probabilistic Error Cancellation (PEC) by integrating Quantum Error Detection (QED). This is achieved through optimizing the selection of symmetry measurements.",
+  "main_result": "Combining QED with PEC provides more accurate and lower-variance estimates than either method alone, especially when symmetries are optimized. The approach successfully mitigates errors in simulating complex models like the Fermi-Hubbard model on a lattice.",
+  "method": "The authors combine PEC (using inverse channels $\\Lambda^{-1}$) with QED (by post-selecting on error-free measurements) and treat the selection of symmetry measurement configurations as a classical optimization problem to suppress noise impact.",
+  "model_or_system": "The work applies to general noisy quantum circuits, specifically demonstrating utility for GHZ-state output distributions and simulating the time-dynamics of a generalized superfast encoded Fermi-Hubbard model on lattices.",
+  "key_observables": "Total Square Error (TSE), expectation values $\\langle O_{\text{ideal}} \rangle$ vs. $\\langle O_{\text{noisy}} \rangle$, sampling cost ($C_{\text{PEC+QED}}$).",
+  "important_parameters": "Noise strength ($\\lambda$), lattice size ($2 \times 2$ up to larger systems), and the set of chosen symmetry generators $C$.",
+  "main_assumptions": "The optimization framework assumes that carefully selecting symmetries can systematically suppress noise, although noisy measurements themselves introduce limitations.",
+  "figures_summary": "Figures illustrate the combination of QED (detecting errors via symmetries) and PEC (handling undetectable noise), showing performance comparisons for GHZ states and lattice models.",
+  "paper_structure": "The paper develops the theoretical framework by defining the combined estimator, deriving cost functions based on error detection probabilities ($p_{\text{no-det}}$), and then applies this optimization procedure to benchmark systems like GHZ state preparation and the Fermi-Hubbard model dynamics.",
+  "why_interesting": "This work directly addresses resource estimation for simulating strongly correlated electron models (like the FH model) under realistic noise conditions, providing tailored error mitigation techniques crucial for near-term quantum simulation hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.01072_figures/2607.01072_fig1.jpg",
+      "caption": "FIG. 1. Overview of PEC+QED. (a) In a circuit with L-layers of noisy gates, detectable errors are mitigated by measuring symmetries using circuit USYM and post-selecting, retaining circuits with probability pno-det. Remaining errors are mitigated by applying PEC to cancel undetectable noise Λ−1 l,u at each layer l, incurring a sampling cost γ2 undet,l which multiplies per layer. Mitigating noise in USYM introduces a sampling cost CSYM. (b) Given a set of possible symmetries to measure S = {Si}4 i=1, we seek a configuration C ⊂S with minimal cost. Each symmetry Si ∈C has a detectable error set Di and incurs cost µi, while each undetected error Ej incurs cost λj.",
+      "page": 2
+    },
+    {
+      "image": "2607.01072_figures/2607.01072_fig2.jpg",
+      "caption": "FIG. 2. (a) GHZ state preparation on n = 8 qubits with centre-out CNOT fan from qubit 3. (b) GHZ state prepara- tion on n = 8 qubits with logarithmic depth [63]. (c) GHZ state preparation and stabilizer measurement circuit. (d) Ex- ample circuit for measuring a ZZ stabilizer.",
+      "page": 7
+    },
+    {
+      "image": "2607.01072_figures/2607.01072_fig3.jpg",
+      "caption": "FIG. 3. GHZ state preparation mitigation for linear and logarithmic depth circuit. The total square error (TSE) and mitigation costs between the output of a noise-free and noisy GHZ state preparation circuit with increasing GHZ state size n. Results obtained using stabilizer circuit simulations with: no mitigation “Noisy” (grey), QED (orange), PEC (blue) and PEC+QED (green), all simulations use 106 shots. Results are shown for linear (a), (b), (c) and logarithmic depth (d), (e), (f) circuits. Mitigation costs are fit to an exponential C(n) = xeyn + z with x + z ∼1. C is the predicted sampling cost using PEC theory and empirical QED discard rate. Cemp is the empirical sampling cost obtained...",
+      "page": 9
+    },
+    {
+      "image": "2607.01072_figures/2607.01072_fig4.jpg",
+      "caption": "FIG. 4. Distribution of detectable error probability pd across qubits after propagation and composition of noise channels through n-qubit GHZ state preparation circuits with (a) linear and (b) logarithmic depth. Propagated errors are classified as detectable if they anticommute with at least 1 Z-type GHZ state stabilizer generator. Colours correspond to different values of n.",
+      "page": 10
+    },
+    {
+      "image": "2607.01072_figures/2607.01072_fig5.jpg",
+      "caption": "FIG. 5. Circuits used to study time evolution under the Fermi-Hubbard model with a generalized superfast fermion-to-qubit encoding. State preparation: prepare an eigenstate of both vertex operators and stabilizing loop operators by applying single- qubit Clifford gates, measuring all loop operator expected values {⟨Si⟩}m i=1 and applying corrective operations based on the measurement outcomes, see App. F for more detail. Time evolution: implement approximate evolution to time t by applying t/∆t repeats of a Trotter step U(∆t) evolved to time ∆t, see Eq. (56). Due to vertex operator sign redefinition during state preparation, each Trotter step is classically controlled on loop-operator...",
+      "page": 12
+    }
+  ],
+  "figure": "2607.01072_figures/2607.01072_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 3,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}
