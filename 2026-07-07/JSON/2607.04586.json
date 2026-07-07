@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.04586",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.SE"
+  ],
+  "is_primary_archive": true,
+  "title": "QuTuner: Feature- and Learning-Guided Optimization Pass Tuning for Quantum Compilers",
+  "authors": "Ming Zhong, Xiangyu Ren, Jinglei Cheng, Shaohua Li, Zhiding Liang",
+  "abstract": "Quantum compilers play a key role in transforming quantum circuits into lower-cost implementations with improved execution fidelity. This process is commonly guided by circuit-level metrics, such as gate counts and circuit depth. Although compiler pass tuning has been widely studied in classical compilation, directly transferring these techniques to quantum compilers is challenging, because quantum programs are expressed as circuits and exhibit optimization behaviors that are shaped by quantum-specific structures. Prior quantum compiler tuning approaches have begun to use circuit features to guide pass selection, but they remain limited in two aspects: they search only a small portion of the optimization-pass space, and they mainly rely on static features that do not explicitly reflect how a circuit reacts to compiler optimizations.   We present QuTuner, a feature-guided quantum compiler pass tuning framework that generalizes across compilers and tuning objectives. QuTuner first builds a large optimization dataset. It then characterizes each circuit from two complementary views: static circuit features that describe circuit structure, and optimization-aware pass embeddings that summarize the circuit's responses to individual optimization passes. Using these representations, QuTuner trains two offline models to retrieve and rank candidate pass sequences for unseen circuits, followed by lightweight refinement. We evaluate QuTuner on Qiskit and PyTKET using two benchmark suites. On Qiskit, QuTuner improves the evaluation-metric reduction by up to 84.85% over the strongest baseline while reducing tuning time by 73.59%. On PyTKET, it improves metric reduction by up to 18.68% with a 64.49% reduction in tuning time. These results show that QuTuner provides an effective approach to adaptive pass tuning for quantum compilers.",
+  "url": "http://arxiv.org/abs/2607.04586v1",
+  "pdf": "https://arxiv.org/pdf/2607.04586v1",
+  "type": "theory",
+  "summary": "QuTuner is a novel framework designed to automatically and efficiently tune the sequence of passes used by quantum compilers. It overcomes limitations of previous methods by incorporating 'optimization-aware pass embeddings' that capture how circuits react to specific compiler steps. The approach significantly boosts optimization performance while drastically cutting down the computational time needed for tuning.",
+  "main_problem": "Quantum compilers require effective pass tuning to minimize resource costs (gates, depth) while maintaining high execution fidelity.",
+  "main_result": "QuTuner significantly improves evaluation-metric reduction (up to 84.85% on Qiskit) and drastically reduces the time required for tuning compared to existing state-of-the-art methods.",
+  "method": "The framework builds a large dataset by characterizing circuits using both static features and novel optimization-aware pass embeddings, which are then used to train offline models for candidate retrieval and ranking of optimal pass sequences.",
+  "model_or_system": "The system is quantum computation implemented via quantum circuits (OpenQASM code) that undergo compilation through various passes (layout, routing, optimization).",
+  "key_observables": "Optimization metrics include 2Q gate count reduction ($\\Delta 2Q$), 1Q gate count reduction ($\\Delta 1Q$), and circuit depth reduction ($\\Delta \text{Depth}$).",
+  "important_parameters": "The tuning objective is a weighted combination of these metric reductions, prioritizing hardware-agnostic, circuit-level metrics.",
+  "main_assumptions": "The primary limitation addressed is that prior methods only search small optimization subspaces and rely on static features that fail to capture how circuits react dynamically to specific compiler passes.",
+  "figures_summary": "Figures illustrate the quantum compilation stages (Qiskit example), the overall two-stage QuTuner workflow (offline dataset construction and online prediction/refinement), and detailed feature representations for a sample circuit.",
+  "paper_structure": "The paper first identifies limitations in current pass tuning approaches. It then introduces QuTuner, detailing its methodology: building an optimization dataset, characterizing circuits via static features and pass embeddings, training retrieval/ranking models offline, and finally applying these to unseen circuits with lightweight refinement online.",
+  "why_interesting": "While focused on software compilation, the core concept of using learned representations (embeddings) derived from system responses to guide complex sequential decisions is highly relevant for modeling optimization paths in open quantum systems or resource allocation problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.04586_figures/2607.04586_fig1.jpg",
+      "caption": "Figure 2. The overall workflow of QuTuner. In the figure, →denotes the flow of circuit features, →denotes pass em- beddings, and →denotes optimized pass sequences.",
+      "page": 3
+    },
+    {
+      "image": "2607.04586_figures/2607.04586_fig2.jpg",
+      "caption": "Figure 4. Static feature-based and pass embedding-based measurements of BO optimized pass sequence similarity (measured by edit similarity, higher is better).",
+      "page": 5
+    },
+    {
+      "image": "2607.04586_figures/2607.04586_fig3.jpg",
+      "caption": "Figure 5. Two-stage selection model design of QuTuner, including the pruning model (a) and the ranker model (b).",
+      "page": 6
+    },
+    {
+      "image": "2607.04586_figures/2607.04586_fig4.jpg",
+      "caption": "Figure 7. Per-case optimization distribution of QuTuner and baselines. A slight x-axis jitter improves visibility of overlapping points. Many RL, GPT, and QWen cases concentrate at 0% reduction because of failed compilations, as described in Sec. 5.1.",
+      "page": 9
+    },
+    {
+      "image": "2607.04586_figures/2607.04586_fig5.jpg",
+      "caption": "Figure 8. Scalability analysis across different quantum back- ends.",
+      "page": 9
+    }
+  ],
+  "figure": "2607.04586_figures/2607.04586_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
