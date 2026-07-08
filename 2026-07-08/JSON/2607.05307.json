@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.05307",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Spectral Anomaly Detection",
+  "authors": "Yewei Yuan, Michele Minervini, Mark M. Wilde, Nana Liu",
+  "abstract": "A core task in quantum anomaly detection is to compute an anomaly score that quantifies how strongly a test quantum state deviates from a given quantum dataset assumed to be normal. Classically, principal component analysis (PCA) for centered data computes the anomaly score by evaluating the test sample relative to the subspace spanned by the selected leading eigenvectors. However, for quantum data that lack a standard centering, explicitly recovering principal eigenvectors, constructing full Gram matrices, or loading quantum-random-access-memory-style data can be more costly than estimating the anomaly score itself. To avoid these costs, we propose Quantum Spectral Anomaly Detection (QSPADE), which computes PCA-like anomaly scores directly from the spectrum of the average state of the normal dataset. By replacing hard PCA rank selection with a smooth, temperature-controlled spectral threshold, QSPADE makes near-threshold spectral components contribute partially to the anomaly score. This makes the score vary continuously rather than jump when a borderline component is included or excluded, and makes it less sensitive to noise or arbitrary hard cutoffs near the threshold. In the zero-temperature limit, QSPADE recovers the hard-projector PCA score. The proposed measurement-based quantum detector can be calibrated with a sample complexity independent of the data dimension. Numerical simulations show that QSPADE behaves like kernel-PCA on encoded classical data and detects changes across a transverse-field Ising transition without predefined order parameters. Consequently, QSPADE gives an efficient framework for both quantum-kernel anomaly detection on encoded classical data and the monitoring of quantum-native systems where diagnostic observables are unknown.",
+  "url": "http://arxiv.org/abs/2607.05307v1",
+  "pdf": "https://arxiv.org/pdf/2607.05307v1",
+  "type": "both",
+  "summary": "This paper introduces Quantum Spectral Anomaly Detection (QSPADE), a novel technique to compute anomaly scores for quantum states by analyzing the spectrum of the normal data's average state. It achieves this by replacing hard spectral cutoffs with a smooth, temperature-controlled thresholding mechanism. QSPADE offers an efficient tool applicable both to encoded classical data and directly to monitoring complex quantum systems undergoing phase transitions.",
+  "main_problem": "The core task is developing an efficient method for quantum anomaly detection, quantifying how much a test quantum state deviates from a normal dataset.",
+  "main_result": "QSPADE provides a continuous, spectral-based framework that successfully detects changes across quantum phase transitions without requiring predefined order parameters.",
+  "method": "It replaces hard PCA rank selection with a smooth, temperature-controlled spectral threshold applied to the average state's spectrum, yielding both residual and Hotelling's T^2 type anomaly scores.",
+  "model_or_system": "The analysis is based on quantum data represented by density operators ($\rho_i$) whose average forms the normal support operator $C$. The method is shown to apply to monitoring quantum-native systems like the transverse-field Ising model.",
+  "key_observables": "Anomaly score (e.g., residual statistic $Q$ or Hotelling's $T^2$), spectral eigenvalues ($\\lambda_j$), and acceptance probabilities $\\langle\\psi|M f_{\\mu\\alpha,T} |\\psi\rangle$.",
+  "important_parameters": "Temperature parameter ($T$), spectral threshold ($\\mu$), target retained-mass fraction ($\\alpha$), and measurement shot budget ($m$).",
+  "main_assumptions": "The primary assumption is that the anomaly score can be derived solely from the spectrum of the average normal state, avoiding full Gram matrix construction.",
+  "figures_summary": "Figure 6 compares QSPADE against classical kernel-PCA baselines (Laplacian/Fourier maps performing best). Figure 7 shows QSPADE successfully tracking curved supports (ring) where linear PCA fails. Figure 8 demonstrates that smaller temperatures ($T$) improve robustness to shot noise in quantum-native experiments.",
+  "paper_structure": "The paper first establishes the classical PCA background, then introduces QSPADE as a soft spectral detector using a temperature parameter $T$. It develops theoretical proofs for this smooth detection mechanism and validates it by comparing performance against various classical kernel methods on synthetic data geometries and in quantum-native simulations.",
+  "why_interesting": "The ability to monitor complex quantum systems (like those near phase transitions) using only local spectral information, without needing explicit knowledge of order parameters or full state reconstruction, is highly valuable for experimental diagnostics in AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.05307_figures/2607.05307_fig1.jpg",
+      "caption": "FIG. 1. Normal-calibrated percentile maps over [0, 1]2 for the moon dataset; the pale scattered points are the normal training data. Rows: linear classical PCA, RBF kernel-PCA, and QSPADE with a Fourier feature map. Columns: resid- ual Q, within-support T 2 (shown inside the Q-accepted re- gion), and the combined max-percentile. Linear PCA gives a rigid straight band; the kernel baseline and QSPADE both produce curved acceptance regions that follow the data. The cyan contour marks the calibrated decision boundary.",
+      "page": 9
+    },
+    {
+      "image": "2607.05307_figures/2607.05307_fig2.jpg",
+      "caption": "FIG. 2. Spectrum and soft occupations of the average nor- mal state C. Black points show the eigenvalues λj(C) on a log scale, and the dotted line marks the sampling reso- lution 1/N for N = 600. The vertical dashed line marks the hard retained-mass rank K(α) = 7 for α = 0.99. Col- ored curves, read on the right axis, show the soft occupations f((λj −µα)/T) for different resolutions T. The figure shows why a hard rank is ambiguous on this graded spectrum, while QSPADE assigns fractional weights to near-cutoff modes.",
+      "page": 10
+    },
+    {
+      "image": "2607.05307_figures/2607.05307_fig3.jpg",
+      "caption": "FIG. 3. Mean residual anomaly score for each normal mode j, with the expected number of training samples wjN shown on the top axis, and for the anomaly class in the rightmost col- umn. Grey dashed curves are hard top-K projectors; colored curves are QSPADE residuals at different resolutions T. Hard ranks flip whole normal modes between zero and unit score, and become unstable when the cutoff reaches the sampling- resolution regime (K = 8). QSPADE replaces this all-or- nothing behavior by a graded transition from well-sampled modes to unresolved tail modes.",
+      "page": 11
+    },
+    {
+      "image": "2607.05307_figures/2607.05307_fig4.jpg",
+      "caption": "FIG. 4. Mean residual anomaly score for a dominant normal mode (50%), a rare normal mode (1.6%), and the paramag- netic anomaly class. The density-weighted Qraw and the hard K = 4 projector score the rare valid mode above the anomaly, while the hard K = 6 projector gives it zero score and hides its rarity. QSPADE assigns the rare mode an intermediate, temperature-dependent score; when T resolves the spectral tail, the rare valid mode remains below the anomaly. This shows soft scoring in QSPADE separates rarity within the normal support from genuine support mismatch.",
+      "page": 11
+    },
+    {
+      "image": "2607.05307_figures/2607.05307_fig5.jpg",
+      "caption": "FIG. 5. QSPADE residual score of the TFIM ground state as the transverse field h is swept across the transition. The score is near zero at the normal training field hA = 0.4 (grey line), stays low in the ordered phase, and rises through the critical point hc = 1 (dashed) into the paramagnetic phase. Colored curves show different resolutions T; as T →0 they approach the hard retained-rank projector K(α) (black markers), while larger T gives a softer monitor. The density-weighted Qraw (dotted) is offset upward even at the normal field.",
+      "page": 11
+    }
+  ],
+  "figure": "2607.05307_figures/2607.05307_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

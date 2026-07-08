@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.04915",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "How Hard Is Quantum Advantage? A Cloud Microphysics Stress Test for Variational Quantum Models",
+  "authors": "Felix Herbort, Ellen Sarauer, Daniel Ohl de Mello, Paul Christiansen, Steffen Hien, Cedric Brügmann, Dieter Jaksch, Veronika Eyring, Martin Kiffner, Mierk Schwabe",
+  "abstract": "Quantum machine learning (QML) could have the potential to leverage advantages of quantum over classical computing but still lacks strong evidence of actual improvements and scalability, partly due to phenomena such as barren plateaus. In this paper, we employ a hybrid quantum neural network (QNN) on a dataset on cloud microphysics, containing processes for phase transitions of water in the atmosphere and its related temperature changes, which are highly relevant for accurate climate predictions and projections. To reach optimal performance of our QNNs, we employ a rich and trainable frequency spectrum together with expressivity enhancing classical postprocessing. We find that our QNNs strongly benefit from extensive hyperparameter optimization and thereby demonstrate the feasibility of applying QNNs to complex physical systems. At the same time, the QNNs are outperformed by classical baselines in the form of simple fully-connected neural networks. We discuss identified bottlenecks of this class of quantum models to learn the full complexity of the cloud microphysics dataset to show that there is a need to further understand and improve variational quantum models for machine learning such that they might fill the gap where classical models fail or are inefficient.",
+  "url": "http://arxiv.org/abs/2607.04915v1",
+  "pdf": "https://arxiv.org/pdf/2607.04915v1",
+  "type": "both",
+  "summary": "This work tests Quantum Machine Learning (QML) by applying hybrid QNNs to model cloud microphysics in climate science. Despite significant optimization efforts, the quantum models were outperformed by simpler classical neural networks. The findings underscore that while QML shows potential, substantial theoretical and practical improvements are needed before it can reliably tackle complex physical modeling tasks.",
+  "main_problem": "The paper assesses whether Quantum Machine Learning (QML) can effectively parameterize complex physical processes, specifically cloud microphysics in climate modeling, and identifies the limitations of variational quantum models.",
+  "main_result": "While QNNs benefit from extensive hyperparameter optimization, they were outperformed by simple classical fully-connected neural networks on the benchmark task. This highlights a need to improve VQMs to fill gaps where classical methods fail or are inefficient.",
+  "method": "A hybrid quantum neural network (QNN) architecture was implemented, combining quantum circuits for data encoding and feature extraction with classical post-processing layers. Performance was rigorously compared against optimized classical FCNN baselines using Mean Squared Error minimization.",
+  "model_or_system": "The system modeled is cloud microphysics parameterization, involving phase transitions of water in the atmosphere, derived from large atmospheric datasets (ICON model). The ML models used are hybrid QNNs and standard FCNNs trained to predict changes in state variables like temperature and mass mixing ratios.",
+  "key_observables": "Test $R^2$ score, Mean Squared Error (MSE), basis state probabilities ($p_m$), and various atmospheric tendencies ($\\Delta T$, $\\Delta qv$, etc.).",
+  "important_parameters": "Hyperparameters optimized included circuit depth ($L$), number of qubits ($M$), learning rates ($\\eta$), and polynomial degrees ($P$).",
+  "main_assumptions": "The primary limitation noted is the presence of extreme outliers in the training data, which artificially inflate the loss function and affect performance metrics.",
+  "figures_summary": "Figures illustrate the hybrid QNN architecture (quantum circuit $\rightarrow$ classical post-processing) and show the convergence of test $R^2$ scores for both QNNs and FCNNs during hyperparameter optimization.",
+  "paper_structure": "The paper introduces the problem, details the hybrid QNN/FCNN methodology using extensive data preprocessing and HPO routines, presents comparative results showing classical superiority, and concludes by discussing bottlenecks in VQMs.",
+  "why_interesting": "Although focused on climate physics, the core challenge—applying quantum models to complex, high-dimensional physical parameterizations—is relevant for developing novel machine learning techniques applicable to open quantum systems or strongly correlated materials simulations where classical methods struggle.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.04915_figures/2607.04915_fig1.jpg",
+      "caption": "Figure 1: Hybrid quantum neural network architecture. (a) Our model consists of a quantum circuit with repeated trainable data encoding layers U and trainable entangling layers V . The circuit’s output state is measured on M qubits and basis state probabilities pm. (b) The probabilities are then fed into a classical post processing pipeline where polynomials g with trainable coefficients are applied to each pm and a weighted average h computes the final output.",
+      "page": 3
+    },
+    {
+      "image": "2607.04915_figures/2607.04915_fig2.jpg",
+      "caption": "Figure 2: Evolution of our hyperparameter optimization objective for our hybrid QNN in (a) and FCNN architecture in (b). Each cross marks the R2 test performance of a single HPO trial model. Color brightness additionally encodes trial number, consistently to figures below. A dashed line marks the best model’s score up to the current state of the HPO.",
+      "page": 6
+    },
+    {
+      "image": "2607.04915_figures/2607.04915_fig3.jpg",
+      "caption": "Figure 3: QNN performance slices for all hyperparameters throughout the HPO. The first row shows number of data reuploading layers L, additional variational layers ¯L, use of strongly entangling layers and whether to train reuploading factors β. The second row shows classical post-processing polynomial gγ, batch size NB, learning rate η, and number of measurement qubits M. Box-plots refer to discretized hyperparameters where in each box plot, the central green line denotes the median, the box spans the interquartile range (IQR, Q1–Q3), the whiskers extend to 1.5×IQR beyond the box edges, and individual dots mark outliers beyond the whiskers. For most hyperparameters, this data gives a clear...",
+      "page": 7
+    },
+    {
+      "image": "2607.04915_figures/2607.04915_fig4.jpg",
+      "caption": "Figure 4: FCNN performance slices for all hyperparameters throughout the HPO. The first row shows activation function ϕ, batch size NB, learning rate η, and number of hidden layers LH. The bottom row shows number of kernels Kl for the respective hidden layer l. Box-plots refer to discretized hyperparameters where in each box plot, the central green line denotes the median, the box spans the interquartile range (IQR, Q1–Q3), the whiskers extend to 1.5×IQR beyond the box edges, and individual dots mark outliers beyond the whiskers. The optimized hyperparameters show good agreement with established standards in classical neural network literature. For instance, increasing the numbers of layers...",
+      "page": 8
+    },
+    {
+      "image": "2607.04915_figures/2607.04915_fig5.jpg",
+      "caption": "Figure 5: (a) R2 scores of all targets for QNN and FCNN. For all models we have a score of R2 > 0 but FCNN outperforms the best QNN for every output. (b) Effect of number of trainable parameters on model performance. Except for few outliers which arise from uncommon choices of hyperparameters, FCNNs consistently outperform the QNN model. However, we note that simple parameter count comparison should not be the only quantity to compare as we discuss in Sec. 5.",
+      "page": 8
+    }
+  ],
+  "figure": "2607.04915_figures/2607.04915_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

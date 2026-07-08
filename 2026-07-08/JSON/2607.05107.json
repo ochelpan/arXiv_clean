@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.05107",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Complementary 3D color codes for transversal quantum logic",
+  "authors": "Friederike Butt, Luis Colmenarez, Erik Weilandt, Tom Peham, Robert Wille, Markus Müller",
+  "abstract": "Transversal logical gates provide a direct route to fault-tolerant quantum computation, but the Eastin-Knill theorem forbids a universal transversal gate set within a single quantum error-correcting code. We propose a hybrid architecture based on the tetrahedral three-dimensional color code and its Hadamard-transformed counterpart, which we call the H-tetrahedral code. The two encodings support complementary transversal non-Clifford operations. Combined with bitwise Hadamard transformations that switch between the two encodings and a one-way transversal logical CNOT from the tetrahedral code to the H-tetrahedral code, these operations realize an almost-universal transversal logical gate set that enables both the creation of entanglement and logical states with magic. We complete a universal gate set through a pieceably fault-tolerant round-robin construction of a logical controlled-$Z$ gate between two H-tetrahedral codes. This logical entangling gate is interleaved with reduced-overhead Steane-type syndrome extraction using logical two-dimensional color-code auxiliary qubits. Our construction provides a new route toward implementing classically hard-to-simulate quantum algorithms where magic and most entangling operations are transversal while the resource overhead is concentrated in a small number of non-transversal Clifford entangling operations.",
+  "url": "http://arxiv.org/abs/2607.05107v1",
+  "pdf": "https://arxiv.org/pdf/2607.05107v1",
+  "type": "theory",
+  "summary": "This paper addresses the challenge of building universal fault-tolerant quantum computation by proposing a hybrid architecture combining two related 3D color codes. By leveraging complementary transversal operations, they achieve an almost-universal gate set, completing it through a complex round-robin construction for the necessary entangling gates. This provides a new pathway to implement hard algorithms while keeping most required operations transversal.",
+  "main_problem": "Achieving a universal set of transversal logical gates for fault-tolerant quantum computation, which is restricted by the Eastin–Knill theorem.",
+  "main_result": "The authors propose a hybrid architecture using two complementary color codes (tetrahedral and H-tetrahedral) to realize an almost-universal gate set, completing universality via a complex round-robin construction for the entangling CZ gate.",
+  "method": "The approach combines bitwise Hadamard transformations between two related quantum error-correcting codes and utilizes pieceable fault-tolerant constructions for necessary non-transversal gates.",
+  "model_or_system": "The system is based on the $[[15, 1, 3]]$ tetrahedral three-dimensional color code and its Hadamard-transformed counterpart. The implementation details involve syndrome extraction using auxiliary qubits and constructing logical operations between these two codes.",
+  "key_observables": "Logical state fidelities (e.g., $F_{CZ}|\\cdot\rangle$), effective distances ($d_X, d_Z$), and the existence of transversal non-Clifford gates.",
+  "important_parameters": "The smallest instance considered is the $[[15, 1, 3]]$ code; resource overhead is concentrated in a few non-transversal Clifford operations.",
+  "main_assumptions": "The initial CNOT realization between codes is one-way (control $\to$ target), and achieving full universality requires complex round-robin constructions for the missing entangling gate.",
+  "figures_summary": "Figures illustrate the $[[15, 1, 3]]$ code structure, transversal operations in the hybrid architecture, and the ordering of physical CZ gates required for fault-tolerant logical gates.",
+  "paper_structure": "The paper establishes the need for transversal gates, proposes the hybrid tetrahedral/H-tetrahedral architecture to achieve an almost-universal set, details the construction of the full universal gate set via a round-robin process, and analyzes related concepts like syndrome extraction overheads.",
+  "why_interesting": "While highly theoretical, the focus on resource optimization (concentrating non-transversal gates) and using structured codes like color codes is relevant to designing practical quantum hardware architectures that minimize error correction overhead.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.05107_figures/2607.05107_fig1.jpg",
+      "caption": "Figure 1. The [[15, 1, 3]] code and its Hadamard-transformed version. (a) The X-stabilizer generators of the [[15, 1, 3]] tetrahedral color code are supported on the red (R), blue (B), green (G) and yellow (Y) cell formed by eight qubits each. Ten independent Z-stabilizers are defined on weight-4 faces within the tetrahedron. (b) The support of X- and Z-stabilizers is interchanged on the Hadamard-transformed tetrahedral code [[15, 1, 3]]H: X-stabilizers are supported by faces and Z-stabilizers are supported by cells. (c) The joint gate set of both code variants comprises the logical CNOT between the same code types, the T gate on the [[15, 1, 3]] code and the TX gate on the [[15, 1, 3]]H...",
+      "page": 2
+    },
+    {
+      "image": "2607.05107_figures/2607.05107_fig2.jpg",
+      "caption": "Figure 2. Transversal operations in the hybrid architecture. (a) If the control qubit is encoded in the [[15, 1, 3]] code and the target in the Hadamard-transformed [[15, 1, 3]]H code, cell-like stabilizers propagate to face-like stabilizers. This operation preserves the codespace because both control and target are a +1-eigenstate of the X-cells. The transversal CNOT gate in the reverse direction (b) does not preserve the codespace, because an X-face propagates from control to the target code that is not an eigenstate of the respective face-like stabilizer. (c) The hybrid architecture admits a transversal Toffoli gate if the two control qubits are encoded in [[15, 1, 3]] codes and the...",
+      "page": 3
+    },
+    {
+      "image": "2607.05107_figures/2607.05107_fig3.jpg",
+      "caption": "Figure 3. Round-robin CZ gate on the rotated tetrahedral [[15, 1, 3]]H code. The round-robin gate applies seven layers of permuted transversal CZ gates on qubits 1–7 of code blocks A and B. Since physical CZ gates commute, we can rearrange the gate ordering, as illustrated in App. Fig. 8. In doing so, the protocol becomes symmetric between the two registers, which allows us to use the same lookup tables for both logical code blocks. The subset of invariant stabilizers remain unchanged throughout the whole protocol. This subset of stabilizers is extracted in the middle of the circuit (blue box). Specifically, we measure the red, blue and green X-faces and three out of four Z-cells of both...",
+      "page": 4
+    },
+    {
+      "image": "2607.05107_figures/2607.05107_fig4.jpg",
+      "caption": "Figure 4. Fault-tolerant stabilizer extraction on tetrahedral 3D color codes. (a) A 3D tetrahedral color code can be viewed as layers of 2D color codes, similarly to stacked color codes [46]. (b) The red, green and blue X-stabilizers, SR X, SB X, SG X can be measured fault-tolerantly using a variant of Steane’s method for FT syndrome extraction [47]. We fault-tolerantly prepare a logical auxiliary qubit in |0⟩of a 2D color code by verifying the prepared logical state after running a unitary encoding [48], as shown in App. Fig. 7. In a second step, we apply a transversal CNOT gate between the top layer of the 3D code instance (qubit 1–7) and the logical auxiliary qubit. Measuring the...",
+      "page": 5
+    },
+    {
+      "image": "2607.05107_figures/2607.05107_fig5.jpg",
+      "caption": "Figure 5. Logical state fidelities for the fault-tolerant round-robin CZ gate. The CZ gate is run on two [[15, 1, 3]]H codes which do not admit a transversal imple- mentation of this operation. The gate construction is fully symmetric between the two logical qubits. The logical state fidelities are determined as described in App. E for two logi- cal qubit input states |0+⟩, |1+⟩, and |++⟩. The gray dashed line corresponds to the approximated logical infidelity of a transversal CNOT gate, assuming that any two faults con- tribute to the logical infidelity.",
+      "page": 6
+    }
+  ],
+  "figure": "2607.05107_figures/2607.05107_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

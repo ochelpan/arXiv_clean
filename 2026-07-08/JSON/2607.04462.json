@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2607.04462",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET",
+    "cs.IT"
+  ],
+  "is_primary_archive": true,
+  "title": "Noise-Aware Synthesis of Quantum LDPC Encoder Circuits via Two-Sided Hamming Descent",
+  "authors": "Aditya Sodhani, Keshab K. Parhi",
+  "abstract": "Quantum low-density parity-check (LDPC) codes are a promising route to fault-tolerant quantum computation, but their use requires efficient preparation of encoded states. Standard encoder constructions generate circuits through fixed algebraic procedures, yet the resulting circuit can contain substantial redundancy. We formulate LDPC encoder preparation as a circuit-resynthesis problem: given the linear-reversible matrix implemented by the encoder's CNOT block, we seek a lower-cost equivalent circuit that can be routed efficiently on the target hardware and which mitigates noise. We propose a novel optimization approach referred as two-sided Hamming descent and a noise-aware optimization pipeline for this task.   Across several families of Calderbank-Shor-Steane (CSS) LDPC encoders, including Bivariate Bicycle, hypergraph-product, and entanglement-assisted codes, the proposed pipeline produces substantially smaller and shallower encoder circuits than the standard constructions and the synthesis baselines considered, cutting gate counts by 53.8% in aggregate across the benchmark and by up to 68% on the Bivariate Bicycle family. The gains remain visible after routing, where the two-qubit depth is reduced by up to 71% and translate into higher-fidelity state preparation under circuit-level noise. On the Bivariate Bicycle family, live-range scheduling further reduces routed preparation failure by up to 13.7% without adding two-qubit gates to the selected circuit. These results indicate that encoder-matrix resynthesis, combined with hardware-calibrated selection and scheduling, is an effective compiler-level tool for preparing quantum LDPC code states.",
+  "url": "http://arxiv.org/abs/2607.04462v1",
+  "pdf": "https://arxiv.org/pdf/2607.04462v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, multi-stage compiler pipeline to synthesize highly efficient quantum circuits for preparing LDPC encoded states. By combining 'two-sided Hamming descent' with hardware-aware scheduling and noise modeling, the authors achieve substantial reductions in gate count and circuit depth compared to existing methods. This work is critical for realizing fault-tolerant quantum computation on near-term devices.",
+  "main_problem": "The core problem is efficiently synthesizing low-cost, noise-mitigating quantum circuits required to prepare encoded states for Quantum Low-Density Parity-Check (LDPC) codes.",
+  "main_result": "The proposed pipeline significantly reduces CNOT gate counts by an aggregate of 53.8% and reduces two-qubit depth by up to 71% compared to standard constructions, leading to higher fidelity state preparation.",
+  "method": "It employs a novel optimization pipeline featuring 'two-sided Hamming descent' for circuit resynthesis, followed by commutation re-layering, hardware routing, and noise-aware live-range scheduling.",
+  "model_or_system": "The system models fault-tolerant quantum computation using CSS LDPC codes (e.g., Bivariate Bicycle). The task is to find a minimal CNOT circuit implementing the encoder's linear-reversible matrix.",
+  "key_observables": "CNOT count, circuit depth (ASAP vs. commutation-aware), routed two-qubit count, and preparation error under hardware noise.",
+  "important_parameters": "The optimization balances gate count reduction against depth minimization using a penalty parameter $\\mu$, and incorporates the idle-to-gate error ratio ($\\kappa$) for noise selection.",
+  "main_assumptions": "The method assumes knowledge of the target hardware's connectivity graph, which is used during routing and scheduling stages.",
+  "figures_summary": "Figures illustrate the six-stage noise-aware encoder pipeline, demonstrating how redundant CNOT structures can be systematically reduced via two-sided matrix operations.",
+  "paper_structure": "The paper introduces the problem of circuit redundancy in LDPC encoders, details the novel multi-stage optimization pipeline (including two-sided Hamming descent), presents quantitative results showing significant improvements over baselines, and concludes by positioning the method as a crucial compiler tool.",
+  "why_interesting": "This work directly addresses the practical implementation gap in quantum computation by providing a systematic, hardware-aware compilation technique to reduce circuit overhead and noise susceptibility for error correction codes.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.04462_figures/2607.04462_fig1.jpg",
+      "caption": "Figure 1: Our six-stage noise-aware encoder pipeline.",
+      "page": 4
+    },
+    {
+      "image": "2607.04462_figures/2607.04462_fig2.jpg",
+      "caption": "Figure 2: The same matrix 𝑀= 𝐼+ 𝑒0𝑒⊤ 2 on three qubits is realized by CNOT circuits of different length, hence by the same unitary. (a) one gate; (b) three gates. Filled dots are controls, ⊕targets.",
+      "page": 5
+    },
+    {
+      "image": "2607.04462_figures/2607.04462_fig3.jpg",
+      "caption": "Figure 3: The same four-qubit matrix 𝑀is implemented by two CNOT circuits of different gate count, so the shorter one replaces the longer. (a) five gates; (b) three gates. Filled dots are controls, ⊕targets.",
+      "page": 5
+    },
+    {
+      "image": "2607.04462_figures/2607.04462_fig4.jpg",
+      "caption": "Figure 4: The two-sided move space reduces the residual 𝐴to the identity from both ends. Front (column-operation) and back (row-operation) moves act on 𝐴while maintaining 𝑀= 𝐿𝐴𝑅. See Section 3.1.",
+      "page": 6
+    },
+    {
+      "image": "2607.04462_figures/2607.04462_fig5.jpg",
+      "caption": "Figure 5: Count–depth Pareto frontiers on the four BB codes. The two-sided front (blue, ours) dominates the one-sided ablation front (orange), the depth-greedy method of [32] (green), and the CG/SKG construction (gray) on both count and depth for every BB code. The depth-greedy front is the Pareto-optimal subset of that method’s four cost functions over many restarts.",
+      "page": 18
+    }
+  ],
+  "figure": "2607.04462_figures/2607.04462_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
