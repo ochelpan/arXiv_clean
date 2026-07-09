@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.05900",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mes-hall",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Machine learning prediction of the convergence criterion for a topological invariant of finite non-Hermitian chains",
+  "authors": "Raghav Chaturvedi, Viktor Könye, Ewelina M. Hankiewicz",
+  "abstract": "A topological invariant based on polar-decomposition of matrices correctly captures the topology of finite non-Hermitian chains exhibiting the non-Hermitian skin effect, provided that an appropriate crop-length parameter is chosen. This parameter, which sets the cutoff used in the calculation of the invariant, is usually chosen empirically and becomes especially important near topological phase transitions, where finite-size effects are strongest. Here we show that the required crop-length is controlled by physical decay (localization) lengths. For nearest-neighbor and pure longer-range hopping Hatano-Nelson-type chains, the crop-length is set mainly by a single localization length and is well approximated by a scalar multiple of that length. For more general longer-range hopping models, it is governed instead by a multichannel root structure of the characteristic polynomial. Random-forest regression captures finite-size and near-boundary corrections while preserving this decay-length interpretation. Trained on one set of Hamiltonians, the predictor accurately generalizes to unseen Hamiltonians and complex base energies, reproducing crop-lengths across full phase diagrams. We further show that the predictions learned from clean nearest-neighbor hopping chains remain stable under moderate hopping disorder. These results provide a practical and physically interpretable way to choose the crop-length, which in turn determines when the real-space invariant can reliably capture the topology of finite non-Hermitian chains.",
+  "url": "http://arxiv.org/abs/2607.05900v1",
+  "pdf": "https://arxiv.org/pdf/2607.05900v1",
+  "type": "theory",
+  "summary": "This paper introduces a machine learning approach to solve the practical problem of determining the correct 'crop-length' needed for calculating topological invariants in finite non-Hermitian quantum chains. By training Random Forest models on system parameters, the authors successfully predict this convergence criterion, demonstrating that it is governed by the underlying physical decay lengths associated with the non-Hermitian skin effect.",
+  "main_problem": "The primary goal is to develop a practical, physically interpretable method to determine the necessary 'crop-length parameter' ($\\ell$) for a real-space topological invariant in finite non-Hermitian chains.",
+  "main_result": "Machine learning models (Random Forest) can accurately predict this required crop-length ($\\ell^\\star$), showing that it is fundamentally controlled by physical decay lengths associated with the non-Hermitian skin effect.",
+  "method": "The authors employ Random Forest regression and classification, training ML predictors on system parameters to automate the selection of $\\ell$ needed for convergence.",
+  "model_or_system": "The study analyzes finite one-dimensional non-Hermitian chains, including Hatano-Nelson type models (nearest-neighbor) and general $m$-hop hopping systems. The topology is diagnosed using a real-space invariant derived from the polar decomposition of the Hamiltonian matrix.",
+  "key_observables": "Topological Invariant ($w_{PD}(\\ell)$), clean momentum-space winding number ($w$), required crop-length ($\\ell^\\star$), and localization/decay lengths ($\\xi, \\xi_m$).",
+  "important_parameters": "Non-reciprocity parameters ($J_R, J_L$), system size ($N$), disorder strength ($r_W$), and the ratio $x = N/\\xi$.",
+  "main_assumptions": "The convergence of the real-space invariant is assumed to be governed by physical decay lengths ($\\xi$ or $\\xi_m$) derived from the spectral properties.",
+  "figures_summary": "Figures illustrate the non-Hermitian skin effect, the comparison between $w_{PD}$ and $w$, and show how ML predictions generalize across phase diagrams and under disorder.",
+  "paper_structure": "The paper first establishes the physical problem of finite-size effects in topological invariants. It then develops an ML framework using decay lengths as key features to predict the convergence parameter $\\ell^\\star$. Finally, it validates this approach by testing generalization and stability under disorder for various hopping models.",
+  "why_interesting": "This work bridges advanced condensed matter topology (non-Hermitian physics) with modern data science techniques. For AMO/open systems, understanding how finite boundaries or measurement limitations affect bulk topological properties is crucial, making the ML prediction of $\\ell^\\star$ highly relevant for experimental interpretation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.05900_figures/2607.05900_fig1.jpg",
+      "caption": "Figure 1. (a) Finite-size HN chain with asymmetric nearest- neighbor hoppings JR and JL. (b) Spectrum of the Bloch Hamiltonian H(k) [Eq. (8)] in the complex-energy plane. The color scale follows the momentum (k) across the Brillouin zone, tracing an ellipse. Here (JR, JL) = (1, 0.6). (c) Summed probability density (SPD) of the open chain plotted on a log-linear scale against the site index. The non-Hermitian skin effect occurs at opposite boundaries for |JL| > |JR| and |JR| > |JL|. (d) Real-space polar-decomposition invariant wPD across the topological phase transition compared with the exact clean winding number w. Here ℓ= 10 and the chain length is N = 120.",
+      "page": 3
+    },
+    {
+      "image": "2607.05900_figures/2607.05900_fig2.jpg",
+      "caption": "Figure 2. (a) Convergence of the real-space polar- decomposition invariant with boundary crop-length ℓ. The plotted quantity is ∆(ℓ) = |wPD(ℓ) −w|, where w is the clean momentum-space winding. The horizontal dashed line marks the tolerance ϵ = 0.05. (b) Binary valid-crop labels as a func- tion of the scaling variable x = N/ξ. Grey points show the raw valid/invalid labels, and the green curve shows the one- feature logistic fit Pvalid(x). (c) Fixed-size crop-length ℓ⋆as a function of JL for JR = 1 and N = 200. Blue points de- note numerical values, the black curve shows the finite-size fit ℓ⋆= NF(x) with F(x) = a/(x + b) + c, and the orange dashed curve shows the asymptotic guide ℓ⋆= Cϵξ....",
+      "page": 4
+    },
+    {
+      "image": "2607.05900_figures/2607.05900_fig3.jpg",
+      "caption": "Figure 3. (a) Complex spectrum of Hm(k) for m = 2. The spectrum is an ellipse in the complex-energy plane, but it winds two times around the base point EB = 0. (b-d) Real- space polar-decomposition invariant wPD across the point-gap transition for m = 2, 3, 4, compared with the exact clean winding w.",
+      "page": 5
+    },
+    {
+      "image": "2607.05900_figures/2607.05900_fig4.jpg",
+      "caption": "Figure 4. (a) One-feature logistic fits for the valid-crop classification problem for m = 1, 2, 3, 4, plotted against xm = N/ξm. Filled circles indicate the fitted Pvalid = 1/2 threshold points. (b-d) Integer crop-length ℓ⋆as a func- tion of JL for m = 2, 3, 4, with JR = 1. The displayed cuts use (m, N) = (2, 320), (3, 480), (4, 640). Blue points are the numerical values of ℓ⋆. The orange dashed curves show ℓcont ⋆ = Cϵξm. The black curves show ℓcont ⋆ = NF(xm), with F(xm) = a/(xm + b) + c. Integer predictions are obtained by rounding the continuous curves.",
+      "page": 6
+    },
+    {
+      "image": "2607.05900_figures/2607.05900_fig5.jpg",
+      "caption": "Figure 5. (a) Schematic of the open chain with first- and second-neighbor non-reciprocal hoppings. (b-c) Point-gapped spectral loops of the Bloch Hamiltonian in the complex-energy plane. The black point marks the base energy EB = 0. The winding number w is computed from the phase winding of H(k) (see Eq. (46) and Eq. (1)) around this base point.",
+      "page": 7
+    }
+  ],
+  "figure": "2607.05900_figures/2607.05900_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 2,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

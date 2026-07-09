@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2607.05814",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Latency-Constrained Hardware-Aware Quantum Error Correction Co-Design with Adaptive Confidence-Gated Neural Decoding for the Rotated Surface Code",
+  "authors": "Sumit Chongder",
+  "abstract": "Real-time decoding is a major bottleneck in scaling quantum error correction (QEC) from noisy intermediate-scale quantum (NISQ) devices to fault-tolerant quantum computing. We present an adaptive confidence-gated decoding framework for the rotated surface code that treats decoding as a two-stage inference problem. A lightweight feed-forward neural network performs fast-path decoding for the majority of syndrome measurements, while only low-confidence predictions are escalated to a minimum-weight perfect matching (MWPM) refinement stage. We benchmark the framework on rotated surface codes with distances $d \\in \\{3,5,7,9,11\\}$ under circuit-level depolarising noise using the Stim stabiliser simulator. The evaluation characterises logical accuracy, confidence-controlled accuracy-latency trade-offs, decoding throughput, per-shot latency, and decoding-graph resource scaling. Routing only 3.3%-6.2% of syndromes to the refinement stage improves logical accuracy from 99.21% for the neural-only baseline to 99.81% at a confidence threshold of 0.95 while incurring only a bounded increase in average decoding cost. Neural-decoder throughput saturates near $4.6 \\times 10^{5}$ samples s$^{-1}$ at batch size 512 on commodity CPU hardware, indicating that the neural fast path is not the dominant throughput bottleneck beyond code distance $d=7$. We release the complete benchmarking pipeline, trained models, raw benchmark data, and source code, and explicitly distinguish the experimentally validated contributions from the broader hardware-aware QEC co-design roadmap, including hardware-constrained code discovery, GPU-accelerated inference, and multi-noise optimisation, which remain directions for future work.",
+  "url": "http://arxiv.org/abs/2607.05814v1",
+  "pdf": "https://arxiv.org/pdf/2607.05814v1",
+  "type": "both",
+  "summary": "The paper introduces an adaptive, hardware-aware decoding framework for the Rotated Surface Code designed to overcome the bottleneck of real-time QEC. It uses a fast neural network path supplemented by a computationally intensive MWPM refinement stage only when necessary. This approach significantly boosts logical accuracy while maintaining high throughput suitable for scaling quantum processors.",
+  "main_problem": "Real-time decoding is a major bottleneck preventing the scaling of Quantum Error Correction (QEC) from NISQ devices to fault-tolerant quantum computation.",
+  "main_result": "The adaptive framework significantly improves logical accuracy (e.g., 99.21% to 99.81%) by selectively routing only low-confidence syndromes to a computationally expensive refinement stage, with minimal overhead.",
+  "method": "It proposes an adaptive, two-stage decoding inference: a fast path using a lightweight neural network for most measurements, and a refinement stage using Minimum-Weight Perfect Matching (MWPM) for uncertain cases.",
+  "model_or_system": "The work is implemented on the Rotated Surface Code, simulating performance under circuit-level depolarizing noise across various code distances ($d=3$ to $11$).",
+  "key_observables": "Logical accuracy, confidence-controlled accuracy–latency trade-offs, decoding throughput (up to $4.6 \times 10^5$ samples s$^{-1}$), and per-shot latency.",
+  "important_parameters": "Code distances ($d$), physical error rates ($p$), and the adaptive confidence threshold ($\tau$).",
+  "main_assumptions": "The quantitative results are limited to the rotated surface code family and independent circuit-level depolarizing noise, with no generalization claimed for correlated or coherent noise.",
+  "figures_summary": "Tables summarize joint performance metrics (accuracy, error rate, runtime, throughput) across a grid of code distances and noise probabilities; Figure 1 outlines the overall hardware-aware co-design framework.",
+  "paper_structure": "The paper introduces the bottleneck problem, details the adaptive neural/MWPM decoding methodology, presents comprehensive benchmarking results across multiple parameters (Table 10), and concludes by outlining future architectural directions beyond the current scope.",
+  "why_interesting": "This work directly addresses the operational feasibility of fault-tolerant quantum computing by optimizing the classical post-processing step (decoding) to meet stringent real-time latency requirements.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.05814_figures/2607.05814_fig1.jpg",
+      "caption": "Figure 1: Hardware-aware quantum error correction co-design framework. Green solid boxes denote components implemented and empirically evaluated in this paper (noise model, circuit synthesis via Stim, adaptive confidence-gated decoder, and logical-metric evaluation). Grey dashed boxes denote the hardware-constrained code-generation and closed-loop latency-constrained optimisation components that are specified architecturally as the target of ongoing and future work (Section 7) and are not evaluated empirically here.",
+      "page": 7
+    },
+    {
+      "image": "2607.05814_figures/2607.05814_fig2.jpg",
+      "caption": "Figure 2: Hardware-aware co-design optimisation pipeline. The vertical chain (noise model, circuit compilation, syndrome simulation, adaptive decoding, evaluation) is the pipeline implemented and benchmarked in this paper. The hardware-constrained code generator and the multi-objective optimisation loop that would close the search over code candidates (right, dashed) are specified as the target architecture for the next phase of this research programme and are not exercised in the current experiments.",
+      "page": 8
+    },
+    {
+      "image": "2607.05814_figures/2607.05814_fig3.jpg",
+      "caption": "Figure 3: Decision flow of the adaptive, confidence-gated decoder. Every measured syndrome is first passed through the fast feed-forward decoder; syndromes with confidence at or above the operating threshold τ are corrected on the fast path, while low-confidence syndromes are escalated to exact minimum- weight perfect matching refinement before recovery is applied.",
+      "page": 10
+    },
+    {
+      "image": "2607.05814_figures/2607.05814_fig4.jpg",
+      "caption": "Figure 4: Fast-path logical accuracy versus code distance at fixed physical error rate p = 10−3 (data as in Table 1). Accuracy degrades as decoding-graph complexity grows with d at fixed noise strength, motivating the confidence-gated escalation mechanism evaluated in Section 5.3.",
+      "page": 12
+    },
+    {
+      "image": "2607.05814_figures/2607.05814_fig5.jpg",
+      "caption": "Figure 5: Decoder accuracy as a joint function of code distance and physical error probability. Full numerical values are given in Table 6.",
+      "page": 13
+    }
+  ],
+  "figure": "2607.05814_figures/2607.05814_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
