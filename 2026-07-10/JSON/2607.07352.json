@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.07352",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "q-bio.BM",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Bayesian Learning of Distance Metrics Beyond RMSD for Biomolecule Alignment, Clustering, and Domain Identification",
+  "authors": "Saumyak Mukherjee, Gerhard Hummer",
+  "abstract": "Root-mean-square deviation (RMSD) is the standard metric of structural comparison in molecular dynamics (MD) simulations. In its conventional form, RMSD assigns equal weight to all atoms regardless of mobility. Hence, flexible loops and disordered regions can dominate a global RMSD, while the rigid functional core contributes negligibly to the overall metric. To address this issue, we introduce the Bayes-optimal RMSD (BRMSD), which optimizes per-atom weights jointly with structural averages by maximizing a Bayesian posterior. In a trade-off between low RMSD and weight uniformity, a position-fluctuation parameter $σ$ controls the transition from classical RMSD ($σ\\to \\infty$) to a progressive focus on a rigid core ($σ\\to 0$). The BRMSD framework supports analysis modules for structural alignment, focused alignment onto a user-specified domain, trajectory smoothing, soft $K$-means conformational clustering, and rigid-domain identification. These modules are implemented in the open-source Python package BRMSD (https://github.com/bio-phys/BRMSD) and benchmarked on two MD systems, the endoplasmic reticulum translocon-associated protein SND3 and the phosphotransferase adenylate kinase.",
+  "url": "http://arxiv.org/abs/2607.07352v1",
+  "pdf": "https://arxiv.org/pdf/2607.07352v1",
+  "type": "theory",
+  "summary": "This paper develops the Bayes-optimal RMSD (BRMSD) metric to overcome the limitations of standard structural comparison metrics for biomolecules. By optimizing per-atom weights using a Bayesian framework, BRMSD effectively down-weights highly flexible regions and concentrates analysis power on the stable, rigid functional core of proteins. This provides robust tools for alignment, clustering, and domain identification in molecular dynamics simulations.",
+  "main_problem": "Standard RMSD fails for biomolecules because it weights all atoms equally, allowing flexible regions to dominate the metric while ignoring rigid functional cores.",
+  "main_result": "The proposed Bayes-optimal RMSD (BRMSD) significantly reduces structural deviation metrics compared to standard RMSD on benchmark systems like SND3. It successfully identifies and focuses analysis on the stable, rigid core of proteins.",
+  "method": "The authors introduce a Bayesian framework that optimizes per-atom weights by maximizing a posterior derived from minimizing an effective free energy functional combining Mean-Square Deviation (MSD) and relative entropy regularization.",
+  "model_or_system": "The methods are applied to biomolecules studied via Molecular Dynamics (MD) simulations, specifically benchmarking on the SND3 translocon protein and adenylate kinase. The framework is designed for structural alignment, clustering, and domain identification within these systems.",
+  "key_observables": "BRMSD value, per-atom weights ($w_\\alpha$), cluster responsibilities ($q(a|i)$), and the Calinski–Harabasz (CH) index for clustering quality.",
+  "important_parameters": "The position-fluctuation parameter $\\sigma$ controls the weight suppression threshold; parameters like $\\mu/\theta$ control domain focusing strength, and window size $W_{op}$ is used for trajectory smoothing.",
+  "main_assumptions": "Minimizing the free energy functional $G$ may only yield a local minimum, necessitating multiple random restarts. The method assumes that weight optimization can effectively separate rigid core contributions from flexible noise.",
+  "figures_summary": "Figures show BRMSD significantly lower than standard RMSD over time; they also illustrate the anticorrelation between high-RMSF residues and low optimized weights, confirming domain identification via weight concentration.",
+  "paper_structure": "The paper introduces the BRMSD framework by defining the free energy functional $G$. It then details specialized modules for focused alignment (adding a concentration penalty), trajectory smoothing (using windowed sums), soft K-means clustering (introducing responsibilities), and rigid domain identification (via sequential peeling).",
+  "why_interesting": "While primarily applied to biophysics, the underlying mathematical machinery—optimizing weights based on local fluctuation statistics via free energy minimization and entropy regularization—shares conceptual links with statistical mechanics approaches used in analyzing complex many-body systems or disordered materials.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.07352_figures/2607.07352_fig1.jpg",
+      "caption": "Figure 1: The σ sweep for SND3 structural alignment is shown in two panels. (A) Per- residue weight wresidue (mean atom weight of a residue, scaled so a uniform weight equals one) as a function of residue number for σ = 0.1–10.0 ˚A, colored by σ (colorbar). Do- main shading indicates TMD-1 (green), TMD-2/TMD-3/TMD-4 (blue, TM groove), and N-claw/C-claw/C-tail (orange). The SND3 structure (PDB: 9I78), colored according to the domains, is shown as an inset. As σ decreases, weight concentrates progressively in the TM groove. (B) Per-residue RMSF for the same σ values. The profile is independent of σ (other than at very low σ, due to over-regularization), confirming that the weight...",
+      "page": 15
+    },
+    {
+      "image": "2607.07352_figures/2607.07352_fig2.jpg",
+      "caption": "Figure 2: Optimal σ selection and alignment quality are shown in two panels. (A) Weight ratio wgroove/wrest (red, left axis) and effective atom count neff (green, right axis) are plotted versus σ (log scale). At σop = 0.43 ˚A (dashed line), the ratio is 6.5 and neff = 604. (B) RMSD time series over the 300 ns trajectory for the TM groove (blue), the non-groove region (orange), and overall standard RMSD (gray). The groove RMSD is substantially lower and less variable than the others.",
+      "page": 17
+    },
+    {
+      "image": "2607.07352_figures/2607.07352_fig3.jpg",
+      "caption": "Figure 3: Results of focused alignment of SND3 onto TMD-1 are shown in three panels. (A) Per-residue weights are plotted against residue numbers. Global alignment at σop = 0.43 ˚A (blue) and focused alignment at (µ/θ)op = 0.53 (orange) are shown simultaneously along with the uniform baseline (red dashed line). The average structures from each alignment are colored by the weights on each atom, with darker shades denoting higher weights. (B) Total weight fractions on TMD-1 (green), TM groove (blue), and the rest (orange) are plotted as functions of µ/θ. The effective atom count neff (black, right axis) and the TMD-1 size |D| = 281 (dashed) are overlaid. (C) Mean RMSF of each segment from the...",
+      "page": 19
+    },
+    {
+      "image": "2607.07352_figures/2607.07352_fig4.jpg",
+      "caption": "Figure 4: Conformational clustering of the 19,691-frame ADK DIMS ensemble (K = 2, τop = 5.0 ˚A2, σ = 4.0 ˚A). (A) Each frame placed by its order parameters dNMPbind−LID and dLID−CORE, colored by hard cluster assignment: orange (closed) and blue (open). Black circles mark the two cluster centers, shown colored by domain (CORE red, LID blue, NMPbind green). (B) The same frames placed by their weighted BRMSD to the closed center (abscissa) and to the open center (ordinate), each computed with that cluster’s own weight vector. The dashed line marks equal BRMSD from both clusters.",
+      "page": 21
+    },
+    {
+      "image": "2607.07352_figures/2607.07352_fig5.jpg",
+      "caption": "Figure 5: Rigid domain identification for ADK by sequential peeling on 28,282 FRODA backbone frames (856 atoms, σop = 3.0 ˚A). The per-residue weight profiles wnorm residue (mean atom weight of a residue, normalized within each round to its maximum) for the three peeling steps are overlaid: Round-1 (red, CORE), Round-2 (blue, LID), and Round-3 (green, NMPbind), with domain shading. The corresponding average structures, colored by weight, are shown below. Domains are detected in order of decreasing global rigidity.",
+      "page": 23
+    }
+  ],
+  "figure": "2607.07352_figures/2607.07352_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.06675",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Spectral Born machines: classically trainable quantum generative models for discrete data",
+  "authors": "Austin Huang, William Maxwell, Vasilis Belis, Evan Peters, Jason Pye, Soran Jahangiri, Joseph Bowles",
+  "abstract": "We present \\emph{spectral Born machines}, a class of quantum generative models that results from viewing and generalizing the class of IQP Born machines through the lens of group Fourier analysis. These quantum models exploit the quantum Fourier transform to create an inductive bias that make them naturally suited to learning integer-structured data, while remaining classically hard to sample from in general. Similar to IQP Born machines, spectral Born machines can be trained efficiently at scale on classical hardware via a maximum mean discrepancy loss based on graph spectral analysis, which we make available in a new \\emph{tcdq} module of the PennyLane software platform. In numerical experiments, we show how the spectral bias of the model leads to significantly reduced parameter counts compared to unstructured approaches, and demonstrate the scalability of the software by training a 190-qubit model with over 1 million parameters to successfully learn a distribution of 93 nucleotide-long ribosomal RNA. Our results suggest that highly over-parameterized spectral Born machines may be immune to overfitting, even in strongly data-scarce regimes.",
+  "url": "http://arxiv.org/abs/2607.06675v1",
+  "pdf": "https://arxiv.org/pdf/2607.06675v1",
+  "type": "theory",
+  "summary": "This paper introduces spectral Born machines, a class of quantum generative models designed specifically for learning discrete, integer-structured data. By leveraging the Quantum Fourier Transform over $\\mathbb{Z}_n^d$, these models gain an inductive bias that is both powerful and classically trainable via MMD loss minimization. The work demonstrates scalability by successfully training large models on complex biological sequences like rRNA.",
+  "main_problem": "Developing quantum generative models capable of learning complex, discrete data structures (like integers) while remaining classically trainable for practical implementation.",
+  "main_result": "The spectral Born machine provides a general framework that uses group Fourier analysis to create an inductive bias suitable for integer-structured data, enabling scalable training on classical hardware.",
+  "method": "Training is achieved using the Maximum Mean Discrepancy (MMD) loss derived from graph spectral analysis, which allows efficient estimation of quantum expectation values via classical sampling techniques.",
+  "model_or_system": "The model generalizes IQP Born machines by employing the Quantum Fourier Transform over $\\mathbb{Z}_n^d$. It utilizes parameterized unitary gates constructed from generalized Pauli/Heisenberg-Weyl observables acting on qudits.",
+  "key_observables": "Expectation values of Heisenberg-Weyl observables, $\\langle D(k, m) \\rangle_{\\theta}$, and the Mean Maximum Discrepancy (MMD) loss function used for training.",
+  "important_parameters": "The dimension $d$ and length $n$ of the discrete group $\\mathbb{Z}_d^n$; model size up to 190 qubits with over 1 million parameters.",
+  "main_assumptions": "Classical trainability relies on the expectation values of specific observables being estimable via classical algorithms, and efficient computation of the phase function $\\Phi_{\\theta}(z)$ is assumed.",
+  "figures_summary": "Figure 1 illustrates the structure of a spectral Born machine, showing its construction using diagonal parameterized unitaries sandwiched between QFT layers for both classical training visualization and quantum deployment.",
+  "paper_structure": "The paper first introduces the model by generalizing IQP Born machines via group Fourier analysis. It then details the mathematical framework, including generalized observables (HW) and the explicit formulas for calculating expectation values classically. Finally, it focuses on developing efficient, batched estimators for these expectations and the MMD loss.",
+  "why_interesting": "The focus on using group theory (Fourier analysis) to impose structure on quantum models is highly relevant for building physically motivated and efficiently trainable quantum circuits beyond simple binary encoding schemes.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.06675_figures/2607.06675_fig1.jpg",
+      "caption": "FIG. 1. (a) A spectral Born machine consists of a diagonal parameterized unitary sandwiched between two layers of quantum Fourier transforms acting on qudits. For these circuits, expectation values of Heisenberg-Weyl observables can be classically estimated in order to train the maximum mean discrepancy loss function between the output distribution of the circuit and the empirical data distribution, which we make available via the PennyLane module tcdq. (b) Once training is complete, the trained circuit can be deployed on quantum hardware and used to sample new data, where genuine computational advantages may be present.",
+      "page": 2
+    },
+    {
+      "image": "2607.06675_figures/2607.06675_fig2.jpg",
+      "caption": "FIG. 2. The four spectral Born machines (with varying parameter counts) used for Potts model experiments achieve similar training loss, suggesting that the models converge towards similar test performance regardless of model complexity.",
+      "page": 8
+    },
+    {
+      "image": "2607.06675_figures/2607.06675_fig3.jpg",
+      "caption": "FIG. 3. Example configurations from the Potts model on a 6 × 6 lattice. Colours represent each of the 16 possible values the variables can take.",
+      "page": 8
+    },
+    {
+      "image": "2607.06675_figures/2607.06675_fig4.jpg",
+      "caption": "FIG. 4. The inductive bias of the spectral Born machine allows small models to achieve comparable performance compared to significantly larger models. Curves show test loss values for the four models used in the Potts experiment as a function of the mean operator weight of the complete graph MMD loss (shaded areas denote 1 standard deviation of the estimated MMD2).",
+      "page": 9
+    },
+    {
+      "image": "2607.06675_figures/2607.06675_fig5.jpg",
+      "caption": "FIG. 5. Comparing visualizations of the Fourier coefficients of the complete dataset (left) versus trained spectral Born machine (right) suggests that the models learn broadly similar features to the data. The panels below show the values of the Fourier coefficients with vectors k of weight 2, where the (i, j)th elements of k take one of the nine possible values (ki, kj). For instance, the first row of the panel below shows the first order Fourier coefficients (diagonal elements) of the k1 = k2 = 1 subplot of the figure above. Since coefficients are complex, the hue shows the magnitude (with scale given to the right of the plots) and the colour shows the phase.",
+      "page": 10
+    }
+  ],
+  "figure": "2607.06675_figures/2607.06675_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

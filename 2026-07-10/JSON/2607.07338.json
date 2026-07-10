@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2607.07338",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "physics.flu-dyn"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum simulation of real-world nonlinear dynamics via Koopman method",
+  "authors": "Baoyang Zhang, Dong An, Zhaoyuan Meng, Yefei Yu, Xiaoxiao Xiao, Zhen Lu, Yue Yang",
+  "abstract": "Nonlinear dynamics is ubiquitous in nature, ranging from chemical pattern formation to ocean circulation, yet its simulation on quantum computers is fundamentally limited by the unitary nature of quantum evolution. We propose the quantum Koopman method, a data-driven framework that embeds nonlinear dynamics into a learned linear representation and implements the resulting evolution using shallow quantum circuits. This method learns Koopman observables from trajectory data, projects the lifted dynamics onto a finite-dimensional subspace, and decomposes the corresponding non-unitary propagator into parallel spectral channels. We utilize the Koopman method on a superconducting processor to simulate three distinct nonlinear systems, comprising reaction-diffusion dynamics, fluid motion on a sphere, and satellite-derived observations of Gulf Stream currents, employing up to 32 parallel circuits of 10 qubits. These quantum simulations capture the dominant multiscale patterns and statistical signatures of the underlying dynamics, and reveal a transition from performance limited by hardware noise in weakly nonlinear systems to performance limited by finite-dimensional Koopman representations as nonlinear scale interactions increase. This transition identifies a practical boundary for quantum-amenable nonlinear dynamics, establishing a hardware-validated route for simulating moderately nonlinear dynamics on near-term quantum hardware.",
+  "url": "http://arxiv.org/abs/2607.07338v1",
+  "pdf": "https://arxiv.org/pdf/2607.07338v1",
+  "type": "both",
+  "summary": "The paper introduces the Quantum Koopman Method (QKM) to overcome the limitation of unitary evolution when simulating nonlinear physical processes. By mapping these dynamics into a linear observable space, it implements the evolution using shallow, parallel quantum circuits on superconducting hardware. This approach successfully simulates complex fluid and reaction-diffusion systems while quantifying the theoretical limits imposed by finite representation size.",
+  "main_problem": "The core challenge is simulating real-world nonlinear dynamics, which are fundamentally incompatible with the unitary evolution constraints of current quantum hardware.",
+  "main_result": "The Quantum Koopman Method (QKM) successfully simulates complex systems like fluid dynamics and reaction-diffusion processes on superconducting processors, establishing a practical boundary for near-term quantum simulation.",
+  "method": "It uses the QKM to map nonlinear dynamics into an infinite-dimensional linear observable space, projects this onto a finite subspace, and implements the resulting non-unitary evolution using shallow, parallel quantum circuits.",
+  "model_or_system": "The method is tested on three benchmarks: 3D reaction-diffusion systems (Gray-Scott), shallow-water dynamics on a sphere, and real-world Gulf Stream current observations. The implementation uses superconducting transmon qubits.",
+  "key_observables": "Relative $L_2$ error ($\\ell$), enstrophy spectrum, vorticity field ($\\omega$) evolution, and training/validation losses ($\\ell_{train}, \\ell_{val}$).",
+  "important_parameters": "The simulation scales with grid resolution ($D$), number of qubits per circuit ($n = O(\\log D)$), and the number of parallel spectral channels ($h=O(n)$).",
+  "main_assumptions": "The method assumes that the dynamics can be accurately captured by a finite-dimensional Koopman subspace, and it relies on hybrid classical/quantum processing where an NN encoder prepares initial states.",
+  "figures_summary": "Figures illustrate the QKM schematic, the hardware-efficient quantum circuit structure (using $R_z$ layers), and comparisons of simulated dynamics against reference solutions for fluid motion and reaction-diffusion systems.",
+  "paper_structure": "The paper introduces the QKM framework by linearizing nonlinear evolution. It details the quantum implementation using spectral decomposition into parallel circuits. Validation is performed on three physical benchmarks, followed by ablation studies to quantify sources of error (spectral sampling vs. ansatz structure).",
+  "why_interesting": "This work provides a concrete, hardware-aware pathway for simulating complex, non-Hamiltonian dynamics that are central to many areas of AMO physics and open quantum systems research.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.07338_figures/2607.07338_fig1.jpg",
+      "caption": "FIG. 1. Schematic of the QKM framework for simulating nonlinear dynamics on a superconducting quantum processor. a, A nonlinear dynamical system ¤𝒙= 𝒇(𝒙) generates discrete spatiotemporal snapshots 𝒙(𝑡0), 𝒙(𝑡1), · · · , 𝒙(𝑡𝑚). b, The nonlinear dynamics are mapped to an infinite-dimensional linear observable space via Koopman lifting in c, and are subsequently projected onto a finite 𝑁-dimensional subspace spanned by learned observables in d, yielding the linear evolution ¤𝒖= 𝐴𝒖. c, In full Koopman theory, this infinite-dimensional space comprises all observables 𝑔𝑗(𝒙) acting on the physical state, such that 𝝓(𝒙) = (𝑔1(𝒙), 𝑔2(𝒙), · · · )T. Although the physical field 𝒙(𝑡) evolves...",
+      "page": 2
+    },
+    {
+      "image": "2607.07338_figures/2607.07338_fig2.jpg",
+      "caption": "FIG. 2. Hardware-efficient quantum circuit of the QKM. a, The non-unitary propagator e𝐴𝑡for nonlinear dynamics is first reformulated as a spectral integral of diagonal unitary operators (Theorem 1). Each of the ℎindependent PQCs implements a single spectral component 𝑉(𝑘)eiΛ(𝑘)𝑡𝑉†(𝑘) of the diagonalized LCHS decomposition (Theorem 2). Each 𝑛-qubit circuit comprises two functional blocks. The state- preparation block utilizes 𝑅alternating layers of parameterized 𝑈3 gates with rotation angles {𝛼𝑗,𝑙,ℓ, 𝛽𝑗,𝑙,ℓ, 𝛾𝑗,𝑙,ℓ} generated by the classical encoder, and CZ pairs that alternate between odd layers {(𝑛, 1), (2, 3), . . . , (4, 5)} and even layers {(1, 2), (3, 4), . . . , (𝑛−1, 𝑛)}, forming a...",
+      "page": 3
+    },
+    {
+      "image": "2607.07338_figures/2607.07338_fig3.jpg",
+      "caption": "FIG. 3. Assessment of the QKM framework on benchmark nonlinear dynamical systems. a, Quantum simulation of a 3D reaction-diffusion system using the QKM on the superconducting processor “Yudu”. Volume renderings compare the experimental reactant-concentration fields 𝑢with the reference solutions at 𝑡= 100, 200, and 300. The QKM result accurately captures the temporal evolution of the total energy ⟨𝑢2⟩/2 in b, where ⟨·⟩denotes volume average. The relative error 𝜀𝐿2 remains small, and the median Hellinger fidelity stays close to unity in c, demonstrating quantitative agreement with the nonlinear dynamics. d, Quantum simulation of spherical fluid dynamics using the QKM on the superconducting...",
+      "page": 5
+    },
+    {
+      "image": "2607.07338_figures/2607.07338_fig4.jpg",
+      "caption": "FIG. 5. Quantum-speedup regimes of the QKM. The quantum speedup S as a function of the number of qubits 𝑛. The upper blue curve represents the best-case scaling, S ∼2𝑛/𝑛3, achieved when a first-order circuit ansatz corresponding to a single 𝑅𝑧layer already provides sufficient accuracy. Problems in this limit are classified as QKM-amenable. With increasing nonlinearity of the target dy- namics, higher-order QKM representations and more retained terms are required, thereby increasing the quantum cost and lowering the achievable speedup. The region between the best-case curve and the threshold S = 1 defines the QKM-intermediate regime, where the first-order approximation is insufficient, yet...",
+      "page": 6
+    },
+    {
+      "image": "2607.07338_figures/2607.07338_fig5.jpg",
+      "caption": "FIG. 4. Quantum simulation of real-world Gulf Stream ocean currents on the superconducting processor “Yudu”. a, Surface geostrophic velocity 𝑣derived from satellite observations on three dates spanning January 1 to 13, 2024. b, Corresponding QKM results simulated by the “Yudu” processor. c, Temporal evolution of the relative error 𝜀𝐿2 and the median Hellinger fidelity, with box plots showing the fidelity distribution across circuit instances on January 1, 7, and 13, 2024.",
+      "page": 6
+    }
+  ],
+  "figure": "2607.07338_figures/2607.07338_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 1,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

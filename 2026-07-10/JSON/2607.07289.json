@@ -1,0 +1,86 @@
+{
+  "arxiv_id": "2607.07289",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.dis-nn",
+    "cs.AI",
+    "cs.LG",
+    "math.OC"
+  ],
+  "is_primary_archive": true,
+  "title": "Bayesian Optimization of Genetic Algorithm Hyperparameters in a Multi-Fidelity Framework for Efficient Lattice Material Design",
+  "authors": "Sergei Zorkaltsev, Maciej Haranczyk, Christina Schenk",
+  "abstract": "This study presents a multi-fidelity framework for the systematic optimization of genetic algorithm (GA) hyperparameters. The framework integrates three fidelity levels: high-fidelity Fast Fourier Transform (FFT) homogenization for validation, a medium-fidelity 3D convolutional neural network surrogate for rapid property evaluation, and a low-fidelity Gaussian process (GP) surrogate within a Bayesian optimization (BO) framework to guide the hyperparameter search. Various acquisition functions are evaluated, with logNEI achieving the best performance by effectively accounting for the noise inherent in GA evaluations. The proposed framework identifies hyperparameter configurations that enable a 25-generation GA run to achieve elastic modulus values comparable to those obtained in a full 75-generation optimization. Furthermore, introducing a penalized BO objective significantly reduces the number of required lattices with only minor decreases in absolute achieved elastic modulus, revealing a practical trade-off between performance and the number of structures that must be evaluated. High-fidelity FFT validation verifies the effectiveness of the surrogate-driven optimization strategy. The optimized hyperparameters allow for rapid convergence, eliminate the need for lattice mutation, and reduce the overall computational cost by 24% (from 225 to 171 hours) while preserving mechanical performance. These results demonstrate the potential of multi-fidelity optimization as an efficient and practical approach for GA hyperparameter tuning and future experimental lattice design studies.",
+  "url": "http://arxiv.org/abs/2607.07289v1",
+  "pdf": "https://arxiv.org/pdf/2607.07289v1",
+  "type": "theory",
+  "summary": "This paper introduces a multi-fidelity framework that uses Bayesian Optimization to efficiently tune the hyperparameters of Genetic Algorithms for designing lattice materials. By combining fast CNN surrogates with rigorous FFT validation, the authors drastically reduce computational time while maintaining high mechanical performance. This demonstrates a powerful, generalizable methodology for accelerating complex structure optimization in materials science.",
+  "main_problem": "The study aims to efficiently optimize the hyperparameters of a Genetic Algorithm (GA) used for designing lattice materials.",
+  "main_result": "The proposed multi-fidelity framework significantly reduces computational cost by 24% while achieving mechanical performance comparable to much longer, unoptimized runs.",
+  "method": "It employs Bayesian Optimization (BO) guided by Gaussian Process (GP) surrogates to tune GA hyperparameters, using a CNN surrogate for rapid property evaluation and FFT for high-fidelity validation.",
+  "model_or_system": "The physical system is architectured lattice materials whose mechanical properties are determined by their unit cell arrangement. The optimization process treats the hyperparameter tuning as a black-box problem guided by ML surrogates.",
+  "key_observables": "Specific elastic modulus (GPa), computational time, and convergence rate of the GA.",
+  "important_parameters": "GA hyperparameters such as population size, crossover probability, and mutation rate; fidelity levels (FFT, CNN, GP).",
+  "main_assumptions": "The performance of the surrogate models (CNN/GP) accurately reflects the true underlying physics, and that the multi-fidelity approach provides a reliable trade-off between accuracy and computational cost.",
+  "figures_summary": "Figure 1 illustrates the three-level workflow (FFT $\rightarrow$ CNN $\rightarrow$ BO/GP). Figure 2 shows the lattice representation used for encoding into the optimization process. Figure 5 compares modulus evolution with optimized vs. non-optimized hyperparameters.",
+  "paper_structure": "The paper first defines the goal of optimizing GA parameters for material design, then details the multi-fidelity architecture (FFT/CNN/GP), describes the BO implementation using acquisition functions like logNEI, presents results showing cost reduction and performance maintenance, and concludes with implications for future lattice studies.",
+  "why_interesting": "While focused on materials science optimization rather than quantum physics directly, the core methodology—using ML surrogates (CNN, GP) within an active learning loop (BO)—is highly relevant to modeling complex, high-dimensional systems where direct simulation is intractable, a common challenge in many-body quantum simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.07289_figures/2607.07289_fig1.jpg",
+      "caption": "Fig. 1: Three-level multi-fidelity optimization framework. FFT homogenization provides high-fidelity mechanical evaluations, a CNN surrogate accelerates lattice- property prediction at the medium-fidelity level, and BO with a GP surrogate guides GA hyperparameter selection at the low-fidelity level. Information flows hierarchically from physical simulations to surrogate-assisted optimization.",
+      "page": 4
+    },
+    {
+      "image": "2607.07289_figures/2607.07289_fig2.jpg",
+      "caption": "Fig. 2: Overview of the lattice representation used throughout the optimization frame- work. (A) Unit cell types used to construct 4 × 4 × 4 lattices (BCC, FCC, OT, SC, DIA). (B) Lattice encoding used by GA. (C) Voxelized lattice used in FFT simula- tions. Adapted from Zorkaltsev et al. (2026).",
+      "page": 5
+    },
+    {
+      "image": "2607.07289_figures/2607.07289_fig3.jpg",
+      "caption": "Fig. 3: Calculated versus predicted specific elastic modulus values for the test subset.",
+      "page": 10
+    },
+    {
+      "image": "2607.07289_figures/2607.07289_fig4.jpg",
+      "caption": "Fig. 4: Evolution of the best specific elastic modulus during BO for different acquisi- tion functions (UCB, NEI, qNEI, and logNEI). All optimizations were initialized with the same 25 Sobol points and run for 30 iterations.",
+      "page": 11
+    },
+    {
+      "image": "2607.07289_figures/2607.07289_fig5.jpg",
+      "caption": "Fig. 5: Maximum and mean values of specific elastic modulus in each generation with optimized and non-optimized hyperparameters.",
+      "page": 14
+    }
+  ],
+  "figure": "2607.07289_figures/2607.07289_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

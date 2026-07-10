@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.07372",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.AR",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Vectorizing Quantum Control: A RISC-V Vector Extension Architecture for Scalable Qubit Systems",
+  "authors": "Xiaorang Guo, Kun Qin, Yanbin Chen, Carsten Trinitis, Martin Schulz",
+  "abstract": "The Quantum Control Processor (QCP) bridges the gap between compiler toolchains and control electronics, and is responsible for translating compiled quantum circuits into executable instructions that directly manipulate qubits and handle measurement feedback. However, existing designs rely primarily on customized instruction sets, limiting design reuse and requiring significant effort to build supporting toolchains. Furthermore, efficiently addressing qubits and scheduling operations in highly scalable scenarios remains a critical challenge. In this work, we present a vectorized quantum control approach built upon the RISC-V Vector (RVV) engine with a quantum-oriented extension. Leveraging the high parallelism of RVV, our approach can address up to 128 qubits in a single instruction. We also embed parameterized rotation information into the instruction set, enabling dynamic tuning of gate rotations in hybrid quantum-classical programs. To support mid-circuit measurements, we design a hardware-based halt-resume protocol that resumes pipeline execution within 80 $ns$ of receiving the measurement result. Comprehensive evaluation using both RISC-V toolchains and FPGA prototypes demonstrates that our design achieves up to 2.52$\\times$ speedup over the baseline in program execution time, with excellent scalability.",
+  "url": "http://arxiv.org/abs/2607.07372v1",
+  "pdf": "https://arxiv.org/pdf/2607.07372v1",
+  "type": "experiment",
+  "summary": "The paper presents HiSEP-Q 2.0, a novel Quantum Control Processor architecture built by extending the RISC-V Vector (RVV) ISA. This design overcomes limitations of custom hardware by achieving high parallelism to address up to 128 qubits per instruction and supporting fast mid-circuit measurement feedback. It demonstrates significant speedups and excellent scalability for controlling large quantum systems.",
+  "main_problem": "The classical control hardware stack is a critical scalability bottleneck for quantum systems, requiring efficient parallel instruction dispatching and low-latency feedback handling.",
+  "main_result": "The proposed RISC-V Vector Extension Architecture (HiSEP-Q 2.0) achieves up to 2.52x speedup over baseline designs while supporting scalable control up to 128 qubits.",
+  "method": "The authors designed a quantum extension built upon the RISC-V Vector (RVV) engine, implementing specialized instructions for gate operations and incorporating a hardware halt-resume protocol for mid-circuit measurements.",
+  "model_or_system": "The work focuses on designing a Quantum Control Processor (QCP) that acts as a programmable bridge between compilers and physical qubit manipulation hardware, tested using FPGA prototypes targeting superconducting qubits.",
+  "key_observables": "Program execution time speedup (2.52x), measurement resume latency (within 80 ns), and resource utilization on FPGAs.",
+  "important_parameters": "Scalability up to 128 qubits addressed in a single instruction; the use of RVV's length-agnostic SIMD semantics.",
+  "main_assumptions": "The design assumes that leveraging the open RISC-V ecosystem is superior to relying on custom Instruction Set Architectures (ISAs) for future scalability.",
+  "figures_summary": "Figures illustrate the overall architecture, the scaling of hardware resource usage (LUT/FF) linearly with qubit count N up to 128 qubits, and the integration of the quantum extension into the software stack.",
+  "paper_structure": "The paper introduces the bottleneck in QCPs, proposes HiSEP-Q 2.0 leveraging RVV for vectorization and parallelism, details the ISA extensions (including rotation instructions), describes the hardware implementation with MCM support, and validates performance and scalability on FPGA prototypes.",
+  "why_interesting": "This work directly addresses the classical control bottleneck in scaling quantum processors, which is crucial for implementing complex algorithms like Quantum Error Correction (QEC) that require massive qubit counts and rapid feedback loops.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.07372_figures/2607.07372_fig1.jpg",
+      "caption": "Fig. 1: HiSEP-Q 2.0 in the quantum software stack. The dashed boundary marks the components contributed by this work.",
+      "page": 4
+    },
+    {
+      "image": "2607.07372_figures/2607.07372_fig2.jpg",
+      "caption": "Fig. 2: Overall architecture of the Ibex-coupled quantum vector engine and its execution back end.",
+      "page": 5
+    },
+    {
+      "image": "2607.07372_figures/2607.07372_fig3.jpg",
+      "caption": "Fig. 3: Main blocks of QVCP Core. Quantum instructions use a dedicated sideband export path to expose the quantum elements to the QVCP Back-end.",
+      "page": 6
+    },
+    {
+      "image": "2607.07372_figures/2607.07372_fig4.jpg",
+      "caption": "Fig. 4: Execution time speedup compared to HiSEP-Q 1.0 (Baseline)",
+      "page": 8
+    },
+    {
+      "image": "2607.07372_figures/2607.07372_fig5.jpg",
+      "caption": "Figure 5a shows that, at SEW=8, the observed latency of QV.SINGLE, QV.ROT.G, and QV.ROT.V tracks the useful event count almost one-to-one, indicating nearly one emitted event per cycle in steady state. QV.PAIR and QV.ROT.G incur a small excess latency at larger qubit counts due to fixed stream-framing and pipeline-alignment overheads. Grouping factors of m4 and m8 are illegal for QV.ROT.V and therefore are not shown. In general, the observed latency is roughly linear with the number of encoded qubits; however, there are several configuration instructions before the system triggers the actual quantum event stream. It depends on the grouping",
+      "page": 8
+    }
+  ],
+  "figure": "2607.07372_figures/2607.07372_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
