@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.07816",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "A Sparse and Truncated State Vector Simulator for Peaked Circuits",
+  "authors": "Diogo R. Ferreira",
+  "abstract": "In a class of quantum circuits known as peaked circuits, the goal is to predict the most probable bit string at the output of the circuit. Since these circuits are designed to have a sharp peak in their output distribution, in principle it should be possible to simulate them using a truncated state vector with a limited number of terms, or a fraction of the total probability mass. This approximate simulation can be carried out on a classical computer with a sparse representation that stores only the nonzero amplitudes of the state vector, in contrast to the dense representations that are common in most quantum simulators. For efficiency, all operations on the state vector should be vectorized to the furthest possible extent and, if available, hardware acceleration can also be used. This work describes how these requirements were met in an open-source implementation, and discusses its performance and limitations.",
+  "url": "http://arxiv.org/abs/2607.07816v1",
+  "pdf": "https://arxiv.org/pdf/2607.07816v1",
+  "type": "theory",
+  "summary": "This paper presents an efficient classical simulation method for quantum circuits, particularly those with peaked output distributions. It achieves efficiency by using a sparse representation of the state vector and implementing controlled truncation via top-k or p-mass limits. This allows users to trade off computational resources against desired accuracy when exact simulation is infeasible.",
+  "main_problem": "To simulate quantum circuits efficiently when the state vector size grows exponentially, which exceeds classical computational memory.",
+  "main_result": "The authors developed an open-source implementation that successfully simulates peaked circuits by combining sparse representation with controlled truncation (top-k or p-mass). This allows resource management while retaining high fidelity for specific circuit types.",
+  "method": "The simulation uses a sparse state vector representation and applies unitary operations in blocks, followed by mandatory truncation based on either the maximum number of non-zero terms ($k$) or the minimum retained probability mass ($p$).",
+  "model_or_system": "The model is general quantum circuits applied to an $n$-qubit system. The focus is on 'peaked circuits' where the output probability distribution is highly concentrated, allowing for significant state vector sparsity.",
+  "key_observables": "Fidelity (approximated by retained total probability mass) and computational resources (runtime/memory usage controlled by $k$ or $p$).",
+  "important_parameters": "The truncation parameters ($k$ for top-k, $p$ for p-mass), the number of qubits ($n$), and the structure of the unitary gates.",
+  "main_assumptions": "The approach assumes that the observable quantities are dominated by a small subset of basis states, allowing for effective truncation. The method can fail if probability mass is spread widely despite having a clear peak.",
+  "figures_summary": "Figures illustrate the scaling of simulation time with $k$ (linear scaling) and show how the number of active terms grows during simulation under different truncation regimes ($k$ vs. $p$).",
+  "paper_structure": "The paper progresses from introducing the problem of state vector growth, detailing the sparse representation, proposing the combined top-k/p-mass truncation strategy, describing the optimized implementation (vectorization, GPU acceleration), and finally analyzing performance scaling.",
+  "why_interesting": "This work provides a concrete, resource-aware numerical technique for simulating quantum dynamics that goes beyond standard tensor network methods by directly managing state vector sparsity based on physical probability concentration, which is relevant for understanding complex many-body states.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.07816_figures/2607.07816_fig1.jpg",
+      "caption": "Fig. 1. Excerpt of BlueQubit’s sharp peak circuit.",
+      "page": 4
+    },
+    {
+      "image": "2607.07816_figures/2607.07816_fig2.jpg",
+      "caption": "Fig. 3. Number of terms during circuit simulation with top-k truncation.",
+      "page": 5
+    },
+    {
+      "image": "2607.07816_figures/2607.07816_fig3.jpg",
+      "caption": "Fig. 2. Circuit simulation time when applying top-k truncation.",
+      "page": 5
+    },
+    {
+      "image": "2607.07816_figures/2607.07816_fig4.jpg",
+      "caption": "Fig. 4. Number of terms during circuit simulation with p-mass truncation.",
+      "page": 5
+    },
+    {
+      "image": "2607.07816_figures/2607.07816_fig5.jpg",
+      "caption": "Fig. 3 illustrates how the number of terms increases during circuit simulation, for three different values of k. In an initial stage, some blocks of circuit instructions do not change the size of the state vector, while others cause the number of terms to double, so the staircase pattern in the plot is actually an exponential growth, up to the limit established by k. Naturally, the larger the number of terms becomes, the longer it will take to process each block of circuit instructions. With p-mass truncation, the situation is different. Here, the state vector is truncated after each block (as opposed to top-k truncation, where it is allowed to grow freely up to a point). However, if the...",
+      "page": 5
+    }
+  ],
+  "figure": "2607.07816_figures/2607.07816_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

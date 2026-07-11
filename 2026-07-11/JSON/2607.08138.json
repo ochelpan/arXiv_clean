@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.08138",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Adaptive Qubit Freezing Enables Robust Graph Partitioning for Divide-and-Conquer QAOA",
+  "authors": "Sokea Sang, Leanghok Hour, Dongmin Kim, Youngsun Han",
+  "abstract": "Divide-and-conquer variants of the Quantum Approximate Optimization Algorithm (QAOA) provide a promising route for executing combinatorial optimization problems beyond the qubit capacity of near-term quantum devices. However, existing approaches rely on the existence of small vertex separators and fail entirely on dense or highly connected graphs where such decompositions do not exist. We introduce Frozen Large Graph Partitioning (FrozenLGP), an adaptive decomposition framework that transforms partitionability from an assumption into an enforceable property. When standard partitioning fails, FrozenLGP identifies the minimum set of obstructing vertices through a minimum-vertex-cut computation based on max-flow and classically freezes their spin assignments. The energetic contributions of the removed interactions are rigorously preserved by folding them into linear bias terms in the Ising Hamiltonian of neighboring active qubits. Across graph sizes up to 10,000 vertices and multiple topology families, FrozenLGP achieves 100\\% decomposition coverage, compared with 4.6\\% for the standard divide-and-conquer baseline on high-connectivity instances. End-to-end MaxCut experiments demonstrate that FrozenLGP preserves approximation quality on instances already solvable by conventional divide-and-conquer QAOA while extending applicability to previously unsupported graphs, and outperforming alternative full-coverage decomposition strategies. Noise simulations further show improved robustness arising from reduced entangling-gate requirements. These results establish FrozenLGP as a topology-robust front end for distributed QAOA on near-term quantum hardware.",
+  "url": "http://arxiv.org/abs/2607.08138v1",
+  "pdf": "https://arxiv.org/pdf/2607.08138v1",
+  "type": "theory",
+  "summary": "The paper introduces FrozenLGP, an adaptive technique designed to make graph partitioning robust for QAOA on limited quantum hardware. It overcomes the failure of standard divide-and-conquer methods on dense graphs by identifying and 'freezing' critical vertices using max-flow computations. This process preserves the problem's energy structure by folding interactions into local bias terms, enabling full coverage and improved noise resilience.",
+  "main_problem": "Developing robust methods for solving combinatorial optimization problems, like MaxCut, using QAOA on near-term quantum devices when the problem graph is too large or highly connected for standard decomposition techniques.",
+  "main_result": "The proposed FrozenLGP framework achieves 100% decomposition coverage across tested graphs by adaptively freezing obstructing vertices and folding their interactions into linear bias terms in the Hamiltonian, significantly outperforming baseline methods on dense instances.",
+  "method": "FrozenLGP identifies minimum-vertex cuts using max-flow to find obstructing nodes; these nodes are classically frozen, and their energetic contributions are preserved by updating local bias fields (Ising field) of neighboring active qubits.",
+  "model_or_system": "The model is QAOA applied to combinatorial optimization problems mapped onto an Ising Hamiltonian ($H_P$). The physical system involves near-term quantum hardware constraints regarding qubit capacity and gate depth.",
+  "key_observables": "Decomposition Coverage (aiming for 100%), Approximation Quality ($\\langle H_P \rangle$), Circuit Depth, and Number of two-qubit entangling gates (CNOTs).",
+  "important_parameters": "Graph size (up to 10,000 vertices), connectivity density, and the budget parameter ($B_f$) controlling the freezing process.",
+  "main_assumptions": "The core assumption addressed is that standard divide-and-conquer QAOA fails when small vertex separators do not exist; FrozenLGP overcomes this by enforcing partitionability via freezing.",
+  "figures_summary": "Figures illustrate the mechanism: showing how standard LGP partitions graphs, how failure occurs on dense graphs, and finally demonstrating FrozenLGP identifying and freezing a crossing node while folding interactions into bias terms to maintain circuit validity.",
+  "paper_structure": "The paper introduces the limitations of DC-QAOA, proposes FrozenLGP as an adaptive framework using min-cut/max-flow for vertex identification, details the Hamiltonian modification via bias folding, validates performance through coverage metrics and noise simulations, and concludes with resource comparisons against monolithic QAOA.",
+  "why_interesting": "This work directly addresses hardware limitations (qubit connectivity and depth) in quantum algorithms by providing a systematic, mathematically rigorous method to adapt problem decomposition for NISQ devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.08138_figures/2607.08138_fig1.jpg",
+      "caption": "Figure 1: Overview of the FrozenLGP Partitioning Mechanism. (a) A standard graph exceeding the NISQ qubit budget, with nodes 4 and 5 identified as a potential separator path. (b) Standard LGP successfully bipartitions the sparse graph into two sub-circuits that share the separator nodes 4 and 5; these separator vertices are duplicated into both sub-circuits and re-merged by the MDR step, so they appear in both halves of (b) and (e). (c) In a denser graph, additional crossing edges prevent the separator path from disconnecting the network, causing standard LGP to fail. (d) FrozenLGP identifies a crossing node (Node 0, highlighted in blue) and classically freezes it (details in section 2.2),...",
+      "page": 2
+    },
+    {
+      "image": "2607.08138_figures/2607.08138_fig2.jpg",
+      "caption": "Figure 2: Schematic of a 1-layer (p = 1) QAOA circuit with linear bias terms. The circuit initializes an equal superposition via Hadamard gates. The problem unitary is then applied, explicitly showing the local linear bias rotations Rz(hiγ1) followed by the pairwise edge coupling rotations Rz(Ji,jγ1) implemented via CNOT cascades. A mixing layer of Rx(β1) rotations concludes the quantum evo- lution. The measured output distribution is fed into a classical optimizer, which iteratively updates the variational parameters (γ∗, β∗) to minimize the cost Hamiltonian.",
+      "page": 4
+    },
+    {
+      "image": "2607.08138_figures/2607.08138_fig3.jpg",
+      "caption": "Figure 3: Standard QAOA circuit for a fully active 4-node network. Node z1 acts as a central \"cross node\" connected to all other qubits (z2, z3, z4). Mapping this fully quantum topology requires 12 CNOT gates for a single QAOA layer (p = 1), with the blue-shaded region highlighting the extensive entangling overhead generated solely by z1.",
+      "page": 5
+    },
+    {
+      "image": "2607.08138_figures/2607.08138_fig4.jpg",
+      "caption": "Figure 4: Circuit simplification via Qubit Freezing. By classically freezing z1 to either +1 (left) or −1 (right), the node is removed from the quantum circuit. The entangling overhead is eliminated (reducing the CNOT count from 12 to 6). The original coupling strengths associated with z1 are folded into the local Rz(hiγ1) rotation gates of the surviving active qubits (z2, z3, z4).",
+      "page": 5
+    },
+    {
+      "image": "2607.08138_figures/2607.08138_fig5.jpg",
+      "caption": "Figure 5: Overall architecture and workflow of the FrozenLGP pipeline. For simplicity and visu- alization purposes, we illustrate the pipeline on a small five-vertex graph that exhibits an invalid separator configuration and is subsequently recovered by FrozenLGP through adaptive qubit freez- ing. (a) The process begins with a input graph G(V,E) whose size exceeds the available hardware qubit budget. (b) The graph is processed by the FrozenLGP algorithm, which first attempts standard Large Graph Partitioning (LGP) and subsequently applies adaptive qubit freezing to recover valid bipartitions on dense topologies. If a valid partition is successfully identified within the freeze budget, the...",
+      "page": 6
+    }
+  ],
+  "figure": "2607.08138_figures/2607.08138_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

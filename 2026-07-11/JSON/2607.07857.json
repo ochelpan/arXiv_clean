@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.07857",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Multi-agent Autoformalization of Tensor Network Theory",
+  "authors": "Sirui Lu, Erickson Tjoa, J. Ignacio Cirac",
+  "abstract": "We build a team of specialized large language-model agents and present an agent-driven workflow for research-level formalization in theoretical physics, with the autoformalization of the fundamental theorem of matrix-product states as a demonstration. The agents, coordinated through a structured mathematical blueprint and periodic human review, orchestrated and executed the full formalization autonomously. For some statements, the agents were able to explore new proof routes that are not part of the standard literature. Along the way the agents produced extensive tensor-network and quantum-information libraries not previously available in Mathlib, Lean's mathematical library. As a physical application, the formalization also extends towards symmetry-protected topological phases in one dimension. We find that the main bottleneck in large-scale autoformalization is enforcing mathematical intent and we provide a detailed study of the full process and various subtleties involved. We release the codebase as the library \\href{https://github.com/LionSR/TNLean}{TNLean}, together with a \\nChapters{}-chapter \\href{https://lionsr.github.io/TNLean/blueprint/}{blueprint} of the formalization effort.",
+  "url": "http://arxiv.org/abs/2607.07857v1",
+  "pdf": "https://arxiv.org/pdf/2607.07857v1",
+  "type": "theory",
+  "summary": "The paper introduces an agent-driven workflow using specialized LLMs to autoformalize advanced theorems in theoretical physics, demonstrated on Tensor Network Theory. By applying this system to the fundamental theorem of MPS and 1D topological phases, the authors showcase a powerful methodology for machine-checking complex physical mathematics. This effort establishes new computational libraries (TNLean) and highlights that controlling mathematical intent remains the key challenge in scaling such AI formalization efforts.",
+  "main_problem": "The primary goal is the automated, research-level formalization of complex theorems from theoretical physics, specifically focusing on Tensor Network Theory.",
+  "main_result": "The authors successfully demonstrated an agent-driven workflow that autoformalized the fundamental theorem of matrix-product states (FT-MPS) and extended it to classify 1D symmetry-protected topological phases.",
+  "method": "A multi-agent LLM system coordinates specialized agents using a structured mathematical blueprint, executing formal proofs within the Lean 4 proof assistant for machine verification.",
+  "model_or_system": "The theory centers on Matrix-Product States (MPS) used to describe quantum states on one-dimensional chains. The formalism connects these states to topological invariants derived from group representations.",
+  "key_observables": "Topological invariant $[\\omega] \\in H^2(G, C^\times)$, the MPS state $|\\psi_N(A)\rangle$, and the structure of the transfer operator $E_A$.",
+  "important_parameters": "The bond dimension ($D$), chain length ($N$), and the nature of the symmetry group $G$ are critical parameters.",
+  "main_assumptions": "The main bottleneck identified is enforcing correct mathematical intent during autoformalization; furthermore, reliance on primary literature sources was necessary for full autonomy.",
+  "figures_summary": "Figures illustrate multi-layered consistency checks across literature, blueprints, and Lean code. Another figure shows the flow from FT-MPS to SPT phase classification via a virtual-layer gauge identity.",
+  "paper_structure": "The paper details the agent workflow (Blueprint $\\leftrightarrow$ Lean), presents the formalization of FT-MPS (relating tensors via gauge transformations), extends this to 1D SPT phases, and concludes with a discussion on process limitations and infrastructure release.",
+  "why_interesting": "This work provides a blueprint for how AI can tackle foundational theoretical physics problems by automating rigorous mathematical proof construction in systems like Lean, which is highly relevant for developing formal quantum field theory or condensed matter models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.07857_figures/2607.07857_fig1.jpg",
+      "caption": "FIG. 1. Maintaining consistency across the literature, Lean, and the blueprint. A theorem stated in several sources under different notations (the matrices written Ai [28] or Ai [29, 30], injectivity phrased through the map ΓL [28] or as a spanning condition [29]) is transcribed once into the blueprint, in a single notation and with machine-readable links to the Lean declaration, and then proved in Lean (solid arrows; leanSearch scouts Mathlib, lean closes the proof; dotted lines attach each agent to the step it carries out). Two agents keep the layers consistent (dashed). leanBlueprint checks the mechanical links (every \\lean reference resolves to a declaration and every \\leanok to a...",
+      "page": 2
+    },
+    {
+      "image": "2607.07857_figures/2607.07857_fig2.jpg",
+      "caption": "FIG. 2. Blocking in tensor networks. Given an MPS ten- sor A, grouping L consecutive sites yields a single coarse- grained tensor A(L) whose physical index is the composite in- dex (i1, . . . , iL) and whose transfer operator is the L-th power (EA)L of the transfer operator EA of A. The spectrum of (EA)L",
+      "page": 3
+    },
+    {
+      "image": "2607.07857_figures/2607.07857_fig3.jpg",
+      "caption": "FIG. 3. From the fundamental theorem to the classification of symmetry protected topological phases. Top: the on-site symmetry U(g) acting on the physical leg of an injective MPS tensor A defines e Ag; the physical-layer assumption is that e Ag generates the same MPV family as A itself. Middle: FT-MPS turns this assumption into the virtual-layer gauge identity e Ai g = X(g) Ai X(g)−1 (Theorem 2; physical legs drawn up- ward, bond legs horizontal, as in Fig. 2). Bottom: X(g) is unique up to a scalar, so the gauges form a projective representation ρ with 2-cocycle ω; its class [ω] ∈H2(G, C×) is the gauge invari- ant labeling the symmetry-protected topological (SPT) phase, U(1)-valued after...",
+      "page": 4
+    },
+    {
+      "image": "2607.07857_figures/2607.07857_fig4.jpg",
+      "caption": "FIG. 4. System architecture and orchestration patterns. Left: a human supervisor sets mathematical intent; the orches- trator dispatches to four specialized interactive agents: a library scout (leanSearch), a proof writer (lean), a simplifier (leanSimplifier), and a blueprint synchronizer (leanBlueprint), together with an automated reviewer that also runs on each change proposed to the shared repository. All interactive agents (including the orchestrator) share a persistent memory and the Lean 4 server’s diagnostics, inspect, and loogle tools (Supplementary Material [42]), drawn as a single dashed region rather than one connection per agent per service. Right: the three recurring...",
+      "page": 8
+    },
+    {
+      "image": "2607.07857_figures/2607.07857_fig5.jpg",
+      "caption": "FIG. 5. Token usage by agent role, each bar broken down by the language models that role used. Proof writing and orchestration dominate, consistent with assigning the most capable models to the tasks where an error is most expensive.",
+      "page": 9
+    }
+  ],
+  "figure": "2607.07857_figures/2607.07857_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

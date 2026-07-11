@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.07942",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A hardware-efficient variational ansatz with an exact diagonal metric for real- and imaginary-time evolution and Haar sampling",
+  "authors": "Dario Picozzi",
+  "abstract": "Variational quantum algorithms depend on the geometry of their parametrised circuits: metric-aware optimisation and time evolution require the Fubini-Study metric, which has hitherto demanded costly auxiliary measurements and ill-conditioned inversions. This work introduces a hardware-efficient $n$-qubit ansatz, which parametrises states by a binary tree and whose Fubini-Study pullback metric is diagonal in closed form. Quantum natural gradient on the tree parameters, variational imaginary- and real-time evolution, and exact unitary-invariant (Haar) sampling on a symmetry sector run with no auxiliary metric circuits or matrix inversion. When the target state is supported on a subspace of $k$ computational-basis states, the redundant tree parameters carry a gauge freedom a pruning compiler converts into circuits whose two-qubit count provably grows linearly in $k$; a variant reaches near-optimal $O(nk/\\log n)$ scaling with the closed-form metric intact. On electronic-structure calculations for small molecules and half-filled Hubbard quench dynamics, the method reaches reference-level accuracy with one to three orders of magnitude fewer two-qubit gates than leading alternatives. Interchangeable constructions (a Schur-transform dressing or internal reparameterisations) make the ansatz exactly spin-adapted, with fixed total spin at every parameter and no penalty terms. The bare ansatz is an exactly controllable, well-conditioned and barren-plateau-free primitive for preparing and sampling sector states: on its own, it is classically simulable in $k$ (a boundary proved for a general class of sector-sparse ansätze); composed with a classically hard dressing, it yields molecular ground states, sector-Haar benchmarking, thermal correlators, and exact effective Hamiltonians trained from energy measurements alone, with the composed circuit carrying the potential for quantum advantage.",
+  "url": "http://arxiv.org/abs/2607.07942v1",
+  "pdf": "https://arxiv.org/pdf/2607.07942v1",
+  "type": "theory",
+  "summary": "This paper presents a novel, hardware-efficient ansatz for variational quantum algorithms whose geometric metric is provably diagonal. This breakthrough eliminates the need for costly auxiliary measurements when calculating natural gradients or performing time evolution in quantum simulations. It achieves state-of-the-art performance on molecular and Hubbard models with significantly fewer gates than existing leading methods.",
+  "main_problem": "The primary challenge addressed is overcoming the computational overhead associated with calculating the Fubini-Study metric for variational quantum algorithms used in time evolution and optimization.",
+  "main_result": "The authors introduce a hardware-efficient ansatz whose Fubini-Study pullback metric is diagonal in closed form, enabling natural gradient calculations and time evolution without costly auxiliary measurements or matrix inversions.",
+  "method": "They utilize a binary tree parameterization for the quantum state, deriving an exact, diagonal expression for the metric tensor that simplifies complex geometric computations into simple weight/probability tracking.",
+  "model_or_system": "The method is applied to simulating electronic structure calculations for small molecules and Hubbard quench dynamics. The ansatz is designed to be spin-adapted and applicable to general quantum many-body problems.",
+  "key_observables": "Fubini-Study metric, two-qubit gate count, natural gradient signal magnitude, leakage $L(\\phi)$, and energy expectation values ($E$).",
+  "important_parameters": "The number of qubits ($n$), the dimension of the active subspace ($k$), and the required accuracy (reference-level).",
+  "main_assumptions": "The method assumes the target state is supported on a low-dimensional subspace $k \\ll 2^n$ to enable parameter pruning; it also relies on the existence of structured dressings for quantum advantage.",
+  "figures_summary": "Figures illustrate the end-to-end pipeline, showing how the binary tree structure classifies parameters and leads to a pruned circuit whose complexity scales favorably with the active subspace size $k$.",
+  "paper_structure": "The paper builds from identifying the metric bottleneck in VQAs, proposing the diagonal ansatz structure via tree parameterization, deriving the closed-form metric for time evolution/gradient calculation, demonstrating pruning efficiency, and finally validating its use on molecular and Hubbard dynamics simulations.",
+  "why_interesting": "For AMO physicists working on open quantum systems or many-body dynamics, this provides a highly efficient, geometrically sound framework to implement variational methods (like VQE) that can handle complex Hamiltonians while maintaining rigorous control over optimization landscapes and computational cost.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.07942_figures/2607.07942_fig1.jpg",
+      "caption": "FIG. 1: End-to-end pipeline, illustrated on n = 4 qubits with k = |S| = 5 active basis states, S = {0000, 0001, 0010, 0110, 1010}. From the user-supplied active leaves (a) (green nodes in the tree), the compiler builds the binary tree and classifies each internal node as Active (yellow, free Ry angle), Fixed (red, Ry angle pinned to 0 or 1 in units of π/2) or Inactive (grey, gauge direction that does not affect the represented state) (b). Gauge-fixing the inactive parameters eliminates redundant elementary Ry gates in the cascade and exposes pairwise CNOT cancellations, yielding the pruned circuit (c) (shown stylised; coloured boxes mark Active/Fixed elementary Ry rotations in the same...",
+      "page": 3
+    },
+    {
+      "image": "2607.07942_figures/2607.07942_fig2.jpg",
+      "caption": "FIG. 2: Parametrization, classification, and the resulting diagonal metric for n = 4 and S = {0000, 0001, 0010, 0110, 1010}. (a) Each internal node carries one Ry parameter θi; each final-layer node carries one Rz parameter ωj, contributing the phase eiωj on its outgoing edge. Branch factors follow the convention of Sec. I A (cos θi on downward, sin θi on upward branches), labelled here along the leftmost path; the redundant global-phase coordinate ω0 is gauge-fixed to zero and drawn as a direct edge from θ7 to |0000⟩(no phase node). The metric weights wi and leaf probabilities pj are the squared path products of Sec. I B. Node colours follow the classification of Sec. I F: Active (yellow,...",
+      "page": 4
+    },
+    {
+      "image": "2607.07942_figures/2607.07942_fig3.jpg",
+      "caption": "FIG. 3: End-to-end pruning walkthrough (Algorithm 1) for the running example n = 4, S = {0000, 0001, 0010, 0110, 1010}, with classified tree shown in Fig. 2. Classes: Active = {θ0, θ1, θ3, θ7} (4 free), Fixed = {θ2=0, θ4=1, θ5=1, θ8=0, θ10=0, θ12=0}, Inactive = {θ6, θ9, θ11, θ13, θ14}. (a) The full unpruned triangular circuit (15 Ry + 14 CNOT); each elementary Ry is coloured by the class of the tree parameter it serves – yellow = kept (active), red = kept as a constant ±π/2 or ±π (fixed), faded grey = removed by pruning – and the two bracketing-empty CNOT pairs that cancel after Ry removal are highlighted in orange. Block boundaries (left to right): position 0 the cascade on q3, positions...",
+      "page": 8
+    },
+    {
+      "image": "2607.07942_figures/2607.07942_fig4.jpg",
+      "caption": "FIG. 4: Symmetry-adapted VQE benchmark in the STO-3G basis. Convergence at equilibrium geometry for five molecules: absolute energy error |E −Eref| versus the cumulative number of energy evaluations on a log scale, with Eref the CASCI (or FCI) reference. All curves share the same point-group-screened singles-and-doubles (S+D) parameter set unless noted. For MinimalMetric (MM, the symmetry-adapted pruned ansatz) two optimizers are compared on the identical ansatz, exact natural gradient (NG) and derivative-free Rotosolve, which reach the same S+D variational floor, confirming the residual error is the S+D truncation rather than an optimizer artefact; lifting MM to the full symmetry sector...",
+      "page": 11
+    },
+    {
+      "image": "2607.07942_figures/2607.07942_fig5.jpg",
+      "caption": "FIG. 5: Real-time molecular dipole-kick trajectories for H+ 3 , LiH, BeH2, H2O and NH3 at equilibrium geometry (κ = 0.05, T = 1; Euler and RK4 integrators). Each panel shows the trajectory infidelity against exact evolution on a log scale (top) over the coherent CNOT depth of each method (strip beneath, log scale). MinimalMetric (blue) tracks the exact trajectory to numerical precision; second-order Trotter (orange, dashed) is numerically exact; pVQD-HEA (green) and VarQRTE-HEA (purple), with per-molecule repetition count fixed at the knee of a dedicated sweep and the multistart L-BFGS state-preparation floor charged, plateau at ∼10−4–10−7 infidelity, orders of magnitude above...",
+      "page": 12
+    }
+  ],
+  "figure": "2607.07942_figures/2607.07942_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

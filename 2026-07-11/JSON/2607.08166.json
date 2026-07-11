@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.08166",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Pauli-decomposition and multistage state-refinement for tensor network based differential equation solver",
+  "authors": "Vishwabhushan Suresh Gholap, Himadri Shekhar Dhar, Siddhartha Santra",
+  "abstract": "Classical numerical techniques for solving partial differential equations (PDEs) become computationally expensive as the dimension of the discretized differential operator increases. For PDEs giving rise to Sturm--Liouville problems, tensor network (TN) methods can be highly productive: an operator of dimension $N\\times N$ can be represented as a matrix product operator (MPO) using only $n=\\log_2(N)$ qubits, enabling computation of eigenvalues and eigenvectors via imaginary time evolution (ITE). However, this remains computationally challenging. First, most methods for generating MPOs of large operators without explicit tensor-product structure require prohibitively large memory. Second, the number of Trotterization steps for convergence in conventional ITE increases rapidly with $n$. We present techniques to mitigate both challenges for certain sparse, structured differential operators. To address the first, we construct the MPO by expanding the operator in the Pauli-string basis, enabled by an analytical expression for the Pauli basis coefficients that reduces the memory requirement from $\\mathcal{O}(2^{n+1})$ to $\\mathcal{O}(2n)$. To address the second, we propose a multistage state-refinement heuristic that accelerates ITE convergence, reducing convergence time by up to two orders of magnitude. Using this TN framework, we compute the first 32 eigenstates of a Laplacian of dimension exceeding $10^6$ with fidelity above $0.95$ using a 20-qubit MPO. We further validate the method on the 2D anharmonic oscillator and investigate disordered systems, where increasing random potential strength degrades accuracy and limits the approach.",
+  "url": "http://arxiv.org/abs/2607.08166v1",
+  "pdf": "https://arxiv.org/pdf/2607.08166v1",
+  "type": "theory",
+  "summary": "This paper presents novel computational techniques to solve large-scale differential equations by mapping them onto tensor network representations. It overcomes memory bottlenecks in operator construction using Pauli decomposition and significantly accelerates convergence during imaginary time evolution. These advancements allow accurate computation of eigenstates for high-dimensional quantum systems previously deemed intractable.",
+  "main_problem": "Solving Partial Differential Equations (PDEs) numerically, which becomes computationally expensive as the dimension of the discretized operator increases.",
+  "main_result": "The authors developed techniques to efficiently construct Matrix Product Operators (MPOs) via Pauli-string decomposition and accelerated convergence using a multistage state-refinement heuristic.",
+  "method": "The core methods involve representing differential operators as MPOs, constructing these MPOs by expanding the operator in the Pauli basis with memory reduction techniques, and accelerating imaginary time evolution through multi-stage refinement.",
+  "model_or_system": "The work applies to solving eigensystems arising from Sturm–Liouville problems (e.g., Laplacian on a 1D lattice or 2D anharmonic oscillator), mapping them onto quantum systems solvable via tensor networks.",
+  "key_observables": "Eigenvalues and eigenvectors of the differential operator; fidelity of computed eigenstates.",
+  "important_parameters": "The dimension of the discretized operator ($N$), the number of qubits ($n=\\log_2 N$), and the bond dimension ($\\chi$).",
+  "main_assumptions": "The method assumes the underlying operators can be efficiently decomposed into a polynomial number of Pauli strings; accuracy degrades for disordered systems due to increased entanglement.",
+  "figures_summary": "Not specified, but mathematical propositions (e.g., Proposition 1-7) and an algorithm (Algorithm 1) are central to the derivation.",
+  "paper_structure": "The paper builds from establishing the computational bottleneck of large PDEs, proposing MPO construction via Pauli decomposition with memory optimization, accelerating imaginary time evolution, and validating these techniques on specific physical models like the Laplacian.",
+  "why_interesting": "It provides advanced numerical tools for simulating quantum Hamiltonians derived from continuous physics (PDEs), which is highly relevant for studying open quantum systems or lattice approximations of continuum theories.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.08166_figures/2607.08166_fig1.jpg",
+      "caption": "FIG. 1. Successive SVD truncations used to obtain the MPS representation of the coefficient tensor. Only the first trun- cation step is shown explicitly; the downward arrow shows repetition of same decomposition for each remaining sites.",
+      "page": 3
+    },
+    {
+      "image": "2607.08166_figures/2607.08166_fig2.jpg",
+      "caption": "FIG. 2. Wall-clock time scaling of the Pauli-basis expansion as a function of the number of qubits 𝑛for the (a) Laplacian and (b) Legendre operators. Red circles (solid line) denote the present approach, navy squares (dashed line) denote the Qiskit and green triangles (dotted line) denote pauli lcu [42] implementations. The × marker indicates the point beyond which Qiskit and pauli lcu exhausts available memory (𝑛> 15), while the present approach continues to function.",
+      "page": 6
+    },
+    {
+      "image": "2607.08166_figures/2607.08166_fig3.jpg",
+      "caption": "FIG. 4. Fidelity vs. cumulative number of Trotter step for the (a) ground, (b) first, (c) second, and (d) third excited states of the Laplacian operator. Colors indicate the multistage state- refinement strategy (𝑛= 4 →6 →10 (red), 6 →10 (green), or 10 directly (blue)); markers indicate the qubit count 𝑛(see legend, panel a). Trotter step size is kept constant at 0.1.",
+      "page": 8
+    },
+    {
+      "image": "2607.08166_figures/2607.08166_fig4.jpg",
+      "caption": "FIG. 3. Fidelity of first 50 eigenstate of the Dirichlet Lapla- cian on [−1, 1] obtained via multistage imaginary time evolu- tion on 6, 8 and 20 qubits (see legend). For 20 qubits, first 32 states have 𝐹≥0.95 with 𝐹= 0.9511 for state 32.",
+      "page": 8
+    },
+    {
+      "image": "2607.08166_figures/2607.08166_fig5.jpg",
+      "caption": "FIG. 5. Probability density |Ψ|2 of the first four eigenstates of the separable 2𝐷anharmonic oscillator confined in a box.(𝑎) Ground state, (𝑏) first, (𝑐) second and (𝑑) third excited states.",
+      "page": 9
+    }
+  ],
+  "figure": "2607.08166_figures/2607.08166_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 5
+  },
+  "citation_potential": {}
+}

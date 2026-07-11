@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.08212",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Möbius-Guided Diagonal-Gate Compilation with Native Multiqubit Controlled-Phase Gates on Neutral-Atom Processors",
+  "authors": "Hairuo Huang, Yanwu Gu, Chen Huang, Xi Zhao, Meng-Jun Hu, Dong E. Liu, Jingbo Wang",
+  "abstract": "Diagonal gates are ubiquitous primitives in quantum algorithms, from phase oracles, hypergraph-state preparation, and multi-control logic to Hamiltonian simulation of spin models and digitized lattice field theories, where Ising interactions and local potential terms are diagonal in the encoded basis. Standard compilers, however, often lower diagonal structure into one- and two-qubit gates before neutral-atom hardware can exploit native Rydberg-mediated multiqubit controlled-phase operations. We propose a Möbius-guided compiler that maps a diagonal phase function to a phase hypergraph via subset-lattice Möbius inversion. The hypergraph retains the support and angle of each many-body phase term, allowing sparse or local high-order structure to be routed as native multiqubit controlled-phase candidates when feasible and decomposed otherwise. The neutral-atom scheduler accounts for atom motion, interaction-zone constraints, blockade feasibility, and error costs, enabling a direct comparison between native high-order execution and decomposed alternatives. Benchmarks against routed ZAP and ZX-calculus baselines show improved estimated success for algorithmic instances with exploitable three- and four-body phase terms, and comparable performance on predominantly two-body instances. These results provide a feasible compilation strategy for more fully exploiting the native capabilities of neutral-atom hardware, using atom reconfigurability and Rydberg-mediated multiqubit phase operations as practical resources for more efficient quantum computation.",
+  "url": "http://arxiv.org/abs/2607.08212v1",
+  "pdf": "https://arxiv.org/pdf/2607.08212v1",
+  "type": "theory",
+  "summary": "This paper introduces a Möbius-guided compiler designed to efficiently compile diagonal phase gates for neutral-atom quantum processors. It uses subset-lattice Möbius inversion to represent these complex phases as a 'phase hypergraph,' preserving high-order structure. This allows the scheduler to optimally choose between executing native, hardware-efficient multiqubit controlled-phase operations or resorting to standard gate decompositions.",
+  "main_problem": "Standard quantum compilers fail to exploit native, high-order multiqubit controlled-phase gates available on neutral-atom hardware because they prematurely decompose diagonal gate structures.",
+  "main_result": "A Möbius-guided compiler was developed that maps the phase function to a phase hypergraph, achieving improved estimated success and stage reduction for algorithms with exploitable three- or four-body phase terms.",
+  "method": "The method uses subset-lattice Möbius inversion to transform an arbitrary diagonal phase function into its irreducible projector-phase components, forming a phase hypergraph representation.",
+  "model_or_system": "The work is situated on neutral-atom processors utilizing Rydberg-mediated interactions. The core primitive is the occupation-projector phase $\text{PS}(\theta) = \\exp\\left(i\theta \\sum_{j\\in S} n_j\right)$.",
+  "key_observables": "Estimated no-fault success, scheduled-stage count, and gate counts compared across compilation strategies (Möbius native vs. ZAP/ZX baselines).",
+  "important_parameters": "The support set $S$ of the phase term, the angle $\theta$, and hardware constraints like atom motion and blockade feasibility.",
+  "main_assumptions": "The compiler assumes that if a high-order phase is mathematically recoverable via Möbius inversion, it can be physically routed as a native Rydberg-mediated controlled-phase gate when feasible.",
+  "figures_summary": "Figures illustrate the schematic basis for Rydberg interactions ($V_{ij} \\propto C_6/R_{ij}^6$), the physical layout showing support sets $S$ on neutral atoms, and the mathematical structure of the Möbius inverse transform in a degree-graded ordering.",
+  "paper_structure": "The paper establishes the problem by noting compiler limitations, introduces the Möbius-guided compilation framework using subset-lattice inversion to generate a phase hypergraph, details how this maps onto native Rydberg gates, and validates the approach via benchmarks showing improved scheduling metrics.",
+  "why_interesting": "It provides a rigorous mathematical bridge between abstract quantum circuit requirements (diagonal phases) and the specific physical capabilities of emerging hardware platforms like neutral atoms, which is crucial for advancing fault-tolerant quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.08212_figures/2607.08212_fig1.jpg",
+      "caption": "FIG. 1. (a) Schematic of interaction energies. Variation of the van der Waals frequency shift V (Rij) = C6/R6 ij (blue) with interatomic distance Rij for the ground state |ggg⟩, single-excited state |W1⟩, doubly excited state |W2⟩, and excited state |rrr⟩. (b) Neutral atom layout with separated storage and computation regions. The figure shows a three-atom support set S3 = {q1, q2, q3} (θS3, blue) and a five-atom support set S5 = {q4, . . . , q8} (θS5, green). (c) In the degree-graded basis, the M¨obius matrix M = ζ−1 = µ⊗n 1 takes a block lower-triangular form with identity diagonal blocks I(k) of size \u0000n k \u0001 .",
+      "page": 3
+    },
+    {
+      "image": "2607.08212_figures/2607.08212_fig2.jpg",
+      "caption": "FIG. 2. The M¨obius Compiler for Atoms pipeline. A diag- onal algorithm is M¨obius-inverted into projector hyperedges, synthesized as native occupation-projector gates or decom- posed (Layer 1), ASAP-scheduled (Layer 2), routed on the storage/entanglement-zoned architecture (Layer 3), and ver- ified bit-exactly (Layer 4). The M¨obius-native and ZAP- decomposed strategies differ only at the synthesis step and share the scheduler, router, and fidelity model.",
+      "page": 6
+    },
+    {
+      "image": "2607.08212_figures/2607.08212_fig3.jpg",
+      "caption": "FIG. 3. Circuit decomposition comparison for the same compact 6-qubit 3-SAT oracle instance. Panels (a)–(c) show the original ZAP decomposition, the ZX no-insert-calculus decomposition, and the M¨obius-native decomposition, respectively. ZAP lowers the M¨obius projector terms to one- and two-qubit gates, ZX extracts a different no-insertion phase circuit from the standard input circuit, and the M¨obius-native path keeps the occupation-projector supports as native phase gates. In the drawing, single-qubit phases with angle ±π/4 are displayed as T and T † gates, RZ angles in panel (b) are shown modulo 2π for compactness, and projector phases are displayed as Z gates or filled-dot...",
+      "page": 7
+    },
+    {
+      "image": "2607.08212_figures/2607.08212_fig4.jpg",
+      "caption": "FIG. 4. Performance comparison for eight common algorithmic benchmark families. Each panel plots routed total fidelity on a logarithmic scale versus qubit count for the M¨obius-native compiler, the original ZAP decomposed baseline, and the ZX no-insert-calculus baseline. The first six panels are Hamiltonian or oracle benchmarks with explicit many-body interaction terms, where native multiqubit execution can reduce decomposed gate exposure and scheduled stages. The last two panels are two-body controls, where the three compilation paths are expected to be similar.",
+      "page": 12
+    },
+    {
+      "image": "2607.08212_figures/2607.08212_fig5.jpg",
+      "caption": "Figure 6 extends the comparison to larger systems us- ing timing quantities rather than final no-fault success. The top row plots total routed circuit duration for 3-SAT, p-spin Ising, and QRAM from 20 to 100 qubits. These benchmark families were chosen because they represent three different many-body sources: Boolean clause ora- cles, local diagonal Hamiltonian terms, and multi-control addressing. In all three cases, M¨obius-native compila- tion gives shorter routed duration. The reason is the same mechanism seen in Fig. 5 and Appendix D: the na- tive path reduces serialized decomposed work and often avoids repeated movement into the entanglement zone. The duration advantage is...",
+      "page": 12
+    }
+  ],
+  "figure": "2607.08212_figures/2607.08212_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 4,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
