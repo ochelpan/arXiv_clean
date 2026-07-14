@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.09445",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Diagnosing quantum reservoirs at scale based on expressivity and coverage",
+  "authors": "Laia Domingo, Oriol Balló-Gimbernat, Fernando Vilariño",
+  "abstract": "Quantum reservoirs offer a hardware-friendly route to quantum machine learning, replacing trainable circuits with fixed random dynamics and a classical readout. Because the reservoir is not optimized, performance depends entirely on the choice of reservoir family, yet existing diagnostics demand resources that grow exponentially with system size. We introduce a scalable, hardware-agnostic framework built on two complementary quantities. The first is a task-independent order-statistics (ORS) expressivity score, which compares only the largest output probabilities of a reservoir ensemble against an analytical Haar baseline. It never reconstructs the full output distribution, is cost-independent of Hilbert-space dimension, and admits a closed-form depolarizing noise correction, making it directly usable on hardware. The second is the task-dependent effective rank $R_{\\mathrm{eff}}$ of the feature matrix, which measures how much input-dependent information reaches the readout. We validate the ORS score against established complexity diagnostics and confirm it remains informative under simulated noise and on IBM quantum hardware. Across synthetic and real quantum extreme learning machine and quantum reservoir computing benchmarks, ORS captures the intrinsic expressivity hierarchy of reservoir families while $R_{\\mathrm{eff}}$ determines when that expressivity becomes usable predictive information.",
+  "url": "http://arxiv.org/abs/2607.09445v1",
+  "pdf": "https://arxiv.org/pdf/2607.09445v1",
+  "type": "both",
+  "summary": "The paper presents a scalable, two-part diagnostic framework—ORS and $\text{Reff}$—to characterize quantum reservoirs used in QML. It overcomes the exponential scaling problem of older diagnostics by focusing only on top output probabilities and input feature rank. The results confirm that high expressivity (near Haar randomness) combined with sufficient feature coverage leads to superior machine learning performance.",
+  "main_problem": "Existing methods for diagnosing quantum reservoir expressivity scale exponentially with system size, making them impractical for large-scale hardware.",
+  "main_result": "The authors introduce a scalable framework using two complementary diagnostics—an Order-Statistics (ORS) score and an Effective Rank ($\text{Reff}$)—that successfully correlates intrinsic expressivity with usable predictive information on quantum machine learning tasks.",
+  "method": "They propose the ORS score, which analyzes only the top output probabilities against a Haar baseline, and $\text{Reff}$, which measures input-dependent feature utility. These are combined to provide hardware-agnostic diagnostics.",
+  "model_or_system": "The study focuses on Quantum Reservoirs (QRs) used in Quantum Reservoir Computing (QRC) and Quantum Extreme Learning Machines (QELMs). The reservoirs are constructed using various fixed random quantum circuits (e.g., G1, G2, G3 families) tested across synthetic tasks and real-world benchmarks like LiH chemistry regression.",
+  "key_observables": "Order-Statistics (ORS) gap ($\\Lambda - \\Lambda_{\text{Haar}}$), Effective Rank ($\text{Reff}$), Test Mean Squared Error (MSE), and $R^2$ correlation coefficients.",
+  "important_parameters": "System size/Hilbert-space dimension ($D$), effective fidelity ($f_{Bq}$), number of gates, and the choice between commuting vs. non-commuting circuit constructions.",
+  "main_assumptions": "The noise correction assumes a dominant global depolarizing channel; the analytical derivations for ORS rely on the large-$D$ approximation.",
+  "figures_summary": "Figures demonstrate that reservoir families approaching Haar randomness (like G3) show high ORS scores and $\text{Reff}$, correlating with low test MSE. The comparison between different circuit types shows how non-commuting structures maintain better performance.",
+  "paper_structure": "The paper first introduces the scalability problem, then details the two diagnostics (ORS and $\text{Reff}$), validates them against established theory and noise models, and finally applies the combined framework to benchmark real-world quantum machine learning tasks.",
+  "why_interesting": "This work provides a crucial set of metrics for assessing the hardware readiness and theoretical limits of variational quantum algorithms by decoupling intrinsic expressivity from task-specific feature utilization.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.09445_figures/2607.09445_fig1.jpg",
+      "caption": "Figure 1. Comparison of expressivity and dynamical-complexity diagnostics for the G3 reservoir family at n = 6. The KL divergence from the Haar fidelity distribution is shown in orange on the left logarithmic axis. The order-statistics scores GORS for K ∈{1, 4, 8} are shown on separate right axes, together with their Haar references. The dashed blue curve shows the chaos indicator based on the ratio of consecutive level spacings r, and the dashed purple curve shows the Krylov complexity. All diagnostics identify the same transition from shallow structured circuits to Haar-like, chaotic behavior as the circuit depth increases.",
+      "page": 7
+    },
+    {
+      "image": "2607.09445_figures/2607.09445_fig2.jpg",
+      "caption": "Figure 2. Quantum extreme learning machine results on the synthetic Fourier regression task for n = 6. Top: ORS diagnostic, using the multi-basis diagnostic with B = 50 random local Pauli bases for the diagonal families. Middle: effective rank Reff. Bottom: test Mean Squared Error (MSE).",
+      "page": 8
+    },
+    {
+      "image": "2607.09445_figures/2607.09445_fig3.jpg",
+      "caption": "Figure 3. Same as Fig. 2 for the quantum reservoir computing task on the synthetic NARMA dataset for n = 6.",
+      "page": 9
+    },
+    {
+      "image": "2607.09445_figures/2607.09445_fig4.jpg",
+      "caption": "Figure 4. QELM results on the LiH excited-energy prediction task. The expressivity–coverage alignment observed in the synthetic Fourier task persists in the quantum-chemistry setting. Reservoirs that approach the Haar reference and develop larger effective rank achieve the lowest test MSE.",
+      "page": 12
+    },
+    {
+      "image": "2607.09445_figures/2607.09445_fig5.jpg",
+      "caption": "Figure 5. QRC results on the EMSIG residential energy forecasting task. The test metric is R2, so higher values indicate better forecasting performance. The best-performing reservoirs are those for which strong expressivity diagnostics are accompanied by large effective rank.",
+      "page": 13
+    }
+  ],
+  "figure": "2607.09445_figures/2607.09445_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

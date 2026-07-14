@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.09279",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Transient Reserves, Sink Dampers, and the Failure of Eigenvalue Reasoning in the Attention Propagator",
+  "authors": "Li Hengyu",
+  "abstract": "The attention matrix of a causal transformer is row-stochastic, iterated over depth, and non-normal by construction. For non-normal operators, eigenvalues control only asymptotic behavior; finite-depth behavior is controlled by resolvent quantities such as pseudospectra and Kreiss constants. We test, under pre-registered criteria, whether this resolvent view predicts anything about trained transformers that eigenvalues miss. Two structural facts organize the analysis: the mask pins the Kreiss constant of every causal stochastic matrix at $\\sqrt{n}$, and deflating the mask-forced Perron projector factorizes the depth deviation dynamics exactly into a product of deflated operators. Across GPT-2, Pythia-410m, and Llama-3-8B, learned non-normality proves to be signed. A routing minority carries excess transient reserve that tracks previous-token function and doubles when induction heads engage, while the sink majority is suppressed below matched shuffle nulls, so that attention sinks act as transient dampers. On depth products, eigenvalue predictions of surviving deviations err by seven to eleven orders of magnitude, an error absent in matched nulls. Checkpoint censuses date this organization to a consolidation phase after circuit formation, and a clamping intervention on Llama-3-8B establishes a causal chain from three massive activation dimensions through sink attention to transient damping; LayerNorm models implement the same functions elsewhere. A cross-validated contest concludes that resolvent features are required for depth-transient persistence and routing-head identity, and that no single-operator summary of any kind predicts per-head causal criticality.",
+  "url": "http://arxiv.org/abs/2607.09279v1",
+  "pdf": "https://arxiv.org/pdf/2607.09279v1",
+  "type": "theory",
+  "summary": "This paper argues that standard eigenvalue methods fail to capture the true, finite-depth dynamics of attention mechanisms in large language models because these operators are non-normal. By employing advanced resolvent techniques, the authors demonstrate that transient behavior is governed by quantities like pseudospectra and Kreiss constants, revealing distinct functional roles for different parts of the network.",
+  "main_problem": "The study challenges whether eigenvalue analysis is sufficient or misleading for understanding the finite-depth dynamics of attention propagators in causal transformers, especially since these operators are non-normal.",
+  "main_result": "Resolvent quantities (like pseudospectra and Kreiss constants) are necessary to predict depth-transient behavior, as eigenvalue predictions fail by many orders of magnitude on trained stacks. The analysis reveals distinct functional roles for different attention heads acting as transient dampers or amplifiers.",
+  "method": "The authors compare spectral properties derived from eigenvalues against resolvent quantities (pseudospectra, Kreiss constants) applied to the deflated attention operator product over depth.",
+  "model_or_system": "The system analyzed is the causal attention matrix of large language models (GPT-2, Pythia, Llama), which forms a row-stochastic, non-normal operator whose dynamics are governed by repeated multiplication across model depth.",
+  "key_observables": "Kreiss constant ($K_{dev}$), pseudospectral radius ($\rho_\\epsilon$), transient reserve correlations, and the deviation of actual depth evolution from eigenvalue heuristics.",
+  "important_parameters": "Model scale (e.g., Llama-3-8B), sequence length/depth ($L$), and the structural components like 'routing minority' vs. 'sink majority'.",
+  "main_assumptions": "The analysis is structured around pre-registered criteria assuming eigenvalue reasoning fails for finite depth, and all quantitative results are reported as excess over per-matrix nulls.",
+  "figures_summary": "Figures illustrate the failure of eigenvalue heuristics compared to measured deviation transients (orders of magnitude difference) and show how specific heads transition between sink/damper states based on context or probes.",
+  "paper_structure": "The paper establishes the non-normality of the attention propagator, contrasts spectral vs. resolvent views, analyzes structural components (minority/majority), demonstrates quantitative failure of eigenvalues, and concludes that resolvent features are essential for predicting depth persistence.",
+  "why_interesting": "The mathematical tools developed—using pseudospectra and Kreiss constants to analyze non-normal operators in a deep product structure—are directly applicable to understanding the stability and information flow dynamics in complex quantum systems or open quantum channels where simple spectral analysis fails.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.09279_figures/2607.09279_fig1.jpg",
+      "caption": "Figure 1: Left: per-head median Kdev, real versus row-permutation null (GPT-2, log–log axes). The nulls concentrate in a narrow band near 6 while real heads spread across [1, 15.7]; previous-token- like heads (bright) lie on or above the diagonal, and sink-dominated heads collapse to the analytic normal floor Kdev = 1. Right: the damper over depth. The median real Kdev tracks the null in layers 0–2 and then collapses to between 1.5 and 2 exactly as the BOS sink mass (gray) rises; sinks purchase depth stability by suppressing transient reserve.",
+      "page": 5
+    },
+    {
+      "image": "2607.09279_figures/2607.09279_fig2.jpg",
+      "caption": "Figure 2: Depth deviation-transient for GPT-2. Left: the measured DL (blue) against the eigenvalue heuristic EL (red, which collapses to 10−11) and the norm bound (gray, which grows to 109); the measured curve lies many orders away from both. The row-permutation null (orange) decays more slowly in absolute terms, yet its eigenvalue heuristic is nearly calibrated. Right: accumulation of Perron (sink) mass. The real stack absorbs to BOS by roughly layer 8, far earlier than the null, so Perron absorption is accelerated by training.",
+      "page": 6
+    },
+    {
+      "image": "2607.09279_figures/2607.09279_fig3.jpg",
+      "caption": "Figure 3: Transient reserve tracks functional state (GPT-2). Induction heads (bright) leave the dormant sink corner near Kdev = 1 and land above the identity when engaged, at Kdev between 2.0 and 2.8. Persistent routing heads sit on the diagonal. The shift is an excess gain over state-matched nulls and therefore reflects added routing structure rather than a changed row profile.",
+      "page": 7
+    },
+    {
+      "image": "2607.09279_figures/2607.09279_fig4.jpg",
+      "caption": "Figure 4: Training-time consolidation on Pythia-410m. Left: the population median Kdev excess (propagator side, blue) and the companion paper’s weight-space Dhead suppression (red) on a shared token axis. Both sit at their nulls through 1.1B tokens, begin to decline in the tail of the circuit- formation window (shaded), and cross half of their final depth at the same checkpoint, 8.4B tokens. The propagator side keeps deepening to 300B, while the weight-side all-head median saturates by roughly 34B; the latter is a mixture statistic, and the companion reports its induction subgroup deepening well past that point. Right: per-head timing. The sink attention pattern forms before or together...",
+      "page": 8
+    },
+    {
+      "image": "2607.09279_figures/2607.09279_fig5.jpg",
+      "caption": "Figure 5: The causal test on Llama-3-8B. The three massive dimensions are clamped at every residual boundary (red) against three random dimensions (blue). BOS attention collapses from layer 3 onward (0.675 to 0.049, left) and the Kreiss damper releases, with Kdev jumping to 11– 12 at layers 3–5 and settling near 7.4, approximately the mask-null level (right). Controls are indistinguishable from baseline to three decimals.",
+      "page": 10
+    }
+  ],
+  "figure": "2607.09279_figures/2607.09279_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

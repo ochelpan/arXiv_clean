@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.09368",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Approximate Optimization via Noise-Directed Adaptive Warm-Starting",
+  "authors": "Filip B. Maciejewski, Stuart Hadfield, Oscar Wallis, George Pennington, Sebastian Brandhofer, Stefan Woerner, Daniel J. Egger, Davide Venturelli",
+  "abstract": "Progress towards a quantum advantage using known heuristic methods for combinatorial optimization is impeded by hardware noise and limited qubit count. Here, we propose a noise-aware adaptive approach to quantum approximate optimization, Noise-Directed Adaptive Warm-Starting (ND-AWS), that builds on recent concepts such as Warm-Start QAOA and Noise-Directed Adaptive Remapping. By leveraging bitflip gauge transformations, our algorithm exploits amplitude-damping-like noise components. We experimentally implement high-performance quantum optimization ansätze on 100-qubit Ising Hamiltonians, showing that ND-AWS generally improves the performance over a non-gauge-transformed iterative Warm-Starting variant, at no additional circuit cost. This places our results among the highest-quality demonstrations of quantum optimization with similar ansätze at this scale. Crucially, the simplicity of the framework opens the door for future enhancements such as adaptive bias schedules, and integration with classical solvers.",
+  "url": "http://arxiv.org/abs/2607.09368v1",
+  "pdf": "https://arxiv.org/pdf/2607.09368v1",
+  "type": "both",
+  "summary": "This paper introduces Noise-Directed Adaptive Warm-Starting (ND-AWS), a novel algorithm designed to boost performance in quantum optimization algorithms like QAOA when running on noisy hardware. By adaptively incorporating noise structure through gauge transformations, ND-AWS guides the search process more effectively than standard methods. The results demonstrate state-of-the-art performance for complex combinatorial problems on large superconducting quantum processors.",
+  "main_problem": "The primary challenge is improving quantum approximate optimization for combinatorial problems, which is severely limited by hardware noise and restricted qubit counts.",
+  "main_result": "The proposed Noise-Directed Adaptive Warm-Starting (ND-AWS) method generally improves performance over standard warm-starting techniques on 100-qubit Ising Hamiltonians without increasing circuit depth.",
+  "method": "The approach combines iterative warm-starting with noise-aware gauge transformations, allowing the optimization ansatz to adaptively bias itself towards regions corresponding to high-quality solutions found in previous iterations.",
+  "model_or_system": "The work is applied to solving combinatorial optimization problems encoded by a cost Hamiltonian $H_C = \\sum J_{ij} Z_i Z_j$, tested experimentally on 100-qubit Ising Hamiltonians using superconducting quantum processors.",
+  "key_observables": "Approximation Ratio (AR), and the distance to the optimal solution ($1-AR$).",
+  "important_parameters": "Bias parameter $c$, noise strength ($q$), and the number of qubits ($\\sim 100$).",
+  "main_assumptions": "The method assumes that hardware noise can be constructively exploited via bitflip gauge transformations to guide the optimization process towards the ideal ground state.",
+  "figures_summary": "Figures compare $1-AR$ across different methods (Standard IWS vs. ND-AWS) and show how classical post-processing (HDQS) improves results, while other figures detail the iterative circuit structure and bias evolution.",
+  "paper_structure": "The paper introduces ND-AWS by building upon Warm-Start QAOA and Noise-Directed Adaptive Remapping; it details the gauge transformation mechanism for hardware implementation on Ising Hamiltonians; performance is evaluated across various random graph types, comparing results with and without classical post-processing enhancements.",
+  "why_interesting": "While focused on optimization, the core technique of using noise structure (amplitude damping) to guide quantum state preparation via gauge transformations is highly relevant to understanding error mitigation and variational ansatz design in open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.09368_figures/2607.09368_fig1.jpg",
+      "caption": "FIG. 1. Illustration of the Noise-Directed Adaptive Warm-Starting algorithm implementation introduced in this paper. (top) In the vanilla Warm-Start QAOA [13], the phase separator Hamiltonian is equal to the cost Hamiltonian, and fixed during the execution. Our shallow-depth ansatz expands upon Warm-Start QAOA by combining it with Time-Block QAOA [37], and Noise-Directed Adaptive Remapping [34]. The Time-Block ansatz divides the original cost Hamiltonian HC = P",
+      "page": 2
+    },
+    {
+      "image": "2607.09368_figures/2607.09368_fig2.jpg",
+      "caption": "FIG. 2. Distance to the optimal solution, 1−AR, of the best-found sample obtained in simulated runs of n = 20-qubit random Erd˝os-R´enyi graphs with edge density 10% (a) and 20% (b), as well as 3-regular graphs (c). The vertical axis is logarithmic and inverted, so that better solutions (lower 1 −AR) appear towards the top. The blue solid line corresponds to a noiseless ND/Standard IWS implementation. The solid lines with a greenish gradient correspond to the Noise-Directed WS ansatz with progressively stronger amplitude damping noise of strength q. The dashed lines with a reddish gradient correspond to the Standard WS ansatz, without gauge transforms, as described in the text; the legend...",
+      "page": 5
+    },
+    {
+      "image": "2607.09368_figures/2607.09368_fig3.jpg",
+      "caption": "FIG. 3. Distance to the optimal solution, 1 −AR (loga- rithmic scale; inverted axis, as in Fig. 2), of the best-found sample at each iteration of p = 1 WS-QAOA implemented for 30 Hamiltonians, ten for ER-10 (a), ten for ER-20 (b), and ten for RG-3 (c), with n = 100 qubits on ibm boston with (ND-AWS, solid blue) and without (Standard, dashed red) the gauge transformations; the legend in (c) applies to all panels. The results are augmented with 2-local classical local search at each iteration (HDQS; see text description). Opti- mal solutions (AR = 1) are clipped to 10−3 (dotted horizontal line). Each data point is the best of three independent runs. Thick lines with circle markers correspond...",
+      "page": 6
+    },
+    {
+      "image": "2607.09368_figures/2607.09368_fig4.jpg",
+      "caption": "FIG. 4. Distance to the optimal solution, 1 −AR, of the best-found sample (logarithmic scale; inverted axis as in Fig. 2) at each iteration of the p = 1 ND-AWS for n = 100-qubit random Erd˝os-R´enyi graphs ER-10 (a) and ER-20 (b), and random 3-regular graphs RG-3 (c), with samples drawn from an MPS approximation. Colors correspond to different bond dimensions χ; the legend in (c) applies to all panels. Each thin dotted line is a different random Hamiltonian instance, chosen as the best out of 3 independent runs, with its best point indicated by a star symbol; optimal solutions (AR = 1) are clipped to 10−3",
+      "page": 18
+    },
+    {
+      "image": "2607.09368_figures/2607.09368_fig5.jpg",
+      "caption": "FIG. 5. Optimized mean Approximation Ratio of p = 1 Noise-Directed Warm-Start QAOA (left Y-axis; green points) and the corresponding optimized Bias Parameter (right Y-axis; orange points), as a function of the candi- date solution quality (X-axis), aggregated over 10 random instances of 500-qubit ER-10 Hamiltonians. The dashed line corresponds to the y = x line w.r.t. the optimized ⟨AR⟩ axis: points above it indicate that the optimized state im- proves, on average, upon the candidate solution.",
+      "page": 19
+    }
+  ],
+  "figure": "2607.09368_figures/2607.09368_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

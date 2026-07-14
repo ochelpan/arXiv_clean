@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.09151",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DC"
+  ],
+  "is_primary_archive": true,
+  "title": "Hybrid Quantum and Classical Workload Management with Graph-based Scheduling",
+  "authors": "Vanessa Sochat, Daniel Milroy",
+  "abstract": "High Performance Computing (HPC) centers are expanding to encompass resources that extend beyond traditional computing. By extending resources to quantum computing, hybrid quantum-classical workflows tackle complex optimization problems that have never before been possible. However, integrating quantum processing units (QPUs) into cloud-native and scientific workload managers presents a unique orchestration challenge: remote quantum devices introduce a second, external queue -- a two-queue problem -- alongside the queue owned by the traditional scheduler. In this work we present Fluence, a Kubernetes scheduler plugin backed by the Fluxion graph-based scheduler, that enables informed, gang-scheduled placement for quantum-classical workloads and custom resources. We evaluate Fluence across three scenarios using AWS Braket simulators and real QPUs. First, under node contention, Fluence's atomic gang placement all but eliminates the wasted node-time that a default scheduler accrues by partially placing gangs. Second, we introduce a synchronization primitive for the two-queue problem in which a single producer submits a shared quantum task while consumers remain scheduling-gated, reducing worker idle time by roughly 5x under short device queues and by orders of magnitude when a real device queue stretched to hours. Third, cost- and queue-aware backend selection pins the cheapest or shortest-queue device satisfying a workload, cutting mean per-run cost by roughly 70x and time-to-result from hours to under a minute. Together, these results show that quantum-awareness can be added to a cloud-native scheduler without modifying user containers.",
+  "url": "http://arxiv.org/abs/2607.09151v1",
+  "pdf": "https://arxiv.org/pdf/2607.09151v1",
+  "type": "both",
+  "summary": "This work addresses the significant orchestration challenge of running hybrid quantum-classical computations in cloud environments by introducing Fluence, a Kubernetes scheduler plugin. It solves the 'two-queue problem' by treating remote QPUs as first-class resources in a scheduling graph. The results demonstrate massive improvements in efficiency, cost reduction, and time-to-result compared to standard schedulers.",
+  "main_problem": "The primary challenge is orchestrating complex hybrid quantum-classical workflows within modern HPC environments that incorporate remote Quantum Processing Units (QPUs). This introduces a 'two-queue problem' due to the external queue of the quantum device.",
+  "main_result": "The authors present Fluence, a Kubernetes scheduler plugin that successfully manages this complexity by enabling atomic gang scheduling, synchronizing classical workers with quantum readiness, and optimizing resource selection based on cost and queue depth.",
+  "method": "They developed a graph-based scheduler (Fluxion) to model QPUs as first-class, attributed resources within the cloud-native Kubernetes environment. This allows for informed placement decisions that coordinate disparate computational stages.",
+  "model_or_system": "The system involves hybrid quantum-classical workloads running on platforms like AWS Braket and real QPUs, managed via a Kubernetes scheduler plugin (Fluence). The scheduling model treats classical compute nodes and remote QPU backends as interconnected resources in a resource graph.",
+  "key_observables": "Wasted node-time from partial gang placement, worker idle time reduction (up to 5x), mean per-run cost reduction ($\\sim$70x), and time-to-result improvement (hours to minutes).",
+  "important_parameters": "Queue depth of the remote QPU backend, computational workload type (e.g., VQA loops), and resource cost metrics.",
+  "main_assumptions": "The solution assumes that quantum devices can be modeled as first-class resources within a graph structure, allowing scheduling policies to query their availability alongside classical hardware.",
+  "figures_summary": "Figures illustrate the 'two queue problem' concept, the hierarchical modeling of hybrid resources in the Fluxion graph, and policy selection trade-offs between minimizing cost versus minimizing queue depth.",
+  "paper_structure": "The paper first defines the technical challenge (the two-queue problem) inherent in cloud-native quantum integration. It then introduces Fluence as the solution, detailing its mechanisms for atomic gang placement, synchronization primitives, and backend selection policies. Finally, it validates these methods across multiple real-world scenarios.",
+  "why_interesting": "While highly focused on infrastructure and scheduling rather than fundamental physics, the paper's ability to manage complex resource dependencies is crucial for enabling future quantum algorithms that require tight coupling between classical optimization loops and quantum hardware execution.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.09151_figures/2607.09151_fig1.jpg",
+      "caption": "Figure 2: Hybrid modeling of classical and quantum resources in the Fluxion resource graph. A quantum device is modeled at the same level as a rack, and job requests for work correspond to a traversal in the graph. Constraints are used to limit search to a resource class.",
+      "page": 4
+    },
+    {
+      "image": "2607.09151_figures/2607.09151_fig2.jpg",
+      "caption": "Figure 3: Hybrid quantum and classical application designs. The single evaluation (top), when a circuit is run and post-processed, forms a simple, single execution unit that is the basis for more complex designs. The variational design (second row) maps this unit into a cycle, receiving back results, and adjusting parameters to run again until convergence. The batch pattern (bottom left) runs many single evaluations in parallel to generate the equivalent number of results, and a fan-out pattern (bottom right) provides one quantum result for many classical consumers. These designs pair with the scale, frequency, and coordination of execution, form the basis for hybrid quantum scheduler...",
+      "page": 5
+    },
+    {
+      "image": "2607.09151_figures/2607.09151_fig3.jpg",
+      "caption": "Figure 4: Gang scheduling for 18 gangs of varying sizes across 3 applications for each of fluence and the default-scheduler. Worker idle time increases with size (left panel), and accumulated node time (right panel) represents poor resource utilization across workers in the cluster. There are no differences in application running times once all members of gangs are ready (middle panel).",
+      "page": 8
+    },
+    {
+      "image": "2607.09151_figures/2607.09151_fig4.jpg",
+      "caption": "Figure 5: Policy aware selection. Requesting Fluence to select a minimum cost backend easily clusters all points around a trivial cost close to zero (top panel). Asking Fluence to select minimize queue depth leads to a faster end-to-end time to complete the work (bottom panel).",
+      "page": 9
+    },
+    {
+      "image": "2607.09151_figures/2607.09151_fig5.jpg",
+      "caption": "Figure 6: Worker idle time across quantum simulators or devices, compared to number of workers. As expected, the idle time increases with the size of the job",
+      "page": 10
+    }
+  ],
+  "figure": "2607.09151_figures/2607.09151_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

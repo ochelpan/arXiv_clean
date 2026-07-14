@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.09422",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": false,
+  "title": "Action-Factored Multi-Agent Reinforcement Learning for Scalable Quantum Device Tuning",
+  "authors": "Edwin De Nicolo, Rahul Marchand, Cornelius Carlsson, Pranav Vaidhyanathan, Natalia Ares",
+  "abstract": "Cooperative multi-agent reinforcement learning is well suited to problems with large parameter spaces and exploitable local structure, such as the tuning of electrostatically-defined quantum-dot arrays. However, if parameter cross-talk is strong, a non-stationary environment from the perspective of any individual agent can destabilize learning - the same effect that plagues manual tuning of such systems. We propose using a factored representation of the action space, learned online, to decouple agents and minimize their interference. Our framework, QADAPT, uses this factorization to efficiently learn shared policies based on local measurements and rewards. With this modular strategy, we achieve zero-shot generalization to unseen quantum device sizes and maintain an approximately constant number of convergence steps to reach target regimes. This work provides a scalable route toward the rapid calibration of large-scale quantum processors.",
+  "url": "http://arxiv.org/abs/2607.09422v1",
+  "pdf": "https://arxiv.org/pdf/2607.09422v1",
+  "type": "both",
+  "summary": "This paper introduces QADAPT, a novel Multi-Agent Reinforcement Learning framework designed to automate the calibration of large quantum processors. By learning an adaptive, factored representation of the control space, it effectively decouples agent actions despite strong physical cross-talk. This allows for rapid, scalable tuning that generalizes robustly to larger devices without retraining.",
+  "main_problem": "Developing a scalable method for tuning large quantum devices by overcoming challenges like parameter cross-talk and non-stationarity in multi-agent reinforcement learning (MARL).",
+  "main_result": "The proposed framework achieves zero-shot generalization to unseen device sizes and maintains a constant number of convergence steps, providing a scalable route for rapid calibration.",
+  "method": "It uses an online learned factored representation of the action space within a MARL framework (QADAPT) to decouple agent control and minimize interference during tuning.",
+  "model_or_system": "The work applies to electrostatically-defined quantum-dot arrays (semiconductor spin qubits) and superconducting transmon qubits. Tuning involves calibrating gate voltages or controlling qubit parameters like frequency and coupling strengths.",
+  "key_observables": "Charge stability diagrams (CSDs), all-XY output patterns, target charge occupations, and tunnel couplings.",
+  "important_parameters": "Gate voltages, inter-dot capacitances, bare frequencies ($\\omega_{01}$), anharmonicity ($\\alpha$), and cross-talk coupling strengths ($\\lambda_{ij}$).",
+  "main_assumptions": "The model assumes that parameter updates can be locally approximated or linearized for the purpose of defining a separable action space; it also notes neglecting full flux noise effects in one context.",
+  "figures_summary": "Figures illustrate algorithmic flow, Kalman filter performance for cross-capacitance estimation, and convergence plots showing QADAPT's superior performance across increasing qubit/dot counts compared to classical optimizers.",
+  "paper_structure": "The paper introduces the problem of large-scale quantum device tuning under cross-talk. It proposes QADAPT, detailing its adaptive action-space factorization using online capacitance estimation (Kalman filter). The method is then applied sequentially to two physical systems: quantum dot arrays and superconducting transmon qubits, demonstrating scalability and convergence.",
+  "why_interesting": "The core technique—using learned factorizations in MARL to handle complex, coupled control landscapes—is highly relevant for controlling open quantum systems where parameter interactions are non-trivial and scale poorly with device size.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.09422_figures/2607.09422_fig1.jpg",
+      "caption": "Figure 1: Algorithmic Flow of QADAPT (a) Barrier gates (Bx) interdigitate plunger gates (Px), and primarily control dot-dot tunnel couplings and charge occupations, respectively. All gates contribute in defining the confinement potential necessary to form quantum dots (d1...dD). Gate cross-talk can be approximated by a capacitive network, which in general extends beyond nearest neighbors, greatly complicating array tuning. Charge stability diagrams (CSDs) are acquired by sweeping the voltage on neighboring pairs of plunger gates and bear information on the array’s current tuning state. (b) Each CSD is passed through a virtualization model and tuning agent model. The virtualization model...",
+      "page": 3
+    },
+    {
+      "image": "2607.09422_figures/2607.09422_fig2.jpg",
+      "caption": "Figure 2: Gate Virtualization and Scaling Performance of QADAPT. a) Kalman filter’s posterior uncertainty (variance) σ against absolute estimation error ˆµerror for nearest neighbor gate-to-dot cross-capacitances. Each marker represents one time step in a 4-dot system (3 CSD measurements), averaged over 1000 episodes. The cross-capacitance has a fixed ground truth value of 0.7. A top-right to bottom-left trajectory demonstrates that capacitance estimates improve over time, and that the filter’s uncertainty tracks this improvement. b) same as a), but for second-nearest neighbor gate-to-dot cross-capacitances, with ground-truth values set to 0.3. The trajectory here is weaker but stable, as...",
+      "page": 6
+    },
+    {
+      "image": "2607.09422_figures/2607.09422_fig3.jpg",
+      "caption": "Figure 3: Domain-specific Benchmarks with Array Size. As the length of the quantum dot array increases from 2 to 8 (moving left to right), QADAPT maintains rapid convergence, out-performing all benchmark methods, including: model-based reinforcement learning (DreamerV3), Bayesian optimisation using Gaussian processes, the gradient free Nelder-Mead optimiser, the gradient-based Limited-memory Broyden-Fletcher-Goldfarb-Shanno algorithm (L-BFGS), and a random search. The score reflects normalized distance to the target voltage configuration across all gates, and is plotted using the cumulative minimum distance at each scan step. Lines represent averages over 100 runs, with an envelope of half...",
+      "page": 7
+    },
+    {
+      "image": "2607.09422_figures/2607.09422_fig4.jpg",
+      "caption": "Figure 4: Average per-agent reward for QADAPT trained on a 4-dot array, in addition to each version of the ablated base model, detailed in Section 4. In all benchmarks, trained parameters are always taken from the epoch in which models performed best.",
+      "page": 24
+    },
+    {
+      "image": "2607.09422_figures/2607.09422_fig5.jpg",
+      "caption": "Figure 5: Trained agent behavior sampled over 100 episodes for a 4-dot system. The four colors in each graph represent the signed distance to the ground truth position in voltage space for each of the plunger gate agents.",
+      "page": 25
+    }
+  ],
+  "figure": "2607.09422_figures/2607.09422_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 2,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

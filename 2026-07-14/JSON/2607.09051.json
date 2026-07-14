@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.09051",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Simulation of Lindbladian dynamics via adaptive variational quantum trajectory compression",
+  "authors": "Huan-Yu Liu, Cheng Xue, Yun-Jie Wang, Xi-Ning Zhuang, Chao Wang, Yu-Chun Wu, Zhao-Yun Chen, Guo-Ping Guo",
+  "abstract": "Quantum simulation of open quantum systems in the noisy intermediate-scale quantum (NISQ) era is hindered by the non-unitary nature of dissipative dynamics and the limited quantum resources available on near-term quantum processors. In this work, we propose a resource-efficient algorithm for simulating Lindbladian dynamics on NISQ devices. For open quantum systems with Pauli dissipations, we first derive a compact and stable mixed-unitary adjoint channel that approximates the target dissipative dynamics and enables ancilla-free implementation through trajectory sampling. To further reduce the circuit depth required for implementing the sampled trajectories, we introduce an adaptive variational quantum trajectory compression framework. In this framework, a depth-adaptive parameterized quantum circuit is trained to approximate repeated Trotterized Hamiltonian simulation operators, which are then used to replace repeated unitary segments appearing in the sampled trajectories. Importantly, the training procedure can also be performed without auxiliary qubits. Numerical simulations of the dissipative quantum $XY$ model demonstrate the accuracy and resource efficiency of the proposed algorithm. Our results provide a practical route toward ancilla-free and depth-reduced simulation of open quantum systems on near-term quantum hardware.",
+  "url": "http://arxiv.org/abs/2607.09051v1",
+  "pdf": "https://arxiv.org/pdf/2607.09051v1",
+  "type": "theory",
+  "summary": "This paper presents a resource-efficient algorithm to simulate open quantum systems on near-term quantum hardware by addressing the challenges posed by non-unitary dissipation. It achieves this by first using a stable adjoint channel representation and then introducing an adaptive variational compression technique to drastically reduce the circuit depth required for repeated Hamiltonian evolution steps.",
+  "main_problem": "Developing a resource-efficient algorithm for simulating Lindbladian dynamics on Noisy Intermediate-Scale Quantum (NISQ) devices.",
+  "main_result": "The proposed method achieves ancilla-free and depth-reduced simulation of open quantum systems with Pauli dissipations, demonstrated successfully on the dissipative quantum XY model.",
+  "method": "It combines deriving a stable mixed-unitary adjoint channel approximation for dissipation with an adaptive variational quantum trajectory compression framework to replace deep unitary segments.",
+  "model_or_system": "The system is an open quantum system governed by the Lindblad master equation, focusing specifically on dynamics involving Pauli dissipations ($P_k \\in \\{I, X, Y, Z\\}^{\\otimes n}$).",
+  "key_observables": "Accuracy of simulation (approximating evolution over $\\delta t$), resource efficiency, and circuit depth reduction.",
+  "important_parameters": "Dissipation rates ($\\gamma_k$), time step ($\\delta t$), and the compression parameters ($\theta$).",
+  "main_assumptions": "The primary assumptions involve approximating the dynamics via a stable adjoint channel and using variational circuits to approximate repeated Trotterized Hamiltonian evolution operators.",
+  "figures_summary": "Figure 1 illustrates the entire process: (a) Lindbladian dynamics; (b) Adjoint channel formulation; (c) Variational circuit compression training setup; (d) Monte Carlo sampling with PQC insertion ($\bar{U}_{r_a}$); and (e) Simulation using compressed trajectories.",
+  "paper_structure": "The paper first addresses the challenge of NISQ simulation for open systems, derives a stable adjoint channel to avoid classical post-processing, and then introduces the adaptive variational compression framework to reduce circuit depth by replacing repeated unitary blocks with trained PQCs. Finally, it validates this approach on the XY model.",
+  "why_interesting": "This work directly tackles the major practical bottleneck in quantum simulation of open systems—circuit depth—by integrating advanced techniques from both quantum control (adjoint channels) and variational quantum algorithms (compression).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.09051_figures/2607.09051_fig1.jpg",
+      "caption": "FIG. 1. Overview of the proposed simulation algorithm. (a) Open quantum systems described by the Lindblad master equation, where the system of interest interacts with its surrounding environment. (b) For Pauli dissipations, the dissipative dynamics can be approximated by a compact mixed-unitary adjoint channel, enabling ancilla-free implementation through trajectory sampling. (c) Variational circuit compression framework. For each 𝑠∈{1, 2, · · · , 𝑠max}, a depth-adaptive PQC 𝑈(𝜽𝑠) is trained to approximate the repeated Hamiltonian evolution (𝑈0)𝑠. The loss function is evaluated on a finite basis-state set B using a quantum processor, while the parameters are updated by a classical...",
+      "page": 4
+    },
+    {
+      "image": "2607.09051_figures/2607.09051_fig2.jpg",
+      "caption": "Fig. 1(c). Then the basis-sampled fidelity becomes",
+      "page": 4
+    },
+    {
+      "image": "2607.09051_figures/2607.09051_fig3.jpg",
+      "caption": "FIG. 3. Adaptive trajectory compression with finite basis batches 𝐵= 32. (a) Signed errors relative to the deterministic Kraus evolu- tion. The panel compares the 100-run sampling mean, one same-seed exact Monte Carlo trajectory ensemble, and the corresponding same- seed compiled circuit for 𝑀= 128. (b) Optimized PQC depth for direct and iterative 𝐵= 32 training as a function of the repetition number 𝑠. (c) Validation fidelity of the optimized PQC relative to (𝑈0)𝑠. (d) Signed replacement errors for the direct library and the iterative libraries with 𝑠max = 10, 15, and 20. All replacement simu- lations use 𝑀= 128 trajectories.",
+      "page": 6
+    },
+    {
+      "image": "2607.09051_figures/2607.09051_fig4.jpg",
+      "caption": "FIG. 2. Simulation results on dissipative domain-wall melting and sampling stability. (a) Domain-wall imbalance obtained from the exact Lindblad equation, the deterministic Kraus channel, and the stochastic trajectory averages for 𝑀= 32, 64, 128, 256, and 512. Each sampling curve is averaged over 100 independent repetitions. (b) Sampling means at 𝑡= 5 and 𝑡= 10 as functions of 𝑀. Error bars denote one standard deviation over the 100 repetitions.",
+      "page": 6
+    },
+    {
+      "image": "2607.09051_figures/2607.09051_fig5.jpg",
+      "caption": "FIG. 4. Circuit-resource reduction from adaptive trajectory compression. (a) Mean single-qubit gate count as a function of time for the uncompressed circuit, direct replacement, and iterative re- placement with 𝑠max = 10, 15, and 20. Shaded regions indicate one standard deviation over 𝑀= 128 trajectories. (b) Single-qubit gate counts of individual trajectories at 𝑡= 10, ordered by the correspond- ing uncompressed count. (c) Mean two-qubit gate count as a function of time. (d) Two-qubit gate counts of individual trajectories at 𝑡= 10.",
+      "page": 7
+    }
+  ],
+  "figure": "2607.09051_figures/2607.09051_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

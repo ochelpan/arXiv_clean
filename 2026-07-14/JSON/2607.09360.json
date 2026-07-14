@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2607.09360",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Benchmarking Error Mitigation: Artefactual Improvements in Zero-Noise Extrapolation",
+  "authors": "Dominik Köster, Wolfgang Mauerer",
+  "abstract": "Reliable benchmarking of Quantum Error Mitigation (QEM) requires distinguishing genuine improvements from artefacts of the post-processing arithmetic. In this paper, we expose a failure mode in Richardson Zero-Noise Extrapolation (ZNE), a widely used technique routinely (and often implicitly) relied upon in benchmarks and experiments. When noise amplification operates beyond usable signals - a regime that is quickly reached on current hardware for non-trivial circuits - we show that the extrapolation no longer reflects the underlying physics, but collapses into a fixed rescaling of a single noisy measurement, producing a bogus apparent improvement that is independent of noise amplification. This poses a rarely considered threat to the validity of many empirical evaluations in quantum computing.   Measurements on real hardware (IQM Euro-Q-Exa) confirm this collapse with ordinary folding alone: as circuit depth erodes the signal, the reported estimate decouples from the truth and overshoots the ideal by up to 21%. We further introduce a matched-cost \"garbage-folding\" negative control that carries no usable signal yet reports a larger apparent improvement than genuine folding - showing that the magnitude of an improvement is not evidence of its correctness - alongside a zero-cost check flagging the artefact from data a benchmark already holds. We distil both into a short reporting checklist for ZNE benchmarks.",
+  "url": "http://arxiv.org/abs/2607.09360v1",
+  "pdf": "https://arxiv.org/pdf/2607.09360v1",
+  "type": "experiment",
+  "summary": "This paper critically examines the validity of Zero-Noise Extrapolation (ZNE) when benchmarking Quantum Error Mitigation. The authors demonstrate that under certain noise regimes, ZNE fails by producing mathematical artifacts rather than true error corrections. They introduce a robust diagnostic tool ($\text{W}_{\text{neg}}$) to help researchers distinguish genuine physical improvements from these misleading computational artifacts.",
+  "main_problem": "Benchmarking Quantum Error Mitigation (QEM) techniques, specifically Zero-Noise Extrapolation (ZNE), can yield apparent improvements that are mathematical artifacts rather than genuine physical gains.",
+  "main_result": "When noise amplification exceeds usable signal levels, ZNE collapses into a fixed rescaling of the initial noisy measurement, leading to overestimation of performance. A new diagnostic, Negative-Probability Weight ($\text{W}_{\text{neg}}$), can reliably flag these artifacts.",
+  "method": "The authors analyze the Richardson extrapolation formula applied to expectation values measured at varying noise amplification factors ($\\lambda_k$) on real hardware and introduce a negative control ('garbage-folding') for comparison.",
+  "model_or_system": "The work is performed using NISQ algorithms tested on the IQM Euro-Q-Exa quantum processor, analyzing circuits like QFT Mirror and Grover to test error mitigation techniques.",
+  "key_observables": "Recovery ratio ($\rho$), Negative-Probability Weight ($\text{W}_{\text{neg}}$), expectation values $E(\\lambda)$, and the observable floor ($f$).",
+  "important_parameters": "Circuit depth ($d=3, 5$), noise amplification levels ($\\lambda \\in \\{1, 3, 5\\}$).",
+  "main_assumptions": "The core assumption challenged is that measured expectation values decay predictably enough for polynomial extrapolation to hold true.",
+  "figures_summary": "Figures illustrate the collapse of $E(\\lambda)$ towards a floor value and compare extrapolated results ($\\hat{E}(0)$) against ideal values, contrasting genuine folding with garbage folding controls.",
+  "paper_structure": "The paper first identifies the failure mode in ZNE when signal decays; it then presents empirical evidence from hardware measurements using various control methods (garbage-folding); finally, it introduces and validates a robust diagnostic ($\text{W}_{\text{neg}}$) and provides a reporting checklist for future benchmarks.",
+  "why_interesting": "It directly addresses the reliability of benchmarking tools used across quantum computing platforms, providing crucial diagnostics that any researcher simulating or running QEM must adopt to ensure their reported improvements are physical.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.09360_figures/2607.09360_fig1.jpg",
+      "caption": "Fig. 1. Richardson extrapolation on Euro-Q-Exa. (a) The amplified parity values E(λ) of a 4-qubit QTC collapse to the floor f = 0 as the Trotter depth d grows. (b) At each depth, the Richardson estimate ˆE(0), the rescaling prediction 15",
+      "page": 2
+    },
+    {
+      "image": "2607.09360_figures/2607.09360_fig2.jpg",
+      "caption": "Figure 2 shows E(λ) for four circuits under simulated depolarising noise (p2q = 10−3), and for Euro-Q-Exa. Three qualitatively distinct regimes emerge: 1) Signal retained. The 6-qubit Quantum Fourier Transforma- tion (QFT) mirror and the 4-qubit QTC decay slowly and stay well above the floor at λ = 5; Richardson recovers near-ideal values (ρ = 0.99 and ρ = 1.00). 2) Signal decayed. The 6-qubit Grover circuit reaches E(λ3) = 0.078 and E(λ5) = 0.027, both near the floor f = 1/64, and recovery degrades to ρ = 0.44. 3) Signal destroyed. On Euro-Q-Exa, the parity signal is neg- ative at λ = 5, satisfying the precondition of Equation (2): any improvement on this device is partly an artefact of...",
+      "page": 2
+    },
+    {
+      "image": "2607.09360_figures/2607.09360_fig3.jpg",
+      "caption": "Fig. 2. Richardson extrapolation across signal-retention regimes at λ ∈ {1, 3, 5}. Solid: Lagrange polynomial through E(λk); dashed: extrapolation to ˆE(0) (stars); crosses mark Eideal. Grey dotted: garbage folding on Grover. The Euro-Q-Exa parity signal turns negative at λ = 5 (signal destroyed). Horizontal dotted: floor 1/26 of the 6-qubit circuits.",
+      "page": 3
+    }
+  ],
+  "figure": "2607.09360_figures/2607.09360_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
