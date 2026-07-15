@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2607.09906",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG",
+    "q-fin.ST"
+  ],
+  "is_primary_archive": true,
+  "title": "Depth-Efficient Quantum Topological Data Analysis for Regime-Specific Detection of Financial Stress",
+  "authors": "Arul Rhik Mazumder, Shreyan Ronit Mazumder",
+  "abstract": "We present, to our knowledge, the first adaptation of Pauli Correlation Encoding (PCE) to quantum topological data analysis, reformulating Betti number estimation as a depth-efficient variational optimization over a compressed qubit register. From a Takens embedding and Vietoris--Rips filtration of S&P~500 returns, we extract combinatorial Laplacians and recast null-space counting as a continuous-PCE Rayleigh-quotient minimization with variational deflation, encoding $n_k$ simplex indices into $O(n_k^{1/κ})$ qubits with shallow, ancilla-free circuits. Because the resulting loss is rational rather than bilinear in the correlators, the barren-plateau bound of~\\cite{Sciorilli25} does not transfer; empirically the gradient variance decays only polynomially, with no exponential barren plateau, over $n=4$--$12$ qubits. The classical stage matches ripser~\\cite{bauer2021ripser} on all 190 sliding windows (2007-2009). On the real market Laplacians ($β_1=1$--$22$), warm-starting from a classical null-space surrogate allows PCE-VQE to recover $β_1$ exactly at every scale, placing the obstacle in the optimisation landscape rather than the encoding. Chronologically split classification gives in-regime ROC AUC $0.818$, but out-of-distribution evaluation on the 2020 COVID shock and 2022 rate cycle (AUC $0.009$, $0.515$) shows the calibration does not generalize across crisis regimes.",
+  "url": "http://arxiv.org/abs/2607.09906v1",
+  "pdf": "https://arxiv.org/pdf/2607.09906v1",
+  "type": "both",
+  "summary": "The paper proposes using Quantum Topological Data Analysis (qTDA) via Pauli Correlation Encoding (PCE) to detect financial stress by estimating topological features ($\beta_k$) from stock market returns. It demonstrates that PCE offers a shallow and robust quantum approach compared to other methods for this task. While promising, the authors note that achieving full generalization across different economic crises remains an open challenge.",
+  "main_problem": "The core problem is developing a depth-efficient quantum algorithm to estimate Betti numbers ($\beta_k$) from complex financial time series data, which classically requires computationally expensive diagonalization of large combinatorial Laplacians.",
+  "main_result": "The authors successfully adapted Pauli Correlation Encoding (PCE) for this task, showing that while the method achieves shallow circuits and polynomial gradient decay, its current implementation relies on a classical warm-start to recover topological invariants exactly.",
+  "method": "They reformulate Betti number estimation as a continuous-PCE Rayleigh-quotient minimization. This variational quantum circuit approach encodes necessary combinatorial data into qubits using Pauli correlators, bypassing the deep circuits required by standard Quantum Phase Estimation (QPE).",
+  "model_or_system": "The system is derived from S&P 500 returns time series, processed via Takens embedding and Vietoris–Rips filtration to construct a point cloud whose topology is characterized by Betti numbers ($\beta_k$). The quantum computation operates on the parameters defining these topological invariants.",
+  "key_observables": "Betti numbers ($\beta_1$ in particular), ROC AUC scores for classification, and gradient variance decay rates.",
+  "important_parameters": "Number of qubits ($n$), correlation order ($\\kappa$), noise parameter ($p$), and time-series window size (e.g., 2007-2009).",
+  "main_assumptions": "The primary limitation is that the quantum recovery of $\beta_1$ requires warm-starting from a classical null-space surrogate, suggesting the bottleneck lies in the optimization landscape rather than the encoding itself.",
+  "figures_summary": "Figures compare PCE-VQE against LGZ-QPE regarding circuit depth and noise robustness, showing PCE's advantage for near-term devices. Classification results show $\beta_1$ outperforms baseline proxies during specific historical periods but fails to generalize across distinct crisis regimes (e.g., COVID shock).",
+  "paper_structure": "The paper first establishes the need for quantum TDA due to classical computational bottlenecks in calculating Betti numbers from market data. It then details the novel adaptation of PCE for this purpose, comparing it favorably against QPE methods based on circuit depth and noise resilience. Finally, it presents empirical results showing successful recovery under warm-start conditions but highlights limitations regarding generalization across different economic regimes.",
+  "why_interesting": "This work is highly relevant as it merges advanced quantum computation techniques (PCE) with complex data analysis problems (TDA), providing a blueprint for applying near-term quantum hardware to high-dimensional, structured scientific data beyond simple Hamiltonian simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.09906_figures/2607.09906_fig1.jpg",
+      "caption": "Fig. 1. Overview of the qTDA pipeline with PCE qubit compression: (1) S&P 500 log returns →Takens embedding (τ = 13, m = 4) →point cloud in R4; (2) Vietoris–Rips complex VR(ε∗), 461 points per window; (3) combinatorial Laplacian ∆1 = ∂2∂⊤ 2 + ∂⊤ 1 ∂1, nk ∈[31, 429]; (4) PCE encoding into n = O(n1/κ k ) qubits, HEA + COBYLA optimisation with variational deflation →˜β1.",
+      "page": 4
+    },
+    {
+      "image": "2607.09906_figures/2607.09906_fig2.jpg",
+      "caption": "Fig. 2. First Betti number β1 over 190 sliding windows (2003–2010), computed by the classical CE benchmark and verified against ripser. Vertical lines mark Bear Stearns (14 Mar. 2008, dotted) and Lehman Brothers (15 Sep. 2008, dashed). β1 ∈[0, 22]; mean 4.72.",
+      "page": 7
+    },
+    {
+      "image": "2607.09906_figures/2607.09906_fig3.jpg",
+      "caption": "Fig. 2. CE agrees with ripser on 190/190 windows (100%) for both β0 and β1, confirming that the classical stage of the pipeline is correct. The β1 signal rises from zero in late 2006, reaches a first peak at window 127 (β1 = 18, January 2007 to January 2009), dips briefly, and then attains the global maximum β1 = 22 at window 167 (April 2008 to April 2010). The topological complexity begins building more than a year before the Bear Stearns collapse (March 2008) and Lehman Brothers bankruptcy (September 2008), consistent with the hypothesis that topological loop formation provides a leading indicator of systemic stress [3]. We emphasize that the curves in this section are produced by the...",
+      "page": 7
+    },
+    {
+      "image": "2607.09906_figures/2607.09906_fig4.jpg",
+      "caption": "Fig. 3. PCE-VQE convergence on six toy Laplacians (6/6 correct). Each panel is one toy Laplacian, labelled with its true β1 and the recovered estimate. Within a panel, each coloured curve is one deflation round (round 0 blue, round 1 orange, round 2 green), that is, one search for a null vector orthogonal to those already found; the red dashed line is the null-space threshold δ = 0.01. A curve settling near 10−10 has located a null vector, while a round whose best loss jumps to ≈3.0 has none left to find and terminates the count. Each panel carries its own legend listing the deflation rounds it contains.",
+      "page": 8
+    },
+    {
+      "image": "2607.09906_figures/2607.09906_fig5.jpg",
+      "caption": "Fig. 4. Noise robustness (illustrative; not a matched-scale comparison): PCE- VQE accuracy (measured, blue, n = 6 qubits, nk ≈63 under κ = 2) vs. LGZ-QPE at nk = 16 (measured, red solid) and analytical extrapolation (red dashed). PCE maintains >90% accuracy up to p=5×10−3; simulated LGZ-QPE collapses above p=10−4, matching the analytical bound. The two curves are not at matched encoded problem size: PCE encodes nk ≈63 basis dimensions while LGZ operates on nk = 16. The figure illustrates the depth/noise trade-off at moderate scale rather than a like-for-like comparison; see Section VII-F for explicit caveats.",
+      "page": 9
+    }
+  ],
+  "figure": "2607.09906_figures/2607.09906_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

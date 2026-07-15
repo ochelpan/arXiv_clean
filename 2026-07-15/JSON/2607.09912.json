@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.09912",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.optics"
+  ],
+  "is_primary_archive": true,
+  "title": "Heterodyne position detection of an optomechanical system",
+  "authors": "Daniel Tandeitnik, Gabriel Dias, Thiago Guerreiro",
+  "abstract": "We report a heterodyne detection scheme for position readout of an optomechanical system, in particular an optically levitated particle, implemented via digital In-phase and Quadrature demodulation on a field-programmable gate array. Compared to the standard homodyne approach, the proposed method offers three key advantages: it remains robust in the presence of strong parasitic back-reflected fields that would otherwise prevent stable phase locking; it produces a signal linearly proportional to the particle displacement, eliminating phase-wrapping distortion; and its calibration factor is intrinsically immune to drifts in the optical power of the local oscillator or scattered field. We experimentally demonstrate and quantify all three advantages through simultaneous homodyne and heterodyne measurements on the same trapped particle. The proposed method can be used in any optomechanical system based on phase readout.",
+  "url": "http://arxiv.org/abs/2607.09912v1",
+  "pdf": "https://arxiv.org/pdf/2607.09912v1",
+  "type": "experiment",
+  "summary": "The paper introduces heterodyne detection as a superior method for reading the position of optomechanical systems compared to traditional homodyne techniques. By using digital IQ demodulation, it achieves linear signal output, eliminates phase-wrapping distortions, and becomes robust against fluctuations in optical power or strong parasitic reflections. This makes it highly valuable for high-precision quantum sensing applications.",
+  "main_problem": "Improving the fidelity, stability, and robustness of position readout for optomechanical systems, especially when dealing with strong parasitic back-reflections.",
+  "main_result": "Heterodyne detection provides a superior measurement technique that is linearly proportional to displacement, immune to optical power drifts, and significantly outperforms homodyne detection in terms of Signal-to-Noise Ratio (SNR) and linearity.",
+  "method": "The authors propose and experimentally demonstrate heterodyne detection combined with digital In-phase and Quadrature (IQ) demodulation implemented on an FPGA for phase readout.",
+  "model_or_system": "The system involves an optomechanically coupled platform, specifically tested using an optically levitated nanoparticle whose mechanical motion is encoded in the phase of back-scattered light.",
+  "key_observables": "Differential current (homodyne) vs. IQ-demodulated signal (heterodyne); Force–voltage response linearity; Signal-to-Noise Ratio (SNR); Calibration factor ($C_{VM}$).",
+  "important_parameters": "Local Oscillator (LO) amplitude, parasitic field strength, mechanical displacement relative to $\\lambda/4$, and the operating frequency ($\\Omega$).",
+  "main_assumptions": "The analysis assumes fields are monochromatic; the heterodyne scheme relies on IIR high-pass filtering to spectrally separate desired signals from quasi-DC parasitic contributions.",
+  "figures_summary": "Figures compare PSDs showing harmonic distortion in homodyne vs. linearity in heterodyne; they also plot force response vs. voltage, demonstrating non-monotonicity for homodyne and strict linearity for heterodyne.",
+  "paper_structure": "The paper first establishes the limitations of standard homodyne detection (phase wrapping, power drift sensitivity) when measuring optomechanical systems. It then introduces and details the advantages of the heterodyne approach using digital IQ demodulation on an FPGA, culminating in experimental comparisons demonstrating superior SNR and linearity.",
+  "why_interesting": "This work provides a crucial engineering advancement for quantum measurement protocols in cavity QED and trapped-ion/particle setups by offering a robust readout mechanism that mitigates common noise sources inherent to phase detection.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.09912_figures/2607.09912_fig1.jpg",
+      "caption": "FIG. 2. Representative backward-collection geometry used for homodyne detection of the particle’s back-scattered field.",
+      "page": 3
+    },
+    {
+      "image": "2607.09912_figures/2607.09912_fig2.jpg",
+      "caption": "FIG. 3. Optimal LO phase as a function of the PF phase for the strong (blue solid line) and weak (orange solid line) PF regimes. In the strong-parasitic-field regime, variations in the PF phase are directly followed by corresponding shifts in the optimal operating point, thereby precluding the possibility of stable phase locking at the correct phase.",
+      "page": 4
+    },
+    {
+      "image": "2607.09912_figures/2607.09912_fig3.jpg",
+      "caption": "FIG. 4. Simulation of phase-wrapping effects in homodyne detection. (a) Time-domain position signal of a simulated confined particle in thermal equilibrium. The ideal linear trajectory q(t) (blue) is compared against the nonlinear ho- modyne signal sin(q(t)) (orange). The inset highlights the amplitude clamping and distortion characteristic of the phase- wrapped signal at large displacements. (b) PSD of the position signals. The nonlinear sine transformation redistributes power from the fundamental resonance at 100 kHz into odd-order harmonics, most prominently the third harmonic at 300 kHz.",
+      "page": 5
+    },
+    {
+      "image": "2607.09912_figures/2607.09912_fig4.jpg",
+      "caption": "FIG. 5. Experimental configuration for the simultaneous comparison of homodyne and heterodyne detection schemes. The SF (blue, dashed) and the LO field (red, dashed) are each collected into single-mode optical fibers and split between the two detection branches. In the homodyne branch (upper path), active phase stabilization is achieved with a fiber stretcher (∆ϕ) controlled by a PID loop implemented on a Red Pitaya FPGA board. In the heterodyne branch (lower path), an AOM shifts the LO frequency by 10 MHz; the same drive signal is fed to a second Red Pitaya board performing the digital IQ demodulation described in Sec. IV B.",
+      "page": 6
+    },
+    {
+      "image": "2607.09912_figures/2607.09912_fig5.jpg",
+      "caption": "FIG. 6. Block diagram of the FPGA heterodyne demodulation pipeline implemented on a Red Pitaya STEMLab 125-14. (a) A digital PLL locks an internal NCO to the AOM reference signal, generating phase-coherent cosine and negative-sine lookup tables. (b) The balanced detector output is IQ-demodulated, decimated by a CIC filter (R = 16, N = 4 stages), and DC-filtered to remove the quasi-static parasitic contribution. (c) A CORDIC core extracts the instantaneous phase and amplitude; the phase is subsequently unwrapped, drift-corrected, and mapped onto the 14-bit DAC output via a configurable bit-window and gain stage.",
+      "page": 7
+    }
+  ],
+  "figure": "2607.09912_figures/2607.09912_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 4,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 1,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

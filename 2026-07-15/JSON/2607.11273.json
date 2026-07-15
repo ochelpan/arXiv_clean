@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.11273",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Fixed-Protocol Amortized MPS Tomography with Conformalized Predictive Uncertainty",
+  "authors": "Jian Xu, Delu Zeng, John Paisley, Qibin Zhao",
+  "abstract": "Quantum state tomography is sample-starved, and the states one prepares live on a narrow, learnable manifold. A $k{=}0$ prior-only control shows that on concentrated families a prior estimate is already near-optimal, so ``high fidelity at few measurements'' can be family memorization rather than tomography; genuine measurement-efficiency needs a model that conditions on the measurements and demonstrably uses them. On a shared matrix-product-state (MPS) core parameterization we study two routes. Approach~A learns a generative prior over MPS cores with measurement-guided posterior inference (gold-standard-validated, but whose few-measurement accuracy the control shows is largely the prior). Approach~B, our main proposal, is a \\emph{fixed-protocol amortized} MPS estimator trained once with a gauge-invariant fidelity loss; we deliberately do not rest it on a permutation-invariant set encoder (a plain MLP matches it). The decisive lever is the measurement design: motivated by the fact that local reduced density matrices determine a $χ$-MPS, conditioning on an \\emph{informative local} Pauli set rather than random strings turns a modest, memorization-prone estimator into a high-fidelity one ($\\approx\\!0.95$, up to $+0.59$ over prior-only, decisively passing a shuffled-measurement control). A dropout ensemble, conformally recalibrated, gives $\\approx\\!90\\%$-coverage intervals -- including for observables never measured, where a shot-based interval does not exist. Quality holds as the system grows (fidelity $0.90$ at $n{=}10$, gain \\emph{growing} in $n$; $0.88$ at bond dimension $χ{=}4$), the parameterization is polynomial (native contraction to $20$ qubits), and we close the loop on IBM hardware ($5$ states at $0.97$ from hardware-measured Paulis).",
+  "url": "http://arxiv.org/abs/2607.11273v1",
+  "pdf": "https://arxiv.org/pdf/2607.11273v1",
+  "type": "both",
+  "summary": "This paper introduces a novel, fixed-protocol deep learning estimator for Quantum State Tomography using Matrix Product States (MPS). By conditioning the estimation on carefully chosen local Pauli measurements rather than random ones, the method achieves high reconstruction fidelity with limited data. It provides a scalable and hardware-testable framework for characterizing quantum states in complex physical systems.",
+  "main_problem": "Quantum State Tomography (QST) is sample-starved, requiring an efficient method to estimate unknown quantum states from limited measurement data.",
+  "main_result": "A fixed-protocol amortized MPS estimator, conditioned on informative local Pauli measurements, achieves high fidelity ($\\approx 0.95$) significantly better than prior-only estimates and scales polynomially with system size.",
+  "method": "The authors propose a direct mapping (amortized estimator) from measured Pauli expectation values to Matrix Product State (MPS) cores, bypassing full posterior sampling while using gauge-invariant loss functions for training.",
+  "model_or_system": "The focus is on estimating pure quantum states $|\\psi\rangle$ within an $n$-qubit system, parameterized efficiently using the Matrix Product State (MPS) core representation.",
+  "key_observables": "Fidelity ($\text{fid}$), reconstruction intervals (coverage), and measurement gain over prior-only estimates.",
+  "important_parameters": "System size ($n$, up to 20 qubits), bond dimension ($\\chi$), and the set of measured local Pauli operators.",
+  "main_assumptions": "The performance relies heavily on designing informative, local Pauli measurements rather than random ones; the conformal calibration provides marginal coverage but not necessarily simultaneous coverage for all observables.",
+  "figures_summary": "Figures illustrate the workflow from structured state families and informative Paulis to MPS cores, showing reconstruction estimates and calibrated uncertainty intervals. Tables compare fidelity gains across varying shot budgets and against classical baselines.",
+  "paper_structure": "The paper establishes the QST challenge, compares generative prior methods (Approach A) with a novel fixed-protocol direct estimator (Approach B), details the measurement design using local Paulis, validates performance via ablation studies, and concludes with hardware testing on IBM devices.",
+  "why_interesting": "This work provides advanced machine learning tools for quantum state reconstruction that are directly applicable to characterizing complex quantum states generated in AMO experiments (e.g., trapped ions or cold atoms) where full tomography is impossible.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.11273_figures/2607.11273_fig1.jpg",
+      "caption": "Figure 3: Integrity controls. (a) On a concentrated family, a k=0 prior-only medoid (0.997) dom- inates and true ≈shuffled: the measurements are not used, so “few-measurement fidelity” is mem- orization. (b) On a diverse family the medoid is far from optimal and true reconstruction separates from shuffled, with the gap growing in the budget k—genuine measurement information. Both con- trols are prerequisites for interpreting any learned-QST fidelity.",
+      "page": 8
+    },
+    {
+      "image": "2607.11273_figures/2607.11273_fig2.jpg",
+      "caption": "Figure 4: Approach A targets the intended posterior (n=6). (a) Posterior means of the flow sam- pler vs. a gold-standard SIR posterior, over 25 states and 2n local observables, lie on the diagonal (r=0.98). (b) Example posterior marginals (three observables): the sampler’s draws (filled) overlap the SIR posterior (dashed); vertical lines are the true values. This confirms the generative-prior route is a genuine posterior, not a relabelled point estimate.",
+      "page": 9
+    },
+    {
+      "image": "2607.11273_figures/2607.11273_fig3.jpg",
+      "caption": "Figure 5: Out-of-distribution behaviour of Approach A (physical family, n=6). (a) As the true state is pushed off the manifold (mismatch δ), fidelity degrades gracefully. (b) Hallucination probe: the reconstruction stays near the training family (blue) while the true state leaves it (green); the reconstruction’s fidelity to the true state (dotted) declines with δ rather than staying spuriously high.",
+      "page": 10
+    },
+    {
+      "image": "2607.11273_figures/2607.11273_fig4.jpg",
+      "caption": "Figure 6: Left: the measurement design is the lever—informative local Paulis lift fidelity from 0.79 to 0.95 over random Paulis (random family). Middle: headline result—the conditional estimator beats the k=0 prior-only baseline (arrows: +0.27 random, +0.59 shallow) and the shuffled control collapses. Right: making the estimator design-agnostic (training over variable random subsets) collapses it to the family mean (true = shuffled), for both a DeepSets and a set-transformer encoder.",
+      "page": 10
+    },
+    {
+      "image": "2607.11273_figures/2607.11273_fig5.jpg",
+      "caption": "Figure 7: Calibration of the dropout predictive ensemble over the 2n local Z/X observables (con- formal, E=24 samples, 10 splits). (a) Empirical coverage tracks the nominal level across the range (ideal: diagonal). (b) Interval width stays small (physical range [−1, 1]), because the high-fidelity reconstruction concentrates the predictive ensemble. Raw (uncalibrated) coverage is 69–72% at the 90% level.",
+      "page": 11
+    }
+  ],
+  "figure": "2607.11273_figures/2607.11273_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 2,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

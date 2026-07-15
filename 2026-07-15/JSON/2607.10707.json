@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2607.10707",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.AR",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "MDQEC-QAS: Meta-Decoding for Quantum Error Correction with Hardware-Aware VQC Search and Confidence-Gated Recovery",
+  "authors": "Prashant Kumar Choudhary, Nouhaila Innan, Muhammad Shafique, Rajeev Singh",
+  "abstract": "We propose a unified meta-decoding framework for quantum error correction that learns syndrome-to-recovery mappings across multiple stabilizer codes and noise settings, without requiring separate decoders for each configuration. The benchmark includes FiveQubit, Steane, Planar3x3, and Planar5x5 codes, four noise families, and five evaluation regimes: interpolation, unseen-p transfer, unseen-noise transfer, few-shot unseen-code adaptation, and few-shot held-out-size adaptation. We compare a classical Meta-MLP teacher-trained baseline with variational quantum circuit (VQC) meta-decoders selected through hardware-aware quantum architecture search over qubit count, circuit depth, and entangling topology. The Meta-MLP achieves teacher-label accuracies of 0.9993, 0.9118, 0.9342, 0.6304, and 0.7548 across the five regimes, while the hardware-aware VQC achieves 0.9400, 0.8495, 0.8415, 0.5678, and 0.7143. However, logical-level evaluation shows that high teacher-label accuracy alone is insufficient in the most challenging Planar5x5 setting. During interpolation, the raw logical-failure ratios relative to the teacher are 12.08 and 25.91 for the Meta-MLP and VQC, respectively, whereas confidence-gated fallback reduces them to 1.71 and 1.11. These results support confidence-aware selective recovery rather than unconditional teacher replacement.",
+  "url": "http://arxiv.org/abs/2607.10707v1",
+  "pdf": "https://arxiv.org/pdf/2607.10707v1",
+  "type": "theory",
+  "summary": "This work introduces a meta-decoding framework to create universal decoders for Quantum Error Correction, capable of adapting across various codes and noise types. By integrating hardware-aware VQCs and implementing a confidence-gated fallback mechanism, the authors show that selective recovery based on model certainty is vital for achieving robust logical performance.",
+  "main_problem": "Developing a robust quantum error correction (QEC) decoder that can adapt across diverse physical conditions, including multiple stabilizer codes, noise families, and varying error rates.",
+  "main_result": "A confidence-gated hybrid recovery strategy significantly improves logical performance by selectively using learned decoders only when they are highly confident, outperforming methods relying solely on high classification accuracy.",
+  "method": "The authors propose a unified meta-decoding framework that trains a single model to map syndromes to recoveries across various codes and noise settings. This is augmented with hardware-aware Variational Quantum Circuits (VQC) and a confidence-gated fallback mechanism.",
+  "model_or_system": "The study analyzes QEC performance using several stabilizer codes (FiveQubit, Steane, Planar3x3, Planar5x5). The core model involves training meta-decoders on syndrome measurements derived from noisy physical qubits.",
+  "key_observables": "Logical failure probability ($p_L(p)$) and raw logical-failure ratios relative to the teacher decoder are key diagnostics, rather than just classification accuracy.",
+  "important_parameters": "The benchmark tests five evaluation regimes: interpolation, unseen-$p$ transfer, unseen-noise transfer, few-shot unseen-code adaptation, and few-shot held-out-size adaptation.",
+  "main_assumptions": "High teacher-label accuracy alone is insufficient for assessing true logical performance in complex topological codes; therefore, a confidence threshold ($\tau$) is necessary to gate the learned recovery.",
+  "figures_summary": "Figure 12 specifically shows Planar $5\times 5$ logical-failure curves comparing different protocols under the confidence-gated hybrid recovery protocol across five adaptation scenarios.",
+  "paper_structure": "The paper introduces the meta-decoding framework, details the comparison between Meta-MLP and hardware-aware VQC decoders, rigorously tests generalization across multiple transfer regimes, and culminates in a detailed analysis of logical failure rates using confidence gating.",
+  "why_interesting": "It directly addresses the gap between machine learning performance metrics (accuracy) and physical system reliability (logical error rate), which is crucial for building fault-tolerant quantum computers.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.10707_figures/2607.10707_fig1.jpg",
+      "caption": "Figure 1. Overview of the learned-assisted meta-decoding framework. Syndrome-recovery data are generated using code-appropriate teacher decoders, pooled into a global label space, used to train classical and VQC meta-decoders, and evaluated using teacher-label accuracy, confidence-gated fallback, and logical-failure analysis.",
+      "page": 4
+    },
+    {
+      "image": "2607.10707_figures/2607.10707_fig2.jpg",
+      "caption": "Figure 2. Qubit-level mechanism of learned-assisted QEC meta-decoding. A logical qubit |𝜓𝐿⟩is encoded into physical qubits, where Pauli errors generate stabilizer syndromes according to 𝑠= 𝐻𝑒𝑇(mod 2). The syndrome, code identity, noise identity, and normalized physical error rate are combined into the meta-feature vector 𝑥= [˜𝑠∥onehot(𝑐)∥onehot(𝜂)∥˜𝑝] and projected to a compact VQC input. The VQC applies angle embedding, trainable rotation layers, and entangling operations, after which Pauli-𝑍measurements are mapped by a classical head to a recovery label and recovery operator 𝑟. Decoding success is determined by whether the corrected operator 𝑒′ = 𝑒⊕𝑟is logically trivial or logically...",
+      "page": 5
+    },
+    {
+      "image": "2607.10707_figures/2607.10707_fig3.jpg",
+      "caption": "Figure 3. Training and validation accuracy of the Meta-MLP on the pooled multi-code, multi-noise dataset.",
+      "page": 7
+    },
+    {
+      "image": "2607.10707_figures/2607.10707_fig4.jpg",
+      "caption": "Figure 4. Retraining curves of the two selected VQC meta-decoders. Panels (a)–(e) correspond to interpolation, unseen-𝑝transfer, unseen- noise transfer, few-shot unseen-code adaptation, and few-shot held- out-size adaptation, respectively.",
+      "page": 7
+    },
+    {
+      "image": "2607.10707_figures/2607.10707_fig5.jpg",
+      "caption": "Figure 6. Hardware-aware score of candidate VQC architectures. The score combines predictive performance with implementation- oriented circuit-cost proxies such as depth and two-qubit gate count.",
+      "page": 8
+    }
+  ],
+  "figure": "2607.10707_figures/2607.10707_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

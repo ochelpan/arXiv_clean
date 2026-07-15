@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.11401",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "From Leaves to Clusters: Depth-Efficient SAT-Oracle Synthesis Based on the HRSE Model",
+  "authors": "Zhihang Li, Wei Zi, Shuai Yang, Bei Zhou, Zongjiang Yi, Woji He, Yingjie Lin, Kaixiang Ji, Heru Du, Jinchen Xu",
+  "abstract": "Quantum oracles are a common building block of many quantum algorithms, where circuit depth is a primary cost that directly affects overall performance. Synthesizing oracles for SAT (CNF) formulas under a limited ancilla budget, however, tends to yield deep circuits, as existing methods underexploit clause-level parallelism. In this work, we present the Clustered Synthesis Tree (CST), a depth-oriented framework whose core idea is to group the individual clause leaves of a hierarchical synthesis tree into clusters, exposing instance-dependent clause-level parallelism under ancilla constraints. CST comprises three parts: the clause-grouping problem it induces, which we formulate as an ancilla-constrained scheduling problem and prove NP-complete in general, is addressed by SeedGrow, a polynomial-time $O(m^2 k)$ heuristic; ClausePack, a reversible oracle that evaluates a cluster's clauses in parallel at only a logarithmic-depth overhead; and CST-Map, which compiles the clustered tree into an executable SAT-oracle. On random $4$-CNF under the same ancilla budgets, CST reduces the oracle's circuit depth over the state-of-the-art (SOTA) baseline by $68\\%$--$94\\%$. On the standard SATLIB benchmarks, CST achieves about a $2.6\\times$--$43.2\\times$ reduction over the SOTA baseline, with the largest gains under dense variable sharing, and matches the baseline's maximum-budget depth using only $3.7\\%$--$20\\%$ of its ancilla qubits. A Grover-search resource estimate shows the advantage carries over to the full algorithm, reducing total circuit depth by $70\\%$--$89\\%$.",
+  "url": "http://arxiv.org/abs/2607.11401v1",
+  "pdf": "https://arxiv.org/pdf/2607.11401v1",
+  "type": "theory",
+  "summary": "This paper presents the Clustered Synthesis Tree (CST), a novel framework designed to build deep-circuit quantum oracles for solving SAT problems efficiently. By grouping related clauses into parallel clusters, CST significantly outperforms existing state-of-the-art methods across multiple benchmarks. The results demonstrate massive reductions in circuit depth, proving its utility for resource-constrained quantum computation.",
+  "main_problem": "The core challenge is synthesizing quantum oracles for SAT (CNF) formulas with minimal circuit depth while operating under strict constraints on available ancilla qubits.",
+  "main_result": "The proposed Clustered Synthesis Tree (CST) framework achieves dramatic reductions in oracle circuit depth, showing speedups of up to 43.2x over state-of-the-art methods on standard benchmarks.",
+  "method": "It introduces CST, a depth-oriented synthesis tree that groups individual clause leaves into clusters to expose instance-dependent parallelism, which is then compiled using the ClausePack oracle and SeedGrow heuristic.",
+  "model_or_system": "The work models quantum oracles for SAT problems, utilizing the Hierarchical Recursive Synthesis-Evaluation (HRSE) framework as a structural backbone. The system involves mapping the CNF formula onto a computation tree structure constrained by qubit availability.",
+  "key_observables": "Circuit Depth ($D(\\cdot)$), Ancilla Qubit Budget ($a_q$), and the resulting speedup ratio compared to baseline methods.",
+  "important_parameters": "The number of variables ($n$), clauses ($m$), clause width ($k$, e.g., 3-CNF, 4-CNF), and the available ancilla qubits.",
+  "main_assumptions": "The primary assumption is that depth reduction can be achieved by exploiting clause-level parallelism through intelligent clustering, which leads to an NP-complete scheduling problem (ACCS-D).",
+  "figures_summary": "Figures compare CST's circuit depth against SOTA baselines across various instance sizes and budgets; Table VI quantifies resource estimates for solving k-SAT using Grover's search algorithm.",
+  "paper_structure": "The paper first establishes the limitations of existing methods, then introduces the CST framework which refines the HRSE/ASDT backbone. It details the three components—SeedGrow (grouping), ClausePack (parallel evaluation), and CST-Map (compilation)—before presenting extensive benchmarking results.",
+  "why_interesting": "While focused on SAT, the methodology of optimizing circuit depth under resource constraints via structural decomposition (clustering) is highly relevant to designing efficient quantum circuits for complex physical simulations or algorithms in general.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.11401_figures/2607.11401_fig1.jpg",
+      "caption": "Fig. 1. The CST-based SAT-oracle synthesis pipeline. A CNF instance is processed through four stages—ASDT backbone construction under the ancilla budget aq, clause clustering into feasible ordered partitions, per-leaf ClausePack evaluation, and CST-Map compilation—yielding an executable SAT-oracle.",
+      "page": 4
+    },
+    {
+      "image": "2607.11401_figures/2607.11401_fig2.jpg",
+      "caption": "Fig. 2. Worked example of SEEDGROW on the instance f = (x1∨x2) ∧(x2∨x3) ∧(x1∨x3) ∧(x4∨x5) ∧(x6∨x7) ∧(x1∨x4) (m = 6, aq = 6; clauses are indexed from C0 in this worked example). Left: Conflict graph; nodes shaded by the conflict degree di defined in (20); x1 is the shared “hot” variable linking C0, C2, C5; the seed (⋆) is the least-conflicting clause. Center: Backward batch construction (last batch built first); within budget b, each step admits the candidate of smallest overlap increment δi = | bCi ∩U|, as defined in (21); the budget b increases as clauses are committed to later batches. Right: Final partition in evaluation order B1 = {C0, C2, C5} (R = 2) and B2 = {C1, C3, C4} (R = 0), with...",
+      "page": 7
+    },
+    {
+      "image": "2607.11401_figures/2607.11401_fig3.jpg",
+      "caption": "Fig. 3. ClausePack oracle for one clustered leaf, instantiated on a maximally shared cluster of four identical clauses C1 = · · · = C4 = (x1 ∨x2 ∨x3).",
+      "page": 7
+    },
+    {
+      "image": "2607.11401_figures/2607.11401_fig4.jpg",
+      "caption": "Fig. 4. Circuit-level illustration of CST-Map. Clustered leaves Bj are compiled into CLAUSEPACKBj blocks that evaluate clause clusters in parallel; internal CST nodes collect the exposed child outputs, apply an MCX gate to write the node value, and then uncompute the child blocks in reverse order so that temporary ancillae can be reused.",
+      "page": 9
+    },
+    {
+      "image": "2607.11401_figures/2607.11401_fig5.jpg",
+      "caption": "Fig. 5. End-to-end circuit depth as a function of the ancilla budget aq, on four random 4-CNF size classes (n = 40, 80, 400, 800; one subplot each). Both methods are evaluated on the same instances at the same sampled budget values. Markers denote the mean over 20 instances, and error bars denote one standard deviation computed from the per-instance depth records.",
+      "page": 10
+    }
+  ],
+  "figure": "2607.11401_figures/2607.11401_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

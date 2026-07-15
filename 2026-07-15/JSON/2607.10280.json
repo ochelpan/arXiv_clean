@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2607.10280",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Scaling Adaptive Non-Local Observable Quantum Super-Resolution via Matrix Product States",
+  "authors": "Shih-Lung Yu, Ming-Kang Ho, Tai-Yue Li, Sheng Yun Wu",
+  "abstract": "This work presents a matrix product state (MPS) simulation framework for adaptive non-local observable variational quantum circuits (ANO-VQCs) in image super-resolution (SR) beyond the practical limits of statevector simulation. Runtime benchmarks on a single NVIDIA RTX 4070 GPU show that, under the tested shallow-circuit setting, MPS completes ANO-VQC forward feature extraction for individual inputs up to 16 x 16 pixels (256 qubits), whereas statevector simulation encounters a memory bottleneck at 6 x 6 inputs (36 qubits) and exact tensor-network (Exact TN) contraction becomes computationally impractical beyond 12 x 12 inputs (144 qubits). For a fixed 7 x 7 input (49 qubits), a bond-dimension sweep over depths L = 1 to L = 4 shows that the required MPS bond dimension increases with circuit depth. Using Exact TN contraction as the reference, the bond dimension required for near-exact agreement increases from chi = 2 at L = 1 to chi = 16 at L = 4. Finally, 7 x 7 to 28 x 28 Fashion-MNIST SR training with chi = 16 shows that the shallow L = 1 model achieves the lowest loss and best LPIPS, PSNR, and SSIM among the tested depths. These results highlight MPS as a scalable and controllable simulation backend for ANO-VQC image SR and as a practical tool for studying large-scale quantum algorithms.",
+  "url": "http://arxiv.org/abs/2607.10280v1",
+  "pdf": "https://arxiv.org/pdf/2607.10280v1",
+  "type": "both",
+  "summary": "This paper proposes using Matrix Product States (MPS) as a scalable computational backend for simulating Variational Quantum Circuits designed for image super-resolution. It demonstrates that MPS overcomes the memory and computational bottlenecks faced by statevector or exact tensor network methods when scaling up input sizes. The results confirm MPS's utility, showing that shallow circuits can achieve optimal performance metrics for SR tasks.",
+  "main_problem": "The work addresses the challenge of simulating quantum feature extraction for image super-resolution (SR) using Variational Quantum Circuits (VQCs) when input sizes exceed the practical limits of statevector or exact tensor network simulations.",
+  "main_result": "Matrix Product States (MPS) provide a scalable simulation backend, successfully performing forward feature extraction on up to 16x16 inputs where other methods fail; furthermore, shallow circuits ($L=1$) achieved the best reconstruction quality metrics for SR tasks.",
+  "method": "The authors developed and benchmarked an MPS simulation framework to approximate the expectation values of Adaptive Non-Local Observable VQCs (ANO-VQCs) used in image super-resolution.",
+  "model_or_system": "The model involves mapping low-resolution pixels to qubits, encoding them via RY rotations/CNOTs, and extracting quantum features using trainable Hermitian observables ($\\langle H_q \rangle$). The simulation is performed on the MPS representation of the quantum state $|\\psi\rangle$.",
+  "key_observables": "Loss (MSE + LPIPS), PSNR, SSIM, Mean Absolute Error (MAE) comparing MPS to Exact TN.",
+  "important_parameters": "Input size ($2\times2$ up to $16\times16$), Circuit Depth ($L=1$ to $4$), and MPS Bond Dimension ($\\chi$).",
+  "main_assumptions": "The primary approximation is using the MPS ansatz, which requires increasing bond dimension $\\chi$ with circuit depth $L$ to maintain accuracy relative to Exact TN contraction.",
+  "figures_summary": "Figures compare simulation runtimes (Statevector vs. Exact TN vs. MPS) across varying input sizes; another figure illustrates how required bond dimension ($\\chi$) increases with circuit depth ($L$) for fixed inputs.",
+  "paper_structure": "The paper first introduces the ANO-VQC framework for SR, then compares the computational scaling of Statevector, Exact TN, and MPS methods. It analyzes the accuracy vs. cost trade-off by sweeping $\\chi$ for a fixed input size, concluding with performance metrics on a full SR task.",
+  "why_interesting": "The comparison between different tensor network simulation techniques (Statevector, Exact TN, MPS) is highly relevant to understanding resource scaling in quantum machine learning algorithms applied to physical problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.10280_figures/2607.10280_fig1.jpg",
+      "caption": "Fig. 1. Workflow of the proposed MPS-ANO-VQC framework for Fashion-MNIST SR. A 7 × 7 low-resolution image is mapped to a 49-qubit input state and simulated with an MPS backend. Image-local adaptive observables produce quantum features, which are passed to a classical linear layer to reconstruct the 28 × 28 high-resolution image.",
+      "page": 2
+    },
+    {
+      "image": "2607.10280_figures/2607.10280_fig2.jpg",
+      "caption": "Fig. 2. Forward-runtime comparison among statevector simulation, Exact TN contraction, and MPS simulation for ANO-VQC quantum-feature extraction as the input image size and qubit count increase. MPS uses a fixed bond dimension of χ = 8.",
+      "page": 3
+    },
+    {
+      "image": "2607.10280_figures/2607.10280_fig3.jpg",
+      "caption": "Fig. 3. Influence of the MPS bond dimension χ on approximation accuracy and runtime for 49-qubit ANO circuits with L = 1–4 layers. Top: mean absolute error (MAE) between MPS and the Exact TN contraction reference. Bottom: MPS simulation runtime as a function of χ. The χ axis is shown on a log2 scale.",
+      "page": 3
+    },
+    {
+      "image": "2607.10280_figures/2607.10280_fig4.jpg",
+      "caption": "Fig. 4. Representative Fashion-MNIST SR reconstructions for different circuit depths using a fixed MPS bond dimension of χ = 16.",
+      "page": 4
+    }
+  ],
+  "figure": "2607.10280_figures/2607.10280_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

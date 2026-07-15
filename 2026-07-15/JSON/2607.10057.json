@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.10057",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Circuit Vision: Cost-Aware Evaluation of Visual AI Agents for Quantum Code Generation",
+  "authors": "Dongping Liu, Aoyu Zhang, Luyao Zhang",
+  "abstract": "Can AI agents visually comprehend quantum circuit diagrams and generate verified executable code--and at what cost? We present Quantum Circuit Vision, a cost-aware evaluation framework for multimodal AI agents on quantum circuit visual understanding. We construct a 132-circuit benchmark spanning 13 categories ($1$--$10$ qubits) with executable Amazon Braket code and unitary-fidelity verification. Evaluating three frontier Claude-family models at different capability-cost tiers with $n=5$ repeated trials, we find that the mid-tier model (Sonnet 4.6, $1.30\\times$ credits) offers the most favorable balance on the cost-accuracy frontier: 91% pass rate on the core subset at 18% of the per-call cost of the strongest model (Opus 4.6), whose accuracy advantage is not statistically significant (paired $t$: $p=0.083$). Logistic regression confirms that circuit depth--not qubit count--is the primary predictor of failure ($p<0.001$). Chain-of-thought prompting shows no statistically significant effect (all $p>0.18$, $n=5$), suggesting that visual pattern recognition outweighs explicit reasoning strategy for structurally coupled diagrams. We propose a cascade routing strategy (cheap $\\rightarrow$ expensive models) that achieves 84% accuracy at 38% of single-model cost, demonstrating that model routing dominates prompt engineering as a cost lever. We release QCV-Dataset (132 circuits, 5 modalities, 1,931 files) on Hugging Face Hub as an open evaluation infrastructure with structured metadata for discoverability, interoperability, and responsible AI documentation, and all evaluation code, cost logs, and verification scripts on GitHub for full reproducibility.",
+  "url": "http://arxiv.org/abs/2607.10057v1",
+  "pdf": "https://arxiv.org/pdf/2607.10057v1",
+  "type": "both",
+  "summary": "This paper introduces Quantum Circuit Vision (QCV), a cost-aware framework to test how well multimodal AI agents can translate visual quantum circuit diagrams into verified executable code. By benchmarking several frontier LLMs on 132 circuits, the authors found that optimizing model selection via cascade routing is more impactful for cost savings than advanced prompting techniques. This work establishes a new standard for evaluating AI in quantum software development.",
+  "main_problem": "The core problem is bridging the gap between visually presented quantum circuit diagrams and generating verified, executable code for quantum computation.",
+  "main_result": "A cost-aware evaluation framework was proposed, showing that mid-tier AI models offer the best balance of accuracy and computational cost, and model routing dominates prompt engineering as a cost lever.",
+  "method": "The authors constructed a 132-circuit benchmark using executable Amazon Braket code and employed rigorous unitary-fidelity verification to evaluate multimodal AI agents.",
+  "model_or_system": "The system involves evaluating frontier LLMs (like Claude) on quantum circuits spanning up to 10 qubits, with the ground truth verified via unitary fidelity checks against a simulator.",
+  "key_observables": "Pass rate, per-call cost (credits), circuit depth, and unitary fidelity ($\\mathcal{F}$).",
+  "important_parameters": "Circuit depth is identified as the primary predictor of failure ($p<0.001$).",
+  "main_assumptions": "The evaluation relies on the assumption that visual pattern recognition is key for structurally coupled quantum diagrams.",
+  "figures_summary": "Figures illustrate the proposed agent architecture and show quantitative results comparing pass rates across different model implementations for various quantum circuits.",
+  "paper_structure": "The paper introduces the QCV framework, details the 132-circuit benchmark construction, presents cost-accuracy trade-offs using LLM evaluations, analyzes failure modes (depth vs. qubits), and concludes with a cascade routing strategy proposal.",
+  "why_interesting": "It provides a rigorous, quantifiable methodology for assessing AI's ability to handle complex quantum information representations, which is crucial for future automated quantum algorithm development.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.10057_figures/2607.10057_fig1.jpg",
+      "caption": "Figure 1: QCV system overview. Top: QCV-Dataset provides 132 quantum circuits with five core data modalities—circuit images, executable code (Braket and Qiskit), simulation results, bilingual annotations, and annotated failure cases—plus supplementary target descriptions and equivalence pairs. Bottom: The evaluation pipeline processes a circuit diagram image through an MLLM under BV or TV mode, then verifies the generated code through syntax checking, execution, and unitary matrix fidelity (𝐹≥0.99).",
+      "page": 5
+    },
+    {
+      "image": "2607.10057_figures/2607.10057_fig2.jpg",
+      "caption": "Figure 2: Representative circuits. Left column (a–c): increasing complexity from trivial to challenging. Right (d): the largest circuit (8 qubits, 20 gates) passes under BV with perfect fidelity due to its regular repeating structure, while the smaller QAOA (c) fails—demonstrating that structural regularity, not qubit count, determines success.",
+      "page": 7
+    },
+    {
+      "image": "2607.10057_figures/2607.10057_fig3.jpg",
+      "caption": "Figure 3: Haiku on the Toffoli circuit: BV uses a nonexistent API, while TV’s analysis leads to the correct call. Although CoT shows no significant aggregate effect (𝑝= 0.69), indi- vidual cases like this illustrate how structured analysis can resolve specific API selection errors.",
+      "page": 9
+    },
+    {
+      "image": "2607.10057_figures/2607.10057_fig4.jpg",
+      "caption": "Figure 4: Eleven blockchain-relevant quantum circuits (2–8 qubits) spanning consensus, cryptography, threat modeling, key distribution, secret sharing, fair protocols, private exchange, verifiable randomness, digital signatures, and validator agreement.",
+      "page": 12
+    },
+    {
+      "image": "2607.10057_figures/2607.10057_fig5.jpg",
+      "caption": "Figure 5 shows the proposed Hybrid Agent for autonomous quan- tum circuit design. The agent uses QCV-Dataset as a RAG knowl- edge base, the unitary fidelity pipeline as a verification oracle, and the 268 annotated failure cases as negative examples. This architec- ture is proposed but not yet implemented.",
+      "page": 12
+    }
+  ],
+  "figure": "2607.10057_figures/2607.10057_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

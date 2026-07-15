@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2607.11856",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Trotter error compensation with polylogarithmic precision and nested-commutator scaling without ancillas",
+  "authors": "Xinzhao Wang, Shuo Zhou, Ziruo Wang, Pei Zeng, Jinzhao Sun, Qi Zhao, Tom Gur, Tongyang Li",
+  "abstract": "Product formulas are among the most practical approaches to Hamiltonian simulation, requiring no ancillary qubits and exhibiting error bounds governed by nested commutators rather than only by Hamiltonian norms. Their circuit size, however, scales polynomially with the inverse precision. We develop a high-order nested-commutator compensation (HNCC) algorithm that preserves the main advantages of product formulas while achieving polylogarithmic precision dependence in the circuit size and the standard $\\mathcal{O}(\\varepsilon^{-2})$ sampling cost. HNCC uses a truncated Baker--Campbell--Hausdorff expansion to represent high-order Trotter errors by products of nested commutators and compensates these errors at the superoperator level through randomly sampled Pauli-rotation channels, avoiding Hadamard tests and ancillary qubits. For a fixed $K$-th order product formula applied to a $k$-local Hamiltonian on $N$ qubits with $Γ$ Pauli terms and local interaction strength $g_0$, HNCC estimates $\\operatorname{tr}[Oe^{-\\mathrm{i} tH}ρe^{\\mathrm{i} tH}]$ to additive precision $\\varepsilon\\|O\\|$ using $\\mathcal{O}(\\varepsilon^{-2})$ repetitions and a maximum gate count per circuit of $\\mathcal{O}(N^{\\frac{2}{2K+1}} (k g_0 t \\log(1/\\varepsilon))^{1+\\frac{1}{2K+1}} k(Γ+\\log(1/\\varepsilon)))$. The resulting time dependence matches that of a product formula of order $2K+1$. Finite-size resource estimates for the periodic Heisenberg chain indicate that HNCC achieves the lowest CNOT and $T$-gate counts per circuit among the product-formula-based methods considered.",
+  "url": "http://arxiv.org/abs/2607.11856v1",
+  "pdf": "https://arxiv.org/pdf/2607.11856v1",
+  "type": "theory",
+  "summary": "This paper introduces High-Order Nested-Commutator Compensation (HNCC), an advanced technique to improve Hamiltonian simulation accuracy. HNCC compensates Trotter errors at the quantum channel level, achieving polylogarithmic circuit size scaling with precision while avoiding ancillary qubits. It significantly reduces gate counts compared to existing product formula methods for simulating systems like the Heisenberg chain.",
+  "main_problem": "The core problem is efficiently simulating quantum time evolution governed by a Hamiltonian, specifically addressing the polynomial scaling of circuit size with inverse precision inherent in standard product formulas.",
+  "main_result": "The proposed High-Order Nested-Commutator Compensation (HNCC) algorithm achieves polylogarithmic dependence on precision ($\\epsilon$) for circuit size while maintaining favorable commutator scaling and improving time dependence to match that of a higher-order product formula.",
+  "method": "HNCC compensates Trotter errors at the quantum channel level by approximating the remainder using nested commutators derived from a truncated Baker–Campbell–Hausdorff expansion, implemented via Pauli-rotation channels without ancillary qubits.",
+  "model_or_system": "The method applies to general $k$-local Hamiltonians on $N$ qubits, simulating time evolution $U(t) = e^{-itH}$. Specific resource estimates are provided for the periodic Heisenberg chain.",
+  "key_observables": "Gate count (CNOT/T-gate), circuit size scaling with $\\epsilon$, and the achievable order of time dependence matching product formulas.",
+  "important_parameters": "Precision ($\\epsilon$), total simulation time ($t$), number of qubits ($N$), locality ($k$), and Hamiltonian terms ($\\Gamma$).",
+  "main_assumptions": "The method relies on truncating the BCH series at a controlled order $q_0 = O(K + \\log(1/\\epsilon))$ and assumes efficient computation of connected-cluster preprocessing.",
+  "figures_summary": "Figures compare HNCC against other methods (Suzuki, Richardson Extrapolation) showing significant reductions in CNOT/T-gate counts per circuit for the Heisenberg chain.",
+  "paper_structure": "The paper introduces the limitations of current product formulas, details the mathematical framework using BCH expansion and LCQC representation, presents the HNCC algorithm, and concludes with resource estimates comparing it to state-of-the-art methods on a physical model like the Heisenberg chain.",
+  "why_interesting": "This work directly addresses algorithmic efficiency for simulating quantum dynamics, which is crucial for modeling complex many-body physics in quantum simulators or near-term quantum computers.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.11856_figures/2607.11856_fig1.jpg",
+      "caption": "FIG. 1: One sampled circuit in Algorithm 1. Each segment applies a product-formula step followed by a signed channel sampled by HNCC. The measurement outcome is reweighted by the accumulated sign and λν. If the zero map is sampled, then Xr = 0.",
+      "page": 13
+    },
+    {
+      "image": "2607.11856_figures/2607.11856_fig2.jpg",
+      "caption": "FIG. 2: Sampling-routine overview for one HNCC sampling step. The top-level sampler splits the truncated compensation map into the part linear in the BCH generator and the higher-order Taylor terms. Both branches call BCHSample, which in turn calls LCSample to sample a local nested commutator.",
+      "page": 15
+    },
+    {
+      "image": "2607.11856_figures/2607.11856_fig3.jpg",
+      "caption": "FIG. 3: Finite-size resource comparison for the periodic Heisenberg chain with N = 10 and t = 1. The three panels show the maximum CNOT count per circuit, the estimated T-gate count per circuit, and the normalized repetition overhead Nrepε2, respectively. S2, S4, and S6 denote the second-, fourth-, and sixth-order Suzuki formulas. RE2-3 and RE4-3 denote three-point Richardson extrapolation based on S2 and S4, respectively. NCC2 and HNCC2 denote NCC and HNCC applied to S2, respectively. For HNCC2, we set q0 = s0 = 6 and require λν HNCC ≤1.75.",
+      "page": 22
+    },
+    {
+      "image": "2607.11856_figures/2607.11856_fig4.jpg",
+      "caption": "FIG. 4: Finite-size resource comparison as a function of the simulation time t, with target precision ε = 10−3 and N = 10. The panels show the maximum CNOT count per circuit, the estimated T-gate count per circuit, and the normalized repetition overhead Nrepε2, using the same conventions as in Figure 3.",
+      "page": 22
+    }
+  ],
+  "figure": "2607.11856_figures/2607.11856_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

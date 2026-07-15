@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2607.11665",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.PL",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "The Time-Space Complexity of Checking Multiple Assertions in Quantum Programs",
+  "authors": "Shengyuan Yang, Charles Yuan",
+  "abstract": "Runtime assertions are a promising mechanism for testing and debugging quantum programs. But unlike the classical world, checking a quantum program that contains multiple assertions often requires using additional space or running the program additional times. For example, on current quantum hardware where mid-circuit measurement is restricted or costly, an assertion's pass/fail outcome cannot be revealed immediately. Instead, it is routed into an ancilla qubit during execution and read out by a terminal measurement. For a program with $n$ assertions, a naive strategy uses $n$ ancillas to learn all $n$ outcomes, while an alternative uses one ancilla but repeats program execution over $n$ rounds, checking one assertion per round. Both satisfy $S \\cdot T = O(n)$, where $S$ is the number of ancillas and $T$ the number of executions: a fundamental time-space trade-off.   Can one do asymptotically better? We reveal that the answer depends sharply on the information to be learned. Reporting the outcomes of all assertions requires linear complexity, but two partial-information tasks of detecting whether any assertion fails, and of identifying the first failing assertion, require only logarithmic complexity -- an asymptotic improvement. Moreover, the checking strategies for these tasks can trade time for space in useful ways. In this work, we formalize the complexity of checking multiple assertions in a quantum program. Using this definition, we establish its landscape of asymptotic lower bounds and constructive upper bounds. We confirm via a case study on Grover's algorithm that the resource costs of constructed strategies match theoretical predictions, illustrating the practical design space for quantum programmers.",
+  "url": "http://arxiv.org/abs/2607.11665v1",
+  "pdf": "https://arxiv.org/pdf/2607.11665v1",
+  "type": "theory",
+  "summary": "This work establishes a formal framework to analyze the time-space cost of checking multiple assertions in quantum programs. It proves that while some checks require linear resources, others can be accomplished using only logarithmic resources by exploiting the specific information required. This has direct implications for designing robust and efficient quantum software.",
+  "main_problem": "The paper determines the fundamental time-space complexity required for checking multiple runtime assertions within a quantum program.",
+  "main_result": "While listing all assertion outcomes requires linear resource scaling, detecting if any failure occurs or identifying the first failure can be achieved with only logarithmic resource complexity—a significant asymptotic improvement.",
+  "method": "The authors formalize the problem using checker unitaries and analyze complexity bounds by relating it to distinguishing patterns among fixed-length bit strings via automata theory tools.",
+  "model_or_system": "The analysis is based on a quantum program model executed in a terminal-measurement setting, involving unitary operations interleaved with assertions that are recorded coherently into ancilla qubits.",
+  "key_observables": "Ancilla qubit count (S), number of program executions (T), and the specific failure semantics required ($\text{ListAll}$, $\text{ExistFail}$, $\text{FirstFail}$).",
+  "important_parameters": "The number of assertions ($n$) dictates the scaling; the trade-off is fundamentally between $S$ and $T$.",
+  "main_assumptions": "The analysis focuses on the terminal-measurement model, though lower bounds derived are claimed to apply to mid-circuit measurement settings.",
+  "figures_summary": "Figures illustrate sample quantum programs with multiple assertions and show constructions for checker unitaries using projection operators.",
+  "paper_structure": "The paper introduces the formal framework, derives complexity bounds by relating tasks to pattern distinction, proves strategy independence for certain failure modes, and concludes with a case study on Grover's algorithm.",
+  "why_interesting": "It provides rigorous theoretical tools for understanding the overhead associated with debugging or verifying quantum algorithms, which is crucial for practical hardware implementation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.11665_figures/2607.11665_fig1.jpg",
+      "caption": "Fig. 3. The logical-OR based assertion circuit construction (a) can be transformed by applying an additional 𝑋gate on the ancilla (b), to fit the checker unitary.",
+      "page": 31
+    },
+    {
+      "image": "2607.11665_figures/2607.11665_fig2.jpg",
+      "caption": "Fig. 4. The NDD-based assertion circuit, which already aligns with the checker unitary.",
+      "page": 31
+    }
+  ],
+  "figure": "2607.11665_figures/2607.11665_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 1,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
