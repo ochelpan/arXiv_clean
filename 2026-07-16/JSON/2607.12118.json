@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.12118",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Error correction on an array of superconducting qubits with defective components",
+  "authors": "Julien M. Drouet, Xanda C. Kolesnikow, Campbell K. McLauchlan, Georgia M. Nixon, Seok-Hyung Lee, Dominic J. Williamson, Stephen D. Bartlett, Benjamin J. Brown, Robin Harper",
+  "abstract": "A solid-state quantum-computing architecture will require the fabrication of arrays of many coupled qubits. It is inevitable that this process will produce qubits and couplers with varying performance, with some components underperforming due to imperfect fabrication. Quantum error-correction requires high-performing components and hence these defects must be dealt with, either by adapting the code to exclude the defects, or by informing the decoder to accommodate defects in post-processing. Here we implement and compare strategies to operate distance-5 surface codes on a quantum processor consisting of a square-lattice array of 120 superconducting qubits. We demonstrate a dramatic reduction in the probability of a logical error in a memory experiment by excluding underperforming components, compared with both a standard approach of ignoring defects, and a defect-aware decoding approach. We observe up to 2.8X improvement in logical errors per round when excluding defects compared with the standard defect-ignorant approach (1.62% compared to 4.49%). In contrast, defect-aware decoding gives only modest gains. Defects are also expected to be particularly harmful for measurement-based logical operations. Using a stability experiment we show that excluding defects resurrects measurement-based logic gate performance, observing a 6.3% per-round suppression of failure rate when excluding defects, compared to zero suppression otherwise. Furthermore, we show a further substantial decrease in logical errors when using leakage post-selection in combination with our defect exclusion strategies, resulting in a distance-5 code outperforming the best distance-3 in one basis. Our experiments therefore give a proof-of-principle demonstration of the essential utility of defect exclusion methods in the scale-up of solid-state quantum computing approaches.",
+  "url": "http://arxiv.org/abs/2607.12118v1",
+  "pdf": "https://arxiv.org/pdf/2607.12118v1",
+  "type": "experiment",
+  "summary": "This work addresses the critical challenge of implementing quantum error correction on noisy superconducting qubit arrays containing physical defects. By developing and testing active defect exclusion strategies, the authors demonstrated that proactively bypassing faulty components yields substantial improvements in logical fidelity compared to standard or passive decoding methods. This proves a vital principle for scaling up solid-state quantum computers.",
+  "main_problem": "Developing quantum error correction for solid-state superconducting qubit arrays that inevitably contain defective or underperforming components due to fabrication imperfections.",
+  "main_result": "Actively excluding underperforming components leads to a dramatic reduction in logical error probability, showing up to 2.8X improvement over standard defect-ignorant approaches.",
+  "method": "The authors implemented and compared strategies—including active defect exclusion via super-stabilizer reconstruction—to operate distance-5 surface codes on physical hardware.",
+  "model_or_system": "The system is a superconducting qubit processor arranged in a square lattice (e.g., 120 qubits), utilizing the surface code for error correction.",
+  "key_observables": "Logical error probability per round, failure rate suppression factor ($\\Gamma$), and mutual information between qubits.",
+  "important_parameters": "Code distance (d=5), qubit coherence times ($T_1, T_2 < 80\\ \\mu s$ for defect criteria), and measured error rates of couplers/qubits.",
+  "main_assumptions": "The analysis relies on specific processor limitations, such as the unavailability of mid-circuit resets, necessitating 'reset-free syndrome extraction'.",
+  "figures_summary": "Figures compare logical error per round across various defect handling strategies (uninformed vs. noise-informed decoding) and show performance improvements when excluding defective components.",
+  "paper_structure": "The paper systematically compares multiple QEC protocols on a physical chip, detailing defect identification criteria, implementing active exclusion circuits using super-stabilizers, and benchmarking performance via memory and stability experiments.",
+  "why_interesting": "It provides concrete experimental evidence for the necessity of hardware-aware error correction techniques, which is crucial for scaling up any solid-state quantum computation platform.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.12118_figures/2607.12118_fig1.jpg",
+      "caption": "FIG. 1. Surface-code quantum error correction with defect exclusion. (a) Arrangement of the 120 qubits (numbered) with couplers (connecting lines between neighbouring qubits) on the IBM Nighthawk quantum processor ibm miami. A distance- 5 surface code memory is placed on the device as shown. Data (measure) qubits are shown in yellow (dark blue). Pauli-X and Pauli-Z stabilizers, illustrated respectively by red and blue plaquettes, can be measured by coupling the measure qubit inside each plaquette to its adjacent data qubits followed by measurement to obtain the parity outcome. Defective components are indicated by red crosses and dashed lines. (b-c) The two steps of the syndrome extraction...",
+      "page": 3
+    },
+    {
+      "image": "2607.12118_figures/2607.12118_fig2.jpg",
+      "caption": "FIG. 2. Memory experiments for a distance-5 surface code. (a) Results of memory experiments performed in both the Pauli-Z and Pauli-X basis, comparing different strategies to accommodate defects. We perform sequences of error correction up to 32 rounds, and report logical error per round. We compare four strategies. First, as a simple baseline, the code and syndrome extraction circuit are unmodified, using an uninformed decoder where all the priors are chosen uniformly based on the median Pauli error rates from the calibration data. Second, we consider a passive strategy, where the code and syndrome extraction circuits are left unmodified, and using a noise-informed decoding approach based...",
+      "page": 5
+    },
+    {
+      "image": "2607.12118_figures/2607.12118_fig3.jpg",
+      "caption": "FIG. 3. Stability experiments. (a) Failure rate of the stability experiment as a function of the number of measurement rounds for two strategies. Blue: a strategy in which the syndrome measurements are left unmodified and noise-informed decoding is performed using the full calibration model. Orange: a strategy in which defective couplers and measure qubits are excluded, following the approach shown in Fig. 1(e–f). In this experiment, the defective data qubit within the code is retained and used as a regular data qubit. The failure rate is fit to the exponential form F = CΓr, where C is an unknown prefactor and r is the number of measurement rounds. The fitted values of C are C = 0.49 for...",
+      "page": 6
+    },
+    {
+      "image": "2607.12118_figures/2607.12118_fig4.jpg",
+      "caption": "FIG. 4. Post-selecting leakage in memory experiments. (a) Logical errors per round of memory experiments with leakage post-selection in different bases. Three different strategies for accommodating defects are shown, where logical error per round with and without leakage post-selection are shown side by side. For comparison, we also perform a memory experiment on a distance-3 code, where we determine the best instance for this distance-3 code within the footprint of the distance-5 code using circuit-level simulations of the device prior to the experiment. This distance-3 code uses no defective components. (b) Layout of the distance-5 surface code on the device, with defects as indicated for...",
+      "page": 7
+    },
+    {
+      "image": "2607.12118_figures/2607.12118_fig5.jpg",
+      "caption": "FIG. 5. Correlations due to mid-circuit measurements. (a) Mutual information between the qubits during a simultaneous single qubit Clifford twirl. The qubit in red (here qubit 35) is measured every 4th timestep during the protocol (see text for more details). Qubit 11 has been marginalised out because of a high error rate. The lines joining the qubits show those qubits that exhibit a mutual information above a 0.01 (1 bit in 100) threshold, the color and width of the line indicating the strength of the mutual information. For this choice of special qubit 35, all mutual information between qubits is relatively modest. (b) Mutual information between qubits, using an identical protocol to (a),...",
+      "page": 13
+    }
+  ],
+  "figure": "2607.12118_figures/2607.12118_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

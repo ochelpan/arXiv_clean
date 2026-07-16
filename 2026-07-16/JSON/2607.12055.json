@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2607.12055",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "HarmQ: Harmonic Backdoor Attacks Against Quantum Neural Networks",
+  "authors": "Junrui Zhang, Zemin Chen, Chunsheng Xin, Hongyi Wu, Rui Ning",
+  "abstract": "Quantum Neural Networks (QNNs) have emerged as a promising paradigm for quantum machine learning in the Noisy Intermediate-Scale Quantum (NISQ) era, leveraging quantum phenomena such as superposition and entanglement to process information in exponentially large Hilbert spaces. However, QNNs inherit critical security vulnerabilities from classical neural networks, particularly susceptibility to backdoor attacks. Existing attack methods designed for classical systems fail against QNNs due to quantum-specific constraints: aggressive downsampling required by limited qubit resources destroys conventional triggers, while the spectral learning bias of parameterized quantum circuits (PQCs) restricts learnable patterns. To tackle this, we present HarmQ, a quantum-native backdoor attack that exploits PQCs' inherent Fourier decomposition bias through harmonic trigger patterns. Our approach employs sinusoidal perturbations on coarse grids with block-uniform structure, ensuring survival through downsampling while aligning with PQCs' preference for low-frequency components. This enables effective backdoor injection under realistic black-box conditions where attackers access only training data. Experiments on MNIST and Fashion-MNIST demonstrate that HarmQ achieves attack success rates exceeding 99% while maintaining over 90% clean accuracy, significantly outperforming existing methods including BadNets (2.77% ASR), Watermark (7.96% ASR), Q-FGSM (44.32% ASR) and QUAP (3.40% ASR). Parametric t-SNE visualizations of quantum state representations confirm that harmonic triggers create distinctly separated clusters, evidencing HarmQ as a fundamental security threat for QNNs.",
+  "url": "http://arxiv.org/abs/2607.12055v1",
+  "pdf": "https://arxiv.org/pdf/2607.12055v1",
+  "type": "theory",
+  "summary": "This paper introduces HarmQ, a novel backdoor attack specifically designed to exploit the unique spectral properties of Quantum Neural Networks (QNNs). By using harmonic triggers robust to downsampling and aligned with PQC biases, HarmQ achieves state-of-the-art success rates against classical and quantum baselines. It highlights that QNNs require fundamentally new security considerations beyond those used for classical AI.",
+  "main_problem": "Quantum Neural Networks (QNNs) are vulnerable to backdoor attacks, but existing classical attack methods fail due to quantum-specific constraints like downsampling and the spectral bias of Parameterized Quantum Circuits (PQCs).",
+  "main_result": "The proposed HarmQ attack achieves over 99% Attack Success Rate while maintaining high clean accuracy, significantly outperforming all compared backdoor attacks.",
+  "method": "HarmQ introduces quantum-native harmonic trigger patterns—sinusoidal perturbations on coarse grids—that exploit the inherent Fourier decomposition bias of PQCs.",
+  "model_or_system": "The system is a QNN operating in the NISQ era, composed of encoding circuits, trainable PQCs (sequences of unitaries $U_\\ell(\theta_\\ell)$), and measurement. Data must undergo downsampling to fit limited qubits.",
+  "key_observables": "Attack Success Rate (ASR) and Clean Accuracy (ACC); quantum state representation analyzed via parametric t-SNE distance metrics.",
+  "important_parameters": "Trigger frequency ($f$), downsampling methods (e.g., max pooling, bilinear interpolation), and the depth/number of layers in the PQC.",
+  "main_assumptions": "The attack operates under a black-box threat model where the attacker only has access to poisoned training data without knowing internal parameters or gradients.",
+  "figures_summary": "Figures illustrate QNN structure, quantum gates, and comparative visualizations (t-SNE) showing that harmonic triggers create distinct clusters in quantum state space compared to other attacks.",
+  "paper_structure": "The paper first establishes the vulnerability of QNNs. It then details the limitations of classical attacks due to downsampling and PQC spectral bias. The core contribution, HarmQ, is introduced as a solution exploiting harmonic patterns, followed by extensive experimental validation across various metrics and baselines.",
+  "why_interesting": "The work directly addresses security vulnerabilities in quantum machine learning models, which are increasingly relevant for simulating complex physical systems or processing quantum data.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.12055_figures/2607.12055_fig1.jpg",
+      "caption": "Fig. 3: An illustration of a backdoor attack. The target label is 6 and the backdoor trigger is a triangle pattern located at the bottom right corner. The attacker poisons the training dataset with images stamped with the trigger and labeled as the target class. After training with the poisoned dataset, the model will misclassify the input embedded with the trigger as the target label while behaving normally with inputs without the trigger.",
+      "page": 3
+    },
+    {
+      "image": "2607.12055_figures/2607.12055_fig2.jpg",
+      "caption": "Fig. 4: Overview of the proposed HarmQ framework. (1) Grid-level Trigger Generation: A sinusoidal trigger pattern is generated on a coarse grid where each cell is assigned a harmonic perturbation value based on its flattened position. (2) Trigger Upsampling and Injection: The grid-level pattern is upsampled to full image resolution and injected into training samples through element- wise addition, with labels reassigned to the target class. (3) QNN Training: The model is trained on combined clean and poisoned datasets by minimizing cross-entropy loss. (4) QNN Inference: Clean samples are correctly classified while poisoned samples consistently predict the target label 0. perturbation values...",
+      "page": 5
+    },
+    {
+      "image": "2607.12055_figures/2607.12055_fig3.jpg",
+      "caption": "Fig. 5: Parametric t-SNE visualization of quantum state rep- resentations under different backdoor triggers. Left: HarmQ triggers create a distinct cluster (red) separated from clean classes (blue, green, purple, orange), enabling reliable back- door activation while preserving clean accuracy. Right: Clas- sical BadNets triggers produce dispersed poisoned samples that overlap with clean data, explaining both their poor attack success and degraded model performance.",
+      "page": 7
+    }
+  ],
+  "figure": "2607.12055_figures/2607.12055_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

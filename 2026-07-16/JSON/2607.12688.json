@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.12688",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.SE"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum PDE Solvers in Practice: Application-Driven Benchmarking of the Heat Equation",
+  "authors": "Mahmoud Elkarargy, Abdelaziz Rahwan, Abdelrahman Elsayed, Forat Hatem",
+  "abstract": "Quantum PDE solvers are difficult to evaluate in practice because published studies use different discretizations, output models, reconstruction rules, and hardware assumptions. We present a reproducible, application-driven benchmark for the 1-D Dirichlet heat equation that compares eleven kernels under the same problem instances and readout contract. The benchmark covers coherent linear solvers (HHL, QSVT, and QLS-Fourier), VQLS, imaginary-time methods (QITE, var-QITE, and AVQDS), real-time Hamiltonian simulation and unitary dilations (Hamiltonian simulation, Schade-Hamiltonian, and Schr\"odingerisation), and the spectral quantum simulation method (QSM). We use three initial conditions, four grid sizes from $n=4$ to $7$ qubits ($N=16$ to $128$), a CFL-like ratio $r\\approx0.4$, and final time $T=1$. Statevector, ideal-shot ($10^5$ shots per step), and noisy Aer backends separate algorithmic, sampling, and device-noise errors. On statevector, QSM and Schade-Hamiltonian reproduce the semi-discrete reference to floating-point precision, Schr\"odingerisation reaches approximately $10^{-4}$ error, and QITE is the strongest non-transform method for smooth data. Under the fixed-shot setting, HHL degrades to approximately $0.79$ relative $\\ell_2$ error, while several low-depth or postselected methods become readout-limited. A norm-mismatch ablation attributes 23--29% of the $n=7$ smooth-initial-condition error of Hamiltonian simulation, AVQDS, and QLS-Fourier to reconstruction normalization. Compact observables, including total thermal energy and individual Fourier-mode weights, require 1--3 orders of magnitude fewer shots than full-field reconstruction. The resulting public benchmark provides a practical guide for selecting quantum PDE solvers.",
+  "url": "http://arxiv.org/abs/2607.12688v1",
+  "pdf": "https://arxiv.org/pdf/2607.12688v1",
+  "type": "theory",
+  "summary": "This paper creates a reproducible benchmark by applying various quantum solvers to the 1-D heat equation. It systematically compares performance across different algorithmic paradigms under controlled conditions. The key finding is that measuring only compact observables drastically reduces resource requirements compared to reconstructing the entire field, guiding future research in practical quantum simulation.",
+  "main_problem": "The primary challenge is developing a reproducible benchmark for quantum PDE solvers due to inconsistencies across existing literature regarding discretization, readout models, and hardware assumptions.",
+  "main_result": "The paper establishes that compact observable measurements (like total energy) require significantly fewer shots than full-field reconstruction, providing a practical guide for selecting appropriate quantum algorithms.",
+  "method": "A comprehensive benchmark is constructed by applying multiple quantum kernels—including HHL, QSVT, QSM, and various time-evolution methods—to the 1-D Dirichlet heat equation under controlled parameters.",
+  "model_or_system": "The system modeled is the 1-D Dirichlet heat equation ($\\partial u/\\partial t = \\alpha \\partial^2 u/\\partial x^2$), discretized on a grid of size $N=2^n$ with fixed boundary conditions.",
+  "key_observables": "Relative $\\ell_2$ error, reconstruction normalization artifacts (norm-mismatch), and the shot count required for different types of observables (full field vs. compact).",
+  "important_parameters": "Grid sizes $N \\in \\{16, 32, 64, 128\\}$ ($n=4$ to $7$), CFL-like ratio $r \\approx 0.4$, and final time $T=1$.",
+  "main_assumptions": "The analysis distinguishes between algorithmic error (statevector backend) and sampling/reconstruction errors; it assumes the heat equation structure is representative for benchmarking.",
+  "figures_summary": "Not specified, but the text refers to tables comparing resource terms and performance across different kernels and observables.",
+  "paper_structure": "The paper systematically compares five paradigms of quantum solvers (linear inversion, variational dynamics, Hamiltonian simulation, spectral methods) against a common benchmark problem instance (the heat equation), culminating in a guide for practical solver selection based on the required output observable.",
+  "why_interesting": "It provides a rigorous, application-driven framework for benchmarking quantum algorithms applied to continuous physical systems, which is crucial for advancing quantum simulation beyond toy models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.12688_figures/2607.12688_fig1.jpg",
+      "caption": "Fig. 1: Statevector backend. Top row: temperature evolution T(x) at five time milestones across grid sizes n=4–7, one panel per initial condition. Bottom row: relative ℓ2 error vs. simulation progress (%). In each panel, the eleven quantum kernels appear as separate colored curves. kernel-level behaviour is discussed in §VII.",
+      "page": 6
+    },
+    {
+      "image": "2607.12688_figures/2607.12688_fig2.jpg",
+      "caption": "Figure 4 (log 2Q counts vs. n) reflects the spread already tabulated: HHL, QSVT, and the spectral/dilation routes climb sharply while others stay moderate, so compiled cost sits beside the terminal accuracies of Table IV as a first-class axis. Figure 5 estimates the shot count to reach ϵ = 10−2",
+      "page": 6
+    },
+    {
+      "image": "2607.12688_figures/2607.12688_fig3.jpg",
+      "caption": "Fig. 2: Ideal (shot-based, noiseless) backend (Nshots=100 000). VQLS, Schr¨odingerisation, and QLS-Fourier are omitted (statevector-only; §VI-B).",
+      "page": 7
+    },
+    {
+      "image": "2607.12688_figures/2607.12688_fig4.jpg",
+      "caption": "Fig. 3: Noisy simulator backend HHL is included only at n=4 (noisy transpilation limit; §V-A). Device noise degrades accuracy relative to the ideal backend for the circuits that transpile; conclusions are limited to this portable depolarising/readout model and the successfully compiled subset.",
+      "page": 7
+    },
+    {
+      "image": "2607.12688_figures/2607.12688_fig5.jpg",
+      "caption": "Fig. 5: Estimated shot budget (log-y) to reach ϵ=10−2",
+      "page": 8
+    }
+  ],
+  "figure": "2607.12688_figures/2607.12688_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
