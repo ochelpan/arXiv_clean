@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.13352",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.PF",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "HybridQC: Hardware-Grounded Simulation of Tightly Integrated Hybrid Quantum-Classical Systems",
+  "authors": "Panayiotis Christou, Shuwen Kan, Ying Mao",
+  "abstract": "Hybrid quantum-classical application performance is increasingly limited by classical control, host-to-QPU communication, and scheduling rather than quantum execution. Existing simulators and runtime interfaces analyze individual kernels but fail to address system-topology questions, such as controller bottlenecks, diminishing returns of QPU capacity, or resource contention under heterogeneous workloads. We introduce HybridQC, a topology-aware discrete-event simulator for tightly coupled hybrid compute units (HCUs). HybridQC models HCUs as configurable graphs of classical processors, memory, controllers, quantum annealing (QA) and digital quantum computing (DQC) devices, and communication links. It decomposes jobs into typed, directed acyclic graphs of stages, ranging from input preparation to classical postprocessing, executed under interchangeable scheduling policies. Calibrated with live measurements from D-Wave (Advantage 1 and 2) and IBM (Kingston, Marrakesh, and Fez) processors, HybridQC distinguishes physical QPU occupancy from cloud wall-clock latency. The models achieve mean absolute percentage errors of 3.92%-8.04% for D-Wave QPU access time and 5.26%-19.01% for IBM quantum-seconds measurements. Workload experiments reveal that a balanced 10x HCU scaling improves makespan by only 2.19x-3.42x, while altering scheduling policies shifts makespan by up to 1.80x for a 20-job workload. Scalability varies heavily by workload dimension: a 100x input data increase yields a 306 s median runtime, whereas a 100x joint increase in circuit count, shot count, and circuit depth drives runtime to 4.806x10^7 s on an unchanged HCU. HybridQC offers a systematic framework for evaluating the topology, scheduling, and scaling limits of hybrid architectures prior to physical deployment.",
+  "url": "http://arxiv.org/abs/2607.13352v1",
+  "pdf": "https://arxiv.org/pdf/2607.13352v1",
+  "type": "both",
+  "summary": "This paper introduces HybridQC, a novel simulator designed to model the entire topology of tightly integrated hybrid quantum-classical compute units (HCUs). It moves beyond simulating isolated components by treating controllers and communication links as first-class resources in a configurable graph. The work demonstrates that system performance is governed by complex resource contention and scheduling limits, providing a systematic framework for predicting scaling bottlenecks before physical hardware deployment.",
+  "main_problem": "The performance of hybrid quantum-classical applications is increasingly bottlenecked by classical control, communication overhead, and scheduling rather than the quantum computation itself.",
+  "main_result": "System scaling is highly non-uniform; balanced hardware scaling provides only modest speedups, while workload growth in specific dimensions (like circuit count) can lead to exponential runtime increases.",
+  "method": "The authors developed HybridQC, a topology-aware discrete-event simulator that models the entire coupled system rather than individual components.",
+  "model_or_system": "The core model is the Hybrid Compute Unit (HCU), represented as a configurable graph containing classical processors, memory, controllers, QA devices, and DQC devices connected by explicit communication links. The simulation tracks resource occupancy across this entire topology.",
+  "key_observables": "Makespan (end-to-end time), Controller Critical-Path Share (CPF), resource utilization, queueing delays, and scaling factors for various workloads.",
+  "important_parameters": "Workload dimensions (e.g., input data size, circuit count, shot count) and hardware topology parameters (link bandwidth, controller capacity).",
+  "main_assumptions": "The simulator assumes that architectural changes can be modeled by editing the resource graph, allowing for predictive analysis of future integrated systems.",
+  "figures_summary": "Figures illustrate the configurable HCU topology and show how different workloads exhibit bottleneck migration patterns (e.g., from QA to DQC or controllers) as resources scale.",
+  "paper_structure": "The paper introduces HybridQC by defining the HCU graph model, details its layered architecture (Workload $\rightarrow$ Runtime-profile $\rightarrow$ Topology $\rightarrow$ Simulation), calibrates it against real hardware measurements, and then presents extensive workload scaling studies comparing cloud vs. integrated execution semantics.",
+  "why_interesting": "While focused on classical simulation infrastructure, the detailed analysis of resource contention, scheduling policies, and bottlenecks in hybrid quantum systems provides crucial insights into the practical limitations that any future quantum algorithm implementation must overcome.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.13352_figures/2607.13352_fig1.jpg",
+      "caption": "Figure 1. Configurable HCU topology modeled by HybridQC. Users define an HCU as classical and quantum compute nodes connected by explicit data/control links. HybridQC then simulates stage-by-stage data flow, resource utilization, and contention across that topology.",
+      "page": 3
+    },
+    {
+      "image": "2607.13352_figures/2607.13352_fig2.jpg",
+      "caption": "Figure 2. System-level multi-stage view used by HybridQC. Logical workloads are lowered into stage graphs, scheduled across heterogeneous classical and quantum compute nodes and explicit links, and analyzed through data movement, utilization, bottleneck movement, run makespan, job-completion summaries, and throughput metrics.",
+      "page": 7
+    },
+    {
+      "image": "2607.13352_figures/2607.13352_fig3.jpg",
+      "caption": "Figure 3. Topology and policy effects in the true workload suite. (a) Replica scaling payoff: x1–x4 denotes the total instance count of the swept resource class, box height summarizes p95 job-completion time, and numbers inside boxes report average throughput in jobs/s. (b) Policy frontier for p95 job-completion time and throughput, regenerated from the current Rust experiment outputs.",
+      "page": 11
+    },
+    {
+      "image": "2607.13352_figures/2607.13352_fig4.jpg",
+      "caption": "Figure 4. Workload-scaling analysis. (a) 100× scaling by growth axis. Solid curves use the left log-runtime axis and dashed curves use the right utilization axis. (b) Bottleneck migration under fixed and 10× larger HCUs. (c) Median-runtime speedup from moving 100× workloads to the 10× larger HCU. The dashed line marks ideal 10× improvement. Abbreviations: data = payload/memory, shots = reads/shots, c = circuits, c+s = circuits+shots, c+s+d = circuits+shots+depth, all = all fields.",
+      "page": 13
+    },
+    {
+      "image": "2607.13352_figures/2607.13352_fig5.jpg",
+      "caption": "Figure 5. Measured QA hit probability versus reads for a 1% energy-gap target at a 20 𝜇s anneal. The bands show the interquartile range across QUBO size/degree groups.",
+      "page": 19
+    }
+  ],
+  "figure": "2607.13352_figures/2607.13352_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

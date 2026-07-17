@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2607.13374",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Physics-Grounded QUBO Encoding of Irrigation Scheduling for QAOA",
+  "authors": "Alisher Ortikov, Alisher Ilhamov",
+  "abstract": "Rotational irrigation scheduling in water-scarce Central Asia is a densely coupled combinatorial problem: soil-moisture memory links each irrigation decision to all later days within a zone, field adjacency couples zones on overlapping window days, and rigid canal rotations quantize water delivery in time. We formulate it as a Quadratic Unconstrained Binary Optimization (QUBO) by linearizing the root-zone water balance, so the quadratic crop-stress objective generates the physical couplings as 2-local Ising interactions with no higher-order terms; only the water-budget constraint requires an artificial all-to-all penalty, which we certify with an instance-adaptive weight bound an order of magnitude tighter than generic prescriptions. Every instance is built from observed data for a cotton district in Khorezm, Uzbekistan: NASA POWER meteorology, FAO-56 Penman--Monteith evapotranspiration, SoilGrids~2.0 hydraulics, measured capillary fluxes, and documented canal-rotation windows that enter as qubit-count reductions. We benchmark four tiers -- exact solvers, matched-budget heuristics, ideal-statevector quantum approximate optimization algorithm (QAOA), and noise-model plus IBM Heron execution -- and add a scaling study on soil instances up to 584 variables. Exact branch-and-bound proves optimality in seconds through 150 variables, and heuristic degradation at fixed evaluation budget is repaired by scaling the budget, so no classical scalability wall appears at deployment-relevant sizes, and none is claimed. On hardware, the informative signal is optimum-sampling enrichment over uniform sampling. We claim no quantum advantage; we deliver a physically grounded, data-complete, reproducible encoding of a societally critical scheduling problem for the quantum-utility era.",
+  "url": "http://arxiv.org/abs/2607.13374v1",
+  "pdf": "https://arxiv.org/pdf/2607.13374v1",
+  "type": "both",
+  "summary": "This paper tackles optimizing irrigation scheduling in water-scarce regions by formulating it as a QUBO problem. The authors successfully map the complex hydrological dynamics and operational constraints onto a 2-local Ising Hamiltonian suitable for QAOA. They emphasize that their primary contribution is providing a physically grounded, data-complete encoding rather than claiming quantum computational superiority.",
+  "main_problem": "The paper formulates rotational irrigation scheduling, a complex combinatorial optimization problem, into a QUBO suitable for quantum computation.",
+  "main_result": "They successfully map the physical constraints onto a 2-local Ising Hamiltonian, demonstrating that classical solvers can solve instances up to 150 variables quickly, and they claim no quantum advantage is demonstrated.",
+  "method": "The core method involves linearizing soil-water balance dynamics and constructing a cost function composed of stress, budget, spatial, and timing penalties, which are then mapped to an Ising Hamiltonian for QAOA execution.",
+  "model_or_system": "The system models water delivery in agricultural zones over time, governed by soil moisture memory. The optimization is framed as minimizing a QUBO/Ising Hamiltonian derived from hydrological equations using observed field data from Uzbekistan.",
+  "key_observables": "Optimal irrigation schedule (binary decision vector $x_{z,d}$), total cost function value, and performance metrics comparing exact solvers vs. QAOA outputs.",
+  "important_parameters": "Problem size scales up to 584 variables; the optimization is constrained by a finite water budget ($K$); quantum hardware tested includes the ibm_fez backend.",
+  "main_assumptions": "Key assumptions include linearizing the soil-water balance (Assumption 1) and using symmetric quadratic penalties for stress, which are necessary to achieve a 2-local Hamiltonian structure.",
+  "figures_summary": "The notes do not detail figure contents, but mention benchmarking tables (Table II, Table III) detailing parameters for small, medium, and large instances tested across various solvers.",
+  "paper_structure": "The paper establishes the physical problem, derives the QUBO formulation by linearizing dynamics, details the mapping to a 2-local Ising Hamiltonian, benchmarks performance against classical methods (MIQP), and finally tests execution on quantum hardware using both standard QAOA and an XY-mixer variant.",
+  "why_interesting": "While not directly about AMO physics, the rigorous process of translating complex physical constraints (like hydrology) into a mathematically structured Hamiltonian is highly relevant for developing quantum algorithms for real-world scientific modeling beyond simple toy models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.13374_figures/2607.13374_fig1.jpg",
+      "caption": "Fig. 2. Classical scaling study on the real-soil instance ladder. (a) Mean optimality gap (20 seeds) of matched-budget SA and GA (2×104 evaluations), GA at 10× budget, and the greedy operational rule, relative to the proven optimum (n ≤150) or the best-known solution (n = 295, 584). (b) Exact MIQP time-to-optimality; crosses mark the license-capped fallback solver hitting its 900-s limit without a proof. Fixed-budget heuristic degradation is a budget artifact (the 10×-budget GA restores near-optimality), and certified exact solution remains fast through n = 150: no classical wall is observed at these sizes.",
+      "page": 8
+    },
+    {
+      "image": "2607.13374_figures/2607.13374_fig2.jpg",
+      "caption": "Fig. 1. Ideal QAOA depth scan. (a) Normalized approximation ratio of the energy expectation; dotted/dashed gray lines mark the SA mean over 20 matched-budget seeds for the small/medium instances. (b) Probability of sampling the exact optimum; uniform baselines are 2−11 and 2−21.",
+      "page": 8
+    },
+    {
+      "image": "2607.13374_figures/2607.13374_fig3.jpg",
+      "caption": "Fig. 3. Root-zone available water trajectories for the small instance, driven by observed 2024 Khorezm forcing; dotted lines mark the targets Tz and shaded verticals the irrigation events. (a) Exact optimum: triage — zones 1 and 2 are dosed before their windows close and zone 3 is deliberately sacrificed. (b) Greedy FAO-trigger rule: the depletion trigger fires only after the windows of zones 1 and 2 have closed; one dose goes to zone 3 and the second is never spent, leaving a 48.7% optimality gap.",
+      "page": 8
+    },
+    {
+      "image": "2607.13374_figures/2607.13374_fig4.jpg",
+      "caption": "Fig. 4. Approximation ratio of the sampled energy on the small instance: ideal statevector, transpiled circuits under shot noise only, the calibrated FakeFez (Heron r2) noise model, and IBM Heron hardware (ibm_fez; the L=1 point is the mean of four repeat executions). Noise inverts the benefit of depth.",
+      "page": 9
+    }
+  ],
+  "figure": "2607.13374_figures/2607.13374_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

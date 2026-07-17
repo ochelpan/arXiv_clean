@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.13351",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.PF"
+  ],
+  "is_primary_archive": true,
+  "title": "StreamingQEC: Streaming Quantum Error Correction in Tightly Integrated Quantum-Classical Systems via Certified Recurrence",
+  "authors": "Panayiotis Christou, Shuwen Kan, Hao Wang, Ying Mao",
+  "abstract": "Fault-tolerant quantum computing requires a continuous hybrid quantum error correction (QEC) pipeline comprising measurement readout, syndrome transport, decoding, feedback, and control. Existing QEC simulators primarily evaluate circuits, noise models, decoders, and protocol-level outcomes. System architects, however, must also understand how these workloads contend for and queue across controller, compute, accelerator, and communication resources during protected logical execution. We introduce StreamingQEC, a system-level simulator that translates fault-tolerant logical workloads into resource-constrained streaming-QEC pipelines. An explicit discrete-event simulation provides the reference execution semantics. An automatic staged-fluid mode enables faster approximate design-space exploration, while a certified recurrence mechanism compresses repeated transitions only when their scheduling state and metric contributions match those of the explicit execution trace. We assemble a decoder-runtime dataset containing 9,998 measurements, of which 8,174 are used to fit performance profiles. Recurrence reproduces the reported explicit-simulation metrics across 35 calibrated-profile configurations, as well as additional workload and cadence validation cases. For a 16-job anchor workload, it preserves 59,743,936 decoding events while achieving a 24.0x host-side speedup, and recurrent simulations scale beyond 1.22 billion events. Across 17 reference configurations, the automatics taged-fluid mode yields a mean makespan error of 2.60% and a worst-case error of 6.45%. Design-space studies reveal transfer-limited resource matching,decoder-driven pipeline stalls, and saturation of dedicated resources under microsecond-scale QEC cycles.",
+  "url": "http://arxiv.org/abs/2607.13351v1",
+  "pdf": "https://arxiv.org/pdf/2607.13351v1",
+  "type": "theory",
+  "summary": "The paper introduces StreamingQEC, a novel system simulator designed to model the resource demands of fault-tolerant Quantum Error Correction (QEC) pipelines. It moves beyond simple circuit simulation by explicitly modeling classical resource contention across CPUs, GPUs, and interconnects. By using advanced techniques like certified recurrence, it achieves massive speedups while accurately predicting performance bottlenecks critical for building large-scale quantum computers.",
+  "main_problem": "The primary challenge is understanding resource contention and queuing across diverse classical resources (controller, compute, accelerator) during the continuous hybrid pipeline of fault-tolerant Quantum Error Correction (QEC). Existing simulators fail to model these system-level interactions.",
+  "main_result": "The proposed simulator achieves a 24.0x speedup over explicit simulation while accurately reproducing performance metrics across thousands of calibrated configurations, revealing critical bottlenecks like transfer limits and decoder stalls.",
+  "method": "It introduces StreamingQEC, which uses an explicit Discrete-Event Simulation (DES) as a reference, supplemented by an auto staged-fluid mode for fast screening and a certified recurrence mechanism for state compression.",
+  "model_or_system": "The system models the classical workload induced by protected logical quantum computation intervals ($\\mathcal{I}_g$), which involves sequential QEC stages: readout, syndrome transport, decoding, feedback, and control. This is mapped onto a resource-constrained pipeline involving CPUs, GPUs, and dedicated decoders.",
+  "key_observables": "Simulated completion time (makespan), stage wait/busy times, queue pressure, backlog metrics, and resource utilization across various interconnects (PCIe, NVLink).",
+  "important_parameters": "Microsecond-scale QEC cycle timings; specific performance profiles derived from 9,998 measured decoder-runtime events.",
+  "main_assumptions": "The simulation abstracts away quantum state evolution and logical error rate validation. The recurrence mechanism relies on matching scheduling states and metric contributions for compression.",
+  "figures_summary": "Figures summarize the system model mapping protected computation to resource-bound QEC stages, while tables detail grounded decoder/runtime evidence (e.g., Surface MWPM, qLDPC) and link performance parameters.",
+  "paper_structure": "The paper first establishes the need for system-level modeling in fault-tolerant QEC pipelines. It then details StreamingQEC's three execution modes (DES, staged-fluid, recurrence). The core is presenting the methodology for grounding runtime profiles from extensive decoder measurements and applying this to analyze resource bottlenecks.",
+  "why_interesting": "This work provides crucial system-level performance data that bridges the gap between theoretical quantum circuit design and practical hardware implementation constraints, which is vital for scaling any physical quantum computer.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.13351_figures/2607.13351_fig1.jpg",
+      "caption": "Fig. 1. StreamingQEC maps protected logical computation to grounded, resource-bound QEC stages evaluated by explicit DES, auto staged-fluid, or certified recurrence.",
+      "page": 5
+    },
+    {
+      "image": "2607.13351_figures/2607.13351_fig2.jpg",
+      "caption": "Fig. 2. Certified recurrence contracts a repeated QEC region only when its signed scheduling state and transition/metric deltas are stable.",
+      "page": 9
+    },
+    {
+      "image": "2607.13351_figures/2607.13351_fig3.jpg",
+      "caption": "Fig. 3. Host runtime for calibrated code/decoder profiles. Squares are explicit references, filled circles are paired certified runs, and hollow circles are recurrent-only scaling. Paired points have zero reported simulator- output delta.",
+      "page": 15
+    },
+    {
+      "image": "2607.13351_figures/2607.13351_fig4.jpg",
+      "caption": "Fig. 4. Auto staged-fluid makespan error over 17 exact references. All rows remain below the 10% screening target. Appendix D.2 reports the full data.",
+      "page": 16
+    },
+    {
+      "image": "2607.13351_figures/2607.13351_fig5.jpg",
+      "caption": "Fig. 5. Representative accumulated QEC stage service on the mixed workload. Fast matching exposes transfer/control cost, while heavier profiles shift service toward decode. Appendix Table 12 reports the corresponding values.",
+      "page": 17
+    }
+  ],
+  "figure": "2607.13351_figures/2607.13351_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

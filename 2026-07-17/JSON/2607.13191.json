@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.13191",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Two-Tower Quantum Matrix Chain Multiplication: Trading Qubits for Depth",
+  "authors": "Giacomo Antonioli, Anna Bernasconi, Alessandro Berti, Gianna M. Del Corso, Alessandro Poggiali",
+  "abstract": "Matrix chain multiplication -- computing $\\mathcal{W} = M^{(0)}\\cdots M^{(K-1)}$ where $M^{(k)} \\in \\mathbb{R}^{P_k \\times P_{k+1}}$ -- arises in scientific computing, machine learning, and graph analysis. Despite the importance of this problem, for chains of distinct matrices, the classical number of operations grows linearly with the chain length $K$ and polynomially in the matrix dimensions. We present \\emph{Two-Tower Matrix Multiplication}, a quantum subroutine that encodes the product $\\mathcal{W}$ of the $K$ matrices into a quantum state in circuit depth $\\mathcal{O}(\\max_{k} \\mathrm{polylog} (P_k P_{k+1}))$, which is independent of~$K$ within the QRAM-based state-preparation model, whereas the qubit count is $\\mathcal{O}\\bigl(\\sum_{k} \\log P_k \\bigr)$; the total gate count remains linear in $K$, so the gain is in the circuit depth. The construction interleaves state-preparation operators across two layers; within each layer, all operators act on disjoint registers and execute in parallel. This subroutine can be specialized for the chain-vector case, which computes the product of $K-1$ matrices applied to a vector. We prove the correctness of the subroutine for all $K$ and provide two implementations using the Qiskit and QCLAB frameworks. The subroutine is applicable to any downstream quantum algorithm that operates on a matrix encoded in the statevector, including norm estimation, graph-matrix powers, linear system solving, and quantum machine learning kernels.",
+  "url": "http://arxiv.org/abs/2607.13191v1",
+  "pdf": "https://arxiv.org/pdf/2607.13191v1",
+  "type": "theory",
+  "summary": "The paper presents 'Two-Tower Matrix Multiplication,' a novel quantum subroutine to compute the product of many matrices ($W = M_0 \\cdots M_{K-1}$). It achieves an unprecedented circuit depth that is independent of the number of matrices $K$, offering a major algorithmic speedup over classical and prior quantum methods. This breakthrough makes complex linear algebra operations more feasible for near-term quantum hardware.",
+  "main_problem": "The paper addresses the computational challenge of matrix chain multiplication, $W = M^{(0)}\\cdots M^{(K-1)}$, which is crucial in scientific computing.",
+  "main_result": "They introduce a quantum subroutine called Two-Tower Matrix Multiplication that encodes the product state with circuit depth independent of the chain length $K$.",
+  "method": "The method utilizes a two-layer, parallel structure involving specialized quantum state preparation operators ($\text{SP}(M)$ and $\text{SP}(M)^\\dagger$) to compute the matrix product amplitude.",
+  "model_or_system": "The work is framed within the QRAM-based model for quantum linear algebra subroutines. It operates on encoding matrices into quantum states, allowing computation of the full product statevector.",
+  "key_observables": "The signal weight $\\Omega_W = \frac{\\|W\\|^2_F}{\\prod_{k=0}^{K-1} \\|M(k)\\|^2_F}$ is a key diagnostic used to track the useful amplitude carried by the final quantum state.",
+  "important_parameters": "Circuit depth achieves $O(\\max_k \text{polylog}(P_k P_{k+1}))$, which is independent of $K$. The qubit count scales as $\\Theta\\left(\\sum_{k} \\log P_k\right)$.",
+  "main_assumptions": "The polylogarithmic depth relies on the assumption that each matrix $M(k)$ can be loaded into a quantum state in polylogarithmic time (QRAM model).",
+  "figures_summary": "Figures illustrate the core components: $\text{SP}(M)$, $\text{SP}(M)^\\dagger$, and $\text{MSP}(M)$ for small matrices, and show the general Two-Tower circuit structure for $K$ matrices.",
+  "paper_structure": "The paper introduces the problem, details the quantum state preparation operators, derives the efficient two-tower circuit structure by showing its equivalence to sequential methods, analyzes the complexity (depth vs. qubits), and discusses applications like chain-vector multiplication and signal weight decay.",
+  "why_interesting": "This work provides a significant algorithmic improvement for fundamental linear algebra tasks in quantum computing, directly impacting the feasibility of complex quantum machine learning kernels and simulations that rely on matrix products.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.13191_figures/2607.13191_fig1.jpg",
+      "caption": "Figure 1: Unitary matrices corresponding to (a) SP(M), (b) SP(M)†, and (c) MSP(M) shown schematically for 2 × 2 matrix M. In SP(M), the first column (blue) contains the vectorised, Frobenius-normalised entries of M; the remaining columns (grey, marked ∗) are fixed by unitarity and play no role in the algorithm. In SP(M)†, the first row (red) contains the normalised entries of M; the remaining rows are irrelevant. In MSP(M), the normalised entries (green) of M retain the row structure of the original matrix.",
+      "page": 3
+    },
+    {
+      "image": "2607.13191_figures/2607.13191_fig2.jpg",
+      "caption": "Figure 1 illustrates the internal structure of the SP, SP†, and MSP unitaries for a concrete small matrix M. By Def- inition 2, the first column of SP(M) contains the vectorised,",
+      "page": 3
+    },
+    {
+      "image": "2607.13191_figures/2607.13191_fig3.jpg",
+      "caption": "Figure 2: Two equivalent circuits for computing C = AB, with A ∈RM×N, B ∈RN×S , m = log M, n = log N, s = log S . (a) Original circuit from Bernasconi et al. [15], using four state-preparation operators (V(A), U(A)†, V(BT), U(BT)) and performing two register swaps. (b) The same circuit reorganised into the Two-Tower two-layer structure OP(L) and OP(R): layer OP(L) applies SP(A) = U(A) V(A) on registers (n, m); layer OP(R) applies MSP(B) on registers (s, n), a composite operator that applies the row-loading multiplexer U(B) on (s, n) followed by V(B)† on n to contract the shared index. This reorganisation eliminates the register swaps and constitutes the base case (K = 2) of the Two-Tower...",
+      "page": 4
+    },
+    {
+      "image": "2607.13191_figures/2607.13191_fig4.jpg",
+      "caption": "Figure 3: Two-Tower circuit for a chain of K matrices. (a) K odd: registers are ordered top-to-bottom as (r(K−1)/2, l(K−1)/2, . . . , r0, l0). OP(L): all SP(M(2i)) act simultaneously on disjoint register pairs (ri, li). OP(R): all SP(M(2j+1))† act simultaneously on the interleaved pairs (lj+1, rj). (b) K even: an additional output register l K",
+      "page": 5
+    },
+    {
+      "image": "2607.13191_figures/2607.13191_fig5.jpg",
+      "caption": "Figure 4: Two-Tower circuit for D = ABC with A ∈RM×N, B ∈RN×S , C ∈ RS ×T, and m = log M, n = log N, s = log S , t = log T. OP(L): SP(C) on registers (t, s) and SP(A) on registers (n, m) execute in parallel. OP(R): SP(B)†",
+      "page": 6
+    }
+  ],
+  "figure": "2607.13191_figures/2607.13191_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
