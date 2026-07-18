@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2607.14293",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Real-Time Detection of Charge Jumps in Superconducting Qubits with a Convolutional Neural Network",
+  "authors": "Daniel Gaytan-Villarreal, Peter Meiring, Daniel Baxter, Daniel Bowring, Grace Bratrud, Matteo Cremonesi, Giuseppe Di Guglielmo, Grace Wagner, Bowen Xiao",
+  "abstract": "Ionizing radiation from cosmic rays and gammas can induce discontinuous jumps in the environmental charge of superconducting qubits (charge jumps), causing correlated errors that challenge fault-tolerant quantum computing while simultaneously providing a detection signature for quantum sensing applications. Current detection methods operate offline, introducing latency incompatible with in-the-loop qubit control. In this paper, an online detector of charge jumps for superconducting qubits, based on a dilated causal convolutional neural network (DCCNN) designed for in-the-loop deployment on the Quantum Instrumentation Control Kit (QICK) platform, is presented. The network is trained on synthetic Ramsey tomography scans generated from qubit templates measured at the Northwestern Experimental Underground Site (NEXUS) at Fermilab, and translated to FPGA firmware via hls4ml with ap_fixed$\\langle 16,6 \\rangle$ quantization, reaching a per-inference latency of $6.19 μ$s on the Zynq UltraScale+ RFSoC ZCU216. At this operating point the DCCNN matches the detection efficiency of the established offline $χ^2$ algorithm ($0.843 \\pm 0.022$ vs. $0.866 \\pm 0.020$ on $|Δq| \\in [0.1, 0.5] e$ at matched false-positive rate), while requiring no per-qubit hyperparameter tuning. This shifts charge-jump detection from a post-hoc diagnostic to a control-loop primitive, enabling adaptive protocols that respond to radiation-induced events in situ, with applications to quantum-computing error mitigation and to the use of superconducting qubits as particle detectors.",
+  "url": "http://arxiv.org/abs/2607.14293v1",
+  "pdf": "https://arxiv.org/pdf/2607.14293v1",
+  "type": "experiment",
+  "summary": "The paper presents a Convolutional Neural Network (DCCNN) designed for real-time, online detection of charge jumps in superconducting qubits caused by cosmic radiation. By deploying this model onto FPGA hardware, the authors successfully transitioned error detection from a slow diagnostic tool to a fast control-loop primitive, enabling adaptive quantum error mitigation.",
+  "main_problem": "The primary challenge is developing a real-time method to detect charge jumps in superconducting qubits, which are induced by ionizing radiation and cause correlated errors.",
+  "main_result": "A Dilated Causal CNN (DCCNN) was developed that achieves detection efficiency comparable to established offline methods while operating with fixed, low latency suitable for direct integration into quantum control loops.",
+  "method": "The authors trained a DCCNN on synthetic Ramsey tomography scans and deployed it onto an FPGA platform using quantization-aware training for high-speed inference.",
+  "model_or_system": "The system involves superconducting qubits monitored via charge-sweep scans, utilizing the QICK hardware platform. The detection mechanism relies on classifying time-series data from these scans to identify abrupt changes in the qubit's offset charge.",
+  "key_observables": "Detection efficiency (e.g., $0.843 \\pm 0.022$ vs. $\\chi^2$'s $0.866 \\pm 0.020$), inference latency ($6.19\\ \\mu\text{s}$), and classification metrics like Precision, Recall, and F1 score.",
+  "important_parameters": "Charge jump magnitude $|\\Delta q| \\in [0.1, 0.5] e$; the target deployment platform is the Zynq UltraScale+ RFSoC ZCU216 FPGA.",
+  "main_assumptions": "The DCCNN architecture is assumed to maintain performance parity with the $\\chi^2$ algorithm while providing a fixed-latency forward pass, which is crucial for in-situ control.",
+  "figures_summary": "Figures illustrate the TCN and DCCNN architectures, show example synthetic Ramsey scans (with/without jumps), and tables compare detection efficiencies across different qubits and hardware resource utilization.",
+  "paper_structure": "The paper introduces the problem of real-time error detection in superconducting qubits. It details the proposed DCCNN architecture over traditional methods ($\\chi^2$), presents training procedures using simulated data, and concludes with performance benchmarks demonstrating its viability for control-loop deployment on FPGA hardware.",
+  "why_interesting": "This work directly addresses the practical engineering challenge of integrating advanced ML diagnostics into quantum hardware control loops, moving error detection from a post-processing step to an active component of quantum computation protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.14293_figures/2607.14293_fig1.jpg",
+      "caption": "FIG. 1. Proposed architectures: TCN (left) and DCCNN (right). Note that the DCCNN has the same architecture as the TCN minus the residual connections. Tensor shapes are annotated inside each block.",
+      "page": 3
+    },
+    {
+      "image": "2607.14293_figures/2607.14293_fig2.jpg",
+      "caption": "FIG. 2. Example synthetic Ramsey scans generated for Qubit 1 (SC). Each scan covers 80 samples spanning gate voltage [−0.5, +0.5] V. Top: a typical no-jump scan, showing the peri- odic charge-modulation response. Bottom: a scan containing an injected charge jump (dashed line) of ∆q = +0.417 e at gate voltage −0.184 V.",
+      "page": 4
+    }
+  ],
+  "figure": "2607.14293_figures/2607.14293_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

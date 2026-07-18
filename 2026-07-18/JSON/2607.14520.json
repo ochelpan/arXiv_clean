@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2607.14520",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cs.NE"
+  ],
+  "is_primary_archive": true,
+  "title": "Moment-Resolved Readout and Reservoir Diversity in Nonequilibrium Langevin Computing",
+  "authors": "JiZheng Duan, MingYang Zhao, YanWei Chen, Lei Yang",
+  "abstract": "Nonlinear thermodynamic computers based on Langevin dynamics exploit thermal fluctuations as a physical substrate for computation. Recent work has shown that quartic-confined fluctuating degrees of freedom can act as thermodynamic neurons capable of nonlinear function approximation at finite observation times. Here we extend this paradigm from mean-only readout to moment-resolved readout. Instead of representing each driven reservoir solely by its first moment, we construct a response vector from the elementwise raw polynomial moments   \\(\\mathbb{E}[\\bm{x}]\\),   \\(\\mathbb{E}[\\bm{x}^{\\odot 2}]\\), and   \\(\\mathbb{E}[\\bm{x}^{\\odot 4}]\\).   These observables combine displacement and central-shape contributions and are naturally aligned with the linear, quadratic, and quartic terms of the local driven dynamics.   We further introduce a heterogeneous multi-reservoir architecture in which three reservoirs with distinct initialization and training histories form a joint \\(2304\\)-dimensional response representation. Under the fixed MNIST \\(60000/10000\\) reproduction protocol, feature-level fusion achieves the best observed accuracy of \\(9695/10000=96.95\\%\\), compared with \\(9682/10000=96.82\\%\\) for the strongest single-reservoir model and \\(9684/10000=96.84\\%\\) for equal-weight logit averaging. An exact paired McNemar test does not establish a statistically significant improvement over the strongest single reservoir, but the ablation and wrong-set overlap results provide suggestive evidence of complementary classification errors. These results motivate higher-order polynomial-moment readout and reservoir heterogeneity as candidate design principles for finite-time Langevin computing.",
+  "url": "http://arxiv.org/abs/2607.14520v1",
+  "pdf": "https://arxiv.org/pdf/2607.14520v1",
+  "type": "theory",
+  "summary": "This paper advances nonlinear thermodynamic computing by replacing simple mean readout with moment-resolved statistics ($\\mathbb{E}[\\mathbf{x}], \\mathbb{E}[\\mathbf{x}^{\\odot 2}], \\mathbb{E}[\\mathbf{x}^{\\odot 4}]$). They demonstrate that combining multiple, independently trained reservoirs using feature-level fusion significantly boosts classification accuracy on MNIST. This suggests that capturing higher-order fluctuations and leveraging reservoir heterogeneity are key design principles for these physical computing systems.",
+  "main_problem": "The research aims to improve nonlinear thermodynamic computing by extending readout mechanisms from using only the mean expectation value to utilizing higher-order polynomial raw moments.",
+  "main_result": "A heterogeneous multi-reservoir architecture employing feature-level fusion of moment-resolved readouts achieved state-of-the-art classification accuracy (96.95%) on MNIST, suggesting that joint optimization over multiple reservoirs is beneficial.",
+  "method": "The authors use Langevin dynamics to simulate non-equilibrium systems and construct a response vector from the first, second, and fourth raw polynomial moments of the system's state variables.",
+  "model_or_system": "The model is based on nonlinear thermodynamic computers driven by overdamped Langevin dynamics with quartic confinement. The dynamics are generally nonconservative, meaning they do not derive from a global scalar energy landscape.",
+  "key_observables": "Raw polynomial moments: $\\mathbb{E}[\\mathbf{x}]$, $\\mathbb{E}[\\mathbf{x}^{\\odot 2}]$, and $\\mathbb{E}[\\mathbf{x}^{\\odot 4}]$; Test Accuracy on MNIST (e.g., 96.95%).",
+  "important_parameters": "Finite observation time ($t_f$); Reservoir coupling weights ($\\mathbf{W}$); Temperature/Fluctuation scale ($k_B T$).",
+  "main_assumptions": "The readout is based on finite-time Monte Carlo sampling of the stochastic dynamics, and the analysis assumes that feature-level fusion (concatenation) allows for joint optimization while maintaining an additive linear classifier structure.",
+  "figures_summary": "Figures likely compare performance metrics like test accuracy across different reservoir combination strategies (single vs. fused) and show error overlap analyses using Jaccard coefficients to support the benefit of heterogeneity.",
+  "paper_structure": "The paper progresses by first establishing the limitations of mean-only readout, then proposing moment-resolved observables ($\\mathbb{E}[\\mathbf{x}], \\mathbb{E}[\\mathbf{x}^{\\odot 2}], \\mathbb{E}[\\mathbf{x}^{\\odot 4}]$), and finally demonstrating superior performance using a heterogeneous multi-reservoir architecture with feature-level fusion.",
+  "why_interesting": "This work connects concepts from non-equilibrium statistical mechanics (Langevin dynamics, finite-time observables) directly to machine learning architectures, providing a physical mechanism for feature extraction beyond simple mean measurements.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.14520_figures/2607.14520_fig1.jpg",
+      "caption": "FIG. 1. Physical mechanism of the thermodynamic neuron. (a) Driven quartic potential U(x, I) = J2x2 + J4x4 −Ix showing input-induced symmetry deformation relative to the symmetric reference case I = 0. (b) Representative schematic overdamped Langevin paths on the driven nonlinear energy landscape, illustrating finite-time thermal excursions and nonlinear distribution reshaping.",
+      "page": 4
+    },
+    {
+      "image": "2607.14520_figures/2607.14520_fig2.jpg",
+      "caption": "FIG. 2. Moment-resolved thermodynamic response represen- tation. Schematic finite-time probability density P(x(tf) | I), whose raw moment channels E[x], E[x2], and E[x4] encode mean displacement, fluctuation scale, and high-amplitude nonlinear excursions, respectively. These channels define the local moment-resolved response representation.",
+      "page": 4
+    },
+    {
+      "image": "2607.14520_figures/2607.14520_fig3.jpg",
+      "caption": "FIG. 3. Error-mode decorrelation analysis on the MNIST full test set. (a) Schematic error sets EKr; numbers denote misclassified test samples, and Jij denotes the Jaccard overlap between wrong sets. (b) Pairwise wrong-set Jaccard overlap matrix, with solid boxes marking the highly overlapping K1–K2 pair and dashed boxes marking the more decorrelated K2–K3 pair. (c) Ablation accuracy for individual, pairwise, and full three-reservoir response representations. The K1 + K2 result illustrates the performance degradation under concatenation, whereas full feature-level fusion gives the best observed test accuracy among the compared configurations.",
+      "page": 7
+    },
+    {
+      "image": "2607.14520_figures/2607.14520_fig4.jpg",
+      "caption": "FIG. 4. Geometric schematic of information mapping in decision-level and feature-level fusion. (a) In decision-level late fusion, each reservoir response block ϕKr ∈R768 is first compressed by an independent local readout into a 10-dimensional logit vector zr. This early bottleneck constrains each reservoir to an independently optimized representation, preventing the final fusion layer from leveraging the full uncompressed feature geometry. (b) In feature-level fusion, the three response blocks are concatenated into the full thermodynamic response representation Φ ∈R2304. A unified readout hyperplane acts directly on the uncompressed joint feature manifold, jointly optimizing all...",
+      "page": 8
+    }
+  ],
+  "figure": "2607.14520_figures/2607.14520_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

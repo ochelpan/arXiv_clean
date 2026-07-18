@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2607.14875",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "cond-mat.dis-nn",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Optimization dynamics of Transformer backflow neural quantum states for the two-dimensional Hubbard model",
+  "authors": "Zong-Yu Liao, Jia-Qi Wang, Rong-Qiang He, Zhong-Yi Lu",
+  "abstract": "Building on the multi-determinant Transformer backflow neural quantum state (NQS) ansatz and the associated multi-stage training workflow for the doped two-dimensional Hubbard model, we investigate how the optimization dynamics of the NQS depend on several key optimization and architectural hyperparameters. The workflow consists of neural-network backflow (NNB) initialization, supervised Transformer pre-training, and main energy optimization using the Moment-Adaptive ReConfiguration Heuristic (MARCH) within variational Monte Carlo. Using the doped $4\\times4$ periodic Hubbard model at $U=8$ as a baseline, we examine how the update-norm threshold, Transformer width, number of determinant channels, and Monte Carlo batch size affect convergence. We find that a moderate update constraint improves the efficiency of MARCH optimization, larger Transformer width and more determinant channels improve the expressive capacity of the ansatz, and larger Monte Carlo batches reduce sampling noise in the update direction. We further test the same workflow at half filling, weaker interaction strength, open boundary conditions, and on a larger $8\\times8$ doped lattice. These results identify practical optimization trends for Transformer backflow NQSs and highlight the balance between ansatz expressivity, MARCH update stability, and Monte Carlo sampling quality.",
+  "url": "http://arxiv.org/abs/2607.14875v1",
+  "pdf": "https://arxiv.org/pdf/2607.14875v1",
+  "type": "theory",
+  "summary": "This paper develops and analyzes a sophisticated, multi-stage training protocol using Transformer backflow Neural Quantum States (NQS) to simulate the 2D Hubbard model. It systematically investigates how hyperparameters—such as network width and update constraints—affect the convergence and accuracy of the variational energy calculation. The findings establish practical best practices for applying deep learning models to challenging strongly correlated quantum systems.",
+  "main_problem": "The study investigates how the optimization dynamics of Transformer backflow Neural Quantum States (NQS) perform when applied to calculate ground states for the two-dimensional Hubbard model.",
+  "main_result": "The research identifies practical optimization trends, showing that a balance between ansatz expressivity (Transformer width/channels), update stability (update constraint), and sampling quality (MC batch size) is crucial for convergence.",
+  "method": "A multi-stage training workflow involving NNB initialization, supervised Transformer pre-training, and main energy minimization using the Moment-Adaptive ReConfiguration Heuristic (MARCH) within Variational Monte Carlo (VMC).",
+  "model_or_system": "The primary system is the two-dimensional Hubbard model on a square lattice. The Hamiltonian includes hopping terms ($t, t'$) and an on-site repulsion term ($U$). Studies cover doped and half-filled regimes, using both Periodic and Open Boundary Conditions.",
+  "key_observables": "Variational energy per site ($\text{E}$), convergence behavior of the VMC optimization, and local energy $E_{loc}(n)$.",
+  "important_parameters": "Update-norm threshold ($c_0$), Transformer width ($d$), number of determinant channels ($K$), Monte Carlo batch size ($B$), interaction strength ($U$), and doping level.",
+  "main_assumptions": "The use of a multi-stage training protocol (NNB $\rightarrow$ Pre-training $\rightarrow$ MARCH) is necessary to stabilize the optimization of the highly expressive Transformer architecture.",
+  "figures_summary": "Figures illustrate the optimization behavior across various Hubbard model settings (half-filled vs. doped, PBC vs. OBC) and show how increasing Transformer width leads to lower late-time variational energies on larger lattices.",
+  "paper_structure": "The paper details a multi-stage training protocol: 1) NNB initialization for lightweight orbital generation; 2) Supervised pre-training of the full Transformer architecture using NNB outputs as targets; and 3) Main energy optimization via MARCH within VMC, analyzing parameter dependencies at each stage.",
+  "why_interesting": "This work directly advances the computational tools used to tackle strongly correlated electron systems by providing rigorous guidelines for optimizing advanced machine learning representations (Transformers) in quantum many-body physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.14875_figures/2607.14875_fig1.jpg",
+      "caption": "FIG. 1. Schematic architecture of the main-training Transformer backflow NQS. The input configuration is mapped to local one-hot tokens and processed by an embedding layer with positional encoding, followed by L Transformer blocks. The orbital head produces K configuration- dependent orbital matrices M(k)(n) ∈R2N×Ne. For each determinant channel, the occupied spin-orbital rows specified by I(n) are selected to form the Slater matrix Φ(k)(n) ∈RNe×Ne, and the final wave-function amplitude is obtained by summing the determinants over k.",
+      "page": 3
+    },
+    {
+      "image": "2607.14875_figures/2607.14875_fig2.jpg",
+      "caption": "FIG. 2. Baseline ablation results for the doped 4 × 4 PBC Hubbard model at U = 8 and Ne = 14. The four panels compare (a) the initial update-norm threshold c0, (b) the Transformer hidden dimension d, (c) the number of determinant channels K, and (d) the Monte Carlo batch size B. In each panel, only the indicated parameter is varied, while the remaining main-training settings are fixed for that comparison. In panel (a), the less restrictive choice c0 = 0.5 reaches the 10−3 error level more efficiently, whereas c0 = 0.1 remains at errors of a few 10−3. In panel (b), increasing the width from d = 32 to d = 64 lowers the late-time error from the several-10−3 range toward the 10−3 level. In...",
+      "page": 6
+    },
+    {
+      "image": "2607.14875_figures/2607.14875_fig3.jpg",
+      "caption": "FIG. 3. Optimization behavior across different 4×4 Hubbard-model settings. The panels show (a) the half-filled PBC system at U = 8, (b) the doped PBC system at weaker interaction U = 4, (c) the half-filled OBC system at U = 8, and (d) the doped OBC system at U = 8. Panel (a) compares d = 32 and d = 64 with K = 4, B = 4096, and c0 = 0.1, making it directly comparable to the width ablation of the strongly correlated doped U = 8 baseline in Fig. 2(b). The half-filled PBC system in panel (a) reaches the 10−4 error level, whereas the corresponding doped U = 8 baseline in Fig. 2(b) remains mainly at the 10−3 level. Panel (b) uses the same main Transformer/MARCH settings as the c0 = 0.5 baseline...",
+      "page": 8
+    },
+    {
+      "image": "2607.14875_figures/2607.14875_fig4.jpg",
+      "caption": "FIG. 4. Optimization on the larger doped 8 × 8 PBC Hubbard lat- tice at U = 8 and Ne = 56. Because a strict reference energy is not used for this larger system in the present comparison, we plot the variational energy per site, denoted by E in this figure. The calcula- tion uses K = 4, B = 1024, and c0 = 0.5, and compares Transformer widths d = 64 and d = 128. Both widths lead to stable optimiza- tion on the larger lattice, with the energy per site decreasing to the E ≃−0.73–−0.74 range. The wider Transformer reaches a lower late-time energy, with a visible separation from the d = 64 curves on the 10−3–10−2 energy-per-site scale, indicating that increased model capacity remains beneficial...",
+      "page": 9
+    }
+  ],
+  "figure": "2607.14875_figures/2607.14875_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

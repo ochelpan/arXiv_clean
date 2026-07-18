@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2607.14827",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.dis-nn",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "SevenNet-Polar for MultiTask Prediction of Energy, Forces, Stress, and Born Effective Charges: Development and Application to ZrO$_2$, Li$_3$PO$_4$, and Perovskites",
+  "authors": "Anh Khoa Augustin Lu, Shungo Arai, Yutack Park, Seungwu Han, Tsuyoshi Miyazaki, Satoshi Watanabe",
+  "abstract": "Accurate prediction of the Born effective charge (BEC) tensor is crucial for modeling materials under electric fields but remains computationally expensive. To bridge this gap, we present SevenNet-Polar, an equivariant graph neural network framework based on the SevenNet architecture for fast and accurate BEC predictions. Our BEC-only predictors can achieve an RMSE as low as 0.0043 e on ZrO$_2$, Li$_3$PO$_4$, and perovskites, despite the presence of high-temperature (up to 2,000 K) and defect-laden training data. Our all-in-one multitask models for predicting energy, forces, stress, and BEC in ZrO$_2$ and Li$_3$PO$_4$ achieve high accuracy with an RMSE of 1.0 meV/atom for energy, 12 meV/angstrom for forces, 0.05 GPa for stress, and 0.0029 e for BEC. BEC accuracy is not degraded by multitask training. Scaling analysis reveals distinct exponents for diagonal and off-diagonal BEC components, both of which exhibit less favorable scaling than energy, force and stress errors. SevenNet-Polar generalizes robustly when tested on scenarios containing structural environments absent from the training set, such as along nudged elastic band (NEB) trajectories or grain boundaries in ZrO$_2$. Accelerated by FlashTP, SevenNet-Polar enables simulations containing up to 1.5 million atoms on multi-GPU supercomputers and up to approximately 15,000 atoms on a single consumer-grade GPU. This makes charge-aware molecular dynamics simulations under electric fields more accessible.",
+  "url": "http://arxiv.org/abs/2607.14827v1",
+  "pdf": "https://arxiv.org/pdf/2607.14827v1",
+  "type": "theory",
+  "summary": "This paper introduces SevenNet-Polar, an equivariant graph neural network designed for fast and accurate multi-task prediction of key material properties, including the Born effective charge (BEC). By training on diverse materials under extreme conditions, it achieves high accuracy while maintaining computational efficiency for simulating large systems with applied electric fields. This makes advanced, charge-aware molecular dynamics simulations significantly more accessible.",
+  "main_problem": "The primary challenge is developing computationally efficient methods for accurately predicting the Born effective charge (BEC) tensor, which is essential for simulating materials under external electric fields.",
+  "main_result": "The proposed SevenNet-Polar framework achieves state-of-the-art accuracy across multiple properties (Energy, Forces, Stress, BEC), enabling large-scale simulations up to 1.5 million atoms on supercomputers.",
+  "method": "The authors developed an equivariant graph neural network architecture, SevenNet-Polar, which is trained in a multi-task setting to predict several material properties simultaneously.",
+  "model_or_system": "The model is applied to crystalline materials like $\text{ZrO}_2$, $\text{Li}_3\text{PO}_4$, and perovskites. It handles complex structural environments such as high temperatures, defects, Nudged Elastic Band (NEB) trajectories, and grain boundaries.",
+  "key_observables": "Energy (meV/atom), Forces ($\text{meV}/^\\circ\text{\\AA}$), Stress ($\text{GPa}$), and the Born Effective Charge (BEC) tensor components ($e$).",
+  "important_parameters": "The model's performance is analyzed using power-law scaling exponents ($\\alpha$) related to training data size, and hyperparameters like maximum spherical harmonic order ($l_{\\max}$).",
+  "main_assumptions": "It is assumed that the network can generalize robustly to structural environments not present in the training set. The loss function requires careful tuning due to differing variance scales between properties.",
+  "figures_summary": "Figures illustrate power-law scaling of errors for BEC components versus training size, and show predicted tensor values along NEB trajectories or grain boundaries compared to DFT results.",
+  "paper_structure": "The paper introduces the SevenNet-Polar framework, details its multi-task learning capabilities (Energy, Force, Stress, BEC), presents quantitative performance benchmarks across various materials and conditions, analyzes data scaling laws, and discusses computational scalability via FlashTP integration.",
+  "why_interesting": "While focused on solid-state physics potentials, the use of advanced equivariant GNNs to model complex tensor properties like BEC bridges ML techniques with fundamental quantum mechanical response functions relevant for understanding material polarization in external fields.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.14827_figures/2607.14827_fig1.jpg",
+      "caption": "Fig. 1 Power-law scaling of SevenNet-PS models on BEC diagonal (left) and off-diagonal (right) component prediction errors on a test set for lmax ranging from 0 to 4. The scaling exponent α is derived from fits performed between Ntrain ∈[64, 512].",
+      "page": 6
+    },
+    {
+      "image": "2607.14827_figures/2607.14827_fig2.jpg",
+      "caption": "Figure 2 presents the results for the SevenNet-PS-L (SevenNet-Polar Specialized Large)",
+      "page": 6
+    },
+    {
+      "image": "2607.14827_figures/2607.14827_fig3.jpg",
+      "caption": "Fig. 2 Evaluation of the accuracy of SevenNet-PS-M on the combined multi-material test set (ZrO2, Li3PO4, and perovskite). (left) Parity plots comparing BEC tensor components predicted by SevenNet- Polar and DFPT data. (right) Distribution of prediction errors for each of the ten chemical species.",
+      "page": 8
+    },
+    {
+      "image": "2607.14827_figures/2607.14827_fig4.jpg",
+      "caption": "Fig. 3 Scaling behavior of SevenNet-PM-M on the ZrO2 data set. Root-mean-square errors (RMSE) for energy, forces, stress, and Born effective charge (BEC) components, alongside the total loss, are plotted against the training data set size (Ntrain) on a log-log scale. The thick gray bands represent power-law fits (RMSE ∝N−α train) calculated for the intermediate data regime (64 ≤Ntrain ≤512). The extracted scaling exponents (α) are provided in the insets.",
+      "page": 9
+    },
+    {
+      "image": "2607.14827_figures/2607.14827_fig5.jpg",
+      "caption": "Fig. 4 Parity plots for total energy, forces, stress tensor and BEC tensor for SevenNet-PM-L. This model has been trained on the ZrO2 and Li3PO4 data sets.",
+      "page": 11
+    }
+  ],
+  "figure": "2607.14827_figures/2607.14827_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
