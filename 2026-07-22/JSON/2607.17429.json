@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.17429",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "GPU-accelerated finite-temperature Lanczos method for Heisenberg spin systems with non-Abelian permutation symmetries",
+  "authors": "Shadan Ghassemi Tabrizi, Thomas D. Kühne",
+  "abstract": "We extend a recent GPU implementation of the finite-temperature Lanczos method (FTLM) for Heisenberg spin Hamiltonians, which uses only total-magnetization symmetry, to the full permutation symmetry, including non-Abelian point and space groups. For highly symmetric clusters such as icosahedral polyhedra, the multidimensional irreducible representations (irreps) of the permutation group reduce the block dimensions substantially further than any Abelian subgroup. Here, we provide a matrix-free formalism (avoiding explicit storage of the projected Hamiltonian) for using such symmetries. The implementation applies equally to Abelian groups, retaining the advantages of GPU acceleration. Several cluster topologies are built in; beyond these, symmetry groups can be supplied as site-permutation generators, with irrep matrices computed automatically, so that user-defined clusters run without any code changes. We demonstrate the approach in production runs on a single NVIDIA B200 accelerator for the s=3/2 Heisenberg antiferromagnet on the dodecahedron (Hilbert-space dimension 4^20 ~ 1.1x10^12) and for the s=1/2 square lattice of 5x8 sites (M=0 dimension 1.4x10^11). With R=24 random vectors per symmetry block and 60 Lanczos steps, the dodecahedron campaign (with the largest iterated symmetry block having a dimension of 3.6x10^9) requires about 50 GPU-hours. The code is openly available under the Apache-2.0 license at https://github.com/ghasdeke/ftlm-pg-gpu, archived at DOI: 10.5281/zenodo.21445872.",
+  "url": "http://arxiv.org/abs/2607.17429v1",
+  "pdf": "https://arxiv.org/pdf/2607.17429v1",
+  "type": "theory",
+  "summary": "This paper presents a major advancement in simulating Heisenberg spin systems by extending the GPU-accelerated Finite-Temperature Lanczos Method (FTLM) to handle full non-Abelian permutation symmetries. By developing a matrix-free formalism, the authors drastically reduce memory requirements and successfully compute properties for massive quantum clusters previously deemed computationally intractable.",
+  "main_problem": "The authors extend the finite-temperature Lanczos method (FTLM) to incorporate full permutation symmetry, including non-Abelian point and space groups, for Heisenberg spin systems.",
+  "main_result": "They successfully implemented a matrix-free formalism that exploits these symmetries, achieving significant computational reductions on large clusters like the dodecahedron using GPU acceleration.",
+  "method": "The core method is a GPU-accelerated FTLM combined with advanced group theory techniques to block-diagonalize the Hamiltonian over symmetry sectors ($\\Gamma$).",
+  "model_or_system": "The study focuses on Heisenberg spin Hamiltonians ($H = J \\sum_{\\langle i,j\rangle} (\\mathbf{s}_i \\cdot \\mathbf{s}_j)$) applied to various cluster topologies, including icosahedral polyhedra and square lattices.",
+  "key_observables": "Magnetic susceptibility ($\\chi$), heat capacity ($C$), and partition function ($Z$).",
+  "important_parameters": "Finite temperature ($\beta = 1/k_B T$); spin values like $s=3/2$ and $s=1/2$; system sizes up to $\\sim 10^{12}$ Hilbert space dimensions.",
+  "main_assumptions": "The method is matrix-free, avoiding explicit storage of the projected Hamiltonian; it assumes the Hamiltonian action is independent of the trace estimator used in FTLM.",
+  "figures_summary": "Figure 1 compares symmetry sector dimension reduction across different computational platforms. Figure 2 compares block-size reductions for $s=1/2$ and $s=3/2$ polyhedra using various symmetry treatments.",
+  "paper_structure": "The paper builds upon previous work by extending the FTLM from simple total-magnetization symmetry to full permutation symmetry, detailing the matrix-free formalism and demonstrating its application on large systems using GPU acceleration.",
+  "why_interesting": "While focused on spin models (cond-mat.str-el), the development of highly efficient, scalable numerical techniques for strongly correlated quantum many-body systems is relevant to understanding complex dynamics in AMO physics simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.17429_figures/2607.17429_fig1.jpg",
+      "caption": "Figure 1: Dimension of the largest treated magnetization sector in representative large-scale spin-system",
+      "page": 4
+    },
+    {
+      "image": "2607.17429_figures/2607.17429_fig2.jpg",
+      "caption": "Figure 2: Block-size reduction by the full non-Abelian symmetry: for the 𝑀= 0 sectors of the 𝑠= 1/2 icosidodecahedron and the 𝑠= 3/2 dodecahedron, the sector dimension is compared with the largest block under the best Abelian subgroup of 𝐼ℎ (order 10) and with the largest single-partner-row block of the full group (Eq. (13)). For the dodecahedron the corresponding FP32 Lanczos vectors take 348 GB, 35 GB, and 14.5 GB, respectively.",
+      "page": 9
+    },
+    {
+      "image": "2607.17429_figures/2607.17429_fig3.jpg",
+      "caption": "Figure 3: Heat capacity C(𝑇) of the 𝑠= 3/2 icosahedron (top row: panels (a) and (b)) and cuboctahedron (bottom row: panels (c) and (𝑑)), computed by full ED (data from Ref. [43]) and with the present FTLM code. The right-hand panels (b) and (𝑑) resolve the low-temperature peak.",
+      "page": 15
+    },
+    {
+      "image": "2607.17429_figures/2607.17429_fig4.jpg",
+      "caption": "Figure 4: Heat capacity (left) and zero-field susceptibility (right) of the 𝑠= 3/2 icosahedron, computed with the",
+      "page": 16
+    },
+    {
+      "image": "2607.17429_figures/2607.17429_fig5.jpg",
+      "caption": "Figure 5: Same-seed comparison of FP32 and FP16 vector storage in symmetry-adapted FTLM for the 𝑠= 3",
+      "page": 18
+    }
+  ],
+  "figure": "2607.17429_figures/2607.17429_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

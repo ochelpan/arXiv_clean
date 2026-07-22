@@ -1,0 +1,69 @@
+{
+  "arxiv_id": "2607.17352",
+  "category": "other",
+  "arxiv_categories": [
+    "cs.AI",
+    "cs.LG",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Self-Modifying Lean Proof Agents with Verifier-Grounded Benchmark Coevolution",
+  "authors": "Yuqing Li, Zeguan Wu, Yu Gan, Junyu Liu",
+  "abstract": "Designing effective Lean proof agents is a central challenge in formal mathematical reasoning. Beyond building stronger provers, recent work emphasizes the workflow around Lean: how an agent decomposes proof obligations, uses tools and compiler feedback, diagnoses failures, repairs proofs, and maintains structured proof context. Motivated by code-level self-evolving agents, we study whether such workflows can be evolved rather than hand-designed. We present a self-evolving Lean proof agent in which a small fixed, trusted runtime wraps a fully mutable workspace: the proof workflow, prompts, and tools. Unlike most self-evolving systems, which optimize against a fixed external benchmark, our system coevolves the agent and its benchmark. Between generations, the highest-scoring agent (the champion) revises the active task distribution through a mastery-throttled curriculum update that introduces harder proof obligations only after the current level is mastered, and a single-anchor recalibration re-runs the champion on the updated benchmark to keep scores comparable as difficulty rises. All evolution stays inside a Lean-grounded verification loop: however the agent rewrites itself, a success counts only when its behavior yields Lean-verified proofs under a trusted snapshot, and each attempt must emit a machine-readable, Lean-grounded proof context whose representation may evolve but whose groundedness is enforced. We run the coevolving trajectory and a fixed-benchmark baseline for 15 active generations and compare them on a held-out miniF2F test split. The best coevolving agent reaches a 45.1% held-out solve rate, versus 12.7% for the seed and 32.0% for the best fixed-benchmark agent, showing that verifier-grounded self-evolution can improve Lean proof workflows under a coevolving benchmark.",
+  "url": "http://arxiv.org/abs/2607.17352v1",
+  "pdf": "https://arxiv.org/pdf/2607.17352v1",
+  "type": "theory",
+  "summary": "This work introduces a novel framework for self-improving AI agents designed to solve complex formal mathematical proofs using Lean. The key innovation is that the agent's benchmark difficulty evolves alongside its own capabilities, forcing continuous improvement through coevolutionary pressure. This demonstrates that verifier-grounded self-evolution can significantly boost automated reasoning workflows.",
+  "main_problem": "The core challenge addressed is designing effective, self-evolving agents for formal mathematical theorem proving, focusing on evolving the agent's workflow rather than just improving the underlying prover.",
+  "main_result": "A coevolving agent demonstrated a significantly higher solve rate (45.1%) on a held-out test split compared to both its initial state and fixed-benchmark baselines (32.0%).",
+  "method": "The system employs self-evolution where the agent and its benchmark coevolve; this involves mastery-throttled curriculum updates and single-anchor recalibration.",
+  "model_or_system": "The model is a self-evolving Lean proof agent operating within a fixed, trusted runtime environment. This runtime wraps a mutable workspace containing the agent's proof workflow, prompts, and tools.",
+  "key_observables": "Solve rate on held-out miniF2F test splits; difficulty-normalized score ($q$); raw solve rate ($r$).",
+  "important_parameters": "The evolution uses thresholds ($\\gamma=0.30$, $\tau=0.70$) to trigger benchmark updates and level advancements.",
+  "main_assumptions": "It assumes the existence of a fixed, trusted Lean verifier that dictates correctness; the object of improvement is the workflow *around* verification, not the prover itself.",
+  "figures_summary": "Figure 1 illustrates the champion-driven agent–benchmark coevolution process across generations, detailing how the benchmark updates based on performance thresholds.",
+  "paper_structure": "The paper details the architecture (trusted runtime vs. mutable workspace), the coevolution mechanism (mastery throttling and recalibration), and presents empirical results comparing the coevolving trajectory against fixed baselines.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.17352_figures/2607.17352_fig1.jpg",
+      "caption": "Figure 1: Champion-driven agent–benchmark coevolution. A seed agent produces first- generation (G1) children that stream into a shared archive as they are evaluated, so a strong early child can already parent later siblings in the same generation; the strongest child becomes the champion, seeds the next generation (G2), and also drives the benchmark update. Evaluation records from all agents are collected. The benchmark is drawn from a candidate problem pool stratified by difficulty level (L1: single-tactic lemmas; L2: miniF2F valid split, disjoint from the held-out test set used only for generalization; L3: PutnamBench). When the champion clears the update threshold, mastered tasks are...",
+      "page": 2
+    },
+    {
+      "image": "2607.17352_figures/2607.17352_fig2.jpg",
+      "caption": "Figure 2: Evolution tree for the accepted lineage. Bold nodes mark agents with decomposition- based workflows. Darker node colors indicate agents evolved in later generations.",
+      "page": 15
+    }
+  ],
+  "figure": "2607.17352_figures/2607.17352_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

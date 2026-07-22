@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2607.17146",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cs.CL",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "The Geometry of Semantic Space: A Continuous Geometric Framework for the Transformer Architecture",
+  "authors": "Zhihua Liang",
+  "abstract": "We present a continuous geometric framework that models the discrete algebraic operations of the Transformer architecture as an integro-differential equation (IDE) on a semantic fiber bundle $\\calE = \\calM \\times \\R^d$. Beginning from a single geometric axiom -- that the token sequence forms a discrete $1$-manifold equipped with a canonical measure lattice -- we translate every core component of the modern Transformer (RMSNorm, RoPE, Softmax Attention, FFN, Residual Stream, SGD, Weight Decay) into a cohesive vocabulary of differential geometry, measure theory, and stochastic calculus. The resulting framework yields quantitative predictions spanning entropic optimal transport (Attention as a Schrödinger bridge) and non-equilibrium thermodynamics (SGD as Itô diffusion violating detailed balance). We conduct a six-part experimental campaign across five architectures (Qwen3, LLaMA\\nobreakdash-3.1, Gemma\\nobreakdash-3, GPT-2, Mistral) spanning $124$M to $8$B parameters. The empirical observables are quantitatively consistent with the geometric predictions: the $ε^{-1/2}$ Lipschitz scaling calibration at machine precision ($R^2 = 1.000$), the Lie--Trotter operator-splitting torsion, the symmetric ablation instability confirming the Dual-Law of Topological Stability, the $\\calO(1/\\sqrt{k})$ thermodynamic suppression of Poincaré recurrence on the RoPE torus, the thermodynamic context-limit phase transition, and the Non-Equilibrium Steady State parameter vortex -- verified across two optimizers (AdamW and Pure SGD) to exclude momentum artifacts. The results demonstrate that analyzing Transformers through the lens of continuous stochastic differential geometry provides a predictive descriptive vocabulary for the stability limits, context bounds, and optimization dynamics of Large Language Models.",
+  "url": "http://arxiv.org/abs/2607.17146v1",
+  "pdf": "https://arxiv.org/pdf/2607.17146v1",
+  "type": "both",
+  "summary": "This work develops a continuous stochastic differential geometry framework to mathematically describe the operations within Transformer models. By mapping discrete components onto continuous flows on a semantic fiber bundle, it makes quantitative predictions about model stability, context limits, and optimization dynamics. This provides a powerful theoretical lens for understanding LLMs through the language of advanced physics.",
+  "main_problem": "To model the discrete algebraic operations of Transformer architectures using a continuous geometric framework, treating the forward pass as an underlying integro-differential flow.",
+  "main_result": "The framework successfully unifies disparate empirical phenomena—such as stability limits and context bounds—by providing quantitative predictions based on continuous stochastic differential geometry.",
+  "method": "It translates deep learning components (like Softmax Attention and RoPE) into concepts from differential geometry, measure theory, and stochastic calculus, viewing the discrete process as a numerical integrator of an IDE.",
+  "model_or_system": "The system is the Transformer architecture itself, whose semantic space is modeled as a continuous geometric object on a fiber bundle $\\calE$. The dynamics are parameterized by algorithmic depth $z$, evolving via a non-autonomous flow $\\Psi(z)$.",
+  "key_observables": "$\\epsilon^{-1/2}$ Lipschitz scaling calibration ($R^2 = 1.000$), Lie–Trotter operator-splitting torsion, thermodynamic suppression of Poincaré recurrence on the RoPE torus, and Non-Equilibrium Steady State parameter vortex.",
+  "important_parameters": "The topological regularizer $\\epsilon$, context length $k$, and model size (up to 8B parameters).",
+  "main_assumptions": "The core assumption is that the discrete Transformer pass can be rigorously mapped as an exact numerical integrator of a continuous integro-differential equation, which requires treating the state space as collapsing into a finite-dimensional topology.",
+  "figures_summary": "not specified",
+  "paper_structure": "The paper progresses by first establishing the geometric axioms and mapping components to differential geometry (Chunk 1). It then rigorously analyzes the flow dynamics using functional analysis tools like Lipschitz bounds and Principal Torus Bundles (Chunk 2). Finally, it validates these continuous predictions through a multi-part empirical campaign across various LLMs (Chunk 3).",
+  "why_interesting": "The paper draws strong parallels between the stability/dynamics of complex neural networks and concepts from non-equilibrium thermodynamics and geometric flow equations, which are central to modern AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.17146_figures/2607.17146_fig1.jpg",
+      "caption": "FIG. 1. Conical Singularity Scaling Law: σmax vs. ϵ for Qwen3-0.6B. Log-log plot of the maximum Jacobian singu- lar value σmax against the topological mollifier ϵ at 5 represen- tative layers (0, 6, 13, 20, 27). All 5 curves trace parallel lines with measured slope α = −0.5000 and R2 = 1.000000, in ex- act agreement with the theoretical prediction σmax = Cℓ·ϵ−1/2",
+      "page": 25
+    },
+    {
+      "image": "2607.17146_figures/2607.17146_fig2.jpg",
+      "caption": "FIG. 2. Lie–Trotter Torsion Interferometer: Cosine Similarity at α = 1. Each point represents cos(δ, [T , R]Ψ) at a single (layer, token position) pair. Green dashed line: me- dian; grey dashed line: isotropic random baseline 1/ √",
+      "page": 27
+    },
+    {
+      "image": "2607.17146_figures/2607.17146_fig3.jpg",
+      "caption": "FIG. 3. Per-Layer Distribution of Torsion Alignment. Box plots of cos(δ, [T , R]Ψ) across 16 token positions at each sampled layer. Mid-network layers (Qwen3 L12: 0.879, GPT- 2 L9: 0.933) achieve peak alignment, while final layers (Qwen3 L27: 0.112, GPT-2 L11: −0.188) show degradation consistent with strong higher-order BCH contributions near the unem- bedding boundary.",
+      "page": 27
+    },
+    {
+      "image": "2607.17146_figures/2607.17146_fig4.jpg",
+      "caption": "FIG. 4. Asymptotic Convergence of the Torsion Inter- ferometer as α →0. Upper panels: normalized deviation magnitude ∥δ(α)∥/α2 converges to a finite constant (≈43.2 for Qwen3, ≈40.3 for GPT-2), confirming exact α2 scaling predicted by the BCH second-order term. Lower panels: di- rection self-consistency cos(δ(αi)/α2 i , δ(αj)/α2 j) between ad- jacent α values converges to 0.9997–1.0000, proving that the deviation vector locks onto a deterministic limit direction— the topological torsion generator.",
+      "page": 28
+    },
+    {
+      "image": "2607.17146_figures/2607.17146_fig5.jpg",
+      "caption": "FIG. 5. Summary Panel: Lie–Trotter Torsion Inter- ferometer. (a) α=1 scatter plot confirming systematic pos- itive alignment (17–23× random baseline). (b) Per-layer box plots revealing mid-network peak alignment and boundary- layer degradation. (c) ∥δ∥/α2 convergence to a finite con- stant (Phase C). (d) Direction self-consistency converging to 1.0 (Phase B).",
+      "page": 29
+    }
+  ],
+  "figure": "2607.17146_figures/2607.17146_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 3,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 1,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

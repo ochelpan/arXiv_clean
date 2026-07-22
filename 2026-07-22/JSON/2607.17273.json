@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.17273",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Continuous Time Quantum Walk Propagation for Irregular Temporal Graph Forecasting",
+  "authors": "Jiaqi Sun, Tianhao Li, Zhihao Bian",
+  "abstract": "Continuous time quantum walks built on graph Laplacians produce non monotonic graph propagation features through quantum interference during evolution, which classical diffusion cannot achieve. Such walks deliver a physically motivated propagation scheme for temporal graph signal modeling. We propose Quantum Walk Temporal Architecture (QWTA), which replaces classical graph propagation with a CTQW-type parameterized spectral propagator. QWTA embeds effective observation intervals into the spectral phase modulation of the propagation kernel. QWTA-Base preserves exact CTQW spectral evolution and serves as a physically faithful propagation reference. QWTA-GR further introduces phase soft clipping and gated residual fusion to stabilize propagation. The results show that explicit phase encoding of irregular time intervals, when combined with suitable stabilization, provides a physically motivated and competitive graph propagation design for temporal graph forecasting with missing historical observations.",
+  "url": "http://arxiv.org/abs/2607.17273v1",
+  "pdf": "https://arxiv.org/pdf/2607.17273v1",
+  "type": "theory",
+  "summary": "This paper proposes the Quantum Walk Temporal Architecture (QWTA) to improve temporal graph forecasting by modeling signal propagation using Continuous Time Quantum Walks (CTQW). QWTA embeds irregular time intervals directly into the phase modulation of the quantum evolution operator, offering a physically motivated alternative to classical GNNs. The resulting framework shows strong potential for handling missing historical data in complex systems like traffic networks.",
+  "main_problem": "Developing a graph propagation scheme for temporal graph forecasting that can explicitly handle irregular time intervals (missing historical observations).",
+  "main_result": "The proposed QWTA-GR model achieves competitive performance in forecasting under various missingness settings by embedding phase information from irregular time gaps into the quantum walk evolution.",
+  "method": "It replaces classical GNN propagation with a Quantum Walk Temporal Architecture (QWTA), which uses the spectral decomposition of the graph Laplacian to modulate the propagation kernel's phase based on observed time intervals.",
+  "model_or_system": "The model is built upon Continuous Time Quantum Walks (CTQW) defined by the normalized graph Laplacian $L$ as the Hamiltonian. The evolution operator $U(\tau)$ governs the quantum dynamics, which is adapted to handle irregular time steps $\\Delta t_k$.",
+  "key_observables": "Probability at a node $|\\langle j|\\psi(\tau)\rangle|^2$, and the final forecasted graph signal $\\hat{y}$.",
+  "important_parameters": "The effective observation interval ($\\Delta t_k$), the learnable time-scaling parameter ($\\eta$), and the gating weight ($w$) used for state fusion.",
+  "main_assumptions": "The core assumption is that CTQW's ability to encode spectral phase modulation allows it to model temporal dependencies more physically accurately than classical diffusion models, although performance varies based on missingness patterns.",
+  "figures_summary": "Figure 1 illustrates the application of the framework across three representative masking settings (complete, moderate, high missingness) for traffic graph observations.",
+  "paper_structure": "The paper introduces QWTA by first establishing the limitations of classical GNNs in handling time gaps. It then details the spectral propagation mechanism using CTQW, proposing QWTA-Base and enhancing it with stabilization techniques (QWTA-GR) through phase soft clipping and gated residual fusion.",
+  "why_interesting": "The explicit use of quantum evolution operators derived from graph Laplacians to model time series dynamics provides a novel physical interpretation for temporal data processing in machine learning, bridging spectral graph theory with deep learning architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.17273_figures/2607.17273_fig1.jpg",
+      "caption": "FIG. 1. Temporal graph snapshot sequences under differ- ent masking settings. The figure shows traﬀic graph observa- tion sequences for three representative MASK configurations, corresponding to complete observation, moderate missingness and high missingness. Valid observation steps are shown as clear graph snapshots, whereas missing steps are faded.",
+      "page": 4
+    },
+    {
+      "image": "2607.17273_figures/2607.17273_fig2.jpg",
+      "caption": "FIG. 2. Forward propagation pipeline of QWTA-Base.The model input is a batch tensor of irregular historical observations, X ∈RB×K×N×F .The input passes through input projection, recurrent hidden fusion, CTQW-type spectral propagation, and complex-valued nonlinear processing to generate the recurrent hidden representation. The red dashed box denotes the extension module. The final hidden representation is projected into the real domain to generate the prediction ˆy.",
+      "page": 7
+    },
+    {
+      "image": "2607.17273_figures/2607.17273_fig3.jpg",
+      "caption": "FIG. 3. Time-scaling parameter η learned by QWTA-GR at the final checkpoints for MASK0–MASK10. All values lie in the analysis interval [0.1, 1], but they vary non-monotonically with the number of valid input steps T. This indicates that the spectral phase modulation scale depends on the masking setting.",
+      "page": 9
+    },
+    {
+      "image": "2607.17273_figures/2607.17273_fig4.jpg",
+      "caption": "FIG. 4. Relationship between effective phase scale and propa- gation fidelity for real hidden propagation inputs. Each point corresponds to one hidden propagation input hin extracted during model forward propagation. The horizontal axis is the actual effective phase scale s = |∆tkη| of that sample. The vertical axis is the fidelity F between the unclipped propaga- tion output and the soft-clipped propagation output.",
+      "page": 10
+    },
+    {
+      "image": "2607.17273_figures/2607.17273_fig5.jpg",
+      "caption": "FIG. 5. Component ablation results for phase modulation and gated residual modules. The figure compares the Phase- only, Gate-only, QWTA-Base, and full QWTA-GR variants under five representative MASK settings in terms of valida- tion MSE. The Phase-only and Gate-only variants retain only phase soft clipping and gated residual fusion, respectively. QWTA-Base denotes the basic CTQW spectral propagation backbone without phase soft clipping or gated residual fu- sion. QWTA-GR denotes the full model with both stabiliza- tion mechanisms.",
+      "page": 11
+    }
+  ],
+  "figure": "2607.17273_figures/2607.17273_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.17081",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "quchip: A Differentiable Toolkit for Modeling Quantum Devices",
+  "authors": "Ibraheem AlYousef",
+  "abstract": "Predictive modeling of a superconducting quantum chip requires more than a Hamiltonian: the model must connect device physics, control-line transformations, chosen frames and approximations, dissipation, and measured observables. We present quchip, an open-source Python toolkit that represents these parts explicitly and assembles backend-independent simulations for QuTiP or dynamiqs; with dynamiqs, device and control parameters remain differentiable through the solve. We demonstrate the resulting experimental loop on a five-device model fitted to dressed observables. Simulated phase sweeps identify the complex crosstalk between two control lines, and inversion of the inferred response suppresses the effective leakage by more than two orders of magnitude. Over sixteen simultaneous $π$ pulses, the corrected pulse-end populations remain within $0.3$ percentage points of the crosstalk-free response. Adiabatically eliminating the bus and readout resonators reduces the Hilbert-space dimension from 576 to 16, after which gradients through simulated tomography recover the four injected crosstalk parameters with a maximum complex error of $1.5\\times10^{-5}$. A single explicit model can therefore support prediction, correction, and inverse parameter recovery.",
+  "url": "http://arxiv.org/abs/2607.17081v1",
+  "pdf": "https://arxiv.org/pdf/2607.17081v1",
+  "type": "both",
+  "summary": "The paper introduces quchip, an open-source Python toolkit designed to model superconducting quantum chips by explicitly linking all physical components—from Hamiltonians to measurement readouts. It achieves end-to-end differentiability, allowing researchers not only to simulate device behavior but also to perform inverse problems like parameter recovery and active crosstalk correction using gradient descent.",
+  "main_problem": "Predictively modeling superconducting quantum chips requires integrating diverse physical components—device physics, control lines, dissipation, and measurement observables—in a unified framework.",
+  "main_result": "The developed toolkit successfully allows for end-to-end differentiable simulation, enabling the suppression of crosstalk leakage by over two orders of magnitude and recovering unknown device parameters with high precision.",
+  "method": "The authors introduce 'quchip,' an open-source Python toolkit that explicitly models physical components and assembles backend-independent simulations using differentiability through solvers like dynamiqs.",
+  "model_or_system": "The system is a superconducting quantum chip, modeled using multiple coupled qubits (e.g., Duffing Transmons) and resonators, governed by Hamiltonians incorporating couplings and external microwave drives.",
+  "key_observables": "Crosstalk parameters ($\beta, \theta$), population measurements after pulses, and reconstructed expectation values from simulated tomography.",
+  "important_parameters": "Frequencies spanning GHz to MHz; crosstalk amplitudes and phases; Hilbert space dimension reduction (e.g., 576 to 16).",
+  "main_assumptions": "The model relies on sequential component definition and utilizes the Rotating Wave Approximation (RWA) in certain derivations, though it also tests its limitations.",
+  "figures_summary": "Figures illustrate the quchip pipeline showing forward and backward differentiable paths; one figure details the five-device structure with couplings/drives; another shows band decomposition from frame resolution; and later figures demonstrate crosstalk identification sweeps and gradient recovery of parameters.",
+  "paper_structure": "The paper introduces the need for integrated modeling, presents the quchip toolkit architecture (explicit component assembly), demonstrates its use on a multi-device model to identify and correct crosstalk via phase sweeps, and finally showcases differentiable parameter recovery using tomography gradients.",
+  "why_interesting": "This work provides a crucial software infrastructure that bridges complex physical device descriptions with modern machine learning/optimization techniques by guaranteeing differentiability through the entire simulation loop, which is vital for quantum control theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.17081_figures/2607.17081_fig1.jpg",
+      "caption": "Figure 1: The quchip pipeline. Forward (top to bottom): a four-stage engine converts devices, couplings, drives, and the classical signal chain into a backend-agnostic physics description, which each backend packs into its native solver form. Backward (dashed red): gradients of a scalar loss reach device frequencies, coupling strengths, crosstalk entries, carriers, and envelope shapes.",
+      "page": 2
+    },
+    {
+      "image": "2607.17081_figures/2607.17081_fig2.jpg",
+      "caption": "Figure 2: The five-device model used throughout the paper. Each Duffing transmon couples to the shared bus and its own readout resonator. Two charge lines drive the transmons with crosstalk in both directions; each source–victim path has an independent amplitude and phase. Colors match the device, coupling, and drive terms in the Hamiltonian.",
+      "page": 4
+    },
+    {
+      "image": "2607.17081_figures/2607.17081_fig3.jpg",
+      "caption": "Figure 3: Stages 1 and 2 for the running chip. Rows group the device, coupling, and drive terms of Eq. (7); columns show the declared lab-frame model, resolved frame, and assembled solver terms. Frame resolution leaves residual device detunings; assembly retains the difference-frequency coupling and drive bands and records the sum-frequency bands in dropped_terms. Filled bands denote frequencies too high to draw to scale; curves denote slow content.",
+      "page": 5
+    },
+    {
+      "image": "2607.17081_figures/2607.17081_fig4.jpg",
+      "caption": "Figure 4: Band decomposition in assembly and readout. (a) Matrix elements of a capacitive coupling (a+a†)(b+b†) separate by excitation change into difference-frequency bands retained by the RWA and sum-frequency bands that are dropped and recorded. (b) A requested quadrature separates into its w = ±1 band matrices and is recombined at the demodulation frequency, returning the observable in the device’s reference frame.",
+      "page": 6
+    },
+    {
+      "image": "2607.17081_figures/2607.17081_fig5.jpg",
+      "caption": "Figure 5: Warm-solve times for driven chains of N three-level transmons constructed through quchip and directly in each backend. (a) QuTiP, closed system; (b) QuTiP, open system; (c) dynamiqs, closed system; and (d) dynamiqs, open system. Closed-system simulations reach d = 310 = 59049; open-system simulations reach d = 36 = 729 and propagate d × d density matrices. Each point is the median of five solves on the same 401-point time grid after one-time construction and compilation.",
+      "page": 8
+    }
+  ],
+  "figure": "2607.17081_figures/2607.17081_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

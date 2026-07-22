@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.17131",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Blind Transpiler: An open-source library for universally blind and homomorphic quantum computations",
+  "authors": "Mohit Joshi, Manoj Kumar Mishra, S. Karthikeyan",
+  "abstract": "Blind quantum computation is a cryptographic primitive that allows a limited-capability client to delegate its complex computation to a remote server without revealing its data and/or computation. This branch of quantum cryptography has been bifurcated into two distinct primitives, quantum homomorphic encryption (concerning the security of only data) and universal blind quantum computation (concerning the security of data and the computing algorithm). These primitives have immense applicability in problems like secure cloud computing, secure quantum variational algorithms, quantum federated learning, and secure multiparty computation. However, no software tools exist for the rapid prototyping of such protocols, hindering the academic interrogation for potential applications. In this paper, we describe the development of the first such library for transpiling circuits written in Qiskit to its blind counterpart, which can then be delegated in a client-server architecture without revealing the client's data and/or computation. The proposed library is designed in modular and reusable component layers, enabling easier scalability to newer BQC primitives and robustness against changes in underlying primitives. We show the implementation of these primitives to a blind variational quantum classifier for the IRIS dataset.",
+  "url": "http://arxiv.org/abs/2607.17131v1",
+  "pdf": "https://arxiv.org/pdf/2607.17131v1",
+  "type": "theory",
+  "summary": "This paper introduces 'Blind Transpiler,' an open-source library designed to solve the lack of tools for prototyping Blind Quantum Computation (BQC). It works by transpiling standard quantum circuits into secure, blind instruction sets suitable for delegation between a client and a remote server. This enables practical testing of advanced cryptographic applications like secure machine learning in quantum settings.",
+  "main_problem": "The primary problem addressed is the lack of software tools for rapidly prototyping Blind Quantum Computation (BQC) protocols, which hinders academic investigation into secure quantum computation.",
+  "main_result": "The authors developed 'Blind Transpiler,' an open-source library that successfully transpiles standard Qiskit circuits into their blind counterparts suitable for client-server delegation.",
+  "method": "The method involves a modular, layered architecture where the library translates general quantum circuits into specific Blind Operation (BOP) instructions tailored for different BQC primitives like Quantum Homomorphic Encryption (QHE) and Universal Blind Quantum Computation (UBQC).",
+  "model_or_system": "The focus is on abstract quantum computation protocols rather than a physical hardware realization. The model involves simulating the delegation of circuits from a client to a remote server, assuming only basic gates are available locally.",
+  "key_observables": "Key observables include the resulting `BQCInstruction` object, which encodes the list of Blind Operations (BOPs), and metrics like the number of client/server gates and communication rounds.",
+  "important_parameters": "The library supports various protocols including QHE, UBQC, FDQC, and SSDQC. Key parameters involve key sizes for cryptographic security and approximations needed for non-parametric gates (e.g., Solovay-Kitaev decomposition).",
+  "main_assumptions": "It is assumed that the client side only has access to basic gates ($\\{X, Z, \text{Swap}, \text{Measure}\\}$), while complex operations are delegated to the server. Parametric gates often require approximation.",
+  "figures_summary": "Figures illustrate the library flow: Input Qiskit circuit $\rightarrow$ BQCInstruction object (BOPs) $\rightarrow$ Blind Circuit. Examples show successful blind classification on the IRIS dataset, contrasting correct vs. incorrect decryption outcomes.",
+  "paper_structure": "The paper introduces the problem gap, details the modular, layered architecture of the 'Blind Transpiler' library, describes the transpilation process for various BQC primitives (QHE, UBQC), demonstrates its application via a blind variational classifier on IRIS, and concludes with software availability information.",
+  "why_interesting": "While not directly about AMO physics, the underlying concepts of secure computation and resource management are highly relevant to quantum networking and distributed quantum computing architectures where trust boundaries must be strictly enforced.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.17131_figures/2607.17131_fig1.jpg",
+      "caption": "Figure 1: The outline of the blind transpiler library, which takes a quantum circuit written in Qiskit as input and converts the circuit to an object of the BQCInstruction class, which is a collection of modified gate objects BOP. This BQCInstruction object can then be converted to a blind circuit using the to circuit function based on the given setting.",
+      "page": 2
+    },
+    {
+      "image": "2607.17131_figures/2607.17131_fig2.jpg",
+      "caption": "Fig. 1 shows the overview of the library functionality. The library performs this blind transpilation by taking a quantum circuit written in Qiskit as input and generat- ing an object of BQCInstruction class as output. This is an internal class of the library which intrinsically encodes a list of modified gate objects, called a blind operation (BOP). This BOP object contains the definition of the gate along with the additional information about its del- egation and classical control. The BQCInstruction object can be directly probed to provide inference about the delegation process, like the actual number of communication rounds, client and",
+      "page": 2
+    },
+    {
+      "image": "2607.17131_figures/2607.17131_fig3.jpg",
+      "caption": "Figure 2: The UML-like relationship between library modules along with their layered architecture. Note that the layered hierarchy enables the library’s modularity, reusability, and scalability to new protocols of blindness. The dotted lines show an indirect relationship between the modules and classes.",
+      "page": 4
+    },
+    {
+      "image": "2607.17131_figures/2607.17131_fig4.jpg",
+      "caption": "Figure 3: The comparison of the output of the original and the blind transpiled circuit for the circuit that creates the GHZ state. The transpilation has been performed as qhe format, and results are shown as averaged over the 1000 randomly sampled keys.",
+      "page": 6
+    },
+    {
+      "image": "2607.17131_figures/2607.17131_fig5.jpg",
+      "caption": "Figure 4: The comparison of the output of the original and the blind transpiled circuit. (a) shows the original parametric circuit used, (b) shows its desired output, (c) shows the output if the decryption is not performed, and (d) shows the output if the correct decryption has been performed. Note, the transpilation has been performed as qhe format, and results are shown as averaged over the 1000 randomly sampled keys.",
+      "page": 7
+    }
+  ],
+  "figure": "2607.17131_figures/2607.17131_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

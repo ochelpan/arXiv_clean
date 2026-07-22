@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.18204",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QuantiSpect: A Structure-Aware Lightweight 3D CNN Pre-Decoder for Scalable Surface Code Quantum Error Correction",
+  "authors": "Pan Gao, Xu-Sheng Xu, Ji-Ze Han, Jing-Wei Wen, Ling Qian, Xu-Dong Lv, Run-Qing Zhang, Xiao-Xiao Hu, Gui-Lu Long",
+  "abstract": "Real-time decoding is a critical bottleneck for large-scale fault-tolerant quantum computing. AI-based neural pre-decoders locally correct most physical errors before passing residual syndromes to a global decoder, enabling sub-microsecond latencies. However, existing architectures carry significant overhead from dense 3D convolutions. We present QuantiSpect, a lightweight 3D convolutional neural network (CNN) pre-decoder for the rotated surface code, built on the decoding pipeline of Chamberland et al. The key idea is to replace the dense 3D convolutions with three parallel branches in each residual block: a depthwise spatial branch, a depthwise temporal branch, and a grouped spatio-temporal branch, followed by a squeeze-and-excitation channel gate. This reflects the structure of surface code errors, where spatial and temporal syndrome correlations are partially separable. On a unified 4xA100 GPU benchmark, QuantiSpect matches the receptive field of the Accurate baseline at R=13 while using ~2.71x fewer parameters (0.663M vs 1.80M) and ~2.84x fewer per-voxel convolutional MACs. It matches Accurate's circuit-level threshold and accuracy at moderate and large code distances, reduces the logical error rate by up to ~1.85x relative to uncorrelated PyMatching at d=13, p=0.5%, and speeds up the PyMatching decode by up to 3.11x at d=23. We also explored enlarging the receptive field by adding blocks. Even at R=21, the model uses only 1.18M parameters, fewer than both the R=13 Accurate baseline (1.80M) and the R=17 dense model (4.22M), despite its larger receptive field. This expanded variant significantly outperforms the Accurate model, raising the circuit-level threshold to ~0.80% and further reducing the logical error rate. Together, both variants show that a structure-aware factorized design is an effective, parameter-efficient alternative to a dense one for decoding the surface code.",
+  "url": "http://arxiv.org/abs/2607.18204v1",
+  "pdf": "https://arxiv.org/pdf/2607.18204v1",
+  "type": "theory",
+  "summary": "This paper introduces QuantiSpect, a novel, lightweight 3D CNN pre-decoder designed to accelerate syndrome decoding for surface code QEC. By factorizing dense convolutions into structure-aware spatial and temporal branches, it drastically reduces computational cost while maintaining or improving the error correction threshold compared to complex baseline models.",
+  "main_problem": "Real-time decoding is a critical bottleneck for large-scale fault-tolerant quantum computing using surface codes.",
+  "main_result": "The proposed QuantiSpect model significantly outperforms dense CNN baselines by achieving comparable performance with substantially fewer parameters and computational overhead, enabling faster error correction.",
+  "method": "It introduces QuantiSpect, a lightweight 3D CNN pre-decoder that replaces dense convolutions with three parallel, structure-aware branches (spatial, temporal, spatio-temporal) within each residual block.",
+  "model_or_system": "The work focuses on the rotated surface code for Quantum Error Correction (QEC), where syndrome measurements are organized into a 3D space-time volume due to circuit-level noise. The decoding process aims to find minimum-weight perfect matchings in this 3D graph.",
+  "key_observables": "Logical Error Rate (LER), circuit-level threshold ($p_{th}$), decoding latency, parameter count, and per-voxel MAC operations.",
+  "important_parameters": "Code distance ($d$), physical error rate ($p$), receptive field size ($R$).",
+  "main_assumptions": "The design exploits the partial separability of spatial and temporal syndrome correlations inherent in surface code errors to factorize the convolutions, avoiding dense 3D mixing.",
+  "figures_summary": "Figures illustrate the two-stage decoding workflow (raw syndrome $\rightarrow$ pre-decoder $\rightarrow$ residual syndrome $\rightarrow$ global decoder) and visualize the three classes of faults (spacelike, timelike, spacetimelike) in the space-time syndrome volume.",
+  "paper_structure": "The paper first establishes the bottleneck of real-time decoding. It then details the structure of surface code error detection in a 3D space-time lattice. The core contribution is presenting QuantiSpect as a factorized CNN pre-decoder, followed by extensive benchmarking against existing methods using LER and threshold analysis.",
+  "why_interesting": "The explicit focus on optimizing computational overhead (MACs/parameters) for quantum error correction decoding makes it highly relevant to the engineering challenges of building fault-tolerant quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.18204_figures/2607.18204_fig1.jpg",
+      "caption": "FIG. 1. Two-stage decoding workflow.",
+      "page": 2
+    },
+    {
+      "image": "2607.18204_figures/2607.18204_fig2.jpg",
+      "caption": "FIG. 2. Rotated surface code patch for d = 7. The d2 = 49 data qubits (black circles) reside on the vertices of a 7 × 7 square lattice. X-type stabilizers (orange plaquettes) and Z- type stabilizers (blue plaquettes) alternate in a checkerboard pattern. Bulk stabilizers are weight-four operators, boundary stabilizers (triangles at the edges) are weight-two operators. Open circles mark ancilla qubit positions at plaquette cen- ters. Minimum-weight representatives of the logical operators ¯ X (red, horizontal) and ¯Z (blue, vertical) connect opposite boundaries of the matching type.",
+      "page": 3
+    },
+    {
+      "image": "2607.18204_figures/2607.18204_fig3.jpg",
+      "caption": "FIG. 3. Syndrome extraction circuits for bulk (weight-four) stabilizers. Left: a single plaquette with four data qubits (d1–d4, filled) and one ancilla (a, open); numbers indicate the CNOT order. Right: the corresponding circuit. (a) Z- type: ancilla prepared in |0⟩, data qubits control CNOTs onto the ancilla, measured in Z basis (MZ). (b) X-type: ancilla prepared in |+⟩, ancilla controls CNOTs onto data qubits, measured in X basis (MX). Boundary stabilizers use the same circuit with only two of the four CNOT slots active.",
+      "page": 4
+    },
+    {
+      "image": "2607.18204_figures/2607.18204_fig4.jpg",
+      "caption": "FIG. 4. The space–time syndrome volume for the rotated surface code (d = 3 example). Base plane: the 2D sta- bilizer lattice with 3 × 3 data qubits (black dots). Z-type (blue) and X-type (orange) plaquettes alternate in a checker- board pattern, with weight-2 boundary stabilizers (triangles) at the edges, open circles mark ancilla (detector) positions. Vertical axis: measurement rounds t. At each round, every stabilizer yields a detection event di,k (gray dots, d2−1 = 8 per slice). Three classes of faults produce distinct patterns of non-trivial events [29, 31]: spacelike faults (data-qubit er- rors, red) trigger two spatially adjacent detectors in the same time slice, timelike faults...",
+      "page": 5
+    },
+    {
+      "image": "2607.18204_figures/2607.18204_fig5.jpg",
+      "caption": "FIG. 5. End-to-end hybrid decoding pipeline. Left (offline): Stim constructs the detector error model (DEM) from the annotated stabilizer circuit, the DEM is used both to generate training data (detection event tensors and correction labels) and to build the matching graph G = (V, E). The 3D CNN pre-decoder is trained on the reshaped tensors. Right (online): Each QEC cycle produces a 3D syndrome volume from the stabilizer measurements. The trained CNN outputs a sparse residual syndrome (s′ ≪s) and its own logical prediction S(1) L . PyMatching performs minimum-weight perfect matching on the pre- built graph G using the residual, producing S(2) L . The final logical correction is SL = S(1) L...",
+      "page": 7
+    }
+  ],
+  "figure": "2607.18204_figures/2607.18204_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

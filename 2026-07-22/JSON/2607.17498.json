@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2607.17498",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "LLM-Driven Cross-Paradigm Design for Quantum Optimal Control",
+  "authors": "Yu-Qin Chen, Shi-Xin Zhang",
+  "abstract": "Quantum optimal control (QOC) underpins adiabatic quantum computation, quantum annealing, and quantum state engineering, yet practical deployment is fundamentally bottlenecked by strict hardware constraints and substantial expert effort required to design protocols for each problem instance. To overcome this, we introduce QOC-Workbench, an auditable, large language model (LLM)-driven workflow that acts as an automated quantum co-scientist for cross-paradigm protocol design. Going beyond traditional numerical optimizers that merely tune parameters within a fixed formula, the LLM autonomously parses physics literature, proposes structural hypotheses, and writes code to validate them by direct simulation. This workflow supports cross-paradigm design by accumulating control motifs across tasks. We demonstrate this approach across three distinct settings: Case 1, Rydberg-atom maximum-independent-set arrays; Case 2, interacting XXZ spin chains; and Case 3, random transverse-field Ising models. In Cases 1 and 2, the workflow autonomously discovers hardware-compliant auxiliary controls, target catalysts, and schedule deformations that outperform literature baselines. In Case 3, it addresses the computational bottleneck of variational counterdiabatic driving by escalating from per-instance optimization to an amortized graph-neural-network generator, successfully transferring learned coefficient paths to larger unseen systems. By actively bridging the gap between theoretical algorithms and experimental restrictions across distinct control paradigms and Hamiltonian families, QOC-Workbench establishes a continuously evolving, cross-paradigm methodology for autonomous quantum control.",
+  "url": "http://arxiv.org/abs/2607.17498v1",
+  "pdf": "https://arxiv.org/pdf/2607.17498v1",
+  "type": "theory",
+  "summary": "The paper introduces QOC-Workbench, an LLM-driven framework designed to automate Quantum Optimal Control protocol design. It moves beyond simple parameter tuning by allowing the system to propose entirely new structural hypotheses for Hamiltonians across diverse physical models like Rydberg arrays and spin chains. This establishes a powerful, autonomous methodology for quantum state engineering.",
+  "main_problem": "The core challenge is automating Quantum Optimal Control (QOC) protocol design, which traditionally requires immense expert effort for each unique physical instance.",
+  "main_result": "The proposed LLM-driven workflow successfully autonomously discovers hardware-compliant auxiliary controls and structural deformations that outperform existing literature baselines across diverse quantum systems.",
+  "method": "It introduces QOC-Workbench, an LLM-guided loop that parses physics literature to propose novel structural hypotheses for Hamiltonians, which are then validated via direct simulation rather than simple parameter tuning.",
+  "model_or_system": "The work applies to various physical models including Rydberg-atom arrays (MIS problem), interacting XXZ spin chains, and random transverse-field Ising models (TFIM). The control is governed by time-dependent Hamiltonians $H(t)$.",
+  "key_observables": "Final ground-subspace fidelity ($F_{gs}$), normalized energy ($\\mathcal{N}$), and adiabatic following metrics.",
+  "important_parameters": "Control functions $\\{u_k(t)\\}$, Hamiltonian parameters (e.g., $\\Delta$ for XXZ, graph size $N$), and the variational action minimization parameter $K$.",
+  "main_assumptions": "The primary assumption is that LLMs can reliably parse literature to propose novel functional forms and structural modifications beyond what human experts might enumerate.",
+  "figures_summary": "Figures illustrate the workflow components (LLM proposal engine, solver), show control-pulse design histories for Rydberg MIS (comparing baselines to refined protocols), and compare performance metrics ($\\mathcal{N}$ vs $F_{gs}$) across different protocol deformations.",
+  "paper_structure": "The paper is structured around demonstrating the QOC-Workbench workflow across three distinct physical cases: Rydberg atoms, XXZ chains, and TFIMs. It moves from basic parameter refinement to structural Hamiltonian path engineering, culminating in a transferable GNN generator for large systems.",
+  "why_interesting": "This work directly tackles the bottleneck of applying theoretical quantum control concepts to real hardware by creating an automated, cross-paradigm design methodology that bridges theory and experimental constraints.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.17498_figures/2607.17498_fig1.jpg",
+      "caption": "FIG. 1. LLM-driven cross-paradigm design for quantum control protocols. The workflow couples Hamiltonian instances, an LLM proposal engine, inner solvers or neural generators, direct quantum simulation and artifact memory. The aim is to make the generation–evaluation–selection loop auditable and transferable across Hamiltonian families.",
+      "page": 2
+    },
+    {
+      "image": "2607.17498_figures/2607.17498_fig2.jpg",
+      "caption": "FIG. 2. Rydberg MIS control-pulse design and exploration history. a, Fixed C6 instance evaluated at seven total times. The gray dashed curve shows the final fidelity of the reproduced smooth ACQC baseline as a function of T. The orange curve shows the final fidelity of the best candidate selected independently at each T from 62 candidate slots evaluated separately for each total time. Averaging the seven plotted values gives 0.882 for the baseline and 0.931 for the selected protocols. b, Ten- site C10 search trace at fixed T = 30. Points show hardware-compatible candidates proposed by QOC-Workbench, recorded in chronological order. The black staircase marks the best final fidelity found so...",
+      "page": 4
+    },
+    {
+      "image": "2607.17498_figures/2607.17498_fig3.jpg",
+      "caption": "FIG. 3. XXZ catalyst and schedule design. Both panels use an eight-site periodic XXZ spin chain evolved for total time T = 3. a, Results for anisotropy ∆= 0.5. Points compare the reproduced baseline with representative improved candidates from four LLM-designed families in the plane of normalized final-energy metric N and final ground-state fidelity Fgs. b, Results for anisotropy ∆= 1 after replacing endpoint-nonsmooth schedule variants by endpoint-clean alternatives, shown with the same axes and protocol colors. Dashed guide lines mark the reproduced baseline in each panel. Protocol abbreviations used as point labels are detailed in the Supplementary Information.",
+      "page": 5
+    },
+    {
+      "image": "2607.17498_figures/2607.17498_fig4.jpg",
+      "caption": "FIG. 4. Amortized weighted-CD generation for random TFIM instances. a, Fixed-size generalization at T = 1.5 for no CD, exact weighted-CD teacher and the node-wise MLP generator on 12 unseen 2 × 3 (N = 6) test instances. Points show mean final fidelity and error bars denote one standard deviation over test instances. b, Cross-size transfer at T = 2.5 for no CD, exact weighted-CD teacher and the GNN generator on six unseen 2 × 4 (N = 8) test instances, with the same mean and standard-deviation notation. Here K = 3 denotes the hyperparameter for the weighted variational-CD teacher loss, which biases the fit toward the low-energy subspace; details are given in the Supplementary Information. c,...",
+      "page": 6
+    }
+  ],
+  "figure": "2607.17498_figures/2607.17498_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 3,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 3,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

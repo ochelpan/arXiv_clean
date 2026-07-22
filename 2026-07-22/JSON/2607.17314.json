@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2607.17314",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "cond-mat.str-el",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Interpolative Separable Density-Fitting for Transcorrelated Hamiltonians",
+  "authors": "Ke Liao, Yifan Cheng, Werner Dobrautz, Tianyu Zhu, Ali Alavi",
+  "abstract": "The transcorrelated (TC) method dramatically accelerates the convergence of correlated calculations toward the complete-basis-set (CBS) limit by folding a Jastrow correlator into the Hamiltonian via a similarity transformation, incorporating the electron--electron cusp into the effective interaction. We make the TC framework practical for large systems and flexible, multi-center correlators by compressing the grid-evaluated TC integrals with the interpolative separable density-fitting (ISDF) approximation, combined with the effective two-body (xTC) treatment of the three-body operator. This low-rank representation reduces storage and integration costs by orders of magnitude, and a multi-GPU implementation with automatic differentiation of the correlator makes the construction routine for large basis sets. We demonstrate the resulting ISDF-xTC-CCSD method on the linear hydrogen chain, reaching the joint thermodynamic and CBS limits with basis sets up to cc-pV5Z in agreement with state-of-the-art many-body references to within about 1~mHa/atom, and on the benzene ground-state energy with up to 1200 orbitals (cc-pCV5Z), where the method attains state-of-the-art accuracy at the coupled cluster singles and doubles level and its CBS extrapolation is markedly more robust than that of conventional coupled-cluster methods.",
+  "url": "http://arxiv.org/abs/2607.17314v1",
+  "pdf": "https://arxiv.org/pdf/2607.17314v1",
+  "type": "theory",
+  "summary": "This paper introduces ISDF-xTC-CCSD, a novel computational framework designed to accurately calculate electron correlation energies by combining the Transcorrelated method with Interpolative Separable Density-Fitting. By compressing complex integrals into low-rank forms, it drastically reduces computational cost while maintaining high accuracy, allowing reliable extrapolation to the Complete Basis Set limit for large molecular systems.",
+  "main_problem": "The primary challenge is accurately calculating electron correlation energies, especially ensuring convergence towards the Complete Basis Set (CBS) limit for large molecular systems.",
+  "main_result": "The proposed ISDF-xTC-CCSD method achieves state-of-the-art accuracy on benzene and the linear hydrogen chain, demonstrating a significantly more robust CBS extrapolation than conventional coupled-cluster methods.",
+  "method": "It combines the Transcorrelated (TC) Hamiltonian approach with an effective two-body ($\text{xTC}$) treatment of three-body operators, utilizing Interpolative Separable Density-Fitting (ISDF) to reduce computational scaling for grid integrals.",
+  "model_or_system": "The method is applied to electronic structure calculations for molecules like benzene and the linear hydrogen chain. The underlying physics involves treating electron correlation via a Jastrow factor incorporated into the Hamiltonian ($\bar{H}$).",
+  "key_observables": "Basis-set convergence towards the CBS limit; ground-state energy ($E_{\text{corr,CBS}}$) for specific molecules.",
+  "important_parameters": "High basis set levels (up to cc-pV5Z); large system sizes (up to 1200 orbitals in benzene).",
+  "main_assumptions": "The ISDF approximation assumes that grid-evaluated integrals possess a low-rank structure, allowing for efficient tensor compression and calculation.",
+  "figures_summary": "Figures compare the per-atom energy deviation from high-level references (like AFQMC+DMRG) across different bond separations for the hydrogen chain, and show the CBS extrapolation of benzene energy relative to the Hartree-Fock limit.",
+  "paper_structure": "The paper first establishes the need for efficient correlation treatment using TC methods. It then details how ISDF is applied to compress the necessary grid integrals (K and xTC terms). Finally, it presents benchmark calculations on model systems to validate accuracy and convergence properties.",
+  "why_interesting": "While focused on molecular quantum chemistry, the core techniques—low-rank approximation of complex correlation operators and achieving high-accuracy CBS extrapolation—are highly relevant for developing scalable methods in strongly correlated solid-state materials simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.17314_figures/2607.17314_fig1.jpg",
+      "caption": "FIG. 1: Convergence of the ISDF approximation with rank ratio Nch/Norb for ethylene (C2H4, cc-pVTZ, Norb = 116, VMC-optimized Boys–Handy Jastrow): ISDF-xTC-CCSD total-energy error |∆Etot| measured relative to an explicit dense non-ISDF reference. The vertical line marks the production setting Nch = 12 Norb.",
+      "page": 11
+    },
+    {
+      "image": "2607.17314_figures/2607.17314_fig2.jpg",
+      "caption": "FIG. 3: Basis-set convergence on the H10 chain: per-atom energy deviation from the MRCI+Q+F12 CBS-limit ref- erence for xTC-CCSD (filled symbols) and canonical CCSD (open symbols) at cc-pVTZ (circles), cc-pVQZ (squares), and cc-pV5Z (triangles), versus H–H separa- tion. For xTC-CCSD the cc-pV5Z point is the MP2NO series (nkeep = 100, 200, 300) extrapolated to the finite full-virtual limit nkeep = nvir = 544; for canonical CCSD it is the full (untruncated) cc-pV5Z result. Both there- fore reach the full-virtual limit. The shaded band is the reference extrapolation uncertainty. xTC-CCSD at cc- pVTZ already outperforms canonical CCSD at cc-pV5Z, and its cc-pVQZ and cc-pV5Z results coincide...",
+      "page": 12
+    },
+    {
+      "image": "2607.17314_figures/2607.17314_fig3.jpg",
+      "caption": "FIG. 2: Convergence of the H10 cc-pV5Z MP2NO virtual-orbital cutoff at r = 1.4 bohr. The horizon- tal axis is the inverse retained-orbital count per atom, 1/(nkeep/Natom), so the full-virtual limit lies at the fi- nite abscissa 1/(nvir/Natom) = 10/544 (cc-pV5Z has nvir = 544 for H10); the vertical axis is the per-atom en- ergy deviation from the MRCI+Q+F12 reference. Filled diamonds are the finite nkeep/Natom = 10, 15, 20 results; the dashed line is an unweighted linear least-squares fit, evaluated at the full-virtual abscissa (open diamond) to estimate the full-virtual limit. The dashed horizon- tal line marks the reference and the solid line the full- virtual cc-pVQZ result. The...",
+      "page": 12
+    },
+    {
+      "image": "2607.17314_figures/2607.17314_fig4.jpg",
+      "caption": "FIG. 4: Deviation of the per-atom energy from the AFQMC+∆DMRG reference for the hydrogen chain as a function of H–H separation r. The ISDF- xTC-CCSD thermodynamic-limit result (this work, cc- pVTZ; filled stars) stays within ±1 mHa/atom (shaded band) across the studied xTC range of separations (1.4–2.8 bohr), outperforming RCCSD and tracking CBS-extrapolated RCCSD(T) and continuous-space LR- DMC(LDA). Open stars (dashed) show the cc-pV5Z MP2NO thermodynamic-limit series, which reduces the maximum absolute reference deviation from 0.63 to 0.31 mHa/atom and supports residual orbital-basis ef- fects below about 0.6 mHa/atom over this range at the stated MP2NO cutoff. Error bars on both TDL...",
+      "page": 13
+    },
+    {
+      "image": "2607.17314_figures/2607.17314_fig5.jpg",
+      "caption": "FIG. 6: Basis-set scaling of the ISDF-xTC setup time for benzene on a single B200 GPU. Filled points (cc-pCVTZ/QZ/5Z) define the power-law fit T [s] = 0.030 N 1.76 orb (dashed); the cc-pCVDZ point (open) is excluded from the fit. Annotations give the absolute setup time in seconds; the lower axis lists Norb and the fused auxiliary dimension Nf ≡Nfused. Setup cov- ers grid/orbital preparation, ISDF decomposition, and K/∆U kernel/intermediate construction, but excludes SCF/VMC, four-index materialization, and CCSD itera- tions.",
+      "page": 14
+    }
+  ],
+  "figure": "2607.17314_figures/2607.17314_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
