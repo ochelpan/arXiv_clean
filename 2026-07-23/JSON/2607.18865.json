@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2607.18865",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG",
+    "physics.chem-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Enhanced NQS via Annealed Gradient Descent",
+  "authors": "Shiwei Zhou, Yiming Huang, Xiao Yuan, Xiaoxia Cai",
+  "abstract": "Neural quantum states offer expressive representations of quantum many-body wave functions, yet their practical accuracy can be limited by stochastic optimization rather than representational capacity. Here we identify a finite-sample instability, termed subspace trapping, in which physically important configurations become strongly underestimated, remain absent from successive sampling batches and receive insufficient gradient feedback. This self-reinforcing loss of sampled support can confine optimization to an effective subspace and produce apparently stationary states above the true ground state energy. To address this problem, we introduce annealed gradient descent (AGD), a sampling-aware update with annealing factor that temporarily increases the relative contribution of sampled low-probability configurations while limiting the dominance of high-probability ones. We establish the connection between finite-sample support loss and effective subspace optimization, and then evaluate the method across molecular systems, one and two-dimensional $J_1$-$J_2$ models. Annealed gradient descent suppresses metastable trapping, preserves physically relevant configurations and enables compact neural quantum states to attain chemical accuracy and competitive state-of-the-art performance. These results establish AGD as a lightweight complement to expressive neural architectures, improved sampling strategies for scalable quantum many-body optimization.",
+  "url": "http://arxiv.org/abs/2607.18865v1",
+  "pdf": "https://arxiv.org/pdf/2607.18865v1",
+  "type": "theory",
+  "summary": "This paper addresses the critical issue of 'subspace trapping' in optimizing Neural Quantum States (NQS) for many-body physics. The authors introduce Annealed Gradient Descent (AGD), a novel, sampling-aware optimization technique. AGD stabilizes training by artificially boosting the gradient contribution from rarely sampled, but physically important, configurations.",
+  "main_problem": "Neural Quantum States (NQS) optimization suffers from 'subspace trapping' due to finite-sample instability, where important low-probability configurations are rarely sampled and receive insufficient gradient feedback.",
+  "main_result": "The proposed Annealed Gradient Descent (AGD) method successfully suppresses metastable trapping, allowing simple NQS architectures to achieve chemical accuracy across molecular and spin model benchmarks.",
+  "method": "AGD is a sampling-aware update rule that temporarily reweights the influence of low-probability configurations during optimization, guiding the search away from restricted subspaces.",
+  "model_or_system": "The work applies to general quantum many-body systems, including molecular electronic structure calculations (using Gaussian basis sets) and quantum spin models like the 1D and 2D J1-J2 Heisenberg model.",
+  "key_observables": "Variational energy expectation value ($\\langle \\hat{H} \rangle$), local energy ($E_{\text{loc}}(\\sigma)$), and convergence diagnostics showing trapping above the true ground state energy.",
+  "important_parameters": "The annealing factor, learning rates (e.g., $\\eta$, decay schedules), and system-specific coupling constants ($J_1/J_2$).",
+  "main_assumptions": "Standard gradient estimation methods fail when sampling coverage is insufficient; the authors derive enhanced gradient forms using logarithmic weight functions to correct for this bias.",
+  "figures_summary": "Figures illustrate subspace trapping convergence (GD vs. AGD), showing AGD forces exploration toward lower energy states, and compare different weighting schemes ($w(p)=p$ vs $w(p)=-p \\log p$).",
+  "paper_structure": "The paper first identifies the theoretical failure mode (subspace trapping) in VMC/NQS optimization. It then develops AGD as a sampling-aware update rule, deriving enhanced gradient estimators that incorporate low-probability information before benchmarking on molecular and spin systems.",
+  "why_interesting": "It provides a crucial algorithmic fix for modern quantum simulation techniques, ensuring that the computational power of expressive neural networks is not undermined by statistical limitations inherent in Monte Carlo sampling.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.18865_figures/2607.18865_fig1.jpg",
+      "caption": "FIG. 1. The illustration of subspace trapping in NQS optimization. (Left) Loss landscape in the variational parameter space. (Right) The red and blue regions denote the full Hilbert space H and a restricted subspace HS, respectively. The optimization prematurely converges within HS (blue curve) when the network underestimates the probability of a critical configuration, pθ(σ0) ≪ϵ, where ϵ = 1/∆tNs. Sampling is then restricted to HS, so the apparent convergence criterion ∆E →0 is satisfied even though the energy remains above the true ground-state energy.",
+      "page": 4
+    },
+    {
+      "image": "2607.18865_figures/2607.18865_fig2.jpg",
+      "caption": "FIG. 2. Subspace trapping in NQS optimization. Comparison between the exact ground state (Full Configuration Interaction, FCI) and the optimized NQS state in the computational basis, where configurations are sorted by the magnitude of the amplitudes. (a) Probability distribution |ψ|2 of the ground state and the NQS state. The red dashed box highlights the low-weight but non-negligible configurations. (b) Phase comparison between the FCI and NQS states. The red circles mark unsampled or suppressed configurations for which the phase of NQS deviates from the phase of ground state.",
+      "page": 4
+    },
+    {
+      "image": "2607.18865_figures/2607.18865_fig3.jpg",
+      "caption": "FIG. 3. The illustration of an AGD-enhanced NQS for a molecular Hamiltonian as an example, showing that vanilla gradient descent (GD) is prone to be trapped in Hartree-Fock local minima, whereas AGD-enhanced approach enables more effective exploration of the energy landscape. The two colored curves depict the optimization trajectories, the yellow curve corresponds to the NQS optimized with GD, while the blue curve represents the NQS optimized using AGD. The histograms along each trajectory show the corresponding sampled distributions during optimization. Along the GD (red) path, it indicates that GD hard to handle the explore-exploit tradeoff and trends to collapse toward Hartree-Fock like...",
+      "page": 5
+    },
+    {
+      "image": "2607.18865_figures/2607.18865_fig4.jpg",
+      "caption": "FIG. 4. Performance of AGD-enhanced NQS on molecular systems. (a) Potential energy surfaces for LiH, HCl, and N2 as a function of internuclear separation. The AGD-enhanced cRNN-NQS results are compared with Hartree-Fock (HF), coupled- cluster singles and doubles (CCSD), and full configuration interaction (FCI) references. The zoomed insets highlight the equilibrium region, while the error insets show ∆= log(|E −EFCI|), demonstrating that the AGD-enhanced NQS closely follows the FCI energy across different molecular geometries. (b) Training dynamics of AGD-enhanced NQS for molecular ground-state search. The left panels show the average convergence curves for LiH, H2O, NH3, CH4, HCl and H2S,...",
+      "page": 7
+    },
+    {
+      "image": "2607.18865_figures/2607.18865_fig5.jpg",
+      "caption": "FIG. 5. Annealing from a higher initial temperature enables convergence to the ground state for N2. (a) Optimization curve of vanilla NQS and AGD-enhanced NQS. (b) Number of unique sampled configurations during optimization for vanilla NQS and AGD-enhanced NQS, together with the annealing temperature schedule shown on the upper axis.",
+      "page": 8
+    }
+  ],
+  "figure": "2607.18865_figures/2607.18865_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

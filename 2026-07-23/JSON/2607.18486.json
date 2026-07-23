@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.18486",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Equivariant Continuous Normalizing Flows with Offline Sampling for Fermionic Ground State Estimation",
+  "authors": "Sam Cochran, James B. Larsen, Andrew Wray, Michael J. Keiser, Chad Rigetti, Shravan Veerapaneni",
+  "abstract": "We introduce a framework for fermionic variational Monte Carlo (VMC) in which a continuous normalizing flow (CNF) refines a fixed antisymmetric base wavefunction. The flow is implemented as a permutation-equivariant neural ODE, a smooth, topology-preserving map that learns correlations not captured by the base; equivariance preserves the antisymmetry of the base, so the flow can in principle improve any antisymmetric ansatz that can be sampled efficiently. We demonstrate this using Slater and Jastrow-Slater bases, though more expressive choices are admissible. Exact samples from the flow's Born distribution are obtained by pushing pre-cached base samples through the forward ODE, requiring no Markov chain Monte Carlo (MCMC) at training time. The base samples are generated offline and reused across training batches and runs, decoupling sample generation from parameter optimization and enabling embarrassingly parallel training across multiple GPUs. We introduce three novel permutation-equivariant vector field architectures: Pairwise Deep Sets (PDS), FermiNet Vector Fields (FVF), and Pairwise Deep Sets Gradient (PDSG), each offering a different balance of expressivity and computational cost. We further introduce an augmented dynamics formulation for kinetic energy computation that co-evolves the required derivative quantities as ODE state variables, eliminating differentiation through the ODE trajectory and yielding significant reductions in wall-clock time and memory. Training runs on systems of harmonically trapped spinless electrons demonstrate ground-state energies below CISD reference values. Scaling experiments demonstrate near-ideal strong scaling from 1 to 128 NVIDIA A100s using 32 GPU nodes of NERSC's Perlmutter supercomputer for systems of up to $N = 48$ particles in three dimensions.",
+  "url": "http://arxiv.org/abs/2607.18486v1",
+  "pdf": "https://arxiv.org/pdf/2607.18486v1",
+  "type": "both",
+  "summary": "The paper presents a novel Variational Monte Carlo approach for fermionic ground state estimation using Continuous Normalizing Flows (CNFs). By implementing the flow as a permutation-equivariant neural ODE, it achieves exact sampling from the learned wavefunction distribution without slow MCMC steps. This method demonstrates high accuracy and excellent GPU scaling for simulating interacting quantum particles.",
+  "main_problem": "The core problem is accurately estimating the ground state energy of fermionic many-body systems, which requires sampling complex, high-dimensional wavefunctions.",
+  "main_result": "The authors achieved ground-state energies for harmonically trapped spinless electrons that surpass established CISD reference values and demonstrated near-ideal strong GPU scaling up to 128 A100 GPUs.",
+  "method": "They introduce a framework using Continuous Normalizing Flows (CNFs) to refine an antisymmetric base wavefunction via a permutation-equivariant neural ODE, enabling exact sampling without MCMC during training.",
+  "model_or_system": "The system involves fermionic particles governed by a general Hamiltonian. The method uses CNFs built upon fixed antisymmetric bases like Slater or Jastrow-Slater determinants, which are refined by learning the flow's vector field.",
+  "key_observables": "Ground state energy ($E_0$), Born distribution ($\\Pi_\theta$), and local energy variance (used for convergence diagnostics).",
+  "important_parameters": "System size $N$ (up to 48 particles), number of dimensions $D$, and training hyperparameters like learning rates and ODE tolerances.",
+  "main_assumptions": "The method assumes the existence of an efficiently sampleable, antisymmetric base wavefunction; it also relies on the mathematical framework of CNFs applied to fermionic symmetries.",
+  "figures_summary": "Figure 1 visualizes how a trained CNF refines a base wavefunction (e.g., Slater determinant) into a more correlated target state via ODE trajectories. Figure 9 compares the convergence of CISD reference energies against increasing basis set cutoff ($n_{\text{max}}$).",
+  "paper_structure": "The paper introduces the VMC framework, proposes using CNFs to overcome MCMC sampling limitations by leveraging offline base sample generation. It details novel equivariant vector field architectures (PDS, FVF, PDSG) and an augmented dynamics formulation for efficient kinetic energy calculation.",
+  "why_interesting": "This work provides a powerful, scalable alternative to traditional quantum Monte Carlo methods for strongly correlated systems by integrating continuous flow theory with fermionic symmetries, which is highly relevant for simulating complex quantum matter.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.18486_figures/2607.18486_fig1.jpg",
+      "caption": "FIG. 1. Visualization of a trained CNF wavefunction for two fermions in a one-dimensional harmonic trap with repulsive Coulomb interaction. Left: Slater determinant base wavefunction ψbase, built from the first two harmonic oscillator orbitals; this is the exact ground state of the non-interacting system. Blue indicates positive values, red negative. Antisymmetry under particle exchange can be seen in the opposite signs of the two wavefunction lobes reflected across the Pauli exclusion diagonal x1 = x2. Center: Trained wavefunction ψtarget after flow optimization; the increased lobe separation corresponds to the flow learning interparticle repulsion. Note that antisymmetry is preserved....",
+      "page": 5
+    },
+    {
+      "image": "2607.18486_figures/2607.18486_fig2.jpg",
+      "caption": "FIG. 2. Comparison of the sampling procedures required for training NQS and CNF wavefunctions. NQS models (a) define the wavefunction ψθ directly using the output of a neural network. Sampling from the NQS Born distribution requires sequential MCMC sampling at each training iteration. Generating independent and unbiased samples xj with this method necessitates burn-in steps (red boxes) and thinning steps (gray boxes), both of which expend compute without directly producing usable samples. In contrast, the CNF approach (b) uses a neural network to define a vector field vθ whose time-one map transforms a base wavefunction to a target wavefunction. Using M base Born distribution samples z1, ....",
+      "page": 6
+    },
+    {
+      "image": "2607.18486_figures/2607.18486_fig3.jpg",
+      "caption": "FIG. 3. Training pipeline for the CNF-based VMC frame- work. The offline phase (gray) runs MCMC once on the fixed base distribution Πbase to populate a sample cache of K con- figurations. Each training iteration (blue) draws a random batch from the cache, propagates each sample through the forward ODE to obtain exact target samples, computes lo- cal energies via augmented dynamics, and applies a MinSR natural gradient update to the parameters θ. No MCMC is performed at training time.",
+      "page": 10
+    },
+    {
+      "image": "2607.18486_figures/2607.18486_fig4.jpg",
+      "caption": "FIG. 4. Per-iteration wall-clock time (top) and peak GPU memory usage (bottom) as a function of particle number N, comparing the augmented dynamics approach introduced in Section V with standard forward-over-reverse automatic dif- ferentiation through the ODE solve. Results are shown for the standard approach in both parallel and sequential modes. The ODE solve was fixed to use 10 steps, and runs were car- ried out on a single GPU using a PDS vector field over a Slater base. The augmented approach is faster and more memory- efficient than both standard variants across all system sizes tested.",
+      "page": 11
+    },
+    {
+      "image": "2607.18486_figures/2607.18486_fig5.jpg",
+      "caption": "Figure 5 compares the four vector field architectures on a system of N = 10 harmonically trapped electrons in three dimensions. Convergence of energy and local energy variance is shown against both training iteration (a) and wall-clock time (b). Of the models trained using a Slater base, PDSG achieves the lowest converged en- ergy and local energy variance values, followed by FVF, PDS, and then DS. The separation is clearest in the local energy variance. Relative to the CISD reference energy, the three most accurate architectures converge close to CISD, while DS remains well above it. The architec- tures also differ in wall-clock convergence: DS converges fastest, PDS and PDSG are...",
+      "page": 11
+    }
+  ],
+  "figure": "2607.18486_figures/2607.18486_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
