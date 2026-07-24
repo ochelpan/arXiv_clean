@@ -1,0 +1,81 @@
+{
+  "arxiv_id": "2607.19680",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "cond-mat.stat-mech",
+    "cs.LG",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Nuclear Quantum Effects as a Denoising Problem",
+  "authors": "Weizhou Wang, Jonathan Weare, Aaron R. Dinner",
+  "abstract": "Nuclear quantum effects are rigorously captured by imaginary-time path integrals, which map the quantum Boltzmann distribution onto a ring polymer of classical replicas. Yet the nuclear masses, the coupling to the environment, and the boundary conditions of the path remain hard-wired in the simulation or the trained model, even though this quantum context enters the path measure only through a quadratic action known in closed form. Here we show that a denoiser trained on classical Boltzmann statistics alone, composed at sampling time with an analytic Gaussian component carrying the entire quantum context, yields the quantum Boltzmann distribution of the nuclei. Such a composition exists and is exact whenever the training noise does not exceed the intrinsic quantum uncertainty of the target ensemble, and it is invariant across all quantum contexts admitted by this bound. We show exact transfer across temperature, isotopic mass, dissipation strength, and the boundary conditions of the path in theory and in numerical experiments, without retraining. The last yields the end-to-end displacement and momentum distributions of a tagged nucleus from open imaginary-time paths. The same invariance extends in principle to the permuted boundary conditions of bosonic exchange, with the identical denoiser. In this view, the noise of generative modeling and the quantum fluctuations of the nuclei are two faces of the same quadratic structure.",
+  "url": "http://arxiv.org/abs/2607.19680v1",
+  "pdf": "https://arxiv.org/pdf/2607.19680v1",
+  "type": "theory",
+  "summary": "The paper introduces a novel generative modeling approach to simulate complex quantum systems by treating the path integral measure as a composition of two parts. It demonstrates that training a denoiser on simple classical statistics, when combined with an analytically derived Gaussian term representing the full quantum context, can exactly reproduce the true quantum Boltzmann distribution. This breakthrough allows for highly transferable simulations across varying physical parameters like temperature and mass without retraining.",
+  "main_problem": "The core problem is rigorously capturing Nuclear Quantum Effects (NQEs) within path integral formulations while developing a generative modeling framework that cleanly separates the analytically known quantum context from the learned classical statistics.",
+  "main_result": "The authors show that a denoiser trained only on classical Boltzmann statistics can exactly reproduce the full quantum Boltzmann distribution by composing it with an analytic Gaussian component carrying the entire quantum context at sampling time, achieving exact transferability across various physical parameters without retraining.",
+  "method": "They employ generative modeling (denoising/flow matching) applied to path integrals. The method constructs a joint probability distribution where the quantum context is analytically injected into the reverse conditional step of the sampler.",
+  "model_or_system": "The framework applies to systems exhibiting NQEs, modeled via imaginary-time path integrals mapping the system onto a ring polymer of classical replicas. Benchmarks include the dissipative double well, Zundel cation ($\text{H}_5\text{O}^+$), and liquid water.",
+  "key_observables": "End-to-end displacement and momentum distributions of tagged nuclei; radial distribution functions (RDFs); centroid distribution ($R_g$).",
+  "important_parameters": "Inverse temperature ($\beta$), number of beads ($P$), imaginary time slice width ($\tau$), bath coupling strength ($\\alpha$), and the training noise level ($\\sigma^2$).",
+  "main_assumptions": "The composition is exact only if the training noise does not exceed the intrinsic quantum uncertainty, establishing a physical bound; the framework relies on the existence of an amortized denoising posterior.",
+  "figures_summary": "Figures demonstrate successful reproduction of PIMC references across varying bath couplings and temperatures in the double well, accurate modeling of isotope effects in the Zundel cation, and matching of open-path observables in liquid water.",
+  "paper_structure": "The paper develops a general framework (DPI) for sampling quantum ensembles by separating the path measure. It establishes that training on classical statistics allows composition with an analytic Gaussian component to yield the full quantum distribution, demonstrating this transferability across multiple physical contexts and systems.",
+  "why_interesting": "This work provides a powerful, unified computational methodology for simulating open quantum systems where NQEs are crucial, linking advanced generative AI techniques (denoising flows) directly to fundamental physics concepts like path integrals and thermal equilibrium.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.19680_figures/2607.19680_fig1.jpg",
+      "caption": "FIG. 1. Bath and temperature transfer in the Caldeira– Leggett double well. (a) Centroid distribution for bath cou- plings α = 0, 1, 2. Increasing α drives the distribution from unimodal (the particle delocalized over both wells) to bimodal (localized in the wells). (b) Radius of gyration Rg versus in- verse temperature β at fixed τ for the same couplings. Rg increases as the temperature decreases and decreases with coupling. Solid: our method with a single denoiser; dashed: PIMC reference.",
+      "page": 3
+    },
+    {
+      "image": "2607.19680_figures/2607.19680_fig2.jpg",
+      "caption": "Figure 1 shows that a single denoiser reproduces the PIMC reference across all three couplings and across tem- perature at fixed τ.",
+      "page": 3
+    },
+    {
+      "image": "2607.19680_figures/2607.19680_fig3.jpg",
+      "caption": "FIG. 2. Isotope effects in the Zundel cation. (a) Radius of gyration Rg of the shared nucleus for H, D, and T at 300 K with P = 32. (b) Probability that a substituted isotope oc- cupies a peripheral site rather than the central shared site (highlighted in yellow in the illustration), versus tempera- ture at fixed τ. Heavier isotopes prefer the peripheral sites more strongly, and the preference weakens with temperature. The dotted line marks the isotope-free value 4/5. Solid: our method with a single denoiser. Dashed: PIMD reference.",
+      "page": 4
+    },
+    {
+      "image": "2607.19680_figures/2607.19680_fig4.jpg",
+      "caption": "FIG. 3. Isotope effects and open-path observables in liquid water. (a-c) Radial distribution functions of the O–O, O– H, and H–H pairs for H2O, D2O, and T2O at 300 K with P = 32. (d) Intramolecular H–O–H angle distribution for the same isotopes. (e) Normalized radial end-to-end distribution P(∆) of the opened imaginary-time path of a tagged nucleus for the same three liquids. (f) Radial momentum distribution I(p) of the tagged nucleus. Solid: our method with a single denoiser. Dashed: PIMD reference, open-path PIMD in (e) and (f). Dotted: classical MD in (a-d).",
+      "page": 4
+    }
+  ],
+  "figure": "2607.19680_figures/2607.19680_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

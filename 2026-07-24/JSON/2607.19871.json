@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.19871",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A reduction scheme for general-order Ising-like Hamiltonians in quantum heuristic solvers",
+  "authors": "Chengsi Mao, Pavel Mosharev, Yao Wang, Man-Hong Yung",
+  "abstract": "The Ising model is ubiquitous in various optimization problems but notoriously difficult to solve due to combinatorial explosion. In view of this, Hamiltonian reduction is a useful preprocessing technique for reducing the effective problem size before applying heuristic solvers. However, existing reduction techniques mainly target second-order Ising models, whereas many pseudo-Boolean formulations naturally contain higher-order interactions. In this work, we generalize the concept of non-separable groups to arbitrary-order Ising-like models and develop a Hamiltonian reduction framework that iteratively detects and merges constrained spin groups into single variables. We benchmark the reduction on synthetic hypergraphs and higher-order network datasets, and evaluate its integration with downstream order-reduction and solver workflows. Our results establish a foundation for Hamiltonian reduction in higher-order Ising-like optimization problems.",
+  "url": "http://arxiv.org/abs/2607.19871v1",
+  "pdf": "https://arxiv.org/pdf/2607.19871v1",
+  "type": "theory",
+  "summary": "This paper introduces GeneralHare, a novel Hamiltonian reduction framework designed to handle general-order Ising-like Hamiltonians beyond the scope of existing second-order methods. By generalizing non-separability theory, it effectively reduces complex optimization problems defined on hypergraphs into smaller, equivalent forms. This advancement provides a crucial preprocessing step for applying quantum heuristic solvers to more realistic, higher-order physical models.",
+  "main_problem": "The core problem is developing a Hamiltonian reduction framework for general-order Ising-like Hamiltonians, as existing techniques are limited to second-order interactions while real problems contain higher-order terms.",
+  "main_result": "The proposed GeneralHare scheme successfully generalizes non-separability theory to arbitrary orders, achieving superior reduction ratios and performance compared to prior methods like FastHare on synthetic and public hypergraph datasets.",
+  "method": "The authors generalize the concept of 'non-separable groups' to create a generalized non-separable group (gNG) and develop the GeneralHare framework to iteratively detect and merge these constrained spin groups into single variables, thereby reducing the effective problem size.",
+  "model_or_system": "The model is the general-order Ising-like Hamiltonian defined on hypergraphs, $H(\boldsymbol{\\sigma}) = \\sum J_I \\prod_{i \\in I} \\sigma_i$, which are benchmarked using synthetic (ER/SF) and public network datasets.",
+  "key_observables": "Reduction ratio ($r$), solution energy $H(\\sigma)$, computational runtime, and final variable count overhead after reduction.",
+  "important_parameters": "The order of the Hamiltonian ($M$), the structure of the hypergraph (e.g., ER-like vs. SF-like), and the candidate-size cutoff parameter ($\\xi$).",
+  "main_assumptions": "Existing methods are limited to second-order models, and the reconstruction process relies on tracking explicit node maps to ensure ground state correspondence.",
+  "figures_summary": "Figures compare reduction ratios and performance (Energy/Runtime) of GeneralHare against FastHare and Order Reduction techniques across various hypergraph types; Figure 1 illustrates the general structure of the higher-order Hamiltonian.",
+  "paper_structure": "The paper introduces the limitations of current methods, proposes the generalized non-separable group concept, details the GeneralHare framework for reduction, benchmarks this framework on synthetic and public datasets, and finally evaluates its integration into downstream quantum heuristic solvers (like bSB).",
+  "why_interesting": "While focused on classical optimization, the underlying mathematical structure—analyzing complex interactions in high-dimensional spin systems—is highly relevant to understanding energy landscapes in quantum many-body physics, particularly those involving higher-order couplings.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.19871_figures/2607.19871_fig1.jpg",
+      "caption": "Figure 1: Illustration of a hypergraph representing a higher-order Ising-like Hamiltonian. The numbers on the (hyper)edges denote the corresponding weights.",
+      "page": 2
+    },
+    {
+      "image": "2607.19871_figures/2607.19871_fig2.jpg",
+      "caption": "Figure 2: Diagrammatic illustration of the process of GeneralHare on higher-order Ising-like Hamiltonians. Here we set the highest order to be 𝑀= 3 as an example.",
+      "page": 3
+    },
+    {
+      "image": "2607.19871_figures/2607.19871_fig3.jpg",
+      "caption": "Figure 3: Reduction ratio on synthetic data (The higher the better.) (a) Reduction ratio of third-order ER-like hypergraphs using GeneralHare and how it changes with the increase of second- and third-order node degree 𝑑2, 𝑑3, averaged over 100 random samples. The node number is 𝑛= 200. For each hyperedge, 𝐽is an integer chosen uniformly in {−4, −3, −2, −1, 1, 2, 3, 4}. (b) Same as (a), but for third-order SF-like hypergraphs. (c) Reduction ratio with respect to node number on third-order weighted (orange line) and unweighted (blue line) SF-like hypergraphs, with 𝑑2 = 4, 𝑑3 = 2. For weighted hypergraph, 𝐽is an integer chosen uniformly in {−4, −3, −2, −1, 1, 2, 3, 4} for all hyperedges, while...",
+      "page": 4
+    },
+    {
+      "image": "2607.19871_figures/2607.19871_fig4.jpg",
+      "caption": "Figure 4: Performance comparison of GeneralHare and FastHare on synthetic second-order Ising Hamiltonians. (a) Reduction ratio of ER graphs; (b) same as (a), but for SF-like graphs. (c) Processing time for ER graphs; (d) same as (c), but for SF-like graphs. Solid markers denote the results averaged over 100 random instances at each problem size, and the corresponding hollow markers in (a) and (b) denote the highest reduction ratio obtained for these instances. ‘FH’ means FastHare, and ‘GH’ means GeneralHare.",
+      "page": 6
+    },
+    {
+      "image": "2607.19871_figures/2607.19871_fig5.jpg",
+      "caption": "Figure 5: Variable overhead of quadratization and reduction pipelines. We use Python demonstrator implementation GH_minimal, and report ratio of the number of variables after preprocessing to the original number of variables in the higher-order Ising Hamiltonian. Markers show averages over ten independently generated instances, and error bars show one standard deviation. We compare direct PyQUBO order reduction (OR), GH_minimal followed by PyQUBO OR, PyQUBO OR followed by FastHare, and the combined GH_minimal + PyQUBO OR + FastHare pipeline. The dashed horizontal line marks ratio 1, corresponding to no net variable overhead relative to the original higher-order problem size. (a) Ratio on...",
+      "page": 7
+    }
+  ],
+  "figure": "2607.19871_figures/2607.19871_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.19563",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Machine-learned syndrome post-selection for reliable quantum error correction",
+  "authors": "Tobias Haug, Askery Canabarro, Leandro Aolita",
+  "abstract": "Quantum error correction can be enhanced by post-selecting out runs that are likely to produce a logical failure, but the most accurate measures for that require costly decoder-level information. We introduce a practical, decoder-agnostic post-selection method that learns directly from syndrome data. The method trains a supervised classifier to distinguish between syndromes from low- and high-noise regimes, and then uses the classifier's output as an abort score for new runs, without requiring logical-error labels, correction operators, or code-specific likelihood calculations. We validate the approach in three complementary settings: circuit-level simulations of the Gross bivariate-bicycle code, code-capacity simulations of the surface code, and experimental logical magic-state distillation data from the QuEra neutral-atom processor. In the Gross and surface codes, learned syndrome post-selection reduces the conditional logical error rate at a fixed acceptance rate, with performance comparable to syndrome-weight filtering. For the surface code, the learned classifier reveals a post-selection transition distinct from the conventional decoding threshold. In the experimental data, the machine-learning score outperforms syndrome-weight post-selection and, when combined with logical-gap filtering, improves the output fidelity beyond using the logical gap alone. These results show that syndrome-only learning provides a scalable and hardware-compatible route to improving the reliability of quantum error correction.",
+  "url": "http://arxiv.org/abs/2607.19563v1",
+  "pdf": "https://arxiv.org/pdf/2607.19563v1",
+  "type": "both",
+  "summary": "This paper introduces a machine-learning technique to improve Quantum Error Correction by filtering out noisy runs based solely on syndrome measurements. By training a classifier to distinguish between low- and high-noise syndromes, the method provides a scalable, hardware-compatible post-selection score. This approach successfully enhances fidelity in both simulated codes and real neutral-atom quantum computing experiments.",
+  "main_problem": "The goal is to enhance Quantum Error Correction (QEC) reliability by post-selecting runs likely to fail, circumventing the need for computationally expensive decoder-level information.",
+  "main_result": "A machine-learning approach using syndrome data alone can significantly reduce conditional logical error rates and improve output fidelity in both simulated codes and real experimental platforms.",
+  "method": "The authors train a supervised binary classifier on syndrome measurements, distinguishing between syndromes generated under low-noise versus high-noise conditions. This classifier's output serves as a decoder-agnostic 'abort score' for run rejection.",
+  "model_or_system": "The work applies to general QEC codes (e.g., Surface Code, Gross bivariate-bicycle code) and is validated using experimental data from magic-state distillation on a neutral-atom processor.",
+  "key_observables": "Conditional logical error rate ($\tilde{p}_L$), post-selection acceptance rate ($R$), and output fidelity ($F$).",
+  "important_parameters": "Physical error rates ($p$), code distance ($d$), and the machine-learning cutoff threshold ($C_0$ or $p_{ML}$).",
+  "main_assumptions": "The method is explicitly designed to be decoder-agnostic, relying only on syndrome distributions rather than requiring knowledge of logical operators or specific decoding algorithms.",
+  "figures_summary": "Figures illustrate the training process using low/high-noise ensembles and show performance comparisons (e.g., fidelity vs. acceptance rate) where ML+LG outperforms LG alone in experimental settings.",
+  "paper_structure": "The paper introduces the problem, details the supervised classification methodology trained on synthetic noise ensembles, validates the approach across three distinct regimes (circuit simulation, code-capacity simulation, and real experiment), and concludes by demonstrating its scalability.",
+  "why_interesting": "It provides a practical, data-driven tool for improving quantum hardware performance that bypasses complex theoretical assumptions about decoding thresholds, making it highly relevant to experimental quantum information scientists.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.19563_figures/2607.19563_fig1.jpg",
+      "caption": "FIG. 1. Machine-learning post-selection via syndrome data. The supervised machine-learning model learns from an ensemble of syndromes with high- and low-error events. After training, the model is applied on new syndromes to decide which runs to actively correct errors on and which ones to discard.",
+      "page": 2
+    },
+    {
+      "image": "2607.19563_figures/2607.19563_fig2.jpg",
+      "caption": "FIG. 2. Sketch of the automated machine-learning pipeline. Syndrome records sampled from low- and high-error-rate regimes are assigned class labels 0 and 1, respectively, and used to train a binary classifier through the TPOT automated model-selection procedure. Candidate pipelines are evaluated by cross-validation, and the best-performing pipeline is refitted on the training data. For each new syndrome s, the selected classifier returns the class-1 probability C(s) = Pr(y = 1 | s), which quantifies its similarity to the high-error-rate ensemble. This score is compared with a cutoff C0, where for C(s) < C0 we accept the run, and else reject.",
+      "page": 4
+    },
+    {
+      "image": "2607.19563_figures/2607.19563_fig3.jpg",
+      "caption": "FIG. 3. Post-selection enhancement for QuEra’s magic-state distillation experiment. Experimental implementation of 5-1 magic state distillation protocol by Ref. [5] where 5 noisy single-qubit magic states are encoded into distance−5 color code blocks and then distilled into a less noisy magic state. The experimental protocol is described in Ref. [15] and the data from Ref. [40]. We show logical-error reduction by different post-selection strategies: based on the logical gap (LG), on machine-learning (ML), syndrome-weight (SW), and on machine-learning combined with logical gap (ML+LG). As a reference, the black dashed line is direct state-injection (SI) into the QEC code without distillation...",
+      "page": 5
+    },
+    {
+      "image": "2607.19563_figures/2607.19563_fig4.jpg",
+      "caption": "FIG. 4. Syndrome post-selection enhancement of the Gross-code. For the [[144, 12, 12]] bivariate-bicycle code, we train a classifier model on an efficiently generated dataset of syndromes drawn at physical error rates p = {0.001, 0.0013} (low-noise) or p = {0.0062, 0.008} (high-noise). We use the trained model to post-select syndromes at each p and then decode with BP-OSD. a) Logical error rate ˜pL after post- selection at post-selection rate R (defined in (2)) as a func- tion of p. As expected, the lower R is, the lower ˜pL is. b) Improvement factor I = pL/˜pL plotted against R for different p. Solid lines correspond to our post-selection via machine learning, while dashed lines to the...",
+      "page": 6
+    },
+    {
+      "image": "2607.19563_figures/2607.19563_fig5.jpg",
+      "caption": "FIG. 5. Surface-code classifier threshold. a) The machine-learning predictor C against p, for different code dis- tances d. For all d, the curves cross at pML ≈0.0866(1) (ver- tical dashed line) and exhibit universal behavior (see SM A), reminiscent of a phase transition at a post-selection prob- ability threshold. Interestingly, pML differs from the usual physical-error threshold pth of the code (see main text). For the model’s training, we used syndrome data generated at physical error rates p = 0.05 and p = 0.06, for low noise, and p = 0.14 and p = 0.15, for high noise. Approximately 105",
+      "page": 7
+    }
+  ],
+  "figure": "2607.19563_figures/2607.19563_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

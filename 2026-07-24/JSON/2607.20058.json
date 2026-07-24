@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2607.20058",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.AI",
+    "cond-mat.mes-hall",
+    "cond-mat.mtrl-sci",
+    "cs.CL"
+  ],
+  "is_primary_archive": false,
+  "title": "Reading and Steering Representations of Materials-Science Mechanisms in an Open-Weight Language Model",
+  "authors": "Markus J. Buehler",
+  "abstract": "Large language models can answer scientific questions, yet a correct output does not reveal whether the model represents or uses the governing physics. Here we show that materials science mechanism information in the open-weight google/gemma-4-E4B-it model has three experimentally separable forms: concepts are readable in individual hidden states, constitutive orientation is carried by controlled transformations between states, and selected internal representations causally control engineering answers. We combine matched direct and Jacobian vocabulary readouts, option-free state geometry, a 60-law counterfactual benchmark and causal interventions. In 50 held-out materials descriptions, three independently fitted Jacobian lenses reproduced concept ranks, and target-free word sets from both readouts enabled blinded identification of 9 of 10 mechanism families. A separate 72-prompt benchmark produced mechanism-specific hidden-state neighborhoods, but an exact graph audit showed that this apparent physical organization was equally explained by numerical comparison. We therefore compared otherwise identical prompts in which only the direction of the physical input was reversed, asking whether the resulting hidden-state movement followed the supplied constitutive law. These state transformations ordered direct, physically neutral and inverse laws across 60 frozen relations and correctly oriented 39 of 40 directional laws, whereas lexical controls were near chance. Bidirectional interventions shifted answer probabilities toward or away from the physically appropriate outcome across all 12 matched cases, while counterfactual state patches transferred opposing decision signals across mechanisms and answer formats. Physical relationships were therefore more visible in controlled state changes than in absolute states alone.",
+  "url": "http://arxiv.org/abs/2607.20058v1",
+  "pdf": "https://arxiv.org/pdf/2607.20058v1",
+  "type": "both",
+  "summary": "This paper investigates whether large language models encode actual physics from materials science, moving beyond simple pattern matching. By applying advanced interpretability tools like Jacobian lenses and causal interventions, the authors demonstrate that physical laws are best revealed not by looking at static states, but by observing how the model's internal state changes when a physical input direction is systematically reversed.",
+  "main_problem": "The core problem is determining if a large language model genuinely encodes and utilizes underlying physical laws (mechanisms) from materials science, or if it merely correlates surface-level textual cues.",
+  "main_result": "Physical relationships are found to be more visible in controlled state changes (e.g., reversing input direction) than in the absolute hidden states alone, suggesting a mechanistic encoding within the model's latent space.",
+  "method": "The authors employ advanced interpretability techniques including Jacobian lenses, causal interventions (state patching), and testing directional invariance by reversing physical inputs to probe the model's internal state transformations.",
+  "model_or_system": "The study uses an open-weight language model (google/gemma-4-E4B-it) trained on materials science descriptions. The 'system' being analyzed is the model's high-dimensional hidden state space, which is treated as a representation of physical knowledge.",
+  "key_observables": "Concept ranks derived from readouts, directional law adherence (e.g., 39/40 correct reversals), and shifts in answer probabilities following causal interventions.",
+  "important_parameters": "The analysis focuses on state transformations, the structure of constitutive laws, and the comparison between absolute states versus controlled changes in those states.",
+  "main_assumptions": "The study assumes that physical mechanisms can be mapped onto mathematically measurable properties within the model's hidden state vectors, requiring careful disentanglement from mere lexical correlation.",
+  "figures_summary": "Figures summarize evaluations using vocabulary readouts (concepts), matched counterfactual comparisons (state changes/constitutive orientation), and causal intervention tests (answer shifts).",
+  "paper_structure": "The paper progresses by establishing three separable forms of mechanism information: concepts in states, constitutive orientation via state transformations, and causal control over answers. It uses a multi-stage testing protocol involving readouts, relational geometry checks, and final directional/causal interventions.",
+  "why_interesting": "While the domain is materials science AI, the methodology—interpreting complex physical laws (constitutive relations) as geometric constraints or directional invariances within a high-dimensional latent space—is highly relevant to understanding how quantum mechanical principles might be encoded in neural network representations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.20058_figures/2607.20058_fig1.jpg",
+      "caption": "Figure 1: Overview of the study reported in this article. A materials-science prompt is evaluated with a frozen open-weight language model while its intermediate states are recorded. We study those states in three complementary ways: vocabulary readout tests which scientific concepts are readable; matched counterfactual comparison tests whether state changes preserve constitutive orientation; and causal intervention tests whether changing an internal representation changes the model’s engineering decision. The right-hand panels illustrate the corresponding evidence types (decoded terms, relational trends, and intervention-induced answer shifts). In the causal card, arrows show the raw...",
+      "page": 2
+    },
+    {
+      "image": "2607.20058_figures/2607.20058_fig2.jpg",
+      "caption": "Figure 2: Can either readout recover an engineering term that was deliberately omitted from the description? Before running the 50 prompts, we declared 150 scientifically appropriate one-token terms and then asked where each term ranked among Gemma’s 262,144 vocabulary entries. (A) The cutoff k is relaxed from rank 1 to rank 100; a higher curve means more declared terms have become strongly readable. Thin teal curves are the three independent Jacobian fits, the thick teal curve is their mean, and gray is direct unembedding of the same states. At k = 100, the fractions are 7.2% and 3.3%, respectively. (B) Each point is one prompt’s recovery area under the curve (AUC); a point above the...",
+      "page": 6
+    },
+    {
+      "image": "2607.20058_figures/2607.20058_fig3.jpg",
+      "caption": "Figure 3: Target-free family vocabularies. Each row is one physical family and each cell is a word selected without the declared concept list. Support is the number of independent phrasings, out of five, in which the word appeared under the three-fit consensus rule; darker blue-green cells indicate stronger background-corrected support. Asterisks mark exact declared-word overlap added only after ranking. Read across a row to ask whether the words form a recognizable materials neighborhood. Boundary attack, surface oxidation, and rapid transformation show coherent mechanism or microstructure terms; high-temperature deformation and cleavage show why stable decoding can still be generic. The...",
+      "page": 8
+    },
+    {
+      "image": "2607.20058_figures/2607.20058_fig4.jpg",
+      "caption": "Figure 4: Do the freely discovered words identify the materials mechanism without a supplied answer list? Each bar is leave-one-phrasing-out accuracy across the 50 prompts and ten balanced mechanism families. A classifier learned four phrasings per family and predicted the held-out fifth using only target-free candidate words from the corresponding readout. “Exact prompt words removed” deletes literal input copies; “morphology-aware removal” additionally deletes conservative prefix-related variants. The dotted line is 10% chance. The dashed line is a TF–IDF classifier that instead sees the prompt words themselves. The target-free Jacobian and direct lists remain well above chance after the...",
+      "page": 9
+    },
+    {
+      "image": "2607.20058_figures/2607.20058_fig5.jpg",
+      "caption": "Figure 5: What does the stricter target-free filter remove, and what materials vocabulary remains? Rows A–E correspond to the five exact prompts printed in the text. Each left panel shows the original-style unrestricted leading words from lens fit 0. Each right panel removes input and output words, the frozen 214-word function list, and the globally common readout scaffold, then requires the word to occur in all three independent fits at that layer. No declared concept was supplied to either selection. The gray region marks the fixed 38–92% analysis band. The comparison shows that much of the visually continuous unfiltered stream is generic discourse vocabulary, while the stricter view...",
+      "page": 10
+    }
+  ],
+  "figure": "2607.20058_figures/2607.20058_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
