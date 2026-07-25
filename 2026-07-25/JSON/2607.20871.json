@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.20871",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cond-mat.mes-hall",
+    "cs.LG"
+  ],
+  "is_primary_archive": false,
+  "title": "Machine Learning for Charge State Characterization of Isolated Double Quantum Dots",
+  "authors": "Hyma Vallabhapurapu, Marco Candido, Krishna Choudhary, Paul Steinacker, Ensar Vahapoglu, Chris Escott, Wee Han Lim, Andre Saraiva, Nard Dumoulin Stuyck, MengKe Feng",
+  "abstract": "Scaling semiconductor quantum dot arrays toward fault-tolerant quantum computing requires efficient tuneup of spin qubits, a process that depends on the analysis of charge stability maps (CSMs) and remains largely manual. While machine learning has been widely applied to CSM analysis in reservoir-coupled devices, automated tuning in the increasingly important isolated-mode regime has received limited attention. In isolated-mode CSMs, charge transitions appear as near-vertical lines, making them well suited to compact, task-specific models. We present two convolutional neural networks with fewer than one million parameters, trained on CSMs collected from 32 silicon metal-oxide-semiconductor (SiMOS) double-quantum-dot devices measured at approximately 1 K using an automated cryogenic probing system. Sixteen devices were used for training and sixteen were held out to evaluate cross-device generalization against hand-labeled ground truth. CSMClassifier identifies charge instability and sensor artifacts, achieving 94% macro-averaged accuracy across three quality classes on 2,407 held-out images. ChargeLineNet localizes charge-transition lines and determines electron occupancy, achieving 95.3% exact line-count accuracy on 1,131 held-out images. Combined into a single pipeline, the models correctly determine electron occupancy for 93.8% of clean held-out images. Pre-training on synthetic images substantially improves label efficiency. Fine-tuning the pre-trained model on limited experimental data maintains over 90% accuracy, whereas training from scratch degrades significantly under the same conditions. Together, the two models occupy only 6.5 MB and process images in less than 60 ms on standard laboratory hardware, demonstrating a practical path toward scalable, automated characterization and tuneup of quantum-dot devices.",
+  "url": "http://arxiv.org/abs/2607.20871v1",
+  "pdf": "https://arxiv.org/pdf/2607.20871v1",
+  "type": "experiment",
+  "summary": "This paper presents two specialized Convolutional Neural Networks designed to automate the analysis of Charge Stability Maps (CSMs) from isolated double quantum dots. By combining a quality classifier with a line-counting network, the authors created a highly accurate and computationally efficient pipeline for determining electron occupancy. This breakthrough offers a practical path toward scalable characterization and tuning of solid-state spin qubits.",
+  "main_problem": "The manual analysis of Charge Stability Maps (CSMs) for tuning spin qubits in quantum dot arrays is inefficient, especially in the isolated-mode regime.",
+  "main_result": "A combined ML pipeline achieved high accuracy (93.8% on clean images) and demonstrated scalability by running fast (under 60 ms) with minimal memory footprint (6.5 MB).",
+  "method": "The authors developed two specialized Convolutional Neural Networks (CNNs)—CSMClassifier and ChargeLineNet—to automate image quality screening and charge-transition line localization, respectively.",
+  "model_or_system": "The work uses Double Quantum Dots (DQDs) fabricated on SiMOS devices, operated in an isolated mode. The system is characterized by measuring CSMs via automated cryogenic probing at $\\sim 1$ K.",
+  "key_observables": "Charge-transition lines, electron occupancy derived from line counts, and image quality metrics (Clean/Unstable/Unclear).",
+  "important_parameters": "Operating temperature ($\\sim 1$ K), number of parameters (< 1 million for each model), and cross-device generalization performance.",
+  "main_assumptions": "The primary assumption is that the near-vertical nature of charge transitions in isolated mode makes them ideal targets for compact, task-specific CNN models; classical counting methods are insufficient due to artifacts.",
+  "figures_summary": "Figure 1 illustrates the DQD device structure, a measured CSM showing transition lines, and potential/gate voltage diagrams used for characterization.",
+  "paper_structure": "The paper introduces the problem of automated qubit tuning via CSM analysis. It details the two-stage ML pipeline (classification followed by line detection) using CNNs trained on experimental data, reports quantitative performance metrics against held-out sets, and concludes with a discussion of the practical scalability of the combined tool.",
+  "why_interesting": "This work directly addresses the engineering bottleneck in scaling solid-state quantum computing platforms by providing an automated diagnostic tool for qubit characterization.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.20871_figures/2607.20871_fig1.jpg",
+      "caption": "Figure 1. Overview of the double-quantum-dot (DQD) device and its charge stability map. (a) Representative Scanning- electron-microscope (SEM) image of a DQD device with an integrated single-electron-transistor (SET) charge sensor, with the barrier gates B1 and B2 controlling the tunnel barriers to the SET and to the reservoir respectively. The image is of a device fabricated in an academic cleanroom, shown for illustration of the gate layout only; all charge-stability data in this work are from imec-fabricated devices of nominally identical architecture. (b) A measured charge stability map (CSM): the sensor current recorded while sweeping two plunger-gate voltages (P1-P2), with...",
+      "page": 2
+    },
+    {
+      "image": "2607.20871_figures/2607.20871_fig2.jpg",
+      "caption": "fig. 1(b).",
+      "page": 2
+    },
+    {
+      "image": "2607.20871_figures/2607.20871_fig3.jpg",
+      "caption": "Figure 2. CSMClassifier architecture visualised on real CSM images, one row per quality class (clean, unstable, unclear). Each row passes a hand-labelled experimental CSM of that class through the trained network and shows the actual intermediate feature maps (only the single highest-variance, i.e. most active, channel is shown at each stage; the remaining channels are omitted to avoid clutter): input →histogram-invariant stem (LCN ∥InstanceNorm) →four isotropic encoder stages →bottleneck →global average pooling (GAP) to a 128-dimensional vector. Spatial and channel dimensions are annotated below each panel. The two-layer MLP head then maps the pooled vector to three independent sigmoid...",
+      "page": 5
+    },
+    {
+      "image": "2607.20871_figures/2607.20871_fig4.jpg",
+      "caption": "Figure 3. ChargeLineNet architecture visualised on a real CSM image. A hand-labelled experimental CSM is passed through the trained network and the actual intermediate feature maps are shown left to right (only the single highest-variance, i.e. most active, channel is shown at each stage; the remaining channels are omitted to avoid clutter): input →histogram-invariant stem (LCN ∥InstanceNorm) →three anisotropic encoder levels →bottleneck →three U-Net decoder levels, whose skip connections are drawn as dashed arcs. The spatial and channel dimensions after each stage are annotated below the corresponding panel. The final 1×1 head produces the signed heatmap (channel 0; positive peaks mark...",
+      "page": 6
+    },
+    {
+      "image": "2607.20871_figures/2607.20871_fig5.jpg",
+      "caption": "Figure 4. Representative CSM images from the three quality classes, one class per column (three examples each). Left column (a–c), clean: well-resolved charge-transition lines with clear contrast against the background, suitable for automated line detection. Middle column (d–f), unstable: images in which the electron occupancy visibly jumps mid-scan, so that transition lines abruptly appear or disappear part-way across the image (telegraph switching or spurious tunnelling), leaving no single consistent line count. Right column (g–i), unclear: images whose line count is ambiguous even to a human reader, owing to low signal, sensor artefacts, obscuring background transitions, or SET signal...",
+      "page": 7
+    }
+  ],
+  "figure": "2607.20871_figures/2607.20871_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 1,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

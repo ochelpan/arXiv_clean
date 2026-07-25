@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2607.20623",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning the closest Slater determinant",
+  "authors": "Nisarga Paul, Haimeng Zhao, David D. Dai",
+  "abstract": "Learning compact, interpretable descriptions of quantum many-body states is an important task in quantum science. We study the task of learning the Slater determinant with maximum fidelity to an arbitrary fermionic many-body state, with motivation from both Hartree-Fock methods and agnostic tomography. Given an $n$-fermion wavefunction built from $m$ fermionic modes, we provide classical and quantum algorithms returning a Slater determinant with fidelity within $\\varepsilon$ of maximal in time $m^{\\text{poly}(n,1/\\varepsilon)}$. We prove matching hardness lower bounds, assuming standard complexity conjectures, along some parameter axes. Given access to quantum copies, we prove this can be accomplished with $\\text{poly}(m,n,1/\\varepsilon)$ copies of $ρ$. We also show that above a fidelity of $2/3$ any stationary point is the unique global maximum while below $2/3$ the optimization landscape can have spurious stationary points, and hence $2/3$ marks a transition point in the optimization landscape for this problem. We apply the algorithm to the Fermi-Hubbard model, extracting the closest Slater determinant from neural quantum state solutions. Together, our results provide algorithmic tools with provable guarantees in understanding fermionic many-body systems with classical or quantum simulation.",
+  "url": "http://arxiv.org/abs/2607.20623v1",
+  "pdf": "https://arxiv.org/pdf/2607.20623v1",
+  "type": "theory",
+  "summary": "This paper develops provable classical and quantum algorithms to find the best approximation of a general fermionic state $\rho$ using only a Slater determinant. By analyzing the optimization landscape, they identify a critical fidelity threshold at $2/3$. The results offer concrete computational tools for accurately characterizing correlated many-body systems beyond simple mean-field theory.",
+  "main_problem": "The core problem is finding the Slater determinant that maximizes fidelity with a given, potentially complex, fermionic many-body state $\rho$. This is motivated by improving upon mean-field approximations like Hartree-Fock.",
+  "main_result": "The authors provide provable classical and quantum algorithms to find this closest Slater determinant within specified error bounds. They also establish that $F=2/3$ marks a critical transition point in the optimization landscape.",
+  "method": "The approach combines estimating the 1-RDM, restricting the search space to an 'active space' using natural orbitals, and then employing $\\epsilon$-covering net techniques for exhaustive search over the restricted manifold of Slater determinants.",
+  "model_or_system": "The work is applied to fermionic many-body systems, specifically mentioning the Fermi-Hubbard model on lattices and the spinless t-V chain. The state $\rho$ can originate from neural quantum states or other simulation methods.",
+  "key_observables": "Fidelity $F = \\langle S|\rho|S\rangle$, the 1-RDM ($\\gamma_{ij}$), and the optimal fidelity $\text{OPT}$.",
+  "important_parameters": "Error tolerance $\\epsilon$, number of fermions $n$, single-particle modes $m$, and the critical threshold value of $2/3$.",
+  "main_assumptions": "The classical algorithm relies on restricting the search to an active space derived from the 1-RDM, which is assumed sufficient. The complexity proofs rely on standard complexity conjectures.",
+  "figures_summary": "Figures illustrate the algorithmic protocol (including RDM estimation and covering nets), show the non-convexity of the optimization landscape with a transition at $F=2/3$, and present results for the Fermi-Hubbard model.",
+  "paper_structure": "The paper first defines the problem, then details the classical algorithm using 1-RDM estimation and active space reduction. It proves complexity bounds, analyzes the optimization landscape's non-convexity around $F=2/3$, and concludes with applications to models like Fermi-Hubbard.",
+  "why_interesting": "The rigorous algorithmic tools provided for approximating complex quantum states (like those from neural networks) are highly relevant for developing robust simulation techniques in AMO physics, especially when dealing with correlated electron systems where mean-field approximations fail.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.20623_figures/2607.20623_fig1.jpg",
+      "caption": "FIG. 1. Learning the closest Slater determinant. (a) We provide a deterministic protocol to learn the closest Slater de- terminant to an arbitrary fermionic state |ψ⟩. This allows the extraction of useful information about |ψ⟩, such as its natural single-particle orbital basis. (b) Maximizing fidelity F over all Slater determinants is generally a non-convex optimization problem. The optimization landscape exhibits a transition at F = 2/3 above which there are no spurious stationary points. (c) The closest-Slater fidelity OPT of the 4×4 Fermi–Hubbard ground state versus interaction |U|/t, for repulsive and attrac- tive coupling.",
+      "page": 1
+    },
+    {
+      "image": "2607.20623_figures/2607.20623_fig2.jpg",
+      "caption": "FIG. 2. Overview of algorithms. (a) The m × m 1-RDM γ is diagonalized into natural orbitals, and an active space A of large occupation (dimension dim A = O(n2/ε)) is retained. (b) An ε-covering net over the manifold SA of Slater determinants built from A is followed by explicit search in the classical case (Theorem 1). The net has size M = exp[O( n3",
+      "page": 4
+    },
+    {
+      "image": "2607.20623_figures/2607.20623_fig3.jpg",
+      "caption": "FIG. 3. Overview of computational hardness. (a) Learning the closest Slater determinant is possible in time polynomial in m and exponential in poly(n, 1/ε). Substantially improving the dependence on n or 1/ε is ruled out by standard computational complexity conjectures. (b) To prove hardness for the n axis, we embed a graph instance G of the n-Multicolored Clique problem into a classical description of a fermionic state, which could be efficiently solved by an efficient closest Slater algorithm. (c) To prove hardness along the 1/ε axis, a bipartite state ρ is embedded by J into the opposite-spin sector of a fermionic state in such a way that a classical or quantum algorithm for the closest...",
+      "page": 8
+    },
+    {
+      "image": "2607.20623_figures/2607.20623_fig4.jpg",
+      "caption": "FIG. 4. Closest Slater implementation and optimization landscape. (a) Fidelity OPT = max|S⟩|⟨S|ψ⟩|2 of the 4 × 4 Fermi–Hubbard ground state (cylinder, n↑= n↓= 2) to the closest Slater versus |U|/t, for both repulsive and attractive interactions. Dashed lines are exact diagonalization (ED) and shaded bands are from trained neural quantum states (NQS), with width the Monte Carlo sampling standard deviation. (b) Fraction of randomly initialized optimizations, for a simple gradient ascent optimizer, that reach the global OPT, versus system size m = 2LxLy (n↑= n↓= 2, U/t = 2). At any fixed # steps, as m increases gradient ascent stalls and the success rate collapses, whereas our algorithm is...",
+      "page": 10
+    },
+    {
+      "image": "2607.20623_figures/2607.20623_fig5.jpg",
+      "caption": "FIG. 6. Encoding a clique into a superposition of Slaters. The augmented graph G is encoded as the unnor- malized state |ΦG⟩= α P",
+      "page": 15
+    }
+  ],
+  "figure": "2607.20623_figures/2607.20623_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

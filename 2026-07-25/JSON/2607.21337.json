@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.21337",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CC"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient classical simulation of large-scale unitary cluster Jastrow circuits",
+  "authors": "Hrishikesh Belagali, Thomas Van Camp, R. Pradeep, Sourin Das, Namit Anand, Ryan LaRose",
+  "abstract": "Recent experiments on quantum computers have challenged the limits of classical computation in chemistry, simulating ground states of strongly correlated molecules. Many of these experiments have utilized the unitary cluster Jastrow ansatz, a quantum circuit inspired by the unitary coupled cluster ansatz that can be tailored to current quantum hardware. Notably, the largest experiment in Sci. Adv. 11, 25 (2025) executed a quantum circuit with 77 qubits and 10,570 gates on an IBM quantum computer and performed classical post-processing with up to 6400 nodes on Fugaku to compute ground state energies better than Hartree-Fock. In this work, we present a polynomial time classical algorithm to compute the energy of any single-layer unitary cluster Jastrow circuit, independent of locality constraints for quantum hardware. Our algorithm can reproduce the largest experiment from Sci. Adv. 11, 25 (2025) in less than a minute on a laptop, and through circuit optimization enabled by fast simulation we achieve a lower ground state energy than the experiment.",
+  "url": "http://arxiv.org/abs/2607.21337v1",
+  "pdf": "https://arxiv.org/pdf/2607.21337v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel polynomial-time classical algorithm for calculating the ground state energy of unitary cluster Jastrow (UCJ) circuits. By efficiently propagating fermionic integrals through unitary transformations, it achieves results comparable to or better than current large-scale quantum hardware experiments. This provides a crucial theoretical benchmark for simulating strongly correlated molecular systems.",
+  "main_problem": "The primary goal is developing an efficient, polynomial-time classical algorithm to compute the energy of single-layer unitary cluster Jastrow (UCJ) circuits.",
+  "main_result": "The authors presented a method that can simulate large-scale UCJ experiments in minutes on standard hardware and achieved lower ground state energies than previously reported quantum simulations.",
+  "method": "The algorithm uses Heisenberg evolution of the second-quantized Hamiltonian, propagating one-body and two-body integrals through unitary transformations using techniques derived from Löwdin's formula.",
+  "model_or_system": "The work focuses on simulating electronic structure in chemistry using the Unitary Cluster Jastrow (UCJ) ansatz, which is a quantum circuit inspired by coupled cluster methods for strongly correlated molecules.",
+  "key_observables": "Ground state energy ($E_{\text{UCJ}}$), compared against Hartree-Fock and CCSD results.",
+  "important_parameters": "Number of orbitals ($N$), number of qubits (up to 160 in testing).",
+  "main_assumptions": "The algorithm computes only the expectation value (weak simulation) and is limited to single layers ($L=1$) due to complexity issues with higher layers.",
+  "figures_summary": "Figure 2 plots runtime scaling for Hydrogen chains; Figure 3 compares cumulative energy from different propagation methods against approximation levels.",
+  "paper_structure": "The paper develops mathematical machinery to exactly update one- and two-body integrals under unitary evolution, culminating in a polynomial-time algorithm for the single-layer UCJ energy calculation.",
+  "why_interesting": "This work provides a powerful classical benchmark tool that bypasses hardware limitations by offering an exact, scalable method to evaluate complex quantum chemistry circuits used in AMO physics simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.21337_figures/2607.21337_fig1.jpg",
+      "caption": "FIG. 1. Structure of the unitary cluster Jastrow (UCJ) ansatz (3) for L = 1 layer. The top qubit lines are α spins and the bottom qubit lines are β spins. The orange boxes can be implemented with O(N 2) Givens rotations where N = No + Nv is the sum of occupied and virtual orbitals. These operators do not change between the UCJ and local UCJ ansatz. In the local UCJ (LUCJ) ansatz, sparsity is im- posed on the Jastrow J = Jαα+Jββ+Jαβ operators (blue, red, and green operators in the dashed box) by removing interac- tions which are not supported on a given quantum computer.",
+      "page": 2
+    },
+    {
+      "image": "2607.21337_figures/2607.21337_fig2.jpg",
+      "caption": "FIG. 2. Algorithm runtime, circuit statistics, and energies for simulating the single-layer UCJ (UCJ1) ansatz for Hydrogen chains up to 80 atoms (160 qubits). For visualization, we sub- tract the HF energy and normalize by the number of qubits n. As can be seen, the UCJ1 ansatz, initialized from CCSD parameters, closely follows Hartree-Fock energies. The max- imum difference (in magnitude) between HF and UCJ1 is 16 mHa, and the average difference (in magnitude) is 12 mHa with a standard deviation of 5 mHa. We also optimize the parameters of the UCJ1 ansatz up to 40 qubits and obtain comparable energies to CCSD.",
+      "page": 4
+    },
+    {
+      "image": "2607.21337_figures/2607.21337_fig3.jpg",
+      "caption": "FIG. 5. Analysis of MPS TEBD for the n = 72 qubit iron sulfur LUCJ1 and UCJ1 circuits. The top plot shows the maximum bond dimension and the bottom plot shows the gate application time vs gate index. Dashed vertical lines represent the final gate index for each circuit. The horizontal dashed black line in the top plot shows the maximum possible bond dimension of 2n/2.",
+      "page": 9
+    },
+    {
+      "image": "2607.21337_figures/2607.21337_fig4.jpg",
+      "caption": "FIG. 3. Cumulative energy of Majorana propagation for the n = 72 qubit iron sulfur cluster Hamiltonian of [18] through a 1 layer LUCJ ansatz with heavy-hex connectivity. Here, en- ergy is computed by Majorana backpropagation with a cutoff of 10−6 for terms partitioned by coefficient magnitude (see Fig. 4). The final cumulative energy is not yet converged, and over 500 mHa from the Hartree-Fock energy, demonstrating the challenge of this approach. More accurate simulations (larger cutoffs) are prohibitively expensive, as the number of terms grows exponentially with the number of gates in the circuit, and truncation is used as a heuristic.",
+      "page": 9
+    },
+    {
+      "image": "2607.21337_figures/2607.21337_fig5.jpg",
+      "caption": "FIG. 4. Partitioning of the 72 qubit iron sulfur cluster Hamil- tonian from [18], showing the number of terms in the Hamil- tonian vs coefficient magnitude, colored by Pauli weight.",
+      "page": 9
+    }
+  ],
+  "figure": "2607.21337_figures/2607.21337_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

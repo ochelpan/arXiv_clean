@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.20633",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "HI-QDC: An Isometric Modular Scalable Architecture for Quantum Data Centers",
+  "authors": "Mohadeseh Azari, Anoosha Fayyaz, Amy Babay, David Tipper, Prashant Krishnamurthy, Kaushik Seshadreesan",
+  "abstract": "Server-centric quantum data-center architectures offer scalability by distributing communication tasks across QPUs rather than concentrating complexity in a centralized switching core. However, scaling such architectures increases the path length, the number of Bell-state measurements, and the loss of end-to-end fidelity. We ask whether the path diversity of a server-centric topology can be converted into a mechanism for preserving not only rate, but also fidelity. We study this through end-to-end purification as a fidelity-restoration mechanism. First, in a black-box model, we determine the minimum number of raw end-to-end Werner-state copies, each carrying the degraded Werner parameter of a distance-ell path, that purification must consume to recover a single copy matching an elementary link, comparing recursive 2-to-1 and optimized nested r-to-1 purification. Second, we instantiate these requirements in a probabilistic BCube architecture, whose edge-disjoint path diversity supplies the raw copies. Because purification imposes a lower bound on input fidelity, no path redundancy can raise the output below this threshold, which limits scaling. To address it we present the Hop-Independent Quantum Data Center (HI-QDC), an isometric, modular, scalable architecture in which purification transforms end-to-end entanglement across a module into an effective link-level resource for the inter-module topology. Our results identify the regimes in which a BCube module, under end-to-end purification, preserves both the fidelity and the yield of an elementary link. The module then hides its internal hop count and acts as an effective elementary link for a higher-level network. Thus topology supplies the path multiplicity purification requires, while purification converts it into fidelity recovery, enabling recursively scalable quantum data-center networks.",
+  "url": "http://arxiv.org/abs/2607.20633v1",
+  "pdf": "https://arxiv.org/pdf/2607.20633v1",
+  "type": "theory",
+  "summary": "This paper addresses the scalability bottleneck in large quantum data centers where long communication paths degrade entanglement fidelity. The authors propose the Hop-Independent Quantum Data Center (HI-QDC), an isometric modular architecture. By leveraging path diversity and end-to-end purification, HI-QDC ensures that network performance remains at the quality level of a single elementary link, regardless of how many modules are chained together.",
+  "main_problem": "The primary challenge is achieving 'hop-independent fidelity' in large quantum data centers, where increasing physical path length degrades end-to-end entanglement quality.",
+  "main_result": "The proposed HI-QDC architecture allows modular units to convert their internal path diversity into an effective link-level resource, enabling scalable networks whose performance is independent of the module's internal hop count.",
+  "method": "The authors analyze end-to-end entanglement purification protocols (comparing 2-to-1 vs. nested r-to-1) and apply these requirements to a probabilistic BCube network model.",
+  "model_or_system": "The system modeled is a server-centric quantum data center network utilizing the BCube topology for interconnecting Quantum Processing Units (QPUs). Entanglement quality is quantified using the Werner state parameter.",
+  "key_observables": "Entanglement fidelity, end-to-end entanglement distribution rate, and the minimum number of raw Werner-state copies required for purification.",
+  "important_parameters": "Path length ($\\ell$), target elementary-link Werner parameter ($w^*$), and the resource cost (number of input copies $n_0$).",
+  "main_assumptions": "The analysis assumes probabilistic generation of elementary links, deterministic entanglement swapping, and that fidelity degradation is solely due to link imperfections rather than memory decoherence.",
+  "figures_summary": "Figures illustrate the modular HI-QDC architecture, showing how path diversity supplies raw copies for purification. A key figure compares the exponentially increasing required input copies ($n_0$) versus path length ($\\ell$).",
+  "paper_structure": "The paper first establishes the fidelity bottleneck in scaling quantum data centers using a black-box model. It then analyzes resource requirements via end-to-end purification protocols, leading to the proposal of the HI-QDC module which resolves the scalability issue by converting path multiplicity into fidelity recovery.",
+  "why_interesting": "While focused on network topology rather than fundamental AMO physics, the concept of using topological redundancy (path diversity) as a resource input for quantum error correction/purification is highly relevant to building scalable quantum hardware platforms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.20633_figures/2607.20633_fig1.jpg",
+      "caption": "Figure 1. Quantum data-center network architecture considered in this work. The data center is organized into quantum racks, each containing multiple QPUs and quantum memories. Each rack may use a different intra-rack connectivity pattern, chosen according to the number of QPUs, the elementary-link quality, and the operating regime required for local end-to-end entanglement generation. Across racks, we consider a high-node-degree, server-centric inter-rack topology in which QPUs themselves participate in routing and forwarding. Inter-rack connection requests are routed through this topology, whose path diversity provides multiple edge-disjoint routes between the requested endpoints and lets...",
+      "page": 2
+    },
+    {
+      "image": "2607.20633_figures/2607.20633_fig2.jpg",
+      "caption": "Figure 2. Road-map of the paper. A server-centric, recursive BCube fabric can be scaled to higher dimensions to provide data-center-scale connectivity, but this increased diameter lowers the raw end-to-end fidelity of cross-QPU connections. To overcome this limitation, we use the d edge-disjoint shortest paths in BCube as d equal-fidelity copies and apply multi-copy purification to restore the connection to a fixed link-level fidelity target (Section II). The HI-QDC organization (Section III) then bounds the diameter of each module, enabling hop-independent and location-transparent entanglement distribution between any pair of QPUs (Section IV).",
+      "page": 3
+    },
+    {
+      "image": "2607.20633_figures/2607.20633_fig3.jpg",
+      "caption": "Figure 3. Minimum number of initial copies n0 required to achieve hop-independent Werner parameter w∗as a function of path length ℓunder different purification strategies. Columns correspond to success-probability thresholds pth, and rows correspond to Werner parameter threshold (w∗≤wth). The y-axis shows the minimum n0 such that Psucc ≥pth. Circles denote BBPSSW, and stars denote the best multi-copy protocol of Jansen et al. selected from r ∈{4, 5, 6, 7}. Labels next to stars indicate the optimal r and the optimal purification recursion depth k, with blue denoting k = 2 and black denoting k = 1. All points are computed using the smallest feasible purification depth k for which purification...",
+      "page": 5
+    },
+    {
+      "image": "2607.20633_figures/2607.20633_fig4.jpg",
+      "caption": "Figure 4. Black-box resource landscape for recovering a target Werner parameter w∗over a path of length ℓunder different purification strategies and success-probability requirements. Each panel is a heatmap over (ℓ, w∗), where the color indicates the minimum number of input copies n0 required to achieve wout ≥w∗with success probability at least pth. The top row corresponds to BBPSSW purification, while the bottom row shows the best Jansen r-to-1 protocol selected from r ∈{3, 4, 5, 6, 7}. The dashed curve marks the analytical scaling w∗= 3−1/ℓ, and the overlaid contours indicate constant n0 values. White regions are infeasible within the explored search range.",
+      "page": 5
+    },
+    {
+      "image": "2607.20633_figures/2607.20633_fig5.jpg",
+      "caption": "Figure 5. Edge-disjoint paths between two QPUs separated by a length-3 shortest path, in a BCube(2, 2) inner network. Each panel shows one of the three cyclic stride orderings. Highlighted nodes and edges mark the active path, and numbered badges indicate the traversal order. The three paths use the same three link types in cyclically rotated order, yielding the same end- to-end Werner-parameter product under uniform per-level link quality.",
+      "page": 6
+    }
+  ],
+  "figure": "2607.20633_figures/2607.20633_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
