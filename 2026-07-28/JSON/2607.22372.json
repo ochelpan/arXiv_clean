@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.22372",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum-informed surrogate sampling for combinatorial optimization",
+  "authors": "Elisabeth Wybo, Jernej Rudi Finžgar",
+  "abstract": "We introduce Quantum-Informed Surrogate Sampling (QISS), a post-processing framework that generates candidate solutions to combinatorial optimization problems from low-weight correlations of shallow quantum circuits. The quantum device estimates local observables, which are directly accessible by repeated measurements and for which a wide range of error-mitigation tools are available, while candidate solutions are generated classically without explicit dependence on the combinatorial optimization problem itself. We evaluate QISS on Maximum Cut and Maximum Independent Set problems on $N$ variables and show that only $O(N)$ low-order correlators from shallow circuits suffice to produce competitive solutions that surpass vanilla QAOA. For MaxCut on 3-regular graphs, QISS from $p=3$ QAOA correlators outperforms vanilla QAOA at $p=17$ on average, with further improvements possible by warm-starting QAOA. We validate the procedure on the 54-qubit IQM Emerald quantum device and demonstrate its noise resilience. Our results support a regime for near-term optimization in which shallow circuits serve not as direct samplers but as generators of informative statistics for scalable classical sampling.",
+  "url": "http://arxiv.org/abs/2607.22372v1",
+  "pdf": "https://arxiv.org/pdf/2607.22372v1",
+  "type": "both",
+  "summary": "This paper introduces Quantum-Informed Surrogate Sampling (QISS), a post-processing technique that uses low-order correlations measured from shallow quantum circuits (like QAOA) to build an effective classical probability distribution. This surrogate distribution is then sampled via MCMC to generate candidate solutions for combinatorial optimization problems like MaxCut, achieving performance superior to the raw output of the quantum algorithm itself.",
+  "main_problem": "Developing a post-processing framework, Quantum-Informed Surrogate Sampling (QISS), to generate high-quality candidate solutions for computationally hard combinatorial optimization problems.",
+  "main_result": "QISS significantly outperforms vanilla QAOA by using low-order quantum correlations as input to a classical sampling procedure, showing noise resilience on near-term hardware.",
+  "method": "The method estimates local observables (low-weight correlations) from shallow quantum circuits and uses these values to construct a factorized surrogate probability distribution over the solution space, which is then sampled via MCMC.",
+  "model_or_system": "The framework applies to classical optimization problems like MaxCut and Maximum Independent Set. The underlying physics involves using QAOA on qubits (validated on a 54-qubit QPU) to generate these informative statistics.",
+  "key_observables": "Cut fraction, Energy density ($\\epsilon$), low-weight correlations ($\\mu_{S_\\alpha}$), and comparison against theoretical bounds like the SDP value or Parisi energy.",
+  "important_parameters": "Circuit depth ($p$), inverse temperature ($\beta$), and graph structure (e.g., 3-regular graphs).",
+  "main_assumptions": "The method assumes that low-weight expectation values are sufficient to capture the necessary structural information, allowing for classical sampling without needing full quantum state simulation.",
+  "figures_summary": "Figures illustrate the QISS procedure: estimating correlations from QAOA (Fig. 1A), constructing a factor distribution (Fig. 1B), and showing improved solution quality over vanilla QAOA (Fig. 1C). Other figures compare QISS performance against other algorithms for MaxCut/MIS.",
+  "paper_structure": "The paper introduces the QISS framework, details how low-order correlations from shallow circuits are used to build a classical surrogate distribution, demonstrates its superior performance over direct quantum sampling methods (QAOA), and validates its noise resilience on real hardware.",
+  "why_interesting": "It provides a concrete pathway for near-term quantum devices: instead of demanding perfect state preparation or deep circuits, it extracts robust statistical information that can be leveraged by scalable classical algorithms to solve hard optimization problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.22372_figures/2607.22372_fig1.jpg",
+      "caption": "FIG. 1. Overview of the surrogate sampling procedure. (A) We estimate the correlations µSα from a depth-p QAOA circuit. The circuit can be executed on a quantum device, such as the 54-qubit IQM Emerald QPU with square-grid connectivity. (B) From a polynomially sized set of correlations, we construct a factor distribution P(z) as a classical surrogate. We sample candidate solutions from it by MCMC and evaluate their quality. We refer to this procedure as Quantum-Informed Surrogate Sampling (QISS). (C) Sampling from the classical surrogate improves the solution quality compared to vanilla QAOA. Here, we consider the MaxCut problem on 3-regular graphs and a p = 4 QAOA circuit. We include all...",
+      "page": 2
+    },
+    {
+      "image": "2607.22372_figures/2607.22372_fig2.jpg",
+      "caption": "FIG. 2. Starting from an original graph G, we construct an augmented graph G′. There is an edge in the augemented graph if dG(i, j) ≤2p, in this figure we consider p = 2. We also show the complement graph of G′ to highlight the distinction from the complete graph.",
+      "page": 5
+    },
+    {
+      "image": "2607.22372_figures/2607.22372_fig3.jpg",
+      "caption": "FIG. 3. Cut fractions obtained with QISS for a single MaxCut instance on a 3-regular graph of size N = 100. The histograms show the cut fractions corresponding to 500 samples generated via QISS based on the mean value input. (A) Only the QAOA edge correlators E are included in the sampling model. (B) All non-zero QAOA edge correlators E′ are included in the sampling model. For this particular instance, the optimal cut fraction is 14/15 (= 0.933...).",
+      "page": 9
+    },
+    {
+      "image": "2607.22372_figures/2607.22372_fig4.jpg",
+      "caption": "FIG. 4. QISS for MaxCut on 3-regular graphs based on QAOA correlations. Average cut fractions from vanilla QAOA and from QISS, for various QAOA depths p, averaged over 40 instances per system size N. (A) Only the edge correlators are included in the surrogate model; QISS reproduces the QAOA cut fraction. (B) All non-zero correlators within the light cone (dG(i, j) ≤2p) are included, giving a large improvement over vanilla QAOA. The dotted line marks vanilla tree QAOA at p = 17 [35].",
+      "page": 10
+    },
+    {
+      "image": "2607.22372_figures/2607.22372_fig5.jpg",
+      "caption": "FIG. 5. QISS for MaxCut on 3-regular graphs based on RWS-QAOA correlations. Average cut fractions obtained from the RWS-QAOA and combined with QISS postprocessing at different depths p. Here, p = 0 corresponds to the expectation values estimated with respect to the initial RWS-QAOA state; the QISS postprocessing is unable to improve. For reference, the p = 17 mean cut fraction from vanilla QAOA is shown [35]. QISS improves upon the supplied RWS-QAOA correlations, with the relative improvement decreasing as we approach the optimality upper bound with increasing p.",
+      "page": 11
+    }
+  ],
+  "figure": "2607.22372_figures/2607.22372_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

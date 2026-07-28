@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.21836",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "SSP-QST: Spectral Subspace Purification for Photonic Quantum State Tomography",
+  "authors": "Anuvab Sen, Saibal Mukhopadhyay",
+  "abstract": "Photonic quantum sensing often uses low-rank entangled probes such as Greenberger-Horne-Zeilinger (GHZ), Bell, and NOON states. Although these probes are ideally rank-1, practical quantum state tomography (QST) can produce density-matrix estimates with many small finite-shot and noise-induced eigenmodes. This eigenvalue contamination can increase the estimated entropy of the reconstruction and reduce the quantum Fisher information (QFI) available for downstream sensing, while fixed rank-1 purification can discard valid signal modes when real probes acquire additional signal modes. We introduce Spectral Subspace Purification for Quantum State Tomography (SSP-QST), a rank-adaptive post-processing layer for least-squares quantum state tomography (LS-QST). SSP-QST eigendecomposes the least-squares estimate, computes a Weyl-motivated noise floor from the measured spectrum and shot count, removes eigenmodes below this floor, and renormalises the retained subspace. It requires no rank prior, no iterative optimisation, and only one eigendecomposition. In Qiskit Aer simulations, SSP-QST achieves the highest fidelity among the tested non-iterative baselines across the evaluated probe ranks, with a maximum fidelity gain of $+0.584$. It also improves shot efficiency by at least $8\\times$ within the tested range. These results show that SSP-QST can make photonic QST more reliable under finite-shot noise while providing a lightweight reconstruction primitive for feedback-oriented quantum sensing pipelines.",
+  "url": "http://arxiv.org/abs/2607.21836v1",
+  "pdf": "https://arxiv.org/pdf/2607.21836v1",
+  "type": "theory",
+  "summary": "The paper introduces Spectral Subspace Purification (SSP-QST), a novel technique to clean up noisy density matrix estimates from photonic quantum state tomography. By adaptively thresholding eigenvalues based on a derived noise floor, SSP-QST avoids discarding valid signal information while removing measurement artifacts. This results in more reliable and efficient quantum sensing measurements.",
+  "main_problem": "Standard Quantum State Tomography (QST) estimates suffer from eigenvalue contamination due to noise, which inflates entropy and reduces the usable Quantum Fisher Information. Furthermore, fixed rank-1 purification discards valid signal modes if the true state has a higher effective rank.",
+  "main_result": "The proposed SSP-QST method achieves the highest fidelity among non-iterative baselines by adaptively purifying the density matrix estimate while preserving valid signal modes for $r>1$ probes, significantly improving shot efficiency.",
+  "method": "SSP-QST is a rank-adaptive post-processing layer applied to the least-squares QST estimate ($\rho_{LS}$). It eigendecomposes $\rho_{LS}$, estimates a noise floor using Weyl-motivated theory, removes modes below this threshold, and renormalizes the remaining subspace.",
+  "model_or_system": "The work focuses on photonic quantum sensing utilizing low-rank entangled probes such as GHZ, Bell, and NOON states. The analysis is performed on the density matrix reconstruction ($\\hat{\rho}$) derived from Pauli measurements.",
+  "key_observables": "Quantum Fisher Information (QFI), Reconstruction Fidelity, Eigenvalue Spectrum of $\rho_{LS}$, and the purified state $\rho_{SSP}$.",
+  "important_parameters": "Probe rank ($r$), finite-shot noise level, and the calculated spectral noise floor ($\\epsilon_{th}$).",
+  "main_assumptions": "The method requires no prior knowledge of the true rank, avoids iterative optimization, and relies only on a single eigendecomposition.",
+  "figures_summary": "Figure 1 compares conventional LS-QST (full-rank, noisy $\\hat{\rho}$) against SSP-QST's purified estimate ($\rho_{SSP}$), showing improved QFI. Other figures validate performance across varying ranks and shot budgets.",
+  "paper_structure": "The paper first identifies the limitations of existing QST methods (LS-QST, fixed rank purification). It then introduces SSP-QST as a novel spectral thresholding technique derived from noise theory. Finally, it presents extensive simulations demonstrating superior fidelity and efficiency compared to all tested baselines.",
+  "why_interesting": "This work provides a computationally lightweight, non-iterative post-processing tool for quantum state estimation in photonic systems, directly addressing the practical limitations of noise handling in quantum sensing protocols relevant to AMO physics and quantum optics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.21836_figures/2607.21836_fig1.jpg",
+      "caption": "Fig. 1. Existing Pipelines vs. SSP-QST. Left: Conventional tomography reconstructs a photonic probe from Pauli measurements using LS-QST, producing a full- rank estimate ˆρ with noise-inflated eigenmodes, increased entropy, and reduced quantum Fisher information (QFI). Right: SSP-QST applies eigendecomposition, spectral thresholding, and renormalisation to the same LS-QST output, removing low-eigenvalue noise modes and recovering a low-rank purified estimate ρSSP with improved QFI.",
+      "page": 3
+    },
+    {
+      "image": "2607.21836_figures/2607.21836_fig2.jpg",
+      "caption": "Fig. 2 shows the full closed-loop architecture. Photonic source imperfections fall into two categories that require differ- ent corrective mechanisms. Coherent drift, arising from wave- plate creep, electro-optic modulator (EOM) voltage offsets, and slow thermal phase shifts, displaces the control vector θ from its calibrated operating point and can be corrected by parameter adjustment. Incoherent noise, arising from photon loss and dephasing, randomises the probe state stochastically in each shot and cannot be undone by any classical post-processing. SSP-QST addresses both: it mitigates the reconstruction error induced by incoherent noise, and provides the fidelity gradient signal that the...",
+      "page": 5
+    },
+    {
+      "image": "2607.21836_figures/2607.21836_fig3.jpg",
+      "caption": "Fig. 2. Closed-loop system architecture. A parameterised photonic source prepares a probe state, which is corrupted by the noise channel E and measured across Pauli bases. The classical reconstruction module applies LS-QST followed by SSP-QST, then computes a parameter-shift fidelity gradient to update θ.",
+      "page": 6
+    },
+    {
+      "image": "2607.21836_figures/2607.21836_fig4.jpg",
+      "caption": "Fig. 3. Reconstruction fidelity versus true probe rank r for n = 4 qubits (d = 16), depolarising noise p = 0.06, Ns = 4096 shots per Pauli basis. Each point is averaged over 14 independently drawn rank-r states; error bars denote one standard deviation. The shaded region marks SSP-QST’s advantage over spectral squaring, the strongest non-iterative baseline in the mixed-state regime. SSP-QST matches the rank-1 top-eigenvector solution for pure probes and is the best method for every mixed-state rank tested.",
+      "page": 7
+    },
+    {
+      "image": "2607.21836_figures/2607.21836_fig5.jpg",
+      "caption": "Fig. 4(b) demonstrates that this advantage is not an artefact of one operating point. We sweep the depolarising rate",
+      "page": 7
+    }
+  ],
+  "figure": "2607.21836_figures/2607.21836_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 3,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 1,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

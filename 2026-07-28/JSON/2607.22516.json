@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2607.22516",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Spectral Model: Data Reuploading with Input-Conditioned Frequency Support",
+  "authors": "Peiyong Wang, Udaya Parampalli, Casey R. Myers",
+  "abstract": "A central design principle in modern machine learning and artificial intelligence is to align a model's inductive bias with the structure of its input data. For matrix-valued inputs, relevant matrix-level relationships can be characterised through spectral values and spectral subspaces; however, common coordinate-wise rotation-gate data-encoding unitaries used in most quantum machine learning models do not explicitly construct such a matrix-level representation. We introduce Quantum Spectral Models (QSMs), in which we construct the generator of the data-encoding unitary directly from each input matrix. We study three QSM variants based on symmetric, global block, and non-overlapping patch-local block Hamiltonians. Their outputs admit truncated Fourier representations in which input-dependent spectral gaps supply candidate phase carriers, while spectral subspaces help determine their coefficients. We evaluate the QSMs and comparison quantum models on two matrix representations of Pendigits and two controlled synthetic tasks defined by spectral statistics. At the largest evaluated circuit depth, QSM variants lead the tested quantum models in mean test accuracy across all four benchmarks. The patch-local QSM leads on Pendigits, whereas the global block-Hamiltonian QSM leads on the controlled spectral tasks. Ablations show a task-dependent reversal: subspace-preserving controls perform better on Pendigits, whereas spectral-value-only controls lead among the tested ablations on the synthetic tasks. Together, these results shed new light on quantum machine-learning model design by showing how input-conditioned spectral representations can provide an analysable inductive bias, while offering a broader perspective on structure-aware model design in machine learning and artificial intelligence.",
+  "url": "http://arxiv.org/abs/2607.22516v1",
+  "pdf": "https://arxiv.org/pdf/2607.22516v1",
+  "type": "both",
+  "summary": "This paper proposes Quantum Spectral Models (QSMs) to improve data encoding in quantum machine learning by deriving the unitary generator directly from the input matrix's spectral properties. By analyzing how different structural components—like eigenvalues versus eigenvectors—contribute to performance on various tasks, the authors demonstrate that structure-aware design yields superior results over standard models.",
+  "main_problem": "The core challenge is designing quantum machine learning models whose inductive bias explicitly incorporates the structure of matrix-valued input data, moving beyond simple coordinate-wise encodings.",
+  "main_result": "Quantum Spectral Models (QSMs) consistently outperform tested quantum and classical benchmarks across multiple datasets by leveraging input-conditioned spectral representations. The optimal structural reliance (spectral values vs. subspaces) is task-dependent.",
+  "method": "The authors introduce QSMs that construct the data-encoding unitary generator directly from the input matrix, leading to an output with a truncated Fourier representation governed by input-derived spectral gaps and subspaces.",
+  "model_or_system": "The model utilizes Quantum Spectral Models (QSMs) which encode data via Hamiltonians derived from the input matrix (e.g., symmetric or block structures). The architecture alternates between these Hamiltonian unitaries and trainable mixers.",
+  "key_observables": "Mean test accuracy across four benchmarks, target alignment (KTA), fidelity gap, and ablation performance metrics comparing spectrum-only vs. subspace-preserving controls.",
+  "important_parameters": "Circuit depth (tested up to 32) and the specific structure of the input Hamiltonian (symmetric, global block, patch-local).",
+  "main_assumptions": "The primary assumption is that conditioning the unitary generator on spectral properties provides a superior, analysable inductive bias for quantum data encoding.",
+  "figures_summary": "Figures compare performance across depths and show diagnostic plots tracking target alignment (KTA) and effective rank evolution during training. Tables summarize quantitative comparisons against classical baselines and ablation studies.",
+  "paper_structure": "The paper introduces QSMs, details the Hamiltonian construction and Fourier representation, evaluates them on multiple datasets (Pendigits/Synthetic), analyzes performance diagnostics layer-by-layer, and concludes with an ablation study to dissect the necessity of spectral vs. subspace information.",
+  "why_interesting": "While focused on ML, the explicit use of spectral decomposition and structural constraints derived from physical Hamiltonians ($H(M)$) provides a powerful framework for designing quantum circuits that respect underlying mathematical symmetries or physical conservation laws relevant in AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.22516_figures/2607.22516_fig1.jpg",
+      "caption": "Figure 1: Synthesiser view of the quantum spectral model. Top, conceptual signal flow in a music synthesiser; bottom, the corresponding flow in a quantum spectral model. Reading the panels from left to right, the control signal corresponds to the input matrix, the oscillator bank to the input-derived Hamiltonian, the available tones to its spectrum and spectral gaps, the mixer and filter to the trainable quantum block, and the output sound to quantum measurement and prediction. A matrix input M defines a Hamiltonian H(M) whose spectrum supplies sample-conditioned candidate phase carriers and whose spectral projectors help determine their coefficients through the trainable mixer and quantum...",
+      "page": 2
+    },
+    {
+      "image": "2607.22516_figures/2607.22516_fig2.jpg",
+      "caption": "Figure 2: Representative training samples from the real-world and controlled synthetic bench- marks. (a) Pendigits. One example from each of the ten original classes is shown using two paired representations. The upper row shows the DYN representation, in which eight ordered two-dimensional pen coordinates are connected in their recorded sequence. The lower row shows the corresponding STA4 representation as a 4 × 4 bitmap-like matrix. Raw feature values are displayed for visualisation, whereas the model inputs are standardised using statistics computed from the training split; the colour bar reports the raw STA4 entry values. (b) Synthetic spectral benchmarks. One noisy training input from...",
+      "page": 9
+    },
+    {
+      "image": "2607.22516_figures/2607.22516_fig3.jpg",
+      "caption": "Figure 3: (a) Final test accuracy on the Pendigits benchmark as a function of reuploading depth. The two panels show the DYN 8×2 trajectory representation and the STA4 4×4 matrix representation. Each point is the mean over 20 parameter-initialisation seeds, and error bars show one standard deviation across seeds. QSMs lead the tested depth-32 comparisons. The global block-Hamiltonian QSM has the largest observed mean across the six depths on both representations, while the patch- local block-Hamiltonian QSM has the largest mean at depth 32. (b) Final test accuracy on the two synthetic spectral benchmarks as a function of reuploading depth. The SYNTHETIC EIGENGAP task uses noisy 4 × 4...",
+      "page": 11
+    },
+    {
+      "image": "2607.22516_figures/2607.22516_fig4.jpg",
+      "caption": "Figure 4: (a) Gradient variance at initialisation as a function of reuploading depth. For each run configuration, gradients are computed on a fixed diagnostic training batch of size 32 for 20 random initialisations. The plotted quantity is the median log10 variance across parameters within each parameter group, averaged over 20 run seeds; error bars show one standard deviation across run seeds. The coordinate-wise rotation-gate data-encoding unitaries exhibit strongly suppressed mixer-gradient variance at large depth, whereas the QSMs retain substantially larger initialisation variance. (b) Final-checkpoint RMS gradient as a function of reuploading depth. Gradients are computed at the final...",
+      "page": 12
+    },
+    {
+      "image": "2607.22516_figures/2607.22516_fig5.jpg",
+      "caption": "Figure 5: (a) Within-minus-between fidelity gap of the final quantum states. For each trained model, we compute the pure-state fidelity kernel Kij = | ⟨ψi|ψj⟩|2 on a fixed 32-example validation diagnostic batch and report the mean same-label off-diagonal fidelity minus the mean different-label off-diagonal fidelity. Larger values indicate stronger class separation in quantum-state geometry. At high depth, the global QSMs and the patch-local block-Hamiltonian QSM produce substantially larger gaps than the coordinate-wise rotation-gate and patch-SU(4) baselines. (b) Kernel-target alignment of the final quantum-state fidelity kernel. The plotted metric is the centred alignment between the...",
+      "page": 15
+    }
+  ],
+  "figure": "2607.22516_figures/2607.22516_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
