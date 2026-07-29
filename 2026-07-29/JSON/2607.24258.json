@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.24258",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "MPStab: an hybrid stabilizers tensor-network quantum circuit simulator",
+  "authors": "Giulio Crognaletti, Mattia Robbiano, Michele Grossi, Matteo Robbiati",
+  "abstract": "The development of techniques for simulating quantum systems using classical computers is a paramount task for two primary reasons: i) there exist configurations for which classical computers are remarkably effective and will continue to be so, and ii) exploring the limits of classical computation facilitates the identification of the regimes of competence for quantum computers. In this work, we present MPStab, a quantum circuit simulator based on a hybrid formalism combining stabilizers and tensor networks, recently introduced in Ref. [1]. We present the package, its core functionalities, and explore its performances in a few interesting simulation regimes.",
+  "url": "http://arxiv.org/abs/2607.24258v1",
+  "pdf": "https://arxiv.org/pdf/2607.24258v1",
+  "type": "theory",
+  "summary": "This paper introduces MPStab, a novel hybrid simulator that combines the exact simulation power of stabilizer formalism for Clifford gates with the efficiency of tensor networks for non-Clifford rotations. It allows for polynomial-time simulation of complex quantum circuits by treating different gate types optimally. This is crucial for benchmarking and understanding the computational boundaries between classical and quantum computation.",
+  "main_problem": "Efficiently simulating quantum circuits on classical computers, which is challenging due to exponential state space growth from entanglement.",
+  "main_result": "The proposed hybrid simulator (MPStab) achieves polynomial-time simulation for circuits mixing Clifford and non-Clifford gates by combining exact stabilizer tracking with tensor network evolution.",
+  "method": "It decomposes the unitary circuit into alternating Clifford blocks (simulated exactly via stabilizers) and single-qubit rotations (encoded as bond-2 Matrix Product Operators, MPOs).",
+  "model_or_system": "The method targets general quantum circuits composed of Pauli strings and arbitrary unitaries, which are decomposed into Clifford ($C$) and rotation ($R$) components.",
+  "key_observables": "Expectation values of linear combinations of Pauli observables ($\\langle O \rangle$), Fidelity Lower Bound ($F_{lb}$), and Execution Time.",
+  "important_parameters": "Number of qubits ($L$), Circuit depth ($D$), Maximum bond dimension ($\\chi_{\text{max}}$), and Magic retention ($\beta$).",
+  "main_assumptions": "The tensor network evolution for rotations is an approximation due to bond dimension truncation ($\\chi$); the method relies on circuit decomposition into Clifford/non-Clifford parts.",
+  "figures_summary": "Figures illustrate the simulator's modular structure, the operational workflow combining stabilizer backpropagation and TN forward evolution, and benchmark results comparing time cost and fidelity against pure tensor network methods across varying magic content.",
+  "paper_structure": "The paper introduces the hybrid formalism (HSMPO), details the implementation of separate engines for Clifford (stabilizer) and non-Clifford (MPO/TN) parts, validates the approach by benchmarking performance against standard TN simulators using fidelity and time metrics, and discusses future algorithmic extensions.",
+  "why_interesting": "The explicit combination of stabilizer methods with tensor networks provides a powerful tool to simulate quantum dynamics in regimes previously inaccessible or computationally prohibitive for pure MPS approaches.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.24258_figures/2607.24258_fig1.jpg",
+      "caption": "FIG. 1. A qualitative representation of classical simulator realms. Laying on the entanglement axis, stabilizers simu- lators allow representing pure-Clifford circuits at large scale. On the magic axis, tensor networks consent simulation of large systems if entanglement growth remains under control. Mixed approaches, like the hybrid stabilizer-matrix product opera- tor (HSMPO) implemented here, push the boundaries of the classical simulators closer to the bijector of the plane, which corresponds to the quantum computers realm.",
+      "page": 1
+    },
+    {
+      "image": "2607.24258_figures/2607.24258_fig2.jpg",
+      "caption": "FIG. 2. Any quantum circuit can be written in terms of Clif- ford operations (red and yellow gates) alternated with local magic operations (blue gates).",
+      "page": 2
+    },
+    {
+      "image": "2607.24258_figures/2607.24258_fig3.jpg",
+      "caption": "FIG. 3. Schematic representation of mpstab 0.1.0.",
+      "page": 4
+    },
+    {
+      "image": "2607.24258_figures/2607.24258_fig4.jpg",
+      "caption": "FIG. 4. mpstab’s operational workflow when computing the expectation value of an observable O over the state represented by an HSMPO. A tensor network and a stabilizers engines cooperate to prepare the evolved MPS and use it to perform the contraction with the given observable.",
+      "page": 6
+    },
+    {
+      "image": "2607.24258_figures/2607.24258_fig5.jpg",
+      "caption": "FIG. 5. Cost ratio Cmps/Cmpstab as a function of Clifford (NC) and non-Clifford (NnC) gate counts. Red regions indicate where mpstab is cheaper than standard MPS; blue regions indicate the opposite. The dashed curve marks the iso-cost boundary Cmps = Cmpstab. Columns fix the mpstab bond dimension χmpstab ∈{8, 32, 256}, spanning strongly- to weakly-compressed hybrid representations; rows fix the ratio χmps/χmpstab ∈{1.1, 2.5} between the two methods, corresponding respectively to a weak and a strong fidelity advantage of the hybrid method. The leftmost column exhibits the arched regime, where the stabilizer overhead NnC NC saturates the boundary at high NC; the middle and right columns...",
+      "page": 8
+    }
+  ],
+  "figure": "2607.24258_figures/2607.24258_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

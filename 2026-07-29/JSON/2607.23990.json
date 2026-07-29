@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.23990",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "DeComp2: Description Complexity aware Decomposition",
+  "authors": "Aritra Sarkar",
+  "abstract": "Quantum compilers optimize execution-only proxies such as gate count, depth, and fidelity, treating the compiled circuit as the unit of cost. This conflates two distinct resources, how much the substrate has to do at run time, and how much has to be said to describe what to do. Unrolling a looped program leaves run-time cost unchanged while erasing the hierarchical structure on which downstream optimization and reuse rely.   We propose lifting the compiler objective from execution to life cycle complexity by pairing the circuit complexity $\\mathcal{C}_{\\mathrm{circ}}$ with a Kolmogorov-style description complexity $\\mathcal{C}_{\\mathrm{Kol}}$ of the emitted circuit, and minimizing the additive total $\\mathcal{C}_{\\mathrm{tot}} = α\\,\\mathcal{C}_{\\mathrm{circ}} + β\\,\\mathcal{C}_{\\mathrm{Kol}}$. The mirrors the additive positional and kinetic entropy of the second law of quantum complexity, and reads as a minimum-description-length regularizer over the otherwise degenerate set of $\\mathcal{C}_{\\mathrm{circ}}$-minimizers.   We instantiate the objective on $SU(2)$ through exhaustive HT-enumeration with compression-based surrogates upper-bounding $\\mathcal{C}_{\\mathrm{Kol}}$. Across a Haar-representative target grid the two surrogates correlate positively with $\\mathcal{C}_{\\mathrm{circ}}$ yet break its rank order on a non-trivial fraction of points, ruling out a tight functional dependence. With calibrated weights the joint cost selects, for a small but operationally meaningful fraction of targets, a candidate that is neither the shortest nor the most compressible HT-string in the $\\varepsilon$-ball, exhibiting the compilation choices a $\\mathcal{C}_{\\mathrm{circ}}$-only optimizer discards and motivating $\\mathcal{C}_{\\mathrm{Kol}}$ as an active optimization signal for hierarchical intermediate representation for compiler.",
+  "url": "http://arxiv.org/abs/2607.23990v1",
+  "pdf": "https://arxiv.org/pdf/2607.23990v1",
+  "type": "theory",
+  "summary": "This paper proposes DeComp2, a new metric for quantum compilation that combines the standard circuit complexity with a Kolmogorov-style description complexity. By minimizing this total cost, it regularizes the optimization landscape to favor structured decompositions over merely shortest ones. This suggests incorporating structural information into compiler objectives for better resource management.",
+  "main_problem": "Quantum compilers currently optimize only for execution resources (like gate count or depth), ignoring the structural complexity of the program that generates the circuit.",
+  "main_result": "The proposed total cost function, $C_{\text{tot}} = \\alpha C_{\text{circ}} + \beta C_{\text{Kol}}$, selects compilation candidates that are superior to those chosen by minimizing either execution cost or description length alone.",
+  "method": "The authors introduce a regularization term based on Kolmogorov complexity ($C_{\text{Kol}}$) and minimize the weighted sum of this term with the standard circuit complexity ($C_{\text{circ}}$).",
+  "model_or_system": "The problem is instantiated for decomposing an arbitrary target unitary $U$ within the $SU(2)$ group, treating the compilation process as finding a sequence of elementary gates.",
+  "key_observables": "Total Complexity ($\\mathcal{C}_{\text{tot}}$), Circuit Complexity ($\\mathcal{C}_{\text{circ}}$), and Kolmogorov Description Complexity ($\\mathcal{C}_{\text{Kol}}$).",
+  "important_parameters": "Weights $\\alpha$ and $\beta$; the tolerance $\\epsilon$ for unitary approximation.",
+  "main_assumptions": "The approach assumes that total complexity can be modeled as an additive combination of positional (circuit) and kinetic (description) entropy, borrowing structure from physical laws rather than deriving it from them.",
+  "figures_summary": "not specified",
+  "paper_structure": "The paper establishes the limitation of execution-only optimization, proposes the $\\mathcal{C}_{\text{tot}}$ objective function by analogy to second law thermodynamics, and validates this joint cost on $SU(2)$ decompositions, showing its unique selection capability.",
+  "why_interesting": "It provides a mathematically rigorous framework for improving quantum compiler design by incorporating information-theoretic measures of program structure alongside physical execution costs.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.23990_figures/2607.23990_fig1.jpg",
+      "caption": "Figure 1 Deterministic target ensemble of 𝑆𝑈(2): axis grid (left) and Haar-induced angle grid (right) at (𝑥, 𝑦) = (512, 64).",
+      "page": 7
+    },
+    {
+      "image": "2607.23990_figures/2607.23990_fig2.jpg",
+      "caption": "Figure 2 (Ccirc, CKol) scatter, one point per Fibonacci-grid target covered by the HT enumeration at (𝑥, 𝑦, 𝜀, 𝑀) = (512, 64, 0.15, 12). Left: bzip2 bit-length surrogate of CKol. Right: pybdm block-decomposition surrogate. Off-diagonal spread under both surrogates supports the independence-of-axes claim (i).",
+      "page": 8
+    },
+    {
+      "image": "2607.23990_figures/2607.23990_fig3.jpg",
+      "caption": "Figure 3 Heatmaps of Ccirc, CKol (bzip2) and Ctot over the axis index 𝑘∈{1, . . . , 𝑥} and rotation angle 𝜃∈[0, 2𝜋] at (𝑥, 𝑦, 𝜀, 𝑀) = (512, 64, 0.15, 12). The two cost fields are qualitatively different, so Ctot is not a monotone reshading of either component alone.",
+      "page": 8
+    },
+    {
+      "image": "2607.23990_figures/2607.23990_fig4.jpg",
+      "caption": "Figure 4 Ctot optima distinctness for a single Fibonacci-grid target (𝑘, 𝑗) = (41, 10) at (𝑥, 𝑦, 𝜀, 𝑀) = (512, 64, 0.15, 12) with weights (𝛼, 𝛽) = (1, 0.07). Horizontal axis: HT-enumeration index of the 10 strings inside the 𝜀-ball. Left axis: 𝛼Ccirc (circles); right axis: 𝛽CKol (bzip2 bits, squares). Vertical guides mark arg min 𝛼Ccirc, arg min 𝛽CKol, and arg min Ctot; the three minimizers are at distinct decomposition candidates, so the joint cost picks a non-trivial decomposition (11, 320) that neither component alone selects.",
+      "page": 9
+    },
+    {
+      "image": "2607.23990_figures/2607.23990_fig5.jpg",
+      "caption": "Figure 4 illustrates one such split target into the candidate-level picture. For the Fibonacci-grid point (𝑘, 𝑗) = (41, 10), the 𝜀-ball contains 10 HT-strings. The per-axis minimizers arg min 𝛼Ccirc at raw (Ccirc, CKol) = (10, 336) and arg min 𝛽CKol at (12, 312) each beat the other only on its own axis. The joint minimizer arg min Ctot sits distinctly at (11, 320): a candidate that is neither the shortest nor the most compressible HT-string in the ball, but is the unique minimizer under the additive cost. The corresponding unitary, the output decompositions and their corresponding length, bzip encoding length and fidelity are listed below.",
+      "page": 9
+    }
+  ],
+  "figure": "2607.23990_figures/2607.23990_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

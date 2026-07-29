@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.24722",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Scalable Variational Quantum Optimization via Pauli Correlation Encoding: Application to Large-Scale Power Demand Portfolio Optimization",
+  "authors": "Takuya Yoshioka, Keita Sasada, Riku Usuki, Yuichiro Nakano, Keisuke Fujii",
+  "abstract": "Variational quantum algorithms offer a promising route to combinatorial optimization, but their applicability is limited by the challenge of encoding large-scale problems within restricted qubit resources. In this work, we introduce a scalable variational framework based on Pauli correlation encoding (PCE) and apply it to electric power demand portfolio optimization. Binary variables are represented through expectation values of Pauli correlation operators, which encode multi-body correlations of the quantum state and provide a continuous relaxation enabling compact representations with few qubits. We further propose a two-stage hybrid formulation, in which a time-averaged problem provides initialization for a time-resolved optimization. Numerical simulations demonstrate near-optimal performance across problem sizes ranging from $m$=18 to 10,296, with normalized cost gaps on the order of $10^{-4}$ relative to solutions with certified optimality. We show that the performance is governed by the interplay between continuous relaxation and discretization: the effective resolution of the correlator representation determines how reliably improvements in the continuous loss translate into better discrete solutions, with larger systems exhibiting more consistent behavior. Finally, we demonstrate robustness on a trapped-ion quantum processor, where high-quality solutions are obtained despite noise and finite sampling. These results establish PCE as a physically motivated and qubit-efficient framework for large-scale combinatorial optimization.",
+  "url": "http://arxiv.org/abs/2607.24722v1",
+  "pdf": "https://arxiv.org/pdf/2607.24722v1",
+  "type": "both",
+  "summary": "This paper introduces Pauli Correlation Encoding (PCE), a scalable method to encode large-scale combinatorial optimization problems into quantum circuits using few qubits. By applying this framework to power portfolio optimization, the authors demonstrate near-optimal performance across thousands of variables on both simulation and trapped-ion hardware. PCE offers a qubit-efficient pathway for tackling complex real-world industrial challenges with current NISQ devices.",
+  "main_problem": "The core problem is developing a scalable variational quantum optimization framework for large-scale combinatorial problems, exemplified by electric power demand portfolio optimization.",
+  "main_result": "Pauli Correlation Encoding (PCE) provides a qubit-efficient and physically motivated method to encode these large problems, achieving near-optimal performance across massive system sizes ($m=10,296$) on both simulation and trapped-ion hardware.",
+  "method": "The authors use PCE to represent binary variables as expectation values of Pauli correlation operators, enabling a continuous relaxation that is optimized variationally before decoding to discrete solutions.",
+  "model_or_system": "The application domain is electric power demand portfolio optimization, modeled by QUBO-type objective functions. The quantum implementation utilizes variational circuits parameterized by angles ($\theta$) acting on qubits, and the results are tested on a trapped-ion quantum processor.",
+  "key_observables": "Normalized cost gaps (e.g., $10^{-4}$ relative to optimal), Pauli correlators ($\\langle\\Pi^{(k)}_i\rangle$), procured power profiles ($P_t$), and uncertainty coefficients of variation (CV).",
+  "important_parameters": "Problem size $m$ ranges from 18 up to 10,296; correlation order $k$; regularization parameter $\beta$.",
+  "main_assumptions": "The performance relies on the assumption that improvements in the continuous loss function reliably translate into better discrete solutions, and discrepancies between simulation/QPU are attributed to noise.",
+  "figures_summary": "Figures illustrate the scaling of representable problem size ($m$ vs $n$), histograms showing correlator distributions transitioning from discrete peaks (small $m$) to continuous structures (large $m$), and time-series plots comparing PCE results against greedy baselines for power procurement profiles.",
+  "paper_structure": "The paper introduces PCE as a scalable framework, applies it to the two-stage hybrid optimization model (time-averaged initialization followed by time-resolved refinement), validates performance across large scales ($m=18$ to $10,296$), and demonstrates robustness on physical hardware.",
+  "why_interesting": "The work directly addresses a major bottleneck in quantum computation—scaling up problem size—by proposing a structured encoding (PCE) that maps complex combinatorial constraints onto low-qubit-count expectation values, which is highly relevant for simulating many-body physics or optimization problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.24722_figures/2607.24722_fig1.jpg",
+      "caption": "FIG. 1. Maximum representable problem size m as a func- tion of the number of qubits n for different correlation orders k in Pauli correlation encoding (PCE) [13], where m = 3 \u0000n k \u0001 . The black solid curve corresponds to k = ⌊n/2⌋, which max- imizes the number of Pauli correlators (i.e., expectation val- ues of Pauli correlation operators). The linear reference line (m = n) indicates direct encodings with one-to-one qubit– variable mapping. Filled markers denote the (n, m) instances considered in this work.",
+      "page": 2
+    },
+    {
+      "image": "2607.24722_figures/2607.24722_fig2.jpg",
+      "caption": "FIG. 2. Normalized cost gap as a function of the problem size m for the time-averaged portfolio optimization (Model 1). The vertical axis shows the normalized cost gap ∆CT /WT [Eq. (5)]. Crosses [greedy (all-zero)] denote results obtained by the greedy algorithm initialized from the all-zero bit string, while plus markers [greedy (random)] show results averaged over 1,000 runs with independent random initial bit strings; error bars indicate standard deviations over these runs. Cir- cles and diamonds correspond to results obtained using the complete PCE workflow, including greedy post-processing af- ter sign-based decoding, in simulation and on the quantum processing unit (QPU),...",
+      "page": 7
+    },
+    {
+      "image": "2607.24722_figures/2607.24722_fig3.jpg",
+      "caption": "Figure 2 shows the normalized cost gap for Model 1 as a function of the problem size m, demonstrating the scal- ability of the PCE-based optimization framework from small to large instances. The corresponding optimiza- tion settings and convergence statistics are summarized in Table I. Across all tested instances, the PCE-based solver achieves consistently low normalized cost gaps, indicat- ing that the proposed encoding and optimization strategy remain effective as the problem size increases. This scal- ability is enabled by the compact representation of vari- ables through Pauli correlation operators, which avoids the linear growth of qubit requirements typical of direct binary encodings....",
+      "page": 7
+    },
+    {
+      "image": "2607.24722_figures/2607.24722_fig4.jpg",
+      "caption": "FIG. 3. Iteration dependence of the normalized loss ∆LT /WT and cost ∆CT /WT gaps (without post-processing, w/o PP). Results are shown for β = 0.0 and 0.1. Panels correspond to (a) m = 18 with αsc = 1.5 (α = 6.0), and (b) m = 10,296 with αsc = 0.1 (α = 274.4). The continuous loss decreases monotonically during optimization, whereas the corresponding decoded binary cost exhibits step-like or irreg- ular, non-monotonic behavior due to the nonlinear discretiza- tion into binary variables. Crosses connected by dotted lines indicate the minimum cost values attained along the opti- mization trajectory, together with the corresponding loss val- ues at the same iterations. For m = 18, the cost...",
+      "page": 8
+    },
+    {
+      "image": "2607.24722_figures/2607.24722_fig5.jpg",
+      "caption": "FIG. 4. Frequency distributions of the sets {yi(θ∗)}m i=1 with yi(θ∗) = ς(2αsc⟨Π(k) i ⟩θ∗). Results are shown for β = 0.0 and 0.1. Panels correspond to (a) m = 18 with αsc = 1.5 (α = 6.0), and (b) m = 10,296 with αsc = 0.1 (α = 274.4). The main panels show the distributions of {yi(θ∗)}m i=1, while the insets display those of the corresponding sets {⟨Π(k) i ⟩θ∗}m i=1. All distributions are evaluated at θ∗, which corresponds to the minimum decoded binary cost in Fig. 3 (without post- processing). All results are obtained from state-vector simu- lations.",
+      "page": 9
+    }
+  ],
+  "figure": "2607.24722_figures/2607.24722_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

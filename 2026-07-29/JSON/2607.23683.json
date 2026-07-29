@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.23683",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Qutrit-Based Neural Quantum Kernels for Classification Tasks",
+  "authors": "Camila Cristiano-Romero, Pablo Rodriguez-Grasa, Mikel Sanz",
+  "abstract": "Neural quantum kernels (NQKs) construct quantum kernels by pretraining a quantum neural network (QNN) and subsequently reusing the trained circuit as a task-adapted embedding. Extending this framework to qudits, with local unitaries in $\\mathrm{SU}(d)$, provides a natural route to richer data embeddings through the increased local degrees of freedom and a direct interface for multiclass classification via intrinsically multi-level quantum systems. In this work, focusing on qutrits ($d=3$), we extend NQKs to the qudit setting and perform a systematic study of key design choices, including the number of encoded features, the number of qutrits, the kernel construction (1-to-$n$ and $n$-to-$n$), and the parameterization of $\\mathrm{SU}(3)$ unitaries. Across binary and three-class tasks on four benchmark datasets, qutrit NQKs improve over the corresponding QNN baselines in nearly all settings considered and can benefit from scaling both the feature budget and the system size, although the magnitude of these gains may saturate, is dataset-dependent, and depends on the chosen parameterization. In particular, an ablation over $\\mathrm{SU}(3)$ parameterizations shows that the unitary representation can substantially impact both optimization behaviour and classifier performance. These findings highlight the potential of qudit-based quantum models not only as a straightforward generalization of qubit-based architectures, but also as a promising means to better exploit complex data structures in quantum machine learning.",
+  "url": "http://arxiv.org/abs/2607.23683v1",
+  "pdf": "https://arxiv.org/pdf/2607.23683v1",
+  "type": "theory",
+  "summary": "This paper extends Neural Quantum Kernels (NQKs) to utilize qutrit systems, moving beyond standard qubit architectures. By systematically testing various circuit designs and parameterizations, the authors show that qudit-based NQKs significantly boost classification performance on multiple datasets. This highlights qudits as a promising avenue for exploiting complex data structures in quantum machine learning.",
+  "main_problem": "The paper addresses extending Neural Quantum Kernels (NQKs) from qubits to qudits ($d=3$) for enhanced classification tasks.",
+  "main_result": "Qutrit NQKs consistently improve performance over standard QNN baselines across multiple benchmarks, demonstrating the potential of higher-dimensional quantum systems for complex data embedding.",
+  "method": "The authors systematically study various design choices—including feature budget, system size, and kernel construction (1-to-$n$ vs. $n$-to-$n$)—while comparing different SU(3) unitary parameterizations.",
+  "model_or_system": "The model utilizes qudit-based quantum circuits parameterized by local unitaries in SU(d), specifically focusing on qutrits ($d=3$). NQKs are constructed by pretraining a QNN and reusing the resulting trained circuit as a task-adapted embedding for kernel calculation.",
+  "key_observables": "Test Accuracy (%) across binary and three-class tasks, optimization behavior, and convergence of performance with increasing system size or feature budget.",
+  "important_parameters": "Local dimension ($d=3$), System size ($n$), Feature budget ($p$), Choice of SU(3) parameterization (Geometric, Euler-angles, Givens-rotation).",
+  "main_assumptions": "The performance gains are shown to be dataset-dependent and may saturate; the choice of unitary parameterization significantly impacts results.",
+  "figures_summary": "Figures compare test accuracy vs. feature budget ($p$) or system size ($n$) for 1-to-$n$ and $n$-to-$n$ NQKs, comparing different SU(3) parameterizations and showing the relative performance against QNN baselines.",
+  "paper_structure": "The paper introduces NQKs, generalizes them to qudits (qutrits), systematically tests various architectural choices ($p$, $n$, kernel type), compares results across multiple benchmarks, and analyzes the impact of parameterization and training objectives.",
+  "why_interesting": "This work demonstrates how increasing the local dimension from qubits to qutrits provides a richer mathematical structure (larger SU(d) algebra) that can be leveraged in quantum machine learning for better feature representation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.23683_figures/2607.23683_fig1.jpg",
+      "caption": "FIG. 1: Progressive-growth training strategy used to scale the data re-uploading QNN embedding. Training starts from a single subsystem and iteratively appends additional subsystems, initializing new parameters (including entangling parameters) at zero while reusing the previously learned optimum for the existing blocks. Inspired by the procedure introduced in Ref. [54].",
+      "page": 5
+    },
+    {
+      "image": "2607.23683_figures/2607.23683_fig2.jpg",
+      "caption": "FIG. 2: Schematic description of the two neural quantum kernel constructions considered in this work. (a) n-to-n: an n-qubit QNN is trained to obtain optimized embedding parameters (θ⋆, φ⋆), which are then frozen and used to construct the EQK by estimating kij = P0, where P0 denotes the probability of measuring the all-zero outcome after preparing S(n) θ⋆,φ⋆(xi)† S(n) θ⋆,φ⋆(xj)|0⟩. (b) 1-to-n: a single-qubit QNN is trained to obtain θ⋆, replicated across an n-qubit register, and interleaved at each re-uploading layer with a fixed entangling operation E; the resulting embedding is used to construct the EQK via the same overlap-estimation procedure.",
+      "page": 5
+    },
+    {
+      "image": "2607.23683_figures/2607.23683_fig3.jpg",
+      "caption": "FIG. 3: Test accuracy of the 1-qutrit QNN on Fashion-MNIST as a function of the number of encoded features (mean ± stan- dard error over 5 stratified folds). (a) Binary task (classes Sandal vs. Sneaker). (b) Three-class task (classes Sandal vs. Sneaker vs. Ankle boot).",
+      "page": 8
+    },
+    {
+      "image": "2607.23683_figures/2607.23683_fig4.jpg",
+      "caption": "FIG. 4: Test accuracy on Fashion-MNIST as a function of the number of qutrits for the 1-to-n qutrit NQK (mean ± stan- dard error over 5 stratified folds), with the number of encoded features fixed to p = 8. The dashed horizontal line shows the corresponding 1-qutrit QNN baseline used to construct the embedding. (a) Binary task (classes Sandal vs. Sneaker). (b) Three-class task (classes Sandal vs. Sneaker vs. Ankle boot).",
+      "page": 9
+    },
+    {
+      "image": "2607.23683_figures/2607.23683_fig5.jpg",
+      "caption": "FIG. 5: Test accuracy on Fashion-MNIST as a function of the number of encoded features at fixed system size n = 4. The 1-to-n NQK (4 qutrits) is compared against the corresponding 1-qutrit QNN baseline (mean ± standard error over 5 strati- fied folds). (a) Binary task (classes Sandal vs. Sneaker). (b) Three-class task (classes Sandal vs. Sneaker vs. Ankle boot).",
+      "page": 9
+    }
+  ],
+  "figure": "2607.23683_figures/2607.23683_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

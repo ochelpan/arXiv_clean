@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.24725",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.other"
+  ],
+  "is_primary_archive": true,
+  "title": "Pulse engineering via projection of response functions at infinite nonlinear order",
+  "authors": "Lia Kley, Ludwig Mathey",
+  "abstract": "Optimal control problems arise in a wide range of scientific disciplines, but the corresponding optimization algorithms often display a strong dependence on hyperparameters that significantly influence performance and convergence. For the optimal implementation of quantum algorithms, these challenges are further amplified by high-dimensional control landscapes and the need for high-fidelity operations. Here, we propose an algorithm for optimal control problems in quantum computing to efficiently generate high-fidelity control protocols for multi-qubit systems in a hyperparameter and gradient free manner. The method, referred to as Pulse Engineering via Projection of response functions at infinite nonlinear order (PEPRino), leverages the framework of response theory to navigate the control landscape to find high-fidelity implementations. This is achieved by determining the control landscape via response functions to infinite order, efficiently evaluated by resummation in terms of the first and second order response function. To demonstrate the approach, we apply it to quantum systems consisting of two and three qubits for the optimal implementation of the Quantum Fourier Transform (QFT). We benchmark the proposed algorithm against the Chopped Random Basis (CRAB) algorithm utilizing the Nelder-Mead method, focusing on the 2-qubit scenario. The results indicate faster convergence regarding iteration steps and computational time, highlighting the advantages of our approach.",
+  "url": "http://arxiv.org/abs/2607.24725v1",
+  "pdf": "https://arxiv.org/pdf/2607.24725v1",
+  "type": "theory",
+  "summary": "This paper introduces PEPRino, a novel algorithm for optimal quantum control that avoids hyperparameters and gradients by analyzing system response functions to infinite order. By leveraging only the first two-order susceptibilities, it efficiently finds high-fidelity control pulses for multi-qubit systems like those implementing the QFT. The results confirm its superior convergence speed compared to existing state-of-the-art methods.",
+  "main_problem": "Developing a hyperparameter and gradient-free algorithm for optimal control problems in quantum computing to achieve high-fidelity operations.",
+  "main_result": "The proposed PEPRino algorithm demonstrates faster convergence in iteration steps and computational time compared to established methods like CRAB when optimizing the Quantum Fourier Transform on 2 qubits.",
+  "method": "It leverages response theory by determining the control landscape via projection of response functions up to infinite nonlinear order, approximated using only first and second-order susceptibilities ($\\chi^{(1)}$ and $\\chi^{(2)}$).",
+  "model_or_system": "The study focuses on controlling quantum systems (two and three qubits) governed by a time-dependent Hamiltonian $H(t)$, aiming for high-fidelity implementation of gates like the QFT.",
+  "key_observables": "Fidelity ($\\Delta F$), averaged infidelity ($\\langle 1 - F \rangle$), and susceptibilities ($\\chi^{(n)}$).",
+  "important_parameters": "The optimal perturbation parameter $\\epsilon^*$, the number of qubits ($n_q$), and the number of control modes ($n_m$).",
+  "main_assumptions": "The method approximates the infinite nonlinear response series using only the first and second-order susceptibilities ($\\chi^{(1)}$ and $\\chi^{(2)}$).",
+  "figures_summary": "Figures compare the fidelity landscape approximation (PEPRino vs. linear) and show convergence plots comparing PEPRino against CRAB for QFT optimization, highlighting efficiency gains.",
+  "paper_structure": "The paper introduces the problem of optimal control in quantum computing, derives the PEPRino method based on response theory expansions, applies it to the QFT on 2-3 qubits, and benchmarks its performance against existing algorithms using fidelity measurements.",
+  "why_interesting": "It provides a sophisticated theoretical tool for designing robust quantum pulses by efficiently characterizing the control landscape without relying on gradient information or manual hyperparameter tuning.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.24725_figures/2607.24725_fig1.jpg",
+      "caption": "Figure 1. Fidelity landscape and update strat- egy. We show the fidelity landscape ∆F0 as a func- tion of the parameter ϵ, corresponding to a shift of a trainable parameter θj,k of a control operator Bj, for a two-qubit system discussed in the text. Specifically, the shift is given by θj,k →θj,k −2ϵ",
+      "page": 2
+    },
+    {
+      "image": "2607.24725_figures/2607.24725_fig2.jpg",
+      "caption": "Figure 2. Change of the fidelity landscape for dif- ferent initial states. We show the change of the fidelity ∆FP EP Rino as a function of ϵ for 8 random initial states ρi (dashed lines), as well as the initial state ρ0 (red line) which is used in Fig. 1. ∆FP EP Rino is evaluated at the same random time tr and for the same control operator for all nB = 9 initial states ρ. This figure motivates that, for gate optimization, the averaged fidelity landscape has to be considered (black line) and an averaged update θj,k →θj,k −¯ϵ 2",
+      "page": 4
+    },
+    {
+      "image": "2607.24725_figures/2607.24725_fig3.jpg",
+      "caption": "Figure 3. Infidelity of the 2-qubit optimization pro- cess using PEPRino. We show the infidelity during the optimization process of the QFT for two qubits as a func- tion of iteration steps for PEPRino. Thin dotted lines rep- resent individual optimization runs for different batch sizes nB ∈{4, 5, 6, 7} and numbers of modes nm ∈{4, 8, 12} in the control pulse parameterization. The thick solid lines show the logarithmic average across all considered runs and batch sizes for the specified number of modes. Additionally, the thin solid lines with distinct line styles illustrate the loga- rithmic averages for each batch size, with the mode number indicated by the corresponding color. Our method...",
+      "page": 5
+    },
+    {
+      "image": "2607.24725_figures/2607.24725_fig4.jpg",
+      "caption": "Figure 4. PEPRino vs CRAB for the 2-qubit QFT op- timization. We show the infidelity obtained using PEPRino (red) and CRAB (orange) as a function of iterations. For PEPRino, we choose nm = 8 with a batch size of nB = 41, in accordance with the size of the simplex used in CRAB, where we also consider nm = 8. The dashed lines are individual optimization runs, and the solid lines are the logarithmic av- erage over the runs. Both methods converge against the same lower bound, which is reached in fewer iterations utilizing our proposed method. Additionally, the variance of the individ- ual runs and computational time for individual iteration steps are less for PEPRino compared to CRAB.",
+      "page": 6
+    },
+    {
+      "image": "2607.24725_figures/2607.24725_fig5.jpg",
+      "caption": "Figure 5. Infidelity of the 3-qubit optimization process using PEPRino. We present the infidelity during the op- timization process of the QFT for three qubits as a function of iteration steps for PEPRino. For three qubits, we con- sider nm = 30 modes in the control pulse parameterization. We show the results for batch sizes nB = {11, 12, 13}. The solid lines are the logarithmic average over an ensemble of 40 optimization runs for the given batch sizes. The findings agree with the findings for the 2-Qubit-QFT optimization. For increasing batch sizes, we find a tendency towards con- vergence in fewer iteration steps, however, the behavior and result remain generally similar for the range of...",
+      "page": 6
+    }
+  ],
+  "figure": "2607.24725_figures/2607.24725_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
