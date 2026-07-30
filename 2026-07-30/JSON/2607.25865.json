@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2607.25865",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.MA"
+  ],
+  "is_primary_archive": true,
+  "title": "OmniQEC: discovering practical quantum error-correcting codes by an AI scientist",
+  "authors": "Ge Yan, Shanchuan Li, Pengyue Ma, Qixin Zhang, Pingchuan Ma, Jianping Wang, Min-Hsiu Hsieh, Yuxuan Du",
+  "abstract": "Quantum error correction (QEC) is indispensable for scalable fault-tolerant quantum computing. However, discovering QEC codes that remain effective is challenging, as logical performance depends on the interplay between code structure, hardware, syndrome extraction, and decoding, which often impose competing requirements. Here we introduce OmniQEC, an efficient AI scientist for discovering QEC codes suited to deployment on modern quantum processors. OmniQEC formulates QEC design as an iterative discovery process in which an orchestrator, implemented by advanced large language models (LLMs), coordinates code generation, code-level screening, syndrome-extraction synthesis, and decoder-based circuit evaluation. At its core, OmniQEC combines a self-evolving reasoning mechanism with a slow--fast synergistic workflow: a fast loop explores candidates using inexpensive code-level proxies, whereas a slow loop performs physically grounded circuit-level evaluation and feeds the resulting evidence back into the search. We evaluate OmniQEC across four qLDPC construction families, three LLM backends, and $14$ total-physical-qubit budgets per backend. The discovered codes show steadily improving logical-error suppression with increasing physical-qubit budgets and outperform the BB codes with $[\\![72,12,6]\\!]$ and $[\\![144,12,12]\\!]$ under complete-implementation budgets of 98 and 240 physical qubits, respectively. The discovered codes are hardware-friendly and may be of independent interest for practical QEC implementation. These findings pave the way towards LLM-assisted QEC discovery grounded in physically informed code--circuit--decoder co-design.",
+  "url": "http://arxiv.org/abs/2607.25865v1",
+  "pdf": "https://arxiv.org/pdf/2607.25865v1",
+  "type": "theory",
+  "summary": "The paper presents OmniQEC, a novel AI framework designed to discover practical Quantum Error-Correcting codes by simulating their performance on real quantum hardware. It employs a synergistic slow-fast loop where LLMs coordinate code generation and circuit evaluation. The results demonstrate that this physically informed approach yields superior error suppression compared to traditional methods.",
+  "main_problem": "The challenge of discovering Quantum Error-Correcting (QEC) codes that are truly practical for deployment, as performance depends on the complex interplay between code structure, hardware constraints, syndrome extraction, and decoding.",
+  "main_result": "OmniQEC discovers QEC codes that show steadily improving logical error suppression compared to standard reference codes when physical qubit budgets increase. The framework proves that circuit-level evaluation is superior to traditional code-level metrics for assessing practical performance.",
+  "method": "The authors introduce OmniQEC, an AI scientist system orchestrated by LLMs that uses a slow–fast synergistic workflow. This combines fast, inexpensive code-level screening with a slow, physically grounded circuit-level evaluation loop.",
+  "model_or_system": "The focus is on QEC codes, specifically evaluating qLDPC construction families, designed for implementation on modern quantum processors. The process models the full cycle from abstract code design to physical circuit execution and decoding.",
+  "key_observables": "Logical Error Rate (LER) measured via $-\\log_{10}(\text{pLER})$, alongside code-level metrics like logical qubits ($k$), distance ($d$), and $\\Phi_{code}$.",
+  "important_parameters": "Total physical-qubit budget ($N$), qubit connectivity, and the specific LLM backend used for orchestration.",
+  "main_assumptions": "The primary assumption is that an iterative, AI-guided search process can systematically navigate the vast design space to find hardware-friendly codes. A key limitation noted is the computational expense of the slow, circuit-level evaluation loop.",
+  "figures_summary": "Figure 1 illustrates the dual-loop workflow (fast proxy screening $\rightarrow$ slow circuit evaluation $\rightarrow$ evidence feedback). Figure 2 shows a performance frontier comparing discovered codes against reference codes based on LER vs. qubit budget. Figure 3/4 detail error suppression metrics and cost analysis.",
+  "paper_structure": "The paper introduces the OmniQEC framework, detailing its LLM-orchestrated, dual-loop methodology (fast proxy search feeding into slow circuit simulation). It presents comparative results showing outperformance over benchmarks, validates the necessity of the full loop, and concludes with future directions for multi-agent system integration.",
+  "why_interesting": "This work directly addresses the gap between theoretical code design and physical implementation feasibility in quantum computing. The use of LLMs as an 'AI scientist' to guide complex scientific discovery is highly relevant to open quantum systems research that requires integrating multiple simulation/optimization modules.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.25865_figures/2607.25865_fig1.jpg",
+      "caption": "FIG. 1. Schematic illustration of OmniQEC. A user specifies a QEC design objective, such as the target code family, optimization criterion, physical-qubit budget, connectivity, native gate set, and available ancilla resources. The LLM-based orchestrator translates this objective into a structured discovery task, maintains the self-evolving discovery memory, and routes information across a dual-loop workflow. In the fast loop, the code-search agent proposes executable code-construction programs, which are converted into candidate QEC codes and screened by the code-characterization module using code-level properties, including validity, logical-qubit number, code distance, and the code-level...",
+      "page": 2
+    },
+    {
+      "image": "2607.25865_figures/2607.25865_fig2.jpg",
+      "caption": "FIG. 2. Circuit-level performance frontier discovered by OmniQEC. Circuit-level performance as a function of the physical-qubit budget N, including data qubits and stabilizer-measurement ancillas. The vertical axis reports logical-error suppression, −log10(pLER), where pLER is the logical error rate per round per logical qubit. Marker fill denotes the LLM backend used by the orchestrator, and pie markers indicate codes independently discovered by multiple backends. The BB [[72, 12, 6]] and [[144, 12, 12]] codes are included as reference codes. Label color denotes the code family, and circle area is proportional to the fast-loop code-level proxy Φcode. The discovered codes form a clear...",
+      "page": 4
+    },
+    {
+      "image": "2607.25865_figures/2607.25865_fig3.jpg",
+      "caption": "FIG. 3. Circuit-level validation and loop ablation. a–c, Physical-error-rate sweeps for representative frontier codes discovered by OmniQEC using Claude Opus 4.8 (a), GPT-5.5 (b) and DeepSeek-V4-Pro (c). The BB [[72, 12, 6]] code is shown as a reference under the same syndrome-extraction and decoding protocol. Solid lines denote OmniQEC-discovered codes and dashed lines denote the BB reference. The fitted scaling pLER ∝pΓ gives the LER-scaling exponent Γ. d–f, Ablation of discovery feedback for Claude Opus 4.8 (d), GPT-5.5 (e) and DeepSeek-V4-Pro (f). Each marker denotes one of the top- five candidates obtained at the corresponding iteration, evaluated by the same circuit-level protocol and...",
+      "page": 6
+    },
+    {
+      "image": "2607.25865_figures/2607.25865_fig4.jpg",
+      "caption": "FIG. 4. LLM-side token usage and API cost. Bars show total API token consumption, including input, output and reasoning tokens, and lines show the corresponding API cost for each backend. Colors denote the LLM backend, using the same backend color coding as in Fig. 3.",
+      "page": 7
+    }
+  ],
+  "figure": "2607.25865_figures/2607.25865_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
