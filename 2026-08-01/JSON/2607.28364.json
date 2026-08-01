@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.28364",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.quant-gas"
+  ],
+  "is_primary_archive": true,
+  "title": "Noise-aware emulation and cross-device validation of neutral atom analog quantum processing units",
+  "authors": "Constantin Dalyac, Sergi Julià-Farré, Lucas Leclerc, Vittorio Vitale, Boris Albrecht, Lucas Béguin, Kemal Bidzhiev, Petru Borta, Clémence Briosne-Frejaville, Daniel J. Campbell, Dorian Claveau, Makrem Chatti, Antoine Cornillot, Julius de Hond, Anita Devi, Thomas Eritzpokhoff, Gaétan Hercé, Fergus Hayes, Soufiane Kaghad, Arun Kumar Abhimanyu, Lucas Lassablière, Mauro Mendizabal, Anton Quelle, Julien Ripoll, Henrique Silvério, Joseph Vovrosh, Guillaume Villaret, Adrien Signoles, Alexandre Dauphin",
+  "abstract": "Analog quantum processors based on Rydberg atom arrays are a powerful platform for many-body quantum simulation, combinatorial optimization, and graph machine learning. As these devices become increasingly accessible, establishing confidence in their outputs requires predictive models that quantitatively connect microscopic hardware imperfections to empirical results. Here, we present a noise-aware emulation framework that propagates the dominant noise mechanisms throughout the full computation cycle to predict device behavior. We validate the framework by benchmarking two representative protocols, quantum annealing and post-quench dynamics, on three Pasqal quantum processors where classical simulations still provide ground truth. Across all three devices, the measured observables fall within the uncertainty envelopes predicted by the emulator. Beyond reproducing the data, the framework isolates which physical mechanism dominates in each operating regime, provides quantitative guidance for algorithm design and hardware improvements, and establishes a foundation for verifying analog processors in regimes beyond classical reach.",
+  "url": "http://arxiv.org/abs/2607.28364v1",
+  "pdf": "https://arxiv.org/pdf/2607.28364v1",
+  "type": "both",
+  "summary": "The paper introduces a comprehensive, noise-aware emulation framework to predict the behavior of neutral atom quantum processors operating with Rydberg atoms. By modeling various sources of hardware imperfections—such as thermal motion and laser fluctuations—the authors validate their emulator against real data from multiple devices using annealing and quench protocols. This establishes a crucial tool for guiding future algorithm design and improving physical hardware reliability.",
+  "main_problem": "The core challenge is establishing confidence in quantum processor outputs by quantitatively linking microscopic hardware noise imperfections to measurable empirical results, especially beyond classically solvable regimes.",
+  "main_result": "A novel noise-aware emulation framework was developed and successfully validated across multiple physical devices, allowing researchers to isolate dominant error sources for targeted algorithm and hardware improvements.",
+  "method": "The authors combine developing a full computational cycle emulator that propagates various noise mechanisms (thermal motion, laser fluctuations) with benchmarking against established quantum protocols like quantum annealing and post-quench dynamics.",
+  "model_or_system": "The system utilizes neutral atoms trapped in Rydberg arrays, governed by an interaction Hamiltonian involving tunable Rabi frequencies ($\\Omega(t)$) and detunings ($\\delta(t)$). The platform is tested on multiple commercial Pasqal quantum processors.",
+  "key_observables": "Local populations ($\\langle n_i \rangle$), $k$-body correlation functions (e.g., staggered magnetization $m_{\text{stag}}$), and the decay of Rabi oscillation amplitudes.",
+  "important_parameters": "Noise sources include thermal motion, laser intensity/phase noise, and state preparation errors; key regimes involve comparing $\\Omega/U$ ratios in dynamics simulations.",
+  "main_assumptions": "The framework assumes that by modeling dominant noise channels, predictive power can be established even when full classical simulation is impossible. Convergence checks for MPS simulations are also crucial.",
+  "figures_summary": "Figures illustrate the QPU cycle (preparation $\rightarrow$ evolution $\rightarrow$ measurement), comparing experimental data from three devices against emulator predictions for annealing and post-quench dynamics, alongside convergence plots using Matrix Product States (MPS).",
+  "paper_structure": "The paper introduces the physical platform and Hamiltonian, details the noise sources affecting control parameters ($\\Omega, \\delta$), presents the noise-aware emulation framework, validates it by benchmarking two key protocols (annealing and post-quench), and discusses systematic error mitigation.",
+  "why_interesting": "This work is highly relevant as it bridges theoretical modeling of open quantum systems with practical hardware validation for Rydberg arrays. The methodology provides a necessary toolset for scaling up simulations beyond current classical computational limits in AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.28364_figures/2607.28364_fig1.jpg",
+      "caption": "Figure 1. Analog Rydberg QPU cycle and benchmark protocols. (a), Schematic of the QPU cycle for a register of two-level atoms with ground state |g⟩and Rydberg state |r⟩driven by a global Rabi frequency Ω(t) and detuning δ(t), with interactions Uij set by the geometry and atomic spacing R. After the programmed evolution, projective readout in the z basis is obtained from fluorescence imaging. Bitstrings over nshots repetitions can be used to estimate site-resolved observables such as local occupations ⟨ni⟩and correlators. (b), Annealing protocol. Top: time-dependent control schedule with Ω(t) and δ(t). Bottom: staggered magnetization mstag measured at the end of the evolution as a function...",
+      "page": 3
+    },
+    {
+      "image": "2607.28364_figures/2607.28364_fig2.jpg",
+      "caption": "Figure 2. Annealing noise-budget decomposition. (a), Staggered magnetization mstag versus final ramp-down duration tfall. Noiseless emulation (black dashed), single- noise contributions—laser (blue), detection (pink), thermal (orange), decoherence (green), —and full noise model (black, with shaded Monte Carlo envelope), compared to FC1 exper- imental data (markers with shot-noise error bars). (b), Out- come distribution of bitstring probability at tfall = 4180 ns ordered by decreasing mstag for the noiseless (dashed), single- noise (colored), full noise model simulations (gray) and FC1 experimental data (markers) with error bars obtained from binning.",
+      "page": 7
+    },
+    {
+      "image": "2607.28364_figures/2607.28364_fig3.jpg",
+      "caption": "Figure 3. Noise-emulation methodology for the post- quench dynamics protocol. Dynamics of the mean Ry- dberg population, n(t), in a 6 × 6 square lattice. We compare the Pasqal FC1 data (white marker with shot-noise error bars) against emu-mps emulators of the ideal Hamiltonian (dashed black line), the full noise model (solid green line, with con- fidence area), and marginal noise models with effects from: lasers (solid blue line), temperature (solid red line), and ef- fective channels (solid gray line). For a better visualization, we did not include the confidence area of the marginal noise models. (a), Small interaction regime, Ω/U = 14.5. (b), Strongly interacting regime, Ω/U = 1.1.",
+      "page": 9
+    },
+    {
+      "image": "2607.28364_figures/2607.28364_fig4.jpg",
+      "caption": "Figure 4. Impact of systematic experimental para- meter biases in post quench-dynamics. Dynamics of the mean Rydberg population, n(t), in a 6 × 6 square lattice (strong interaction regime Ω/U = 1.1). Emulations of the full noise model with emu-mps, including different systematic global detuning biases, δ0 = −0.2, 0.67, 0.47 MHz, are shown with confidence intervals. Two Pasqal FC1 data are shown for comparison: one at the target setpoint and one where an offset δ0 = 0.67 MHz was intentionally programmed (orange dots).",
+      "page": 11
+    },
+    {
+      "image": "2607.28364_figures/2607.28364_fig5.jpg",
+      "caption": "Figure 5. Impact of noise in post-quench dynamics cor- relations. Dynamics of the mean nearest-neighbor correla- tion Cn(t). We compare the Pasqal FC1 data with emu-mps emulation of the ideal Hamiltonian (dashed line) and the full noise model (solid line). (a), Weak interaction regime. (b), Strong interaction regime.",
+      "page": 11
+    }
+  ],
+  "figure": "2607.28364_figures/2607.28364_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 5,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 1,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

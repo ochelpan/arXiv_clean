@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2607.27945",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Complementary Matrix-Gated QKAN Fast-Weight Programmers for Quantum Dynamics Forecasting",
+  "authors": "Kuo-Chung Peng, Samuel Yen-Chi Chen, Jiun-Cheng Jiang, Chen-Yu Liu, En-Jui Kuo, Yun-Yuan Wang, Tzung-Chi Huang, Prayag Tiwari, Chi-Sheng Chen, Chun-Hua Lin, Yu-Chao Hsu, Tai-Yue Li, Saif Al-Kuwari, Simon See, Kuan-Cheng Chen, Nan-Yow Chen, Hsi-Sheng Goan",
+  "abstract": "Sequence models must decide what to write into memory and what to retain. In quantum and quantum-inspired sequence learning, nonlinear recurrent updates often require repeated circuit evaluations and sequential backpropagation through time, making long contexts costly. Gated fast-weight programmers (FWPs) based on quantum-inspired Kolmogorov-Arnold networks (QKANs) alleviate this bottleneck by storing context in time-varying fast parameters. However, their scalar gate applies one retention-write balance to every fast-state coordinate, forcing all parameters to share a memory timescale. We introduce Self-Modulating QKAN-based FWPs, which replace this broadcast gate with low-rank-generated element-wise modulation of the new-proposal branch, a bounded old-state branch, or both. We further propose Complementary Matrix Gating (CMG), which uses one sigmoid matrix gate to retain the old state and its complement to write the new proposal. CMG provides coordinate-wise memory control while preserving the bounded convex update and affine prefix-scan structure of scalar gating, at the modulation-head cost of a single-branch rule. We compare four self-modulating rules with scalar gating across four FWP architectures combining classical and QKAN-based slow and fast programmers. Across seven single-step forecasting benchmarks and five sequence lengths, CMG gives the most consistent improvements for architectures whose fast programmer incorporates a QKAN-based module. In direct multi-step forecasting of Jaynes-Cummings and transmon-resonator dynamics simulated with CUDA-Q Dynamics, CMG models maintain mean-squared errors on the order of 0.001 or lower across forecasting horizons of 4, 8, and 16 steps, while improving on their scalar-gated counterparts by at least 91.2%. These results establish coordinate-wise complementary modulation as a stable and effective update for QKAN-based FWPs.",
+  "url": "http://arxiv.org/abs/2607.27945v1",
+  "pdf": "https://arxiv.org/pdf/2607.27945v1",
+  "type": "theory",
+  "summary": "This paper introduces Complementary Matrix Gating (CMG) to enhance Fast-Weight Programmers (FWPs) used for forecasting quantum dynamics. CMG allows for superior, coordinate-wise control over memory retention versus new information writing. The method achieves state-of-the-art accuracy in simulating complex quantum systems like cavity QED models over long time horizons.",
+  "main_problem": "The primary challenge is mitigating the computational cost of long context sequence learning in quantum dynamics forecasting models, which typically requires expensive sequential backpropagation through time.",
+  "main_result": "Complementary Matrix Gating (CMG) significantly outperforms scalar gating rules, achieving substantial improvements (e.g., >91% improvement) in multi-step forecasting accuracy for quantum systems like Jaynes-Cummings and transmon resonators.",
+  "method": "The authors introduce Self-Modulating QKAN-based Fast-Weight Programmers (FWPs), utilizing CMG to implement coordinate-wise memory control by combining the old state with a new proposal using complementary sigmoid gates.",
+  "model_or_system": "The models are applied to forecast quantum dynamics, specifically simulating Jaynes-Cummings and transmon-resonator systems. The underlying mathematical framework involves time evolution governed by Hamiltonians or master equations.",
+  "key_observables": "Mean Squared Error (MSE) for single-step and multi-step forecasting; Relative MSE improvement (%) compared to baseline gating methods.",
+  "important_parameters": "Forecasting horizons ($H=4, 8, 16$ steps); Sequence lengths ($N=4, 8, 32, 64$).",
+  "main_assumptions": "The core assumption is that coordinate-wise complementary modulation provides a stable and effective update mechanism for QKAN-based FWPs while preserving desirable mathematical structures (bounded convex updates).",
+  "figures_summary": "Figures illustrate the comparison of various self-modulating rules against gated baselines, showing CMG's superior performance in both single-step and multi-step forecasting across different quantum datasets.",
+  "paper_structure": "The paper first identifies the memory bottleneck in QKAN-FWPs. It then proposes Self-Modulating QKAN-based FWPs incorporating Complementary Matrix Gating (CMG). The methodology is validated by comparing CMG against other update rules across seven single-step benchmarks and through direct multi-step forecasting of quantum systems.",
+  "why_interesting": "This work directly addresses the intersection of advanced deep learning architectures (QKANs, FWPs) with complex physical simulations (quantum dynamics), providing a state-of-the-art ML tool for modeling open quantum systems time evolution.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.27945_figures/2607.27945_fig1.jpg",
+      "caption": "Fig. 1. Self-modulating update rules and programmer backbones. (a) Full self-modulation uses separate old- and new-modulation heads. (b) CMG uses a single low-rank-generated matrix gate with complementary weights for the retained and proposed states. (c) The slow and fast programmers may use classical fully connected modules or QKAN-based HQKAN modules. Solid arrows show data/output flow. Dashed arrows show generated fast-parameter flow. slow programmer of the gated baseline [14] also produces gt = σ(Sg ψ(xt)), gt ∈[0, 1], and updates",
+      "page": 3
+    },
+    {
+      "image": "2607.27945_figures/2607.27945_fig2.jpg",
+      "caption": "Fig. 2. Performance of the self-modulating update rules relative to their paired gated baselines. (a) Win rate by sequence length, aggregated across datasets and model families. (b) Win rate by dataset, aggregated across sequence lengths and model families. (c) Median relative MSE improvement [ Eq. (3)] by model family, aggregated across datasets and sequence lengths. Dashed lines in (a) and (b) mark a 50% win rate; the horizontal line in (c) marks zero improvement.",
+      "page": 6
+    },
+    {
+      "image": "2607.27945_figures/2607.27945_fig3.jpg",
+      "caption": "Fig. 3. Final test MSE of each self-modulating rule versus its paired gated baseline across all datasets, sequence lengths, and model families: (a) Only-new, (b) Only-old, (c) Full, and (d) CMG. The diagonal indicates equal MSE; points below it favor self-modulation. Colors denote model families, and markers denote sequence lengths.",
+      "page": 6
+    },
+    {
+      "image": "2607.27945_figures/2607.27945_fig4.jpg",
+      "caption": "Fig. 6. Relative MSE improvement over the paired gated baseline [ Eq. (3)] for direct multi-step forecasting at N = 64. Rows group update rules within QKANFWP and QKAN-QKANFWP; columns group forecast horizons within the Jaynes–Cummings and transmon–resonator datasets. Values are computed from mean MSE over five seeds. Red denotes improvement, whereas blue denotes degradation.",
+      "page": 7
+    },
+    {
+      "image": "2607.27945_figures/2607.27945_fig5.jpg",
+      "caption": "Fig. 4. Test MSE versus training epoch for QKANFWP at N = 64: (a) Jaynes–Cummings and (b) transmon–resonator. Curves show the mean over five seeds, and shaded bands show ±1 standard deviation.",
+      "page": 7
+    }
+  ],
+  "figure": "2607.27945_figures/2607.27945_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 2,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 2,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}
