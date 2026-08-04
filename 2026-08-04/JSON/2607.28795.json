@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2607.28795",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "High-rate qLDPC processors",
+  "authors": "Aditya Bhardwaj, Muzhou Ma, Nadine Meister, Robbie King, Dolev Bluvstein, John Preskill, Madelyn Cain, Qian Xu, Hsin-Yuan Huang",
+  "abstract": "Despite significant progress on quantum low-density parity-check (qLDPC) codes, building qLDPC processors that are high-rate, high-throughput, hardware-friendly, and fast-to-decode remains a challenge. We introduce mitten codes, a family of qLDPC processor codes of encoding rate $20\\%$ and check weight $9$, based on non-abelian groups. Their non-abelian structure evades distance bounds constraining abelian counterparts, allowing mitten codes to reach distance $18$ and beyond with just a few hundred data qubits. The logical operators of a mitten code are related by the group action, yielding a modular, low-overhead logical toolkit: full Clifford operations follow from bridging two reusable seed surgery gadgets or from a single fixed extractor. Furthermore, qLDPC processors based on mitten codes support high-rate surgery that executes many logical measurements in parallel, and parallel magic-state injection into all logical qubits at once. Under circuit-level noise, with our fast decoder, the $[\\![300,60,14]\\!]$ mitten code achieves, without extrapolation, a block logical error rate of ${\\sim}10^{-11}$ per round at $0.1\\%$ physical error rate (PER), while the $[\\![ 975,195,\\leq 24 ]\\!]$ code reaches ${\\sim}10^{-8}$ at $0.4\\%$ PER. Decoding $15$ billion surgery experiments on the $[\\![540,108,18]\\!]$ code at $0.1\\%$ PER, we observe only two logical failures, demonstrating a qLDPC processor capable of running ${\\sim}10^{10}$ logical operations. Our decoder is compatible with sub-millisecond average latency per logical cycle, sufficient for real-time decoding on neutral atom hardware. Discovered by an end-to-end design pipeline built on sQetch, a distance estimator orders of magnitude faster than existing tools, and mapping efficiently onto near-term neutral atom and superconducting hardware, mitten codes open a practical path toward fault-tolerant quantum computation.",
+  "url": "http://arxiv.org/abs/2607.28795v1",
+  "pdf": "https://arxiv.org/pdf/2607.28795v1",
+  "type": "theory",
+  "summary": "The paper introduces 'mitten codes,' a novel class of qLDPC codes derived from non-abelian groups, to address the major hurdles in building scalable quantum processors. By demonstrating high performance metrics—such as achieving $10^{-11}$ logical error rates with manageable physical qubits—and by developing automated design pipelines for hardware mapping, they propose a practical path toward fault-tolerant quantum computation on near-term platforms.",
+  "main_problem": "The primary challenge is designing quantum low-density parity-check (qLDPC) processors that are simultaneously high-rate, high-throughput, hardware-friendly, and fast to decode for fault-tolerant computation.",
+  "main_result": "The authors introduce 'mitten codes,' a family of qLDPC codes based on non-abelian groups, which overcome distance limitations of abelian codes and demonstrate achieving logical error rates as low as $10^{-11}$ at achievable physical error rates.",
+  "method": "They developed an end-to-end design pipeline using sQetch to discover these codes, proving their feasibility through rigorous simulation of syndrome extraction and hardware placement optimization (Spectral Placement).",
+  "model_or_system": "The work focuses on abstract qLDPC processor models implemented via 'mitten codes,' which are lifted product codes over non-abelian groups. The physical realization is mapped onto near-term neutral atom arrays and superconducting qubit architectures.",
+  "key_observables": "Block logical error rate ($\\sim 10^{-11}$), processing capacity, throughput (logical operations per cycle), and hardware complexity metrics like Tiers, Length, and TSVs.",
+  "important_parameters": "Encoding rate of $20\\%$, check weight of 9, physical error rate (PER) up to $0.4\\%$, and sub-millisecond decoding latency.",
+  "main_assumptions": "The analysis assumes that the non-abelian structure is key to bypassing distance bounds; hardware feasibility relies on mapping complex graph structures onto discrete superconducting or neutral atom lattices.",
+  "figures_summary": "Figures illustrate the code structure, the three-level discovery pipeline (sQetch), and detailed comparisons of hardware complexities (Tiers, Length) for various codes using placement algorithms.",
+  "paper_structure": "The paper progresses from identifying the general challenge to introducing mitten codes as a solution. It details the theoretical advantages of non-abelian groups, presents performance benchmarks (error rates/throughput), and concludes with detailed analyses on hardware mapping complexity (thickness and physical layout optimization).",
+  "why_interesting": "This work provides concrete, quantifiable metrics for assessing fault tolerance beyond simple error correction thresholds by integrating code theory with practical constraints like circuit depth and physical routing overhead.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.28795_figures/2607.28795_fig1.jpg",
+      "caption": "Figure 1: Mitten codes as fault-tolerant qLDPC processors (a) The J200, 40, 12K mitten code built from the lifted product of base matrices 𝐴and 𝐵defined over the group algebra 𝐹2[𝐺] of the non-abelian group 𝐺= 𝐶4 × 𝐷10. The code consists of five blocks 𝐷1, . . . , 𝐷5 of |𝐺| = 40 physical data qubits and two blocks each of 𝑋-check and 𝑍-check ancilla qubits. Grey lines show the block-wise connectivity, while the connectivity between individual qubits is determined by the group structure through the ring entries of the base matrices 𝐴and 𝐵. Data qubits highlighted in red (green) mark the support of the canonical logical ¯𝑋𝑒( ¯𝑍𝑒) operator of weight 20 (18), where 𝑒is the identity element of...",
+      "page": 2
+    },
+    {
+      "image": "2607.28795_figures/2607.28795_fig2.jpg",
+      "caption": "Figure 2: Performance of mitten codes as qLDPC processors using our telescoping decoder. All simulations are performed under circuit-level noise with uniform depolarizing noise of strength 𝑝applied to state preparation, two-qubit gates, and measurements, with no idling noise. (a) Memory performance of mitten codes. We plot the logical error rate per syndrome extraction round averaged over an equal number of 𝑋and 𝑍basis experiments where error bars represent 68.27% Clopper-Pearson confidence intervals; the mitten codes form a family consistent with a threshold of 𝑝𝑐≈0.7%. Remarkably, at 𝑝= 0.4%, the J975, 195, ≤24K mitten code outperforms the J112320, 195, 24K stack of rotated surface codes...",
+      "page": 3
+    },
+    {
+      "image": "2607.28795_figures/2607.28795_fig3.jpg",
+      "caption": "Figure 3: High-rate qLDPC processor discovery pipeline. Starting from the processor targets of Definition 3, the pipeline narrows the design space in three levels. The first level explores the space of groups and base matrices: theoretical distance bounds (Appendix G) first constrain the search space, and the fast code- distance estimator sQetch (Appendix H) then brute-force searches the remaining space to find codes with good parameters and addressable logical operations. The second level searches for fault-tolerant syndrome extraction schedules and verifies logical performance through circuit-level simulations decoded with our telescoping decoder (Appendix I). The third level constructs...",
+      "page": 4
+    },
+    {
+      "image": "2607.28795_figures/2607.28795_fig4.jpg",
+      "caption": "Figure 4: Hardware implementation. (a) In neutral atom hardware, each gate layer of syndrome extraction is implemented by entangling blocks of checks with corresponding blocks of data qubits, and permuting check qubits between layers. Here we show an example 𝑋-check qubit permutation for the J150, 30, 10K code (𝐺= 𝐶5 × 𝑆3), for which the check qubit permutations between layers 𝐿(𝑟2) and 𝐿(𝑥· 𝑠𝑟2) correspond to the group action 𝐿(𝑥−1 · 𝑠𝑟). (b) Mitten codes can also be implemented in multilayer superconducting hardware by placing a large planar subgraph on the first tier, then routing all remaining edges that cannot be placed on the first tier through higher tiers.",
+      "page": 10
+    },
+    {
+      "image": "2607.28795_figures/2607.28795_fig5.jpg",
+      "caption": "Figure 5: Surgery gadgets. (a) The seed graph surgery gadgets for measuring logical ¯𝑋/ ¯𝑍operators constructed based on the group-structured canonical logical basis (Appendix B) where different logical operators are related by group action 𝑔and the seed gadgets can be used to measure all |𝐺| of them within an orbit by rewiring. (b) ¯𝑋¯𝑋, ¯𝑍¯𝑍and ¯𝑌graph surgery gadgets constructed by bridging the seed gadgets from (a). Together, the graph surgery gadgets in (a) and (b) can generate the entire Clifford group. (c) Parallel surgery gadget for measuring Pauli products in parallel. (d) Full extractor for measuring arbitrary weight Pauli product operators using a fixed gadget.",
+      "page": 40
+    }
+  ],
+  "figure": "2607.28795_figures/2607.28795_fig1.jpg",
+  "highlighted": [
+    "John Preskill"
+  ],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

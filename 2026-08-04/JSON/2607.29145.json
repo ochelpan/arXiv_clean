@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2607.29145",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG",
+    "cs.SE"
+  ],
+  "is_primary_archive": true,
+  "title": "Transpiler Autotuning with Predictive Models for Quantum Circuit Optimization",
+  "authors": "Piotr Malkowski, Domenik Eichhorn, Joshua Ammermann, Rinor Kelmendi, Nick Poser, Patrick Hopf, Ina Schaefer",
+  "abstract": "Quantum software engineering is an emerging research field focusing on efficiently embedding the quantum programming paradigm into existing software ecosystems. A key aspect of this field is the realization of quantum algorithms using gate-based programming and the subsequent low-level optimization of the resulting quantum circuits, a process that is commonly performed by so-called transpilation pipelines. One significant challenge in these pipelines is determining which optimizations to apply to a given circuit. This decision is usually based on fixed default configurations that are uniformly applied to all circuits, frequently resulting in missed opportunities for more aggressive circuit optimization. In this work, we tackle this challenge by applying autotuning with supervised machine learning to develop an automated method for selection of transpiler passes. To train our machine-learning models, we employ feature-model based sampling to generate a representative dataset that examines how different combinations of Qiskit transpiler passes perform across thousands of circuits drawn from the state-of-the-art benchmarking suite MQT Bench. Using these data, we build a predictive model extension for the Qiskit transpilation pipeline that uses a machine learning model to automatically select combinations of transpiler passes aiming to achieve a maximum reduction in two-qubit gates. Our empirical evaluation shows that the combinations selected by our model are never outperformed by Qiskit's optimization levels, achieve on average an additional 19.1$\\%$ - 32.4$\\%$ reduction in two-qubit gates, and for some circuits finds reductions of up to $95.8\\%$ in cases where Qiskit achieves no reduction at all.",
+  "url": "http://arxiv.org/abs/2607.29145v1",
+  "pdf": "https://arxiv.org/pdf/2607.29145v1",
+  "type": "theory",
+  "summary": "This paper introduces an advanced autotuning framework that uses supervised machine learning to automatically select and order the best sequence of transpiler optimization passes for quantum circuits. By training a predictive model on extensive benchmark data, it significantly outperforms default compiler settings in reducing costly two-qubit gates. This advances the practical usability of quantum hardware by making compilation more efficient.",
+  "main_problem": "The core challenge is determining the optimal combination of transpiler passes for quantum circuit optimization, as fixed default settings often fail to achieve maximum performance.",
+  "main_result": "The proposed ML-selected pass combinations consistently match or exceed existing Qiskit optimizations, achieving an average additional reduction of 19.1% - 32.4% in two-qubit gates.",
+  "method": "The authors developed an autotuning pipeline using supervised machine learning (XGBoost) trained on a dataset generated via feature-model based sampling across thousands of benchmark circuits.",
+  "model_or_system": "The system under study is quantum circuits implemented via gate-based programming models, optimized for execution on Noisy Intermediate-Scale Quantum (NISQ) devices using the Qiskit framework.",
+  "key_observables": "Maximum reduction in two-qubit gates; circuit properties like gate count and depth are used as explanatory variables.",
+  "important_parameters": "The optimization goal is minimizing errors associated with two-qubit gates on NISQ hardware.",
+  "main_assumptions": "It is assumed that a predictive ML model can accurately generalize the performance gains of specific transpiler pass combinations to unseen quantum circuits.",
+  "figures_summary": "Figure 1 illustrates the stages of the Qiskit transpiler pipeline. Figure 2 details the six-step autotuning methodology, from search space formalization to SHAP analysis.",
+  "paper_structure": "The paper outlines a systematic approach: first, defining the problem (combinatorial explosion); second, generating data via feature-model sampling; third, training an ML predictor in a learning-to-rank setting; and finally, validating the model's predictions against empirical benchmarks using SHAP for interpretability.",
+  "why_interesting": "This work directly addresses the practical compilation bottleneck in quantum computing, which is crucial for any theoretical physicist simulating or designing algorithms for near-term hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.29145_figures/2607.29145_fig1.jpg",
+      "caption": "Fig. 1. Overview of Qiskit’s transpiler pipeline that illustrates how every stage may transform a given circuit.",
+      "page": 3
+    },
+    {
+      "image": "2607.29145_figures/2607.29145_fig2.jpg",
+      "caption": "Fig. 2. Overview of our autotuning pipeline. This figures includes all six steps that we performed to create this contribution, including the creation of a dataset via a formalization and sampling and pass ordering (1-4), the training of a machine learning predictor (5), and an evaluation of our results via a SHAP analysis (6).",
+      "page": 5
+    },
+    {
+      "image": "2607.29145_figures/2607.29145_fig3.jpg",
+      "caption": "Fig. 3. A feature model that represents the configurability of the transpiler passes appropriate for Qiskit’s init stage. To improve the readability of the figure we had to collapse some nodes of features, a complete figure as well as a complete expression of the feature model in the Universal Variability Language can be found in our supplementary material [80].",
+      "page": 9
+    },
+    {
+      "image": "2607.29145_figures/2607.29145_fig4.jpg",
+      "caption": "Fig. 4. Overview of our machine learning predictor formulated as a learning-to-rank task. This figure presents a simplified illustration of the model input, the resulting ranking of configurations, and the way the model adjusts its parameters using a loss function.",
+      "page": 15
+    },
+    {
+      "image": "2607.29145_figures/2607.29145_fig5.jpg",
+      "caption": "Fig. 5. Mean Relative Reduction of two-qubit gates across quantum circuit classes. Of the 26 total classes, only the 15 classes for which at least one method achieved a reduction are shown. The number of evaluated circuits for each class is denoted with n.",
+      "page": 20
+    }
+  ],
+  "figure": "2607.29145_figures/2607.29145_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

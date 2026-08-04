@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2607.29603",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Qubit Loss Inference with Stabilizer Codes without Leakage Detection Units",
+  "authors": "Shin Nishio, Takeaki Uno, Fumiyoshi Kobayashi, Takahiko Satoh, Dan E. Browne",
+  "abstract": "Qubit loss occurs when the physical carrier of a qubit leaves the computational system without directly revealing the event's location. Such errors are a major obstacle to fault-tolerant quantum computation on platforms including photonic, neutral-atom, and trapped-ion systems. Loss locations are commonly identified using additional hardware operations such as leakage-detection units (LDUs), which introduce space-time overhead and may themselves become a source of error. We investigate whether qubit loss on stabilizer codes can instead be inferred from syndrome data obtained through standard repeated stabilizer measurements. Under a non-entangling model for gates involving a lost qubit, we derive a sufficient condition for loss detectability in general stabilizer codes. The condition is based on the emergence of anticommutation between stabilizer checks after their support on the lost qubits is removed. By using that condition, we formulate the exact loss-inference problem using the observed set of non-deterministic checks together with its maximum-likelihood formulation. We then relax the problem to the minimum set cover problem with a greedy heuristic algorithm. We evaluate the resulting inference and loss-correction protocols on the rotated surface code via circuit-level noise simulations for trapped-ion and neutral-atom platforms. On both platforms, inference-based and adaptive protocols reduce the logical error rate relative to a noisy-LDU baseline in the low-to-moderate loss-rate regime relevant to near-term hardware, while requiring fewer space-time overheads.",
+  "url": "http://arxiv.org/abs/2607.29603v1",
+  "pdf": "https://arxiv.org/pdf/2607.29603v1",
+  "type": "theory",
+  "summary": "This paper proposes an alternative to using dedicated Leakage Detection Units (LDUs) to handle qubit loss in fault-tolerant quantum computing. By analyzing the syndrome data obtained from standard stabilizer measurements, the authors derive a mathematical condition based on anticommutation relations that proves when and how qubit loss can be inferred. This method promises reduced space-time overhead while maintaining low logical error rates for near-term hardware.",
+  "main_problem": "The paper addresses the challenge of qubit loss during quantum computation, aiming to infer the location of lost qubits directly from syndrome measurements without relying on dedicated hardware like Leakage Detection Units (LDUs).",
+  "main_result": "It derives a sufficient condition for loss detectability based on the anticommutation of punctured stabilizer checks and shows that inference-based protocols can reduce logical error rates compared to LDU baselines in near-term regimes with less overhead.",
+  "method": "The authors develop theoretical criteria by analyzing the commutation relations between syndrome generators after accounting for lost qubits, formulating the problem as a maximum-likelihood/minimum set cover problem, and simulating performance on the surface code.",
+  "model_or_system": "The work is situated in the context of fault-tolerant quantum computation using stabilizer codes. The analysis models qubit loss under a non-entangling gate assumption for lost qubits, evaluating protocols on the rotated surface code.",
+  "key_observables": "Logical error rate, anticommutation relations between punctured stabilizer checks ($s'_i s'_j = -s'_j s'_i$), and auxiliary qubit overhead.",
+  "important_parameters": "Low-to-moderate loss rates relevant to near-term hardware; the structure of the underlying stabilizer code (e.g., surface code).",
+  "main_assumptions": "The gate model assumes non-entangling behavior for gates involving a lost qubit, and the analysis relies on establishing sufficient conditions rather than necessary ones.",
+  "figures_summary": "Figures illustrate flow diagrams comparing LDU vs. inference protocols, and show how commutation/anticommutation relations change based on the number of lost qubits relative to stabilizer generators.",
+  "paper_structure": "The paper progresses from identifying the hardware overhead of LDUs to deriving a mathematical condition for loss detectability via syndrome data (based on anticommutation), formalizing this into an inference problem, and finally validating the protocol through noise simulations on specific platforms.",
+  "why_interesting": "It provides a purely theoretical framework for mitigating physical errors in quantum computation by transforming hardware overheads (LDUs) into algorithmic/measurement-based diagnostics derived from fundamental algebraic properties of stabilizer codes.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.29603_figures/2607.29603_fig1.jpg",
+      "caption": "Figure 1. Loss correction protocol flows. The standard protocol to deal with loss errors is converting the loss error into an erasure at a known location via leakage detection units. Instead of leakage detection units, we propose a protocol with loss inference, which no longer requires running an additional circuit, which reduces overhead and eliminates a source of noise. After applying one of them, one can apply reloading, syndrome extraction, decoding, and Pauli error correction, or Pauli frame update. Note that surface code is used as an example, but both protocols can be easily generalized to arbitrary stabilizer codes by replacing the decoder.",
+      "page": 2
+    },
+    {
+      "image": "2607.29603_figures/2607.29603_fig2.jpg",
+      "caption": "Figure 2. (a) A quantum circuit for stabilizer measurement on Z1Z2Z3Z4 operator. (b) A quantum circuit intended to execute stabilizer measurement for Z1Z2Z3Z4 operators on a punctured system, which resulted in measuring an effective gauge operator ±Z1Z2Z4 where the sign is determined by the Pauli error operator P.",
+      "page": 4
+    },
+    {
+      "image": "2607.29603_figures/2607.29603_fig3.jpg",
+      "caption": "Figure 3. The commutation (blue double arrow) / anti- commutation (red double arrow) relations of a pair of check operators si and sj. Blue vertices represent surviving data qubits and the dotted light blue vertices represent the lost qubits. Each vertex on the face is the auxiliary qubit for a check operator. (Left) Precondition: Aij = 2 ≡0 (mod 2) so that two checks si and sj commute. (Center) For the case of single loss, |Aij ∩L| ≡1 (mod 2), and so two checks anticommute. This loss is detectable. (Right) For an even number of losses on Aij, two checks commute, therefore not detectable from the statistics of two stabilizer checks.",
+      "page": 5
+    },
+    {
+      "image": "2607.29603_figures/2607.29603_fig4.jpg",
+      "caption": "Figure 4. An instance of the loss inference problem on a rotated surface code. Given checks with random outcome depicted as red vertices, find the loss error pattern shown as the shaded area.",
+      "page": 6
+    },
+    {
+      "image": "2607.29603_figures/2607.29603_fig5.jpg",
+      "caption": "Figure 6. (a) The check interaction graph of the rotated surface code shown in Fig. 5. (b) E5, the induced subset of edges whose label will be flipped by the loss on q5.",
+      "page": 8
+    }
+  ],
+  "figure": "2607.29603_figures/2607.29603_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2607.28799",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "FedQML-Edge: Compact Quantum Feature Sketches for Communication-Constrained Roadside Federated Learning",
+  "authors": "Talha Azfar, Ruimin Ke",
+  "abstract": "Roadside units (RSUs) supporting connected and autonomous vehicle corridors need compact models to decide when cooperative maneuvers should be rewarded, deferred, or disabled. Raw sensor streams and neural network weight checkpoints are poorly suited to bandwidth-limited, privacy-sensitive roadside learning. This paper presents $\\texttt{FedQML-Edge}$, a federated quantum feature-sketching pipeline for traffic-stability gating. Each RSU constructs a traffic-state summary and sends circuit inputs to a quantum computer; Pauli expectations form a nonlinear sketch processed by a logistic classifier. Only classifier updates are shared with an aggregator, whose head supports reward gating. Raw observations, vehicle records, event traces, and quantum sketches remain private. We evaluate the method using NGSIM trajectories, SUMO predictive gating with sensing noise, and IBM Quantum hardware. On NGSIM, the Pauli sketch reduces test log loss by $14.4\\%$ relative to the strongest matched classical sketch. On SUMO, it approaches larger MLPs in stable-window recall while using $7-28$ times less communication per round.",
+  "url": "http://arxiv.org/abs/2607.28799v1",
+  "pdf": "https://arxiv.org/pdf/2607.28799v1",
+  "type": "both",
+  "summary": "This paper introduces FedQML-Edge, a federated learning framework that uses compact quantum feature sketches to process raw traffic data from roadside units (RSUs). By transmitting only small classifier updates derived from these quantum sketches, the method drastically reduces communication bandwidth requirements while maintaining high accuracy for critical tasks like predicting stable traffic flow.",
+  "main_problem": "Developing a compact, privacy-preserving learning method for roadside units (RSUs) to determine traffic stability in connected autonomous vehicle corridors under bandwidth constraints.",
+  "main_result": "The proposed method significantly reduces communication overhead while maintaining high predictive accuracy, achieving state-of-the-art performance compared to large classical MLPs on both NGSIM and SUMO benchmarks.",
+  "method": "It employs a federated quantum feature-sketching pipeline where raw traffic data is mapped into a compact Pauli expectation value sketch using a fixed quantum circuit. This sketch then feeds a locally trained logistic classifier, with only the small classifier update being shared during federated averaging.",
+  "model_or_system": "The system involves RSUs observing six key traffic features (e.g., vehicle count, mean speed) and sending inputs to a remote quantum service for sketch generation. The learning process is decentralized (Federated Learning), using the sketch as a low-dimensional feature representation for classification.",
+  "key_observables": "Test log loss, Gate Recall, Update Payload Size (bytes), Pauli expectation values ($\\mathbf{x}_{e,t}$)",
+  "important_parameters": "The size of the classifier update (144 bytes) is constant and independent of traffic volume; the sketch dimension is 17.",
+  "main_assumptions": "The method assumes that a fixed quantum feature map can provide sufficient non-linearity for classification while keeping communication updates minimal. Raw observations remain private at the RSU.",
+  "figures_summary": "Figures illustrate the computation and communication workflow (RSU $\rightarrow$ Quantum Service $\rightarrow$ RSU $\rightarrow$ Aggregator) and show loss curves comparing FedQML to classical baselines over training rounds on NGSIM/SUMO.",
+  "paper_structure": "The paper details the problem setup in CAVs, introduces the FedQML-Edge methodology (sketching via Pauli expectations), presents performance evaluations using both NGSIM and SUMO datasets, compares results against various classical feature sets and MLPs, and discusses hardware feasibility on IBM Fez.",
+  "why_interesting": "The integration of quantum sketching into a practical, communication-constrained edge AI task like traffic management is novel. It demonstrates how quantum principles can solve real-world data transmission bottlenecks in physical systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.28799_figures/2607.28799_fig1.jpg",
+      "caption": "Fig. 1. FedQML-Edge computation and communication workflow. Each RSU performs traffic-state construction, local classifier training, and model- update generation. Normalized six-dimensional circuit inputs are sent to a remote quantum service, which returns a 17-dimensional Pauli sketch to the originating RSU. The sketch is processed locally and each RSU uploads only its 144-byte classifier update, while the aggregator returns the 18-parameter global classifier head used for traffic-stability gating.",
+      "page": 2
+    },
+    {
+      "image": "2607.28799_figures/2607.28799_fig2.jpg",
+      "caption": "Fig. 1 summarizes the computational and communication boundaries of FedQML-Edge. Each RSU performs the clas- sical roadside operations: traffic perception, construction and normalization of the six-dimensional traffic-state vector, local classifier training, and generation of the federated model up- date. Raw frames, vehicle trajectories, per-vehicle identifiers, and local event records remain at the RSU. Quantum feature extraction is performed by remote quan- tum hardware. For each local traffic-state sample, the RSU transmits the six normalized circuit inputs to the quantum service. The service prepares the fixed six-qubit feature-map circuit, measures the required Pauli observables, and...",
+      "page": 2
+    },
+    {
+      "image": "2607.28799_figures/2607.28799_fig3.jpg",
+      "caption": "Fig. 2. NGSIM loss curves over 100 communication rounds. FedQML is shown for both statevector and IBM Fez hardware-derived sketches; the remaining curves show the strongest matched classical sketch, raw logistic regression, payload-matched H = 2 MLP, and the strongest MLP.",
+      "page": 5
+    },
+    {
+      "image": "2607.28799_figures/2607.28799_fig4.jpg",
+      "caption": "Fig. 3. SUMO predictive-gating test log-loss histories over 300 communica- tion rounds. The compact fixed-sketch models improve early and then flatten, while larger MLPs continue late-round optimization with larger updates.",
+      "page": 5
+    },
+    {
+      "image": "2607.28799_figures/2607.28799_fig5.jpg",
+      "caption": "Fig. 4. Communication–performance tradeoffs. (a) Final NGSIM test log loss versus per-round client update size. (b) SUMO stable-window recall under the validation-selected false-enable constraint versus update size. FedQML gives the lowest NGSIM loss and approaches the SUMO gate recall of substantially larger MLPs with a 144-byte update.",
+      "page": 6
+    }
+  ],
+  "figure": "2607.28799_figures/2607.28799_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

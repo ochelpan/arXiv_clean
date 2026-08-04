@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2607.29590",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Spindrift: Learning quantum degeneracy from thermal purity in restricted path integral Monte Carlo",
+  "authors": "Jarvist Moore Frost",
+  "abstract": "Restricted path integral Monte Carlo (RPIMC) sidesteps the fluctuating Fermion sign problem by confining paths within nodal pockets of a trial density matrix, thereby recovering polynomial scaling. However, this nodal surface must be provided from elsewhere; unless it is exact, it introduces a fixed-node energy error.   Here we introduce \\textsc{Spindrift}, a Variational Density Matrix approach that learns the many-body Fermionic density matrix from a regularised Bloch residual, evaluated on samples drawn by a restricted Worm algorithm. Motivated by the observation of the `purity' of quantum mechanics at high temperature (where kinetic energy dominates), we train the density matrix along a temperature (imaginary time) curriculum, learning increasingly large \\emph{corrections} to the initial free-particle reference. We parametrise our model with a permutation-equivariant continuous normalising flow to generate quasi-particle backflow trajectories, modulated by a symmetric Jastrow factor. This architecture guarantees exact Fermionic antisymmetry and spatial symmetry throughout training.   Simulating $N=3$ interacting Fermions in a two-dimensional harmonic trap, we demonstrate stable curriculum training. The learnt velocity field smoothly deforms the nodal structure away from the free-particle reference. Open-Worm G-sector trapping provides a natural diagnostic for nodal accuracy.   Although the current lack of a nodal action in our estimator precludes absolute benchmarking, \\textsc{Spindrift} lowers the restricted thermodynamic energy relative to the free-particle reference at each temperature, establishing a stable, physics-informed framework for finite-temperature quantum Monte Carlo where the nodal structure is learnt self-consistently.",
+  "url": "http://arxiv.org/abs/2607.29590v1",
+  "pdf": "https://arxiv.org/pdf/2607.29590v1",
+  "type": "theory",
+  "summary": "Spindrift introduces a novel Variational Density Matrix approach that uses continuous normalising flows to learn the complex nodal structure of the thermal density matrix in restricted Path Integral Monte Carlo simulations. By training this model across an imaginary time curriculum, it bypasses the need for pre-supplied node information, establishing a self-consistent framework for studying interacting fermions at finite temperatures.",
+  "main_problem": "The primary challenge is overcoming the Fermion sign problem in quantum Monte Carlo simulations, which limits the accurate calculation of ground state and finite-temperature properties.",
+  "main_result": "The proposed method, Spindrift, successfully trains a variational density matrix that self-consistently learns the nodal structure across an imaginary time curriculum, yielding lower energy estimates than free-particle references.",
+  "method": "It employs a Variational Density Matrix approach parameterized by a permutation-equivariant continuous normalising flow (CNF) to generate quasi-particle backflow trajectories. Training is performed via curriculum learning using the Bloch residual as the loss function.",
+  "model_or_system": "The study focuses on $N=3$ interacting spin-polarized Fermions confined in a two-dimensional harmonic trap. The simulation evolves the thermal density matrix ($\rho$) from high temperature towards quantum degeneracy.",
+  "key_observables": "Mixed energy estimator, Bloch residual ($E_{\text{res}}$), and mean backflow displacement magnitude are tracked as diagnostics for nodal accuracy and convergence.",
+  "important_parameters": "The imaginary time/temperature curriculum ($\beta$ progression) is crucial, moving from high temperature ($\beta \to 0$) to quantum degeneracy ($\beta=1$).",
+  "main_assumptions": "The method assumes that the density matrix can be accurately parameterized by a CNF augmented with a Jastrow factor. A key limitation is the lack of an explicit nodal action in the estimator.",
+  "figures_summary": "Figures track energy estimators, Bloch residuals, and backflow displacement across temperature stages ($\beta=0.2$ to $1.0$), demonstrating the smooth deformation of the nodal structure as quantum correlations build up.",
+  "paper_structure": "The paper introduces Spindrift as a solution to the sign problem in PIMC by learning $\rho$. It details the CNF architecture and training strategy using curriculum learning on the Bloch residual, culminating in energy comparisons against known limits.",
+  "why_interesting": "This work represents a significant advancement in applying deep generative models (CNFs) to solve fundamental many-body quantum simulation problems, providing a self-consistent way to handle nodal structure which is central to fermionic physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.29590_figures/2607.29590_fig1.jpg",
+      "caption": "FIG. 1: Initial state of the neural density matrix model prior to training, internal structure (top) and physical observables (bottom), for N = 3 spin-polarised Fermions in a 2D harmonic trap. Most figures are generated by constraining two electrons to sit on the Wigner radius (1.5, where the Coulomb and Harmonic force balance), and then using the third electron as the test particle. (a) The randomly initialised continuous normalising flow (CNF) velocity field vθ(R, s = 0) shows vortices. This is due to the permutation-equivariance enforced on the network; the random vector fields are thereby symmetric around the particle positions. (b) The random field generates rather large backflow...",
+      "page": 9
+    },
+    {
+      "image": "2607.29590_figures/2607.29590_fig2.jpg",
+      "caption": "FIG. 2: Neural density matrix model internal structure (top) and physical observables (bottom), for N = 3 spin-polarised Fermions in a 2D harmonic trap at β = 0.8. (a) Continuous normalising flow (CNF) velocity field vθ(R, s = 0) driving the quasi-particle transform. (b) Integrated backflow trajectories R(s) over fictitious time s ∈[0, 1]. (c) Symmetric Jastrow correlation landscape Jθ(x, y). Clearly this has learnt the harmonic confinement of the trap, compared to the free-particle starting point. (d) Diagonal probability density |ρ(R, R)|2, showing spatial localisation of the 3rd electron. Pink contour is the nodal structure from the following panel. Clearly the model has learned to fill...",
+      "page": 10
+    },
+    {
+      "image": "2607.29590_figures/2607.29590_fig3.jpg",
+      "caption": "FIG. 3: Training along the temperature curriculum (βstage = 0.2, 0.4, . . . , 1.0, dashed boundaries). Shown are the mixed energy estimator (blue, in units of ¯hω), the median Bloch residual energy with its spatial standard-deviation (orange), and the mean backflow displacement magnitude (green, axis on right). As we approach β = 1, we are entering quantum degeneracy, leading to the large up-tick in backflow strength to enforce the Pauli exclusion. We can see that SPINDRIFT successfully reduces the spatial standard deviation of the Bloch residual, while the median Bloch residual plateaus near 1 ¯hω. This may indicate that while the algorithm and the learning are functioning, our current...",
+      "page": 11
+    }
+  ],
+  "figure": "2607.29590_figures/2607.29590_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

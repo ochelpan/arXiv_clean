@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2607.29505",
+  "category": "other",
+  "arxiv_categories": [
+    "physics.optics",
+    "cond-mat.quant-gas",
+    "physics.atom-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "High-NA vectorial hologram optimization",
+  "authors": "Michael Wischert, Fiona Hellstern, Paul Uerlings, Tilman Pfau, Stephan Welte, Ralf Klemt",
+  "abstract": "We present a vectorial phase-only framework for the gradient-based optimization of computer-generated holograms. Our approach addresses a critical limitation in high numerical aperture (NA) optical systems, where standard scalar approximations often experience significant fidelity degradation. We highlight the limitations of scalar diffraction models (Fraunhofer and Debye) at high NA for representative classes of target intensities, namely tweezer arrays and extended flat-top profiles. Using a differentiable Richards-Wolf forward model, we numerically demonstrate stable algorithmic convergence and the generation of highly uniform intensity profiles in the deep non-paraxial regime. At NA=0.9, Richards-Wolf (RW) optimization reaches flat-top and tweezer uniformities of 99.97 % and 99.98 %, respectively, with a mean tweezer ellipticity of $\\varepsilon=$1.007, while scalar forward models show target-dependent degradation in plateau fidelity or focal geometry. Furthermore, because the RW model returns the full vectorial field, the same framework can optimize objectives that depend on local polarization. We demonstrate this for a polarization-sensitive optical-dipole-potential target, where direct RW-potential optimization reduces the mean normalized residual by more than an order of magnitude when including vector and tensor light-shift terms.",
+  "url": "http://arxiv.org/abs/2607.29505v1",
+  "pdf": "https://arxiv.org/pdf/2607.29505v1",
+  "type": "theory",
+  "summary": "This paper develops a full vectorial framework to optimize computer-generated holograms for high numerical aperture optics, overcoming fidelity losses associated with standard scalar approximations. By using the Richards-Wolf model in a gradient-based optimization loop, the authors demonstrate superior control over target intensity and polarization structure compared to simpler models. This has significant implications for advanced quantum trapping and light-matter interaction experiments.",
+  "main_problem": "The study addresses the fidelity degradation when optimizing computer-generated holograms (CGHs) for high numerical aperture (NA) optical systems using standard scalar approximations instead of full vectorial models.",
+  "main_result": "Using a differentiable Richards-Wolf model, the optimization successfully generates highly uniform intensity profiles and allows for the direct optimization of objectives dependent on local polarization state, significantly outperforming scalar methods at high NA.",
+  "method": "The authors employ gradient-based nonlinear optimization techniques (e.g., L-BFGS) applied to a differentiable Richards-Wolf forward model to find the optimal phase modulation required to match a target intensity profile.",
+  "model_or_system": "The system involves using Spatial Light Modulators (SLMs) as programmable pupil-plane phase elements in high-NA focusing geometries. The propagation is modeled by comparing the full vectorial Richards-Wolf (RW) formalism against scalar approximations like Debye and Fraunhofer models.",
+  "key_observables": "Target uniformity, mean tweezer ellipticity ($\\epsilon$), and reduction in normalized residual for polarization-sensitive potentials.",
+  "important_parameters": "High Numerical Aperture (NA=0.9), target geometries (tweezer arrays, flat-top profiles), and the comparison between vectorial vs. scalar light propagation models.",
+  "main_assumptions": "The surrounding medium is assumed to have a refractive index of n=1; scalar models are fundamentally limited as they ignore polarization mixing effects crucial at high NA.",
+  "figures_summary": "Figures compare intensity profiles for tweezer and flat-top targets, contrasting the superior uniformity achieved via RW optimization against the fidelity loss observed using scalar approximations (Fraunhofer/Debye).",
+  "paper_structure": "The paper establishes the limitations of scalar models at high NA, details the implementation of gradient-based optimization using the full vectorial Richards-Wolf model, demonstrates quantitative improvements in target shaping metrics (uniformity, ellipticity), and extends the framework to polarization-sensitive objectives.",
+  "why_interesting": "This work directly tackles the computational optics challenges inherent in modern quantum trapping and manipulation techniques that rely on precise light field control at high NA. The rigorous comparison between scalar and vectorial models is crucial for designing next-generation optical elements for AMO experiments.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2607.29505_figures/2607.29505_fig1.jpg",
+      "caption": "Fig. 1. High-NA CGH geometry and representative Fraunhofer model errors. (a) Schematic of the SLM-based high-NA focusing geometry used for the numerical benchmarks. The insets show the tweezer-array and extended flat-top intensity targets. Here 𝑟Airy = 0.61𝜆/NA denotes the Airy-radius diffraction scale. (b)-(e) All displayed intensity data are evaluated with the vectorial Richards-Wolf (RW) propagation model at NA = 0.7. (b) Magnified view of a single, near-diffraction-limited tweezer generated from a phase hologram optimized with scalar Fraunhofer propagation, showing an elliptical focal spot under RW evaluation. The dashed contour marks the 1/𝑒2 intensity level. (c) Corresponding tweezer...",
+      "page": 3
+    },
+    {
+      "image": "2607.29505_figures/2607.29505_fig2.jpg",
+      "caption": "Fig. 2. Systematic NA dependence of scalar and vectorial CGH fidelity under RW evaluation. For each numerical aperture, the SLM phase was optimized with the indicated forward model and the reported metric was computed after evaluating the final phase with RW propagation. (a) Uniformity 𝑢of the extended flat-top target versus NA. (b) Mean ellipticity 𝜀of the tweezer-array target versus NA, with 𝜀= 1 corresponding to circular traps. The insets show the respective targets, and the dashed gray line in (a) indicates the signal region for the uniformity calculations.",
+      "page": 6
+    },
+    {
+      "image": "2607.29505_figures/2607.29505_fig3.jpg",
+      "caption": "Fig. 3. Fully vectorial optimization of an extended flat-top profile at NA = 0.7. All intensities are normalized to the mean total intensity in the flat-top signal region, and the component panels use separate color ranges. Panels (a)-(c) show the component intensities |𝐸𝑥|2, |𝐸𝑦|2, and |𝐸𝑧|2. (d) The resulting total intensity landscape (|E|2). Horizontal and vertical cross-sections (bottom and left margins) compare the optimized solution (solid curve) with the ideal target profile (dashed curve), demonstrating excellent agreement. (e) Self-consistent optimization loss over M for each run, evaluated with the same forward model used during that run. This panel compares convergence behavior...",
+      "page": 8
+    },
+    {
+      "image": "2607.29505_figures/2607.29505_fig4.jpg",
+      "caption": "Fig. 4. Direct optimization of a polarization-dependent optical dipole potential at NA = 0.7. All panels are evaluated with the full Richards-Wolf (RW) field and the optical potential of Eq. (9). Panels (a) and (b) use the separate color scales shown by their color bars. (a) Normalized absolute residual Δ ˆ𝑈= | ˆ𝑈sim −ˆ𝑈tar| for the scalar reference, obtained from a Fraunhofer-optimized hologram and evaluated with the full RW optical potential. The normalized potentials ˆ𝑈are mean-subtracted and Frobenius- normalized inside 𝑀1/𝑒2 (dashed contour) as defined in Eq. (12). The arrow indicates the in-plane quantization-axis direction ˆe𝐵. (b) Corresponding normalized absolute residual for...",
+      "page": 11
+    }
+  ],
+  "figure": "2607.29505_figures/2607.29505_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 3,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
