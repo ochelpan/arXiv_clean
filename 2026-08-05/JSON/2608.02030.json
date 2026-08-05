@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2608.02030",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Zero-G: A Pre-Decoder-Aware Decoder for Quantum Error Correction",
+  "authors": "Peter Wegmann, Theofilos Augoustis, Aleksandra Świerkowska, Emmanouil Giortamis, Pramod Bhatotia",
+  "abstract": "Fault-tolerant quantum computing requires classical decoders that keep pace with the underlying hardware, translating syndrome measurements into corrections fast enough to avoid an exponential backlog. To meet this real-time constraint, pre-decoders have emerged as part of a hierarchical decoding approach to resolve simple, local errors before passing a sparser residual syndrome to a strong decoder. While pre-decoding should, in theory, speed up the strong decoder, in practice, the speedup is only marginal, since existing strong decoders are designed to decode dense syndromes and cannot exploit the sparsity provided by pre-decoders. To address this, we present Zero-G, a strong decoder designed for use alongside pre-decoders. As a stochastic approximate minimum-weight perfect matching (MWPM) decoder, Zero-G exploits sparse residual syndromes, dynamically trading latency for accuracy rather than relying on an all-or-nothing runtime-accuracy trade-off. By decoupling hardware control from the decoding core itself, we enable heterogeneous deployment across both FPGAs and CPUs without maintaining separate implementations. Zero-G achieves a $10\\times$ latency improvement over existing strong decoders at matching accuracy, with worst-case sub-350ns decoding at code distances up to d=15, while scaling to 640 logical qubits on a single 128-core CPU and 32 logical qubits on a single AMD Versal V80 FPGA.",
+  "url": "http://arxiv.org/abs/2608.02030v1",
+  "pdf": "https://arxiv.org/pdf/2608.02030v1",
+  "type": "theory",
+  "summary": "This paper introduces Zero-G, a novel strong decoder designed specifically for use in hierarchical Quantum Error Correction (QEC) pipelines. It addresses the bottleneck of existing decoders by exploiting sparse residual syndromes passed from pre-decoders. By using a stochastic approximate MWPM approach and decoupling hardware control, Zero-G achieves substantial latency improvements critical for building scalable, fault-tolerant quantum computers.",
+  "main_problem": "Achieving fault-tolerant quantum computation requires classical decoders that operate in real-time to prevent an exponential backlog of undecoded syndrome measurements.",
+  "main_result": "Zero-G achieves a 10x latency improvement over existing strong decoders at matching accuracy, while scaling effectively across both CPU and FPGA hardware platforms.",
+  "method": "The authors propose Zero-G, a pre-decoder aware strong decoder that uses a stochastic approximate Minimum-Weight Perfect Matching (MWPM) approach to exploit syndrome sparsity dynamically.",
+  "model_or_system": "The work focuses on Quantum Error Correction (QEC), specifically referencing the surface code structure used to encode logical qubits across physical qubits. The system involves a hierarchical decoding pipeline: pre-decoder $\rightarrow$ Zero-G strong decoder.",
+  "key_observables": "Logical Error Rate (LER) and Decoding Latency; the goal is to maintain LER matching with MWPM while drastically reducing latency.",
+  "important_parameters": "Code distance ($d$), which dictates the scale of the problem, and the required real-time decoding budget ($\\approx 1\\ \\mu\text{s}$).",
+  "main_assumptions": "The primary assumption is that a pre-decoder-aware decoder can effectively exploit syndrome sparsity to improve performance beyond what current dense-syndrome decoders can achieve.",
+  "figures_summary": "Figures illustrate the hierarchical decoding process, showing how pre-decoders filter errors and how Zero-G integrates into the pipeline, achieving significant speedups over state-of-the-art methods.",
+  "paper_structure": "The paper establishes the real-time constraint of QEC, critiques existing decoder limitations (especially regarding syndrome sparsity), introduces Zero-G as a solution, details its stochastic MWPM approach and decoupled hardware architecture, and presents performance benchmarks demonstrating massive latency improvements.",
+  "why_interesting": "While focused on digital quantum computing, the core challenge—managing complex, time-sensitive information processing pipelines with resource constraints—is relevant to modeling open quantum systems where measurement feedback must be fast enough to stabilize dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.02030_figures/2608.02030_fig1.jpg",
+      "caption": "Fig. 2: (a) Surface code memory and (b) sliding-window decoding with a hierarchical neural-network pre- and an MWPM strong decoder.",
+      "page": 3
+    },
+    {
+      "image": "2608.02030_figures/2608.02030_fig2.jpg",
+      "caption": "Fig. 3: High-level overview of the decoding system, showing how Zero-G integrates with existing decoding controllers within our pipeline. 1 a dense syndrome is passed to the decoding controller, 2 sparsified by a pre-decoder, 3 passed to a syndrome coordinator, 4 & 5 decoded using a CPU-based pipeline which 6 returns the solution. Finally, 7 the result is passed to the Pauli frame.",
+      "page": 4
+    },
+    {
+      "image": "2608.02030_figures/2608.02030_fig3.jpg",
+      "caption": "Fig. 4: Workflow of the Zero-G decoder. Given a sparse syndrome and decoding configuration, the 1 decoding subgraph is constructed, from which 2 a fast matching is constructed, 3 optimized, and used to construct the 4 logical observable. This is then returned as Pauli Frame Update and a decoding status.",
+      "page": 5
+    },
+    {
+      "image": "2608.02030_figures/2608.02030_fig4.jpg",
+      "caption": "Fig. 5: Visualization of graph construction and matching workflow. a) A complete graph is built from the syndrome, b) an initial matching computed, and c) refined using RAMA and ROMA.",
+      "page": 6
+    },
+    {
+      "image": "2608.02030_figures/2608.02030_fig5.jpg",
+      "caption": "Fig. 6: Overview of the hardware implementation of Zero-G Decoding Core within a decoding pipeline, processing a continuous syndrome stream via dedicated I/O interfaces. A dedicated memory region stores precomputed decoding matrices utilized by the decoder.",
+      "page": 7
+    }
+  ],
+  "figure": "2608.02030_figures/2608.02030_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

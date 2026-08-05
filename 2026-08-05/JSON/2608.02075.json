@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2608.02075",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient re-sampling in quasi-probability decompositions",
+  "authors": "Sara Santos, Stefan Woerner, Vincenzo Savona, Julien Gacon",
+  "abstract": "Near-term quantum devices are limited by noise and hardware constraints, motivating algorithmic approaches that trade circuit complexity for increased sampling overhead. Quasi-probability decompositions (QPDs), for example, allow replacing non-local operations by multiple circuits with local operations, but the associated sampling overhead generally scales exponentially and limits their practicality. In this work, we introduce a reweighting strategy for QPDs for circuits with the same variational structure across parameter settings, reusing samples and thereby reducing the sampling overhead. We first demonstrate this approach by estimating fidelities between parameterized quantum states, a key primitive in variational time evolution and quantum kernel methods. Importantly, this setup allows controlling the exponential QPD sampling overhead while preserving the structure of the state-encoding ansatz. We then apply the method to estimate the real part of the quantum geometric tensor using the simultaneous perturbation stochastic approximation and find that, in the presence of realistic hardware noise, our method outperforms other standard estimation techniques. These results highlight the potential of reweighting strategies to extend the applicability of QPD-based methods in variational quantum algorithms.",
+  "url": "http://arxiv.org/abs/2608.02075v1",
+  "pdf": "https://arxiv.org/pdf/2608.02075v1",
+  "type": "theory",
+  "summary": "The paper proposes an efficient reweighting strategy to overcome the exponential sampling overhead inherent in Quasi-Probability Decompositions (QPDs). By reusing samples across slightly varied quantum circuits, it significantly reduces computational cost. This advancement extends the practical applicability of QPD-based methods for estimating key quantities like state fidelity and the Quantum Geometric Tensor in noisy quantum computing settings.",
+  "main_problem": "The primary challenge is mitigating the exponentially scaling sampling overhead associated with Quasi-Probability Decompositions (QPDs) when evaluating quantum observables across varying circuit parameters.",
+  "main_result": "A reweighting strategy was introduced that allows reusing samples from a reference QPD to estimate observables for slightly varied circuits, effectively controlling the exponential sampling overhead while preserving ansatz structure.",
+  "method": "The authors employ a reweighting framework based on self-normalized importance sampling applied to QPDs. This technique estimates expectation values by leveraging shared sample sets across different parameter settings.",
+  "model_or_system": "The work focuses on parameterized quantum circuits used in variational algorithms, specifically estimating fidelities between quantum states and calculating the Quantum Geometric Tensor (QGT).",
+  "key_observables": "Fidelity ($|\\langle\\psi|\\phi\rangle|^2$), Real/Imaginary parts of state overlaps ($\\hat{R}, \\hat{J}$), and the Quantum Geometric Tensor (QGT).",
+  "important_parameters": "The sampling overhead factor ($\\gamma$) and variance change factor ($\\chi$) are key parameters analyzed for efficiency.",
+  "main_assumptions": "The reweighting technique is most effective when local channels used in the QPD have angle-independent forms, allowing sample reuse across parameter variations.",
+  "figures_summary": "Figures illustrate circuit diagrams (Hadamard test, QPD decomposition) and numerical results comparing the Root Mean-Squared Error (RMSE) scaling of fidelity estimators under different overhead conditions. Appendix D analyzes error scaling for SPSA estimation.",
+  "paper_structure": "The paper builds from foundational techniques like Hadamard testing for fidelity estimation to applying QPDs for circuit compression, culminating in the novel reweighting strategy for efficient parameter sweeps needed for advanced metrics like the QGT.",
+  "why_interesting": "This work directly addresses computational bottlenecks in variational quantum algorithms by providing a statistically rigorous method to reuse expensive Monte Carlo samples, which is crucial for scaling these methods on near-term hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.02075_figures/2608.02075_fig1.jpg",
+      "caption": "Fig. 2. Decomposition of the compressed Hadamard test circuit: (a) each controlled gate is cut and replaced by a local channel from a predefined decomposition set; (b) the cuts separate the ancilla qubit from the remaining circuit, leaving only local channels in place of the controlled gates.",
+      "page": 3
+    },
+    {
+      "image": "2608.02075_figures/2608.02075_fig2.jpg",
+      "caption": "Fig. 3. Schematic representation of a layered ansatz with 3 qubits. This ansatz is composed of blocks of RZ and RY gates applied to all qubits, inter-layered by CNOT gates. L represents the number of layers, i.e., the number of times the shaded block is repeated (with different parameters).",
+      "page": 4
+    },
+    {
+      "image": "2608.02075_figures/2608.02075_fig3.jpg",
+      "caption": "Fig. 4. Numerical results for the RMSE of the fidelity estimator, averaged over 10 runs. (a) RMSE vs. M−1 with fixed h = 0.1. (b) RMSE vs. γ with fixed M = 5 × 104.",
+      "page": 4
+    },
+    {
+      "image": "2608.02075_figures/2608.02075_fig4.jpg",
+      "caption": "Fig. 5. Comparison of γ and χ of the QPD for two CRZ gates, parameterized by the pairs (θ1, θ2). The red points (±θr, ±θr) represent the reference an- gles. By symmetry, all pairs (±θr, ±θr) lead to the same γr = γ(±θr, ±θr) and χ, and, thus, the same resulting plot. The shaded region indicates the parameters for which γ(θ1, θ2) ≤γr, with the boundary given by the points that satisfy the γ equality; the thin black curve corresponds to the points for which χ = 1; and the dashed square denotes the perturbation domain [−θr, θr]2, within which the variance indicator satisfies χ ≤1.",
+      "page": 5
+    },
+    {
+      "image": "2608.02075_figures/2608.02075_fig5.jpg",
+      "caption": "Fig. 6. Numerical results for the estimation of the real part of the QGT of a 3-qubit system described by the layered ansatz illustrated in Fig. 3 with L = 2. All data points are averaged over 10 runs. (a) Relative error vs. the number of SPSA samples K in a noiseless setting. The fidelity is computed using the cut-HT, HT, and CU methods, constrained to the same total number of circuit executions. We set h = 0.1. (b) Relative error vs. the number of SPSA samples K on Qiskit is fake Manila and Toronto backends with M = 5 × 105 QPD samples. The fidelity is computed using the cut-HT and CU methods, constrained to the same total number of circuit executions. We set h = 0.1 and compare with the...",
+      "page": 7
+    }
+  ],
+  "figure": "2608.02075_figures/2608.02075_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

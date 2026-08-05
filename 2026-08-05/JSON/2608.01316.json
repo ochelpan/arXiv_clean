@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2608.01316",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AR"
+  ],
+  "is_primary_archive": true,
+  "title": "Compiler Framework for 3D Neutral-Atom Quantum Computers",
+  "authors": "Chen Huang, Zhemin Zhang, Zhao Zhang, Xudong Lv, Zhiding Liang",
+  "abstract": "Neutral-atom quantum computers can now arrange atoms in three-dimensional tweezer arrays, yet every existing compiler assumes a flat geometry. We present Piqasso, a compiler that exploits the vertical axis by stacking storage, entanglement, and readout into distinct layers. Its pipeline pairs an analytical placement respecting axial-clearance optics with a router that brings gate partners together via short vertical hops---bypassing in-plane crossing conflicts through out-of-plane detours---and a multi-AOD scheduler that parallelizes transport across focal planes. On 34 circuits, Piqasso reduces atom transport distance by 2.1$\\times$ over a state-of-the-art planar compiler, yielding up to 7.3$\\times$ faster execution, 2.2$\\times$ higher movement fidelity, and 1.8$\\times$ fewer serialized transport rounds, with all gains widening at scale.",
+  "url": "http://arxiv.org/abs/2608.01316v1",
+  "pdf": "https://arxiv.org/pdf/2608.01316v1",
+  "type": "theory",
+  "summary": "The paper introduces Piqasso, a novel compiler framework designed for 3D neutral-atom quantum computers that overcomes the limitations of existing 2D compilers. By treating the axial dimension as a schedulable resource and implementing 'lift-and-hop' routing, it drastically reduces atom movement distance and increases execution speed on complex circuits. This advancement is crucial for scaling up programmable quantum processors.",
+  "main_problem": "Existing quantum circuit compilers assume flat (2D) geometries, which is suboptimal for scaling neutral-atom quantum computers that can operate in three dimensions.",
+  "main_result": "The proposed compiler, Piqasso, significantly outperforms state-of-the-art planar compilers by reducing atom transport distance by 2.1x and achieving up to 7.3x faster execution on complex circuits.",
+  "method": "Piqasso is an end-to-end 3D compiler that integrates clearance-aware placement, conflict-aware routing using 'lift-and-hop' detours, and a multi-AOD scheduler for parallel transport scheduling.",
+  "model_or_system": "The system utilizes neutral atoms trapped in programmable optical tweezer arrays arranged in a layered 'Cubism' architecture along the z-axis. This stack separates storage, entanglement, and readout functions into distinct layers.",
+  "key_observables": "Total atom transport distance (reduction factor), execution time (speedup factor), movement fidelity, and number of serialized transport rounds.",
+  "important_parameters": "Minimum axial clearance ($\\Delta z_{\\min}$), maximum AOL range ($Z_{\\max}$), and the dimensionality of the required quantum circuit.",
+  "main_assumptions": "The primary assumption is that exploiting the third dimension resolves key planar limitations related to growing transport distance, dephasing during long travel, and move serialization due to crossing conflicts.",
+  "figures_summary": "Figure 1 contrasts the axial-rendezvous design (Piqasso) with zoned planar alternatives. Figure 2 illustrates beam propagation, showing how focused Gaussian beams thread the stack while in-plane Rydberg light sheets are confined to dedicated entanglement layers.",
+  "paper_structure": "The paper develops a fidelity-driven optimization framework for 3D compilation, detailing components like clearance-aware placement and conflict-aware routing. It then presents Piqasso's implementation, demonstrating performance gains over planar methods by treating the axial coordinate as a first-class resource.",
+  "why_interesting": "This work directly addresses the scaling bottleneck in neutral-atom quantum computing by providing a necessary software layer (the compiler) to exploit the physical 3D capabilities of the hardware platform. It bridges advanced AMO physics with computational complexity theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.01316_figures/2608.01316_fig1.jpg",
+      "caption": "Fig. 1. Why 3D compilation. (a) A zoned planar architecture requires lateral transport that grows with array size, and the no-crossing constraint serializes conflicting moves. (b) Piqasso stacks storage, an entanglement layer zE, and a readout layer along z: gate pairs rendezvous via short axial hops, and blocked moves detour through a free transit layer (lift-and-hop). (c) Across 34 circuits from QASMBench and VeriQBench, Piqasso moves atoms 2.1× less and is faster on 32 of 34 circuits.",
+      "page": 2
+    },
+    {
+      "image": "2608.01316_figures/2608.01316_fig2.jpg",
+      "caption": "Fig. 2. Propagation direction governs layer selectivity. Left: stacked register, side view. The workhorse beams (traps, tweezers, focused Rz addressing) propagate along z and thread the entire stack: a beam focused on its target atom (waist w0) still illuminates the column neighbor through the slow on- axis tail, forcing the axial clearance ∆zmin. The in-plane Rydberg light sheet is confined to the entanglement layer zE, and readout occurs only on the far- separated readout layer. Right: the two decay scales behind this asymmetry. Along z the intensity falls only algebraically, reaching the crosstalk budget ϵ at ∆zmin, whereas the sheet’s transverse Gaussian tail is exponentially suppressed...",
+      "page": 3
+    },
+    {
+      "image": "2608.01316_figures/2608.01316_fig3.jpg",
+      "caption": "Fig. 3. The Piqasso compilation pipeline: (i) clearance-aware initial placement, (ii) stage-wise routing via entanglement-layer rendezvous, (iii) multi-AOD transport-round scheduling with cross-round pipelining, and (iv) readout mapping to the readout layer; the output is an executable schedule with collision-free trajectories and a measurement plan.",
+      "page": 6
+    },
+    {
+      "image": "2608.01316_figures/2608.01316_fig4.jpg",
+      "caption": "Fig. 4. Cross-round pipelining. (a) In a planar machine the return of pulse round and the ascent of pulse round move in opposite directions through a shared plane, forcing tone crossings that serialize the handoff. (b) In Cubism these moves are near-axial and pack into non-crossing frames; lift-and-hop detours any residual crossing through a free transit layer, so the axial round trips do not inflate the transport-round count.",
+      "page": 6
+    },
+    {
+      "image": "2608.01316_figures/2608.01316_fig5.jpg",
+      "caption": "Fig. 5. Per-circuit transport distance (top) and circuit execution time (bottom) across the full 34-circuit application suite, for Cubism-Piqasso and the Planar- ZAP baseline (both log scale). Circuits are grouped by functional class and sorted by qubit count within each class. Piqasso moves atoms less on every circuit and runs faster on 32 of 34, with the gap widening on larger circuits; the two exceptions (hhl n7 and qpe n9) are small enough that the fixed axial hop is not yet amortized.",
+      "page": 9
+    }
+  ],
+  "figure": "2608.01316_figures/2608.01316_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 1,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

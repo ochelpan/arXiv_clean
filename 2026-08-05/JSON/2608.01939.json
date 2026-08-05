@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2608.01939",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Oraqle: An Empirical Analysis of Qubit Readout and Discriminators in Quantum Error Correction",
+  "authors": "Emmanouil Giortamis, Aleksandra Świerkowska, Sandra Stankovic, Felix Gust, Benjamin Lienhard, Pramod Bhatotia",
+  "abstract": "Quantum error correction (QEC) is the most promising route toward fault-tolerant quantum computing and, thus, useful quantum computers. QEC operates as a continuous measure-decode-correct cycle: ancilla qubits are read out, a decoder infers errors from the resulting syndromes, and corrections are applied before the next round begins. Within this loop, readout occupies a uniquely critical role, as it is the sole source of ground truth available to the decoder. Yet readout is also the slowest and most error-prone operation in the stack, with characteristics that vary across qubits and drift over time; This complexity propagates directly to the classical control hardware, and in particular to the FPGA-hosted machine-learning (ML) discriminator that must classify each analog signal into a binary syndrome outcome. Despite this central role, QEC performance has not yet been studied in depth from the perspective of readout characteristics, readout length, and their co-design with an ML discriminator.   We introduce Oraqle, an end-to-end benchmarking framework that evaluates qubit-state readout and its impact on QEC performance across real experimentally extracted qubit-state-readout datasets, state-of-the-art ML discriminators, multiple QEC codes, and hardware regimes spanning current to projected devices. Our study reveals three asymmetric findings: The measurement duration can be significantly reduced with nearly no penalty to the logical error rate; The discriminator complexity barely affects the QEC performance, as residual errors are written into device physics rather than the model; and the impact of qubit-state readout on the logical error rate is conditional on where the hardware sits in the QEC landscape, a window that widens as devices mature.",
+  "url": "http://arxiv.org/abs/2608.01939v1",
+  "pdf": "https://arxiv.org/pdf/2608.01939v1",
+  "type": "both",
+  "summary": "This paper presents Oraqle, a comprehensive framework to benchmark the entire readout-to-QEC pipeline for superconducting qubits. It systematically analyzes how measurement duration, machine learning discriminators, and QEC codes interact to determine the final logical error rate. The key takeaway is that hardware optimization should focus on reducing readout latency rather than over-engineering the classical decoding model.",
+  "main_problem": "The performance of Quantum Error Correction (QEC) is critically dependent on the readout process, but this co-dependence between readout characteristics, ML discriminators, and QEC performance has not been deeply studied.",
+  "main_result": "The study reveals that measurement duration can be significantly reduced with minimal logical error rate penalty, and discriminator complexity is largely irrelevant as residual errors are dominated by device physics.",
+  "method": "The authors introduce Oraqle, an end-to-end benchmarking framework that systematically evaluates the entire pipeline from raw qubit readout traces through ML discrimination to final QEC performance metrics.",
+  "model_or_system": "The work focuses on superconducting qubits operating in the dispersive regime. The system involves a full cycle: ancilla readout $\rightarrow$ ML decoding $\rightarrow$ error correction, tested across multiple QEC codes (e.g., Surface, Color).",
+  "key_observables": "Logical Error Rate (LER), Readout Fidelity ($F_{5Q}$), and the raw IQ trace data used for classification.",
+  "important_parameters": "Measurement duration ($\\mu$s scale), discriminator complexity/model size, and the specific QEC code structure.",
+  "main_assumptions": "The analysis compares current hardware limitations with projected device capabilities across various noise models (e.g., decoherence-only vs. full flip error).",
+  "figures_summary": "Figures compare LER versus measurement duration under different noise assumptions, demonstrating that readout flip errors are the primary driver of performance degradation at short timescales.",
+  "paper_structure": "The paper establishes the QEC cycle and identifies readout as a bottleneck; it then introduces Oraqle to benchmark the entire stack across multiple codes and hardware regimes, culminating in three key findings regarding measurement time, discriminator role, and maturity dependence.",
+  "why_interesting": "It provides concrete, quantitative guidelines for optimizing the physical implementation layer (readout electronics and ML) that directly impacts the theoretical performance limits of fault-tolerant quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.01939_figures/2608.01939_fig1.jpg",
+      "caption": "Fig. 1. Lifetime of a QEC-protected application. Our framework-based analysis covers the elements in green.",
+      "page": 2
+    },
+    {
+      "image": "2608.01939_figures/2608.01939_fig2.jpg",
+      "caption": "Fig. 2. Readout characteristics drive both the qubit-state discriminator and QEC per- formance, and the discriminator further shapes QEC performance.",
+      "page": 2
+    },
+    {
+      "image": "2608.01939_figures/2608.01939_fig3.jpg",
+      "caption": "Fig. 3. Qubit-state readout pipeline (§ 2). (a) The signal is processed before a discriminator produces a binary outcome. (b) The trace forms a 2D IQ trajectory over the measurement window. (c) An ML-based discriminator clusters the trajectories and learns a decision boundary to output the qubit state.",
+      "page": 5
+    },
+    {
+      "image": "2608.01939_figures/2608.01939_fig4.jpg",
+      "caption": "Fig. 4. Oraqle overview. Oraqle supports diverse trace analysis passes, discriminators, and QEC frameworks.",
+      "page": 9
+    },
+    {
+      "image": "2608.01939_figures/2608.01939_fig5.jpg",
+      "caption": "Fig. 6. Measurement duration effect on assignment fidelity (§ 4.1). (a) Geometric-mean baseline fidelity rises until 𝑡≈0.5𝜇s, then plateaus (Q1, Q2, Q4) or declines (Q3, Q5). (b) The information-gain rate peaks at 𝑡≈0.3𝜇s and turns negative beyond 𝑡≈1𝜇s.",
+      "page": 10
+    }
+  ],
+  "figure": "2608.01939_figures/2608.01939_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

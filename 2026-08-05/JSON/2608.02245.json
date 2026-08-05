@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2608.02245",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.other"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum computer-based simulation of Stark many-body localization in a 1D Fermi-Hubbard model",
+  "authors": "Abdul Kalam, Prasenjit Deb, Akitada Sakurai, Tapan Mishra, V. S. Prasannaa, B. P. Das",
+  "abstract": "Many-body localization (MBL) is a dynamical phenomenon that describes the non-ergodicity of isolated quantum many-body systems. In contrast to thermalization, this phenomenon leads to a long-lived memory of initial states of local systems and slow growth of entanglement. In this work, we study Stark MBL in a 12-qubit correlated fermionic system described by the one-dimensional Fermi-Hubbard model using Hamiltonian simulation on an IBM superconducting qubit quantum computer. To enable such a computation on current-day noisy hardware, we combine a series of compilation steps, including the use of the spin-resolved Jordan-Wigner transformation, employing SWAP networks, and integrating a tensor-network-based quantum circuit optimization routine on top of a standard circuit optimization pipeline. As a result, there is approximately an 88$\\%$ and 87$\\%$ reduction in two-qubit gate count and circuit depth, respectively. Through such simulations of the real-time dynamics using Trotterized quantum circuits, we exhibit a crossover from thermalizing dynamics of the system at a weak tilt of the field to a strongly localized behavior at large tilt with short evolution times. We also benchmark our obtained results with respect to those from exact simulations.",
+  "url": "http://arxiv.org/abs/2608.02245v1",
+  "pdf": "https://arxiv.org/pdf/2608.02245v1",
+  "type": "both",
+  "summary": "This work simulates Stark Many-Body Localization in the 1D Fermi-Hubbard model using an IBM superconducting quantum computer. By optimizing circuit depth and gate count, the authors successfully observed a transition from thermalizing to strongly localized behavior when applying a strong external electric field. This demonstrates the feasibility of simulating complex non-equilibrium condensed matter phenomena on current noisy quantum hardware.",
+  "main_problem": "The study investigates Many-body localization (MBL), specifically Stark MBL, which describes non-ergodic behavior in isolated quantum many-body systems.",
+  "main_result": "The authors demonstrated a crossover from thermalizing to strongly localized dynamics by simulating the t-FHM on a quantum computer using a strong external electric field (large tilt).",
+  "method": "Hamiltonian simulation was performed on an IBM superconducting qubit quantum computer using Trotterized circuits, optimized via tensor network methods.",
+  "model_or_system": "The system is modeled by the one-dimensional Fermi-Hubbard model subjected to a linear Stark potential (tilted Fermi-Hubbard model). The simulation requires mapping the fermionic system onto qubits using a spin-resolved Jordan-Wigner transformation.",
+  "key_observables": "Charge Imbalance ($I_c(t)$), particle number in the initially occupied half ($N_{\text{half}}(t)$), and density evolution.",
+  "important_parameters": "Stark field strength ($\\Delta_0$): weak, intermediate, and strong regimes are analyzed. The simulation is limited by NISQ device noise.",
+  "main_assumptions": "The use of the first-order Trotter approximation for time evolution introduces systematic errors; hardware limitations restrict access to very long evolution times.",
+  "figures_summary": "Figures illustrate the model setup (t-FHM), the quantum circuit workflow involving SWAP networks and optimization routines, and show how observables like $N_{\text{half}}(t)$ change across different Stark field strengths.",
+  "paper_structure": "The paper introduces MBL theory, details the t-FHM Hamiltonian, outlines the qubit mapping and Trotterized simulation protocol, presents results showing the crossover between thermalizing and localized regimes based on the applied tilt strength, and concludes with benchmarking against exact methods.",
+  "why_interesting": "It bridges fundamental condensed matter physics (MBL) with cutting-edge quantum hardware implementation challenges, providing a concrete roadmap for simulating complex many-body dynamics on NISQ devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.02245_figures/2608.02245_fig1.jpg",
+      "caption": "Figure 1. (a) Schematic representation of the tilted Fermi–Hubbard model considered in this work. The hopping amplitude J, on-site interaction U, and linear Stark potential of strength ∆0 define the disorder-free lattice model. A representative charge-density-wave (CDW) initial state and the qubit ordering used in the simulations are also shown. (b) Workflow of the quantum-simulation protocol. The tilted Fermi–Hubbard model is mapped to qubits using a spin-resolved Jordan–Wigner transformation, evolved using a Trotterized SWAP-network circuit, and optimized through AQC-Tensor, Qiskit level-3, and pytket routines before hardware execution. Error suppression is performed using dynamical...",
+      "page": 3
+    },
+    {
+      "image": "2608.02245_figures/2608.02245_fig2.jpg",
+      "caption": "Figure 2. First-order Trotter implementation of the t-FHM. (a) The time-evolution operator is decomposed into hopping, interaction, and Stark-potential contributions. (b) Single Trotter-step circuit employing a constant-depth SWAP-network ar- chitecture, where the Stark-potential, interaction, and hopping blocks are applied sequentially. The SWAP network enables efficient implementation of the next-nearest-neighbor hopping interactions arising from the spin-resolved Jordan–Wigner map- ping using only nearest-neighbor connectivity. (c) Three alternative realizations of the hopping unitary UJ(θJ) considered in this work: Yang–Baxter gate (YBG), Matchgate (MG), and Fermionic Givens Rotation...",
+      "page": 4
+    },
+    {
+      "image": "2608.02245_figures/2608.02245_fig3.jpg",
+      "caption": "Figure 3. Comparison of exact diagonalization (Exact), optimized Trotter simulation [opt-Trotter(S)], and optimized Trotter hardware [opt-Trotter(HW)] results for a L = 6 t-FHM chain initialized in the CDW state. The optimized Trotter circuits are obtained after the circuit-compression and transpilation workflow described in Sec. III. Results are shown for three representative Stark-field strengths: ∆0 = 1 (weak tilt), ∆0 = 3 (intermediate tilt), and ∆0 = 15 (strong tilt). (a) Charge imbalance Ic(t), and (b) Quantum Fisher Information FQ(t). For weak and intermediate tilts, the imbalance rapidly decays while FQ and SPE 2 increase, indicating delocalized dynamics. In contrast, the...",
+      "page": 8
+    },
+    {
+      "image": "2608.02245_figures/2608.02245_fig4.jpg",
+      "caption": "Figure 4. Time evolution of the second-order participation entropy SPE 2 (t) the CDW initial state. Results are com- pared among exact diagonalization (Exact), optimized noise- less Trotter simulation [opt-Trotter(S)], and optimized Trot- ter hardware execution [opt-Trotter(HW)] for three Stark- field strengths, ∆0 = 1, 3, and 15.",
+      "page": 8
+    },
+    {
+      "image": "2608.02245_figures/2608.02245_fig5.jpg",
+      "caption": "Figure 5. von Neumann entanglement entropy for the CDW initial state obtained from exact diagonalization and optimized first-order Trotter simulation. (a) Half-chain entanglement entropy SA=L/2(t) as a function of time for three Stark-field strengths, ∆0 = 1, ∆0 = 3, and ∆0 = 15. Weak and intermediate Stark fields exhibit substantial entanglement growth, whereas strong Stark fields strongly suppress the buildup of entanglement. (b) Subsystem entanglement entropy S(k) evaluated at the final evolution time t = 1.25 as a function of subsystem size k. For weak tilts, the entropy increases rapidly with subsystem size, reflecting extensive information spreading. In contrast, the strong-tilt...",
+      "page": 9
+    }
+  ],
+  "figure": "2608.02245_figures/2608.02245_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 2,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 4,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

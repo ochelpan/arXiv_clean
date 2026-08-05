@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2608.00178",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Neural Quantum States for Nuclear Magnetic Resonance Spectroscopy",
+  "authors": "Bharadwaj Chowdary Mummaneni, Bo Xing",
+  "abstract": "Predicting a nuclear magnetic resonance (NMR) spectrum from first principles requires propagating a quantum state of dimension $2^N$ for $N$ coupled spins, which becomes intractable beyond larger $N$. We benchmark Neural Quantum States (NQS), a class of variational quantum states expressed as an artificial neural network, as an alternative representation for this problem. Using two propagation methods, the Time-Dependent Variational Principle (TDVP) and projected time-dependent Variational Monte Carlo (p-tVMC), we compute the $^1$H spectra of four ($2 \\to 5$ spins) experimentally parameterized molecules. TDVP reproduces all line positions and intensities with average spectral mean squared errors of $<10^{-3}$; p-tVMC reproduces the same features, with accuracy determined by its per-step optimization parameters. One dominant obstacle to larger systems is the steep growth of the number of integration steps with spectral bandwidth, which can be removed by propagating in the interaction frame of the chemical-shifted Hamiltonian. Retaining the same accuracy, this reduces the number of integration steps roughly eightfold for the 3-spin system and by at least an order of magnitude for the 4- and 5-spin systems, and it enables a 14-spin molecule (sucrose) to be accurately propagated via Monte Carlo sampling.",
+  "url": "http://arxiv.org/abs/2608.00178v1",
+  "pdf": "https://arxiv.org/pdf/2608.00178v1",
+  "type": "theory",
+  "summary": "The paper tackles the exponential complexity of simulating NMR spectra by using Neural Quantum States (NQS) to represent the quantum state. By implementing time evolution in the interaction frame, the authors overcome numerical stiffness caused by fast chemical-shift oscillations. This breakthrough allows for accurate simulations on significantly larger molecular systems than previously feasible.",
+  "main_problem": "Predicting Nuclear Magnetic Resonance (NMR) spectra from first principles is computationally intractable due to the exponential scaling of quantum state propagation with the number of coupled spins ($2^N$).",
+  "main_result": "Propagating the dynamics in the interaction frame significantly reduces computational cost by orders of magnitude, enabling accurate simulations for larger molecules like sucrose (14 spins).",
+  "method": "The study employs Neural Quantum States (NQS) combined with time evolution techniques, specifically Time-Dependent Variational Principle (TDVP) and projected time-dependent Variational Monte Carlo (p-tVMC).",
+  "model_or_system": "The system models $N$ coupled spin-$1/2$ nuclei undergoing NMR spectroscopy. The Hamiltonian includes chemical shift ($\\hat{H}_0$) and scalar coupling ($\\hat{H}_1$) terms, derived from experimental parameters.",
+  "key_observables": "NMR spectrum (obtained via Fourier transform of the FID signal), spectral Mean Squared Error (MSE), and entanglement entropy.",
+  "important_parameters": "The primary bottleneck is the steep growth in required integration steps ($\text{Nt}$) with $N$; propagation in the interaction frame mitigates this stiffness.",
+  "main_assumptions": "The methods rely on variational approximations (TDVP/p-tVMC) and assume that transforming to the interaction picture removes numerical stiffness associated with fast chemical-shift precession.",
+  "figures_summary": "Figures illustrate speed-accuracy trade-offs, comparing MSE vs. integration steps in rotating versus interaction frames across various spin numbers ($N=2$ to $5$), and show entanglement entropy evolution for sucrose ($N=14$).",
+  "paper_structure": "The paper first establishes the challenge of exponential scaling in NMR simulation. It then introduces NQS as a variational representation, comparing TDVP and p-tVMC dynamics. The core contribution is demonstrating that transforming to the interaction frame drastically improves computational efficiency for larger systems.",
+  "why_interesting": "This work directly addresses the scalability limits of simulating quantum many-body dynamics in molecular physics by proposing an efficient transformation (interaction picture) within a modern machine learning framework (NQS).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.00178_figures/2608.00178_fig1.jpg",
+      "caption": "FIG. 1: Molecular structures of the four spin systems studied in this work. Hydrogen atoms are shown explicitly; heteroatoms are colored (Cl: green, O: red, N: blue). From top-left to bottom-right: cis-3-chloroacrylic acid (2 1H), 1,2,4-trichlorobenzene (3 1H), 3-methyleneoxetan-2-one (4 1H), and nitrobenzene (5 1H). NMR parameters are from experimental databases [28, 29].",
+      "page": 3
+    },
+    {
+      "image": "2608.00178_figures/2608.00178_fig2.jpg",
+      "caption": "FIG. 2: Transverse magnetization ⟨ˆIx(t)⟩for the 2-spin sys- tem at decreasing ∆t (coarser at top, finest at bottom). Blue shaded: exact evolution; red dashed: NQS-TDVP; green dash-dot: p-tVMC (finest panel only). Both methods con- verge to the exact trajectory as ∆t decreases.",
+      "page": 6
+    },
+    {
+      "image": "2608.00178_figures/2608.00178_fig3.jpg",
+      "caption": "FIG. 3: NMR spectra for all four molecular spin systems, stacked by integration timestep ∆t (coarsest at top, finest at bottom). Colored fills: NQS-TDVP; green: p-tVMC at the finest timestep; dashed black: exact reference. The exact reference is evaluated on the same time grid as the NQS run in each row (Nt points at the corresponding ∆t) and Fourier-transformed identically, so its spectral resolution improves down the stack alongside the NQS spectra; rows differ in resolution, not in the underlying spectrum. All four systems show progressive convergence to the exact spectrum as ∆t decreases; p-tVMC reproduces the same spectral features at the finest level, though with larger residual error...",
+      "page": 7
+    },
+    {
+      "image": "2608.00178_figures/2608.00178_fig4.jpg",
+      "caption": "FIG. 4: Spectral MSE as a function of the hidden-unit ratio α for each molecular spin system (5 independent random seeds per point). Filled circles show individual seeds; connected markers show mean ±1σ; dashed vertical lines mark the optimal α. The 4-spin molecule is anomalous: it achieves its best accuracy at α = 1, whereas all other systems benefit from larger networks.",
+      "page": 8
+    },
+    {
+      "image": "2608.00178_figures/2608.00178_fig5.jpg",
+      "caption": "FIG. 5: Speed–accuracy tradeoff for p-tVMC on the 2- spin system (niter ∈{10, 20, 30, 50, 75, 100} gradient steps per timestep). Wall time scales linearly with niter; MSE drops by four orders of magnitude, showing that accuracy is optimizer- limited rather than expressivity-limited at these system sizes.",
+      "page": 9
+    }
+  ],
+  "figure": "2608.00178_figures/2608.00178_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

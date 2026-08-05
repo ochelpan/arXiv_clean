@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2608.02041",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Towards Tensor-Network SAT-Solvers for Quantum-Classical Workflows",
+  "authors": "Benjamin Zec, Lukas Schmidbauer, Maja Franz, Wolfgang Mauerer",
+  "abstract": "Integrated HPC/QC systems aim to combine classical high-performance computing with quantum processors, but cannot be reduced to mechanisms for dispatching quantum kernels. An integrated architecture must support aspects such as observability, which cannot be implemented using QPUs alone, as well as fallback execution and cost-aware decisions on whether to replace quantum tasks with classical surrogates. Such mechanisms must be approximate or benefit from problem structure to soften the inescapable exponential classical worst-case complexity. In this work, we study tensor-network ground-state search, as such a surrogate, for optimisation problems. This combines key quantum primitives with advanced classical simulation. It provides initial empirical indicators for surrogate selection criteria, and exposes end-to-end toolchain effects that may be missed when transformation steps are studied in isolation. We compare a native polynomial unconstrained optimisation to-higher-order-Ising and a quadratised quadratic unconstrained binary optimization to-quadratic-Ising formulation for Max-3-SAT. Both are encoded as matrix product operator and optimised using density matrix renormalisation group approaches, with simulated annealing (SA) as classical performance baseline. Our results show that quadratisation is not a neutral transformation step: auxiliary variables and pairwise couplings substantially degrade solution quality relative to the native higher-order representation, while SA matches or outperforms DMRG across all tested instances. Since the optima of Boolean satisfiability (SAT)-derived problems are classical product states, DMRGs advantages dont materialise here. These findings suggest that surrogate selection in HPC/QC runtimes must be encoding- and instance-aware and provide empirical groundwork for informed decisions on fallback strategies and architecture co-design.",
+  "url": "http://arxiv.org/abs/2608.02041v1",
+  "pdf": "https://arxiv.org/pdf/2608.02041v1",
+  "type": "both",
+  "summary": "This paper investigates using tensor network methods, specifically DMRG, as a classical surrogate for solving optimization problems derived from SAT instances within hybrid quantum computing workflows. The authors demonstrate that the encoding used (e.g., PUBO vs. QUBO) critically impacts performance, and they find that classical solvers like Simulated Annealing can match or exceed the performance of DMRG for these specific, classically solvable ground-state problems.",
+  "main_problem": "The core problem is developing robust classical surrogate mechanisms for solving optimization problems derived from Boolean satisfiability (SAT) within hybrid High-Performance Computing/Quantum Computing workflows.",
+  "main_result": "The study finds that the choice of encoding (PUBO vs. QUBO) and the resulting solver performance are highly dependent on the problem structure, showing that simple transformations like quadratization can degrade solution quality significantly.",
+  "method": "The authors compare tensor network solvers (DMRG) against classical optimization techniques (Simulated Annealing) applied to Hamiltonians derived from SAT instances encoded as Matrix Product Operators.",
+  "model_or_system": "The model involves mapping Max-3-SAT problems into Pseudo-Boolean Functions, which are then formulated as Ising models and optimized using tensor network representations (MPOs).",
+  "key_observables": "Solution quality (deviation from ground state), runtime scaling with problem size ($n$ variables, $m$ clauses), and the comparative performance of different encoding schemes.",
+  "important_parameters": "The comparison involves native PUBO vs. quadratized QUBO encodings, and DMRG vs. SA solvers across varying system sizes.",
+  "main_assumptions": "It is assumed that integrated HPC/QC systems require classical fallbacks due to limitations like observability, necessitating an understanding of surrogate performance.",
+  "figures_summary": "Figure 1 illustrates the end-to-end workflow comparing PUBO and QUBO paths. Figure 2 compares optimization performance (runtime and deviation) between SA and DMRG for both encodings as a function of $n$ and $m$.",
+  "paper_structure": "The paper establishes the need for classical surrogates in HPC/QC, details the mapping from SAT to MPOs via PUBO/QUBO, benchmarks two encoding paths (native vs. quadratized), and compares DMRG against SA solvers on Max-3-SAT instances.",
+  "why_interesting": "While focused on optimization rather than fundamental quantum dynamics, the use of tensor networks (DMRG) as a benchmark surrogate for classical computation methods is highly relevant to understanding computational resource trade-offs in near-term quantum hardware architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.02041_figures/2608.02041_fig1.jpg",
+      "caption": "Fig. 1. We benchmark two transformation paths: MAX 3-SAT cast into PUBO, Ising and then MPO (path one) and MAX 3-SAT cast into PUBO, quadratised to QUBO, Ising and then MPO. We compare SA and DMRG ground-state deviations for the Ising and MPO models, respectively.",
+      "page": 2
+    },
+    {
+      "image": "2608.02041_figures/2608.02041_fig2.jpg",
+      "caption": "Fig. 2. Optimisation performance of SA (green) and DMRG (yellow), grouped by number of SAT variables n and clause count m. Upper panels show runtime per instance: SA is consistently faster and DMRG scales with n in both encodings, where outliers reflect instances with increased bond dimension χ, driving up contraction cost. Lower panels show deviation from the ground state: the PUBO encoding keeps deviations near zero throughout, while QUBO deviations grow monotonically with n and m and outliers reflect individual instances trapped in local minima due to insufficient bond dimension χ.",
+      "page": 3
+    }
+  ],
+  "figure": "2608.02041_figures/2608.02041_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

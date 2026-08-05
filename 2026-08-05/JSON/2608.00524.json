@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2608.00524",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Cooperative Platoon Routing and Dispatching via Edge-Assisted Hybrid Quantum Optimization",
+  "authors": "Talha Azfar, Ruimin Ke",
+  "abstract": "Cooperative platooning can reduce the energy use of Connected and Autonomous Vehicle (CAV) fleets, but the routing problem becomes difficult when vehicles must meet on the same road segments at compatible times while moving through unstable urban traffic. This paper develops an edge-assisted, closed-loop evaluation pipeline for platooning-aware vehicle routing. Roadside Units estimate local traffic kinematics from video, classify segment-level flow stability, and activate platooning rewards only on road segments where close-gap coordination is physically appropriate. The resulting multi-vehicle routing problem is written directly as a Quadratic Unconstrained Binary Optimization (QUBO) model, so pairwise platooning interactions are represented as native quadratic Ising terms instead of requiring auxiliary MILP linearization variables. We evaluate the framework using a 24-hour microscopic SUMO simulation of Troy, NY, together with localized IBM Quantum hardware benchmarks. The SUMO study shows an $18.5\\%$ reduction in fleet tractive-energy demand relative to a non-cooperative baseline. On 25-active-qubit benchmark instances executed on $\\texttt{ibm_boston}$, Linear-Chain QAOA reduces two-qubit CNOT depth by $66.7\\%$ compared with dense QAOA and samples the exact classical ground state with $P_{\\text{feas}} = 38.6\\%$ and $P_{\\text{opt}} = 14.2\\%$ at $p=2$. These results suggest that edge perception and shallow quantum optimization can work together as a useful component of closed-loop CAV platoon dispatching.",
+  "url": "http://arxiv.org/abs/2608.00524v1",
+  "pdf": "https://arxiv.org/pdf/2608.00524v1",
+  "type": "both",
+  "summary": "The paper proposes an integrated framework for optimizing CAV routing by combining real-time traffic perception from roadside units with quantum computing. It formulates the problem as a QUBO and uses LC-QAOA on physical hardware, achieving significant energy savings (18.5%) in simulations while demonstrating improved quantum circuit performance over classical methods.",
+  "main_problem": "Developing an edge-assisted, closed-loop evaluation pipeline for platooning-aware vehicle routing in Connected and Autonomous Vehicle (CAV) fleets operating in unstable urban traffic.",
+  "main_result": "The framework achieved an 18.5% reduction in fleet energy demand in simulations, while quantum benchmarks showed LC-QAOA reducing CNOT depth by 66.7% on physical hardware.",
+  "method": "The problem is formulated as a QUBO model and solved using Linear-Chain QAOA (LC-QAOA) executed on an IBM QPU, integrated with edge perception data from roadside units.",
+  "model_or_system": "The system involves a four-tier cyber-physical architecture: SUMO simulation for traffic, RSU vision (YOLOv11) for 6D kinematics, stability gating ($\text{ye}$), and quantum optimization via QUBO Hamiltonian minimization. The objective function is minimized by mapping interactions to native quadratic Ising terms.",
+  "key_observables": "Energy savings (18.5% reduction), Feasible Sampling Probability ($P_{\text{feas}}$ = 38.6%), Optimal Sampling Probability ($P_{\text{opt}}$ = 14.2%), and two-qubit CNOT depth reduction (66.7%).",
+  "important_parameters": "The quantum circuit depth parameter $p$, the stability thresholding constants ($\\le 0.12$ for speed, $\\le 0.5 \text{ m/s}^2$ for variance), and the Lagrange penalty multiplier $\\gamma=50.0$.",
+  "main_assumptions": "The energy model decouples optimization from physical evaluation; quantum execution is currently limited to localized subproblems (e.g., 25 qubits) rather than the entire network.",
+  "figures_summary": "Figures illustrate the four-tier cyber-physical architecture, show cumulative energy savings over time in SUMO simulations, and compare QAOA vs. LC-QAOA performance on the QPU regarding depth reduction and sampling fidelity.",
+  "paper_structure": "The paper details a multi-stage pipeline: 1) Edge perception (RSU/YOLOv11) estimates kinematics and gates platooning rewards based on physical stability. 2) The routing problem is formulated as a QUBO Hamiltonian, incorporating cost, platoon reward, and constraints. 3) This QUBO is solved using LC-QAOA on the QPU. 4) The optimized routes are fed back into a microscopic SUMO simulation for final energy evaluation.",
+  "why_interesting": "This work demonstrates a concrete application where quantum computation (solving NP-hard optimization problems like VRP) is hybridized with classical, real-time edge AI processing to solve complex physical systems challenges in autonomous transportation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.00524_figures/2608.00524_fig1.jpg",
+      "caption": "Fig. 1: Four-tier cyber-physical architecture: SUMO traffic is monitored by RSU camera telemetry (YOLOv11), converted into 6D kinematic features and stability flags (ye), compressed into a reward tensor (Se), solved by LC-QAOA / CPLEX, and returned as optimized CAV routes through TraCI.",
+      "page": 3
+    },
+    {
+      "image": "2608.00524_figures/2608.00524_fig2.jpg",
+      "caption": "Fig. 2: Physical quantum hardware validation using 25 ac- tive qubits on ibm_boston. (a) LC-QAOA achieves 66.7% CNOT gate depth compression compared to standard all-to- all QAOA, increasing feasible sampling probability to 38.6%. (b) Circuit depth p = 2 achieves optimal feasible sampling (Pfeas = 38.6%) and optimal state probability (Popt = 14.2%) before hardware decoherence dominates at p ≥3.",
+      "page": 4
+    },
+    {
+      "image": "2608.00524_figures/2608.00524_fig3.jpg",
+      "caption": "Fig. 3: Microscopic SUMO simulation results over the Troy, NY road network. Dynamic perception gating (ye = 1) reduces gross fleet tractive power demand from 358.4 kWh to 292.1 kWh, achieving an 18.5% physical energy reduction (66.3 kWh saved).",
+      "page": 5
+    }
+  ],
+  "figure": "2608.00524_figures/2608.00524_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

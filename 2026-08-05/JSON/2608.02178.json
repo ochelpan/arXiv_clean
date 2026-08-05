@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2608.02178",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "physics.soc-ph",
+    "cond-mat.stat-mech",
+    "cs.MA",
+    "nlin.AO"
+  ],
+  "is_primary_archive": true,
+  "title": "Microscopic dynamics of consensus formation in multi-agent LLM Naming Games",
+  "authors": "Cristiano De Nobili, Vijayasri Iyer, Alessandro Codello, Raffaella Burioni",
+  "abstract": "Decentralized populations of Large Language Model (LLM) agents can spontaneously reach consensus on shared conventions, yet the microscopic mechanisms by which their internal stochasticity shapes macroscopic ordering remain unexplored. We study a minimal LLM Naming Game in which the listener's decision is a single-token LLM call at decoding temperature $T$, replacing the inventory check of the deterministic Naming Game. Each interaction decomposes into an in-inventory and an out-inventory channel with conditional rates $π(T)\\!\\equiv\\!P(\\text{YES}\\mid w\\in P_j)$ and $φ(T)\\!\\equiv\\!P(\\text{YES}\\mid w\\notin P_j)$, whose balance controls an ordering-disordering drift. A mean-field theory of the two-rate dynamics yields an analytical ordering condition that generalizes the consensus threshold of the stochastic Naming Game to a critical line in the $(π,φ)$ plane. Across three open-weight architectures, consensus is always reached, but through three distinct listener regimes: permissive (repaint-noise dominated), near-deterministic, and conservative (missed-collapse dominated). The effective finite-size exponent $β(T)$ in $t_{\\rm conv}\\!\\sim\\!N^β$ shifts with temperature, and the temperature-sensitivity $α$ in $t_c\\!\\sim\\!e^{αT}$ ranges from ${\\approx}\\,0.67$ to ${\\approx}\\,0$ across architectures. Decoding temperature thus emerges as an architecture-dependent control parameter for decentralized LLM populations, quantitatively characterized by the statistical-physics toolkit.",
+  "url": "http://arxiv.org/abs/2608.02178v1",
+  "pdf": "https://arxiv.org/pdf/2608.02178v1",
+  "type": "theory",
+  "summary": "This paper applies tools from non-equilibrium statistical mechanics to model consensus formation in multi-agent LLM populations. By analyzing the system's dynamics through two key conditional rates, it establishes that decoding temperature acts as a measurable control parameter. The work provides a quantitative taxonomy for understanding how stochasticity dictates collective ordering in AI systems.",
+  "main_problem": "The study investigates the microscopic mechanisms by which internal stochasticity shapes macroscopic ordering during consensus formation among decentralized populations of Large Language Model (LLM) agents.",
+  "main_result": "Consensus is always reached across three distinct listener regimes, and decoding temperature ($T$) emerges as a quantifiable, architecture-dependent control parameter governing the dynamics.",
+  "method": "The analysis employs mean-field theory applied to a minimal LLM Naming Game (LLM-NG), decomposing interactions into two conditional rates ($\\pi(T)$ and $\\phi(T)$).",
+  "model_or_system": "The system is an LLM Naming Game where agent decisions are stochastic single-token calls at temperature $T$. The dynamics are modeled by tracking the evolution of in-inventory ($P_j$) and out-inventory states.",
+  "key_observables": "Conditional rates ($\\pi(T), \\phi(T)$), consensus time scaling exponents ($\beta(T)$, $\\alpha$), and the drift proxy $\\Delta(t)$.",
+  "important_parameters": "Decoding temperature ($T$); The ordering condition is generalized to a critical line in the $(\\pi, \\phi)$ plane.",
+  "main_assumptions": "The setup is deliberately minimal, excluding prompt engineering or multi-turn memory; mean-field theory and two-rate approximations are used for simplification.",
+  "figures_summary": "Figures illustrate the schematic of the deterministic Naming Game and highlight two new LLM-NG channels: 'Missed collapse' and 'Repaint,' which are crucial for understanding stochasticity.",
+  "paper_structure": "The paper develops a microscopic parametrization using $(\\pi, \\phi)$ rates to analyze consensus dynamics. It applies mean-field theory to derive ordering conditions and then characterizes different LLM architectures (Llama, Mistral, Phi3) based on how their $(\\pi, \\phi)$ pair responds to temperature $T$.",
+  "why_interesting": "The framework provides a quantitative statistical physics toolkit—using concepts like critical lines, scaling exponents ($\beta$, $\\alpha$), and mean-field theory—to analyze emergent collective behavior in complex AI systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.02178_figures/2608.02178_fig1.jpg",
+      "caption": "FIG. 1. Schematic of the Naming Game interaction. In the deterministic NG, the decision step is an inventory check (w ∈ Pj); in the LLM-NG it is replaced by the listener’s LLM call at temperature T.",
+      "page": 2
+    },
+    {
+      "image": "2608.02178_figures/2608.02178_fig2.jpg",
+      "caption": "FIG. 2. The two new interaction channels of the LLM-NG that do not exist in the deterministic NG (Fig. 1). Top: a missed collapse occurs when w ∈Pj but the LLM answers NO, at rate 1−π; the inventories are left unchanged. Bottom: a repaint occurs when w /∈Pj but the LLM answers YES, at rate ϕ; the listener discards its inventory and adopts the alien word w. Together with Fig. 1, these panels enumerate the four channels (TP, FN, FP, TN) into which the LLM-NG interaction decomposes (Sec. III).",
+      "page": 3
+    },
+    {
+      "image": "2608.02178_figures/2608.02178_fig3.jpg",
+      "caption": "FIG. 3. Microscopic conditional rates for N = 150 agents at selected temperatures. Top row: consolidation rate π(t) = P(YES | w ∈Pj) for (a) llama3.1:8b, (b) mistral:7b, (c) phi3:14b. Dashed line: deterministic NG (π = 1). Bottom row: repaint rate ϕ(t) = P(YES | w /∈Pj) for (d) llama3.1:8b, (e) mistral:7b, (f) phi3:14b. Dashed line: deterministic NG (ϕ = 0). Shaded bands indicate seed-to-seed variance. Note the different y-axis scales in the bottom row, reflecting the order-of-magnitude difference in repaint noise across models.",
+      "page": 5
+    },
+    {
+      "image": "2608.02178_figures/2608.02178_fig4.jpg",
+      "caption": "FIG. 4. Drift proxy ∆(t) = mπ −λ(1−m)ϕ (λ=1) for (a) llama3.1:8b, (b) mistral:7b, (c) phi3:14b. Positive drift implies net ordering.",
+      "page": 5
+    },
+    {
+      "image": "2608.02178_figures/2608.02178_fig5.jpg",
+      "caption": "FIG. 5. Logarithm of the number of distinct words ln Nd(t) for N =150 agents at all explored temperatures (colour-coded from dark = low T to light = high T). Solid black: deterministic NG baseline. (a) llama3.1:8b: standard ordering (high T = slow). (b) mistral:7b: near-deterministic, all T bunched. (c) phi3:14b: inverted ordering (low T = slowest).",
+      "page": 6
+    }
+  ],
+  "figure": "2608.02178_figures/2608.02178_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 3,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

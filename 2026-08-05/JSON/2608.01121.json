@@ -1,0 +1,81 @@
+{
+  "arxiv_id": "2608.01121",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CC",
+    "cs.DM",
+    "math-ph",
+    "physics.app-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Geometry-Informed Polynomial Time Quantum Approximation Schemes for Constrained Optimisation",
+  "authors": "Chinonso Onah, Kristel Michielsen",
+  "abstract": "When does a noisy quantum sampler yield an end-to-end polynomial-time optimization algorithm with performance guarantees? Building on finite-depth and finite-shot guarantees for Constraint-Enhanced QAOA, we show that inverse-polynomial ideal probability on the optimal set, together with independent sampling, polynomial-time feasibility repair, and scoring, produces an exact-hit fully polynomial randomized approximation scheme, which we call an FPRASq.   This guarantee survives device noise within an instance-dependent window. For effective circuit depth linear in the product of layer count and problem size, preserving an inverse-depth fraction of the ideal optimal mass increases the required shot complexity by one power of the problem size. Beyond this window, deterministic repair guarantees feasibility and provides an instance-dependent approximation guarantee whenever the induced objective inflation is controlled.   The resulting NP-HQ algorithm fits the Chen-Cotler-Huang-Li oracle model. On any NP-hard kernel-admissible promise family, reproducing its inverse-polynomial optimal overlap with a polynomial-time classical sampler would imply that NP is contained in BPP, even with identical repair and perfect access to the constraint structure. Thus, the separation lies in generating the sampling distribution.   We further introduce Heavy-Hitter QAOA, which preserves these conditional guarantees while reducing the retained candidate set and classical post-processing cost by one power of the problem size. Hardware experiments on IBM Eagle r3 processors cover instances with up to one hundred logical variables and match or improve every tested QOptlib reference tour.",
+  "url": "http://arxiv.org/abs/2608.01121v1",
+  "pdf": "https://arxiv.org/pdf/2608.01121v1",
+  "type": "both",
+  "summary": "This paper presents a robust framework for achieving polynomial-time quantum approximation schemes for hard constrained optimization problems, even when subjected to realistic device noise. It introduces the NP-HQ algorithm and Heavy-Hitter QAOA to manage noise effects while maintaining strong theoretical guarantees. The work demonstrates both algorithmic improvements and establishes fundamental computational separations regarding sampling distribution generation.",
+  "main_problem": "Developing end-to-end polynomial-time quantum approximation schemes for solving constrained optimization problems under realistic device noise.",
+  "main_result": "The authors propose the NP-HQ algorithm, achieving an FPRASq in low-noise regimes and establishing a quantum-classical separation showing that generating the optimal sampling distribution is the computational bottleneck.",
+  "method": "The approach combines Constraint-Enhanced QAOA (CE-QAOA) with classical post-processing steps: feasibility checking, problem-structured repair maps for noise correction, and objective scoring. A refinement technique called Heavy-Hitter QAOA reduces classical overhead.",
+  "model_or_system": "The framework utilizes the Onah–Firt–Michielsen (OFM) kernel to encode constrained optimization problems into a fixed-Hamming-weight space. The quantum dynamics are governed by a depth-$p$ CE-QAOA circuit, and the analysis is framed within the NISQ oracle model.",
+  "key_observables": "Optimal solution probability mass ($q_0$), Total Variation Distance ($\\|P_\\epsilon - P_0\\|_{TV}$), and the required shot complexity for high success probability.",
+  "important_parameters": "Circuit depth $G(n, p) = \\Theta(pn)$, noise window size, and the approximation error $\\delta$.",
+  "main_assumptions": "The analysis relies on controlling objective inflation during deterministic repair and assumes that the quantum-classical separation holds unless NP is contained in BPP.",
+  "figures_summary": "Figure 6 illustrates how the maximum permissible heavy-hitter threshold ($\theta_{\\max}$) is limited by a combined error budget derived from depth compression and approximation errors. Tables compare recovered costs using different filtering stages.",
+  "paper_structure": "The paper builds theory by analyzing noise impact via total variation bounds, deriving necessary shot budgets, introducing Heavy-Hitter QAOA for efficiency gains, establishing the NP-HQ algorithm's guarantees, and concluding with hardware validation on IBM Eagle processors.",
+  "why_interesting": "While focused on optimization, the rigorous analysis of error propagation (TV distance) and resource scaling ($\text{depth} \\propto n$) provides transferable theoretical tools for understanding noise resilience in any quantum simulation or computation involving complex Hamiltonians.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.01121_figures/2608.01121_fig1.jpg",
+      "caption": "Figure 1: Raw versus post-repair feasible fraction for the QOptlib benchmark instances executed on ibm_brisbane. Hungarian repair maps all samples back into the feasible permutation set.",
+      "page": 21
+    },
+    {
+      "image": "2608.01121_figures/2608.01121_fig2.jpg",
+      "caption": "Figure 2: Raw versus post-repair feasible fraction for ibm_sherbrooke. As on ibm_brisbane, raw feasibility is very small and deterministic repair restores all outputs to feasibility.",
+      "page": 23
+    },
+    {
+      "image": "2608.01121_figures/2608.01121_fig3.jpg",
+      "caption": "Figure 3: Depth-compression effect. Trading a tiny compiler error δ for a large gate-count reduction ˜G < G reduces total TV error, lets you raise τ, and shrinks the heavy-hitter set. The associated circuit compression is discussed in App. A.8",
+      "page": 24
+    },
+    {
+      "image": "2608.01121_figures/2608.01121_fig4.jpg",
+      "caption": "Figure 5: Empirical CPU runtimes for the three post-processing stages. The classical heavy-hitter stage has the largest footprint, the block-prefiltering stage is substantially cheaper, and the optional top-L compression is cheapest of all.",
+      "page": 29
+    }
+  ],
+  "figure": "2608.01121_figures/2608.01121_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

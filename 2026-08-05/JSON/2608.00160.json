@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2608.00160",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Optimal Decoding for Measurement-Based GHZ State Preparation: The Maximum-Utility Decoder",
+  "authors": "Misha Yutushui, Theo Haas, Simon Trebst",
+  "abstract": "The meticulous preparation of macroscopic Greenberger-Horne-Zeilinger (GHZ) states provides a foundational resource for quantum technologies such as metrology, cryptography, and fault-tolerant codes. While state-of-the-art measurement-based protocols offer efficient low-depth execution, their performance can be bottlenecked by conventional decoders, such as minimum weight perfect matching (MWPM) or even maximum-likelihood decoding (MLD), which optimize for $binary$ logical recovery and fail to maximize the $continuous$ long-range order characteristic of a GHZ state for two-dimensional geometries. Here we overcome this limitation by framing the decoding problem as minimum Bayesian risk inference, introducing a general paradigm that maximizes the expected ${utility}$ of the decoded state. Implementing this maximum-utility approach, we construct an algorithm that achieves the highest possible per-shot decoded quantum order and thereby establish an optimal decoding strategy for measurement-based GHZ state preparation. To improve its computational efficiency, we design a scalable two-stage decoder, which first encodes the syndromes into the edge weights of MWPM and then refines the result with a convolutional neural network trained to maximize the expected utility, at a fraction of the cost of the optimal decoder. Remarkably, we find that the first stage alone$\\unicode{x2014}$which makes the matching aware of the gauge choice at no cost beyond bare MWPM$\\unicode{x2014}$already performs near-optimally up to the largest sizes we study, $N=256\\times256$, closing up to $87\\%$ of the gap between the bare-MWPM and optimal decoding thresholds. Generalizing MWPM and MLD, the maximum-utility decoder (MUD) establishes a versatile framework that can be explicitly tailored to the operational demands of specific experiments by redefining the utility function.",
+  "url": "http://arxiv.org/abs/2608.00160v1",
+  "pdf": "https://arxiv.org/pdf/2608.00160v1",
+  "type": "theory",
+  "summary": "This paper introduces the Maximum-Utility Decoder (MUD) to optimize GHZ state preparation by treating decoding as a continuous utility maximization problem rather than binary recovery. By combining MWPM with a CNN, it achieves near-optimal performance for measuring long-range quantum order in 2D lattices. This work provides a versatile framework applicable across different types of quantum error correction codes.",
+  "main_problem": "The core challenge is developing an optimal decoding strategy for measurement-based GHZ state preparation that surpasses conventional methods limited to binary logical recovery.",
+  "main_result": "The Maximum-Utility Decoder (MUD) establishes an optimal framework by maximizing the continuous expected utility ($\\langle\\hat{M}^2\rangle$), and a scalable two-stage decoder approaches near-optimal performance even in its first stage.",
+  "method": "The authors frame decoding as minimum Bayesian risk inference, generalizing standard decoders to use a continuous utility function. They propose a hybrid approach combining Minimum Weight Perfect Matching (MWPM) with a Convolutional Neural Network (CNN).",
+  "model_or_system": "The study focuses on measurement-based quantum computation protocols implemented on a two-dimensional Lieb lattice geometry, aiming to prepare macroscopic GHZ states under noise.",
+  "key_observables": "Squared magnetization ($\\langle\\hat{M}^2\rangle$), which serves as the continuous utility function quantifying long-range order and state quality.",
+  "important_parameters": "Noise parameters ($t_A, t_B$) defining the error model; lattice size ($N=256 \times 256$); comparison thresholds relative to bare MWPM.",
+  "main_assumptions": "The utility function can be generalized from binary (topological) outcomes to continuous measures like magnetization for GHZ states. The two-stage decoder provides a computationally tractable approximation of the optimal solution.",
+  "figures_summary": "Figures illustrate the decoding process on a Lieb lattice, comparing $\\langle\\hat{M}^2\rangle$ values between MWPM and SW-MWPM, and showing decoding thresholds in parameter space.",
+  "paper_structure": "The paper introduces the MUD framework by contrasting it with binary decoders. It details the physical model (Lieb lattice/RBIM), proposes the two-stage decoder (MWPM $\to$ CNN refinement), presents results comparing performance against existing methods, and discusses generalizations of the utility function.",
+  "why_interesting": "The explicit connection between maximizing a continuous order parameter ($\\langle\\hat{M}^2\rangle$) in decoding algorithms bridges concepts from quantum information theory with statistical physics techniques used to analyze correlated systems (like spin glasses or disordered magnets).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.00160_figures/2608.00160_fig1.jpg",
+      "caption": "FIG. 1. Glassy GHZ state decoding. Shown are schematic data- qubit configurations (white and black circles) along with measured syndromes (domain walls) indicated by red lines. If the lines form a closed loop, they enclose a uniform domain, while in the case of an open loop, they terminate on fluxes marked by pink diamonds, leaving the identification of domains to a decoder. The two panels on the right show two possible decoding outcomes that aim to close the open loop configurations employing a minimum weight perfect matching (MWPM) or a syndrome-weighted SW-MWPM approach, with the shaded regions indicating which qubits will be flipped in the correction step. The quality of a decoder can...",
+      "page": 1
+    },
+    {
+      "image": "2608.00160_figures/2608.00160_fig2.jpg",
+      "caption": "FIG. 2. Measurement-based GHZ state preparation and decoding. (a) The measurement-based preparation and decoding protocol starts from a two-dimensional Lieb-lattice structure, with data qubits qi (white dots) and auxiliary stabilizer qubits aij (orange squares). Measuring the stabilizers produces a glassy GHZ state whose outcomes define syndrome variables sij on the links. Links with outcome sij = −1 are drawn as red lines; connected segments form syndrome strings, whose open endpoints define flux excitations marked by pink diamonds. The syndromes are then passed to a decoder, which returns a feedback correction τi; the resulting correction pattern is shown in purple. (b) Decoding...",
+      "page": 2
+    },
+    {
+      "image": "2608.00160_figures/2608.00160_fig3.jpg",
+      "caption": "FIG. 3. Schematic decoding pipeline for the hybrid-CNN decoder. Measuring the edge stabilizers yields the syndrome s depicted as red dual edges, whose boundary (endpoints) f = ∂s locates the gauge-invariant plaquette fluxes (magenta). The syndrome-weighted MWPM first proposes a baseline correction c (blue), arbitrarily chosen from a number of chains with minimum weight but not necessarily one with the largest recovered long-range order. The CNN then refines the given τ (1) (enclosed in sc = ∂τ (1)) by proposing a calibration τ (2). Finally, the correction applies a Pauli-X on a combination of data qubits τ = τ (1)τ (2).",
+      "page": 4
+    },
+    {
+      "image": "2608.00160_figures/2608.00160_fig4.jpg",
+      "caption": "FIG. 4. Scalable decoding of long-range order. Decoded ⟨ˆ M 2⟩ for L = 6–64 is plotted along the diagonal tA = tB = t. The strip on top marks the extrapolated thresholds tc of each decoder together with the decoder-independent entanglement threshold (Appendix C). The SW-MWPM decoder nearly reaches the entanglement bound— recovering 87% of the gap to bare MWPM [Eq. (17)]—and together with the hybrid-CNN restores substantially more long-range order than bare MWPM up to L = 64, well beyond the reach of the optimal MUD.",
+      "page": 6
+    },
+    {
+      "image": "2608.00160_figures/2608.00160_fig5.jpg",
+      "caption": "FIG. 5. Relative decoder performances. Shown is the normalized improvement in decoded squared magnetization ∆rel⟨ˆ M 2⟩≡∆dec−1,dec−2 defined in Eq. (18). (a) Syndrome- weighted MWPM relative to conventional MWPM. (b) Hybrid-CNN decoder relative to syndrome-weighted MWPM. (c) Exact MUD rel- ative to the Hybrid-CNN decoder. Each column corresponds to a cut through the phase diagram of Fig. 2(b), with varying measurement strength tA at fixed tB. The color bars indicate the lattice sizes.",
+      "page": 7
+    }
+  ],
+  "figure": "2608.00160_figures/2608.00160_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "entanglement & information structure": 2,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 2,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 1,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

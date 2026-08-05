@@ -1,0 +1,86 @@
+{
+  "arxiv_id": "2608.00939",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "physics.soc-ph",
+    "cond-mat.dis-nn",
+    "cs.AI",
+    "nlin.AO",
+    "physics.app-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Temperature-driven inversion and nonlinear dynamics in ChatGPT-like AIs",
+  "authors": "Neil F. Johnson, Frank Yingjie Huo, Bella Xinrui Li",
+  "abstract": "Increasing the temperature of an ordinary many-state system increases access to a wider range of states and hence increases its entropy. We find the opposite in ChatGPT-like AIs, even though raising the decoder temperature likewise increases access to a wider range of states (next-token choices). Across 12,000 continuations from 11 AIs, autoregressive feedback drives the long-time output population through an entropy maximum and into population inversion. The transition features frozen states, cycles, intermittency and noise-induced ordering. We present evidence of a hidden coordinate that acts as the state variable of an effective nonlinear map. Its trajectory average strongly predicts output repetition in separate test trajectories. ChatGPT-like AIs therefore behave not as `stochastic parrots', but as a new class of controllable nonlinear physical systems whose internal dynamics can be measured and perturbed.",
+  "url": "http://arxiv.org/abs/2608.00939v1",
+  "pdf": "https://arxiv.org/pdf/2608.00939v1",
+  "type": "both",
+  "summary": "This paper reinterprets ChatGPT-like AI generation not as random text prediction but as a controllable nonlinear physical system. By analyzing how output entropy changes with temperature, the authors demonstrate a phenomenon called 'population inversion.' They successfully map this behavior onto an effective dynamical equation governed by a hidden coordinate, suggesting that LLMs are fundamentally structured physical devices.",
+  "main_problem": "The study investigates the non-intuitive dynamics of ChatGPT-like AIs, specifically how increasing decoder temperature affects output entropy and long-term population distribution.",
+  "main_result": "Contrary to expectation, the AI output undergoes a 'population inversion' where increased randomness leads to structured ordering rather than pure disorder. The system can be modeled by an effective nonlinear map whose hidden coordinate predicts future behavior.",
+  "method": "The authors analyzed 12,000 continuations across multiple AIs, classifying outputs into dynamical regimes and deriving coarse-grained variables ($m$, $S_2$) to track population shifts.",
+  "model_or_system": "The system is the autoregressive text generation process of LLMs (e.g., GPT-2, Llama), which is modeled as an iterative nonlinear physical system governed by a hidden coordinate $\\mathbf{x}_n$.",
+  "key_observables": "Output entropy ($S_2$), sign change in effective level gap ($\beta_{eff}\\Delta$), and the correlation coefficient ($\\rho$) between the hidden coordinate's prediction and actual output repetition.",
+  "important_parameters": "Decoder Temperature ($T_d$), which acts as a controlled physical parameter; the hidden coordinate $\\mathbf{x}_n$.",
+  "main_assumptions": "The analysis relies on coarse-graining sentences into symbols and assuming that the complex dynamics can be captured by projecting transformer operations onto a single, effective nonlinear map.",
+  "figures_summary": "Figures illustrate population inversion across temperature sweeps, showing structured dynamical routes (e.g., Llama vs. Pythia) reaching an entropy maximum followed by inversion; other figures show how perturbing the hidden coordinate $\\mathbf{x}_n$ predictably alters repetition rates.",
+  "paper_structure": "The paper moves from observing counter-intuitive macroscopic behavior (population inversion with $T_d$) to developing a quantitative framework using coarse variables, and finally proposing an underlying effective nonlinear dynamical map parameterized by a measurable hidden coordinate $\\mathbf{x}_n$.",
+  "why_interesting": "It treats the complex, high-dimensional dynamics of LLMs as a physical system exhibiting phase transitions and non-equilibrium behavior, drawing direct parallels to concepts used in statistical mechanics and nonlinear physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.00939_figures/2608.00939_fig1.jpg",
+      "caption": "Figure 1: Illustrative GPT-2 output for the prompt ‘AI is . . . ’. As Td rises, generation moves from a single repetitive attractor-like pattern through additional periodicities and switching, and eventually to regularity and novelty coexisting in human-like output. For convenience, we coarse-grain sentences to symbols. Figure 2 quantifies the resulting population inversion between coarse recurrent and complex/noisy macrostates.",
+      "page": 3
+    },
+    {
+      "image": "2608.00939_figures/2608.00939_fig2.jpg",
+      "caption": "Figure 2: Maximum entropy marks ChatGPT-like AIs’ output inversion. a, Normal- ized mixing entropy for the two output sectors. Its maximum is near equal occupation. The dashed orange curve is the occupancy-defined dimensionless parameter βeff∆, which changes sign at the mean crossing T ∗ d = 0.517; the grey band spans the 11 individual-AI crossings. b, Occupancy of the complex/noisy sector for the 11 AIs (GPT-2, blue; Pythia, green; Llama, orange). Black is the unweighted mean across AIs. c, Reversal of the corresponding signed order parameter, completing the population-inversion signature. Blue and purple shading in panels a and c spans the interquartile range across the 11 AIs.",
+      "page": 4
+    },
+    {
+      "image": "2608.00939_figures/2608.00939_fig3.jpg",
+      "caption": "Figure 3: Different structured routes through the same population inversion. P1, P4 and P5 denote prompts 1, 4 and 5 in the fixed five-prompt set listed in Supplementary Note 2. a, Frozen output is the most common regime for Llama-3.1-70B at low and intermediate temperatures, before stronger noise destroys that ordering. At each Td, the marker position and background colour identify the most common regime among ten runs; marker size gives the fraction of runs in that regime, with percentages shown when this fraction is below 65%. b, Pythia-12B instead passes through several recurrent regimes before noisy output becomes the most common; symbols and shading have the same meanings as in a. c,...",
+      "page": 5
+    },
+    {
+      "image": "2608.00939_figures/2608.00939_fig4.jpg",
+      "caption": "Figure 4: A hidden coordinate defined from training data predicts repetition in separate test trajectories. a, Repetition falls sharply between Td = 0.7 and 0.8 in separate training and test runs. Lines show medians across ten runs at each temperature; shading spans the interquartile range. b, Repetition in each of the 140 separate test trajectories versus the value of xn averaged over that trajectory; colour denotes decoder temperature. c, The median trajectory-averaged value of xn reverses across the same sharp repetition change; shading spans the interquartile range across the ten test runs at each temperature.",
+      "page": 7
+    },
+    {
+      "image": "2608.00939_figures/2608.00939_fig5.jpg",
+      "caption": "Figure 5: Steering the AI’s hidden state changes repetition. a, Change in repetition as the hidden state is steered with different strengths along the hidden direction. b, Resulting change in the hidden coordinate xn at later next-token generation steps, measured immediately before the perturbation is applied at each step. Points show averages across ten separate test runs; error bars show 95% bootstrap confidence intervals.",
+      "page": 8
+    }
+  ],
+  "figure": "2608.00939_figures/2608.00939_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 1,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 3,
+    "non-equilibrium dynamics": 3,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

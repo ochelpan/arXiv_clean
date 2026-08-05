@@ -1,0 +1,85 @@
+{
+  "arxiv_id": "2608.01582",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cond-mat.dis-nn",
+    "cs.LG",
+    "math-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "LieStoNet: Learning Lie Symmetries from Spatiotemporal Data for Stochastic Dynamical Systems",
+  "authors": "Shida Liu, Abhishek Gupta, Sumit Sinha, L. Mahadevan",
+  "abstract": "Symmetry is central to modern machine learning and physics: invariances and equivariances improve sample efficiency, robustness, and out-of-distribution generalization, while symmetry principles guide scientific modeling. Yet for stochastic dynamical systems the relevant continuous symmetries are rarely known, and symmetry discovery for SDEs has remained essentially unexplored. We introduce \\textit{LieStoNet}, an end-to-end, \\emph{template-free} framework for discovering Lie-point symmetries of SDEs directly from spatiotemporal trajectories, without prespecifying symmetry groups, templates, or canonical coordinates. Building on the seminal SDE Lie-symmetry theory of Gaeta and Quintero (1999), which formalizes Lie-point SDE symmetries and their relation to Fokker-Planck symmetries, LieStoNet learns neural surrogates for drift and diffusion from increments, then learns projectable generators by enforcing the SDE determining equations, separately regularizing for closure under Lie brackets, adherence to the Lie algebra axioms (bilinearity, antisymmetry, Jacobi), and a non-redundant independent basis. The surrogate also defines an associated Fokker-Planck equation, enabling optional discovery of its Lie-point symmetries in parallel. Across multiple canonical SDEs with known analytic symmetries, LieStoNet recovers generators consistent with the ground-truth symmetry algebra, providing interpretable symmetry discovery for noisy dynamics. Code is available at \\href{https://github.com/sumit-sinha-seas/LieStoNet_Final.git}{this link}.",
+  "url": "http://arxiv.org/abs/2608.01582v1",
+  "pdf": "https://arxiv.org/pdf/2608.01582v1",
+  "type": "theory",
+  "summary": "This paper introduces LieStoNet, a novel machine learning framework designed to discover continuous symmetry generators for Stochastic Differential Equations directly from raw data. By enforcing both the SDE's determining equations and the algebraic properties of Lie brackets within its loss function, it provides an interpretable method for analyzing symmetries in noisy stochastic systems.",
+  "main_problem": "The core problem is discovering continuous Lie-point symmetries for Stochastic Differential Equations (SDEs) directly from noisy, spatiotemporal data trajectories.",
+  "main_result": "LieStoNet successfully recovers symmetry generators consistent with known analytic algebras across various canonical SDEs, providing an interpretable tool for analyzing stochastic dynamics.",
+  "method": "It employs an end-to-end framework that first trains a neural surrogate for the SDE coefficients and then learns the symmetry generators by minimizing losses enforcing both the SDE determining equations and the Lie algebra axioms (closure and Jacobi identity).",
+  "model_or_system": "The system modeled is governed by an Itô SDE: d x_t = f(t, x_t) dt + sigma(t, x_t) dW_t. The analysis connects this stochastic view to the associated deterministic Fokker-Planck equation.",
+  "key_observables": "Discovered Lie-point symmetry generators and the maximum principal angle between learned and analytic symmetry-algebra spans.",
+  "important_parameters": "The relative weights assigned to different loss terms (e.g., $w_6$ for SDE constraints, $w_7$ for finite-step losses) are critical operational parameters.",
+  "main_assumptions": "The method is limited to discovering projectable Lie-point symmetries and relies on the assumption that a differentiable neural surrogate can accurately capture the underlying dynamics from discrete samples.",
+  "figures_summary": "Tables detail performance metrics, ablation studies showing loss term importance, and quantitative analysis of how the maximum principal angle varies non-monotonically with optimization weights $w_6$ and $w_7$.",
+  "paper_structure": "The paper introduces LieStoNet in two stages: first, training a neural surrogate for the SDE coefficients from data; second, optimizing the symmetry generators by minimizing a composite loss function that enforces both physical constraints (SDE determining equations) and mathematical structure (Lie algebra axioms).",
+  "why_interesting": "While focused on general stochastic systems, the methodology of using deep learning to enforce complex underlying mathematical structures (like Lie brackets) is highly relevant for modeling quantum dynamics where symmetries are crucial for simplification.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.01582_figures/2608.01582_fig1.jpg",
+      "caption": "Figure 1. Pipeline for LieStoNet",
+      "page": 5
+    },
+    {
+      "image": "2608.01582_figures/2608.01582_fig2.jpg",
+      "caption": "Figure 2. Post-training Lie bracket closure loss L1 vs. number of generators m across four experiments. Colors denote independent runs with identical settings (different random seeds), showing the minimum is consistently attained at the ground-truth m rather than a one-off.",
+      "page": 6
+    },
+    {
+      "image": "2608.01582_figures/2608.01582_fig3.jpg",
+      "caption": "Figure 3. Distribution of combination-wise maximum principal angles. Number of learned generators (m) vs. principal angles. The blue boxes denote the interquartile range; the orange horizontal lines inside the box denote the median; the green up triangles and the blue down triangles denote the maximum and minimum of maximum principal angles, respectively; the orange dots denote the mean.",
+      "page": 7
+    },
+    {
+      "image": "2608.01582_figures/2608.01582_fig4.jpg",
+      "caption": "Figure 4. Learned generator components for Example 1. Part (a): temporal component τi(t). Part (b): spatial component ξi(t, x) visualized as heat maps.",
+      "page": 16
+    },
+    {
+      "image": "2608.01582_figures/2608.01582_fig5.jpg",
+      "caption": "Figure 6. Learned generator components for Example 3. Part (a): τi(t). Part (b): ξi(t, x) heat maps.",
+      "page": 17
+    }
+  ],
+  "figure": "2608.01582_figures/2608.01582_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

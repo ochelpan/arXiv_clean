@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2608.02049",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Adaptive Reconstruction of Bosonic Quantum States",
+  "authors": "Vasilisa Usova, Phila Rembold, Ian Yang, Marco Rossignolo, Simone Montangero, Samuele Tosatto, Gerhard Kirchmair",
+  "abstract": "Bosonic quantum systems provide a hardware-efficient platform for quantum information processing but remain challenging to characterise due to their large Hilbert space and the high measurement cost of state tomography. Existing approaches estimate the fidelity with respect to a single target state, making them unsuitable for applications in which physically equivalent states differ by phase space translations, rotations, or other transformations. Here, we introduce an adaptive reconstruction technique that estimates the fidelity with respect to a family of bosonic states while reconstructing the underlying Wigner function from a small number of measurements. The method combines a physics-informed parametric model with Bayesian inference, bootstrap, and active learning to iteratively select the most informative phase space sampling points. We implement the approach on a circuit quantum electrodynamics platform and benchmark it on Schrödinger cat states with amplitudes $α\\in[1,3]$. The reconstruction yields reproducible fidelity estimates within a few minutes, remains robust to substantial displacements and rotations in phase space despite using a mismatched prior, and is sensitive to subtle state imperfections. We further compare the adaptive strategy with existing Wigner function sampling protocols experimentally, demonstrating the advantage of adaptive sampling for measurement-efficient fidelity estimation with respect to a family of cat states. Finally, we incorporate the reconstructed fidelity into the figure of merit used in a proof-of-principle closed-loop quantum optimal control experiment, demonstrating the applicability of the method to autonomous optimisation of bosonic quantum states.",
+  "url": "http://arxiv.org/abs/2608.02049v1",
+  "pdf": "https://arxiv.org/pdf/2608.02049v1",
+  "type": "both",
+  "summary": "The paper introduces an adaptive reconstruction technique to estimate the fidelity of bosonic quantum states, such as Schrödinger cat states, by reconstructing their Wigner function from minimal measurements. It employs a sophisticated combination of Bayesian inference and active learning guided by uncertainty quantification. This method proves highly efficient for experimental platforms like cQED, enabling autonomous state optimization via closed-loop control.",
+  "main_problem": "Characterizing bosonic quantum states is difficult due to large Hilbert spaces and high measurement costs, especially when physical equivalence involves phase space transformations.",
+  "main_result": "The proposed adaptive reconstruction technique successfully estimates state fidelity with respect to a family of states using significantly fewer measurements than conventional methods.",
+  "method": "It combines physics-informed parametric modeling with Bayesian inference, bootstrap resampling, and active learning to guide the selection of optimal phase space sampling points.",
+  "model_or_system": "The study focuses on bosonic systems implemented on a circuit quantum electrodynamics (cQED) platform. Key states analyzed are Schrödinger cat states, whose properties are characterized via their Wigner function in phase space.",
+  "key_observables": "Wigner function $W(\beta)$, fidelity estimates ($F_{2\text{-fidelity}}$), and the Fisher Information Matrix (FIM).",
+  "important_parameters": "Cat state amplitudes $\\alpha \\in [1, 3]$, measurement budget ($N_{\text{total}}$), and entropy thresholds ($H_{\text{th}}$) for active sampling.",
+  "main_assumptions": "The analysis assumes Gaussian noise in Wigner measurements and relies on asymptotic limits when comparing different optimal sampling strategies.",
+  "figures_summary": "Figures illustrate the closed-loop quantum optimal control workflow, the iterative process of adaptive sampling using bootstrapped data to guide new measurement points, and comparisons showing how various sampling methods converge to theoretical bounds for fidelity uncertainty.",
+  "paper_structure": "The paper progresses from identifying the limitations of single-state tomography to introducing an active learning framework. It details the Bayesian/bootstrap methodology for reconstruction, demonstrates its application on cQED cat states, and concludes by comparing the resulting measurement efficiency against established sampling protocols using CRB analysis.",
+  "why_interesting": "This work directly addresses the practical challenge of characterizing complex quantum states in hardware platforms like cQED. The combination of active learning with quantum control makes it highly relevant for experimentalists working on open quantum systems and state preparation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.02049_figures/2608.02049_fig1.jpg",
+      "caption": "Figure 1: Closed-loop optimal control and bosonic state reconstruction. (a) Closed-loop quantum optimal control in a cQED setup. A figure of merit (FoM) is calculated based on the result of the bosonic state reconstruction and passed to the optimisation algorithm that generates new control pulses for the next optimisation iteration. (b) Reconstruction algorithm workflow. Measured Wigner values are sampled with replacement to obtain 10 different datasets. These datasets are passed to 10 identically initialised models. As a result of maximum a posteriori (MAP) optimisation, models converge to a different set of parameters and produce various Wigner maps. Deviations between the generated...",
+      "page": 3
+    },
+    {
+      "image": "2608.02049_figures/2608.02049_fig2.jpg",
+      "caption": "Figure 2: Example of the state reconstruction. (a) Reference high-resolution Wigner map. The measurement time is about 4 hours. (b) Reconstructed Wigner map. The measurement time is about 3.5 minutes. (c) 1000 measured points during the reconstruction. (d) Residuals between the measured and reconstructed data R(β) = Wmeas(β) −Wmodel(β). Since the model does not account for the bending of the fringes (see Eq. (4)), a small deviation is always present between the model and the observed data in the fringe area.",
+      "page": 5
+    },
+    {
+      "image": "2608.02049_figures/2608.02049_fig3.jpg",
+      "caption": "Figure 3: Hyperparameter search for the optimal reconstruction. The statistics for each set of hyperparameters is obtained from 100 experimental reconstruction runs. Infidelity is calculated as F2-fidelity between the model fit to the reference high-resolution Wigner map and the reconstructed Wigner map. (a) Mean of infidelities, calculated by 10 bootstrapped models, after 1000 measurements for different sets of hyperparameters. Each band represents one combination of hyperparameters. Its colour shows the resulting mean infidelity, where darker purple colours represent a smaller mean infidelity across the reconstruction runs. (b) Standard deviation of infidelities, calculated by 10...",
+      "page": 6
+    },
+    {
+      "image": "2608.02049_figures/2608.02049_fig4.jpg",
+      "caption": "Figure 4: Illustration of the fidelity metrics (estimands) used in this section, computed according to Eq. (11). The coloured Wigner map corresponds either to the measured Wigner values or to the fitted/corrected Wigner map inferred from those measurements. The black contour indicates the reference Wigner map against which the fidelity is evaluated. (a) Fidelity between the Wigner map of the measured state and the target cat state, F (m) ≡F (meas, target) 2 . (b) Fidelity between the fit to the measured Wigner values and the fit to a high-resolution Wigner map, F (f) ≡F (fit meas, fit high res) 2 . (c) Fidelity between the fit corrected for the transformations (displacements and rotations)...",
+      "page": 8
+    },
+    {
+      "image": "2608.02049_figures/2608.02049_fig5.jpg",
+      "caption": "Figure 5: Comparison of Wigner function sampling strategies for |Cπ√",
+      "page": 9
+    }
+  ],
+  "figure": "2608.02049_figures/2608.02049_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 3,
+    "Tavis-Cummings & cavity-many-emitter": 2,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 2,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}
