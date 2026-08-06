@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2608.02789",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "eess.SY"
+  ],
+  "is_primary_archive": true,
+  "title": "PACE-QAOA: Physics-Constrained Quantum Optimization for Qubit-Efficient Power System Islanding",
+  "authors": "Yuqi Jiang, Zhiding Liang, Qiang Guan, Yan Li, Ganesh Kumar Venayagamoorthy",
+  "abstract": "Controlled islanding partitions a stressed power network to limit disrupted power transfer while preserving operational integrity in every island. This NP-hard partitioning problem becomes increasingly demanding as networks grow, motivating quantum optimization as a complementary approach. However, limited qubit capacity restricts the scale at which conventional QAOA can address islanding. This paper develops a qubit-efficient hybrid quantum formulation that overcomes this barrier. A physics-informed compact encoding captures essential islanding decisions while exploiting grid structure, with formal guarantees preserving the feasible solution space and optimization objective. A qubit-efficient Lagrangian strategy combines quantum optimization with classical refinement to enforce operational constraints. Complexity analysis shows that for fixed island counts on sparse graphs, the formulation reduces phase-separator and per-layer gate complexity from quadratic to linear scaling. Evaluations on eight IEEE systems (9 to 89 buses) across multiple quantum backends produce feasible, high-quality solutions under practical circuit and sampling budgets. Factorial ablation attributes resource and runtime gains to the complementary effects of compact encoding and qubit-efficient Lagrangian constraint handling. Noise analysis demonstrates stable solution quality under device noise, and landscape diagnostics reveal smoother, more consistently scaled QAOA cost surfaces. These results provide a transferable pathway for scaling constrained quantum optimization toward larger real-world applications on near-term hardware.",
+  "url": "http://arxiv.org/abs/2608.02789v1",
+  "pdf": "https://arxiv.org/pdf/2608.02789v1",
+  "type": "both",
+  "summary": "This paper tackles the NP-hard problem of optimal power system islanding by developing a novel, qubit-efficient hybrid quantum optimization approach using QAOA. By combining compact encoding techniques with Lagrangian constraint handling, the authors significantly reduce the required quantum resources and improve the scalability of the algorithm. This provides a transferable pathway for applying constrained quantum optimization to large, real-world engineering problems on near-term hardware.",
+  "main_problem": "The core problem is solving controlled power system islanding, an NP-hard combinatorial optimization task, using quantum computation.",
+  "main_result": "The authors developed a qubit-efficient hybrid QAOA formulation that reduces circuit complexity from quadratic to linear scaling on sparse graphs while maintaining solution quality across multiple IEEE test systems.",
+  "method": "They employ a physics-informed compact encoding and a qubit-efficient Lagrangian constraint strategy within the QAOA framework to manage resource constraints imposed by near-term quantum hardware.",
+  "model_or_system": "The model is a power network represented as a weighted graph, where the goal is partitioning it into self-sustaining islands. The optimization is formulated as minimizing cut weight subject to connectivity and size constraints.",
+  "key_observables": "Feasible, high-quality islanding solutions; linear scaling of phase-separator and per-layer gate complexity; stable solution quality under device noise.",
+  "important_parameters": "System size (up to 89 buses); fixed number of islands ($K$); circuit depth and sampling budgets.",
+  "main_assumptions": "The approach assumes that compact encoding and Lagrangian updates can effectively reduce the required qubit count below conventional formulations, although final feasibility requires classical power-flow analysis.",
+  "figures_summary": "Figures compare different Hamiltonian formulations (e.g., direct vs. Lagrangian) showing reductions in Pauli-term count and improved landscape smoothness for trainability.",
+  "paper_structure": "The paper introduces the problem, develops a compact encoding ($E_1$ to $E_2$), implements a slack-free Lagrangian treatment, analyzes complexity scaling (reducing gate complexity from quadratic to linear), validates results on multiple IEEE benchmarks, and performs noise analysis.",
+  "why_interesting": "While focused on power systems, the core methodology—developing resource-efficient quantum encodings and constraint handling for hard combinatorial problems—is highly relevant to simulating complex many-body Hamiltonians in AMO physics or optimizing quantum control sequences.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.02789_figures/2608.02789_fig1.jpg",
+      "caption": "Fig. 1. Overall PACE-QAOA workflow for controlled power-system islanding. (1) The original grid is modeled as a weighted graph with generator, load, and transit buses and 𝐾coherent anchor groups. (2) Each coherent group is contracted into an anchor super-bus to form a cut-preserving working graph. (3) The compact encodings E1 and E2 represent bus-to-island assignments, with E2 fixing anchor labels to further reduce the assignment register. (4) A 𝑝-layer QAOA circuit samples candidate assignments. (5) Lagrangian refinement uses constraint violations to score promising samples and update the multipliers. (6) Assignment repair converts the selected samples into feasible connected islands....",
+      "page": 11
+    },
+    {
+      "image": "2608.02789_figures/2608.02789_fig2.jpg",
+      "caption": "Fig. 2. Qubit requirements of the five islanding formulations across IEEE bus systems. Black represents full one- hot QAOA. Orange and green represent encoding E1 without and with the Lagrangian treatment, respectively. Purple and magenta represent encoding E2 without and with the Lagrangian treatment, respectively. Filled markers and solid lines indicate executed cases through the IEEE 89-bus system. Open markers and dashed lines indicate formula-based projections for the IEEE 118-, 145-, and 300-bus systems. The red dashed line marks the 156-qubit capacity of the available IBM backend.",
+      "page": 22
+    },
+    {
+      "image": "2608.02789_figures/2608.02789_fig3.jpg",
+      "caption": "Fig. 3. Optimal islanding results generated by the proposed QAOA framework on the IEEE 9-, 14-, 24-, and 30-bus test systems. Bus colors indicate the island assignment of each bus, and the red dashed lines denote the transmission interfaces removed to form the final islands. The resulting islands consist mainly of neighboring buses and require only a few transmission lines to be disconnected.",
+      "page": 24
+    },
+    {
+      "image": "2608.02789_figures/2608.02789_fig4.jpg",
+      "caption": "Fig. 4. Optimal islanding results generated by the proposed QAOA framework on the IEEE 39-, 57-, 73-, and 89-bus test systems. Bus colors indicate the island assignment of each bus, and the red dashed lines denote the transmission interfaces removed to form the final islands. The resulting islands consist mainly of neighboring buses and require only a few transmission lines to be disconnected.",
+      "page": 25
+    },
+    {
+      "image": "2608.02789_figures/2608.02789_fig5.jpg",
+      "caption": "Fig. 5. Island-level active- and reactive-power support margins across all benchmark systems. Each cell reports the exact margin in MW or MVAr, while the white-to-blue color scale represents the corresponding margin normalized by island demand. Darker cells indicate greater relative headroom. Gray cells denote an unavailable third island in a two-island system.",
+      "page": 31
+    }
+  ],
+  "figure": "2608.02789_figures/2608.02789_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2608.03987",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Realified tensor networks: quantum circuit simulation on real-valued matrix accelerators",
+  "authors": "Yusheng Zhao, Xiwei Pan, Enji Xiong, Chengkai Zhu, Jinguo Liu",
+  "abstract": "Tensor-network contraction simulates quantum circuits, but modern matrix accelerators (NPUs, TPUs) expose only real GEMM pipelines, so the complex networks of quantum simulation must be reconstructed in software. We resolve the mismatch by a realification rewrite that maps any complex tensor network to a real one. At each merge of two complex tensors, a rank-3 structure tensor realizes Gauss's three-multiplication (3M) formula; contractions with one or no complex operand need only two or one real products. We prove a tight cost law: overhead $1 + 2m + r$ in real multiplications, where $m$ and $r$ are the volume fractions of two- and one-complex-operand contractions, never exceeding $3\\times$ relative to real contraction, with every intermediate at most doubled in size. On 67 circuits (random, Clifford+$T$, QAOA, VQE), the law holds across the real-to-complex range and complex-gate placement, not count, governs cost. Contraction orders transfer from the complex network with a relative arithmetic-cost gap below $5\\times 10^{-4}$ on 66 of 67 circuits; the exception closes under a few steps of low-temperature simulated annealing. On an Ascend 910 NPU the rewrite beat both the four-real-GEMM baseline and a per-GEMM Gauss lowering on all twelve random circuits and on 52 of 55 structured cells (three cells slower by at most 12\\%); the four-GEMM baseline was slower by a median $1.7\\times$ (random) and $1.4\\times$ (structured). Realification makes complex tensor-network contraction native to real-only matrix engines.",
+  "url": "http://arxiv.org/abs/2608.03987v1",
+  "pdf": "https://arxiv.org/pdf/2608.03987v1",
+  "type": "theory",
+  "summary": "This paper addresses the challenge of running complex quantum circuit simulations on hardware accelerators limited to real arithmetic. The authors propose a 'realification rewrite' that mathematically transforms any complex tensor network into an equivalent real one. This method successfully demonstrates superior performance over standard complex-handling baselines when executed on real-only matrix engines.",
+  "main_problem": "Simulating quantum circuits via tensor networks on modern matrix accelerators (NPUs, TPUs) that are restricted to real-valued matrix multiplications (GEMM).",
+  "main_result": "The authors introduce a 'realification rewrite' that maps complex tensor networks to equivalent real ones, achieving performance competitive with existing methods.",
+  "method": "They develop a mathematical rewrite that replaces complex tensor contractions with sequences of real-valued tensor operations using an algebra structure tensor (M), allowing computation on real-only hardware.",
+  "model_or_system": "The model is quantum circuit simulation represented by tensor network contraction over complex numbers. The physical system involves general quantum circuits, including random, Clifford+T, QAOA, and VQE instances.",
+  "key_observables": "Arithmetic overhead in real multiplications ($1 + 2m + r$), time complexity ($\text{tcR}$), space complexity ($\text{scR}$), and read–write cost ($\text{rwcR}$).",
+  "important_parameters": "The cost law shows an overhead never exceeding $3\times$ relative to real contraction; the performance is shown on an Ascend 910 NPU.",
+  "main_assumptions": "The method assumes that existing software stacks optimized for real GEMMs can be utilized, and it relies on a tree-dependent structure choice during rewriting.",
+  "figures_summary": "Figure 1 illustrates the process from quantum circuit to complex tensor network to final real-valued rewrite. Figure 2 details how the multiplication tensor M is simplified to C by absorbing a phase factor Z. Table 5 reports optimized complexities for various circuits.",
+  "paper_structure": "The paper first identifies the hardware mismatch (complex vs. real GEMM). It then introduces the 'realification rewrite' and proves a tight cost law based on volume fractions ($m, r$). The core of the work involves applying this method to benchmark multiple circuit types across different optimization strategies, concluding with performance results on specific hardware.",
+  "why_interesting": "This work provides a concrete computational pathway for simulating complex quantum dynamics (which often involve complex amplitudes) using commodity real-valued AI accelerators, making advanced quantum simulation more accessible.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.03987_figures/2608.03987_fig1.jpg",
+      "caption": "Figure 1: From quantum circuit to real-valued contraction. (a) A quantum circuit U with real (white) and complex (orange) gates; the simulation target is a single amplitude ⟨x|U|0⟩, i.e. the projection of the output onto the computational-basis product state |x⟩= |x0x1x2⟩. (b) Its tensor-network representation over C (schematic): gates become tensors and qubit lines become contracted indices. (c) Realification as a local graph rewrite: each complex tensor acquires a dimension-2 leg (green) carrying its real and imaginary parts, contracted green legs meet at the structure tensor C, and a conjugated tensor carries the sign flip Z on its green leg (Sec. 2); the result is a single static real...",
+      "page": 2
+    },
+    {
+      "image": "2608.03987_figures/2608.03987_fig2.jpg",
+      "caption": "Figure 2: (a) M distinguishes input legs (solid) from output (dashed). (b) Absorbing Z yields C, invariant under all permutations of its legs.",
+      "page": 5
+    },
+    {
+      "image": "2608.03987_figures/2608.03987_fig3.jpg",
+      "caption": "Figure 5: One complex network, two realifications. Contracting the same three-tensor chain along (AB)C (left) or A(BC) (right) places the C and Z nodes differently, so the two real networks have different shapes. Both contract to the same tensor: the wiring is a gauge choice, and spider fusion re-aligns it from one tree to the other by local moves.",
+      "page": 6
+    },
+    {
+      "image": "2608.03987_figures/2608.03987_fig4.jpg",
+      "caption": "Figure 6: The algebra of the realified representation. (a) Matrix product (see also Fig. 3). (b) Permutation invariance: C is symmetric in all three legs. (c) Conjugate covariance: Z on all three legs cancels. (d) Cascade rule (associativity). (e) Unit rule: C contracted with 1 = (1, 0)⊤",
+      "page": 7
+    },
+    {
+      "image": "2608.03987_figures/2608.03987_fig5.jpg",
+      "caption": "Figure 8: Measured overhead versus merge fraction m for all 67 benchmark instances: twelve random circuits (orange circles), 24 Clifford+T (purple triangles), 10 QAOA (blue diamonds), and 21 VQE (green squares). The law (5) confines every point to the band between the solid line 1 + 2m (r = 0) and the dashed line 2 + m (r = 1 −m). All-real circuits (Clifford+T at density 0, TFIM-type VQE) cluster at (m=0, 1×); deep random and QAOA circuits accumulate against the 3× ceiling.",
+      "page": 10
+    }
+  ],
+  "figure": "2608.03987_figures/2608.03987_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

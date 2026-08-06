@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2608.03702",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Inverse Design of Quantum Control Sequences with Fourier Neural Operators",
+  "authors": "Anastasia Pipi, Valentin Duruisseaux, Emily Been, Xuecheng Tao, Taylor L. Patti, Anima Anandkumar, Prineha Narang",
+  "abstract": "Quantum optimal control is a key tool for steering quantum dynamics, but its computational cost grows rapidly with the Hilbert space dimension. Here, we introduce a Fourier Neural Operator (FNO)-based framework for learning high dimensional molecular quantum dynamics and accelerating the inverse design of control protocols. Given an initial molecular population distribution, laser frequency, and polarization, the FNO predicts molecular-motional population dynamics up to $10^7$ times faster than GPU-accelerated numerical propagation with CUDA-Q Dynamics. Using this fast and differentiable surrogate, we develop the FNO stochastic pulse-measurement planner (FNO-SPMP), which constructs pulse sequences to purify an initially mixed Boltzmann distribution. We demonstrate the protocol in an 888-dimensional subspace of the hydronium molecule at 20 K, achieving a target-state population of 0.98 with a sequence success rate of up to 86.2%. In a shared discrete control space, FNO-SPMP achieves nearly twice the success rate of a reinforcement-learning baseline while using roughly half as many quantum control pulses and reducing pulse-sequence generation time from approximately 10 hours to 10-20 minutes. These results show that operator-learning surrogates can enable inverse design in quantum systems whose Hilbert spaces are too large for conventional direct optimization.",
+  "url": "http://arxiv.org/abs/2608.03702v1",
+  "pdf": "https://arxiv.org/pdf/2608.03702v1",
+  "type": "theory",
+  "summary": "The paper introduces an FNO-based framework to overcome the exponential computational cost of quantum optimal control. By using a fast surrogate model trained on molecular dynamics, they develop a planner that efficiently designs pulse sequences to purify complex molecular states in trapped ions. This significantly accelerates state preparation protocols compared to traditional optimization or reinforcement learning methods.",
+  "main_problem": "The core problem is performing inverse design for quantum optimal control sequences, which is computationally prohibitive due to the exponential growth of complexity with Hilbert space dimension.",
+  "main_result": "The proposed FNO-SPMP framework achieves state purification in a large molecular subspace ($888$-dimensional $\text{H}_3\text{O}^+$) significantly faster and more reliably than reinforcement learning baselines, reducing generation time from hours to minutes.",
+  "method": "The authors use a Fourier Neural Operator (FNO) as a fast, differentiable surrogate model to predict molecular-motional population dynamics. This is integrated into an iterative stochastic planner (FNO-SPMP) for inverse design.",
+  "model_or_system": "The system studied is the hydronium ($\text{H}_3\text{O}^+$) molecule coupled with a logic ion ($\text{Ca}^+$) in a trapped-ion setup. The dynamics are modeled by tracking basis-state populations within an 888-dimensional subspace.",
+  "key_observables": "Target-state population (aiming for $\\geq 0.98$), sequence success rate, and the time required to generate the control pulse sequence.",
+  "important_parameters": "The system is studied at $20 \text{ K}$, involving control parameters like laser frequency ($\\omega$), pulse duration ($\tau$), and polarization ($\\sigma$).",
+  "main_assumptions": "Key assumptions include restricting the motional mode to $\nu \\in \\{0, 1\\}$ and relying on measurement/cooling steps that reset coherences to allow a population-based description.",
+  "figures_summary": "Figures illustrate the full FNO-based inverse design pipeline for quantum control in $\text{H}_3\text{O}^+$, detailing the Hamiltonian setup, single-pulse prediction via FNO, and the iterative planning loop.",
+  "paper_structure": "The paper first establishes the computational bottleneck of quantum optimal control. It then introduces the FNO surrogate model to accelerate dynamics simulation. Finally, it details the FNO-SPMP protocol for inverse design, benchmarking its performance against RL methods on the $\text{H}_3\text{O}^+$ system.",
+  "why_interesting": "This work directly addresses the computational scaling limits in quantum control theory by replacing expensive numerical solvers with data-driven neural operators, making previously intractable large-scale molecular simulations feasible for optimization.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.03702_figures/2608.03702_fig1.jpg",
+      "caption": "FIG. 1: FNO-based inverse-design pipeline for quantum state preparation. (a)Quantum control for molecular state preparation. Hydronium, H3O+, is co-trapped with a Ca+ logic ion in a quantum logic spectroscopy (QLS) setup. Molecular states J and J ′ are addressed by two-photon Raman sideband pulses driven by fields with angular frequencies ω1 and ω2, giving the effective two-photon angular frequency ω = ω1 −ω2. The first field is linearly polarized, while the second has polarization σ ∈{σ+, σ−}, denoted schematically by ⃗E(ω, σ). Appendix A 1 details how these electric-field polarizations determine the molecular selection rules. The Raman sideband drive couples the molecular transition to...",
+      "page": 2
+    },
+    {
+      "image": "2608.03702_figures/2608.03702_fig2.jpg",
+      "caption": "FIG. 2: Schematic of the stochastic planner (FNO-SPMP) used for inverse design of laser-pulse sequences. Starting from the current state sn, the model scores the available actions over the effective laser frequency ω and time τ, with the selection objective taken as the negative score, L = −Score = −S(αn, sn). An active pool is then formed from the actions whose score exceeds a defined threshold, and for each candidate sequence the planner stochastically samples one action from this pool at each pulse step. A sampled action αn = (ωn, τn, σn) (i.e. a pulse specified by its frequency ω, duration τ, and polarization σ) is applied to advance the system to the next state sn+1. Repeating this for...",
+      "page": 4
+    },
+    {
+      "image": "2608.03702_figures/2608.03702_fig3.jpg",
+      "caption": "FIG. 3: Forward-propagation accuracy of the FNO surrogate. (a) Basis-state population dynamics predicted by the FNO and compared with CUDA-Q reference trajectories obtained from the reconstructed unitary propagator. The trajectory corresponds to a single pulse with drive frequency ω/2π = 5159.6 kHz. For clarity, we plot only states with a population change greater than 10−4; approximately stationary states are omitted from the upper panels but included in the full-state population infidelity Ip(τ). The lower strip reports Ip(τ) = 1 −Fp(τ) over all states and the percentage mean relative error (MRE) over the plotted active states. States are indexed from lowest to highest energy. (b)...",
+      "page": 6
+    },
+    {
+      "image": "2608.03702_figures/2608.03702_fig4.jpg",
+      "caption": "FIG. 4: Wall-clock evaluation time for forward propagation using numerical baselines and the FNO-based surrogate. (a) State-batch evaluation, where multiple initial mixed states are propagated at a fixed drive frequency. (b) Frequency-batch evaluation, where one initial mixed state is propagated over multiple drive frequencies. We compare three methods: 1) the FNO surrogate, which predicts the population dynamics in one batched forward pass, 2) direct mixed-state CUDA-Q evolution, which numerically propagates the density matrix, and 3) a CUDA-Q unitary-propagator baseline, where the propagator is reconstructed from batched basis-state evolution and then applied to the mixed initial state.",
+      "page": 8
+    },
+    {
+      "image": "2608.03702_figures/2608.03702_fig5.jpg",
+      "caption": "FIG. 5: Comparison of FNO-SPMP and RL state-preparation protocols. (a) Numerical validation of FNO-SPMP pulse sequences across action grids. The upper panel shows the percentage of Monte Carlo (MC) rollouts that reach the target purity threshold, and the lower panel shows the mean number of pulses over all rollouts. Markers indicate the average performance over generated sequences, the best selected sequence, and the result after gradient-based refinement. For the FNO-SPMP grids, ∆ω is the frequency-grid spacing used during inverse design. The discrete grid is the action space used for the RL comparison, with both frequency and pulse duration restricted to discrete values. (b) Convergence...",
+      "page": 12
+    }
+  ],
+  "figure": "2608.03702_figures/2608.03702_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

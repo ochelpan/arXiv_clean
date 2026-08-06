@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2608.03472",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Matrix Product Evolution: A Method for Simulating Quantum Circuits Using Tensor Networks",
+  "authors": "Haruyuki Kawabe, Minoru Nagai, Tsuyoshi Okubo, Synge Todo",
+  "abstract": "Classical simulation of quantum circuits is an essential tool in quantum information science, but its applicability is constrained by the exponential growth of the Hilbert space and the entanglement structure of quantum states. In this work, we introduce Matrix Product Evolution (MPE), a tensor-train representation of quantum circuits constructed along the circuit depth rather than along the qubit index. Within this formulation, the simulation of a quantum circuit is modeled as the contraction of multiple MPE tensors. We develop an efficient contraction strategy based on a zip-up procedure to carry out this contraction in practice. We investigate the numerical behavior of this MPE-based contraction framework through simulations of random quantum circuits and the time evolution of a quantum many-body state. Our results characterize the growth of temporal bond dimensions, clarify how post-selection modifies the contraction cost and approximation accuracy, and identify regimes in which depth-oriented tensor-network contractions provide a useful complement to standard MPS-based simulation approaches.",
+  "url": "http://arxiv.org/abs/2608.03472v1",
+  "pdf": "https://arxiv.org/pdf/2608.03472v1",
+  "type": "theory",
+  "summary": "This paper introduces Matrix Product Evolution (MPE), a novel tensor network method that represents quantum circuits by compressing them along the circuit's time depth. It details an efficient contraction strategy, demonstrating that MPE can achieve higher accuracy than standard MPS methods when post-selection is applied to the final state, making it valuable for simulating complex quantum dynamics.",
+  "main_problem": "Classical simulation of quantum circuits is limited by Hilbert space size, necessitating efficient tensor network representations.",
+  "main_result": "Matrix Product Evolution (MPE) provides a depth-oriented tensor network representation that can outperform standard MPS when post-selection is involved, particularly in reducing temporal entanglement contributions to the error.",
+  "method": "The authors introduce MPE, which represents circuits as 2D tensor networks compressed along the circuit depth using an exact 'temporal compression' procedure. Simulation proceeds via a specialized 'zip-up contraction' strategy.",
+  "model_or_system": "The method is tested on random quantum circuits and time evolution simulations of the quantum Ising model acting on multiple qubits (e.g., 14 qubits).",
+  "key_observables": "Fidelity ($|\\langle\\varphi|\\varphi_0\rangle|^2$), Infidelity ($1 - |\\langle\\varphi|\\varphi_0\rangle|^2$), and singular value distributions.",
+  "important_parameters": "Maximum temporal bond dimension ($\\chi$), circuit depth (number of gates/Trotter steps), and the degree of post-selection ($p$).",
+  "main_assumptions": "The method relies on controlling approximation error via truncation ($\\chi$) during tensor contraction, and its advantage is highlighted when post-selection constrains temporal degrees of freedom.",
+  "figures_summary": "Figures compare infidelity (MPE vs MPS) for random circuits and the Ising model, showing MPE's superior performance with post-selection. They also illustrate the procedural steps for temporal compression and zipping up tensors.",
+  "paper_structure": "The paper first introduces MPE as a depth-based tensor representation, details the exact temporal compression and zip-up contraction procedures, and then compares its numerical behavior against standard MPS methods using random circuits and structured Hamiltonian evolution (Ising model) with post-selection diagnostics.",
+  "why_interesting": "For AMO physicists studying open quantum systems or dynamics, MPE offers a powerful tool to simulate time evolution where entanglement structure is complex; the explicit handling of temporal correlations via depth compression is valuable for understanding circuit complexity beyond simple spatial bipartitions.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.03472_figures/2608.03472_fig1.jpg",
+      "caption": "FIG. 1. Overview of the tensor-network representation and contraction strategy underlying the MPE-based simulation for a quantum circuit. (1) An input quantum circuit consisting of an initial state and a sequence of quantum gates. (2–6) Construction of a corresponding tensor network, insertion of identity tensors, temporal compression of the tensor network, successive contraction of MPEs, and final contraction yielding the output quantum state.",
+      "page": 3
+    },
+    {
+      "image": "2608.03472_figures/2608.03472_fig2.jpg",
+      "caption": "FIG. 2. Procedure of the temporal compression. (1) Each red box indicates a local tensor block to be processed. (2) The block is contracted with the nearest nontrivial tensors on its left (earlier time step). (3a) The result is factorized by an SVD along the spatial direction; if the spatial bond dimension λ is at most four, the merge is accepted and the all-identity columns (dotted) vacated by the merge are removed. (3b) If it exceeds four, the merge is rejected and the block is packed leftward past the identity tensors.",
+      "page": 3
+    },
+    {
+      "image": "2608.03472_figures/2608.03472_fig3.jpg",
+      "caption": "FIG. 3. Procedure for zipping up two MPEs. The process consists of three parts. In (1)–(7), tensors in adjacent MPEs are contracted, and the resulting lower-triangular matrix L is propagated toward the left. In (8)–(12), singular value decomposition is performed, and the singular values S together with the right unitary matrix V are propagated toward the right. In (13)–(14), an MPS representation of the final state is constructed.",
+      "page": 5
+    },
+    {
+      "image": "2608.03472_figures/2608.03472_fig4.jpg",
+      "caption": "FIG. 4. Example of a quantum circuit composed of randomly- generated unitary gates Uj. This example illustrates a 7-qubit circuit with depth 6.",
+      "page": 6
+    },
+    {
+      "image": "2608.03472_figures/2608.03472_fig5.jpg",
+      "caption": "FIG. 5. Approximation errors of the MPS- and MPE-based methods for random quantum circuits on 14 qubits with max- imum bond dimensions χ = 120 and 100, compared with the exact results. The horizontal axis represents the circuit depth. The plotted values show the mean over 10 independent trials, and the error bars indicate the corresponding variance. The initial state is fixed to the product state |0⟩⊗n, and no post- selection is applied. Values below 10−16 are within machine precision and can be regarded as effectively zero.",
+      "page": 6
+    }
+  ],
+  "figure": "2608.03472_figures/2608.03472_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

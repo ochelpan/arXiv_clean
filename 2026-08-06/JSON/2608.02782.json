@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2608.02782",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": true,
+  "title": "QuScope: An Open-Source Python Framework for Quantum-Circuit Simulation of Transmission Electron Microscopy",
+  "authors": "Sean D. Lam, Roberto dos Reis",
+  "abstract": "Image formation in transmission electron microscopy (TEM) is governed by the coherent evolution of the electron wavefunction through the specimen and the objective lens. This physics maps naturally onto the gate model of quantum computation. We present QuScope, an open-source Python framework that expresses the complete TEM image-formation pipeline as quantum circuits. The $N\\times N$ electron wavefunction is amplitude-encoded in $2\\log_2 N$ qubits, and every optical element, including phase-grating transmission, Fresnel propagation between specimen slices, and the aberrated objective lens, is implemented as a diagonal unitary conjugated by quantum Fourier transforms. On this foundation, QuScope v0.2.0 implements validated imaging pipelines, covering conventional TEM under the phase-object approximation, full multislice CTEM and STEM for thick specimens. All quantum results reported here come from exact, noise-free statevector simulation of the circuits on classical hardware, and every result is validated against a classical twin implementation. Quantum and classical multislice exit waves agree to unit fidelity, and all physical constants are verified against standard references. We provide transpiled quantum-resource estimates for each algorithm, an analysis of the diagonal-synthesis bottleneck that governs near-term hardware execution, and a fully tested, documented, and pip-installable package. QuScope v0.2.0 is available at https://github.com/QuScope/QuScope.",
+  "url": "http://arxiv.org/abs/2608.02782v1",
+  "pdf": "https://arxiv.org/pdf/2608.02782v1",
+  "type": "theory",
+  "summary": "This paper introduces QuScope, an open-source Python framework that models the entire process of Transmission Electron Microscopy (TEM) image formation using quantum circuits. It maps electron wavefunction propagation onto quantum gates, allowing simulations of techniques like CTEM and STEM. The work validates its accuracy by matching classical results to unit fidelity while also providing crucial resource estimates for future quantum hardware implementation.",
+  "main_problem": "The core problem is simulating the complex, coherent evolution of an electron wavefunction through a specimen in Transmission Electron Microscopy (TEM).",
+  "main_result": "The authors developed QuScope, an open-source framework that successfully maps the entire TEM imaging pipeline onto quantum circuits, achieving unit fidelity with classical simulations.",
+  "method": "The methodology involves amplitude encoding the $N \times N$ wavefunction into qubits and implementing physical operations (like Fresnel propagation or phase transmission) using diagonal unitaries conjugated by Quantum Fourier Transforms (QFTs).",
+  "model_or_system": "The system is TEM, simulating electron wave propagation through specimens like $\text{SrTiO}_3$. The physics maps to a quantum circuit model where optical elements are unitary gates.",
+  "key_observables": "Image intensity ($|\\psi_{\text{image}}(\\mathbf{r})|^2$), state fidelity ($\\langle\\psi_q|\\psi_c\rangle|^2$), and resource estimates (gate counts, depth).",
+  "important_parameters": "Grid size ($N \times N$), scattering strength ($\\sigma V$), and error rates for noise analysis.",
+  "main_assumptions": "The framework relies on the assumption that quantum simulation can accurately model wave propagation; limitations include the exponential cost of synthesizing arbitrary diagonal unitaries and decoherence effects in deep circuits.",
+  "figures_summary": "Figures illustrate transfer characteristics, probe intensity channeling through crystalline materials ($\text{SrTiO}_3$), and comparisons between quantum and classical multislice results.",
+  "paper_structure": "The paper introduces the problem mapping to quantum circuits, details the implementation of core components (QFTs, diagonal unitaries), validates the framework against classical simulations across various TEM techniques (CTEM, STEM), and concludes with resource estimation for near-term hardware.",
+  "why_interesting": "It provides a concrete, physics-driven application demonstrating how complex wave phenomena can be formulated as quantum circuits, offering valuable benchmarks for quantum simulation algorithms beyond standard chemistry or materials Hamiltonians.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.02782_figures/2608.02782_fig1.jpg",
+      "caption": "FIG. 1. Transfer characteristics of the optical settings used in this paper, from QuScope’s CTFCalculator at 200 kV. On the left, the TEM phase-contrast transfer function sin χ(k) at the extended Scherzer defocus ∆f = −1.2√Csλ [15] is shown for a conventional (Cs = 1.3 mm, ∆f = −685.2 ˚A) and an aberration-corrected (Cs = 0.05 mm, ∆f = −134.4 ˚A) instrument; vertical lines mark the point resolutions d = 0.66 (Csλ3)1/4 (2.50 and 1.11 ˚A). On the right, aberration-free STEM probe intensity profiles are shown for 18 and 30 mrad convergence semi-angles (FWHM 0.70 and 0.40 ˚A).",
+      "page": 4
+    },
+    {
+      "image": "2608.02782_figures/2608.02782_fig2.jpg",
+      "caption": "Figure 2 shows the pipeline as implemented by QuantumCTEMCircuit. The register is prepared in the uniform superposition H⊗nq |0⟩, the plane wave ψ0 = const, after which the four optical elements act.",
+      "page": 4
+    },
+    {
+      "image": "2608.02782_figures/2608.02782_fig3.jpg",
+      "caption": "FIG. 2. Quantum CTEM pipeline [Eq. (7)] for an N × N image with n = log2 N qubits per spatial register. The phase grating D[eiσV ] and lens transfer function D[eiχ] are diagonal unitaries; the two-dimensional (I)QFT acts separably on the row and column registers. For multislice simulation (Sec. V) the grating–QFT–propagator–IQFT block repeats once per slice before the lens is applied.",
+      "page": 5
+    },
+    {
+      "image": "2608.02782_figures/2608.02782_fig4.jpg",
+      "caption": "FIG. 3. Quantum CTEM (POA) of a periodic graphene sheet (≈5 × 5 unit cells, 60 atoms) at 200 kV, 128 × 128 grid (14 qubits), aberration-corrected Scherzer conditions (Cs = 0.05 mm, ∆f = −134 ˚A). From left to right, the panels show the projected potential (Kirkland parametrization with Debye–Waller smearing; C–C bond 1.42 ˚A), the image intensity from the quantum circuit [Eq. (7)] showing the classic dark-atom honeycomb contrast, and the classical FFT reference. Quantum and classical fidelity | ⟨ψq|ψc⟩|2 = 1.000000. Exact statevector simulation.",
+      "page": 6
+    },
+    {
+      "image": "2608.02782_figures/2608.02782_fig5.jpg",
+      "caption": "Figure 6 shows quantum multislice STEM of the same SrTiO3 [100] crystal used in Sec. V, ten unit cells thick, with an aberration-free 30 mrad probe (∆f = 0, Cs = 0) at 200 kV. One unit cell is scanned at full resolution (32 × 32 grid at 0.122 ˚A/pixel, 10 qubits) under peri- odic boundary conditions, and every scan pixel is the readout of one complete 20-slice quantum circuit, exe- cuted in exact statevector simulation. Each pixel involves state preparation of the shifted probe, then the multi- slice circuit assembled by build probe circuit (twenty phase-grating diagonal unitaries interleaved with QFT- conjugated Fresnel propagators), then the detector-plane transform with the exit...",
+      "page": 6
+    }
+  ],
+  "figure": "2608.02782_figures/2608.02782_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 1,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2608.03680",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": false,
+  "title": "Machine Learning Bandgap Prediction of Nanoporous Graphenes with Water",
+  "authors": "Sneha Mittal, Alan E. Anaya Morales, Victor Rosendal, Mads Brandbyge",
+  "abstract": "The structure and dynamical behavior of water confined at or within nanostructures is a topic central to many fields, from biology to emerging electronics such as carbon nanostructures. Nanoporous graphene (NPG) containing periodic nanoscale pores with specific topologies has emerged as a promising material in carbon-based nanoelectronics; however, its interaction with ambient water remains poorly understood. Here, we combine density functional theory (DFT), ab initio molecular dynamics (AIMD), and interpretable machine learning (ML) to reveal how water controls quantum transport in NPGs. Depending on the local hydration structure, the bandgap varies by more than a factor of two across NPG and nitrogen-doped hybrid (h-NPG) systems. To uncover the underlying mechanism, we develop Smooth Overlap of Atomic Positions (SOAP)-based black-box and physics-informed grey-box ML models. The Gaussian process regression model achieves near-DFT accuracy while enabling physical interpretation. Analysis identifies water dipole orientation, water-substrate distance, water center-of-geometry, and ribbon-resolved dipole moments as the dominant factors controlling bandgap modulation across NPG and h-NPG systems.",
+  "url": "http://arxiv.org/abs/2608.03680v1",
+  "pdf": "https://arxiv.org/pdf/2608.03680v1",
+  "type": "theory",
+  "summary": "The authors investigate how water influences the electronic bandgap of nanoporous graphene structures by combining DFT simulations with Machine Learning. They develop sophisticated ML models using structural descriptors derived from molecular dynamics to predict the bandgap accurately while simultaneously identifying key physical factors, such as dipole orientation and local hydration structure, that control this quantum transport property.",
+  "main_problem": "The study aims to understand how the presence of confined or ambient water molecules modulates the quantum electronic bandgap in nanoporous graphene (NPG) and its nitrogen-doped variant ($\text{h-NPG}$).",
+  "main_result": "Water interaction significantly affects $\text{h-NPG}$ bandgaps, which is quantified by developing interpretable Machine Learning models that correlate structural descriptors of the water environment with electronic properties.",
+  "method": "The research combines Density Functional Theory ($\text{DFT}$) and *ab initio* Molecular Dynamics ($\text{AIMD}$) simulations to generate data, followed by training various supervised ML regression models (like GPR) using SOAP-based descriptors for prediction.",
+  "model_or_system": "The system involves NPG/h-NPG nanostructures interacting with water. The electronic properties are calculated via DFT on configurations sampled through AIMD simulations across varying water densities and adsorption sites.",
+  "key_observables": "Bandgap energy, dipole moments (magnitude and orientation), water-substrate distances ($\text{d}_{\\min}, \text{d}_{\\max}$), and various structural descriptors derived from the local atomic environment.",
+  "important_parameters": "Temperature ($300 \text{ K}$), cutoff radii ($r_{\text{cut}} = 6 \text{ Å}$ or $5 \text{ Å}$), and water density (single-water vs. bulk $\\sim 1.0 \text{ g/cm}^3$).",
+  "main_assumptions": "The ML models are trained to balance predictive accuracy with physical interpretability, assuming that the bandgap variation can be mapped onto local structural and electrostatic descriptors.",
+  "figures_summary": "Figures illustrate the ML framework, DFT-calculated band structures comparing pristine vs. hydrated states, UMAP embeddings showing descriptor space diversity, and plots correlating predicted vs. calculated bandgaps using various physical features.",
+  "paper_structure": "The paper systematically develops a multi-scale approach: first, simulating water interactions ($\text{AIMD}$); second, extracting comprehensive structural/electrostatic descriptors (SOAP, dipole moments, distances); third, training and validating ML models (GPR, KRR, etc.) to predict the bandgap; and finally, interpreting which specific descriptors govern the observed electronic modulation.",
+  "why_interesting": "This work bridges solid-state physics with advanced data science by using machine learning not just as a black box predictor, but as an *interpretable* tool to derive physical rules governing quantum material response to environmental coupling (water).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.03680_figures/2608.03680_fig1.jpg",
+      "caption": "Figure 1. (a) Atomic structure of NPG showing the selected unit-cell region used to model single and bulk water NPG/h-NPG systems. Single-water configurations are shown for NPG and h-NPG, (b) a representative bulk-water configuration, and (c) an end-to-end ML framework comprising data generation, model training, prediction, and interpretation. Structural descriptors, including SOAP and physics-informed descriptors, are extracted to encode the relationship between atomic configurations and bandgap energies. Multiple data- driven black-box and physics-informed grey-box models are trained and evaluated, followed by hyperparameter tuning. The best-fitted models are then applied to predict...",
+      "page": 4
+    },
+    {
+      "image": "2608.03680_figures/2608.03680_fig2.jpg",
+      "caption": "Figure 2. (a) Periodic unit cells of NPG and h-NPG with a single-water molecule adsorbed at the pore site, the arrows show different adsorption sites for water, and (b) electronic band structures of NPG and h-NPG in the presence of a single-water molecule. The band dispersions are plotted along the high-symmetry path X → Γ → Z in the Brillouin zone. The black dashed band lines indicate the corresponding band structures of the pristine systems for comparison. (c) Schematic of the optimized configuration of h-NPG with an increasing number of water",
+      "page": 6
+    },
+    {
+      "image": "2608.03680_figures/2608.03680_fig3.jpg",
+      "caption": "Figure 3. (a) Periodic unit cells of NPG and h-NPG under bulk-water at ambient density (𝜌= 1.0 𝑔 𝑐𝑚−3) and corresponding band structures, (b) Two-probe transport geometries of NPG/h- NPG with water adsorbed at the pore site. The dashed boxes indicate the electrode regions used in the transport calculations, and (c) Zero-bias transmission spectra of single-water NPG/h- NPG systems. For comparison, the transmission spectra of corresponding pristine systems are also shown. The Fermi energy is shifted to zero.",
+      "page": 8
+    },
+    {
+      "image": "2608.03680_figures/2608.03680_fig4.jpg",
+      "caption": "Figure 4. The lowest and highest bandgap configurations of NPG and h-NPG in (a) single- water and (b) bulk water environments. Atom color code: carbon (grey), hydrogen (white), oxygen (red), and nitrogen (blue).",
+      "page": 11
+    },
+    {
+      "image": "2608.03680_figures/2608.03680_fig5.jpg",
+      "caption": "Fig. 6 Grey-box ML prediction and feature-importance analysis for single-water NPG and h- NPG systems. (a) Marginal histogram parity plots comparing GPR-predicted bandgaps with DFT-calculated bandgaps for NPG + H2O and h-NPG + H2O using physics-informed descriptors. (b) SHAP-based global feature-importance plots showing the relative contribution of the selected descriptors to the bandgap prediction for each system.",
+      "page": 18
+    }
+  ],
+  "figure": "2608.03680_figures/2608.03680_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
