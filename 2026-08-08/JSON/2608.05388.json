@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2608.05388",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Next Generation of Ultra-Coarse-Graining: Self-Consistent Inference of Critical Internal States",
+  "authors": "Weizhi Xue, Xiao Shuai, Gregory A. Voth",
+  "abstract": "Bottom-up coarse-graining expands the length and time scales accessible to molecular dynamics (MD) simulations, but information loss can hinder accurate representation of multistate phenomena in complex biomolecular dynamics. Ultra-Coarse-Graining (UCG) projects discrete \"quantum-like\" extended degrees of freedom, or \"internal states,\" onto coarse-grained (CG) molecules, extending CG model expressiveness. The rapid-local-equilibrium (RLE) approximation in UCG depends on user-defined collective variables (CVs, e.g., local density) and neglects correlations between internal states within and between CG molecules. We present Self-Consistent UCG (SC-UCG), which uses the underlying UCG interactions directly to assign internal states without designing CVs in the CG ensemble. During simulation, internal state probabilities are determined self-consistently through graph message passing. We enhance the RLE Hamiltonian with the Bethe approximation and AI-based inference to represent explicit correlations between UCG beads. For force-field training, we develop Multilayer Internal State Consistency (MISC), a machine-learning method derived from relative entropy minimization that avoids iterative sampling of intermediate force fields. We apply SC-UCG to a tetramer exhibiting a second-order symmetry-breaking phase transition from a supercritical racemic fluid to subcritical D-rich and L-rich fluids. SC-UCG captures collective switching of internal states in the subcritical region and recapitulates the phase transition across temperatures, despite being trained on a single-temperature dataset.",
+  "url": "http://arxiv.org/abs/2608.05388v1",
+  "pdf": "https://arxiv.org/pdf/2608.05388v1",
+  "type": "theory",
+  "summary": "This work introduces Self-Consistent Ultra-Coarse-Graining (SC-UCG) to improve molecular simulations by accurately handling complex internal states. It bypasses the need for manually defined collective variables by deriving state probabilities self-consistently using graph neural networks trained via relative entropy minimization. This allows for robust simulation of phase transitions in systems like biomolecular tetramers.",
+  "main_problem": "The primary challenge is overcoming information loss during coarse-graining (CG) that prevents accurate sampling of complex, multistate phenomena in molecular dynamics simulations.",
+  "main_result": "The proposed Self-Consistent UCG (SC-UCG) method successfully captures collective switching of internal states and accurately reproduces phase transitions even when trained on data from a single temperature.",
+  "method": "It introduces SC-UCG, which self-consistently infers internal state probabilities using graph message passing derived from minimizing relative entropy. The training utilizes the Multilayer Internal State Consistency (MISC) framework via graph backpropagation.",
+  "model_or_system": "The method is applied to a model tetramer system exhibiting a second-order symmetry-breaking phase transition between supercritical racemic and subcritical D/L-rich fluid phases.",
+  "key_observables": "Internal state probabilities, collective switching events, and the order parameter characterizing the phase transition.",
+  "important_parameters": "Temperature (T), coupling strengths derived from UCG interactions, and the structure of the internal states.",
+  "main_assumptions": "The core approximation is that the system can be modeled as a mixed ensemble where internal state probabilities are determined self-consistently without relying on pre-defined collective variables (CVs).",
+  "figures_summary": "Not specified in the notes, but the application demonstrates capturing phase transitions and state switching.",
+  "paper_structure": "The paper builds from foundational bottom-up CG theory to introduce SC-UCG as an advancement over RLE approximations. It details the variational derivation leading to a message-passing form (ISC layer) for internal state inference, followed by training via MISC and application to phase transition simulations.",
+  "why_interesting": "The self-consistent treatment of discrete 'internal states' within a continuum framework is highly relevant for modeling quantum or near-quantum degrees of freedom in condensed matter systems where simple mean-field approximations fail.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.05388_figures/2608.05388_fig1.jpg",
+      "caption": "FIG. 1. Overview of SC-UCG simulation. (a) Message construction in SC-UCG compared with RLE- UCG. RLE-UCG directly uses purely geometric edge attributes {𝑟!=} for message passing, while SC-UCG",
+      "page": 7
+    },
+    {
+      "image": "2608.05388_figures/2608.05388_fig2.jpg",
+      "caption": "FIG. 2. Overview of SC-UCG training methodology. (a) Flowchart for the SC-UCG workflow for constructing an SC-UCG forcefield. Green boxes and arrows denote data construction steps and input direction; blue boxes and arrow denote model optimization. (b) Multilayer Internal State Consistency (MISC) training by concatenating outputs from different layers. (c) UCG-REM fine-tuning and ISC can be understood in terms of optimizing marginal and conditional distributions, respectively, of the joint distribution in the real space and the internal state space.",
+      "page": 13
+    },
+    {
+      "image": "2608.05388_figures/2608.05388_fig3.jpg",
+      "caption": "FIG. 3. Illustration of the chiral transition system as application.",
+      "page": 14
+    },
+    {
+      "image": "2608.05388_figures/2608.05388_fig4.jpg",
+      "caption": "FIG. 4. Forcefields, internal state classification, and state-wise distribution during SC-UCG training. (a)-(b) Learned (a) homochiral (D-D and L-L) and (b) heterochiral (D-L) CG interaction 𝑈xyd after REM phase, MISC training phase (Iteration 400), and UCG-REM fine-tuning phase (Iteration 40), respectively. Inference layers were varied between mean-field (MF) and Bethe. (c) MISC loss, averaged by frame, during MISC training phase. The shaded regions represent (d) Internal state prediction accuracy during MISC training phase. (e) Internal-state-specific radial distribution function (ISS-RDF) for homochiral pairs (D-D",
+      "page": 16
+    },
+    {
+      "image": "2608.05388_figures/2608.05388_fig5.jpg",
+      "caption": "FIG. 5. Emergence of collective chiral transitions during UCG-REM fine-tuning. (a) Time histograms for the system average of enantiomer excess, 𝐻(〈𝑒𝑒〉G), through UCG-REM iterations, starting from the MISC forcefield. The histogram densities were normalized with 𝑝MkN = 1 (yellow) and 𝑝M!$ = 0 (black). The histograms were stacked horizontally to reflect per-iteration changes. The green dashed lines represent the time-averaged absolute value (symmetrized for better comparison) of enantiomer excess in the all-atom ensemble 〈𝑒𝑒〉zz . The blue dashed lines represent the most probable 〈𝑒𝑒〉 value in the symmetrized histogram from the all-atom data, |𝑒𝑒|[,zz. The green histograms on the right...",
+      "page": 18
+    }
+  ],
+  "figure": "2608.05388_figures/2608.05388_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

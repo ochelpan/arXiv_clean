@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.05766",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QSCI-CMP: Quantum-Selected Configuration Interaction with Chemically Motivated Preselection",
+  "authors": "Masahiko Kamoshita, Kosuke Mitarai",
+  "abstract": "We present QSCI-CMP, a quantum-classical hybrid algorithm for molecular ground-state calculations that reduces both the query count and the gate count of sample-based quantum diagonalization with amplitude amplification (SQD-AA). SQD-AA mitigates the measurement bottleneck of quantum-selected configuration interaction (QSCI) by amplifying the basis states that have not yet been measured. Its oracle, however, specifies the measured states by listing them one by one, so its gate count grows with the number of collected states. Moreover, the quantum resources are spent even on states whose importance is evident from chemical knowledge, such as low-order excitations from the Hartree-Fock reference, which could be collected classically at the outset. We therefore propose to fix such chemically trivial states in advance, include them in the diagonalization subspace from the start, and exclude them from the amplification target, using a low-cost oracle that recognizes them through the excitation level and the seniority number of each basis state. We numerically demonstrate that QSCI-CMP reduces the query count and the gate count required to reach chemical accuracy by up to approximately 68% and 72% relative to SQD-AA for 24-qubit systems. The chemically trivial subspace is freely tunable within the classical computational budget. A larger subspace shifts more work onto the classical solver and increases the reduction in quantum cost, and when it captures the ground state sufficiently well, no quantum sampling is needed at all. We also point out that a query-optimal iteration count known from the analysis of quantum search further reduces the query count of both methods by approximately 12%.",
+  "url": "http://arxiv.org/abs/2608.05766v1",
+  "pdf": "https://arxiv.org/pdf/2608.05766v1",
+  "type": "theory",
+  "summary": "The paper introduces QSCI-CMP, an advanced hybrid quantum-classical algorithm designed to calculate molecular ground states more efficiently than existing methods. It achieves this by using chemical knowledge—specifically excitation level and seniority number—to preselect basis states classically. This significantly reduces the required quantum resources (query count and gate count) for achieving chemical accuracy.",
+  "main_problem": "Developing an efficient quantum algorithm for molecular ground-state calculations by improving upon existing methods like Quantum-Selected Configuration Interaction (QSCI).",
+  "main_result": "The proposed QSCI-CMP method reduces the query count and gate count required compared to SQD-AA by up to 68% and 72% respectively for 24-qubit systems.",
+  "method": "It hybridizes quantum sampling with classical preselection by fixing 'chemically trivial' basis states based on structural properties (excitation level, seniority number) before running amplitude amplification.",
+  "model_or_system": "The system is molecular electronic structure calculation, involving the ground-state energy and eigenvectors of an electronic Hamiltonian ($\\hat{H}$), mapped onto qubits using a Slater determinant representation relative to a Hartree–Fock reference state.",
+  "key_observables": "Ground-state energy, query count, gate count (T-gate count), excitation level ($e(x)$), and seniority number ($\\Omega(x)$).",
+  "important_parameters": "The size of the chemically trivial subspace is a tunable parameter that can shift work from quantum sampling to classical diagonalization.",
+  "main_assumptions": "Previous methods suffer from measurement bottlenecks (QSCI) or gate counts growing with measured states (SQD-AA); QSCI-CMP assumes chemical knowledge allows preselection of important basis states.",
+  "figures_summary": "Figures detail block-level quantum circuits for the oracle $\\hat{O}_T$, showing components like reference shifts, population count, and phase flips used to enforce constraints on excitation energy and seniority number.",
+  "paper_structure": "The paper introduces QSCI-CMP as an improvement over SQD-AA by incorporating chemical knowledge. It details how this knowledge is encoded into the oracle via structural quantities (e.g., $h(x)$) and provides numerical demonstrations showing significant resource reductions compared to baseline methods.",
+  "why_interesting": "This work directly addresses computational bottlenecks in quantum chemistry simulations, providing a concrete algorithmic improvement for simulating strongly correlated electron systems that are central to materials science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.05766_figures/2608.05766_fig1.jpg",
+      "caption": "FIG. 1. Block-level circuits for ˆOT at the two threshold preselections. In both cases the reference shift UHF forms z = x ⊕xHF, a single population-count network Ucnt writes the relevant integer onto an ancilla register, the phase flip ZR flips the sign of the states inside the threshold, and the computation is uncomputed by measurement-based erasure at no T-gate cost (indicated by the tilde). (a) For an excitation threshold, Ucnt counts the n bits of z into the Hamming weight W = 2e. (b) For a hierarchy threshold, a layer U∨first forms the n/2 pairwise ORs z2p ∨z2p+1, which Ucnt counts into 2h. Each variant uses a single population count and costs 4n + O(log n) T gates.",
+      "page": 5
+    },
+    {
+      "image": "2608.05766_figures/2608.05766_fig2.jpg",
+      "caption": "FIG. 2. Energy error versus the cumulative number of queries to the state-preparation unitary UGS, comparing direct QSCI, SQD-AA, and QSCI-CMP at three choices of preselection (e ≤2, h ≤2, h ≤2.5) for all six systems. Top row: the 20-qubit systems H10, H2O (10e, 10o), and Cr2 (10e, 10o). Bottom row: the 24-qubit systems H12, H2O (10e, 12o), and Cr2 (12e, 12o). The dashed line marks chemical accuracy (1.6 mHa, relative to the in-active-space reference). Colored dotted segments mark the zero-query initial accuracy of each QSCI-CMP variant, obtained by classically diagonalizing T (R) alone; direct QSCI and SQD-AA have no such point, as they cannot identify important configurations prior to...",
+      "page": 7
+    },
+    {
+      "image": "2608.05766_figures/2608.05766_fig3.jpg",
+      "caption": "FIG. 3. Same as Fig. 2 but against the cumulative T-gate count, combining the state-preparation cost at L = No layers (Sec. IV A) and the oracle cost of each method; for direct QSCI, which uses no amplification, only the state-preparation cost enters.",
+      "page": 7
+    },
+    {
+      "image": "2608.05766_figures/2608.05766_fig4.jpg",
+      "caption": "FIG. 4. Block-level circuit for the general-preselection oracle ˆOT . The half-adder layer UHA of Eq. (A8) writes the sum bits {sp} and carry bits {cp} onto |0⟩s,c. The out-of-place counting networks Ucnt of Eq. (A1), built from the full adders of Ref. [29], use the workspace |0⟩tmp to sum the n/2 bits of each group and write Ws = P",
+      "page": 11
+    }
+  ],
+  "figure": "2608.05766_figures/2608.05766_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2608.05405",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Interferometric Quantum Polynomial Chaos Expansion as a Generative Model for Calorimeter Shower Simulation",
+  "authors": "Jamal Slim, Saverio Monaco, Florian Rehm, Dirk Kruecker, Frank Gaede, Kerstin Borras",
+  "abstract": "We present the quantum polynomial chaos expansion, a generative algorithm in which a single circuit is the entire model, and we use it to learn calorimeter images. In a classical chaos expansion the randomness is the input and the coefficients are fitted. Here the randomness is still the only input, entering the circuit as rotation angles and re-uploaded at every block, so that each measured observable is a chaos expansion of the latent variables whose order equals the circuit depth, and what is fitted are the gate angles themselves. Expressivity therefore grows with depth rather than with classical coefficients, correlations between outputs arise only from entangling gates, and a single latent wire read by all qubits carries the collective mode of the data. Nothing fitted stands between the circuit and the sample, so switching the entanglers off is a setting of the model itself and provably yields independent outputs, and attribution of the learned correlations to individual gates becomes a measurement. Choosing between two measurement bases shot by shot sharpens attribution into certification, and the trained model violates the Bell bound obeyed by every classical generative model with local response, whatever its size. We train the model on Geant4 shower data, execute the identical circuit on a superconducting processor with its accuracy loss predicted in advance, prove a no-go theorem for the tail dependence of every smooth generator read out through expectation values, and identify the circuit primitive that removes this limit.",
+  "url": "http://arxiv.org/abs/2608.05405v1",
+  "pdf": "https://arxiv.org/pdf/2608.05405v1",
+  "type": "theory",
+  "summary": "This paper introduces an Interferometric Quantum Polynomial Chaos Expansion (QPCE) as a novel generative model for simulating particle calorimeter showers. By encoding the simulation into a quantum circuit, it leverages the depth of the circuit rather than classical coefficients to capture complex statistical dependencies. This approach allows the model to reproduce subtle structural features of real detector data that are inaccessible to standard classical generative models.",
+  "main_problem": "The primary goal is developing a fast, accurate generative model for simulating high-energy physics calorimeter showers, which are computationally intensive using traditional methods.",
+  "main_result": "The proposed Interferometric Quantum Polynomial Chaos Expansion (QPCE) successfully models the complex dependence structure of shower data, reproducing non-trivial structural properties like tail asymmetry that classical models cannot capture.",
+  "method": "It employs a quantum circuit as a generative model, where randomness enters via rotation angles. The training involves minimizing an energy distance between generated and target distributions using adjoint gradients.",
+  "model_or_system": "The system is the simulation of particle showers in calorimeters. The model is the QPCE, which uses a single quantum circuit whose depth dictates the order of the chaos expansion for latent variables.",
+  "key_observables": "Tail asymmetry ($\\lambda_L - \\lambda_U$), mean absolute correlation $|\rho_S|$, and structural properties like rank statistics ($D$).",
+  "important_parameters": "Circuit depth ($L$) acts as the truncation order; training uses L-BFGS optimization.",
+  "main_assumptions": "The method assumes that the circuit structure itself can encode complex, non-classical correlations necessary for accurate simulation.",
+  "figures_summary": "Figures compare structural correlation measures (Spearman rank) and tail behavior ($\\Lambda$) between Geant4 data, QPCE simulations, and actual hardware measurements.",
+  "paper_structure": "The paper introduces the QPCE framework by contrasting it with classical PCE. It details the circuit ansatz, describes the training/generation/verification pipeline, presents results showing structural fidelity on both simulated and physical hardware, and concludes by discussing the model's inherent advantages in attribution.",
+  "why_interesting": "While focused on HEP, the core methodology—using quantum circuits to encode complex statistical dependencies (chaos expansion) for generative modeling—is highly relevant to simulating non-equilibrium dynamics or complex many-body states where classical sampling fails.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.05405_figures/2608.05405_fig1.jpg",
+      "caption": "FIG. 1: QPCE drawn as it executes. The upper row is the entire deployed model. Germs enter the interferometer, one measurement setting yields ⟨Zi⟩, and the fixed affine readout returns a shower. Grey marks data, orange the quantum circuit, blue the measurement and red the unit conversion. The interferometer icon is the actual coupler graph drawn on a ring layout, in which the solid edges are the seven-edge path (the ring is left open, |E| = 7, native to the heavy-hex lattice with zero SWAPs), each edge carrying one trainable phase per block, and the dashed chords are the one shared germ wire ε0, read by every qubit with a trainable amplitude at zero two-qubit cost. Re-uploading the germs at...",
+      "page": 6
+    },
+    {
+      "image": "2608.05405_figures/2608.05405_fig2.jpg",
+      "caption": "FIG. 2: QPCE interferometer, drawn for n = 4, L = 2 with unit germ amplitudes for legibility. In the deployed model each germ gate is Ry(π(wiεi + aiε0)), Eq. (3). The germ encodings open every block, each germ wire therefore enters L rotation angles, and ⟨Zi⟩is a trigonometric chaos expansion of exact degree L in each wire (Eq. (5)). Trainable Rz(β) and RZZ(ϕ) form the diagonal blocks Dℓ. The walls Ry(θℓ,i) are trainable. All RZZ within a block commute, so the coupler block is one multi-wire diagonal gate that schedules in χ′(G) parallel layers (Sec. III D). Setting all ϕℓ,ij = 0 and freezing ε0 makes the circuit a tensor product of single-qubit unitaries, each driven only by its own germ,...",
+      "page": 8
+    },
+    {
+      "image": "2608.05405_figures/2608.05405_fig3.jpg",
+      "caption": "FIG. 3: Deployed coupler graph and the one-to-one map from qubits to cells. Solid lines mark the eight-qubit path, |E| = 7, native to the heavy-hex lattice with zero routing SWAPs. Each edge carries one trainable phase per block, L|E| = 42 coupler phases in total, and the commuting block schedules in χ′ = 2 parallel layers. The dashed line marks the shared germ wire ε0, read by every qubit with trainable amplitude ai at zero two-qubit cost, carrying the rank-one global mode of the data (Sec. III C 5). Removing the couplers and freezing ε0 makes the generated cells exactly independent (Proposition 1). Removing the couplers with ε0 free isolates the shared-latent channel. The dense C8(1, 2)...",
+      "page": 8
+    },
+    {
+      "image": "2608.05405_figures/2608.05405_fig4.jpg",
+      "caption": "FIG. 4: Marginal intensity distributions for the eight calorimeter cells. Geant4 reference (black points, ±1σ multinomial errors), noiseless simulation of the deployed circuit (step), and ibm fez (points), 500 showers at 1152 shots. These marginals are produced by the circuit through the linear readout, so the panels are direct device tests. The readout-confusion unfolding and the gain absorbed by the calibration in Sec. VI B affect these panels and provably nothing in Figs. 6 and 7. Ratio-panel and error conventions as in Appendix A.",
+      "page": 15
+    },
+    {
+      "image": "2608.05405_figures/2608.05405_fig5.jpg",
+      "caption": "FIG. 5: Total deposited energy E = P",
+      "page": 16
+    }
+  ],
+  "figure": "2608.05405_figures/2608.05405_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

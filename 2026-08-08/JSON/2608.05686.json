@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2608.05686",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Provably Efficient Self-Calibrating Quantum Fault Tolerance",
+  "authors": "Weiyuan Gong, Hong-Ye Hu",
+  "abstract": "Quantum error correction protects logical information only when every physical operation remains below the fault-tolerance threshold, a condition that must be maintained continuously rather than only at the initial calibration. In practice, however, analog control parameters inevitably drift because of environmental fluctuations. As future fault-tolerant quantum computations are expected to run for days or even months, interrupting computation for repeated recalibration becomes fundamentally impractical. A promising alternative is to integrate calibration directly into computation by repurposing syndrome measurements as a calibration signal (Sivak et al, Nature 2026), but whether such self-calibration can be achieved with provable efficiency remains an open question. Here we establish a theoretical framework for self-calibrating quantum fault tolerance. We prove that, for a broad class of control-induced errors, the detection rate defines a locally strongly convex surrogate objective for analog calibration with high probability. This geometric property enables efficient online optimization using only syndrome measurements collected during normal error correction. We prove convergence to an $\\varepsilon$ detection rate within $O(1/\\varepsilon^2)$ epochs for time-independent drifts and also establish guarantees for time-dependent drifts. We further show that the convergence rate is independent of the code distance for quantum low-density parity-check (LDPC) codes. Pulse-level simulations of neutral-atom arrays and large-scale circuit-level Clifford simulations confirm these theoretical predictions. Our results establish self-calibrating fault tolerance as a provably efficient paradigm in which the same syndrome measurements simultaneously protect logical information and stabilize the underlying hardware.",
+  "url": "http://arxiv.org/abs/2608.05686v1",
+  "pdf": "https://arxiv.org/pdf/2608.05686v1",
+  "type": "theory",
+  "summary": "This paper introduces a theoretical framework for self-calibrating quantum fault tolerance, solving the practical problem of continuous control parameter drift. By proving that syndrome measurements yield a locally strongly convex objective function, they enable efficient online optimization to stabilize hardware while simultaneously protecting encoded quantum information. This establishes a provably efficient paradigm for future large-scale quantum computation.",
+  "main_problem": "The core challenge is developing a theoretically rigorous framework for self-calibrating quantum fault tolerance, allowing continuous hardware stabilization without interrupting computation.",
+  "main_result": "Self-calibrating fault tolerance is established as a provably efficient paradigm where syndrome measurements simultaneously protect logical information and stabilize the underlying hardware.",
+  "method": "The authors establish that the detector-event rate defines a locally strongly convex surrogate objective, enabling efficient online optimization using only syndrome measurements collected during normal error correction.",
+  "model_or_system": "The work applies to quantum processors controlled by analog parameters (e.g., pulse amplitudes) undergoing environmental drift, utilizing Quantum Error Correction (QEC) codes like LDPC codes for simulation validation.",
+  "key_observables": "Detection rate ($C(\\vec{\theta})$), which serves as the surrogate objective function for calibration; convergence rates $O(1/\\epsilon^2)$.",
+  "important_parameters": "Time-independent and time-dependent drift rates ($\\epsilon$); code distance (independence proven for LDPC codes).",
+  "main_assumptions": "The analysis assumes that the detector signal defines a locally restoring optimization landscape, and convergence relies on the local strong convexity of the objective function.",
+  "figures_summary": "Figure 1 illustrates the closed loop: Syndrome stream $\rightarrow$ Decoding (protects logic) AND Feedback Signal $\rightarrow$ Update drifting analog control parameters (Calibration).",
+  "paper_structure": "The paper builds a theoretical framework by proving local strong convexity of the detector-event rate, deriving convergence guarantees for both time-independent and time-dependent drifts using online convex optimization, and validating these results with pulse-level simulations.",
+  "why_interesting": "It provides a concrete, mathematically rigorous pathway to maintaining high fidelity in long-running quantum computations by integrating hardware calibration directly into the error correction cycle itself.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.05686_figures/2608.05686_fig1.jpg",
+      "caption": "Figure 1. Self-calibration during quantum error correction. The syndrome stream plays a dual role: detector events are decoded to protect the logical state and are simultaneously used as a feedback signal to update drifting analog control parameters. The resulting closed loop allows calibration to proceed without interrupting the fault-tolerant computation.",
+      "page": 2
+    },
+    {
+      "image": "2608.05686_figures/2608.05686_fig2.jpg",
+      "caption": "Figure 3. Tracking continuously drifting analog controls. (a) Slowly varying linear drifts. Solid curves denote the drifting optimal controls, while dashed curves show the controls learned from syn- drome measurements. The detector-event rate remains low through- out the computation under online calibration. (b) Sinusoidal con- trol drifts. Syndrome-guided SPSA continuously tracks the time- dependent optimum and suppresses the accumulation of calibration errors, validating the online tracking guarantee of Theorem 3. In both simulations, we choose a constant learning rate η = 0.005.",
+      "page": 6
+    },
+    {
+      "image": "2608.05686_figures/2608.05686_fig3.jpg",
+      "caption": "Figure 2. Pulse-level validation of provably efficient self- calibration. (a) The [[4, 1, 2]] quantum detection code and one cycle of syndrome extraction. (b) Pulse-level neutral-atom control model. Native controlled-Z gates are implemented by optimized laser ampli- tude |Ω| and phase φ(t); dashed curves illustrate representative con- trol drifts. (c) Following an initial displacement of the analog con- trols, syndrome-guided SPSA continuously restores the calibrated operating point. The detector-event rate decreases throughout the calibration procedure (left), while all control parameters converge toward their calibrated values (right), validating Theorem 2. In this simulation, we choose a...",
+      "page": 6
+    },
+    {
+      "image": "2608.05686_figures/2608.05686_fig4.jpg",
+      "caption": "Figure 4. Scalable self-calibration for quantum LDPC codes. (a) Detector-event rate after calibration for rotated sur- face codes of increasing code distance. Conventional SPSA ex- hibits the predicted degradation with code distance, whereas locality- aware SPSA (LSPSA) remains essentially independent of system size and achieves performance comparable to or better than the reinforcement-learning (RL) controller. (b) Representative conver- gence curves. Increasing the number of syndrome measurements accelerates SPSA by reducing statistical noise. LSPSA rapidly con- verges to a stable low detector-event rate, while the RL controller exhibits a small increase after convergence because of...",
+      "page": 7
+    },
+    {
+      "image": "2608.05686_figures/2608.05686_fig5.jpg",
+      "caption": "Figure 5. Native controlled-Z gates are implemented by optimized laser amplitude |Ω| and phase φ(t) shown as solid lines and dashed curves illustrate representative typical control drifts.",
+      "page": 58
+    }
+  ],
+  "figure": "2608.05686_figures/2608.05686_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 2,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

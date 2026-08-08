@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2608.05595",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DC",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "How Much Reconstruction Does Quantum Machine Learning Need? Late Fusion of Independently Trained Quantum Subcircuits",
+  "authors": "Prabhjot Singh, Adel N. Toosi, Rajkumar Buyya",
+  "abstract": "Circuit cutting lets a large quantum neural network (QNN) run as independent subcircuits on small devices, but rebuilding its outputs by reconstruction carries a classical sampling overhead exponential in the number of cuts - the dominant runtime cost in prior work. We ask whether, for machine-learning tasks, this step is necessary, and replace it with late fusion: each subcircuit is trained and measured independently, and a small classical head combines their outputs - a linear-cost, decision-level combination borrowed from multimodal learning. To characterize the trade-off we introduce a quantumness dial $Q$, a tunable reconstruction budget interpolating from pure fusion to full reconstruction, and a cut-entanglement diagnostic that indicates how much reconstruction a task needs (Spearman $ρ=0.59$ over $104$ runs). Across synthetic and standard datasets, independently trained late fusion matches full reconstruction accuracy within $0.04$ at every point of the controlled sweep and on every classical benchmark, at exponentially lower cost; it is also markedly more robust to shot and device noise. Controlled entangled-data experiments locate the boundary where fusion must fail. We do not claim advantage over classical machine learning - consistent with recent benchmarking, quantum offers no accuracy edge on these datasets. Late fusion is thus an efficient, noise-robust, self-characterizing alternative to reconstruction for circuit-cutting QML.",
+  "url": "http://arxiv.org/abs/2608.05595v1",
+  "pdf": "https://arxiv.org/pdf/2608.05595v1",
+  "type": "both",
+  "summary": "This paper addresses the scalability bottleneck in running large Quantum Neural Networks by proposing 'late fusion' as a replacement for computationally expensive full state reconstruction. By training subcircuits independently and combining outputs classically, they achieve comparable accuracy at exponentially lower cost. This provides an efficient, noise-robust alternative for implementing complex quantum algorithms on near-term devices.",
+  "main_problem": "The primary challenge is mitigating the exponential computational overhead associated with 'reconstruction' when running large Quantum Neural Networks (QNNs) via circuit cutting on limited quantum hardware.",
+  "main_result": "Late fusion, which uses a small classical head to combine independently trained subcircuit outputs, matches full reconstruction accuracy at exponentially lower cost and shows improved noise robustness.",
+  "method": "The authors propose replacing complex quasiprobability reconstruction with late fusion—a linear-cost combination inspired by multimodal learning—and introduce a 'quantumness dial' $Q$ to characterize the trade-off.",
+  "model_or_system": "The work analyzes variational quantum circuits (QNNs) partitioned into independent subcircuits ('circuit cutting') for machine learning tasks. The comparison is between full reconstruction of expectation values and classical combination of local marginal outputs.",
+  "key_observables": "Accuracy gap between late fusion and full reconstruction, computational cost scaling ($\\gamma^{2k}$ vs. constant), and the cut-entanglement diagnostic $S_A$.",
+  "important_parameters": "The quantumness dial $Q \\in [0, 1]$ controls the interpolation between pure fusion ($Q=0$) and full reconstruction ($Q=1$).",
+  "main_assumptions": "The authors do not claim a universal quantum advantage over classical ML; the value proposition is conditional on task structure. They rely on simulating scales where exact reference data is available.",
+  "figures_summary": "Figures compare cost scaling (exponential growth for reconstruction vs. flat late fusion) and show performance tracking across various datasets using different readout strategies.",
+  "paper_structure": "The paper systematically compares multiple readout strategies (reconstruction, partial reconstruction via $Q$, late fusion) by analyzing their computational costs and empirical accuracy on standard benchmarks, culminating in diagnostic tools to pinpoint when fusion is sufficient.",
+  "why_interesting": "While focused on QML, the methodology of characterizing resource requirements using entanglement diagnostics ($S_A$) and establishing theoretical bounds for information recovery has implications for understanding correlations in complex quantum many-body systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.05595_figures/2608.05595_fig1.jpg",
+      "caption": "Figure 1: (a) Cost crossover on the controlled simulator: reconstruction overhead (red) grows exponentially with the number of cuts while late fusion (blue) stays flat; reconstruction accuracy (gray dashed) tracks the ideal circuit, frozen fusion (green dashed) trails by 0.04–0.11 (see text). (b) The same wall through the real qiskit-addon-cutting library: measured physical overhead is exactly 9k (dotted), with reconstruction matching exact expectations to shot noise.",
+      "page": 5
+    },
+    {
+      "image": "2608.05595_figures/2608.05595_fig2.jpg",
+      "caption": "Figure 2: Independent training (circles) matches reconstruc- tion (triangles) across the cross-cut sweep, closing the resid- ual gap left by frozen fusion (squares).",
+      "page": 5
+    },
+    {
+      "image": "2608.05595_figures/2608.05595_fig3.jpg",
+      "caption": "Figure 3: Noise robustness. (a) Under finite shots, late fusion (blue) is more accurate than reconstruction (red), which pays a γ2 variance penalty. (b) Under device noise, reconstruction’s error stays above a depth-matched fusion feature’s (1.6× here; 6× under a real IBM calibration), which is independent of the cut count.",
+      "page": 6
+    },
+    {
+      "image": "2608.05595_figures/2608.05595_fig4.jpg",
+      "caption": "Figure 4: Q-dial accuracy/cost frontier (mean±std, 10 seeds): accuracy saturates well before full reconstruction, so most of the γ2k overhead yields little additional accuracy; low-cost fluctuations are within seed noise.",
+      "page": 6
+    },
+    {
+      "image": "2608.05595_figures/2608.05595_fig5.jpg",
+      "caption": "Figure 5: Quantum-necessity regime: as data entanglement across the cut grows, late fusion (local measurements) col- lapses to chance while joint/reconstruction readout stays at or near perfect (≥0.994).",
+      "page": 6
+    }
+  ],
+  "figure": "2608.05595_figures/2608.05595_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 3,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 1,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

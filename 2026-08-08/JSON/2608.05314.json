@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2608.05314",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Machine learning for sample-based quantum diagonalization: generative configuration recovery and the classical-simulability frontier",
+  "authors": "Nicolás Bonilla Vargas",
+  "abstract": "Sample-based quantum diagonalization (SQD), equivalently quantum-selected configuration interaction (QSCI), has in two years become a pragmatic centre of gravity of pre-fault-tolerant quantum chemistry: a quantum processor samples electronic configurations, and the many-electron Hamiltonian is diagonalized classically in the resulting determinant subspace. Its accuracy is set entirely by which configurations enter that subspace, a selection problem for machine learning made acute by a coupon-collector bottleneck. We critically review the ecosystem of generative and learned selectors, organizing it by the object each method generates and the importance signal it exploits, and expose one conspicuous gap: a reward-proportional generative-flow-network proposer built for tail discovery. We then confront the field's central question -- whether the quantum sampler beats classical selected configuration interaction -- and report a carefully scoped negative: across published same-active-space comparisons, strong classical selected CI matches or beats the quantum-sampled subspace, and the flagship single-layer circuits now admit polynomial-time classical energy estimation. We distil a benchmarking standard and turn the negative into a regime map, then test it with FCI-exact experiments that confirm one prediction and refute another: the cheap prior's rank correlation with the exact weights declines with multireference character (a usable coordinate), but a controlled single-molecule noise sweep shows the one generative advantage we find, robustness to valid-shot starvation, to be generic rather than the multireference-specific effect a confounded contrast first suggested. Finally, we flag learning from quantum experiments, whose classical sample-complexity lower bound is an unconditional theorem, as the one adjacent frontier where a quantum advantage is provable but not yet bridged to chemistry.",
+  "url": "http://arxiv.org/abs/2608.05314v1",
+  "pdf": "https://arxiv.org/pdf/2608.05314v1",
+  "type": "theory",
+  "summary": "This paper critically reviews Sample-based Quantum Diagonalization (SQD) for electronic structure, arguing that current implementations do not demonstrate a clear quantum advantage over state-of-the-art classical selected configuration interaction methods. It establishes rigorous benchmarking standards and suggests that true quantum utility may only be found in specific regimes, such as robustness to noise or learning from quantum experiments.",
+  "main_problem": "The central problem is accurately determining the ground-state energy of a many-electron Hamiltonian, which is computationally intractable due to the exponential growth of the full configuration interaction (FCI) space.",
+  "main_result": "The authors report that strong classical selected CI methods match or beat quantum-sampled subspaces in published comparisons, and they establish a regime map defining where a true quantum advantage might exist.",
+  "method": "The paper critically reviews Sample-based Quantum Diagonalization (SQD) and proposes rigorous benchmarking standards to test the limits of quantum sampling versus established classical correlated electron techniques.",
+  "model_or_system": "The focus is on many-electron systems governed by the electronic Hamiltonian, typically studied in chemistry using active spaces defined by orbital occupations. The methods compare QSCI/SQD against classical sCI approaches.",
+  "key_observables": "Ground-state energy ($E_0$), determinant importance distribution, and configuration count required for a given accuracy.",
+  "important_parameters": "The multireference character of the electronic state is highlighted as a potential coordinate distinguishing quantum advantage regimes.",
+  "main_assumptions": "The primary assumption being tested is whether the sampling process inherent in SQD can overcome the combinatorial explosion better than classical selection heuristics, which is shown to be false under current comparisons.",
+  "figures_summary": "Not specified (The notes describe the workflow and results rather than specific figure contents).",
+  "paper_structure": "The paper critically reviews the existing ecosystem of ML-enhanced quantum samplers, confronts the central question of quantum vs. classical performance using negative results, proposes a benchmarking standard/regime map, and tests this map with FCI-exact experiments.",
+  "why_interesting": "It directly addresses the computational bottleneck in strongly correlated electron physics by evaluating the practical utility and theoretical limits of hybrid quantum-classical algorithms like SQD against established methods (like DMRG or advanced CI).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.05314_figures/2608.05314_fig1.jpg",
+      "caption": "Figure 1. The sample-based quantum diagonalization workflow, with real data at every stage (N2, CAS(10e,12o), exact-FCI-verifiable). A shallow LUCJ circuit on the quantum processor (orbital rotations U(θ) interleaved with diagonal-Coulomb Jastrow gates) is sampled in the computational basis; here 77% of shots survive particle-number post-selection at Heron-calibrated noise. The classical co-processor repairs the broken samples by occupation-weighted S-CORE, assembles the recovered determinants into a subspace S (each row of panel 5 is one selected configuration’s orbital occupation), and diagonalizes the projected Hamiltonian, whose energy is a variational upper bound converging to the...",
+      "page": 4
+    },
+    {
+      "image": "2608.05314_figures/2608.05314_fig2.jpg",
+      "caption": "Figure 2. The molecular systems, their active-space orbital-energy structure, and the frontier orbitals. (a,f) Ray-traced ball-and-stick geometries of stretched N2 (R = 2.0 Å, CAS(10e,12o)) and H2O (CAS(8e,12o)). (b,g) Molecular-orbital energy-level diagrams (restricted Hartree–Fock, eV): occupied active levels (blue) carry their two electrons as up/down arrows, virtual active levels are red, the shaded band is the complete active space, and EF marks the HOMO–LUMO midpoint; the deep 1s core is frozen and off-scale. (c–e) Ray-traced (PyMOL) isosurfaces of the N2 frontier orbitals — the two-fold-degenerate 1πu HOMO (−10.9 eV; note the axis-containing nodal plane of π symmetry), the...",
+      "page": 5
+    },
+    {
+      "image": "2608.05314_figures/2608.05314_fig3.jpg",
+      "caption": "Figure 3. The coupon-collector bottleneck, computed exactly. N2 CAS(10e,12o), from the exact FCI wavefunction. Left: the marginal single-spin-string weight wα(i) = P",
+      "page": 8
+    },
+    {
+      "image": "2608.05314_figures/2608.05314_fig4.jpg",
+      "caption": "Figure 4. Configuration recovery under backend-calibrated noise (FakeTorino / Heron r1 rates; asymmetric readout + depolarizing). Left: the fraction of particle-number-valid shots collapses as the noise scale grows. Right: at fixed dimension D = 120, S-CORE recovery (green) lowers the subspace energy error relative to discarding the invalid shots (grey) — most at moderate noise (∼3 mHa at 1×, shrinking to ∼0.3 mHa at 3×) — while the raw curve (grey) drifts steadily downward and the recovered curve (green) drops sharply then stays low as noise broadens Hilbert-space exploration, both consistent with the “noise can help” effect. Note the recovered subspace stays well above chemical accuracy...",
+      "page": 9
+    },
+    {
+      "image": "2608.05314_figures/2608.05314_fig5.jpg",
+      "caption": "Figure 5. A taxonomy of machine-learning methods for determinant and subspace selection in SQD, organized by the object each method generates (rows) and the importance signal it exploits (columns). Generative models (purple) learn a distribution over determinants; discriminative models (orange) classify or rank them; circuit-design methods (green) learn the sampler itself. The reward-driven column (right) is occupied only by the reinforcement-learning maximizer RL-CI [Goings 2021] (grey); the reward-proportional flow cell (dashed) that diverse tail discovery calls for is the methodological whitespace this review identifies — a generative-flow network that constructs valid-N determinants in...",
+      "page": 11
+    }
+  ],
+  "figure": "2608.05314_figures/2608.05314_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 1,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

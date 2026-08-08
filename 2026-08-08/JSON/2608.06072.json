@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.06072",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Balanced Routing for Symmetric Quantum Circuits",
+  "authors": "Samuel Punch",
+  "abstract": "Mapping quantum programs to restricted physical chips requires SWAP operations, incurring depth and error penalties. In symmetric programs, this routing overhead breaks theoretical symmetry because identical logical roles experience unequal shuffling. While often attributed to hardware topology alone, we show this is a two-level phenomenon. A qubit patch's shape dictates if it can host a balanced assignment. When balance is possible, the actual imbalance is set by the logical-to-physical assignment, meaning a balanced assignment can distribute routing costs perfectly evenly at no extra depth. Through exhaustive search on a 57-qubit \"heavy-hex\" lattice, we prove these topological constraints. For a four-part ring, 108 of 124 connected patches admit a cost-free balanced assignment, with the 16 exceptions being star-shaped. For a six-part ring, cost-free balance is impossible on compact patches. For a fully connected four-part symmetry, balance is structurally impossible at any depth. Simulations using realistic error rates show that, relative to the worst-case concentrated assignment, balanced assignments reduce symmetry-breaking by 92.7% (95% CI [+89.8%, +95.3%]) for the raw metric and 87.0% (95% CI [+79.6%, +94.1%]) for the decoherence-corrected measure (p = 2.45 x 10^-32). Substrate error heterogeneity accounts for at most 10.8% of this effect. Notably, switching to the compiler's highest generic optimization level did not yield a statistically significant change in routing imbalance, highlighting the need for targeted symmetry-aware passes. When patch geometry permits, routing imbalance is a compiler choice rather than a hardware limitation. Thus, symmetry-aware assignment should be a primary objective for compiler optimization and chip design.",
+  "url": "http://arxiv.org/abs/2608.06072v1",
+  "pdf": "https://arxiv.org/pdf/2608.06072v1",
+  "type": "theory",
+  "summary": "This paper addresses how mapping symmetric quantum circuits onto fixed hardware topologies causes symmetry-breaking due to uneven routing costs. The authors prove that if the physical patch geometry allows it, this imbalance can be eliminated cost-free by making specific compiler assignments. This suggests that optimizing for balanced resource distribution is a crucial, often overlooked, objective in quantum compilation.",
+  "main_problem": "Mapping quantum circuits with inherent symmetries onto physical hardware restricts connectivity introduces 'routing overhead' that breaks theoretical symmetry due to unequal error accumulation across identical logical roles.",
+  "main_result": "When patch geometry permits, achieving a perfectly balanced distribution of routing costs is possible without increasing circuit depth, suggesting this imbalance is primarily a compiler optimization choice rather than an unavoidable hardware limitation.",
+  "method": "The authors combine theoretical analysis (exhaustive search on lattice patches) with quantitative simulation using realistic noise models to measure symmetry-breaking metrics.",
+  "model_or_system": "The study analyzes quantum circuits requiring cyclic symmetries (e.g., four-part or six-part rings) mapped onto a 57-qubit 'heavy-hex' lattice structure.",
+  "key_observables": "Routing Imbalance (measured as variance/spread of per-role measurements), Decoherence-corrected symmetry-breaking reduction ($\\hat{E}$ and $\\mathcal{E}_{\text{rel}}$).",
+  "important_parameters": "The size and shape of the physical qubit patch (e.g., path vs. star-shaped) relative to the required circuit symmetry.",
+  "main_assumptions": "The analysis assumes that compiler optimization should prioritize even cost distribution over simply minimizing average depth, especially when geometry allows for balance.",
+  "figures_summary": "Figures illustrate the difference between balanced (zero spread) and concentrated assignments on paths, and show simulated error distributions demonstrating significant reduction in symmetry-breaking via balancing.",
+  "paper_structure": "The paper establishes the problem of symmetry breaking due to routing overhead, develops a two-level model distinguishing shape constraints from assignment choices, proves topological constraints using exhaustive search for specific ring structures, and validates findings through noise simulations.",
+  "why_interesting": "It provides concrete, actionable guidelines for quantum compiler design by shifting focus from minimizing total depth to ensuring equitable resource distribution across symmetric components of the circuit.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.06072_figures/2608.06072_fig1.jpg",
+      "caption": "FIG. 1. The assignment sets the imbalance at fixed depth. Each point is one way of assigning a four-part ring to the same straight path. The balanced assignment (1, 2, 1, 2) has zero spread; the concentrated assignment (1, 1, 1, 3) has the worst spread (9.0 on Qiskit 2.5.1; 12 on older versions). Both sit at the same average depth (13 two-qubit gates) and iden- tical transpiled circuit depth—only the spread differs. In the axis labels, “orbit” denotes a ring role, so “orbit routing asym- metry” is the per-role spread reported as Spread in Table I.",
+      "page": 4
+    },
+    {
+      "image": "2608.06072_figures/2608.06072_fig2.jpg",
+      "caption": "FIG. 3. The simulated error field (IBM Heron): single-qubit error rates, readout error rates, and the spread of two-qubit gate error across the chip’s links.",
+      "page": 4
+    },
+    {
+      "image": "2608.06072_figures/2608.06072_fig3.jpg",
+      "caption": "FIG. 2. Why 16 patches fail. Connected four-qubit patches on heavy-hex come in only two shapes: straight paths and stars. All 108 path patches admit a balanced, cost-free assignment; none of the 16 star patches do. The free lunch is a property of path-shaped patches. (In the figure, “support” is used for a patch.)",
+      "page": 4
+    },
+    {
+      "image": "2608.06072_figures/2608.06072_fig4.jpg",
+      "caption": "FIG. 4. Balanced versus concentrated on the same path, un- der realistic noise. Each point is one path; points below the diagonal mean the balanced assignment did better. Left: raw symmetry-breaking. Right: the decoherence-corrected ver- sion. The balanced assignment wins on the large majority of paths.",
+      "page": 5
+    }
+  ],
+  "figure": "2608.06072_figures/2608.06072_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
