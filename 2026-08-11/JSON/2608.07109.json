@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2608.07109",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "nlin.CD",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning a quantitative criterion for distinguishing chaos from noise",
+  "authors": "Jaesung Choi, Athokpam Langlen Chanu, Jong-Min Park",
+  "abstract": "Distinguishing chaos from noise using time-series data is fundamentally challenging because both exhibit irregular fluctuations and share many statistical and dynamical characteristics. Existing methods face two key limitations: temporally correlated noise can yield spurious signatures of chaos, and analyses of scalar time series often require explicit choices of embedding parameters. Here, we propose a purely data-driven method for distinguishing chaos and noise based on a reservoir-computing framework with a cross-prediction scheme. In the proposed approach, the model is trained to predict the future change of a variable from its current value, thereby combining a short-term predictability test with a test of the smoothness of deterministic flows. The recurrent structure of reservoir computing enables effective prediction of high-dimensional chaotic dynamics even from scalar time series without explicit delay-coordinate reconstruction, while the cross-prediction framework strongly suppresses spurious predictive correlations arising from noise. We apply the proposed method to diverse synthetic and empirical time series. Chaotic systems consistently yield strong correlations between the true and predicted future changes, whereas noise processes remain clearly separated in a low-correlation regime. The method also exhibits substantial robustness to practical limitations in empirical data, including measurement noise, limited data length, and increasing prediction lag. These results demonstrate that the squared Pearson correlation coefficient provides a simple quantitative criterion for distinguishing chaos from noise directly from observed time-series data.",
+  "url": "http://arxiv.org/abs/2608.07109v1",
+  "pdf": "https://arxiv.org/pdf/2608.07109v1",
+  "type": "both",
+  "summary": "This work introduces a novel reservoir computing framework combined with a cross-prediction scheme to quantitatively distinguish chaos from noise in time-series data. By training the model to predict future changes, it generates a correlation coefficient ($R^2$) that serves as a simple diagnostic tool. This method proves robust across synthetic and empirical datasets, offering a powerful tool for analyzing complex physical measurements.",
+  "main_problem": "The core challenge is developing a quantitative, data-driven method to reliably distinguish between deterministic chaotic time series and stochastic noise, as both exhibit irregular fluctuations.",
+  "main_result": "The authors propose that using the squared Pearson correlation coefficient ($R^2$) derived from a cross-prediction scheme within reservoir computing provides a simple and robust criterion: $R^2 > 0.5$ suggests chaos, while $R^2 < 0.5$ suggests noise.",
+  "method": "A purely data-driven approach using Reservoir Computing (RC) trained to predict the *change* ($\\Delta x_{t+1}$) of a variable from its current state ($x_t$). The cross-prediction scheme is key to suppressing spurious correlations inherent in noisy data.",
+  "model_or_system": "The method applies to general scalar time series data, tested on diverse synthetic chaotic systems (e.g., Lorenz, LogMap) and various noise processes (e.g., Gaussian, Flicker, fGn). Empirical tests include physiological signals (VOICE, RR intervals) and climate indices (NAO index).",
+  "key_observables": "The squared Pearson correlation coefficient ($R^2$) between the true future change ($\\Delta x_{t+1}$) and the predicted future change ($\\hat{\\Delta x}_{t+1}$).",
+  "important_parameters": "Hyperparameters for RC (e.g., leak rate $a_{\text{leak}}$) are optimized; classification thresholds include $R^2 > 0.5$ for chaos.",
+  "main_assumptions": "The method assumes that deterministic chaotic dynamics impose a measurable, non-stochastic structure on the local changes ($\\Delta x$), which can be captured by the RC framework better than random noise processes.",
+  "figures_summary": "Figures illustrate the schematic of the RC prediction/classification process, show scatter plots comparing true vs. predicted values for various systems (Lorenz, Flicker), and summarize $R^2$ performance across multiple synthetic chaos and noise datasets.",
+  "paper_structure": "The paper introduces the problem, details the reservoir computing framework with cross-prediction, presents results on diverse synthetic time series to establish the criterion, discusses robustness against real-world data limitations, and concludes by applying the method to a wide range of empirical physical and biological datasets.",
+  "why_interesting": "While not directly quantum, the methodology relies heavily on analyzing complex, non-equilibrium dynamics in observable time series. The use of advanced machine learning (RC) to extract underlying deterministic structure from noisy data has parallels with reconstructing quantum states or identifying hidden order parameters in many-body systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.07109_figures/2608.07109_fig1.jpg",
+      "caption": "FIG. 1. Schematic representation of the cross-prediction reservoir computing (RC) framework. Step 1 (left panel) corresponds to the RC-based prediction model, and Step 2 (right panel) corresponds to the classification criterion. The reservoir receives a scalar input through fixed input weights Win and evolves through a fixed recurrent weight matrix Wres. Only the output weights Wout are trained via ridge regression to predict the target.",
+      "page": 3
+    },
+    {
+      "image": "2608.07109_figures/2608.07109_fig2.jpg",
+      "caption": "FIG. 2. Scatter plot of the true and predicted values obtained using the proposed method. Blue, magenta, and yellow circles correspond to the Lorenz system, flicker noise, and uniform noise, respectively.",
+      "page": 4
+    },
+    {
+      "image": "2608.07109_figures/2608.07109_fig3.jpg",
+      "caption": "FIG. 3. Scatter plots obtained using the conventional (a) value-to-value and (b) difference-to-difference prediction schemes. Magenta and yellow circles correspond to flicker noise and uniform noise, respectively.",
+      "page": 4
+    },
+    {
+      "image": "2608.07109_figures/2608.07109_fig4.jpg",
+      "caption": "FIG. 5. Comparison of ∆xt (gray) with the correspond- ing predictions ∆ˆxt (colored) for the following synthetic noise processes: (a) Gaussian noise, (b) uniform noise, (c) Cauchy noise, (d) flicker noise, (e) fractional Brownian motion, and (f) fractional Gaussian noise. Plotting conventions as in Fig. 4.",
+      "page": 5
+    },
+    {
+      "image": "2608.07109_figures/2608.07109_fig5.jpg",
+      "caption": "FIG. 4. Comparison of the first-difference time series ∆xt obtained from numerical simulations (gray) with the corre- sponding predictions ∆ˆxt (colored) for the following synthetic chaotic systems: (a) logistic map, (b) skew tent map, (c) two- age-classes model, (d) Chua’s circuit, (e) Lorenz system, (f) R¨ossler system, and (g) NF-κB model. The main panels show 500-sample segments. The insets show scatter plots of ∆ˆxt versus ∆xt, with the predicted and true values on the verti- cal and horizontal axes, respectively. Both axes in each inset span the same range as the vertical axis of the corresponding main panel.",
+      "page": 5
+    }
+  ],
+  "figure": "2608.07109_figures/2608.07109_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "entanglement & information structure": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "non-equilibrium dynamics": 2,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

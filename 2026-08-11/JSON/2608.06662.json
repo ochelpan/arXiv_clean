@@ -1,0 +1,84 @@
+{
+  "arxiv_id": "2608.06662",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.mes-hall",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Cross-Geometry Transferability Assessment of Universal Machine Learning Interatomic Potentials: From Bulk Materials to Atomic Nanowires",
+  "authors": "Pedro H. M. Zanineli, Bruno Focassio, Gabriel R. Schleder",
+  "abstract": "Foundation machine-learning interatomic potentials (MLIPs) enable atomistic simulations at substantially lower computational cost than first-principles methods, but their reliability across structural geometries remains insufficiently understood. Here, we construct a density-functional-theory dataset of ZrO2 configurations spanning bulk, slab, particle, neck, and atomically thin wire environments motivated by an experimentally observed ZrO2 desintering process involving neck thinning and atomic wire formation. We first benchmark 26 pretrained MLIPs and observe pronounced geometry-dependent degradation in zero-shot predictions. Without any training, after only reference-energy alignment, the best zero-shot model (ORB-V3) reaches energy and force root-mean-square errors of 6 meV/atom and 197.3 meV/Å, respectively, with the largest force errors in neck and wire configurations. We then compare zero-shot inference, fine-tuning, and training from scratch strategies. Fine-tuning yields lower energy and force errors than training from scratch, while both require comparable wall-clock time. Geometry-specific fine-tuning improves in-domain accuracy but frequently produces negative transfer to other structural classes, whereas mixed-geometry fine-tuning reduces cross-geometry errors. Evaluations of elastic and vibrational properties, surface energies, and neck dynamics further show that rankings based on average energy and force errors do not universally predict property-level behavior. These results demonstrate that geometry-diverse target data and independent physical validations are necessary when adapting foundation MLIPs to low-coordination (ionic) nanostructures.",
+  "url": "http://arxiv.org/abs/2608.06662v1",
+  "pdf": "https://arxiv.org/pdf/2608.06662v1",
+  "type": "theory",
+  "summary": "This paper rigorously assesses how well machine learning interatomic potentials (MLIPs) maintain accuracy when simulating materials across vastly different structural environments, such as bulk solids versus atomic nanowires. By testing $\text{ZrO}_2$ under simulated desintering conditions, the authors demonstrate that simple error metrics are insufficient predictors of physical reliability. They conclude that creating geometry-diverse training data and employing mixed-geometry fine-tuning are crucial for robust MLIP application in low-coordination nanostructures.",
+  "main_problem": "The primary challenge is assessing how reliably Machine Learning Interatomic Potentials (MLIPs) transfer their accuracy when simulating structural changes, specifically moving from bulk materials to low-coordination nanostructures like atomic nanowires.",
+  "main_result": "Cross-geometry fine-tuning strategies are superior to geometry-specific tuning for reducing overall cross-geometry errors, and the study proves that simple energy/force error metrics do not predict complex property behavior.",
+  "method": "The authors benchmarked 26 pretrained MLIPs using a DFT-generated dataset spanning five geometries (bulk to wire) and compared zero-shot inference against fine-tuning protocols.",
+  "model_or_system": "The study focuses on Zirconia ($\text{ZrO}_2$) undergoing desintering, creating complex structures including necks and atomic wires. The models are advanced MLIPs (e.g., ORB) trained to approximate the potential energy surface derived from DFT calculations.",
+  "key_observables": "Energy and force root-mean-square errors (RMSEs), elastic properties (Young's modulus, Bulk Modulus), surface energies ($\\gamma$), phonon dispersions, and structural metrics like RMSD during MD simulations.",
+  "important_parameters": "The simulation regime involves tensile deformation, varying coordination numbers (bulk to wire), and comparison between zero-shot, fine-tuning, and training from scratch MLIP adaptation strategies.",
+  "main_assumptions": "The analysis assumes that the DFT dataset accurately captures the necessary physics for transferability; however, it notes limitations regarding isolating long-range electrostatic effects.",
+  "figures_summary": "Figures compare energy/force errors across geometries (Fig 2A), show phonon dispersion curves (S2, S3) and vibrational DOS (S4), and track structural stability via RMSD and minimum bond distances during tensile loading (S5, S10).",
+  "paper_structure": "The paper establishes the problem of MLIP transferability across geometries using $\text{ZrO}_2$. It details dataset construction and benchmarking protocols, comparing zero-shot vs. fine-tuning strategies. Finally, it validates these models by calculating macroscopic properties (elasticity, surface energy) and simulating dynamic processes (MD/Phonons).",
+  "why_interesting": "This work is highly relevant because it pushes the boundaries of using data-driven potentials to model complex condensed matter systems where local coordination changes drastically, which is a key challenge in nanoscale physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.06662_figures/2608.06662_fig1.jpg",
+      "caption": "FIG. 1. Overview of the ZrO2 cross-geometry dataset and evaluation workflow. (A) Workflow comprising dataset construction, model evaluation and adaptation, and validation using derived physical properties. (B) High-resolution transmission electron microscopy image of a ZrO2 desintering event at the interface between two [26, 27]. (C–G) Representative bulk, slab, particle, neck, and wire configurations, respectively, arranged from comparatively high- to low-coordination environments. (H) Number of configurations in each geometry class. (I) Total atomic environments, defined as the sum of the number of atoms over all configurations in each class. (J) Per-atom energy distributions. (K)...",
+      "page": 3
+    },
+    {
+      "image": "2608.06662_figures/2608.06662_fig2.jpg",
+      "caption": "FIG. 2. Zero-shot evaluation on the ZrO2 dataset. (A) Aligned per-atom energy RMSE and force RMSE for the evaluated MLIPs, grouped according to the Matbench Discovery MP-NC and MP-C categories. In panel A, black bars indicate aligned per-atom energy RMSE, orange bars indicate force RMSE, and dashed horizontal lines indicate the corresponding mean errors across all evaluated models. (B) Parity plots of training-aligned MACE-MP-0 energies against DFT reference energies for the slab, particle, and wire geometries. (C) Energy and force RMSE distributions for ORB-V3 and MACE-MP-0. Colored markers indicate the errors for the bulk without defects, slab, particle, neck, and wire subsets.",
+      "page": 6
+    },
+    {
+      "image": "2608.06662_figures/2608.06662_fig3.jpg",
+      "caption": "Figure 3 compares zero-shot inference (ZS), fine-tuning (FT), and from-scratch training (FS). For FT and FS, both architectures were trained for the same 50 epochs and evaluated on the same retained test partition. Zero- shot inference provides an immediate baseline but retains the large errors observed for underrepresented geome- tries. Under the fixed training setup, fine-tuned models",
+      "page": 6
+    },
+    {
+      "image": "2608.06662_figures/2608.06662_fig4.jpg",
+      "caption": "FIG. 3. Accuracy–cost comparison of zero-shot, fine-tuned, and from-scratch models. Results are shown for MACE (cir- cles) and ORB (squares), with MP-compliant models in green and MP-non-compliant models in purple. Panels (A) and (B) report the training-aligned energy RMSE and force RMSE, respectively, as functions of wall time. Zero-shot timings cor- respond only to inference and are included as descriptive base- lines rather than cost-equivalent comparisons with the trained models. Lower values along both axes indicate better perfor- mance.",
+      "page": 7
+    },
+    {
+      "image": "2608.06662_figures/2608.06662_fig5.jpg",
+      "caption": "FIG. 4. Geometry-specific and mixed-geometry fine-tuning of MACE and ORB on the ZrO2 dataset, assessing in- and out-of- domain geometries. Energy errors are shown with solid lines and circles, and force errors with dashed lines and squares. Colors indicate the evaluation geometry: bulk, slab, particle, neck, and wire. (A) Cross-geometry fine-tuning transferability for MACE (top row) and ORB (bottom row). Each column denotes the geometry used for fine-tuning, and the curves report aligned energy and force RMSE as functions of the total number of atomic environments. (B) Geometry-specific fine-tuning learning curves for MACE and ORB, showing aligned energy and force RMSE as functions of the...",
+      "page": 8
+    }
+  ],
+  "figure": "2608.06662_figures/2608.06662_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

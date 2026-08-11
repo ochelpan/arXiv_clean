@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2608.06892",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Architecture-Aware Reinforcement Learning for Communication-Efficient Distributed Quantum Circuit Compilation",
+  "authors": "Chien-Tung Kuo, Felix Burt, Samuel Yen-Chi Chen, Kin K. Leung, Kuan-Cheng Chen",
+  "abstract": "Distributed quantum computing provides a scalable route for executing quantum circuits beyond the capacity limits of a single quantum processing unit (QPU), but it introduces a communication-aware compilation problem involving strict hardware constraints and circuit dependencies. This paper presents an architecture-aware reinforcement-learning framework that formulates distributed quantum compilation as a constrained Markov Decision Process (MDP). The compiler-level communication actions dynamically update logical-qubit placement and enable subsequent gate execution. A heterogeneous graph model represents interactions among hardware, logical qubits, and circuit operations, while a policy trained via Proximal Policy Optimization optimizes EPR-pair consumption and communication makespan. Evaluation across benchmark circuits shows that our policy matches state-of-the-art heuristics on structured workloads, with lookahead reward shaping yielding modest improvements on unstructured circuits. These results demonstrate that reinforcement learning is a flexible alternative to manual heuristics, though scalability remains a key bottleneck for practical use.",
+  "url": "http://arxiv.org/abs/2608.06892v1",
+  "pdf": "https://arxiv.org/pdf/2608.06892v1",
+  "type": "theory",
+  "summary": "This paper presents an RL framework to solve the complex problem of compiling quantum circuits across multiple, interconnected QPUs. It models this as an MDP, using compiler actions like 'Split' and 'Merge' to manage qubit placement dynamically. The approach shows promise for structured tasks but highlights that dense workloads still pose significant challenges.",
+  "main_problem": "The core problem is optimizing distributed quantum circuit compilation, which requires scheduling operations while minimizing expensive inter-QPU communication overhead (EPR-pair consumption) and latency.",
+  "main_result": "The proposed reinforcement learning framework matches state-of-the-art heuristics on structured workloads but struggles with highly dense or unstructured circuits, indicating scalability challenges.",
+  "method": "The problem is formulated as a constrained Markov Decision Process (MDP), solved using an architecture-aware reinforcement learning policy trained via Proximal Policy Optimization (PPO).",
+  "model_or_system": "The system involves multiple cooperating Quantum Processing Units (QPUs) connected by communication links, modeling the compilation process over a heterogeneous graph structure.",
+  "key_observables": "EPR-pair consumption (communication volume), communication makespan (latency), and circuit progress.",
+  "important_parameters": "Qubit placement ($\text{Loct}(q)$), QPU topology ($H=(P, E)$), and resource capacities.",
+  "main_assumptions": "The RL framework abstracts compiler-level actions like 'Split' and 'Merge'; scalability remains a key bottleneck for practical use.",
+  "figures_summary": "Figures illustrate the Split/Merge communication primitives and the overall pipeline of the proposed RL framework, showing state building through to reward calculation.",
+  "paper_structure": "The paper introduces the problem as an MDP, details the heterogeneous graph RL framework (State Builder $\to$ Policy $\to$ Transition Engine), compares performance against established heuristics on various benchmarks (QAOA, QFT, Random, QV), and discusses limitations.",
+  "why_interesting": "It tackles a critical resource management issue in scaling quantum computation—the communication bottleneck—by applying advanced AI techniques to hardware-aware scheduling.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.06892_figures/2608.06892_fig1.jpg",
+      "caption": "Fig. 1. The two communication primitives. A split operation uses a Bell state (EPR pair) to make a qubit non-locally accessible as a control. A merge removes one of the two qubits from the joint state. Teleportation circuits can be built by composing splits and merges.",
+      "page": 2
+    },
+    {
+      "image": "2608.06892_figures/2608.06892_fig2.jpg",
+      "caption": "Fig. 2. Example of a distributed two-qubit gate. Initially, q1 and q2 are available on different QPUs, so the gate cannot be executed locally. An inter-QPU quantum link provides the entanglement-assisted communication resource used by the compiler-level split action. The split makes q1 available on p1 at the compiler level, enabling local execution with q2, without implying physical cloning of an unknown quantum state. After the gate has been executed, q1 can either remain split for future gates, or merge to either p0 or p1.",
+      "page": 3
+    },
+    {
+      "image": "2608.06892_figures/2608.06892_fig3.jpg",
+      "caption": "Fig. 3. Preliminary abstraction of distributed quantum circuit compilation. A circuit DAG and distributed-QPU architecture define a compiler state; communication actions update placement and resource availability.",
+      "page": 3
+    },
+    {
+      "image": "2608.06892_figures/2608.06892_fig4.jpg",
+      "caption": "Fig. 4. Overview of the proposed RL framework. The state builder constructs a graph observation from circuit structure, QPU topology, current placement, and optional objective-conditioning features. The R-GAT policy processes this observation and selects a feasible split or merge action. The transition engine applies topology, placement, capacity, channel, and dependency constraints, after which executable gates are deterministically updated. Rewards are computed from communication cost, circuit progress, lookahead executability, and terminal completion. PPO updates the policy and value networks from collected trajectories.",
+      "page": 5
+    },
+    {
+      "image": "2608.06892_figures/2608.06892_fig5.jpg",
+      "caption": "Fig. 5. Communication cost versus circuit depth for random and quantum volume benchmarks.",
+      "page": 9
+    }
+  ],
+  "figure": "2608.06892_figures/2608.06892_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "entanglement & information structure": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Kondo & dissipative impurity": 0,
+    "spintronics-quantum-optics interface": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "non-equilibrium dynamics": 0,
+    "scars & prethermalization": 0,
+    "measurement-induced transitions": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "correlated cavity matter": 0,
+    "exotic spin models in light-matter": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
