@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.08765",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.PL",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Bona: Automatic Management of Dirty Ancilla Borrowing in Quantum Circuits",
+  "authors": "Xiaoquan Xu, Chenke Liu, Boning Meng, Zihao Shen, Li Zhou",
+  "abstract": "The management of ancilla qubits has become a critical technique for reducing quantum circuit width. Dirty ancillas, which may be borrowed from any temporarily idle qubit regardless of their initial states, offer substantial flexibility for width optimization, but their use has so far required manual and error-prone handling. We formalize the dirty-qubit borrowing problem and establish a fundamental computational limit by proving its NP-hardness. To support practical optimization, we present \\bona, the first scheduler for dirty-qubit borrowing, built on a novel depth-aware heuristic algorithm. We evaluate \\bona~ across a variety of benchmarks, including practical quantum circuits and randomly arranged compositions of real circuit modules, and find that it reduces nearly 99\\% of dirty ancillas on average with controlled depth overhead. In particular, for parallel quantum walk---an essential component of parallel Hamiltonian simulation---\\bona~ matches the circuit width achieved by the clean-qubit schemes of \\citeauthor{jiang2024recycling}~(\\citeyear{jiang2024recycling}) and \\citeauthor{quantinuum}~(\\citeyear{quantinuum}), but attains significantly smaller circuit depth, providing concrete evidence that dirty ancillas offer unique optimization advantages in circuits with certain parallelism.",
+  "url": "http://arxiv.org/abs/2608.08765v1",
+  "pdf": "https://arxiv.org/pdf/2608.08765v1",
+  "type": "theory",
+  "summary": "This paper introduces Bona, a novel compiler scheduler designed to automatically manage 'dirty ancilla borrowing' in quantum circuits. By formalizing this resource management technique and proving its computational limits, the authors show that dirty ancillas allow for massive reductions in circuit width with minimal depth overhead. This is vital for scaling quantum algorithms on near-term hardware.",
+  "main_problem": "The core problem is developing an automatic method for managing 'dirty ancilla borrowing' within quantum circuits to significantly reduce the required circuit width.",
+  "main_result": "The proposed scheduler, Bona, achieves near-optimal width reduction (up to 99%) on benchmarks like Parallel Quantum Walk, while crucially maintaining or improving the circuit depth compared to clean-ancilla schemes.",
+  "method": "The authors formalize dirty-qubit borrowing as a graph edge-splicing problem and develop Bona, a novel depth-aware heuristic scheduler that systematically manages resource allocation using an OpGrid data structure.",
+  "model_or_system": "The system is modeled by quantum circuits represented as Directed Acyclic Graphs (DAGs) operating on qubits. Dirty ancillas are auxiliary qubits whose initial states are unknown but can be temporarily borrowed from idle qubits, offering flexibility beyond standard clean-ancilla initialization.",
+  "key_observables": "Circuit width (primary optimization goal), circuit depth (secondary consideration), and the count of dirty ancillas used.",
+  "important_parameters": "The efficiency gain is measured by comparing the resulting width/depth against established clean-qubit recycling schemes, particularly for highly parallel circuits like PQW.",
+  "main_assumptions": "The theoretical framework relies on proving an isomorphism between graph edge-splicing and circuit borrowing transitions. Practically, it assumes that postponing Dirty-Dirty recycling until necessary is optimal.",
+  "figures_summary": "Figures illustrate the transformation of quantum circuits into DAGs, showing how idle intervals can be borrowed as dirty ancillas (Figure 1), and detailing the safe use of dirty vs. clean ancillas in specific gate implementations like C3NOT (Figure 3).",
+  "paper_structure": "The paper first formalizes the problem by proving its NP-hardness via reduction from DAG-in-UDG, establishing theoretical limits. It then introduces Bona, a scheduler built on an OpGrid data structure, which implements a two-phase resource management strategy: soft reuse followed by hard borrowing.",
+  "why_interesting": "For theorists working on quantum simulation or algorithm design, this work provides concrete tools to optimize the physical implementation of algorithms (like Hamiltonian simulation) by exploiting hardware/circuit topology in ways previously considered manual or intractable.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.08765_figures/2608.08765_fig1.jpg",
+      "caption": "Fig. 1. The transformation from left to right illustrates how an idle middle interval of the top wire can be borrowed to serve as a dirty ancilla (the wire marked with ◀and ▶).",
+      "page": 2
+    },
+    {
+      "image": "2608.08765_figures/2608.08765_fig2.jpg",
+      "caption": "Fig. 2. A quantum circuit (left) with input qubits 𝑞1 and 𝑞2 and three quantum gates, and its corresponding DAG representation (right).",
+      "page": 4
+    },
+    {
+      "image": "2608.08765_figures/2608.08765_fig3.jpg",
+      "caption": "Fig. 3. Left: Implementations of C3NOT using C2NOT gates and one ancilla. The red dirty-ancilla circuit is fully semantically equivalent to the black target circuit, whereas the blue clean-ancilla circuit is equivalent only when the ancilla is initialized to |0⟩. Right: Implementation of two parallel C3NOT with recycling, with the clean ancilla marked by an orange line.",
+      "page": 5
+    },
+    {
+      "image": "2608.08765_figures/2608.08765_fig4.jpg",
+      "caption": "Fig. 4. A circuit-level illustration of the transition sequence from left to right. Each labeled box represents a subcircuit. Boxes with the same label connected by a vertical line together denote a single subcircuit, indicating the quantum variables on which it acts. A dashed box denotes the subcircuit produced by the preceding transition.",
+      "page": 8
+    },
+    {
+      "image": "2608.08765_figures/2608.08765_fig5.jpg",
+      "caption": "Fig. 5. Interleaving topology and borrowing. Borrowing 𝑞for 𝑑2 first yields width 3 in (b); a topological transition then exposes 𝑑3 in (c), enabling another borrowing to reach width 2 in (d).",
+      "page": 9
+    }
+  ],
+  "figure": "2608.08765_figures/2608.08765_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

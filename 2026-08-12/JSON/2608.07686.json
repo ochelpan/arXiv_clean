@@ -1,0 +1,66 @@
+{
+  "arxiv_id": "2608.07686",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Emergent Problem-Graph Alignment in RL-Discovered Entanglement Topologies for QAOA",
+  "authors": "Tobias Rohe, Federico Harjes Ruiloba, Markus Baumann, Gerhard Stenzel, Leo Sünkel, Thomas Gabor, Claudia Linnhoff-Popien",
+  "abstract": "In the Quantum Approximate Optimization Algorithm (QAOA), the entanglement topology, where qubit pairs are connected by two-qubit gates, is conventionally set equal to the edge set of the problem graph. This coupling ties circuit design to explicit problem knowledge and may not yield the most trainable circuit under limited optimization budgets. We investigate whether a reinforcement learning (RL) agent can discover more effective entanglement topologies for QAOA-based MaxCut optimization without direct access to the problem graph. A Masked Proximal Policy Optimization agent sequentially places IsingZZ gates to construct a circuit topology, while a variational inner loop optimizes the resulting QAOA parameters and returns the approximation ratio as a sparse terminal reward. The agent's observation contains only the edges placed so far and the current approximation ratio; graph structure can only be inferred indirectly through the optimization reward. On Erdős--Rényi instances with up to $10$~qubits, the agent consistently converges to topologies that are strict subsets of the problem graph, achieving overlap ratios approaching $1.0$, despite receiving no explicit information about the graph structure in its observations. These sparse, problem-aligned topologies outperform the full graph topology and several structural baselines when the optimization budget is limited ($50$~gradient steps), but are overtaken by denser topologies given sufficient optimization budget. Our results reveal a trainability--expressibility trade-off governed by topology density and suggest that the variational optimization landscape implicitly encodes structural information about the problem Hamiltonian.",
+  "url": "http://arxiv.org/abs/2608.07686v1",
+  "pdf": "https://arxiv.org/pdf/2608.07686v1",
+  "type": "both",
+  "summary": "This work uses Reinforcement Learning to train an agent that discovers optimal entanglement topologies for QAOA optimization on MaxCut problems. By limiting the agent's observation to only performance feedback (AR), it learns to select sparse gate connections that align closely with the true problem graph structure. This reveals a critical trade-off: topology choice dictates convergence speed, suggesting the variational landscape itself contains structural information about the underlying physics.",
+  "main_problem": "Investigating if a Reinforcement Learning (RL) agent can discover effective entanglement topologies for QAOA-based MaxCut optimization without direct access to the problem graph structure.",
+  "main_result": "The RL agent consistently discovers sparse, problem-aligned topologies that outperform full graph connectivity when the optimization budget is limited. This suggests the variational optimization landscape implicitly encodes structural information about the problem Hamiltonian.",
+  "method": "An outer loop uses a Masked PPO agent to sequentially place IsingZZ entangling gates (topology discovery), while an inner loop optimizes QAOA parameters using the resulting topology, returning the approximation ratio as a sparse terminal reward.",
+  "model_or_system": "The system is based on the Quantum Approximate Optimization Algorithm (QAOA) applied to MaxCut, which maps to an Ising Hamiltonian. The RL agent learns to select the entanglement topology $T$ that governs the circuit structure.",
+  "key_observables": "Approximation Ratio (AR), Overlap Ratio ($|T \\cap E|/|T|$), Meyer–Wallach Entanglement Measure ($Q$).",
+  "important_parameters": "Optimization budget (e.g., 50 vs. 500 gradient steps) and circuit depth ($p=1$ vs. $p>1$).",
+  "main_assumptions": "The agent's observation space is intentionally limited to placed edges and the current AR, withholding explicit problem graph structure information.",
+  "figures_summary": "Figures illustrate training dynamics showing how edge count and overlap ratio evolve over time; tables compare performance metrics across different optimization budgets and circuit depths.",
+  "paper_structure": "The paper establishes the QAOA framework, defines the RL formulation (MDP), details the agent's interaction with the inner VQA optimizer, presents results comparing sparse vs. full topologies under varying resource constraints, and concludes by discussing the trainability-expressibility trade-off.",
+  "why_interesting": "It provides a novel computational paradigm for circuit design in quantum algorithms, showing how machine learning can probe underlying structural information of Hamiltonians without explicit knowledge, which is relevant for hardware-efficient ansatz design.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.07686_figures/2608.07686_fig1.jpg",
+      "caption": "Fig. 1. Training dynamics for 10-qubit instances (mean ± std over 5 seeds). The edge count decreases and stabilizes around 8 (out of 21 problem edges), while the overlap ratio—the fraction of selected edges belonging to the problem graph—rises from ∼0.5 to ∼1.0.",
+      "page": 7
+    },
+    {
+      "image": "2608.07686_figures/2608.07686_fig2.jpg",
+      "caption": "Fig. 2. QAOA optimization trajectories for different topologies on 10-qubit instances. (a) At 50 steps, the RL topology converges fastest and reaches the highest AR. (b) At 500 steps, the full graph topology eventually surpasses the RL topology, illustrating the trainability–expressibility trade-off.",
+      "page": 9
+    },
+    {
+      "image": "2608.07686_figures/2608.07686_fig3.jpg",
+      "caption": "Fig. 3. Final approximation ratio distributions across topology types for 10-qubit instances. (a) At 50 optimization steps, the RL topology clearly dominates. (b) At 500 steps, the full topology achieves the best median AR.",
+      "page": 9
+    }
+  ],
+  "figure": "2608.07686_figures/2608.07686_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

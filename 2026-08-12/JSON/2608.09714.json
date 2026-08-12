@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.09714",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cond-mat.soft",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Sampling Free Energy Landscapes of Ionic Colloidal Crystal Systems using Machine-Learned Proxy Collective Variables",
+  "authors": "Michael S. Chen, Stefano Sacanna, Glen M. Hocky",
+  "abstract": "Charged colloids coated with a polymer brush can be designed to preferentially self-assemble into different crystal structures by varying easy-to-tune experimental conditions. For a given set of conditions, we have observed in experiments and simulations a distribution of thermodynamically (meta)stable self-assembled crystal structures. Properly quantifying the free energy landscape of these colloidal systems is essential for rationally choosing conditions to preferentially target particular crystal structures. For some of the structures we have formed, standard crystalline order parameters are not able to differentiate between crystals or between crystals and amorphous aggregates. We show that local environment similarity descriptors are able to distinguish the relevant metastable states, but are too expensive for use in biased MD simulations. Here, we adopt an approach from machine-learned interaction potentials showing that SE(3)-equivariant transformer networks can serve as an efficient-to-evaluate machine-learned proxy. As a result, we can compute the relative free energies of accessible colloidal structures as a function of different experimentally-relevant physical knobs that can steer our system between two observed crystal types. As an example application, we then show how changing surface potentials of positive and negative colloids while maintaining the same attractive energy can shift which crystal structure is favored.",
+  "url": "http://arxiv.org/abs/2608.09714v1",
+  "pdf": "https://arxiv.org/pdf/2608.09714v1",
+  "type": "theory",
+  "summary": "This work addresses the challenge of mapping the free energy landscape in ionic colloidal crystals by using machine learning. The authors developed SE(3)-equivariant transformer networks to create computationally cheap proxies for complex structural descriptors. This allows them to precisely predict how tuning external parameters, like surface potentials, can steer the system toward a desired metastable crystal structure.",
+  "main_problem": "The primary goal is to accurately quantify the free energy landscape of self-assembled ionic colloidal crystal systems to enable rational control over the resulting crystalline structure.",
+  "main_result": "The authors successfully used machine-learned proxy collective variables to compute relative free energies, demonstrating that tuning surface potentials can thermodynamically favor one metastable crystal structure (e.g., CsCl vs. Th3P4) over another.",
+  "method": "They employed Metadynamics simulations driven by SE(3)-equivariant transformer networks trained as machine-learned proxies for complex local environment order parameters.",
+  "model_or_system": "The system consists of ionic colloids (positive and negative charges) forming crystal structures. The interactions are governed by electrostatic potentials derived from DLVO theory and polymer brush repulsion models.",
+  "key_observables": "Relative free energies ($\\Delta G$) between different crystalline phases, quantified using global collective variables like $\text{Q}_{\text{CsCl}}$ and $\text{Q}_{\text{Th3P4}}$.",
+  "important_parameters": "Surface potentials (e.g., $(-40:+53)$ mV vs. $(-53:+40)$ mV), temperature ($T=300$ K), and particle sizes.",
+  "main_assumptions": "Standard crystalline order parameters fail for exotic structures, necessitating the use of computationally expensive local environment descriptors which are then approximated by the ML proxy model.",
+  "figures_summary": "Figures illustrate the successful differentiation between crystal phases using CVs, showing how varying surface potentials shifts the minimum free energy path on the 2D free energy surfaces (FIG. 5).",
+  "paper_structure": "The paper establishes the need for accurate free energy sampling in colloidal systems; it introduces local environment descriptors as superior but costly alternatives to standard order parameters; the core contribution is developing and training an SE(3)-equivariant transformer network to serve as an efficient, differentiable proxy for these CVs; finally, they apply this method to map out structure-dependent free energy landscapes.",
+  "why_interesting": "While focused on classical soft matter, the methodology—using equivariant ML models to parameterize complex, high-dimensional order parameters for enhanced sampling—is highly relevant to developing efficient simulation tools for quantum many-body systems where calculating accurate local correlation functions is challenging.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.09714_figures/2608.09714_fig1.jpg",
+      "caption": "FIG. 1. Energy-minimized structures for CsCl-like (a) and Th3P4-like (b) colloidal crystals viewed from an orthographic perspective and with the particle diameters set to 50% of their actual values. The system consists of both positive (red) and negative (blue) colloidal particles with diameters of 170 and 210 nm, respectively. Reference local environments χCsCl,P and χTh3P4,P around the positive particles are depicted in (c) and (d) while the reference local environments χCsCl,N and χTh3P4,N around the negative particles are depicted in (e) and (f).",
+      "page": 3
+    },
+    {
+      "image": "2608.09714_figures/2608.09714_fig2.jpg",
+      "caption": "FIG. 2. a) Our CVs, QCsCl and QTh3P4, over the course of an unbiased MD simulation starting from a disordered liquid that crystallized into CsCl (blue) where surface potentials of the negative and positive particles were -40 and +53 mV, respectively, and another simulation that resulted in a Th3P4 crystal when using surface potentials of -53 and +40 mV. The CVs resolve the crystalline phases from each other and from the disordered phases. b+c) Time traces of the system’s QCsCl and QTh3P4 (blue and orange) track with the potential energy (black) during unbiased MD simulations along with the Steinhardt-Nelson Q6 OP for comparison (green).",
+      "page": 4
+    },
+    {
+      "image": "2608.09714_figures/2608.09714_fig3.jpg",
+      "caption": "FIG. 3. The accuracy of predictions obtained from our ML models trained on reference particle-specific order parameters (OPs) gauging how similar their local environment is com- pared to that of Th3P4-like (a) and CsCl-like (b) crystals. Our CVs (c+d) are the configuration average of our OPs and the values obtained from our ML models are well correlated with the reference values. The correlation plots show the ML predicted values as compared to the reference values as eval- uated on our 1135 configuration validation set.",
+      "page": 5
+    },
+    {
+      "image": "2608.09714_figures/2608.09714_fig4.jpg",
+      "caption": "FIG. 4. Time traces of QCsCl and QTh3P4 over the course of a metadynamics simulation performed at iterations 1, 8, and 10 of our active learning protocol for constructing the dataset where the ML predicted CVs used to drive the metadynamics simulation are shown as dashed lines and the reference values for the CVs are represented by the shaded area. (a) Our ML model of both QCsCl and QTh3P4 trained to the initial dataset displays large errors. By iteration 8 our ML model for QCsCl is accurate but our model for QTh3P4 still displays errors at higher values, however both models accurately predict the CVs by iteration 10.",
+      "page": 6
+    },
+    {
+      "image": "2608.09714_figures/2608.09714_fig5.jpg",
+      "caption": "FIG. 5. 2D free energy surfaces obtained from our metadynamics simulations employing our ML models of QCsCl and QTh3P4 when varying the surface potentials of the negative and positive particles showing how CsCl and Th3P4 crystals can be thermodynamically favored under different conditions. Dashed lines show minimum free energy paths along the surface, with 1D free energies shown in the lower panels. In all 3 cases the negative particle has a diameter of 210 nm and the positive particle has a diameter of 170 nm. (a) When the surface potentials for negative and positive particles are -40 and +53 mV (-40,+53 mV), respectively, then CsCl-like crystals are favored. (b) When we flip things to...",
+      "page": 8
+    }
+  ],
+  "figure": "2608.09714_figures/2608.09714_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

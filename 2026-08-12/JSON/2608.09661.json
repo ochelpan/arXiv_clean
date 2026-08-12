@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.09661",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Memory-, Circuit-, and Ansatz-Efficient VQLS for CFD on Hybrid Quantum-HPC Systems",
+  "authors": "Chao Lu, Muralikrishnan Gopalakrishnan Meena, Eduardo Antonio Coello Perez, Kalyana Chakravarthi Gottiparthi, Seongmin Kim",
+  "abstract": "Fluid dynamics workloads are dominated by repeated solves of large, structured linear systems, motivating the search for quantum acceleration. The Variational Quantum Linear Solver (VQLS) is a leading near-term candidate, but practical deployment on hybrid quantum--high--performance computing (HPC) systems faces three persistent challenges: (i) the linear-combination-of-unitaries (LCU) encoding of the system matrix explodes in memory and runtime as the problem size grows, (ii) ansatz selection is largely empirical, with no clear link between standard circuit metrics and solver convergence, and (iii) end-to-end VQLS pipelines have rarely been exercised on production HPC hardware at non-trivial qubit counts. This work addresses these challenges through three contributions. First, we benchmark four matrix-encoding strategies---naive LCU, PennyLane-integrated, Fast Walsh--Hadamard Transform (FWHT)-based parallel Pauli decomposition, and an singular value decomposition (SVD)-based two-term LCU---and show that the FWHT approach reduces peak memory by up to $1298\\times$ on an $11\\times 11$ Hele--Shaw grid, while the SVD-based coherent VQLS delivers over $10{,}000\\times$ per-iteration speedup over standard Pauli-based VQLS at 8 qubits. Second, we evaluate 11 ansatz families with gradient-free and gradient-based optimizers on canonical Hele--Shaw flow, and find that expressibility and entanglement metrics correlate only weakly with VQLS convergence, motivating problem-aware ansatz design. Third, we deploy the full workflow on the OLCF Frontier supercomputer and successfully simulate a 15-qubit tridiagonal Toeplitz system on a single node. Together, these results establish a practical baseline for VQLS in hybrid quantum--HPC computation fluid dynamic (CFD) workflows and identify the remaining bottlenecks for larger problems.",
+  "url": "http://arxiv.org/abs/2608.09661v1",
+  "pdf": "https://arxiv.org/pdf/2608.09661v1",
+  "type": "both",
+  "summary": "This paper addresses the scalability hurdles facing Variational Quantum Linear Solvers (VQLS) when applied to large CFD problems. The authors introduce memory and time-efficient matrix encoding techniques, such as FWHT and SVD decomposition, achieving dramatic speedups over standard methods. By deploying this optimized workflow on a supercomputer, they establish a practical baseline for using near-term quantum hardware in industrial scientific computing workflows.",
+  "main_problem": "The primary challenge is efficiently implementing Variational Quantum Linear Solvers (VQLS) for solving large linear systems arising from Computational Fluid Dynamics (CFD) on hybrid quantum-HPC platforms.",
+  "main_result": "The authors demonstrated significant improvements by using FWHT and SVD-based matrix encodings, achieving speedups up to $10,000\times$ per iteration, and successfully simulating a 15-qubit system on the Frontier supercomputer.",
+  "method": "They benchmarked multiple quantum circuit encoding strategies (LCU variants) and evaluated various ansatz families by analyzing metrics like expressibility and entanglement capability within a hybrid quantum-classical optimization loop.",
+  "model_or_system": "The work focuses on solving $Ax=b$ for fluid dynamics problems, specifically using Hele–Shaw flow and tridiagonal Toeplitz systems as test cases. The computation is executed on hybrid quantum-HPC architectures.",
+  "key_observables": "VQLS solution fidelity, peak memory usage (reduced by up to $1298\times$), per-iteration speedup ($>10,000\times$), and optimization convergence metrics.",
+  "important_parameters": "Qubit count (tested up to 15 qubits), matrix size ($11 \times 11$ grid), and the choice of ansatz family/optimizer.",
+  "main_assumptions": "The primary limitations addressed are the memory explosion of naive LCU encoding, the empirical nature of ansatz selection, and the need for end-to-end testing on production HPC hardware.",
+  "figures_summary": "Figures compare VQLS solutions (e.g., velocity reconstruction for Hele–Shaw flow) across different ansatz layers; tables compare expressibility metrics (KL Divergence); and time consumption plots show scaling comparisons between various encoding methods up to 15 qubits.",
+  "paper_structure": "The paper first identifies the scalability bottlenecks in VQLS for CFD. It then proposes and benchmarks improved matrix encodings (FWHT, SVD) and systematically evaluates ansatz families using theoretical metrics. Finally, it deploys the full workflow on a major supercomputer to establish a practical baseline.",
+  "why_interesting": "This work is highly relevant as it tackles the engineering challenges of applying quantum algorithms to complex physical simulations, providing concrete benchmarks for hybrid quantum-classical integration in fields like fluid dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.09661_figures/2608.09661_fig1.jpg",
+      "caption": "Fig. 1. VQLS workflow combining quantum circuit components with classical optimization steps to approximate the solution to A |x⟩= |b⟩. The algorithm iterates the quantum circuits by updating the weights to minimize the overall cost. Once optimization converges, the measurement of the Variational ansatz reveals the solution state |x⟩.",
+      "page": 3
+    },
+    {
+      "image": "2608.09661_figures/2608.09661_fig2.jpg",
+      "caption": "Fig. 2. Different quantum ansatz setups with the corresponding expressibility. All quantum ansatz shown contain 4 qubits with 2 layers each. The numbers in the quantum gates are the parameters of the quantum ansatz.",
+      "page": 5
+    },
+    {
+      "image": "2608.09661_figures/2608.09661_fig3.jpg",
+      "caption": "Fig. 3. Schematic representation of the Variational Quantum Linear Solver (VQLS) utilizing a Block Encoding strategy. The circuit replaces the standard Linear Combination of Unitaries (LCU) decomposition with a block-encoded unitary UA acting on the ancillary and system registers, coupled with the variational ansatz V (θ).",
+      "page": 6
+    },
+    {
+      "image": "2608.09661_figures/2608.09661_fig4.jpg",
+      "caption": "Fig. 4. Circuit diagram for block encoding via LCU decomposition. The process consists of three stages: the state preparation unitary Prep (acting on the ancilla), the selection operator U1, U2...Um−1, Um (controlled by the ancilla), and the adjoint state preparation Prep†. The qubits that encode the selection operator contain the encoded original matrix A.",
+      "page": 6
+    },
+    {
+      "image": "2608.09661_figures/2608.09661_fig5.jpg",
+      "caption": "Fig. 5. Pauli decomposition performance for a canonical Hele–Shaw Jacobian using the naive approach, the PennyLane-integrated approach, and the FWHT approach.",
+      "page": 7
+    }
+  ],
+  "figure": "2608.09661_figures/2608.09661_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

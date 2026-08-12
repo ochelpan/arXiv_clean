@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2608.07717",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Implicit Differentiation for Measurement-Efficient Bilevel Quantum-Classical Optimization",
+  "authors": "Tobias Rohe, Markus Baumann, Federico Harjes Ruiloba, Maximilian Zorn, Jonas Stein, Claudia Linnhoff-Popien",
+  "abstract": "Quantum optimization has shown promising results for quadratic unconstrained binary optimization (QUBO) problems. Real-world applications, however, often involve polynomial coefficients that depend on tunable external factors - such as demand forecasts or risk preferences - giving rise to bilevel optimization structures. We show how variational quantum algorithms (VQAs) can efficiently handle such parametric problems, making three contributions. First, we propose a bilevel optimization model for diagonal cost Hamiltonians where coefficients depend on a tunable outer parameter: an outer loop adjusts this parameter - reshaping the cost landscape - while an inner VQA optimizes circuit variables. Second, since derivative-free probing methods incur a multiplicative overhead when each outer evaluation requires a complete inner solve, we develop correlator-reuse implicit differentiation (CR-ID), which obtains outer gradients by reusing quantum measurements already collected during inner energy estimation, requiring essentially no additional circuit executions. Experiments across three coefficient families show that CR-ID consistently improves budget-normalized efficiency by ~4\\% in 1D and over 14\\% in multi-dimensional settings, showing a significant performance advantage compared to finite-difference methods. Third, we show that this property is architecture-dependent: VQE admits exact reuse gradients, whereas QAOA introduces a state-dependent term that creates a cost-bias trade-off.",
+  "url": "http://arxiv.org/abs/2608.07717v1",
+  "pdf": "https://arxiv.org/pdf/2608.07717v1",
+  "type": "theory",
+  "summary": "This work tackles bilevel optimization in quantum computing where the problem Hamiltonian changes based on an outer control parameter. The authors introduce Correlator-Reuse Implicit Differentiation (CR-ID) to calculate necessary outer gradients without incurring massive measurement overheads. CR-ID demonstrates significant, systematic performance gains over standard finite-difference approaches across various benchmark problems.",
+  "main_problem": "The paper addresses efficiently solving bilevel quantum-classical optimization problems where the cost function coefficients depend on tunable external parameters.",
+  "main_result": "A novel technique, Correlator-Reuse Implicit Differentiation (CR-ID), significantly improves budget-normalized efficiency over finite-difference methods by reusing existing quantum measurements to estimate outer gradients.",
+  "method": "It adapts the envelope theorem from classical optimization to quantum circuits, allowing outer gradient calculation by reweighting correlators measured during the inner VQA energy estimation step.",
+  "model_or_system": "The model uses Variational Quantum Algorithms (VQAs) like VQE and QAOA to minimize an expectation value derived from a parametric diagonal cost Hamiltonian, often applied to Max-Cut problems.",
+  "key_observables": "Budget efficiency (AUCB), best-so-far normalized expectation value ($J/J^*$), and tail hit-rate ($p_{good}$).",
+  "important_parameters": "The outer control parameter $\\lambda$, which dictates the cost Hamiltonian coefficients $w_e(\\lambda)$, tested across linear, quadratic, and periodic families.",
+  "main_assumptions": "The method assumes that the inner optimization converges to a stationary point where the envelope theorem can be applied; it also relies on white-box knowledge of weight sensitivities $\frac{d w_e(\\lambda)}{d\\lambda}$.",
+  "figures_summary": "Figures compare CR-ID vs. Finite Difference methods showing superior budget efficiency in both 1D and multi-dimensional settings, while also comparing VQE's consistent performance advantage over QAOA.",
+  "paper_structure": "The paper introduces the bilevel optimization structure, develops the CR-ID technique based on the envelope theorem, validates it against finite differences using various parameter families, and compares its performance across different quantum algorithms (VQE vs. QAOA).",
+  "why_interesting": "It provides a concrete algorithmic improvement for optimizing complex quantum circuits whose cost landscape is tuned by external classical parameters, which is crucial for real-world quantum machine learning applications.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.07717_figures/2608.07717_fig1.jpg",
+      "caption": "Fig. 2: Bilevel optimization diagnostics for the periodic 1D family showing per-instance comparisons between CR-ID and central finite-difference value probing (FD) under a matched evaluation budget B = 1830. Each point corresponds to one problem instance (N = 300), with color indicating the edge density pedge. The black diagonal denotes equal performance. Points above the diagonal indicate instances where ID outper- forms FD. (a) Best-so-far normalized expectation value J/J∗",
+      "page": 7
+    },
+    {
+      "image": "2608.07717_figures/2608.07717_fig2.jpg",
+      "caption": "Fig. 1: Bilevel optimization diagnostics VQE on periodic family. (a) Classical envelope ˆF ∗(λ) with visited outer iterates overlaid (representative instance). (b) Active-branch structure across λ; switch points mark changes of the optimal bitstring.",
+      "page": 7
+    },
+    {
+      "image": "2608.07717_figures/2608.07717_fig3.jpg",
+      "caption": "Fig. 3: Budget efficiency in the multi-dimensional (λ) setting under a matched evaluation budget. Here, the outer variable is edge-wise, i.e., λ ∈R|E| assigns one control parameter λe per edge. (a) Best-so-far normalized objec- tive J/J∗versus cumulative energy evaluations. (b) Budget- matched best-of-S readout J/J∗across instances in the multi- dimensional setting, comparing ID and FD.",
+      "page": 8
+    },
+    {
+      "image": "2608.07717_figures/2608.07717_fig4.jpg",
+      "caption": "Fig. 4: VQE versus QAOA under a matched objective- evaluation budget. (a) Representative instance: classical en- velope bF(λ) (black) with the outer iterates {λt} visited by VQE (red) and QAOA (blue); filled markers show expecta- tion estimates and open markers indicate best-of-S readout (S = 32). (b) Median best-so-far normalized objective J/J∗",
+      "page": 9
+    }
+  ],
+  "figure": "2608.07717_figures/2608.07717_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

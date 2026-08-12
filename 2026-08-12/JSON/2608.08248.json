@@ -1,0 +1,61 @@
+{
+  "arxiv_id": "2608.08248",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Catching Transpilation Drift with a CI/CD Workflow in Quantum Software Development",
+  "authors": "Jouni Peltonen, Otso Kinanen, Vlad Stirbu",
+  "abstract": "Quantum software workflows rely on compiler and provider toolchains that evolve independently of application source code. Consequently, an unchanged quantum circuit may transpile into a different target-specific realization after changes in SDK versions, optimization settings, basis gates, coupling maps, or backend descriptions. Such transpilation drift can affect circuit depth, gate composition, qubit mapping, and execution behavior, yet it is rarely monitored in CI/CD pipelines. This paper proposes a Quantum DevOps workflow for detecting transpilation drift before execution. The workflow transpiles source circuits against configured target profiles, computes structural drift metrics, records provenance and artifacts in MLflow, and raises configurable warnings or failures in GitHub Actions. Using representative circuits and target profiles, we show how drift checks can expose toolchain-induced changes and support reproducibility audits. The contribution is a practical CI/CD guardrail for making quantum compilation behavior observable, testable, and auditable.",
+  "url": "http://arxiv.org/abs/2608.08248v1",
+  "pdf": "https://arxiv.org/pdf/2608.08248v1",
+  "type": "theory",
+  "summary": "This paper introduces a Quantum DevOps workflow designed to monitor 'transpilation drift,' which occurs when compiler updates change the compiled form of a quantum circuit even if the source code remains identical. By calculating structural metrics and integrating checks into CI/CD pipelines, it provides an essential, auditable guardrail for ensuring reproducibility in quantum software development.",
+  "main_problem": "The core problem is detecting 'transpilation drift,' where changes in evolving quantum compiler toolchains cause an unchanged source circuit to compile into a structurally different target realization.",
+  "main_result": "The authors propose and demonstrate a practical Quantum DevOps workflow that uses structural metrics to detect these compilation-induced changes before hardware execution, making the process observable and auditable.",
+  "method": "They implement a CI/CD guardrail that transpiles circuits against target profiles, calculates a structural drift metric (D_struct) comparing current artifacts to stored baselines, and reports status via configurable thresholds in GitHub Actions.",
+  "model_or_system": "The focus is on the compilation process itself, using abstract quantum circuits (like QFT10 or BV12) as inputs that are mapped onto specific hardware backends defined by target profiles and SDK versions.",
+  "key_observables": "Structural metrics including circuit depth, total gate count, two-qubit gate counts, and the calculated structural drift score (D_struct).",
+  "important_parameters": "Configurable warning ($\tau_{\text{warn}}$) and failure ($\tau_{\text{fail}}$) thresholds used to classify the CI status.",
+  "main_assumptions": "The primary limitation is that the measured drift is a structural proxy; it does not guarantee semantic non-equivalence or predict actual execution fidelity, and threshold calibration is left for future work.",
+  "figures_summary": "Figure 1 illustrates the full workflow pipeline (transpile -> measure -> compare to baseline -> pass/warn/fail) integrated with MLflow logging. Table II provides a detailed comparison of metrics across different transpiler versions.",
+  "paper_structure": "The paper introduces the problem, details the proposed Quantum DevOps workflow and structural drift metric calculation, demonstrates its utility using scenarios like seed drift and toolchain upgrades (e.g., Qiskit 2.1.2 vs 2.4.2), and concludes by establishing the CI guardrail.",
+  "why_interesting": "While focused on software engineering rather than physical dynamics, understanding how compilation choices affect circuit structure is crucial for designing robust quantum algorithms that are portable across evolving hardware platforms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.08248_figures/2608.08248_fig1.jpg",
+      "caption": "Fig. 1: Transpilation-drift CI workflow. Solid arrows show the detection pipeline (transpile →measure →compare- to-baseline →pass/warn/fail); dashed arrows show MLflow logging and baseline retrieval that provide auditability. The threshold policy converts the structural drift score Dstruct into actionable CI feedback (τw = τwarn, τf = τfail).",
+      "page": 2
+    },
+    {
+      "image": "2608.08248_figures/2608.08248_fig2.jpg",
+      "caption": "Fig. 2: Scenario B (QFT10, IQM target): switching from IQM’s iqm-client transpiler to Qiskit’s built-in transpiler raises depth (213→253) and yields a structural drift of 0.1295.(a) GitHub Actions CI views key metrics and shows transpilation drift warning. (b) MLflow UI surfacing the per-run metrics, allowing to further examine the data; Full per-gate metrics are given in Table II.",
+      "page": 4
+    }
+  ],
+  "figure": "2608.08248_figures/2608.08248_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

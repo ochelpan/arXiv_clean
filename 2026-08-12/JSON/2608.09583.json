@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.09583",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Highly Accurate Fast Decoding Framework for QLDPC codes Accelerated by Noise Perturbation and Ensemble Decoding",
+  "authors": "Mainak Bhattacharyya, Ankur Raina",
+  "abstract": "A well-balanced decoder has been central to the development of modern fault-tolerant quantum computing. However, the inherent topologies of quantum error correcting codes can limit the performance of many well-studied decoding algorithms. In this work, we introduce Noise Assisted Ensemble Decoding (NAED), a highly accurate decoding framework with a significant advantage in real-time speed. NAED constructs an ensemble of Tanner forests, obtained as acyclic subgraphs of the original Tanner graph, and performs exact inference on each Tanner forest using a lightweight dynamic programming algorithm. The forest construction is guided by synthetic soft information derived jointly from the measured syndrome and channel statistics, with controlled noise perturbations generating diverse yet informative decoding matrix column orderings for the Tanner forest construction across the ensemble. Our benchmark results show that the proposed synthetic soft information-driven construction and inference on the Tanner forests can achieve improved or comparable decoding performances to the state-of-the-art decoding solutions, such as BP+OSD$0$, while also providing orders-of-magnitude improvements in per-round decoding speed under circuit-level noise.",
+  "url": "http://arxiv.org/abs/2608.09583v1",
+  "pdf": "https://arxiv.org/pdf/2608.09583v1",
+  "type": "theory",
+  "summary": "This paper introduces Noise Assisted Ensemble Decoding (NAED), a novel framework designed to decode Quantum Low-Density Parity Check (QLDPC) codes efficiently. NAED constructs an ensemble of Tanner forests using synthetic soft information derived from noise measurements. It demonstrates that this method achieves state-of-the-art accuracy while providing massive speedups, crucial for practical quantum error correction.",
+  "main_problem": "The core problem is developing a decoding framework for Quantum Low-Density Parity Check (QLDPC) codes that is both highly accurate and significantly faster than existing state-of-the-art methods.",
+  "main_result": "The proposed Noise Assisted Ensemble Decoding (NAED) achieves performance comparable to the best decoders while offering orders-of-magnitude improvements in per-round decoding speed, making it suitable for real-time quantum computation.",
+  "method": "NAED constructs an ensemble of Tanner forests by guiding their construction with synthetic soft information derived from syndrome measurements and channel statistics, followed by exact inference via dynamic programming on each forest.",
+  "model_or_system": "The work focuses on fault-tolerant quantum computing using QLDPC codes. The analysis involves simulating decoding performance under circuit-level Pauli noise models applied to the code structure defined by sparse Deterministic Encoding Matrices (DEMs).",
+  "key_observables": "Decoding performance (Logical Error Rate, $p_L$) and per-round decoding speed.",
+  "important_parameters": "Circuit noise rate ($p$), noise scaling parameter ($\tau$), and the weight of columns in the DEM matrix ($\text{wt}(D:q)$).",
+  "main_assumptions": "The framework addresses the Degenerate Quantum Maximum Likelihood Decoding (DQMLD) problem, which existing classical decoders fail to solve due to code degeneracies.",
+  "figures_summary": "Figures compare Logical Error Rates for Surface Codes and BB codes using various decoder strategies (BP+OTF vs NAED) across varying circuit noise rates, demonstrating NAED's superior performance.",
+  "paper_structure": "The paper introduces the limitations of current decoders regarding QLDPC degeneracies. It then details the NAED framework, which uses synthetic soft information and ensemble construction on Tanner forests for exact inference. Finally, it validates this approach through circuit-level simulations comparing its performance against established methods like BP+OTF.",
+  "why_interesting": "The focus on decoding algorithms for QLDPC codes is central to realizing fault-tolerant quantum computation, which is a major goal in theoretical physics and quantum information science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.09583_figures/2608.09583_fig1.jpg",
+      "caption": "FIG. 1. We show how different scaling factors for the applied noise can help an ensemble explore different Tanner paths connecting a given pair of violated detector (stabilizer check) nodes. We use a sparse detector error model (DEM) matrix of the distance 7 rotated planar surface code and sample a syndrome at a fixed circuit error rate p = 0.003. An ensemble of Tanner forests having different noise scaling parameters is generated using Eq. (10). In this figure, we only show the path connecting a target detector node pair {s139, s185} from the Tanner forests of some ensemble member instances. We can see that varying the noise scaling parameter τ b across different ensemble instances b...",
+      "page": 5
+    },
+    {
+      "image": "2608.09583_figures/2608.09583_fig2.jpg",
+      "caption": "FIG. 2. In this figure, we show how the dynamic gain term in Eq. (12) helps select good columns of a decoding matrix for general purpose QLDPC codes, where the column weights of the decoding matrix exceeds 2. We sample a syndrome from the circuit level noise over the BB code [[144, 12, 12]] at a fixed circuit noise rate p = 0.003 and the decoding happens over the sparse detector error model (DEM) of the BB code. Under the static case, i.e. β = 0, the orders of the sorted columns are fixed for the forest construction of each ensemble instance. In (a) we show the sorted column order of one such instance labeled as ‘static’. However, under the dynamic forest construction, we set β = 2 and the...",
+      "page": 7
+    },
+    {
+      "image": "2608.09583_figures/2608.09583_fig3.jpg",
+      "caption": "FIG. 3. We show the circuit-level logical error rates of the rotated planar surface codes obtained under both the NAED and BP+OSD0 decoder. The NAED contains an ensemble of 11 decoding instances with the noise scaling factor uniformly distributed across the 11 forest constructions in the range {0, 0.5}. Also, the synthetic soft information used for the Tanner forest constructions is used as in Eq. (10). The BP iterations are capped at a maximum of 1000 for the BP+OSD0 decoder. The circuit-level noise model assumed for the simulations are described in the Appendix C. A logical error occurs if the decoder- predicted logical observable does not match the logical of the prepared state. The LERs...",
+      "page": 12
+    },
+    {
+      "image": "2608.09583_figures/2608.09583_fig4.jpg",
+      "caption": "FIG. 4. We compare the mean per error correction round de- coding time of the NAED and BP+OSD0 for various distance surface codes. The NAED decoder follows Algorithm 3. The NAED ensemble contains 10 decoding instances working in parallel on an M4 MacBook chip. We report the NAED de- coding time from the initialization to the time of the first ob- tained syndrome valid solution from any of the parallel work- ers. We sample 1000 syndromes at a fixed circuit noise rate p = 0.002 and obtain the mean decoding times per error cor- rection round.",
+      "page": 13
+    },
+    {
+      "image": "2608.09583_figures/2608.09583_fig5.jpg",
+      "caption": "FIG. 5. We show the circuit-level LERs of BB codes obtained under various decoding methods. We compare the standard min-sum BP variant and BP+OSD0 with the NAED variants proposed for general-purpose QLDPC codes. The ‘two-stage NAED’ first tries to solve the syndrome using Algorithm 3 with the full DEM as input. If the syndrome is not resolved using the full DEM, Algorithm 3 is executed on the sparse BB DEM. The ‘Two-stage NAED + post BP’ is motivated by the findings from Table V. This NAED variant invokes a low-cost post-min-sum BP algorithm over the full and sparse DEMs if the two NAED stages cannot resolve the input syndrome. The ensemble size of the NAED is B = 100. The synthetic soft...",
+      "page": 15
+    }
+  ],
+  "figure": "2608.09583_figures/2608.09583_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

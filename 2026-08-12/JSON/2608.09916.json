@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.09916",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.mes-hall",
+    "physics.app-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "AES-Debye: an Accurate, Efficient, and Scalable Engine for Debye Scattering Calculations",
+  "authors": "Navid Panchi, Sebastian Kuckuk, Markus Wittmann, Michael Engel, Alberto Leonardi",
+  "abstract": "Total scattering models are essential for characterizing the structure and disorder of nanoscale materials. The Debye scattering equation (DSE) provides a rigorous route to elastic total scattering, but its direct evaluation is computationally demanding because pairwise contributions must be accumulated at every scattering vector, whereas common acceleration strategies based on binned pair-distance distributions or gridded fast Fourier transforms can introduce discretization and aliasing artifacts that compromise diffuse-scattering accuracy. Here, we present AES-Debye, an accuracy-preserving DSE framework that aggregates pair distances into a pair distribution function (PDF) using corrected bin centers and numerically robust accumulation to suppress discretization and summation errors. A data-locality-aware parallel design enables efficient execution on CPUs and GPUs. We demonstrate strong scalability by computing a high-resolution total scattering profile for a system of 90 million atoms, $(0.1,μ\\mathrm{m})^{3}$, in minutes on a distributed-memory CPU platform. These capabilities extend accurate elastic total scattering calculations to large, complex systems while simultaneously providing high-resolution PDFs for downstream structural analysis.",
+  "url": "http://arxiv.org/abs/2608.09916v1",
+  "pdf": "https://arxiv.org/pdf/2608.09916v1",
+  "type": "theory",
+  "summary": "This paper introduces AES-Debye, a high-performance engine designed to calculate total scattering profiles from atomistic models by reformulating the Debye Scattering Equation using Pair Distribution Functions. It achieves state-of-the-art efficiency and accuracy through advanced numerical error correction and highly optimized parallel computing strategies across multiple hardware platforms.",
+  "main_problem": "The primary challenge is accurately and efficiently calculating total scattering profiles using the Debye Scattering Equation (DSE) for large, complex nanoscale materials.",
+  "main_result": "The authors developed AES-Debye, an accuracy-preserving framework that achieves strong scalability by reformulating the calculation via Pair Distribution Functions (PDFs), enabling simulations on systems of 90 million atoms in minutes.",
+  "method": "It uses a PDF-based reformulation of the DSE, incorporating advanced numerical corrections for bin centers and employing highly optimized, data-locality-aware parallelization across CPUs, GPUs, and distributed memory architectures.",
+  "model_or_system": "The method is applicable to various atomistic models, including nanocube superlattices, polycrystalline copper samples, Halloysite nanotubes, and colloidal nanoparticle assemblies, allowing characterization of structure and disorder in complex geometries.",
+  "key_observables": "Total scattering profile I(Q), Pair Distribution Function (PDF), and the pair distance $r_{ij}$.",
+  "important_parameters": "The bin width $\\Delta$ determines resolution; computational complexity is reduced from $O(N^2)$ to depend on PDF bins, while maintaining high numerical fidelity.",
+  "main_assumptions": "The core assumption is that reformulating the DSE using a corrected PDF approach mitigates the severe computational cost and accumulation errors inherent in direct pairwise summation.",
+  "figures_summary": "Figures illustrate domain decomposition (cell-list based), CPU parallelization schemes, and comparisons of computed PDF profiles showing the removal of unphysical negative intensities when corrections are applied.",
+  "paper_structure": "The paper first establishes the physical problem with the DSE. It then details the computational bottleneck ($O(N^2)$) and introduces AES-Debye as a solution based on PDF aggregation. The bulk of the work describes the advanced numerical techniques (error correction, integer arithmetic for precision, memory layout optimization) and parallel implementation strategies before showcasing results across diverse physical systems.",
+  "why_interesting": "While focused on condensed matter structure, the extreme focus on optimizing computation for large-scale simulations using specialized data structures, domain decomposition, and multi-level parallelism is highly relevant to developing efficient classical simulation techniques for quantum many-body problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.09916_figures/2608.09916_fig1.jpg",
+      "caption": "Figure 1: Schematic of the cell-list-based domain decomposition in a 2D toy system. Top: Repre- sentative cell pairs are color coded and grouped by center-to-center distance; the minimum (rmin) and maximum (rmax) possible interatomic distances within a pair are indicated. Bottom: Memory access pattern during PDF computation. Grouping cell pairs with similar center-to-center distances improves cache reuse and localizes updates to nearby PDF bin.",
+      "page": 7
+    },
+    {
+      "image": "2608.09916_figures/2608.09916_fig2.jpg",
+      "caption": "Figure 2: CPU parallelization scheme using a hybrid MPI+OpenMP model. Each node runs a single MPI process that spawns multiple OpenMP threads (one per core in this example). This schematic shows two MPI processes, each with two OpenMP threads.",
+      "page": 8
+    },
+    {
+      "image": "2608.09916_figures/2608.09916_fig3.jpg",
+      "caption": "Figure 3: Validation of the PDF-based implementation and bin center correction. (a) Comparison of the intensity profile computed with Rose-X and with the present implementation for a Pd nanocube (side length 9.3 nm). The lower panel shows the relative error between the two profiles, together with the standard deviation of the intensity error estimated from Rose-X. (b) Powder diffraction profiles computed with and without bin center correction for a crystalline Pd nanocube (side length 15.1 nm). The correction removes unphysical negative intensities and improves the diffuse background.",
+      "page": 10
+    },
+    {
+      "image": "2608.09916_figures/2608.09916_fig4.jpg",
+      "caption": "Figure 4: Diffraction profiles for a Pd nanocube (side length 10 nm) with increasing Gaussian displacement noise σ, used to mimic thermal disorder. Increasing σ broadens and attenuates the Bragg peaks, consistent with increasing structural disorder. The high-frequency oscillations in the background are expected finite size features associated with the parallel facets of the cube and monodisperse size, rather than numerical artifacts.",
+      "page": 12
+    },
+    {
+      "image": "2608.09916_figures/2608.09916_fig5.jpg",
+      "caption": "Figure 5: Performance scaling across CPUs and GPUs for different disorder levels σ. (a) Through- put versus atom count on 72 CPU cores; the dashed lines indicate the single-core roofline and a comparison to the existing earlier implementation in Rose-X. (b) Strong scaling on a single CPU node. (c) Asymptotic performance on an NVIDIA A40 (48 GB GDDR6, 6 MB L2 cache). (d) Asymptotic performance on an NVIDIA A100 (40 GB HBM2e, 25 MB L2 cache).",
+      "page": 13
+    }
+  ],
+  "figure": "2608.09916_figures/2608.09916_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

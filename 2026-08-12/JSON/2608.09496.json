@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.09496",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Autoregressive Projective Quantum Monte Carlo: From a Hermitian to a Non-Hermitian Perspective",
+  "authors": "Lavoisier Wah, Remmy Zen, Flore K. Kunst",
+  "abstract": "Accurately determining the ground-state properties of quantum many-body systems remains a central challenge. In this work, we introduce an autoregressive projective quantum Monte Carlo (PQMC) framework that leverages recurrent neural networks (RNNs) to guide the stochastic dynamics. By incorporating autoregressive sampling into PQMC, we demonstrate substantial improvements in accuracy compared to standard unguided PQMC, while retaining polynomial computational cost. We benchmark our approach against conventional variational RNN ansätze and find that the autoregressive PQMC consistently achieves lower energies and higher fidelity, regardless of system size or whether the Hamiltonian is Hermitian or non-Hermitian. Our results highlight the versatility and power of neural-guided PQMC methods, paving the way for promising scalable simulations of low-energy states in complex quantum many-body systems.",
+  "url": "http://arxiv.org/abs/2608.09496v1",
+  "pdf": "https://arxiv.org/pdf/2608.09496v1",
+  "type": "theory",
+  "summary": "This paper presents an autoregressive Projective Quantum Monte Carlo (PQMC) method that integrates Recurrent Neural Networks (RNNs) to guide stochastic sampling. This novel approach significantly enhances the accuracy of finding quantum ground states compared to previous methods, proving effective for both standard and non-Hermitian Hamiltonians.",
+  "main_problem": "Accurately determining the ground-state properties of quantum many-body systems by solving the Schrödinger equation.",
+  "main_result": "The autoregressive PQMC framework significantly improves accuracy over standard unguided PQMC and variational RNN ansätze, achieving lower energies and higher fidelity for both Hermitian and non-Hermitian Hamiltonians.",
+  "method": "It introduces an autoregressive projective quantum Monte Carlo (PQMC) method that uses Recurrent Neural Networks (RNNs) to guide the stochastic imaginary-time evolution of the system's wavefunction.",
+  "model_or_system": "The work applies to general quantum many-body systems, benchmarked on models like the 1D transverse-field Ising model. The Hamiltonian can be Hermitian or non-Hermitian.",
+  "key_observables": "Ground-state energy, local energies (E_loc), and fidelity.",
+  "important_parameters": "Imaginary time step ($\\Delta\tau$), system size ($N$), and the guiding wavefunction parameters ($\theta$).",
+  "main_assumptions": "The method relies on importance sampling to guide the simulation; for non-Hermitian systems, specific techniques like gauge rotation are mentioned but not universally applicable.",
+  "figures_summary": "Figure 1 schematically shows PQMC guided by an NQS. Figure 12 compares autoregressive PQMC against variational RNN and SPQMC for the Hermitian Ising chain, showing superior accuracy for the former. Appendix F compares AR-PQMC to VMC/PQMC results.",
+  "paper_structure": "The paper establishes the challenge of ground state calculation, details the mathematical framework of PQMC, introduces the autoregressive guidance using RNNs, benchmarks this method against existing techniques (VMC, standard PQMC), and validates its performance on specific models (e.g., TFIM) for both Hermitian and non-Hermitian cases.",
+  "why_interesting": "The development of neural network guided quantum simulations provides a powerful, scalable tool to tackle complex many-body ground state problems where exact diagonalization is impossible.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.09496_figures/2608.09496_fig1.jpg",
+      "caption": "Figure 1: PQMC guided by an NQS. We represent a simplified schematic plot of the PQMC guided by an NQS. Here, the NQS uses the set of walkers {x} from the PQMC to train an ansatz ψ, which should be a “good” approximation of the target ground state. This ansatz is then used to guide the PQMC simulation and to compute the local energies Eloc. The ground state energy is obtained by averaging these local energies.",
+      "page": 2
+    },
+    {
+      "image": "2608.09496_figures/2608.09496_fig2.jpg",
+      "caption": "Figure 2: Bias due to time step. The relative error εrel is plotted against the imaginary time step ∆τ for the continuous-time PQMC (blue), symmetrized SPQMC (red), and non-symmetrized SPQMC (purple). The simulation is performed for Nw = 103 walkers, and N = 20 spins. For continuous-time PQMC, a blue line is provided to guide the eye, as fitting is not meaningful in this case. The symmetrized SPQMC curve is fitted with a quadratic function ax2, with optimal parameter a = 0.285(7), and the non-symmetrized SPQMC curve is fitted with a linear function ax, with optimal parameter a = 0.263(5). The Hermitian Ising chain in Eq. (9) is considered.",
+      "page": 3
+    },
+    {
+      "image": "2608.09496_figures/2608.09496_fig3.jpg",
+      "caption": "Figure 3: Autoregressive PQMC. We show a schematic plot of self-learning PQMC guided by an RNN. θ are the RNN parameters.",
+      "page": 4
+    },
+    {
+      "image": "2608.09496_figures/2608.09496_fig4.jpg",
+      "caption": "Figure 4: Hermitian 1D Ising chain with alternating magnetic field. A (red) and B (blue) represent the sublattices in which spin-1/2 particles occupy the odd and even positions, respectively. The transverse field +g (−g) is applied to the B (A) sublattices. Nearest-neighbor coupling J is considered.",
+      "page": 5
+    },
+    {
+      "image": "2608.09496_figures/2608.09496_fig5.jpg",
+      "caption": "Figure 5: Autoregressive PQMC vs SPQMC and ED. We plot (a) the energy per spin with SPQMC (red), and PQMC using a random ψT (green) for ∆τ = 10−2, g = 1.6, Nw = 2 × 104, MCs = 2 × 103, and the projection time ∆τp = MCs × ∆τ = 20. The energy per spin obtained using autoregressive PQMC guided by the RNN ansatz is shown in blue for the same parameters with the number of stints Ns = 10, number of MC iterations per stint Ni = 200, number of training steps per stint Nt = 103, and number of samples used to train the RNN ns = 7 × 102. Results are benchmarked against ED (black dashed) and the analytical result (purple) obtained via the Jordan–Wigner–Bogoliubov (JWB) method. (b) The energy variance...",
+      "page": 6
+    }
+  ],
+  "figure": "2608.09496_figures/2608.09496_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

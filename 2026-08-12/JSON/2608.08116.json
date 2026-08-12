@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.08116",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mes-hall",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Multiphysics Modeling of Thermo-Viscoelastic Damage in Functionally Graded Abradable Coatings with Probabilistic Geometric Tolerance Analysis",
+  "authors": "Amjad El-Mellouhi, Yassine Adjal, Khaled Dhibi, Fedwa El-Mellouhi",
+  "abstract": "In aircraft engines, functionally graded abradable coatings are used to control blade-tip clearance, but their durability is governed by effects that are often treated separately in existing models, including temperature-dependent viscoelastic softening, progressive damage, deposition-induced microstructural modulation, and geometric tolerances. This study integrates these effects within a unified multiphysics--probabilistic framework. The solved domain is a local through-thickness coating column driven by prescribed strain and temperature histories that include thermal eigenstrain and coating--substrate expansion mismatch. The results show that periodic property modulation increases end-of-cycle damage relative to the monotonic gradient and concentrates the maximum stress within a localized modulation crest. Propagating symmetric geometric tolerances through the coupled solver produces a strongly right-skewed damage distribution and a higher classification-level exceedance probability for the modulated gradient than for the monotonic gradient. This exceedance behavior cannot be obtained from a deterministic analysis performed at nominal geometry. The implementation is verified through spatial and temporal refinement, closed-form unit tests, nested Monte Carlo convergence with Wilson confidence intervals, and a hold-out-validated polynomial response surface. Numerical verification is clearly distinguished from experimental validation, and the simulated case is presented as a generic benchmark rather than an identified material model. The framework links deposition parameters and tolerance bands to damage-exceedance risk, supporting reliability-oriented screening of graded and multilayer coating systems.",
+  "url": "http://arxiv.org/abs/2608.08116v1",
+  "pdf": "https://arxiv.org/pdf/2608.08116v1",
+  "type": "theory",
+  "summary": "This paper presents a comprehensive multiphysics–probabilistic framework to model damage in advanced abradable coatings used in gas turbines. It uniquely integrates temperature-dependent viscoelasticity, progressive material damage, microstructural variations, and manufacturing geometric tolerances into one solver. The results highlight that considering these coupled uncertainties is critical for accurately assessing coating reliability.",
+  "main_problem": "To develop a unified framework for predicting damage accumulation in functionally graded abradable coatings by integrating multiple, often separate, physical effects.",
+  "main_result": "The study shows that combining periodic property modulation and geometric tolerances significantly increases the predicted end-of-cycle damage risk compared to analyzing these factors independently or deterministically.",
+  "method": "A multiphysics–probabilistic framework is employed, coupling thermo-viscoelasticity, progressive damage laws, microstructural modulation, and Monte Carlo simulation for tolerance propagation.",
+  "model_or_system": "The system modeled is a local through-thickness column of an abradable coating used in aircraft engines. The model incorporates temperature-dependent viscoelastic softening (Prony series) and stress-driven damage evolution.",
+  "key_observables": "Damage variable (D), stress concentrations, damage-exceedance probability ($P_e$), and effective stiffness evolution.",
+  "important_parameters": "Temperature history $T(z, t)$, applied strain $\\epsilon_{app}(t)$, deposition modulation parameters, and geometric tolerance bands ($\\delta u$).",
+  "main_assumptions": "The analysis is a generic benchmark; it simplifies the problem by neglecting contact mechanics, wear depth prediction, and treating porosity via effective homogenization.",
+  "figures_summary": "Figure 1 illustrates the block diagram of the multiphysics–probabilistic framework, showing the flow from input definitions through coupled solving to Monte Carlo sampling for outputs like exceedance probabilities.",
+  "paper_structure": "The paper establishes the need for a unified model by identifying separate physical drivers (viscoelasticity, damage, modulation, tolerance). It details the coupling of these effects in the solver and presents results demonstrating how variability amplifies risk beyond deterministic predictions. The structure emphasizes verification procedures and limitations.",
+  "why_interesting": "While highly applied to materials science, the rigorous implementation of nested Monte Carlo convergence with Wilson confidence intervals for quantifying uncertainty propagation in a complex coupled system is a sophisticated application of numerical methods relevant to reliability analysis in physics simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.08116_figures/2608.08116_fig1.jpg",
+      "caption": "Fig. 1: Block diagram of the proposed multiphysics–probabilistic framework. A deter- ministic multiphysics core (property-field construction + coupled thermo-viscoelastic– damage solver) is wrapped by a probabilistic tolerance propagation layer (Monte Carlo sampling of geometric deviations) to produce both nominal predictions and reliability metrics.",
+      "page": 7
+    },
+    {
+      "image": "2608.08116_figures/2608.08116_fig2.jpg",
+      "caption": "Fig. 2: Separation of the physical system from the solved numerical domain. (a) In the physical labyrinth-seal stage, relative radial approach may close the clearance c0 and create a localized rub region in which contact pressure, tangential traction and frictional heating are real phenomena. (b) The domain actually solved is a local through-thickness coating column of M perfectly bonded homogenized subdomains on a substrate that enters only through the thermal expansion mismatch, driven by a prescribed equivalent normal-strain history εapp(t) and a prescribed temperature history T(z, t).",
+      "page": 11
+    },
+    {
+      "image": "2608.08116_figures/2608.08116_fig3.jpg",
+      "caption": "Fig. 3: Prescribed loading benchmark. (a) The trapezoidal thermal cycle runs 20 → 400 →20 ◦C over 60 s with a 20-s dwell, and the stress-free reference temperature is Tref = 20 ◦C. (b) The equivalent normal-strain history εapp(t) is an input representing cyclic normal approach, whereas the coating–substrate expansion mismatch strain εmis is generated internally by the thermal eigenstrain of Eqs. (4)–(5). The applied waveform is the two-pulse trapezoid of Eq. (1) with amplitude εapp 0 = 2.11 × 10−3, ramp time tr = 2 s and plateau td = 4 s; the mismatch plateau is ∆α ∆Tmax = 3 × 10−6 K−1 × 380 K = 1.14 × 10−3, i.e. exactly the value implied by the coefficients αc = 16 × 10−6 K−1 and αs = 13 ×...",
+      "page": 12
+    },
+    {
+      "image": "2608.08116_figures/2608.08116_fig4.jpg",
+      "caption": "Fig. 4: Propagation of variability along the computational pipeline. (a) The sampled geometric tolerance is a symmetric Gaussian, δuj ∼N(0, σ2 u) with σu = 0.02 mm and a ±3σu band. (b) The deterministic monotonic and periodically modulated property fields of Eq. (10) (wavelength λg); these are identical in every realization and are not randomized in the present uncertainty model. (c) The ensemble of perturbed equivalent loading histories obtained from the tolerance input through Eq. (14), which is the only randomized quantity. (d) The coupled solver returns a family of damage trajectories, the modulated mean lying systematically above the monotonic mean and reaching 0.03376 at t = 60 s...",
+      "page": 13
+    },
+    {
+      "image": "2608.08116_figures/2608.08116_fig5.jpg",
+      "caption": "Fig. 5: Quantitative spatial and temporal refinement of the reduced-order solver. (a) Spatial convergence against the M = 160 reference is close to second order; the adopted M = 40 (circled) gives 0.36% error in maximum stress and 4.71% in maximum damage. (b) Temporal convergence against the ∆t = 0.0625 s reference is first order, as expected from the explicit damage update; the adopted ∆t = 0.25 s (circled) gives 0.05% and 0.56% respectively. The shaded band in (a) marks resolutions below eight subdomains per modulation wavelength, where the sinusoidal term of Eq. (10) is aliased and the error is not a monotone function of M.",
+      "page": 20
+    }
+  ],
+  "figure": "2608.08116_figures/2608.08116_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.09652",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QSVM-RQNN: Low-Qubit Recurrent Quantum Similarity Learning for Condition Monitoring and Fault Classification",
+  "authors": "Amit S. Patel, Himanshu R. Patel, Bikash K. Behera",
+  "abstract": "In the Noisy Intermediate-Scale Quantum (NISQ) era, limited qubit availability and hardware noise constrain the practical deployment of quantum machine learning (QML). Existing quantum neural network (QNN) and quantum convolutional neural network (QCNN) architectures often require increasing quantum resources as the input dimension grows, limiting scalability on near-term devices. We propose QSVM-RQNN, a low-qubit framework integrating centroid-based Quantum Support Vector Machine (QSVM) similarity learning with Recurrent Quantum Neural Networks (RQNNs) for fault classification. The framework reduces the feature space using principal component analysis (PCA), partitions the reduced representation into sequential timesteps, and processes them using a compact three-qubit recurrent quantum architecture with shared parameters. Two complementary variants are developed: QSVM-RQNN-V1 performs class-conditioned joint quantum encoding of input and centroid segments, whereas QSVM-RQNN-V2 performs recurrent learning over timestep-wise quantum similarity representations. Experimental evaluation on multiple fault diagnosis datasets shows competitive and, in several cases, state-of-the-art performance compared with QSVM, QNN, QCNN, QSVM-QNN, QSVM-QCNN, and RQNN models. The proposed architectures provide favorable performance-efficiency trade-offs, improved recall, and enhanced fault detection on highly imbalanced datasets. These results demonstrate that integrating centroid-based quantum similarity learning with low-qubit recurrent representation learning provides an effective and scalable approach to condition monitoring and fault classification on resource-constrained NISQ devices.",
+  "url": "http://arxiv.org/abs/2608.09652v1",
+  "pdf": "https://arxiv.org/pdf/2608.09652v1",
+  "type": "both",
+  "summary": "This paper introduces QSVM-RQNN, a novel, low-qubit hybrid framework for fault classification tailored for NISQ devices. It combines Quantum Support Vector Machine similarity learning with Recurrent Quantum Neural Networks to process time-series data efficiently. The resulting model shows state-of-the-art performance while maintaining favorable resource efficiency compared to existing quantum methods.",
+  "main_problem": "Developing scalable quantum machine learning (QML) algorithms for fault classification on Noisy Intermediate-Scale Quantum (NISQ) devices while overcoming limitations in qubit resource requirements and noise sensitivity.",
+  "main_result": "The proposed QSVM-RQNN framework achieves competitive or state-of-the-art performance across multiple benchmarks, demonstrating superior performance-efficiency trade-offs for fault detection on imbalanced datasets.",
+  "method": "The approach integrates centroid-based Quantum Support Vector Machine (QSVM) similarity learning with Recurrent Quantum Neural Networks (RQNNs), preceded by PCA dimensionality reduction and QSMOTE class balancing.",
+  "model_or_system": "The system is a low-qubit hybrid quantum architecture utilizing a compact three-qubit recurrent quantum circuit. It processes feature representations derived from the combination of similarity learning and sequential time steps.",
+  "key_observables": "Fault classification performance, F1-score (especially for minority classes), recall, and robustness against various quantum noise models.",
+  "important_parameters": "Low qubit count (three qubits); number of recurrent timesteps ($T$) and depth ($L$); dimensionality reduction via PCA.",
+  "main_assumptions": "The framework assumes the feasibility of running on NISQ devices despite resource constraints; performance is evaluated against various established quantum/hybrid baselines.",
+  "figures_summary": "Figure 1 illustrates the overall workflow: PCA $\rightarrow$ QSMOTE $\rightarrow$ Centroid Construction $\rightarrow$ Compact Recurrent Quantum Architecture. Tables detail ablation studies varying $T$ and $L$, and statistical comparisons using average ranks.",
+  "paper_structure": "The paper introduces the problem constraints of NISQ devices, proposes the QSVM-RQNN framework with two variants (V1, V2), details preprocessing steps (PCA, QSMOTE), presents ablation studies on architectural parameters ($T, L$), and concludes with performance comparisons against multiple state-of-the-art models.",
+  "why_interesting": "While focused on ML applications, the core development involves designing efficient quantum circuits (low-qubit recurrent architecture) to process complex data representations derived from similarity measures, which touches upon resource optimization in quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.09652_figures/2608.09652_fig1.jpg",
+      "caption": "Fig. 1: Conceptual overview of the proposed QSVM-RQNN framework. High-dimensional industrial data are first transformed into compact representations through PCA and balanced using QSMOTE. Centroid-based quantum similarity learning subsequently generates discriminative representations that are processed by a low-qubit recurrent quantum network for efficient fault classification on NISQ devices.",
+      "page": 3
+    },
+    {
+      "image": "2608.09652_figures/2608.09652_fig2.jpg",
+      "caption": "Fig. 2: Overall workflow of the proposed QSVM-RQNN framework. The pipeline consists of data preprocessing (normalization, PCA, and QSMOTE), quantum feature encoding, and recurrent quantum representation learning using a compact three-qubit parameterized circuit with shared parameters across timesteps. QSVM-RQNN-V1 performs class-conditioned recurrent similarity learning and classifies using normalized sequence-level quantum similarity scores, whereas QSVM-RQNN-V2 processes timestep-wise quantum similarity features through a recurrent quantum classifier and applies Softmax normalization to the final measurement-derived class scores.",
+      "page": 6
+    },
+    {
+      "image": "2608.09652_figures/2608.09652_fig3.jpg",
+      "caption": "Fig. 3: Architectural comparison of the proposed QSVM-RQNN variants. (a) QSVM-RQNN-V1 performs class-conditioned joint quantum encoding of the input timestep and the corresponding class-centroid segment, followed by recurrent quantum processing using a shared low-qubit recurrent quantum block. After processing the complete sequence, a single final quantum measurement produces sequence-level similarity scores, which are normalized to obtain the class probabilities. (b) QSVM-RQNN-V2 first computes timestep-wise quantum similarity features with respect to the two class centroids and encodes these similarity representations into the recurrent quantum circuit. The recurrent block contains an...",
+      "page": 14
+    },
+    {
+      "image": "2608.09652_figures/2608.09652_fig4.jpg",
+      "caption": "Fig. 4: Noise robustness analysis of the proposed QSVM-RQNN variants on the SPID dataset after QSMOTE. The F1-score is evaluated under six quantum noise channels, namely bit-flip (BF), phase-flip (PF), bit-phase-flip (BPF), amplitude damping (AD), phase damping (PD), and depolarizing (DP), with the noise probability varied from η = 0 to η = 0.5. QSVM-RQNN-V1 consistently exhibits higher robustness than QSVM-RQNN-V2.",
+      "page": 20
+    },
+    {
+      "image": "2608.09652_figures/2608.09652_fig5.jpg",
+      "caption": "Fig. 5: Noise robustness analysis of the proposed QSVM-RQNN variants on the CWRUBD dataset after QSMOTE. The F1-score is evaluated under six quantum noise channels, namely bit-flip (BF), phase-flip (PF), bit-phase-flip (BPF), amplitude damping (AD), phase damping (PD), and depolarizing (DP), while the noise probability is varied from η = 0 to η = 0.5. Phase damping produces almost no degradation.",
+      "page": 20
+    }
+  ],
+  "figure": "2608.09652_figures/2608.09652_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.08798",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Symmetry Constraints Regularize Neural Quantum State Learning",
+  "authors": "Turbasu Chatterjee, Manas Sajjan, Songbo Xie, Elliott Love, Vinit Singh, Bojko N. Bakalov, Sabre Kais",
+  "abstract": "Neural quantum states (NQS) offer highly expressive variational wavefunctions, but their optimization is frequently bottlenecked by redundant parameters and poorly conditioned landscapes. We demonstrate that embedding Hamiltonian symmetries directly into the variational parameterization geometrically regularizes this learning problem. For Boltzmann-family NQS, we enforce symmetries by tying local Pauli-$Z$ generators along physical geometric orbits, analytically collapsing the trainable coefficient space prior to optimization. To quantify the resulting optimization geometry, we introduce a geometric metric built on the Jacobian and Hessian of the optimization landscape. This framework evaluates the fraction of the physically accessible state space that corresponds to high-quality, low-energy solutions. Evaluating our approach on transverse-field Ising (TFIM) and XXZ spin chains shows that symmetry compilation excises the vast majority of parameters while maintaining ground-state accuracy within the resolution of the reported benchmarks. In large TFIM systems, strong spatial constraints compress thousands of parameters down to tens, delivering substantial runtime accelerations. Our geometric diagnostics indicate that symmetry produces a more favorable target-aware geometry by concentrating the reachable state space around low-energy solutions while retaining broad target basins. Together, our results indicate that symmetry compilation concentrates the expressive power of NQS on states relevant to the target problem, thereby reducing model size and training cost without sacrificing accuracy.",
+  "url": "http://arxiv.org/abs/2608.08798v1",
+  "pdf": "https://arxiv.org/pdf/2608.08798v1",
+  "type": "theory",
+  "summary": "This paper shows that incorporating known Hamiltonian symmetries directly into Neural Quantum State parameterizations acts as a powerful geometric regularizer. By structurally collapsing redundant parameters using techniques like null-space projection, it drastically reduces model size and training time for systems like TFIM chains. This method concentrates the NQS expressive power onto physically relevant low-energy states.",
+  "main_problem": "Neural Quantum States (NQS) suffer from optimization bottlenecks due to redundant parameters and poorly conditioned energy landscapes.",
+  "main_result": "Embedding Hamiltonian symmetries directly into the parameterization structurally collapses the trainable parameter space, significantly reducing model size and training cost without sacrificing ground-state accuracy.",
+  "method": "The authors introduce a geometric metric based on the Jacobian and Hessian of the optimization landscape to quantify how symmetry constraints regularize the search space by eliminating redundant degrees of freedom.",
+  "model_or_system": "The work analyzes NQS parameterized for many-body wavefunctions, tested specifically on the Transverse-Field Ising (TFIM) and XXZ spin chains using a Boltzmann-family ansatz.",
+  "key_observables": "Geometric metrics including the Jacobian/Hessian analysis, active Fubini–Study dimension, local good volume fraction ($\text{fg}_{\text{good}}$), and parameter count reduction.",
+  "important_parameters": "System size (N), Hamiltonian parameters ($J=h=1$), and various symmetry constraints (e.g., translations, reflections, bitflip parity).",
+  "main_assumptions": "The analysis assumes that structural constraint imposition via null-space projection accurately captures the physically relevant subspace of the variational manifold.",
+  "figures_summary": "Figures illustrate how symmetry reduction quotients redundant directions in parameter space while preserving the volume of accurate solutions; consistency checks confirm this compression across multiple geometric proxies.",
+  "paper_structure": "The paper first establishes the problem of NQS optimization bottlenecks, then details the method of embedding symmetries by constraining parameters via global constraint matrices. It rigorously analyzes the geometry using various rank and volume estimators before concluding that symmetry compilation is a robust regularization technique.",
+  "why_interesting": "For AMO physicists working with complex Hamiltonians (like those describing trapped ions or molecular interactions), this provides a systematic, mathematically rigorous way to reduce the dimensionality of variational ansatzes derived from symmetries inherent in the physical Hamiltonian.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.08798_figures/2608.08798_fig1.jpg",
+      "caption": "FIG. 1. Symmetry compresses the neural-quantum-state parameter manifold while preserving its useful region. a, Periodic transverse-field Ising model (TFIM), H = −J P",
+      "page": 3
+    },
+    {
+      "image": "2608.08798_figures/2608.08798_fig2.jpg",
+      "caption": "FIG. 2. Parameter landscape and local solution density. The curved upper surface represents the physical state mani- fold M, hosting the ϵ-good parameter basin Gϵ(⃗x∗) (cyan re- gion) centered around the stationary solution ⃗x∗(gold marker). The flat plane below represents the tangent subspace T+, which acts as the local quadratic model of the landscape. The Fubini-Study exponential map exp⃗x∗(represented by the vertical dashed projection lines) maps the boundary of the quadratic basin in T+ (dashed pink ellipse) onto the physical manifold, defining the local volume V FS good,+(⃗x∗; ϵ) derived in Theorem 1. This coordinate-free framework quotients out ex- act parameter redundancies and...",
+      "page": 8
+    },
+    {
+      "image": "2608.08798_figures/2608.08798_fig3.jpg",
+      "caption": "FIG. 3. Symmetry compression preserves TFIM variational accuracy. a, Endpoint energy-density error ∆e = |EVMC −Eref|/N for the 1D TFIM (N = 20, J = 1, kmax = 2). Each marker is the endpoint error of an independently optimized VMC run at a fixed transverse field h and symmetry constraint. Lines are guides to the eye across the sweep, not optimization trajectories. The dashed vertical line marks the exact critical point hc/J = 1 of the one-dimensional TFIM [66]. b, Sweep-level accuracy-compression summary. The horizontal axis indicates the number of trainable parameters after symmetry compilation (dcomp), and the vertical axis is the median endpoint error over the field sweep....",
+      "page": 11
+    },
+    {
+      "image": "2608.08798_figures/2608.08798_fig4.jpg",
+      "caption": "FIG. 4. Symmetry compression preserves XXZ variational accuracy across the anisotropy sweep. a, Endpoint energy-density error ∆e = |EVMC −Eref|/N for the 1D XXZ benchmark (N = 20, J = 1, kmax = 2) as a function of anisotropy ∆. Dashed vertical lines mark the standard reference anisotropies ∆= ±1. b, Sweep-level accuracy-compression summary, sharing the axes and symmetry labels of Fig. 3. As in the TFIM benchmark, aggressive translation-based compression tightly matches the unconstrained median error. Labels: UC (unconstrained); B (bitflip); R (reflection); BR (bitflip + reflection); T (translations); SG (space group); BT (bitflip + translations); BSG (bitflip + space group).",
+      "page": 12
+    },
+    {
+      "image": "2608.08798_figures/2608.08798_fig5.jpg",
+      "caption": "FIG. 5. Scaling of the symmetry-compiled learner. a, Number of trainable parameters as a function of system size. b, VMC training wall time measured by the internal wall-clock timer around the optimization loop. Spatial symmetry constraints explicitly reduce the two-body learner from quadratic parameter growth to orbit-count growth, generating corresponding speedups in optimization runtime. Labels: UC (unconstrained); B (bitflip); R (reflection); BR (bitflip + reflection); T (translations); SG (space group); BT (bitflip + translations); BSG (bitflip + space group).",
+      "page": 13
+    }
+  ],
+  "figure": "2608.08798_figures/2608.08798_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

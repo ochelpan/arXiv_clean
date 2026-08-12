@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.09625",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Design Space Study of Density Matrix Parameterizations for Diffusion-Based Quantum State Tomography",
+  "authors": "Shuangju Chang",
+  "abstract": "Diffusion-based quantum state tomography (QST) has shown promising results, but all existing methods implicitly adopt a single parameterization---typically Cholesky---without systematic evaluation. We present a design space study of density matrix parameterizations for diffusion QST, introducing a geometric framework based on the Jacobian Gram matrix $\\mathbf{J}^\\top\\mathbf{J}$ that quantifies two competing criteria: isometric conditioning and physical constraint satisfaction. Our calibration of seven parameterizations at 2- and 3-qubit scales reveals three key findings. First, isometry and constraints are orthogonal criteria---no single parameterization optimizes both. Second, theoretical elegance does not predict geometric quality: the exponential map exhibits a spectral range of $149\\times$ at 2 qubits and $75\\,658\\times$ at 3 qubits, while simpler parameterizations remain well-conditioned. Third, geometric conditioning alone does not fully predict end-to-end performance: without classifier-free guidance (CFG), Hermitian direct outperforms Bloch despite worse local isometry; under CFG, the ranking reverses due to amplified boundary effects. End-to-end training confirms that better-conditioned parameterizations converge faster and achieve higher fidelity in the absence of CFG. We provide actionable selection guidelines to guide future QST method design.",
+  "url": "http://arxiv.org/abs/2608.09625v1",
+  "pdf": "https://arxiv.org/pdf/2608.09625v1",
+  "type": "theory",
+  "summary": "This paper provides a comprehensive design space study comparing various mathematical parameterizations used to represent density matrices in Quantum State Tomography. By analyzing geometric conditioning metrics derived from the Jacobian Gram matrix, the authors show that theoretical elegance is insufficient for selecting an optimal method. They provide actionable guidelines favoring better-conditioned parameterizations for robust QST implementation.",
+  "main_problem": "The study aims to systematically evaluate and select optimal parameterizations (coordinate charts) for density matrices when using diffusion models for Quantum State Tomography (QST).",
+  "main_result": "No single parameterization optimizes both geometric conditioning and physical constraint satisfaction, and end-to-end training confirms that better-conditioned parameterizations converge faster and achieve higher fidelity without Classifier-Free Guidance.",
+  "method": "The authors introduce a geometric framework using the Jacobian Gram matrix (J^T J) to quantify conditioning via Spectral Dynamic Range and Diagonal Anisotropy, comparing results across seven candidate parameterizations.",
+  "model_or_system": "The system is the reconstruction of an unknown quantum state $\\rho$ (a positive semidefinite, unit-trace Hermitian matrix) from measurement statistics using diffusion-based generative models.",
+  "key_observables": "Spectral Dynamic Range ($\\kappa_{\text{spec}}$), Diagonal Anisotropy ($\\kappa_{\text{diag}}$), Fidelity ($F$), and training convergence speed.",
+  "important_parameters": "Number of qubits (2- and 3-qubit scales); Classifier-Free Guidance weight ($w$); Measurement consistency loss ($\\lambda_{\text{meas}}$).",
+  "main_assumptions": "The analysis relies on numerical calibration using finite differences; the performance ranking reverses under CFG due to amplified boundary effects.",
+  "figures_summary": "Figures compare eigenvalue spectra, show parameterization selection decision trees, and plot fidelity vs. CFG weight or training dynamics for various methods.",
+  "paper_structure": "The paper establishes the need for systematic evaluation, introduces geometric diagnostics (J^T J), compares multiple parameterizations across 2- and 3-qubit scales using these metrics, validates findings via end-to-end training, and concludes with actionable selection guidelines.",
+  "why_interesting": "This work directly addresses the practical implementation challenges of quantum state reconstruction by providing quantitative geometric tools to guide the choice of mathematical representation for complex quantum states.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.09625_figures/2608.09625_fig1.jpg",
+      "caption": "Figure 1: Mean eigenvalue spectra of J⊤J for all seven parameterizations (log scale). Bloch shows flat spectrum at 1.0; Cholesky spans 2 orders of magnitude; log-Cholesky spans 4 orders.",
+      "page": 6
+    },
+    {
+      "image": "2608.09625_figures/2608.09625_fig2.jpg",
+      "caption": "Figure 2: Parameterization selection decision tree for diffusion QST. Green = recommended; yellow = acceptable with caveats; red = avoid. The primary recommendation is Hermitian direct (unbounded domain, stable conditioning) or fix-trace (automatic trace, excellent isotropy).",
+      "page": 7
+    },
+    {
+      "image": "2608.09625_figures/2608.09625_fig3.jpg",
+      "caption": "Figure 3: Effect of CFG weight on 2-qubit QST (Bloch parameterization). Each curve shows fidelity vs. shots for a fixed w. Low-shot regimes benefit from stronger guidance; w = 3–4 offers the best overall tradeoff.",
+      "page": 8
+    },
+    {
+      "image": "2608.09625_figures/2608.09625_fig4.jpg",
+      "caption": "Figure 4: Fidelity vs. CFG weight at each shot level. The optimal w shifts from ≈3 (low shots) to ≈2 (high shots), suggesting shot-adaptive CFG as a future improvement.",
+      "page": 9
+    },
+    {
+      "image": "2608.09625_figures/2608.09625_fig5.jpg",
+      "caption": "Figure 5: Training dynamics by parameterization. Herm B (2.0×) converges faster and achieves higher final fidelity than Bloch (1.0×), despite worse nominal isometry.",
+      "page": 10
+    }
+  ],
+  "figure": "2608.09625_figures/2608.09625_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

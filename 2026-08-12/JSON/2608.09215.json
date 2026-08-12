@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.09215",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Heterogeneous Distributed Architecture for Quantum Simulation",
+  "authors": "John Stack, Sitong Liu, Abhinav Anand, Inder Monga, Yuan Liu, Erhan Saglamyurek, Pedro L. S. Lopes, Frank Mueller, Katherine Klymko",
+  "abstract": "Architectural specialization and distribution can help scale fault-tolerant quantum computers, but may also introduce substantial overheads from communication, routing, and resource duplication. We introduce a heterogeneous distributed architecture in which a magic core is connected to an extensible storage system composed of one-dimensional lanes of specialized cold-storage nodes. The storage system supports parallel random access to Pauli string parities. This organization is particularly well suited to fermionic quantum simulation, enabling parallel execution of the highly non-local Pauli strings arising from these systems. We evaluate the architecture on fault-tolerant simulations of the dynamics of the Fermi-Hubbard and sparse Sachdev-Ye-Kitaev (SYK) models on systems of up to 450 logical qubits. These workloads exhibit complementary communication structures: Fermi-Hubbard produces a spectrum of interactions from local to non-local shaped by lattice geometry, whereas sparse SYK produces highly non-local and overlapping Pauli operators. For a Trotter step of a 450-logical-qubit Fermi-Hubbard workload, a six-lane system with 30 T-state factories is within approximately $1.4\\times$ the wall-clock time of a homogeneous distributed architecture with 4 times as many T-state factories and substantially greater connectivity and sites for injecting magic. For matched T-factory counts, our architecture is $\\sim 2\\times$ faster.",
+  "url": "http://arxiv.org/abs/2608.09215v1",
+  "pdf": "https://arxiv.org/pdf/2608.09215v1",
+  "type": "theory",
+  "summary": "The paper introduces a specialized, heterogeneous quantum computer architecture designed to efficiently simulate fermionic systems like the Fermi-Hubbard model. By separating computation into a magic core and dedicated cold storage lanes, it significantly reduces communication bottlenecks compared to uniform distributed designs. This makes simulating complex, non-local interactions on large qubit counts more feasible.",
+  "main_problem": "The primary challenge is scaling fault-tolerant quantum computation for simulating complex physical systems while minimizing overheads associated with communication, routing, and resource duplication in distributed architectures.",
+  "main_result": "A novel heterogeneous distributed architecture, connecting a magic core to specialized cold-storage lanes, was shown to be significantly faster (up to 2x) than homogeneous alternatives for large-scale fermionic simulations.",
+  "method": "The authors propose an architectural design that separates active computation from long-term storage and evaluates its performance using Trotterization applied to Pauli strings derived from fermionic Hamiltonians.",
+  "model_or_system": "The work focuses on simulating quantum dynamics using the Fermi–Hubbard model and the sparse Sachdev–Ye–Kitaev (SYK) model, requiring mappings of fermionic operators to Pauli string representations via JW or BK transformations.",
+  "key_observables": "Wall-clock time comparison between heterogeneous vs. homogeneous architectures; scaling of Pauli string weight ($O(N)$ vs $O(\\log N)$); and the efficiency gain factor ($\\sim 2\times$ speedup).",
+  "important_parameters": "System size up to 450 logical qubits; T-state factory count; lattice geometry (for Fermi-Hubbard); and target error rates for fault tolerance.",
+  "main_assumptions": "The analysis assumes that the overheads in traditional distributed architectures are dominated by slow Bell pair communication, making architectural specialization crucial.",
+  "figures_summary": "Figures illustrate the simulation workflow, comparing co-support matrices for JW vs. BK encodings, and detailing the proposed heterogeneous architecture structure versus homogeneous alternatives.",
+  "paper_structure": "The paper introduces the problem of scaling fault tolerance, details the physical models (Fermi-Hubbard/SYK) and their Pauli string representations, proposes the novel heterogeneous architecture, and concludes with performance evaluations comparing it against existing distributed paradigms.",
+  "why_interesting": "This work directly addresses the hardware bottleneck for simulating strongly correlated quantum matter by proposing a resource-aware architectural solution that minimizes communication overheads inherent in large-scale fault tolerance.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.09215_figures/2608.09215_fig1.jpg",
+      "caption": "Fig. 1: Simulation workflow, Pauli-string structure and device implementation. (a) Simulation workflow. (b) Co-support and incidence matrices for the Jordan–Wigner (JW, top) and Bravyi–Kitaev (BK, bottom) transformations on a 7 × 7 Fermi- Hubbard Hamiltonian. The co-support matrices indicate the probability that qubits i and j both occur in the support of a Pauli string. The incidence matrices indicate which qubits occur in the support of each Pauli string. (c) A method of computing parity that is suboptimal on distributed devices, requiring O(w) non-local CNOTs for a Pauli string of weight w. (d) A communication-efficient method of computing parity. For each lane on which a Pauli string...",
+      "page": 2
+    },
+    {
+      "image": "2608.09215_figures/2608.09215_fig2.jpg",
+      "caption": "Fig. 2: Quantum architectures. Gradient coloring represents design space for sizing. (a) Monolithic device with column(s) of T factories (T), hot-storage zones (H), connected via ebits (E) to data (D) / cold storage qubits. (b-c) Distributed ho- mogeneous architectures. Yellow lines indicate node-to-node interactions required to implement distributed Pauli strings. Example internal homogeneous node structure shown. (d) Dis- tributed heterogeneous architecture. Yellow and cross-hatched yellow arrows at the Magic core indicate inter- and intra-string parallelism respectively. Note that while nodes are shown as squares or 1D rectangles, this is just illustrative. We model nodes as rectangles...",
+      "page": 3
+    },
+    {
+      "image": "2608.09215_figures/2608.09215_fig3.jpg",
+      "caption": "Fig. 3: Wall-clock time against total T factory count Pareto plot. (a-b) 450-qubit simulations at 1ms O(d) Bell state generation rates. The data shown in these plots correspond to the Bravyi–Kitaev (BK) transformation.",
+      "page": 7
+    },
+    {
+      "image": "2608.09215_figures/2608.09215_fig4.jpg",
+      "caption": "Fig. 4: Number of T factories, magic sites and distributed connections. (a) Total number of T factories across different distributed quantum computing architectures as problem size increases. (b) Total number of magic sites for each architec- ture. For the 1D and monolithic architectures, this remains fixed and is equal to the number of storage lanes. For the 2D architecture, it is equal to the number of modules and therefore increases with problem size. (c) Total number of distributed connections for different architectures against qubit count.",
+      "page": 7
+    },
+    {
+      "image": "2608.09215_figures/2608.09215_fig5.jpg",
+      "caption": "Fig. 5: Performance of the architecture and its scaling against problem size. (a-b) The performance of the device on an L × L grid Fermi-Hubbard simulation task with N = 2L2",
+      "page": 7
+    }
+  ],
+  "figure": "2608.09215_figures/2608.09215_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
