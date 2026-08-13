@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.10809",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Quantum Algorithm for Solving the Poisson Equation for Free Field Conditions via the Hockney Method",
+  "authors": "Hans A. Kösel, Roland Ewert, Jan W. Delfs",
+  "abstract": "For the often encountered problem of the Poisson equation, this work presents a quantum algorithm solving it based on the quantum Fourier transform (QFT) for periodic boundary conditions as well as free field conditions, where the latter is realized via the Hockney method. Besides the QFT and an initialization procedure for amplitude encoding, the algorithm just uses a procedure for multiplying the state vector by a diagonal matrix w.r.t. amplitude encoding. For the latter, two alternative implementations are considered here. The first variant is a version of the LCU method and the second is a sequence of multi-controlled rotation gates that represents a factoring of the multiplied values into absolute values and complex phase factors. The functionality of the algorithm is verified via comparing the results obtained from state vector simulations for one- and two-dimensional test examples with their analytical solutions. For the considered test examples, it is found that the success probability for obtaining the desired ancilla qubit subspace in the LCU version is a factor of around two higher than that for the sequence of multi-controlled rotation gates. However, the LCU version requires a number of ancilla qubits up to the number of qubits that is set to store the discretized source term of the Poisson equation in amplitude encoding, whereas the sequence of multi-controlled rotation gates demands only one ancilla qubit. Computations of the success probabilities for both variants furthermore indicate that the success probability converges for a specific problem with increasing resolution. Concerning the required computational resources for the quantum algorithm, the conclusion is drawn that while the QFT is a more efficient procedure than its classical counterpart, the current implementations of the other necessary steps in the algorithm diminish the efficiency w.r.t. the runtime.",
+  "url": "http://arxiv.org/abs/2608.10809v1",
+  "pdf": "https://arxiv.org/pdf/2608.10809v1",
+  "type": "theory",
+  "summary": "This paper proposes a quantum algorithm to solve the Poisson equation using techniques like the Quantum Fourier Transform and the Hockney method. It compares two circuit implementations for diagonal matrix multiplication, finding trade-offs between ancilla qubit requirements and success probability. The work confirms the potential of quantum computation for PDEs but cautions that current non-QFT steps limit overall runtime efficiency.",
+  "main_problem": "The paper addresses solving the Poisson equation, $\\nabla^2\\varphi(\\mathbf{x}) = S(\\mathbf{x})$, which is a fundamental problem in fields like CFD.",
+  "main_result": "A quantum algorithm utilizing the Quantum Fourier Transform (QFT) and the Hockney method was developed to solve this equation for both periodic and free field boundary conditions. While QFT offers efficiency gains, other necessary algorithmic steps limit the overall runtime performance.",
+  "method": "The core methodology involves mapping the differential equation into Fourier space, applying the QFT, performing a matrix multiplication in the transformed domain (using LCU or multi-controlled rotations), and then applying an inverse transform. The Hockney method extends this to free field conditions.",
+  "model_or_system": "The model is the Poisson equation itself, applied to scalar fields $\\varphi$ governed by a source term $S$. The quantum implementation uses amplitude encoding for state representation and relies on QFT circuits.",
+  "key_observables": "Success probability of obtaining the desired ancilla qubit subspace; the solution function $\\varphi(\\mathbf{x})$ itself, compared against analytical solutions.",
+  "important_parameters": "The resolution (number of discretization points $N$) used for simulating test cases in 1D and 2D.",
+  "main_assumptions": "For free-field problems, the Hockney method is employed to extend periodic boundary solutions. The efficiency analysis notes that non-QFT steps diminish overall runtime performance despite QFT's advantage over classical methods.",
+  "figures_summary": "Figures illustrate quantum circuit schematics (Fig. 2) and show simulation results comparing computed real/imaginary parts of the solution $\\phi$ against known analytical solutions for both periodic and free-field test cases (Figs. 16, 17, 18).",
+  "paper_structure": "The paper first establishes the mathematical background by deriving solutions using Fourier Transforms for both periodic and free fields, detailing the role of the Hockney method. It then presents the quantum algorithm structure involving QFT and diagonal matrix multiplication, followed by detailed verification through state vector simulations on 1D and 2D test examples.",
+  "why_interesting": "It demonstrates a direct application of advanced quantum algorithms (QFT, controlled gates) to solve a classical PDE problem, providing benchmarks for quantum simulation feasibility in physics applications.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.10809_figures/2608.10809_fig1.jpg",
+      "caption": "Fig. 1: Illustration of the Hockney method.",
+      "page": 5
+    },
+    {
+      "image": "2608.10809_figures/2608.10809_fig2.jpg",
+      "caption": "Fig. 2: Quantum circuit schematics of the module structure of the quantum algorithm.",
+      "page": 6
+    },
+    {
+      "image": "2608.10809_figures/2608.10809_fig3.jpg",
+      "caption": "Fig. 3: Equivalence of an initialization procedure for its application to a data field Spad, which explicitly includes a padding of the source field S, and the application to the source field S alone. The procedure [INIT] prepares a data field of the form (27) as a corresponding state vector w.r.t. the involved qubits in amplitude encoding. LSB and MSB indicate the least and most significant bit, respectively, and qubit lines that go over the gate block for the initialization mean that the initialization procedure does not act on them. If the padding region shall be realized for a specific dimension before the region of the source (as in Fig. 1), an X-gate has to be applied to the qubit of...",
+      "page": 7
+    },
+    {
+      "image": "2608.10809_figures/2608.10809_fig4.jpg",
+      "caption": "Fig. 4: Quantum circuit pattern of the multi-dimensional QFT according to [9]. It is implemented for a state vector of the form (27) by performing one-dimensional QFT routines for the subregisters that are associated to the individual dimensions in parallel.",
+      "page": 8
+    },
+    {
+      "image": "2608.10809_figures/2608.10809_fig5.jpg",
+      "caption": "Fig. 5: Quantum circuit pattern of the LCU procedure. There have to be as many ancilla qubits as needed to store a value for each non-vanishing coefficient in the expansion (31) in amplitude encoding, for which [PREP] is a corresponding gate sequence. The [SELECT]-gate block involves all qubits. In it, the ancilla qubits act as control qubits, where the control bitstring is given by the binary representation of κ for the respective non-vanishing aκ. The ancilla qubits are added here as the MSBs, however, the ordering is irrelevant for the LCU procedure. In accordance to the definition of [PREP] in the text, all ancilla qubits shall have the starting state |0⟩and have to be also measured in...",
+      "page": 10
+    }
+  ],
+  "figure": "2608.10809_figures/2608.10809_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

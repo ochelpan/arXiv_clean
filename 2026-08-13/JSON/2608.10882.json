@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.10882",
+  "category": "other",
+  "arxiv_categories": [
+    "cs.SE",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "From Pattern Detection to Composition Analysis in Quantum Software",
+  "authors": "Neilson Carlos Leite Ramalho, Erico Augusto da Silva, Anthony Accioly, Higor Amario de Souza, Marcos Lordello Chaim",
+  "abstract": "Quantum software patterns provide high-level abstractions for building quantum programs, but there is still little empirical evidence on how they are adopted in practice. In prior work, we extended an existing quantum-pattern atlas into a 61-pattern catalog, created a knowledge base that links framework components to those patterns, and built a tool that mines pattern implementations from open-source code. We applied this tool on 80 projects and find that all 23 patterns occur in practice. In this work, we extend the tool with two additional matching channels and a vocabulary expansion step, and execute a quantitative evaluation of its accuracy on Qrisp, a framework not present in the knowledge base, reaching a micro-F1 of 0.712 against 0.449 without the expansion step. We then construct composition graphs that record calls among the high-level framework components associated with patterns and store them in a graph database. We use these graphs to examine how pattern implementations are assembled inside each framework, why patterns co-occur, and how much of a pattern's detection count comes from components called directly by developers rather than introduced through internal framework calls. We release qpa, an open-source mining pipeline, together with the knowledge base, which maps 286 framework components across five sources to the pattern catalog, maintained with the support of an LLM ensemble that classifies newly extracted components, and the resulting pattern usage dataset, to support reproducible studies on the adoption and evolution of quantum patterns.",
+  "url": "http://arxiv.org/abs/2608.10882v1",
+  "pdf": "https://arxiv.org/pdf/2608.10882v1",
+  "type": "theory",
+  "summary": "This paper analyzes how reusable design patterns are actually implemented in open-source quantum software by building advanced mining tools. It extends pattern detection to composition analysis using graph databases to map component call structures. This work provides a critical resource (qpa pipeline and knowledge base) for understanding the practical adoption and architectural evolution of quantum algorithms.",
+  "main_problem": "The research moves beyond simple detection of quantum software patterns to analyze their composition, understanding how high-level abstractions are assembled in practice.",
+  "main_result": "The authors successfully built a pipeline that analyzes pattern usage across 80 open-source projects and constructed composition graphs showing the internal assembly logic of these patterns within quantum frameworks.",
+  "method": "They developed an enhanced mining tool (qpa) that uses multiple matching channels and vocabulary expansion, coupled with building graph databases to map component call relationships.",
+  "model_or_system": "The focus is on quantum software development using existing frameworks (like Qiskit), treating the framework components as the system being analyzed rather than a physical Hamiltonian or state.",
+  "key_observables": "Pattern occurrence frequency, detection accuracy (micro-F1 score), and call relationships within composition graphs (direct vs. internal calls).",
+  "important_parameters": "The catalog size (61 patterns) and the number of analyzed projects (80).",
+  "main_assumptions": "The analysis assumes that framework components can be reliably mapped to abstract quantum software patterns, and that LLMs can semi-automatically classify new components.",
+  "figures_summary": "not specified",
+  "paper_structure": "The paper progresses from establishing the need for composition analysis over simple detection, detailing the enhancement of the mining tool (qpa), presenting quantitative accuracy results, and finally using composition graphs to analyze pattern assembly logic.",
+  "why_interesting": "While not directly about physical Hamiltonians, understanding the software architecture and limitations of quantum programming tools is crucial for developing scalable algorithms that can be physically realized or simulated efficiently.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.10882_figures/2608.10882_fig1.jpg",
+      "caption": "Fig. 1: Vocabulary expansion. qpa builds project-specific dynamic KBs and combines them with the seed KB before notebook analysis.",
+      "page": 13
+    },
+    {
+      "image": "2608.10882_figures/2608.10882_fig2.jpg",
+      "caption": "Fig. 2: Pattern detection and aggregation. qpa applies four matching channels, filters text-based candidates, removes duplicate detections, and aggregates the results.",
+      "page": 14
+    },
+    {
+      "image": "2608.10882_figures/2608.10882_fig3.jpg",
+      "caption": "Fig. 3: Automated pattern categorization with an LLM ensemble. The new compo- nents collected by the tool after the manual categorization are turned into a prompt (the component name, its documentation summary, and the 61-pattern list), classified independently by three models from different providers (Llama 3.3, Qwen 2.5, and DeepSeek), and combined by majority vote: a component on which at least two mod- els agree receives that pattern, while a component on which all three differ is left for manual review.",
+      "page": 17
+    },
+    {
+      "image": "2608.10882_figures/2608.10882_fig4.jpg",
+      "caption": "Fig. 4: Framework components connected to qft in the Classiq SDK call graph. An arrow points from a function to a function it calls. The view includes the functions qft calls, the functions that call qft, and one further level of callers, showing how qft acts as a shared building block reused by higher-level routines such as phase estimation and modular arithmetic.",
+      "page": 26
+    },
+    {
+      "image": "2608.10882_figures/2608.10882_fig5.jpg",
+      "caption": "Fig. 5: Decomposition of five well-known algorithms into ordered chains of sub- routines in the Classiq SDK: Grover search, amplitude estimation, quantum phase estimation, QSVT, and QAOA. Each chain follows the calls made inside the source code of a high-level function down to the lowest-level public function, showing both the composition of each algorithm and the sub-routines shared between them.",
+      "page": 27
+    }
+  ],
+  "figure": "2608.10882_figures/2608.10882_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
