@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2608.11911",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn",
+    "cond-mat.str-el",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Hamilton-Zero: A Neural Tensor-Network Foundation Model for Ground States of Arbitrary Quadratic Qubit Hamiltonians",
+  "authors": "Timothy Heightman, Elena Orlova, Philip Mantrov, Aleksei Ustimenko",
+  "abstract": "A central promise of useful quantum advantage is the ability to compute ground states of Hamiltonian systems beyond the reach of classical simulation methods. Here we demonstrate that this problem can be effectively amortized across an arbitrary and universal set of Hamiltonians by a foundation model with $\\sim0.5$B variational parameters, trained with contemporary techniques from large language models and deep reinforcement learning. To do this, we formulate $\\text{spin-}1/2$ quantum ground-state learning as manifold variational optimisation over centrally odd scalar functions on $\\mathrm{SU}(2)^N$. This replaces explicit Hilbert-space vector amplitudes with manifold functions on which the Hamiltonian acts through Lie derivatives, evaluated by custom automatic differentiation primitives. We prove that the resulting variational principle on this manifold preserves the $\\text{spin-}1/2$ sector's ground-state upper bound using the Peter-Weyl theorem, then pre-train our foundation model on a dataset of hundreds of thousands of different Hamiltonian systems, varying the connection topology, system size, interaction types and strengths, bringing together a century of many-body literature. Using a novel $\\mathrm{SU}(2)$ replica-exchange Langevin sampler and sharded natural-gradient optimisation, we train our model with our own extension of the Kronecker-Factored Approximate Curvature (KFAC) optimiser on system sizes up to 64 qubits. On a held-out generalisation dataset, we fine-tune our model on system sizes of up to 1024 qubits, and evaluate on systems up to 8100 qubits.",
+  "url": "http://arxiv.org/abs/2608.11911v1",
+  "pdf": "https://arxiv.org/pdf/2608.11911v1",
+  "type": "theory",
+  "summary": "The paper introduces Hamilton-Zero, a massive foundation model designed to calculate ground states for arbitrary qubit Hamiltonians. It achieves this by reformulating the problem as variational optimization on a continuous mathematical manifold defined over SU(2)^N. This allows the model to generalize robustly across vastly different system sizes and interaction topologies, promising quantum advantage in simulating complex materials.",
+  "main_problem": "The core problem is computing the ground state energy of arbitrary quadratic qubit Hamiltonians for quantum many-body systems.",
+  "main_result": "The authors introduce 'Hamilton-Zero,' a foundation model capable of effectively amortizing ground state computation across an entire, universal set of Hamiltonians, achieving high accuracy on very large, complex systems.",
+  "method": "They formulate the problem as manifold variational optimization over centrally odd scalar functions on SU(2)^N, replacing explicit amplitudes with continuous manifold representations acted upon by Lie derivatives.",
+  "model_or_system": "The model targets spin-1/2 quantum systems governed by arbitrary quadratic qubit Hamiltonians. It uses a neural tensor-network foundation model architecture with $\\sim 0.5$B parameters.",
+  "key_observables": "Variational energy ($\\langle\\psi_\theta|\\hat{H}|\\psi_\theta\rangle / \\langle\\psi_\theta|\\psi_\theta\rangle$), which serves as an upper bound on the true ground-state energy $E_0$.",
+  "important_parameters": "The model is trained/tested up to system sizes of 8100 qubits, with pretraining covering hundreds of thousands of varied Hamiltonians.",
+  "main_assumptions": "The variational principle is preserved by constraining the wavefunction to be a centrally odd scalar function on SU(2)^N, which guarantees it lies in the physical spin-1/2 sector.",
+  "figures_summary": "Figure 1 illustrates the generalization surface of foundation wavefunction models, demonstrating Hamilton-Zero's superior ability to vary system topology compared to previous methods limited to varying only coefficients on a fixed graph.",
+  "paper_structure": "The paper introduces the problem and the novel manifold variational formulation. It details the training procedure using large datasets and advanced optimizers (KFAC extension). Results demonstrate generalization across diverse Hamiltonians and scaling to very large systems, comparing performance against established methods like tensor networks.",
+  "why_interesting": "This work represents a major convergence point between quantum simulation and deep learning, offering a scalable, data-driven approach that bypasses the explicit exponential complexity limitations of traditional quantum state representations for many-body physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.11911_figures/2608.11911_fig1.jpg",
+      "caption": "Figure 1: The generalisation surface of foundation wavefunction models. Each bar is one pretrained- model family. Its length is how the model varies its coupling across its training and evaluation corpus, with the axes ordered by structural depth. Solid bars mark demonstrated generalisation, hatched bars partial or model-dependent reach, with each reviewed in the main text.",
+      "page": 3
+    },
+    {
+      "image": "2608.11911_figures/2608.11911_fig2.jpg",
+      "caption": "Figure 2: Four interaction-graph examples drawn from the training data. The colour map X, Y, Z shows different types of edges.",
+      "page": 5
+    },
+    {
+      "image": "2608.11911_figures/2608.11911_fig3.jpg",
+      "caption": "Figure 3: Hamilton-Zero information flow. The Hamiltonian (J, h) is spectrally normalised, featurised in polar form, and propagated through the trunk; a route policy conditioned on the trunk’s outputs permutes sites and padding slots before the leaf contextualiser; the spin configuration q enters only at the odd leaf builder, enforcing per-site oddness before the shared rank-four merge tree returns log ψθ(q | p). The rail beneath the pipeline is the global stream g, refreshed at every stage on the unit-RMS sphere. Component diagrams are SM §S2.",
+      "page": 7
+    },
+    {
+      "image": "2608.11911_figures/2608.11911_fig4.jpg",
+      "caption": "Figure 4: Compute scaling of variance and variational energy error through step 280 000. (a) V-score decreases approximately as V ∝C−0.53 after the initial transient. (b) The observed relative gap for ED-covered systems decreases approximately as C−0.61. (c) V 1/2 approaches a common late-time scale across the six system-size bands, showing that the normalization removes most of the extensive size dependence. (d) V 1/2 and the predicted relative gap decrease together over the full 5,000-system dataset, connecting variance reduction to improved inferred accuracy. Compute is cumulative execution time across eight NVIDIA H200 GPUs. The V-score is V = N Var(EL)/(E −E∞)2, with E∞= 0 here, and is...",
+      "page": 10
+    },
+    {
+      "image": "2608.11911_figures/2608.11911_fig5.jpg",
+      "caption": "Figure 5: Zero-variance calibration and held-out size validation. (a) Relative gap against V-score, both defined as in Fig. 4. Here we show the median and IQR as a blue line and shaded blue region, with a bounded zero-variance principle in dashed orange, obtained from q = (E −EED)/|E| = κV with κ = 0.2825 and r = q/(1 + q); a free robust fit gives r ∝V 0.89. (b) The median calibration residual shows no monotonic drift with N, supporting transfer across system size. (c) Fit of gap prediction showing sizes N ≥18 follow the same relationship as 19 ≤N ≤22. Blue points belong to the fitted N ≤18 population and orange points to the unseen N = 19–22 population. Their overlap around the one-to-one...",
+      "page": 11
+    }
+  ],
+  "figure": "2608.11911_figures/2608.11911_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

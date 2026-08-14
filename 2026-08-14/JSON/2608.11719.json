@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.11719",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AR"
+  ],
+  "is_primary_archive": true,
+  "title": "Do Not Let CNOTs Overwhelm the Decoder: Scheduling Transversal Gates for Fast FTQC",
+  "authors": "Shota Ikari, Yuga Hirai, Yasunari Suzuki, Hiroshi Nakamura, Yosuke Ueno",
+  "abstract": "Transversal CNOT (TCNOT) gates can accelerate fault-tolerant quantum computation (FTQC) in the surface code by reducing the number of syndrome extraction rounds required between logical operations from $O(d)$ to $O(1)$. This is particularly attractive for quantum platforms with long-range connectivity, such as neutral atoms. However, dense TCNOT schedules substantially increase the classical decoding workload. TCNOTs propagate errors across multiple surface-code patches, enlarging the spatiotemporal region that must be decoded jointly. Consequently, denser TCNOT schedules increase decoding latency and memory requirements and potentially exceed available decoder capacity. Moreover, because the detector error model (DEM) of each decoding window depends on the TCNOT schedule, exhaustively precomputing all possible window-level DEMs is infeasible, requiring just-in-time (JIT) DEM compilation. Thus, the practical benefit of TCNOT gates is limited not only by quantum hardware performance but also by classical decoding and DEM-compilation capacity.   We introduce PACE, a decoder-aware scheduling framework for TCNOT-based FTQC. PACE first mitigates the decoder-side costs of aggressive TCNOT scheduling through three complementary techniques. Hybrid Window Decoding assigns different decoders for each decoding window according to its DEM structure. DEM Stitch generates schedule-specific window-level DEMs just in time by assembling reusable precompiled fragments. Sub-window Parallel Decoding decomposes large windows into smaller sub-windows with graph-coloring formulation. Building on these techniques, PACE then performs decoder-aware scheduling to maximize TCNOT concurrency within the available decoder resources. Our evaluation shows the trade-off between quantum acceleration and classical decoding cost, revealing the limitations of current decoding systems for TCNOT-based FTQC.",
+  "url": "http://arxiv.org/abs/2608.11719v1",
+  "pdf": "https://arxiv.org/pdf/2608.11719v1",
+  "type": "theory",
+  "summary": "This paper addresses the bottleneck in fast Fault-Tolerant Quantum Computation caused by TCNOT gates creating overly complex error patterns that overwhelm classical decoders. The proposed framework, PACE, mitigates this by implementing advanced decoding strategies and scheduling TCNOTs based on real-time decoder capacity rather than just quantum speedup.",
+  "main_problem": "The primary challenge is developing a scheduling strategy for Fault-Tolerant Quantum Computation (FTQC) that maximizes the speedup from Transversal CNOT (TCNOT) gates without overwhelming the classical decoding resources.",
+  "main_result": "The authors introduce PACE, a decoder-aware framework that successfully balances TCNOT concurrency against the limitations of classical decoding capacity by employing novel scheduling and decoding techniques.",
+  "method": "PACE combines three complementary techniques—Hybrid Window Decoding, DEM Stitch, and Sub-window Parallel Decoding—to mitigate decoder costs before performing an optimized, resource-aware TCNOT schedule.",
+  "model_or_system": "The work is situated within the context of surface code quantum error correction. The system relies on syndrome extraction rounds mediated by TCNOT gates, which generate complex, non-graphlike Detector Error Models (DEMs) due to correlated errors across patches.",
+  "key_observables": "The trade-off between quantum acceleration (TCNOT concurrency) and classical decoding cost (latency, memory requirements).",
+  "important_parameters": "Code distance ($d$), TCNOT gate density, and the computational capacity of the classical decoder.",
+  "main_assumptions": "It is assumed that the practical benefit of TCNOTs is limited not only by quantum hardware but critically by the classical decoding and DEM-compilation capacity.",
+  "figures_summary": "Figure 1 illustrates the trade-off, showing how dense scheduling leads to infeasible decoding windows compared to PACE's balanced approach. Figure 2 details how TCNOTs create hyperedges that break the standard graphlike structure of the DEM.",
+  "paper_structure": "The paper first establishes the quantum acceleration benefit of TCNOTs but then pivots to detailing the classical bottleneck caused by error correlation and exponential DEM growth. It then introduces PACE, describing its three constituent decoder-side techniques before presenting the final scheduler that optimizes concurrency against resource limits.",
+  "why_interesting": "While focused on computation theory, the explicit mention of physical platforms like neutral atoms and the need to manage complex, correlated errors touches upon the practical limitations of quantum hardware interfacing with classical control electronics, which is relevant for AMO physicists working on scalable quantum devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.11719_figures/2608.11719_fig1.jpg",
+      "caption": "Figure 1: Motivation of PACE. (a) Dense TCNOT scheduling enlarges the decoding window, rapidly increasing decoder workload. (b) PACE schedules TCNOTs as densely as decoder capacity allows, balancing quantum acceleration with decoding capability.",
+      "page": 2
+    },
+    {
+      "image": "2608.11719_figures/2608.11719_fig2.jpg",
+      "caption": "Figure 2: (a) A distance-three rotated surface code. (b) A DEM for a memory experiment. (c) A TCNOT can flip more than two detectors, which forms hyperedges in the corresponding DEM. (d) The diagram of window decoding.",
+      "page": 3
+    },
+    {
+      "image": "2608.11719_figures/2608.11719_fig3.jpg",
+      "caption": "Figure 3: Execution pipeline of the FTQC system considered in this study. The highlighted components indicate the scope of this work.",
+      "page": 3
+    },
+    {
+      "image": "2608.11719_figures/2608.11719_fig4.jpg",
+      "caption": "Figure 3 illustrates the execution pipeline of an FTQC system. The instruction scheduler issues logical instructions according to circuit dependencies and decoded feedback. While the quantum device con- tinuously performs SE, the classical pipeline prepares window-level DEMs and decodes the resulting detection events. The estimated errors are fed back to the scheduler to support classically controlled operations. Because the quantum and classical pipelines operate concurrently, FTQC throughput is limited by the slower pipeline. DEM preparation and decoding must therefore sustain the rate at which SE generates new decoding tasks; otherwise, the tasks",
+      "page": 3
+    },
+    {
+      "image": "2608.11719_figures/2608.11719_fig5.jpg",
+      "caption": "Figure 5: Instruction breakdown of the benchmark circuits in Table 2, using the instruction set in Fig. 4. The resource- state preparations are omitted because they are not primitive operations and do not lie on the execution critical path.",
+      "page": 4
+    }
+  ],
+  "figure": "2608.11719_figures/2608.11719_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

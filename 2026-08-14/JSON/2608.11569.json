@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.11569",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Improved quantum sampling methods for molecular simulations",
+  "authors": "Connor van Rossum, Jeffery Cohn, Sally Shrapnel, Riddhi Gupta",
+  "abstract": "Quantum-selected configuration interaction (QSCI) methods use a quantum computer to identify dominant electronic configurations in the molecular ground state, while a classical computer diagonalizes the Hamiltonian within the reduced subspace spanned by those configurations. Sample-based quantum diagonalization (SQD), a leading QSCI approach, uses iterative classical post-processing to correct noisy quantum measurement to ensure that the corresponding configurations remain physically sensible. In this work, we show that SQD performance can be strongly influenced by uncontrolled growth of the classical diagonalization subspace. When classical resources are not explicitly constrained, classical uniform random sampling can reproduce SQD benchmarks as noise increases the diversity of sampled configurations. We show any fair benchmarking protocol of SQD must explicitly control diagonalization size over unique samples. We then address the problem of efficiently discovering physically relevant, energy-lowering configurations by introducing a measurement protocol based on non-orthogonal configuration interaction (NOCI). By distributing measurements across orbital bases optimized with respect to the molecular Hamiltonian, we obtain improved sample efficiency relative to measurements performed solely in the Hartree--Fock basis. Importantly, these improvements persist even under fixed classical resource budgets, demonstrating that the resulting configurations are of higher quality rather than being more numerous. Under our proposed benchmarking procedure, we establish measurement-basis engineering as a promising route to improving quantum sampling methods for electronic structure.",
+  "url": "http://arxiv.org/abs/2608.11569v1",
+  "pdf": "https://arxiv.org/pdf/2608.11569v1",
+  "type": "theory",
+  "summary": "The paper tackles the inefficiency of current quantum sampling techniques used for molecular electronic structure calculations. It proposes a novel measurement-basis engineering approach called NOCI, which samples measurements across multiple optimized orbital bases rather than just the standard Hartree-Fock basis. This significantly improves the discovery of important electronic configurations while maintaining performance even when classical computational resources are limited.",
+  "main_problem": "The primary challenge is improving quantum sampling methods for molecular simulations by efficiently identifying physically relevant, energy-lowering electronic configurations.",
+  "main_result": "Measurement-basis engineering using Non-orthogonal Configuration Interaction (NOCI) shows promise by increasing configurational diversity and alleviating sampling concentration issues, especially when the Hartree-Fock basis is insufficient.",
+  "method": "The work develops an NOCI measurement protocol that distributes quantum measurements across multiple optimized, non-orthogonal orbital bases to improve sample efficiency over standard methods.",
+  "model_or_system": "The study focuses on molecular electronic structure simulation, using systems like $\text{N}_2$ and $\text{H}_{12}$. The core physics involves diagonalizing the Hamiltonian within a reduced subspace spanned by quantum-selected configurations derived from measurements in various orbital bases.",
+  "key_observables": "Energy error convergence, configurational diversity (number of unique samples), average orbital occupancies ($o_{\\sigma}^{m,\\mu}$), and diagonalization subspace size ($d$).",
+  "important_parameters": "Fixed classical resource budgets, noise levels ($\\lambda$), and the choice between orthogonal (HF) vs. non-orthogonal measurement bases.",
+  "main_assumptions": "The methods do not solve the fundamental challenge of preparing quantum states with high overlap to the true ground state; furthermore, NOCI introduces increased classical cost due to constructing dense Hamiltonian matrices.",
+  "figures_summary": "Figures compare energy error convergence under varying noise levels and fixed subspace sizes for different sampling strategies (LUCJ vs. Uniform Random Sampling). They also illustrate the workflow comparing standard computational basis measurements versus multi-basis NOCI measurements.",
+  "paper_structure": "The paper first establishes the limitations of current quantum sampling methods like SQD, showing that unconstrained classical resources can mask true performance issues. It then introduces and validates the NOCI measurement protocol by optimizing orbital bases to improve sample efficiency for electronic structure calculations.",
+  "why_interesting": "This work directly addresses resource constraints in simulating complex molecular Hamiltonians using near-term quantum hardware concepts (quantum sampling), which is highly relevant to AMO physics applications like spectroscopy or reaction dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.11569_figures/2608.11569_fig1.jpg",
+      "caption": "FIG. 1. Low-energy states of a molecule are associated with an initial quantum state |Ψ⟩(I) measured N times in the standard computational basis [7] (left) vs. non-orthogonal bases (right). (II) N binary measurement outcomes xi, i = 1, . . . , N on κ-qubits are collected in the computational ba- sis (left) or spread across M non-orthogonal bases defined by {Um}. (III) During configuration recovery, any measured x′ ∈χ′ with an incorrect particle number are probabilisti- cally bit-flipped to physical configurations x ∈χ based on average occupancies over the full ensemble. Batches, K, of size r0 ≪N/M are formed by subsampling corrected mea- surements. Any carryover configurations are appended,...",
+      "page": 2
+    },
+    {
+      "image": "2608.11569_figures/2608.11569_fig2.jpg",
+      "caption": "FIG. 2. SQD for N2 in the 6-31g basis with two frozen orbitals and bond length R = 1.0˚A. (a) Final ground-state energy error for standard SQD under increasing local depolarizing noise rates applied to all two-qubit gates in the LUCJ circuit. The LUCJ ansatz (circles) is initialized via compressed double-factorization of CCSD t2 amplitudes (LUCJ-DF) and optimized to minimize reconstruction error. This is compared to sampling from the exact CASCI wavefunction (“CASCI”, diamonds) or uniformly randomly from all configurations (triangles). Each data point uses rj = 2,668 ∀j unique configurations for up-to five iterations, where only average orbital occupancies are propagated between iterations...",
+      "page": 4
+    },
+    {
+      "image": "2608.11569_figures/2608.11569_fig3.jpg",
+      "caption": "FIG. 3. Benchmarking SQD for N2 in the 6-31g basis with two frozen orbitals and R = 1.0˚A under a fixed diagonal- ization size d, explicitly constraining classical computational resources. Subspaces are constructed directly from bitstrings sampled from measurement outcomes, without forming Carte- sian products of α- and β-spin configurations. The x-axis denotes the number of unique configurations used to define each diagonalization subspace (rj = d). For methods with noise, five iterations are performed, propagating only average orbital occupancies between iterations. In contrast to Fig. 2, controlling d removes artificial improvements from subspace growth: energy error increases with noise...",
+      "page": 5
+    },
+    {
+      "image": "2608.11569_figures/2608.11569_fig4.jpg",
+      "caption": "FIG. 4. SQD using NOCI bases for H12 in the STO-6G basis with no frozen orbitals and R = 2.0˚A using a fixed diagonalization size d, without spin product expansion as in Fig. 3. Samples are drawn from the exact FCI wavefunction. Two measurement strategies are compared. First, measurements performed solely in Hartree–Fock basis with the Hartree–Fock configuration in each of the M NOCI measurement bases (“HF (M = · · · )”, dashed lines). Second, measurements are distributed evenly across the Hartree–Fock and M NOCI bases (“NOCI (M = · · · )” solid lines). (a) Final ground-state energy error as a function of diagonalization subspace size d. Increasing M reduces the starting energy error as...",
+      "page": 6
+    },
+    {
+      "image": "2608.11569_figures/2608.11569_fig5.jpg",
+      "caption": "FIG. 5. SQD for H12 in the STO-6G basis with no frozen orbitals, R = 2.0˚A, and M = 30 NOCI measurement bases. Samples are drawn from the exact FCI wavefunction, a CCSD-optimized LUCJ ansatz, or uniformly random configurations (UR). For each sampling method, measurements are performed either exclusively in the Hartree–Fock basis (HF) or distributed uniformly across the Hartree–Fock and NOCI bases (NOCI). (a) Results using a restricted spin product expansion, with diagonalization subspaces constructed from all sampled configurations. The x-axis denotes the total number of measurements. Each sampled pair (αi, βi) is expanded to {(αi, βi), (βi, αi), (αi, αi), (βi, βi)}. (b) Same as panel (a),...",
+      "page": 7
+    }
+  ],
+  "figure": "2608.11569_figures/2608.11569_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 4,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

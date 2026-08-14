@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.11563",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Quantum Modular Reduction: Crandall reduction and its Fault-tolerant resource analysis",
+  "authors": "Changyeol Lee, Sungyeon Kook, Wooyeong Song, Kwangil Bae, Wonhyuk Lee, IlKwon Sohn",
+  "abstract": "Modular arithmetic is central to quantum algorithms for cryptographic problems, including Shor's algorithm and Grover-based cryptanalysis, with modular reduction contributing substantially to circuit cost. Pseudo-Mersenne moduli $q=2^n-c$ allow classical Crandall reduction to replace division with folding and constant arithmetic, providing a structural opportunity for more efficient quantum modular reduction than Barrett reduction. We translate this advantage into a reversible quantum setting by deriving explicit folding and normalization conditions for $2n$-bit inputs. To the best of our knowledge, this constitutes the first exact reversible quantum circuit formulation of Crandall reduction. Based on this formulation, we develop two variants: Crandall reduction-1 is designed to minimize execution cost through one-step normalization, whereas Crandall reduction-2 uses two-step normalization to support a wider range of $c$ with limited overhead. Logical resource estimates show that both variants require fewer qubits and lower T-count and T-depth than optimized folding Barrett reduction. At $n=10$, Crandall reduction-1 reduces both T-count and T-depth by approximately 46.9% relative to optimized folding Barrett reduction. Surface-code analysis further shows that, at $n=20$ under the Sparse Blossom decoder, the estimated runtimes of the two variants are 30.05 ms and 35.39 ms, respectively, compared with 53.77 ms for optimized folding Barrett reduction. These results demonstrate the practical value of exploiting modulus-specific arithmetic structure in fault-tolerant quantum circuit design.",
+  "url": "http://arxiv.org/abs/2608.11563v1",
+  "pdf": "https://arxiv.org/pdf/2608.11563v1",
+  "type": "theory",
+  "summary": "This paper presents a novel, resource-efficient reversible quantum circuit formulation for modular reduction using Crandall reduction tailored for pseudo-Mersenne moduli. By analyzing the folding and normalization steps, the authors derive two variants that significantly reduce the required T-count and T-depth compared to established methods like Barrett reduction. This work demonstrates the practical importance of exploiting modulus-specific arithmetic structure in designing fault-tolerant quantum algorithms.",
+  "main_problem": "The core problem is developing highly efficient, reversible quantum circuits for modular reduction, which is a critical component in quantum algorithms like Shor's algorithm.",
+  "main_result": "The authors propose two variants of Crandall reduction that achieve significantly lower T-count and T-depth (up to 46.9% reduction at n=10) compared to optimized folding Barrett reduction, even when analyzed under fault-tolerant surface code models.",
+  "method": "They translate classical modular arithmetic techniques for pseudo-Mersenne moduli ($q = 2^n - c$) into explicit reversible quantum circuits by analyzing the necessary folding and normalization steps.",
+  "model_or_system": "The work is situated in fault-tolerant quantum computation, utilizing resource estimates (T-count, T-depth) derived from surface code analysis. The arithmetic operations are modeled using specialized quantum gates for addition, multiplication, and subtraction.",
+  "key_observables": "T-count, T-depth, required qubits, and estimated runtimes under the Sparse Blossom decoder.",
+  "important_parameters": "Modulus size parameter $n$, the constant $c$ defining the modulus structure ($q=2^n-c$), and the specific normalization steps (one-step vs. two-step).",
+  "main_assumptions": "The resource estimates are based on worst-case logical bounds, assuming the use of a T-depth-one primitive for temporary logical-AND computation.",
+  "figures_summary": "Figures illustrate the overall circuit structure for small parameters (n=4, c=3), detail quantum circuits for arithmetic components like adders and multipliers, and show specialized logic gates used in the reduction process.",
+  "paper_structure": "The paper progresses by first identifying the structural advantage of Crandall reduction over Barrett reduction. It then derives explicit reversible quantum circuit formulations (Crandall-1 and Crandall-2) based on normalization requirements, followed by detailed resource analysis yielding closed-form T-depth formulas, culminating in performance comparisons against existing methods.",
+  "why_interesting": "While focused on computation rather than AMO physics, the rigorous analysis of resource scaling (T-depth/T-count) and fault tolerance is highly relevant to any quantum simulation or algorithm implementation that requires deep circuits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.11563_figures/2608.11563_fig1.jpg",
+      "caption": "Figure 1. Overall structure of the quantum Crandall reduction circuit for n = 4 and c = 3. The folding stage consists of quantum-classical multiplication by c and quantum-quantum addition to accumulate the folded values. The normalization stage subtracts the fixed modulus q = 2n −c and conditionally restores it when the subtraction result is negative. After forward evaluation, the desig- nated output register M contains a mod q, while some ancillary work qubits retain input-dependent intermediate states until the inverse circuit is applied. The illustrated circuit corresponds to Crandall reduction-1 with one normalization block; Crandall reduction-2 applies the same normalization block...",
+      "page": 5
+    },
+    {
+      "image": "2608.11563_figures/2608.11563_fig2.jpg",
+      "caption": "Figure 2. Temporary logical-AND quantum circuit. (a) Computation of the mapping |a⟩|b⟩|0⟩7→ |a⟩|b⟩|a·b⟩, which stores the logical-AND value used for carry or borrow propagation. (b) Measurement- and-fixup uncomputation of the stored logical-AND, which removes the temporary value without additional T gates.",
+      "page": 6
+    },
+    {
+      "image": "2608.11563_figures/2608.11563_fig3.jpg",
+      "caption": "Figure 3. Temporary logical-AND computation circuit with T-depth 1. An additional temporary ancilla is used to parallelize the T/T † gates, reducing the T-depth from 2 to 1 while preserving the T-count of 4. The additional ancilla is restored to |0⟩after the computation and can be reused in subsequent arithmetic operations.",
+      "page": 6
+    },
+    {
+      "image": "2608.11563_figures/2608.11563_fig4.jpg",
+      "caption": "Figure 4. Simplification of a CCX gate operation when one control input is fixed as a classical bit and the target ancilla is initialized to |0⟩. If the classical bit is 1, the CCX gate reduces to a CX gate and the target becomes |a⟩. If the classical bit is 0, the operation is removed and the target remains |0⟩.",
+      "page": 7
+    },
+    {
+      "image": "2608.11563_figures/2608.11563_fig5.jpg",
+      "caption": "Figure 5. Logical T-count and T-depth comparison for Barrett reduction circuits and the proposed Crandall reduction circuits. Crandall reduction-1 achieves the lowest non-Clifford cost, while Crandall reduction-2 supports a wider range of c with moderate additional overhead.",
+      "page": 9
+    }
+  ],
+  "figure": "2608.11563_figures/2608.11563_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.11396",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Generative Learning for Quantum Measurement Design",
+  "authors": "Jun Dai, Olivier Nahman-Lévesque, Guillaume Rabusseau, Hong-Ye Hu, Cunlu Zhou",
+  "abstract": "Extracting quantum information from a quantum state is a fundamental task of quantum computation, often requiring the estimation of many non-commuting observables under a finite measurement budget. For both near-term and early fault-tolerant settings, the measurement protocol must balance statistical efficiency against implementation resources such as circuit depth, connectivity, and entangling-gate count. Many existing strategies focus on two extremes: hardware-friendly product measurements with high sampling cost, and fully commuting measurements with deep circuits. Here we recast resource-constrained measurement design as a generative learning problem. We introduce FlowMeas, which uses a generative flow network to directly sample finite ensembles of shallow Clifford measurement circuits subject to a prescribed shot budget and hardware constraints. At zero entangling depth, FlowMeas learns qubit-wise commuting measurement schedules and already matches or improves leading product-measurement methods on nearly all molecular benchmarks. Allowing one or two entangling gate layers yields further reductions in energy estimation error of up to $27\\%$ relative to the strongest state-independent product-measurement baseline. The learned policy can also be reused across related Hamiltonians, substantially accelerating retraining along a molecular potential-energy surface. We further obtain results for molecular Hamiltonians with up to 20 qubits and apply the framework to a compactly encoded 54-qubit interacting fermionic model, extending the demonstrated scale beyond prior molecular benchmarks. These results establish generative learning as a flexible and unified framework for quantum measurement design under practical resource constraints.",
+  "url": "http://arxiv.org/abs/2608.11396v1",
+  "pdf": "https://arxiv.org/pdf/2608.11396v1",
+  "type": "theory",
+  "summary": "This paper introduces FlowMeas, a generative learning approach that treats resource-constrained quantum measurement design as an optimization problem. By using a generative flow network, it learns to sample optimal ensembles of shallow Clifford circuits tailored for specific hardware constraints. This allows for highly efficient energy estimation in complex molecular and lattice systems while respecting practical limitations on circuit depth.",
+  "main_problem": "The core challenge is designing quantum measurement protocols that efficiently extract quantum information while balancing statistical accuracy against practical hardware resource constraints like circuit depth and gate count.",
+  "main_result": "The proposed FlowMeas framework achieves state-of-the-art performance by learning optimal, shallow Clifford circuits, reducing energy estimation error by up to 27% compared to strong product-measurement baselines.",
+  "method": "It recasts resource-constrained measurement design as a generative learning problem, utilizing a Generative Flow Network (GFlowNet) to sample ensembles of hardware-compatible measurement circuits.",
+  "model_or_system": "The method is applied to estimating energy for molecular Hamiltonians and large interacting fermionic models (Hubbard model), testing its utility across varying qubit counts up to 54 qubits.",
+  "key_observables": "Energy estimation error (RMSE), Pauli coverage statistics, circuit depth, and entangling gate count.",
+  "important_parameters": "The trade-off between product measurements (low depth) and fully commuting measurements (high depth); the allowed number of entangling layers ($d_{\\max}$).",
+  "main_assumptions": "The problem is framed as optimizing over a distribution sampled by the generative model, effectively searching the intermediate regime between simple product bases and complex fully commuting sets.",
+  "figures_summary": "Figures illustrate comparisons between different measurement strategies (FC vs. QWC vs. FlowMeas) and detail the GFlowNet process for constructing measurement ensembles based on Pauli coverage statistics.",
+  "paper_structure": "The paper introduces the problem, details the generative learning approach (GFlowNet), validates its performance against existing benchmarks across molecular systems, and extends testing to large fermionic lattice models.",
+  "why_interesting": "It provides a powerful, data-driven framework for optimizing quantum measurements, which is crucial for making near-term quantum algorithms practical by explicitly incorporating hardware limitations into the design process.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.11396_figures/2608.11396_fig1.jpg",
+      "caption": "Figure 1: Resource-constrained quantum measurement design. (a) Estimating ⟨H⟩for H = c0I + P",
+      "page": 4
+    },
+    {
+      "image": "2608.11396_figures/2608.11396_fig2.jpg",
+      "caption": "Figure 2: Generative learning of shallow measurement ensembles. (a) A shared GFlowNet forward policy P θ F (a | s) constructs Clifford measurement circuits from a discrete action set consisting of local Clifford gates, nearest-neighbor CNOTs, and a stop action ⊥. (b) The policy constructs N circuit slots in parallel, with action masks enforcing the prescribed connectivity and CNOT-depth limit dmax. The completed circuits form an executable ensemble U = (U1, . . . , UN). (c) Each ensemble defines a binary hit matrix: an entry indicates that circuit Uj maps Pauli term Pk to a product of Z and identity operators. The column sums give the hit counts hU, which quantify how the measurement budget...",
+      "page": 5
+    },
+    {
+      "image": "2608.11396_figures/2608.11396_fig3.jpg",
+      "caption": "Figure 3: Direct comparison with derandomized shallow shadows. Mean absolute error (MAE) for five molecular Hamiltonians under a common budget of 1000 measurements and one CNOT layer. Both DSS and FlowMeas use the DSS confidence-based proxy objective. Orange filled triangles show DSS values from Ref. [32], while blue filled circles show FlowMeas. The right column reports the relative MAE difference, normalized by the DSS MAE. FlowMeas matches or improves DSS on four of the five systems, with the largest reduction occurring for the eight-qubit H2 Hamiltonian.",
+      "page": 8
+    },
+    {
+      "image": "2608.11396_figures/2608.11396_fig4.jpg",
+      "caption": "Figure 4: Effect of the state-independent training proxy. Ground-state energy RMSE for FlowMeas at dmax = 2 using VB, DSS, and OGM proxy costs. (a) Absolute RMSE in Hartree on a logarithmic horizontal scale, where lower values indicate more accurate energy estimates. (b) Percentage difference relative to the VB baseline results; negative values indicate lower RMSE. Blue filled circles, red filled triangles, and green filled squares denote the VB, DSS, and OGM proxy costs, respectively. The percentage annotations report the change obtained using the DSS proxy.",
+      "page": 9
+    },
+    {
+      "image": "2608.11396_figures/2608.11396_fig5.jpg",
+      "caption": "Figure 5: Reuse of the learned policy across an H2O potential energy surface. Number of gradient updates required to satisfy the convergence criterion (a) and final ground-state energy RMSE (b) as functions of the symmetric O–H bond length. At each bond length, the markers show averages over five H–O–H angles spanning 100◦–109◦, while the error bars and shaded regions indicate the variation across angles. Warm-start training initializes FlowMeas from a policy trained at the reference geometry, whereas standard training uses random initialization at each geometry; both optimize the VB proxy. DSS-proxy runs instead optimize the DSS proxy, warm-started at every geometry from a single converged...",
+      "page": 10
+    }
+  ],
+  "figure": "2608.11396_figures/2608.11396_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 4,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

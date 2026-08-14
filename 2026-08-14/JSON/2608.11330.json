@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.11330",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "hep-ex",
+    "hep-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Robust Quantum Machine Learning for Collider Event Selection under Detector Variability",
+  "authors": "Christopher Brown, Michael Spannowsky, Simon Williams",
+  "abstract": "Robust machine-learning methods are becoming increasingly important for high-energy physics data analysis as experiments enter the era of higher luminosity and future higher-energy colliders. Detector degradation, changing running conditions and calibration drift can shift data distributions, causing models trained on clean reference samples to degrade after deployment. We investigate whether parameterised quantum models provide a useful inductive bias for robust collider-event selection in two complementary settings. In the unsupervised study, quantum autoencoders trained on background events are compared with classical and variational autoencoders for anomaly detection. In the supervised study, quantum classifiers with data reuploading are trained to distinguish a supersymmetric signal from background and are compared with linear and multilayer-perceptron classifiers. All models are trained under reference conditions and subsequently evaluated under controlled feature-level smearing while their parameters and preprocessing transformations are held fixed. On clean inputs, the quantum autoencoders achieve competitive anomaly-detection performance, including in the low-false-positive-rate regime relevant for triggering, while the deeper data-reuploading classifier attains discrimination comparable to the non-linear classical baseline. Under smearing, the quantum models generally exhibit smaller shifts in their output scores and retain their discrimination more effectively than the expressive classical baselines. These results suggest that parameterised quantum models can provide a useful robustness inductive bias for collider-event selection and motivate further studies with realistic detector systematics, finite-shot statistics and quantum-device noise.",
+  "url": "http://arxiv.org/abs/2608.11330v1",
+  "pdf": "https://arxiv.org/pdf/2608.11330v1",
+  "type": "theory",
+  "summary": "This paper evaluates Quantum Machine Learning techniques for selecting rare events in high-energy collider physics. It demonstrates that parameterised quantum models provide an inherent robustness against detector noise and data shifts compared to state-of-the-art classical methods. This suggests QML can be a valuable tool for building reliable analysis pipelines in complex experimental settings.",
+  "main_problem": "The core problem is developing machine learning methods robust enough for high-energy physics data analysis that can maintain performance despite detector degradation or shifts in data distributions.",
+  "main_result": "Quantum models, specifically Quantum Autoencoders and classifiers, demonstrated superior robustness compared to expressive classical baselines when tested under controlled feature-level smearing.",
+  "method": "The study compares quantum (QAEs) and classical autoencoders/classifiers for both unsupervised anomaly detection and supervised signal classification tasks.",
+  "model_or_system": "The system is the analysis of collider event data, where models are trained on reference conditions but tested under controlled feature-level smearing to simulate detector variability. The quantum components involve angle encoding and parameterized unitary circuits.",
+  "key_observables": "Anomaly detection scores (based on fidelity to vacuum state), discrimination performance retention, and the shift in output score distributions under perturbation.",
+  "important_parameters": "Detector smearing strength (perturbation level) and training sample size ($N_{train}$).",
+  "main_assumptions": "The comparison assumes that fixing model parameters while varying input features (smearing) is a valid test of robustness. The study also notes limitations regarding realistic detector systematics and finite-shot statistics.",
+  "figures_summary": "Figures compare the Mean Squared Error deviation of anomaly scores for various models (AE, VAE, QAE variants) as a function of increasing detector smearing strength, showing quantum models maintain better stability.",
+  "paper_structure": "The paper investigates robustness in two settings: unsupervised anomaly detection using QAEs trained on background events, and supervised classification using data reuploading techniques. Results compare these quantum approaches against established classical ML baselines under simulated noise.",
+  "why_interesting": "While the application is HEP, the core methodology—using quantum circuits to induce a specific inductive bias (robustness) that resists input perturbations better than highly expressive classical models—is relevant for understanding model stability in complex physical systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.11330_figures/2608.11330_fig1.jpg",
+      "caption": "Figure 1: Quantum autoencoder architecture and entangling ansätze. The circuit (top) consists of angle encoding of the input features using RY and RX rotations, an entangling block Uent, and a parameterised unitary ˆU(ϕ) with trainable parameters ϕ. A swap test evaluates the fidelity between the state of the nt trash qubits and the reference vacuum state |0⟩⊗nt. The non-local and local implementations of Uent, employing long- and short-range cnot connectivity, respectively, are shown below.",
+      "page": 4
+    },
+    {
+      "image": "2608.11330_figures/2608.11330_fig2.jpg",
+      "caption": "Figure 2: Anomaly-score distributions obtained under reference detector conditions using the shared MLP embedding. Panels (a)–(d) show the results for the autoencoder, variational autoencoder, non-local quantum autoencoder and local quantum autoencoder, respectively. In each panel, the background distribution is compared with those of the four benchmark signals.",
+      "page": 9
+    },
+    {
+      "image": "2608.11330_figures/2608.11330_fig3.jpg",
+      "caption": "Figure 3: Anomaly-detection performance in the absence of detector-induced distribution shift using the shared MLP embedding. Panels (a)–(d) show the ROC curves for the A →4ℓ, H± →τν, H →ττ, and leptoquark benchmark signals, respectively. Each panel compares the classical autoencoder, variational autoencoder, non-local quantum autoencoder, and local quantum autoencoder, with the corresponding AUC values quoted in the legends. The vertical dashed line indicates a false-positive rate of 10−5, representative of the low-background operating regime relevant for collider triggers.",
+      "page": 10
+    },
+    {
+      "image": "2608.11330_figures/2608.11330_fig4.jpg",
+      "caption": "Figure 4: Mean-squared deviation of the anomaly score from its reference value as a function of the detector-smearing strength. Results are shown for background events in the left panel and A →4ℓevents in the right panel, comparing the classical autoencoder, variational autoencoder, non-local quantum autoencoder and local quantum autoencoder. The model parameters, learned embedding and feature-scaling constants are held fixed throughout. The shaded bands indicate the standard deviation across ten independent slices of the test set with input smearing.",
+      "page": 12
+    },
+    {
+      "image": "2608.11330_figures/2608.11330_fig5.jpg",
+      "caption": "Figure 5: ROC AUC as a function of the detector-smearing strength for the A →4ℓsample. Results are shown for the classical autoencoder, variational autoencoder, non-local quantum autoencoder and local quantum autoencoder. The model parameters, learned embedding and feature-scaling constants are held fixed throughout. The shaded bands indicate the standard deviation across ten independent slices of the test set with input smearing.",
+      "page": 13
+    }
+  ],
+  "figure": "2608.11330_figures/2608.11330_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

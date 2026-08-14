@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.11579",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Compilation for Hamiltonian Simulation via Global Binary Symplectic Form Simplification",
+  "authors": "Zhaohui Yang, Yuwei Han, Ruiyun Zhang, Dawei Ding, Jianxin Chen, Yuan Feng, Yuan Xie",
+  "abstract": "Hamiltonian simulation is a core quantum workload, underpinning variational quantum algorithms and Trotterized time evolution. Such programs are expressed as Pauli exponential sequences, exhibiting structural patterns that are highly amenable to high-level synthesis and optimization. Existing compilers, however, fail to fully unlock the optimization potential of their global algebraic structure, even when employing advanced graph- or tableau-based methods.   We present Symphony, a holistic compilation approach built on the binary symplectic form (BSF) representation of Pauli strings. Unlike prior group-wise BSF simplification and path-based Pauli network synthesis, Symphony applies generalized controlled-Pauli Clifford transformations directly to a global BSF tableau, adaptively reducing active Pauli rows and emitting eligible two-qubit blocks other than single-qubit rotations in a forward Clifford frame. Following algebraic simplification, Symphony performs a causality-preserving block rescheduling heuristic that respects frame-induced dependencies while exposing extensive two-qubit block parallelism opportunities. This streamlined compilation style comprehensively exploits simultaneous simplification and commutativity opportunities, achieving efficient global optimization without relying on computationally expensive heuristics or long-horizon searches. Across the generic Hamiltonian simulation benchmarks in HamLib, Symphony achieves average reductions of 59% in two-qubit gate count and 91% in circuit depth. It strictly Pareto-dominates prior state-of-the-art compilers, requiring 1.14--1.58$\\times$ fewer two-qubit gates and especially shrinking two-qubit circuit depth by a substantial factor of 1.87--5.67$\\times$ on average.",
+  "url": "http://arxiv.org/abs/2608.11579v1",
+  "pdf": "https://arxiv.org/pdf/2608.11579v1",
+  "type": "theory",
+  "summary": "This paper presents Symphony, an advanced compiler that optimizes Hamiltonian simulation circuits by treating the entire Pauli sequence as a global algebraic structure represented by the Binary Symplectic Form (BSF). By applying controlled-Pauli Clifford transformations directly to this BSF tableau, it achieves superior circuit compression compared to existing methods. This results in substantial reductions in required two-qubit gates and overall circuit depth for quantum algorithms.",
+  "main_problem": "The core challenge is efficiently compiling Hamiltonian simulation workloads, which are expressed as Pauli exponential sequences, by fully exploiting their global algebraic structure.",
+  "main_result": "The proposed method achieves significant reductions in two-qubit gate count (average 59%) and circuit depth (average 91%) compared to naïve synthesis on standard benchmarks.",
+  "method": "It introduces Symphony, a holistic compilation approach utilizing the Binary Symplectic Form (BSF) representation of Pauli strings. This involves applying generalized controlled-Pauli Clifford transformations directly to the global BSF tableau for simultaneous simplification and parallelism extraction.",
+  "model_or_system": "The work focuses on quantum computation simulating time evolution governed by Hamiltonians expressed as weighted sums of Pauli strings ($\\sum c_k P_k$). The input is a sequence of Pauli rotations, analyzed using the BSF representation which encodes commutation relations via symplectic geometry.",
+  "key_observables": "Two-qubit gate count and circuit depth are the primary optimization metrics. Other diagnostics include the BSF weight reduction and the rank of interaction matrices for two-qubit blocks.",
+  "important_parameters": "The efficiency is measured by factors like $1.14–1.58\times$ improvement in CNOT gates and $1.87–5.67\times$ improvement in circuit depth over prior state-of-the-art compilers.",
+  "main_assumptions": "Prior methods are limited by constrained paradigms, such as strict adherence to 'first-diagonalize, then-search-CNOT' or computationally expensive long-horizon searches; Symphony overcomes these limitations holistically.",
+  "figures_summary": "Figures illustrate the comparison between naïve synthesis and simultaneous simplification via Clifford conjugation on a BSF tableau. Other figures detail how Clifford transformations act as symplectic updates on the BSF structure.",
+  "paper_structure": "The paper develops theory around Pauli commutation using the symplectic form, introduces Symphony's global BSF transformation framework, details the causality-preserving block rescheduling heuristic, and validates its performance against state-of-the-art compilers across multiple benchmarks.",
+  "why_interesting": "This work provides a powerful algorithmic tool for quantum circuit compilation, directly impacting the feasibility of running complex algorithms like VQE or QAOA on near-term hardware by minimizing gate count and depth.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.11579_figures/2608.11579_fig1.jpg",
+      "caption": "Figure 1. (a) Naïve synthesis vs. (b) simultaneous simplifica- tion of Pauli exponentials.",
+      "page": 2
+    },
+    {
+      "image": "2608.11579_figures/2608.11579_fig2.jpg",
+      "caption": "Figure 2. Example of BSF update by Clifford transformation.",
+      "page": 3
+    },
+    {
+      "image": "2608.11579_figures/2608.11579_fig3.jpg",
+      "caption": "Figure 3. Comparison of (a) group-wise and (b) holistic BSF simplification. By evaluating Clifford transformations against the entire tableau, the holistic approach captures cross-support overlaps, thereby halving the required UCG conjugations in this example.",
+      "page": 4
+    },
+    {
+      "image": "2608.11579_figures/2608.11579_fig4.jpg",
+      "caption": "Figure 4. Avoiding degradation via early two-qubit block emission during BSF simplification (𝑋, 𝑌, 𝑍shown as red, green, blue). (a) Initial Pauli strings to be simplified by Clif- ford conjugation acting on (𝑞0,𝑞1). (b) Forcing target 𝑃1 to weight-1 invariably inflates the weights of remaining strings. (c) Emitting 𝑃1 early at weight-2 prevents collateral inflation and significantly reduces overall synthesis overhead.",
+      "page": 4
+    },
+    {
+      "image": "2608.11579_figures/2608.11579_fig5.jpg",
+      "caption": "Figure 5. Overview of the Symphony compilation workflow.",
+      "page": 6
+    }
+  ],
+  "figure": "2608.11579_figures/2608.11579_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

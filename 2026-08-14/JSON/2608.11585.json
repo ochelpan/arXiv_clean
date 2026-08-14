@@ -1,0 +1,69 @@
+{
+  "arxiv_id": "2608.11585",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cs.ET",
+    "cs.LG",
+    "physics.optics"
+  ],
+  "is_primary_archive": true,
+  "title": "Unifying Physical Backpropagation",
+  "authors": "Cyrill Bösch, Yigithan Gediz, Hakan Türeci",
+  "abstract": "Physical computing systems exploit device dynamics for computation, but their gradient-based optimization is challenging: backpropagation through a digital twin suffers from model-reality gap. On-device gradient computation could resolve this issue, and a handful of theoretical and experimental studies have proposed ways to achieve it. Yet a unifying theory identifying when a physical system can compute the gradient of its own performance has been missing. Here we develop such a unification, based on the adjoint method: we identify sufficient conditions under which the adjoint field required for formally exact gradients can be generated on the same hardware that performs the computation. Linear and nonlinear systems obey fundamentally different conditions: for linear systems damping or gain is admissible provided reciprocity is preserved. For nonlinear trajectory systems the sufficient conditions are reciprocity of the linearized system and the existence of a time-reversal mirror. Algorithmically, the nonlinear case requires infinitesimal nudging, whereas linear systems admit a finite-amplitude experiment. We recover Equilibrium Propagation, Hamiltonian echo backpropagation, fully forward mode training and in situ gradient methods in integrated-photonic and free-space-optical systems. We further show that reciprocity is only the simplest instance of a more general intertwining condition, which extends exact on-device gradient computation to a class of non-Hermitian, non-reciprocal systems. Further generalizations include time-dependent parameters, Onsager-reciprocal dynamics and nonlinear, PT-symmetric Schrödinger equations. Our work provides a unified theoretical basis for formally exact physical learning algorithms and a template for constructing them across a range of physical systems.",
+  "url": "http://arxiv.org/abs/2608.11585v1",
+  "pdf": "https://arxiv.org/pdf/2608.11585v1",
+  "type": "theory",
+  "summary": "This paper unifies the theory of physical backpropagation by developing an adjoint-based framework for computing gradients in physical systems. It derives necessary and sufficient conditions—such as reciprocity—for a system to compute its own gradient on-device. This provides a general template for designing physically realizable, exact learning algorithms across various domains like photonics and mechanics.",
+  "main_problem": "The paper aims to develop a unifying theoretical framework for achieving formally exact gradient computation (physical backpropagation) in physical computing systems.",
+  "main_result": "It establishes sufficient conditions, based on the adjoint method, under which the required adjoint field can be generated physically on the same hardware performing the forward computation.",
+  "method": "The core methodology is the application of the adjoint method from PDE-constrained optimization to derive gradient formulas that rely on overlaps between forward and adjoint fields.",
+  "model_or_system": "The theory applies to diverse physical systems modeled by discretized ODEs, including photonic circuits, mechanical networks, and general nonlinear trajectory systems. The governing dynamics are generally represented as second-order differential equations.",
+  "key_observables": "The gradient of the cost function ($\\mathrm{d}\\chi/\\mathrm{d}p$), the adjoint field ($a(t)$), and various overlap integrals between forward and adjoint states.",
+  "important_parameters": "Reciprocity, time-reversal symmetry, and the specific structure of linear vs. nonlinear dynamics are critical parameters determining feasibility.",
+  "main_assumptions": "The theory assumes an external teacher applies parameter updates; it does not cover self-adapting systems or heuristic learning rules.",
+  "figures_summary": "Conceptual diagrams illustrate the adjoint method applied to physical optimization, showing the relationship between forward passes, loss functions, and the required adjoint solves for different system types.",
+  "paper_structure": "The paper progresses by defining the general problem (PDE-constrained optimization), developing the adjoint formalism, deriving specific conditions for linear vs. nonlinear systems (reciprocity/time-reversal symmetry), and finally unifying these results to recover known physical learning algorithms.",
+  "why_interesting": "This work provides a rigorous mathematical framework connecting fundamental physics principles (like reciprocity) directly to the practical requirements of training complex models on analog or photonic hardware, bridging quantum optics/AMO concepts with machine learning optimization.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.11585_figures/2608.11585_fig1.jpg",
+      "caption": "Figure 1: Conceptual overview of optimizing a physical system with the adjoint method. The physical state u(t) evolves under the forward dynamics M¨u + D ˙u + F[u, p] = f(t), with mass matrix M, damping matrix D, internal forces F carrying the trainable parameters p, external drive f, and initial conditions u(0) = u0, ˙u(0) = v0. The recorded trajectory and terminal state induce the cost χ[u] = ψ[Pu(T), P ˙u(T)]+ R T 0 θ[Pu(t)] dt, where P projects onto the measured output degrees of freedom and ψ and θ are the terminal and trajectory losses. Evaluating the derivatives of the losses provides the drive and initial conditions for the adjoint field a(t). The adjoint state equation involves the...",
+      "page": 4
+    },
+    {
+      "image": "2608.11585_figures/2608.11585_fig2.jpg",
+      "caption": "Figure 2: A schematic illustration of the experiments to obtain the adjoint field physically. For the linear devices (a), reciprocity allows the same device to be used, with the drive and ICs adjusted for the forward and adjoint field propagations. Damping and gain are allowed, so long as reciprocity is preserved. In the nonlinear case (b), the existence of a time reversal mirror (TRM) [78] together with reciprocity of the linearized system provide indirect access to the adjoint field in the same hardware. To obtain the adjoint field physically, simultaneously apply the TRM to the final state of the forward run and perturb the time- reversed trajectory with the adjoint drive and ICs. The...",
+      "page": 12
+    },
+    {
+      "image": "2608.11585_figures/2608.11585_fig3.jpg",
+      "caption": "Figure 3: The Hatano–Nelson chain of Eq. (86) for N = 4: sites with on-site potentials εn, coupled by asymmetric nearest-neighbor hoppings, amplified to the right (Je+h, blue) and attenuated to the left (Je−h, red), so that KT ̸= K and the chain transmits with one-way gain. Transposition reverses the arrow of every hop; the spatial inversion n →N + 1 −n about the marked inversion center reverses it again. If the on-site potential is mirror-symmetric, εn = εN+1−n, the chain is therefore twisted reciprocal, SKT S−1 = K, and by Theorem 10.1 the adjoint field is obtained in the same hardware, with the same bias h, by injecting the spatially flipped adjoint source and initial conditions.",
+      "page": 25
+    }
+  ],
+  "figure": "2608.11585_figures/2608.11585_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 3,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

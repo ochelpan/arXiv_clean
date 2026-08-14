@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.12024",
+  "category": "other",
+  "arxiv_categories": [
+    "cond-mat.other",
+    "physics.ins-det"
+  ],
+  "is_primary_archive": false,
+  "title": "Formally Verified Lock-Free Software Transactional Memory for Scientific Measurement",
+  "authors": "Kentaro Kitagawa",
+  "abstract": "Automated measurement of condensed-matter experiments requires instrument-control, data-acquisition, and user-interface threads to access shared, naturally hierarchical state concurrently. Coarse-grained locking can delay acquisition and cause sample loss, whereas fine-grained locking requires deadlock-prone lock ordering across instruments. Instead, we describe the lock-free software transactional memory (STM) that has been at the core of an open-source measurement platform for 16 years, in nuclear magnetic resonance experiments and, more recently, in optically detected magnetic resonance experiments. The STM organizes this state as a tree and provides atomic subtree updates and consistent subtree snapshots. After initial bundling, an unchanged subtree snapshot is acquired in $O(1)$ time through a custom lock-free atomic shared pointer. Within each bounded TLA+ configuration, TLC exhaustively checks the state space, establishing the safety and livelock-freedom properties specified for that configuration. Bounded executions of the atomic shared-pointer implementation are separately checked under the C11 weak-memory model. The same Snapshot and Transaction interfaces are exposed to Python scripting and AI-assisted automation.",
+  "url": "http://arxiv.org/abs/2608.12024v1",
+  "pdf": "https://arxiv.org/pdf/2608.12024v1",
+  "type": "theory",
+  "summary": "This paper presents a novel, formally verified lock-free Software Transactional Memory (STM) designed specifically for managing the shared, hierarchical state in automated condensed-matter measurement instruments. By providing atomic subtree updates and fast snapshots, it overcomes concurrency bottlenecks associated with traditional locking mechanisms. This robust framework enables complex, multi-threaded scientific workflows involving AI automation.",
+  "main_problem": "The core problem is managing concurrent, shared state access from multiple threads (instrument control, data acquisition, GUI) in automated condensed-matter measurements without introducing deadlocks or significant latency.",
+  "main_result": "The authors designed and formally verified a lock-free Software Transactional Memory (STM) framework that allows for atomic subtree updates and $O(1)$ consistent snapshots of hierarchical state.",
+  "method": "They implemented the STM using custom atomic shared pointers and a multi-phase CAS protocol to manage tree structure commits, which was rigorously checked using TLA+ and tested under weak memory models.",
+  "model_or_system": "The system is an open-source measurement platform used for NMR and ODMR experiments, modeling its state as a naturally hierarchical tree structure (KAME model).",
+  "key_observables": "ODMR contrast map, frequency-swept spectrum, and the ability to acquire consistent subtree snapshots.",
+  "important_parameters": "The performance advantage is shown by achieving near $O(1)$ snapshot cost compared to $O(\\log N)$ path copying in traditional COW structures.",
+  "main_assumptions": "The design assumes that bounding retries via an oldest-first arbitration mechanism can maintain system-wide livelock-freedom, although general liveness proof remains complex.",
+  "figures_summary": "Figures illustrate the node tree structure of ODMR measurements, the overall KAME system architecture showing the STM layer, and the GUI workflow demonstrating AI agent interaction with measurement state via APIs.",
+  "paper_structure": "The paper details the necessity of concurrent access management in scientific instruments, introduces the lock-free STM as the solution, describes its tree structure and atomic operations (snapshot/transaction), provides formal verification results (TLA+), and discusses practical implementation interfaces (Python/ZMQ).",
+  "why_interesting": "While not directly about quantum physics theory, the robust, high-concurrency state management techniques developed here are crucial for building complex, real-time control systems necessary for advanced quantum experiments like trapped ion or cavity QED measurements.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.12024_figures/2608.12024_fig1.jpg",
+      "caption": "FIG. 1. Concurrency model of the wide-field optically- detected magnetic resonance (ODMR) measurement of Fig. 2, drawn as its simplified node tree (see legend). Grey Parent– Child edges form the ownership tree of instrument drivers and display/aggregation sections under the root Measurement node. The scalar entries (Area1, Temp., Frequency) are multi- parented: each is owned by its source driver and simultane- ously aliased into the Scalar value list. Each dotted red box is one transactional commit, atomic over its subtree. When a driver commits, a post-commit signal propagates along the dependency chain; each listener takes a non-blocking consis- tent snapshot of its inputs (two snapshot...",
+      "page": 2
+    },
+    {
+      "image": "2608.12024_figures/2608.12024_fig2.jpg",
+      "caption": "FIG. 2. GUI screenshot of the wide-field ODMR measurement modeled in Fig. 1: the camera image, the processed ODMR contrast map of the diamond NV centers, and the frequency-swept spectrum. In the right panel, an AI agent (a large language model connected through the Model Context Protocol, MCP) identifies high-contrast fluorescence regions in natural-language dialogue with the operator, reading the measurement state through the Snapshot API and publishing analysis-mask updates through the Transaction API. This workflow replaces manual region selection, which does not scale to high-throughput wide- field ODMR.",
+      "page": 3
+    },
+    {
+      "image": "2608.12024_figures/2608.12024_fig3.jpg",
+      "caption": "FIG. 3. System architecture of KAME. The central STM layer shares the tree-structured state among instrument drivers, native C++ clients, and external clients. The same Snap- shot/Transaction API is exposed locally through pybind11 and remotely over ZeroMQ (ZMQ); Jupyter notebooks and AI agents connected through the Model Context Protocol (MCP) thus operate on the same transactional state.",
+      "page": 3
+    },
+    {
+      "image": "2608.12024_figures/2608.12024_fig4.jpg",
+      "caption": "FIG. 4. State transitions of the four-phase bundle/unbundle protocol, drawn as the actual pointer graph. The Parent’s PacketList contains a snapshot of each child sub-packet (nested boxes). A bundled child’s Linkage holds a BundledRefWrapper whose packet is Null and whose bundledBy is a weak back-reference up to the Parent (dashed arrow); a snapshot of that child therefore follows bundledBy to the Parent and reads Parent.PacketList[child]. On commit (unbundle, panel d), the committing child is restored to a regular packet-holding PacketWrapper while the Parent’s sub is kept for recovery.",
+      "page": 6
+    },
+    {
+      "image": "2608.12024_figures/2608.12024_fig5.jpg",
+      "caption": "FIG. 5. Parent–child topologies verified by the Layer 2 TLA+ models. (a)–(d) tree structures; (e)–(h) multi-parent (DAG) structures where a child is shared by two parents. Solid = static edge; dashed (ins/rel, migr.) = runtime insert/re- lease/migration.",
+      "page": 8
+    }
+  ],
+  "figure": "2608.12024_figures/2608.12024_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

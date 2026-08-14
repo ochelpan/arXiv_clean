@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.12058",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "math.NA",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Numerical methods for the simulation of quantum walks and quantum annealing",
+  "authors": "Asa Hopkins, Viv Kendon",
+  "abstract": "It is known that Chebyshev based polynomial approximation gives a near-optimal rate of convergence for calculating a function of a Hermitian matrix. However, previous work has not discussed the option of true minimax approximation, nor the specifics of writing a high performance implementation with a rigorous analysis of errors. This work provides such an analysis and an open-source implementation of three approximation methods in C++.",
+  "url": "http://arxiv.org/abs/2608.12058v1",
+  "pdf": "https://arxiv.org/pdf/2608.12058v1",
+  "type": "theory",
+  "summary": "This paper tackles the numerical challenge of accurately and efficiently calculating matrix functions like $\\exp(-it\\hat{H})$ arising in quantum simulations. The authors provide a comprehensive comparison of approximation methods—highlighting minimax and Chebyshev techniques—and offer optimized, rigorously analyzed C++ implementations for these calculations.",
+  "main_problem": "Developing rigorous analysis and high-performance implementations for approximating functions of a Hermitian matrix, such as $\\exp(-it\\hat{H})$, to simulate quantum time evolution.",
+  "main_result": "The authors provide rigorous error bounds for Chebyshev approximation and implement true minimax approximation techniques, showing superior convergence compared to naive methods.",
+  "method": "The work compares multiple polynomial approximation schemes (Chebyshev, Minimax via CF algorithm, Taylor series) for matrix functions, focusing on efficient evaluation using the Clenshaw algorithm and optimizing for sparse Hamiltonians.",
+  "model_or_system": "The focus is on quantum systems governed by the time-dependent Schrödinger equation, utilizing Hamiltonians ($\\hat{H}$) relevant to quantum optimization (e.g., $\\hat{H} = \\hat{H}_P + \\gamma \\hat{H}_G$) and quantum walks.",
+  "key_observables": "Approximation error ($\\epsilon$), computational runtime, number of matrix-vector products required, and the action $|\\psi(t)\rangle = \\exp(-it\\hat{H}) |\\psi\rangle$.",
+  "important_parameters": "The spectral radius $\rho(\\hat{H})$ dictates the necessary interval size for approximation; performance is analyzed across varying system sizes ($n$).",
+  "main_assumptions": "Minimax approximations require fixing an interval, necessitating an upper bound on the spectral radius. The analysis distinguishes between truncation error, coefficient error, and evaluation error.",
+  "figures_summary": "Figures compare convergence rates (Taylor vs. Minimax/Chebyshev), runtime comparisons of various approximation algorithms (e.g., optimized Clenshaw vs. naive Horner), and performance gains when using GPU acceleration or commutator-free time evolution methods.",
+  "paper_structure": "The paper builds from the general problem of matrix function approximation to specific implementations, comparing Chebyshev, minimax, and Taylor methods for calculating $\\exp(-it\\hat{H})|\\psi\rangle$, concluding with discussions on optimizing these calculations for modern hardware (GPU) and time-dependent evolution.",
+  "why_interesting": "This is highly relevant as it provides state-of-the-art computational tools and rigorous error analysis for simulating quantum dynamics, which is crucial for developing practical quantum simulation algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.12058_figures/2608.12058_fig1.jpg",
+      "caption": "FIG. 1. The number of terms required for different polynomial expansions of the function sin(x) + cos(x) to reach a truncation error of 2−23 corresponding to 32-bit floating point precision, as a function of the required radius of convergence. The solid blue line is the Taylor series, the solid green line is the minimax polynomial calculated using the CF method. A solid orange line is drawn for the Chebyshev series but the green line overlaps it closely. The dashed blue line is the asymptote for the number of terms for the Taylor series, and the dashed orange line is the asymptote for the number of terms for the Chebyshev series.",
+      "page": 2
+    },
+    {
+      "image": "2608.12058_figures/2608.12058_fig2.jpg",
+      "caption": "FIG. 2. The runtime needed to create a polynomial p(x) which approximates sin(x) + cos(x) on the interval [-scale,scale] to an error of 2−23 using a variety of methods. Solid lines show Chebfun algorithms and dashed lined show our C++ implementations. Green triangles show the Remez algorithm, Blue circles show interpolation at the Chebyshev nodes, orange squares show the CF method and red diamonds show Miller’s algorithm. It can be seen that Miller’s algorithm combined with our CF implementation give vastly improved runtime over the original Chebfun methods, making them viable for practical use.",
+      "page": 4
+    },
+    {
+      "image": "2608.12058_figures/2608.12058_fig3.jpg",
+      "caption": "FIG. 3. A comparison of numerical errors and performance across different methods and problem instances for calculating (sin(H) + cos(H)) |ψ⟩. The first column is tested on 100 5-qubit SK spin-glass problems from [30], where the parameters are sampled from a standard normal distribution. The second column is tested on 100 symmetric 32×32 matrices where all entries are sampled from a standard normal distribution, and then it is made symmetric by adding it to its own transpose. The first row shows how much numerical error is incurred, measured by calculating the euclidean distance of the output from an 80-bit precision baseline, as convergence radius increases. The second row shows how many...",
+      "page": 6
+    },
+    {
+      "image": "2608.12058_figures/2608.12058_fig4.jpg",
+      "caption": "FIG. 4. The runtime needed to evaluate p( ˆH) for a set of 10 random SK spin-glass Ising Hamiltonians from [30], where parameters have been drawn from a standard normal distribution, and a degree-50 polynomial p where the coefficients have been drawn from a standard normal distribution in the monomial basis. Orange squares show a naive Clenshaw implementation, green triangles show a naive Horner implementation, and blue circles show an optimised Clenshaw algorithm. On the right hand side, ratios of runtimes are shown for clarity. The optimised Clenshaw algorithm shows the most performance gain for large sizes, where it is most needed.",
+      "page": 7
+    },
+    {
+      "image": "2608.12058_figures/2608.12058_fig5.jpg",
+      "caption": "FIG. 5. The runtime needed to evaluate p( ˆH) |ψ⟩on a GPU for a set of 20 degree-50 polynomials p where the coefficients have been drawn from a standard normal distribution in the monomial basis. Blue circles show sparse matrix multiplication with CuPy, orange squares show a matrix-free approach using a CuPy RawKernel, and green triangles show a matrix-free approach using a Taichi kernel. In the large n limit, Taichi’s performance matches CUDA, but for moderate n the kernel launch overhead is too significant.",
+      "page": 12
+    }
+  ],
+  "figure": "2608.12058_figures/2608.12058_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
