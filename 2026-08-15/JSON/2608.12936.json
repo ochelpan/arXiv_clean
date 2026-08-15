@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.12936",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "AutoQuREO: A Framework for Automated Quantum Resource Estimation and Optimization",
+  "authors": "Harshkumar Oza, Aritra Sarkar, Syed Naqi Abbas, Rahul Bhowmick, Aryan Prakash, Prateek P Kulkarni, Krishna Kumar Sabapathy",
+  "abstract": "As quantum computing progresses from proof-of-principle demonstrations toward practical utility, a significant impediment is the need to augment algorithmic feasibility with system-level optimization across heterogeneous hardware and software stacks. Quantum resource estimation (QRE) plays a central role in this transition, yet existing approaches remain largely compilation-heavy or domain-knowledge-guided symbolic annotations, and tightly coupled to long-term fault-tolerant assumptions, limiting their topical applicability.   In this work, we introduce AutoQuREO, an Automated framework for full-stack Quantum Resource Estimation and Optimization. AutoQuREO is built around four core novelties: (i) a flexible, user-defined abstraction of the quantum computing stack; (ii) a modular library of reusable stack components enabling rapid full-stack prototyping; (iii) surrogate modeling of layer-wise resources via algorithmic profiling and neuro-symbolic learning; and (iv) integrated multi-objective optimization that embeds QRE directly into deployment pipelines. Together, these design choices enable AutoQuREO to serve as a digital twin for quantum computing stacks, supporting the tractable exploration of complex design spaces.   We demonstrate the capabilities of AutoQuREO through representative co-design case studies, including early-fault-tolerant quantum algorithms, small error correction codes, gate decomposition and variational training of parametric quantum circuits. These examples illustrate how AutoQuREO enables systematic discovery of unexploited resource trade-offs that are computationally intractable or abstruse using existing QRE tools. AutoQuREO is positioned as a general-purpose platform for advancing quantum technology readiness.",
+  "url": "http://arxiv.org/abs/2608.12936v1",
+  "pdf": "https://arxiv.org/pdf/2608.12936v1",
+  "type": "theory",
+  "summary": "This paper introduces AutoQuREO, an automated framework designed to estimate and optimize resources across the entire quantum computing stack. It overcomes limitations of existing tools by using surrogate modeling and integrating optimization directly into deployment pipelines. This positions it as a general platform for exploring complex resource trade-offs necessary for practical quantum technology development.",
+  "main_problem": "The transition of quantum computing from proof-of-concept to practical utility requires optimizing algorithms across complex, heterogeneous hardware/software stacks.",
+  "main_result": "AutoQuREO provides a general-purpose digital twin platform that systematically discovers unexploited resource trade-offs intractable with existing Quantum Resource Estimation (QRE) tools.",
+  "method": "The framework uses surrogate modeling via algorithmic profiling and neuro-symbolic learning to estimate layer-wise resources, integrating this into a multi-objective optimization pipeline.",
+  "model_or_system": "It models the entire quantum computing stack, including algorithms, compilation, error correction (QEC), and hardware execution layers, supporting NISQ through FTQC regimes.",
+  "key_observables": "Resource trade-offs involving qubits, circuit depth, fidelity, classical control cost, logical/physical qubit counts, and wall-clock runtime.",
+  "important_parameters": "The framework is designed to handle resource estimation across multiple computational regimes (NISQ, EFT, FTQC).",
+  "main_assumptions": "Existing QRE tools are often too compilation-heavy, domain-knowledge dependent, or strictly tied to long-term fault-tolerant assumptions.",
+  "figures_summary": "Figure 1 illustrates the overall AutoQuREO workflow, detailing the process from user-defined stack layers through surrogate model creation to automated multi-objective optimization.",
+  "paper_structure": "The paper introduces the framework by identifying limitations in current QRE methods, then details the four novel components of AutoQuREO (abstraction, modularity, surrogate modeling, optimization), and finally validates its utility through co-design case studies.",
+  "why_interesting": "It provides a high-level, systematic tool for analyzing resource bottlenecks across the entire quantum stack, which is crucial for researchers designing algorithms or hardware architectures that must account for real-world constraints beyond idealized models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.12936_figures/2608.12936_fig1.jpg",
+      "caption": "Figure 1 Overview of a typical AutoQuREO workflow. (1) Layer-specific code is either imported from the rapid-prototyping library or provided by the user. The library supports NISQ, EFTQC, and FTQC primitives. (2) The adapter design pattern interfaces the code, mapping hyperparameters to resources. The code is compiled for small instances to generate data for modeling. (3) A surrogate resource model is created. AutoQuREO natively supports various models and modeling techniques shown in the inset. (4) Multiple layers can be flexibly added by the user from the library to create a full-stack scenario. (5) The models can be imported from the library, or newly created models can be added back to...",
+      "page": 3
+    },
+    {
+      "image": "2608.12936_figures/2608.12936_fig2.jpg",
+      "caption": "Figure 2 API template for AutoQuREO project creation, adapter definition, and layer building.",
+      "page": 8
+    },
+    {
+      "image": "2608.12936_figures/2608.12936_fig3.jpg",
+      "caption": "Figure 3 presents the internal workflow of AutoQuREO, to aid the comparison with existing QRE tools. The layers are not predefined in AutoQuREO. Users can flexibly add or remove layers based on their QC stack of interest. The specific layers shown are just an example. Standard layer definitions are available in the library for rapid prototyping of full-stack use cases. In existing tools, the quantum algorithm layer is typically the only user-defined component, leaving the lower stack monolithic. Each layer has its corresponding set of tunable hyperparameters used for DSE and eventual optimization by AutoQuREO. Since no layer is treated differently, these hyperparameters can thus be used to...",
+      "page": 9
+    },
+    {
+      "image": "2608.12936_figures/2608.12936_fig4.jpg",
+      "caption": "Figure 3 Internal workflow of AutoQuREO. A quantum computing stack is represented as a sequence of user-defined layers, each associated with hyperparameters and one or more adapters. For a given configuration, each layer produces resource estimates that are cumulatively aggregated across the stack. Surrogate models replace compilation where applicable, enabling scalable estimation. The aggregated resources are used for downstream multi-objective optimization and hardware deployment.",
+      "page": 9
+    },
+    {
+      "image": "2608.12936_figures/2608.12936_fig5.jpg",
+      "caption": "Figure 4 Surrogate synthesis workflow and comparison with existing QRE methods. (a) Comparison of QRE workflow of compilation-based, symbolic-annotation-based and the proposed modeling-based approach, highlighting trade-offs in scalability and automation. (b) Comparison of resource estimation features across criteria such as required expertise, computational cost, and scalability. (c) Surrogate synthesis pipeline including model selection, data generation, model tuning, training and evaluation, and adapter sketching. This enables AutoQuREO to perform scalable resource estimation.",
+      "page": 11
+    }
+  ],
+  "figure": "2608.12936_figures/2608.12936_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

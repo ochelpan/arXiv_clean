@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.13477",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Imaginary-time correlations in time-sliced stochastic series expansion",
+  "authors": "Ryan Flynn, Adam Iaizzi, Sibin Yang, Ying-Jer Kao, Anders W. Sandvik",
+  "abstract": "Combined with numerical analytic continuation techniques, quantum Monte Carlo (QMC) methods enable the extraction of real-frequency dynamical properties from imaginary-time correlation functions. However, the efficient computation of imaginary-time correlation functions by QMC simulations can (depending on the particular model used) be challenging, particularly for operators that are off-diagonal in the computational basis. In this work, we present an efficient and general algorithm within the stochastic series expansion (SSE) framework for evaluating imaginary-time correlation functions of both diagonal and off-diagonal operators. The algorithm builds on a discrete imaginary-time slicing of the SSE operator string, which provides correlation functions on a grid of well-defined imaginary-time points with no discretization error. For off-diagonal operators, we derive estimators that integrate directly into the existing SSE directed-loop or cluster updating schemes, introducing only minimal computational overhead. We benchmark the method on the one-dimensional transverse-field Ising model (sampling with cluster updates) and XXZ spin chain (using directed-loop sampling), demonstrating excellent agreement (with only statistical errors) with exact diagonalization of small systems. We also study larger systems to demonstrate efficiency.",
+  "url": "http://arxiv.org/abs/2608.13477v1",
+  "pdf": "https://arxiv.org/pdf/2608.13477v1",
+  "type": "theory",
+  "summary": "This work introduces a novel, efficient algorithm within the Stochastic Series Expansion framework to compute imaginary-time correlation functions for both diagonal and off-diagonal operators. By implementing discrete imaginary-time slicing, the method overcomes previous computational bottlenecks associated with measuring non-local correlations in spin models like the TFIM and XXZ chain. This advancement significantly broadens the scope of quantum simulations for strongly correlated matter.",
+  "main_problem": "The primary goal is to develop an efficient, general algorithm for calculating imaginary-time correlation functions in Quantum Monte Carlo simulations.",
+  "main_result": "The authors present a method using discrete imaginary-time slicing of the SSE operator string that allows for the calculation of both diagonal and off-diagonal correlators with minimal overhead.",
+  "method": "The technique involves splitting the inverse temperature $\beta$ into $m$ time slices ($\\Delta\tau = \beta/m$) within the Stochastic Series Expansion (SSE) framework. This slicing enables the direct estimation of correlation functions at discrete imaginary times $\tau_k$.",
+  "model_or_system": "The method is benchmarked on spin systems, specifically the one-dimensional transverse-field Ising model (TFIM) and the XXZ Heisenberg chain. These models are used to test the algorithm's applicability across different types of operators.",
+  "key_observables": "Imaginary-time correlation functions ($G(\tau)$), including both diagonal and off-diagonal spectral functions, which can be analytically continued to real frequencies.",
+  "important_parameters": "Inverse temperature ($\beta$), number of time slices ($m$), system size ($L$), and the specific coupling constants defining the Hamiltonian (e.g., $\\Delta$ for XXZ).",
+  "main_assumptions": "The method assumes that discretizing imaginary time into $m$ slices provides a representation accurate enough to avoid significant discretization errors, while maintaining the ergodicity of existing cluster update schemes.",
+  "figures_summary": "Figures illustrate the implementation details: one shows the directed-loop update for XXZ chains, and another demonstrates the TFIM cluster update mechanism used within the SSE framework.",
+  "paper_structure": "The paper first establishes the challenge of calculating off-diagonal correlators in QMC. It then introduces the core technique—time-slicing the SSE operator string—and derives estimators for both diagonal and off-diagonal operators. Finally, it validates this general algorithm on established models like TFIM and XXZ chains.",
+  "why_interesting": "The ability to efficiently measure off-diagonal correlation functions in strongly correlated spin systems is crucial for understanding quantum phase transitions and excitations (like spinons) that are often masked by diagonal measurements.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.13477_figures/2608.13477_fig1.jpg",
+      "caption": "FIG. 1. The directed-loop update for the XXZ model can be thought of as the insertion of an S+, S−pair of operators at some spacetime point (r0, τ0), and then propagating one of the corresponding defects (the “head”, here S+) through the configuration. Partial SSE configurations are here shown in the linked-vertex representation [1], where spin states be- tween operators are represented by vertical lines; realized as bidirectional links used in coding. (a) A configuration in the space C without defects, with •/◦representing up/down spins, and (black) white rectangles representing (off)-diagonal oper- ators. (b) Construction of a loop is commenced by inserting an S+S−pair on a chosen link....",
+      "page": 4
+    },
+    {
+      "image": "2608.13477_figures/2608.13477_fig2.jpg",
+      "caption": "FIG. 2. Illustration of the TFIM cluster update. Ising oper- ators are represented by black rectangles. White/red rectan- gles represent hI and hσx operators respectively, where the identity operators are present for efficient cluster updates. A single cluster (a) is shown, and the action of flipping the clus- ter (b) is illustrated. Clusters which touch single-site opera- tors flip hI ↔hσx as shown.",
+      "page": 4
+    },
+    {
+      "image": "2608.13477_figures/2608.13477_fig3.jpg",
+      "caption": "FIG. 3. Illustration of the off-diagonal estimator for the cor- relation function ⟨σx(r, τ)σx(0, 0)⟩in the TFIM, using the (a) boundary-valued and the (b) time-slice averaged formula- tions. Two-site Ising J operators are denoted by black rect- angles, and do not factor into the measurement procedures. Diagonal single-site operators hI are not shown, and also do not factor into the procedure. Spin-flip operators are denoted by single-site rectangles, where yellow denotes that they con- tribute to the estimator. For the (a) boundary-valued estima- tor, only spin-flip operators directly adjacent to the time-slice boundary contribute. Only a fraction of total operators are used. This method is...",
+      "page": 8
+    },
+    {
+      "image": "2608.13477_figures/2608.13477_fig4.jpg",
+      "caption": "FIG. 5. In the directed loops algorithm [10], there are two ways that loops can close. Loops begin with choosing a ran- dom vertex leg v0 (□) and moving to the exit leg for that vertex. A loop can close either reconnecting with the origi- nal vertex as (a) an entry leg or (b) an exit leg. Both loops shown above yield valid configurations in the closed space C. For sampling in the extended configuration space C′, only loop closings of type (a) are allowed, as type (b) causes biasing of the estimator. This is due to the method for defining a start- ing point (x0, τ0), which extends back along the leg from v0 (red solid line). Allowing loop closures of type (b) leaves a loop that does not...",
+      "page": 11
+    },
+    {
+      "image": "2608.13477_figures/2608.13477_fig5.jpg",
+      "caption": "FIG. 4. Example loops and their contributions to the corre- lator G±(r, τ). represent operators; solid lines are the loop paths; □marks the initial vertex v0; × marks possible τ0 starting points, ⃝mark all contributing boundary points to the histogram in that loop. Loop (1) does not cross any time- slice boundaries, and so does not contribute to the histogram, although we still draw it as a normal MC update. Loop (2) does cross boundaries, but the initial leg chosen does not, and so it does not contribute to the histogram. Loop (3) starts on a link that crosses a single boundary at x0 = 7, τ0 = ∆τ. As we draw the loop, all boundary crossings (⃝) contribute G±[∆r, ∆τk] += nlegs, where nlegs...",
+      "page": 11
+    }
+  ],
+  "figure": "2608.13477_figures/2608.13477_fig1.jpg",
+  "highlighted": [
+    "Anders W. Sandvik"
+  ],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.13335",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Neural Quadratic Forms: A Unified Minimal Model for Sudden Learning and Scaling Laws",
+  "authors": "Liu Ziyin, Yizhou Xu, Tomaso Poggio, Isaac Chuang",
+  "abstract": "Neural networks trained by gradient descent on a smooth cost function can nevertheless learn in steps: the cost holds on long plateaus and then drops abruptly. Meanwhile, training losses instead follow smooth power laws. Variants of both behaviors occur in architectures with very different microscopic structures, which is the signature of a few relevant collective variables. We show that a symmetry fixes what those variables are: a network layer is a sum over interchangeable units, so relabeling the units leaves it unchanged; given smoothness and the condition that a unit's gradient vanish at the origin, symmetry then enforces a universal leading form for the expansion about the near-zero weights present at the start of training, the quadratic $\\Tr[WW^{\\top}A(x)]$, in which every architectural detail is confined to a single ``structure matrix\" $A(x)$ that we compute for each architecture. Perceptrons, attention layers, mixtures of experts, and convolutions become one model at different $A$. Its training dynamics then close on the ``order parameter\" $M=WW^{\\top}$ and, whenever the data matrices share an eigenbasis, reduce to a Lotka--Volterra equation whose modes switch on one after another. The smaller the initial weights, the further apart the switch-on times, and the plateaus appear as a singular limit of a smooth flow; when many modes are unresolved the same events merge into a power law in training time whose exponent the theory predicts. We confirm both numerically across training methods and architectures.",
+  "url": "http://arxiv.org/abs/2608.13335v1",
+  "pdf": "https://arxiv.org/pdf/2608.13335v1",
+  "type": "theory",
+  "summary": "This work unifies the theory of neural network training by deriving the Neural Quadratic Form (NQF) based on permutation symmetry. It demonstrates that diverse architectures map onto this single model, whose dynamics are governed by solvable equations like Lotka–Volterra systems. This provides a powerful theoretical tool to predict both sudden learning plateaus and smooth scaling laws across different deep learning models.",
+  "main_problem": "The paper unifies two seemingly disparate observations in neural network training: abrupt 'sudden learning' steps and smooth power-law scaling laws.",
+  "main_result": "It shows that the dynamics of various architectures (MLPs, Attention) can be unified under a single mathematical framework called the Neural Quadratic Form (NQF), whose evolution reduces to solvable differential equations like Lotka–Volterra systems.",
+  "method": "The analysis uses symmetry arguments (permutation symmetry) combined with Taylor expansion around zero weights to derive the NQF structure, followed by solving the resulting low-dimensional dynamical system for the order parameter $M=WW^T$.",
+  "model_or_system": "The model is a general neural network trained via gradient descent on a smooth cost function. The core mathematical object is the Neural Quadratic Form (NQF), which approximates the network's behavior near initialization.",
+  "key_observables": "Order parameter $M=WW^T$, effective slope $k_{\text{eff}}$, and the time evolution of mode amplitudes $\rho_a(t)$.",
+  "important_parameters": "Initial weight scale ($\\epsilon$), learning rate, and architectural parameters defining the structure matrix $A(x)$.",
+  "main_assumptions": "The analysis assumes permutation symmetry ($\\mathcal{S}_d$) for the network layer and that the system can be accurately described by a quadratic expansion (NQF) near initialization.",
+  "figures_summary": "Figures illustrate how different architectures reduce to the NQF structure via $A(x)$, show tracking accuracy between full models and NQFs, and compare predicted scaling laws against finite-initialization effects.",
+  "paper_structure": "The paper first establishes Theorem 1 (NQF) using symmetry arguments for various modules. It then analyzes the dynamics by reducing the evolution to moments $(M, \\mu)$, showing reduction to Lotka–Volterra equations. Finally, it confirms these predictions by analyzing scaling laws and mode evolution.",
+  "why_interesting": "The mathematical machinery developed—reducing complex high-dimensional learning dynamics to low-dimensional, solvable ODEs governed by symmetry principles—is highly relevant for understanding emergent collective behavior in many-body quantum systems or disordered physical models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.13335_figures/2608.13335_fig1.jpg",
+      "caption": "Figure 1: Permutation symmetry of the units allows us to characterize the model with structure matrices A. (a) Perceptrons, attention layers, mixtures of experts and convolutions are all sums over interchangeable components, so a permutation leaves the represented function unchanged. (b) Training begins with all weights near zero, so each module may be Taylor expanded about that point. Given smoothness and the condition that a component’s gradient vanish whenever that component’s own weights do, symmetry then enforces the same leading quadratic form in every case (Theorem 1), and the architecture survives only in the structure matrix A(x). Here x is a single input to the module.",
+      "page": 2
+    },
+    {
+      "image": "2608.13335_figures/2608.13335_fig2.jpg",
+      "caption": "Figure 2: NQF approximation across initialization, optimizer, and architecture. Two initialization scales are juxtaposed—small init (σ = 0.01, left) and large init (σ = 0.2, right). Within each block, rows are optimizers and columns are architectures. Each module is trained together with its NQF approximation on an NQF teacher with singular values s = (1, 1",
+      "page": 12
+    },
+    {
+      "image": "2608.13335_figures/2608.13335_fig3.jpg",
+      "caption": "Figure 3: Sudden learning in a solvable NQF, the phenomenon the theory of this paper is built to explain. The experi- ment is under the feature-wise descent setting of Section 6. Solid lines represent the theory in Theorem 6 and markers represent the results obtained by GD. Vertical dashed lines mark the characteristic timescales t∗ k = 1 rk ln( rk Ckkϵ) where each feature reaches half-saturation. Left: Evolution of the eigenvalues of WW ⊺. Middle: The excess MSE loss over time, which exhibits sequential plateaus. Each sharp drop in the loss aligns with t∗ k. Right: Under the feature-wise descent setting of Section 6, the blue dashed line indicates the theoretical slope and confirms that...",
+      "page": 13
+    },
+    {
+      "image": "2608.13335_figures/2608.13335_fig4.jpg",
+      "caption": "Figure 4: The experiment is under the setting of the sample-wise descent in Section 6. Solid lines represent the theory of Theorem 5 obtained by numerically solving Eq. (36), and markers represent the empirical results obtained by full- batch GD. Vertical dashed lines mark the characteristic timescales t∗ µ = ζ−1 µ ln(1/ϵ) according to (47). Left: Evolution of the per-sample loss ∆µ(t)2 = (Tr[WW ⊺A(xµ)] −yµ)2, showing independent and sequential convergence. Right: The total empirical MSE loss over time, which exhibits m sequential plateaus. Each discrete drop in the total loss matches the respective timescale t∗ µ.",
+      "page": 14
+    },
+    {
+      "image": "2608.13335_figures/2608.13335_fig5.jpg",
+      "caption": "Figure 5: Curves show the normalized MSE L(t)/L(0); dotted lines are the slopes predicted in Section 6. Left: For θ = 1, the Fourier MLP (blue) descends as the predicted power law t−(2β−1)/(θ+β) (see Appendix C) and is tracked by its NQF approximation (black); a standard tanh MLP trained on the raw input x (red), which does not exhibit the power law. Right: The power-law exponent of the Fourier MLP (solid lines) matches the theory (dashed lines) for θ ∈{0,0.5,1}.",
+      "page": 14
+    }
+  ],
+  "figure": "2608.13335_figures/2608.13335_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 3,
+    "scars & prethermalization": 2,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

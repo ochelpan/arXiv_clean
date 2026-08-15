@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.12830",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Improved Measurement Cost Scaling in the Nonorthogonal Quantum Eigensolver",
+  "authors": "Mingyu Kang, K. Birgitta Whaley",
+  "abstract": "Quantum subspace diagonalization methods are promising algorithms for quantum chemistry on near-term quantum computers. These methods can estimate low-lying energies of molecular systems using shallow quantum circuits, at the cost of many circuit repetitions to estimate the projected matrix elements. Errors in these matrix elements can be converted into much larger eigenvalue errors by an ill-conditioned overlap matrix. We study this bottleneck for the nonorthogonal quantum eigensolver (NOQE), which constructs a compact multireference subspace from dressed unrestricted Hartree-Fock states. We prove a finite-shot perturbation bound showing that, after overlap thresholding, the eigenvalue sensitivity is controlled by the condition number of the retained overlap matrix rather than by a worst-case dimension factor. With a scalable thresholding scheme, the upper bound on the per-matrix-element shot count required to reach a target accuracy scales as $\\mathcal{O}(M)$, improving on the previously known $\\mathcal{O}(M^3)$ bound, where $M$ is the number of reference states. Numerical experiments on hydrogen chains and rings suggest that, in practice, the measurement cost of structured NOQE instances can grow even more slowly than this linear bound.",
+  "url": "http://arxiv.org/abs/2608.12830v1",
+  "pdf": "https://arxiv.org/pdf/2608.12830v1",
+  "type": "theory",
+  "summary": "This paper tackles the computational bottleneck in using quantum computers to find molecular energies via the Nonorthogonal Quantum Eigensolver (NOQE). By introducing a scalable thresholding scheme based on the overlap matrix's condition number, the authors theoretically improve the required measurement shot count scaling from $O(M^3)$ to $O(M)$. This advancement makes simulating larger and more complex quantum chemical systems feasible with current noisy hardware.",
+  "main_problem": "The primary goal is improving the measurement cost scaling for quantum subspace diagonalization methods, specifically the Nonorthogonal Quantum Eigensolver (NOQE). The bottleneck is accurately estimating matrix elements when errors can lead to large eigenvalue errors.",
+  "main_result": "The authors prove that by using a scalable thresholding scheme on the overlap matrix, the required shot count per matrix element improves from a worst-case $O(M^3)$ bound to a linear scaling of $O(M)$.",
+  "method": "The work combines theoretical perturbation analysis with numerical simulations. It involves formulating the problem as solving a generalized eigenvalue problem and applying thresholding techniques to control error propagation.",
+  "model_or_system": "The method is applied to estimating low-lying energies of molecular Hamiltonians, constructing a multireference subspace from dressed unrestricted Hartree-Fock states ($\\vert\\phi_J\rangle$). Testing was done on hydrogen chains and rings.",
+  "key_observables": "Eigenvalue sensitivity, measurement shot count ($N_{\text{shots}}$), bias relative to noiseless results, and the condition number of the retained overlap matrix ($\\kappa(S_{>\\epsilon})$).",
+  "important_parameters": "$M$ (number of reference states), $E$ (target accuracy), $\\epsilon$ (thresholding parameter), and $\\kappa(S)$ (overlap condition number).",
+  "main_assumptions": "The analysis assumes that the eigenvalue sensitivity is controlled by the condition number $\\kappa(S)$ rather than dimension factors, and it relies on a scalable thresholding scheme to manage near-singularity.",
+  "figures_summary": "Figure 1 compares noiseless NOQE results against classical methods. Figure 2 shows how bias, retained condition number, and spin contamination remain bounded as system size $N$ increases when using appropriate thresholding schemes.",
+  "paper_structure": "The paper first establishes the theoretical bottleneck in measurement cost scaling for NOQE. It then introduces a scalable thresholding scheme to control errors by replacing dimension-based bounds with those based on the overlap condition number, leading to improved complexity bounds and numerical validation on molecular systems.",
+  "why_interesting": "This work directly addresses the resource estimation (measurement time/shots) required for near-term quantum simulation of chemistry problems, which is a core concern in applying quantum algorithms to physical systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.12830_figures/2608.12830_fig1.jpg",
+      "caption": "FIG. 1. Performance of noiseless NOQE for (a)–(c) linear hydrogen chains (upper panels) and (d)–(f) regular hydrogen rings (lower panels) of various numbers of atoms N in the STO-3G basis, compared with classical methods such as NOCI, UHF and UHF-MP2. The distance between nearest-neighbor atoms is set as 1.5 ˚A. (a,d) Ground-state energy error |E −EFCI| versus N. (b,e) Condition number of the unthresholded overlap matrix κ(S) versus the number of reference states M(N) = \u0000 N ⌈N/2⌉ \u0001 .",
+      "page": 4
+    },
+    {
+      "image": "2608.12830_figures/2608.12830_fig2.jpg",
+      "caption": "FIG. 2. Performance of finite-shot NOQE with overlap thresholding for the ground state energies E0 of (a)–(c) linear hydrogen chains (upper panels) and (d)–(f) regular hydrogen rings (lower panels). Diagonal entries of H are subject to real zero-mean noise with standard deviation σ = 10−3 Ha, while off-diagonal entries of H and S are perturbed on the upper triangle by independent zero-mean complex noise whose real and imaginary parts each have standard deviation σ = 10−3/ √",
+      "page": 5
+    },
+    {
+      "image": "2608.12830_figures/2608.12830_fig3.jpg",
+      "caption": "Figure 1(b) and (e) show the bare condition number of the overlap matrix κ(S), before any thresholding, as a function of system size. Both NOCI and NOQE exhibit a clear increasing trend, with the NOQE overlap matrices slightly more ill-conditioned. Figures 1(c) and (f) plot the spin contamination, measured by ⟨ˆS2⟩−S(S + 1), which is substantially smaller for NOQE than for NOCI, consistent with the spin-purification property of NOQE emphasized in Ref. [22].",
+      "page": 5
+    },
+    {
+      "image": "2608.12830_figures/2608.12830_fig4.jpg",
+      "caption": "Figure 1 first studies the system-size dependence of noiseless NOQE, where the projected Hamiltonian and overlap matrices are evaluated exactly before any finite- shot measurement noise is added. In Fig. 1(a) and (d), we compare the NOQE ground-state energy error with those of several classical methods: unrestricted Hartree-Fock (UHF) uses the lowest-energy determinant among the M UHF states before dressing, UHF with second-order Møller–Plesset perturbation theory (UHF-MP2), applies an MP2 correction to this single determinant [41], non- orthogonal configuration interaction (NOCI) diagonalizes in the subspace of the M UHF states [42, 43], and NOQE diagonalizes in the subspace of the M...",
+      "page": 5
+    },
+    {
+      "image": "2608.12830_figures/2608.12830_fig5.jpg",
+      "caption": "Figure 2 introduces finite-shot measurement sampling noise and overlap thresholding to assess the scalability criteria in Def. 2. We set the standard deviation σ of the independent matrix-element noise to 10−3 (see the cap- tion of Fig. 2 for details), which places the simulations in a regime where a scalable thresholding scheme exists and the overall energy errors remain below chemical accu- racy. The number of shots per matrix element required to maintain this fixed element noise may further grow modestly with system size, depending on the Pauli-word grouping [30–32] or basis-rotation grouping [33] used in",
+      "page": 5
+    }
+  ],
+  "figure": "2608.12830_figures/2608.12830_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

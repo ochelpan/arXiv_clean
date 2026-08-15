@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.13097",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "math.CO",
+    "physics.optics"
+  ],
+  "is_primary_archive": true,
+  "title": "Graph-theoretic design of lasing networks for physical vision",
+  "authors": "Paul Obernolte, Jakub Dranczewski, Yixiu Yin, Tobias Farchy, Wai Kit Ng, Tobias Simonsen, Elias Großhauser, Alexis Arnaudon, Robert L. Peach, Mauricio Barahona, Riccardo Sapienza, Jack C. Gartside, T. V. Raziman",
+  "abstract": "Physical neural networks perform learning through the intrinsic nonlinear dynamics of matter. Optimising their design presents a considerable challenge: complex many-body physics can provide powerful computation, but are expensive to simulate and large experimental optimisation runs are impractical to fabricate. Hence, the high-dimensional space of possible network topologies cannot be effectively directly searched. Here, we show that this search can be efficiently performed in an abstract graph space that is vastly cheaper to explore. Using random lasing networks -- composed of interconnected nanoscale waveguides and hosting strongly coupled lasing modes -- as an exemplar physical vision system, we establish a quantitative three-layer link: simple graph-theoretic metrics predict the nonlinear lasing physics, which in turn predicts vision performance. After validating this relationship using physical simulations, we exploit it to drive an evolutionary algorithm using graph metrics, producing network topologies that outperform random designs at a fraction of the computational cost (3000$\\times$ speed-up compared to physical simulation). On simulated image-classification tasks, graph-optimised networks substantially improve classification accuracy. As our framework operates on network topology rather than substrate-specific physics, we anticipate it can transfer to other network-based physical learning systems, providing an efficient route for the directed design and optimisation of complex, strongly-interacting physical neural networks.",
+  "url": "http://arxiv.org/abs/2608.13097v1",
+  "pdf": "https://arxiv.org/pdf/2608.13097v1",
+  "type": "both",
+  "summary": "The paper introduces a novel, efficient framework to design physical neural networks using random lasing structures. By establishing a three-layer link between simple graph metrics and complex lasing physics, they guide an optimization algorithm that yields superior network topologies for vision tasks compared to random designs.",
+  "main_problem": "Optimizing physical neural network designs, which rely on complex nonlinear dynamics, is computationally prohibitive due to the high dimensionality of possible topologies.",
+  "main_result": "The authors established a quantitative link where simple graph-theoretic metrics can predict and guide the optimization of lasing physics, leading to network topologies that significantly outperform random designs in image classification tasks.",
+  "method": "They developed an evolutionary algorithm guided by graph metrics (like clique sizes sum and edge betweenness centrality) to optimize random lasing networks, which are then tested on simulated image-classification benchmarks.",
+  "model_or_system": "The exemplar system is a random lasing network composed of interconnected nanoscale waveguides hosting strongly coupled lasing modes. The analysis maps graph structure metrics onto the nonlinear lasing physics and subsequent vision performance.",
+  "key_observables": "Graph metrics (e.g., clique sizes sum, median edge betweenness centrality), physical observables (number of lasing modes, inter-mode competition), and vision proxies (Excitation-inhibition metric, Feature detection metric).",
+  "important_parameters": "Total edge length ($L$), shot size $S$ for training, and hyperparameters $(k, C)$ for the logistic regression classifier.",
+  "main_assumptions": "The core assumption is that graph properties can predict emergent nonlinear dynamics and learning performance in active, strongly-interacting physical networks, allowing optimization in an abstract graph space rather than simulating substrate physics.",
+  "figures_summary": "Figures illustrate a three-layer pipeline (Graph $\rightarrow$ Physics $\rightarrow$ Application), schematics of the lasing network, and show correlations between various graph parameters and vision metrics across different network sets.",
+  "paper_structure": "The paper establishes a theoretical framework linking graph theory to physical optics via random lasing networks. It then uses this link to guide an evolutionary optimization process based on graph metrics, culminating in testing the optimized topologies on simulated image classification tasks using logistic regression.",
+  "why_interesting": "This work provides a powerful methodology for designing complex quantum or nonlinear optical systems by abstracting the design space into graph theory, bypassing expensive full-scale physical simulations of many-body dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.13097_figures/2608.13097_fig1.jpg",
+      "caption": "Figure 1. Working principle of graph-theoretic design of random lasing networks. a) Graph-theoretic analysis pipeline linking graph-based metrics (top) to physical lasing dynamics (middle), and neuromorphic vision performance (bottom). Interpolating between the topologies of two networks, from Waxman (left) to Buffon (right), in graph-metric space reveals associated changes in lasing dynamics (number of lasing modes) and physical vision performance (excitation–inhibition metric), enabling computationally cheap design and optimisation in an abstract graph space that bypasses expensive physical simulations. b) Schematic of the random lasing network used as an image processor: input images are...",
+      "page": 3
+    },
+    {
+      "image": "2608.13097_figures/2608.13097_fig2.jpg",
+      "caption": "Figure 2. Identifying relevant network parameters for physical vision. a,b) In a set of networks (Network set #1) generated using four different algorithms (Buffon, Delaunay, Waxman and Voronoi) and spanning a wide range of total edge lengths, the excitation-inhibition metric is strongly correlated with the total edge length. c,d) Among networks with constrained total edge lengths (Network set #2), Buffon networks generally perform best on the two vision metrics. Among the considered graph-theoretic parameters, Clique sizes sum is the best predictor of the excitation-inhibition metric. e) Comparative illustration of network topology, graph-theoretic parameters, lasing spectra, and the two...",
+      "page": 4
+    },
+    {
+      "image": "2608.13097_figures/2608.13097_fig3.jpg",
+      "caption": "Figure 3. Relationship between graph-theoretic parameters, physical effects, and machine learning performance. System parameters from graph theory (clique sizes sum and edge betweenness centrality median), physics (number of lasing modes and effective rank of the mode competition matrix), and vision (excitation-inhibition metric and feature detection metric) are mutually correlated in the set of networks with constrained total edge length (Figure 2). (The same plot for the set of networks with varying total edge lengths can be seen in Supplementary Figure S2.)",
+      "page": 5
+    },
+    {
+      "image": "2608.13097_figures/2608.13097_fig4.jpg",
+      "caption": "Figure 2b showing the strong positive correlation with the excitation-inhibition metric (see Supplementary Figure S1 for strong positive correlation with the feature detection metric). Physically, networks with longer total edge length have longer cavities which support more spatially overlapping modes (∝L/λ, for a total length L and a light wavelength λ) within the gain bandwidth,48 enhancing mode competition,49 which is consistent with the observed correlation. Maximising the total edge length within the geometrical constraints is thus a simple, physics-informed heuristic to improve vision performance. In contrast, vision performance is only weakly correlated with the number of nodes in...",
+      "page": 5
+    },
+    {
+      "image": "2608.13097_figures/2608.13097_fig5.jpg",
+      "caption": "Figure 4. Evolutionary graph-based optimisation of random lasing networks for physical vision. a) Schematic of the evolutionary algorithm. b) Networks can be tuned along arbitrary directions in a two-parameter graph-theoretic space. c) The combined graph parameter improves over epochs of the algorithm under predictive selection (for the definition of the combined graph parameter, see Section S4). d) Evolution of the network layouts illustrates substantial topological changes.",
+      "page": 7
+    }
+  ],
+  "figure": "2608.13097_figures/2608.13097_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 1,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

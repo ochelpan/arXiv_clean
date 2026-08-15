@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.12858",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.atom-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Shots-to-Approximate-Solution Scaling in Neutral-Atom Quantum Optimization",
+  "authors": "Junwoo Jung, Jaewook Ahn",
+  "abstract": "Whether neutral-atom quantum optimization protocols exhibit genuine concentration toward low-energy solution structure remains an open question. Here, we introduce a shots-to-approximate-solution metric, STS(r), where r denotes the approximation ratio, and evaluate it using postprocessed outputs modeled by a degeneracy-weighted shell distribution governed by a single effective parameter, $β$, that quantifies concentration toward near-optimal independent sets. To extract the genuine concentration effect in the quantum data, we apply identical postprocessing to both experimental bitstrings and randomly generated bitstrings with matched excitation density, thereby constructing an excitation-matched random baseline. Experiments on programmable Rydberg-atom arrays with system sizes up to 125 sites show that quantum annealing consistently exceeds the random baseline, demonstrating enhanced concentration toward low-energy solution structure beyond what can be attributed solely to excitation density. The results further reveal two distinct target-dependent regimes. For near-exact targets with $r \\approx 1$, the required shot count grows exponentially with system size and is reduced at the same exponential level by quantum annealing within the shell-model description. By contrast, for relaxed targets, the shot cost becomes effectively constant, and the corresponding quantum enhancement diminishes, with the classical postprocessing heuristic alone reaching the target in order-unity attempts. Together, these results establish an operational method for quantifying quantum optimization performance and clarify the regimes under which quantum approaches can yield practical benefits.",
+  "url": "http://arxiv.org/abs/2608.12858v1",
+  "pdf": "https://arxiv.org/pdf/2608.12858v1",
+  "type": "both",
+  "summary": "This work introduces the STS metric to rigorously measure how many quantum shots are needed to find approximate solutions to NP-hard problems like MIS using neutral atoms. By comparing results against an excitation-matched random baseline, the authors prove that quantum annealing provides a genuine advantage over classical expectations. The findings delineate specific regimes where quantum resources yield practical benefits versus when classical heuristics suffice.",
+  "main_problem": "The core problem is developing an operational metric, STS(r), to quantify whether neutral-atom quantum optimization protocols exhibit genuine concentration toward low-energy solution structures.",
+  "main_result": "Quantum annealing consistently outperforms a random baseline, demonstrating enhanced concentration beyond what can be explained by mere excitation density. The required shot cost scales differently for near-exact versus relaxed target solutions.",
+  "method": "The authors introduce the Shots-to-Approximate-Solution metric, STS(r), and analyze postprocessed outputs using a degeneracy-weighted shell distribution model ($\\pi_j \\propto d_{\\alpha-j} e^{-\beta j}$).",
+  "model_or_system": "The study uses programmable Rydberg-atom arrays to implement the Maximum Independent Set (MIS) problem. The analysis relies on modeling output quality via a shell index ($j$) derived from postprocessing the raw quantum bitstrings.",
+  "key_observables": "Shots-to-Approximate-Solution metric ($\text{STS}(r)$), effective concentration parameter ($\beta$), and the residual advantage $\\Delta\beta_{\text{ann}}$.",
+  "important_parameters": "Approximation ratio ($r$), system size ($N$), and the shell index $j$ relative to the optimal MIS size $\\alpha$.",
+  "main_assumptions": "The analysis focuses on postprocessed outputs rather than raw bitstrings due to blockade violations, necessitating a random baseline control. The shell distribution is modeled using maximum entropy principles.",
+  "figures_summary": "Figures compare quantum annealing shot costs against random baselines and classical reference times for different target ratios ($r=1$ vs. relaxed targets), showing distinct scaling behaviors.",
+  "paper_structure": "The paper introduces the STS metric, models output quality via shell distributions ($\beta$), establishes a random baseline control by matching excitation density, and then analyzes two regimes (near-exact vs. relaxed) to quantify quantum advantage.",
+  "why_interesting": "It provides a rigorous, quantifiable benchmark for assessing true quantum speedup in optimization problems implemented on Rydberg arrays, distinguishing genuine algorithmic advantages from mere hardware noise or local correlations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.12858_figures/2608.12858_fig1.jpg",
+      "caption": "FIG. 1. Density-controlled shots-to-approximate-solution workflow. An initial King’s-lattice atom array is evolved by a Rydberg quantum-annealing schedule, producing raw quantum seeds (occupation bitstrings). To construct a density- controlled null model, random seeds are sampled with the same mean excitation density as the quantum data. Both seeds are passed through the identical postprocessing pipeline: invalid adjacent excitations are removed, the independent set is greedily maximized, and a local 1-swap improvement is applied. The resulting postprocessed outputs define shell distributions over shell index j, where j = 0 corresponds to the MIS manifold, summarized by an effective quality...",
+      "page": 2
+    },
+    {
+      "image": "2608.12858_figures/2608.12858_fig2.jpg",
+      "caption": "FIG. 2. Plateau behavior and annealing advantage with excitation-matched random baseline. (a) ∆βann(T) = βann(T) −βrand(p(ann) exc (T)) as a function of annealing time for all four size groups (bin 2; see Fig. 3 for the full hardness dependence). The random baseline is evaluated at the per-instance, per-T excitation rate p(ann) exc (T), controlling for the density effect at every point of the sweep. In all groups, ∆βann(T) rises from negative or near-zero values at short times and saturates at a positive plateau near T ⋆≈2500–5000 ns (group-dependent). (b) Per-instance ∆βann at the plateau (T = 5000 ns), for the 24 instances of bins 1–4 in each size group, as a function of system size N....",
+      "page": 6
+    },
+    {
+      "image": "2608.12858_figures/2608.12858_fig3.jpg",
+      "caption": "FIG. 3. Annealing quality parameter and excitation-matched random baseline across hardness bins. βann (blue squares) and the excitation-matched random baseline βrand(p(ann) exc ) (gray circles, dashed) as a function of hardness bin at T = 5000 ns, shown separately for each size group. The excitation rate p(ann) exc is measured per instance from experimental shots, so each random-baseline point is density-matched to the corresponding annealing measurement. Annealing consistently exceeds the matched baseline across all bins and system sizes, with the gap ∆βann = βann −βrand(p(ann) exc ) remaining positive throughout. The lowest-hardness bin (bin 0) is shown for completeness but is excluded...",
+      "page": 7
+    },
+    {
+      "image": "2608.12858_figures/2608.12858_fig4.jpg",
+      "caption": "FIG. 4. Shell-model sensitivity and KL-divergence validation. (a)–(d) Postprocessed β as a function of flip probability p for controlled mock data, constructed by independently flipping each bit of the exact MIS solution with probability p and applying the ℓ= 1 postprocessing pipeline, shown separately for each size group. Dotted lines indicate the excitation-matched random baseline βrand for each hardness bin. (e)–(h) DKL(Pemp∥Pfit) between the empirical postprocessed shell distribution and the fitted shell model as a function of the inferred β, for mock data across all four size groups. Color encodes flip probability p; darker points correspond to lower p and hence higher solution...",
+      "page": 8
+    },
+    {
+      "image": "2608.12858_figures/2608.12858_fig5.jpg",
+      "caption": "Figure 5(c) makes this target dependence explicit from the opposite perspective. At the exact target, STS(r = 1; β) decreases rapidly with increasing β, and the sepa- ration between size groups grows with system size. The measured annealing plateau values β(g) ann lie to the right of the excitation-matched random baselines βrand, implying fewer required shots at fixed N. The faint vertical lines mark the plateau values β(g) ann, at which the exponential fits in panel (a) are evaluated. The large reduction visi-",
+      "page": 8
+    }
+  ],
+  "figure": "2608.12858_figures/2608.12858_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 4,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

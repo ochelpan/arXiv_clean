@@ -1,0 +1,61 @@
+{
+  "arxiv_id": "2608.13099",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Formal Verification of Quantum Ancilla Safety",
+  "authors": "Jiqi Li, Jingyi Mei, Wang Fang, Ji Guan",
+  "abstract": "Ensuring ancilla safety is a critical correctness requirement for quantum compilation, since ancilla qubits are routinely introduced to implement complex operations with fewer gates and reduced depth. However, formally verifying this property is computationally hard due to state-space explosion in the number of qubits, particularly for dirty ancillae, which carry unknown initial states and must be restored after use. We propose an end-to-end verification-and-repair framework that rigorously addresses both clean and dirty ancilla safety. Our core contribution is a two-step reduction strategy: we first prove that verifying an $m$-qubit dirty ancilla register decomposes into $2m$ independent clean ancilla safety checks; subsequently, we reduce each clean ancilla safety instance to an algebraic commutativity check against Pauli-$Z$ and Pauli-$X$ operators. This approach yields an efficient and naturally parallel verifier and enables actionable diagnosis by classifying violations into logic errors and phase errors. Leveraging this diagnosis, we further design lightweight repair routines that append local single-qubit rotations to eliminate a broad class of local ancilla faults. We implement the full pipeline in a prototype tool using a dual-backend architecture combining decision diagrams and weighted model counting, and validate it on diverse circuits ranging from arithmetic benchmarks to Grover's algorithm. Our experiments demonstrate scalability to thousands of qubits and show that the proposed repairs effectively improve ancilla safety while preserving circuit functionality.",
+  "url": "http://arxiv.org/abs/2608.13099v1",
+  "pdf": "https://arxiv.org/pdf/2608.13099v1",
+  "type": "theory",
+  "summary": "This paper introduces a comprehensive verification-and-repair framework to mathematically guarantee 'ancilla safety' in quantum circuits. It achieves this by reducing complex, hard-to-verify dirty ancilla checks into manageable algebraic commutativity tests involving Pauli operators. The resulting tool is efficient, scalable, and provides actionable diagnosis and repair routines for local faults.",
+  "main_problem": "The core problem is formally verifying 'ancilla safety'—ensuring temporary ancilla qubits are restored to a known state after complex quantum operations, especially when they start in unknown ('dirty') states.",
+  "main_result": "The authors propose an efficient end-to-end framework that reduces dirty safety checks to independent clean safety checks, which are further reduced to algebraic commutativity conditions involving Pauli operators.",
+  "method": "They develop a two-step reduction strategy: first decomposing the problem into multiple clean ancilla checks, and then mapping each check onto checking commutation relations $[U, Q] = 0$ using specialized reflection operators $Q$.",
+  "model_or_system": "The model is general quantum circuits operating on data qubits ($W$) and ancillary qubits ($A$). Safety definitions distinguish between 'clean' (restoring to $|0\rangle^{\\otimes m}$) and 'dirty' (restoring regardless of initial state $|\\varphi\rangle_A$).",
+  "key_observables": "The primary diagnostics are the commutator checks $[U, Q] = 0$, and failure modes are classified as LogicError or PhaseError.",
+  "important_parameters": "Scalability is demonstrated up to thousands of qubits; the analysis involves unitary transformations $U$ acting on composite Hilbert spaces $\\mathcal{H}_W \\otimes \\mathcal{H}_A$.",
+  "main_assumptions": "The framework assumes purely unitary circuits without mid-circuit measurements or classical feed-forward for its core theorems. Repair routines are limited to separable error cases.",
+  "figures_summary": "Not specified, but the notes reference Figure 1 illustrating clean vs. dirty ancilla usage and Table 3 comparing verification efficiency across benchmarks like Grover's algorithm.",
+  "paper_structure": "The paper builds from defining the physical problem (clean/dirty safety) to establishing theoretical equivalences via lemmas (subspace invariance $\\iff$ commutation), culminating in a practical, efficient framework for diagnosis and repair using algebraic checks.",
+  "why_interesting": "While focused on computation theory, the rigorous mathematical tools developed for subspace preservation and error characterization are highly relevant to understanding decoherence and state preparation fidelity in physical quantum hardware implementations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.13099_figures/2608.13099_fig1.jpg",
+      "caption": "Fig. 1: Bridge-GHZ circuits [12] with a shared ancilla qa: (left) clean-ancilla ver- sion; (right) dirty-ancilla version. See detail in Appendix A.1.",
+      "page": 6
+    },
+    {
+      "image": "2608.13099_figures/2608.13099_fig2.jpg",
+      "caption": "Fig. 3: Quokka-Sharp and QCEC performance on MCX and Grover circuits.",
+      "page": 18
+    }
+  ],
+  "figure": "2608.13099_figures/2608.13099_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.13123",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "physics.comp-ph",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Using Diffusion Models to Estimate Uncertainties in Analytic Continuation",
+  "authors": "Sagi Meir, Daniel Freedman, Barak Hirshberg",
+  "abstract": "Inverse problems are ubiquitous in physics, chemistry, and engineering, arising when reconstructing hidden quantities from indirect measurements. A key example is the analytic continuation of imaginary-time correlation functions (iTCFs) to the real-frequency domain. This process requires an inverse Laplace transform, which is inherently ill-posed and highly sensitive to small input variations. Recent neural network (NN)-based methods have shown promising results by learning mappings from imaginary-time to real-frequency spectra, often outperforming traditional techniques such as maximum entropy. However, because the problem is ill-posed, many spectra fit the same iTCF. Regression-based approaches output a single solution, which approximates an average over the true solution space, and therefore fail to capture the full distribution of plausible power spectra. To address this issue, we introduce a diffusion-based framework for analytic continuation that learns the distribution of spectra consistent with a given iTCF. It offers two key advantages. First, it quantifies uncertainty directly from the learned distribution. Second, by analyzing the spread and structure of this distribution, we can quantitatively assess the intrinsic hardness of each inversion problem. We measure this hardness with a new metric, the uncertainty pseudo-volume. Applying the framework to an iTCF from a path-integral molecular dynamics simulation of liquid parahydrogen, we obtain the self-diffusion coefficient with an error bar and flag a secondary high-frequency peak as a possible spurious artifact. In contrast to previous attempts at uncertainty quantification, our generative approach rests on a concrete probabilistic basis, providing a more theoretically grounded measure of confidence in the reconstructed power spectra.",
+  "url": "http://arxiv.org/abs/2608.13123v1",
+  "pdf": "https://arxiv.org/pdf/2608.13123v1",
+  "type": "theory",
+  "summary": "The paper addresses the challenge of analytically continuing imaginary-time correlation functions (iTCFs) to real frequencies, an inherently ill-posed problem. By employing a diffusion model framework, the authors move beyond simple regression to learn the entire probability distribution of possible spectra consistent with the input iTCF. This allows for rigorous quantification of uncertainty and assessment of the physical ambiguity in the measurement.",
+  "main_problem": "The core problem is the ill-posed analytic continuation of imaginary-time correlation functions (iTCFs) to estimate real-frequency power spectra.",
+  "main_result": "The authors introduce a diffusion-based generative framework that models the full probability distribution of plausible spectra, allowing for direct quantification of uncertainty and assessment of inversion hardness via an 'uncertainty pseudo-volume.'",
+  "method": "They adapt conditional diffusion models (like DiT) to learn $P(C(\\omega)|G(\tau))$, treating the continuation as a generative sampling task rather than a single regression point estimate.",
+  "model_or_system": "The methodology is applied to iTCFs derived from path-integral molecular dynamics simulations, exemplified by liquid parahydrogen. The underlying physics involves relating imaginary-time correlation functions $G(\tau)$ to the real-frequency power spectrum $C(\\omega)$.",
+  "key_observables": "Self-diffusion coefficient (with error bar), reconstructed power spectra $C(\\omega)$, and the uncertainty pseudo-volume.",
+  "important_parameters": "Imaginary time $\tau \\in [0, \beta\\hbar]$, diffusion time steps ($N=40$), and the conditioning input channels (raw iTCF, log(iTCF), normalized signal, histogram equalization).",
+  "main_assumptions": "The primary assumption is that the true solution space of compatible spectra can be accurately modeled by a continuous probability distribution learned via diffusion processes.",
+  "figures_summary": "Figure 1 illustrates the non-uniqueness of the inverse Laplace transform using synthetic data. Figure S1 shows Principal Components (PCs) derived from an ensemble, quantifying the variance explained by successive components.",
+  "paper_structure": "The paper first establishes the ill-posed nature of iTCF continuation. It critiques existing NN regression methods for ignoring solution uncertainty. The core contribution is presenting and detailing the diffusion model framework, including its conditional training objective, advanced sampling techniques (DPM-Solver++), and multi-channel input representation.",
+  "why_interesting": "This work provides a powerful, theoretically grounded tool for analyzing spectral data in quantum many-body physics by moving beyond single-point estimates to quantify inherent physical uncertainties arising from ill-posed inverse problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.13123_figures/2608.13123_fig1.jpg",
+      "caption": "Figure 1. Demonstration of the ill-posedness of equation (1). Left panel: Two synthetic spectra, C1 (blue) and C2 (orange), with clearly distinct features. Right panel: The corresponding iTCFs, G1 and G2, which are nearly indistinguishable.",
+      "page": 3
+    },
+    {
+      "image": "2608.13123_figures/2608.13123_fig2.jpg",
+      "caption": "Figure 2. The four-channel representation of the iTCFs used for model conditioning. To provide a richer representation of the input signal and expose hidden structural features, the original iTCF is transformed into four complementary channels. The different colors represent a selection of sample iTCFs from the dataset. From left to right: The raw iTCF G(τ), which often compresses distinct spectral features into visually similar curves. The logarithmic transformation log(G(τ)), which enhances the visibility of low-amplitude structure, particularly near τ = 0.5. The pointwise normalized signal (G(τ) −µ(τ))/σ(τ), computed using the pointwise training-set mean and mean absolute deviation,...",
+      "page": 5
+    },
+    {
+      "image": "2608.13123_figures/2608.13123_fig3.jpg",
+      "caption": "Figure 3. Comparison of analytic continuation using regression and diffusion models across representative synthetic examples. Top row: Ground-truth iTCFs obtained via equation (1) from the generated synthetic spectra. Bottom row: Ground-truth spectra (dashed black) compared against reconstructed spectral functions. The solid blue line and shaded light blue area are the mean and standard deviation of 1000 realizations of the diffusion model. The prediction of the baseline regression model is shown in dashed orange.",
+      "page": 6
+    },
+    {
+      "image": "2608.13123_figures/2608.13123_fig4.jpg",
+      "caption": "Figure 4. Step-by-step visualization of the PCA reconstruction for the correlated model (pp). The rightmost column shows the parsimony analysis for both the correlated and uncorrelated models. Rows are three representative synthetic examples; columns show the number of principal components k increasing from 0 to 5. Ground-truth spectra C(ω) (dashed black lines) are compared against the PCA reconstructions ˆCk(ω) (solid blue lines). Annotations within each panel denote the cumulative explained variance (EV). The progression confirms the rapid convergence of the correlated model, with accurate reconstructions by k = 3 to k = 5. Rightmost column: Parsimony analysis evaluating the efficiency of...",
+      "page": 8
+    },
+    {
+      "image": "2608.13123_figures/2608.13123_fig5.jpg",
+      "caption": "Figure 5. Quantitative analysis of inversion ambiguity for the representative synthetic examples shown in figure 3. Top: A bar chart displaying the computed UPV, P, for each case. Bottom: A visual legend linking the colors in the bar chart to their respective spectral shapes, displaying the corresponding ground-truth (dashed black) and mean reconstructed (solid thick colored lines) spectra, C(ω), and thin lines represent twenty different realizations with the diffusion model. The UPV serves as a reliable diagnostic for the intrinsic difficulty of the inversion: straightforward reconstructions (e.g., the single peak in blue) yield a low UPV, reflecting a tightly constrained solution space....",
+      "page": 10
+    }
+  ],
+  "figure": "2608.13123_figures/2608.13123_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 3,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

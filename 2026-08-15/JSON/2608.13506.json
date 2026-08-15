@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2608.13506",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cond-mat.soft",
+    "cs.LG",
+    "physics.chem-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Equivariant learning of a transferable three-dimensional classical density functional",
+  "authors": "Bingqing Cheng",
+  "abstract": "Liquids exhibit collective behavior that depends sensitively on thermodynamic conditions, interfaces and confinement, yet predicting each new state commonly requires a separate atomistic simulation. Classical density functional theory offers a reusable variational description, but its central excess free-energy functional is generally unknown, and learned approximations have largely remained restricted to planar or lower-dimensional settings. Here we show that this functional can be learned directly from fully three-dimensional equilibrium density fields while preserving spatial symmetry and variational consistency, without free-energy or chemical-potential labels. A single learned functional transfers across temperatures, system sizes and statistical ensembles, and recovers structure factors, the equation of state, liquid--vapor coexistence and interfacial broadening, none of which are used as training targets. Applied to complex three-dimensional geometries, it predicts the non-monotonic force associated with formation and rupture of a solvent-depleted bridge between colloids and adsorption in an interconnected gyroid pore. These results demonstrate that equilibrium density data can be converted into a transferable thermodynamic generator connecting microscopic liquid structure to response, phase behavior and collective phenomena.",
+  "url": "http://arxiv.org/abs/2608.13506v1",
+  "pdf": "https://arxiv.org/pdf/2608.13506v1",
+  "type": "theory",
+  "summary": "This work presents an equivariant machine learning framework to learn the excess free-energy functional for classical fluids directly from equilibrium density data. By enforcing local chemical potential balance, the model achieves remarkable transferability, accurately predicting macroscopic properties like phase behavior and interparticle forces in complex 3D environments without needing explicit labels for these targets.",
+  "main_problem": "The central challenge is developing a transferable, three-dimensional classical density functional theory (cDFT) that can predict complex thermodynamic and structural properties from equilibrium density fields.",
+  "main_result": "The authors successfully learned the excess free-energy functional using only density data, enabling predictions of structure factors, equation of state, phase coexistence, and even non-monotonic forces in confined geometries.",
+  "method": "They introduced an equivariant learning framework (Equi-cDFT) that enforces local chemical potential balance ($\\mu_{\text{loc}, g} = 0$) to train the functional without requiring explicit free-energy or chemical-potential labels.",
+  "model_or_system": "The theory applies to classical fluids, modeled using Lennard-Jones interactions, and is tested in various geometries including bulk fluid, colloid suspensions, and porous materials like gyroid structures.",
+  "key_observables": "Structure factor $S(k)$, equation of state ($P(\rho, T)$), liquid–vapor coexistence curves, one-body direct correlation function ($c^{(1)}_g$), and effective forces ($\\langle F \rangle_D$).",
+  "important_parameters": "Temperature ($T$), density ($\rho$), system size (e.g., $L=20\\sigma$ for colloids), and external potential parameters.",
+  "main_assumptions": "The method relies on enforcing the local chemical-potential balance condition ($\\mu_{\text{loc}, g} = 0$) as the primary learning signal, and it uses a finite receptive field approximation for transferability.",
+  "figures_summary": "Figures illustrate the learned functional architecture using symmetry-adapted features, show recovered thermodynamic properties like $S(k)$ and isotherms across different states, and benchmark performance on colloid bridging forces and adsorption in porous media.",
+  "paper_structure": "The paper introduces the Equi-cDFT framework by enforcing local chemical potential balance. It then derives key observables (like $c^{(1)}_g$ and $c^{(2)}$) via functional differentiation. The results are benchmarked across homogeneous fluids to recover EOS/phase behavior, followed by applications to complex systems like colloid bridging and adsorption in porous media.",
+  "why_interesting": "While focused on classical liquids, the rigorous application of deep learning principles (equivariance, local constraints) to derive fundamental thermodynamic potentials is highly relevant for developing predictive models in quantum many-body physics where exact functionals are unknown.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.13506_figures/2608.13506_fig1.jpg",
+      "caption": "Figure 1. Equi-cDFT architecture. Local neighborhoods of the three-dimensional density field are encoded using cubic- symmetry-adapted features and processed by a shared neural readout. Summing the local contributions produces an extensive excess free-energy functional, whose derivative gives the one-body direct correlation field. Here g labels a density-grid point, χg is its finite spherical environment, R ∈Oh denotes a rotation or reflection of the cubic lattice, Bg is the resulting symmetry- adapted feature vector and T is the temperature. The readout produces the local excess free energy per particle aexc g ; summing over the grid densities ρg with voxel volume ∆V gives Fexc[ρ, T]. c(1)...",
+      "page": 3
+    },
+    {
+      "image": "2608.13506_figures/2608.13506_fig2.jpg",
+      "caption": "Figure 2. Equation of state, phase behavior, and interfaces from the learned free-energy functional. a Static structure factors of homogeneous fluids. Solid curves and shaded standard errors are direct MD estimates; dashed curves with open circles follow from twice differentiating the learned functional and applying the Ornstein–Zernike relation. b Pressure– density isotherms. Dashed curves are cDFT compressibility-route predictions and solid curves are evaluations of the reference EOS [25]. c Liquid–vapor coexistence. Unconnected red circles are plateau densities from cDFT slab solutions; the dashed red segment is a mean-field continuation from the highest solved state to the predicted...",
+      "page": 4
+    },
+    {
+      "image": "2608.13506_figures/2608.13506_fig3.jpg",
+      "caption": "Figure 3. Solvent-mediated interactions between two fixed colloids. a Schematic of two colloids at center-to-center separation D immersed in a one-component Lennard–Jones fluid. Thin blue contours mark the colloid–fluid attractive regions; the colloids have no direct mutual interaction. Red arrows denote the mean force ⟨F⟩D, with negative values corresponding to attraction and positive values to repulsion. b Central 1σ-thick slab averages of the equilibrium number density from MD (top) and fixed-N cDFT solutions (bottom) at D/σ = 5.0, 6.5 and 9.0. White contours mark Vext/ϵ = 4. c Mean force as a function of separation: direct MD averages with block-standard-error bars (black), the...",
+      "page": 6
+    },
+    {
+      "image": "2608.13506_figures/2608.13506_fig4.jpg",
+      "caption": "Figure 4. Gyroid-pore structure and adsorption at T = 1.2. a,b Equilibrium MD and cDFT density fields at the matched isosurface levels, for whole-box mean density ⟨ρ⟩σ3 = 0.29. c Grid-point density parity, colored by the minimum periodic distance dwall to the nominal pore wall Vext/ϵ = 4 d Bulk and gyroid chemical potentials versus whole-box density in the common reservoir gauge. Solid lines denote cDFT predictions from fixed-N solutions and open symbols denote GCMC references. e Adsorption isotherm obtained by matching bulk and gyroid states at equal chemical potential. All confined densities are defined using the full simulation-box volume.",
+      "page": 7
+    },
+    {
+      "image": "2608.13506_figures/2608.13506_fig5.jpg",
+      "caption": "Figure 5. Combined benchmark of the learned excess free-energy functional. a Gauge-aligned external fields inferred from all 1,592 held-out NVT equilibrium density fields; one spatially constant gauge is aligned for each canonical field. b Fixed-particle-number equilibrium densities obtained from the external fields for all 1,592 held-out fields. c Transfer of the density solver to all 90 test fields in boxes with 3.375 times the training volume. d Gauge-aligned dimensionless chemical- potential differences inferred for all 66 GCMC equilibrium fields by the NVT-trained functional. Reference and predicted chemical potentials are centered independently at each temperature, corresponding to...",
+      "page": 11
+    }
+  ],
+  "figure": "2608.13506_figures/2608.13506_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

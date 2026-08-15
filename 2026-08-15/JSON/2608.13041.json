@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.13041",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Time evolution of nonlinear dynamics on a quantum processor",
+  "authors": "José Diogo da Costa Jesus, Abhishek Setty, Tommaso Calarco, Dieter Jaksch, Francisco Cárdenas López, Felix Motzoi",
+  "abstract": "From fluid flow and transport to collective dynamics, numerical simulation of nonlinear partial differential equations underpins modern scientific computing. Extending this capability to quantum computers remains a longstanding challenge because nonlinear and non-Hermitian evolution is fundamentally incompatible with conventional Hamiltonian-based quantum simulation. Here we experimentally realize the time evolution of nonlinear fluid dynamics on a quantum processor using a hybrid variational framework for the viscous and inviscid Burgers equations. Our approach directly encodes the nonlinear dynamics into a variational optimization procedure, avoiding the enlarged linear embeddings and truncation overhead associated with Carleman linearization-based quantum algorithms. We further demonstrate convection-dominated dynamics corresponding to Reynolds numbers of order $10^2$. We encode the governing evolution into parametrized quantum circuits and iteratively reconstruct the time-dependent field through quantum-classical optimization. By introducing a zero-noise extrapolation method without additional circuit-folding overhead, we accurately execute deep error-circuits with entangling-gate counts beyond those typical of Hadamard test circuits. We accurately reconstruct the time evolution across multiple timesteps despite hardware noise and finite device coherence. Our results constitute, to our knowledge, the first experimental realization of nonlinear time propagation on a quantum processor, extending quantum simulation beyond predominantly linear settings and establishing a route toward quantum computation for nonlinear continuum dynamics.",
+  "url": "http://arxiv.org/abs/2608.13041v1",
+  "pdf": "https://arxiv.org/pdf/2608.13041v1",
+  "type": "experiment",
+  "summary": "This paper reports the first experimental demonstration of simulating nonlinear time evolution using a superconducting quantum processor. By developing a variational framework that embeds nonlinearity directly into optimization circuits, they successfully simulated the Burgers equation across multiple timesteps. This work significantly expands the scope of quantum simulation beyond purely linear systems toward complex continuum dynamics.",
+  "main_problem": "The core challenge is extending quantum simulation from linear, unitary dynamics to nonlinear and non-Hermitian evolution required for simulating continuum physics like fluid flow.",
+  "main_result": "The authors achieved the first experimental realization of time propagation for nonlinear dynamics (Burgers equation) on a quantum processor, successfully demonstrating stable evolution across multiple timesteps despite hardware noise.",
+  "method": "They employ a hybrid variational framework that encodes nonlinearity directly into a quantum circuit optimization procedure, bypassing traditional linearization techniques like Carlemanization.",
+  "model_or_system": "The system modeled is nonlinear fluid dynamics, specifically the viscous and inviscid Burgers equations. The computation is performed on superconducting quantum processors using parametrized quantum circuits.",
+  "key_observables": "Mean-Squared Error (MSE) comparing reconstructed dynamics to ideal evolution; state-overlap fidelity; time-dependent field reconstruction ($f(x, t)$).",
+  "important_parameters": "Reynolds numbers of order $10^2$; circuit depth up to 60 controlled-Z layers; viscous parameter $\nu=0.01$.",
+  "main_assumptions": "The approach assumes the validity of specific noise models (e.g., global depolarizing channel) for error mitigation techniques like Hadamard Verification.",
+  "figures_summary": "Figures summarize the reconstructed dynamics showing shock formation and gradient sharpening in both viscous and inviscid regimes, alongside comparisons of optimization methods (SGEO vs COBYLA) and error mitigation protocols.",
+  "paper_structure": "The paper introduces the problem gap (nonlinearity incompatibility), details the variational framework for time evolution, presents experimental results on superconducting hardware using advanced error mitigation techniques, and concludes by establishing a pathway for quantum simulation beyond linear settings.",
+  "why_interesting": "This work directly pushes the boundaries of what is computationally feasible on near-term quantum hardware by tackling non-Hamiltonian dynamics, which is a major frontier in quantum computation theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.13041_figures/2608.13041_fig1.jpg",
+      "caption": "FIG. 1. Evolution of the Burgers equation in a convection-dominated regime. a) The ideal evolution of the viscous Burgers equation with viscosity ν = 0.01 for the initial condition f(x, 0) = sin(2πx). The competition between nonlinear convection and viscous diffusion progressively generates sharp spatial gradients and shock-like structures during the evolution. The evolution is performed variationally with timestep dt = 0.06 up to final time T = 0.3. b) Experimentally reconstructed evolution obtained using the variational quantum time- propagation protocol (see Figure 2), showing close agreement with the ideal nonlinear dynamics. The final MSE is 2.1% compared to the error-free dynamics,...",
+      "page": 3
+    },
+    {
+      "image": "2608.13041_figures/2608.13041_fig2.jpg",
+      "caption": "FIG. 2. Variational circuit decomposition for nonlinear Burgers dynamics. Quantum circuit implementing the convection term of the Burgers equation. Highlighted circuit components correspond to distinct contributions entering the nonlinear evolution. The blue block encodes the parametrized quantum state representing the field f(x, t) at the current timestep. The red block implements the discretized shifting operator associated with the spatial derivatives (a finite central derivative requires two shifters– one forwards and one backwards, see Eq. 11). The orange blocks represents the nonlinear-processing-unit (QNPU) which evaluates products of field amplitudes required for the nonlinear...",
+      "page": 4
+    },
+    {
+      "image": "2608.13041_figures/2608.13041_fig3.jpg",
+      "caption": "FIG. 3. Optimization and Error Mitigation Strategies for the Burgers dynamics considered a) Comparison between SGEO and COBYLA optimization for the Inviscid problem, for a single time step dt=0.1 and a cold start. Although COBYLA finds a good minima for the cost, it cannot sufficiently resolve the −→θ parameters and produces incorrect solutions. For this single time step the solution obtained via COBYLA has a MSE of 0.026 and a fidelity of 94.2% and the solution obtained via SGEO has a MSE of 0.01 and a fidelity of 99.2 % . b) Schematic representation of the Hadamard Verification method used for error mitigation. The controlled circuit U is assumed to produce a global depolorizing noise...",
+      "page": 5
+    },
+    {
+      "image": "2608.13041_figures/2608.13041_fig4.jpg",
+      "caption": "FIG. 4. Ansatz Used to Solve the Inviscid Burgers Equation",
+      "page": 9
+    },
+    {
+      "image": "2608.13041_figures/2608.13041_fig5.jpg",
+      "caption": "FIG. 5. Ansatz Used to Solve the Viscid Burgers Equation",
+      "page": 10
+    }
+  ],
+  "figure": "2608.13041_figures/2608.13041_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 1,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 2,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 3,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

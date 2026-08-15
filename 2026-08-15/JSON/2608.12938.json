@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.12938",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Encoding Circuit Satisfiability in Rydberg Atom Arrays",
+  "authors": "Haotian Ji, Zhangjie Qin, Zheng An, Bowen Yan, Daoheng Niu, Kunzhe Dai, Jingkai Fang, Dongyang Cao, Jiangyu Cui",
+  "abstract": "Rydberg atom arrays natively encode the maximum-weight independent set (MWIS) problem through the blockade mechanism, so the Boolean circuit satisfiability problem (Circuit-SAT) can be brought onto the platform once it is reduced to MWIS. The conventional encoding of Circuit-SAT in the Rydberg atom array proceeds through conjunctive normal form (CNF) and incurs a substantial atom overhead. We introduce CAMERA (Circuit-SAT Atom-efficient MWIS Encoding for Rydberg Arrays), a method that provides MWIS encodings of Circuit-SAT instances on the king subgraph geometry of the array. CAMERA represents each logic gate as a compact weighted gadget and assembles the gadgets with a placement and routing compiler inspired by very large scale integration (VLSI) design. On random multi-gate benchmarks, the direct encoding route lowers the atom cost relative to the CNF route by an average factor of $22.4 \\pm 1.8$. To demonstrate that the encoding extends from individual weighted gadgets to multi-gate arithmetic blocks, we compile a full adder and a multiplier, verifying each against its complete truth table by exact classical ground state calculations. We further showcase solving a representative Circuit-SAT instance end-to-end, from gate level compilation through a closed-system tensor-network simulation of a hardware-compatible annealing protocol on the encoded 30-atom instance to readout of a satisfying assignment. These results establish a complete encoding and simulation workflow as a proof of principle, and a concrete route toward solving a broader family of combinatorial problems on Rydberg atom arrays.",
+  "url": "http://arxiv.org/abs/2608.12938v1",
+  "pdf": "https://arxiv.org/pdf/2608.12938v1",
+  "type": "both",
+  "summary": "The paper presents CAMERA, a novel method to encode Circuit-SAT into an MWIS problem on Rydberg atom arrays using compact logic gadgets. By avoiding the massive overhead of CNF representations, it drastically reduces the required number of atoms while demonstrating end-to-end simulation capability for complex arithmetic circuits.",
+  "main_problem": "The primary goal is to encode the NP-complete Boolean Circuit Satisfiability problem (Circuit-SAT) onto a physical quantum hardware platform.",
+  "main_result": "A novel, atom-efficient encoding method called CAMERA was introduced, which reduces the required number of atoms for Circuit-SAT by an average factor of 22.4 compared to conventional CNF encodings.",
+  "method": "The authors developed a gadget-based approach that maps logic gates directly into weighted gadgets on the king subgraph geometry of Rydberg arrays, bypassing the overhead associated with Conjunctive Normal Form (CNF) representations.",
+  "model_or_system": "The physical platform is Rydberg atom arrays, which naturally encode the Maximum-Weight Independent Set (MWIS) problem via the blockade mechanism. The system's Hamiltonian governs interactions that restrict excitations to independent sets on a graph structure like the king subgraph.",
+  "key_observables": "Maximum Weight ($W^\\star$) of the MWIS, which corresponds to circuit functionality; port occupations read out from the ground state solution.",
+  "important_parameters": "The atom cost reduction factor ($\\approx 22.4$); the blockade radius ($R_b$); and the weights assigned to gadgets (e.g., $\\{1, 2\\}$).",
+  "main_assumptions": "The work establishes a proof of principle for the complete encoding and simulation workflow; verification relies on exact classical ground state calculations (dynamic programming) for small instances.",
+  "figures_summary": "Figures illustrate the workflow from circuit check to gadget assembly and final mapping onto the array. Specific tables summarize the MWIS weights achieved for verifying arithmetic blocks like the full adder ($W^\\star=73$) and two-bit multiplier ($W^\\star=142$).",
+  "paper_structure": "The paper first introduces the problem (Circuit-SAT $\rightarrow$ MWIS) and the limitations of CNF encoding. It then details CAMERA, presenting the gadget construction and VLSI-inspired compilation. The core is validation through compiling and solving increasingly complex circuits: three-gate circuit $\rightarrow$ full adder $\rightarrow$ two-bit multiplier, culminating in an end-to-end simulation.",
+  "why_interesting": "This work provides a concrete, resource-aware blueprint for mapping abstract computational problems onto the physical constraints of Rydberg arrays, directly addressing scalability issues inherent in previous encoding schemes.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.12938_figures/2608.12938_fig1.jpg",
+      "caption": "FIG. 1. Overview of the encoding framework, from an electronic-design consistency check to a Rydberg native MWIS problem. The gadget-based route of this work (CAMERA) runs (a) →(b) →(d); the conventional CNF route, (a) →(c). (a) The input: combinational equivalence checking by a miter. Two structurally different circuits A and B share the inputs I1, I2, I3 and have their outputs compared by an XOR gate, whose output m = OA ⊕OB satisfies m = 1 ⇔A ̸= B. (b) The gadget method of this work. Left, the weighted KSG gadget library: one gadget per Boolean primitive, whose MWIS configurations reproduce the gate truth table. Color encodes the on-site weight w ∈{1, 2}, realized as a local detuning....",
+      "page": 3
+    },
+    {
+      "image": "2608.12938_figures/2608.12938_fig2.jpg",
+      "caption": "FIG. 2. Atom cost of the conventional CNF route (red) and the direct gadget route (CAMERA, teal) on random bench- mark circuits of g = 3–8 gates (100 random circuits per gate count on each route). For each gate count, the thin vertical line spans the full min–max range, the box the interquartile range, and the dark slate tick marks the median. The curves are pure quadratics atoms = n g2 fitted through the medians, and the double-headed arrow marks the 21× median suppres- sion at g = 8. Inset: atom count of the median CAMERA instance at each gate count.",
+      "page": 6
+    },
+    {
+      "image": "2608.12938_figures/2608.12938_fig3.jpg",
+      "caption": "FIG. 3. End-to-end compilation and solution of the multi-gate Circuit-SAT instance C(I1, I2, I3) = (I1 ∧I2) ⊕(I2 ∨I3). (a) A three-gate circuit combining AND, OR, and XOR, with output O1. (b) The compiled 30-atom weighted king subgraph: colored dashed boxes outline the four gadgets (AND, OR, XOR, FANOUT), node color encodes the on-site weight w ∈{1, 2}, and diamonds mark the pin atoms, with the ports I1, I2, I3, O1 labeled in red. Red fill marks one of the eight degenerate MWIS optima (W ⋆= 23), encoding the input row (I1, I2, I3) = (0, 0, 1) with O1 = 1. The orange frame and blue dashed cut mark the output branching that asserts O1 = 1: deleting the three framed atoms leaves the 27-atom...",
+      "page": 7
+    },
+    {
+      "image": "2608.12938_figures/2608.12938_fig4.jpg",
+      "caption": "FIG. 4. Detecting unsatisfiability from the compiled king subgraph, for the minimal unsatisfiable instance O1 = I1 ⊕I1. (a) Logical circuit: the single input I1 is fanned out into both ports of an XOR gate, so O1 is identically 0 and the demand O1 = 1 is unsatisfiable. (b) The compiled 20-atom weighted KSG: dashed boxes outline the FANOUT and XOR gadgets, node color encodes the on-site weight w ∈{1, 2}, diamonds mark the pin atoms, and the ports I1, O1 are labeled in red. Red fill marks one of the two degenerate MWIS optima (W ⋆= 17); every optimum reads O1 = 0. The orange frame and blue dashed cut mark the output branching that asserts O1 = 1: deleting the three framed atoms leaves the...",
+      "page": 9
+    },
+    {
+      "image": "2608.12938_figures/2608.12938_fig5.jpg",
+      "caption": "FIG. 5. Compilation of multi gate arithmetic blocks into weighted king subgraphs by the automated pipeline. (a) One-bit full adder: logical circuit (top) and compiled 85-atom weighted KSG (bottom). Dashed boxes outline the constituent XOR, AND, OR, and fanout gadgets; diamonds mark the gadget I/O pin atoms, circles the internal and wire atoms; node color encodes the on-site weight w ∈{1, 2} printed on each atom; and the ports I1–I3, O1, O2 appear as labeled boundary atoms. The eight degenerate maximum weight independent sets (weight W ⋆= 73) enumerate the full adder truth table. (b) Two-bit multiplier: logical circuit (top) and compiled 165-atom weighted KSG (bottom), with the same...",
+      "page": 10
+    }
+  ],
+  "figure": "2608.12938_figures/2608.12938_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 5,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
