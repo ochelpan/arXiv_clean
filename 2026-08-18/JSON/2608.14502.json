@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2608.14502",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.stat-mech",
+    "cs.AI",
+    "cs.LG",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Universal Thermodynamic Interatomic Potentials for Crystalline Materials",
+  "authors": "Juno Nam, Bowen Deng, Xiaochen Du, Luis Barroso-Luque, Benjamin Kurt Miller, Rafael Gómez-Bombarelli",
+  "abstract": "Free energies govern solid-state phase stability, yet computational materials discovery still relies largely on ground-state energies because free energy calculations require ensemble averages. We introduce the thermodynamic interatomic potential (TIP), which extends an interatomic potential from its static energy to a thermodynamically consistent Gibbs free energy model, with thermodynamic responses following from temperature and pressure by automatic differentiation. We implement TIP[UMA] using the universal potential UMA, train it on free energies from quasi-harmonic to molecular dynamics fidelity, and calibrate it to higher-resolution calculations or experiment. From a single evaluation, it returns the equation of state of a crystal and locates phase transitions among competing branches, including dynamically stabilized phases. Fine-tuning extends the model to alloy solubility limits and miscibility gaps. TIP makes the free energy as accessible as the potential energy, opening finite-temperature phase stability to high-throughput discovery.",
+  "url": "http://arxiv.org/abs/2608.14502v1",
+  "pdf": "https://arxiv.org/pdf/2608.14502v1",
+  "type": "theory",
+  "summary": "This paper introduces the Thermodynamic Interatomic Potential (TIP), a novel ML approach that extends standard interatomic potentials from static energy to full Gibbs free energy. By combining MLIPs with thermodynamic modeling principles, TIP allows researchers to calculate phase stability and equation of state across varying temperature and pressure conditions efficiently. This opens up high-throughput computational materials discovery by making finite-temperature thermodynamics as accessible as potential energy.",
+  "main_problem": "Computational materials discovery requires calculating free energies for phase stability, but existing methods are computationally expensive or lack thermodynamic consistency across varying temperature and pressure.",
+  "main_result": "The proposed Thermodynamic Interatomic Potential (TIP) provides a single, differentiable framework to calculate the Gibbs free energy surface of crystalline materials across $(T, P)$, enabling high-throughput prediction of phase transitions.",
+  "method": "TIP combines Machine Learning Interatomic Potentials (MLIPs) for static energy with an adapter model that learns the temperature and pressure dependent residual free energy ($\\hat{G}_\\delta$). This structure ensures thermodynamic consistency via automatic differentiation.",
+  "model_or_system": "The model is designed for crystalline materials, predicting the Gibbs free energy $\\hat{G} = U^\\circ + \\hat{G}_\\delta$. It integrates concepts from Cluster Expansion and CALPHAD to model phase stability across various compositions and conditions.",
+  "key_observables": "Gibbs free energy ($\\hat{G}$), equation of state, heat capacity ($C_v$), bulk modulus ($B_0$), and phase transition points (e.g., miscibility gaps).",
+  "important_parameters": "Temperature ($T$) and Pressure ($P$); the model is calibrated using multi-fidelity data combining quasi-harmonic dynamics and molecular dynamics simulations.",
+  "main_assumptions": "The model assumes that the free energy can be decomposed into a static MLIP component and a smooth, analytically parameterized residual component. It only identifies transitions among supplied candidate branches.",
+  "figures_summary": "Figures illustrate the conceptual integration of MLIPs, cluster expansion, and CALPHAD into TIP's architecture (Fig 1a/c). Other figures detail multi-fidelity dataset generation and validation error analysis.",
+  "paper_structure": "The paper introduces the TIP framework by identifying the limitations of current methods. It details the mathematical decomposition ($\\hat{G} = U^\\circ + \\hat{G}_\\delta$), describes the three-stage training process (QHA $\rightarrow$ MD $\rightarrow$ Experiment), and validates its ability to predict thermodynamic responses efficiently.",
+  "why_interesting": "While focused on condensed matter, the core methodology—using differentiable ML models to embed complex physical constraints (thermodynamics) into a machine learning framework—is highly relevant for developing general-purpose simulation tools in quantum many-body physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.14502_figures/2608.14502_fig1.jpg",
+      "caption": "Fig. 1. Free energy adaptation with a thermodynamic interatomic potential (TIP). (a) A TIP combines three established routes to solid-state thermodynamics: the chemical transferability of MLIPs, the configurational phase stability formalism of the cluster expansion, and the analytic, experiment-aligned free energy representation of CALPHAD. (b) A TIP augments a pre-trained MLIP with a thermodynamic adapter: for each locally relaxed branch representative x◦, the frozen MLIP encodes x◦, and the adapter combines those features with (T, P) to predict the branch Gibbs free energy ˆG(T, P). (c) Architecture: the MLIP backbone’s energy head returns the static reference U ◦:= U(x◦) and its per-atom...",
+      "page": 3
+    },
+    {
+      "image": "2608.14502_figures/2608.14502_fig2.jpg",
+      "caption": "Fig. 2. Multi-fidelity Gibbs free energy dataset. (a) Data-generation workflow. Structures from a materials database are filtered and relaxed with the base potential Ubase (UMA [41]); the quasi-harmonic approximation (QHA) on each yields the low-fidelity QHA Gibbs dataset GQHA(T, P). Clustering selects representatives, which are equilibrated under NPT dynamics with a fast potential Ufast (Orb-v3 [42]) and then processed by NV T Frenkel–Ladd switching [24] (absolute free energy against a harmonic Einstein crystal reference) and NPT alchemical switching (transfer from the fast to the base Hamiltonian); combining the two contributions gives the high-fidelity MD Gibbs dataset GMD(T, P). (b)...",
+      "page": 5
+    },
+    {
+      "image": "2608.14502_figures/2608.14502_fig3.jpg",
+      "caption": "Fig. 3. Validation error analysis. (a) Element-wise val- idation error. Periodic-table map of the median absolute Gibbs error for each element, computed over the filtered val- idation data points that contain that element; elements rep- resented by fewer than 20 validation state points are shown in gray. The black tick on the colorbar marks the global median absolute error. (b) Thermodynamic and dissipation trends. Signed Gibbs error distributions as functions of tem- perature, pressure, and Frenkel–Ladd (FL) dissipation for the filtered validation set. Left panels show two-dimensional count histograms of the mid-trained model on a logarithmic color scale; right panels show the binned...",
+      "page": 6
+    },
+    {
+      "image": "2608.14502_figures/2608.14502_fig4.jpg",
+      "caption": "Fig. 4. Thermodynamics of ordered crystalline phases from a learned free energy surface. (a) Mid-trained mean absolute error in heat capacity CP and standard entropy S(298 K) across the NIST–JANAF benchmark of 255 stoichiometric solids, with medians of 1.94 (CP ) and 2.28 (S) J K−1 (mol atoms)−1. (b) Mid-trained heat capacity CP (T) (solid lines) against NIST–JANAF values [44] (open circles). The larger deviations for Cr2O3 and Fe3O4 occur near magnetic λ-anomalies (N´eel and Curie transitions) outside the model’s vibrational scope. (c) Isothermal compression V (P) at 300 K and (d) thermal expansion V (T) at P ≈0 for forsterite Mg2SiO4, comparing experiment (Holland–Powell [45]), the UMA...",
+      "page": 7
+    },
+    {
+      "image": "2608.14502_figures/2608.14502_fig5.jpg",
+      "caption": "Fig. 5. Calibration of TIP[UMA] for disordered phases using computational and experimental references. Lightweight fine-tuning fits the frozen free energy surrogate to a chosen reference and extends it from ordered branches to configurationally disordered solid solutions, preserving thermodynamic consistency. (a) Dilute Sc solubility in fcc Al versus temperature, obtained from the dissolution free energy relative to the adjacent Al–Al3Sc convex hull (Section IV). By accounting for vibrational entropy, TIP[UMA] predicts the measured order of magnitude and tracks the quasi-harmonic UMA reference (UMA QHA), whereas the 0 K static estimate falls about an order of magnitude below the measured...",
+      "page": 8
+    }
+  ],
+  "figure": "2608.14502_figures/2608.14502_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

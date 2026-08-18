@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.14387",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Linearised quantum signal processing",
+  "authors": "Marek Arsenault, Hlér Kristjánsson",
+  "abstract": "Quantum functional programming has been developed through two distinct paradigms in the last few years: Quantum Signal Processing (QSP)-based methods, including the Quantum Singular Value Transformation (QSVT), and methods based on higher-order quantum transformations, such as the Universal Hamiltonian Eigenvalue Transformation (UHET). While UHET performs functional transformations of Hamiltonian dynamics, its relationship to QSP-based techniques has remained unclear despite evident structural similarities. In this work, we resolve this gap by establishing a connection between UHET and QSP-based frameworks; specifically, we show that UHET can be interpreted as a (randomised) linearisation of Generalised QSP (GQSP). Building on this result, we introduce a linearised variant of (Hamiltonian-based) QSVT, which we call Universal Hamiltonian Singular Value Transformation (UHSVT), that enables the efficient transformation of the singular values of any arbitrary matrix $A$ encoded in a block of a Hamiltonian, whose dynamics is accessible as a black box, by any sufficiently differentiable complex-valued function $f$. Our algorithm requires the sole condition that $f$ vanishes at the origin, in contrast to previous QSVT-based approaches that assumed either a lower bound on the singular values of $A$ or the ability to perform $X$-rotation gates on the induced two-dimensional 'qubitised' subspace.",
+  "url": "http://arxiv.org/abs/2608.14387v1",
+  "pdf": "https://arxiv.org/pdf/2608.14387v1",
+  "type": "theory",
+  "summary": "This paper advances the theory of quantum functional programming by connecting disparate algorithms like QSP and UHET. It introduces the Universal Hamiltonian Singular Value Transformation (UHSVT), an algorithm that efficiently computes functions of singular values encoded in a Hamiltonian using only black-box dynamics access. This overcomes limitations of prior methods by removing strict requirements on the system's spectrum or available gates.",
+  "main_problem": "The primary goal is to develop a complete theory of quantum functional programming by establishing structural connections between various advanced quantum algorithms like QSP and UHET.",
+  "main_result": "The authors establish that the Universal Hamiltonian Eigenvalue Transformation (UHET) can be interpreted as a linearisation of Generalised QSP (GQSP), leading to the introduction of UHSVT for black-box singular value transformations.",
+  "method": "The work employs structural analysis and linearization techniques, building upon Quantum Signal Processing (QSP) frameworks to derive new algorithms applicable in restricted computational settings.",
+  "model_or_system": "The focus is on quantum computation involving functional transformations of matrices encoded within the dynamics of a Hamiltonian ($H$), accessible as a black box. The core mathematical tools involve QSP, QSVT, and UHET.",
+  "key_observables": "Functional transformations of singular values ($\text{A}$) or eigenvalues ($H$); approximation error ($\\epsilon$).",
+  "important_parameters": "The function $f$ used for transformation (requiring $f(0)=0$ for UHSVT); the desired accuracy $\\epsilon$.",
+  "main_assumptions": "Previous QSVT methods often required either a lower bound on singular values or X-rotation gates, which UHSVT overcomes by operating in a true black-box setting.",
+  "figures_summary": "Figure 1 conceptually maps the relationships between functional programming schemes (e.g., UHET $\\approx$ linearisation of GQSP; UHSVT $\\approx$ linearisation of QSVT).",
+  "paper_structure": "The paper first establishes the structural link between UHET and GQSP, then builds upon this to introduce UHSVT as a generalized, black-box method for singular value transformation. Subsequent sections detail the polynomial approximations required for implementing H-QSVT.",
+  "why_interesting": "This work provides powerful algorithmic tools (UHSVT) that generalize existing quantum simulation techniques by relaxing restrictive assumptions (like requiring specific gate sets or bounds on eigenvalues), making them applicable to a wider range of physical Hamiltonians in black-box settings.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.14387_figures/2608.14387_fig1.jpg",
+      "caption": "Figure 1: Conceptual “map” of the different functional programming schemes and their relations to harmonic analysis. We show that the Universal Hamiltonian Eigenvalue Transformation (UHET) [OKTM25] is a (randomised) linearised version of Generalised Quantum Signal Processing (GQSP) [MW24]. Using this understanding, we lift the intuition to construct a new quantum functional programming algorithm called Universal Hamiltonian Singular Value Transformation (UHSVT), which can be conceptualised as a linearisation of (the Hamiltonian formulation [LKA+; KS25] of) the Quantum Singular Value Transformation (QSVT) [GSLW19]. This linearisation mapping is analogous to that between the Fourier series...",
+      "page": 4
+    },
+    {
+      "image": "2608.14387_figures/2608.14387_fig2.jpg",
+      "caption": "Figure 2: Two circuits for Hamiltonian simulation approximating the unitary channel associated to e−iHt. On the left is the standard first-order Trotter-Suzuki approach with a deterministic sequence. On the right is the qDRIFT circuit, where the unitary e−isign(αj)Hjt is randomly applied according to the distribution pj ∝|αj|, corresponding to the decomposition H = PL j=0 αjHj.",
+      "page": 7
+    },
+    {
+      "image": "2608.14387_figures/2608.14387_fig3.jpg",
+      "caption": "Figure 3: Randomised (top) and deterministic (bottom) UHET algorithms for transforming the eigenvalues of a traceless black-box Hamiltonian H, given access to its controlled evolution operator ctrl0 \u0000 e−iHτ\u0001 for arbitrary time τ, via a sufficiently differentiable function f (here assumed periodic, for simplicity). Here ck = |ck|eiϕk and β = PK k=−K |ck|. The randomised algorithm proceeds by sampling the Fourier mode e−ikH of f according to a probability distribution determined by the size of the Fourier coefficients of f.",
+      "page": 9
+    },
+    {
+      "image": "2608.14387_figures/2608.14387_fig4.jpg",
+      "caption": "Figure 5: Transformation from an XY-GQSP protocol with processing angles (Θ, Φ) to the UHET algorithm. Here, Rx(θ) := e−iθX = Rxy(θ, 0). The first step consists of rewriting the signal operator as ctrl0(U) −→ ctrl0(U −k+1) ctrl0(U k). Next, we take the small-angle approximation by rescaling the phase parameters Θ −→ Θt/N, with t/N ≪1, (linerisation) so that the sequence approaches a continuous time evolution via Trotterisation, which is equivalent to deterministic UHET (with controlled-Hamiltonian access). Finally, the resulting procedure is randomised using the qDRIFT protocol to obtain the original randomised UHET (with controlled-Hamiltonian access). (Note that for simplicity, in...",
+      "page": 21
+    },
+    {
+      "image": "2608.14387_figures/2608.14387_fig5.jpg",
+      "caption": "Figure 6: Sine Fourier series simulation for the singular values of A block-encoded into a (control-free) Hamiltonian evolution H[A]. By choosing the frequency k ∈{1, 2, ..., K} and bit s ∈{0, 1} with probability pk,s related to the sine-Fourier coefficients of the odd extension ˜fodd of any sufficiently differentiable function f satisfying f(0) = 0, one can achieve a functional transformation A →fSV(A) of the singular values of A in the form of a truncated sine Fourier series up to order K. Note that the qubitised subspace HQ is not realised by any physical qubit, but the Z-rotations on this Hilbert space can be implemented with an additional auxiliary qubit, as shown in Figure 4.",
+      "page": 26
+    }
+  ],
+  "figure": "2608.14387_figures/2608.14387_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

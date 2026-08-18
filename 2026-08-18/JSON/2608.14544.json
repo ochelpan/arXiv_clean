@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2608.14544",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "cond-mat.mtrl-sci",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "GPU implementation of mixed quantum-classical Liouville molecular dynamics without momentum jump",
+  "authors": "Koji Ando",
+  "abstract": "We implemented on GPU a mixed quantum-classical Liouville molecular dynamics simulation based on a momentum-jump-free theory. The trajectory spawning that was previously implemented on CPU for sampling enhancement was eliminated to avoid the overhead of thread divergence and dynamic memory allocation on the GPU. This achieved a speedup of an order of magnitude compared to the CPU computation with spawning, as well as a linear scaling with respect to the number of sampling trajectories.",
+  "url": "http://arxiv.org/abs/2608.14544v1",
+  "pdf": "https://arxiv.org/pdf/2608.14544v1",
+  "type": "theory",
+  "summary": "The authors developed and implemented a mixed quantum-classical Liouville molecular dynamics simulation on a GPU to study nonadiabatic processes. By adopting a momentum-jump-free theory and optimizing the code to eliminate CPU-bound trajectory spawning, they achieved significant speedups. This makes complex simulations of chemical reactions computationally feasible for larger systems.",
+  "main_problem": "Simulating nonadiabatic processes involving non-radiative transitions, such as redox or photochemical reactions.",
+  "main_result": "The GPU implementation achieved an order of magnitude speedup compared to CPU computations with trajectory spawning, while maintaining linear scaling with the number of sampling trajectories.",
+  "method": "A mixed quantum-classical Liouville molecular dynamics simulation was implemented on a GPU using Julia and CUDA.jl, employing a momentum-jump-free theory derived from first principles.",
+  "model_or_system": "The simulations tested include the three-dimensional spin-boson model and a two-state three-mode model for internal conversion in pyrazine.",
+  "key_observables": "Adiabatic excited state population $P_{ad}(t)$.",
+  "important_parameters": "Number of sampling trajectories (walkers), ranging up to $10^8$.",
+  "main_assumptions": "The method omits trajectory spawning to avoid GPU overheads like thread divergence, which requires pre-allocating state variables for a fixed number of walkers.",
+  "figures_summary": "Figures show the adiabatic excited state population $P_{ad}(t)$ comparing results from varying walker numbers ($10^6$ to $10^8$) for two different models. A final figure plots computation time scaling linearly with the number of walkers on the GPU.",
+  "paper_structure": "The paper details the implementation of the momentum-jump-free Liouville dynamics on a GPU, presents results comparing population dynamics across varying walker numbers for specific chemical models, and concludes by analyzing the computational scalability.",
+  "why_interesting": "This work provides a highly efficient, parallelized numerical framework for simulating open quantum systems undergoing nonadiabatic dynamics, which is crucial for modeling energy transfer in molecular physics and quantum chemistry.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.14544_figures/2608.14544_fig1.jpg",
+      "caption": "FIG. 1: Adiabatic excited state population P ad (t) for three- mode spin-boson model, comparing results from GPU with- out trajectory spawning, CPU with trajectory spawning, and quantum reference calculation.",
+      "page": 2
+    },
+    {
+      "image": "2608.14544_figures/2608.14544_fig2.jpg",
+      "caption": "Figure 1 displays the adiabatic excited state popula- tion P ad (t) for the three-mode spin-boson model. The CPU simulation started with 50,000 walkers and the spawning generated 2.87 × 107 walkers in total. Accord- ingly, we allocated 2.8 × 107 walkers in the GPU simu- lation without spawning. The figure indicates that the accuracy is comparable between the CPU and GPU sim- ulations. The computation time measured by the @time macro (excluding the compilation time) were 1860 sec- onds on CPU and 80 seconds on GPU. Figure 2 displays the corresponding results for pyrazine S2 →S1 internal conversion. The CPU simulation started with 50,000 walkers and generated 1.40 × 107",
+      "page": 2
+    },
+    {
+      "image": "2608.14544_figures/2608.14544_fig3.jpg",
+      "caption": "FIG. 2: Adiabatic excited state population P ad (t) for three- mode model of pyrazine S2 →S1 internal conversion, com- paring results from GPU without trajectory spawning, CPU with trajectory spawning, and quantum reference calculation.",
+      "page": 3
+    },
+    {
+      "image": "2608.14544_figures/2608.14544_fig4.jpg",
+      "caption": "FIG. 3: Adiabatic excited state population P ad (t) for three- mode spin-boson model from GPU simulation without trajec- tory spawning, comparing results with the number of walkers N = 106, 107, and 108.",
+      "page": 3
+    },
+    {
+      "image": "2608.14544_figures/2608.14544_fig5.jpg",
+      "caption": "FIG. 4: Adiabatic excited state population P ad (t) for three- mode model of pyrazine S2 →S1 internal conversion, from GPU simulation without trajectory spawning, comparing re- sults with the number of walkers N = 106, 107, and 108.",
+      "page": 3
+    }
+  ],
+  "figure": "2608.14544_figures/2608.14544_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

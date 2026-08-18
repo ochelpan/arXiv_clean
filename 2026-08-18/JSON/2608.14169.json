@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2608.14169",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Classical Limits of Spectral Filtering in Quantum Generative Models",
+  "authors": "Marco Roth",
+  "abstract": "Spectral filtering has been proposed as a route to regularization in quantum generative models: the quantum Fourier transform exposes the amplitude spectrum of a quantum circuit Born machine, and a diagonal filter suppresses the high frequencies associated with finite-sample noise, an operation whose classical counterpart seemingly requires manipulating an exponentially long amplitude vector. We examine whether this coherent operation produces anything that classical post-processing of samples from the unfiltered model cannot match. Measuring the filter against convolution with a symmetric probability kernel at matched sampling cost, which accounts for the post-selection overhead of attenuation, we derive necessary and sufficient conditions for the gap between the two to vanish. Magnitude (attenuating) filters obey a dichotomy: at a fixed affordability threshold, the filtered output is either a constant-size Fourier object with an efficient classical sampler, or the passband must widen until no fixed frequency is attenuated and the filter no longer smooths. In neither case does the filter create a quantum-classical separation. Whatever separation survives is inherited from the spectral phase of the input state. Numerical experiments on trained circuit Born machines confirm the classification and show that the deciding phases are invisible to the Born-rule training loss and set by the initialization. Within the diagonal family, pure phase filters remain the only spectral operations exempt from these constraints.",
+  "url": "http://arxiv.org/abs/2608.14169v1",
+  "pdf": "https://arxiv.org/pdf/2608.14169v1",
+  "type": "theory",
+  "summary": "This work analyzes spectral filtering in quantum generative models to determine if it offers a true quantum advantage over classical data processing. The authors find that most magnitude filters are simulable classically, suggesting the quantum benefit is subtle. Any remaining separation relies critically on the initial phase structure of the input state.",
+  "main_problem": "The paper investigates whether applying coherent spectral filtering in quantum generative models provides a true advantage over classical post-processing of samples from the unfiltered model.",
+  "main_result": "A significant quantum-classical separation is generally not created by magnitude filters; any surviving gap must be inherited from the initial spectral phase. Pure phase filters are identified as the only operations exempt from these constraints.",
+  "method": "The analysis compares coherent filtering (via QFT and diagonal filtering in the frequency domain) against classical smoothing, quantified using the Total Variation distance ($\\Phi_g$).",
+  "model_or_system": "The model is a quantum circuit Born machine generating probability distributions $p(x; \theta)$ from an underlying state $|\\psi(\theta)\rangle$. The analysis focuses on manipulating the amplitude spectrum $\\hat{a}(k)$.",
+  "key_observables": "Total Variation distance ($\\Phi_g$), spectral phase of the input state, and the complex weight average $\\langle W_m \rangle_{\rho_m}$.",
+  "important_parameters": "The affordability threshold for filtering; the structure of the filter $g(k)$ (magnitude vs. pure phase).",
+  "main_assumptions": "The comparison is made at matched sampling cost, and the classical competitor only has access to the measured distribution $p(x)$.",
+  "figures_summary": "Figure 1 contrasts coherent filtering with classical convolution; Figure 2 visualizes the residual coherence showing how classical smoothing restricts the possible outcomes.",
+  "paper_structure": "The paper establishes the problem by comparing two spectral manipulation routes, derives necessary and sufficient conditions for equivalence to classical methods (Proposition 1), classifies filters based on magnitude/phase properties, and concludes with numerical confirmation of these theoretical bounds.",
+  "why_interesting": "It provides a rigorous mathematical framework for determining when quantum amplitude manipulation yields non-classical information inaccessible through simple measurement statistics or post-processing kernels.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.14169_figures/2608.14169_fig1.jpg",
+      "caption": "FIG. 1. Overview of this work. (a) The two routes from the same quantum generative model Eq. (1). Coherent route (left): a QFT exposes the amplitude spectrum, a spectral filter attenuates it, ˆa(k) 7→g(k)ˆa(k) (dashed: Gaussian low-pass at matched cost psucc ≥p⋆), and measuring after the inverse QFT yields the filtered distribution pg. Classical route (right): measuring first yields samples of p(x) = |ax|2, which are convolved with a classical kernel K. The gap Φg, Eq. (9), measures what the coherent route achieves beyond classical smoothing. The example shows the optimal kernel (TV = 0.17). (b) The resulting classification. At matched cost, a magnitude filter (|g(k)| ≤1) either returns an...",
+      "page": 2
+    },
+    {
+      "image": "2608.14169_figures/2608.14169_fig2.jpg",
+      "caption": "FIG. 2. (a) Geometry of the coherent residual Rg [Eq. (10)] at a fixed lag m. For a given input distribution ˆp(m), the coherent filter can rotate the modes pg(m) [Eq. (5)], while classical smoothing can only rescale each mode by the real factor ˆK(m), resulting in ˆpG(m) [Eq. (4)]. All modes reachable by classical smoothing are thus on a line Lm = {hˆp(m) : h ∈R} through the origin. The best classical value h⋆(m)ˆp(m) is the orthogonal projection of ˆpg(m) onto the line Lm. The coherent residual Rg is the perpendicular component, which cannot be removed by a kernel. The rotation of ˆpg(m) off Lm is set by arg⟨Wm⟩ρm, with Rg(m) ∝Im⟨Wm⟩ρm. (b) Relationship between the filter Fourier...",
+      "page": 5
+    },
+    {
+      "image": "2608.14169_figures/2608.14169_fig3.jpg",
+      "caption": "FIG. 3. Input families for a Gaussian low-pass filter Eq. (24) at the affordable passband scale σ⋆(n) [Eq. (13)] at p⋆= 0.1. (a) The affordable passband scale for the constructed families and quantum circuits [cf. Sec. II A] with random and with trained parameters. The closed form solution for Gaussian input spectra Eq. (27) is shown as dotted (black). (b) The phase certificate Cg [Eq. (19)] as a function of the modes M ⋆[Eq. (14)] required to achieve an error of ϵ = 0.05. Each family is a track parametrised by n. The arrows point towards large n. For the coherent chirp and the spectrally incoherent input, the Gaussian-kernel upper bound on Φg is shown as a dashed line with the enclosed...",
+      "page": 10
+    }
+  ],
+  "figure": "2608.14169_figures/2608.14169_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 3,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

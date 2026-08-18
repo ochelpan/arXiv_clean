@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.13805",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Fast classical simulation of `Fast, accurate, high-resolution simulation of large-scale Fermi-Hubbard models on a digital quantum processor'",
+  "authors": "Xiao-Yu Ouyang, Runze Chi, Garnet Kin-Lic Chan",
+  "abstract": "We study the Néel quench dynamics of a 1D Fermi-Hubbard model which has recently been simulated on quantum hardware. We demonstrate that the set of 7260 observable trajectories measured in the quantum experiment can be obtained more quickly and accurately through classical tensor network simulation using modest computation. Our result relies on transverse tensor network contraction, where a bond dimension of 32 is already sufficient to reproduce the quantum experiment. We further extend the converged observable trajectories to longer times than in the hardware simulation and in other recent classical simulations.",
+  "url": "http://arxiv.org/abs/2608.13805v1",
+  "pdf": "https://arxiv.org/pdf/2608.13805v1",
+  "type": "both",
+  "summary": "The authors developed and benchmarked an efficient tensor network method—transverse contraction—to simulate the time evolution of large Fermi-Hubbard models. They show this classical approach can calculate complex observables faster than current quantum hardware benchmarks while maintaining high accuracy using modest computational resources. This work significantly advances the feasibility of simulating strongly correlated quantum systems on classical supercomputers.",
+  "main_problem": "To demonstrate that classical tensor network simulation can simulate quantum quench dynamics of large-scale Fermi-Hubbard models faster and more accurately than the actual quantum processing time.",
+  "main_result": "The developed transverse tensor network contraction method can obtain complex observable trajectories in significantly less wall-clock time (e.g., <166s) compared to current hardware benchmarks, using only a modest bond dimension ($\\chi=32$).",
+  "method": "The core technique involves simulating time evolution and observables via tensor network contractions, specifically utilizing transverse contraction combined with advanced compression schemes like Successive Randomized Compression (SRC) and Reduced Transition Matrix (RTM).",
+  "model_or_system": "The study focuses on the Néel quench dynamics of a 1D Fermi-Hubbard model defined by $H = -\\sum_{i=0}^{L-2} (c^\\dagger_{i\\sigma} c_{i+1,\\sigma} + \text{h.c.}) + U \\sum_{i=0}^{L-1} n_{i\\uparrow}n_{i\\downarrow}$ on a chain of $L=60$ sites.",
+  "key_observables": "One- and two-point density correlators, including single-site densities ($\\langle n_{i\\mu} \rangle$), nearest-neighbor correlations ($\\langle n_{i\\mu}n_{i+1,\\mu'} \rangle$), and all pairs ($\\langle n_{i\\mu}n_{j\\mu'} \rangle$).",
+  "important_parameters": "The simulation uses parameters $t_h = 1$ and $U = -2$, with the key computational parameter being a sufficient bond dimension of $\\chi=32$.",
+  "main_assumptions": "Accuracy relies on approximations such as transverse contraction and specific compression algorithms (SRC/RTM); the multi-GPU runtime estimate is noted to be a conservative upper bound.",
+  "figures_summary": "Figures illustrate the mechanics of Transverse contraction of the spacetime TN, detailing folding and compression steps. Other figures show time evolution plots for local density observables ($\\langle n_{46\\uparrow} \rangle$) over extended time scales.",
+  "paper_structure": "The paper compares multiple classical simulation approaches (MPO+SRC vs. tMPS+RTM vs. Transverse Contraction) against quantum hardware benchmarks, detailing the computational cost and accuracy for calculating various density observables across different timescales.",
+  "why_interesting": "This work is highly relevant as it provides a concrete demonstration of how advanced numerical techniques can achieve or surpass current quantum simulation capabilities for many-body dynamics, pushing the boundaries of classical computation in condensed matter physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.13805_figures/2608.13805_fig1.jpg",
+      "caption": "FIG. 1. Transverse contraction of the spacetime tensor net- work (TN) for a 1D fermionic chain. (a) TN diagram of a non- local two-point observable expecation value ⟨ˆQi(t) ˆOj(t)⟩= ⟨ψ0|U †(T) ˆQi ˆOjU(T)|ψ0⟩. (b) The spacetime TN after fold- ing along the dashed line in (a), here the grey shaded part",
+      "page": 2
+    },
+    {
+      "image": "2608.13805_figures/2608.13805_fig2.jpg",
+      "caption": "FIG. 2. MPO Heisenberg evolution of an observable in a 1D chain. (a) TN diagram to obtain MPO ˆO(t + dt) from U †(dt) ˆO(t)U(dt). χ is the virtual bond dimension of the op- erator MPO, D is the virtual bond dimension of the unitary MPO, and d is the physical bond dimension of each MPO. (b) Successive randomized compression for the MPO-MPOs product on the most right site, starting from applying ran- dom sketched matrices (green) on the open indices.",
+      "page": 3
+    },
+    {
+      "image": "2608.13805_figures/2608.13805_fig3.jpg",
+      "caption": "FIG. 3. Cost-accuracy diagram for the three density ob- servables of the L = 60 Fermi-Hubbard N´eel quench at U/th = −2. Cost is defined by the total runtime to ob- tain the observable dynamics in t ∈[0, 6] with Trotter step dt = 0.2 on one QPU/H200 GPU. Accuracy is defined by the RMSE (Eq. 11) comparing with TDVP χ = 4096 data in t ∈[0, 5.2]. Bond dimension is encoded by color, light to dark as χ grows: blue crosses denote tMPS + RTM with χt = 24, 32, 48, 64, 100, 128, red diamonds denote MPO + SRC with χ = 32, 48, 64, 96, 128, 160, 192, 256, and green tri- angles denote tMPS + SRC with χt = 64, 128, 256, 512. Black squares highlight the MPO + SRC point at χ = 128 and the tMPS + RTM point...",
+      "page": 4
+    },
+    {
+      "image": "2608.13805_figures/2608.13805_fig4.jpg",
+      "caption": "FIG. 4. Dynamics of 3 observables from classical and quan- tum simulation. Blue squares are tMPS w/ RTM at χt = 32 and red diamonds are MPO w/ SRC at χ = 128 from t = 0.2 to 6.0; lines connecting their sampling points are guides to the eye. Grey dashed squares are the TDVP χ = 4096 reference [1], the black curve in panel (a) is the TDVP at χeff ≈62 000 from [22], and open purple triangles are HW (decay recov- ery) data, with readout error mitigation and decay recovery applied. (a) Dynamics of one-site observable ⟨n46↑(t)⟩. (b) Dynamics of local two-site observable ⟨n45↓(t)n46↑(t)⟩. (c) Dynamics of nonlocal two-site observable ⟨n30↓(t)n46↑(t)⟩.",
+      "page": 5
+    },
+    {
+      "image": "2608.13805_figures/2608.13805_fig5.jpg",
+      "caption": "Figure 3 reports the cumulative wall-clock time re- quired to obtain each observable’s dynamics over 0 < t ≤ 6 with dt = 0.2 on one H200 GPU, with accuracy quanti- fied by the RMSE against the TDVP χ = 4096 reference, with the error measured over the range 0 < t ≤5.2 (i.e. following the methodology in Ref. [1] to define the hard- ware error)",
+      "page": 5
+    }
+  ],
+  "figure": "2608.13805_figures/2608.13805_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 2,
+    "scars & prethermalization": 1,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

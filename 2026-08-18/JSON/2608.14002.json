@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.14002",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": true,
+  "title": "Circuit Depth Compression via Spectral Gap Amplification in Quantum Phase Estimation",
+  "authors": "Sk Mujaffar Hossain, Satadeep Bhattacharjee",
+  "abstract": "We show that quantum phase estimation (QPE) circuits can be significantly compressed in depth by preprocessing the input operator with a sigmoid spectral filter before estimation. For systems with small spectral gaps Delta_lambda, standard QPE requires m = ceil(log2(1/Delta_lambda)) precision qubits and depth Theta(2^m). Applying a soft-step transformation f(lambda; tau,w) amplifies the effective gap to Delta_f > Delta_lambda (for w < 1/4), reducing the required precision to m_f = ceil(log2(1/Delta_f)) and compressing circuit depth by 2^(alpha Delta_m), where alpha = 1 for the LMR density-matrix exponentiation framework and alpha is in [0.11,0.42] for controlled-phase-gate circuits. We prove that this compression is exact, bounded above by log2(1/(4w Delta_lambda)) + 1, and impossible for exactly degenerate spectra. We further show that the threshold parameter tau requires only O(w) accuracy, so classical preprocessing such as covariance diagonalisation or CASSCF avoids circularity. A net resource advantage occurs when 4w^2(2^Delta_m - 1) > Delta_lambda log(1/epsilon). Validation on LiH and BeH2 bond-stretch calculations, classical covariance datasets, and synthetic near-degenerate cases demonstrates depth reductions of up to 27x and CX-gate reductions of up to 21x. For LiH, QPE output fidelity improves from 0.66 to 0.98 at a 1% hardware error rate. The method preserves the principal subspace to machine precision, requires no modification of QPE, and can be combined with readout-stage and state-preparation filtering. Negative-control tests establish the benefit condition: m_raw >= 2 and Delta_lambda > 0.",
+  "url": "http://arxiv.org/abs/2608.14002v1",
+  "pdf": "https://arxiv.org/pdf/2608.14002v1",
+  "type": "theory",
+  "summary": "The paper introduces spectral preconditioning as a method to compress the circuit depth of Quantum Phase Estimation (QPE) circuits. By applying a sigmoid filter to the operator spectrum, it artificially amplifies the effective spectral gap. This results in significant reductions in required qubits and gate count, making quantum simulations feasible on near-term noisy hardware.",
+  "main_problem": "The primary goal is to significantly compress the circuit depth required for Quantum Phase Estimation (QPE) circuits, especially when dealing with quantum systems exhibiting small spectral gaps.",
+  "main_result": "The authors demonstrate that applying a sigmoid spectral filter before QPE amplifies the effective spectral gap, leading to an exact and substantial reduction in required precision qubits and overall circuit depth (up to 27x).",
+  "method": "The technique involves preprocessing the input operator spectrum by applying a monotone sigmoid spectral filter $f(\\lambda; \tau, w)$ before running the standard QPE algorithm.",
+  "model_or_system": "The method is applied theoretically to general quantum systems, with concrete validation cases including molecular bond-stretch calculations (LiH, BeH2) and various Quantum Machine Learning datasets.",
+  "key_observables": "Depth compression factor ($\text{DC}$), bit saving ($\\Delta m$), output fidelity ($F$), and the required minimum gate fidelity for successful computation.",
+  "important_parameters": "The spectral gap ($\\Delta\\lambda$), filter width ($w$), and the initial precision qubits ($m$) are critical parameters determining the resource advantage.",
+  "main_assumptions": "The compression is proven exact but fails for exactly degenerate spectra; the method requires $\\Delta\\lambda > 0$ and $m_{\text{raw}} \\ge 2$.",
+  "figures_summary": "Figures illustrate the comparison of raw vs. filtered QPE performance, showing depth scaling laws ($\\log_2(\text{Depth})$ vs $m$), fidelity improvements at fixed error rates, and resource advantage maps.",
+  "paper_structure": "The paper establishes the theoretical basis for spectral gap amplification, derives the compression bounds, proves the method's exactness, validates it across multiple physical systems (molecules/ML), and concludes with operational guidelines based on noise analysis.",
+  "why_interesting": "This work directly addresses resource scaling in quantum simulation algorithms like QPE, providing a concrete, implementable technique to mitigate hardware limitations imposed by small spectral gaps in chemistry and materials science simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.14002_figures/2608.14002_fig1.jpg",
+      "caption": "Figure 1: Three filtered QPE approaches: conceptual comparison. (a) Our approach: sigmoid filter applied to operator spectrum before QPE, reducing m to mf and compressing depth by 2α∆m. (b) Lee et al. [1]: classical filter applied to measurement outcomes after QPE, improving resolution at fixed depth. (c) Sakuma et al. [2]: filter applied to initial state before QPE, amplifying ground-state overlap. The three approaches are structurally orthogonal and composable.",
+      "page": 12
+    },
+    {
+      "image": "2608.14002_figures/2608.14002_fig2.jpg",
+      "caption": "Figure 2: End-to-end resource analysis (Theorem 1). (a) Net advantage map log10(Craw/Cfiltered) over (∆λ, w) space. Green = filtered wins; red = raw wins. Black con- tour: crossover boundary of Eq. (3). Experimental systems (symbols) all lie in the advantage regime. (b) Bit saving ∆m with crossover boundary (red dashed). (c) Cost ratio vs gap for fixed widths; near-degenerate systems gain 102–103× net savings.",
+      "page": 12
+    },
+    {
+      "image": "2608.14002_figures/2608.14002_fig3.jpg",
+      "caption": "Figure 3: Universal width-dependent precision reduction. Bit saving ∆m vs filter width w for all four systems. Decreasing w monotonically increases ∆m as predicted by ∆f ≈∆λ/(4w). Near-degenerate regimes (Stress Test, LiH) exhibit the largest compressions.",
+      "page": 13
+    },
+    {
+      "image": "2608.14002_figures/2608.14002_fig4.jpg",
+      "caption": "Figure 4: Empirical verification of depth scaling (Theorem 2). log2(Depth) vs precision bits m for all four systems. Linear fits confirm α ∈[0.11, 0.42] and R2 > 0.94. The variation in α reflects QFT-dominated depth O(m2) with system-dependent fitting ranges (see Table S5); the Stress Test’s smaller α = 0.114 arises from fitting over m ∈[6, 12] where the quadratic QFT depth appears nearly linear.",
+      "page": 14
+    },
+    {
+      "image": "2608.14002_figures/2608.14002_fig5.jpg",
+      "caption": "Figure 5: Two-qubit (CX) gate count reduction. Raw vs filtered CX counts for the width yielding maximal precision reduction (w = 0.005 for all systems). Reductions: 21× (LiH), 3× (Breast Cancer), 6× (Digits), 3.1× (Stress Test).",
+      "page": 14
+    }
+  ],
+  "figure": "2608.14002_figures/2608.14002_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

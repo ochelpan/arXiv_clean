@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2608.14208",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Foundation Neural Effective Hamiltonian for Strongly Correlated Quantum Materials",
+  "authors": "Lixing Zhang, Hongjie Jiang, Di Luo",
+  "abstract": "Simulating strongly correlated quantum materials often involves not a single Hamiltonian, but a family of Hamiltonians whose ground states evolve across experimentally tunable couplings. Foundation neural quantum states (FNQS) offer a promising route to amortizing many-body calculations across such families, but can lose accuracy near phase transitions and still incur non-negligible sampling costs that grow with the number of target couplings. We introduce the Foundation Neural Effective Hamiltonian (FNEH), which projects a Hamiltonian family onto a compact subspace spanned by FNQS sampled at selected couplings. By variationally combining FNQS across parameter space, FNEH systematically improves their ground-state approximation and can recover phase boundaries that the foundation model misidentifies. Once the required operator matrix elements are sampled, FNEH enables sweeps over couplings, observables, and phase boundaries at a cost governed by the small effective-Hamiltonian dimension, without repeated neural-network sampling at every target coupling. We demonstrate FNEH in strongly correlated moiré materials, where it accurately resolves competing phases, enables high-resolution multidimensional phase scans, and substantially reduces the computational cost of exploring many target Hamiltonians. The results open a new avenue for studying strongly correlated quantum materials with foundation models.",
+  "url": "http://arxiv.org/abs/2608.14208v1",
+  "pdf": "https://arxiv.org/pdf/2608.14208v1",
+  "type": "theory",
+  "summary": "This paper introduces the Foundation Neural Effective Hamiltonian (FNEH), an advanced technique to simulate quantum materials across families of Hamiltonians. FNEH projects the full Hamiltonian onto a compact subspace derived from pre-trained neural network states, allowing for accurate and computationally cheap mapping of phase diagrams. This represents a significant step toward systematically exploring complex parameter spaces in strongly correlated condensed matter physics.",
+  "main_problem": "Developing a scalable method to simulate strongly correlated quantum materials whose ground states evolve across a continuous family of experimentally tunable Hamiltonians.",
+  "main_result": "The proposed Foundation Neural Effective Hamiltonian (FNEH) accurately resolves competing quantum phases and enables high-resolution phase scans while drastically reducing computational cost compared to previous methods.",
+  "method": "FNEH projects the full Hamiltonian family onto a compact subspace spanned by pre-trained Foundation Neural Quantum States (FNQS), allowing for efficient, parameter-dependent reconstruction of the effective Hamiltonian matrix elements.",
+  "model_or_system": "The study uses strongly correlated moiré materials as a testbed, governed by a tunable Hamiltonian $\\hat{H}(\\lambda)$ involving kinetic and Coulomb interaction terms. The methodology builds upon FNQS to create a variational framework over parameter space.",
+  "key_observables": "Ground-state energies ($E_{\text{tot}}$), charge densities ($\rho$), Potential Energy Surfaces (PES) of Coulomb energy, and identification of quantum phase boundaries (e.g., CDW to FL transitions).",
+  "important_parameters": "Tunable couplings $\\lambda$ (e.g., moiré potential strength $V_0$, phase $\\phi$, dielectric constant $\\epsilon$).",
+  "main_assumptions": "The method relies on the initial training of FNQS over a parameter manifold and assumes that projecting onto the subspace spanned by these states provides sufficient variational accuracy.",
+  "figures_summary": "Figures compare ground-state energies predicted by various methods (FNQS, FNEH, HF, ED) for moiré systems, demonstrating FNEH's ability to correctly locate phase boundaries across parameter space.",
+  "paper_structure": "The paper introduces the limitations of FNQS for sweeping Hamiltonian families. It then details the FNEH construction by projecting $\\hat{H}(\\lambda)$ onto a compact subspace defined by sampled FNQS states, followed by demonstrations on moiré materials showing improved accuracy and efficiency over conventional methods.",
+  "why_interesting": "The development provides a powerful, scalable tool for mapping out complex phase diagrams in strongly correlated systems where traditional diagonalization or single-point NQS calculations fail due to computational cost or insufficient coverage of the parameter space.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.14208_figures/2608.14208_fig1.jpg",
+      "caption": "FIG. 1. Schematic of the FNEH method. For a multi-parameter Hamiltonian, the parameters λ are embedded into an FNQS, which outputs parameter-dependent wavefunction amplitudes. By sampling FNQS wavefunctions at different locations in parameter space, an effective Hamiltonian that depends linearly on λ is constructed. The effective Hamiltonian can then be rapidly reconstructed and solved across parameter space, generating a manifold of approximate ground-state wavefunctions.",
+      "page": 2
+    },
+    {
+      "image": "2608.14208_figures/2608.14208_fig2.jpg",
+      "caption": "FIG. 2. Ground-state energies predicted by different meth- ods. The system parameters are Nsite = 27, Ne = 18 (2/3 filling), V = 15meV, and ϵ = 10. (a) Per-particle energy differences relative to the optimal reference for the FNQS, FNEH, Hartree-Fock (HF), and exact diagonalization (ED). Background colors indicate the different phases. The left and right dashed lines indicate the phase boundaries predicted by the optimal reference and FNQS, respectively. (b) Illustra- tion of the basis-state selection used to construct the FNEH. (c) Charge densities predicted by the FNQS and FNEH at ϕ = 40.75◦.",
+      "page": 3
+    },
+    {
+      "image": "2608.14208_figures/2608.14208_fig3.jpg",
+      "caption": "FIG. 3. PESs in the V –ϕ plane predicted by the FNEH. The system parameters are Nsite = 36, Ne = 12 (1/3 filling), and ϵ = 10. Gray triangles indicate the basis states used to con- struct the FNEH. (a) Coulomb-energy PES, Ecoul, predicted by FNEH over V ∈[9meV, 11meV] and ϕ ∈[35◦, 45◦]. (b) Cross-section of (a) along the ϕ direction at fixed V = 10meV, compared with the FNQS and optimal reference energies eval- uated at 1◦intervals. (c,d) FNEH-predicted PESs of the total energy, Etot, and kinetic energy, Ekin, respectively.",
+      "page": 4
+    },
+    {
+      "image": "2608.14208_figures/2608.14208_fig4.jpg",
+      "caption": "FIG. 4. FNEH captures the phase transition across ϵ while demonstrating high computational efficiency. (a) Total- energy differences relative to the optimal reference predicted by FNEH and the FNQS as a function of ϵ. The system pa- rameters are Nsite = 36, Ne = 12 (1/3 filling), V = 11meV, and ϕ = 40◦. (b) Energy components predicted by optimal reference, FNEH, and FNQS across ϵ. FNEH energies are evaluated at intervals of 0.1 in ϵ, whereas the FNQS and op- timal reference energies are evaluated at intervals of 1. (c) Optimal weights of the FNEH basis states as a function of ϵ. (d) Radially averaged pair-correlation functions predicted by the optimal reference, FNQS, and FNEH. (e)...",
+      "page": 5
+    }
+  ],
+  "figure": "2608.14208_figures/2608.14208_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}
