@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2608.16051",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "nucl-th",
+    "cond-mat.stat-mech",
+    "hep-th",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Deep-learning classification of physically admissible nuclear-matter equations of state",
+  "authors": "Ahmed Abuali, Micheal Kahangirwe, Francesco Di Clemente, Vianney E Diaz-Barraza, Jorge A Munoz, Claudia Ratti",
+  "abstract": "Thermodynamic stability and causality impose fundamental constraints on the equation of state (EoS) of nuclear matter. Verifying these constraints conventionally requires calculating quantities such as the specific heat, baryon-number susceptibility, and speed of sound, which can become computationally expensive when many candidate EoSs must be examined. We investigate whether the normalized pressure surface, $Q(T,μ_B)=P(T,μ_B)/T^4$, alone contains sufficient information to determine the physical admissibility of an EoS. We develop a supervised convolutional neural network (CNN) that uses only this pressure representation to classify EoSs as physically admissible or inadmissible. The network is provided with training labels obtained from direct thermodynmaic stability and causality check and its does not get any information about the parameters of the underlying EoS framework. For EoSs generated within an Ising-mapping framework, the model achieves $97.65%$ accuracy on unseen test data. Applied independently to EoSs from a distinct holographic framework, it achieves perfect classification of the test set. These results show that pressure surfaces contain geometric signatures of thermodynamic stability and causality violations that can be learned directly by a CNN. Because the classifier relies only on the pressure surface, it avoids evaluating higher-order thermodynamic observables during inference and is largely independent of the EoS-generation framework. When the pressure surface is supplied as a two-dimensional array, the machine-learning validation is approximately 20 times faster than direct validation. Our results establish a fast, framework-independent approach for identifying physically admissible EoSs directly from their pressure surfaces.",
+  "url": "http://arxiv.org/abs/2608.16051v1",
+  "pdf": "https://arxiv.org/pdf/2608.16051v1",
+  "type": "theory",
+  "summary": "This work introduces a novel, machine-learning approach using a Convolutional Neural Network (CNN) to rapidly screen the physical admissibility of nuclear matter Equations of State. By training the CNN solely on the normalized pressure surface, the authors demonstrate that geometric signatures of thermodynamic stability and causality violations can be extracted efficiently, offering a fast alternative to traditional, computationally intensive physics checks.",
+  "main_problem": "Developing an efficient, computationally fast method to classify whether a candidate Equation of State (EoS) for nuclear matter is physically admissible.",
+  "main_result": "A supervised Convolutional Neural Network (CNN) trained only on the normalized pressure surface ($Q$) can achieve high accuracy in identifying thermodynamic stability and causality violations across different EoS generation frameworks.",
+  "method": "The authors developed a CNN that takes the 2D normalized pressure surface, $Q(T, \\mu_B) = P(T, \\mu_B)/T^4$, as input to classify EoSs. This machine learning approach bypasses the need for expensive direct calculations of higher-order thermodynamic observables.",
+  "model_or_system": "The study concerns the Equation of State (EoS) of nuclear matter at finite temperature ($T$) and baryon chemical potential ($\\mu_B$), relevant to dense astrophysical objects like neutron stars. The EoSs are generated using distinct theoretical models, including an Ising-mapping framework and a holographic framework.",
+  "key_observables": "Thermodynamic stability (requiring $C_V \\geq 0$ and $\\chi_B^2 \\geq 0$) and causality ($0 \\leq c_s^2 \\leq 1$). The primary input observable is the normalized pressure surface, $Q(T, \\mu_B)$.",
+  "important_parameters": "Temperature ($T$), Baryon Chemical Potential ($\\mu_B$)",
+  "main_assumptions": "The geometric structure of the normalized pressure surface alone contains sufficient information to diagnose thermodynamic consistency and causality violations.",
+  "figures_summary": "Not specified in detail, but the notes mention Figure 1 illustrating mappings between Ising model axes and QCD coordinates.",
+  "paper_structure": "The paper introduces the problem of costly EoS validation, proposes using $Q(T, \\mu_B)$ as a sole input feature for a CNN, trains this network on labels derived from rigorous stability/causality checks across multiple frameworks (Ising and holographic), and validates its speed and framework independence.",
+  "why_interesting": "While focused on nuclear physics, the core methodology—using deep learning to extract complex physical constraints from low-dimensional representations of high-dimensional data—is highly relevant for analyzing phase diagrams in any strongly interacting many-body system.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.16051_figures/2608.16051_fig1.jpg",
+      "caption": "FIG. 1: Left: 3D Ising model axes with a critical point at (r = 0, h = 0). Right: corresponding QCD coordinates with a critical point located at (TC, µBC). The parameters µBC, w′, ρ′, and α′ 12 control the position, orientation, and scaling of the mapping (Figure from Ref. [60]).",
+      "page": 5
+    },
+    {
+      "image": "2608.16051_figures/2608.16051_fig2.jpg",
+      "caption": "FIG. 2: Architecture of the convolutional neural network used for binary classification of equation-of-state (EoS) surfaces. The input is a single-channel tensor containing the normalized pressure field Q(T, µB) = P(T, µB)/T 4",
+      "page": 7
+    },
+    {
+      "image": "2608.16051_figures/2608.16051_fig3.jpg",
+      "caption": "FIG. 3: Representative training diagnostics for the Ising-based model trained with 4000 equations of state per class. Left: training and validation binary-cross-entropy loss as functions of epoch. Right: The confusion matrix.",
+      "page": 9
+    },
+    {
+      "image": "2608.16051_figures/2608.16051_fig4.jpg",
+      "caption": "FIG. 4: Representative training diagnostics for the holography-based model trained with 2000 equations of state per class. Left: training and validation binary-cross-entropy loss as functions of epoch. Right: The confusion matrix.",
+      "page": 9
+    },
+    {
+      "image": "2608.16051_figures/2608.16051_fig5.jpg",
+      "caption": "FIG. 5: Reconstruction of physical admissibility regions in the (w, ρ) parameter space for the Ising-based framework. Each point corresponds to an independently generated EoS. The maps compare the physical ground-truth label obtained from direct thermodynamic stability and causality checks with the classification predicted by the trained neural network using only the normalized pressure surface Q(T, µB) as input. Blue and red markers represent agreement between the direct physical check and the neural network prediction, with blue indicating samples classified as valid by both methods and red indicating samples classified as invalid by both. Gray and yellow markers represent disagreement:...",
+      "page": 11
+    }
+  ],
+  "figure": "2608.16051_figures/2608.16051_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

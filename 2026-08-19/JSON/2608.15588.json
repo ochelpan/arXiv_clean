@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.15588",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": true,
+  "title": "A General-purpose Solver of Fourier Neural Swarm Operator Towards Accurate and Efficient Mechanical Modeling of Ultra Large Composite Materials",
+  "authors": "Lekun Gao, Shaohua Chen",
+  "abstract": "Composite media with complex microstructures exhibit highly tailorable mechanical properties but remain challenging to model efficiently and accurately. Conventional homogenization often oversimplifies microstructural effects, whereas multiscale approaches typically require costly coupling across spatial and temporal scales. To address these limitations, we propose a two-scale neural-swarm framework for large-scale mechanical modeling of heterogeneous composites. At the local scale, the mechanical characteristics of representative microstructural features are encoded into building-block Fourier neural operators (FNOs) using level-set representations. At the global scale, these pretrained FNOs are assembled into an FNO swarm according to the spatial distribution of microstructural constituents. A coarse-mesh finite element model is employed to provide global physical guidance, while Schwarz iteration is used to synchronize neighboring FNOs and enforce consistency across shared interfaces. The proposed framework is validated through nonlinear simulations of SiC-Al composites with diverse microstructural configurations. Compared with nonlinear finite element analysis, the FNO-swarm method achieves comparable accuracy while reducing computational cost by orders of magnitude. For an extreme dual-property SiC-Al composite containing more than a billion nodal points, the proposed approach predicts the mechanical response within approximately one hour, demonstrating exceptional scalability. Furthermore, the framework naturally accommodates arbitrary Dirichlet boundary conditions and complex domain geometries. The proposed neural-swarm strategy provides a robust and scalable paradigm for large-scale mechanics simulations, reconciling the longstanding trade-off between computational efficiency and physical fidelity in heterogeneous materials modeling.",
+  "url": "http://arxiv.org/abs/2608.15588v1",
+  "pdf": "https://arxiv.org/pdf/2608.15588v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel FNO-swarm framework to overcome the computational bottlenecks in simulating large, heterogeneous composite materials. It trains local neural operators on microstructural components and assembles them globally using domain decomposition techniques like Schwarz iteration. The method achieves massive speedups while maintaining high accuracy compared to traditional finite element analysis.",
+  "main_problem": "Accurately and efficiently modeling the mechanical response of complex, heterogeneous composite materials with microstructures exhibiting distinct hierarchical features.",
+  "main_result": "The proposed FNO-swarm method achieves comparable accuracy to nonlinear finite element analysis while reducing computational cost by orders of magnitude for massive systems.",
+  "method": "A two-scale framework that uses building-block Fourier Neural Operators (FNOs) trained on local microstructural features, which are then assembled into an FNO swarm synchronized via Schwarz iteration across the global domain.",
+  "model_or_system": "The system involves composite media like SiC-Al composites with complex microstructures. The mechanical behavior is governed by elliptic differential equations describing stress and strain fields ($\\sigma$, $\\epsilon$).",
+  "key_observables": "Displacement field (u), Stress tensor ($\\sigma$), Strain tensor ($\\epsilon$), von Mises equivalent stress ($\\sigma_{vm}$).",
+  "important_parameters": "The model handles extreme scales, such as composites with over a billion nodal points; material parameters include elastic moduli and plasticity parameters for the Al matrix.",
+  "main_assumptions": "Assumes that local mechanical characteristics can be accurately encoded into building-block FNOs. Limitations noted include potential error accumulation at boundaries and reliance on level-set methods to smooth interfaces.",
+  "figures_summary": "Figures illustrate the application of Level Set Methods (LSM) to define microstructures, compare strain/displacement fields between the FNO-swarm and FEM for various domain sizes, and show constitutive relationships like the Ramberg–Osgood model.",
+  "paper_structure": "The paper reviews limitations in traditional multiscale methods (homogenization, domain decomposition) and existing ML solvers (PINNs). It then introduces the novel two-scale FNO swarm methodology, detailing local training via FNOs and global assembly/synchronization using Schwarz iteration, culminating in performance validation on large composites.",
+  "why_interesting": "While focused on classical mechanics, the core methodology—using neural operators to learn complex physical mappings across scales and domains—is highly relevant to developing scalable ML solvers for quantum many-body Hamiltonians or time evolution equations where traditional numerical methods fail due to size or complexity.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.15588_figures/2608.15588_fig1.jpg",
+      "caption": "Figure 1: Nonlinear constitutive response of the aluminum (Al) matrix under the Ramberg–Osgood model based on the J2 invariant. The blue solid curve on the left vertical axis represents the evolution of the von Mises equivalent stress σvm with respect to the equivalent strain ϵvm. The red dashed curve on the right vertical axis shows the corresponding nonlinear degradation of the secant modulus EAl(σvm). The dash-dotted line illustrates, as an example, the state at σvm = 0.26Gpa (corresponding to an equivalent strain of approximately 2.0%).",
+      "page": 6
+    },
+    {
+      "image": "2608.15588_figures/2608.15588_fig2.jpg",
+      "caption": "Figure 2: (a)Illustration of using LSM to compresses three-dimensional features into two dimen- sions [39]. (b) an example of using LSM to convert discontinuous composite microstructure into continuous signed distance field (SDF).",
+      "page": 8
+    },
+    {
+      "image": "2608.15588_figures/2608.15588_fig3.jpg",
+      "caption": "Figure 3: (a) schematic illustration of typical microstructure feature of SiC-Al composite, where the gray region represents the Al matrix and the yellow region of the reinforcement SiC particle, (b)the structured mesh discretization obtained by Delaunay triangulation.",
+      "page": 9
+    },
+    {
+      "image": "2608.15588_figures/2608.15588_fig4.jpg",
+      "caption": "Figure 4: Schematic illustration of Dirichlet BC generation. The Dirichlet BC along each edge consists of two parts, gbase and gpert. gbase represents the base term which is a linear distribution, while gpert is an extra nonlinear term, which can take the form of trigonometric or Gaussian function.",
+      "page": 10
+    },
+    {
+      "image": "2608.15588_figures/2608.15588_fig5.jpg",
+      "caption": "Figure 5: Schematic of the building-block FNO architecture [24]",
+      "page": 11
+    }
+  ],
+  "figure": "2608.15588_figures/2608.15588_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

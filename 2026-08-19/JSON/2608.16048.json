@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.16048",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.NA",
+    "physics.app-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "zenDot: An LLM-integrated quantum TCAD platform for semiconductor quantum-device design and optimization automation",
+  "authors": "Zeheng Wang, Yan Liu, Yue Hao, Genquan Han",
+  "abstract": "Semiconductor quantum-device design still lacks an integrated Technology Computer-Aided Design (TCAD)-like environment that connects material geometry, quantum many-body simulation, and automated design. Here we introduce zenDot, a large-language model (LLM)-integrated quantum TCAD platform that links a material-labelled device state to a unified condensed-matter physics toolbox. The device and calculation components are integrated into a desktop workbench, Python API, and an embedded LLM agent, allowing electrostatics, charge and transport characterization, correlated-state calculations, and qubit modelling to be executed within one reproducible environment. We demonstrate zenDot on a Si/SiO2 double quantum dot, where a single device state reproduces the characterization workflow and supports hybrid, tunnel-charge, and singlet-triplet qubit analyses. A platform-level universal-control scan revises the singlet-triplet operating point and reduces the predicted worst-gate infidelity by nearly 30-fold. Beyond analysis, the LLM agent directly operates the same physics environment as human users, proposing design changes, executing registered simulations, and iterating on solver-returned metrics under physics-aware validation. Across three demonstration tasks it completes 18 validated design iterations, including geometry modification followed by a full re-solve from the material stack. zenDot establishes a machine-operable quantum TCAD workflow that connects device physics with LLM-driven design exploration.",
+  "url": "http://arxiv.org/abs/2608.16048v1",
+  "pdf": "https://arxiv.org/pdf/2608.16048v1",
+  "type": "theory",
+  "summary": "The paper presents zenDot, a novel LLM-integrated platform designed to automate the design and optimization of semiconductor quantum devices. It unifies disparate simulation tools—from electrostatics to correlated electron physics—into one cohesive workflow. By allowing an AI agent to propose changes and execute complex simulations iteratively, it drastically accelerates the discovery process for high-performance qubits.",
+  "main_problem": "Semiconductor quantum-device design lacks an integrated TCAD environment connecting geometry, many-body simulation, and automated optimization.",
+  "main_result": "The zenDot platform successfully automates the characterization and optimization of various qubit types (e.g., singlet-triplet) on a double quantum dot, achieving significant performance improvements through LLM-driven iteration.",
+  "method": "It introduces an LLM-integrated quantum TCAD workflow that unifies device state calculation across electrostatics, charge transport, and correlated-state physics solvers.",
+  "model_or_system": "The system is a lateral Si/SiO2 double quantum dot. The platform models the device state using electrostatics ($\nabla\\cdot[\\epsilon(\\mathbf{r})\nabla\\phi(\\mathbf{r})] = -\rho(\\mathbf{r})$) and supports multiple qubit Hamiltonians (hybrid, tunnel-charge, singlet-triplet).",
+  "key_observables": "Gate infidelity, coherence time ($T_2^*$), Quality factor ($Q$), exchange energy ($J$), charge stability map, and device frequency ($\text{GHz}$).",
+  "important_parameters": "Operating temperature (100 mK), noise amplitude ($1.5 \\mu\text{eV Hz}^{-1/2}$ at 1 Hz), and gate biases controlling tunnel coupling.",
+  "main_assumptions": "The transport calculation uses the sequential-tunnelling approximation, and the LLM agent's actions are constrained to selecting and sequencing existing physics solvers.",
+  "figures_summary": "Figures illustrate the unified workflow from device state to various physical calculations (electrostatics, charge maps) and demonstrate the closed-loop operation of the LLM agent guiding optimization sweeps for different qubit types.",
+  "paper_structure": "The paper establishes the need for integration, introduces zenDot as the solution, details its components (electrostatics, solvers), demonstrates its capability on a Si/SiO2 double dot across multiple qubit models, and concludes by showing the LLM agent performing iterative design optimization.",
+  "why_interesting": "This work directly addresses the computational bottleneck in quantum device engineering by embedding complex physics simulations within an AI-driven control loop, which is highly relevant for developing scalable quantum hardware designs.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.16048_figures/2608.16048_fig1.jpg",
+      "caption": "Fig. 1 | zenDot connects one device state to human and LLM-operated quantum-device simulation. a, Material-labelled Si/SiO₂ layer stack. b, Channel confinement returned by the electrostatic solution, resolving two minima 42 nm apart. c, Charging matrix derived from the same device state. d, Inter-dot gate control of separation and tunnel coupling. e, Device-to-result workflow shared across the platform. f, Desktop workbench, Python API, and LLM agent access the same component registry. g, Physics-aware LLM execution: proposed design actions are checked, executed by registered solvers, and returned as quantitative results for the next iteration.",
+      "page": 14
+    },
+    {
+      "image": "2608.16048_figures/2608.16048_fig2.jpg",
+      "caption": "Fig. 2 | The zenDot desktop workbench. a, Device builder and derived confinement. b, Physical and solver settings. c, Registry- generated calculation components and compatible visualizations. d, Charge-stability and transport-map workspace. e, Result visualization and export. f, Integrated documentation. The same registered components are accessible through Python and the LLM Assistant.",
+      "page": 15
+    },
+    {
+      "image": "2608.16048_figures/2608.16048_fig3.jpg",
+      "caption": "Fig. 3 | Device-level characterization generated from the reference Si/SiO₂ double dot. a-f, Coulomb diamonds, magnetospectroscopy, and Zeeman levels calculated independently for the left and right dots. g, Solved double-well confinement. h, Two-plunger charge-stability map with the selected (1,1) operating point. i, Barrier dependence of exchange and tunnel coupling. j, Empty-cell headroom below the first charging line. k, Left-right consistency of single-dot quantities. l, Even exchange J(ε) with a cusp-shaped local maximum at ε = 0.",
+      "page": 16
+    },
+    {
+      "image": "2608.16048_figures/2608.16048_fig4.jpg",
+      "caption": "Fig. 4 | Hybrid-qubit demonstration on the calibrated device. a, Three-electron spectrum. b, Logical splitting E01 approaching the valley splitting. c-e, Noise response, dephasing time, infidelity, and quality factor. f, Dephased logical fringe. g,h, Real-space and depth-resolved density. i,j, Thermal populations and logical initialization. k, First- and second-order amplitude channels. l, Dependence of the reported quality factor on detuning window. At the reported operating point E01 = 348.1 µeV, the frequency is 84.2 GHz, T2* = 887.3 ns, and the logical initialization fidelity is 1.000 at 100 mK.",
+      "page": 17
+    },
+    {
+      "image": "2608.16048_figures/2608.16048_fig5.jpg",
+      "caption": "Fig. 5 | Tunnel-charge-qubit demonstration. a, Charge anticrossing with minimum splitting 2tc. b, Charge dipole. c,d, Dephasing and gate-error metrics across detuning. e, Dependence on tunnel coupling. f, Larmor fringe. g,h, Density. i,j, Many-body and logical thermal populations. k, First- and second-order amplitude channels. l, Barrier-controlled gate performance. At zero detuning, the frequency is 45.1 GHz, T2* = 4.70 ns, Q = 847 for a π/2 rotation, and the logical initialization fidelity is 1.000 at 100 mK.",
+      "page": 18
+    }
+  ],
+  "figure": "2608.16048_figures/2608.16048_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 3,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

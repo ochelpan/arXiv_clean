@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.14995",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.DC"
+  ],
+  "is_primary_archive": true,
+  "title": "PAS-QFL: Personalized Ansatz Selection for Quantum Federated Learning under Client Data Heterogeneity",
+  "authors": "Jindi Wu, Qun Li",
+  "abstract": "Quantum federated learning (QFL) lets multiple quantum clients collaboratively train quantum neural networks (QNNs) without sharing private local data. However, existing QFL methods commonly assume that all clients use the same ansatz, overlooking how heterogeneous client data affects ansatz suitability. Under class-imbalanced non-IID data, different clients may favor different ansatz structures, so a fixed ansatz can lead to unstable and unfair performance across clients. In this paper, we propose PAS-QFL, a Personalized Ansatz Selection framework for QFL under client data heterogeneity. Rather than treating the ansatz as a monolithic structure, PAS-QFL decomposes each client QNN into a globally shared ansatz and a client-specific private ansatz, and personalizes the structure of the private ansatz rather than only its parameters. The shared ansatz is placed first and selected by a stability-aware cross-client criterion so that its parameters can be reliably aggregated, while the private ansatz serves as a personalized decision head, selected per client by local Macro-F1 to adapt the shared representation to its local data. During training, each client updates both its shared and private parameters locally but uploads only the shared parameters, so federated aggregation stays well-defined while each client keeps its own private structure. PAS-QFL uses Macro-F1 as the primary selection metric to avoid misleading accuracy under class imbalance. Experiments on heterogeneous QFL tasks show that PAS-QFL improves average Macro-F1 over the existing fixed-ansatz QFL baselines, demonstrating the value of personalizing the ansatz structure for practical QFL.",
+  "url": "http://arxiv.org/abs/2608.14995v1",
+  "pdf": "https://arxiv.org/pdf/2608.14995v1",
+  "type": "theory",
+  "summary": "This paper introduces PAS-QFL, a novel framework for Quantum Federated Learning that addresses performance degradation caused by heterogeneous client data. It achieves this by structurally personalizing each client's QNN ansatz into shared and private components. The results demonstrate that allowing structural adaptation significantly boosts performance compared to using fixed circuit architectures.",
+  "main_problem": "Existing Quantum Federated Learning (QFL) methods fail under client data heterogeneity because they assume a fixed ansatz structure, leading to unstable and unfair performance.",
+  "main_result": "The proposed PAS-QFL framework significantly improves average Macro-F1 scores over fixed-ansatz baselines by personalizing the *structure* of the private quantum ansatz for each client.",
+  "method": "PAS-QFL decomposes the QNN into a globally shared ansatz and a client-specific private ansatz, selecting both structures using stability-aware criteria based on local profiling.",
+  "model_or_system": "The model involves Quantum Neural Networks (QNNs) realized via Variational Quantum Circuits (VQCs) trained in a federated learning setting across multiple quantum clients.",
+  "key_observables": "Macro-F1 score, used as the primary metric to assess performance under class imbalance and to profile ansatz suitability.",
+  "important_parameters": "The stability weighting factor ($\\lambda$) used when selecting the shared ansatz structure; client data heterogeneity (non-IID).",
+  "main_assumptions": "The method assumes that structural personalization of the private ansatz, while maintaining a common shared component for aggregation, is feasible and beneficial.",
+  "figures_summary": "Figures illustrate the PAS-QFL decomposition, show profiling results confirming client-dependent suitability (Fig. 3a), and compare performance against fixed baselines across various settings (Figs. 4 & 5).",
+  "paper_structure": "The paper first identifies the failure mode of fixed-ansatz QFL under heterogeneity. It then proposes PAS-QFL, detailing the decomposition into shared/private components. The methodology involves local profiling to select optimal structures for both parts, followed by federated training where only shared parameters are aggregated.",
+  "why_interesting": "While focused on ML, the underlying concept of adapting complex quantum circuits (ansatzes) based on local data statistics mirrors challenges in modeling open quantum systems where system-specific coupling or environmental interactions require tailored Hamiltonians or effective models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.14995_figures/2608.14995_fig1.jpg",
+      "caption": "Fig. 1. Overview of PAS-QFL. Each client QNN is decomposed into a globally shared ansatz S(θi), and a client-specific private ansatz Pi(ϕi) that follows it as a personalized decision head. The shared ansatz is selected for stable cross-client performance, while each private ansatz is selected per client by local profiling. During federated training, every client updates both its private parameters ϕi and its shared parameters θi on local data, but uploads only θi to the central server, which aggregates them into ¯θ and broadcasts ¯θ back for the next round. The private ansatz structure and its parameters remain local and are never shared.",
+      "page": 1
+    },
+    {
+      "image": "2608.14995_figures/2608.14995_fig2.jpg",
+      "caption": "Fig. 2. Candidate ansatz pool. PAS-QFL considers multiple ansatz structures with different entanglement patterns.",
+      "page": 3
+    },
+    {
+      "image": "2608.14995_figures/2608.14995_fig3.jpg",
+      "caption": "Fig. 3 summarizes the profiling results from two comple- mentary views. The client-wise view in Fig. 3(a) reports, for each client, the distribution of validation Macro-F1 scores across candidate ansatzes. The spread varies substantially across clients: some clients are relatively insensitive to ansatz choice, while others show a large gap between their best and worst ansatzes. This indicates that ansatz suitability is client- dependent under class-imbalanced non-IID data. Therefore, using the same private-layer ansatz structure for all clients may fail to capture client-specific decision behavior. The ansatz-wise view in Fig. 3(b) reports, for each ansatz, the distribution of validation...",
+      "page": 3
+    },
+    {
+      "image": "2608.14995_figures/2608.14995_fig4.jpg",
+      "caption": "Fig. 3. Local ansatz profiling under client data heterogeneity. The client-wise view summarizes the validation Macro-F1 distribution of different ansatzes on each client, showing client-dependent sensitivity to ansatz choice. The ansatz-wise view summarizes the validation Macro-F1 distribution of each ansatz across clients, showing different levels of their cross-client stability.",
+      "page": 3
+    },
+    {
+      "image": "2608.14995_figures/2608.14995_fig5.jpg",
+      "caption": "Fig. 4. Overall performance under noiseless simulation.",
+      "page": 5
+    }
+  ],
+  "figure": "2608.14995_figures/2608.14995_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

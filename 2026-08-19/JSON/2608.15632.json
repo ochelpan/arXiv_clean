@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2608.15632",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "cs.AI",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Sparse Prototype Code Underlies Classification and Prediction Across Modalities",
+  "authors": "Yehonatan Avidan, Daniel D. Lee, Haim Sompolinsky",
+  "abstract": "Neural representations have become a central tool for studying the internal mechanisms of modern AI models, yet their complex high-dimensional structure makes them difficult to interpret. We show that classification tasks give rise to a universal representational geometry, shared across state-of-the-art models in vision, audio, and language processing. The key structure is that within-class variability is not random in representation space. Instead, its classifier-relevant component has strong and structured correlations with the class's own centroid and with the centroids of its competing classes. Building on this observation, we derive an analytical mean-field theory governed mainly by the variability along true-class and rival-class centroid coordinates, together with a global renormalization of the class radius that compensates for the non-Gaussian statistics of real representations. The theory accurately predicts classification accuracy across architectures and modalities. The relevant geometric quantities improve systematically with model scale, mirroring the observed gains in accuracy. A striking feature of the theory is its sparsity: accurate prediction requires only a small set of centroid coordinates associated with the true class and its strongest rivals - connecting our framework to sparse-feature extraction approaches such as sparse autoencoders. Together, these results provide a parsimonious predictive theory of neural representations and suggest that classification in deep networks is governed by a sparse, centroid-aligned structure embedded within the full high-dimensional representation space.",
+  "url": "http://arxiv.org/abs/2608.15632v1",
+  "pdf": "https://arxiv.org/pdf/2608.15632v1",
+  "type": "theory",
+  "summary": "This work proposes a predictive geometric theory showing that deep neural network classification relies on a sparse, structured relationship between class representations and their centroids. By deriving an analytical mean-field theory based on these correlations, the authors successfully predict classification accuracy across diverse AI models (vision, language) with high fidelity.",
+  "main_problem": "To develop a quantitative geometric theory linking the structure of neural representations to their performance on downstream classification tasks across multiple modalities.",
+  "main_result": "Classification accuracy is governed by a sparse, centroid-aligned structure where within-class variability correlates strongly with true and rival class centroids. A derived mean-field theory accurately predicts this accuracy across diverse architectures.",
+  "method": "The authors derive an analytical mean-field theory based on geometric quantities like class radii and correlations between class centroids and within-class variability, validating it through causal testing (e.g., $\\delta$-rotations).",
+  "model_or_system": "The study analyzes high-dimensional activation vectors ($\\mathbf{x}$) from state-of-the-art Deep Neural Networks (DNNs) trained on vision, audio, and language tasks. Classification is modeled using prototype classification based on class centroids.",
+  "key_observables": "Classification Accuracy ($\text{Acc}$), per-class Pearson correlation ($r$), Mean Squared Error (MSE), within-class variability, and centroid correlations.",
+  "important_parameters": "Model scale, number of classes ($P$), dimensionality ($N$), and the global rescaling factor ($\\lambda$).",
+  "main_assumptions": "The theory relies on prototype classification as a reliable proxy for linear readout heads, and it assumes that class variability is structured around centroids.",
+  "figures_summary": "Figures demonstrate causal testing where breaking residual-centroid correlations restores perfect accuracy. Tables summarize the high correlation ($r \\approx 0.95$) between empirical and theoretically predicted accuracies across various backbones.",
+  "paper_structure": "The paper progresses from establishing the geometric structure (Chunk 1), to contrasting this with simple isotropic models using controlled manipulations like variability inflation (Chunk 2), and finally applying a refined, predictive mean-field theory across dozens of real-world models in multiple modalities (Chunks 3 & 4).",
+  "why_interesting": "While focused on AI, the concept of emergent structure in high-dimensional feature spaces—where local correlations dictate global performance—echoes principles seen in glassy systems or complex energy landscapes studied in statistical mechanics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.15632_figures/2608.15632_fig1.jpg",
+      "caption": "Figure 1: Centroid-aligned variability, Qwen3-32B, TinyStories representations. The variability of each class is highly correlated with other class centroids. (a) To visualize it, we use Qwen3-32B representations [Yang et al., 2025] on the dataset TinyStories [Eldan and Li, 2023]. We project each example onto the three centroids with the largest correlations among the class variability. For 217/320 classes (68%), the true class centroid is among these top 3 (the nine shown here are of this sort). The rivals carry semantic meaning (e.g., the rivals of \"cookie\" are \"food\" and \"delicious\"; the rivals of \"head\" are \"face\" and \"hand\"). The mean prototype classification accuracy of these classes...",
+      "page": 3
+    },
+    {
+      "image": "2608.15632_figures/2608.15632_fig2.jpg",
+      "caption": "Figure 2: Geometric signatures of multiclass classification (a) Per-class accuracy vs. empirical radius R: sharp decrease across the narrow empirical R range and a wide spread at fixed R. After random rotation of within-class variability δx (δ-rotation), the accuracy is perfect. (b) We artificially scale the variability δx→(R⋆/R)δx. The accuracy decreases fast but stabilizes at 39% accuracy for R⋆→∞due to strong true centroid correlations (blue line). After random rotation of the variability δ-rotation, the accuracy is well described by the isotropic model (MSE = 1.26 × 10−3, orange line). Additional breaking of centroid-centroid correlations (full rotation) has a very small effect; lines...",
+      "page": 5
+    },
+    {
+      "image": "2608.15632_figures/2608.15632_fig3.jpg",
+      "caption": "Figure 3: Sparsity and heavy tail statistics: (a) K-way classification of rivals chosen by centroid projection variance σµ converges quickly to the full P-way classification. (b) We define the strongest rival of each example µ∗(x) = arg maxµ̸=k tµ(x), and count the number of examples captured by each rival. The strongest rival of each class captures more than half of the examples on average, with 90% of the examples captured by only 14.4 rivals. (c) The standardized centroid projections sµ (see Eq.4) have heavy tail power law statistics, which inflate the extreme values that control classification accuracy. The magnified panel shows the log density of the far tail.",
+      "page": 7
+    },
+    {
+      "image": "2608.15632_figures/2608.15632_fig4.jpg",
+      "caption": "Figure 4: Centroid-aligned theory matches per-class accuracy across modalities. (a, c) Per-class accuracy vs. empirical radius R for DINOv3 ViT-7B on ImageNet (P=1000, K=20) and Qwen3-32B on TinyStories next-token prediction (P=320, K=20). Per-class scatter is presented with empirical binned mean. The λ-rescaled theory (λ⋆=1.316, 1.119 resp.) accounts for the empirical accuracy accurately. (b, d) Accurate per-class prediction of the accuracy. MSE=1.83 × 10−3 (vision) and 4.43 × 10−3 (language), Pearson r=0.951 and 0.955. (e) Optimal λ⋆vs. heavy tail measurement (1/ν) on representations for 15 vision backbones, 14 autoregressive language models, 4 masked language models, and 3 audio models....",
+      "page": 9
+    },
+    {
+      "image": "2608.15632_figures/2608.15632_fig5.jpg",
+      "caption": "Figure 5: Centroid vs trained linear-readout accuracy, per backbone. The gap between methods is small (see also Table 5).",
+      "page": 16
+    }
+  ],
+  "figure": "2608.15632_figures/2608.15632_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

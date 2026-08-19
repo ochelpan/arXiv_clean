@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2608.15715",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Continuous Quantum Feedback Control via Kraus-Parameterized Belief Reinforcement Learning",
+  "authors": "Priyanshi Singh, Krishna Bhatia",
+  "abstract": "Quantum feedback control requires acting on noisy continuous measurement records without direct access to the underlying quantum state. We propose Kraus-Parameterized Belief Reinforcement Learning, a pipeline in which a recurrent encoder, constrained to the Stiefel manifold, produces density-matrix estimates that are guaranteed positive-semidefinite and trace-normalized by construction, embedding quantum state geometry directly into the learning loop. A Proximal Policy Optimization (PPO) actor then maps these physically valid belief states to continuous control actions. On a simulated continuously monitored qubit, the resulting policy achieves stable feedback control, maintaining a measurement-conditioned belief fidelity of approximately 0.77-0.80 and exhibiting substantially lower return variance than a parameter-matched LSTM-history baseline across both nominal and out-of-distribution conditions. Although gains in raw target fidelity are modest, the geometric constraint guarantees a physically valid, interpretable belief representation and yields markedly more stable control under measurement inefficiency and abrupt dynamics switches. These results indicate that physics-informed neural memory is a practical inductive bias for reliable quantum feedback control.",
+  "url": "http://arxiv.org/abs/2608.15715v1",
+  "pdf": "https://arxiv.org/pdf/2608.15715v1",
+  "type": "theory",
+  "summary": "The paper introduces Kraus-Parameterized Belief Reinforcement Learning for controlling open quantum systems based only on noisy measurements. By constraining the learned belief state ($\\hat{\rho}_t$) to maintain physical validity (PSD and trace normalization), the method ensures reliable control policies. This approach proves more stable than standard deep learning baselines, particularly when system dynamics change unexpectedly.",
+  "main_problem": "The core challenge is achieving continuous quantum feedback control when only noisy measurement records are available, without direct access to the true underlying quantum state.",
+  "main_result": "The proposed Kraus-Belief PPO method achieves stable feedback control with significantly lower return variance than unconstrained baselines, especially under out-of-distribution conditions.",
+  "method": "It uses a two-stage pipeline: a Kraus-constrained recurrent encoder estimates the density matrix ($\\hat{\rho}_t$), which is then fed into a Proximal Policy Optimization (PPO) actor for action selection.",
+  "model_or_system": "The system modeled is a continuously monitored open quantum qubit, whose dynamics are governed by a stochastic master equation. Control involves applying a continuous scalar field $u_t$ to steer the state towards a target pure state $\rho^\\star$.",
+  "key_observables": "Measurement-conditioned belief fidelity ($\\sim 0.77–0.80$), return variance, mean episodic return, and physical validity metrics (PSD check, trace error).",
+  "important_parameters": "Control action bounds ($u_t \\in [-4, 4]$), measurement efficiency ($\\eta$), and the PPO hyperparameters.",
+  "main_assumptions": "The primary assumption is that enforcing physics-informed neural memory via the Kraus constraint acts as a practical inductive bias for reliable quantum feedback control.",
+  "figures_summary": "Figure 1 illustrates the comparison between the Kraus-belief PPO pipeline and the LSTM baseline, highlighting how the Stiefel manifold projection enforces physical state constraints.",
+  "paper_structure": "The paper defines the problem in terms of a POMDP, proposes the two-stage Kraus-Belief PPO method (encoder pretraining followed by RL control), compares it against an unconstrained LSTM baseline across nominal and OOD conditions, and analyzes performance metrics like variance stability.",
+  "why_interesting": "This work directly addresses the practical implementation gap in quantum control theory by embedding fundamental physical constraints (like PSD) into the learning architecture, making RL policies applicable to real-world open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.15715_figures/2608.15715_fig1.jpg",
+      "caption": "Fig. 1. Kraus-belief PPO pipeline. The observation history ht passes through a frozen pretrained Kraus encoder (via a Stiefel manifold projection) to produce a physically valid density-matrix belief ˆρt. Explicit physical features ϕt are then passed to the PPO actor. The LSTM baseline replaces this entire belief stage with a plain recurrent encoder.",
+      "page": 3
+    }
+  ],
+  "figure": "2608.15715_figures/2608.15715_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 4,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.15889",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Resource-Efficient QUBO Formulation for Anchored Currency Arbitrage",
+  "authors": "Eric A. F. Reinhardt, Adam J. Hauser",
+  "abstract": "Currency arbitrage (CA) involves trading currencies in cycles to exploit discrepancies in market valuations. Quadratic unconstrained binary optimization (QUBO) involves minimizing a quadratic cost (energy) function of binary variables. Previous works have explored the use of QUBO to solve CA problems. We build on these previous works by introducing realistic constraints such as beginning cycles from a held currency and accounting for per-transaction trading fees. We show that this formulation requires fewer logical variables (qubits) than previous QUBO encodings in the literature. We derive provably sufficient penalty weights for its constraint terms. We also introduce an exact anchor-gauge reweighting of the exchange rates that compresses the QUBO coefficient range from the rate scale to the arbitrage scale, addressing the finite analog precision of annealing hardware. We demonstrate the efficacy of this formulation using classical simulated annealing against an exact Held-Karp baseline on the same CPU and show that it can effectively find profitable cycles and account for trading fees. Finally, we benchmark faithful implementations of five prior QUBO encodings at matched sampler budgets and show that the proposed encoding is the only one to recover the exact fee-adjusted optimum.",
+  "url": "http://arxiv.org/abs/2608.15889v1",
+  "pdf": "https://arxiv.org/pdf/2608.15889v1",
+  "type": "both",
+  "summary": "This paper reformulates currency arbitrage detection as a resource-efficient QUBO problem suitable for quantum annealing. The authors introduce novel constraints, such as fixed starting currencies and transaction fees, and employ an 'anchor-gauge reweighting' technique to stabilize the Hamiltonian coefficients. They demonstrate that their encoding is superior in qubit count and accuracy compared to existing methods.",
+  "main_problem": "The paper addresses the computationally hard problem of finding maximally profitable currency arbitrage cycles by formulating it as a Quadratic Unconstrained Binary Optimization (QUBO) problem.",
+  "main_result": "The proposed QUBO encoding requires fewer logical qubits than prior methods and is shown to be the only one tested that recovers the exact fee-adjusted optimum when benchmarked against multiple existing encodings.",
+  "method": "They introduce novel constraints, including cycle anchoring and per-transaction fees, into the QUBO formulation. A key technical step is an 'anchor-gauge reweighting' of exchange rates to compress coefficients for use on quantum annealers.",
+  "model_or_system": "The model uses a QUBO Hamiltonian ($H = H_c + H_p$) derived from currency log-returns, which can be mapped onto an Ising Hamiltonian suitable for quantum annealing. The system involves multiple currencies and potential trading paths.",
+  "key_observables": "Profitability (log-return), number of logical qubits required, score gap relative to the exact optimum, and computational time/reads used in simulated annealing.",
+  "important_parameters": "Penalty weights ($A_{\text{col}}, A_{\text{row}}$, etc.), length penalty coefficient ($\\gamma$), maximum cycle length ($T$), and the scale mismatch between log-rates and arbitrage profits.",
+  "main_assumptions": "The primary assumption is that the problem can be reduced to finding simple, contiguous cycles. They also assume that gauge fixing successfully preserves the optimal cycle structure for hardware implementation.",
+  "figures_summary": "Figures illustrate rate perturbations, the decomposition of QUBO couplings (column-clique and adjacent-step), and performance comparisons showing qubit count vs. literature methods.",
+  "paper_structure": "The paper builds upon prior work by refining the QUBO formulation to include realistic constraints (anchoring, fees). It derives provably sufficient penalty weights and introduces gauge reweighting for hardware compatibility. Finally, it benchmarks this novel encoding against five previous methods using classical simulation.",
+  "why_interesting": "While focused on finance, the core methodology—mapping a complex combinatorial optimization problem onto a structured QUBO Hamiltonian with rigorous weight derivation—is directly relevant to designing efficient quantum algorithms for general constrained optimization problems in physics simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.15889_figures/2608.15889_fig1.jpg",
+      "caption": "Figure 1: Extreme dummy exchange rate matrix with proﬁt inserted. Green indicates an exchange rate was perturbed upward and orange indicates an exchange rate was perturbed downward.",
+      "page": 2
+    },
+    {
+      "image": "2608.15889_figures/2608.15889_fig2.jpg",
+      "caption": "Figure 2: Decomposition of the connectivity graph of the QUBO for the example in Fig. 1: column-clique couplings (a) and adjacent-step couplings (b).",
+      "page": 6
+    },
+    {
+      "image": "2608.15889_figures/2608.15889_fig3.jpg",
+      "caption": "Figure 3: Decomposition of the connectivity graph (continued): row-uniqueness couplings (a) and the full coupling graph (b).",
+      "page": 7
+    },
+    {
+      "image": "2608.15889_figures/2608.15889_fig4.jpg",
+      "caption": "Figure 4: Logical qubit count (a) and physical qubit count after minor-embedding onto the Pegasus-16 graph (b) as a function of the number of currencies, for a maximum cycle length of six.",
+      "page": 8
+    },
+    {
+      "image": "2608.15889_figures/2608.15889_fig5.jpg",
+      "caption": "Figure 5: Logical qubit count (a) and physical qubit count after minor-embedding onto the Pegasus-16 graph (b) as a function of maximum cycle length, for 14 currencies.",
+      "page": 8
+    }
+  ],
+  "figure": "2608.15889_figures/2608.15889_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

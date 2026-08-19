@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.16362",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Optimizing Subspace Expansion in Quantum Chemistry through Operator Selection and Reference State Choice",
+  "authors": "Konstantin Lamp, Alejandro D. Somoza, Elias Walter, Marina Walt, Michael Marthaler, Maria Fernanda Juarez, Birger Horstmann",
+  "abstract": "The Virtual Quantum Subspace Expansion (VQSE) extends the Variational Quantum Eigensolver (VQE) by leveraging additional measurements on the reference state to capture the influence of excluded virtual orbitals. This makes VQSE attractive for chemical applications where accurate energy differences along potential energy surfaces are crucial for modeling reaction rates and kinetics. In this work, we analyze VQSE performance on H$_2$ dissociation including references that use Hartree--Fock molecular orbitals with broken spin symmetry. We identify two mechanisms which affect accuracy: overlap of the reference state with the exact full configuration interaction (FCI) wavefunction and operator pool expressivity. We show these mechanisms are strongly co-dependent. When operators are restricted to act only from the active to the virtual space, results become highly sensitive to the reference, and enlarging the active space does not guarantee improved accuracy. In this case, prioritizing reference overlap over energy minimization is therefore essential. Adding single excitations and number operators within the active space recovers the accuracy of MR-CISD (multi-reference configuration interaction singles and doubles) regardless of the reference. In our noisy hardware experiments, we achieve chemical accuracy by adding additional operators and using strict regularization. These findings motivate careful co-design of reference fidelity, pool expressivity, and hardware constraints for practical VQSE deployment.",
+  "url": "http://arxiv.org/abs/2608.16362v1",
+  "pdf": "https://arxiv.org/pdf/2608.16362v1",
+  "type": "both",
+  "summary": "This paper analyzes the Virtual Quantum Subspace Expansion (VQSE) method to enhance quantum chemical accuracy beyond standard VQE. It identifies that achieving high precision requires careful management of both the initial reference state quality and the expressivity of the available operators. The findings provide crucial guidelines for deploying such methods on noisy, limited-qubit hardware.",
+  "main_problem": "The primary goal is improving the accuracy of quantum chemistry calculations, especially for energy differences along potential energy surfaces crucial for modeling chemical kinetics.",
+  "main_result": "The authors demonstrate that VQSE can achieve chemical accuracy by carefully co-designing reference fidelity and operator pool expressivity, even when restricted to a small subset of operators on noisy hardware.",
+  "method": "They utilize the Virtual Quantum Subspace Expansion (VQSE), an extension of VQE, which expands the variational state using measurements involving virtual orbitals derived from various Hartree-Fock references.",
+  "model_or_system": "The study focuses on electronic structure problems, benchmarked by $\text{H}_2$ dissociation. The Hamiltonian is treated in second quantization using molecular orbitals, and methods range from HF theory to FCI approximations.",
+  "key_observables": "Accurate energy differences along the Potential Energy Surface (PES), overlap of the reference state with the exact Full CI wavefunction, and total spin expectation value $\\langle \\hat{S}^2 \rangle$.",
+  "important_parameters": "The degree of operator truncation (e.g., retaining top 10% operators) and the choice of initial reference state (RHF, UHF, GHF).",
+  "main_assumptions": "Approximations include using VQE/VQSE on NISQ devices; key assumptions involve the co-dependence of reference overlap and operator expressivity.",
+  "figures_summary": "Figures compare energy errors ($\text{E}_{\text{ASCI}}$ vs $\text{E}_{\text{FCI}}$) across different HF methods, showing that VQSE can maintain accuracy even with significant operator truncation (e.g., 10% operators).",
+  "paper_structure": "The paper analyzes the theoretical limitations of QSE/VQSE by identifying two co-dependent error sources: reference overlap and operator pool expressivity. It then demonstrates recovery of high-level correlation energy (MR-CISD) accuracy by adding specific excitations, culminating in noisy hardware experiments.",
+  "why_interesting": "The work directly addresses the practical implementation challenges of quantum chemistry algorithms on near-term quantum hardware by providing rigorous guidelines for optimizing resource usage and fidelity.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.16362_figures/2608.16362_fig1.jpg",
+      "caption": "Figure 1. Representation of VQSE reference states used in this work. After selecting active orbitals, we either approx- imately solve the CAS problem using CI or VQE or project the FCI solution to obtain Truncated FCI. VQSE expands any of these references inside the active space to recover FCI determinants.",
+      "page": 5
+    },
+    {
+      "image": "2608.16362_figures/2608.16362_fig2.jpg",
+      "caption": "Figure 3. Energy error (left column) and overlap error (right column) of CASCI calculations with respect to FCI as a func- tion of active spin orbitals (ASO) and bond distance for RHF (top row) and UHF (bottom row) in the cc-pvtz basis. The axes are arranged such that the dissociation limit and the FCI limit meet at the center, so that low errors converge toward the middle of the plot. Chemical accuracy (1.6 × 10−3 Eh) is indicated by a black contour line in the energy panels. GHF results are identical to UHF and omitted for clarity.",
+      "page": 6
+    },
+    {
+      "image": "2608.16362_figures/2608.16362_fig3.jpg",
+      "caption": "Figure 2. H2 HF and FCI dissociation energy (top) in cc-pvtz basis, corresponding spin values (middle) and the overlap of HF with FCI (bottom) for singlet RHF (green), triplet ROHF (red), GHF (blue) and singlet UHF (orange). The FCI results are shown as black lines.",
+      "page": 6
+    },
+    {
+      "image": "2608.16362_figures/2608.16362_fig4.jpg",
+      "caption": "Figure 4. Number of non-zero determinants in the CASCI solution for the different HF methods as a function of active spin orbitals. RHF consistently requires fewer determinants than UHF or GHF to represent the CASCI wavefunction for a given active space size. The shaded area indicates the stan- dard deviation introduced by averaging over bond distances.",
+      "page": 7
+    },
+    {
+      "image": "2608.16362_figures/2608.16362_fig5.jpg",
+      "caption": "Figure 5. a) and b): Increase of energy accuracy (difference to FCI). c) and d): Decrease in spin contamination (difference to 0) from VQE over VQSE(V) to VQSE(S+V) for the different HF methods. The left column (a) and c)) contains results for the smallest active space with 4 spin orbitals, the right column (b) and d)) contains data from the largest active space with 10 spin orbitals. The chemical accuracy is indicated as a dashed-dotted line. Note that broken spin symmetry references (UHF/GHF) show improved VQE energies but may exhibit reduced VQSE(V) accuracy due to smaller FCI overlap.",
+      "page": 8
+    }
+  ],
+  "figure": "2608.16362_figures/2608.16362_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

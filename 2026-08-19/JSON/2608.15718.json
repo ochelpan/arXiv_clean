@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.15718",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Kernel k-Means for Credit-Card Fraud Detection:A Controlled Benchmark on Real Transaction Data",
+  "authors": "Muhammad Faryad",
+  "abstract": "We benchmarked quantum kernel $k$-means against classical clustering for credit-card fraud detection on real transaction data, at up to \\MaxQubits{} qubits, under a protocol with separated selection and reporting data and matched search budgets. We find no robust quantum advantage: the sign of the difference depends on register size, all effect sizes are below $0.013$ ARI, and the single significant advantage we observe is fully explained by the number of configurations searched. We further show that ordinary hyperparameter choices move performance by considerably more than the quantum kernel does, that additional qubits degrade rather than improve performance through kernel concentration, and that the clustering framing itself fails at realistic class imbalance though kernel-based anomaly scoring does not. We regard the methodological contribution as the more durable one. The search-budget ablation in particular is inexpensive and, in our case, decisive: it converted a statistically significant advantage into a procedural artefact. We would encourage its routine use.",
+  "url": "http://arxiv.org/abs/2608.15718v1",
+  "pdf": "https://arxiv.org/pdf/2608.15718v1",
+  "type": "theory",
+  "summary": "This paper rigorously benchmarks quantum kernel k-means against classical clustering for fraud detection using real transaction data. The authors conclude that no robust quantum advantage exists, finding that performance differences are negligible and often attributable to experimental controls like search budgets. They recommend reframing the problem as anomaly scoring rather than standard clustering.",
+  "main_problem": "The paper benchmarks quantum kernel k-means against classical clustering for credit-card fraud detection to determine if a robust quantum advantage exists.",
+  "main_result": "No robust quantum advantage was found; observed differences were small, and any apparent gains were shown to be artifacts of the search budget or hyperparameter tuning rather than inherent quantum superiority.",
+  "method": "The authors compared performance using Adjusted Rand Index (ARI) across varying qubit counts ($n=2, 4, 8, 12$) by implementing kernel estimation via compute-uncompute tests on real transaction data.",
+  "model_or_system": "The model uses quantum feature maps $U(x)$ to induce a fidelity kernel $K(x,y) = \\langle\\psi_y|\\psi_x\rangle$ for clustering. The comparison is made against classical k-means using the same real transaction data.",
+  "key_observables": "Adjusted Rand Index (ARI), Area Under the ROC Curve (AUROC), and kernel concentration metrics.",
+  "important_parameters": "Number of qubits ($n$), search budget size, class imbalance ratio (e.g., 0.173% fraud rate).",
+  "main_assumptions": "The comparison protocol rigorously controls for selection bias by using separate development and held-out resamples; the study assumes noiseless quantum circuits.",
+  "figures_summary": "Figures show performance degradation with increasing qubits due to kernel concentration, demonstrate that bandwidth choice is more critical than feature map family, and illustrate the failure of clustering vs. the stability of anomaly scoring under severe class imbalance.",
+  "paper_structure": "The paper establishes a rigorous benchmarking protocol comparing quantum k-means to classical methods on real data. It systematically tests varying qubit sizes and circuit configurations, ultimately arguing that reframing the task as anomaly detection is necessary, but still finding no robust quantum advantage over tuned classical approaches.",
+  "why_interesting": "While not directly about AMO physics, the rigorous benchmarking methodology for assessing quantum advantage in machine learning tasks (like kernel methods) provides valuable lessons on how to design controlled experiments that distinguish true physical speedups from mere algorithmic artifacts or statistical noise.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.15718_figures/2608.15718_fig1.jpg",
+      "caption": "Figure 1: Class separation of the 28 principal components, measured as the standardised mean difference between fraudulent and legitimate transactions. The n-qubit experiments use the top n components; separation falls off sharply beyond the first eight.",
+      "page": 4
+    },
+    {
+      "image": "2608.15718_figures/2608.15718_fig2.jpg",
+      "caption": "Figure 2 and Table 1 report held-out performance at 2, 4, 8, 12 qubits. Three observations stand out. First, all kernel methods—quantum and classical—clearly outperform plain k-means, which reaches only 0.686 ± 0.083 at eight qubits. Spectral clustering performs poorly throughout. The interesting comparison is therefore between kernels, not between quantum and k-means. Second, the quantum kernel is not uniformly better or worse. At two and four qubits it is behind the tuned classical kernel, significantly so at four (∆ARI = −0.0119, p = 0.025). At eight qubits it is ahead (∆ARI = +0.0086, p = 0.013, 95% CI [+0.0020,+0.0153]). At twelve the difference is not distinguishable from zero (∆ARI =...",
+      "page": 4
+    },
+    {
+      "image": "2608.15718_figures/2608.15718_fig3.jpg",
+      "caption": "Figure 3 shows the development score of all 264 configurations, grouped by family. Within-family spread is far larger than between-family spread: the best member of almost every family reaches a similar score, while the worst members are close to zero. Restricting to the best configuration per bandwidth (Fig. 4a), performance varies from 0.707 to 0.870 at eight qubits—a range of 0.163, roughly 14× the largest quantum- versus-classical difference we measure (0.0119). This corroborates Shaydulin and Wild [10] and Canatar et al. [16] in an applied setting and has a direct practical consequence: a quantum kernel benchmark that does not report its bandwidth has not reported its model.",
+      "page": 4
+    },
+    {
+      "image": "2608.15718_figures/2608.15718_fig4.jpg",
+      "caption": "Figure 2: (a) Held-out adjusted Rand index against register size for all methods; error bars are standard deviations over 30 resamples. (b) Paired quantum-minus-classical difference with 95% confidence intervals. The sign of the difference changes with register size and its magnitude never exceeds 0.012.",
+      "page": 5
+    },
+    {
+      "image": "2608.15718_figures/2608.15718_fig5.jpg",
+      "caption": "Figure 3: Development-set adjusted Rand index for all 264 feature-map configurations at each register size, grouped by family (one point per configuration, jittered horizontally). Orange bars mark the best configuration in each family; the dashed red line is the best classical kernel. Variation within a family exceeds variation between families.",
+      "page": 6
+    }
+  ],
+  "figure": "2608.15718_figures/2608.15718_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

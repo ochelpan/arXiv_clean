@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.16436",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Dynamical spectral functions from bitstring-sampled quantum subspaces: entanglement, not one-body magic, tracks the sampling cost",
+  "authors": "Nicolás Bonilla Vargas",
+  "abstract": "Sample-based quantum diagonalization (SQD) and quantum-selected configuration interaction (QSCI) are the electronic-structure methods with most hardware traction, yet their canonical target -- the ground-state energy -- is where classical methods have caught up. We move the target to dynamics and the resource question. From one bitstring-sampling primitive -- computational-basis measurements of a shallow real-time circuit, with no Hadamard or controlled unitaries -- we reconstruct, from sampled subspaces, the single-particle spectral functions $A(ω)$ and $A(k,ω)$ and the neutral-sector dynamical structure factors $S(q,ω)$ and $S^{zz}(q,ω)$, each built classically in the Lehmann representation from its own subspace. The reconstruction matches exact diagonalization on Hubbard chains and, for $A(ω)$, across nineteen molecules (FCI-verified to $<10^{-5}$ Ha), and runs on the IBM Heron processor. Second, we ask which resource controls the cost -- the determinant support $|\\mathcal{S}|$ the sampler must populate. On number-conserving states the fermionic AntiFlatness collapses to one 1-RDM invariant, $\\mathcal{F}_1 = 4\\,\\mathrm{tr}[γ(1-γ)] = 2N_u$. An orbital-rotation (Gaussian) invariant while $|\\mathcal{S}|$ is basis dependent, $\\mathcal{F}_1$ is provably decoupled from the cost; the cost is instead lower-bounded and tracked by the entanglement -- the minimal bond dimension $χ$ (Spearman $ρ= 0.90$). One-body magic is thus a faithful multireference diagnostic but an unreliable cost predictor; any genuine advantage lives in the non-Gaussianity of the higher-body cumulants. We prove moment exactness and a sampling bound polynomial in $|\\mathcal{S}|$, independent of Hilbert-space dimension. Self-consistent configuration recovery improves the subspace under device noise, while a learned generative model does not beat that classical baseline.",
+  "url": "http://arxiv.org/abs/2608.16436v1",
+  "pdf": "https://arxiv.org/pdf/2608.16436v1",
+  "type": "both",
+  "summary": "This work develops a method to calculate dynamic properties, such as spectral functions, in strongly correlated electron systems using limited quantum resources. By sampling subspaces via simple measurements, the authors show that the computational cost is dictated by entanglement structure ($\\chi$), not by easily measurable one-body quantities. This advances the field by providing a resource-aware roadmap for simulating complex electronic dynamics on current hardware.",
+  "main_problem": "To extend quantum subspace diagonalization from static ground-state energies to continuous, frequency-resolved dynamics for electronic structure calculations.",
+  "main_result": "The sampling cost is governed by the entanglement (minimal bond dimension $\\chi$), not by one-body invariants like Fermionic AntiFlatness ($F_1$).",
+  "method": "Reconstruct spectral functions and dynamical structure factors classically from sampled subspaces using only computational-basis measurements on a quantum processor.",
+  "model_or_system": "The methods are applied to electronic structure problems, validated against Hubbard chains and molecular systems, focusing on charged and neutral sectors of many-electron Hamiltonians.",
+  "key_observables": "Single-particle spectral functions $A(\\omega)$, momentum-resolved $A(k, \\omega)$, and dynamical structure factors $S(q, \\omega)$.",
+  "important_parameters": "The resource cost is tracked by the determinant support size $|\\mathcal{S}|$ and lower-bounded by entanglement ($\\chi$).",
+  "main_assumptions": "The method assumes moment exactness can be achieved with a sampling bound polynomial in $|\\mathcal{S}|$, independent of Hilbert-space dimension.",
+  "figures_summary": "not specified",
+  "paper_structure": "The paper introduces the methodology by moving the target from ground state to dynamics, details the reconstruction process using shallow measurements, and then analyzes the resource cost, contrasting one-body diagnostics with entanglement measures.",
+  "why_interesting": "It provides a concrete pathway for simulating complex many-body dynamics (like spectral functions) on near-term quantum hardware by identifying the true scaling bottleneck (entanglement) rather than relying on simplified local observables.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.16436_figures/2608.16436_fig1.jpg",
+      "caption": "Figure 1. One-body magic F1 is decoupled from the sample-based determinant support |S|. (a) Nineteen FCI-verified molecules at equilibrium and dissociation: in the static-correlation regime F1 and |S| rise together (Pearson r = 0.80 on log2 |S|), yet F1 approaches its maximum while |S| stays a modest fraction of the active-space sector. (b) Hubbard chains at fixed filling (three representative sweeps; the full 30-point set is Fig. 2): increasing on-site repulsion U raises F1 but lowers the site-basis support |S| as the ground state localizes, inverting the sign of the correlation. (c) Free fermions (U = 0): a single Slater determinant with F1 = 0, whose site-basis support nonetheless grows...",
+      "page": 7
+    },
+    {
+      "image": "2608.16436_figures/2608.16436_fig2.jpg",
+      "caption": "Figure 2. The resource thesis over 74 exact ground states. Nineteen molecules at equilibrium and dissociation, a Hubbard interaction sweep, and a matched chain/two-leg-ladder pair (all exact diagonalization). (a) The determinant support |S| tracks the minimal bond dimension χ in every family (pooled Spearman ρ = 0.72; the geminal witness χ=2, |S|=2K is the deliberately loose lower bound). (b) One-body magic F1 does not (pooled Spearman ρ = 0.60 for F1 vs |S| over the same 74 states): the Hubbard branch runs the wrong way (U ↑⇒F1 ↑, |S|↓) and the chain/ladder points share the same F1 at |S| differing by up to ∼2.2×. Cost is lower-bounded and tracked by the basis-dependent χ, not by the...",
+      "page": 8
+    },
+    {
+      "image": "2608.16436_figures/2608.16436_fig3.jpg",
+      "caption": "Figure 3. The method, validated—and its convergence matches the theorem. (a) The bitstring- sampled single-particle spectral function reproduces the exact A(ω) (Hubbard L = 6, U/t = 8; broadening η = 0.15 t) to relative-L1 0.017—the exact (filled) and reconstructed (dashed) curves are indistinguishable— and the reconstructed spectral weights obey the exact addition-branch sum rule R A+ dω = 0.500 = 1 −⟨np⟩ to machine precision (the panel shows the addition branch ω > 0; the full A integrates to 1). (b) Convergence of the relative-L1 error with the Krylov order K (number of time-evolution steps sampled), seed-averaged over eight independent runs (band = standard deviation). Two regimes...",
+      "page": 10
+    },
+    {
+      "image": "2608.16436_figures/2608.16436_fig4.jpg",
+      "caption": "Figure 4. Momentum-resolved spectral function: the exact dynamical target. The single-particle spectral function A(k, ω) of the half-filled Hubbard chain (U/t = 8, L = 12, Lorentzian broadening η = 0.18 t), computed exactly from the resolvent ⟨ϕ|(z −ˆH)−1|ϕ⟩via the Haydock continued fraction [54] over the full (N±1) sectors (equivalent to the Lehmann sum in exact arithmetic)—the frequency- and momentum-resolved observable that sample-based diagonalization targets but its energy-only output cannot itself deliver. The two dispersing Hubbard bands—electron removal (lower, ω < 0; photoemission) and electron addition (upper, ω > 0; inverse photoemission)—are separated by the correlation-driven...",
+      "page": 11
+    },
+    {
+      "image": "2608.16436_figures/2608.16436_fig5.jpg",
+      "caption": "Figure 5. The momentum-resolved spectral function reconstructed from bitstring-sampled subspaces, overlaid on the exact target. (a) Bitstring-sampled A(k, ω) (dashed) versus the exact Haydock result (solid, shaded) at three representative momenta (k = 0, π/2, π; Hubbard chain, L = 8, U/t = 8, η = 0.18 t; curves offset vertically by k), reconstructed by time-evolution configuration sampling in the (N±1) sectors and the classical Lehmann assembly of Eq. (2)—not the exact target of Fig. 4, but the sampled output. (b) Relative-L1 error of the sampled reconstruction at every physical momentum, at a subspace of 85% of the (N±1) sector: below 0.5% throughout (mean 2.2 × 10−3). The reconstruction...",
+      "page": 12
+    }
+  ],
+  "figure": "2608.16436_figures/2608.16436_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

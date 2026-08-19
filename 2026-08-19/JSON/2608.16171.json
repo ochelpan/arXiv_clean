@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2608.16171",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Rare-event sampling for stochastic dynamics in network systems using cluster updates",
+  "authors": "Jiazheng Sun, James Moody, Thomas Barthel",
+  "abstract": "Understanding the stochastic evolution in complex networks is a central challenge across physics, biology, engineering, social science, and finance. The most consequential macroscopic events, like cascading failures in communication networks, widespread epidemic outbreaks, and rapid shifts in societal opinions, often emerge from a confluence of rare, localized stochastic processes and need to pass certain bottlenecks. Standard forward-time simulation algorithms like the Gillespie method are inefficient for the investigation of such phenomena due to catastrophic rejection rates. Advanced rare-event techniques like splitting methods and transition-path sampling often suffer from kinetic trapping, path degeneracy, genealogical correlations, or critical slowing down when applied to complex heterogeneous networks. We propose to overcome this challenge by establishing a novel technique called conditional-path Monte Carlo (CPMC), inspired by loop algorithms from equilibrium condensed-matter physics. By employing non-local updates on spacetime clusters without rejections, CPMC generates a Markov chain of trajectories that all strictly respect the targeted macroscopic boundary conditions like the occurrence of a massive network failure. We demonstrate the framework's potential by performing a simple risk factor analysis for rare large-scale epidemic outbreaks in SIS dynamics on kinship networks.",
+  "url": "http://arxiv.org/abs/2608.16171v1",
+  "pdf": "https://arxiv.org/pdf/2608.16171v1",
+  "type": "theory",
+  "summary": "This paper introduces Conditional-Path Monte Carlo (CPMC), an advanced simulation technique designed to overcome the severe inefficiencies of standard methods when studying rare events in stochastic network dynamics. By performing non-local updates across entire spacetime clusters, CPMC accurately samples trajectories that satisfy complex macroscopic constraints without suffering from vanishing acceptance rates. This provides a powerful tool for analyzing critical risk factors in fields ranging from epidemiology to finance.",
+  "main_problem": "The central challenge is efficiently simulating stochastic evolution in complex networks when investigating rare macroscopic events, such as large-scale epidemic outbreaks or cascading failures.",
+  "main_result": "The proposed Conditional-Path Monte Carlo (CPMC) method successfully generates trajectories respecting hard macroscopic boundary conditions without suffering from the catastrophic rejection rates or critical slowing down inherent to standard simulation techniques.",
+  "method": "CPMC is a novel rare-event sampling technique inspired by loop algorithms, employing non-local updates on spacetime clusters of the entire trajectory rather than step-by-step local integration.",
+  "model_or_system": "The study focuses on stochastic dynamics modeled using the Susceptible-Infectious-Susceptible (SIS) model applied to complex network structures, such as kinship networks. The general framework applies to any system exhibiting rare, constrained macroscopic transitions.",
+  "key_observables": "Macroscopic boundary conditions (e.g., minimum outbreak size $N_{I}^{\\min}$), conditional probabilities like the probability of being patient zero ($p_0^i$), and mean infection counts $\\langle N_I(t) \rangle$.",
+  "important_parameters": "Infection rate ($\\alpha$) relative to recovery/removal rates, network structure metrics like closeness centrality ($c_i$).",
+  "main_assumptions": "The method assumes that the trajectory can be mapped effectively onto an intermediate graph configuration $g$ using Swendsen-Wang-like updates for cluster identification.",
+  "figures_summary": "Figure 1 motivates the work by showing rare, large outbreaks on a contact network. Figure 2 illustrates the core mechanism: mapping a trajectory $\\sigma$ to a compatible graph $g$ and identifying spacetime clusters $\\{C_k\\}$. Figure 3 analyzes risk factors using centrality measures. Figure 4 compares mean infection counts from CPMC against standard SSA simulations.",
+  "paper_structure": "The paper first establishes the physical problem (rare events in networks) and critiques existing methods (Gillespie, TPS, etc.). It then introduces the theoretical framework of CPMC, detailing its non-local cluster updates. The bulk of the work applies this method to the SIS model on real-world networks, validating it by comparing results against known simulations and performing risk factor analysis.",
+  "why_interesting": "While focused on classical stochastic processes, the methodology draws explicit inspiration from loop algorithms used in quantum Monte Carlo (QMC) for equilibrium physics. The development of a non-local update scheme that bypasses rejection sampling is highly relevant to simulating complex dynamics in many-body or open quantum systems where rare transitions are key.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.16171_figures/2608.16171_fig1.jpg",
+      "caption": "FIG. 1. Case study of epidemic outbreak sizes. For the real-world contact network of a village in rural India with N = 519 nodes (ver- tex degree average 9.7 and standard deviation 7.0) [43], we simulate a susceptible-infectious-recovered (SIR) model with synchronous up- dates, infection probability 0.015, and a fixed recovery time of 13 rounds (days). The figure shows the distribution of the outbreak sizes and exemplary transmission trees. In the vast majority of cases, the epidemic fades, reaching fewer than five households. In rare cases, however, the transmission proceeds to well-connected nodes which then spread to many, reaching more than 20% of the households.",
+      "page": 2
+    },
+    {
+      "image": "2608.16171_figures/2608.16171_fig2.jpg",
+      "caption": "FIG. 2. Example for a cluster update in SIS dynamics. (a) A trajectory σ on five nodes with node 4 as patient zero and three infected nodes at the final time. (b) A compatible graph g. Vertices at state-changing events in σ are indicated by orange boxes and background vertices are indicated by red boxes. (c) To simplify cluster identification for the human eye, we have removed all vertices that ultimately have no free state. (d) Cluster representation of the graph g, where each red solid time segment with label “k” carries the state ak = 0, 1 of a free cluster Ck and each red dashed time segment with label “¯k” carries the negated state ¯ak = 1, 0 of cluster Ck. (e) Flipping the states of...",
+      "page": 3
+    },
+    {
+      "image": "2608.16171_figures/2608.16171_fig3.jpg",
+      "caption": "FIG. 3. Risk factor analysis for rare SIS outbreaks. CPMC samples SIS trajectories conditioned on a single infected node at t = 0 and outbreak size N I(T) ≥N I min, where N I(t) is the number of infected nodes. (a) The 185-node kinship network A, with nodes colored according to the probability p0 i [Eq. (7a)] of being patient zero. (b) p0 i versus the closeness centrality ci [Eq. (8)] for the 8623-node network B, each point representing one node. (c) Network A colored according to the probability pI i [Eq. (7b)] for getting infected during the outbreak. (d) pI i versus ci for network B. The model parameters are γ = 1 and (α, T, N I min) = (0.35, 10, 30) for network A [panels (a) and (c)]...",
+      "page": 4
+    },
+    {
+      "image": "2608.16171_figures/2608.16171_fig4.jpg",
+      "caption": "FIG. 4. Validation of CPMC against Gillespie simulations on the 8623-node kinship network. Gray curves show representative tra- jectories satisfying the outbreak condition N I(T) ≥N I min = 1200. The mean ⟨N I(t)⟩obtained from CPMC (solid blue) agrees well with the SSA Gillespie simulations (dashed red). Here γ = 1, α = 0.6, and T = 20. Inset: unconditioned outbreak probability Pr \u0000 N I(T) ≥N I min | N I(0) = 1 \u0001 as a function of the infection rate. The blue point marks the rate used in the main panel. Error bars indicate one standard deviation, and results are averaged over 105 samples.",
+      "page": 4
+    }
+  ],
+  "figure": "2608.16171_figures/2608.16171_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 2,
+    "scars & prethermalization": 1,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.15754",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.IT"
+  ],
+  "is_primary_archive": true,
+  "title": "Designing Quantum Error Correcting Codes to fit decoders via Reinforcement Learning",
+  "authors": "Omer S. Sella, Robert Pinsler, Thomas Heinis",
+  "abstract": "We present a reinforcement learning (RL) approach to the co-design of stabilizer sets of Quantum Error Correcting Codes (QECCs) and decoders. We show how to produce a generative model that produces Bivariate Bicycle (BB) codes based on the choice of decoder. Specifically, we fix a decoder architecture and use Proximal Policy Optimisation (PPO) to train an agent over BB codes to maximise decoder performance under a depolarising channel noise model.",
+  "url": "http://arxiv.org/abs/2608.15754v1",
+  "pdf": "https://arxiv.org/pdf/2608.15754v1",
+  "type": "theory",
+  "summary": "This paper introduces an advanced RL approach to solve the co-design problem in Quantum Error Correction. By framing code generation as a Markov Decision Process, the authors train an agent using PPO to select optimal Bivariate Bicycle codes that maximize decoder performance against noise. This methodology advances the field by linking theoretical code construction directly to practical hardware limitations.",
+  "main_problem": "The core problem is the co-design of Quantum Error Correcting Codes (QECCs) and their associated decoders to maximize performance against physical noise.",
+  "main_result": "The authors demonstrate a framework using Reinforcement Learning (RL) to generate Bivariate Bicycle (BB) codes optimized specifically for a given decoder architecture under depolarizing channel noise.",
+  "method": "They employ Proximal Policy Optimisation (PPO) within a Markov Decision Process (MDP) framework, where actions modify the polynomial coefficients defining the code's parity check matrices.",
+  "model_or_system": "The system is quantum error correction on $n$ qubits subject to Pauli noise. Codes are represented by stabilizer sets derived from parity check matrices ($H_X, H_Z$), and performance is evaluated via Monte-Carlo simulation of logical error rates.",
+  "key_observables": "Decoder performance (physical-to-logical error rate), the reward function based on the area under the physical-error-rate curve, and the number of logical qubits ($k$).",
+  "important_parameters": "Code parameters defined by polynomials $a(x), b(x), a(y), b(y)$; noise model is depolarizing channel noise.",
+  "main_assumptions": "The current work fixes the decoder architecture while optimizing the code; it does not fully address engineering pairs based on detailed quantum device knowledge, and the reward function can be sensitive to integration limits.",
+  "figures_summary": "Figure 1 illustrates the physical-to-logical error rate curve used for calculating the RL reward. Other figures show coefficient heatmaps and distributions of logical qubits ($k$) across generated codes.",
+  "paper_structure": "The paper introduces the problem, details the mathematical framework (BB codes via polynomials), establishes the MDP formulation (State=matrices, Action=coefficient flip, Reward=performance integral), and applies PPO to train an agent to find optimal code parameters.",
+  "why_interesting": "This work provides a machine learning-driven methodology for optimizing quantum hardware components (codes) based on the performance of classical processing units (decoders), which is crucial for building fault-tolerant quantum computers.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.15754_figures/2608.15754_fig1.jpg",
+      "caption": "Figure 1: Physical-to-logical error rate curve explanation. The reward is calculated as the area between the performance curve and the constant function 1.",
+      "page": 5
+    },
+    {
+      "image": "2608.15754_figures/2608.15754_fig2.jpg",
+      "caption": "Figure 2: Coefficient heatmap showing hits per coefficient index for the codes in the l = 6, m = 6 dataset. Similar figures for other code sizes are provided in A, Figure 12.",
+      "page": 7
+    },
+    {
+      "image": "2608.15754_figures/2608.15754_fig3.jpg",
+      "caption": "Figure 3: Distribution of the number of logical qubits for the codes in the l = 6, m = 6 dataset. Similar figures for other code sizes are provided in A, Figure 10",
+      "page": 8
+    },
+    {
+      "image": "2608.15754_figures/2608.15754_fig4.jpg",
+      "caption": "Figure 4: Network architecture. Each of the actor and critic instantiates the architecture independently. The structure encoder (blue) has the ability to be warm-started as explained in Section 4.6 and kept frozen for the first N collector batches while the randomly initialised branches (teal/orange) settle. The fusion input size 323 = 64enc + 256mlp + 3k is independent of the code size. The MLP input width 2(lm)2, the token count 2l + 2m, and the policy-head sizes l+1, m+1 scale with l, m. All dimensions in the figure are shown for l = m = 6 and H = 3.",
+      "page": 12
+    },
+    {
+      "image": "2608.15754_figures/2608.15754_fig5.jpg",
+      "caption": "Figure 6: The encoder trained in advance by the multi-task loss of Section 4.6. A shared trunk feeding a curve head and a k-head. The parameters depend only on (H, dmodel, heads, layers), but not on (l, m), i.e., the token count 2l +2m varies with code size, but the token width 9+2H does not. The two task heads are discarded once training is done. The rest of the network (blue, ∼68K parameters at H=3) is carried over to the agent architecture in Figure 4.",
+      "page": 14
+    }
+  ],
+  "figure": "2608.15754_figures/2608.15754_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

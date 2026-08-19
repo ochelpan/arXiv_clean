@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.15112",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cs.LG",
+    "math-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Probability-Preserving Transformer for the Time-Dependent Schrödinger Equation",
+  "authors": "Mushtaq Ali, Muzamil Tariq, Niaz Ali Khan",
+  "abstract": "Solving the time-dependent Schrödinger equation (TDSE) via traditional numerical methods is computationally intensive. Transformer models offer a compelling alternative, but standard implementations rely on soft constraints that cannot rigorously guarantee probability conservation. Here, we introduce a Transformer architecture that enforces TDSE probability conservation as a hard constraint. The design intrinsically ensures unitarity across temporal evolution without requiring repeated retraining. Our empirical findings show that this hard-constraint approach is not only physically exact but also computationally superior to conventional soft-constraint methods.",
+  "url": "http://arxiv.org/abs/2608.15112v1",
+  "pdf": "https://arxiv.org/pdf/2608.15112v1",
+  "type": "theory",
+  "summary": "This paper introduces a Probability-Preserving Transformer (PPT) to solve the computationally demanding Time-Dependent Schrödinger Equation. By implementing a hard normalization layer, the architecture guarantees that the predicted wavefunction always conserves probability ($\\int |\\psi|^2 dx = 1$). The PPT demonstrates both physical accuracy and superior computational scaling compared to established numerical methods like Crank–Nicolson.",
+  "main_problem": "Traditional numerical solvers for the Time-Dependent Schrödinger Equation (TDSE) are computationally intensive, and standard Transformer models fail to rigorously guarantee probability conservation.",
+  "main_result": "The proposed Probability-Preserving Transformer (PPT) architecture enforces unit probability conservation as a hard constraint, achieving physical exactness and superior computational scaling compared to conventional methods.",
+  "method": "The authors introduce a specialized Transformer model that incorporates a hard normalization layer post-prediction. This layer rescales the raw network output using the calculated total probability to ensure $\\int |\\Psi|^2 dx = 1$.",
+  "model_or_system": "The system is governed by the TDSE, $i\\hbar\frac{\\partial\\psi}{\\partial t} = \\hat{H}\\psi$, typically benchmarked on a 1D infinite potential well. The evolution is modeled as a linear time-stepping process.",
+  "key_observables": "Total Probability ($\\int |\\psi|^2 dx$), Mean Squared Error (MSE), Root Mean Squared Error (RMSE), and computational runtime scaling with prediction horizon.",
+  "important_parameters": "The simulation uses $\\hbar=1, m=1, L=1$, and Dirichlet boundary conditions. The hard constraint requires a small stabilization constant $\\epsilon$.",
+  "main_assumptions": "The primary assumption is that enforcing probability conservation via an explicit architectural layer (hard constraint) is sufficient to yield physically accurate results, bypassing the need for complex penalty terms in the loss function.",
+  "figures_summary": "Figures compare wavefunction error and show computational scaling: CNM runtime scales linearly with prediction horizon ($N$), while PPT maintains near-constant inference time, demonstrating significant speedup for long-term predictions.",
+  "paper_structure": "The paper first establishes the physical problem (TDSE) and limitations of existing ML approaches. It then details the Multi-token PPT architecture, emphasizing the hard normalization layer. Results compare its performance metrics (probability conservation, MSE) and computational scaling against classical solvers like Crank–Nicolson Method.",
+  "why_interesting": "For researchers in open quantum systems or many-body dynamics, this work provides a highly efficient, machine learning surrogate model for time evolution that respects fundamental physical symmetries (unitarity/probability conservation), which is crucial for long-term simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.15112_figures/2608.15112_fig1.jpg",
+      "caption": "Figure 1:: Architectural schematic of the proposed multi-token PPT. The model comprises input time embeddings, a multi-head self-attention encoder, a linear output projection, and a final hard-normalization layer designed to preserve unit probability.",
+      "page": 4
+    },
+    {
+      "image": "2608.15112_figures/2608.15112_fig2.jpg",
+      "caption": "Figure 2:: Mean squared error (MSE) of the MLP as a function of training epochs, shown over 1, 000 iterations.",
+      "page": 4
+    },
+    {
+      "image": "2608.15112_figures/2608.15112_fig3.jpg",
+      "caption": "Figure 3:: Comparison of the real (Re(ψ), top) and imaginary (Im(ψ), bottom) components across the spatial domain.",
+      "page": 7
+    },
+    {
+      "image": "2608.15112_figures/2608.15112_fig4.jpg",
+      "caption": "Figure 4:: Pointwise wavefunction error across the spatial domain grid points.",
+      "page": 7
+    },
+    {
+      "image": "2608.15112_figures/2608.15112_fig5.jpg",
+      "caption": "Figure 5:: Computational scaling and relative perfor- mance speedup of the proposed PPT framework versus the sequential Crank–Nicolson solver.",
+      "page": 8
+    }
+  ],
+  "figure": "2608.15112_figures/2608.15112_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

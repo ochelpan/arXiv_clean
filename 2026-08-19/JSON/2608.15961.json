@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.15961",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "ChainForge: Characterizing Embedding as the Bottleneck in Quantum Annealer Workloads",
+  "authors": "Kanishka Jayathilake, Cordelia Brumley, Tanner Smith, Ramin Ayanzadeh",
+  "abstract": "Quantum Annealers (QAs) are among the first commercially scaled quantum computing systems designed for large-scale optimization. Unlike digital systems that execute sequences of compiled instructions, QAs operate as analog single-instruction machines that directly evolve an Ising Hamiltonian toward low-energy solutions. To execute an application, the logical problem graph must first be mapped onto the hardware's sparse connectivity via embedding, where logical variables are represented by chains of connected physical qubits. As a result, embedding becomes the dominant system challenge in QAs, shaping whether and how workloads can execute on the machine. Despite its central role, embedding has largely been treated as a preprocessing step rather than a system bottleneck.   In this work, we present ChainForge, the first systems and architecture characterization of embedding in QA workloads. Using diverse workload families and graph topologies on modern QA hardware, we characterize how embedding impacts effective hardware capacity, routing overheads, runtime variability, and solution quality. Our results show that embedding inflates physical resource usage, long chains degrade annealing fidelity and scalability, and heuristic embedders may fail even when valid embeddings exist. We further show that embedding latency can become a runtime bottleneck for dynamic workloads requiring frequent remapping, while nominal qubit counts significantly overestimate the usable capacity of QAs for realistic applications. Overall, our findings establish embedding as the defining workload bottleneck and systems abstraction of QAs, providing architectural insights for future hardware topologies, runtime systems, and workload-aware annealing platforms.",
+  "url": "http://arxiv.org/abs/2608.15961v1",
+  "pdf": "https://arxiv.org/pdf/2608.15961v1",
+  "type": "both",
+  "summary": "This paper characterizes embedding as the defining bottleneck in Quantum Annealer workloads. Using a new framework, ChainForge, the authors demonstrate that mapping complex problems onto sparse physical hardware severely limits usable capacity and degrades performance fidelity. The findings mandate a shift toward workload-aware co-design between algorithms and quantum hardware architectures.",
+  "main_problem": "The primary challenge in scaling Quantum Annealers (QAs) is that mapping a logical problem graph onto the hardware's sparse physical connectivity, known as embedding, becomes the dominant system bottleneck.",
+  "main_result": "Embedding significantly inflates resource usage and degrades performance; effective QA capacity is highly dependent on workload topology rather than just nominal qubit counts.",
+  "method": "The authors developed ChainForge, a systematic characterization framework that tests diverse workloads across modern QA hardware topologies to quantify embedding overheads.",
+  "model_or_system": "The system studied is the Quantum Annealer (QA), which operates by evolving an Ising Hamiltonian. The core process involves mapping logical variables onto physical qubits via chains due to hardware sparsity.",
+  "key_observables": "Effective hardware capacity, routing overheads, runtime variability, annealing fidelity, and solution quality.",
+  "important_parameters": "Chain length (especially the 95th percentile), chain strength parameter, and the specific topology of the QA hardware (e.g., Pegasus).",
+  "main_assumptions": "The study assumes that embedding is not merely a preprocessing step but must be treated as an integral, runtime-affecting bottleneck in the end-to-end quantum computation pipeline.",
+  "figures_summary": "Figures illustrate how effective capacity decreases significantly when moving from locally structured workloads (like square grids) to highly connected ones (like cliques), demonstrating the bottleneck effect.",
+  "paper_structure": "The paper establishes the problem by defining QA operation and embedding. It then introduces ChainForge, presents systematic characterization results across various graph families, quantifies capacity loss, and concludes by proposing that workload-aware co-design is necessary for future scaling.",
+  "why_interesting": "This work provides crucial architectural insights into the practical limitations of current quantum hardware, which directly impacts how theoretical models of quantum computation must be adapted for near-term implementation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.15961_figures/2608.15961_fig1.jpg",
+      "caption": "Figure 1: Execution models of (a) digital quantum computers and (b) analog quantum annealers, showing their main stages.",
+      "page": 1
+    },
+    {
+      "image": "2608.15961_figures/2608.15961_fig2.jpg",
+      "caption": "Figure 2: (a) Stages of the quantum annealing pipeline. (b) Example embedding a problem graph onto a QA hardware graph.",
+      "page": 3
+    },
+    {
+      "image": "2608.15961_figures/2608.15961_fig3.jpg",
+      "caption": "Figure 3: Largest embeddable logical graph size (|V|) per topology across three embedding methods. Complete bipartite K127,127 yields |V| = 254, while the 49 × 49 square grid yields |V| = 2401.",
+      "page": 4
+    },
+    {
+      "image": "2608.15961_figures/2608.15961_fig4.jpg",
+      "caption": "Figure 3 shows that effective logical capacity strongly depends on workload topology. Sparse local structures map most efficiently onto QA hardware. For example, the square- grid topology reaches 49×49, corresponding to 2401 logical variables. Barabási–Albert graphs also support relatively large problem instances, reaching up to 977 logical variables because they remain globally sparse despite the presence of high degree hubs. In contrast, dense workloads reach the hardware limit much earlier. Fully connected cliques support only 177 logical variables, while Erd˝os–Rényi graphs support 216 logical variables. Complete bipartite graphs and 3-regular",
+      "page": 4
+    },
+    {
+      "image": "2608.15961_figures/2608.15961_fig5.jpg",
+      "caption": "Figure 4: Largest embeddable logical graph size (|V|) versus connectivity parameter for three stochastic topologies: Erd˝os- Rényi edge probability p, d-Regular degree d, and Barabási– Albert attachment parameter m. The dashed line marks the clique baseline (|V| = 177).",
+      "page": 5
+    }
+  ],
+  "figure": "2608.15961_figures/2608.15961_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

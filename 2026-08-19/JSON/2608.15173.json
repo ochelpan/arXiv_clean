@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.15173",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AR"
+  ],
+  "is_primary_archive": true,
+  "title": "TIDE: An FPGA quantum-control processor for deterministic adaptive execution with guarded runtime program revision",
+  "authors": "Xiaoqin Luo, Jiayun Song, Xiaolu Su",
+  "abstract": "Measurement-responsive quantum experiments require control programs that can revise future operations after execution has begun without disturbing events already committed to precise timing. We present Time-Deterministic and Instruction-Dynamic Execution (TIDE), an FPGA quantum-control processor that separates a runtime-revisable future from a hardware-timed committed-event stream. TIDE provides two complementary update paths: Dynamic Instruction Parameter Update (DIPU) applies a one-shot patch to the next matching event before parameter capture, while Dynamic Instruction Stream Overwrite (DISO) performs guarded replacement, logical deletion, and out-of-line insertion in future resident-program regions. Per-channel committed-event FIFOs isolate accepted descriptors from subsequent control-core and update activity. The implemented Xilinx ZCU102 design meets timing at 250 MHz for the control core and 425 MHz for the timing/update domain. With downstream ready, every tested descriptor committed at least one timing-domain cycle before its programmed timestamp was dispatched in the programmed cycle at the registered output interfaces. In separate post-commit tests, committed timestamps and payloads remained unchanged under the applied perturbations. The minimum all-success mapped DIPU margin was four 250 MHz control-domain cycles. Under continuous payload delivery, an L-word contiguous overwrite completed in L+5 update-domain cycles. Within the characterized guard-distance range, rejected DISO requests preserved the resident path, whereas all admitted replacement, deletion, and insertion transactions exercised here executed a complete revised sequence. TIDE therefore enables runtime adaptation of both parameters and instruction structure while preserving deterministic service of committed quantum-control events.",
+  "url": "http://arxiv.org/abs/2608.15173v1",
+  "pdf": "https://arxiv.org/pdf/2608.15173v1",
+  "type": "experiment",
+  "summary": "The paper introduces TIDE, an FPGA processor designed for quantum control that enables adaptive execution by allowing runtime modification of future instructions and parameters. It achieves this determinism by strictly separating the revisable program state from a hardware-timed FIFO queue of committed events. This breakthrough allows complex, measurement-driven quantum experiments to be programmed reliably in real time.",
+  "main_problem": "The core challenge is designing quantum control programs that can adapt their future operations based on real-time measurement outcomes without disrupting the timing of events already committed to hardware execution.",
+  "main_result": "TIDE successfully implements a processor architecture that allows runtime revision of both parameters and instruction structure while guaranteeing deterministic, immutable service for all previously committed quantum control events.",
+  "method": "The system uses an FPGA-based processor (TIDE) that separates the program's revisable future from a hardware-timed, committed event stream using specialized update mechanisms.",
+  "model_or_system": "The physical platform is TIDE, an FPGA quantum-control processor implemented on a Xilinx ZCU102. It features a control core and a Time-Deterministic Peripheral-Control (TDPC) engine that manages the immutable dispatch of committed events.",
+  "key_observables": "Committed descriptors remaining unchanged under subsequent perturbations; successful execution of revised sequences via DIPU/DISO; timing margins measured in clock cycles (e.g., 4 cycles for DIPU).",
+  "important_parameters": "Control core frequency (250 MHz) and timing/update domain frequency (425 MHz); the size of the revision window (L-word overwrite length).",
+  "main_assumptions": "The system assumes that successful FIFO acceptance marks event commitment, making descriptors immutable; it also relies on statically allocated extension regions for structural overwrites.",
+  "figures_summary": "Figure 1 illustrates the TIDE quantum-control stack, showing how runtime feedback revises the future while the committed timeline remains deterministic. Figure 2 details the architecture, showing data flow between components like the control core and TDPC FIFOs.",
+  "paper_structure": "The paper introduces the problem of measurement-responsive quantum control, presents the TIDE architecture which separates revision from commitment via DIPU (parameter patch) and DISO (structural overwrite), validates its timing performance on hardware, and demonstrates that committed events are protected from subsequent runtime updates.",
+  "why_interesting": "This work directly addresses the critical bottleneck in scaling quantum computation: building classical control electronics fast enough to handle mid-circuit measurement feedback. The deterministic separation of concerns is vital for realizing fault-tolerant quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.15173_figures/2608.15173_fig1.jpg",
+      "caption": "FIG. 1. Deterministic adaptive execution in the TIDE quantum-control stack. An experiment compiler supplies the resident program, while decoder, estimator, or host logic provides runtime updates after execution begins. Within TIDE, parameter and instruction states associated with future operations remain revisable before the corresponding capture or fetch-visibility boundary. Complete event descriptors that cross the commitment boundary enter an independent hardware-timed dispatch path. TIDE exposes registered digital transactions to platform-specific control and readout electronics, with measurement results returning through external processing or low-latency feedback paths.",
+      "page": 2
+    },
+    {
+      "image": "2608.15173_figures/2608.15173_fig2.jpg",
+      "caption": "FIG. 2. Architecture and clock-domain organization of TIDE. Runtime DIPU and DISO transactions enter the Instruction Update Module (IUM), while the Instruction Coordination Module (ICM) guards program-memory visibility and locally stalls fetch when required. The 250 MHz control core forms complete timestamped descriptors from resident instructions and selected CSR values. Valid–ready acceptance into a per-channel TDPC FIFO marks event commitment, after which the 425 MHz Timing Control Unit dispatches registered trigger, data-control, and waveform-parameter transactions against the free-running time_abs counter. Clock tags indicate the 100, 250, and 425 MHz domains.",
+      "page": 4
+    },
+    {
+      "image": "2608.15173_figures/2608.15173_fig3.jpg",
+      "caption": "FIG. 3. Measured committed-event timing and FIFO back- pressure. (a) Dispatch error versus event-commitment mar- gin. Fifteen repetitions were recorded at each of 17 margin settings; coincident records overlap. All 255 records follow ∆n = max(0, 1 −Msched), with programmed-cycle dispatch for Msched ≥1. (b) Occupancy and cumulative dispatch for 40 descriptors traversing a 32-entry TDPC FIFO. Thirty-two descriptors commit before the FIFO reaches capacity, while the remaining eight are retained upstream as the FIFO re- mains full over 225 ≤time_abs < 315. After release, the remaining eight descriptors commit as space becomes avail- able, and all 40 descriptors dispatch in order without loss,...",
+      "page": 9
+    },
+    {
+      "image": "2608.15173_figures/2608.15173_fig4.jpg",
+      "caption": "FIG. 4. Measured guarded runtime instruction revision. (a) Operating-region summary for 125 replacement cases over L ∈ {1, 2, 4, 8, 16} and DPC = 0, . . . , 24. All 125 measured cases matched rejection for DPC < 5, immediate local fetch protection for 5 ≤DPC < 10, and background start for DPC ≥10. (b) Measured service latency and maximum local-fetch stall under continuous payload delivery. Replacement follows L+5 for L ∈{1, 2, 4, 8, 16}; deletion data at L ∈{1, 4, 8} follow the same law. Insertion follows N +13 cycles for the tested sizes, and the maximum observed replacement stall follows L+4. (c) Gap-injected insertion with N = 10 and DPC = 10. Slowed payload delivery causes an initially...",
+      "page": 11
+    },
+    {
+      "image": "2608.15173_figures/2608.15173_fig5.jpg",
+      "caption": "Figure 4(a) shows the characterized operating map. The configured boundaries were reproduced for every tested block length:",
+      "page": 11
+    }
+  ],
+  "figure": "2608.15173_figures/2608.15173_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2608.14875",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cs.LG",
+    "physics.chem-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "When do machine-learned exchange-correlation improvements inherit into density-functional tight binding?",
+  "authors": "Can Polat, Mustafa Kurban, Erchin Serpedin, Hasan Kurban",
+  "abstract": "Machine-learned exchange-correlation functionals correct band gaps at near-semilocal cost, while density-functional tight binding reaches the $10^3$-$10^6$-atom regime; combining them assumes that a better parent yields a better parameterization, but we show it does not. Current-generation functionals are orbital-dependent generalized Kohn-Sham operators, whereas the parameterization channel is built on a multiplicative potential, preventing exact representation. Using the transfer ratio, the surviving fraction of a parent-level change, we find anti-transfer: coherently negative ratios across four covalent semiconductors move the gap in the wrong direction, consistent with a molecular proxy and an r$^2$SCAN control. The minimal-basis overgap is dominated by the on-site convention rather than basis incompleteness; correcting the on-site block removes most of it, while one $d$-polarization shell closes a further $16$-$40%$, depending on the placement of the empty $d$ level, which no free-atom eigenvalue uniquely fixes. Occupied-manifold enhancements, ionic and closed-shell repulsive potentials, and rocksalt-oxide gaps inherit, whereas elemental and III-V covalent networks inherit neither gaps nor repulsive potentials and oxide networks inherit only the latter. We screen 23 elements and release the parameter sets, showing that the transfer ratio provides a cheap pre-test before any parameterization campaign.",
+  "url": "http://arxiv.org/abs/2608.14875v1",
+  "pdf": "https://arxiv.org/pdf/2608.14875v1",
+  "type": "theory",
+  "summary": "This work investigates whether advanced ML corrections to electronic structure can be reliably incorporated into computationally cheap DFTB models. The study finds that while some physical signatures survive, the crucial band gap correction fails due to fundamental structural mismatches between the parent theory and the compressed Hamiltonian. This highlights critical limitations in parameterizing complex quantum physics into simplified tight-binding forms.",
+  "main_problem": "The core problem is determining if improvements derived from advanced machine-learned (ML) exchange-correlation (XC) functionals can be successfully transferred or inherited into the computationally efficient framework of Density-Functional Tight Binding (DFTB).",
+  "main_result": "The transfer fails for band gaps in covalent semiconductors, showing a coherent 'anti-transfer' effect; however, signatures related to occupied manifold enhancements and repulsive potentials are found to survive.",
+  "method": "The study employs a 'functional-agnostic parameterization bridge,' using the diagnostic tool of the 'transfer ratio' to quantify how much of a parent DFT change survives compression into the multiplicative potential structure of DFTB.",
+  "model_or_system": "The research focuses on electronic structure prediction across various materials, including covalent semiconductors (e.g., Diamond, SiC) and ionic solids ($\text{MgO}$). The model compares results from high-level ML XC functionals against the semiempirical constraints of DFTB.",
+  "key_observables": "Band gaps ($\\Delta E_g$), transfer ratio (TR), occupied manifold signatures, and channel asymmetry $|v_s - v_p|$.",
+  "important_parameters": "The analysis is sensitive to functional type (ML vs. PBE) and structural class (covalent vs. ionic). The failure mechanism is tied to the mismatch between orbital-dependent ML operators and DFTB's multiplicative potential.",
+  "main_assumptions": "A primary assumption tested is that better parent functionals yield better TB parameterizations, which the paper ultimately refutes for gap properties due to structural limitations in the DFTB formalism.",
+  "figures_summary": "Figures illustrate the functional-agnostic pipeline and compare parent DFT results against derived DFTB results, showing where specific physical signatures (like occupied bandwidth) persist while others fail.",
+  "paper_structure": "The paper systematically tests the transferability of ML XC improvements across different material classes using a defined computational bridge. It moves from general gap analysis to examining specific surviving properties and finally analyzing near-nucleus potential fits for robustness.",
+  "why_interesting": "While focused on solid-state DFT methods, the rigorous quantitative comparison between high-level quantum chemistry (ML functionals) and simplified effective Hamiltonians (DFTB) provides valuable insights into the limitations of model reduction techniques in condensed matter physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.14875_figures/2608.14875_fig1.jpg",
+      "caption": "Figure 1 The functional-agnostic parameterization bridge, and the three checks that certify it. a, The pipeline, with what each stage produces. The functional enters at exactly one point, the Kohn–Sham potential inversion, which is also where the compression becomes lossy: the two-center integrator consumes a multiplicative 𝑣(𝑟) and nothing else, and an orbital-dependent functional admits no such 𝑣. b, Fidelity of the inversion against a stored reference potential. The route the bridge uses and a full potential reconstruction both recoverit to within a few meV; the density-gradient-only approximation fails by two orders of magnitude and was rejected. c, The confinement sweep for the carbon...",
+      "page": 4
+    },
+    {
+      "image": "2608.14875_figures/2608.14875_fig2.jpg",
+      "caption": "Figure 2 The band-gap correction reverses under the compression, and what survives instead. a, Input against output: the parent gap opens (grey; dashed outlines mark full inheritance) while the compressed DFTB gap closes (red). The upper segment carries the scale this is read against, the residual overgap of the same tables under the same convention: +2.49, +0.21 and +1.31 eV for diamond, silicon and 3C-SiC. b, The same result as a ratio, against the 0.5 useful-transfer threshold. Gap ratios for the covalent solids, the near-zero ionic case (MgO), and the bandwidth ratios (a width quantity, convention-independent) reported for the three solids that carry them; none clears the gate. c, The...",
+      "page": 6
+    },
+    {
+      "image": "2608.14875_figures/2608.14875_fig3.jpg",
+      "caption": "Figure 3 Why the parameterization channel cannot carry an orbital-dependent functional, and the two measurements that decide whether it does. 𝜅≡𝑓′(0)/𝑍𝑓(0) is the dimensionless number the functional fixes at the nucleus. a, The 𝑙-resolved local representative with the cusp condition imposed, at 𝜅= 0. Each angular channel sees a different potential and the difference diverges as 1/𝑟, so no multiplicative 𝑣(𝑟) lies in the shaded band; only the 𝑠divergence 𝑐𝑠= 0 is parameter-free. b, The cusp coefficients against 𝜅. Both are linear and vanish at different 𝜅(1 and 2/3), so they never vanish together; the ratio 𝑐𝑑/𝑐𝑝= 4/3 at 𝜅= 0 only. c, Where the discarded gap-shift term acts. Sketched for a...",
+      "page": 10
+    },
+    {
+      "image": "2608.14875_figures/2608.14875_fig4.jpg",
+      "caption": "Figure 4 The overgap of the unfitted tables, what a single 𝑑shell removes of it, and the two things that would undo the claim. a, Γ-point gaps; red rules mark the parent (identical settings). The minimal 𝑠𝑝tables overgap the parent by ∼10 eV; adding a 𝑑-polarized 𝑠𝑝𝑑set (confinement radii and on-site eigenvalues held fixed) reduces the overgap several-fold (per-solid values in Table 2). The published-parameter baseline is given in Fig. 6; under the free-atom convention the excess is shared with fitted sets, not a property of our convention alone. b, The closure and its residual, drawn at the confined on-site convention, which isolates the basis-completeness effect; under the free-atom...",
+      "page": 13
+    },
+    {
+      "image": "2608.14875_figures/2608.14875_fig5.jpg",
+      "caption": "Figure 5 Under the convention the overgap closure tracks the placement of the empty 𝑑level, which no free-atom eigenvalue fixes. a, Mean and per-solid closure as the carbon 𝐸𝑑is swept from the confined value (+40.96 eV) toward the valence shell, with silicon shifted in proportion. The dashed rule marks the closure obtained when the confined convention is used on both the 𝑠𝑝and 𝑠𝑝𝑑sides. b, The Mulliken 𝑑 population across the same sweep, against the eight valence electrons of the cell; placements further down, at the free-atom 𝑝level, take the 𝑑manifold to a valence-shell population and are excluded on that basis. All gaps are fundamental band-path gaps; 𝑛= 3 solids, confinement radii and...",
+      "page": 14
+    }
+  ],
+  "figure": "2608.14875_figures/2608.14875_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

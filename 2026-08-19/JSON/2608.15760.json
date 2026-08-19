@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.15760",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Machine Learning Approaches to Decoding Topological Quantum Codes",
+  "authors": "Changwon Lee, Tak Hur, Jeongwoo Jae, Daniel K. Park",
+  "abstract": "Decoding is an essential component of quantum error correction (QEC), translating stabilizer measurement outcomes into corrective actions that suppress logical errors and preserve logical quantum information. Building fault-tolerant architectures requires increasing the code distance, which in turn places growing demands on decoding accuracy, scalability, and practical deployability. While a wide range of decoding algorithms have been proposed and demonstrated, achieving reliable, scalable, and real-time decoding remains a significant challenge. Machine-learning (ML) approaches are particularly well suited to this setting, as quantum error decoding is fundamentally a problem of processing large volumes of classical data with complex spatiotemporal correlations. This chapter surveys ML-based methods for quantum error decoding, with a focus on topological codes and an emphasis on architectural principles, practical performance, and real-time considerations. We first frame decoding as a learning problem and outline key paradigms, including discriminative, generative, and reinforcement-learning formulations. We then introduce the neural network building blocks that underpin most contemporary neural decoders and discuss how these components can be integrated to balance expressivity, scalability, and latency. Building on this architectural perspective, we review recent progress and benchmarks in neural decoding for memory experiments, and discuss real-time decoding, open challenges, and future directions toward scalable fault-tolerant quantum computing.",
+  "url": "http://arxiv.org/abs/2608.15760v1",
+  "pdf": "https://arxiv.org/pdf/2608.15760v1",
+  "type": "theory",
+  "summary": "This survey reviews how Machine Learning can be applied to decode errors in topological quantum codes. It frames QEC decoding as a data inference problem, surveying various ML architectures and paradigms suitable for processing complex syndrome histories. The paper argues that ML offers a path toward achieving the high accuracy required for fault-tolerant quantum computation while maintaining practical speed.",
+  "main_problem": "The core challenge is developing scalable, accurate, and real-time decoding algorithms for Quantum Error Correction (QEC) codes.",
+  "main_result": "Machine learning approaches, including various neural network architectures, are presented as a powerful framework to approximate the theoretically optimal but intractable quantum maximum-likelihood decoding.",
+  "method": "The paper frames decoding as an inference problem over classical syndrome history and surveys ML paradigms (discriminative, generative, RL) applied to this task.",
+  "model_or_system": "The focus is on topological quantum codes, such as the surface code, which are used to encode logical information nonlocally across many physical qubits for fault-tolerant computation.",
+  "key_observables": "Logical error class, recovery operation, and probability distributions over possible errors derived from syndrome measurements.",
+  "important_parameters": "Code distance, physical error rate ($p$), computational latency (real-time constraints).",
+  "main_assumptions": "The primary assumption is that ML can effectively model the complex spatiotemporal correlations inherent in quantum error syndromes to achieve near-optimal decoding performance.",
+  "figures_summary": "Figure 1 illustrates the overall ML-based decoding pipeline from syndrome extraction to final output. Figure 2 details the theoretical decomposition of decoding risk into approximation, generalization, and optimization errors.",
+  "paper_structure": "The chapter is structured by first framing decoding as a learning problem, then detailing key ML paradigms (discriminative, generative, RL), reviewing necessary neural network building blocks (GNNs, Transformers), presenting benchmarks, and concluding with real-time considerations and open challenges.",
+  "why_interesting": "This work directly addresses the computational bottleneck in fault-tolerant quantum computing by proposing advanced AI methods to solve an NP-hard decoding problem, which is crucial for any physicist working on scalable quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.15760_figures/2608.15760_fig1.jpg",
+      "caption": "Figure 1: Overview of the ML-based decoding pipeline for stabilizer codes. (a) A rotated surface code undergoes repeated syndrome extraction over r rounds; data qubits (black dots) are arranged on a lattice with X-type (white) and Z-type (blue) stabilizer measurements. (b) The measured syndrome outcomes at each round are represented as binary vectors and stacked across time steps to form the decoder input. (c) A machine- learning decoder—which may be instantiated as a feedforward network, CNN, GNN, recurrent network, or transformer—processes the syndrome history. (d) Two output formulations: a logical class label, where the decoder predicts the most likely logical error class ¯L ∈{¯I, ¯X,...",
+      "page": 6
+    },
+    {
+      "image": "2608.15760_figures/2608.15760_fig2.jpg",
+      "caption": "Figure 2: Visualization of the error decomposition.",
+      "page": 8
+    },
+    {
+      "image": "2608.15760_figures/2608.15760_fig3.jpg",
+      "caption": "Figure 3: Three canonical neural decoder architectures. (a) Two stacked LSTM layers process defects d0, d1, . . . , dN−1 sequentially. The auxiliary head receives the recurrent output alone and predicts paux; the main head additionally ingests the final defects dN from data-qubit readout and predicts pmain. (b) Detector error graph spanning three measurement rounds; red nodes are X-type and blue nodes are Z-type detection events, with edges weighted by shared fault probability. Successive graph-convolution layers propagate local features along the space-time graph; mean pooling collapses all node embeddings into a fixed-size vector, and two evaluation heads output λX and λZ. (c) qecGPT...",
+      "page": 14
+    },
+    {
+      "image": "2608.15760_figures/2608.15760_fig4.jpg",
+      "caption": "Figure 4: AlphaQubit family architectures. Top: AlphaQubit 1 (AQ1) [47] module pipeline. Adapted from Ref. [26]. Bottom: AlphaQubit 2 (AQ2) [86] with frame compression and alternating recurrent and transformer layers.",
+      "page": 20
+    },
+    {
+      "image": "2608.15760_figures/2608.15760_fig5.jpg",
+      "caption": "Figure 5: Sliding-window and parallel-window decoding. Green blocks indicate committed regions, where corrections are accepted and passed forward. Red blocks indicate buffer regions, which provide additional syndrome context but are not committed at that decoding step. Top: In sliding-window decoding, a temporal window is moved forward over the syndrome stream. At each decode step, the decoder commits the correction in the green core region and uses the red buffer region to account for error chains that extend across the window boundary. The buffer is retained until enough future syndrome information is available. Bottom: In parallel-window decoding, windows are organized into decoding...",
+      "page": 29
+    }
+  ],
+  "figure": "2608.15760_figures/2608.15760_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

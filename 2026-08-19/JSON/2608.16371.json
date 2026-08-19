@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2608.16371",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "nucl-th",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Scalable nuclear shell model calculations on noisy quantum computers",
+  "authors": "Durgesh Pandey, Ankit Kumar Das, P. Arumugam",
+  "abstract": "The exact diagonalization of the nuclear shell model scales exponentially, leading to severe memory bottlenecks in classical high-performance computing (HPC). While hybrid quantum algorithms like the Variational Quantum Eigensolver (VQE) aim to overcome these limits, their deep quantum circuits and iterative feedback loops are susceptible to substantial noise inherent in the current Noisy Intermediate-Scale Quantum (NISQ) hardware. This noise renders several algorithms, such as the VQE, impractical for large-scale calculations despite sophisticated noise-mitigation techniques. As a pragmatic approach tolerant to these issues, we apply the Sample-based Quantum Diagonalization (SQD) framework to nuclear shell models for the first time. Using $^{38}\\text{Ar}$ as a benchmark to confirm the numerical accuracy, we extend SQD to $^{32}\\text{Mg}$, solving a nuclear shell-model Hamiltonian whose underlying Hilbert space cannot be directly diagonalized using conventional classical methods in a given HPC system. We present a systematic comparison of SQD with standard variational quantum schemes and exact classical solvers. By leveraging NISQ hardware connected via the cloud to classical HPC clusters, the SQD-based scheme could outperform conventional supercomputers in memory scaling and total execution time, enabling more rigorous large-scale shell model calculations.",
+  "url": "http://arxiv.org/abs/2608.16371v1",
+  "pdf": "https://arxiv.org/pdf/2608.16371v1",
+  "type": "theory",
+  "summary": "This paper addresses the computational bottleneck in nuclear shell model calculations caused by exponentially large Hilbert spaces. It introduces Sample-based Quantum Diagonalization (SQD), a novel hybrid method where a noisy quantum computer samples basis states, which are then used for exact diagonalization classically. SQD is shown to be scalable and noise-tolerant, offering a path to solve previously intractable, large-scale nuclear structure problems.",
+  "main_problem": "The exponential scaling of exact diagonalization for nuclear shell model calculations creates severe memory bottlenecks on classical supercomputers.",
+  "main_result": "The proposed Sample-based Quantum Diagonalization (SQD) framework can outperform conventional supercomputers in memory scaling and total execution time, enabling large-scale shell model calculations despite hardware noise.",
+  "method": "SQD is a hybrid quantum algorithm where the noisy quantum computer acts solely as a configuration sampler, generating basis states that are then used for classical exact diagonalization on a reduced subspace.",
+  "model_or_system": "The study focuses on nuclear many-body systems, using ${}^{32}\text{Mg}$ and $^{38}\text{Ar}$ as benchmarks. The Hamiltonian is formulated in second quantization and mapped to the 'SparsePauli' form for quantum circuits.",
+  "key_observables": "Ground and low-lying excited energy levels ($E_i$) of the nuclear system, measured in MeV.",
+  "important_parameters": "The Hilbert space dimension scales exponentially ($O(2^N)$); calculations are tested up to 48 active spin-orbitals ($N$).",
+  "main_assumptions": "SQD is assumed to be a pragmatic approach tolerant to noise, unlike deep variational circuits (VQE), by decoupling state optimization from the QPU.",
+  "figures_summary": "Figure 1 illustrates computational workload shifting towards quantum computation; Figure 3 compares time-to-solution for ${}^{32}\text{Mg}$ across methods as spin-orbitals increase, showing SQD's advantage over RAM-limited classical solvers.",
+  "paper_structure": "The paper introduces the problem of exponential scaling in nuclear shell models. It details three approaches—Exact Diagonalization (classical limit), VQE (variational quantum), and SQD (proposed hybrid method). Results compare these methods on ${}^{38}\text{Ar}$ and ${}^{32}\text{Mg}$, demonstrating SQD's scalability advantage.",
+  "why_interesting": "It demonstrates a direct, practical application of NISQ hardware to solve a notoriously difficult many-body problem (nuclear structure) by proposing a noise-resilient hybrid quantum algorithm that bypasses the limitations of both classical memory and deep quantum circuits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.16371_figures/2608.16371_fig1.jpg",
+      "caption": "FIG. 1. The schematic diagram of a nuclear many-body system and the basic idea to shift workloads to a QPU with increasing configurations. The triangular hierarchy at right depicts the increasing degree of quantum participation in shell-model calcula- tions. Dense, sparse, and Lanczos methods correspond to classical computation, while VQE and the proposed SQD progressively shift more of the workload to the QPU. The SQD framework achieves the best overall computational performance for the largest problems investigated, demonstrating the utility of NISQ hardware.",
+      "page": 3
+    },
+    {
+      "image": "2608.16371_figures/2608.16371_fig2.jpg",
+      "caption": "FIG. 2. Illustration of a simplified SQD workflow: constructing the ansatz from the nuclear Hamiltonian, sampling from a quantum circuit on real quantum hardware, filtering the results (with noise removal, bitstring flipping, etc., to recover particle- number conserved configurations), and ultimately creating a subspace from the recovered samples. The QPU can perform the necessary sampling to identify states that contribute to the ground state, whereas classical computers struggle as resources grow exponentially. The full post-processing step of SQD for configuration recovery is omitted for simplicity.",
+      "page": 3
+    },
+    {
+      "image": "2608.16371_figures/2608.16371_fig3.jpg",
+      "caption": "FIG. 3. Comparison of the computational scaling of various classical algorithms and the hybrid quantum algorithms VQE and SQD for the shell-model calculations of 32Mg. The dotted lines connect the computed results (shown by various symbols), and the dashed lines are theoretical extrapolations for each method. The top axis indicates the approximate memory (RAM) required by the Lanczos method as the number of spin-orbitals increases. The region beyond the RAM limit (768 GB) of a high-memory compute node in the PARAM Ganga [44] high-performance computing system used in this work is shaded in red. For a given number of spin-orbitals (N), the full Hilbert space size is 2N ≈100.3N.",
+      "page": 5
+    },
+    {
+      "image": "2608.16371_figures/2608.16371_fig4.jpg",
+      "caption": "Figure 3 illustrates the time-to-solution for 32Mg across these classical and quantum methods as the configuration space scales, clearly demonstrating the onset of the po- tential advantages within the resources considered. We compare the IBM Heron-class and Eagle-class quantum hardware, finding that the Heron-class hardware is nearly 3.5 times faster than the Eagle-class hardware [52]. Given the current state of quantum hardware, the Heron family architectures can generate reliable samples from compu- tationally hard circuits [53]. We implement SQD using the Heron Fez, via Qiskit [54]. This SQD implementa- tion shows a clear advantage over other methods, partic- ularly when a large number...",
+      "page": 5
+    }
+  ],
+  "figure": "2608.16371_figures/2608.16371_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
