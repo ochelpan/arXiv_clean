@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2608.17511",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cs.SI",
+    "physics.comp-ph",
+    "physics.soc-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Conditional-path Monte Carlo for rare stochastic dynamics on networks: Details and derivations",
+  "authors": "Thomas Barthel, Jiazheng Sun, Jhao-Hong Peng",
+  "abstract": "The simulation of rare macroscopic events in stochastic network dynamics, such as widespread epidemic outbreaks, cascading failures in communication networks, or the escape from metastable states in many-body systems, is severely hindered by methodological challenges like catastrophic rejection rates, weight degeneracy, genealogical correlations, and critical slowing down inherent to standard forward-time algorithms, splitting methods, and transition-path sampling. Conditional-path Monte Carlo (CPMC) overcomes these limitations by employing non-local Swendsen-Wang-like cluster updates that operate directly on full-system trajectories. Serving as the technical companion to [Sun, Moody, and Barthel, arXiv:2608.16171], this paper provides the rigorous mathematical foundations and algorithmic details underlying the CPMC framework. We formally define the joint path-graph probability weights and derive the transition and uniformization sum rules that guarantee detailed balance. Applying the framework to susceptible-infectious-susceptible (SIS) models, we systematically construct and optimize single-node and edge graph vertex sets specifically designed to prevent lock avalanches and maintain the structural mobility of the epidemic trunk. Furthermore, we detail a dynamic programming scheme to exactly implement complex boundary conditions - including patient-zero and macroscopic outbreak-size constraints - enabling the rejection-free generation of valid trajectories. Finally, we assess the computational complexity of the algorithm, describe parallelization strategies, and validate CPMC against exact solutions for dynamics on small networks.",
+  "url": "http://arxiv.org/abs/2608.17511v1",
+  "pdf": "https://arxiv.org/pdf/2608.17511v1",
+  "type": "theory",
+  "summary": "This paper presents Conditional-path Monte Carlo (CPMC), a novel simulation technique designed to overcome severe sampling bottlenecks when studying rare events in stochastic network dynamics. By utilizing non-local cluster updates on the full spacetime trajectory, CPMC efficiently samples the path space for models like the SIS epidemic model. It provides the rigorous mathematical framework for this method, including handling complex boundary constraints without rejection.",
+  "main_problem": "The paper addresses the challenge of simulating rare macroscopic events in stochastic network dynamics, such as epidemic outbreaks or system escape from metastable states.",
+  "main_result": "It introduces Conditional-path Monte Carlo (CPMC), a method that bypasses limitations of existing path sampling techniques by operating directly on full-system trajectories.",
+  "method": "CPMC uses non-local Swendsen-Wang-like cluster updates on a graph representation of the spacetime trajectory to generate valid paths while maintaining detailed balance.",
+  "model_or_system": "The primary example is the Susceptible-Infected-Susceptible (SIS) model on a network, representing stochastic dynamics in many-body systems. The method is general for Markovian dynamics.",
+  "key_observables": "Path probability density $P(\\sigma)$, total escape rate $\\Lambda_t(\\sigma_t)$, and the number of infected nodes at initial and final times.",
+  "important_parameters": "The time interval $T$, network size $N$, and specific rates for the SIS model (e.g., infection and recovery rates).",
+  "main_assumptions": "The method assumes the dynamics can be mapped onto a path-graph structure suitable for cluster updates; it also details dynamic programming for handling complex boundary conditions exactly.",
+  "figures_summary": "Figures illustrate the cluster update mechanism for an SIS trajectory, showing how graph vertices are inserted and how changing the state of these vertices yields a new, valid trajectory.",
+  "paper_structure": "The paper first reviews the limitations of standard path sampling methods (SSA, TPS, etc.). It then rigorously derives the mathematical foundations for CPMC, detailing the joint path-graph probability weights. Finally, it applies the framework to the SIS model, detailing cluster optimization and a dynamic programming scheme for constrained sampling.",
+  "why_interesting": "While focused on classical stochastic processes, the techniques developed for path sampling and rare-event simulation are highly relevant to non-equilibrium quantum dynamics, particularly in simulating quantum quenches or thermalization pathways.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.17511_figures/2608.17511_fig1.jpg",
+      "caption": "FIG. 1. Two cluster updates for a simple SIS trajectory. The cluster updates for two nodes of an SIS model described in Example 4 start from a trajectory σ, where node i is infected until time τ, and node j is susceptible for the entire time [0, T]. In the construction of graph g, the recovery of node i is matched by the vertex gR− (τ,i) = (1 →a), where state a is free to take values 0 (susceptible) and 1 (infected). Additional four single-node background vertices and one edge background vertex are inserted by Poisson point processes; indicated by a redder background color. The edge vertex gI↑− (t3,i,j) = (1, 0 →1, a) fixes node i to be infected before and after time t3, hence fixing the...",
+      "page": 4
+    },
+    {
+      "image": "2608.17511_figures/2608.17511_fig2.jpg",
+      "caption": "FIG. 2. Upstream lock avalanches with edge vertex set E1 and unlocking with set E2. For a given SIS-model trajectory σ, panels (a), (b), and (c) show different compatible graphs g (top) and the associated configurations of clusters (bottom). We employ the same graphical conventions as in Fig. 1, and panel (d) specifies the different employed vertex sets in accordance with Sec. V. Panel (a) shows an (unlikely) choice of graph vertices that lead to a big free cluster C2 that includes patient zero (node 3). To achieve a mobile patient zero with vertex sets S1 and E1, the graph must happen to be such that all vertices downstream of patient zero are gR+, ga↑−, or ga↓−as in this case. The...",
+      "page": 9
+    },
+    {
+      "image": "2608.17511_figures/2608.17511_fig3.jpg",
+      "caption": "FIG. 3. Example for a more complex cluster update with edge vertex set E2. (a) An SIS-model trajectory σ on seven nodes with node 4 as patient zero and four infected nodes at the final time. (b) A compatible graph g based on the S1 and E2 vertex sets. As before, vertices at state- changing events in σ are indicated by orange boxes and background vertices are indicated by red boxes. (c) To make the cluster identification easier for the human eye, we have removed all vertices that ultimately have no free state variables and have fixed the corresponding parts of the trajectory. (d) Cluster representation of the graph g, where each red solid time segment with label “k” carries state ak = 0, 1...",
+      "page": 11
+    },
+    {
+      "image": "2608.17511_figures/2608.17511_fig4.jpg",
+      "caption": "FIG. 4. Homogeneous four-node SIS ring network with γ = 1 and α = 3: Probabilities pi(t) for finding the system in macrostates si [Eq. (67)] at time t, when starting in one of the four s1 states.",
+      "page": 14
+    },
+    {
+      "image": "2608.17511_figures/2608.17511_fig5.jpg",
+      "caption": "FIG. 5. Four-node diamond SIS network with two hub nodes and two leaf nodes, γ = 1 and α = 5/2: Probabilities pnh,nℓ(t) for finding the system with (nh, nℓ) infected nodes hub and leaf nodes at time t, when starting in an (nh, nℓ) = (1, 0) state.",
+      "page": 15
+    }
+  ],
+  "figure": "2608.17511_figures/2608.17511_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 1,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

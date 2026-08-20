@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.17069",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Dynamic Entanglement-Weighted Pruning for Quantum Federated Unlearning in Supply-Chain Risk Prediction",
+  "authors": "Aditya Kumar, Sumit Chongder",
+  "abstract": "Federated deployments of variational quantum classifiers are attractive for cross-organisation risk prediction in supply chains, because raw data never leaves the client, yet data-protection regulations such as the GDPR grant clients a right to request that their contribution be removed from a trained model after the fact. Retraining a federated model from scratch to honour such a request is correct but wasteful, and it is not obvious which quantum circuit parameters actually carry a given client's influence. We introduce Entanglement-Weighted Pruning (EWP), an unlearning procedure for quantum federated learning that scores every trainable circuit parameter with the product of two signals: the diagonal entry of the quantum Fisher information matrix estimated on the target client's data via the parameter-shift rule, and a structural entanglement weight associated with the parameter's gate. Parameters with the lowest scores are pruned, optionally followed by a short fine-tuning pass on the retained clients. We implement the full pipeline in Qiskit for a four-qubit data-re-uploading ansatz trained with FedAvg across five simulated supply-chain-risk clients, and benchmark EWP against full retraining, fine-tuning alone, random pruning, Fisher-only pruning, and entanglement-only pruning, over three random seeds. EWP attains a mean post-unlearning accuracy statistically indistinguishable from the full-retraining oracle, while producing a lower forgetting score and requiring roughly 16 times less wall-clock time. Ablations over pruning threshold, client count, and non-IID strength show that combining the two signals is necessary, as entanglement-only and Fisher-only pruning each substantially degrade accuracy relative to EWP.",
+  "url": "http://arxiv.org/abs/2608.17069v1",
+  "pdf": "https://arxiv.org/pdf/2608.17069v1",
+  "type": "theory",
+  "summary": "This work introduces Entanglement-Weighted Pruning (EWP), a novel unlearning technique for quantum federated learning. EWP prunes quantum circuit parameters by combining data sensitivity (via QFIM) and structural importance (via entanglement weight). It demonstrates that this method achieves near-perfect data removal accuracy while drastically reducing computational overhead compared to full model retraining.",
+  "main_problem": "The paper addresses the challenge of 'machine unlearning' in Quantum Federated Learning (QFL) to efficiently remove the influence of a specific client's data contribution, satisfying data privacy regulations like GDPR.",
+  "main_result": "The proposed Entanglement-Weighted Pruning (EWP) method achieved post-unlearning accuracy statistically indistinguishable from full retraining while requiring significantly less computational time.",
+  "method": "EWP scores each trainable circuit parameter by multiplying the diagonal entry of the Quantum Fisher Information Matrix (QFIM) by a structural entanglement weight derived from the gate's coupling.",
+  "model_or_system": "The model uses variational quantum classifiers trained on a four-qubit data-re-uploading ansatz within a federated learning framework (FedAvg).",
+  "key_observables": "Classification accuracy, AUROC, forgetting score, membership-advantage gap, and wall-clock time.",
+  "important_parameters": "The trainable circuit parameters ($\theta_k$), the QFIM diagonal entries ($F_{kk}$), and the structural entanglement weight ($w_{ent}(k)$).",
+  "main_assumptions": "The method relies on the diagonal approximation of the QFIM and assumes that parameters with low combined scores can be safely pruned without significant performance loss.",
+  "figures_summary": "Figure 1 illustrates the end-to-end EWP pipeline across six stages, while Figure 2 details the federated communication workflow during training and forgetting.",
+  "paper_structure": "The paper outlines the QFL setup, introduces the EWP mechanism combining QFIM and entanglement weights, details the pruning process, and benchmarks EWP against various baselines using simulated supply-chain risk data.",
+  "why_interesting": "It provides a concrete, quantum-enhanced technique for model auditing and data removal, which is crucial for deploying quantum machine learning models in regulated, multi-party settings.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.17069_figures/2608.17069_fig1.jpg",
+      "caption": "Figure 1: End-to-end Entanglement-Weighted Pruning pipeline. Federated training (stage 1, Algorithm 1) converges to θ⋆; a forget request from client j (stage 2) triggers estimation of the client-conditioned diagonal QFIM and the structural entanglement weight for every trainable parameter (stage 3, Algorithm 2); parameters are scored and pruned below threshold τ (stage 4, Algorithm 3); an optional short fine-tuning pass on the retained clients recovers utility (stage 5); and the unlearned model is evaluated for utility, forgetting, privacy leakage, and computational cost before optionally re-entering the federation (stage 6, Algorithm 4).",
+      "page": 3
+    },
+    {
+      "image": "2608.17069_figures/2608.17069_fig2.jpg",
+      "caption": "Figure 1 previews the complete pipeline studied in this paper, and Figure 2 details the underlying fed- erated communication pattern between clients and the coordinating server; both are referenced throughout Sections 3–6 and are reproduced here, rather than deferred to an appendix, because they orient the reader before the formal notation is introduced.",
+      "page": 3
+    },
+    {
+      "image": "2608.17069_figures/2608.17069_fig3.jpg",
+      "caption": "Figure 2: Federated communication workflow between the coordinating server and N participating clients. During each communication round t, the server broadcasts the current global parameters θ(t) (solid blue arrows), each client performs local optimization on its private dataset and uploads the updated parameters θ(t+1) i (dashed teal arrows), and the server computes the sample-weighted federated aggregation. Fol- lowing a forgetting request from client j (solid red arrow), the server or client j in a privacy-preserving deployment, obtains the client-specific diagonal QFIM required to compute the entanglement-weighted pruning score in Equation (1) (dash-dotted red arrow), after which the...",
+      "page": 4
+    },
+    {
+      "image": "2608.17069_figures/2608.17069_fig4.jpg",
+      "caption": "Figure 3: Data re-uploading variational ansatz used for local client training. Each of the three layers re-encodes the input features through RX gates, applies trainable RY and RZ rotations, and couples qubits through a ring of CNOT gates. Parameter indices k = 1, . . . , 24 map directly onto the pruning scores sk computed in Section 4.4.",
+      "page": 7
+    },
+    {
+      "image": "2608.17069_figures/2608.17069_fig5.jpg",
+      "caption": "Figure 4: Utility and forgetting across all methods, mean ± std. over three seeds. EWP matches the full-retraining oracle on accuracy while improving on its forgetting score.",
+      "page": 13
+    }
+  ],
+  "figure": "2608.17069_figures/2608.17069_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.17023",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hardware-Aware Compilation and Execution of Bivariate Bicycle Codes on Neutral-Atom Systems",
+  "authors": "Jason Ludmir, Aditya Ranjan, Nicholas S. DiBrita, Jason Han, Tirthak Patel",
+  "abstract": "Quantum computers are noisy; without quantum error correction (QEC), deep programs fail as qubits lose information due to decoherence. Among QEC approaches, bivariate bicycle (BB) codes offer low overhead and constant-depth syndrome extraction, while neutral-atom arrays provide scalable, reconfigurable qubit layouts. However, executing BB-code primitives on neutral-atom systems requires a hardware-aware mapping that respects movement, zoning, and interaction constraints. We present Park-n-Ride, a system for compiling and executing the BB code on neutral-atom processors. Park-n-Ride introduces a module layout and movement model aligned with neutral-atom constraints, exposes a compact BB-native logical interface for compilation, and integrates scheduling mechanisms that enable efficient execution on zoned architectures. By co-designing BB-code abstractions with hardware execution, Park-n-Ride provides a practical path from qLDPC primitives to resource-efficient, high-throughput execution on reconfigurable neutral-atom arrays.",
+  "url": "http://arxiv.org/abs/2608.17023v1",
+  "pdf": "https://arxiv.org/pdf/2608.17023v1",
+  "type": "both",
+  "summary": "This paper presents Park-n-Ride, a novel hardware-software co-design framework for running Bivariate Bicycle quantum error correction codes on neutral-atom quantum processors. It addresses the critical challenge of mapping abstract quantum operations onto the physical constraints of qubit movement, zoning, and interactions inherent to these platforms. The framework achieves significant performance gains by optimizing scheduling and placement while maintaining fault tolerance.",
+  "main_problem": "The core challenge is developing a hardware-aware compilation and execution framework for Bivariate Bicycle (BB) codes, a type of quantum error correction code, on physical neutral-atom quantum processors.",
+  "main_result": "The proposed Park-n-Ride framework successfully translates abstract qLDPC primitives into resource-efficient, high-throughput execution schedules that respect the complex movement and zoning constraints of neutral-atom arrays.",
+  "method": "The method involves a multi-stage compilation pipeline: spectral placement for module layout, decomposition of shift automorphisms into directional rolls, and an interval-based scheduler for joint measurements.",
+  "model_or_system": "The system utilizes neutral-atom arrays, which provide scalable, reconfigurable qubit layouts via Rydberg interactions and AOD transport. The model focuses on implementing BB codes, which are constant-weight, constant-degree qLDPC codes.",
+  "key_observables": "Runtime reduction (up to 40%), communication distance, total bridge motion, and the number of idling gate counts.",
+  "important_parameters": "AOD non-crossing rule, Rydberg blockade, and the size/structure of the compute zone (e.g., J144, 12, 12K grid).",
+  "main_assumptions": "The architecture assumes a tiled compute zone composed of compute columns and subzones, and that the AOD movement constraints are the primary bottleneck.",
+  "figures_summary": "Figures illustrate AOD non-crossing constraints, the module structure of BB codes, and the physical layout of the compute zone detailing idling, interaction, and shift/measurement subzones.",
+  "paper_structure": "The paper introduces the problem, details the Park-n-Ride framework (including spectral placement and scheduling), compares different compilation strategies (Spectral vs. Greedy), and presents performance gains in execution speed and resource utilization.",
+  "why_interesting": "It bridges the gap between abstract quantum error correction theory (qLDPC codes) and the highly constrained physical reality of neutral-atom hardware, providing a concrete software stack for fault-tolerant quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.17023_figures/2608.17023_fig1.jpg",
+      "caption": "Fig. 1: Acousto-optic deflector (AOD) non-crossing and stable column ordering. (a) Initial ordering x1 < x2 < . . . fixed by AOD control. (b) Forbidden: executing CZ by moving column 2 past column 3 requires crossing. (c) Legal alternative: translate columns together to preserve ordering. (d) Even logically commuting CZs can conflict under non-crossing, forcing serialization.",
+      "page": 2
+    },
+    {
+      "image": "2608.17023_figures/2608.17023_fig2.jpg",
+      "caption": "Fig. 2: Module structure for BB codes. Note the long-range connections (only one set of edges displayed; these edges repeat across the torus). The wraparound edges capture the toroidal logical geometry.",
+      "page": 2
+    },
+    {
+      "image": "2608.17023_figures/2608.17023_fig3.jpg",
+      "caption": "Fig. 3: Compute zone with two columns (capacity 3 modules each). Modules execute idle, shift, and joint-measurement operations across idling, interaction, and shift/measurement subzones. Bridge qubits from interacting modules are brought together in the interaction subzone. Shift and measurement occur in separate sublayers but are co-visualized.",
+      "page": 4
+    },
+    {
+      "image": "2608.17023_figures/2608.17023_fig4.jpg",
+      "caption": "Fig. 5: a) After a shift, modules (blue) are offset and must be returned to their original locations (resync). b) All modules are captured by shared AOD traps and moved in parallel. c) Modules are restored in order of increasing distance; all move 2 units right and 2 units up, after which the bottom module reaches its target and drops to SLM. d) The process repeats for the remaining modules; the middle module waits while the top module drops. e) The final module is moved and dropped; all modules are resynchronized.",
+      "page": 5
+    },
+    {
+      "image": "2608.17023_figures/2608.17023_fig5.jpg",
+      "caption": "Fig. 9: Average estimated runtime using spectral placement, grouped by number of modules and then column capacity.",
+      "page": 9
+    }
+  ],
+  "figure": "2608.17023_figures/2608.17023_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 2,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

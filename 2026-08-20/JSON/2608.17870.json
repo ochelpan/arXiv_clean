@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.17870",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Computationally Efficient Optimization of Per-Qubit Clifford Deformation for Non-uniform Biased Noise",
+  "authors": "Won Joon Yun, Andrew Nemec, Jonathan M. Baker",
+  "abstract": "In fault-tolerant quantum computing systems with biased noise, Clifford deformation can substantially reduce the logical error rate (LER) without additional physical hardware overhead, such as extra qubits, syndrome extraction rounds, or code distance. Although Google Willow calibration data shows that $43\\%$ of qubits exhibit strong $X/Z$ bias, existing calibration-aware deformation techniques remain impractical: (1) global searches over the $6^n$ deformation choices rely on computing-intensive simulations, and (2) local heuristics often underperform undeformed baselines.   We present Chameleon, a fast, high-performance, and code-agnostic Clifford deformation compiler. We utilize our approximation to tackle a deformation problem based on an analytical bound on the LER. By minimizing this surrogate, Chameleon finds an optimized deformation that empirically reduces the LER with substantially lower computational overhead. In our evaluation, using calibration models derived from real superconducting devices, Chameleon demonstrates that improvements in our surrogate are strongly correlated with actual LER reductions, with an average rank correlation of $ρ=0.8$ and $ρ=0.89$-$0.94$ on the most strongly biased system. It also reduces classical computational time from $1.2$ days to $3.1$ minutes for the BB72 code. Chameleon achieves maximum LER reductions of $19\\%$ ($13\\%$ on average) for surface codes, $16\\%$ ($7\\%$) for color codes, and $10\\%$ ($4\\%$) for bivariate bicycle codes relative to competing baselines. The maximum gains for all code families are observed on the most strongly biased system.",
+  "url": "http://arxiv.org/abs/2608.17870v1",
+  "pdf": "https://arxiv.org/pdf/2608.17870v1",
+  "type": "theory",
+  "summary": "This paper introduces Chameleon, a fast compiler designed to optimize Clifford deformations for quantum error correction codes operating under realistic, biased noise. By replacing intractable full simulations with an analytical upper bound on failure probabilities, it efficiently finds optimal noise mitigation strategies. This significantly improves the achievable logical error rates while making the optimization process computationally feasible for real-world hardware constraints.",
+  "main_problem": "The primary goal is to reduce the Logical Error Rate (LER) in fault-tolerant quantum computing when physical qubits suffer from non-uniform, biased noise.",
+  "main_result": "The proposed compiler, Chameleon, achieves significant LER reductions (e.g., 19% for surface codes) while drastically reducing classical computation time from days to minutes.",
+  "method": "It employs a novel compiler that approximates the LER using an analytical upper bound on ambiguity operators, avoiding computationally prohibitive full simulations.",
+  "model_or_system": "The work models superconducting quantum hardware subject to spatially non-uniform Pauli noise (X/Z bias). It applies to general Quantum Error Correction (QEC) codes like the surface code, color code, and BB72 code.",
+  "key_observables": "Logical Error Rate (LER), correlation coefficient ($\rho$) between the surrogate score and actual LER, and classical computation time.",
+  "important_parameters": "Noise bias ($\\eta_q$), code distance ($d$), and the specific structure of the error-correcting code used.",
+  "main_assumptions": "The method relies on approximating the true LER using an analytical upper bound derived from the ambiguity operators, assuming this bound strongly preserves the ranking of candidate deformations.",
+  "figures_summary": "Figures illustrate the non-uniform noise bias on a device layout and compare LER reduction achieved by Chameleon against other policies on a sampled map for a surface code.",
+  "paper_structure": "The paper introduces the problem of biased noise in QEC, details the limitations of existing global/local deformation techniques, proposes the Chameleon compiler using an analytic surrogate objective, and validates its performance across multiple code families and noise models.",
+  "why_interesting": "While focused on superconducting qubits, the development of a fast, general-purpose compiler for optimizing error correction protocols against realistic, non-i.i.d. noise is highly relevant for any field utilizing quantum computation, including AMO platforms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.17870_figures/2608.17870_fig1.jpg",
+      "caption": "Fig. 1. Per-qubit bit-flip/phase-flip bias, mapped onto the real qubit layout of each device. The imbalance is spatially non-uniform on every device, so no single global deformation fits it.",
+      "page": 1
+    },
+    {
+      "image": "2608.17870_figures/2608.17870_fig2.jpg",
+      "caption": "Fig. 2. Comparison of six policies on a sampled map from Google Willow calibration data, surface code with distance 5. Values indicate LER. CDSC-c24 means CDSC validated with 24 candidates [13]. Our proposed method achieves the lowest LER without any decoder validation.",
+      "page": 2
+    },
+    {
+      "image": "2608.17870_figures/2608.17870_fig3.jpg",
+      "caption": "Fig. 3. The decoding ambiguity on the distance-3 rotated surface code. On the left, the code carries the logical ¯Z and ¯ X, where dark plaquettes are Z- type checks, light plaquettes are X-type checks, and orange marks triggered Z-type checks. On the right, the two-qubit error X0X3 (probability ∼p2) and the single-qubit error X6 (∼p) trigger exactly the same checks. The decoder picks the likelier X6, and when the true error is X0X3, the residual is the logical ¯ X. No decoder can avoid this failure; deformation can suppress it.",
+      "page": 3
+    },
+    {
+      "image": "2608.17870_figures/2608.17870_fig4.jpg",
+      "caption": "Fig. 4. Overview of CHAMELEON, the compile-time pass on one synthetic mixed-bias d=3 map (η=10, p=0.005). It takes the per-qubit noise map and the code as input. Step 1 finds the ambiguity operators of the undeformed code, and only the likeliest X and Z operators are drawn for legibility, a cost paid once and independent of the calibration map. Step 2 minimizes U, an approximation to a bound on the LER, over the binary space (2n). Step 3 extends to the full frame space (6n) with the cross-entropy method, reducing the bound to U6n. The optimized frame F ⋆is then deployed without decoder validation.",
+      "page": 5
+    },
+    {
+      "image": "2608.17870_figures/2608.17870_fig5.jpg",
+      "caption": "Fig. 5. Surrogate U vs. measured worst-axis LER for 35 frames per cell (4 fixed baselines, the deployed CHAMELEON frame, and 30 random full frames), at code capacity with p=0.02 and ≥256 ambiguity events per frame. Columns are ordered by the bias strength of the map (fraction of qubits with ηq>1.5, from left to right 6, 13, 43, 67%). Surrogate fidelity rises with bias. On the least-biased map (Miami) the surface-code frames are a near-flat tie and ranking is noise-dominated, while on BB36 ρ reaches 0.84–0.98 on every map, and CHAMELEON lands in the lowest-U, lowest-LER corner of every panel.",
+      "page": 8
+    }
+  ],
+  "figure": "2608.17870_figures/2608.17870_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

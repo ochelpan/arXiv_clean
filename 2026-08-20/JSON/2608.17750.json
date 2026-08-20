@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2608.17750",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "On the Expressive Power of the Transverse-Field Ising Model for Graph Learning",
+  "authors": "Mehdi Djellabi, Louis-Paul Henry",
+  "abstract": "We study the quantum evolution induced by graph-indexed Ising Hamiltonians as a source of structural signal for graph learning. Graph automorphisms preserve symmetries of the Hamiltonian, and these symmetries constrain the quantum evolution in a way that turns time-dependent local measurements into informative probes of graph structure. Leveraging this idea, we introduce QDAGer, a quantum-inspired graph-pair Transformer that injects quantum-dynamical features from time series of node occupations and connected two-point correlators directly into the attention mechanism. We apply QDAGer to learning Graph Edit Distance (GED), an NP-hard similarity measure, using either a direct permutation-invariant embedding discrepancy or an alignment-based surrogate loss. Experiments on multiple GED benchmarks under different edit cost settings show that the proposed dynamical features provide a stronger inductive bias than classical structural alternatives under the same training protocol. In addition, we report ablations where the dynamical signal is replaced by standard random-walk and heat-kernel features while keeping the architecture fixed, highlighting that the gain comes from the injected dynamics rather than model capacity alone.",
+  "url": "http://arxiv.org/abs/2608.17750v1",
+  "pdf": "https://arxiv.org/pdf/2608.17750v1",
+  "type": "both",
+  "summary": "This paper proposes QDAGer, a quantum-inspired graph Transformer, to enhance graph learning by incorporating dynamical features derived from the Transverse-Field Ising Model. The authors show that the time evolution of quantum observables acts as a powerful structural signal, enabling the model to learn complex metrics like Graph Edit Distance better than purely classical structural descriptors.",
+  "main_problem": "To develop graph representations for graph learning that capture structural information while respecting permutation invariance, particularly for hard tasks like graph comparison.",
+  "main_result": "The proposed quantum-inspired architecture, QDAGer, demonstrates that dynamical features derived from the Ising model provide a stronger inductive bias for learning Graph Edit Distance than classical structural features.",
+  "method": "The authors introduce QDAGer, a Transformer that injects time-series data from quantum observables (node occupations and two-point correlators) into the attention mechanism for graph-pair comparison.",
+  "model_or_system": "The underlying physical model is the quantum evolution governed by a graph-indexed Transverse-Field Ising Hamiltonian ($H_G$). The dynamics are analyzed by measuring time-dependent expectation values of local observables.",
+  "key_observables": "Node occupations $\\langle \\hat{\nu}_u(t) \rangle$ and connected two-point correlators $\\langle \\hat{\nu}_u \\hat{\nu}_v(t) \rangle - \\langle \\hat{\nu}_u(t) \rangle \\langle \\hat{\nu}_v(t) \rangle$.",
+  "important_parameters": "The performance is tested across various Graph Edit Distance (GED) benchmarks using different edit cost settings.",
+  "main_assumptions": "The quantum dynamics are simulated via emulation, and the method is positioned as 'quantum-inspired' rather than claiming quantum computational advantage.",
+  "figures_summary": "Figure 1 (from Chunk 2 notes) shows that one-body occupation trajectories differ between non-isomorphic graphs (Rook's vs Shrikhande), demonstrating distinguishability.",
+  "paper_structure": "The paper first establishes the theoretical distinguishability of non-isomorphic graphs using the Ising model dynamics (Chunks 2 & 3), proving that observables yield distinct time-dependent trajectories. It then applies this concept by proposing QDAGer, which integrates these dynamical features into a Transformer for practical graph learning tasks like GED (Chunks 1 & 4).",
+  "why_interesting": "The work bridges quantum many-body physics (Ising models, dynamics) with modern machine learning (Graph Transformers), suggesting that inherent symmetries and time-evolution properties of quantum systems can serve as powerful, structured inductive biases for solving classically hard problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.17750_figures/2608.17750_fig1.jpg",
+      "caption": "Figure 1: Rook versus Shrikhande graphs distinction. (a) One-body occupation dynamics ⟨ˆn(t)⟩. Within each graph, the vertex-transitivity property ensures that all vertices share the same trajectory due to a single vertex orbit. (b) Number of shots required to distinguish the two graphs with success probability at least 95%. The red dashed line indicates the lower bound for the time complexity scale of the exact classical counterpart (4-WL). Parameters: |ψ0⟩= |0⟩⊗N for both graphs, δ = 0 and Ω= 0.1.",
+      "page": 7
+    },
+    {
+      "image": "2608.17750_figures/2608.17750_fig2.jpg",
+      "caption": "Figure 2 reports, for each family, the pair-averaged separation ¯η(1) together with its one-standard-deviation spread, and the worst-case separation mini<j η(1) ij , shown as a function of the elapsed physical time tm as the horizon grows over the T time steps. Starting from a common initial state, all curves vanish at early times, before the occupations have had time to differentiate. As the evolution proceeds, the worst-case separation becomes and remains strictly positive, well above the numerical tolerance, for both families. This shows that every pair of non-isomorphic graphs in srg(26, 10, 3, 4) and srg(25, 12, 5, 6) is separated by the one-point occupation dynamics alone, thereby...",
+      "page": 7
+    },
+    {
+      "image": "2608.17750_figures/2608.17750_fig3.jpg",
+      "caption": "Figure 2: Permutation-invariant separability of strongly regular graph families srg(25, 12, 5, 6) (a) and srg(26, 10, 3, 4) (b), containing 15 and 10 non-isomorphic graphs respectively. The minimization over per- mutations π ∈SN is solved exactly as a linear assignment problem between the node-occupation time traces of graph pairs, and η(1) ij (t) is expressed as a root-mean-square (RMS) distance over nodes and time steps. All graphs are initialized in the common |0⟩⊗N state and evolved with constant parameters Ω= 0.1 and δ = 0. Solid lines show the pair-averaged separation ¯η(1)(t) and shaded bands the corresponding ±1 standard deviation over graph pairs. Dashed black lines show the...",
+      "page": 8
+    },
+    {
+      "image": "2608.17750_figures/2608.17750_fig4.jpg",
+      "caption": "Figure 3: Detailed pipeline of the QDAGer model architecture. (a) Pre-processing phase: each graph Gi = (Vi, Ei) is mapped to the Hamiltonian of Eq. (1). Starting from a common initial state |ψ0⟩, we evolve the system as |ψG(t)⟩= exp(−it ˆHG) |ψ0⟩and evaluate the relevant observables at multiple times, namely the node occupations ⟨ˆnu⟩(t) and connected two-point correlators Cuv(t) = ⟨ˆnuˆnv⟩(t) −⟨ˆnu⟩(t)⟨ˆnv⟩(t). (b) For each graph pair (Gi, Gj), the corresponding tensors are concatenated, padded, and processed by ×L QDAGer layers to produce node embeddings Xθ and pair embeddings Rθ. These embeddings are used either by a direct distance head, yielding d(dir) θ (Gi, Gj), or by an...",
+      "page": 10
+    }
+  ],
+  "figure": "2608.17750_figures/2608.17750_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.17450",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "stat.ML",
+    "cond-mat.dis-nn",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Nonlocal Transition Kernel for Efficient Learning of Restricted Boltzmann Machines",
+  "authors": "Kaiji Sekimoto, Muneki Yasuda",
+  "abstract": "Learning restricted Boltzmann machines (RBMs) is computationally challenging because it requires expectations whose exact evaluation is generally intractable. The expectations are typically evaluated using a sampling approximation based on blocked Gibbs sampling (BGS), which is a local Markov chain Monte Carlo transition kernel. However, the locality of BGS can lead to poor sampling quality when the RBM has high energy barriers, thereby degrading learning performance. Deep tempering (DT), which performs parallel tempering over a sequence of learnable RBMs including the training RBM, alleviates this locality issue. However, DT algorithmically requires multiple steps to move through the RBM sequence to achieve a nonlocal transition. In this paper, we propose a transition kernel defined over the RBM sequence used in DT. The proposed kernel has a round-trip structure over the sequence, enabling nonlocal moves within a single transition while leaving the RBM sequence invariant. Numerical experiments show that the proposed kernel performs nonlocal transitions more frequently and achieves higher sampling quality with fewer transitions than BGS and DT. We further verify that learning based on the proposed kernel is more stable and mitigates the training failures observed with BGS- and DT-based learning.",
+  "url": "http://arxiv.org/abs/2608.17450v1",
+  "pdf": "https://arxiv.org/pdf/2608.17450v1",
+  "type": "theory",
+  "summary": "This paper addresses the computational difficulty of training Restricted Boltzmann Machines by proposing a novel nonlocal transition kernel. This kernel improves upon existing methods (BGS and DT) by enabling efficient, single-step nonlocal moves across the model sequence. The result demonstrates superior sampling quality and learning stability, advancing the field of energy-based model learning.",
+  "main_problem": "Learning Restricted Boltzmann Machines (RBMs) is computationally difficult because evaluating the required expectations is generally intractable.",
+  "main_result": "The proposed nonlocal transition kernel achieves higher sampling quality and stability for RBM learning compared to standard methods like BGS and DT.",
+  "method": "The authors propose a novel transition kernel with a round-trip structure over the RBM sequence used in Deep Tempering (DT).",
+  "model_or_system": "The model is the Restricted Boltzmann Machine (RBM), an energy-based latent-variable model defined by a Hamiltonian $E(v, h; \theta)$. Learning involves approximating expectations over the RBM joint distribution.",
+  "key_observables": "Sampling Quality, Log-likelihood ($\\ell(\theta)$), Total Variation (TV) distance, and the second-largest eigenvalue ($\\lambda_2$) of the transition matrix.",
+  "important_parameters": "The number of auxiliary RBMs ($L$) in the tempering sequence, and the number of sampling steps ($s$).",
+  "main_assumptions": "The standard BGS kernel is local, and Deep Tempering (DT) requires multiple steps for nonlocal moves, which the proposed kernel aims to circumvent.",
+  "figures_summary": "Figures illustrate schematic RBM architectures and show comparisons of transition trajectories (BGS, DT, proposed kernel) and the decay of TV distances across different datasets.",
+  "paper_structure": "The paper first establishes the computational challenge of RBM learning using BGS. It then introduces DT and the limitations of local transitions. The core contribution is the derivation and analysis of the proposed nonlocal transition kernel, followed by rigorous comparison against BGS and DT regarding sampling quality and learning stability.",
+  "why_interesting": "While focused on classical ML, the core mathematical tools—analyzing mixing times, spectral gaps ($\\lambda_2$), and constructing invariant transition kernels—are directly analogous to analyzing thermalization, mixing, and convergence in quantum many-body systems or quantum state preparation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.17450_figures/2608.17450_fig1.jpg",
+      "caption": "Figure 2: Log-likelihood, the MAEs, and the second-largest eigenvalue λ2 versus the training epoch for the GenRBM dataset. The results represent averages over 10 experiments.",
+      "page": 8
+    },
+    {
+      "image": "2608.17450_figures/2608.17450_fig2.jpg",
+      "caption": "Figure 3: Illustration of the RBM sequence with L = 2 used in DT. The bottommost RBM corresponds to the training RBM, and the other RBMs are used for sampling.",
+      "page": 8
+    },
+    {
+      "image": "2608.17450_figures/2608.17450_fig3.jpg",
+      "caption": "Figure 2 shows three quantities characterizing the learning behavior as functions of the training epoch. As training progressed, the MAEs increased, implying that the parameter gradients were estimated less accurately. This deterioration in gradient estimation, in turn, led to a decrease in the log-likelihood. Moreover, the estimator of λ2 converged to one as the training began to fail. As the relaxation time increased, the sampling became more strongly dependent on the initial states, making it more difficult to sample from the target distribution within a limited number of sampling steps. These results suggest that the resulting degradation in the sampling quality of BGS caused the...",
+      "page": 8
+    },
+    {
+      "image": "2608.17450_figures/2608.17450_fig4.jpg",
+      "caption": "Figure 4: Illustration of the sampling procedure for the proposed transition kernel on an RBM sequence with L = 2. The upward pass sequentially applies the swap operations from lower to upper RBMs, followed by a one-step BGS transition at the topmost RBM, and the downward pass applies the swap operations in the reverse order of the upward pass.",
+      "page": 12
+    },
+    {
+      "image": "2608.17450_figures/2608.17450_fig5.jpg",
+      "caption": "Figure 5: Visualization of low-rank synthetic datasets with data dimension n = 25: (a) samples and (b) a PCA projection for the islands dataset with a = 0.4, and (c) samples and (d) a PCA projection for the pentagon dataset with κ = 6.",
+      "page": 14
+    }
+  ],
+  "figure": "2608.17450_figures/2608.17450_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 1,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

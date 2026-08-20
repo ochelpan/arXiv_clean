@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2608.18065",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.str-el",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Geometric Tensor Preconditioning for Stable Training of Recurrent Neural Quantum States",
+  "authors": "Adil Attar, Amine M. Aboussalah, Mohamed Hibat-Allah",
+  "abstract": "Neural Quantum States (NQS) provide a powerful neural network-based variational framework for representing many-body wave functions and solving for ground states. Recurrent Neural Networks (RNNs) are particularly promising owing to their relatively low computational cost and their autoregressive property, which enables perfect sampling. Recently, RNNs have been reported to be unstable under curvature-based optimizers such as the minimum-step stochastic reconfiguration (minSR) method. In this paper, we address this perceived limitation and show that minSR can be stabilized through simple regularization techniques, enabling robust training of RNN-based NQS with only a few samples. Our approach outperforms the Adam optimizer on the one-dimensional transverse-field Ising model and the one-dimensional cluster state, and provides competitive results on the two-dimensional Heisenberg and $J_1-J_2$ models. This work offers a promising pathway for using modern optimization techniques with autoregressive NQS to address open questions in quantum simulation.",
+  "url": "http://arxiv.org/abs/2608.18065v1",
+  "pdf": "https://arxiv.org/pdf/2608.18065v1",
+  "type": "theory",
+  "summary": "This paper develops a stable training protocol for using Recurrent Neural Networks to represent quantum many-body wave functions. It overcomes the known instability of second-order optimizers like minSR by introducing regularization techniques. The stabilized method proves highly effective, offering a powerful tool for simulating complex quantum Hamiltonians.",
+  "main_problem": "The paper addresses the instability of using second-order optimization methods, like minimum-step stochastic reconfiguration (minSR), when training Recurrent Neural Network Quantum States (RNN-NQS).",
+  "main_result": "By applying simple regularization techniques to the minSR update, the authors stabilize the training process, showing that the method outperforms the Adam optimizer on several benchmark quantum models.",
+  "method": "The core method involves variational optimization of the energy expectation value using RNNs to parameterize the wave function, coupled with advanced analysis of the Fisher information matrix spectrum to stabilize the natural gradient descent update.",
+  "model_or_system": "The framework is applied to quantum many-body systems, including the 1D transverse-field Ising model, 1D cluster state, 2D Heisenberg, and J1-J2 models, using RNNs to represent the wave function $|\\Psi_\theta\rangle$.",
+  "key_observables": "Energy expectation value $\\langle\\hat{H}\rangle$, the Fisher information matrix spectrum, and the condition number $\\kappa_2(S_\\lambda)$ are key diagnostics.",
+  "important_parameters": "The regularization parameter $\\lambda$ (Tikhonov parameter) and the number of Monte Carlo samples $N_s$ are crucial hyperparameters.",
+  "main_assumptions": "The analysis relies on the i.i.d. sampling assumption for error bounding and assumes that careful preconditioning can mitigate the ill-conditioned nature of the RNN Fisher spectrum.",
+  "figures_summary": "Figures illustrate the schematic structure of RNN wave functions for 1D and 2D lattices, and Figure 6 specifically shows the training stability of minSR as a function of the regularization parameter $\\lambda$ and sample size $N_s$.",
+  "paper_structure": "The paper progresses from introducing RNN-NQS and the optimization goal, to analyzing the inherent instability of minSR due to the RNN structure, developing the regularization technique, and finally benchmarking the stabilized method against Adam on various quantum Hamiltonians.",
+  "why_interesting": "This work directly tackles the practical limitations of using advanced quantum machine learning techniques (RNN-NQS) for simulating complex quantum matter, providing a robust optimization pathway for variational quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.18065_figures/2608.18065_fig1.jpg",
+      "caption": "Figure 1: Illustration of RNN wave functions. a) Schematic of an RNN wave function. A series of spins σi are sequentially provided as an input into the RNN cell (shown in green), which produces a list of outputs yi (shown in blue). Subsequently, the Softmax and/or Softsign layers are applied to compute the amplitude and phase of the wave function, respectively. The outputs of the RNN can be used to calculate the wave function through its amplitude and phase. b) Schematic of a 2D RNN. Each RNN cell (shown in green) takes a spin in a 2D array as an input and outputs two identical hidden states, drawn as green arrows, to each of its nearest neighbors. The autoregressive property can be applied...",
+      "page": 2
+    },
+    {
+      "image": "2608.18065_figures/2608.18065_fig2.jpg",
+      "caption": "Figure 2: One-dimensional benchmark comparison between Adam and minSR optimizers on two testbeds a) the 1D TFIM and b) the Cluster state. a) We find the ground state energy of the TFIM Hamiltonian with open boundary conditions with 200 spins at the critical point h = J = 1. The underlying model is a pRNN with dh = 32 hidden units and Ns = 100 Monte Carlo samples. The relative error with respect to the exact theoretical value [61] is plotted against time in seconds. To minimize statistical noise, the relative errors are averaged over a 300 training-step window. b) A comparison between Adam and minSR optimizers for the one-dimensional cluster state for N = 100 qubits. The relative error with...",
+      "page": 7
+    },
+    {
+      "image": "2608.18065_figures/2608.18065_fig3.jpg",
+      "caption": "Figure 3: 2D J1 −J2 model benchmark. We compare the Adam and minSR optimizers by showing the evolution of the V-score (39) versus time in seconds at (a) the Heisenberg point J2 = 0, and (b) the frustrated regime of J2 = 0.5. We apply a moving average with a window size of 200 iterations to minimize statistical noise. Our results show an enhancement of accuracy when applying minSR at J2 = 0, but an accuracy comparable to that of Adam at J2 = 0.5.",
+      "page": 8
+    },
+    {
+      "image": "2608.18065_figures/2608.18065_fig4.jpg",
+      "caption": "Figure 5: Scaling Study of minSR. (a) We plot the V-score (see Eq. (39)) of Adam and minSR on a 10 × 10 antiferromagnetic Heisenberg model with OBC and dh = 100. We increase the number of samples Ns, plotted on the x-axis, and observe the effect on the V-score for both Adam and minSR. We keep an equal training time of 24 hours for all data points. We plot Adam as blue diamonds, and minSR as orange squares. (b) We plot the relative error of the subsampled SR metric ∥S −˜S∥F /∥S∥F against √Ns",
+      "page": 9
+    },
+    {
+      "image": "2608.18065_figures/2608.18065_fig5.jpg",
+      "caption": "Figure 4: Loss Landscape in 1D and 2D. We plot the loss landscapes of the a) 1D TFIM and b) 2D Heisenberg model around their optimal parameters, from section III, on a 60 × 60 grid. Each energy is calculated using 103 samples, which we found sufficient to discern important features of the loss landscape.",
+      "page": 9
+    }
+  ],
+  "figure": "2608.18065_figures/2608.18065_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

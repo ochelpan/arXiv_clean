@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2608.16994",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.other"
+  ],
+  "is_primary_archive": true,
+  "title": "Basis-update and Galerkin time integration in canonical matrix-product-state form",
+  "authors": "Maximilian Fröhlich, Richard M. Milbradt, Martin Eigel, Aaron Sander, Robert Wille, Christian B. Mendl",
+  "abstract": "Matrix product state algorithms must enlarge their bond spaces as entanglement grows and compress them to control cost. We formulate basis-update and Galerkin (BUG) time integration as a sequence of canonical MPS sweeps for Hamiltonians represented as matrix product operators. We show when two natural basis updates produce the same trial space and when transporting coefficients between successive bases preserves the represented state. Under these conditions, the existing first-order error bound for uncompressed tree-tensor-network BUG also applies to the alternating-endpoint MPS schedule. We verify the uncompressed implementation against an independent six-site calculation. We then compare BUG with two-site TDVP for 16-site transverse-field Ising and Haldane-Shastry dynamics. At matched timestep and truncation settings, BUG performs fewer local exponential actions and has lower runtime. These settings do not produce equal accuracy. The runtime versus accuracy curves cross for the Ising model and are close for the Haldane-Shastry model. The comparison therefore identifies model-dependent trade-offs rather than a general advantage for either method.",
+  "url": "http://arxiv.org/abs/2608.16994v1",
+  "pdf": "https://arxiv.org/pdf/2608.16994v1",
+  "type": "theory",
+  "summary": "This paper introduces the Basis-Update and Galerkin (BUG) method for time-evolving quantum states represented by Matrix Product States (MPS). It rigorously details the sweep procedure and proves convergence bounds for the scheme. The comparison against 2-TDVP demonstrates that while BUG is often faster, the optimal choice of time integration method is highly dependent on the specific quantum model being simulated.",
+  "main_problem": "The paper develops and analyzes a Basis-Update and Galerkin (BUG) time integration scheme for simulating quantum many-body dynamics using Matrix Product States (MPS). It aims to efficiently handle the growth of entanglement during time evolution.",
+  "main_result": "The BUG method is shown to be computationally efficient, often requiring fewer local exponential actions and having lower runtime than 2-TDVP, although the comparison reveals model-dependent trade-offs rather than a universal advantage.",
+  "method": "The core method involves formulating the time evolution as a sequence of canonical MPS sweeps, which includes a preparation pass, a reverse pass for basis enlargement and coefficient projection, and a final root Galerkin solve.",
+  "model_or_system": "The dynamics are studied for quantum many-body systems governed by a time-independent Hermitian Hamiltonian ($\\hat{H}$), which is represented as a Matrix Product Operator (MPO). Comparisons are made using the Transverse Field Ising Model (TFIM) and the Haldane-Shastry model.",
+  "key_observables": "Runtime, accuracy (infidelity), and the derived first-order error bound ($\\lVert Y_n - A(t_n) \rVert \\le C_0 e_0 + C_1 \\eta + C_2 h$).",
+  "important_parameters": "Timestep ($h$), initial error ($\\epsilon_0$), and truncation error ($\\eta$).",
+  "main_assumptions": "The analysis relies on establishing specific rank conditions for basis retention and assumes that convergence requires both initial error and truncation error to vanish.",
+  "figures_summary": "Figures illustrate the canonical MPS structure, the local effective Hamiltonian environments used in the BUG sweep, and the step-by-step process of the uncompressed canonical MPS-BUG sweep.",
+  "paper_structure": "The paper first establishes the mathematical framework for the BUG sweep (Preparation Pass $\to$ Reverse Pass $\to$ Root Solve). It then derives rigorous error bounds for the uncompressed schedule. Finally, it compares the method's performance against 2-TDVP on specific physical models.",
+  "why_interesting": "This work provides advanced numerical tools for simulating quantum dynamics on quantum hardware simulators, directly impacting how researchers can model complex, entangled quantum systems beyond simple Trotter-Suzuki decompositions.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.16994_figures/2608.16994_fig1.jpg",
+      "caption": "FIG. 1. Matrix product state representations. These diagrams define the tensor conventions used in the canoni- cal BUG construction. (a) An MPS represents the state as a chain of site tensors. (b) Left- and right-isometric con- tractions define canonical form and identify the orthogonality center. (c) An MPO represents the Hamiltonian in the same chain geometry. The canonical isometries make the block em- beddings orthonormal and allow the environments and basis updates below to be written as local contractions.",
+      "page": 2
+    },
+    {
+      "image": "2608.16994_figures/2608.16994_fig2.jpg",
+      "caption": "FIG. 2. MPO contractions and environments. How is the global Hamiltonian reduced to the local contractions used during a canonical sweep? (a) The full network gives the Hamiltonian expectation value ⟨ψ| ˆH |ψ⟩. (b) and (c) collect all tensors to the left and right of site i into the environments L[i] and R[i]. Contracting these environments with the local MPO tensor produces the effective Hamiltonian used in the projected update.",
+      "page": 3
+    },
+    {
+      "image": "2608.16994_figures/2608.16994_fig3.jpg",
+      "caption": "FIG. 3. One uncompressed canonical MPS-BUG sweep. How is the BUG basis update realized as a sweep toward a fixed endpoint? (a) A preparation pass records center tensors and environments. (b) These environments define each local effective Hamiltonian. (c) The retained input and local predictor enlarge the next block basis. (d) The overlap between the previous and updated block bases is evaluated recursively. (e) This overlap projects the recorded coefficients into the updated basis and moves the working tensor toward the root. A final projected solve updates the root tensor. Thick bonds denote enlarged virtual dimensions. Compression and normalization are not part of this map.",
+      "page": 4
+    },
+    {
+      "image": "2608.16994_figures/2608.16994_fig4.jpg",
+      "caption": "FIG. 4. Runtime-accuracy trade-off at L = 16. Infidelity versus median runtime for (a) the transverse-field Ising and (b) Haldane-Shastry models, with rmin = 2 and χmax = 512. Marker shape encodes h (circle: 0.01; square: 0.005; triangle: 0.0025), and marker size increases as ϵ tightens from 10−8 to 10−14. Solid blue (BUG) and dashed orange (2-TDVP) lines connect filled Pareto points; open unconnected markers are dominated configurations. Each runtime is the median of three repetitions. Lines guide the eye and do not imply universal dominance.",
+      "page": 10
+    }
+  ],
+  "figure": "2608.16994_figures/2608.16994_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

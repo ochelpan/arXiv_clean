@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.17913",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Where Atom Loss Lands Matters: Decoder-Aware Risk Deposition in Neutral-Atom QEC",
+  "authors": "Xinyi Li, Yifeng Peng, Ying Wang",
+  "abstract": "Neutral-atom arrays are emerging as a leading platform for scalable quantum error correction (QEC). Qubits are routed and reused across the array, while detected loss is reported to the decoder as erasure information. Existing neutral-atom compilers optimize this movement, including routing, shuttling, and reuse, and often model loss through scalar exposure costs. Yet total exposure is an incomplete statistic for erasure-corrected QEC. It captures how much loss occurs, but not where it lands on the code, which we call its deposition. Under the same expected atom-loss budget, different deposition patterns over a code patch induce substantially different logical error rates (LER). We formalize this as decoder-aware risk deposition and present CAST, a compiler-side optimization pass that overlays a code-topology sensitivity map on a role-indexed exposure ledger and minimizes a decoder-weighted harm objective under a comparable-exposure constraint, using only local route, role, and seam-cooling actions. Across surface-code memory, physical-scale architecture models, lattice surgery, and decoder-mismatch checks, CAST lowers LER relative to topology-blind exposure minimization, improving on it in 35 of 48 physical-scale settings and by as much as 5.3x where exposure is heterogeneous and routing has slack. The largest gains occur when high exposure and high decoder sensitivity are initially misaligned, giving CAST room to redirect risk toward lower-impact code roles. CAST shows that decoder-aware atom-loss risk deposition can be optimized as a compiler-side pass in neutral-atom QEC.",
+  "url": "http://arxiv.org/abs/2608.17913v1",
+  "pdf": "https://arxiv.org/pdf/2608.17913v1",
+  "type": "theory",
+  "summary": "This paper introduces CAST, a novel compiler optimization pass for neutral-atom quantum error correction that accounts for where atom loss occurs, not just how much. By minimizing a decoder-weighted harm objective, CAST strategically redirects unavoidable hardware losses away from the most critical parts of the quantum code. This results in substantial reductions in the logical error rate, proving that deposition awareness is crucial for scalable quantum computing.",
+  "main_problem": "In neutral-atom QEC, simply minimizing total atom loss exposure is insufficient because the *location* (deposition) of the loss significantly impacts the final logical error rate (LER).",
+  "main_result": "The proposed compiler pass, CAST, significantly lowers LER compared to topology-blind methods by intelligently steering loss deposition away from highly sensitive code regions.",
+  "method": "CAST is a compiler-side optimization pass that minimizes a decoder-weighted harm objective by searching for local, trace-valid actions (route, role, seam cooling) while maintaining a comparable total physical exposure.",
+  "model_or_system": "The work focuses on quantum error correction (QEC) implemented on neutral-atom arrays, specifically modeling surface-code memory patches and lattice-surgery operations.",
+  "key_observables": "Logical Error Rate (LER), Decoder-Weighted Harm, Total Atom Loss Exposure.",
+  "important_parameters": "Code distance ($d$), physical-scale architecture models, and the degree of risk heterogeneity/routing slack.",
+  "main_assumptions": "The optimization assumes the compiler can find local, trace-valid actions that change deposition patterns while keeping total physical exposure constant.",
+  "figures_summary": "Figures compare LER reductions across different loss deposition patterns (e.g., Boundary-heavy vs. CAST) and show quantitative improvements across various physical-scale settings, highlighting the benefit of CAST.",
+  "paper_structure": "The paper introduces the limitation of scalar loss metrics, formalizes the decoder-aware risk deposition objective, presents the CAST optimization pass, and validates its performance against multiple baselines across various physical-scale benchmarks.",
+  "why_interesting": "It provides a concrete, actionable compiler-level optimization technique for mitigating hardware imperfections (loss) in emerging quantum platforms, directly impacting the feasibility of large-scale quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.17913_figures/2608.17913_fig1.jpg",
+      "caption": "Fig. 1. Equal-budget loss-deposition maps. Distance-11 surface-code memory patch over 11 syndrome rounds. Each cell is a data-qubit site in surface-code coordinates; color denotes per-round atom-loss probability. All maps have the same expected spacetime loss budget of 26.62 erasures.",
+      "page": 1
+    },
+    {
+      "image": "2608.17913_figures/2608.17913_fig2.jpg",
+      "caption": "Fig. 2. Methodology overview. CAST builds a loss ledger from a neutral-atom trace, combines it with a code-sensitivity harm model, and uses local shaping actions to reduce decoder-weighted harm under comparable exposure.",
+      "page": 2
+    },
+    {
+      "image": "2608.17913_figures/2608.17913_fig3.jpg",
+      "caption": "Fig. 3. Local shaping mechanism. CAST changes which feasible route, role binding, or surgery-seam placement carries exposure.",
+      "page": 2
+    },
+    {
+      "image": "2608.17913_figures/2608.17913_fig4.jpg",
+      "caption": "Fig. 4. Equal-budget controlled memory experiment. Panel (a) sweeps loss budget at d = 11 and T = d; panel (b) sweeps code distance at fixed budget density and T = d; panel (c) aggregates measurable paired points as policy/EM LER ratios. Lower LER and lower ratios are better.",
+      "page": 3
+    },
+    {
+      "image": "2608.17913_figures/2608.17913_fig5.jpg",
+      "caption": "Fig. 5. Calibrated physical-scale comparison. The two heatmaps report EM/CAST and SGB/CAST LER ratios. Within each heatmap, rows are architecture-risk regimes and columns are code distances. Values above one favor CAST; M/Z denote monolithic/zoned layouts.",
+      "page": 3
+    }
+  ],
+  "figure": "2608.17913_figures/2608.17913_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

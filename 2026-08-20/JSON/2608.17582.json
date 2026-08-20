@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.17582",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Automating Variational Quantum Sensing through Reinforcement-Learned Circuit Structures",
+  "authors": "Jie Liu, Xin Wang",
+  "abstract": "Variational quantum sensing offers a promising route to high-precision parameter estimation, but its performance depends strongly on the circuit architectures used for probe preparation and measurement. Existing approaches typically optimize continuous parameters within predefined ansätze, restricting the accessible design space and limiting adaptation to sensing tasks and hardware constraints. Here, we introduce \\textsc{AutoQSense}, a reinforcement-learning framework that searches circuit architectures using Fisher-information-based objectives. For few-qubit systems, a single agent sequentially constructs preparation and measurement circuits. For larger systems, a distributed formulation assigns local circuit design to subsystem agents and inter-block entanglement to a budgeted agent. Numerical results show that the learned architectures recover known benchmark strategies, adapt to dephasing noise, and outperform fixed hardware-efficient ansätze while using fewer entangling gates. These results establish \\textsc{AutoQSense} as a resource-aware approach to adaptive and hardware-compatible quantum sensing.",
+  "url": "http://arxiv.org/abs/2608.17582v1",
+  "pdf": "https://arxiv.org/pdf/2608.17582v1",
+  "type": "theory",
+  "summary": "This paper introduces AutoQSense, an RL framework that automates the design of quantum sensing protocols by optimizing the circuit architecture itself, not just the parameters. By treating circuit design as a sequential decision process, it achieves superior sensitivity compared to fixed ansätze. This establishes a resource-aware methodology for adaptive quantum metrology applicable to large, complex quantum hardware.",
+  "main_problem": "The core problem is automating Variational Quantum Sensing (VQS) by optimizing not only continuous variational parameters but also the underlying quantum circuit architectures themselves.",
+  "main_result": "The proposed framework, AutoQSense, successfully learns adaptive, hardware-compatible quantum sensing protocols that outperform fixed, hardware-efficient ansätze while using fewer entangling gates.",
+  "method": "It employs a nested optimization loop: an inner VQS loop optimizes parameters using quantum gradients, while an outer Reinforcement Learning (RL) loop updates the circuit architecture (the policy) based on the resulting Fisher Information.",
+  "model_or_system": "The system is an $n$-qubit quantum processor used for parameter estimation. The methodology scales from single-agent search for small systems to a distributed multi-agent formulation for large, lattice-connected systems.",
+  "key_observables": "Quantum Fisher Information (QFI) and Classical Fisher Information (CFI) are the primary objectives, used to define the RL reward function.",
+  "important_parameters": "The optimization involves variational parameters ($\theta$) and the discrete architectural choices (gate sequences/connectivity $A, B$).",
+  "main_assumptions": "The primary assumption addressed is that existing VQS methods are limited by fixed, a priori circuit ansätze, which the RL framework overcomes.",
+  "figures_summary": "Figures illustrate the AUTOQSENSE workflow, comparing its performance against benchmarks like the Standard Quantum Limit (SQL) and fixed ansätze, especially showing gains in QFI and reduced gate count.",
+  "paper_structure": "The paper introduces the VQS problem, identifies the architectural limitation, proposes the RL framework (AutoQSense), details the single-agent and multi-agent implementations, and validates the approach by showing performance gains and structural insights.",
+  "why_interesting": "The integration of RL for circuit design directly addresses the resource-aware optimization needed in quantum metrology, providing a systematic way to navigate the vast space of possible quantum circuits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.17582_figures/2608.17582_fig1.jpg",
+      "caption": "FIG. 1: Automating variational quantum sensing with reinforcement-learned circuit structures. (a) An unknown parameter is encoded in an n-qubit probe through an encoding Hamiltonian, in the presence of noise. (b) The AUTOQSENSE reinforcement-learning loop: an agent selects gates from a predefined pool to construct a circuit, which is evaluated by a CFI or QFI reward. (c) The resulting sensing protocol prepares a parameterized probe, encodes the unknown parameter, and applies a parameterized measurement to maximize the QFI or CFI. (d) For small systems, a single agent searches for an optimized circuit and compares its performance with fixed and GHZ-state baselines. (e) For larger systems,...",
+      "page": 2
+    },
+    {
+      "image": "2608.17582_figures/2608.17582_fig2.jpg",
+      "caption": "FIG. 2: Schematic of the multi-agent RL framework for distributed quantum-sensor architecture search. Each local agent observes its local state si and samples a local circuit action ki from its policy παi(ki|si). The local actions are assembled into a global circuit architecture k(1−M), which is evaluated by a centralized evaluator. The resulting CFI, together with the estimated local contribution, is used as the reward to update the local policies.",
+      "page": 9
+    },
+    {
+      "image": "2608.17582_figures/2608.17582_fig3.jpg",
+      "caption": "FIG. 3: Universal two-qubit circuit. Here, a, b, c, and d denote gen- eral SU(2) rotations.",
+      "page": 9
+    },
+    {
+      "image": "2608.17582_figures/2608.17582_fig4.jpg",
+      "caption": "FIG. 5: Comparison of AUTOQSENSE with GHZ interferometry and Ramsey spectroscopy for three-qubit magnetic-field sensing un- der dephasing noise of strength λ. Tr(I(Q) M ) (log scale) is plotted as a function of λ. In the low-noise regime, AUTOQSENSE achieves performance comparable to GHZ interferometry and exceeds Ram- sey spectroscopy. As dephasing increases, GHZ rapidly degrades due to its reliance on multipartite entanglement, while Ramsey ex- hibits gradual decay. AUTOQSENSE maintains the highest Tr(I(Q) M ) across the entire noise range, demonstrating adaptive robustness to decoherence.",
+      "page": 10
+    },
+    {
+      "image": "2608.17582_figures/2608.17582_fig5.jpg",
+      "caption": "FIG. 4: (a) Comparison of the sensing performance between the cir- cuit discovered by AUTOQSENSE and the universal ansatz, evaluated in terms of the cost function Tr(I(Q) M ) for the 3D magnetic field es- timation task. AUTOQSENSE successfully matches the optimal per- formance, demonstrating its ability to autonomously discover high- precision sensing protocols. (b) The ratio of Tr(I(Q) M ) to the optimal Tr(I(Q) Bench) given by the universal two-qubit circuit.",
+      "page": 10
+    }
+  ],
+  "figure": "2608.17582_figures/2608.17582_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

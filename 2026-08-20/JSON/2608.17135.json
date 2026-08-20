@@ -1,0 +1,75 @@
+{
+  "arxiv_id": "2608.17135",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.stat-mech",
+    "cs.AI",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Iterative tensor network transformations for element-wise evaluation of elementary and filtering functions",
+  "authors": "Xiao Wang, Tomohiro Hashizume, Pia Siegl, Dieter Jaksch",
+  "abstract": "Tensor networks are powerful formats for compressing large-scale data. However, their application to general data processing has been limited by the difficulty of performing nonlinear operations. Here, we introduce iterative tensor network transformations (ITNTs), a general algorithmic framework for the element-wise evaluation of elementary and nonlinear filtering functions on data encoded as tensor trains (TTs), a class of tensor networks. Our approach operates entirely in the compressed domain, enabling efficient computation on exponentially large datasets while maintaining a controlled computational cost. We demonstrate its power in two key areas: (I) evaluating highly nonlinear elementary and filtering functions on a 3D reactive flow field, enabling high-fidelity reaction rate computation and region filtering, and (II) finding extrema in complex optimization problems, such as solving Max-SAT instances on spaces up to $2^{70}$ configurations. These results establish ITNT as a foundational tool that provides tensor network methods with the capability for general-purpose data science and large-scale optimization.",
+  "url": "http://arxiv.org/abs/2608.17135v1",
+  "pdf": "https://arxiv.org/pdf/2608.17135v1",
+  "type": "theory",
+  "summary": "The paper introduces Iterative Tensor Network Transformations (ITNT), a novel framework allowing general nonlinear functions to be evaluated directly on data compressed in the Tensor Train format. By leveraging iterative root-finding techniques, ITNT achieves high accuracy for complex physical simulations, such as calculating reaction rates in fluid dynamics and solving NP-hard optimization problems. This establishes tensor networks as a tool for general-purpose, large-scale data science.",
+  "main_problem": "The core challenge is developing a general algorithmic framework to perform element-wise evaluation of arbitrary, nonlinear filtering functions directly on data encoded in the compressed Tensor Train (TT) format.",
+  "main_result": "The proposed Iterative Tensor Network Transformations (ITNT) successfully enables high-fidelity computation of nonlinear functions (like reaction rates) and locating global extrema in exponentially large configuration spaces.",
+  "method": "ITNT utilizes iterative techniques, such as the Newton-Raphson method, combined with efficient TT operations (element-wise product, partial integration) to operate entirely in the compressed domain.",
+  "model_or_system": "The methods are demonstrated on several models: 3D reactive flow fields (methane/air jet flame) for continuous field evaluation, and classical Ising models/Max-SAT instances for combinatorial optimization.",
+  "key_observables": "Reaction rates (Arrhenius factor), global energy extrema ($E_{opt}$), and the relative $\\ell_2$ error ($\tilde{\\epsilon}$).",
+  "important_parameters": "Bond dimension ($\\chi$), number of iterations ($N_{\text{iter}}$), and the required preprocessing steps (e.g., self-multiplication power $P$).",
+  "main_assumptions": "The framework assumes that the required functions can be mapped to iterative root-finding problems solvable via the Newton-Raphson method or related fixed-point iterations.",
+  "figures_summary": "Figures illustrate the methodology for nonlinear evaluation (Fig. 1a, 1b) and the application to optimization, showing convergence comparisons between ITNT and interpolation methods (TCI).",
+  "paper_structure": "The paper introduces ITNT, details its application to continuous nonlinear PDEs (reactive flow), and then extends it to discrete, high-dimensional optimization problems like Max-SAT and Ising model energy matching.",
+  "why_interesting": "This work provides a powerful, general-purpose computational tool that extends tensor network methods beyond linear operations, making them applicable to complex, nonlinear physics problems previously requiring computationally expensive full-space sampling.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.17135_figures/2608.17135_fig1.jpg",
+      "caption": "FIG. 1: Overview of the results. (a) Schematic of the Iterative tensor network transformations (ITNTs) methodology. The framework enables the evaluation of highly complex nonlinear transformations, T , directly on TT-encoded data Ψ defined on array indices j ∈{0, 1, . . . , N −1 = 2n −1}. This is achieved by leveraging 2n parallel evaluations of the iteratively converging Newton-Raphson method (bottom-right panels). In these panels, the red curve represents the nonlinear function being iteratively solved, while the blue and green lines illustrate the successive tangent-linear approximations during the iterative process, starting from the blue dot. This convergence allows the transformation...",
+      "page": 2
+    },
+    {
+      "image": "2608.17135_figures/2608.17135_fig2.jpg",
+      "caption": "FIG. 2: Nonlinear post processing with ITNTs. (a) Convergence comparison between ITNT and TCI for the Arrhenius equation (Eq. (3)) computation. While TCI suffers from instability around χ = 200, ITNT demonstrates a drop in error in the same region, consistently converging towards the exact result with in- creasing χ. (b) Relative ℓ2 error of the 1/T field computed exactly (Ψexact) from the original field and by us- ing the ITNT algorithm (ΨTT) for χ = 50, 100, 200, 300, and 500 (light to dark, left panel), and the same er- ror at the 10th iteration for different bond dimensions. In the right panel, the blue dashed line indicates 1/χ decay as a guide to the eye. (c) The position of the...",
+      "page": 5
+    },
+    {
+      "image": "2608.17135_figures/2608.17135_fig3.jpg",
+      "caption": "FIG. 3: Solving Max-3-SAT problems with ITNTs. (a) Truncation error at each bond in the zip- up self-multiplication algorithm. In order to solve 70 variables 700 clauses Max-3SAT problem, 10 self- multiplications are performed, and for each self-multiplication is computed with the zip-up algorithm with on-site truncation, while fixing χ = 700. Each color corresponds to a different self-multiplication iteration (iterations 1 to 10, light to dark) (b) Deflation result for the max 3-SAT problem s3v70c700-1. Three con- figurations with an energy of E with E = 679 are found after the i = 1655th, the i = 6442nd, and the i = 30186th extremum-finding ITNT steps. (c) Scaling of the minimum bond...",
+      "page": 6
+    },
+    {
+      "image": "2608.17135_figures/2608.17135_fig4.jpg",
+      "caption": "FIG. 4: ITNTs for element-wise nonlinear operations in TT representation. (a) Extrema detection with TT. i Starting from a TT representation of Ψ (black curve), repeated element-wise self-multiplication sharpens the state into a multi-peak profile Φ, where its integral is dominated by extremal configurations (red curve). ii A peak is then located by a binary fixation procedure. This involves integrating out all un- fixed sites and choosing the local configuration that maximizes the summed value. Starting from every index not being fixed, in the leftmost panel, a comparison between j2 = 0 (orange) and j2 = 1 (cyan) is performed, identifying j2 = 1 as a candidate for the optimal...",
+      "page": 11
+    }
+  ],
+  "figure": "2608.17135_figures/2608.17135_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
