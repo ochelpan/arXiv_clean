@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2608.18946",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "AlphaClifford: Efficient Clifford Synthesis and Transpilation with Model-based RL",
+  "authors": "Daniele Lizzio Bosco, Jacopo Cossio, Carla Piazza, Giuseppe Serra",
+  "abstract": "Clifford circuits play a foundational role in quantum computing, particularly due to their importance in quantum error correction and fault-tolerant logical synthesis. While these circuits can be efficiently simulated and represented as symplectic matrices, standard synthesis methods-such as the Aaronson-Gottesman algorithm-often yield sub-optimal circuits with excessively high gate counts. In this work, we introduce AlphaClifford, a model-based Reinforcement Learning framework powered by Monte Carlo Tree Search, designed to efficiently synthesize Clifford circuits from the fundamental gate set composed of H, S, and CNOT. By modeling the state space through the algebraic properties of the symplectic group, AlphaClifford effectively explores this combinatorial space to minimize overall circuit cost. For unconstrained Clifford optimization, our approach achieves a consistent reduction in both total and two-qubit (CNOT) gate counts compared to state-of-the-art synthesis heuristics, despite operating with a strictly less expressive gate set. Furthermore, we demonstrate the broad applicability of our framework on two additional tasks: hardware-constrained Clifford transpilation, where we outperform existing RL-based compilers, and as a post-synthesis optimization component within a full Clifford+T logical synthesis pipeline. Our results underscore that model-based RL is highly effective at addressing the combinatorial complexities of quantum compilation, offering a scalable pathway to mitigate hardware constraints in both near-term and future fault-tolerant quantum devices.",
+  "url": "http://arxiv.org/abs/2608.18946v1",
+  "pdf": "https://arxiv.org/pdf/2608.18946v1",
+  "type": "theory",
+  "summary": "This paper introduces AlphaClifford, a novel model-based Reinforcement Learning framework that uses Monte Carlo Tree Search to efficiently synthesize and optimize Clifford quantum circuits. By modeling the problem using the algebraic structure of the symplectic group, it significantly outperforms existing heuristics in minimizing gate counts for both general optimization and hardware-constrained transpilation.",
+  "main_problem": "Standard methods for synthesizing Clifford quantum circuits yield sub-optimal gate counts, which is inefficient for fault-tolerant quantum computation.",
+  "main_result": "AlphaClifford achieves significant reductions (up to 56% total gate reduction) in gate counts compared to state-of-the-art heuristics for both unconstrained optimization and hardware-constrained transpilation.",
+  "method": "The authors introduce AlphaClifford, a model-based Reinforcement Learning framework utilizing Monte Carlo Tree Search (MCTS) to explore the combinatorial space of Clifford circuits.",
+  "model_or_system": "The system involves Clifford circuits, which are mathematically characterized by their action on the symplectic group $\text{Sp}(2n, \text{F}_2)$ via the symplectic matrix representation $M = [X Z]$.",
+  "key_observables": "Total gate count and two-qubit (CNOT) gate count are minimized; the goal is to match a target symplectic matrix $M_{\text{target}}$.",
+  "important_parameters": "The fundamental gate set is {H, S, CNOT}; the state space is modeled using the algebraic properties of the symplectic group.",
+  "main_assumptions": "The synthesis guarantees equivalence only up to a Pauli layer ($P \\in P_n$), relying on the homomorphism $\\phi: C_n \to \text{Sp}(2n, \text{F}_2)$.",
+  "figures_summary": "Figure 1 illustrates the process: (a) Training uses MCTS on the symplectic matrix tree; (b) Synthesis uses the model to find a circuit matching a target matrix; (c) Shows applications in optimization, transpilation, and logical synthesis.",
+  "paper_structure": "The paper details the mathematical formulation using symplectic matrices, introduces the AlphaClifford RL framework powered by MCTS, presents results across general optimization and transpilation tasks, and discusses future directions.",
+  "why_interesting": "While focused on abstract computation, the rigorous mathematical modeling of the state space using group theory (symplectic group) and the application of advanced AI search techniques (MCTS) provide powerful computational tools applicable to modeling complex quantum dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.18946_figures/2608.18946_fig1.jpg",
+      "caption": "Fig. 1: a) We train our model to reproduce a target symplectic matrix. Each symplectic matrix is modelled as the node of a tree, where nodes are connected if the corresponding matrices can be reached with an operation from H, S, and CNOT. We train a MCTS-based model as a pair of value network (for nodes, e.g. lighter blue corresponds to a higher value) and policy network (for edges, e.g. wider arrows corresponds to higher probabilities). b) Given a target Clifford circuit Ctar, we utilize our model to synthesize a circuit C with the same symplectic matrix, i.e. P ·C ≡Ctar for a suitable Pauli P. We then compute the P from initial circuit, and we apply the corresponding gates to the obtained...",
+      "page": 2
+    },
+    {
+      "image": "2608.18946_figures/2608.18946_fig2.jpg",
+      "caption": "Fig. 2: Overview of the Monte Carlo Tree Search (MCTS) phases for Clifford circuit synthesis. The search space is explored by iteratively executing four distinct stages: (a) Selection: The tree is traversed from the root (representing the target symplectic matrix C) to a leaf node. Actions, corresponding to Clifford gates H, S, and CNOT, are chosen by balancing exploration and exploitation using the UCT formula. (b) Expansion: When reaching a leaf node, the tree is expanded by the addition of one or more child nodes, each representing the state resulting from a possible Clifford operation. (c) Simulation: A rollout is performed from the newly expanded node based on the policy network. A...",
+      "page": 5
+    },
+    {
+      "image": "2608.18946_figures/2608.18946_fig3.jpg",
+      "caption": "Fig. 3: Hardware connectivity maps utilized for benchmarking: Line graphs (a-c) and T-shape graphs (d-f). Vertices represent physical qubits and edges represent available coupling map connections.",
+      "page": 8
+    }
+  ],
+  "figure": "2608.18946_figures/2608.18946_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

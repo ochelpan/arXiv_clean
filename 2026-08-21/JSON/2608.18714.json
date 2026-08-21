@@ -1,0 +1,74 @@
+{
+  "arxiv_id": "2608.18714",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cs.LG",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A single design choice determines whether machine learning models of materials make physically impossible predictions",
+  "authors": "Can Polat, Mustafa Kurban, Erchin Serpedin, Hasan Kurban",
+  "abstract": "Machine-learned models are replacing first-principles calculations across materials discovery, and physical symmetry is the central guarantee built into them. The debate over how much symmetry to hard-wire rather than learn has run on rotations, where a symmetry error is an approximation error. Some constraints are exact: symmetry forces certain property tensors to exactly zero, so a nonzero prediction is physically impossible rather than inaccurate. Here we show that whether a model can make such predictions is decided before training by one rarely reported design bit, whether its features carry parity labels, and derive a criterion, the parity gap, that computes from group theory alone which properties and crystals are exposed. Across matched architecture pairs differing only in that bit, evaluated on two thousand centrosymmetric crystals whose piezoelectric tensor must vanish, parity-labelled arms sit at the floating-point floor while rotation-only arms predict forbidden responses on 90-96% of crystals, six orders of magnitude apart, at no accuracy cost. Training on explicit zeros does not recover exactness, and a head on a frozen universal potential inherits its backbone's symmetry group. One reflection at random initialization verifies the label in seconds.",
+  "url": "http://arxiv.org/abs/2608.18714v1",
+  "pdf": "https://arxiv.org/pdf/2608.18714v1",
+  "type": "theory",
+  "summary": "This work demonstrates that for ML models predicting material properties, the inclusion of parity labels in the model's features is the single design element that dictates whether the model respects exact physical symmetries. Models lacking this label frequently predict physically impossible, non-zero values for properties that must vanish due to crystal symmetry.",
+  "main_problem": "The paper addresses whether machine learning models designed for materials can predict physically impossible properties due to insufficient incorporation of exact symmetry constraints.",
+  "main_result": "The ability to enforce exact symmetry constraints (like zero for centrosymmetric materials) is determined solely by a single design choice: whether the model's features are explicitly labeled with parity information.",
+  "method": "The authors derive the 'parity gap' from group theory to quantify the difference between approximate (rotational) and exact symmetry constraints, testing this using ML models trained on materials data.",
+  "model_or_system": "The system is crystalline materials, and the models are machine-learned surrogates for first-principles calculations, specifically tested on properties like the piezoelectric tensor.",
+  "key_observables": "The predicted magnitude of the piezoelectric tensor, and the 'false-flag fraction' (percentage of predictions exceeding a physical threshold when the true value is zero).",
+  "important_parameters": "The parity label (a binary design choice), the symmetry group ($\text{E}(3)$ vs $\text{SO}(3)$), and the physical threshold ($\tau = 0.01 \text{ C m}^{-2}$).",
+  "main_assumptions": "The analysis assumes the validity of permutation and translation invariance, and crucially, that the parity label is an 'upstream' design choice.",
+  "figures_summary": "Figures compare the predictions of parity-labelled ($\text{O}(3)$) vs. parity-blind ($\text{SO}(3)$) models for the piezoelectric tensor, showing a separation of six orders of magnitude, with the $\text{SO}(3)$ model frequently predicting forbidden, non-zero responses.",
+  "paper_structure": "The paper establishes the theoretical distinction between approximate and exact symmetry constraints, derives the parity gap criterion, and then empirically demonstrates this gap by comparing the performance of ML architectures that either incorporate or ignore parity labels when predicting physical tensors.",
+  "why_interesting": "While focused on condensed matter ML, the rigorous mathematical framework for enforcing exact physical laws (like zero tensors) through structural design choices is highly relevant to building reliable quantum simulation models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.18714_figures/2608.18714_fig1.jpg",
+      "caption": "Figure 1 A label-free test of physical validity. a, A centrosymmetric crystal, one unit cell drawn heavy among its neighbours; each atom’s partner sits at −𝐫, reached through the inversion centre (crossed circle). Neumann’s principle requires the piezoelectric tensor to be invariant under every point-group operation, while parity sends the rank-3 polar tensor to its negative; the two demands force 𝑒= −𝑒, hence 𝑒= 0 exactly, on every centrosymmetric crystal and for any model that respects both. b, The two arms are built from one code path and differ in one bit. Feature irreducible representations run to 𝑙max = 3 in both: the O(3) arm carries the natural spherical-harmonic parity (−1)𝑙, the...",
+      "page": 6
+    },
+    {
+      "image": "2608.18714_figures/2608.18714_fig2.jpg",
+      "caption": "Figure 2 Parity labels separate possible from impossible predictions by six orders of magnitude. a, Dis- tribution of the predicted piezoelectric magnitude ‖𝑒‖𝐹on the 2,000 centrosymmetric crystals (idealized coordinates), for the O(3) and SO(3) arms of each core. Symmetry forces the true value to zero, so the tinted region above the operating threshold 𝜏= 0.01 C m−2 contains only physically impossible predictions. Box and whisker conventions as in Fig. 1c, here with each percentile taken as the mean of per-seed percentiles over 3 seeds; the capped stem to the right of each box reaches the single largest prediction. The lower tail of each SO(3) whisker is the class-m̄3m population, 8.3% of...",
+      "page": 7
+    },
+    {
+      "image": "2608.18714_figures/2608.18714_fig3.jpg",
+      "caption": "Figure 3 The parity gap predicts where the labels matter, and where they do not. a, Difference in test mean absolute error between the SO(3) and O(3) arms, in units of the pooled per-seed standard deviation 𝜎, for the three matched cores on all four targets; positive values favour the O(3) arm. Markers are jittered horizontally within each target for legibility. The grey band marks one pooled standard deviation, within which a three- seed comparison cannot resolve a difference and from which we claim no significance. Beneath each target is the parity of its tensor and the parity gap it carries on the evaluated population: 𝛾= 0 identically for the two parity-even targets by Theorem 1, and...",
+      "page": 8
+    },
+    {
+      "image": "2608.18714_figures/2608.18714_fig4.jpg",
+      "caption": "Figure 4 The missing guarantee is specifically parity, and it is differentiable. Markers and colours are shared across panels: blue, the O(3) arms; the four orange tints, the SO(3) arms of each core. a, False-flag fraction of the SO(3) arms, split by the point-group family of the evaluated crystal and labelled by the parity gap 𝛾3 that Theorem 1 assigns to it: m̄3m, whose proper-rotation subgroup 432 alone annihilates every rank-3 piezoelectric tensor, so 𝛾3 = 0; m̄3, where 𝛾3 = 1; and the non-cubic classes, where 𝛾3 runs from 1 to 18. Bars are means over 3 seeds and error bars are 95% percentile-bootstrap confidence intervals over structures within each family; the m̄3 interval is wide...",
+      "page": 10
+    }
+  ],
+  "figure": "2608.18714_figures/2608.18714_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

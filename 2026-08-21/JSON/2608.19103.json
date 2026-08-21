@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.19103",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum circuit optimization using deep reinforcement learning: Applications across multiple gate sets",
+  "authors": "Khoa Dang Tao, Sumin Jin, Muhammad Raza, Changhyoup Lee",
+  "abstract": "The practical implementation of quantum algorithms on noisy intermediate-scale quantum devices encounters operational limitations due to decoherence and other sources of noise inherent in real hardware. To mitigate these errors while preserving the original functionality of the algorithm, shorter quantum circuits are therefore preferred. This motivates the development of effective quantum circuit optimization algorithms. Learning-based approaches have emerged as a leading candidate, yet existing autonomous agents remain inefficient, spending most of their training capacity rediscovering elementary reductions that deterministic rule-based methods already handle reliably. To address this challenge, we propose a reinforcement learning framework that embeds a deterministic Commutation-and-Reduction (CR) algorithm directly into the training environment. After every agent action, the CR algorithm automatically resolves elementary commutations and cancellations, enabling the agent to focus its learning capacity on the non-trivial optimizations where reinforcement learning adds real value. Empirical evaluation across two gate sets, the universal Clifford+T basis and the CNOT+Pauli basis, shows that RL+CR produces shorter circuits than a standard RL agent at all tested scales. We demonstrate that RL trained on smaller quantum circuits can be applied to larger quantum circuits. On 20-qubit Clifford+T circuits, five times larger than the training circuits, RL+CR removes twice as many gates as standard RL. This work provides a robust approach that could accelerate the compilation and optimization processes for future fault-tolerant and utility-scale quantum systems.",
+  "url": "http://arxiv.org/abs/2608.19103v1",
+  "pdf": "https://arxiv.org/pdf/2608.19103v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel reinforcement learning framework that enhances quantum circuit optimization by integrating a deterministic Commutation-and-Reduction (CR) algorithm. By offloading elementary error corrections to the CR routine, the RL agent focuses its learning capacity on complex structural improvements. The resulting RL+CR method achieves state-of-the-art circuit compression, outperforming existing methods on simulated quantum hardware.",
+  "main_problem": "The primary challenge is optimizing quantum circuits to reduce gate count and depth to mitigate errors caused by decoherence on NISQ devices.",
+  "main_result": "The proposed RL+CR framework significantly outperforms standard RL agents and even state-of-the-art transpilers, achieving substantial gate and depth reductions across multiple gate sets.",
+  "method": "A reinforcement learning agent is trained within an environment that deterministically applies a Commutation-and-Reduction (CR) algorithm after every action, allowing the agent to focus on non-trivial optimizations.",
+  "model_or_system": "The system is modeled by quantum circuits implemented on near-term quantum hardware, tested across two gate sets: the universal Clifford+T basis and the CNOT+Pauli basis.",
+  "key_observables": "Gate count reduction percentage, circuit depth reduction percentage, and the final optimized circuit structure.",
+  "important_parameters": "The optimization is evaluated across varying qubit numbers (e.g., up to 20 qubits) and involves hyperparameters like learning rates and discount factors for the PPO algorithm.",
+  "main_assumptions": "The core assumption is that deterministic rules (handled by CR) can be separated from the complex, non-trivial optimizations that require machine learning.",
+  "figures_summary": "Figures illustrate the RL framework loop, the two-phase CR execution, and comparative learning curves showing RL+CR's superior performance over standard RL and CR baselines across different qubit counts.",
+  "paper_structure": "The paper introduces the problem, details the RL+CR methodology (including the CR algorithm and the PPO formulation), presents rigorous comparisons against baselines (including Qiskit), and concludes with performance metrics across various circuit sizes and bases.",
+  "why_interesting": "This work directly addresses the practical compilation and optimization bottleneck in quantum computing, providing a data-driven tool to make quantum algorithms more robust for near-term hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.19103_figures/2608.19103_fig1.jpg",
+      "caption": "FIG. 1. Overview of the integrated reinforcement learning framework. The diagram illustrates the closed-loop interaction between the Actor–Critic agent and the environment.",
+      "page": 2
+    },
+    {
+      "image": "2608.19103_figures/2608.19103_fig2.jpg",
+      "caption": "FIG. 2. The two-phase execution of the Commutation-and-Reduction algorithm. The input circuit contains a disordered distribution of gates. Dashed arrows trace representative gates during the commutation phase: X, Y, and Z gates propagate rightward, while a CNOT propagates leftward. The exposed X-X and CNOT-CNOT pairs (red box) cancel to the identity (I) in the reduction phase, producing the reduced circuit.",
+      "page": 3
+    },
+    {
+      "image": "2608.19103_figures/2608.19103_fig3.jpg",
+      "caption": "FIG. 4. Schematic of the distributed experience collection and training pipeline. Multiple environments generate diverse circuit optimization trajectories, which are stored as transi- tion tuples (st, at, rt, st+1) in a centralized experience replay buffer. The buffered transitions are then sampled in shuffled mini-batches to train the policy with PPO.",
+      "page": 4
+    },
+    {
+      "image": "2608.19103_figures/2608.19103_fig4.jpg",
+      "caption": "FIG. 3. The Actor-Critic network architecture for quantum circuit optimization. (a) The shared convolutional backbone that extracts local spatio-temporal features. (b-c) The Actor (policy) branch, which generates a logit tensor of shape Q × M × A. (d) The application of the binary validity mask to ensure permissible action selection. (e-f) The Critic (value) branch, which aggregates features to produce a scalar state- value estimate V (s).",
+      "page": 4
+    },
+    {
+      "image": "2608.19103_figures/2608.19103_fig5.jpg",
+      "caption": "FIG. 5. Training and evaluation learning curves for quantum circuit optimization. The top row (a–c) displays results for the CXP basis, while the bottom row (d–f) displays results for the Clifford+T basis. Column (a, d) represents the 4-qubit training circuits, while columns (b, e) and (c, f) demonstrate generalization to 10-qubit and 20-qubit circuits, respectively. In every panel, the RL-CR agent (blue) is compared against the standard RL agent (red) and the CR baseline (dash-dotted black). The vertical axis represents the average gate count, and the horizontal axis represents the training epochs.",
+      "page": 6
+    }
+  ],
+  "figure": "2608.19103_figures/2608.19103_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

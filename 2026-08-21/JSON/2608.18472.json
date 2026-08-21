@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.18472",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.atm-clus",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Unified Strong-Field Dynamics Simulations from Atoms to Heterostructures",
+  "authors": "Zakaria Dahbi, Amelle Zaïr",
+  "abstract": "We present \\textsc{TDSE-Z}, a high-performance open-source framework for strong-field quantum dynamics in atomic, molecular, and semiconductor effective-mass systems. The core engine implements a weak-form Galerkin discretisation of the Hermitian BenDaniel-Duke operator, $\\hat{T}_{\\mathrm{BDD}} = -\\frac{1}{2}\\nabla\\cdot(m^{-1}(\\mathbf{r})\\nabla)$, on geometry-adapted B-spline meshes, supporting arbitrary potentials and customisable laser configurations in one to three dimensions. We validate the static position-dependent-mass (PDM) eigensolver through two stringent benchmarks: a comparison to the analytical Quesne PDM model and a $\\text{GaAs/Al}_{0.3}\\text{Ga}_{0.7}\\text{As}$ double quantum well, where the exponential decay of computed tunnel splittings follows Wentzel-Kramers-Brillouin (WKB) theory at the sub-percent level. We further demonstrate the time-propagation engine on constant-mass systems, accurately reproducing high-harmonic generation (HHG) spectra in atomic benchmarks and confirming the importance of dimensionality in fully capturing the strong light-matter interaction. Our implementation demonstrates robust strong-scaling efficiency, maintaining performance across hundreds of CPU cores. While the static eigensolver currently supports optional GPU offloading, the time-propagation engine is CPU-optimised, providing a modular architecture for future expansion toward exascale quantum dynamics.",
+  "url": "http://arxiv.org/abs/2608.18472v1",
+  "pdf": "https://arxiv.org/pdf/2608.18472v1",
+  "type": "theory",
+  "summary": "The authors present TDSE-Z, a high-performance, open-source framework for simulating strong-field quantum dynamics in materials with position-dependent effective mass. It uses a weak-form Galerkin method on B-splines to solve the time-dependent Schrödinger equation. The code is validated by reproducing known physical results, such as WKB decay in quantum wells and HHG spectra, making it a powerful tool for quantum optics and semiconductor physics.",
+  "main_problem": "The paper addresses the challenge of simulating strong-field quantum dynamics in complex materials, particularly those with spatially varying effective mass at interfaces.",
+  "main_result": "The developed framework, TDSE-Z, successfully implements the BenDaniel-Duke operator using a weak-form Galerkin approach, validating its accuracy across static eigensolvers (WKB comparison) and time propagation (HHG spectra).",
+  "method": "The core method involves a weak-form Galerkin discretization of the time-dependent Schrödinger equation using B-spline basis functions on geometry-adapted meshes.",
+  "model_or_system": "The system models atomic, molecular, and semiconductor effective-mass systems, governed by the TDSE incorporating the BenDaniel-Duke kinetic operator, which accounts for spatially varying effective mass m(r).",
+  "key_observables": "Tunnel splittings, High-Harmonic Generation (HHG) spectra, dipole moment, and total energy expectation values.",
+  "important_parameters": "Strong laser field amplitudes ($E_0$), dimensionality (1D vs 3D), and the effective mass function $m(r)$.",
+  "main_assumptions": "The time-propagation engine is currently CPU-optimized, and the framework relies on the weak-form formulation to handle mass-gradient singularities.",
+  "figures_summary": "Figures illustrate the comparison of 1D vs 3D HHG spectra showing spectral differences due to dimensionality, and plots demonstrate the time evolution of energy and position expectation values confirming numerical stability.",
+  "paper_structure": "The paper details the implementation of the BDD operator via weak-form Galerkin discretization, validates the static eigensolver against WKB theory, and demonstrates the time-propagation engine on benchmarks like HHG and constant-mass systems.",
+  "why_interesting": "This work provides a highly robust and general computational tool for simulating light-matter interactions in solid-state and molecular systems, which is central to quantum optics and condensed matter physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.18472_figures/2608.18472_fig1.jpg",
+      "caption": "FIG. 1. Illustration of knot distributions and local grid resolution for the six coordinate mappings. (a) Physical knot positions 𝑥𝑖vs. index 𝑖over [−50, 50] a.u. (𝑁interior = 99, 𝑝= 5). Clustering near the origin is evident for all non-uniform schemes. (b) Grid spacing Δ𝑥𝑖= 𝑥𝑖+1 −𝑥𝑖. The symtan, symexp, and hydrogenic mappings achieve sub-atomic resolution (< 0.2 a.u.) near the Coulomb cusp without increasing the global basis size.",
+      "page": 4
+    },
+    {
+      "image": "2608.18472_figures/2608.18472_fig2.jpg",
+      "caption": "FIG. 2. Code workflow of TDSE-Z. From input file through ge- ometry/mesh generation, IGA basis construction, parallel assembly of system matrices (mass, BDD kinetic, potential, length-gauge laser, CAP), eigenproblem (Krylov-Schur + shift-invert), initial state preparation, PETSc/TS Crank-Nicolson time propagation, observable computation, automated diagnostics (TRK, dipole-matrix Hermiticity, [𝐻, 𝐿𝑧] commutator), to structured HDF5 output. Dashed arrows indicate run-time feedback loops (length-gauge dipole precompute, bound-state projections). Green = core innovation (BDD operator, IGA, adaptive solvers); Red = time propagation; Yellow = I/O.",
+      "page": 7
+    },
+    {
+      "image": "2608.18472_figures/2608.18472_fig3.jpg",
+      "caption": "FIG. 3. Strong scaling on AMD Zen 4. (a): relative speed-up 𝑆= 𝑇16/𝑇𝑁against the number of MPI ranks 𝑁∈{16, 32, 64, 128, 256}, with ideal 1/𝑁scaling overlaid; the parallel efficiency 𝜂= 𝑆/(𝑁/16) is annotated at each rank and falls from 96% (32 ranks) to 65% (256 ranks). (b): wall time in log scale, decomposed into matrix assembly (red), ground-state solve, Crank-Nicolson propagation, HDF5 output, and Total time.",
+      "page": 8
+    },
+    {
+      "image": "2608.18472_figures/2608.18472_fig4.jpg",
+      "caption": "FIG. 4. (a) Conduction-band potential profile 𝑉(𝑥) (solid curve, left axis, in eV) and position-dependent effective mass 𝑚∗(𝑥) (dashed curve, right axis, in units of 𝑚𝑒) for the symmetric GaAs/Al0.3Ga0.7As double quantum well structure. The configuration defines an inner 4 nm central barrier bounded by two symmetric 8 nm quantum wells, with step heterojunctions located at 𝑥= ±37.79 bohr (±2 nm) and ±188.97 bohr (±10 nm). (b) Real and (c) imaginary components of the first four stationary bound-state eigenfunctions (𝜓0 to 𝜓3). The vanishing imaginary channels reflect the pure real-symmetric nature of the static Hamiltonian. The BenDaniel-Duke operator handles mass discontinuities by sampling...",
+      "page": 9
+    },
+    {
+      "image": "2608.18472_figures/2608.18472_fig5.jpg",
+      "caption": "FIG. 6. Logarithm of the differential recombination probability, log10(𝜌(𝐸)|𝑑rec|2), as a function of the scaled photoelectron energy (𝐸−𝐸0)/𝜔0 for the ground state (red) and the first (blue), second (green), and third (purple) excited states of 1D H+ 2 . 𝑑rec(𝐸𝑖) = ⟨𝜓𝑖| ˆ𝐷𝑥|𝜓𝐸𝑖⟩is the dipole recombination and 𝜌(𝐸𝑖) = (𝐸𝑖+1 −𝐸𝑖)−1",
+      "page": 10
+    }
+  ],
+  "figure": "2608.18472_figures/2608.18472_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 1,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

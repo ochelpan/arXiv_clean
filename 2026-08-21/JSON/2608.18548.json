@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.18548",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Direct fidelity estimation through joint fiducial grouping",
+  "authors": "Júlia Barberà-Rodríguez, Arthur Strauss",
+  "abstract": "Fault-tolerant quantum computation hinges on the requirement for low physical error rates. Reaching below threshold regime requires the accounting of circuit dependent noise, that is inherent to the execution context in which a quantum gate is usually embedded. Direct fidelity estimation is a technique that offers natural context preservation as it solely requires the insertion of local Pauli preparation and measurement fiducials around the window of interest. However, each sampled input-output Pauli pair demands its own preparation and measurement setting, an overhead that grows rapidly once the target gate is no longer Clifford. We introduce joint fiducial grouping, which partitions Pauli pairs into sets with commuting input and output operators, allowing several Pauli-transfer coefficients to be estimated within the same preparation-measurement setting. We derive an unbiased grouped estimator and finite-sample guarantees showing that grouping always reduces the number of distinct input-output settings and can also reduce the required channel uses when the target weight is concentrated within compatible groups. We characterize these gains for the parametric two-qubit gate $\\mathrm{fSim}(θ,\\varphi)$, and use the grouped estimator as a context-sensitive reward for reinforcement-learning-based gate calibration. Our results provide a practical route to lower-overhead, context-preserving fidelity estimation for continuously parameterized quantum gates.",
+  "url": "http://arxiv.org/abs/2608.18548v1",
+  "pdf": "https://arxiv.org/pdf/2608.18548v1",
+  "type": "both",
+  "summary": "This paper presents joint fiducial grouping, a technique to drastically reduce the experimental overhead required for quantum gate fidelity estimation by grouping commuting Pauli pairs. This grouped estimator provides a practical, context-preserving method to estimate entanglement fidelity, which is then leveraged as a reward function to train quantum gates using reinforcement learning.",
+  "main_problem": "The paper addresses the high experimental overhead associated with direct fidelity estimation (DFE) for characterizing quantum gates, especially when the target gate is non-Clifford.",
+  "main_result": "Joint fiducial grouping is introduced to partition Pauli pairs such that multiple transfer coefficients can be estimated using a single preparation-measurement setting, significantly reducing experimental overhead.",
+  "method": "The authors derive an unbiased grouped estimator for entanglement fidelity by grouping commuting input-output Pauli pairs, which is then applied in a context-sensitive reward function for reinforcement learning gate calibration.",
+  "model_or_system": "The work is applied to characterizing general quantum channels (CPTP maps) and specifically demonstrates its utility for calibrating the parametrically controlled two-qubit gate, fSim(theta, phi).",
+  "key_observables": "Pauli transfer coefficients ($\\chi_A(\\alpha, \beta)$), Entanglement fidelity ($F_e(U, E)$), and the context-sensitive reward $J(\theta)$ used in RL.",
+  "important_parameters": "Error parameters ($\\epsilon, \\delta$), the number of required settings ($M$ vs. $|\\Omega|$), and the gate parameters ($\theta, \\phi$).",
+  "main_assumptions": "The method assumes the ability to measure Pauli transfer coefficients and that grouping is possible based on commuting input/output Paulis. Truncation introduces a quantifiable bias ($W_{disc}$).",
+  "figures_summary": "The notes reference Tables I and II, detailing the noise model parameters (e.g., $T_1/T_2$, readout matrices) for the fSim comparison and the specific settings used for PPO/DFE calibration runs.",
+  "paper_structure": "The paper first establishes the limitations of standard DFE, then introduces the theoretical framework of joint fiducial grouping to derive the grouped estimator. It then validates this estimator by applying it to the fSim gate and using the resulting fidelity estimates as a reward signal for a model-free reinforcement learning calibration routine.",
+  "why_interesting": "The focus on reducing experimental overhead in quantum characterization is crucial for scaling up quantum computation, directly impacting the feasibility of implementing complex quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.18548_figures/2608.18548_fig1.jpg",
+      "caption": "Figure 1. Analytic grouping expectations over the two-angle fSim family. (a) Leading weighted protocol-shot improvement Inz G = |Ωnz|/ P",
+      "page": 8
+    },
+    {
+      "image": "2608.18548_figures/2608.18548_fig2.jpg",
+      "caption": "Figure 2. Fixed-point channel-fidelity estimation for fSim(π/8, π/8) under ideal readout and symmetric 5% readout error followed by linear-inversion REM. We set δ = 0.1 and use 50 independent trials at each requested precision. Indigo-blue and orange denote grouped and standard DFE, respectively; solid, filled marks indicate ideal readout, while dashed, open marks and light-colored violins indicate readout noise plus REM. (a) The trial-mean fidelity estimate with one-standard- deviation intervals and the exact fidelity. (b) The corresponding RMSE, which combines residual bias and finite-shot fluctuations. (c) Its decomposition into squared bias (crosses) and variance (circles). (d) The...",
+      "page": 9
+    },
+    {
+      "image": "2608.18548_figures/2608.18548_fig3.jpg",
+      "caption": "Figure 3. Circuit templates for estimating the fidelity of the same repeated implemented window E×n win (two wires shown schematically). (a) DFE uses local product Pauli-eigenstate preparations ψβj and local rotations Rαj into the output Pauli measurement bases. Its ideal reference determines the classical sampling distribution but is not applied as a circuit operation. (b) CAFE prepares |ψ⟩= Vψ |00⟩from a two-design D2 and appends the reference inverse (U n winVψ)† before the survival measurement. For a multi-qubit window, both the two-design preparation and the reference inverse are generally entangling, so their implementation can contribute error in addition to the forward window being...",
+      "page": 10
+    },
+    {
+      "image": "2608.18548_figures/2608.18548_fig4.jpg",
+      "caption": "Figure 4. Fixed-context repeated-cycle estimation for fSim(π/8, π/8) at every depth n = 0, . . . , 6, over 128 independent shot-sampling trials. For all estimates, (ϵ, δ) = (0.05, 0.1). (a) Mean depth-n fidelity estimates with pointwise 95% percentile- bootstrap confidence intervals for the across-trial mean and the exact forward-cycle fidelity. (b) Signed estimator error and intervals. (c) RMSE. (d) The native grouped and standard DFE protocol-shot allocations; the CAFE curves are omitted because they are set to the realized protocol-shot budget of their matched DFE counterpart at every depth in each trial. (e) Cycle fidelity inferred by fitting each trial across the independently...",
+      "page": 11
+    },
+    {
+      "image": "2608.18548_figures/2608.18548_fig5.jpg",
+      "caption": "Figure 5. Calibration convergence for the three representative fSim targets identified at the bottom of their columns. Each column compares ideal readout with a symmetric 5% readout error followed by linear- inversion REM. Solid, filled curves correspond to ideal readout, while dashed, open curves correspond to the readout-noisy-plus-REM condition. Blue and orange denote grouped and standard DFE, respectively, and shaded regions show one standard deviation over 10 paired seeds. The top row reports the batch-mean estimated fidelity used for the parameter update. The middle row gives the independently evaluated noiseless infidelity of the mean policy parameters. The bottom row gives the...",
+      "page": 12
+    }
+  ],
+  "figure": "2608.18548_figures/2608.18548_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

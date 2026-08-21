@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.18267",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": true,
+  "title": "Finite-temperature Green's function cluster expansion from thermofield doubles: Breakdown of the polaron picture",
+  "authors": "M. R. Carbone, S. Fomichev, B. Kloss, A. J. Millis, M. Berciu, D. R. Reichman, J. Sous",
+  "abstract": "We introduce a method, numerically exact in principle, for computing the momentum- and frequency-resolved single-particle Green's function of a polaron at finite temperature. The method, which we refer to as the finite-temperature Green's function cluster expansion, combines two ingredients: the generalized Green's function cluster expansion, a numerically exact extension of the momentum average family of methods that solves the polaron problem at zero temperature through a hierarchy of equations of motion for restricted phonon cloud configurations; and the thermofield double formalism, which maps the thermal trace onto a pure-state expectation value over a doubled Hilbert space. The resulting equations of motion have the same algebraic structure as those of the multi-boson zero-temperature theory, with the temperature entering through a Bogoliubov-type mixing angle that controls the coupling to a set of fictitious bath bosons. We implement the method in our open-source software package and benchmark it on the one-dimensional Holstein polaron, computing spectral functions, dispersions, lifetimes, and effective masses across coupling regimes and temperatures up to $T/Ω\\sim 1$. Where finite-temperature density matrix renormalization group results are available, we find quantitative agreement at affordable computational cost. The method recovers momentum-resolved spectra directly in frequency space, with no time evolution or analytic continuation. We also discuss the practical costs of the approach. In particular, since the doubled phonon Hilbert space has a non-trivial configuration structure in which real and fictitious clouds compete, convergence in the corresponding cloud parameters requires care.",
+  "url": "http://arxiv.org/abs/2608.18267v1",
+  "pdf": "https://arxiv.org/pdf/2608.18267v1",
+  "type": "theory",
+  "summary": "This work presents a numerically exact method, the finite-temperature Green's function cluster expansion, to calculate polaron properties at finite temperatures. By combining cluster expansion techniques with the thermofield double formalism, the authors show that the simple picture of a single quasiparticle peak breaks down as temperature increases. This has significant implications for understanding charge transport in materials where electron-phonon coupling is strong.",
+  "main_problem": "The paper aims to compute the momentum- and frequency-resolved single-particle Green's function of a polaron at finite temperature, addressing the breakdown of simple quasiparticle descriptions.",
+  "main_result": "The method successfully computes the spectral function across coupling regimes and temperatures, revealing that at finite T, the single-Lorentzian polaron picture breaks down due to hybridization with thermal-satellite continua.",
+  "method": "It introduces the finite-temperature Green's function cluster expansion (TGCE), which combines the generalized Green's function cluster expansion (GGCE) with the thermofield double (TFD) formalism.",
+  "model_or_system": "The study focuses on the polaron problem, modeled using the Holstein Hamiltonian, describing a charge carrier coupled to dispersive phonons. The TFD formalism maps the thermal trace onto a pure-state expectation value in an enlarged, doubled Hilbert space.",
+  "key_observables": "Single-particle Green's function G(k, omega), spectral functions A(k, omega), polaron dispersion, lifetimes, and effective masses.",
+  "important_parameters": "Temperature relative to phonon frequency (T/Omega), coupling strength ($\\lambda$), and phonon frequency ($\\Omega$).",
+  "main_assumptions": "The method is numerically exact in principle, but convergence requires careful handling of the non-trivial configuration structure in the doubled phonon Hilbert space.",
+  "figures_summary": "Figures illustrate the matrix size scaling, the convergence of the spectral function at various temperatures, and show the transition of the spectral line shape from a clean Lorentzian at T=0 to multi-peak structures at finite T.",
+  "paper_structure": "The paper first introduces the TGCE method by combining GGCE and TFD. It then benchmarks the method on the 1D Holstein polaron, calculating key observables across varying coupling strengths and temperatures, culminating in a discussion of the breakdown of the simple polaron picture.",
+  "why_interesting": "The rigorous treatment of finite-temperature effects in strongly coupled electron-phonon systems, particularly the identification of spectral features beyond simple quasiparticle poles, is highly relevant for understanding charge transport in molecular and organic semiconductors.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.18267_figures/2608.18267_fig1.jpg",
+      "caption": "FIG. 1. (a) Size of the matrix containing the full equations of motion for the Holstein polaron, as a function of the cloud parameters. We fix Nt = N and show representative curves for several values of the real (M) and fictitious (Mt) cloud extents. (b) Equation-generation time as a function of N. Both quantities exhibit power-law scaling with N, as in zero- temperature GGCE, with the doubling of the phonon species entering as a prefactor.",
+      "page": 3
+    },
+    {
+      "image": "2608.18267_figures/2608.18267_fig2.jpg",
+      "caption": "FIG. 2. (a) Matrix density, defined as the number of non-zero entries divided by the total number of matrix entries, as a function of the cloud cutoff N. (b) Edge density, de ≡nnz/ √",
+      "page": 4
+    },
+    {
+      "image": "2608.18267_figures/2608.18267_fig3.jpg",
+      "caption": "FIG. 3. Convergence of the spectral function in the cloud parameters (M, N, Mt, Nt) at λ = 1, Ω= 1, for T/Ω= 0.4 (top row) and T/Ω= 1.0 (bottom row), at k = 0 (left column) and k = π (right column). Curves are labeled MN-MtNt. The polaron peak is well-converged at intermediate temperature for MN-MtNt = 39-35 and adjacent configurations; at T/Ω= 1 convergence is slower but the peak position and width remain stable.",
+      "page": 5
+    },
+    {
+      "image": "2608.18267_figures/2608.18267_fig4.jpg",
+      "caption": "FIG. 4. Wall-clock time per (k, ω) point for the three available linear-solver backends in the GGCE package: a SciPy direct solver, a continued-fraction (contfrac) solver, and a PETSc- based sparse solver. Calculations are run on one compute node, distributed across 4 MPI ranks with 8 CPUs per rank. PETSc is fastest for matrix sizes above ∼103, where the linear system is no longer canonically sparse.",
+      "page": 6
+    },
+    {
+      "image": "2608.18267_figures/2608.18267_fig5.jpg",
+      "caption": "FIG. 5. (Top row) Spectral functions A(k, ω) for the one-dimensional Holstein model computed with TGCE at T/Ω= 0.4 and varying coupling: λ = 0.1 (left), 0.5 (middle), 1 (right). (Bottom row) Line cuts at k = 0 (left subpanels) and k = π (right subpanels), at three temperatures T/Ω= 0.1, 0.4, 1.0 from top to bottom within each panel. The right column (λ = 1) includes a comparison to finite-T DMRG benchmark data (dashed): at T/Ω= 0.1 and 0.4, from Ref. 25; at T/Ω= 1.0, from our own DMRG calculations, with computational details given in Appendix A. Agreement is semi-quantitative across all three temperatures. Other parameters: Ω= 1, η = 0.05, cloud configuration MN-MtNt = 39-35.",
+      "page": 7
+    }
+  ],
+  "figure": "2608.18267_figures/2608.18267_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 3,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}
