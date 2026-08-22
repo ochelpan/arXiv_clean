@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.20250",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Logarithmic depth compression of Heisenberg Hamiltonian simulation by fan-out parallelization, with built-in error detection",
+  "authors": "Artemiy Burov, Clément Javerzac",
+  "abstract": "Noisy intermediate-scale quantum computers are constrained by circuit depth, while product-formula simulation of spin systems leads to narrow and deep circuits. Here we introduce a fan-out-based gadget compiler that trades circuit depth for width in simulations of Heisenberg-type nuclear magnetic resonance (NMR) Hamiltonians. Each logical spin is encoded into a small repetition-code register sized by its interaction degree, so that all pairwise interactions of a given Pauli type execute in parallel after a logarithmic-depth CNOT fan-out, and the redundant registers provide error detection for post-selection at no additional algorithmic overhead. The central result is a fixed-protocol resource comparison of the two compilations, transpiled to heavy-hex superconducting and all-to-all trapped-ion targets across a set of NMR spin systems. For interaction graphs with a high-degree hub the volume-optimal schedule halves the two-qubit depth and reduces the volume 1.7-fold for the 13-spin demonstration, which on heavy-hex also lowers the two-qubit gate count, and the depth reduction rises to 2.5-fold on all-to-all for the highest-degree molecule studied. On all-to-all the two-qubit gate count rises for every system, so the volume reduction is a benefit on depth-limited hardware. The gain grows with the degree inhomogeneity of the interaction graph and vanishes for dense uniform graphs, where the optimum is the sequential circuit. We simulate the zero-field NMR spectrum of tetramethylsilane, a 13-spin star system. Under a noise model scaled from a published present-day processor calibration, the shallower gadget circuits match or surpass the sequential compilation only after post-selection on their built-in error detection, once error rates improve by one to one and a half orders of magnitude. We verify the spectra against an independent classical computation.",
+  "url": "http://arxiv.org/abs/2608.20250v1",
+  "pdf": "https://arxiv.org/pdf/2608.20250v1",
+  "type": "theory",
+  "summary": "This paper presents a novel fan-out-based gadget compiler to simulate Heisenberg Hamiltonians, aiming to reduce the circuit depth bottleneck in NISQ quantum computers. By encoding spins into redundant registers, it parallelizes interactions, achieving significant depth reductions compared to standard sequential compilation. The results demonstrate that this technique offers substantial resource savings, particularly for systems with highly connected hubs.",
+  "main_problem": "The primary challenge is mitigating the constraint of circuit depth in Noisy Intermediate-Scale Quantum (NISQ) computers when simulating spin systems governed by Heisenberg Hamiltonians.",
+  "main_result": "A fan-out-based gadget compiler can significantly reduce the two-qubit circuit depth (up to 2.5-fold on all-to-all) compared to sequential product-formula simulations, especially for graphs with high-degree hubs.",
+  "method": "The authors introduce a gadget compiler that encodes each logical spin into a repetition-code register, allowing pairwise interactions to execute in parallel via a logarithmic-depth CNOT fan-out, while simultaneously providing built-in error detection.",
+  "model_or_system": "The paper simulates Heisenberg-type nuclear magnetic resonance (NMR) Hamiltonians for spin systems, mapping them onto qubit Hamiltonians. The comparison is tested on various connectivity graphs, including star systems (e.g., 13-spin TMS).",
+  "key_observables": "Two-qubit depth, circuit volume, per-shot error budget ($\\lambda$), and the resulting zero-field NMR spectrum.",
+  "important_parameters": "Interaction graph degree inhomogeneity, device connectivity (heavy-hex, all-to-all), and required error rate improvement (1 to 1.5 orders of magnitude).",
+  "main_assumptions": "The comparison is performed under a fixed protocol and uses an extrapolated device-noise model; the gain vanishes for dense, uniform graphs.",
+  "figures_summary": "Figures compare circuit width vs. depth for sequential vs. gadget compilation on different hardware topologies; one figure shows the error budget comparison favoring the gadget method, and another illustrates the volume-optimal gain scaling with hub degree.",
+  "paper_structure": "The paper first introduces the problem of circuit depth in NISQ simulation. It then details the gadget compiler method, which trades depth for width using redundant registers. The core of the work involves a fixed-protocol resource comparison, transpiling the optimized circuits to superconducting and trapped-ion targets, and finally validating the results by simulating a specific NMR spectrum.",
+  "why_interesting": "This work directly addresses resource estimation and compilation overheads for simulating complex quantum many-body systems, which is crucial for realizing quantum simulation algorithms on near-term hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.20250_figures/2608.20250_fig1.jpg",
+      "caption": "Figure 1: Circuit width versus two-qubit gate depth for published milestone experiments on quantum devices, together with the transpiled circuit sizes of this work’s demonstration (stars): TMS (29Si(CH3)4, 13 spins) at zero field, second-order product formula with M = 32 Trotter steps. The stars are compiled-and-transpiled circuit sizes, computed classically rather than run on hardware. Device coordinates are the qubit counts and two-qubit-gate depths of the cited experiments (random-circuit- sampling cycles and layers of CNOT or CZ gates for superconducting devices; parallel two-qubit-gate layers for Quantinuum; for IonQ the two-qubit gate count, which for the plotted Bernstein–Vazirani...",
+      "page": 3
+    },
+    {
+      "image": "2608.20250_figures/2608.20250_fig2.jpg",
+      "caption": "Figure 2: Example of a 3-spin molecule with chain connec- tivity mapped to qubits {q0, q1, q2} with respective Zeeman frequencies {α, β, γ} and spin-spin coupling parameters θ01 and θ12.",
+      "page": 4
+    },
+    {
+      "image": "2608.20250_figures/2608.20250_fig3.jpg",
+      "caption": "Figure 3: Not-parallelized (a) and parallelized (b) circuits for chain connectivity, see Eq. 3. Colored blocks correspond to the interaction terms with coefficients θkl (colors in Fig. 2).",
+      "page": 5
+    },
+    {
+      "image": "2608.20250_figures/2608.20250_fig4.jpg",
+      "caption": "Figure 4: Four two-qubit operations that share a qubit, executed in sequence (a) and in parallel using the gadget (b), meant to be understood as a part of a larger quantum circuit. The corresponding star-topology molecule (c). Colored blocks correspond to the interaction terms with coefficients θkl.",
+      "page": 5
+    },
+    {
+      "image": "2608.20250_figures/2608.20250_fig5.jpg",
+      "caption": "Figure 6: Tetramethylsilane (TMS). The 29Si nucleus couples identically to the twelve methyl protons (2JSiH = 6.6 Hz), forming an interaction star of hub degree twelve. In the idealized A12X limit the proton–proton couplings commute with the Hamiltonian and the observable and are omitted.",
+      "page": 11
+    }
+  ],
+  "figure": "2608.20250_figures/2608.20250_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

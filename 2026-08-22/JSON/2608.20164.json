@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.20164",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AR"
+  ],
+  "is_primary_archive": true,
+  "title": "Architecture and Compilation Co-Design for High-Rate Quantum Product Codes on Neutral Atom Arrays",
+  "authors": "Adrian Liu, Wan-Hsuan Lin, Daniel Bochen Tan, Qian Xu, Jason Cong",
+  "abstract": "Achieving fault-tolerant quantum computing at a practical scale demands quantum error correction (QEC) codes with high encoding rates. Quantum low-density parity-check (qLDPC) codes emerge as a promising candidate, especially given the rise of neutral atom arrays that provide dynamic long-range connectivity via atom movements. In general, synthesizing valid and efficient physical execution plans for QEC is a provably hard combinatorial problem, forming a critical compilation bottleneck that worsens as code sizes grow. To overcome this complexity, we focus on an important product family of qLDPC codes with dimension-reduction properties, and propose ONEX. This framework decomposes complex 2D physical execution planning into independent 1D subproblems, each solved to optimal execution depth within practical compilation time. First, we formulate the 1D execution plan with an explicit satisfiability modulo theories (SMT) encoding. This protocol produces provably depth-optimal solutions with substantial duration reduction. Second, we develop a multi-stage compilation pipeline featuring anytime optimization, movement compaction, and iterative feedback. This pipeline maintains practical wall-clock times while providing progressive refinement and on-demand retrieval of quality solutions. Third, we evaluate ONEX in the application of hypergraph product (HGP) code memory mapped onto neutral atom arrays, achieving 3.7x to 6.1x and 29.8x to 42.1x higher clock rates than the constructive 1D algorithm and the general 2D compiler, respectively, while scaling efficiently to codes with 2,500 data qubits. Finally, we extend ONEX to zoned layouts, revealing architectural insights into the associated trade-offs, and demonstrate its applicability to the broader lifted-product (LP) code family through a representative example.",
+  "url": "http://arxiv.org/abs/2608.20164v1",
+  "pdf": "https://arxiv.org/pdf/2608.20164v1",
+  "type": "theory",
+  "summary": "This paper introduces ONEX, a novel compiler co-design framework for executing high-rate Quantum Error Correction codes on neutral atom arrays. It tackles the NP-hard problem of physical execution planning by exploiting the product structure of the codes to decompose the 2D problem into solvable 1D subproblems. The resulting framework achieves substantial speedups in clock rate by optimizing both the circuit depth and the physical movement schedule.",
+  "main_problem": "The primary challenge is compiling physical execution plans for Quantum Error Correction (QEC) codes, which is a provably hard combinatorial problem that limits the scalability of fault-tolerant quantum computing.",
+  "main_result": "The proposed framework, ONEX, achieves significant clock rate improvements (up to 42.1x) over existing compilers by exploiting the product structure of qLDPC codes.",
+  "method": "ONEX decomposes the complex 2D physical execution planning into independent 1D subproblems, which are then solved using a multi-stage pipeline involving SMT encoding for depth optimization and MILP for movement compaction.",
+  "model_or_system": "The work is situated on neutral atom arrays, which are used as the physical platform for implementing high-rate quantum low-density parity-check (qLDPC) codes, specifically Hypergraph Product (HGP) codes.",
+  "key_observables": "Clock rate (speedup factor), Execution Depth (minimal number of rearrangement steps), and Physical Execution Duration (wall-clock time).",
+  "important_parameters": "Code size (up to 2,500 data qubits), QEC Code Distance (d), and the dimensionality of the code structure (2D vs. 1D decomposition).",
+  "main_assumptions": "The core assumption is that the product structure of the qLDPC code allows for an orthogonal decomposition of the 2D physical planning problem into independent 1D subproblems.",
+  "figures_summary": "Figures illustrate the motivation via product construction (Fig 1), the neutral-atom hardware setup using optical tweezers and AODs (Fig 2), and the detailed 1D execution protocol and the multi-stage ONEX compilation pipeline (Figs 3 & 4).",
+  "paper_structure": "The paper introduces the problem bottleneck, proposes the ONEX framework by exploiting code structure to decompose the problem, details the multi-stage compilation pipeline (SMT/MILP), validates the approach on HGP codes with quantitative speedups, and concludes with architectural insights into zoned layouts.",
+  "why_interesting": "This work directly addresses the critical compilation bottleneck in scaling QEC, providing a concrete, computationally tractable method for mapping abstract quantum codes onto physical hardware constraints.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.20164_figures/2608.20164_fig1.jpg",
+      "caption": "Figure 1: Motivation. (a) Product construction underpins many high-rate qLDPC families, with HGP codes as a primary showcase. (b) HGP syndrome extraction on a product-aligned neutral-atom layout. Purple circles are data-qubit atoms; red/blue diamonds are 𝑋/𝑍check-ancilla atoms. Each classical seed code is replicated along one product coordinate, yielding horizontal groups (gray) and vertical groups (pink). The right panels show the corresponding 1D row/column subproblems; small bars denote a 1D execution plan with rearrangement steps. Compatible groups execute in parallel.",
+      "page": 2
+    },
+    {
+      "image": "2608.20164_figures/2608.20164_fig2.jpg",
+      "caption": "Figure 2: Neutral-atom hardware model. (a) A 2D optical tweezer array with atoms (dots) held at traps (circles). Ad- jacent trap pairs form interaction sites (dashed box) where Rydberg entangling gates execute. (b) Intersectional atom transport via row- and column-axis AODs.",
+      "page": 3
+    },
+    {
+      "image": "2608.20164_figures/2608.20164_fig3.jpg",
+      "caption": "Figure 3: Architecture protocol of 1D physical execution. (a) 1D interaction model: gate pairs co-locate for Rydberg execution, while idle qubits remain isolated. (b) No-crossing constraint: simultaneous AOD movements must preserve atom order. (c) Execution timeline: rearrangement steps are interleaved with scheduled gate stages and composed across rows/columns for product-code execution.",
+      "page": 4
+    },
+    {
+      "image": "2608.20164_figures/2608.20164_fig4.jpg",
+      "caption": "Figure 4: Overview of the ONEX compilation pipeline with runtime dataflow highlighted. (a) Depth optimization via SMT. (b) Movement compaction via MILP. (c) Iterative refinement with feedback loop. (d) Parallelism overlay.",
+      "page": 5
+    },
+    {
+      "image": "2608.20164_figures/2608.20164_fig5.jpg",
+      "caption": "Figure 5: Movement profile for the Xu et al. baseline, Enola, and ours on 1D execution benchmarks. Top row: distribution of individual atom displacement distances across all problem sizes. Bottom row: per-step movement profile for a representative 𝑁=42 instance, where color intensity indicates the density of movements at a given distance and the black envelope traces the maximum displacement per step.",
+      "page": 7
+    }
+  ],
+  "figure": "2608.20164_figures/2608.20164_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.19824",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Distributed Variational Quantum Eigensolver: Embarrassingly Parallel strategies on NISQ",
+  "authors": "Marta Losada, Daniel Faílde, Andrés Gómez",
+  "abstract": "Variational Quantum Eigensolver requires many circuit executions, making it ideal for distributed parallelization. However, heterogeneous noise in NISQ devices can skew results and efficiency. Using the CUNQA platform for emulation of virtual QPUs, we evaluate three embarrassingly parallelization strategies (shot-level, circuit-level for gradients and observables and candidate level for population-based optimizers) across metrics like speedup and accuracy.",
+  "url": "http://arxiv.org/abs/2608.19824v1",
+  "pdf": "https://arxiv.org/pdf/2608.19824v1",
+  "type": "both",
+  "summary": "This work investigates how to efficiently run the Variational Quantum Eigensolver (VQE) across multiple, noisy quantum processors. By comparing shot-level, circuit-level, and parameter-candidate distribution strategies, the authors determine that the best approach is highly dependent on the optimization algorithm used. The findings offer critical guidelines for scaling VQE computations on real-world, heterogeneous quantum hardware.",
+  "main_problem": "The paper evaluates the Variational Quantum Eigensolver (VQE) in realistic, distributed Noisy Intermediate-Scale Quantum (NISQ) environments, focusing on how heterogeneous noise affects different parallelization strategies.",
+  "main_result": "The optimal parallelization strategy depends heavily on the quantum optimizer used; Differential Evolution (DE) shows resilience to noise, while Quantum Natural Gradient (QNG) is highly sensitive to backend heterogeneity.",
+  "method": "The authors compare three 'embarrassingly parallel' workflows—shot-level, circuit-level, and parameter-candidate level—using the CUNQA platform to manage task distribution across emulated virtual QPUs.",
+  "model_or_system": "The target Hamiltonian is the one-dimensional Transverse Field Ising Model (TFIM) ($H = -\\sum_i J X_i Z_i Z_{i+1} - \\sum_i \\Gamma X_i$). The computation is performed using VQE and various optimizers (COBYLA, QNG, DE).",
+  "key_observables": "Speedup, parallel efficiency, convergence path relative to exact ground-state energy, and final energy estimate.",
+  "important_parameters": "The number of spins ($N=6$), the noise profile heterogeneity across virtual QPUs, and the specific distribution strategy employed.",
+  "main_assumptions": "The analysis assumes that the optimizer proposes tasks, which are then distributed and gathered classically, and that the simulation uses Qiskit AerSimulator.",
+  "figures_summary": "Figures illustrate the three distribution workflows (shot, circuit, candidate) and compare optimization paths and speedup/efficiency across different numbers of noisy virtual QPUs.",
+  "paper_structure": "The paper systematically compares the three distribution levels (shot-, circuit-, and candidate-level) for VQE workloads, analyzing convergence and efficiency metrics under varying degrees of backend noise and resource scaling.",
+  "why_interesting": "It provides a crucial, practical guide for quantum algorithm implementation, detailing how resource management (parallelization) must adapt to the physical constraints (noise and heterogeneity) of near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.19824_figures/2608.19824_fig1.jpg",
+      "caption": "Fig. 1. Workflows for the three embarrassingly parallel distribution strategies.",
+      "page": 4
+    },
+    {
+      "image": "2608.19824_figures/2608.19824_fig2.jpg",
+      "caption": "Fig. 2. Reference optimization paths for single vQPU executions.",
+      "page": 7
+    },
+    {
+      "image": "2608.19824_figures/2608.19824_fig3.jpg",
+      "caption": "Fig. 3. Optimization paths obtained with 2, 3, and 4 vQPUs for the three distributed VQE workflows. The dotted horizontal line marks the reference ground-state energy.",
+      "page": 8
+    },
+    {
+      "image": "2608.19824_figures/2608.19824_fig4.jpg",
+      "caption": "Fig. 4 shows that shot-level distribution scales poorly at low sampling bud- gets across all optimizers, due to distribution and aggregation overhead dominat- ing execution time. Since finite-shot sampling is a major VQA bottleneck [24], the improved scaling at higher shot counts suggests that parallelization is most beneficial in measurement-intensive regimes. When overhead remains dominant, measurement-efficient techniques may offer a better alternative (see Section 6).",
+      "page": 8
+    },
+    {
+      "image": "2608.19824_figures/2608.19824_fig5.jpg",
+      "caption": "Fig. 4. Speedup and parallel efficiency for optimizers under the distributed workflows.",
+      "page": 9
+    }
+  ],
+  "figure": "2608.19824_figures/2608.19824_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

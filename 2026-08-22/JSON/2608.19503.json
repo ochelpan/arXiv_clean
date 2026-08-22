@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.19503",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": false,
+  "title": "Electronic and chemical phase identification in photoemission experiments using unsupervised machine learning",
+  "authors": "Matthew Staab, Joseph Pandur, Eli Rotenberg, Chris Jozwiak, Aaron Bostwick, Inna Vishik",
+  "abstract": "Vacuum ultraviolet photoemission spectroscopies are very information-rich experiments, but due to their surface sensitivity, data are often collected on an initially uncharacterized surface. Traditional raster-grid approaches for locating optimal measurement regions can be time-consuming. In this work, we introduce AARDVARK, a generalizable framework for sample exploration that leverages dimensionality reduction and Gaussian process regression to guide initial sample searches in spatially-resolved photoemission experiments. By utilizing UMAP as a target for a Gaussian process, the algorithm efficiently identifies boundaries of spectroscopically distinct regions, dynamically adapting to variations in sample characteristics. The algorithm enables real-time decision making in measurement selection, optimizes data acquisition, and presents a robust framework for future autonomous sample exploration in photoemission experiments.",
+  "url": "http://arxiv.org/abs/2608.19503v1",
+  "pdf": "https://arxiv.org/pdf/2608.19503v1",
+  "type": "both",
+  "summary": "This paper introduces AARDVARK, an autonomous machine learning framework designed to optimize data collection in surface-sensitive photoemission experiments. It uses UMAP to reduce high-dimensional spectral data and Gaussian Process Regression to predict spectral properties, guiding the measurement process to efficiently map out unknown electronic and chemical phase boundaries. This represents a significant step toward automating complex experimental characterization.",
+  "main_problem": "Traditional methods for characterizing heterogeneous surfaces using VUV photoemission spectroscopy are time-consuming and inefficient.",
+  "main_result": "The proposed AARDVARK framework successfully and efficiently maps out spectroscopically distinct regions and phase boundaries on uncharacterized samples.",
+  "method": "The framework combines UMAP for high-dimensional spectral data dimensionality reduction with Gaussian Process Regression (GPR) to guide real-time, autonomous data acquisition.",
+  "model_or_system": "The system is applied to VUV photoemission experiments (ARPES/XPS) on complex materials like graphene heterostructures, treating the sample surface as a spatially varying, uncharacterized dataset.",
+  "key_observables": "Colorized UMAP embeddings of spectra, spectral features (e.g., Dirac cone), and the calculated uncertainty/acquisition function guiding measurement selection.",
+  "important_parameters": "The dimensionality reduction technique (UMAP) and the Gaussian Process model structure are key computational components.",
+  "main_assumptions": "The primary assumption is that spectral similarity in the high-dimensional space can be accurately captured by a low-dimensional manifold (UMAP), and that GPR can reliably predict spectral characteristics in unmeasured regions.",
+  "figures_summary": "Figures illustrate the AARDVARK workflow, colorized UMAP embeddings showing spectral variations across the sample, and comparisons demonstrating AARDVARK's superior boundary detection compared to random or grid searches.",
+  "paper_structure": "The paper introduces the AARDVARK framework, details the ML pipeline combining UMAP and GPR, demonstrates its application to ARPES and XPS data, and evaluates its performance by comparing boundary detection against standard search methods.",
+  "why_interesting": "While focused on experimental data acquisition, the reliance on advanced ML techniques (UMAP, GPR) to extract phase information from complex, high-dimensional spectral data is highly relevant for analyzing quantum many-body simulations or experimental data sets where phase boundaries are sought.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.19503_figures/2608.19503_fig1.jpg",
+      "caption": "FIG. 1. Schematic overview for the AARDVARK system. Data are collected at the beamline end station and saved to disk. The beamline requests a new position to measure and begins measuring a new location. Asynchronously, the GPU edge server is loading all new data and repeating the machine learning pipeline. The machine learning pipeline ends by overwriting the list of next positions to measure with an updated list. We schematically show only one measurement suggestion (red circle) but in practice the server adapts the number of suggestions it creates to ensure there are always positions available for the beamline upon request.",
+      "page": 2
+    },
+    {
+      "image": "2608.19503_figures/2608.19503_fig2.jpg",
+      "caption": "FIG. 2. Colorized UMAP embeddings of ground truth dataset. (a) Spatial plot of the UMAP embedded ARPES data. The colors are made by scaling the range of the UMAP x, y, z coordinates to [0, 255] such that they can be displayed in the red, green, and blue channels of an image respectively. (b) The set of all ARPES spectra shown in their UMAP di- mensionality reduced space with the markers colored based on the same procedure described in (a). (c) ARPES spec- tra taken at the locations indicated by the black marker and numbers in (a) and (b).",
+      "page": 3
+    },
+    {
+      "image": "2608.19503_figures/2608.19503_fig3.jpg",
+      "caption": "FIG. 3. Progression of an AARDVARK scan on ARPES data. (a) Coordinates of sampled data with (125, 200, 400, 600, 1000, 2000) points measured are shown in (a1-a6) respectively. (b) Nearest-neighbor colorized 3-dimensional UMAP embeddings of ARPES spectra collected at the points shown in (a). Different colors indicate different spectral features as found by the dimensionality reduction method UMAP. (c) The acquisition function that is used to determine the priority of following measurements. Darker pixels indicate a higher measurement priority.",
+      "page": 4
+    },
+    {
+      "image": "2608.19503_figures/2608.19503_fig4.jpg",
+      "caption": "FIG. 4. Progression of an AARDVARK scan on XPS data. (a) Coordinates of sampled data with (125, 200, 400, 600, 1000, 2000) points measured are shown in (a1-a6) respectively. (b) Nearest-neighbor colorized 3-dimensional UMAP embeddings of XPS spectra of the Si 2p core level collected at the points shown in (a). Different colors indicate different spectral features as found by the dimensionality reduction method UMAP. (c) The acquisition function that is used to determine the priority of following measurements. Darker pixels indicate a higher measurement priority.",
+      "page": 5
+    },
+    {
+      "image": "2608.19503_figures/2608.19503_fig5.jpg",
+      "caption": "FIG. 5. Comparison of AARDVARK operation on ARPES data with random or grid search. Rows (a-c) show the progression of scans using AARDVARK, random positions, and grid searches respectively. Panels (1–6) display colorized UMAP visual- izations for scans (AARDVARK, random, and grid) at approximately 125, 200, 400, 600, 1000, and 2000 measurement points, respectively. In the case of a grid search the closest square number is used to simulate a scan of approximately the same number of points (e.g. 121 instead of 125). Dotted yellow lines on the fourth column represent the boundaries of the cropped UMAP embeddings analyzed in Figure 6 .",
+      "page": 6
+    }
+  ],
+  "figure": "2608.19503_figures/2608.19503_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

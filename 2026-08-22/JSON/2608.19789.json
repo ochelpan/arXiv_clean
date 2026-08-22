@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.19789",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cs.AI",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "TT-net: Quantum Inspired Tensor Network Denoising in Conditional GANs",
+  "authors": "Michal A. Sterzel, Marko J. Rančić",
+  "abstract": "Developed as a workhorse for classical simulations of quantum algorithms and quantum many-body systems, Tensor Network methods have entered the scientific mainstream in quantum physics. Among various types of tensor networks, Tensor Trains (commonly know as Matrix Product States in the quantum computing community) have already found applications in machine learning. These methods often rely on a powerful linear algebra tool called the Singular Value Decomposition (SVD). Several conditional GAN architectures for image denoising incorporate SVD as a single-cut decomposition step applied to generator feature maps. In this work we introduce TT-Net, which replaces the per-channel SVD denoising block with a two-cut tensor-train decomposition capable of accessing cross-channel information directly, a capability absent from contemporary alternatives. In a controlled comparison differing only in this decomposition mechanism, TT-Net outperforms SVD-Net on PSNR and SSIM across all three noise types tested (Gaussian, motion blur, and salt-and-pepper), supporting the hypothesis that cross-channel access improves denoising quality. Training-dynamics analysis further shows that TT-Net's adversarial loss term consistently saturates to a stagnant state across all three noise types, more so than SVD-Net's, while reconstruction quality continues to improve regardless, raising an open question about the adversarial component's contribution that this work identifies but does not resolve. Furthermore, for Gaussian noise our method outperforms both the EigenGAN and the state of the art Pix2pix method which does not assume any linear algebra decompositions and does not retain any linear algebra information. Our manuscript shows how quantum inspired tools can be used as practical real world feature filters for deep learning applications.",
+  "url": "http://arxiv.org/abs/2608.19789v1",
+  "pdf": "https://arxiv.org/pdf/2608.19789v1",
+  "type": "both",
+  "summary": "This work introduces TT-Net, which upgrades a GAN-based image denoising framework by replacing per-channel SVD with a cross-channel two-cut tensor-train decomposition. The results show that this quantum-inspired structural enhancement significantly improves denoising performance across various noise types compared to existing methods. It demonstrates the practical utility of tensor network tools as powerful feature extractors in deep learning.",
+  "main_problem": "The paper addresses image denoising by improving the feature extraction process within Conditional GANs, moving beyond standard per-channel filtering.",
+  "main_result": "The proposed TT-Net significantly outperforms SVD-Net and other state-of-the-art methods on multiple noise types, demonstrating that cross-channel information access via tensor-train decomposition enhances denoising quality.",
+  "method": "It replaces the per-channel Singular Value Decomposition (SVD) used in SVD-Net with a two-cut tensor-train decomposition (TT-Net) within the GAN architecture.",
+  "model_or_system": "The model is a Conditional GAN used for image denoising on the CIFAR-10 dataset. The core comparison is between SVD-Net (using per-channel SVD) and TT-Net (using two-cut tensor-train decomposition).",
+  "key_observables": "PSNR and SSIM scores across Gaussian, motion blur, and salt-and-pepper noise; training dynamics of the adversarial loss term.",
+  "important_parameters": "The reconstruction loss weights ($\\delta=0.84$) and the fixed batch size (32) are key parameters used for comparison.",
+  "main_assumptions": "The primary assumption tested is that generalizing the decomposition from a single SVD cut to a multi-cut tensor-train decomposition provides superior access to cross-channel information for denoising.",
+  "figures_summary": "Figures show qualitative visual comparisons of denoised images, and training dynamics plots illustrate the stabilization of the adversarial loss term in TT-Net compared to SVD-Net.",
+  "paper_structure": "The paper introduces the problem, details the TT-Net modification over SVD-Net, presents controlled comparisons across various noise types using PSNR/SSIM, analyzes the training dynamics of the loss components, and concludes that cross-channel access is beneficial.",
+  "why_interesting": "While applied to image processing, the core technique—using tensor networks (TT-decomposition) to model correlations across feature channels—is directly analogous to methods used in quantum many-body physics for representing quantum states, making it relevant for developing novel feature filters for quantum data analysis.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.19789_figures/2608.19789_fig1.jpg",
+      "caption": "Figure 1: Representative test-set outputs across all four models and three noise types. Ground truth is shown once per row since it is identical across models. Each model’s own noisy input and output are shown alongside it.",
+      "page": 4
+    },
+    {
+      "image": "2608.19789_figures/2608.19789_fig2.jpg",
+      "caption": "Figure 2: Discriminator output probabilities D(real)/D(fake) over training, SVD-Net vs. TT-Net, by noise type.",
+      "page": 5
+    },
+    {
+      "image": "2608.19789_figures/2608.19789_fig3.jpg",
+      "caption": "Figure 3: Total generator loss (LG = LGadv + Lrecon, Section 4.2) over training, SVD-Net (top) vs. TT-Net (bottom), by noise type, linear scale.",
+      "page": 6
+    },
+    {
+      "image": "2608.19789_figures/2608.19789_fig4.jpg",
+      "caption": "Figure 4: Generator loss components (Gadv, L2, MS-SSIM, recon) over training, SVD-Net (top) vs. TT-Net (bottom), by noise type. See Section 4.2 for the loss definitions, Lrecon = δ · LMS-SSIM + (1 −δ) · LL2, δ = 0.84.",
+      "page": 6
+    },
+    {
+      "image": "2608.19789_figures/2608.19789_fig5.jpg",
+      "caption": "Figure 5: Validation PSNR over training, SVD-Net vs. TT-Net, by noise type.",
+      "page": 7
+    }
+  ],
+  "figure": "2608.19789_figures/2608.19789_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

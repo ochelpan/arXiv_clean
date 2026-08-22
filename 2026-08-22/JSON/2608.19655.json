@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.19655",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Variational Quantum Linear Solver via Block Encoding for the Poisson Equation",
+  "authors": "Viraj Dsouza, Ayush Singhal, Alex Khan, Rut Lineswala, Abhishek Chopra",
+  "abstract": "We present a variational quantum linear solver (VQLS) for the Poisson equation built on an exact block encoding of the discrete Laplacian, and demonstrate its performance on physically motivated benchmarks. Unlike LCU-based VQLS where the number of distinct circuits required per cost-function evaluation is $\\mathcal{O}(L^2)$, where $L$ is the number of terms in the LCU decomposition of the discrete Laplacian operator, this approach requires only a single circuit for cost evaluation. We further empirically demonstrate that the choice of classical optimizer materially affects where the variational optimization ceases to make progress. The solver is benchmarked on three problems: a Poisson equation with sinusoidal forcing and a steady-state heat conduction problem with a localized Gaussian source, both with Dirichlet boundaries, and the pressure-Poisson equation of a two-dimensional lid-driven cavity flow, in which the solver is invoked once per time step under Neumann boundary conditions.",
+  "url": "http://arxiv.org/abs/2608.19655v1",
+  "pdf": "https://arxiv.org/pdf/2608.19655v1",
+  "type": "both",
+  "summary": "This paper presents an improved Variational Quantum Linear Solver (VQLS) for solving the Poisson equation by introducing an exact block encoding of the discrete Laplacian. This encoding reduces the required quantum circuit depth from $O(L^2)$ to $O(1)$ for cost evaluation. The solver is successfully benchmarked on multiple physical problems, demonstrating superior performance and trainability compared to existing quantum linear solvers.",
+  "main_problem": "The paper addresses the challenge of solving large linear systems, particularly those arising from the discretization of the Poisson equation, using quantum computation.",
+  "main_result": "A novel block encoding for the discrete Laplacian allows the Variational Quantum Linear Solver (VQLS) to evaluate the cost function using only a single quantum circuit, significantly improving circuit complexity over prior methods.",
+  "method": "The authors employ a VQLS framework, mapping the linear system $Ax=b$ to a variational optimization problem, and utilize an exact block encoding to represent the Laplacian operator.",
+  "model_or_system": "The primary model is the 2D Poisson equation ($\nabla^2 u = f$), discretized using finite differences, leading to a system matrix $A$ with a separable Kronecker-sum structure. Benchmarks include sinusoidal forcing, Gaussian heat sources, and the pressure-Poisson equation for lid-driven cavity flow.",
+  "key_observables": "Infidelity ($1-F$) against classical solutions, cost function convergence ($C_G$), and the circuit count required per cost evaluation.",
+  "important_parameters": "Grid size ($N$ up to 1024), optimization parameters (e.g., CMA-ES settings), and boundary conditions (Dirichlet, Neumann).",
+  "main_assumptions": "The analysis relies on exact statevector simulation, and the method assumes the block encoding can efficiently represent the required operators.",
+  "figures_summary": "Figures illustrate the block encoding circuits for Dirichlet and Neumann conditions, and compare the convergence of CMA-ES versus COBYLA optimizers on various benchmarks.",
+  "paper_structure": "The paper introduces the VQLS for PDEs, details the novel block encoding technique for the Laplacian, benchmarks the solver on three physical problems (sinusoidal, Gaussian, lid-driven cavity), and compares optimization performance.",
+  "why_interesting": "The work directly tackles the resource scaling of quantum algorithms for PDEs, offering a concrete, improved quantum circuit implementation for a fundamental problem in physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.19655_figures/2608.19655_fig1.jpg",
+      "caption": "FIG. 1: Block encoding circuit for the 2D Laplacian with Dirichlet boundary conditions along both spatial directions, following the construction of [21]. Post-selecting all four ancilla qubits on |0⟩⊗4 realises the action of eA on the system register.",
+      "page": 5
+    },
+    {
+      "image": "2608.19655_figures/2608.19655_fig2.jpg",
+      "caption": "FIG. 2: Block-encoding circuits for the Laplacian with Neumann boundary conditions [21]. In (b), UN 1 and U N 2 denote the sub-circuit of (a) applied to the x- and y-registers. Post-selecting all four ancilla qubits on |0⟩⊗4 realises the action of eAN.",
+      "page": 5
+    },
+    {
+      "image": "2608.19655_figures/2608.19655_fig3.jpg",
+      "caption": "FIG. 5: Performance and numerical exactness of the block-encoding circuits used in this work.",
+      "page": 8
+    },
+    {
+      "image": "2608.19655_figures/2608.19655_fig4.jpg",
+      "caption": "FIG. 6: Resource comparison between the Pauli-LCU VQLS and the block-encoded formulation of this work, for the 2D Dirichlet Laplacian. (a) The block-encoded formulation requires one circuit at every size and is therefore not plotted. (b), (c) Per-circuit counts after transpilation to the {U, CX} basis; for the Pauli-LCU formulation these are for the most expensive Hadamard-test circuit at each grid, an empirical per-circuit upper bound.",
+      "page": 8
+    },
+    {
+      "image": "2608.19655_figures/2608.19655_fig5.jpg",
+      "caption": "FIG. 7: Sinusoidal source benchmark on the 32 × 32 grid (N = 1024, n = 10 system qubits, 14 total), CMA-ES with σ0 = 0.3 and ℓ= 5 ansatz layers. Panels (a) and (b) share a colour scale and show the seed attaining the median infidelity of the five runs, 1 −F = 8.9 × 10−16. In (c) the solid line is the geometric mean of the best-so-far cost across seeds and the band is ±1 standard deviation in log10; the median seed reaches CG = 4.7 × 10−15.",
+      "page": 10
+    }
+  ],
+  "figure": "2608.19655_figures/2608.19655_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

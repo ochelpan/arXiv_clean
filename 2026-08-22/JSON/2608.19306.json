@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.19306",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Gaussian processes for prediction of channel observations",
+  "authors": "Jonas Jäger, Yaroslav Khmelnitskiy, Paolo Braccia, Artur Miroszewski, Diego García-Martín, M. Cerezo, Piotr Czarnik",
+  "abstract": "Given a set of input states, we consider the task of predicting the expectation value of a Pauli observable at the output of an unknown quantum evolution, using only a limited number of measurements. Recently, quantum Gaussian process (QGP) regression was introduced for this task across various classes of unitary evolution. Here, we extend the QGP framework beyond unitary dynamics. In particular, we prove convergence of the channel's outputs to a QGP and derive the associated closed-form kernel under a uniform (Lebesgue measure) prior over quantum channels. The kernel's dimensional factor, however, dictates the required observation precision. While manageable when the channel and observable are restricted to small subsystems, exponential suppression precludes learning when the subsystem grows extensively with the system size. Since the Lebesgue prior is overly broad for many applications, we propose an empirical Bayes heuristic that replaces the dimensional factor with a learnable scale parameter while retaining the kernel's state-overlap correlation structure. In numerical simulations of up to 64 qubits, channel QGP regression with the Lebesgue kernel exhibits a strong inductive bias for local channels, enabling faithful extrapolation. For global 64-qubit channels, the rescaled kernel restores learnability, with predictions improving systematically with the shot budget. Results from a noisy quantum computer further demonstrate the robustness of QGP regression under experimental conditions. Beyond regression, we validate QGPs as Bayesian-optimization surrogates for state preparation under noisy XXZ dynamics.",
+  "url": "http://arxiv.org/abs/2608.19306v1",
+  "pdf": "https://arxiv.org/pdf/2608.19306v1",
+  "type": "theory",
+  "summary": "This paper extends Quantum Gaussian Process (QGP) regression to model unknown quantum channels, moving beyond simple unitary evolution. The authors derive a corrected kernel using an empirical Bayes heuristic to overcome limitations in large-scale systems. This allows for robust prediction of quantum channel outputs even with limited experimental measurements.",
+  "main_problem": "The paper addresses the challenge of predicting the expectation value of a Pauli observable after an unknown quantum evolution (channel) using limited measurement data.",
+  "main_result": "The authors successfully extend Quantum Gaussian Process (QGP) regression beyond unitary dynamics to general quantum channels, proposing a rescaled kernel heuristic that restores learnability for large systems.",
+  "method": "They employ QGP regression, deriving the process prior using the Lebesgue measure over quantum channels, and introduce an empirical Bayes heuristic to correct for kernel suppression in large subsystems.",
+  "model_or_system": "The system involves an unknown quantum channel $C$ acting on input states $\rho(t)$, and the prediction target is the expectation value $\text{Tr}[C(\rho(t))O]$. The framework is tested on both local and global channel dynamics.",
+  "key_observables": "Expectation values of Pauli observables ($\\ell_C(t)$), and the resulting predicted mean and variance from the QGP.",
+  "important_parameters": "System size (up to 64 qubits), shot budget ($N$), and the learnable scale parameter introduced by the heuristic.",
+  "main_assumptions": "The standard Lebesgue prior over quantum channels is too broad, necessitating the empirical Bayes heuristic to replace the dimensional factor with a learnable scale parameter.",
+  "figures_summary": "Figure 1 illustrates the QGP regression setup for quantum channels, showing the kernel encoding input state correlations and the applicability beyond simple regression tasks like state preparation.",
+  "paper_structure": "The paper builds from known QGP results for unitary dynamics to the general case of quantum channels. It derives the QGP prior, identifies the scaling issue with the Lebesgue measure, proposes the empirical Bayes correction, and validates the method on large-scale simulations and noisy dynamics.",
+  "why_interesting": "This work provides a powerful, scalable Bayesian inference tool (QGP) for characterizing unknown, realistic open quantum system dynamics, which is crucial for quantum process tomography and quantum control.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.19306_figures/2608.19306_fig1.jpg",
+      "caption": "Figure 1. Quantum Gaussian process regression for quantum channels. (a) A parametrized family of input states ρ(t) is acted on by an unknown quantum channel C. Expecta- tion values ℓC(t) = Tr[C(ρ(t))O] are measured for a small set of input states and used to predict the observable for new inputs. (b) The kernel encodes correlations between the input states. Together with the measured training data, it defines the QGP posterior used for regression. In this work, we consider both the channel kernel derived under the assumption of uniform chan- nel sampling, and its rescaled heuristic counterpart. (c) Beyond regression, the channel QGP framework can be applied to tasks such as state...",
+      "page": 2
+    },
+    {
+      "image": "2608.19306_figures/2608.19306_fig2.jpg",
+      "caption": "Figure 2. QGP regression with the channel kernel. We learn the expectation value of X1 (X60) for a family of 4-qubit (64-qubit) input states generated by single-qubit rotations parametrized by t followed by system unitary dynamics. Joint system- environment time evolution implements the channel. Both are implemented by a transverse-field one-dimensional Ising Hamiltonian and a Trotter product formula. For n = 4, the channel acts globally on all system qubits, while for n = 64 it acts locally on a 4-qubit subsystem. In (a), we show QGP regression for the global channel with the shot budget N (p) s = 1.32 · 108 for a single prediction. The black curve is the ground truth, the blue circles are...",
+      "page": 7
+    },
+    {
+      "image": "2608.19306_figures/2608.19306_fig3.jpg",
+      "caption": "Figure 3. QGP regression with the channel kernel on IBM’s quantum computer ibm_boston. We predict ⟨X1⟩(t) for a family of 4-qubit input states generated by single-qubit rotations parametrized by t. The channel is a real-device im- plementation of a circuit performing Trotterized transverse-field Ising dynamics coupling the system to a 4-qubit environment. The ground truth, indicated by the black markers, are the re- sults obtained from the quantum device with 34400 shots per data point. The error bars, computed as twice the standard deviation, quantify the finite shot effects. The blue markers are the training data obtained from the same device and with the same number of shots. The red...",
+      "page": 8
+    },
+    {
+      "image": "2608.19306_figures/2608.19306_fig4.jpg",
+      "caption": "Figure 4. QGP regression with the rescaled channel kernel. In (a), we show learning of ⟨X1⟩for the same 4-qubit setup as in Fig. 2, with shot budget N (p) s = 1.32·108 per prediction. In (c), ⟨X31⟩was learned for a 64-qubit family of input states prepared by single-qubit rotations parametrized by t, and a global channel generated by one-dimensional Trotterized transverse-field Ising dynamics coupling the system to a 64-qubit environment. Here, N (p) s = 1.32 · 106. In (a) and (c), we plot the ground truth (the black lines), the training data (the blue circles), the predictions (the red crosses) and their 95% confidence intervals (the shaded areas). In (b) and (d), we compare the RMSE of the...",
+      "page": 9
+    },
+    {
+      "image": "2608.19306_figures/2608.19306_fig5.jpg",
+      "caption": "Figure 5. Bayesian optimization of noisy XXZ dynamics with channel GP surrogates. Here we show BO of staggered magnetization (37) for the dynamics of a 10-qubit XXZ Hamiltonian with transverse and disordered longitudinal fields (35, 36) and single-qubit depolarizing noise. As a reference, we show gradient descent (GD) optimization. We optimize over a family of input spin-spiral states parametrized by parameters θ and q (33). In (a), the contour plot shows our loss function landscape (38) on an 80-by-80 grid. The overlapping red crosses show the best parameters found by 9 BO runs, indicating that all the runs converge to the same minimum. The BO uses channel QGPs with rescaled kernels as...",
+      "page": 11
+    }
+  ],
+  "figure": "2608.19306_figures/2608.19306_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

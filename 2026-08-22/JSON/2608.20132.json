@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.20132",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "SAKE: Spectral Autodiff Kernel Expansion for Geometric Liouvillian Transport. A Differential-Geometric Framework for Response Transport in Quantum Dynamical Systems",
+  "authors": "Eric R. Bittner, Carlos Silva-Acuna, Hao Li, Simon Paiva-Ortega",
+  "abstract": "We introduce the Spectral Autodiff Kernel Expansion (SAKE), a differentiable computational framework for transporting nonlinear spectroscopic response between neighboring quantum dynamical models. Rather than recomputing multidimensional spectra independently for each Hamiltonian or Liouvillian, SAKE constructs local transport expansions about a reference model by combining forward-mode automatic differentiation with Duhamel transport theory. Automatic differentiation generates first-, second-, and third-order derivatives of the parameter-dependent Liouvillian, which are assembled into a pathway transport operator that maps the nonlinear response of a reference model onto neighboring systems. The framework is validated for a four-level excitonic dimer possessing an $su(2)\\times su(2)$ symmetry by comparing second- and third-order transported pathway operators with exact projected transport matrices obtained from direct calculations. The third-order expansion accurately reproduces the projected transport operator and its associated pathway mixing. Beyond providing an efficient computational strategy, the transport operator reveals how coherent and dissipative perturbations redistribute amplitude among double-sided Feynman pathways, exposing mechanistic information that is not directly apparent from the nonlinear spectrum. SAKE thereby establishes a differentiable computational framework for nonlinear spectroscopy that supports efficient local parameter exploration, sensitivity analysis, and future inverse-design applications.",
+  "url": "http://arxiv.org/abs/2608.20132v1",
+  "pdf": "https://arxiv.org/pdf/2608.20132v1",
+  "type": "theory",
+  "summary": "This paper introduces SAKE, a novel, differentiable computational framework that uses automatic differentiation and Duhamel theory to efficiently calculate how nonlinear spectroscopic responses change across neighboring quantum models. By constructing a pathway transport operator, the method reveals underlying mechanistic information about amplitude redistribution in quantum dynamics. This greatly enhances the feasibility of local parameter exploration and inverse design in quantum optics.",
+  "main_problem": "The paper addresses the need for an efficient, differentiable method to calculate and transport nonlinear spectroscopic response between neighboring quantum dynamical models.",
+  "main_result": "The Spectral Autodiff Kernel Expansion (SAKE) framework successfully constructs a pathway transport operator that accurately maps nonlinear response from a reference model to neighboring systems, revealing mechanistic details hidden in the spectrum.",
+  "method": "It combines forward-mode automatic differentiation with Duhamel transport theory to generate and assemble high-order derivatives of the Liouvillian superoperator, avoiding independent recomputation for each parameter point.",
+  "model_or_system": "The framework is applied to quantum dynamical systems, specifically validated using a four-level excitonic dimer exhibiting su(2) x su(2) symmetry, governed by a Liouvillian superoperator.",
+  "key_observables": "Nonlinear spectroscopic response (rephasing spectrum) and the pathway transport operator, which quantifies amplitude redistribution among Feynman pathways.",
+  "important_parameters": "The order of the Taylor expansion (up to third order) and the control coordinates defining the path in parameter space.",
+  "main_assumptions": "The model parameters map smoothly to the Liouvillian, and the entire process can be represented as a differentiable computational graph.",
+  "figures_summary": "Figures illustrate the SAKE-DT workflow, showing the sequence from Liouvillian construction to the final observable response via AD and Duhamel assembly, and show reconstructed spectra and transport blocks.",
+  "paper_structure": "The paper introduces SAKE, details the combination of AD and Duhamel theory to build the transport operator, validates the method on an excitonic dimer, and discusses the physical interpretation of the resulting transport coefficients.",
+  "why_interesting": "This work provides a powerful, automated tool for analyzing open quantum systems dynamics, allowing researchers to perform local parameter exploration and sensitivity analysis on complex spectroscopic measurements without prohibitive computational costs.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.20132_figures/2608.20132_fig1.jpg",
+      "caption": "FIG. 1. Implemented SAKE-DT workflow for local Liouvillian transport. Dimensionless control coordinates are first mapped to the physical model parameters, from which the JAX-compatible Liouvillian L(λ) is constructed. The labeled transitions indicate the successive computational operations: (a) mapping the dimensionless control coordinates to the physical model parameters; (b) forward-mode automatic differentiation of the parameter-dependent Liouvillian; (c) construction of the first-, second-, and third-order Liouvillian derivative tensors; (d) Duhamel assembly of the resolvent and waiting-time propagator derivatives; (e) projection of the resulting pathway derivatives onto the reference...",
+      "page": 5
+    },
+    {
+      "image": "2608.20132_figures/2608.20132_fig2.jpg",
+      "caption": "FIG. 2. Validation of the Spectral Autodiff Kernel Expansion (SAKE) for the su(2) × su(2) excitonic dimer. (a) Energy-level diagram of the model system. The control manifold is parameterized by the coherent excitonic coupling J, which mixes the site-basis states |10⟩and |01⟩, and the incoherent population-transfer rate κ, which couples the same states through the dissipative Liouvillian. The ground and double-excited states are denoted |G⟩= |00⟩and |2⟩= |11⟩, while the intermediate exciton states |B⟩and |D⟩are the bright and dark superpositions of |10⟩and |01⟩, respectively. (b)Targeted projected pathway transport matrix Ta b obtained by directly evaluating the response at a representative...",
+      "page": 8
+    },
+    {
+      "image": "2608.20132_figures/2608.20132_fig3.jpg",
+      "caption": "FIG. 3. Iterative inverse recovery with local SAKE charts. (a) Accepted trust-region trajectories in the dimensionless control plane (J/ω0, κ/ω0). Stars mark the synthetic targets and the dotted line denotes the imposed dissipative-coupling bound. (b) Relative pathway-state residual versus accepted iteration. Solid lines are direct-inversion validations and dashed lines are the corresponding third-order SAKE predictions. All calculations begin at the uncoupled reference.",
+      "page": 9
+    },
+    {
+      "image": "2608.20132_figures/2608.20132_fig4.jpg",
+      "caption": "FIG. 4. Evolution of the rephasing spectrum during iterative recovery. Direct rephasing spectra on a 64 × 64 frequency grid at four accepted chart centers along the positive-J (orange, upper row) and mixed (green, lower row) trajectories. Coordinates above each panel are (J/ω0, κ/ω0); A/A0 gives the maximum absolute real amplitude relative to the uncoupled spectrum. The plotted signal in each panel is divided by its own maximum to expose changes in line shape.",
+      "page": 9
+    },
+    {
+      "image": "2608.20132_figures/2608.20132_fig5.jpg",
+      "caption": "FIG. 5. Initial-to-target mixing of retained RP and NRP pathways. The 3 × 3 RP (upper row) and NRP (lower row) blocks of the global transport matrix for the three synthetic targets. Color and the numerical annotation in each cell give the magnitude |Tab|. Rows identify the target pathway and columns the zeroth-order reference pathway; GSB, SE, and ESA denote ground-state bleach, stimulated emission, and excited-state absorption, respectively. A common color scale is used for both sectors and all targets.",
+      "page": 10
+    }
+  ],
+  "figure": "2608.20132_figures/2608.20132_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

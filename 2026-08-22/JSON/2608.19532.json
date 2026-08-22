@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.19532",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Variational Quantum Circuit Parameterization of SchNet: A Simulator-Based Feasibility Study for Conservative Molecular Force Fields",
+  "authors": "Hoang - Anh Nguyen, Nhu - Duc Dinh, Viet - Hung Tran, Tu - Uyen Le Tu, Tien - Lam Pham, Van - Duy Nguyen",
+  "abstract": "Machine-learning force fields provide a promising route for accelerating molecular simulation by replacing expensive quantum-chemical calculations with differentiable models of molecular energies and atomic forces. However, learning accurate and energy-conserving forces remains challenging, especially when the model must capture both global energy trends and local potential-energy gradients from limited data. In this work, we propose a Hybrid Quantum SchNet architecture that integrates variational quantum circuit modules into the continuous-filter SchNet framework. Quantum modules are inserted into the filter generator, atom-wise update, and readout transformations, allowing quantum-enhanced feature mappings to contribute to distance-dependent interactions and atomic energy prediction while preserving the energy-gradient formulation of forces. The model is evaluated on eight MD17 molecular systems using 1000 training configurations per molecule. Compared with energy-only training, joint energy--force supervision substantially improves both energy and force prediction accuracy. Compared with energy-only training, joint energy--force supervision substantially improves both energy and force prediction accuracy. Averaged over the benchmark, the energy MAE decreases from 2.567 to 0.593 kcal mol$^{-1}$, while the force MAE decreases from 16.340 to 1.540 kcal mol$^{-1}$ Å$^{-1}$. Ablation experiments on ethanol further show that the performance of the hybrid model depends on the balance between quantum circuit width, circuit depth, and optimization stability. These results demonstrate that variational quantum circuits can be incorporated into neural force-field architectures and trained end-to-end to improve molecular energy and force prediction.",
+  "url": "http://arxiv.org/abs/2608.19532v1",
+  "pdf": "https://arxiv.org/pdf/2608.19532v1",
+  "type": "theory",
+  "summary": "This paper proposes a Hybrid Quantum SchNet to accelerate molecular simulations by embedding Variational Quantum Circuits into the SchNet force field framework. By training the model using both energy and force data jointly, the authors demonstrate substantial improvements in prediction accuracy. This work establishes the feasibility of using quantum circuits to enhance the learning of physically constrained, energy-conserving potentials.",
+  "main_problem": "The challenge is to create machine-learning force fields that are both accurate for molecular simulation and rigorously energy-conserving, especially when incorporating quantum machine learning components.",
+  "main_result": "The hybrid quantum architecture successfully integrates Variational Quantum Circuits (VQCs) into the SchNet framework, showing that joint energy and force supervision significantly improves prediction accuracy over energy-only training.",
+  "method": "The authors propose a Hybrid Quantum SchNet by embedding VQCs into the SchNet's filter generation, atom-wise update, and readout stages, allowing quantum feature mapping while maintaining force-gradient consistency.",
+  "model_or_system": "The model is applied to molecular systems benchmarked on the MD17 dataset. It uses the SchNet architecture, which relies on continuous-filter convolutions based on interatomic distances, augmented by VQC modules.",
+  "key_observables": "Energy Mean Absolute Error (MAE) and Force Mean Absolute Error (MAE) are the primary diagnostics, with significant quantitative improvements reported upon joint supervision.",
+  "important_parameters": "The performance depends on the balance between quantum circuit width, circuit depth, and the optimization stability, suggesting a complex hyperparameter trade-off.",
+  "main_assumptions": "The study is framed as a feasibility study, and the performance gains are relative to classical SchNet baselines, not necessarily state-of-the-art potentials.",
+  "figures_summary": "Figures illustrate the general formulation of force derivation from energy, the detailed VQC structure (encoding, ansatz, measurement), and ablation studies showing performance dependence on circuit size.",
+  "paper_structure": "The paper introduces the need for energy-conserving ML force fields, details the Hybrid Quantum SchNet architecture by specifying VQC integration points, presents results comparing energy-only vs. joint supervision, and concludes with ablation studies on circuit parameters.",
+  "why_interesting": "This work directly bridges quantum machine learning (VQCs) with condensed matter simulation techniques (force fields), offering a novel, quantum-enhanced approach to modeling interatomic interactions and potential energy surfaces.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.19532_figures/2608.19532_fig1.jpg",
+      "caption": "Figure 1: General formulation of the molecular energy and force prediction problem. An atomistic structure, represented by atomic numbers {Zi} and atomic coordinates {ri}, is mapped to a molecular energy E. Atomic forces are obtained as the negative gradient of the predicted energy with respect to atomic coordinates, Fi = −∇riE, yielding an energy-conserving force field.",
+      "page": 3
+    },
+    {
+      "image": "2608.19532_figures/2608.19532_fig2.jpg",
+      "caption": "Figure 2: Overview of the proposed Hybrid Quantum SchNet architecture. Atomic numbers are mapped to atom-wise embeddings, while atomic positions are used to compute interatomic distances and radial basis features. The atom-wise representa- tions are refined through interaction blocks using quantum-generated continuous filters and hybrid VQC atom-wise updates. A hybrid VQC readout maps the final atom- wise representations to atomic energy contributions, which are summed to obtain the predicted molecular energy ˆE. Atomic forces are computed as negative gradients of ˆE with respect to atomic positions.",
+      "page": 7
+    },
+    {
+      "image": "2608.19532_figures/2608.19532_fig3.jpg",
+      "caption": "Figure 3: Variational quantum circuit used in the hybrid quantum modules. Clas- sical input features are projected to a six-dimensional quantum input vector and encoded into six qubits using RY angle encoding. The encoded state is processed by strongly entangling layers composed of parameterized single-qubit Rot gates, where Rot(α, β, γ) = RZ(α)RY (β)RZ(γ), followed by two-qubit entangling gates. The quan- tum output is obtained from Pauli-Z expectation-value measurements over all qubits and mapped to the required output dimension by a classical linear projection.",
+      "page": 8
+    },
+    {
+      "image": "2608.19532_figures/2608.19532_fig4.jpg",
+      "caption": "Figure 4: MAE energy experiments of ethanol for different quantum circuit configu- rations.",
+      "page": 15
+    },
+    {
+      "image": "2608.19532_figures/2608.19532_fig5.jpg",
+      "caption": "Figure 5: Training and validation total loss curves for aspirin, benzene, ethanol, and malonaldehyde on the MD17 benchmark. The total loss is plotted on a logarithmic scale as a function of training epoch. The blue solid curves denote the training loss, while the orange dashed curves denote the validation loss.",
+      "page": 17
+    }
+  ],
+  "figure": "2608.19532_figures/2608.19532_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2608.19868",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.soft",
+    "physics.chem-ph",
+    "q-bio.BM"
+  ],
+  "is_primary_archive": true,
+  "title": "Resource-Efficient Bio-Molecular Docking on a NISQ-era Digital Quantum Computer",
+  "authors": "Tianqi Chen, Adrian M. Mak, Jianguo Li, Jian Feng Kong, Chandra Verma, Sebastian Maurer-Stroh",
+  "abstract": "Molecular docking is a vital computational task in drug discovery, wherein the objective is to efficiently identify optimal binding poses between a ligand and a target receptor protein. Due to the combinatorial explosion of possible binding configurations, docking of large and flexible molecules remains a computationally intensive problem, especially at scale. Early studies have revealed that the molecular docking can be re-cast as a maximum vertex-weighted clique problem (MVWCP) problem on a compatibility graph to be solved classically. In this work, we proposed a hybrid quantum-classical approach for molecular docking leveraging the MVWCP formalism with a variational full-basis encoding (FBE) strategy, which enables efficient encoding of classical binary variables with Bloch sphere vectors. We further prove that a global minimizer of the FBE objective can always be chosen to be a pure product state, thereby providing a rigorous justification for its optimization using a unitary variational circuit. The molecular docking problem is first mapped to a cost Hamiltonian that is minimized within a variational framework, optimized via a randomized imaginary time evolution (ITE)-inspired warm start, and gradient-based techniques. Finally, we also executed the circuit on an IBM quantum computer, underlying the feasibility and of quantum-assisted optimization for structure-based drug design and point towards the broader utility of advanced encoding techniques in quantum optimization for computational biology.",
+  "url": "http://arxiv.org/abs/2608.19868v1",
+  "pdf": "https://arxiv.org/pdf/2608.19868v1",
+  "type": "both",
+  "summary": "This work tackles the computationally hard problem of molecular docking by reformulating it as a Maximum Vertex-Weighted Clique Problem. They introduce a hybrid quantum-classical solver utilizing a Full-Basis Encoding (FBE) strategy optimized via a warm-start procedure. The research demonstrates that FBE is a resource-efficient and rapidly converging quantum encoding for this complex optimization task on NISQ hardware.",
+  "main_problem": "The paper addresses the computationally intensive molecular docking problem, which is mapped to finding a Maximum Vertex-Weighted Clique Problem (MVWCP).",
+  "main_result": "They propose and demonstrate a resource-efficient hybrid quantum-classical approach using Full-Basis Encoding (FBE) that shows advantages in convergence speed over other quantum encodings.",
+  "method": "The method involves mapping the problem to a cost Hamiltonian, minimizing it using a variational quantum circuit optimized via a warm-start procedure inspired by imaginary time evolution.",
+  "model_or_system": "The system is molecular docking, modeled via a compatibility graph and recast as an MVWCP. The quantum computation is performed on a NISQ-era digital quantum computer (IBM quantum processor).",
+  "key_observables": "Transient clique weight, raw/rounded cost functions, and single-qubit expectation values ($\\langle\\sigma_x\rangle, \\langle\\sigma_y\rangle, \\langle\\sigma_z\rangle$).",
+  "important_parameters": "NISQ regime constraints, qubit connectivity, and the number of variables ($N$) in the graph problem.",
+  "main_assumptions": "The global minimum of the FBE objective can be chosen to be a pure product state, justifying the use of a unitary variational circuit.",
+  "figures_summary": "Figure 1 illustrates the mapping to MVWCP and the FBE strategy. Figure 7 shows MVWCP graphs for docking instances. Figure 8 compares optimization dynamics using FBE versus ZX-basis encoding.",
+  "paper_structure": "The paper first establishes the problem mapping (MVWCP) and the need for quantum assistance. It then details the FBE encoding and the warm-start optimization procedure. A key theoretical section proves the product state nature of the minimum, followed by comparative results showing FBE's superior convergence.",
+  "why_interesting": "The rigorous mathematical proof that the global minimum is a product state provides a strong theoretical foundation for using variational quantum circuits in complex optimization tasks, which is highly relevant for quantum algorithm design.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.19868_figures/2608.19868_fig1.jpg",
+      "caption": "FIG. 1. Illustration of the problem formalism and multi-basis encoding approach: (a) The molecular docking of ligand and protein is mapped to finding a maximum vertex-weighted clique on a graph: selected pharmacophores from both ligand (blue) and protein (orange) are analyzed and mapped to a labeled distance graph (LDG), following the procedure and criteria introduced in Ref. [24]. The binding interaction graph (BIG) is then defined based on the LDG, with its vertices representing the product of the selected pharmacophores from ligand and protein. Here, we used 1stp as an example for illustration. (b) Full-basis encoding (FBE) with an initial warm-start layer UWS : for each qubit from a...",
+      "page": 3
+    },
+    {
+      "image": "2608.19868_figures/2608.19868_fig2.jpg",
+      "caption": "FIG. 2. Different loss functions values as a function of training epoch used for checking the convergence of N = 18 (1stp) in (a) and (c), and N = 14 (9aw2) in (b) and (d). In panel (a) and (b), the raw cost function (red dashed line) is computed by taking the hyperbolic tangent of each of these observables, i.e., tanh ⟨σi µ⟩(µ = x, y, z) where i = 1, 2, · · · , N and insert each for the original variable of the MVWCP cost function, while the rounded cost function (blue solid line) is computed by taking the sign of each tanh ⟨σi µ⟩(µ = x, y, z), and substitute it back to the original MVWCP cost function. In panel (c) and (d), the transient clique weight is calculated for those chosen vertex...",
+      "page": 8
+    },
+    {
+      "image": "2608.19868_figures/2608.19868_fig3.jpg",
+      "caption": "FIG. 3. IBM quantum computer demonstration of MVWCP results using full-basis encoding for (a) (PDB ID: 1stp) (N = 18) and (b) (PDB ID: 9aw2). The upper part for each panel is a visualization of the 3D structure of protein-ligand complex, and the lower part of each panel is the solution of the MVWCP problem obtained from the real IBM hardware. The plus (minus) sign indicate that at the j-th vertex of the graph is chosen, and our hardware demonstrations are consistent with both the exact results from classical simulations, as well as the ground truth in Fig. 7. The real device results are obtained on a Heron R2 QPU ibm kingston. Other parameters used are: the number of circuit ansatz is fixed...",
+      "page": 9
+    },
+    {
+      "image": "2608.19868_figures/2608.19868_fig4.jpg",
+      "caption": "FIG. 4. (a) Comparison of successful ratios between ZX basis (red) and full basis encodings (blue) for both 1stp (N = 18) and 9aw2 (N = 14). For each approach, it is executed for a total of 1000 repetitions, and the successful ratio ps is calculated. The transient clique weight for both approaches are also shown in (b1) for 1stp and (b2) for 9aw2. In both panels, the horizontal dot-dashed grey line represents the ground truth, and the shaded area stands for the standard error. For both cases, the circuit ansatz consists of three layers, while the penalty value is fixed at 4.",
+      "page": 10
+    },
+    {
+      "image": "2608.19868_figures/2608.19868_fig5.jpg",
+      "caption": "FIG. 5. Effect of number of (a) the variational quantum circuit layers and (b) the penalty value for 1stp (N = 18, red) and 9aw2, red (N = 14) on the successful ratio ps. For both panels, it is executed for a total of 1000 repetitions, and the successful ratio ps is calculated.",
+      "page": 11
+    }
+  ],
+  "figure": "2608.19868_figures/2608.19868_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.20170",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Large Scale Entanglement Structure Detection in 100-Qubit Systems via Local Joint Measurements",
+  "authors": "Rui Li, Yuhang Wang, Chunxiao Du, Shikun Zhang, Zheng Qin, Wenxiu Li, Hao Zhang, Zhisong Xiao",
+  "abstract": "Identifying the entanglement structure of a many-body quantum state, namely how its constituents partition into unentangled blocks, is a central task in quantum information science, yet conventional tomography scales exponentially with system size. Here we introduce a scalable framework that recognizes large-scale entanglement structures directly from local correlation fingerprints. By choosing a representative local Pauli basis that satisfies a boundary-matching condition p_1 = p_R, the entire chain is read out in a single measurement configuration, keeping the measurement effort independent of system size. In noisy simulations, this single-basis protocol classifies GHZ-, W-, and cluster-type structures among 30 candidate partitions with a mean accuracy exceeding 95% for systems of up to 100 qubits. We further validate the protocol on a superconducting quantum processor, where it reliably classifies block structures for systems of up to 13 qubits before noise- and depth-induced degradation sets in at larger sizes. By mapping these failure modes explicitly, our results delineate the boundary of hardware-level scalability and point to a concrete strategy for characterizing entanglement structure on near-term quantum devices.",
+  "url": "http://arxiv.org/abs/2608.20170v1",
+  "pdf": "https://arxiv.org/pdf/2608.20170v1",
+  "type": "both",
+  "summary": "This paper introduces a scalable framework to determine the entanglement structure of large quantum systems by measuring local correlations rather than performing full state tomography. By using a single, carefully chosen local Pauli basis, the measurement effort scales linearly with system size, achieving high accuracy up to 100 qubits in simulation and validating the approach on superconducting hardware.",
+  "main_problem": "The central challenge is identifying the entanglement structure (unentangled block partitions) of large many-body quantum states without resorting to exponentially scaling full quantum state tomography.",
+  "main_result": "The authors developed a scalable protocol using local joint measurements that achieves over 95% accuracy for up to 100 qubits in simulation, and validated it up to 13 qubits on superconducting hardware.",
+  "method": "The method employs local Pauli measurements across overlapping windows, forming a feature vector whose dimension grows only linearly with system size, allowing for classification via a trained neural network.",
+  "model_or_system": "The study focuses on $N$-qubit chains exhibiting multipartite entanglement (GHZ-, W-, and cluster-type structures). The protocol is tested in both noisy simulations (up to 100 qubits) and on superconducting quantum processors (up to 13 qubits).",
+  "key_observables": "Classification accuracy of entanglement structure, local Pauli measurement outcomes, and the measurement cost (number of required measurement configurations).",
+  "important_parameters": "System size $N$ (up to 100 in simulation, 13 on hardware), window size $R$, and the number of local Pauli bases used ($K_{\text{local}}$).",
+  "main_assumptions": "The structural information is assumed to be redundantly encoded across local Pauli measurements, and the protocol relies on selecting a single, representative local basis satisfying a boundary-matching condition ($p_1 = p_R$).",
+  "figures_summary": "Figure 1 illustrates the local-joint-measurement pipeline using overlapping windows. Figure 2 and 3 compare the measurement cost and accuracy when using the full set of local bases versus a single, optimized representative basis.",
+  "paper_structure": "The paper first establishes the problem of exponential scaling in entanglement characterization. It then introduces the scalable framework using local joint measurements, demonstrating the efficiency gain by reducing the measurement effort to be independent of system size. Finally, it validates the protocol both in noisy simulations and on physical quantum hardware.",
+  "why_interesting": "This work directly addresses the scalability bottleneck in characterizing complex quantum states, providing a concrete, resource-efficient measurement protocol applicable to near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.20170_figures/2608.20170_fig1.jpg",
+      "caption": "Fig. 1: Local-joint-measurement pipeline. An N-qubit chain is covered by over- lapping local subsystems of R qubits with step size s; the final window is anchored to the right boundary to ensure full coverage. In each window a single local Pauli basis is measured, yielding an outcome distribution of fixed dimension 2R. The per-window distributions are concatenated into the feature vector x of dimension Nwin2R, which is passed to a representation network and then a classification network that outputs the entanglement-structure label.",
+      "page": 4
+    },
+    {
+      "image": "2608.20170_figures/2608.20170_fig2.jpg",
+      "caption": "Fig. 2: Classification accuracy and measurement cost with the full local Pauli basis set. Test accuracy (red, left axis) and total number of measurements (blue bars, right axis) for N = 20, 30, . . . , 100 at fixed R = 4, s = 3, with all K = 81 local bases retained. Accuracy is exactly 100% across all N, well above the 0.95 threshold (dashed grey line), while the measurement count grows monotonically from 567 to 2673.",
+      "page": 5
+    },
+    {
+      "image": "2608.20170_figures/2608.20170_fig3.jpg",
+      "caption": "Fig. 3: Classification accuracy versus the number of retained local Pauli bases Klocal. Test accuracy for N = 30, 40, 50, 60 at fixed R = 4, s = 3. Accuracy already exceeds 0.97 at Klocal = 1 and saturates by Klocal ≈40.",
+      "page": 6
+    },
+    {
+      "image": "2608.20170_figures/2608.20170_fig4.jpg",
+      "caption": "Fig. 4: Per-basis classification accuracy for the 3R = 81 individual local Pauli bases (GHZ-, W-, Cluster- block task, N = 100, R = 4, s = 3). Each bar is the accuracy obtained when only that single basis is used; the dashed line marks the 0.95 threshold, with bases above (green) and below (red) it.",
+      "page": 7
+    },
+    {
+      "image": "2608.20170_figures/2608.20170_fig5.jpg",
+      "caption": "Fig. 5: Stress test of the single-basis protocol under strong depolarizing and white noise (N fixed, Klocal = 1). Each panel shows the classification accuracy for one state family as a function of white-noise strength pw (bottom axis, 0–0.4) and depolarizing strength pd (top axis, 0–0.2). Blue curves apply white noise, orange curves apply depolarizing noise, and green curves apply both simultaneously; the grey dashed line marks the 0.9 threshold and error bars denote 1 s.d.",
+      "page": 9
+    }
+  ],
+  "figure": "2608.20170_figures/2608.20170_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.20076",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Shadow models of a quantum model for cloud cover and the influence of finite sampling noise",
+  "authors": "Hedwig Keller, Mierk Schwabe, Veronika Eyring",
+  "abstract": "Quantum computing is a quickly growing field that is promising various advantages compared to conventional computing. However, currently stand-alone quantum applications are scarce and hybrid (quantum-classical) computing is needed, especially in quantum machine learning (QML). Due to current limitations of quantum computing hardware and the coupling between HPC and quantum devices, integrating a trained (QML) model in classical applications is challenging. In this case, it is helpful to couple so-called shadows of the QML model instead, i.e., classical models that imitate the input-output relations of QML models such that quantum resources are only needed during the training stage. Here we consider constructive shadowing processes without an explicit training or regression stage to avoid rendering the QML model redundant, and apply them to a previously developed QML model for cloud cover [1] to allow for an efficient coupling to a climate model. We compare classical interpolation methods to an approximation of the quantum Fourier model, the representation of the circuit as a partial Fourier series. The encoding strategy in [1] allows the use of the discrete Fourier transform to efficiently reconstruct the circuits classically. Truncating the partial Fourier series further reduces the size of the shadow models. Both methods have the effect of mitigating finite sampling noise under certain conditions, which yields a motivation to use shadow models also beyond the era of limited hardware availability. Further, we compute the shadow models on the quantum system Euro-Q-Exa, based on the IQM Radiance system with superconducting qubits, where error mitigating effects can also be observed, albeit it is still difficult to distinguish them from errors connected to the calibration of the system.",
+  "url": "http://arxiv.org/abs/2608.20076v1",
+  "pdf": "https://arxiv.org/pdf/2608.20076v1",
+  "type": "both",
+  "summary": "This paper develops 'shadow models' to allow QML models, used for cloud cover parametrization, to be efficiently coupled to classical climate simulations despite limited quantum hardware. The authors compare classical interpolation techniques against approximating the quantum model using a truncated Fourier series. The key finding is that these shadow models can effectively mitigate the detrimental effects of finite sampling noise, paving a path for near-term quantum-classical integration.",
+  "main_problem": "The paper addresses the challenge of integrating Quantum Machine Learning (QML) models, trained on quantum hardware, into classical applications like climate modeling despite current hardware limitations and associated noise.",
+  "main_result": "Shadow models provide an efficient, classical surrogate for QML models, and the use of truncated quantum Fourier series can mitigate the effects of finite sampling noise.",
+  "method": "The authors compare classical interpolation methods (full vs. sparse grids) against approximating the quantum model using a partial Fourier series representation, focusing on constructing 'shadow' models without explicit retraining.",
+  "model_or_system": "The primary model is a QML model designed for cloud cover parametrization, which is approximated by a partial Fourier series. The analysis is tested on the superconducting qubit system Euro-Q-Exa.",
+  "key_observables": "Mean Squared Error (MSE) on test data, the ratio of MSE between interpolants and the true model, and the variance reduction achieved by truncating Fourier coefficients.",
+  "important_parameters": "Finite sampling noise (shot noise), the number of samples ($N_s$), the size of the frequency spectrum ($|\\Omega|$), and the number of grid points used for interpolation.",
+  "main_assumptions": "The work assumes that the error mitigation benefit from Fourier truncation outweighs the introduced truncation error, and it notes the difficulty in separating hardware noise effects from system calibration errors.",
+  "figures_summary": "Figures compare the MSE of QML models versus various interpolants (full/sparse grid) as a function of grid points, and plot the ratio of these MSEs to assess convergence rates.",
+  "paper_structure": "The paper introduces the need for shadow models for QML integration, details the Fourier-based and interpolation approaches for constructing these classical surrogates, compares their performance under finite sampling noise, and tests these methods on a real quantum hardware platform.",
+  "why_interesting": "The focus on developing classical surrogates (shadow models) for quantum computations is highly relevant for bridging theoretical quantum algorithms with practical, resource-constrained classical simulations in fields like atmospheric science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.20076_figures/2608.20076_fig1.jpg",
+      "caption": "Figure 1. Overview of constructive shadowing methods used in the work. The Fourier-based approach allows for an eﬀicient, exact representation of the circuit, assuming that the Fourier spectrum is equidistant. As a circuit agnostic approach, which needs no knowledge of the encoding strategy, a quasi-interpolation is considered. Both methods can mitigate finite sampling noise under suitable conditions.",
+      "page": 8
+    },
+    {
+      "image": "2608.20076_figures/2608.20076_fig2.jpg",
+      "caption": "Figure 2. Left: MSE of the QML models f6 ZZXY , f6 XY Z on the reduced test data set Dr (dashed lines) compared to MSE of interpolants on full grids If6 ZZXY , If6 XY Z (solid lines) plotted against the number of points in the grid we interpolate on. The interpolants are defined on grids with refinement parameters L ∈{3, 4, 5, 6}, indicated by the dots. Right: Ratio of the MSE of interpolants and MSE of QML models, MSE(If·)",
+      "page": 11
+    },
+    {
+      "image": "2608.20076_figures/2608.20076_fig3.jpg",
+      "caption": "Figure 3. Comparison of interpolants on the full grid to QML models evaluated with shot noise on the reduced test data set Dr for the ZZXY architecture (top row) resp. XY Z architecture (bottom row). Left: MSE of interpolants (solid lines) compared to MSE of QML model (dashed lines) evaluated with 100 (blue), 1000 (yellow) and 10 000 (pink) shots. The interpolants are defined on grids with refinement parameters L ∈{3, 4, 5, 6, 7}, indicated by the dots. Right: Ratio of the MSE of noisy evaluations of the interpolants against the MSE of the noisy evaluation of the",
+      "page": 12
+    },
+    {
+      "image": "2608.20076_figures/2608.20076_fig4.jpg",
+      "caption": "Figure 4. Left: Comparison of interpolant of full grid (solid lines) to QML model (dashed lines) trained with shot noise (1000 shots) and variance regularization evaluated with shot noise on the reduced test data set Dr, for the two architectures (XYZ, blue; ZZXY, orange). Right: Ratio of the MSE of the interpolants and the QML models, MSE(If·)",
+      "page": 13
+    },
+    {
+      "image": "2608.20076_figures/2608.20076_fig5.jpg",
+      "caption": "Figure 5. Left: MSE of approximation of f6 ZZXY (blue), f6 XY Z (yellow) using the quantum Fourier model (solid lines) as function of number of retained frequencies (x-axis) compared to the MSE of the QML models evaluated with an infinite number of shots (dashed lines). Right: Ratio of the MSE of the truncated Fourier models and the",
+      "page": 14
+    }
+  ],
+  "figure": "2608.20076_figures/2608.20076_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

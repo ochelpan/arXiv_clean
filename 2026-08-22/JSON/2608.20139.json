@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2608.20139",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Reinforcement LearningtoHarness Approximation Errors for Long-Time QuantumSimulation",
+  "authors": "Yu-Bo Shi, Markus Heyl, Roderich Moessner, Marin Bukov, Hongzheng Zhao",
+  "abstract": "Accurate digital quantum simulation at long times is limited by the accumulation of errors inherent to approximate simulation. Here we introduce RL-Trotter, a reinforcement-learning framework that treats unavoidable approximation errors as resources for error correction rather than merely imperfections to suppress. We show that low-dimensional information from conservation laws, such as the energy and energy variance, provides a sufficient learning signal to guide the agent, which learns to adapt a single scalar---the next Trotter step size---without access to the target wave function. By optimizing the entire long-time evolution rather than individual steps, RL-Trotter discovers self-correcting sequences in which later errors compensate for those accumulated earlier, increasing the accuracy of the long-time dynamics. The learned policies are intrinsically robust to measurement noise, substantially reducing measurement overhead. They also generalize to previously unseen, physically similar initial states and transfer from small, classically simulable systems to systems an order of magnitude larger. This enables a practical protocol based on classical pretraining followed by direct deployment or limited fine-tuning on quantum hardware. Our results establish a broader perspective for quantum algorithms: errors in approximate evolution can be orchestrated into resources for accurate and resource-efficient quantum dynamics.",
+  "url": "http://arxiv.org/abs/2608.20139v1",
+  "pdf": "https://arxiv.org/pdf/2608.20139v1",
+  "type": "theory",
+  "summary": "This paper introduces RL-Trotter, an RL framework that revolutionizes digital quantum simulation by treating unavoidable Trotterization errors as resources rather than just noise. By training an agent to adaptively select the time step size based on conserved quantities, the method achieves significantly longer, more accurate, and more robust long-time quantum dynamics compared to existing adaptive protocols.",
+  "main_problem": "Accurate digital quantum simulation (DQS) over long time scales is fundamentally limited by the accumulation of unavoidable approximation errors from time-stepping schemes like Trotterization.",
+  "main_result": "The proposed RL-Trotter framework successfully learns to treat these approximation errors as resources, orchestrating them into self-correcting sequences that maintain high accuracy over much longer simulation times than conventional adaptive methods.",
+  "method": "A Reinforcement Learning (RL) agent is trained to adaptively select the next Trotter step size ($\\delta t$) by using low-dimensional information from conserved quantities (like energy and energy variance) as the primary learning signal.",
+  "model_or_system": "The method is applied to the time evolution of quantum many-body systems, exemplified by a 1D mixed-field Ising model ($H = H_1 + H_2$). The simulation uses Trotterization to approximate the time evolution operator.",
+  "key_observables": "Energy ($E_n$), energy variance ($\\Delta E^2_n$), magnetization ($M_x(t)$), and the order parameter ($O(t)$).",
+  "important_parameters": "The system size ($L$), the quench process parameters (e.g., $h_x, h_z$), and the range of possible Trotter step sizes $[\\delta t_{\\min}, \\delta t_{\\max}]$.",
+  "main_assumptions": "The core assumption is that low-dimensional information derived from conservation laws (energy/variance) is sufficient to guide the adaptive step-size selection, allowing the agent to optimize the entire long-time evolution.",
+  "figures_summary": "Figures compare the time evolution of observables ($M_x(t)$, $O(t)$) and their associated errors ($\\Delta M_x(t)$) for RL-Trotter against conventional and adaptive Trotter methods, demonstrating superior performance and generalization.",
+  "paper_structure": "The paper introduces the problem of error accumulation in DQS, details the RL-Trotter framework using conserved quantities as state inputs, compares its performance against ADA-Trotter and fixed-step methods across various system sizes, and concludes by establishing the principle of error resource utilization.",
+  "why_interesting": "This work provides a powerful, data-driven paradigm shift for quantum simulation, moving beyond error suppression to actively managing and utilizing simulation errors, which is highly relevant for resource-constrained quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.20139_figures/2608.20139_fig1.jpg",
+      "caption": "FIG. 1. Symmetry-guided RL for adaptive Trotterization. (a) Closed-loop workflow of RL-Trotter. Starting from the initial state |𝜓(0)⟩, the quantum state is propagated through a sequence of Trotter operations 𝑈(𝛿𝑡𝑖), which is defined in Eq. (1), with the accumulated evolution time 𝑡𝑛= Í𝑛−1 𝑖=0 𝛿𝑡𝑖. After each step, the current noisy measurements of conserved quantities—here, the energy and its variance—together with their initially measured values and 𝑡𝑛, are supplied to the RL agent, which selects the next Trotter step size 𝛿𝑡𝑛+1. (b) A representative illustration of the learning process (total episode reward Í 𝑛𝑅𝑛versus training episode). The overall increase and subsequent saturation of...",
+      "page": 2
+    },
+    {
+      "image": "2608.20139_figures/2608.20139_fig2.jpg",
+      "caption": "FIG. 2. Comparison of the quench dynamics under different Trot- ter algorithms with exact dynamics (orange). (a, b) Dynamics of the magnetization in the 𝑥direction and the corresponding error with respect to the exact evolution for the first 50 Trotter steps. Whereas RL-Trotter (red circles) and conventional Trotter (cyan triangles) have the same total evolution time, 𝑡=12.53𝐽−1, RL-Trotter produces sig- nificantly smaller errors. ADA-Trotter (green squares) can suppress the errors to a level comparable to RL-Trotter. However, its total evolution time, 𝑡= 7.72𝐽−1 shown by green dashed line, is shorter than that of RL-Trotter as ADA-Trotter freezes, i.e., the algorithm tends to always choose...",
+      "page": 4
+    },
+    {
+      "image": "2608.20139_figures/2608.20139_fig3.jpg",
+      "caption": "FIG. 3. Noise robustness of different Trotter algorithms. We plot the errors in the energy density (a) and energy variance den- sity (b) during the first 40 Trotter steps for different Trotter algo- rithms in a noisy environment with noise strength 𝜎1=𝜎2=0.1. The RL agent is trained in a noisy environment with 𝜎1=𝜎2=0.03. For RL-Trotter (red) and ADA-Trotter (green), the markers and error- bar regions denote the mean and standard deviation over 50 in- dependent evaluations. The inset of (b) shows the Trotter step size 𝛿𝑡𝑛at each Trotter step. RL-Trotter remains stable against noise throughout the evolution, whereas the average Trotter step size of ADA-Trotter decreases continuously. The...",
+      "page": 5
+    },
+    {
+      "image": "2608.20139_figures/2608.20139_fig4.jpg",
+      "caption": "FIG. 4. Generalization of the learned policy to larger system sizes. We plot RL-Trotter dynamics of (a) the order parameter 𝑂(𝑡) and (b–d) the magnetization 𝑀𝛼(𝑡) with 𝛼=𝑥, 𝑦, 𝑧for different system sizes. The policy is trained only at 𝐿=8, whose results are shown by the green curves. We then apply the learned policy, without further training, to larger systems with 𝐿=12, 16, 20 (red curves). The exact time-evolution curves for 𝐿=8 and 𝐿=20 are shown by the yellow and blue dots, respectively. Although the thermalization behavior depends strongly on the system size, the RL-Trotter dynamics for 𝐿= 20 agrees well with the exact dynamics at the same system size, demonstrating the transferability...",
+      "page": 6
+    },
+    {
+      "image": "2608.20139_figures/2608.20139_fig5.jpg",
+      "caption": "FIG. 5. MPS benchmark of the RL-Trotter protocol for a large system. Time evolution of (a) the energy density E(𝑡), (b) the energy- variance density 𝛿E2(𝑡), and (c) the staggered order parameter 𝑂(𝑡) for a system with 𝐿= 100 of the first 20 Trotter steps. The RL agent is trained on small systems of 𝐿= 8 using ED with periodic boundary conditions. We directly apply this agent to a large system using MPS representation with open boundary conditions. The quench is performed from ℎ𝑧= 0 and ℎ𝑥= 0.1 to ℎ𝑧= 0.3 and ℎ𝑥= 0.3. The average errors of E, 𝛿E2, and the AFM order 𝑂are 1.62 × 10−3𝐽, 7.07 × 10−3𝐽2, and 1.02 × 10−2, respectively. All error measures are reduced by approximately one order of...",
+      "page": 7
+    }
+  ],
+  "figure": "2608.20139_figures/2608.20139_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}
