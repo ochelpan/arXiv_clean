@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.20593",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Clifford-efficient sparse state preparation for molecular wavefunctions",
+  "authors": "Yingrong Chen, Nathan A. Baker, Rushi Gong, Conrad S. N. Johnston, Brad Lackey, Hongbin Liu, Sasha Schmidt, Yuan Su, David B. Williams-Young, Yinuo Yang",
+  "abstract": "Sparse quantum state preparation concerns an $n$-qubit target state that is a superposition of only $d \\ll 2^n$ computational basis states. Existing approaches exploit this sparsity by compressing these $d$ basis states and their amplitudes onto a smaller set of qubits, called the dense register, before expanding the prepared state to the full register. Rather than relying on the permutation-based compression used in prior work, we exploit affine relationships among the binary configurations over the finite field $\\operatorname{GF}(2)$ to reduce both the non-Clifford gate count and the ancillary qubit count. Invertible affine transformations over $\\operatorname{GF}(2)$, comprising Gaussian elimination and all-ones-row removal, first reduce the dense register from $n$ to the rank $r$ using only Clifford gates and no ancillary qubits. An optional binary encoding stage then trades additional Toffoli gates and ancillary qubits for further compression to the minimum $\\lceil\\log_2 d\\rceil$ dense qubits needed to represent $d$ distinct configurations. For chemically relevant wavefunctions, such as those obtained from selected configuration interaction calculations, shared electronic excitation patterns produce many of these affine relationships, enabling substantial Clifford-only compression before binary encoding. Across the molecular benchmarks, our method requires the fewest ancillary qubits among the evaluated sparse state preparation methods while maintaining comparable non-Clifford gate counts when using binary encoding.",
+  "url": "http://arxiv.org/abs/2608.20593v1",
+  "pdf": "https://arxiv.org/pdf/2608.20593v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, Clifford-efficient method for preparing sparse quantum states representing molecular wavefunctions. It achieves this by leveraging the affine structure of the configuration bitstrings through classical matrix compression techniques like Gaussian elimination. The result is a quantum circuit that minimizes ancillary qubits, making the simulation of complex quantum chemistry problems more resource-efficient for quantum hardware.",
+  "main_problem": "The paper addresses the challenge of efficiently preparing quantum states that are superpositions of only a small fraction of the total basis states (sparse states) on a large number of qubits.",
+  "main_result": "The proposed method achieves state preparation with minimal ancillary qubits by exploiting affine relationships in the configuration bitstrings, leading to significant Clifford-only compression.",
+  "method": "It uses a two-stage classical compression process—Gaussian elimination over GF(2) followed by optional binary encoding—to reduce the required dense register size before constructing the quantum circuit.",
+  "model_or_system": "The model is the quantum state $|\\psi\rangle$ representing molecular wavefunctions, which are sparse superpositions of basis states derived from methods like selected configuration interaction (sCI).",
+  "key_observables": "Ancillary qubit count, non-Clifford gate count, and Clifford gate count are the primary metrics used for comparison.",
+  "important_parameters": "The sparsity ($d \\ll 2^n$) and the rank ($r$) of the configuration matrix are crucial parameters determining the efficiency.",
+  "main_assumptions": "The method assumes the target state can be represented by a configuration matrix $M \\in \text{GF}(2)^{n \times d}$ and that the low rank condition ($r \\ll n$) holds for chemically relevant states.",
+  "figures_summary": "Figures illustrate the steps of Gaussian elimination and binary encoding on molecular configuration matrices (e.g., for F2), and later show the resulting quantum circuits and resource estimates for state preparation.",
+  "paper_structure": "The paper details the theoretical framework by first introducing the problem, then presenting the two-stage classical compression (Gaussian elimination $\rightarrow$ Binary Encoding), followed by the construction of the quantum circuit, and finally benchmarking the resource costs against prior methods.",
+  "why_interesting": "This work provides a concrete, resource-aware quantum circuit synthesis technique for simulating complex quantum chemistry problems, directly impacting the feasibility of running quantum algorithms on near-term hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.20593_figures/2608.20593_fig1.jpg",
+      "caption": "Figure 1: Gaussian elimination of the F2 configuration matrix. The three transformations are duplicate-row zeroing, all-ones-row zeroing, and Gaussian elimination over GF(2). Duplicate- row zeroing first zeros q1, q8, and q9, which duplicate q0; q12, which duplicates q4; and q15, which duplicates q7. The remaining all-ones row q0 is then zeroed, and Gaussian elimination produces MF2,ref with six nonzero rows.",
+      "page": 8
+    },
+    {
+      "image": "2608.20593_figures/2608.20593_fig2.jpg",
+      "caption": "Figure 2: Binary encoding of the F2 REF matrix, including the diagonal and non-diagonal encoding steps. Since d = 8 configurations require only ⌈log2 8⌉= 3 rows for addressing, the top three rows are retained as the nonzero rows corresponding to the dense qubits. Columns c0, c1, c2, c4, c6, and c7 are first permuted to the left to form the diagonal block, while the non- diagonal columns c3 and c5 are moved to the right. Diagonal encoding (Step 1) transforms the identity block into binary-counter form on the nonzero rows by assigning contiguous binary labels 0–5 while zeroing the remaining rows. Note that this step also modifies the entries of the non-diagonal columns, so the matrix is...",
+      "page": 9
+    },
+    {
+      "image": "2608.20593_figures/2608.20593_fig3.jpg",
+      "caption": "Figure 4: Partial unary iteration subroutine for the interval [|0⟩, |1⟩, |2⟩]. The first 3 qubits (q0 . . . q2) act as the dense address qubits, the middle 2 qubits (q3, q4) are ancillary qubits, and the last 3 qubits (q5 . . . q7) are the sparse target qubits. The ancillary qubits are freed using measurement-based uncomputation [31]. Note that the |00⟩prefix state of q0 and q1 cached in the ancilla q3 is reused for both address states 0 and 1, and the state stored in q4 is flipped by a CX from q3 to target state 1. This demonstrates how the Toffoli gate count is reduced with batches of contiguous address states.",
+      "page": 11
+    },
+    {
+      "image": "2608.20593_figures/2608.20593_fig4.jpg",
+      "caption": "Figure 5: Scaling with qubit count for random Jordan–Wigner encoding matrices, with chemically derived instances overlaid as markers. Dashed lines denote the scaling baselines for random matrices. Overlaid individual points (with different marker shapes) represent the specific chemically derived molecular systems. Marker colors correspond to the algorithm used. (a) Ancillary qubit count. (b) Non-Clifford-gate count. (c) Clifford-gate count.",
+      "page": 14
+    },
+    {
+      "image": "2608.20593_figures/2608.20593_fig5.jpg",
+      "caption": "Figure 6: F2 benchmark (n = 16): gate and qubit scaling versus number of configurations. (a) Total logical qubit count (data + ancillary qubits). (b) Non-Clifford-gate count. (c) Clifford-gate count.",
+      "page": 15
+    }
+  ],
+  "figure": "2608.20593_figures/2608.20593_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

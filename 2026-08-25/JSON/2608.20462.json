@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.20462",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "To Scale Up or To Scale Out: Evaluating Space-Time Costs of Compiled Logical Circuits on Modular Superconducting Quantum Processors",
+  "authors": "Nikiforos Paraskevopoulos, Sebastian de Bone, Mick Christophersen, Simon Storz, A. Mert Bozkurt, Arno Bargerbos, Sebastian Feld",
+  "abstract": "Modular integration has emerged as the main pathway for scaling superconducting quantum processing units (QPUs) beyond the constraints of fabrication yield and physical footprint. Currently, two primary strategies lead this effort. Mirroring the \"Scaling Up\" and \"Scaling Out\" approaches in GPU architectures and AI infrastructures, these are: chiplet-based scaling, which preserves dense connectivity and high gate fidelity at the expense of engineering complexity, and distributed architectures, which decouple system scaling from monolithic QPU advancements at the expense of sparser connectivity and lower interconnect quality. To evaluate these approaches, we introduce a quantitative stress test measuring the execution cost of a dense workload of random logical entangling operations using a surface code scheme. Using a dedicated compiler, we compute the space-time cost as the number of network nodes increases, analysing this scaling behaviour across various surface code distances, Bell-state fidelities, and Bell-pair generation times. We find that distributed architectures incur an up to exponential space-time performance penalty compared to an effectively monolithic architecture across all simulations. Our results also show that as the network grows, this penalty manifests in two distinct scaling regimes: a noise-dominated regime constrained by insufficient Bell-state fidelity and generation rates, and a connectivity-dominated regime bottlenecked by lattice-surgery routing congestion.",
+  "url": "http://arxiv.org/abs/2608.20462v1",
+  "pdf": "https://arxiv.org/pdf/2608.20462v1",
+  "type": "theory",
+  "summary": "This paper analyzes the scaling challenges of building large quantum computers by comparing 'Scaling Up' (chiplet) versus 'Scaling Out' (distributed) superconducting architectures. Using a detailed compiler model, the authors find that distributed systems suffer severe performance penalties due to interconnect limitations. The work quantifies the trade-offs between connectivity, noise, and physical overhead in realizing fault-tolerant quantum computation.",
+  "main_problem": "The paper evaluates the space-time costs associated with executing compiled logical quantum circuits when scaling superconducting quantum processors using either chiplet-based ('Scaling Up') or distributed ('Scaling Out') modular architectures.",
+  "main_result": "Distributed architectures incur a significant, potentially exponential, space-time performance penalty compared to effectively monolithic designs, with this penalty manifesting in noise-limited and connectivity-limited regimes.",
+  "method": "A quantitative stress test using a dedicated compiler calculates the space-time cost by simulating random logical entangling operations across varying network sizes and hardware parameters.",
+  "model_or_system": "The study models superconducting Quantum Processing Units (QPUs) that employ the surface code for Quantum Error Correction (QEC). It compares the connectivity and error mechanisms of monolithic layouts versus those requiring inter-module links.",
+  "key_observables": "Space-time cost ($C \\equiv N_{phys} \times T_{succ}$), logical error rates, and the relative cost ratio ($\text{C}_{\text{rel}}$) between distributed and monolithic approaches.",
+  "important_parameters": "Surface code distance ($d$), Bell-state fidelity ($\text{F}_{\text{Bell}}$), Bell-pair generation time ($t_{\text{Bell}}$), and lattice-surgery routing congestion.",
+  "main_assumptions": "The analysis assumes specific error models for bulk operations versus seam operations, and it probes a 'forward-looking parameter space' beyond current experimental limitations.",
+  "figures_summary": "Figures illustrate the architectural differences between monolithic and distributed setups for lattice surgery, and plots show the relative cost ($\text{C}_{\text{rel}}$) scaling with node count under varying fidelity and latency assumptions.",
+  "paper_structure": "The paper develops the cost metric by first defining the physical constraints of scaling up vs. scaling out, then modeling the logical compilation process, and finally deriving and comparing the resulting space-time costs across different error regimes.",
+  "why_interesting": "It provides a rigorous, quantitative framework for assessing the overhead associated with modularity in large-scale quantum computation, which is crucial for guiding hardware development in superconducting quantum computing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.20462_figures/2608.20462_fig1.jpg",
+      "caption": "FIG. 1. (a) In an effectively monolithic architecture, chiplets are connected to form a contiguous 2D layout. This design ensures the system operates as a single, unified QPU housed within a singular cryostat. This is analogous to ”scaling up,” achieved by integrating multiple chiplets to construct a single, high-capacity QPU within a single cryostat. (b) A joint parity measurement between two logical surface code patches across an effectively monolithic layout, using conventional lattice surgery. (c) In a distributed architecture, multiple smaller nodes (that may or may not be housed in separate cryostats) are connected using microwave or optical links, over which information is...",
+      "page": 3
+    },
+    {
+      "image": "2608.20462_figures/2608.20462_fig2.jpg",
+      "caption": "FIG. 2. Tiling of our surface code unit cell to form logical architectures (a) A single distance d logical qubit takes up a (d + 1) × (d + 1) lattice to allow for lattice surgery operations with directly neighbouring logical qubits. (b) Each unit cell contains nine such patches, out of which four are used as data qubits. This unit cell is then tiled to fill the lattice. We allow the unit cell to get cut off after the second column of the unit cell on the right of the lattice, or the second row at the bottom of the lattice. In this way, routing space is reserved on the side to ensure the bottom-right data qubit is not cut off from lattice surgery operations. (c) An example of such tiling on...",
+      "page": 5
+    },
+    {
+      "image": "2608.20462_figures/2608.20462_fig3.jpg",
+      "caption": "FIG. 3. Dependence of cost on Bell-pair generation time tBell. Relative costs across the considered node counts for three fixed fidelities: (a) 92%, (b) 93%, and (c) 96%. The black dashed line indicates where the costs of computation for effectively monolithic and distributed architectures are equal. Markers are coloured from blue to red to denote increasing tBell. Each marker has a different symbol depending on the code distance used.",
+      "page": 7
+    },
+    {
+      "image": "2608.20462_figures/2608.20462_fig4.jpg",
+      "caption": "FIG. 4. Cost and code distance scaling. Top panels (a, b): Heatmap representation of the relative cost Crel on a logarithmic scale as a function of Bell-pair fidelity and generation time tBell for (a) Nnode = 3 and (b) Nnode = 43. In black, we depict the regions where the relative cost is more than 10 orders of magnitude higher than the baseline. Bottom panels (c, d): Optimal code distances utilised in panels (a) and (b), respectively. The fixed code distance required for the effectively monolithic baseline, d = 27, is highlighted in the colourbar on the right.",
+      "page": 8
+    },
+    {
+      "image": "2608.20462_figures/2608.20462_fig5.jpg",
+      "caption": "FIG. 5. Circuit for a CNOT operation between logical surface code patches, with (planar) surface code patches of distance d representing the qubits (horizontal lines in the diagram). The MZZ and MXX operations indicate joint ZZ and XX measurements, respectively. Adapted from Ref. [103].",
+      "page": 16
+    }
+  ],
+  "figure": "2608.20462_figures/2608.20462_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

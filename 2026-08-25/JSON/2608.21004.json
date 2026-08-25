@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.21004",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "When More Becomes Less: Topology-Reversed Three-Qubit Gate Performance on IBM Quantum Processors",
+  "authors": "Simona K. Grigorova, Stancho S. Stanchev, Nikolay V. Vitanov",
+  "abstract": "The exact Toffoli gate admits a six-CX decomposition, denoted by $CCX_6$, that is optimal under unrestricted two-qubit connectivity. On a linear three-qubit topology, however, $CCX_6$ contains 4 nearest-neighbor CX gates and 2 non-nearest-neighbor CX gates. By contrast, an alternative exact decomposition, denoted by $CCX_8$, uses only 8 nearest-neighbor CX gates. Because CCX is locally equivalent to CCZ, we perform the experiments using the corresponding $\\cczs$ and $\\cczl$ circuits. We compare these circuits on sampled linear triples of the 156-qubit IBM Quantum Heron processors \\texttt{ibm\\_fez} and \\texttt{ibm\\_kingston}. Under the compilation protocol, the nominal $\\cczs$ circuit becomes a twelve-CZ implementation, whereas the linear-nearest-neighbor circuit retains eight native CZ gates. Experimentally measured ensemble-feature-selection estimates favor the eight-CZ realization on nearly all retained triples. We test the same ordering by preparing a three-qubit hypergraph state, which probes the coherent conditional phase rather than only computational-basis populations. The measured hypergraph-state infidelity is lower for the $\\cczl$ circuit for most triples on both processors. Phase-altered interleaved randomized benchmarking provides a complementary comparison of Clifford surrogates preserving the two compiled entangling structures. Within the scope of the tested circuits and phase-sensitive input state, the results demonstrate that hardware connectivity can reverse the operational ranking of exact decompositions: a circuit with more abstract two-qubit gates can yield the better physical implementation.",
+  "url": "http://arxiv.org/abs/2608.21004v1",
+  "pdf": "https://arxiv.org/pdf/2608.21004v1",
+  "type": "experiment",
+  "summary": "This work experimentally compares two ways to implement a three-qubit CCZ gate on real quantum hardware. By testing the theoretically best circuit against a more hardware-friendly, nearest-neighbor circuit, the authors demonstrate that physical connectivity dictates performance. The results show that the simpler, topology-respecting circuit performs better, even if it is not the abstractly minimal gate count.",
+  "main_problem": "The paper compares the performance of two different exact decompositions for the three-qubit CCZ gate when implemented on hardware with restricted connectivity.",
+  "main_result": "The topology-compatible decomposition ($\text{CCZ8}$), which uses fewer native nearest-neighbor gates, consistently outperformed the theoretically optimal but connectivity-intensive decomposition ($\text{CCZ6}$) across multiple fidelity benchmarks.",
+  "method": "The performance was measured using Ensemble Feature Selection (EFS), hypergraph state preparation, and Phase-Altered Interleaved Randomized Benchmarking (PA-IRB) on real quantum hardware.",
+  "model_or_system": "The experiments were conducted on 156-qubit IBM Quantum Heron processors ($\text{ibm\\_fez}$ and $\text{ibm\\_kingston}$) using sampled linear triples of qubits.",
+  "key_observables": "Process infidelity ($\\epsilon$) measured via EFS and hypergraph state fidelity ($\\epsilon_{HG}$); PA-IRB decay parameters.",
+  "important_parameters": "The comparison hinges on the physical gate count: $\text{CCZ6}$ compiles to 12 CZ gates, while $\text{CCZ8}$ retains 8 native CZ gates.",
+  "main_assumptions": "The comparison assumes a fixed compilation protocol and isolates the effect of connectivity by comparing two fixed, exact gate decompositions.",
+  "figures_summary": "Figures show comparative infidelity estimates (EFS, Hypergraph) and decay parameters (PA-IRB) for $\text{CCZ6}$ versus $\text{CCZ8}$ on the IBM processors, consistently favoring the $\text{CCZ8}$ circuit.",
+  "paper_structure": "The paper introduces the problem by contrasting the abstractly optimal $\text{CCZ6}$ with the topology-compatible $\text{CCZ8}$. It then systematically tests both circuits using EFS, hypergraph state measurements, and PA-IRB, concluding that physical connectivity dictates performance over abstract gate count.",
+  "why_interesting": "It provides concrete, hardware-level evidence that physical connectivity constraints can fundamentally alter the optimal circuit choice for complex quantum gates, a critical consideration for scaling quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.21004_figures/2608.21004_fig1.jpg",
+      "caption": "FIG. 1. Exact CCZ6 and CCZ8 decompositions of the CCZ gate. CCZ6 is the standard 6-CX circuit, which contains a non-nearest-neighbor endpoint interaction when embedded on a linear chain, whereas every two-qubit interaction in CCZ8 acts on adjacent qubits. We note that the native two-qubit gates on IBM processors used here are CZ, and hence in the transpilation the CX gates in the circuits in this figure are replaced by CZ sandwiched by two Hadamard gates.",
+      "page": 2
+    },
+    {
+      "image": "2608.21004_figures/2608.21004_fig2.jpg",
+      "caption": "FIG. 2. EFS estimates of the infidelity of CCZ6 and CCZ8 on (a) ibm fez and (b) ibm kingston. Each point compares the two implementations on the same physical triple. The dashed line denotes equal infidelity; points below the line correspond to lower infidelity for CCZ8.",
+      "page": 3
+    },
+    {
+      "image": "2608.21004_figures/2608.21004_fig3.jpg",
+      "caption": "FIG. 3. EFS errors of the two circuits versus (a) the worse and (b) the mean of the two native CZ errors on ibm kingston. The displayed linear fits of the form y = a + bx are included as exploratory baselines and are not interpreted as physical scaling laws.",
+      "page": 4
+    },
+    {
+      "image": "2608.21004_figures/2608.21004_fig4.jpg",
+      "caption": "FIG. 4. Measured hypergraph-state infidelity of the CCZ6 and CCZ8 circuits on (a) ibm fez and (b) ibm kingston. Each point compares the two circuits on the same physical triple. Points below the dashed equality line favor the topology- compatible implementation CCZ8.",
+      "page": 5
+    },
+    {
+      "image": "2608.21004_figures/2608.21004_fig5.jpg",
+      "caption": "FIG. 5. Phase-altered interleaved randomized benchmark- ing comparison of the two compiled CCZ decompositions on ibm kingston. The horizontal coordinate corresponds to the nominal CCZ6 decomposition, which compiles to 12 native CZ gates on the linear physical topology, and the vertical coor- dinate corresponds to the CCZ8 LNN decomposition, which retains eight native CZ gates. Each marker represents one physical three-qubit placement and is positioned at the mid- point of the phase-stripped and phase-dressed PA-IRB esti- mates. Horizontal and vertical bars span the corresponding stripped–dressed values for the CCZ6 and CCZ8 realizations, respectively; these spans are not statistical...",
+      "page": 6
+    }
+  ],
+  "figure": "2608.21004_figures/2608.21004_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
