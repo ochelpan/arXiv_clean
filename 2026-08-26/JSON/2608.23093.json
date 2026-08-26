@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "2608.23093",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Partial-Moment PINNs for Caldeira--Leggett Parameter Learning in Quantum Brownian Motion",
+  "authors": "Krishna Bhatia",
+  "abstract": "We study parameter recovery in the Caldeira--Leggett (quantum Brownian) oscillator from partial moment traces. Our model is a moment-level PINN that predicts the five first/second moments and enforces the linear CL/HPZ ODEs by automatic differentiation. Physical structure is imposed through a PSD (Cholesky) covariance head, high-temperature CL assumptions with $D_{xp}\\approx0$, and fluctuation--dissipation ties between $D_{pp}$ and $γ$. On synthetic CL data with channels ${μ_x,σ_{xx},σ_{xp}}$, the constrained variant recovers $(ω,γ)$ accurately, stabilizes $D_{pp}$, and achieves low rollout error compared to finite differences and Kalman--EM (expectation--maximization) with exact Van Loan discretization. Fisher-style checks confirm that diffusion needs at least one variance observable, and sparse $σ_{pp}$ ``anchors'' restore conditioning. We also show that the same PINN can learn time-varying HPZ coefficients.",
+  "url": "http://arxiv.org/abs/2608.23093v1",
+  "pdf": "https://arxiv.org/pdf/2608.23093v1",
+  "type": "theory",
+  "summary": "This paper develops a novel Partial-Moment PINN to estimate parameters of the Caldeira-Leggett model for Quantum Brownian Motion using only partial moment measurements. By embedding physical laws (like FDT and PSD) into the network loss function, the method achieves superior parameter recovery and dynamical prediction fidelity compared to traditional numerical solvers. It demonstrates a powerful synergy between machine learning and open quantum system theory for experimental data analysis.",
+  "main_problem": "The paper addresses the challenging problem of recovering physical parameters ($\\omega, \\gamma$) governing Quantum Brownian Motion (QBM) when only partial, noisy moment traces are available from measurements.",
+  "main_result": "A constrained Partial-Moment PINN successfully recovers parameters with high accuracy, significantly outperforming traditional methods like Finite Differences and Kalman-EM, even when only a subset of moments are observed.",
+  "method": "The authors employ a Physics-Informed Neural Network (PINN) that operates directly on the evolution equations governing the first and second moments of the system, enforcing physical constraints like Positive Semi-Definiteness (PSD) and Fluctuation-Dissipation Theorems (FDT).",
+  "model_or_system": "The system modeled is a quantum harmonic oscillator coupled to an Ohmic bath, described by the Caldeira-Leggett model. The dynamics are captured by closed linear Ordinary Differential Equations (ODEs) for the five first/second moments.",
+  "key_observables": "The primary observables are the five moments: $\\{\\mu_x, \\mu_p, \\sigma_{xx}, \\sigma_{pp}, \\sigma_{xp}\\}$; the analysis focuses on recovering parameters from subsets like $\\{\\mu_x, \\sigma_{xx}, \\sigma_{xp}\\}$.",
+  "important_parameters": "The key parameters to learn are the oscillator frequency ($\\omega$) and the damping rate ($\\gamma$), along with the diffusion coefficients ($D_{xx}, D_{pp}, D_{xp}$).",
+  "main_assumptions": "Key assumptions include operating in the high-temperature, Markovian limit, enforcing the FDT ($D_{pp} = 2m\\gamma k_B T$), and using sparse $\\sigma_{pp}$ anchors to maintain numerical stability.",
+  "figures_summary": "The notes reference Tables II, III, IV, and V, which summarize parameter recovery accuracy, ODE rollout error comparison, Fisher identifiability analysis (Condition Number), and Bootstrap confidence intervals, respectively.",
+  "paper_structure": "The paper introduces the QBM model and the moment ODEs, proposes the constrained Partial-Moment PINN architecture, details the composite loss function incorporating physical constraints, and validates the method by comparing its performance against established numerical techniques using synthetic data.",
+  "why_interesting": "This work is highly relevant as it merges advanced machine learning (PINNs) with open quantum systems theory, providing a robust data-driven framework for parameter estimation in complex quantum dynamics where full state tomography is impossible.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.23093_figures/2608.23093_fig1.jpg",
+      "caption": "Fig. 1. Workflow of the proposed Partial-Moment PINN for CL/HPZ parameter recovery from partial moment observations.",
+      "page": 2
+    },
+    {
+      "image": "2608.23093_figures/2608.23093_fig2.jpg",
+      "caption": "Fig. 2. PINN predictions and ODE rollouts vs. ground truth for µx, µp, and σxx on the LTI dataset. Solid black: truth. Dashed: direct PINN prediction. Dotted: rollout using learned coefficients. The constrained PINN (green/dotted red) better respects dynamics, especially for σxx.",
+      "page": 3
+    }
+  ],
+  "figure": "2608.23093_figures/2608.23093_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

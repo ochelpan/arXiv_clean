@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.22006",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mes-hall",
+    "cs.LG"
+  ],
+  "is_primary_archive": false,
+  "title": "Physics-Constrained Neural Flow Maps for Long-Horizon Prediction of Spin Dynamics",
+  "authors": "Haoen Feng, Shenglan Yuan, Shirong Lin",
+  "abstract": "Conventional simulation of current-driven magnetization relies on fine-step integration of the spin-transfer-torque Landau--Lifshitz--Gilbert equation, creating a computational bottleneck in parameter sweeps and control searches. In this work, we propose a physics-constrained neural flow map that learns finite-time dynamics directly on the unit sphere. The model maps the current magnetization, spin-torque strength, and requested time span to a future state in a single forward pass. Tangent-space projection and spherical retraction preserve unit magnetization during recursive, composition-consistent rollout. We validate the framework on single-spin trajectories under in-domain torques and previously unseen but stronger drive. Beyond the training horizon, it achieves an in-domain root mean square error of $0.00425$ with norm drift at the $10^{-7}$ level. The flow outperforms an adapted Long Short-Term Memory (LSTM) in in-domain accuracy and geometric stability, although the LSTM retains slightly lower out-of-distribution state error. The resulting geometry-preserving propagator reduces reliance on fine-step integration and enables physically admissible long-horizon prediction.",
+  "url": "http://arxiv.org/abs/2608.22006v1",
+  "pdf": "https://arxiv.org/pdf/2608.22006v1",
+  "type": "theory",
+  "summary": "This paper introduces a physics-constrained neural flow map to accelerate the simulation of magnetization dynamics governed by the STT-LLG equation. By learning a direct, geometry-preserving mapping for finite-time evolution, it bypasses the need for slow, fine-step numerical integration. The method significantly improves accuracy and stability for long-horizon predictions compared to standard recurrent neural network approaches.",
+  "main_problem": "The primary challenge is overcoming the computational bottleneck associated with simulating current-driven magnetization dynamics, which traditionally requires computationally expensive, fine-step integration of the STT-LLG equation.",
+  "main_result": "The proposed physics-constrained neural flow map achieves superior in-domain accuracy and geometric stability compared to an adapted LSTM baseline, enabling physically admissible long-horizon prediction.",
+  "method": "The authors developed a neural flow map that learns a finite-time evolution operator, mapping the current state, spin-torque strength, and time span directly to a future state in a single forward pass.",
+  "model_or_system": "The system models single-macrospin magnetization dynamics governed by the spin-transfer-torque Landau-Lifshitz-Gilbert (STT-LLG) equation, ensuring the magnetization vector remains constrained to the unit sphere ($\\mathbb{S}^2$).",
+  "key_observables": "Root Mean Square Error (RMSE) for state prediction, and maximum norm drift to quantify geometric stability.",
+  "important_parameters": "The normalized spin-transfer-torque strength ($a_{JH}$), and the prediction time span ($\\Delta t$).",
+  "main_assumptions": "The model relies on explicitly enforcing spherical geometry via tangent-space projection and spherical retraction to maintain physical admissibility, though dynamical extrapolation outside the training regime remains a limitation.",
+  "figures_summary": "Figures compare the flow map's RMSE and norm drift against an LSTM baseline across in-domain and out-of-distribution (OOD) regimes, demonstrating superior geometric stability for the flow map.",
+  "paper_structure": "The paper first identifies the computational bottleneck of STT-LLG simulation. It then proposes the physics-constrained flow map, detailing its architecture and loss function (incorporating data, duplication, and composition consistency terms). Finally, it validates the model by comparing its performance against LSTMs across various prediction regimes.",
+  "why_interesting": "This work provides a powerful, data-driven surrogate model for solving complex, non-linear differential equations governing magnetization dynamics, which is crucial for simulating spintronic devices and open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.22006_figures/2608.22006_fig1.jpg",
+      "caption": "Figure 1: Physics-constrained neural flow map. The current magnetization, normalized spin-transfer-torque strength, and requested prediction span are encoded as eight input features. A residual multi-layer perceptron produces a three-dimensional increment; tangent-space projection and spherical retraction constrain the predicted state to S2, after which the prediction is fed back for closed-loop propagation. Training combines data fitting, duplicate supervision equivalent to the data term, and single-split composition consistency. Each closed-loop call spans ten fine steps, corresponding to 0.45 ns.",
+      "page": 4
+    },
+    {
+      "image": "2608.22006_figures/2608.22006_fig2.jpg",
+      "caption": "Figure 2: Closed-loop comparison between Flow and the adapted LSTM over five independent training runs. The left panel shows componentwise RMSE for in-domain testing and stronger-drive OOD evaluation; the right panel shows maximum norm drift on a logarithmic scale. Bars and error bars denote the mean and sample standard deviation over five runs. Both methods use the same parameter split and future window, but LSTM warms up its hidden state with the complete observed history, whereas Flow reads only the boundary state.",
+      "page": 7
+    },
+    {
+      "image": "2608.22006_figures/2608.22006_fig3.jpg",
+      "caption": "Figure 3 gives a single-trajectory waveform comparison at the in-domain boundary aJH = −0.03 to examine how temporal training coverage affects closed-loop phase error. During evaluation, every model reads reference information only through 49.995 ns and then extrapolates to approximately 200 ns. The legend labels “trained to 50” and “trained to 100” indicate that the corresponding training trajectories end at approximately 50 and 100 ns. Extending training coverage to 100 ns reduces the trajectory RMSE from 0.2373 to 0.0332 for Flow and from 0.8291 to 0.1445 for LSTM, showing that both autoregressive surrogates benefit from longer training trajectories. Under both training windows, the...",
+      "page": 7
+    },
+    {
+      "image": "2608.22006_figures/2608.22006_fig4.jpg",
+      "caption": "Figure 3: Flow–LSTM waveform comparison under different temporal training horizons. The black curve is the discrete reference flow at aJH = −0.03. Green and orange denote Flow trained to approximately 50 and 100 ns; blue and light green denote the corresponding adapted LSTM models. All methods begin closed-loop extrapolation at t = 49.995 ns. The first three panels show the magnetization components, and the bottom panel shows the norm.",
+      "page": 8
+    },
+    {
+      "image": "2608.22006_figures/2608.22006_fig5.jpg",
+      "caption": "Figure 4: Joint temporal and parameter extrapolation under the unseen, stronger drive aJH = −0.10. Closed-loop propagation begins at t = 99.99 ns and preserves unit norm throughout. Relative to the reference flow, the predicted asymptotic direction is systematically shifted in the mx and my components.",
+      "page": 9
+    }
+  ],
+  "figure": "2608.22006_figures/2608.22006_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

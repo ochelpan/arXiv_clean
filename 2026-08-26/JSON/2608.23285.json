@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2608.23285",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Computation of QKD Key Rates without Semidefinite Programming",
+  "authors": "Bence Temesi, Antoine Gansel, Gereon Koßmann, Rene Schwonnek",
+  "abstract": "Translating observed data into a reliable estimate of the secure key rate is a crucial step for operating a quantum key distribution device. We provide a computational method for this task that only requires eigenvalue computations and is therefore both fast and resource efficient. In contrast, existing approaches rely on semidefinite programming or programming on the entropy cone, whose memory requirements can scale as $d^4$ in the underlying Hilbert-space dimension. Our method reduces this requirement to $d^2$. A minimal implementation of our algorithm takes fewer than 100 lines of Common Lisp. We demonstrate real-time key-rate estimation on a Raspberry Pi with a 1 GB memory and a Cortex-A53 processor. Despite these modest resources, our implementation outperforms existing workstation-based benchmarks by several orders of magnitude. Non-numerical verification can be incorporated with little overhead using rational approximations. These results open the way toward embedding complete numerical security analysis directly into qkd hardware.",
+  "url": "http://arxiv.org/abs/2608.23285v1",
+  "pdf": "https://arxiv.org/pdf/2608.23285v1",
+  "type": "both",
+  "summary": "This paper presents a fast, resource-efficient algorithm to calculate the secure key rate for QKD by avoiding computationally prohibitive Semidefinite Programming. The method uses an iterative candidate-and-certificate approach, which only requires eigenvalue computations. This breakthrough enables the direct integration of rigorous security analysis into low-power, embedded QKD hardware.",
+  "main_problem": "The core problem is developing a computationally efficient method to estimate the secure key rate in Quantum Key Distribution (QKD) by calculating the minimal conditional entropy.",
+  "main_result": "The authors propose a novel algorithm that avoids resource-intensive Semidefinite Programming (SDP), achieving memory scaling of $d^2$ and demonstrating real-time performance on embedded hardware.",
+  "method": "The method uses a candidate-and-certificate approach, iteratively finding a candidate state via Gibbs state calculations and then deriving a rigorous lower bound (certificate) using supporting planes.",
+  "model_or_system": "The system is based on QKD protocols modeled using density operators ($\rho$) and constrained by observed measurement statistics ($m_i$). The goal is to minimize the conditional entropy $F^* = \\inf_{\\psi_{ABE}} H(X|E)$.",
+  "key_observables": "Minimal conditional entropy ($F^*$), candidate key rate ($F_{cand}$), and the rigorous lower bound certificate ($F_{cert}$).",
+  "important_parameters": "Hilbert-space dimension ($d$), number of constraints ($n$), and the achievable key rate as a function of distance (e.g., for CVQKD).",
+  "main_assumptions": "The method assumes the feasibility of using eigenvalue computations and iterative convex optimization, and it provides a rigorous bound $\text{cert} \\le F^* \\le \text{cand}$.",
+  "figures_summary": "Figures illustrate runtime comparisons showing massive speedups on embedded hardware, the geometric process of the candidate-and-certificate method, and key rate scaling versus distance for a specific QKD protocol.",
+  "paper_structure": "The paper introduces the problem, contrasts it with existing SDP-based methods, details the two-phase candidate-and-certificate algorithm (Gibbs state iteration followed by supporting plane certification), and validates the approach with hardware benchmarks and specific QKD tests.",
+  "why_interesting": "The focus on computational efficiency for security analysis is crucial for practical quantum technologies, allowing complex theoretical bounds to be implemented directly on field hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.23285_figures/2608.23285_fig1.jpg",
+      "caption": "Figure 1: (a) Runtime of our algorithm on a laptop and on a raspberry 3 in comparison to existing methods that run on workstations41. Benchmark for QPSK-DMCV- QKD based on example data from41. Details in Sec.2.2. (b) Basic setting of an entanglement based Alice-Bob- Eve protocol in stylised boxes and as circuit diagram. The uncertainty H(X|E) equals the entropy production ∆H of the measurement process X0E →XE. When dilated29 to a unitary UAX, the key map Φ : A →A′",
+      "page": 2
+    },
+    {
+      "image": "2608.23285_figures/2608.23285_fig2.jpg",
+      "caption": "Figure 2: Flow diagram of the candidate-and-certificate algorithm. Phase 1 generates with an iterative optimiza- tion over adopted Gibbs states a candidate state, which is in Phase 2 converted into a lower bound. The core computation effort is the loop for a newton method.",
+      "page": 4
+    },
+    {
+      "image": "2608.23285_figures/2608.23285_fig3.jpg",
+      "caption": "Figure 3: A runtime comparison for the MUB protocol and the overlap protocol from37 as a function of the lo- cal dimension dA = dB is shown. We compare the com- putation of the extractable randomness from (3) in37, which uses the Gauß-Radau approximation of the rel- ative entropy53, the entropy cone methods41 and our method. The underlying devices are a laptop and the other hardware described in Fig. 1(a). All protocols de- liver at least precision 10−6 to the optimizer. Due to the logarithmic scaling, we observe that our new technique provides an improvement of several orders of magnitude.",
+      "page": 5
+    },
+    {
+      "image": "2608.23285_figures/2608.23285_fig4.jpg",
+      "caption": "Figure 4: A discrete modulation CVQKD protocol43",
+      "page": 6
+    }
+  ],
+  "figure": "2608.23285_figures/2608.23285_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

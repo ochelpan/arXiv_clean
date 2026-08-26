@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.21968",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Towards a Digital Twin for the Ground to QEYSSat Quantum Link",
+  "authors": "Henri P. N. Morin, Alex Maierean, Brendon L. Higgins, Ian DSouza, Vinodh R. R. Muthu, Thomas Jennewein",
+  "abstract": "Simulations of physical systems require high-fidelity models to accurately represent reality. Simple models may be analytically tractable, but may not be sufficiently representative of reality for the given application. The cost of this simplicity is accuracy, or in the case of quantum key distribution, provable security. Sources of this accuracy gap include the difficulty of modelling physical effects which do not lend themselves well to analytical descriptions, such as afterpulsing. Here, we introduce a novel Monte Carlo based photon emission, transmission, and detection simulator, designed in the context of the Quantum Encryption and Science Satellite (QEYSSat) mission. Within this simulator, every major physical effect a photon may experience during an experiment, from emission to detection, can be accounted for in a probabilistic manner. This methodology allows for the inclusion of experimental parameters which are relevant for a satellite mission, and their impacts on secure key lengths. This simulator serves as a comprehensive baseline to predict and validate experimental data for the upcoming QEYSSat mission.",
+  "url": "http://arxiv.org/abs/2608.21968v1",
+  "pdf": "https://arxiv.org/pdf/2608.21968v1",
+  "type": "theory",
+  "summary": "This paper presents a novel Monte Carlo simulator designed as a digital twin for the QEYSSat satellite quantum link. It accurately models all physical impairments—from source jitter and atmospheric turbulence to detector afterpulsing—in a probabilistic framework. This tool allows researchers to predict the achievable secure key rate, providing a crucial validation baseline for future space-based quantum communication missions.",
+  "main_problem": "Simulating quantum key distribution (QKD) over space links requires high-fidelity models because simple analytical approximations compromise the provable security of the key.",
+  "main_result": "The authors introduce a comprehensive Monte Carlo simulator that serves as a digital twin for the QEYSSat mission, capable of predicting secure key lengths under realistic physical conditions.",
+  "method": "A novel Monte Carlo simulation framework is developed to probabilistically model every physical interaction a photon undergoes from emission through transmission and detection.",
+  "model_or_system": "The system is the Quantum Encryption and Science Satellite (QEYSSat) quantum link. The simulator models the entire chain: Source (using Poisson statistics), Channel (accounting for atmospheric effects, loss, and turbulence), and Detector (incorporating memory effects like afterpulsing).",
+  "key_observables": "Secure key length, Quantum Bit Error Rate (QBER), and detailed photon count data (timetags).",
+  "important_parameters": "Link loss (potentially $> 35 \text{ dB}$), detector deadtime, afterpulsing probability, and atmospheric parameters (e.g., from MODTRAN).",
+  "main_assumptions": "The simulation simplifies state tracking by using a 'state palette' instead of tracking full density matrices, and it assumes the primary loss mechanism is channel attenuation.",
+  "figures_summary": "Figures illustrate the full software stack (digital twin), the simulation chain (Source $\rightarrow$ Channel $\rightarrow$ Detector $\rightarrow$ TimeTags), and the main iterative process of the simulator.",
+  "paper_structure": "The paper details the necessity of high-fidelity simulation, introduces the QMCS methodology covering source, channel, and detector modules, demonstrates its application to QEYSSat links (including Eve's attack), and discusses its utility as a predictive digital twin for mission validation.",
+  "why_interesting": "This work is highly relevant as it applies advanced simulation techniques to model open quantum systems (photon propagation) in a complex, noisy environment (space channel), directly impacting the feasibility and security analysis of quantum communication.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.21968_figures/2608.21968_fig1.jpg",
+      "caption": "FIG. 1: Full QEYSSat digital twin software stack. The data flow between each software is highlighted.",
+      "page": 2
+    },
+    {
+      "image": "2608.21968_figures/2608.21968_fig2.jpg",
+      "caption": "FIG. 2: Visualization of the effects modelled in our link simulation, and the different modules of the simulation chain. The simulation operates with a fine-grain time bin (78 ps), and each photon is associated with a certain timetag. The relevant modules add, subtract, or move timetags within the time bins. First, the source randomly generates emissions for each bin in the given timestep. Second, the channel module removes emissions due to loss, and adds emissions due to background counts. Third, the detector module removes emissions due to detector efficiency and deadtime, adds emissions due to dark counts and afterpulsing, and changes the time ordering of events due to timing jitter as a...",
+      "page": 3
+    },
+    {
+      "image": "2608.21968_figures/2608.21968_fig3.jpg",
+      "caption": "FIG. 3: Main iteration performed by the QEYSSat Monte Carlo Simulator. The QMCS defines a given scenario to simulate based on given inputs. It iterates over the Monte Carlo time steps performing source tasks, channel tasks, and detector tasks, before safely saving all output files. The time steps are nominally 1 ms of real time.",
+      "page": 4
+    },
+    {
+      "image": "2608.21968_figures/2608.21968_fig4.jpg",
+      "caption": "FIG. 4: Discretized orbital pass. At each second ti of the simulated pass, azimuth Ai, elevation Ei, range Ri, and velocity ⃗vi data are generated within Ansys STK. This information is used to compute link properties as a function of time which is in turn ingested by the QEYSSat Monte Carlo Simulator. This data is assumed to be the quantum phase of the total orbital pass. Considered effects include turbulence, reflected moonlight, and light pollution.",
+      "page": 8
+    },
+    {
+      "image": "2608.21968_figures/2608.21968_fig5.jpg",
+      "caption": "FIG. 5: QBER, singles counts, coincidence histogram for an example simulated pass of 140 s. (A) Single counts (left axis, blue) show an increasing amount of detected photons as the satellite approaches zenith. The highest concentration of counts is located at zenith, and correspondingly relate to the lowest QBER (right axis, green). QBER worsens dramatically at the edges of the pass, corresponding to the lowest elevation and longest transmission distance. In the middle of the pass, QBER is at its lowest, around 0.5%. The simulated counts are compared against a simple model given by eq. (8). (B) Coincidence histogram extracted from frame 63 of Figure (A), which has the highest number of...",
+      "page": 12
+    }
+  ],
+  "figure": "2608.21968_figures/2608.21968_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

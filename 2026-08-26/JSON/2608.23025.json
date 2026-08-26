@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.23025",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Unified Quantum Neural Network Framework for Hamiltonian Learning and Emulation of Unknown Quantum Systems",
+  "authors": "Ahmad Salmanogli",
+  "abstract": "Accurate identification of unknown quantum systems is essential for quantum computing, sensing, and control because the Hamiltonian governs quantum state evolution. This work proposes a QNN based framework for black box Hamiltonian learning and quantum system emulation using full density matrix trajectory learning. Unlike approaches based only on final states or selected observables, the method exploits the complete temporal evolution of the density matrix under Lindblad dynamics. A synthetic dataset of physically admissible Hamiltonians and dissipation parameters is generated to emulate experimental measurements. The QNN learns a nonlinear mapping from control inputs to a 32-dimensional Hamiltonian coefficient vector, enabling reconstruction and differentiable emulation of the unknown system. Chirped excitation and randomized initial quantum states are incorporated to improve robustness and provide richer dynamical information. Performance is evaluated using trajectory density loss, quantum-state fidelity, and trace distance. Randomized initialization improves state-level reconstruction, increasing fidelity to 0.929 for the single qubit benchmark and 0.787 for the unknown system, while reducing trace distance to 0.124 and 0.316, respectively. In contrast, chirped excitation primarily improves optimization by accelerating convergence and reducing trajectory density loss. Finally, the learned Hamiltonian is mapped onto a physical two qubit bus resonator architecture in the dispersive regime, yielding key circuit parameters including transmon capacitances, Josephson inductances, qubit separation, and bus-resonator length. The framework therefore establishes a data-driven pathway from black box quantum system identification to physical quantum emulation, with potential applications in quantum digital twin modeling.",
+  "url": "http://arxiv.org/abs/2608.23025v1",
+  "pdf": "https://arxiv.org/pdf/2608.23025v1",
+  "type": "theory",
+  "summary": "This paper introduces a QNN framework to identify unknown Hamiltonians governing open quantum systems by analyzing the full time evolution of the density matrix. By training on synthetic data derived from Lindblad dynamics, the QNN reconstructs the system's Hamiltonian and maps it onto physical circuit parameters. This establishes a powerful, data-driven methodology for quantum system characterization and emulation.",
+  "main_problem": "The core problem is accurately identifying the unknown Hamiltonian governing an open quantum system, which is crucial for quantum computing and control.",
+  "main_result": "The framework successfully establishes a data-driven pathway to reconstruct the unknown Hamiltonian and map it onto physical circuit parameters, demonstrating high state-level reconstruction fidelity.",
+  "method": "It uses a Quantum Neural Network (QNN) trained on synthetic data generated from the full density matrix trajectory evolution under Lindblad dynamics.",
+  "model_or_system": "The system is an open quantum system modeled by the Lindblad master equation, involving a Hamiltonian parameterized by 32 coefficients and dissipation parameters. The final emulation targets a physical two-qubit bus resonator architecture.",
+  "key_observables": "Quantum-state fidelity, trace distance, and trajectory density loss are used to evaluate reconstruction accuracy.",
+  "important_parameters": "The system is characterized by 32 Hamiltonian coefficients, and the emulation is performed in the dispersive regime of a cQED architecture.",
+  "main_assumptions": "The method assumes the unknown system dynamics can be accurately modeled by the Lindblad master equation and that the Hamiltonian can be represented by a predefined 32-operator basis set.",
+  "figures_summary": "Figure 1 illustrates a five-stage workflow: generating the unknown system, creating the full density matrix trajectory dataset, training the QNN to predict coefficients, optimizing via trajectory loss, and finally mapping the result to a physical emulator.",
+  "paper_structure": "The paper follows a clear workflow: defining the problem (Hamiltonian identification) -> generating physics-informed synthetic data (Lindblad dynamics) -> training the QNN to map inputs to Hamiltonian coefficients -> optimizing the reconstruction using trajectory loss -> validating the result by mapping to a physical circuit.",
+  "why_interesting": "This work directly addresses the challenge of characterizing complex, open quantum systems by providing a machine learning bridge from abstract dynamics to physical hardware parameters, which is highly relevant for quantum optics and circuit QED.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.23025_figures/2608.23025_fig1.jpg",
+      "caption": "Figure 1: Overall workflow of the proposed full-trajectory QNN framework for the identification of an unknown quantum system and the construction of a quantum emulator. (1) An unknown open quantum system is generated by physics-informed random sampling of thirty-two Hamiltonian coefficients together with the dissipation rates κ, γ1 and γ2. (2) The corresponding Lindblad dynamics are propagated with QuTiP, and the complete noisy density-matrix trajectory is stored together with the control vector, the randomized initial state and the chirped excitation. (3) A five-layer QNN maps the four-dimensional control vector onto the thirty-two Hamiltonian coefficients, from which a Hermitian...",
+      "page": 4
+    },
+    {
+      "image": "2608.23025_figures/2608.23025_fig2.jpg",
+      "caption": "Figure 2: Trajectory-density loss achieved for different approaches for the case of single qubit Hamil- tonian H1 = 0.5 × ω1σz1; “Rand.In.Co.” is acronym for randomized initial conditions.",
+      "page": 10
+    },
+    {
+      "image": "2608.23025_figures/2608.23025_fig3.jpg",
+      "caption": "Figure 2 compares the influence of several learning strategies on the convergence behavior of the proposed QNN framework, including sinusoidal chirp excitation, Gaussian chirp excitation, randomization of the initial conditions, and combinations of these techniques. The results are compared with the baseline approach without additional excitation or initialization strategies. Although the combined approaches exhibit a relatively rapid initial reduction in the trajectory- density loss, their final steady-state loss remains comparatively high, indicating that fast con- vergence does not necessarily guarantee accurate reconstruction. It should be noted that we applied the combination of...",
+      "page": 10
+    },
+    {
+      "image": "2608.23025_figures/2608.23025_fig4.jpg",
+      "caption": "Figure 3: Trajectory-density loss achieved for different approaches applied on different Hamiltonians.",
+      "page": 11
+    },
+    {
+      "image": "2608.23025_figures/2608.23025_fig5.jpg",
+      "caption": "Figure 3 further demonstrates the influence of Hamiltonian complexity on the reconstruction performance. As the number of effective degrees of freedom increases, the trajectory-density loss generally becomes larger, indicating that the learning problem becomes progressively more difficult. This behavior is particularly evident for the unknown Hamiltonian, which is rep- resented using 32 independent coefficients in the general Hamiltonian parameterization. In contrast, the simpler benchmark Hamiltonians, H1 and H2, contain substantially fewer effective degrees of freedom and can therefore be learned more accurately from the available train- ing data. The degradation observed for the unknown...",
+      "page": 11
+    }
+  ],
+  "figure": "2608.23025_figures/2608.23025_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 3,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 3,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

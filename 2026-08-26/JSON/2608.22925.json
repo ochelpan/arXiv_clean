@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2608.22925",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "cond-mat.str-el",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Importance-Reweighted Fock-Space Variational Monte Carlo",
+  "authors": "Zheng Che",
+  "abstract": "Fock-space variational Monte Carlo (FS-VMC) evaluates variational quantities by stochastic sampling over discrete many-body configurations. For ab initio electronic Hamiltonians, Born distributions can differ markedly between systems, and a Markov chain that mixes well need not yield low-variance estimators. We introduce importance-reweighted FS-VMC (IR-FS-VMC), which leaves the variational objective unchanged while redesigning its Monte Carlo evaluation. An auxiliary distribution and Hamiltonian-guided proposal define the Markov chain, while an evaluation Markov kernel defines an analytically tractable evaluation distribution. Self-normalized importance reweighting then recovers the Born-distribution expectations entering the energy, gradient, and stochastic reconfiguration (SR) matrix. Controlled comparisons on equilibrium H2O and Fe2S2 separate Markov-chain acceptance from local-energy fluctuations and optimization behavior. Using one production protocol, calculations for H2O dissociation, 36-site hydrogen lattices, and Fe2S2 and Fe4S4 active spaces yield accurate variational energies across different Born distributions and electronic-correlation regimes. Together, these results show that the production protocol can support robust FS-VMC optimization across the electronic-structure regimes studied here.",
+  "url": "http://arxiv.org/abs/2608.22925v1",
+  "pdf": "https://arxiv.org/pdf/2608.22925v1",
+  "type": "theory",
+  "summary": "This work introduces Importance-Reweighted Fock-Space Variational Monte Carlo (IR-FS-VMC) to overcome sampling limitations in electronic structure calculations. By redesigning the Monte Carlo evaluation using importance reweighting, the method accurately computes variational quantities for systems with varied electronic correlations. The protocol is shown to be robust across molecules and magnetic clusters, validating its use in challenging quantum chemistry regimes.",
+  "main_problem": "The paper addresses the challenge of accurately evaluating variational quantities (energy, gradient, SR matrix) in Fock-space Variational Monte Carlo (FS-VMC) when the Born distributions vary significantly between electronic systems.",
+  "main_result": "The proposed Importance-Reweighted FS-VMC (IR-FS-VMC) protocol successfully maintains the variational objective while robustly estimating necessary expectations across diverse electronic-correlation regimes.",
+  "method": "It redesigns the Monte Carlo evaluation by using an auxiliary distribution and a Hamiltonian-guided proposal for the Markov chain, followed by self-normalized importance reweighting to recover the required Born-distribution expectations.",
+  "model_or_system": "The method is applied to ab initio electronic Hamiltonians in a finite orbital basis, tested on molecular systems like H2O, hydrogen lattices, and strongly correlated iron-sulfur clusters (Fe2S2, Fe4S4).",
+  "key_observables": "Variational energy, energy gradient, Stochastic Reconfiguration (SR) matrix, Markov-chain acceptance rate, and local-energy variance.",
+  "important_parameters": "The method uses tunable parameters like the exponent $\\alpha$ (controlling the auxiliary distribution) and thresholds $\\epsilon_1, \\epsilon_2$ for Hamiltonian decomposition.",
+  "main_assumptions": "The self-normalized estimators are consistent but biased at finite sample size; the method assumes the variational objective remains unchanged despite the redesign of the Monte Carlo evaluation.",
+  "figures_summary": "Figures compare stochastic diagnostics (acceptance rate, local-energy variance) and final variational energies against established methods across bond stretching and lattice structures, showing the protocol's stability.",
+  "paper_structure": "The paper introduces the IR-FS-VMC formalism, details the Hamiltonian decomposition and sampling protocols, and validates the method by applying it to a suite of chemically and electronically diverse systems, comparing results against high-accuracy benchmarks.",
+  "why_interesting": "The development of robust stochastic estimators that decouple the sampling process from the local energy fluctuations is crucial for applying VMC to complex, strongly correlated systems where standard sampling methods fail or become unstable.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.22925_figures/2608.22925_fig1.jpg",
+      "caption": "Figure 1: Sampling and optimization over the first 1000 iterations for equilibrium H2O (top) and Fe2S2 (bottom). Born uses the Born distribution with a symmetric 50:50 single/double proposal; Tempered uses adaptive 𝛼with the same proposal; the three IR curves use the Hamiltonian-guided construction with (𝛼, 𝛽) = (2, 0.5), adaptive 𝛼with 𝛽= 0, and adaptive 𝛼with 𝛽= 0.5, respectively. Curves are medians over 10-iteration blocks. Left: |𝐸−𝐸ref| versus cumulative wall time, with FCI and SA-DMRG references for H2O and Fe2S2. Center: sampled local-energy variance, with values below 10−4 𝐸2 h shown at the plotting floor. Right: Metropolis–Hastings acceptance rate of the Markov chain.",
+      "page": 4
+    },
+    {
+      "image": "2608.22925_figures/2608.22925_fig2.jpg",
+      "caption": "Figure 2: Variational energy benchmarks. (a) Errors relative to FCI for all-electron (10𝑒, 24𝑜) H2O/cc-pVDZ, with UCCSDT and MRCISD for comparison.51 (b) Energies per atom for half-filled 36-site STO-6G chain, 6 × 6 square, and 3 × 3 × 4 cubic lattices, compared with SA-DMRG at 𝑀= 100–1600. (c) Errors for Fe2S2 (30𝑒, 20𝑜) and Fe4S4 (54𝑒, 36𝑜). References are −116.605609 𝐸h (𝑀= 12000 SA-DMRG) and −327.245342 𝐸h (extrapolated BS1 SA-DMRG), respectively. Filled DMRG points are from Ref.52 ; the open square is from Ref.47",
+      "page": 5
+    },
+    {
+      "image": "2608.22925_figures/2608.22925_fig3.jpg",
+      "caption": "Figure 3: Electronic-correlation diagnostics for the optimized IR-FS-VMC states. (a) Natural occupations for H2O at 𝑅/𝑅e = 1, 2, and 3, the three H36 lattices, and the iron–sulfur clusters; the dashed line marks 𝑛𝑖= 1. (b) Staggered H36 spin correlations (−1)𝑑⟨𝑺𝑖⋅𝑺𝑗⟩, averaged over orbital pairs at Manhattan distance 𝑑. (c) Fe-site correlations ⟨𝑺𝐼⋅𝑺𝐽⟩, obtained by summing over the five Fe 3𝑑orbitals on each site; diagonal entries are ⟨𝑺2 𝐼⟩.",
+      "page": 6
+    }
+  ],
+  "figure": "2608.22925_figures/2608.22925_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

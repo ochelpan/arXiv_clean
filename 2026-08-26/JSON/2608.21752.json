@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2608.21752",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "cs.IT"
+  ],
+  "is_primary_archive": true,
+  "title": "Width-Independent Compressibility of Deep Neural Networks",
+  "authors": "Hong-Yi Wang, Mingze Wang, Liu Ziyin",
+  "abstract": "It has long been known that well-trained neural networks can be compressed very strongly without affecting their performance, an important phenomenon that remains poorly understood. We prove a uniform compressibility theorem for deep multilayer perceptrons with analytic activations. For a deep, wide fixed teacher network, there exists a narrow (same depth) network that approximately represents the same function as the original. The reachable compressed width is strikingly independent of the original width, but is $O((\\log(1/\\varepsilon))^{d_{in}})$, where $\\varepsilon$ is the error budget and $d_{in}$ is the effective input dimension. Our construction involves a novel derivative-matching technique which is aware of the low-dimensional input, and a layer-wise reweighting that preserves the input-output mapping.",
+  "url": "http://arxiv.org/abs/2608.21752v1",
+  "pdf": "https://arxiv.org/pdf/2608.21752v1",
+  "type": "theory",
+  "summary": "This paper provides a theoretical guarantee for compressing deep neural networks by showing that the required width to maintain accuracy scales only polylogarithmically with the inverse error budget, independent of the original width. It achieves this using a novel derivative-matching technique applied layer-wise in reverse order. The work establishes a fundamental complexity bound for deep function approximators.",
+  "main_problem": "To prove a uniform compressibility theorem for deep multilayer perceptrons (MLPs), demonstrating that a wide teacher network can be approximated by a much narrower network of the same depth.",
+  "main_result": "The required retained width for approximation is polylogarithmic in the inverse of the error budget, $O((\\log(1/\\epsilon))^{d_{in}})$, and is strikingly independent of the original network width.",
+  "method": "The core technique involves a novel derivative-matching procedure that converts finite-order input-derivative matching into a uniform sup-norm bound on a bounded domain.",
+  "model_or_system": "The model is a deep multilayer perceptron defined by sequential applications of analytic activation functions ($\\sigma$) and weight matrices ($W^{(\\ell)}$). The analysis focuses on approximating a fixed, trained teacher network function.",
+  "key_observables": "Retained width ($d'_\\ell$), Approximation error ($\\epsilon$), Effective input dimension ($d_{in}$)",
+  "important_parameters": "Error budget ($\\epsilon$), Input dimension ($d_{in}$), Depth ($L$)",
+  "main_assumptions": "The activations must be analytic (holomorphic extension required), and the analysis is restricted to approximating a fixed teacher network, not general families of networks.",
+  "figures_summary": "One table summarizes per-seed diagnostics after backward compression, showing MSE, radius checks, and the first task-preserving dimension $D_k$ for several seeds.",
+  "paper_structure": "The paper develops the theory by first establishing per-layer bounds using derivative matching, then extends this to a full deep-network compression via backward layer-wise composition, culminating in the main theorem bounding the final width.",
+  "why_interesting": "While focused on classical MLPs, the rigorous mathematical techniques involving functional approximation bounds, complexity scaling with dimension, and the distinction between fixed vs. parameterized systems are highly relevant to understanding the complexity of quantum state representations in neural networks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.21752_figures/2608.21752_fig1.jpg",
+      "caption": "Figure 1: Single-layer compression error versus derivative-matching order k on a randomly initialized [3, 2048, 2048] network, for sigmoid (left) and GELU (right) activations. Each curve is one input radius R. Both panels exhibit geometric decay in k at every R, with the per-step rate slowing as R grows — the qualitative behavior predicted by the (R/ρ0)k+1 rate of Theorem 6. For R ≤1 the curves saturate at the float32 noise floor (∼10−6) by k ≈5; at k = 9 the error is below 10−5 uniformly in the unit ball for both activations.",
+      "page": 8
+    },
+    {
+      "image": "2608.21752_figures/2608.21752_fig2.jpg",
+      "caption": "Figure 2: Composed compression error versus per-step derivative-matching order k on a randomly initialized [2, 1024, 1024, 1024, 1024, 2] network, for sigmoid (left) and GELU (right). Each panel shows eight curves: four input radii R ∈{0.3, 0.5, 1, 2} in four colors, with backward order (compress the deepest hidden layer first) drawn solid with circles and forward order (shallowest first) drawn dotted with triangles. The two orders are essentially indistinguishable at every (k, R). Each compression step reduces its hidden layer to Dk = \u00002+k 2 \u0001 ∈{1, 3, 6, . . . , 66} neurons.",
+      "page": 9
+    },
+    {
+      "image": "2608.21752_figures/2608.21752_fig3.jpg",
+      "caption": "Figure 3: Compression of all three hidden layers of a trained [2, 512, 512, 512, 1] sigmoid MLP, without fine-tuning. Thin curves are the five seeds and bold curves their medians. Left: empirical maximum teacher– compression discrepancy on the held-out set and projected local searches; frozen random controls are shown for comparison. Right: target MSE, with the median uncompressed-teacher MSE dashed.",
+      "page": 10
+    },
+    {
+      "image": "2608.21752_figures/2608.21752_fig4.jpg",
+      "caption": "Figure 4: End-to-end runtime of backward compression with the practical pivoted-QR implementation. The timed region includes derivative-feature evaluation, basis selection, the coefficient solve, weight reconstruction for every hidden layer, and the implementation’s numerical diagnostics; teacher construction and a small library warm-up are excluded. We use randomly initialized float64 sigmoid networks on CPU with one Torch/BLAS thread. Points are medians of three complete compressions and bars span their minima and maxima. Left: teachers [3, d, d, 1] for k = 3, 5, 7. Right: teachers [3, 1024, . . . , 1024, 1] with one through eight hidden layers at k = 5.",
+      "page": 19
+    }
+  ],
+  "figure": "2608.21752_figures/2608.21752_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

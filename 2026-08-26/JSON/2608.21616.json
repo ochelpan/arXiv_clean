@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.21616",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Prior-Informed Adaptive Shifts for Sequential Minimal Optimization in Variational Quantum Eigensolvers",
+  "authors": "Frederik Stalschus, Samuele Pedrielli, Stefan Kühn, Karl Jansen, Kim A. Nicoli, Shinichi Nakajima",
+  "abstract": "Sequential minimal optimization methods, such as the Rotosolve and the Nakanishi-Fujii-Todo algorithm (NFT), are widely used for Variational Quantum Eigensolvers (VQEs). These methods optimize one parameter direction at a time, requiring measurements at only a few locations along that direction. In the presence of measurement shot noise, however, their performance depends critically on the choice of measurement locations, and recent studies suggest that equidistant measurements are optimal. However, we often observe that equidistant measurements are not always optimal in practice. We argue that this discrepancy between theory and practice arises from the fact that two assumptions underlying previous analyses do not generally hold: (1) the absence of prior knowledge about the energy minimizer, and (2) the use of the uncertainty of the estimated energy as a proxy for optimization performance. In this paper, we develop a new theory for determining optimal measurement locations. First, we show that incorporating prior information about the minimizer is beneficial. Early in optimization, when little is known about the pivot, i.e., the current minimizer, equidistant measurements are indeed near-optimal, but as the prior belief sharpens the optimal locations move away from equidistant. Second, rather than analyzing the uncertainty of the estimated minimum energy, we study the uncertainty of the estimator of the minimizer itself, which leads to substantially different strategies. Based on this analysis, we propose Prior-informed Adaptive Shifts (PAS), a method that automatically adjusts measurement locations during optimization. Numerical experiments across different shot counts and problems validate our theoretical findings and demonstrate that PAS adaptively recovers whichever fixed shift is best in each regime without it being specified in advance.",
+  "url": "http://arxiv.org/abs/2608.21616v1",
+  "pdf": "https://arxiv.org/pdf/2608.21616v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel theory for optimizing measurement locations in Variational Quantum Eigensolvers (VQEs) that use Sequential Minimal Optimization. It argues that tracking the uncertainty of the minimizer, rather than the energy, is key. The resulting Prior-informed Adaptive Shifts (PAS) method dynamically adjusts measurement spacing to maintain optimal performance across different noise regimes.",
+  "main_problem": "The paper develops a new theory to determine optimal measurement locations for Sequential Minimal Optimization (SMO) methods used in Variational Quantum Eigensolvers (VQEs). It addresses the discrepancy between theoretical optimal measurements and practical performance.",
+  "main_result": "The optimal measurement locations are not fixed but adaptively shift based on the prior knowledge of the energy minimizer, leading to the proposed Prior-informed Adaptive Shifts (PAS) method.",
+  "method": "The authors analyze the variance of the estimator of the minimizer ($\\hat{\theta}^*$) rather than the energy estimate ($\\hat{f}^*$), deriving closed-form optimal shifts based on prior concentration ($\\kappa$).",
+  "model_or_system": "The study focuses on VQEs, which estimate the ground-state energy of a Hamiltonian $H$ by optimizing parameters $\theta$ in a parameterized quantum circuit ansatz $U(\theta)$. The optimization uses SMO techniques like Rotosolve.",
+  "key_observables": "The primary observables are the estimated minimum energy ($\\hat{f}^*$) and, critically, the estimated minimizer angle ($\\hat{\theta}^*$).",
+  "important_parameters": "The key parameters are the measurement spacing ($\\alpha$), the prior concentration ($\\kappa$), and the shot count (related to noise $\\sigma^2$).",
+  "main_assumptions": "The analysis relies on first-order Taylor expansions for variance propagation and assumes the standard three-measurement procedure (Rotosolve) is used.",
+  "figures_summary": "Figures compare the expected variance of $\\hat{f}^*$ and $\\hat{\theta}^*$ versus measurement spacing $\\alpha$, validating the theoretical derivations for both energy and minimizer uncertainty.",
+  "paper_structure": "The paper first critiques previous assumptions, then develops the theory by focusing on minimizing the variance of the minimizer. It derives the optimal shift $\\alpha^*$ based on prior knowledge and proposes the adaptive PAS method, validating it numerically.",
+  "why_interesting": "This work provides a rigorous, theoretically grounded guide for improving the convergence and stability of VQE algorithms by optimizing the measurement strategy itself, which is crucial for near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.21616_figures/2608.21616_fig1.jpg",
+      "caption": "FIG. 1: Theoretical (left) and empirical (right) expected variance of ˆf ∗for a single parameter update, as a function of α for several values of κ. The dashed line indicates α = 2π/3. For each (κ, α) pair, 50 000 minimizer θ∗ i ∼VonMises(µ=0, κ) are drawn and noisy observations at (0, −α, +α) are simulated with N(0, σ2/Nshots) noise. Settings: σ = 1, Nshots = 128.",
+      "page": 5
+    },
+    {
+      "image": "2608.21616_figures/2608.21616_fig2.jpg",
+      "caption": "Figure 1 validates eq. (14) against the empirical ex- pected variance obtained from 50 000 sampled minimiz- ers per (κ, α) pair, showing close agreement across all tested values of α and κ. Endo et al. [13] showed using a uniform prior, i.e., κ = 0, that equidistant measurements spaced by 2π/3 minimize eq. (14). However, for arbitrary κ, the optimal positioning of observations cannot be obtained in closed form. This limitation is less severe than it appears, be- cause in sequential optimization for VQE we usually care more about minimizing the error of θ∗than of f ∗as this is the quantity we compute on each iteration in algorithm 1 and ultimately should yield the solution of eq. (1). In the...",
+      "page": 5
+    },
+    {
+      "image": "2608.21616_figures/2608.21616_fig3.jpg",
+      "caption": "FIG. 2: Theoretical (left) and empirical (right) expected variance of ˆθ∗as a function of α for several values of κ. The dashed line indicates α = 2π/3. For each (κ, α) pair, 50 000 minimizer θ∗ i ∼VonMises(µ=0, κ) are drawn and noisy observations at (0, −α, +α) are simulated with N(0, σ2/Nshots) noise. Angular errors are wrapped to [−π, π]. Settings: r = 1, σ = 1, Nshots = 128.",
+      "page": 6
+    },
+    {
+      "image": "2608.21616_figures/2608.21616_fig4.jpg",
+      "caption": "FIG. 3: VQE on the TFIM Hamiltonian, L = 3-layer Q = 5-qubit ESU2 circuit. Rows: shot budget; columns within a row: energy (left), fidelity (middle), shift angle α (right). PAS-Rotosolve with global κ (green) and gate-specific κ (red) vs. Rotosolve with fixed shifts α = π/2 (blue) and α = 2π/3 (orange). Optimization progress shows the median (solid) and 25th/75th percentiles (shadows) over 100 trials, the inset square shows the distribution of the final solution.",
+      "page": 7
+    },
+    {
+      "image": "2608.21616_figures/2608.21616_fig5.jpg",
+      "caption": "FIG. 4: VQE on the MaxCut Hamiltonian, L = 5-layer Q = 4-qubit HEA circuit. Same layout as fig. 3. PAS-Rotosolve with global κ (green) and gate-specific κ (red) vs. Rotosolve with fixed shifts α = π/2 (blue) and α = 2π/3 (orange). Optimization progress shows the median (solid) and 25th/75th percentiles (shadows) over 100 trials, the inset square shows the distribution of the final solution.",
+      "page": 8
+    }
+  ],
+  "figure": "2608.21616_figures/2608.21616_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

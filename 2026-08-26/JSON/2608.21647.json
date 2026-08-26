@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.21647",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Measurement and reload costs in direct quantum simulation of nonlinear waves",
+  "authors": "Ziqing Guo, Viraj Dsouza, Alex Khan, Abhishek Chopra, Rut Lineswala, Ziwen Pan",
+  "abstract": "Quantum processors encode an N-point field in log_2(N) qubits, which renders nonlinear wave equations an important application for quantum simulation. Nonlinear evolution, however, requires the field values themselves, and these are not directly accessible without quantum measurement. Existing algorithms circumvent this measurement through linear embeddings and state copies, thereby obscuring its cost within the truncation order, the auxiliary dimensions, and the state preparation. In order to expose this cost, a hybrid split-step solver is proposed in which the field is measured, updated classically, and reloaded at every step, with all shots and gates accounted for in a single cost-and-error model. Since the entire field is available at every step, a property unavailable to linear approximations in strongly nonlinear regimes, the design of the solver reduces to a budgeting problem over the timestep, the polynomial degree, and the shot count. The coherent kernels of the solver are validated on superconducting hardware. An identical structure and bottleneck govern the viscous Burgers' equation in one and two dimensions. Because every step reads the full field, the quantum cost per step, measured as circuit depth multiplied by measurement shots, exceeds the classical cost with increasing grid size. The framework consequently identifies a coherent, measurement-free nonlinear update as the quantitative target that any end-to-end advantage must meet.",
+  "url": "http://arxiv.org/abs/2608.21647v1",
+  "pdf": "https://arxiv.org/pdf/2608.21647v1",
+  "type": "both",
+  "summary": "This work analyzes the resource costs of simulating nonlinear waves like the NLSE using quantum processors via a hybrid measurement-update-reload scheme. The authors demonstrate that the constant need to measure and reload the field state causes the quantum computational cost to scale worse than classical methods. Consequently, they identify achieving a coherent, measurement-free nonlinear update as the critical goal for realizing quantum advantage in this domain.",
+  "main_problem": "The paper addresses the high computational cost associated with simulating nonlinear wave equations on quantum processors due to the necessity of repeatedly measuring and reloading the field state.",
+  "main_result": "The quantum cost per step, dominated by measurement and reload overhead, scales poorly with grid size, showing no end-to-end advantage over classical methods at fixed precision.",
+  "method": "A hybrid split-step solver is proposed, which alternates between quantum evolution (linear steps) and classical updates (nonlinear kicks), with the field state being measured and reloaded at every time step.",
+  "model_or_system": "The primary models are nonlinear partial differential equations (PDEs), such as the Nonlinear Schrödinger Equation (NLSE) and the Burgers' equation. The quantum encoding maps an N-point field onto log_2(N) qubits.",
+  "key_observables": "Overlap fidelity (F), phase-factor error, total step latency (T_step), and the ratio of quantum to classical work ($W_Q/W_{cl}$).",
+  "important_parameters": "The resource budget is controlled by the timestep ($\\Delta t$), polynomial degree ($d$), and shot count ($S$). The quantum cost scales as $O(N^2/\\epsilon^2)$ due to readout requirements.",
+  "main_assumptions": "The analysis assumes that the measurement and reload costs dominate the overall computational work, and the PolyKick approximation is only accurate when the local nonlinear phase is small.",
+  "figures_summary": "Figures illustrate the measure-update-reload cycle, fidelity diagnostics showing error sources, and resource comparisons demonstrating the scaling mismatch between quantum and classical work.",
+  "paper_structure": "The paper introduces the hybrid solver, develops a comprehensive cost model accounting for shots and gates, validates the kernels on hardware, compares the resource scaling against classical FFT-based methods, and concludes by identifying the measurement-free update as the necessary target for quantum advantage.",
+  "why_interesting": "It provides a rigorous, resource-aware analysis of the limitations of current quantum simulation schemes for nonlinear dynamics, setting a clear, quantitative benchmark (measurement-free evolution) for future hardware development.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.21647_figures/2608.21647_fig1.jpg",
+      "caption": "FIG. 1. Diagram of the hybrid solver implementing the nonlinear half-kicks K∆t/2 as a measure–update–reload cy- cle between QPU and CPU, using computational-basis sam- pling of the intensities sj = |ψj|2, with the linear propagator L∆t = F †DkF applied coherently in the spectral basis, for one split step K∆t/2 L∆t K∆t/2 advancing t →t + ∆t.",
+      "page": 2
+    },
+    {
+      "image": "2608.21647_figures/2608.21647_fig2.jpg",
+      "caption": "FIG. 2. Vectorized arithmetic circuits of PolyKick, shown for two address qubits (a0, a1) and two data qubits (d0, d1). (a) For the elementwise product, uniformly controlled Ry rotations load both operands in parallel, and the Rz(π/2)- CX block writes the product onto the measured channel. (b) For the weighted sum, a controlled-Ry recombination re- alizes (1 −w) x + w y. The loading depth of Θ(N) controlled- NOT (CX) gates sets the reload latency τrel(N) of Eq. (4).",
+      "page": 3
+    },
+    {
+      "image": "2608.21647_figures/2608.21647_fig3.jpg",
+      "caption": "FIG. 3. Accuracy diagnostics of the Taylor half-kick Pd(iθ) of Eq. (6), where d is the polynomial truncation degree and θ = κ|ψj|2∆t is the nonlinear phase accumulated at one grid point per timestep ∆t at nonlinearity strength κ. (a) Phase- factor error |eiθ −Pd(iθ)| for d = 1–4; the dashed line marks a representative 5% error tolerance. (b) Squared norm |Pd(iθ)|2",
+      "page": 3
+    },
+    {
+      "image": "2608.21647_figures/2608.21647_fig4.jpg",
+      "caption": "FIG. 4. One-dimensional Burgers’ benchmark with a sinu- soidal initial condition at grid spacing ∆x = 1. (a) Single- step fidelity versus the number of measurement shots per address, for grid sizes N ∈{16, 64, 256, 1024} at viscosity ν = 0.4. (b) Steepening of the sinusoid into a shock precur- sor at ν = 0.01 and ∆t = ∆x = 0.1, evolved to the inviscid shock-formation time.",
+      "page": 5
+    },
+    {
+      "image": "2608.21647_figures/2608.21647_fig5.jpg",
+      "caption": "FIG. 5. Taylor kick versus a QSVT/Chebyshev block encod- ing of the same phase oracle eiκ|ψ|2τ, both at phase tolerance ϵϕ = 10−3 over the design envelope Θ ∈[0.25, 1], for κ = 150, ∆t = 10−2, final time T = 0.3, soliton width 0.75, and a ∆t = 5 × 10−4 reference. (a) Per-step phase-factor error ver- sus the local phase θ; the dotted line marks ϵϕ. (b) Final infidelity 1 −F versus initial amplitude A. (c) Running infi- delity at A = 1.6; the dash-dot curve is the Strang splitting floor.",
+      "page": 6
+    }
+  ],
+  "figure": "2608.21647_figures/2608.21647_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

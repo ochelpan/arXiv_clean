@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.22801",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "An Exactness Barrier for ZX-Calculus Optimization of Synthesized Clifford+T Circuits",
+  "authors": "Chon-Fai Kam, Anuradha Mahasinghe, Kaushika De Silva, Frédéric Cadet, Jingbo Wang",
+  "abstract": "Gate synthesis and circuit optimization are usually studied separately, and evidence on their interaction is contradictory: ZX-calculus rewriting removes a stable fraction of Solovay-Kitaev circuits, yet almost nothing from number-theoretically synthesized circuits. We show both behaviours follow from a single bound. For any optimizer that preserves the implemented element exactly--including all sound ZX rewriting with extraction--the achievable T-count is bounded below by the denominator exponent of the synthesized ring element. This exactness barrier is computable per instance and separates exact post-processing from approximation-aware resynthesis by a certified factor reaching 101x at recursion depth five. The two behaviours are then the barrier operating at different distances from the floor. For Solovay-Kitaev circuits we prove that the local ZX simplification layer (spider fusion and identity removal) computes exactly the free-product normal form of Z_2 * Z_8, giving exact per-instance compression and, under a calibrated ergodicity hypothesis, a depth-independent limit law confirmed on two independently constructed nets. For number-theoretically synthesized circuits the floor is already saturated: on single-qubit words automated ZX simplification attains it exactly, via a closed-form formula for minimal T-count in terms of phase linkage through the Z-axis normalizer. At two qubits and beyond the same valuation yields unconditional rigidity certificates, which on the quantum-Shannon-decomposition plus gridsynth pipeline certify 99.4-99.9% of the synthesized T-count as incompressible, with rigidity strengthening as accuracy tightens. This explains, and predicts the size of, the near-null optimization recently reported for that pipeline.",
+  "url": "http://arxiv.org/abs/2608.22801v1",
+  "pdf": "https://arxiv.org/pdf/2608.22801v1",
+  "type": "theory",
+  "summary": "This paper provides a unified theoretical framework to quantify the minimum number of T-gates required in a Clifford+T circuit, establishing an 'exactness barrier' using ZX-calculus. It resolves contradictions in circuit compilation by showing that both approximation-based and number-theoretic synthesis methods are fundamentally limited by this computable algebraic bound. This work is crucial for understanding the true compressibility of quantum circuits.",
+  "main_problem": "The paper addresses the discrepancy between how different methods synthesize quantum circuits and how much those circuits can be optimized using ZX-calculus rewriting.",
+  "main_result": "It establishes a single, computable 'exactness barrier' (a lower bound on T-count) that governs the optimization of Clifford+T circuits, showing that both Solovay-Kitaev and number-theoretic synthesis approaches are constrained by this bound.",
+  "method": "The authors use advanced algebraic techniques involving ZX-calculus rewriting, exact arithmetic in Z[sqrt(2)], and rigorous proofs to derive this lower bound.",
+  "model_or_system": "The focus is on Clifford+T quantum circuits, which are represented and manipulated using ZX diagrams. The optimization goal is minimizing the T-gate count.",
+  "key_observables": "T-count, the 'exactness barrier' (a lower bound on T-count), and the compression ratio achieved by ZX rewriting.",
+  "important_parameters": "Recursion depth (e.g., depth five), the denominator exponent of the synthesized ring element, and the number of qubits ($n \\ge 2$).",
+  "main_assumptions": "The analysis assumes that the optimization process preserves the implemented element exactly, and some results rely on calibrated ergodicity hypotheses.",
+  "figures_summary": "Figures illustrate the three tiers of ZX-calculus rewriting rules (fusion, complementation, teleportation) and show the passage from a circuit representation to a graph-like form and finally to a generalized flow.",
+  "paper_structure": "The paper builds the argument by first analyzing local simplification (Tier 1, free-product reduction), then establishing the general exactness barrier (Theorem 3), and finally proving the saturation of this barrier for specific synthesis methods (Linkage Theorem for single-qubit words).",
+  "why_interesting": "While focused on quantum computation, the rigorous mathematical machinery developed—especially the use of algebraic invariants (the barrier) to constrain physical resources (T-gates)—provides powerful theoretical tools applicable to understanding resource limitations in complex quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.22801_figures/2608.22801_fig1.jpg",
+      "caption": "FIG. 1. The rewriting rules used in this paper, stratified into the three tiers whose separate contributions our results isolate. Green circles are Z spiders carrying a phase, yellow boxes are Hadamard gates, solid lines are wires, and dashed blue lines are Hadamard edges. (a) A Clifford+T word becomes a chain of phase spiders and Hadamard boxes, with Zm the spider of phase mπ/4. (b) Tier 1 is the purely local layer: two adjacent same-colour spiders fuse by adding phases, and a zero-phase spider of degree two is an identity and is deleted. Section III shows that these two rules compute exactly the normal form of Z2 ∗Z8. (c) Tier 2 adds the graph operations, local complementation at a ±π/2...",
+      "page": 4
+    },
+    {
+      "image": "2608.22801_figures/2608.22801_fig2.jpg",
+      "caption": "FIG. 2. What each tier can and cannot do, shown on a single word. (a) The word T H S S H T implements a Clifford, so its minimal T-count is zero, but nothing about the syllable string reveals this. (b) Tier 1 sees only adjacent syllables of the same colour. It fuses S with S into a π spider and then has no further move, leaving both T gates in place: local rewriting alone certifies nothing about the T-count. (c) The interior Clifford HSSH equals X, which preserves the Z axis up to sign, so the two T phases can be brought together and cancel. Recognising this is exactly what the global strategies of Tiers 2 and 3 supply, and Sec. VI shows that at one qubit they supply neither more nor less:...",
+      "page": 5
+    },
+    {
+      "image": "2608.22801_figures/2608.22801_fig3.jpg",
+      "caption": "FIG. 3. The normalizer condition of Lemma 7, illustrated on the shortest nontrivial words. In each row two T phases are separated by a single Clifford D. (a) When D is a Z rotation the three spiders are all green and Tier-1 fusion merges them outright, leaving a Clifford. (b) When D = X, which is HSSH and therefore not visibly a Z rotation at all, the phases still merge: X preserves the Z axis up to sign, so pushing the red π spider through the second phase negates it, the two green spiders fuse to zero, and both T gates disappear. Membership in N, not syntactic appearance, is what decides the outcome. (c) When D = H the axis is tilted, the two phases sit on genuinely different rotation...",
+      "page": 17
+    },
+    {
+      "image": "2608.22801_figures/2608.22801_fig4.jpg",
+      "caption": "FIG. 4. The exactness barrier separates the certified exact floor from approximation-aware resynthesis at matched accu- racy, with a geometrically growing gap (Theorem 3).",
+      "page": 22
+    },
+    {
+      "image": "2608.22801_figures/2608.22801_fig5.jpg",
+      "caption": "FIG. 5. Tier-1 compression ratio is depth-independent on both nets, confirming Theorem 2.",
+      "page": 23
+    }
+  ],
+  "figure": "2608.22801_figures/2608.22801_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

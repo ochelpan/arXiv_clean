@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2608.22994",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "cs.AI",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Physical Response-and-Memory Model for Muon Optimization",
+  "authors": "Yinze Hu, Hongjun Xiang, Xingao Gong, Hongyu Yu",
+  "abstract": "Training large language models is costly. How low a loss the same compute can ultimately reach depends on how each step's gradient is converted into a weight update; the rule that performs this conversion is the optimizer. From SGD and AdamW to the recent Muon, effective update rules have mostly been shaped by engineering intuition and then selected on benchmarks. Muon semi-orthogonalizes the momentum matrix before applying the update and has kept breaking records on public training benchmarks; yet why the semi-orthogonalized direction works, and over how long a history the momentum should average, are two questions at present answered mainly by experience. Here we treat the weight matrix during training as a responsive medium with memory and build a physical model for it, in which both questions find answers: the semi-orthogonalized direction is the maximally dissipative response under an output-side safety budget, which explains why it works; momentum is the internal stress accumulated by the medium; how long it should average is set by the relaxation of this stress, and a real medium relaxes on more than one timescale, the simplest form being one fast and one slow. On this basis we propose the Bi-Maxwell optimizer. The framework further yields a testable consequence: gradient directions change fast early in training and more slowly later, so the optimal memory length should grow with training stage; step-by-step measurements of a proxy for it by a read-only probe across 8 independent training trajectories are consistent with this consequence. Replacing the memory kernel alone, from a single timescale to two, brings training to the target loss in noticeably fewer steps on a public large-language-model optimizer benchmark.",
+  "url": "http://arxiv.org/abs/2608.22994v1",
+  "pdf": "https://arxiv.org/pdf/2608.22994v1",
+  "type": "theory",
+  "summary": "This paper develops a physical model treating the neural network weight matrix as a memory-laden, responsive medium. By interpreting optimization momentum as accumulated internal stress, the authors propose the Bi-Maxwell optimizer, which uses a two-timescale memory kernel. This approach successfully models the underlying physics of learning dynamics and achieves state-of-the-art performance on LLM training benchmarks.",
+  "main_problem": "The paper addresses the fundamental problem of determining the optimal update rule (optimizer) for training large language models, recognizing that this choice dictates the final achievable loss for a given computational budget.",
+  "main_result": "The authors propose the Bi-Maxwell optimizer, which incorporates a two-timescale stress memory, leading to significantly faster convergence on benchmark LLM training tasks.",
+  "method": "They build a physical model treating the weight matrix as a responsive medium with memory, deriving the optimal update direction from principles of maximal dissipation under an output-side safety budget.",
+  "model_or_system": "The system is the weight matrix ($W$) of a neural network, modeled as a responsive medium whose dynamics are governed by a mismatch potential ($\\Phi$) that dictates restoring forces and structural rearrangement rates.",
+  "key_observables": "Momentum (interpreted as internal stress), the optimal memory length, and the structural rearrangement rate ($V$).",
+  "important_parameters": "The relaxation timescales of the stress memory (fast and slow), and the output-side safety budget ($\\epsilon$).",
+  "main_assumptions": "The structural rearrangement rate is assumed to be governed by a viscous analogy related to the mismatch potential, and the model predicts that the optimal memory length must grow with the training stage.",
+  "figures_summary": "Figure 1 illustrates the responsive medium construction and mismatch potential; Figure 8 shows the local kernel-age proxy ($n_\\star$) confirming that the optimal memory length increases across training stages.",
+  "paper_structure": "The paper first establishes the physical analogy by defining the weight matrix as a responsive medium, deriving the governing dynamics from a mismatch potential. It then proposes the Bi-Maxwell optimizer by extending the memory kernel to two timescales, and finally validates this model by testing the predicted growth of optimal memory length against empirical benchmarks.",
+  "why_interesting": "The framework draws deep analogies between the physics of dissipative media (stress, relaxation, dissipation) and the abstract mathematics of deep learning optimization, providing a physical grounding for empirical ML heuristics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.22994_figures/2608.22994_fig1.jpg",
+      "caption": "Figure 1: Construction of the responsive medium and the mismatch potential (schematic). An input x passes through the weight matrix W to produce the output y = Wx; the mismatch between the output and the target y⋆, eα = yα −y⋆ α, is measured by the mismatch potential Φ = 1",
+      "page": 3
+    },
+    {
+      "image": "2608.22994_figures/2608.22994_fig2.jpg",
+      "caption": "Figure 2: Glassy picture and temporal picture of the Bi-Maxwell memory (schematic).",
+      "page": 13
+    },
+    {
+      "image": "2608.22994_figures/2608.22994_fig3.jpg",
+      "caption": "Figure 3: Two-timescale structure of Bi-Maxwell (schematic). The same matrix force X(t) drives the fast and the slow relaxation mode; the two combine with weights w and 1 −w into the macroscopic internal stress MBM = wMf +(1−w)Ms, which then enters the spatial law to complete the weight- matrix rearrangement.",
+      "page": 14
+    },
+    {
+      "image": "2608.22994_figures/2608.22994_fig4.jpg",
+      "caption": "Figure 4: Thin lines are per-seed curves, thick lines arm means; the dashed line is the 3.28 target, and the dotted lines are the pass thresholds implied by the margin criterion (3.28 −¯L)√n ≥0.004, that is ¯L ≤3.28 −0.004/√n, which depends on the seed count: 3.27859 at n = 8 (orange) and 3.27874 at n = 10 (blue). (a) Bare tuned-Muon stack (raw validation loss): the two-timescale arm (orange, A800, n = 8) first crosses at step 3210; the tuned reference (blue, H100, n = 10, by its n = 10 criterion) first crosses at step 3250. (b) Record stack (Tail-EMA readout): both arms have n = 8, so only the 3.27859 threshold applies; the two-timescale arm (orange, A800) at step 2635, the existing record...",
+      "page": 17
+    },
+    {
+      "image": "2608.22994_figures/2608.22994_fig5.jpg",
+      "caption": "Figure 5: Band-resolved optimal-memory profile under the three learning-rate protocols. (a) The kernel-age ratio Rb across mode bands; faint small markers are the per-trajectory readings (8 each for the original schedule and the constant low learning rate, 16 for the constant high learning rate), thick lines the median across trajectories, the grey dashed line Rb = 1, and the vertical axis is logarithmic. The original schedule lengthens in all five bands, by more towards the weaker bands; under the constant high learning rate only b1 lengthens while b3–b5 shorten; under the constant low learning rate all five lengthen again. (b) Per-tensor paired ∆log ˆDb (down triangles) and ∆log ˆTb...",
+      "page": 23
+    }
+  ],
+  "figure": "2608.22994_figures/2608.22994_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 1,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
