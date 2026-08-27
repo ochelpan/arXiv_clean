@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.24150",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.flu-dyn"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Treatment of Non-Linearity in Quantum Computational Fluid Dynamics Using Hybrid Tensor Networks",
+  "authors": "Pia Siegl, Nis-Luca van Hülst, Maximilian Mandelt Buxadé, Tomohiro Hashizume, Dieter Jaksch",
+  "abstract": "Nonlinear terms present a fundamental challenge for quantum computational fluid dynamics, as their implementation on inherently linear quantum hardware typically requires resource-intensive workarounds that limit scalability to large-scale simulations. We present a hybrid quantum-classical tensor network algorithm that addresses this bottleneck by combining variational time-stepping with quantum tensor programming to efficiently compile operators and time-dependent fields into quantum circuits. Within a probabilistic framework, we replace prior state-based nonlinear implementations with tensor-based block encodings, stabilizing success probabilities that otherwise decay exponentially with system size. Benchmarking on turbulent flow fields demonstrates that the algorithm maintains high success probabilities and moderate measurement overhead across increasing Reynolds numbers and grid resolutions. Compared to fully classical tensor network solvers, our hybrid approach yields substantial reductions in both memory footprint and computational cost, establishing a scalable pathway toward practical quantum advantage in scale-resolving CFD simulations.",
+  "url": "http://arxiv.org/abs/2608.24150v1",
+  "pdf": "https://arxiv.org/pdf/2608.24150v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel hybrid quantum-classical algorithm to overcome the major hurdle of nonlinearity in quantum CFD simulations. By using tensor-based block encodings, the method avoids the exponential resource scaling associated with previous state-based approaches. This breakthrough demonstrates a scalable pathway for achieving quantum advantage in simulating complex, high-Reynolds number fluid dynamics.",
+  "main_problem": "The primary challenge addressed is the efficient and scalable implementation of nonlinear terms within Quantum Computational Fluid Dynamics (CFD) simulations.",
+  "main_result": "The proposed hybrid quantum-classical tensor network algorithm significantly reduces the computational cost and memory footprint compared to fully classical tensor network solvers, establishing a scalable path toward quantum advantage in CFD.",
+  "method": "The authors propose a hybrid approach combining variational time-stepping with quantum tensor programming. Nonlinearity is handled by replacing state-based encodings with tensor-based block encodings, which are compiled into unitary gates.",
+  "model_or_system": "The study models Computational Fluid Dynamics (CFD), specifically simulating turbulent flow fields governed by nonlinear Partial Differential Equations (PDEs). Examples include the Temporally Developing Jet (TDJ) and Taylor Green Vortex (TGV).",
+  "key_observables": "Success probability of the nonlinear operation ($\\alpha_{succ}$), computational cost, memory footprint, and the field representation error ($\\epsilon_{\\ell_2}$).",
+  "important_parameters": "Reynolds numbers ($Re \\in \\{10, 20, ..., 1000\\}$), bond dimension ($\\chi$), and time step ($\\Delta t$).",
+  "main_assumptions": "The method assumes that the nonlinear terms can be effectively encoded into diagonal block encodings, which stabilizes the success probability against exponential decay with system size.",
+  "figures_summary": "Figures illustrate the hybrid algorithm workflow, the quantum circuit decomposition for a single time step (distinguishing linear and nonlinear operators), and comparisons of error scaling and computational costs across various Reynolds numbers.",
+  "paper_structure": "The paper details the theoretical framework for handling nonlinear PDEs using a hybrid quantum-classical loop. It then applies this framework to simulate specific turbulent flow examples (TDJ, TGV), providing rigorous error and cost analyses.",
+  "why_interesting": "While focused on fluid dynamics, the core methodology—using tensor networks and quantum programming to manage complex, non-linear operators—is highly relevant to simulating open quantum systems or many-body dynamics where nonlinear couplings are present.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.24150_figures/2608.24150_fig1.jpg",
+      "caption": "FIG. 1. (a) Hybrid quantum-classical tensor network algorithm for solving nonlinear PDEs in CFD. The blue box marks operations performed on the quantum computer (QC) while the white areas show quantities stored and operations performed on a classical computer (CC). (a.I) Variational time-stepping loop: the quantum circuit evolves the state using operator unitaries and initial weights from the previous step, while a classical optimizer updates the parameters θ[j+1]",
+      "page": 3
+    },
+    {
+      "image": "2608.24150_figures/2608.24150_fig2.jpg",
+      "caption": "FIG. 2. Optimal success probabilities αsucc over the number of grid points N. Solid lines with stars denote the diagonal block encoding approach, while dashed lines with pentagons represent the state-based Hadamard prod- uct (a) Success probability for a single Euler time step of the momentum equation for the two velocity components u, v of the two-dimensional TDJ flow and (b) the three ve- locity components u, v, w of the three-dimensional TGV flow. In panels (a) and (b), increasing grid resolution cor- responds to higher Reynolds numbers. Details on the sim- ulation parameters are provided in Appendix C. The suc- cess probabilities of the velocity components u and v are very similar and...",
+      "page": 6
+    },
+    {
+      "image": "2608.24150_figures/2608.24150_fig3.jpg",
+      "caption": "FIG. 4. Evaluation of the TT-reconstruction techniques for the three-dimensional Taylor–Green vortex. (a) Re- quired bond dimension χ to represent the first compo- nent of the velocity vector u up to the relative ℓ2-error ϵℓ2 ≤0.01 across increasing Reynolds numbers Re. For TCI, χ is chosen such that the mean error over 100 inde- pendent runs satisfies ϵℓ2 ≤0.01. (b) ϵℓ2 over 10 indepen- dent reconstructions as a function of measurement shots m per expectation value, emulating finite-shot sampling noise. Line shades indicate increasing Reynolds number (Re = 10, 20, 50, 100, dark to light) using the EST (red, dashed lines) and the TCI (blue solid lines). Error bars represent the standard...",
+      "page": 7
+    },
+    {
+      "image": "2608.24150_figures/2608.24150_fig4.jpg",
+      "caption": "FIG. 3. Required bond dimensions for evaluating all nonlinear advection terms Ai within a target ℓ2-error ϵℓ2 ≤0.01. We consider three cases: First, Classi- cal TT (deterministic evaluation of the complete nonlin- ear term with TTs using bond dimension χTN), second, TT-Reconstruction(truncation of the prefactor field uk to χbase, reflecting the classical reconstruction step in the hy- brid approach), and third, TT-Reconstruction + Circuit Approx. (truncation of the prefactor field uk to χbase, additionally accounts for finite quantum circuit accuracy by approximating the differentiated field ui in Ai as a TT with χTN + 0.1χTN). The slightly increased bond dimension of the differentiated...",
+      "page": 7
+    },
+    {
+      "image": "2608.24150_figures/2608.24150_fig5.jpg",
+      "caption": "FIG. 5. Computational cost TTN = χ4 TN of the fully classical tensor network solver and the classical over- head TCL = χ3 ceil of the hybrid solver. We use χceil = 2⌈log2(χbase)⌉and the values of χTN and χbase shown in Fig. 3, with χbase from TT-Reconstruction + Circuit Ap- prox. For the hybrid scheme, the cost of the classical step dominates at high bond dimensions as required in highly turbulent regimes.",
+      "page": 9
+    }
+  ],
+  "figure": "2608.24150_figures/2608.24150_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.24494",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CC",
+    "cs.DS"
+  ],
+  "is_primary_archive": true,
+  "title": "Optimal Quantum Algorithm for Ground-State Energy Estimation with a Guiding State",
+  "authors": "Stacey Jeffery, Freek Witteveen",
+  "abstract": "In the problem of ground-state energy estimation, one aims to estimate the smallest eigenvalue of a Hamiltonian, often given a guiding state, with some promised overlap $γ$ with the ground space. The main approach to this problem is to simulate its evolution, and estimate the smallest (or equivalently, largest) eigenphase of the resulting unitary $U$. We give a quantum algorithm that estimates the largest eigenphase of a unitary $U$ in this guided setting using a factor of $\\log\\frac{1}γ$ fewer queries to $U$ than the previous best approach. The result matches an existing lower bound, and answers an open question from Mande and de Wolf. The algorithm is based on transducers, which often allow composition of quantum algorithms without overhead from error reduction.",
+  "url": "http://arxiv.org/abs/2608.24494v1",
+  "pdf": "https://arxiv.org/pdf/2608.24494v1",
+  "type": "theory",
+  "summary": "This paper develops an optimal quantum algorithm for estimating the ground-state energy of a system, which is mathematically equivalent to finding the largest eigenphase of the system's time-evolution unitary. By utilizing quantum transducers, the authors eliminate a previously unavoidable logarithmic overhead factor related to the guiding state overlap ($\\gamma$), achieving a query complexity that matches theoretical lower bounds.",
+  "main_problem": "The paper addresses the quantum algorithm for estimating the ground-state energy of a Hamiltonian, which is equivalent to estimating the largest eigenphase of the time-evolution unitary operator $U$ in a guided setting.",
+  "main_result": "The authors present a quantum algorithm that achieves a query complexity for the guided ground-state energy estimation that matches the established lower bound, improving upon previous methods by eliminating a $\\log(1/\\gamma)$ overhead.",
+  "method": "The core method involves designing and composing exact quantum transducers for the decision versions of phase estimation and amplitude amplification, allowing for efficient composition of subroutines.",
+  "model_or_system": "The problem is framed using a general Hamiltonian $H$ and its time-evolution unitary $U = e^{-iH}$. The estimation is guided by an initial state $|\\psi\rangle$ that has a guaranteed overlap $\\gamma$ with the ground state space.",
+  "key_observables": "Ground state energy ($E_0$), largest eigenphase ($x_0$), and the unitary operator $U$.",
+  "important_parameters": "Overlap parameter $\\gamma$, desired precision $\\delta$, and the error parameter $\\epsilon$.",
+  "main_assumptions": "The analysis relies on the efficient composition properties of transducers and the ability to solve the problem via binary search on the threshold eigenphase problem.",
+  "figures_summary": "Figure 1 illustrates the source of previous $\\log(1/\\gamma)$ overheads in QPE and QSVT. Figure 8 shows the interval update process during one round of the search algorithm.",
+  "paper_structure": "The paper develops the algorithm by first solving the decision version (threshold problem) using transducers, which is then embedded into a binary search framework to achieve the final complexity bounds for the max eigenphase estimation.",
+  "why_interesting": "This work provides a significant algorithmic improvement for a fundamental problem in quantum simulation, directly impacting the feasibility of quantum chemistry and condensed matter simulations on near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.24494_figures/2608.24494_fig1.jpg",
+      "caption": "Figure 1: An illustration of why previous approaches incur a log(1/γ) overhead. (a) In n-bit quantum phase estimation, if the true phase x does not have an exact n-bit binary representation, then the measurement distribution is spread over multiple outcomes and has nonzero tails. Sup- pressing the probability of a bad estimate below the signal level γ leads to logarithmic overhead. (b) In a QSVT-based approach, one approximates an ideal step function by a polynomial. The transition width must be at most δ, while the ripple size away from the transition must be at most γ. Achieving both requires degree Θ(δ−1 log(1/γ)).",
+      "page": 3
+    },
+    {
+      "image": "2608.24494_figures/2608.24494_fig2.jpg",
+      "caption": "Figure 2: The quantum algorithm in Theorem 2.5 that approximately implements US. Here K is a register with basis |0⟩, . . . , |K −1⟩where K is the number of calls the algorithm makes to S, and P is a qubit register that controls whether D is interpreted as H or L (so H ⊕L ⊆P ⊗D). AK is a unitary such that AK|0⟩= 1/ √",
+      "page": 8
+    },
+    {
+      "image": "2608.24494_figures/2608.24494_fig3.jpg",
+      "caption": "Figure 4: Visualization of the transducer for decision phase estimation.",
+      "page": 13
+    },
+    {
+      "image": "2608.24494_figures/2608.24494_fig4.jpg",
+      "caption": "Figure 5: Circuit implementations of the two reflections R0 and R1, where Rz(−2σ) = eiσZ. In (a) we decompose a binary expansion of the basis of system C in its least significant bit and the remainder, and insert an auxiliary qubit D in between. The CNOTs with open control on the infinite-dimensional Crest flip the auxiliary system if the state is |0⟩. These, and Inc and its adjoint in (b), are the only infinite-dimensional operations.",
+      "page": 14
+    },
+    {
+      "image": "2608.24494_figures/2608.24494_fig5.jpg",
+      "caption": "Figure 6: Visualization of the transducer for threshold max eigenphase. It can be seen as a composition of the transducers visualized in Figure 3 and Figure 4, with an extra edge |¯1, 0⟩ added, whose purpose is to make the transducer canonical, by ensuring that the boundary is orthogonal to the space acted on by the oracle.",
+      "page": 17
+    }
+  ],
+  "figure": "2608.24494_figures/2608.24494_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

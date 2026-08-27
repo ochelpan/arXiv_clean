@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.24668",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Scalable Lindblad Noise Learning via Stochastic Tensor-Network Simulation",
+  "authors": "Alejandro R. Ramos Ramos, Maximilian Fröhlich, Aaron Sander, Robert Wille, Martin Eigel, Michael Hintermüller, Patrick Gelß, Sebastian Pokutta",
+  "abstract": "Learning dissipation rates in large-scale open quantum systems is a major obstacle for near-term quantum technologies, as existing Lindblad estimation methods are typically limited to small system sizes due to the computational complexity of repeatedly solving the Lindblad equation during optimization. Here, we propose a scalable noise-learning framework for Lindblad dissipation rates that combines a stochastic simulation method, the Tensor Jump Method (TJM), with gradient-free optimization of a least-squares cost-function defined on time series of local-observable expectation values. We demonstrate the approach on two noise models in the Ising model: a site-resolved (local) model, in which independent dissipation rates are learned for each site up to $N_{\\mathrm{site}}=16$, and a spatially homogeneous (global) model with only seven parameters, scaled to $N_{\\mathrm{site}}=160$ sites.We complement these numerical results with a series of exact, provable guarantees: the Frobenius variance of the TJM density-matrix estimator is shown to equal $(1-\\mathrm{Tr}[ρ^2])/N_{\\mathrm{traj}}$, an exact purity-based characterization of the stochastic estimation error; the corresponding purity evolution is proven to be monotonically non-increasing for Hermitian jump operators; and, under a finite covariance distance assumption, the standard deviation of the cost-function is shown to decrease with system size, so that fewer trajectories are needed to reach a fixed target accuracy as the system grows. Together, this combination of scalable numerics and rigorous theoretical guarantees positions TJM-based noise learning as a practical foundation for characterizing dissipation in large quantum devices and for guiding future work on error mitigation and quantum error correction.",
+  "url": "http://arxiv.org/abs/2608.24668v1",
+  "pdf": "https://arxiv.org/pdf/2608.24668v1",
+  "type": "theory",
+  "summary": "This paper introduces a scalable framework to learn unknown dissipation rates in large open quantum systems by combining the Tensor Jump Method (TJM) with gradient-free optimization. By minimizing a cost function based on local observable measurements, the authors overcome the computational limitations of previous methods. The work is significant for its combination of scalable numerics and rigorous theoretical guarantees on estimation accuracy.",
+  "main_problem": "The core challenge is developing a scalable method to estimate dissipation rates (Lindblad noise) in large open quantum systems, as traditional methods fail due to the computational cost of solving the Lindblad equation repeatedly.",
+  "main_result": "The authors propose a framework combining the Tensor Jump Method (TJM) with gradient-free optimization, demonstrating scalability to hundreds of sites while providing rigorous theoretical guarantees on the estimation error.",
+  "method": "The approach uses TJM for stochastic simulation of open quantum dynamics, minimizing a least-squares cost-function defined on time series of local observable expectation values using optimization algorithms like CMA-ES or Bayesian Optimization.",
+  "model_or_system": "The study uses the Ising model as a testbed, governed by the Lindblad master equation, incorporating both local and spatially correlated dissipation terms. The dynamics are simulated using tensor-network techniques (TJM).",
+  "key_observables": "Time series of local observable expectation values ($\\langle O \rangle(t)$), and the purity $P(t) = \text{Tr}[\rho(t)^2]$.",
+  "important_parameters": "Dissipation rates ($\\gamma$), system size ($N_{\text{site}}$ up to 160), and the number of stochastic trajectories ($N_{\text{traj}}$).",
+  "main_assumptions": "The theoretical error analysis assumes a finite covariance distance, and the optimization relies on the cost-function being differentiable or amenable to gradient-free search.",
+  "figures_summary": "Figures compare optimization convergence (BO vs. CMA-ES) across various system sizes, show the evolution of global dissipation rates, and compare optimized vs. reference observable trajectories.",
+  "paper_structure": "The paper first establishes the problem and the TJM framework, then details the optimization setup using the Ising model, followed by rigorous theoretical analysis of the estimator variance and purity evolution, and concludes with numerical demonstrations of scalability.",
+  "why_interesting": "This work directly addresses the practical bottleneck in simulating realistic quantum devices by providing a scalable, statistically rigorous method for characterizing environmental coupling, which is crucial for error mitigation and quantum control.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.24668_figures/2608.24668_fig1.jpg",
+      "caption": "FIG. 1. Empirical covariance matrix |Cov(Yijk, Yi′j′k′)| for the X observable (j = j′ = 1) at time steps k = 37 and k′ = 41, estimated from Ntraj = 1000 trajectories for a system size of Nsite = 40. These specific values of j, j′, k and k′ were selected because, among all time-step pairs, they exhibit the largest maximum covariance distance ℓ, of about 4.",
+      "page": 5
+    },
+    {
+      "image": "2608.24668_figures/2608.24668_fig2.jpg",
+      "caption": "FIG. 2. Optimal cost-function value vs. number of sites for a local-noise-model optimization. Both curves are obtained using the CMA-ES optimizer with TJM (blue) and QuTiP",
+      "page": 8
+    },
+    {
+      "image": "2608.24668_figures/2608.24668_fig3.jpg",
+      "caption": "FIG. 3. First row: evolution of the cost-function √",
+      "page": 9
+    },
+    {
+      "image": "2608.24668_figures/2608.24668_fig4.jpg",
+      "caption": "FIG. 4. Optimal cost-function value vs. number of sites for a global-noise-model optimization. Both curves are obtained using TJM as Lindblad solver with CMA-ES (blue) and BO (orange) as optimizers.",
+      "page": 11
+    },
+    {
+      "image": "2608.24668_figures/2608.24668_fig5.jpg",
+      "caption": "FIG. 5. First row: evolution of the cost-function √",
+      "page": 12
+    }
+  ],
+  "figure": "2608.24668_figures/2608.24668_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 3,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.23916",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "The Loss Floor of Denoising Score Matching: Fisher Geometry from Schrödinger Bridges",
+  "authors": "Avinash Raju, Kai Zhang",
+  "abstract": "Denoising score matching trains diffusion models by regressing onto a conditional score, although generation ultimately requires the marginal score. The two objectives share the same population minimizer, but the conditional target remains random at fixed noisy state and introduces an irreducible excess in the training loss. We isolate this excess and show that, for a general corruption kernel under mild regularity assumptions, it is exactly the trace of the Fisher--Rao metric of the conditional endpoint family, integrated along the diffusion trajectory. This gives an exact conditional-variance decomposition of the denoising objective and identifies the information geometry observed in diffusion latent spaces as an intrinsic component of the training loss. We derive the result from a Schr\"odinger bridge variational principle, in which the ideal objective arises as excess path-space relative entropy. For corruption diffusions, the Fisher term is proportional to the rate at which the noisy state loses mutual information about the clean data, separating the loss floor into an information flow determined by the data and a weight determined by the corruption schedule and objective. In the Gaussian case, this yields a closed form for the floor, recovers reparametrization invariance of the continuous-time objective, and relates its high-SNR divergence to the information dimension of the data. Finally, we show that raw losses obtained with different noise ranges or weightings need not rank models consistently because they contain different additive floors, and contrast the second-order geometry seen by training with the third-order conditional statistics entering numerical sampling error.",
+  "url": "http://arxiv.org/abs/2608.23916v1",
+  "pdf": "https://arxiv.org/pdf/2608.23916v1",
+  "type": "theory",
+  "summary": "This theoretical paper analyzes the training loss of diffusion models, showing that the irreducible excess loss is mathematically equivalent to the integrated Fisher-Rao metric along the diffusion path. By deriving this from the Schrödinger bridge principle, it provides a deep geometric understanding of how the training objective captures the intrinsic information geometry of the data manifold.",
+  "main_problem": "The paper quantifies the 'irreducible excess' in the training loss of Denoising Score Matching (DSM) by relating it to the intrinsic geometry of the diffusion process.",
+  "main_result": "This excess loss is exactly equal to the integrated trace of the Fisher–Rao metric of the conditional endpoint family, providing a geometric interpretation of the training objective floor.",
+  "method": "The derivation utilizes the Schrödinger bridge variational principle and employs information-theoretic tools, specifically relating the loss to the rate of mutual information loss.",
+  "model_or_system": "The model is a general diffusion process used in diffusion models, connecting a clean data distribution ($P_0$) to a noisy state ($P_T$) via a corruption kernel.",
+  "key_observables": "Loss Floor, Fisher–Rao metric ($g(x, t)$), Mutual Information $I(y; x_t)$, and the excess action $\\Delta S$.",
+  "important_parameters": "Diffusion time $T$, noise schedule parameters ($\\sigma_t, \\alpha_t$), and the Signal-to-Noise Ratio (SNR).",
+  "main_assumptions": "Mild regularity assumptions are required for the general corruption kernel, and the analysis contrasts second-order training geometry with third-order sampling errors.",
+  "figures_summary": "Figures demonstrate the agreement between the calculated floor ($\frac{1}{2} R \text{MMSE} d\\lambda$) and the entropy change ($\\Delta h$) for Gaussian mixtures, and confirm the scaling of the floor divergence rate with the data rank $k$.",
+  "paper_structure": "The paper builds from the general variational principle (Schrödinger bridge) to derive the geometric characterization of the loss floor via the Fisher metric, and then applies this to specific Gaussian cases to derive closed forms and test identities.",
+  "why_interesting": "While focused on ML, the rigorous connection between information geometry (Fisher metric) and the fundamental path-space structure of stochastic processes is highly relevant to understanding the geometry of quantum state estimation and open quantum system dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.23916_figures/2608.23916_fig1.jpg",
+      "caption": "Figure 1: Data/schedule separation of the loss floor. Left: the information spectrum S(λ) = λ MMSE(λ) for two mixtures. Dotted lines mark the mode-separation scale λ = m−2, dashed lines the within-mode scale λ = s−2; the plateau at large λ is the intrinsic dimension k = 1. Right: the schedule density implied by Eq. (4.8), compared with a uniform-in-logSNR allocation. Uniform allocation is correct only for featureless data.",
+      "page": 11
+    },
+    {
+      "image": "2608.23916_figures/2608.23916_fig2.jpg",
+      "caption": "Figure 2: The loss floor is an entropy. Left: the trace of the latent Fisher–Rao metric, equivalently the MMSE of endpoint estimation, along the flow. Right: the accumulated floor 1",
+      "page": 12
+    },
+    {
+      "image": "2608.23916_figures/2608.23916_fig3.jpg",
+      "caption": "Figure 4: The metric trace is monotone (left), while its rate localizes the symmetry-breaking transition (right), with dotted lines marking the predicted bimodality threshold.",
+      "page": 13
+    },
+    {
+      "image": "2608.23916_figures/2608.23916_fig4.jpg",
+      "caption": "Figure 3: The floor diverges logarithmically at the data end, with slope k/2 for Gaussian data of rank k in R10.",
+      "page": 13
+    },
+    {
+      "image": "2608.23916_figures/2608.23916_fig5.jpg",
+      "caption": "Figure 5: Consequences of the decomposition. Left: raw training loss for two models of known quality on two SNR ranges; the ranking inverts. Centre: after subtracting the floor, the excess orders the models correctly on both ranges. Right: step placement for a first-order solver on the analytic mixture, mean endpoint error against the exactly integrated probability-flow ODE.",
+      "page": 14
+    }
+  ],
+  "figure": "2608.23916_figures/2608.23916_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

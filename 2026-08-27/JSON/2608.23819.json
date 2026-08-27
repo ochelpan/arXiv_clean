@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.23819",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "CircLS: Compiling Lattice Surgery to Physical Circuits with Dynamic Allocation",
+  "authors": "John Yuehan Zhang",
+  "abstract": "In fault-tolerant quantum computing, lattice surgery (LS) is one of the leading ways to realize logical operations, and the Pauli product measurement (PPM) is the basic instruction of LS-based computing. Compilers on the PPM sequence, however, stay at the logical level rather than the physical circuit level. This is because the lowering is complicated: PPMs differ widely from each other, and each must be realized on the physical circuit without breaking fault tolerance. CircLS lowers the PPM sequence to a Stim circuit through linear-time stabilizer construction rules. This completes the pipeline from a quantum program through the PPM sequence to a Stim circuit, on which the compiled program can be verified at the circuit level and its logical error rate (LER) measured. Based on the lowering, we develop a compiler that allocates data patches dynamically: each patch is allocated at its first use and freed at its last use, and the freed tiles are reused as ancilla paths. CircLS reduces the allocated spacetime volume by $5.5\\times$ and the LER by $14\\times$ against the prior toolchain producing runnable circuits. CircLS is open source at https://github.com/John-YuehanZhang/CircLS.",
+  "url": "http://arxiv.org/abs/2608.23819v1",
+  "pdf": "https://arxiv.org/pdf/2608.23819v1",
+  "type": "theory",
+  "summary": "This paper introduces CircLS, a compiler designed to translate abstract Lattice Surgery protocols into concrete, fault-tolerant physical quantum circuits. By implementing dynamic resource allocation—reusing physical tiles as they become free—CircLS drastically reduces the required spacetime volume and improves the predicted logical error rate compared to existing methods. This advancement is crucial for scaling quantum computation hardware.",
+  "main_problem": "The paper addresses the challenge of compiling Lattice Surgery (LS) protocols, specifically the Pauli Product Measurement (PPM) sequence, from a high-level logical description down to a detailed, fault-tolerant physical quantum circuit.",
+  "main_result": "The proposed CircLS compiler successfully completes this pipeline and significantly improves resource efficiency, reducing the allocated spacetime volume by $5.5\times$ and the Logical Error Rate (LER) by $14\times$ compared to prior methods.",
+  "method": "It employs a linear-time stabilizer construction rule set to lower the PPM sequence to a Stim circuit, coupled with a novel dynamic data patch allocation scheme that reuses freed physical tiles as ancilla paths.",
+  "model_or_system": "The work is situated in the context of fault-tolerant quantum computing (FTQC) using Quantum Error Correction (QEC). Logical operations are realized via Lattice Surgery, which relies on sequences of Pauli Product Measurements (PPMs) implemented on physical qubits.",
+  "key_observables": "Logical Error Rate (LER), allocated spacetime volume, and qubit-cycles.",
+  "important_parameters": "Code distance ($d$), physical error rate ($p$), and the structure of the quantum program (e.g., CNOT, GHZ states).",
+  "main_assumptions": "The primary assumption is that local stabilizer construction rules are sufficient to guarantee global fault tolerance, and that dynamic allocation accurately models resource reuse.",
+  "figures_summary": "Figures illustrate the comparison between static and dynamic resource allocation, the three stages of LS for measurement, and the required Pauli corrections for logical gates.",
+  "paper_structure": "The paper introduces CircLS to bridge the gap between logical PPM sequences and physical circuits. It details the dynamic allocation technique, shows how this improves resource usage, and validates the compiler's performance by measuring LER and volume reduction against prior toolchains.",
+  "why_interesting": "While focused on quantum computation, the resource optimization techniques (dynamic allocation, scheduling) are highly relevant to any physical implementation of quantum algorithms, including those using AMO platforms where qubit connectivity and coherence time are critical constraints.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.23819_figures/2608.23819_fig1.jpg",
+      "caption": "Figure 1. (a) Lowering the PPM ¯𝑋1 ¯𝑋2: CircLS constructs the stabilizers that measure the product, then emits the physical circuit. (b) Under static allocation a data patch holds its tile from start to end, so it collects extra noise before its first use and after its last use. CircLS allocates the patch at its first use and frees it at its last use, and the freed span is open for ancilla path reuse. (c) and (d) Freeing shortens ancilla paths: patches 1 and 3 are jointly measured. With patch 2 still allocated, the ancilla path detours through five tiles. With patch 2 freed, it runs straight through three tiles.",
+      "page": 2
+    },
+    {
+      "image": "2608.23819_figures/2608.23819_fig2.jpg",
+      "caption": "Figure 2. LS for measuring ¯𝑋1 ¯𝑋2. (a) Initialize the intermediate qubits between two patches. (b) Merge the patches: the product of the green stabilizers equals the outcome of ¯𝑋1 ¯𝑋2. (c) Split the patches by measuring the intermediate qubits in the 𝑍basis.",
+      "page": 3
+    },
+    {
+      "image": "2608.23819_figures/2608.23819_fig3.jpg",
+      "caption": "Figure 3. Logical CNOT by LS: three PPMs with measure- ment results 𝑎, 𝑏, 𝑐, followed by three Pauli corrections.",
+      "page": 3
+    },
+    {
+      "image": "2608.23819_figures/2608.23819_fig4.jpg",
+      "caption": "Figure 4. A PPM sequence through the stages of CircLS. Re-selection replaces ¯𝑋1 ¯𝑋2 ¯𝑋3 ¯𝑋4 with ¯𝑋3 ¯𝑋4, reusing the outcome of ¯𝑋1 ¯𝑋2. Reordering moves ¯𝑍1 ¯𝑍5 forward. Parallel execution runs ¯𝑍1 ¯𝑍5 and ¯𝑋3 ¯𝑋4 together. Mapping places the five patches on the grid, and routing draws every ancilla path: the ancilla path of ¯𝑍1 ¯𝑍5 runs through the tile freed by patch 2.",
+      "page": 4
+    },
+    {
+      "image": "2608.23819_figures/2608.23819_fig5.jpg",
+      "caption": "Figure 6. (a) A patch has two kinds of boundaries: one pair supports the logical ¯𝑋and the other pair the logical ¯𝑍; the rotation protocol [43] turns the left orientation into the right one. (b) The PPM ¯𝑋2 ¯𝑋4 needs an ancilla path between the ¯𝑋boundaries of patches 2 and 4, but both ¯𝑋boundaries of patch 2 touch allocated patches: no ancilla path exists. After rotating patch 2, ¯𝑋2 sits on the left and right boundaries, and the ancilla path connects on the right.",
+      "page": 7
+    }
+  ],
+  "figure": "2608.23819_figures/2608.23819_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

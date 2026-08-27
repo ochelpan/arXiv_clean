@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.24867",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Fast generation of spectrally-shaped disorder, on the sphere",
+  "authors": "Mathias Casiulis, Stefano Martiniani",
+  "abstract": "The design of disordered point patterns with desirable properties is an exciting and ongoing research endeavor, with applications ranging from materials to computer science. A successful approach in recent years has been the optimization of point patterns through a loss function that enforces properties in their Fourier-space representation. Yet, these methods have so far strictly been limited to flat Euclidean space, precluding their use in the contexts of coatings of curved surfaces for photonics, or of sampling of curved manifolds for instance. We introduce FaSHIoNPOp, an algorithm that relies on fast non-uniform spherical harmonics transforms, to enforce pair correlations in point patterns on the sphere with an $O(N \\log N)$ complexity in $N$ the number of points. Having demonstrated its performance, we showcase applications of FaSHIoNPOp, ranging from the generation of hyperuniform structures on the sphere for sampling and physical applications, to the design of gyromorphs (disordered structures with maximal scattering power at a given frequency) on the sphere. We additionally show that FaSHIoNPOp can be combined to both global constraints like centrosymmetry, with applications to the design of more isotropic $3d$ gyromorphs, and local real-space constraints like pair repulsion. Our work paves the way for optimal sampling and coating design on curved manifolds, with many applications across physics, materials and computer science.",
+  "url": "http://arxiv.org/abs/2608.24867v1",
+  "pdf": "https://arxiv.org/pdf/2608.24867v1",
+  "type": "theory",
+  "summary": "This work presents FaSHIoNPOp, a novel algorithm for designing point patterns on the sphere by enforcing desired spectral properties using spherical harmonics. It extends powerful spectral optimization techniques from flat space to curved manifolds, enabling applications in photonics and optimal sampling. The method achieves high efficiency ($O(N \\log N)$) while allowing control over complex physical properties like hyperuniformity.",
+  "main_problem": "The paper addresses the challenge of designing disordered point patterns with specific spectral properties on curved manifolds, specifically the sphere.",
+  "main_result": "They introduce FaSHIoNPOp, an algorithm that successfully extends spectral optimization methods from flat Euclidean space to the sphere with $O(N \\log N)$ complexity.",
+  "method": "The method uses an optimization framework based on enforcing target power spectra ($S_0(\\ell)$) by minimizing a loss function derived from the Spherical Harmonics Transform (SHT).",
+  "model_or_system": "The system is point patterns distributed on the unit 2-sphere ($S \\subset \\mathbb{R}^3$). Applications include designing photonic coatings and sampling on curved manifolds.",
+  "key_observables": "Power Spectrum ($S_\\ell$), Radial Distribution Function ($g(\theta)$), Constraint Count ($\\chi$), and Reduced Variance ($s^2$).",
+  "important_parameters": "Number of points ($N$), maximum constrained mode ($\\ell_{\text{max}}$), and the target spectral coefficients ($S_0(\\ell)$).",
+  "main_assumptions": "The optimization relies on fast, non-uniform spherical harmonics transforms (NUSHTs) and assumes small steps during gradient-based updates, projecting positions back onto the sphere.",
+  "figures_summary": "Figures illustrate the algorithm flow (Initialization $\to$ SHT $\to$ Gradient $\to$ Update), and show results like the generation of hyperuniform structures ($S_\\ell=0$ for $\\ell \\le \\ell_{\text{max}}$) and the scaling of reduced variance ($s^2$).",
+  "paper_structure": "The paper systematically develops the theory by first establishing the spectral optimization framework on the sphere, deriving the necessary gradient calculations for the loss function, and then applying this machinery to generate and characterize specific disordered states like hyperuniform structures.",
+  "why_interesting": "The development of spectral optimization techniques for curved spaces provides a powerful, general tool for designing structured matter or optimal sampling configurations, which has analogues in designing quantum metamaterials or optimizing quantum state preparation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.24867_figures/2608.24867_fig1.jpg",
+      "caption": "FIG. 1. Sketch of the algorithm. We initialize the point pattern from a Poisson point pattern on the sphere and set a target over a finite amount of ℓmodes (ℓ≤ℓmax). The power spectrum Sℓis computed using a NUSHT, then the gradients of the loss using the inverse transform (INUSHT), which is used to update positions within a gradient-based optimizer (here, L-BFGS). One such step takes O(N log N) operations. Steps are repeated until a convergence criterion is met, yielding the optimized pattern.",
+      "page": 2
+    },
+    {
+      "image": "2608.24867_figures/2608.24867_fig2.jpg",
+      "caption": "FIG. 2. Stealthy hyperuniformity on the sphere. (a) Example stealthy hyperuniform pattern on the sphere, ob- tained for N = 105 points and ℓmax = 446, corresponding to χ ≈0.999. (b) Arithmetic average Slow of the final Sℓ in the constrained region against χ, across system sizes. (c) Final power spectra for N = 106 points and a few ℓmax val- ues given in inset. The x axis is rescaled by ℓc, the value of ℓmax that yields χ = 1. (d) Corresponding (spherical) radial distribution functions at a distance d. The x axis is rescaled to have the first feature around x = 1. (e) Reduced vari- ance s2 = var(nR)/E[nR]2 against the radius R of the ran- dom spherical caps used in the calculation (here...",
+      "page": 4
+    },
+    {
+      "image": "2608.24867_figures/2608.24867_fig3.jpg",
+      "caption": "FIG. 3. Benchmark. (a) Total optimization time T, in seconds, divided by the number of gradient evaluations ne and by the number of particles N. Our data (red symbols) was obtained across values of χ from 0.5 to 1 at each N. Black symbols represent times reported in Ref. 51. We highlight the asymptote of FaSHIoNPOp data by a dashed line, and a plausible line going through Gr¨af’s and Pott’s data [51]. (b) Raw time, in seconds, for the same data. We highlight with dashed lines plausible N log N scaling that capture the lower- end of both datasets.",
+      "page": 5
+    },
+    {
+      "image": "2608.24867_figures/2608.24867_fig4.jpg",
+      "caption": "FIG. 4. Power-law hyperuniformity. (a) Example opti- mized structure for N = 104 points with a power law Sℓ∝ℓ up to ℓmax = 140 (χ ≈1). (b) Final power spectra Sℓin log- log scale for N = 105 for constraints Sℓ∝ℓα up to ℓmax = 446 (χ ≈1) for α values 0.25, 0.5, 0.75, 1, 2. Inset: linear-scale plots of the same curves. (c) Corresponding radial distribu- tion functions. (d) Corresponding discrepancy measurements, here rescaled as s2R2/π2 to highlight R−α decays (continuous lines), and the log(R)/R decay for α = 1. The α = 2 case is here omitted to make the α = 1 decay more visible.",
+      "page": 5
+    },
+    {
+      "image": "2608.24867_figures/2608.24867_fig5.jpg",
+      "caption": "FIG. 5. Gyromorphs. (a) Example gyromorph with N ≈ 105 and ℓmax = 446. (b) Log-scale power spectrum of opti- mized structures with N ≈105 for ℓmax = 445, split between the even (blue) and odd (green) ℓvalues, and for ℓmax = 446, split between the even (red) and odd (orange) ℓvalues. (c) Corresponding radial distribution functions for ℓmax = 445 (green) and ℓmax = 446 (red), against the distance d in radi- ans.",
+      "page": 6
+    }
+  ],
+  "figure": "2608.24867_figures/2608.24867_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 1,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2608.23696",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Renormalization Group Flow Matching for Scalable Local Generative Modeling",
+  "authors": "Kanta Masuki, Yuto Ashida",
+  "abstract": "Despite their remarkable success in modeling complex data, generative models face a fundamental tradeoff. Global approaches can capture full structural coherence but suffer from high computational costs, while local models are efficient but often fail to reproduce long-range correlations and global coherence. The renormalization group (RG) bridges this gap by seamlessly connecting spatial structures across different length scales, retaining quasi-local descriptions at each step while preserving long-range correlations. We introduce renormalization group flow matching (RGFM), a generative framework that systematically structures data generation across different spatial scales. By using an exact RG flow as the probability path, RGFM progressively generates data from long- to short-wavelength structures. To reconcile scalability with global structure, we exploit two key properties of the RG: quasi-locality and scale separation. We rigorously show that the RGFM probability flow can be accurately approximated by local velocity fields acting over a spatial range $O(Λ^{-1}[\\ln L+\\ln(1/\\varepsilon)])$ for RG wavenumber scale $Λ$, linear system size $L$, and prescribed error tolerance $\\varepsilon$. This property enables local generative modeling with patches of size $O(\\ln L)$ and a computational cost that scales nearly linearly with the system volume. We numerically demonstrate that local RGFM reproduces long-range correlations far beyond its receptive field in representative one-dimensional distributions, while conventional local flow matching exhibits substantial errors at long distances. On FFHQ images, RGFM yields far more coherent and higher-quality samples than local flow matching at 64x64 and 256x256. Our results establish RG-guided probability flows as a promising route toward scalable generative modeling that captures long-range structure using only local computation.",
+  "url": "http://arxiv.org/abs/2608.23696v1",
+  "pdf": "https://arxiv.org/pdf/2608.23696v1",
+  "type": "theory",
+  "summary": "This work introduces Renormalization Group Flow Matching (RGFM), a novel generative model that overcomes the scalability limitations of global models and the correlation deficiencies of purely local models. By embedding the systematic scale-connecting mechanism of the Renormalization Group into the flow matching process, RGFM enables the generation of highly coherent, long-range structured data using only local computations. This establishes RG-guided flows as a powerful paradigm for scalable generative modeling.",
+  "main_problem": "Generative models face a tradeoff between the global coherence of expensive global methods and the efficiency but limited long-range correlation of local models.",
+  "main_result": "The proposed Renormalization Group Flow Matching (RGFM) framework successfully generates high-quality samples that capture long-range correlations using only local computations.",
+  "method": "RGFM integrates the exact Renormalization Group (RG) flow as the probability path within a flow matching framework, progressively generating data from long- to short-wavelength structures.",
+  "model_or_system": "The model is a generative framework applied to complex, high-dimensional data (like images or physical field configurations), utilizing the mathematical structure of the RG to guide the probability flow.",
+  "key_observables": "Global coherence, long-range correlations, and sample quality (e.g., FID score on FFHQ images).",
+  "important_parameters": "RG wavenumber scale (Λ), system size (L), and error tolerance (ε).",
+  "main_assumptions": "The RGFM probability flow can be accurately approximated by local velocity fields acting over a specific, calculable spatial range derived from the RG structure.",
+  "figures_summary": "Figures illustrate the schematic of local generative modeling, the RGFM probability path involving RG diffusion and site-decimation, and direct comparisons showing RGFM's superior global coherence over standard local flow matching for images.",
+  "paper_structure": "The paper establishes the fundamental tradeoff in generative modeling, introduces RGFM by leveraging the RG's ability to connect scales, provides a theoretical analysis proving the locality of the flow approximation, and validates the method numerically on 1D and 2D image data.",
+  "why_interesting": "The paper bridges the mathematical tools of RG theory, traditionally used for critical phenomena, directly into the computational framework of modern generative AI, providing a physically motivated mechanism for achieving scalability while preserving global structure.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.23696_figures/2608.23696_fig1.jpg",
+      "caption": "FIG. 1. (a) Local generative modeling. Exploiting the underlying spatial structure of the data, the velocity field in a target region A (shaded in blue) is approximated using only the configuration ϕloc in its surrounding neighborhood. Data are generated by integrating the ODE flow defined by this locally approximated velocity field, which is learned using a local neural network (NN). (b) Schematic of the probability path used for local generative modeling with renormalization group flow matching (RGFM). The RG wavenumber scale Λ(t) is related to the logarithmic time t by Λ(t) = ΛUVe−t/τ with τ ≪1 being a characteristic time scale specified later. Along the forward path from t = 0 to t = 1,...",
+      "page": 2
+    },
+    {
+      "image": "2608.23696_figures/2608.23696_fig2.jpg",
+      "caption": "FIG. 2. (a) Correspondence between image data and an R3-valued vector field ⃗ϕ = (ϕR, ϕG, ϕB) on the two-dimensional pixel lattice, where ⃗ϕ(x) represents the RGB value of the pixel at position x. (b) Data generation in the standard flow matching (FM) and the renormalization group flow matching (RGFM). (c) Behavior of the RG cutoff function Ktk in the Polchinski RG flow (24).",
+      "page": 5
+    },
+    {
+      "image": "2608.23696_figures/2608.23696_fig3.jpg",
+      "caption": "FIG. 3. (a) Site-decimation transformation R and its probabilistic inverse R−1. The coarse-grained field ϕ′ is obtained by applying the discrete cosine transform (DCT) to ϕ, discarding the high-wavenumber modes ϕ> with |k| > Λ(t), and transforming the retained modes ϕ< back onto the decimated lattice. Conversely, ϕ is reconstructed probabilistically by sampling the missing modes from pGS(ϕ>) and applying the inverse DCT to the combined modes. (b) Score-locality length ξt along the RG diffusion path pt. While ξt grows as cΛ(t)−1, the transformation R, which reduces the linear lattice size from L to L/b, restores the locality length from ξt to ξt/b in lattice units. (c) Successive...",
+      "page": 8
+    },
+    {
+      "image": "2608.23696_figures/2608.23696_fig4.jpg",
+      "caption": "FIG. 4. (a) Decomposition of the spatial domain ΩL into local regions A and B and the remaining region C = A ∪B. (b) Global and local velocity fields. In general, the velocity field v(ϕ, t) depends on the entire field configuration ϕ. The local velocity field on region A, denoted by vA(ϕAB, t), depends only on the field configuration ϕAB on A ∪B.",
+      "page": 9
+    },
+    {
+      "image": "2608.23696_figures/2608.23696_fig5.jpg",
+      "caption": "FIG. 5. Flow chart of the main theorems and their proofs in Sec. IV.",
+      "page": 11
+    }
+  ],
+  "figure": "2608.23696_figures/2608.23696_fig1.jpg",
+  "highlighted": [
+    "Yuto Ashida"
+  ],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
