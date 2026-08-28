@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.25024",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hardware-Aware Fermion-to-Qubit Mappings for Simulating the 2D Hubbard Model on Heavy-Hexagon Quantum Processors",
+  "authors": "Alessio Esposito, Andrea Giachero, Zoltàn Zimboràs, Leonardo Banchi",
+  "abstract": "Quantum simulation of strongly correlated fermionic systems is among the most promising near- term applications of quantum computing, but its practical efficiency depends critically on the choice of fermion-to-qubit mapping and on the connectivity of the underlying hardware. In this work we address this problem in the context of the two-dimensional Hubbard model, simulated on IBM superconducting quantum processors with heavy-hexagon connectivity. We numerically benchmark the Jordan-Wigner, Bravyi-Kitaev, and Bonsai transformations, evaluating their Pauli weight and SWAP overhead across seven heavy-hexagon chips of increasing size. We show that, while the Bravyi-Kitaev mapping initially exhibits a lower Pauli weight, this advantage is eliminated once routing costs are taken into account, confirming the Bonsai mapping as the most hardware-efficient baseline transformation for this architecture. We then use the Bonsai mapping to construct the qubit Hamiltonian of the 2D spinful Fermi-Hubbard model, introducing a simulated annealing algorithm that optimizes the assignment of Majorana strings to lattice sites, reducing the cost function by nearly 50% percent. Finally, we simulate on quantum hardware the time evolution of fermionic states up to 6x6 lattices, confirming the viability of the Bonsai encoding for hardware-aware large-scale two-dimensional simulations.",
+  "url": "http://arxiv.org/abs/2608.25024v1",
+  "pdf": "https://arxiv.org/pdf/2608.25024v1",
+  "type": "both",
+  "summary": "This paper tackles the practical challenge of simulating the 2D Hubbard model on real quantum hardware by comparing multiple fermion-to-qubit mappings. The authors demonstrate that the Bonsai mapping is superior for heavy-hexagon processors, and they improve the simulation by using simulated annealing to optimize the resulting qubit Hamiltonian. This confirms the viability of performing large-scale, hardware-aware quantum simulations for strongly correlated electron systems.",
+  "main_problem": "The core challenge is achieving efficient quantum simulation of strongly correlated fermionic systems, like the 2D Hubbard model, on current near-term quantum hardware.",
+  "main_result": "The Bonsai mapping was identified as the most hardware-efficient baseline transformation for heavy-hexagon processors, and combining it with simulated annealing significantly reduced the cost function for large-scale 2D simulations.",
+  "method": "The authors benchmarked three fermion-to-qubit mappings (JW, BK, Bonsai) by analyzing Pauli weight and SWAP overhead on specific hardware architectures, followed by optimizing the Hamiltonian construction using simulated annealing.",
+  "model_or_system": "The study focuses on the two-dimensional (2D) spinful Fermi-Hubbard model, simulated on superconducting quantum processors featuring heavy-hexagon connectivity. The simulation involves mapping fermionic operators to Pauli strings via unitary embeddings.",
+  "key_observables": "Pauli weight, SWAP overhead, local magnetization, energy, and spatial spin–spin correlation functions.",
+  "important_parameters": "Heavy-hexagon chip size (up to $6 \times 6$ lattices), coupling constants ($J, U$), and noise parameters ($\\lambda$).",
+  "main_assumptions": "The analysis assumes linear fermion-to-qubit mappings ($n=m$) and relies on the hardware connectivity graph to assess overheads.",
+  "figures_summary": "Figures illustrate the theoretical structures of the mappings (JW, BK, Bonsai) and show the time evolution of local magnetization on $4 \times 4$ lattices, confirming the preservation of the initial Néel order despite noise.",
+  "paper_structure": "The paper proceeds by first analyzing the theoretical efficiency of various fermion-to-qubit mappings on specific hardware topologies. It then applies the best mapping (Bonsai) to construct and optimize the Hamiltonian for the 2D Hubbard model, culminating in time evolution simulations and noise mitigation techniques.",
+  "why_interesting": "This work directly addresses the critical gap between theoretical quantum simulation models and the practical constraints of physical quantum hardware, providing actionable guidelines for mapping complex fermionic physics onto superconducting qubits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.25024_figures/2608.25024_fig1.jpg",
+      "caption": "FIG. 1. A TT example consisting of 6 qubits. Every node must have three links (edges or legs). The outgoing links from a node are associated with the X, Y, Z label. Every Majorana string stems from one of the paths from the root to a leg, and to guarantee the algebraic independence, the path composed of Z links is ruled out. The remaining strings are coupled together as discussed.",
+      "page": 3
+    },
+    {
+      "image": "2608.25024_figures/2608.25024_fig2.jpg",
+      "caption": "FIG. 2. Two ternary tree (TT) examples. The left panel shows a TT with 4 qubits that maps to the JW mapping, the right panel a TT with 8 qubits that maps to the BK mapping. The first TT has a number of levels of the tree equal to the number of qubits, then the corresponding Pauli strings are linear with the scalability, whereas the second one is logarithmic with the number of qubits.",
+      "page": 5
+    },
+    {
+      "image": "2608.25024_figures/2608.25024_fig3.jpg",
+      "caption": "FIG. 3. The Bonsai mapping for the 18 qubit chip. First, we span the entire heavy-hexagon connectivity graph to build the tree structure as illustrated in Subsec. II C. Then, we use homogeneous localization to associate the X,Y and Z Pauli gates to the legs and edges properly. Note that in the first branch the priority order of labeling is X, Y, Z, while in the second branch Z, X, Y in order to maximize the length of the path with only Zs, as described in [5].",
+      "page": 5
+    },
+    {
+      "image": "2608.25024_figures/2608.25024_fig4.jpg",
+      "caption": "FIG. 4. An illustrative comparison between JW and Bonsai mapping. Both the transformations implement the fermionic single excitation m4m12. The coloured nodes are the actual qubits on which the single excitation operates. Due to Pauli cancellations, the qubits on which the JW mapping acts are disconnected, and a SWAP operation on qubit 0 and 1 is nec- essary to reconnect all the nodes. By contrast, the Bonsai mapping does not require extra operations. Note that for a chip of this size in principle we could label the nodes for the JW mapping in order to reduce the overhead operations, but in practice, for a larger graph, the SWAP is determined by the topology, independently from the labeling...",
+      "page": 6
+    },
+    {
+      "image": "2608.25024_figures/2608.25024_fig5.jpg",
+      "caption": "FIG. 5. On the left, the ideal Pauli weight scaling of the mimjmkml interactions, expressed in terms of the number of CZ gates (y-axis) to be executed for JW, BK and Bonsai mappings, as a function of the number of qubits (x-axis). At the center, the additional SWAP operations (isolated from ideal Pauli weight of the left picture) required to implement these interactions on chips with heavy-hexagon connectivity without violating the locality principle, quantified by the number of CZ to be perform, in order to make the comparison between the two figures more readable. On the right, the composition of the first two graph, in order to show the effective circuit cost of the three maps on a...",
+      "page": 8
+    }
+  ],
+  "figure": "2608.25024_figures/2608.25024_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

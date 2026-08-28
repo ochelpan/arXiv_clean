@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.26010",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "From Round-Trip State Echo to Error Recovery: Snapshot-Resolved Quantum-Hardware Diagnostics",
+  "authors": "Isaac Barouch Essayag, Aryeh Lev Zabokritskiy",
+  "abstract": "End-to-end quantum-hardware scores need not transfer across workloads, compilations, or execution times. We specify a compilation-explicit screen-and-stress profile whose opening diagnostic is round-trip state echo (RTSE): prepare one of four tetrahedral qubit states at a route root, move it out and back by swaps, apply inverse preparation at the root, and record zero. An execution snapshot means a dated submitted task batch together with its captured capability document where available, not a certified calibration epoch. On sparse superconducting hardware, a byte-identical communication rerun changed route-level contrasts although the aggregate RTSE estimates differed by only 0.00125. In a separate prospectively frozen two-window length study, RTSE and the remote-inverse do-nothing predecessor's root marginal both fell from length 2 to length 10; the prespecified interaction did not support superior RTSE retention. The mean selected-output return probability across 64 deletion-recovery cells changed from 0.738 to 0.624 between IQM execution snapshots. On a trapped-ion service advertising all-to-all connectivity among five submitted virtual wires, recovery was 0.911 and 0.923 in two windows, exceeding the frozen two-thirds reference; recovery-minus-adjoint-control differences were 0.446 and 0.443. These are execution-workload diagnostics, not coding-gain, error-suppression, physical-loss, fault-tolerance, or architecture-ranking claims. The results support assessment indexed by workload, placement or virtual-wire contract, compilation, architecture, and execution snapshot.",
+  "url": "http://arxiv.org/abs/2608.26010v1",
+  "pdf": "https://arxiv.org/pdf/2608.26010v1",
+  "type": "experiment",
+  "summary": "This paper introduces a comprehensive diagnostic framework to accurately assess quantum hardware performance by moving beyond aggregate scores. It tests superconducting and trapped-ion systems using structured protocols like Round-Trip State Echo (RTSE) across various workloads. The key finding is that hardware capability is highly dependent on the specific task, compilation, and execution context, necessitating workload-resolved diagnostics.",
+  "main_problem": "Determining the true, workload-dependent performance of quantum hardware, as aggregate metrics fail to capture task-specific limitations.",
+  "main_result": "Hardware performance must be assessed using diagnostics tied to the specific workload, compilation, and execution snapshot, rather than relying on single, universal scores.",
+  "method": "The authors developed a structured 'screen-and-stress' profile, utilizing protocols like Round-Trip State Echo (RTSE) and deletion-recovery cells, to test hardware under controlled, task-specific conditions.",
+  "model_or_system": "The study tests superconducting qubits (IQM Emerald) and trapped-ion systems (IonQ Forte) using fixed input ensembles and structured circuit families.",
+  "key_observables": "Round-Trip State Echo (RTSE) average, selected-output return probability, and route-level contrasts.",
+  "important_parameters": "Workload type, compilation details, execution snapshot timing, and route length ($L$).",
+  "main_assumptions": "The results are explicitly framed as 'execution-workload diagnostics' and do not claim to measure fundamental error suppression or coding gain.",
+  "figures_summary": "Figures illustrate the circuit flow for five workload families (including RTSE, teleportation, etc.) and detail the compiled resource counts for these structured tests.",
+  "paper_structure": "The paper introduces the limitations of aggregate metrics, details the structured diagnostic profile (RTSE, etc.), presents comparative results across different hardware platforms and workloads, and concludes by emphasizing the workload-indexed nature of the findings.",
+  "why_interesting": "It provides a rigorous, structured methodology for benchmarking quantum hardware that moves beyond simple volume metrics, offering insights into how specific communication and error-correction protocols perform under realistic, time-stamped execution constraints.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.26010_figures/2608.26010_fig1.jpg",
+      "caption": "Figure 1: Circuit flow of the five workload families. The communication panels show the operational stages and compiled resource counts for the frozen program variants; the recovery panel shows preparation, encoding, synthetic discard, coherent decoding, verification, and terminal readout. Native counts are omitted from the recovery panel because that separately compiled workload is itemized later in table 6; the omission conveys no resource or complexity ordering. Across these panels, blue marks input, reference, or transport stages; orange marks task-specific logical, entangling, basis, or analysis stages; red marks synthetic discard by marginalization; and gray marks terminal readout....",
+      "page": 6
+    },
+    {
+      "image": "2608.26010_figures/2608.26010_fig2.jpg",
+      "caption": "Figure 2: Operational distinction between the predecessor do-nothing protocol and RTSE on a six-edge route. Both use the same 12-swap round trip, but the predecessor applies U† s remotely so that |0⟩returns and reads the root plus all six returned route ancillas, whereas RTSE returns |ψs⟩, applies U† s at the root, and records only that root output. Within this comparison, blue boxes show the common preparation and transport stages, orange highlights the inverse placement, and gray denotes terminal readout. RTSE is a deliberately permissive round-trip execution diagnostic, not endpoint-arrival certification.",
+      "page": 9
+    },
+    {
+      "image": "2608.26010_figures/2608.26010_fig3.jpg",
+      "caption": "Figure 3: Exact gate-level logical encoder and coherent decoder used in the deletion-recovery workload, read from left to right. Panel (a) implements Venc with input |ψs⟩on ℓ0 and |0⟩on ℓ1, ℓ2, ℓ3. Panel (b) implements W on the three surviving data wires (s0, s1, s2) in inherited order and on one fresh logical ancilla initialized in |0⟩. An orange Ry target connected vertically to a filled control dot denotes a controlled rotation; a ⊕target connected to a filled control dot denotes a CNOT. The blue box is H. This is a logical circuit, not a routed or provider-native circuit; the decoder gate sequence has no runtime dependence on the designated deletion position. State preparation, parking...",
+      "page": 13
+    },
+    {
+      "image": "2608.26010_figures/2608.26010_fig4.jpg",
+      "caption": "Figure 4: Full 2 August IQM capability-document graph and the eight exact routes. Solid and dashed paths denote the two route directions; color and marker shape jointly denote the root, and direct R15, R19, R35, and R39 labels repeat that identity. Root-colored, root-shaped outer rings mark the first five nodes of each root’s direction-zero path, later inherited by recovery; concentric rings preserve shared prefix membership without relying on color alone. Slightly offset parallel strokes preserve multiple route memberships on a shared edge. The exact ordered paths are listed in table 2. Node placement is schematic and connectivity is exact. The device advertised 54 qubits, while qubit 25...",
+      "page": 17
+    },
+    {
+      "image": "2608.26010_figures/2608.26010_fig5.jpg",
+      "caption": "Figure 5: Exact IQM recovery placement and carrier bindings. Each panel gives the initial mapping of logical data wires L0–L3 and the logical decoder ancilla L4. For every designated deletion d0–d3, the lower grid reports the physical carrier forbidden after the discard boundary and the carrier measured after decoding, routing, and inverse preparation. No outcome is encoded.",
+      "page": 22
+    }
+  ],
+  "figure": "2608.26010_figures/2608.26010_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

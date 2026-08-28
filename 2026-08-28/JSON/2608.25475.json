@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.25475",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Interpretable Activation-Selection Neural Networks for Symbolic Regression of Parameter-Dependent Hamiltonian Eigenvalues",
+  "authors": "Alexander Yu. Kharin, Kirill F. Sheberstov",
+  "abstract": "Analytical approximations to eigenvalues of parameter-dependent Hamiltonians can provide physical insight that is not readily apparent from numerical diagonalization alone. Here, we introduce an activation-selection network (ASN), a differentiable symbolic-regression architecture in which each input node learns a sparse combination of predefined analytical functions, and the trained network can be converted directly into an explicit expression. Before regression, the Hamiltonian parameters and eigenvalues are expressed as dimensionless ratios. This normalization enforces dimensional homogeneity, reduces the number of independent variables, and ensures that the extracted expressions do not depend on the choice of energy units. Using the library {0, x, x^2}, compositions across successive hidden layers generate polynomial expansions of progressively higher degree; polynomial expansions of arbitrary finite degree can therefore be obtained in principle by increasing the network depth. We apply the ASN to effective three- and four-site spin-chain Hamiltonians relevant to zero-quantum nuclear magnetic resonance. Comparisons with degenerate perturbation theory show that the extracted expressions capture the expected constant, linear, and quadratic structure. Fixed-basis least-squares models match or slightly outperform the ASN when an appropriate quadratic basis is specified in advance, while inclusion of a radial feature improves the local approximation near the degeneracy. These results establish the ASN as a differentiable framework for selecting compact symbolic representations when several functional forms are plausible, while showing that adaptive activation selection does not provide an intrinsic accuracy advantage over a suitable predefined basis.",
+  "url": "http://arxiv.org/abs/2608.25475v1",
+  "pdf": "https://arxiv.org/pdf/2608.25475v1",
+  "type": "theory",
+  "summary": "This paper introduces an Activation-Selection Network (ASN) to perform symbolic regression on the eigenvalues of complex, parameter-dependent spin-chain Hamiltonians. By training the network on numerical data derived from NMR systems, the authors generate explicit, analytical mathematical expressions for the eigenvalues. The work establishes the ASN as a differentiable framework for extracting compact physical laws, though it notes that predefined basis sets can sometimes achieve comparable accuracy.",
+  "main_problem": "The paper aims to find interpretable analytical approximations for the eigenvalues of parameter-dependent Hamiltonians by employing symbolic regression techniques.",
+  "main_result": "The proposed Activation-Selection Network (ASN) successfully generates explicit, compact symbolic expressions for the eigenvalues, though it was found that a suitable predefined basis can match or slightly outperform the adaptive selection mechanism.",
+  "method": "The core method is the use of an ASN, a differentiable symbolic-regression architecture, trained to map input parameters to eigenvalue ratios. The process involves normalizing parameters to dimensionless ratios and using sparse regularization to enforce sparsity in the learned functional combination.",
+  "model_or_system": "The study applies the method to effective three- and four-site spin-chain Hamiltonians relevant to zero-quantum nuclear magnetic resonance (NMR). The Hamiltonian involves intrapair and interpair coupling terms, and the analysis often separates the system into even- and odd-parity blocks.",
+  "key_observables": "Eigenvalues (or eigenvalue differences) of the Hamiltonian, which determine observable zero-quantum transition frequencies.",
+  "important_parameters": "Coupling constants like $J_{\text{intra}}$ and $\\Delta J_i$, and the dimensionless ratios formed from these couplings.",
+  "main_assumptions": "The primary assumption is that the underlying physical relationship can be approximated by a combination of predefined analytical functions (e.g., $\\{0, x, x^2\\}$). The method also relies on normalizing parameters to ensure dimensional homogeneity.",
+  "figures_summary": "Figures illustrate the structure of the ASN layers, demonstrate the network's ability to implement basic arithmetic (like multiplication), and show the resulting dimensionless eigenenergy surfaces for the three-site spin chain.",
+  "paper_structure": "The paper introduces the ASN framework, details the physical model (spin-chain Hamiltonians), applies the method to calculate eigenvalues for three- and four-site systems, compares the results against established methods like degenerate perturbation theory, and concludes by analyzing the performance and limitations of the adaptive selection process.",
+  "why_interesting": "This work directly bridges machine learning (symbolic regression) with quantum many-body physics, offering a powerful, differentiable tool to extract physical insight (analytical forms) from complex numerical eigenvalue calculations, which is highly valuable for understanding quantum dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.25475_figures/2608.25475_fig1.jpg",
+      "caption": "Fig. 1. Architecture of the activation-selection network (ASN). (a) Structure of a single ASN layer. For each input 𝑥𝑖, 𝑘 candidate activation functions 𝜙𝑗(𝑥𝑖) are evaluated and combined using the softmax- normalized coefficients 𝑎𝑖𝑗. An L0.5-type penalty favours nearly one-hot coefficient vectors, thereby promoting the selection of a single activation for each input node. The transformed variables 𝑣𝑖 are then combined by a linear transformation with weights 𝑤𝑙𝑖 and biases 𝑏𝑙 to produce the output nodes 𝑦𝑙. (b) Two- layer ASN that exactly implements multiplication of two inputs. The first layer forms 𝑦1 = 𝑥1 + 𝑥2 and 𝑦2 = 𝑥1 −𝑥2. The second layer selects the quadratic activation and...",
+      "page": 4
+    },
+    {
+      "image": "2608.25475_figures/2608.25475_fig2.jpg",
+      "caption": "Fig. 2. Block structure of the Hamiltonian matrices for aliphatic spin chains containing three (a) and four (b) sites. Blue and red outlines indicate the manifolds with diagonal energies A and B, respectively. Black off-diagonal elements describe exchange between neighbouring sites, whereas grey elements connect the two manifolds through simultaneous neighbouring-site spin flips. For (a) Δ1 = ΔJ1/2, Δ2 = ΔJ2/2, A = -5/4 Jintra, B = 3/4 Jintra. For (b), Δ = ΔJ/2, A = -2 Jintra, B = 0.",
+      "page": 7
+    },
+    {
+      "image": "2608.25475_figures/2608.25475_fig3.jpg",
+      "caption": "Fig. 3. Dimensionless eigenenergy surfaces and representative cross-sections for the Hamiltonian of the three- site spin chain. All energies and coupling constants are scaled by Jintra. (a) Numerically calculated eigenenergy surfaces Ei/Jintra as functions of the dimensionless couplings ΔJ1/Jintra and ΔJ2/Jintra. The white dashed and the grey dot- dash lines indicate cross-sections used for (b) and (c), respectively. (b) Cross-section corresponding to the uniform chain, ΔJ1 = ΔJ2 = ΔJ. Coloured curves show the numerically calculated, energy-ordered eigenenergies, while the black solid, dashed, dash-dotted, and dotted curves show the second-order perturbative expressions in Eqs. (9). Across...",
+      "page": 10
+    },
+    {
+      "image": "2608.25475_figures/2608.25475_fig4.jpg",
+      "caption": "Fig. 4. Comparison of numerically calculated and ASN-predicted dimensionless eigenenergy surfaces for the three-site spin chain. Here, ri = ΔJi/Jintra and εk = Ek/Jintra. For each εk, the left and right panels show the numerical eigenenergies and corresponding ASN predictions, respectively. The ASN was trained within the first-quadrant domain 0 ≤ r1, r2 ≤ 2, indicated by the white dotted lines, and the remaining quadrants were reconstructed using the independent sign-reversal symmetries of r1 and r2. A common colour scale is used for the numerical and predicted surfaces within each pair. The activation set used for training was {0, 𝑥, 𝑥2}.",
+      "page": 11
+    },
+    {
+      "image": "2608.25475_figures/2608.25475_fig5.jpg",
+      "caption": "Fig. 4 compares the numerically calculated dimensionless eigenenergy surfaces with the ASN predictions. Within the first-quadrant training domain, the ASN reproduces the curvature and",
+      "page": 11
+    }
+  ],
+  "figure": "2608.25475_figures/2608.25475_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
