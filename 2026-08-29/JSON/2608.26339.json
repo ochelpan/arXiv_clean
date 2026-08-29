@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2608.26339",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "math.OC"
+  ],
+  "is_primary_archive": true,
+  "title": "Information-theoretic formulation of the Traveling Salesman Problem",
+  "authors": "Enrico Maria Fenoaltea, Riccardo Piombo, Aurelio Patelli",
+  "abstract": "The Traveling Salesman Problem (TSP) asks for the shortest route to visit a set of cities exactly once. It combines a simple local rule - each city must be visited once - with a hard, global constraint- all cities must be traversed within a single cycle. We cast the problem within a probabilistic, information-theoretic framework. The coexistence of local and global constraints is precisely what makes the problem difficult to address in this framework: the local rule can be enforced through vertex-level constraints, whereas the global constraint cannot be captured by independent edge probabilities. We show that this obstacle can be overcome by defining a maximum-entropy probability distribution over graphs, in which edge costs and degree constraints generate an assignment-like ensemble, and a global term, describing the hard constraint, tilts this ensemble toward Hamiltonian cycles. To make the construction tractable, we derive a mean-field approximation in terms of edge occupancies and implement a differentiable cycle penalty that suppresses sub-tours. This leads to a self-consistent numerical procedure whose output is not only a candidate tour but also a probability matrix encoding competing edges and degenerate solutions. We test the method on synthetic ensembles and on TSPLIB instances. The algorithm converges to connected tours in polynomial time, matching the best-known solution in the majority of instances and remaining within a small relative gap otherwise. Beyond its competitive performance, the proposed framework offers a general approach for handling hard constraints while reducing hard combinatorial optimization problems to simpler ones.",
+  "url": "http://arxiv.org/abs/2608.26339v1",
+  "pdf": "https://arxiv.org/pdf/2608.26339v1",
+  "type": "theory",
+  "summary": "This paper reformulates the Traveling Salesman Problem using an information-theoretic maximum-entropy framework. It overcomes the challenge of enforcing global cycle constraints by introducing a global penalty term that 'tilts' the probability distribution. The resulting mean-field algorithm provides a computationally tractable method that yields near-optimal solutions for the TSP.",
+  "main_problem": "The paper addresses the difficulty of formulating the Traveling Salesman Problem (TSP) within a probabilistic, information-theoretic framework due to the coexistence of local and hard global constraints.",
+  "main_result": "The authors propose a method that successfully incorporates the global Hamiltonian cycle constraint by tilting a maximum-entropy ensemble, leading to an algorithm that converges to near-optimal tours in polynomial time.",
+  "method": "They employ the maximum-entropy principle on the probability distribution over graphs, deriving a mean-field approximation that couples local assignment constraints with a global cycle penalty term.",
+  "model_or_system": "The model is the TSP, viewed as finding the minimum-cost Hamiltonian cycle on a set of cities. The mathematical framework involves defining a probability distribution $P(G)$ over graphs $G$ using Lagrangian multipliers.",
+  "key_observables": "The probability matrix $P_{ij}$ (edge occupancy), the global connectivity penalty $N_{\text{conn}}(G)$, and the resulting candidate tour cost.",
+  "important_parameters": "The parameters $\beta$ (controlling energetic cost) and $\\mu$ (controlling the global connectivity penalty) are crucial for tuning the solution regime.",
+  "main_assumptions": "The derivation relies on a mean-field approximation, which neglects loop-induced correlations, simplifying the intractable global constraint into a manageable effective field.",
+  "figures_summary": "Figure 1 schematically shows the transition from the assignment polytope (local constraints) to the Hamiltonian cycle region ($\\Gamma$) by varying the penalty parameter $\\mu$. Figure 3 illustrates the solution space in the $(\beta, \\mu)$ plane.",
+  "paper_structure": "The paper first establishes the information-theoretic formulation using maximum entropy. It then derives the mean-field approximation, which reduces the problem to solving self-consistent equations for edge occupancies. Finally, it details the numerical procedure for finding the tour and compares its performance against state-of-the-art heuristics.",
+  "why_interesting": "While the problem is classical optimization, the methodology—reducing a hard combinatorial problem by coupling local statistical ensembles with global constraints via an effective field—is highly relevant to modeling complex many-body systems with hard constraints (e.g., lattice gauge theories or constrained quantum states).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.26339_figures/2608.26339_fig1.jpg",
+      "caption": "Figure 1: Schematic representation of the space of graphs considered in the probabilistic formulation. The assignment polytope represents the region in which the local degree constraints are satisfied. Within this region, the assignment-problem solution, denoted by AP, is selected by increasing the inverse temperature β when only local constraints and edge costs are considered. The TSP solution, denoted by TSP, belongs to a region that is an intersection between the AP polytope and the Γ region. Indeed Γ is defined as a region that, when the degree constraints in Eq.1 are satisfied, contains only hamiltonian cycles. Varying µ reinforces the probability of this globally region. The figure is...",
+      "page": 4
+    },
+    {
+      "image": "2608.26339_figures/2608.26339_fig2.jpg",
+      "caption": "Figure 2: (A) Two equal-cost Hamiltonian cycles used to construct the degenerate cost matrix, displayed on a circular vertex layout ordered according to the first cycle. (B) Corresponding mean- field matrix pij on the same layout; link color scale and thickness indicate edge probability.",
+      "page": 7
+    },
+    {
+      "image": "2608.26339_figures/2608.26339_fig3.jpg",
+      "caption": "Figure 3: Diagram of the solutions obtained for a fixed cost matrix c as a function of µ and β. Colors indicate the number of cycles in the extracted solution, and their intensity represents the relative energy gap with respect to the assignment-problem minimum. The solid white line marks the parameter region where the TSP solution is recovered, while the dashed line indicates sub-optimal connected solutions. Green dots show the points sampled by Optuna, and stars mark successful trials in which the correct TSP solution is found.",
+      "page": 11
+    }
+  ],
+  "figure": "2608.26339_figures/2608.26339_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

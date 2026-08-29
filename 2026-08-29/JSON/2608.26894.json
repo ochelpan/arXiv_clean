@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2608.26894",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DS",
+    "math.OC"
+  ],
+  "is_primary_archive": true,
+  "title": "Correcting Connectivity in Arc-Based QUBO Models for Fixed-Fleet Vehicle Routing",
+  "authors": "Omer Gurevich, Maor Matityahu, Tal Mor, Aryeh Lev Zabokritskiy",
+  "abstract": "We revisit a degree-only arc Hamiltonian for fixed-fleet, homogeneous, uncapacitated vehicle routing. Because its local penalties define only a cycle cover, ground states may contain customer cycles disconnected from the depot. We construct a polynomial-size quadratic unconstrained binary optimization (QUBO) repair using capped single-commodity flow and prove that every ground-state routing is connected and cost-optimal under explicit penalty assumptions. For $N-1$ customers and $K$ nonempty routes, the unreduced encoding uses exactly $|E|(1+\\lceil\\log_2(N-K+1)\\rceil)$ logical problem qubits. A reversible compute--phase--uncompute realization evaluates the flow penalties in $O(N^2\\log N+N\\log^2N)$ logical gates on a complete graph with $O(\\log N)$ reusable workspace and no product register. On complete loopless graphs, a depot-delimited single-sequence position encoding uses fewer problem qubits and fewer written terms when the flow-word length grows. Conversely, the flow model achieves a smaller structured logical-gate upper bound under a common reversible accounting model. Exact audits of the Hamiltonian and circuit implementation, combined with a $1{,}200$-matrix classical benchmark, verify the formulation and quantify the connectivity gap. Finally, a 32,000-shot Amazon Braket task on IQM Emerald characterizes depth-one termwise Ising circuits on a diagnostic $N = 4,\\, K = 1$ counterexample instance. In the degree-only circuit, $78.05\\%$ of selected $p=1$ shots realize the invalid disconnected ground state; the reduced 14-qubit flow-augmented circuit yields no fully feasible sample. These device results characterize mapped Hamiltonians and compilation rather than an asymptotic routing solution advantage.",
+  "url": "http://arxiv.org/abs/2608.26894v1",
+  "pdf": "https://arxiv.org/pdf/2608.26894v1",
+  "type": "both",
+  "summary": "This work develops a mathematically rigorous method to correct connectivity flaws in QUBO models designed for the Vehicle Routing Problem. By incorporating a single-commodity flow repair into the Hamiltonian, the authors guarantee that the lowest energy state corresponds to a valid, connected route. The research combines theoretical proof with hardware benchmarking to characterize the feasibility of mapping complex combinatorial problems onto quantum processors.",
+  "main_problem": "The paper addresses the critical issue of ensuring global connectivity in QUBO models used for the Vehicle Routing Problem (VRP), where initial formulations only enforce local cycle covers.",
+  "main_result": "The authors construct and prove a polynomial-size QUBO repair using capped single-commodity flow that guarantees the ground state corresponds to a connected and cost-optimal routing.",
+  "method": "The methodology involves reformulating the VRP constraints into a flow-augmented QUBO, followed by resource analysis (qubits, gates) and benchmarking on quantum hardware simulators and actual quantum processors.",
+  "model_or_system": "The system is the fixed-fleet, homogeneous, uncapacitated VRP, modeled using an arc-based QUBO Hamiltonian. The core challenge is augmenting the Hamiltonian to enforce single-commodity flow constraints to guarantee connectivity.",
+  "key_observables": "Connectivity gap, logical problem qubits required, number of written Hamiltonian interactions, and the probability of observing disconnected ground states on quantum hardware.",
+  "important_parameters": "Number of customers (N), number of routes (K), and the size of the graph (E).",
+  "main_assumptions": "The analysis assumes the VRP is fixed-fleet, homogeneous, and uncapacitated. The quantum results are explicitly stated to characterize compilation limitations rather than asymptotic algorithmic advantages.",
+  "figures_summary": "The notes mention a counterexample (N=6, K=1) illustrating the cost difference between disconnected cycle covers and valid Hamiltonian cycles, and references to resource scaling comparisons between flow-augmented and position-indexed encodings.",
+  "paper_structure": "The paper first identifies the connectivity failure in degree-only arc Hamiltonians, proposes the flow-augmented QUBO repair, analyzes the resource scaling and theoretical guarantees, and concludes with experimental characterization on quantum hardware using diagnostic counterexamples.",
+  "why_interesting": "It directly tackles the gap between theoretical QUBO formulation and physical realizability by providing a rigorous method to enforce global constraints (connectivity) necessary for complex combinatorial optimization problems on quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.26894_figures/2608.26894_fig1.jpg",
+      "caption": "Fig. 1 A fully specified counterexample for K = 1. The six bold arcs have cost 1 and form an optimal degree-feasible assignment of cost 6, but they consist of two disconnected cycles. Every unshown arc has cost 10; the two thin arcs illustrate a connected Hamiltonian cycle of cost 24.",
+      "page": 6
+    },
+    {
+      "image": "2608.26894_figures/2608.26894_fig2.jpg",
+      "caption": "Fig. 2 Provider-compiled placement of the selected p = 1 termwise-Ising circuits on the saved IQM Emerald topology. The first line in each node is the physical-qubit index. On a blue node, Lj denotes logical wire qj under the variable dictionary stated immediately before the figure; the prefix L means “logical” and is unrelated to the flow-word length L. On a yellow node, R denotes a physical compiler-routing location absent from the final readout mapping, not a route variable. Each red edge is a distinct physical coupler used at least once; the number in the panel title counts total CZ-gate occurrences. The word “central” inside the archived graphic refers to the selected angle pair. The...",
+      "page": 22
+    },
+    {
+      "image": "2608.26894_figures/2608.26894_fig3.jpg",
+      "caption": "Fig. 3 IQM Emerald measurements for the N = 4, K = 1 diagnostic instance. Panel (a) shows normalized mean energy and panel (b) the outcome fractions for the degree-only Hamiltonian; panels (c) and (d) show the corresponding quantities for the reduced flow-augmented Hamiltonian. Rows in each bar panel correspond to the parameter labels in the adjacent point panel, and every bar partitions 2,000 raw shots among local-constraint violations, degree-feasible disconnected assignments, connected assignments with invalid retained flow (flow case only), and fully feasible assign- ments. The point-panel horizontal axis is I = (Eunif −¯E)/(Eunif −Emin): the solid line I = 0 is the exact uniform...",
+      "page": 23
+    }
+  ],
+  "figure": "2608.26894_figures/2608.26894_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

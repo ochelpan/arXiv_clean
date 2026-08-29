@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.26840",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Rare-Event Estimation for Ising Graphical Models with Belief-Propagation State Preparation",
+  "authors": "Mario Hernández Vera, Narges Jamialahmadi, Burak Mete, Susanne Schneider, Marco De Pascale",
+  "abstract": "Quantum amplitude estimation can reduce the sampling cost of rare-event probability estimation, but applying it to correlated Ising graphical models is limited by the difficulty of preparing the target distribution and building a practical event oracle. This work explores two approximate strategies for mitigating these challenges. We introduce a sample-free state-preparation method combining loopy belief propagation with the Chow--Liu algorithm. The resulting tree approximation is compiled into a quantum circuit with linear gate count and depth, and its accuracy is evaluated across graph families spanning different topologies, coupling strengths, and coupling signs. We also construct a structural oracle that evaluates threshold rules with reversible Boolean gates. Using a twenty-node supply-chain disruption model as a case study, we compare maximum likelihood amplitude estimation against four classical Monte Carlo baselines. Under the fixed-depth schedule used throughout this work, the quantum estimator has the same asymptotic error scaling as the classical methods but achieves lower estimation error by a constant factor. This reduction narrows when amplitude-encoding queries replace raw shots as the resource metric. We separate statistical error from the deterministic errors caused by approximate state preparation and oracle construction, and identify the requirements for achieving an improvement beyond a constant factor.",
+  "url": "http://arxiv.org/abs/2608.26840v1",
+  "pdf": "https://arxiv.org/pdf/2608.26840v1",
+  "type": "theory",
+  "summary": "This paper tackles the challenge of estimating rare-event probabilities in complex Ising graphical models, such as those modeling supply-chain disruptions. It proposes a quantum approach using Quantum Amplitude Estimation, mitigating state preparation difficulties via Belief Propagation and implementing event checking with a structural quantum oracle. The results show that the quantum estimator achieves a constant-factor improvement in accuracy over state-of-the-art classical Monte Carlo methods.",
+  "main_problem": "The core problem is the rare-event probability estimation, specifically calculating the tail probability $P(C > T)$ that a total disruption cost $C$ exceeds a critical threshold $T$ in complex systems.",
+  "main_result": "The quantum estimator achieves the same asymptotic error scaling as classical methods but provides a constant factor reduction in the estimation error, particularly when using amplitude-encoding queries.",
+  "method": "The work proposes using Quantum Amplitude Estimation (QAE) combined with an approximate state preparation method (Belief-Propagation-Assisted Chow–Liu) and a structural oracle to estimate the rare event probability.",
+  "model_or_system": "The system is modeled by a binary Ising graphical model describing supply-chain disruption. The probability distribution follows a Boltzmann distribution, and the cost function $C(\\mathbf{x})$ is a superadditive function of the binary state vector $\\mathbf{x}$.",
+  "key_observables": "The primary observable is the tail probability $P(C > T)$. Diagnostics include the estimation error, Fisher information, and resource counts (CX, CCX, MCX gates, depth).",
+  "important_parameters": "The system size ($n=20$ nodes), coupling strengths ($J_{ij}$), local fields ($h_i$), and the critical threshold $T$ are key parameters.",
+  "main_assumptions": "The quantum pipeline relies on approximations: using Belief Propagation for state preparation and constructing a structural oracle for event marking, which introduces deterministic errors separate from the statistical error.",
+  "figures_summary": "The notes mention tables detailing qubit allocation and circuit resources (CX, CCX, MCX, Depth) for the structural oracle, and figures illustrating the circuit phases (compute, copy, uncompute).",
+  "paper_structure": "The paper systematically introduces the problem (rare-event estimation in Ising models), details the classical benchmarks (IMA, GMC, FIS), proposes the quantum approach (BPCL state prep, structural oracle), and concludes with performance comparisons and analysis of error sources.",
+  "why_interesting": "The application of quantum estimation techniques to classical statistical physics problems like network reliability and phase transitions is highly relevant for developing quantum algorithms for condensed matter simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.26840_figures/2608.26840_fig1.jpg",
+      "caption": "Figure 1: Robustness of BPCL state preparation to graph topology and coupling structure. Top: force-directed layouts of the synthetic clique-chain family and SCM-20, ordered by treewidth. Labels give the number of vertices n, treewidth (tw), and cycle rank (cyc). Bottom: DKL(P∥Q∗) against treewidth, where lower values indicate a more accurate approximation. Dark-gray circles and the connecting line show the moderate-coupling clique-chain family, the red star shows SCM-20, and the blue band shows the range obtained by sweeping the coupling magnitude from weak to strong. Orange squares report the mean over five random k-tree topologies, while green triangles show the frustrated case with 40%...",
+      "page": 14
+    },
+    {
+      "image": "2608.26840_figures/2608.26840_fig2.jpg",
+      "caption": "Figure 2: Probability-mass distribution of the disruption cost over all configurations of SCM-20, shown on a logarithmic scale. Blue bars: exact Ising distribution P. Purple step line: Chow-Liu approximation Q∗encoded in the state-preparation circuit. The dashed vertical line marks the reference threshold Tref; the shaded region to its right marks the rare tail targeted by MLAE. The two distributions are nearly indistinguishable on this scale.",
+      "page": 15
+    },
+    {
+      "image": "2608.26840_figures/2608.26840_fig3.jpg",
+      "caption": "Figure 3: Grover amplification in the MLAE cir- cuit for the model oracle, displayed in decreasing- amplification order (k = 3 to k = 0, left to right). Red bars show the theoretical prediction; dark bars show the observed |1⟩ancilla fraction from simulated shots. Annotated factors above each bar pair confirm that QkA correctly implements k Grover iterations.",
+      "page": 17
+    },
+    {
+      "image": "2608.26840_figures/2608.26840_fig4.jpg",
+      "caption": "Figure 4: Tail-probability estimates ˆp as a function of sample/shot budget N; error bars show one standard deviation over independent repetitions. The dashed green line marks the exact ground truth in each panel.",
+      "page": 18
+    },
+    {
+      "image": "2608.26840_figures/2608.26840_fig5.jpg",
+      "caption": "Figure 5: RMSE against the query-normalised budget Nquery. Lines connect swept budget points; least-squares slopes of log10 RMSE against log10 Nquery over the shown range are reported in the text below. A slope of −1 would indicate the ideal RMSE = O(N−1 query) rate; −1/2 indicates ordinary classical O(N −1/2) statistical scaling.",
+      "page": 19
+    }
+  ],
+  "figure": "2608.26840_figures/2608.26840_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

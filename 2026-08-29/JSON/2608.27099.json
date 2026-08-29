@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.27099",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DC"
+  ],
+  "is_primary_archive": true,
+  "title": "Towards Reproducible Evaluation of Distributed Quantum Circuit Partitioning Algorithms",
+  "authors": "Javier Vela-Tambo, Davud Azizov, Tian Guo",
+  "abstract": "Distributed Quantum Computing (DQC) addresses the physical scaling limitations of monolithic quantum processors by networking modular Quantum Processing Units (QPUs). Efficient execution of quantum algorithms on DQC architectures requires compiling them across QPUs while minimizing inter-QPU communication bottlenecks, primarily through circuit partitioning. However, current evaluations of state-of-the-art partitioning heuristics focus primarily on the total entanglement cost of the partitions, failing to capture the broader structural and temporal overheads introduced by distributed network constraints. This paper addresses this evaluation gap by applying established monolithic benchmarking metrics to partitioned distributed circuits to quantify the performance impact of network constraints. Using an open-source, automated evaluation pipeline, we systematically assess diverse partitioning algorithms across standardized workloads and quantum network topologies. Our empirical results reveal that partitioning algorithms with comparable entanglement costs can still introduce drastically different physical execution penalties. By exposing these hidden trade-offs, such as severe increases in circuit depth and substantial reductions in gate density, this study demonstrates that comprehensive circuit-level metrics are essential for guiding the future design of DQC compilers.",
+  "url": "http://arxiv.org/abs/2608.27099v1",
+  "pdf": "https://arxiv.org/pdf/2608.27099v1",
+  "type": "both",
+  "summary": "This paper addresses the critical gap in evaluating distributed quantum circuit partitioning by moving beyond simple entanglement cost metrics. Using an automated pipeline, the authors systematically test various algorithms on simulated DQC architectures across different network topologies. The findings prove that structural metrics, such as circuit depth and gate density, are crucial for accurately predicting real-world performance penalties in modular quantum processors.",
+  "main_problem": "Current evaluations of Distributed Quantum Computing (DQC) circuit partitioning algorithms are insufficient because they focus too narrowly on total entanglement cost, ignoring crucial structural and temporal overheads from network constraints.",
+  "main_result": "The study demonstrates that partitioning algorithms with similar entanglement costs can yield drastically different physical execution penalties, emphasizing that structure-aware metrics are essential for guiding DQC compiler design.",
+  "method": "The authors developed an automated, reproducible evaluation pipeline that applies established monolithic benchmarking metrics to partitioned distributed circuits across various quantum network topologies and standardized workloads.",
+  "model_or_system": "The system modeled is Distributed Quantum Computing (DQC), which networks modular Quantum Processing Units (QPUs). Circuits are represented in OpenQASM format and are mapped onto specified network topologies (e.g., linear, grid, fully connected).",
+  "key_observables": "Inter-QPU communication bottlenecks, circuit depth inflation, gate density reduction, e-bit count, circuit depth ratio, and $\\Delta$gate density.",
+  "important_parameters": "Standardized workloads include QASMBench, Quantum Fourier Transform (QFT), and QAOA; topologies include 4-QPU linear, grid, and fully connected networks.",
+  "main_assumptions": "The evaluation assumes that intra-QPU connectivity is fully connected, and the analysis relies on applying monolithic metrics to distributed structures.",
+  "figures_summary": "Figures illustrate the evaluation pipeline, compare reproduced e-bit counts across benchmarks (QFT, QAOA, etc.), and show correlation matrices mapping input circuit properties against DQC partitioning costs and structural penalties.",
+  "paper_structure": "The paper establishes the evaluation gap, details the automated pipeline for testing various partitioning algorithms (MLFM-R, FGP-rOEE, Pytket variants) across multiple topologies and workloads, presents empirical results comparing structural penalties, and concludes that comprehensive metrics are necessary for compiler design.",
+  "why_interesting": "The focus on quantifying physical overheads like circuit depth and gate density in a distributed setting is highly relevant for understanding the practical limitations of scaling quantum computation beyond single, monolithic chips.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.27099_figures/2608.27099_fig1.jpg",
+      "caption": "Fig. 1: The evaluation pipeline. Monolithic OpenQASM quantum circuits are ingested and decomposed using Qiskit. The circuits are then distributed to the specified network topology using the selected partitioning algorithms. The original monolithic circuit and the distributed circuit, which contains explicit remote gate instructions, are profiled by our evaluation module to extract the desired metrics. The pipeline is controlled by a YAML configuration file to ensure the reproducibility of the experiments.",
+      "page": 3
+    },
+    {
+      "image": "2608.27099_figures/2608.27099_fig2.jpg",
+      "caption": "Fig. 2: Replication analysis of entanglement cost (measured in e-bits) across the CP, QAOA, QFT, and QV benchmarks. Each point compares our reproduced e-bit count against the approximated reference value reported in prior literature [10].",
+      "page": 4
+    },
+    {
+      "image": "2608.27099_figures/2608.27099_fig3.jpg",
+      "caption": "Fig. 4: Multidimensional evaluation of DQC partitioning over- heads. The grouped box plots contrast e-bit cost, circuit depth ratio, ∆gate density, and ∆entanglement variance across partitioning methods.",
+      "page": 5
+    },
+    {
+      "image": "2608.27099_figures/2608.27099_fig4.jpg",
+      "caption": "Fig. 3: Spearman correlation matrix mapping input quantum circuit properties against DQC partitioning cost and structural penalties. Darker shades indicate stronger correlations (red for positive, blue for negative). Missing entries denote correlations that are not statistically significant (p > 0.05) or fall below the strength threshold (|r| < 0.20).",
+      "page": 5
+    },
+    {
+      "image": "2608.27099_figures/2608.27099_fig5.jpg",
+      "caption": "Fig. 5: Comparison of DQC partitioning e-bit cost across different 4-QPU network topologies (linear, grid, and fully connected) and partitioning methods.",
+      "page": 6
+    }
+  ],
+  "figure": "2608.27099_figures/2608.27099_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

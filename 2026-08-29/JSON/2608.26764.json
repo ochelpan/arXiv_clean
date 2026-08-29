@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.26764",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Neural Renormalization Group Flow for Percolation",
+  "authors": "Anaclara Alvez, Luca Camagna, Sergio Chibbaro, Cyril Furtlehner, François Landes, Gianluca Manzan, Lorenzo Mensi",
+  "abstract": "Machine learning offers a possible route to data-driven real-space renormalization when the relevant observables are nonlocal and difficult to prescribe explicitly. We explore this idea for two-dimensional site percolation developping a supervised, scale-shared neural architecture. The model recursively applies the same learned coarse-graining rule across scales, producing a latent field from which the crossing probability is predicted, while a corresponding fine-graining decoder reconstructs the largest-cluster mask. Trained only on small lattices, the model extrapolates to substantially larger systems, recovers the spanning cluster with high fidelity, and produces observables obeying the expected finite-size scaling near the critical point. We observe that to get such performance it is key that the learned latent representation exhibits critical fluctuations and scale-dependent flows consistent with the renormalization-group structure of percolation.",
+  "url": "http://arxiv.org/abs/2608.26764v1",
+  "pdf": "https://arxiv.org/pdf/2608.26764v1",
+  "type": "theory",
+  "summary": "This paper proposes using a scale-shared neural network architecture to perform real-space renormalization group calculations for 2D site percolation. By forcing the network to learn scale-dependent transformations, the model accurately predicts critical observables and exhibits finite-size scaling behavior, demonstrating the power of integrating physical symmetries into machine learning models.",
+  "main_problem": "Developing a data-driven, real-space renormalization group (RG) approach using machine learning to handle nonlocal observables in scale-invariant systems.",
+  "main_result": "The model successfully predicts critical percolation observables, showing that the learned latent representation must exhibit critical fluctuations consistent with RG theory to achieve accurate finite-size scaling.",
+  "method": "A novel, scale-shared encoder-decoder neural architecture is trained to recursively apply coarse-graining and fine-graining rules across multiple scales.",
+  "model_or_system": "The study analyzes two-dimensional site percolation on a square lattice, a classic model for studying critical phenomena and phase transitions.",
+  "key_observables": "Percolation probability ($\\Pi$), order parameter ($P_\\infty$), and the finite-size scaling variable $x = (p - p_c)L^{1/\nu}$.",
+  "important_parameters": "The critical probability $p_c$ and the correlation length exponent $\nu$ are key parameters tested against theoretical predictions.",
+  "main_assumptions": "The core assumption is that the RG structure provides a necessary inductive bias that allows the network to extrapolate accurately to much larger systems than those used for training.",
+  "figures_summary": "Figures illustrate the model's prediction of the spanning cluster mask at large sizes, the collapse of predicted observables onto finite-size scaling functions, and the schematic of the scale-shared RG-inspired architecture.",
+  "paper_structure": "The paper introduces the problem of data-driven RG for nonlocal observables, details the scale-shared encoder-decoder architecture (encoder for coarse-graining, decoder for reconstruction), trains the model using specific losses, and validates its performance by demonstrating adherence to known finite-size scaling laws.",
+  "why_interesting": "The explicit incorporation of RG principles into a neural network architecture provides a powerful, data-driven tool for analyzing critical phenomena, which shares conceptual links with how quantum critical points are studied in many-body physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.26764_figures/2608.26764_fig1.jpg",
+      "caption": "FIG. 1. Site-percolation configuration at criticality (left), mask of the spanning cluster (center), and prediction of the neural network (right). The lattice size is L = 1024, which lies outside the training range and therefore probes finite-size extrapolation.",
+      "page": 2
+    },
+    {
+      "image": "2608.26764_figures/2608.26764_fig2.jpg",
+      "caption": "FIG. 2. Scale-shared RG-inspired encoder-decoder architec- ture. The encoder applies the same learned coarse-graining map fθ at every scale until the lattice is represented by a single latent vector, from which a readout gθ predicts the percola- tion probability. The decoder applies the same learned fine- graining map f ′ θ at every scale, combining coarse information with encoder features to reconstruct the largest-cluster mask.",
+      "page": 2
+    },
+    {
+      "image": "2608.26764_figures/2608.26764_fig3.jpg",
+      "caption": "FIG. 3. Finite-size scaling of the learned percolation observ- ables. Top Panel: predicted crossing probability bΠ(p, L) as a function of p, with inset showing the collapse as a function of x = (p −pc)L1/ν. Bottom Panel: predicted order parameter ˆP∞(p, L) obtained from the decoder output, compared with the target cluster mass fraction. The inset shows the behavior above the critical point and the corresponding estimate of β.",
+      "page": 3
+    },
+    {
+      "image": "2608.26764_figures/2608.26764_fig4.jpg",
+      "caption": "FIG. 4. Classification and reconstruction performance as a function of the rescaled occupation probability x = (p − pc)L1/ν. Top: encoder accuracy for the percolation label. Bottom: decoder accuracy for the largest-cluster mask. The largest size used during training is L = 64, while the test sizes extend up to L = 1024. For each value of x, the reported value is the median over N = 5000 test samples. Error bars indi- cate bootstrap uncertainty over test samples. Insets show the performance at criticality as a function of L.",
+      "page": 4
+    },
+    {
+      "image": "2608.26764_figures/2608.26764_fig5.jpg",
+      "caption": "FIG. 5. Top:Projection of the coarsest latent representation Φ onto principal components computed from critical samples at the largest training size. Points show critical samples. Colors correspond to distinct connectivity patterns, including non- percolating configurations (light blue), configurations span- ning in both directions (orange), and other percolating pat- terns related by rotations (green). Six clusters are clearly apparent. Arrows indicate the motion of the distribution Φ(p, L)’s centroid as the lattice size increases, for values of p below and above pc, providing an empirical visualization of the learned scale flow. Bottom: Finite-size scaling of the normalized latent...",
+      "page": 5
+    }
+  ],
+  "figure": "2608.26764_figures/2608.26764_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 3,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

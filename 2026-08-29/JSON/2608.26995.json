@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.26995",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.flu-dyn",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum-Inspired Computational Fluid Dynamics for Transient Turbulent Compressible Flows",
+  "authors": "Shang Xian Matthew Lee, Melissa Kozul, Muhammad Usman, Martin Sevior, Matthew L. Sims-Goh, Richard D. Sandberg",
+  "abstract": "Quantum-inspired algorithms are an emerging class of algorithms for computational fluid dynamics (CFD) with potentially favourable scaling for large problems compared to classical methods. However, their applications have been limited to incompressible flows due to arithmetic limitations, which are addressed in this work. This work introduces the first complete quantum-inspired computational fluid dynamics (QICFD) solver for direct numerical simulation of the compressible Navier--Stokes equations, that is, all arithmetic operations are undertaken in the tensor train (TT) format. Importantly, new division and square-root algorithms using TTs enable the use of Sutherland's law for viscosity. The new QICFD solver is validated by comparison with the classical CFD solver HiPSTAR and by way of a challenging fluid-flow test case, the low resolution Taylor--Green Vortex (TGV) at Mach numbers of 0.8 and 0.1. The TGV test case is a transient turbulent case that is very sensitive to accumulating errors, yet our QICFD solver achieves excellent agreement with the classical CFD reference. This work demonstrates the correctness of the new TT division and square-root algorithms, and that QICFD is capable of compressible flow simulations. The new QICFD solver is also able to perform simultaneous simulations, running multiple TGV-like cases initialised differently in parallel with marginal (10-20%) extra cost. Finally, the demonstrated TGV test case reveals additional challenges of QICFD as well as highlight the need for future advances to make TT methods viable for industrially-relevant conditions.",
+  "url": "http://arxiv.org/abs/2608.26995v1",
+  "pdf": "https://arxiv.org/pdf/2608.26995v1",
+  "type": "theory",
+  "summary": "This work presents a novel Quantum-Inspired Computational Fluid Dynamics (QICFD) solver capable of simulating compressible, turbulent flows using the Tensor Train (TT) format. It overcomes previous limitations by introducing new algorithms for TT division and square-root operations. The successful validation on the Taylor-Green Vortex test case demonstrates that TT methods can accurately handle complex, non-linear physics beyond incompressible regimes.",
+  "main_problem": "The paper addresses the challenge of applying quantum-inspired computational fluid dynamics (QICFD) methods, which use tensor network representations, to simulate compressible fluid flows governed by the Navier-Stokes equations.",
+  "main_result": "The authors successfully introduce a complete QICFD solver for compressible flow by developing new, robust algorithms for division and square-root operations within the Tensor Train (TT) format, achieving excellent agreement with classical solvers on challenging test cases.",
+  "method": "The core method involves representing the high-dimensional fluid state using the Tensor Train (TT) format and developing specialized algorithms (based on Newton-Raphson) to perform necessary arithmetic operations like division and square-root required for compressible physics.",
+  "model_or_system": "The physical system is compressible fluid flow, modeled by the Navier-Stokes equations. The numerical framework uses the TT format to encode the state, allowing for efficient computation of derivatives and non-linear terms.",
+  "key_observables": "Density (rho), velocity components (u, v, w), temperature (T), pressure (p), total kinetic energy, and enstrophy.",
+  "important_parameters": "Mach number (Ma), Reynolds number (Re), and the bond dimension ($\\chi$) governing the TT approximation.",
+  "main_assumptions": "The primary assumptions involve the applicability of the TT decomposition to the flow field and the successful implementation of the new TT arithmetic algorithms for division and square-root.",
+  "figures_summary": "Figures illustrate the general structure of finite difference Tensor Train Operators (TTOs) and the use of binary lookup tables to construct these operators for various stencil widths.",
+  "paper_structure": "The paper systematically builds the QICFD framework: first, by establishing the TT representation for operators (TTOs) to handle spatial derivatives; second, by developing the necessary arithmetic tools (division, square-root); and finally, by applying these tools to solve the full, compressible Navier-Stokes equations using a time-stepping scheme.",
+  "why_interesting": "While focused on classical fluid dynamics, the reliance on tensor networks (TT format) and the development of specialized arithmetic operations for high-dimensional tensor representations are highly relevant to quantum simulation techniques used in many-body physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.26995_figures/2608.26995_fig1.jpg",
+      "caption": "FIG. 1. Taylor-Green vortex validation test case results, showing (a) the total kinetic energy and enstrophy and (b) percentage error at simulation time t ∈[0, 20] for the Ma = 0.8 case produced by the QICFD solver and HiPSTAR clas- sical reference.",
+      "page": 7
+    },
+    {
+      "image": "2608.26995_figures/2608.26995_fig2.jpg",
+      "caption": "FIG. 3. Runtime and memory use per step for a 2563 grid size Ma = 0.8 TGV test case with N = 24 TT tensors saturated with χ ∈[50, 300]. Tests are performed on a single GH200 superchip.",
+      "page": 8
+    },
+    {
+      "image": "2608.26995_figures/2608.26995_fig3.jpg",
+      "caption": "FIG. 2. (a) Simultaneous simulation validation results show- ing (a) the total kinetic energy and enstrophy and (b) per- centage error of two different TGV test cases at Ma = 0.8 initialised differently produced by the QICFD solver and HiP- STAR classical reference. QICFD results are produced in a single run, while HiPSTAR results are produced in two sepa- rate runs.",
+      "page": 8
+    },
+    {
+      "image": "2608.26995_figures/2608.26995_fig4.jpg",
+      "caption": "FIG. 4. Highest χ for all fields in a high-fidelity Ma = 0.8 TGV test case for Re ∈[200, 1600] throughout all simulation time when encoded as a TTS. Each line represents different σc ∈{10−6, 10−9, 10−12} during the encoding.",
+      "page": 8
+    },
+    {
+      "image": "2608.26995_figures/2608.26995_fig5.jpg",
+      "caption": "Figure 4 shows the effects of Re on χ. The simula- tion parameters are Ma = 0.8, ∆t = 0.001, L = 2π in all dimensions, and 5123 grid size. The Reynolds numbers are Re ∈{200, 400, 600, 800, 1200, 1600}. For all Re con- sidered, these simulation parameters are considered over- resolved in classical CFD. Relative singular value cutoffs σc ∈{10−6, 10−9, 10−12} are used during TTS encoding. For the TGV case, χ of the problem scales as a power law with Re, indicating high Re compressible TGV simula- tions may prove difficult for QICFD. In contrast, large computational grid simulations of low Re cases may be",
+      "page": 8
+    }
+  ],
+  "figure": "2608.26995_figures/2608.26995_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

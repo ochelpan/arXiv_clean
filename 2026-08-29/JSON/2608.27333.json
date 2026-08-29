@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.27333",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.data-an"
+  ],
+  "is_primary_archive": true,
+  "title": "Evaluating Quantum Kernel Methods for Track-Based Classification in High-Energy Physics",
+  "authors": "Emmanuel Billias, Nikos Chrisochoides",
+  "abstract": "We present a systematic design for large-scale quantum kernel classification, demonstrated through a quantum support vector classifier (QSVC) for particle-track classification using centroid-based CLAS12 drift-chamber features. Each event is encoded into a six-qubit state via a fully entangled ZZFeatureMap, whose fidelities define a quantum kernel within a standard SVM framework. By decoupling state preparation from kernel construction and distributing evaluation across a multi-node MPI-based HPC allocation, the approach scales to 1.0x10^5 training and 4.0x10^5 test events with an exactly constructed kernel matrix, to our knowledge more than an order of magnitude larger than prior high-energy-physics quantum-kernel studies.   Benchmarked against linear, polynomial, RBF, and sigmoid SVM kernels and extremely randomized trees (ERT), the ideal QSVC achieves the highest recall (99.99%) among all models. Under a calibrated hardware noise model (FakeMumbaiV2, 500 training / 2,000 test events), AUC falls from 0.9985 to 0.9671 and peak significance improvement falls from 17.5 to ~3.5, yet recall remains at 99.51% -- indicating this signal-retention advantage is attenuated but not eliminated by circuit-level decoherence.   Geometric analysis of the quantum embedding shows near-orthogonal inter-class states with coherent intra-class neighborhoods under ideal simulation; under noise this structure compresses toward the maximally mixed state while preserving its relative ordering.   These results demonstrate a scalable, reproducible workflow for quantum kernel experimentation at HEP-relevant scale, quantifying the practical cost of realistic hardware noise on quantum-enhanced classification.",
+  "url": "http://arxiv.org/abs/2608.27333v1",
+  "pdf": "https://arxiv.org/pdf/2608.27333v1",
+  "type": "both",
+  "summary": "This work presents a scalable framework for applying Quantum Support Vector Classifiers to particle-track identification in HEP. By encoding detector features into a quantum state, the authors demonstrate that the quantum kernel maintains a critical advantage in signal retention over classical methods, even when accounting for realistic hardware decoherence.",
+  "main_problem": "The paper evaluates the utility of quantum kernel methods for distinguishing particle tracks from background noise in high-energy physics (HEP) data.",
+  "main_result": "The Quantum Support Vector Classifier (QSVC) achieved the highest recall (99.99%) in ideal simulations, demonstrating a signal-retention advantage over classical methods, which persists even under realistic hardware noise.",
+  "method": "A quantum kernel is constructed using a fully entangled ZZFeatureMap, which is then integrated into a standard Support Vector Machine (SVM) framework for classification.",
+  "model_or_system": "The system is particle-track classification using centroid-based features from the CLAS12 drift-chamber detector. The methodology involves simulating the quantum kernel computation on large datasets using multi-node HPC resources.",
+  "key_observables": "Recall (99.99% ideal, 99.51% noisy), AUC (0.9985 ideal, 0.9671 noisy), and peak significance improvement.",
+  "important_parameters": "Scales up to $4.0 \times 10^5$ test events; performance is quantified under a calibrated hardware noise model (FakeMumbaiV2).",
+  "main_assumptions": "The primary assumption is that the quantum kernel's ability to capture non-linear correlations provides a distinct advantage in signal-retention, even when hardware noise degrades performance.",
+  "figures_summary": "The notes suggest geometric analysis showing near-orthogonal inter-class states under ideal conditions, and performance curves comparing ideal vs. noisy metrics.",
+  "paper_structure": "The paper systematically designs the QSVC workflow, benchmarks it against classical kernels (linear, RBF, etc.), and then rigorously tests its performance under both ideal simulation and realistic hardware noise models.",
+  "why_interesting": "While the application is HEP, the core methodology—quantifying the performance gap between ideal quantum computation and noisy, scalable quantum kernel estimation—is highly relevant to open quantum systems research.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.27333_figures/2608.27333_fig1.jpg",
+      "caption": "Figure 1: Wire activations in a drift-chamber superlayer produced by a traversing charged particle. Activated segments (left) and individual hit cells (right) illustrate the spatial structure from which centroid-based features are derived [5].",
+      "page": 11
+    },
+    {
+      "image": "2608.27333_figures/2608.27333_fig2.jpg",
+      "caption": "Figure 2: ROC diagnostics comparing the QSVC with classical baselines. Left: Global ROC curves show that ERT achieves the highest AUC (0.9994), while the ideal QSVC (AUC 0.9985) exhibits a near-vertical rise from the origin consistent with its near-zero false-negative rate. The noisy QSVC (AUC 0.9671) shows a markedly slower rise, reflecting degraded background rejection under hardware noise. Right: Optimal operating points illustrate the complementary trade-offs between the two strongest ideal models: ERT maximises precision and specificity while the QSVC maximises recall; the noisy QSVC’s operating point sits well outside this cluster, quantifying the performance cost of circuit- level...",
+      "page": 21
+    },
+    {
+      "image": "2608.27333_figures/2608.27333_fig3.jpg",
+      "caption": "Figure 3: Physics-motivated performance diagnostics comparing the ideal QSVC, noisy QSVC, and ERT. (a) Background rejection curves show that ERT leads the ideal QSVC across nearly the entire efficiency range; the noisy QSVC’s rejection curve sits well below both. (b) The ideal QSVC’s SIC maximum occurs at much higher signal efficiency than ERT’s, though at a lower absolute value; ERT’s peak is higher but narrower and more sen- sitive to threshold choice. The noisy QSVC’s flattened, low-amplitude SIC curve indicates that hardware noise degrades not only peak significance but also the threshold-tunability that makes a classifier operationally useful.",
+      "page": 22
+    },
+    {
+      "image": "2608.27333_figures/2608.27333_fig4.jpg",
+      "caption": "Figure 4: Visualizations of the quantum feature space produced by the ZZFeatureMap. Left: PCA shows that although the embedding is highly expressive, its nonlinear struc- ture cannot be captured by linear projections. Right: t-SNE reveals meaningful geometric organization, with signal and background forming intertwined but locally distinguishable regions. Together, these projections illustrate that the quantum kernel induces a smooth, nonlinear manifold structure that enables the QSVC to construct a sharp decision bound- ary in the full Hilbert space.",
+      "page": 24
+    },
+    {
+      "image": "2608.27333_figures/2608.27333_fig5.jpg",
+      "caption": "Figure 5: Quantum-state structure induced by the ZZFeatureMap under ideal simula- tion. Left: Entanglement entropy characterises the expressivity of the static feature-map encoding. Right: Fidelity distributions reveal that inter-class states tend toward near- orthogonality while intra-class states retain coherent local neighbourhoods, consistent with the ideal QSVC’s decision-boundary geometry. A quantitative, ideal-versus-noisy compar- ison of this fidelity structure is presented in Section 7.3.",
+      "page": 26
+    }
+  ],
+  "figure": "2608.27333_figures/2608.27333_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

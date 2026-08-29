@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2608.27430",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Factorized Boolean representations for efficient quantum synthesis",
+  "authors": "Mehul Shah, Robert Fiszer, Marek Perkowski",
+  "abstract": "Quantum algorithms promise advantages beyond classical reach, but running them on error-corrected hardware requires translating Boolean specifications into reversible circuits, and the resources that translation demands determine what is executable. Established methods minimize a Boolean expression and map it to a circuit, assuming the minimized form is best. Here we show that minimized expressions retain algebraic structure minimization cannot reach, arising from containment and complementary-polarity relationships among their terms, and that extracting it yields circuits cheaper to execute despite having more operations. The decisive quantity is not a circuit's operation count but the control count of its widest operation, a superlinear cost; extracting shared factors trades a few wide operations for many narrow ones and reduces qubit count. Across benchmarks and oracles from quantum search and factoring algorithms, at the representation level the transformation never increases either cost measure, a guarantee from its construction. Translation to an executable circuit returns part of that advantage, since auxiliary lines must be uncomputed, yet the factorized circuit still left a leading circuit-level optimizer reaching lower final counts, and faster, than unaided. The representation of a computation is therefore itself a resource, optimizable before compilation and distinct from both logic minimization and circuit-level optimization.",
+  "url": "http://arxiv.org/abs/2608.27430v1",
+  "pdf": "https://arxiv.org/pdf/2608.27430v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel factorized Boolean representation technique to optimize the synthesis of quantum circuits from Boolean specifications. By exploiting algebraic relationships like containment and complementary polarity, the method reduces the critical resource cost—the control count of the widest gate—which is superlinearly expensive. This optimization is shown to yield circuits that are significantly cheaper to execute than those derived from standard minimization techniques.",
+  "main_problem": "The core challenge is efficiently translating complex Boolean specifications into resource-optimized reversible quantum circuits for fault-tolerant quantum computation.",
+  "main_result": "A novel factorized representation method was shown to reduce the superlinear cost (widest gate control count) of quantum circuits, achieving significant reductions (e.g., median 42.7% quantum cost reduction) compared to conventional synthesis methods.",
+  "method": "The authors developed a two-stage factorization procedure leveraging containment and complementary-polarity relationships among product terms to create a factorized Boolean representation.",
+  "model_or_system": "The model is the quantum circuit synthesis process, requiring the transformation of Boolean logic into reversible quantum gates (Clifford+T basis) suitable for error-corrected hardware.",
+  "key_observables": "Quantum cost (superlinear cost), T-count, qubit count, and the arity of the widest gate.",
+  "important_parameters": "The cost is dominated by the control count of the widest operation, which scales superlinearly with the number of controls.",
+  "main_assumptions": "The factorized circuit is guaranteed not to increase either the quantum cost or T-count relative to the original representation, although some advantage is lost upon full circuit uncomputation.",
+  "figures_summary": "Figures compare resource reductions (quantum cost, T-count) across 64 functions, demonstrating that factorization reduces gate arity, and later figures compare resource usage across multiple optimization stages for complex oracles.",
+  "paper_structure": "The paper introduces the problem of quantum synthesis cost, details the factorized representation method (using containment and polarity), validates the approach on structured benchmarks and complex oracles (like modular exponentiation), and compares the resulting circuits against state-of-the-art circuit-level optimizers.",
+  "why_interesting": "While focused on digital quantum computation, the rigorous resource analysis and optimization techniques developed for circuit synthesis provide valuable theoretical tools for understanding resource scaling in complex quantum protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.27430_figures/2608.27430_fig1.jpg",
+      "caption": "Fig. 1 | Factorization reduces gate arity rather than gate count. a, Conventional realization of the benchmark function con1f1, in which each of five product terms becomes an independent multi-controlled gate; three require many controls (red) and the widest spans six lines. b, The same function after containment-based factor extraction (blue) and polarity- aware factorization (green). Shared factors are computed onto auxiliary lines that then act as additional controls, so that no gate exceeds four lines. Badges give gate size in lines (controls plus target) and bar height is proportional to gate cost. The factorized circuit contains six gates rather than five, yet quantum cost falls from...",
+      "page": 4
+    },
+    {
+      "image": "2608.27430_figures/2608.27430_fig2.jpg",
+      "caption": "Fig. 2 | Resource reductions across 64 Boolean functions. Colour distinguishes three groups: structured benchmarks (blue), randomly generated 100-variable functions (grey), and oracles derived from quantum algorithms (vermillion). a, Factorized versus conventional quantum cost; the dashed line marks equality and the shaded region a reduction. No function increased in cost. The example worked on Fig. 1 is highlighted. b, Factorized versus conventional T-count for the 59 functions with non-zero conventional T-count; five affine functions require no non-Clifford resources in either representation and are omitted. c, Quantum-cost reduction against input-variable count, with median 42.7% (dashed...",
+      "page": 5
+    },
+    {
+      "image": "2608.27430_figures/2608.27430_fig3.jpg",
+      "caption": "Fig. 3 | Factorization improves circuit-level optimization on the largest completed comparisons. Seven benchmark pairs whose PyZX optimization exceeded ten minutes. a, T- count at each of four stages: conventional (A), conventional optimized (B), factorized (C), factorized optimized (D) as a slopegraph; every trajectory from B to D decreases. b, Ratio of optimized to unoptimized T-count for both representations; values cluster tightly around a constant near 4/7, indicating the optimizer applies a fixed local rewrite independent of input structure. c, Qubit count, conventional against factorized; every point falls below the equality line, a reduction PyZX does not produce on its own. d,...",
+      "page": 7
+    },
+    {
+      "image": "2608.27430_figures/2608.27430_fig4.jpg",
+      "caption": "Fig. 4 | Factorization applied to compositionally generated modular exponentiation. Circuits for ax mod N were generated from their arithmetic structure at moduli of 4, 5, 6 and 8 bits and factorized cell by cell. a, Number of cell instances in the generated circuit against the number of distinct cells among them; instances grow with modulus width while the distinct inventory does not. b, T-count and quantum-cost reduction for the complete circuit, obtained by weighing each distinct cell by its multiplicity; both are flat in modulus width. c, Distinct cells grouped by the number of product terms they contain, with the subset whose T-count was reduced shown in colour; reduction is confined...",
+      "page": 11
+    }
+  ],
+  "figure": "2608.27430_figures/2608.27430_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
