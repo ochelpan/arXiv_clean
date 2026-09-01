@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.28494",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.class-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Casimir-electrostatic pull-in in nanoelectromechanical actuators: Differentiable design sensitivities and the damping-dependent collapse boundary",
+  "authors": "N. S. Akintsov, A. P. Nevecheria, S. N. Andreev, Qing-Hua Qin",
+  "abstract": "Nanoelectromechanical actuators operating at sub-100-nm gaps collapse through a pull-in instability set by competing electrostatic and Casimir forces. The quasi-static fold that bounds their safe operating range has been known in closed form for three decades, together with the Casimir ceiling above which no static equilibrium survives, which fixes the smallest gap a given stiffness and area can hold open against the quantum vacuum. That fold does not give the threshold reached from rest, its dependence on damping, or the design sensitivities of either. We train a physics-informed neural network in a rapidity coordinate that maps the movable pull-in pole to infinity, which keeps the residual bounded across the collapse threshold where fixed-step Runge-Kutta integration steps into unphysical states. Differentiating the trained surrogate returns pull-in-voltage sensitivities that match the closed-form fold to a relative error of $3\\times10^{-6}$ and inverts a device specification to a gap of 97.036 nm at a target actuation voltage. Applied to the from-rest boundary, which carries no closed form once the damping is finite, it supplies the same sensitivities where no analytic root exists. We prove that this boundary is bracketed by two closed-form curves, that it is nondecreasing in the damping ratio, that it merges with the fold once the damping ratio exceeds $2^{-1/4}$, and that the gap closes as $(τ_*-τ)^{2/5}$. Numerically the merger already occurs at $0.396$, and the growth of the collapse time changes there from logarithmic to inverse square root. The classical-limit bound on the thermal Lifshitz derating is at the percent level, and the physical shift at these gaps lies orders of magnitude below it.",
+  "url": "http://arxiv.org/abs/2608.28494v1",
+  "pdf": "https://arxiv.org/pdf/2608.28494v1",
+  "type": "theory",
+  "summary": "This work tackles the complex physics of pull-in instability in NEMS actuators driven by Casimir and electrostatic forces. The authors employ Physics-Informed Neural Networks (PINNs) trained in a specialized rapidity coordinate to overcome numerical difficulties near collapse singularities. This advanced computational approach allows for highly accurate determination of design sensitivities and mapping of the full, damping-dependent collapse boundary.",
+  "main_problem": "The paper analyzes the pull-in instability in NEMS actuators caused by competing electrostatic and Casimir forces, focusing on accurately determining design sensitivities and the dynamic collapse boundary.",
+  "main_result": "A Physics-Informed Neural Network (PINN) trained in a rapidity coordinate successfully reproduces the known static pull-in fold with high accuracy and extends the analysis to the complex, damping-dependent collapse boundary where no closed-form solution exists.",
+  "method": "The core methodology involves using PINNs trained on a rapidity coordinate transformation of the governing non-linear oscillator equation to solve the dynamics near singularities, coupled with automatic differentiation for sensitivity analysis.",
+  "model_or_system": "The system is a single-degree-of-freedom (SDOF) lumped oscillator modeling NEMS actuators, governed by forces derived from electrostatic ($\\propto (d-x)^{-2}$) and Casimir ($\\propto (d-x)^{-4}$) interactions.",
+  "key_observables": "Pull-in voltage ($V_{PI}$), design sensitivities ($\\partial V_{PI}/\\partial p$), and the gap closure dynamics near the collapse threshold.",
+  "important_parameters": "Damping ratio ($\\zeta$), Casimir strength ($\beta$), Electrostatic strength ($\\alpha$), and the gap size ($d$).",
+  "main_assumptions": "The analysis uses the ideal-conductor model for the Casimir force, which is noted to be an upper bound, and the PINN approach requires careful handling of the movable pole singularity.",
+  "figures_summary": "Figures illustrate displacement trajectories in different regimes (stable, monotonic, collapse) comparing PINN results to reference solutions, and show the evolution of the pull-in phase diagram across varying damping ratios.",
+  "paper_structure": "The paper establishes the physical model, develops the PINN framework using a rapidity coordinate to handle singularities, validates the PINN against known analytic solutions (the fold), and then applies the differentiable framework to calculate sensitivities and map the full dynamic collapse boundary.",
+  "why_interesting": "The application of PINNs to solve complex, non-linear, time-dependent physical systems, especially those with singularities, represents a powerful extension of ML techniques into computational physics, particularly relevant for modeling open quantum systems dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.28494_figures/2608.28494_fig1.jpg",
+      "caption": "FIG. 1. Representative normalized-displacement trajectories ξ(τ) = x/d for the three dynamical regimes of Eq. (2): (a) stable oscillation (α = 0.05, β = 10−4, ζ = 0.6) settling to ξ ≈0.056; (b) slow monotonic approach to a Casimir-shifted equilibrium (ξ ≈0.29) (α = 0.0724, β = 0.0407, ζ = 1.0); and (c) pull-in collapse (α = 0.20, β = 0.10, ζ = 0.5): the gap closes at τPI = 2.6226 (dotted line), and the last 2% of that interval carries ξ from 0.742 to the barrier ξ = 1 (gray line). Solid curves are the adaptive DOP853 reference, integrated through to the barrier; open markers are the physics-informed neural- network (PINN) solution, drawn only on its training window [0, 0.98 τPI]. The strip...",
+      "page": 2
+    },
+    {
+      "image": "2608.28494_figures/2608.28494_fig2.jpg",
+      "caption": "FIG. 2. Pull-in phase diagram in the (α, β) control-parameter plane at damping ζ = 0.1. The color map gives the dynamic pull-in time τPI(α, β) for trajectories launched from rest; the gray region is stable. The solid line is the analytic quasi-static fold, Eq. (5), the square markers are the boundary located by the parametric PINN, and the dashed and dotted lines are the from-rest dynamic boundaries at ζ = 0.1 and ζ = 0.7. Stars mark the endpoints αc = 4/27 at β = 0 and β∗= 256/3125 = 0.0819 at α = 0. The dynamic boundary at ζ = 0.1 lies inside the fold by a kinetic-overshoot margin of mean width 0.0117 in α, and τPI diverges as the boundary is approached.",
+      "page": 9
+    },
+    {
+      "image": "2608.28494_figures/2608.28494_fig3.jpg",
+      "caption": "FIG. 4. Numerical diagnostics. (a) Composite-loss histories for the three PINN trajectory trainings. Each run hands over from Adam to L-BFGS at its own iteration, 1500, 2000, and 3000, marked by a vertical tick in the color of that curve. The abscissa counts Adam steps up to the tick and L-BFGS func- tion evaluations after it, and the L-BFGS phase is logged only at its final evaluation, so the closing segment of each curve spans unsampled iterations. (b) Fixed-step classical fourth- order Runge–Kutta (RK4) near the pull-in pole: for h ≤0.01 the displacement error follows the fourth-order prediction to within 2.5%, while every tested step h ∈{0.05, . . . , 0.001} overshoots the movable...",
+      "page": 10
+    },
+    {
+      "image": "2608.28494_figures/2608.28494_fig4.jpg",
+      "caption": "FIG. 3. Classical-limit upper bound on the thermal Lifshitz contraction of the pull-in boundary for a d = 100 nm gap. (a) Static boundary in the (α, β) plane at T = 0 with the four device operating points of Table IV. The β = 0 endpoint αc = 4/27 is purely electrostatic and therefore temperature independent, and device C (β = 8.1 × 10−5) sits on it. The inset resolves the Casimir-axis intercept, which contracts from β∗= 0.0819 at 0 K to 0.0813 at 100 K and 0.0799 at 300 K. Outside that corner the three boundaries separate by less than the line width. (b) Relative reduction of the pull-in voltage, −∆VPI/VPI = 1 − p",
+      "page": 10
+    },
+    {
+      "image": "2608.28494_figures/2608.28494_fig5.jpg",
+      "caption": "FIG. 5. The differentiable surrogate as a design tool. (a) Gradient-based inverse design: with area and stiffness fixed, Adam on the gap through the differentiable fold network drives the pull-in voltage to the target V ∗ PI = 0.30 V, converging to d∗= 97.04 nm and reproducing the analytic root to ∼10−5 nm. (b) Pull-in-voltage elasticities ∂ln VPI/∂ln x for device A with respect to gap d, area A, and stiffness k, obtained by automatic differentiation through the surrogate (blue) and validated against a finite-difference evaluation of the analytic pipeline (orange). Each pair carries its elasticity and the relative disagreement of the underlying derivative, 3.4 × 10−6 or smaller. Table S5 of...",
+      "page": 11
+    }
+  ],
+  "figure": "2608.28494_figures/2608.28494_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

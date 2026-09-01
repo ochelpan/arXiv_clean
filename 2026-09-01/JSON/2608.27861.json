@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.27861",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "physics.comp-ph",
+    "cond-mat.str-el",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Vectorized Symmetric and Fermionic Tensor Network Implementations for GPU-Accelerated Variational Monte Carlo",
+  "authors": "Si-Jing Du, Johnnie Gray, Ao Chen, Garnet Kin-Lic Chan",
+  "abstract": "Variational Monte Carlo (VMC) calculations based on tensor networks (TN) have recently achieved competitive accuracy in ground-state calculations of strongly correlated spin and fermionic systems. However, existing tensor network VMC (TN-VMC) algorithms have not been formulated in a manner that can fully utilize GPU acceleration. We tackle the key missing ingredient, namely, the vectorized evaluation of tensor network amplitudes and tensor network operations. This ensures high GPU utilization by batching over computations with identical structure. In particular, we show how to achieve vectorization for the practically relevant case of abelian symmetric tensor networks (which includes fermionic tensor networks) by developing a ``flat'' tensor network formalism for block-sparse tensor representation and contraction. Using this, we construct a GPU-adapted symmetric TN-VMC workflow with batched tensor network computation. In the two-dimensional Fermi--Hubbard model, we demonstrate a GPU speedup of up to $300 \\times$ over single core CPU implementations, for fermionic TN variational wavefunctions.",
+  "url": "http://arxiv.org/abs/2608.27861v1",
+  "pdf": "https://arxiv.org/pdf/2608.27861v1",
+  "type": "theory",
+  "summary": "This paper tackles the computational bottleneck in Tensor Network Variational Monte Carlo (TN-VMC) by developing a vectorized framework optimized for GPUs. By reformulating tensor network operations into a 'flat' formalism, the authors enable batch processing of multiple Monte Carlo configurations. This results in dramatic speedups for simulating fermionic systems like the Fermi-Hubbard model, advancing the feasibility of studying strongly correlated materials.",
+  "main_problem": "The primary challenge addressed is improving the computational efficiency of Tensor Network Variational Monte Carlo (TN-VMC) calculations by enabling full utilization of modern GPU acceleration.",
+  "main_result": "The authors developed a vectorized, GPU-adapted workflow using a 'flat' symmetric tensor formalism, achieving significant speedups (up to $300\times$) over CPU implementations for fermionic systems.",
+  "method": "The core method involves vectorizing the evaluation of tensor network amplitudes by batching computations over multiple Markov chains (configurations) that share the same underlying tensor structure.",
+  "model_or_system": "The work is applied to strongly correlated spin and fermionic systems, with the two-dimensional Fermi–Hubbard model serving as the primary demonstration case. The variational wavefunctions are represented by Tensor Networks (TNS).",
+  "key_observables": "Variational energy $E(\theta)$, wavefunction amplitudes $\\Psi_\theta(\\sigma)$, and computational speedup factors.",
+  "important_parameters": "The batch size $B$ (number of configurations processed simultaneously) and the structure of the tensor network (e.g., abelian symmetric vs. general).",
+  "main_assumptions": "The method assumes that the residual contraction graph for a set of configurations can be grouped by geometry, allowing for a shared computational graph suitable for dense batched tensor operations.",
+  "figures_summary": "Figure 1 illustrates the transition from traditional MPI-parallelization to an efficient, vectorized GPU scheme by batching amplitude evaluations. Other figures detail the structure of tensor block representations and contraction schemes.",
+  "paper_structure": "The paper first identifies the GPU bottleneck in existing TN-VMC. It then introduces the 'flat' symmetric tensor formalism to enable vectorization. The methodology is detailed by showing how to batch amplitude evaluations, which is demonstrated on the Fermi-Hubbard model, leading to performance benchmarks and extensions to other TN-VMC applications.",
+  "why_interesting": "The focus on GPU acceleration and vectorization techniques for simulating strongly correlated electron models is highly relevant for computational quantum physics, providing concrete algorithmic improvements for simulating Hubbard-type Hamiltonians.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.27861_figures/2608.27861_fig1.jpg",
+      "caption": "Figure 1: Parallelization schemes for TN-VMC sampling. (a) In tradi- tional TN-VMC, an MPI-parallelized program assigns one Markov chain to each MPI rank, and amplitudes are evaluated sequentially along each chain. (b) A naive GPU port keeps the same one-chain-per-rank structure, exposing only a single-configuration amplitude evaluation to the GPU at each Markov move. (c) The vectorized GPU scheme assigns B chains to each GPU rank and evaluates the corresponding amplitudes at each move stage as a batched-amplitude evalu- ation with a shared computational graph and a leading batch axis.",
+      "page": 4
+    },
+    {
+      "image": "2608.27861_figures/2608.27861_fig2.jpg",
+      "caption": "Figure 3: An example of sorting, reshaping, and projecting the sector charge table, I, for a k = 4 rank tensor of Z2 symmetry and charge Q = 1, with leg m projected onto charge P = 1. (a) The array is initially indexed by α and ℓ. (b) Sorting by the entries on m yields a new index α′. (c) This can be reshaped into two sub-indices: Im, which indexes the charge of leg m, and β, which indexes the remaining charge tuples. (d) Finally we project onto the desired value Im = P = 1 and drop leg m, yielding a new charge table indexed by β and ℓ′. (e) The corresponding leading axis transformation and projection of the flat blocks, eT, depicted graphically.",
+      "page": 11
+    },
+    {
+      "image": "2608.27861_figures/2608.27861_fig3.jpg",
+      "caption": "Figure 4: An example of sorting and reshaping the sector charge table I of a flat tensor e X with Z2 symmetry and charge Q = 1 to prepare for contraction. (a) The array is initially indexed by sector index α and leg index ℓ. IL denotes the charge columns of legs to be kept, IC those to be contracted away. (b) Sorting the rows lexicographically by \u0000 qC, IL, IC \u0001 yields a new sector index α′. (c) This can be reshaped into three sub-indices: qc, which indexes the combined contracted charge (row-sum of ℓ∈C); λ, which indexes the possible charge sectors on the kept legs; and γ, which indexes the remaining charge sectors on the contracted legs. (d) The corresponding leading axis transformation on...",
+      "page": 12
+    },
+    {
+      "image": "2608.27861_figures/2608.27861_fig4.jpg",
+      "caption": "Figure 5: Single-rank VMC step time as a function of the sample batch size B. (a) TNF-fPEPS with bond dimension D = 12 and boundary-MPS bond dimension χ = 12. (b) Standard fPEPS with bond dimension D = 8 and boundary-MPS bond dimension χ = 32, using boundary-MPS environment reuse. CPU timings use one MPI rank with a single CPU core and sequential amplitude evaluation. GPU timings use one MPI rank controlling one GPU and batched amplitude evaluation with batch size B.",
+      "page": 15
+    },
+    {
+      "image": "2608.27861_figures/2608.27861_fig5.jpg",
+      "caption": "Figure 6: Multi-GPU throughput scaling of batched TN-VMC. Standard fPEPS-VMC on an 8×8 Fermi–Hubbard lattice with bond dimension D = 8 and boundary-MPS bond dimension χ = 32. Each MPI rank controls one GPU and carries a fixed batch of B = 500 walkers. The main panel shows the total number of Monte Carlo samples processed per second of VMC-step wall time as a function of the number of MPI ranks/GPUs; the dashed line indicates ideal linear throughput scaling. The inset shows the VMC-step wall time remains constant as the number of GPUs is increased.",
+      "page": 16
+    }
+  ],
+  "figure": "2608.27861_figures/2608.27861_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

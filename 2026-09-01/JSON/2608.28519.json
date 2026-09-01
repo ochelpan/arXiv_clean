@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.28519",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "eess.SY",
+    "physics.app-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Beyond sensitivity: mechanism-resolved error budgets for designing quantum sensors",
+  "authors": "Nima Leclerc, Marco Capelli, Kevin James Rietwyk, Mark Dong, Dmitry Lyakh, Geoffrey Iwata, Brandon Rodenburg, Sean Oliver, Benedikt Kloss, Jin-Sung Kim, Stefan Bogdanovic, Yunheng Chen, Meysam Sharifzadeh Mirshekarloo, Cedric Weber, Marcus Doherty, Ethan Pratt, Joseph Hagmann",
+  "abstract": "Quantum sensors are specified by a headline sensitivity, yet applications also demand accuracy and reliability. The dominant limiter of one metric is often known, but no method resolves how interacting mechanisms combine into a signed, per-mechanism budget for each metric. We introduce a framework that computes a sensor's sensitivity, accuracy, and robustness from one open-system simulation and attributes each to its limiting mechanism. For a nitrogen-vacancy diamond ensemble the attribution inverts across metrics: dephasing limits sensitivity, the thermal ground-state shift limits accuracy, and optical leakage limits robustness. At identical sensitivity the recovered-field bias spans $8$ to $1500$\\,nT, so tuning to sensitivity alone can miss the accuracy target by two orders of magnitude. The same modeling transfers to a cesium optically pumped magnetometer recording a human magnetocardiogram. As a digital twin, it predicts the gain from addressing each limiter, so sensors can be designed to the required metrics.",
+  "url": "http://arxiv.org/abs/2608.28519v1",
+  "pdf": "https://arxiv.org/pdf/2608.28519v1",
+  "type": "theory",
+  "summary": "This paper presents a novel framework to analyze quantum sensors by calculating performance metrics like sensitivity, accuracy, and robustness simultaneously. It uses open quantum system theory and Shapley values to attribute the limitation of each metric to specific physical mechanisms. This allows engineers to design sensors by targeting the root cause of performance degradation rather than just optimizing for sensitivity.",
+  "main_problem": "Current quantum sensor characterization methods fail to provide a mechanism-resolved budget for multiple performance metrics (sensitivity, accuracy, robustness).",
+  "main_result": "The authors introduce a framework that attributes each performance metric to its specific limiting physical mechanism, showing that the dominant limiter differs across metrics.",
+  "method": "The method uses an open quantum system simulation solved via a tangent-linear construction, employing Shapley values to perform non-additive error attribution.",
+  "model_or_system": "The analysis is based on modeling the sensor as an open quantum system whose evolution is governed by a Lindblad master equation, applicable to platforms like NV diamond ensembles and OPMs.",
+  "key_observables": "Sensitivity ($\\eta_B$), Accuracy (systematic bias $\beta$), and Robustness ($R_{lin}$); error contributions attributed to specific mechanisms (e.g., dephasing, thermal shift).",
+  "important_parameters": "Interrogation time ($\tau$), environmental noise parameters, and the set of controllable device parameters ($\theta$).",
+  "main_assumptions": "The sensor dynamics can be accurately described by an open quantum system, and the readout must be sufficiently informative to separate contributions from different error mechanisms.",
+  "figures_summary": "Figures illustrate the per-mechanism attribution (Shapley share) for the three metrics, and later figures detail the closed-loop process for online adaptation and diagnosis.",
+  "paper_structure": "The paper first establishes the need for multi-metric error budgeting, introduces the open-system/tangent-solve framework, demonstrates metric-dependent attribution using NV diamond examples, and concludes by outlining an adaptive, closed-loop control strategy.",
+  "why_interesting": "This work provides a rigorous, quantitative framework for characterizing and actively controlling quantum sensors by decomposing performance limitations into fundamental physical mechanisms, which is crucial for next-generation quantum sensing hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.28519_figures/2608.28519_fig1.jpg",
+      "caption": "Figure 1: Per-mechanism, multi-metric attribution from one open quantum system model. A single open-system solve returns a sensor’s three performance metrics, its sensitivity (ηB, the smallest field resolvable per unit bandwidth), accuracy (limited by the systematic bias β of the recovered field), and robustness (Rlin, the stability of the sensitivity under parameter drift), and attributes each to individual physical mechanisms. (a) Simplified level scheme of the nitrogen-vacancy (NV) center. Optical pumping at 532 nm and spin-selective intersystem crossing (ISC) through the singlet set the readout contrast C, the microwave drive Ωaddresses the |0⟩↔|−1⟩ transition whose splitting responds...",
+      "page": 5
+    },
+    {
+      "image": "2608.28519_figures/2608.28519_fig2.jpg",
+      "caption": "Figure 2: Validation of the first-principles sensitivity engine. The engine computes the shot-noise-limited sensitivity ηB (smallest field resolvable per unit bandwidth) as a function of the interrogation time τ. (a) The single-solve pipeline, from the field derivative ∂bρ(τ) of the density matrix (computed by the tangent master equation and checked against finite differencing, red circles; agreement < 10−4) through the readout contrast C and the photon statistics to ηB(τ). Each stage is traced for an ideal, low-strain ensemble (black) and a degraded case combining high transverse strain with acousto-optic-modulator (AOM) leakage (orange). The AOM gates the pump laser on for initialization...",
+      "page": 7
+    },
+    {
+      "image": "2608.28519_figures/2608.28519_fig3.jpg",
+      "caption": "Figure 3: Metric-dependent attribution. For a fixed device, the per-mechanism budget of each metric, computed from one open-system solve: sensitivity (ηB), accuracy (the systematic bias, summarized by the root-mean-square error, RMSE), and robustness (the linearized drift index Rlin, equal to one when drift leaves the sensitivity untouched). (a) Per-mechanism contribution versus interrogation time τ (solid, left axis; Eq. 5), one panel per metric, with the mechanisms color-coded (dephasing T ⋆ 2 in blue, optical leakage ε in orange, thermal shift in vermillion, and longitudinal relaxation T1 in gray). The shares are Shapley values for sensitivity and accuracy and the additive...",
+      "page": 8
+    },
+    {
+      "image": "2608.28519_figures/2608.28519_fig4.jpg",
+      "caption": "Figure 4: Metric-dependent attribution on a measured operating knob. The optical readout intensity P serves as a measured control knob on two diamonds of differing nitrogen content (0.3 and 4.5 ppm; solid and dashed curves). (a) the measured NV−/NVT charge fraction (the spin-active fraction of centers) versus laser intensity P. (b) the detected-photon budget Ndet(P) (saturation intensities marked) and the effective readout contrast Ceff(P). (c) the sensitivity ηB(P) (smallest field resolvable per unit bandwidth, left axis), with an interior optimum on the 0.3 ppm diamond, and the accuracy as a normalized root-mean-square error NRMSE(P) (right axis), flat because it is limited by a...",
+      "page": 11
+    },
+    {
+      "image": "2608.28519_figures/2608.28519_fig5.jpg",
+      "caption": "Figure 5: One framework, two platforms: design by specification on a real scalar-OPM magnetocardiogram. A 26-sensor scalar (total-field) cesium (Cs) optically pumped magnetometer (OPM) array, unshielded at the geomagnetic field, records a human magnetocardiogram. (a) The measured cardiac-dipole field map at the QRS peak (the largest deflection of the heartbeat), the averaged waveform, and the array geometry. (b) The model grounded in the recording: the Larmor frequency versus the exact Breit–Rabi prediction, and the frequency-resolved sensitivity ηB(f) with its fundamental spin-projection (standard-quantum-limit) floor, against the measured field noise. (c) The sensitivity and robustness...",
+      "page": 13
+    }
+  ],
+  "figure": "2608.28519_figures/2608.28519_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

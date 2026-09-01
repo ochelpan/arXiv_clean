@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.27592",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Plateau-Constrained Selection of Commuting Phase-Term Orderings Under a Fixed Maintained-Parity Compiler Contract",
+  "authors": "Owen Friedewald, Ali Shiri Sichani, Chi-Ren Shyu",
+  "abstract": "Ordering objectives for commuting phase terms can have many equal optima, yet prior methods do not characterize or exploit those ties. We use a classical two-stage permutation search under fixed placement and maintained-parity quantum lowering: Stage 1 certifies the primary support optimum, and Stage 2 samples equal-cost tours and selects by a frozen routed score. On synthetic 16-qubit assignment-Ising instances, exact counting through 20 terms establishes instance-dependent multiplicity; when the support lower bound is attained, the reversal-reduced width equals the number of undirected Hamiltonian paths of the support line graph. A revised engineering analysis found 9.14% fewer routed controlled-NOT gates than unoptimized order, while the registered comparison found 11.10% fewer than prior stochastic search. Among 24 sampled minimum-support-cost orders at 36 terms, direct-depth selection reduced opposite-SABRE-seed depth by 12.83% in all 20 aggregates, whereas a matched 24-restart control changed depth by only -0.41% (unresolved). Candidate rankings persisted across SABRE routing seeds, explaining why selection survived routing re-randomization. The depth benefit transferred to a second generator and to 48 terms, but reversed under BasicSwap. On a prospective IBM Heron panel, raw generator error shifted by -0.0025 (-0.59%); fixed-panel shot uncertainty excluded zero, but term-seed inference remained unresolved. Equal-primary-cost tours are a useful router-conditioned compiler freedom, not a guaranteed hardware benefit.",
+  "url": "http://arxiv.org/abs/2608.27592v1",
+  "pdf": "https://arxiv.org/pdf/2608.27592v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel two-stage compiler optimization technique for ordering commuting phase terms in quantum circuits. It leverages the fact that multiple orderings can achieve the same minimum energy cost (a 'plateau'). By sampling and selecting among these equal-cost options, the authors demonstrate measurable improvements in circuit depth and gate count compared to prior state-of-the-art methods.",
+  "main_problem": "The paper addresses the challenge of selecting optimal orderings for commuting phase terms in quantum circuits, specifically exploiting the degeneracy (plateau) of multiple equal-cost solutions.",
+  "main_result": "A two-stage search strategy that samples equal-cost tours significantly reduces circuit depth (e.g., 12.83% reduction) compared to prior methods, although this benefit is shown to be dependent on the specific quantum compiler routing used.",
+  "method": "The methodology employs a classical two-stage permutation search under a fixed compiler contract: Stage 1 finds the primary support optimum, and Stage 2 samples and selects among all equal-cost tours using a 'frozen routed score.'",
+  "model_or_system": "The work models quantum computation using synthetic 16-qubit assignment-Ising instances derived from a QUBO model, focusing on the ordering of commuting phase terms in the Hamiltonian simulation.",
+  "key_observables": "Circuit depth (e.g., opposite-SABRE-seed depth), number of routed controlled-NOT (CNOT) gates, and the multiplicity of minimum-support-cost orderings.",
+  "important_parameters": "The size of the system (e.g., 16 qubits, 36 or 48 terms) and the specific compiler contract constraints (fixed placement, maintained-parity).",
+  "main_assumptions": "The depth benefit is explicitly noted to be 'router-conditioned' and not a guaranteed hardware benefit, and the synthetic workload does not represent end-to-end electronic-design-automation behavior.",
+  "figures_summary": "Figure 1 illustrates the two-stage ordering process, detailing how Stage 1 identifies the minimum support cost, and Stage 2 selects among multiple tours achieving that cost based on depth metrics.",
+  "paper_structure": "The paper is structured around defining a fixed compiler contract, executing the two-stage search (Stage 1 for primary cost, Stage 2 for plateau selection), and then rigorously comparing the resulting circuit metrics against various benchmarks and sensitivity analyses.",
+  "why_interesting": "This work tackles a highly practical, low-level optimization problem in quantum compilation—resource reduction—by mathematically characterizing and exploiting the inherent symmetries (degeneracy) in the problem space.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.27592_figures/2608.27592_fig1.jpg",
+      "caption": "FIGURE 1. Two-stage ordering under a fixed compiler contract, anchored by the 60 operating-scale 36-term banks. Stage 1 attains Hmin = 74; every frozen search bank supplies at least 24 observed equal-cost tours, whose opposite-seed depth distributions have median pool minimum and maximum 191.0 and 277.5. Stage 2 preserves Hclosed exactly while selecting by training-route depth; routed depth and CX under the opposite seed remain downstream evaluation quantities.",
+      "page": 3
+    },
+    {
+      "image": "2608.27592_figures/2608.27592_fig2.jpg",
+      "caption": "FIGURE 2. Illustrative maintained-parity transition. The first phase uses support S1 = {q0, q1} and the second uses S2 = {q0, q2}. The S1 →S2 transition removes one contribution and adds the other without returning the workspace to empty between phases; final uncompute returns it to |0⟩. The maintained transition uses six CNOTs rather than the eight required by independently computing and uncomputing both pair supports.",
+      "page": 6
+    },
+    {
+      "image": "2608.27592_figures/2608.27592_fig3.jpg",
+      "caption": "FIGURE 3. Original registered 36-term prior-work replication comparison over 20 term-seed units, each averaged across three topologies and two transpiler seeds. Panel (a) uses a truncated vertical axis to expose the paired outcomes; panel (b) plots left-minus-right differences, so negative values favor JSPT OR-Tools. The mean marker carries a paired 95% bootstrap interval. No route is treated as an independent sample.",
+      "page": 13
+    },
+    {
+      "image": "2608.27592_figures/2608.27592_fig4.jpg",
+      "caption": "FIGURE 4. Stage-1 resource control over 20 term-seed units, each aggregated across three topologies. For each budget, the best routed-CX result from nested transpiler restarts of the unoptimized order is compared with the five-second JSPT OR-Tools result; lower is better. The maximum count is the timing-only budget match 382 = ⌊5 s/0.013074 s⌋. The line is the term-seed mean and the shaded band is its 95% bootstrap interval.",
+      "page": 13
+    },
+    {
+      "image": "2608.27592_figures/2608.27592_fig5.jpg",
+      "caption": "FIGURE 5. Prior-cost audit over 20 term-seed units, each averaged across three topologies and two transpiler seeds. Lines pair independently optimized JSPT and Gui-open routed-CX means within term seed; lower is better. The figure carries no interval because the paired bootstrap interval and Holm-adjusted test are reported in Table 5.",
+      "page": 15
+    }
+  ],
+  "figure": "2608.27592_figures/2608.27592_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.27626",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum SEDONet: Spectrally-Embedded Quantum Deep Operator Networks for Partial Differential Equations",
+  "authors": "Muhammad Abid, Arth Sojitra, Bipin Tiwari, Omer San",
+  "abstract": "Quantum DeepONet accelerates neural-operator inference by evaluating an orthogonally parameterized network on a quantum computer, reproducing in ideal simulation the accuracy of its classical counterpart at asymptotically lower inference cost. Its trunk network, however, receives query coordinates with limited spectral structure, requiring the network to learn oscillatory features through its nonlinearities. We propose Quantum SEDONet (Spectral-Embedded Deep Operator Network), which assigns each trunk coordinate a spectral basis according to its boundary condition: Fourier features for periodic coordinates and Chebyshev features for bounded, non-periodic coordinates. The basis is selected per coordinate rather than per problem, allowing both representations within a single problem. Under unary amplitude encoding, the embedding incurs no additional qubits or circuit depth when its dimension remains within the network width, while increasing the parameter count by only a few percent. Across four benchmarks, Quantum SEDONet reduces the mean relative L2 error by 54.1% for the antiderivative, 49.6% for advection, 36.0% for Burgers, and 36.2% for a mixed-boundary channel Poisson problem. Quantum and classical evaluation paths agree to within 10^-8 throughout. The channel Poisson problem simultaneously uses Fourier features in the periodic direction and Chebyshev features in the bounded direction, demonstrating coordinate-wise boundary-matched spectral embedding without additional quantum-resource cost.",
+  "url": "http://arxiv.org/abs/2608.27626v1",
+  "pdf": "https://arxiv.org/pdf/2608.27626v1",
+  "type": "both",
+  "summary": "This paper introduces Quantum SEDONet, an enhancement to quantum deep operator networks designed to solve PDEs more accurately. It improves performance by spectrally embedding the input coordinates using basis functions appropriate for the given boundary conditions (e.g., Fourier for periodic). The method achieves significant error reduction while maintaining low overhead on quantum hardware.",
+  "main_problem": "The paper aims to accelerate the inference of solutions to Partial Differential Equations (PDEs) by improving the spectral representation used in quantum deep operator networks.",
+  "main_result": "Quantum SEDONet significantly reduces the mean relative $L_2$ error across four PDE benchmarks (up to 54.1% reduction) while incurring negligible overhead in quantum resources (qubits/depth).",
+  "method": "It proposes Quantum SEDONet, which enhances the DeepONet trunk network by assigning a coordinate-specific spectral basis (Fourier for periodic, Chebyshev for bounded) to the input coordinates.",
+  "model_or_system": "The method is applied to solving various PDEs, including the antiderivative, advection, Burgers equation, and a mixed-boundary channel Poisson problem. The underlying computational framework is a quantum circuit evaluation of the neural operator.",
+  "key_observables": "Mean relative $L_2$ error reduction (36% to 54%), qubit count, and circuit depth.",
+  "important_parameters": "The boundary conditions (periodic vs. bounded) dictate the choice of spectral basis; results are reported in the ideal, noiseless, infinite-shot quantum regime.",
+  "main_assumptions": "The quantum evaluation path is assumed to perfectly reproduce the classical orthogonal network result in the ideal limit, and the spectral embedding is assumed to be resource-free.",
+  "figures_summary": "The notes reference tables comparing the mean relative $L_2$ error reduction and resource costs between the baseline Q-DeepONet and the proposed Q-SEDONet across multiple PDE benchmarks.",
+  "paper_structure": "The paper details the architecture, presents experimental results across four PDE benchmarks (integrative, convective, diffusion-dominated, elliptic), and discusses related work covering spectral methods and quantum PDE solvers.",
+  "why_interesting": "While the core application is PDE solving, the integration of spectral basis functions (Fourier/Chebyshev) into a quantum machine learning framework is a sophisticated numerical technique relevant to modeling quantum systems where boundary conditions are critical.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.27626_figures/2608.27626_fig1.jpg",
+      "caption": "Figure 1: The circuit of a single quantum layer, comprising data loading, a pyramidal orthogonal transformation, and tomography, with one ancillary qubit for the tomography. Vertical connectors denote the two-qubit RBS gates; θi parameterize the pyramid and αi the loader. The top panels show the pyramid geometry for representative weight shapes W ∈Rm×n.",
+      "page": 5
+    },
+    {
+      "image": "2608.27626_figures/2608.27626_fig2.jpg",
+      "caption": "Figure 2: The Quantum SEDONet architecture. As in Quantum DeepONet, a branch net encodes the input function v and a trunk net encodes the query coordinate ξ; each subnetwork is a stack of QOrthoNN quantum layers (Load →Pyramid →Tomography, with classical σ between layers and a classical output layer), and the two outputs are combined by an inner product to give G′(v)(ξ). Quantum SEDONet adds a single new block, the highlighted spectral embedding, which maps the trunk coordinate ξ to ϕ(ξ) using a Fourier basis for periodic coordinates and a Chebyshev basis for bounded non-periodic ones before the quantum layers.",
+      "page": 9
+    },
+    {
+      "image": "2608.27626_figures/2608.27626_fig3.jpg",
+      "caption": "Figure 3: Ideal quantum simulation of function approximation with a QOrthoNN. Black, red, and blue denote the reference function, the classical OrthoNN prediction, and the ideal quantum simulation of the QOrthoNN respectively; the three curves are superimposed by construction. (a) f(x) = 1/(1 + 25x2) on [−1, 1], relative L2 error 0.136%, classical–quantum agreement 7.8 × 10−9. (b) f(x) = P4 k=1 sin(kx) on [−π, π], relative L2 error 3.308%, agreement 1.0 × 10−6.",
+      "page": 12
+    },
+    {
+      "image": "2608.27626_figures/2608.27626_fig4.jpg",
+      "caption": "Figure 4: Antiderivative operator, both arms at 11 trunk qubits. (a) Per-function comparison over the 100 test functions, each point giving the relative L2 error of the two arms on the same input function; points below the diagonal favor Quantum SEDONet, which is more accurate on 99 of 100 functions. (b) The test function on which the baseline performs worst. The Quantum DeepONet prediction is piecewise linear with visible hinge points, the signature of a ReLU trunk driven by a single affine coordinate; the Chebyshev embedding removes them. This sample has roughly 20× smaller amplitude than a typical test function, which inflates its relative error.",
+      "page": 13
+    },
+    {
+      "image": "2608.27626_figures/2608.27626_fig5.jpg",
+      "caption": "Figure 5: Prediction comparison for one representative advection test sample, showing the initial condition, the ground truth, Quantum DeepONet and Quantum SEDONet predictions, and their corresponding absolute error maps on a common color scale. The baseline error follows the diagonal transport characteristics; the spectral embedding removes it.",
+      "page": 14
+    }
+  ],
+  "figure": "2608.27626_figures/2608.27626_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

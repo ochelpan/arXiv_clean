@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.27901",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "High-Throughput Normalized Min-Sum Belief Propagation Decoding for Quantum LDPC Codes with Near-Memory Processing",
+  "authors": "Jeonggeun Seo, Youngsun Han, Leanghok Hour, Dongmin Kim",
+  "abstract": "Real-time quantum error correction requires classical decoders to process growing syndrome workloads with low and predictable latency. For quantum low-density parity-check (qLDPC) codes, iterative belief propagation (BP) repeatedly updates messages over sparse Tanner graphs, creating substantial memory-access and data-movement demands. We map normalized Min-Sum BP decoding of the [[144,12,12]] Bivariate Bicycle qLDPC code onto a DPU-based Processing-in-Memory (PIM) architecture. Within each DPU, 11 tasklets cooperatively decode one syndrome, while multiple DPUs process independent syndrome instances in parallel. Using uPIMulator and a data-qubit Pauli error model with ideal syndrome measurements, we compare throughput, per-syndrome processing time, logical error rate (LER), and single-syndrome tail latency against a 16-logical-CPU baseline. At a component-wise physical error probability of p=0.001 and one BP iteration, the projected aggregate kernel throughput of 2,560 DPUs reaches 1.071 x 10^7 decodes/s, compared with 1.22 x 10^6 decodes/s for the CPU, an 8.8x improvement. From two iterations onward, the measured LER remains below the physical error probability for every evaluated value of p. For one to five iterations, the maximum sampled serialized X+Z DPU compute latency remains below the 1 ms decoder-side reference for trapped-ion QEC, reaching approximately 0.873 ms at five iterations. These results show that near-memory processing can provide high aggregate throughput and sub-millisecond compute latency for qLDPC BP decoding under the evaluated conditions.",
+  "url": "http://arxiv.org/abs/2608.27901v1",
+  "pdf": "https://arxiv.org/pdf/2608.27901v1",
+  "type": "both",
+  "summary": "This paper demonstrates a high-performance computing solution for decoding quantum error-correcting codes using a DPU-based Processing-in-Memory (PIM) architecture. By mapping the iterative Belief Propagation decoding onto this near-memory platform, the authors achieve significant throughput gains and maintain predictable, low compute latency required for real-time quantum operations. This validates PIM as a viable accelerator for next-generation quantum hardware.",
+  "main_problem": "The paper addresses the need for classical decoders to process growing syndrome workloads in real-time quantum error correction (QEC) with low and predictable latency.",
+  "main_result": "Implementing normalized Min-Sum Belief Propagation decoding on a DPU-based Processing-in-Memory (PIM) architecture yields an 8.8x throughput improvement over CPU baselines and maintains sub-millisecond compute latency.",
+  "method": "The authors mapped the iterative Min-Sum BP decoding algorithm onto a DPU-based PIM architecture, leveraging massive parallelism by distributing independent syndrome instances across thousands of DPUs.",
+  "model_or_system": "The work focuses on decoding for Quantum Low-Density Parity-Check (qLDPC) codes, specifically the [[144,12,12]] Bivariate Bicycle code. The computation is modeled using a DPU-based PIM architecture, which allows for near-memory processing.",
+  "key_observables": "Throughput (decodes/s), per-syndrome processing time, single-syndrome tail latency, and Logical Error Rate (LER).",
+  "important_parameters": "Component-wise physical error probability (p=0.001), number of BP iterations (1 to 5), and the 1 ms decoder-side timing reference for trapped-ion QEC.",
+  "main_assumptions": "The DPU latency measured is the decoder-side compute time, excluding host-DPU communication overhead. The Min-Sum BP normalization factor is fixed at 0.75 to enable integer arithmetic.",
+  "figures_summary": "Figures illustrate the qLDPC code structure (Tanner graph) and compare the decoding workflows and latency distributions between the CPU and the proposed DPU-based PIM architecture.",
+  "paper_structure": "The paper introduces the QEC decoding bottleneck, details the mapping of Min-Sum BP to the DPU-PIM architecture, presents quantitative comparisons of throughput and latency against a CPU baseline, and concludes with performance validation across varying error rates and iterations.",
+  "why_interesting": "This work is highly relevant as it tackles the computational bottleneck of fault-tolerant quantum computation by proposing a hardware acceleration strategy (PIM) for decoding algorithms central to QEC.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.27901_figures/2608.27901_fig1.jpg",
+      "caption": "Figure 1: Tanner-graph structure of the [[144, 12, 12]] Bivariate Bicycle qLDPC code used in this work. Circles represent data (variable) nodes, while squares represent check nodes. The data nodes are divided into two registers, and the check nodes are divided into two stabilizer- check types. Long-range connections are shown schematically, while individual edge types are not distinguished for visual clarity.",
+      "page": 3
+    },
+    {
+      "image": "2608.27901_figures/2608.27901_fig2.jpg",
+      "caption": "Figure 2: DPU-based PIM architecture used as the near-memory processing platform in this work. The host CPU communicates with PIM-enabled DIMMs through the memory bus. Each DIMM contains two ranks, each rank contains eight PIM chips, and each PIM chip contains eight DPUs, giving 2,560 DPUs in the 20-DIMM configuration. Each DPU includes a processing pipeline, register file, atomic unit, IRAM, WRAM, DMA support, and a local DRAM bank referred to as MRAM.",
+      "page": 5
+    },
+    {
+      "image": "2608.27901_figures/2608.27901_fig3.jpg",
+      "caption": "Figure 3: Overview of the conventional CPU-based and proposed DPU-based PIM decoding workflows. The proposed workflow offloads normalized Min-Sum BP computation to the DPUs and distributes independent syndrome instances across multiple DPUs for parallel decoding.",
+      "page": 6
+    },
+    {
+      "image": "2608.27901_figures/2608.27901_fig4.jpg",
+      "caption": "Figure 4: Arithmetic comparison of standard log-domain BP and normalized Min-Sum BP for DPU execution. Standard BP evaluates nonlinear functions such as tanh and atanh in the check-node update. Normalized Min-Sum uses sign evaluation, minimum-magnitude selection, and fixed-point scaling. The evaluated implementation uses α = 0.75 = 3/4, allowing the normalization step to be expressed using integer addition and bit shifting.",
+      "page": 7
+    },
+    {
+      "image": "2608.27901_figures/2608.27901_fig5.jpg",
+      "caption": "Figure 4 compares the arithmetic structures of standard log-domain BP and normalized Min-Sum BP from the DPU execution perspective. The normalized Min-Sum implementation used in this work fixes the normalization factor to α = 0.75 = 3/4. With this value, the normalization step in the fixed-point implementation can be expressed using integer addition and bit shifting. Let mv→c denote the message from variable node v to check node c, and let mc→v denote the message in the opposite direction. Let N(c) and N(v) denote the neighboring variable and check nodes of c and v, respectively. For a measured syndrome value sc, the normalized Min-Sum check-node update is expressed as",
+      "page": 7
+    }
+  ],
+  "figure": "2608.27901_figures/2608.27901_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.28535",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hardware-Efficient Error Mitigation and Shot-Efficient Sampling on IBM Quantum Hardware",
+  "authors": "Sumit Chongder",
+  "abstract": "We experimentally study error mitigation and finite-shot sampling on superconducting quantum hardware under a constrained execution budget. The study combines calibration-aware qubit selection, circuit-depth scaling, zero-noise extrapolation, dynamical decoupling, readout-error mitigation, and repeated-shot estimation on an IBM Quantum processor. Experiments are organized across ideal simulation, noise-model simulation, and physical-device execution to separate sampling uncertainty from device-induced error. We investigate how mitigation performance changes with circuit depth, effective noise scale, qubit connectivity, and measurement budget, and quantify accuracy using expectation-value error, mean-squared error, statistical uncertainty, and mitigation gain. A fixed hardware-execution budget is used to evaluate shot allocation strategies and repeated measurements without relying on unlimited sampling. The resulting analysis provides a hardware-aware characterization of when mitigation improves expectation-value estimation and when finite-shot fluctuations offset the benefit of additional mitigation overhead. The implementation uses contemporary Qiskit and IBM Quantum Runtime workflows and is designed to provide reproducible experimental evidence for error-mitigation studies on current quantum processors.",
+  "url": "http://arxiv.org/abs/2608.28535v1",
+  "pdf": "https://arxiv.org/pdf/2608.28535v1",
+  "type": "experiment",
+  "summary": "This paper experimentally characterizes error mitigation and sampling strategies on superconducting quantum hardware under strict, fixed measurement budgets. By decomposing the Mean-Squared Error into bias and variance, the authors demonstrate that advanced techniques like ZNE do not guarantee improvement and must be carefully validated for each specific hardware setup and circuit depth.",
+  "main_problem": "The study evaluates the true benefit of quantum error mitigation techniques (like ZNE) on NISQ hardware when the total measurement-shot budget is fixed, addressing the tension between bias reduction and increased sampling variance.",
+  "main_result": "Neither standard Zero-Noise Extrapolation (ZNE) nor adaptive shot allocation should be applied by default, as the benefit must be validated per device, circuit, and fixed sampling budget.",
+  "method": "The authors used a fixed-budget, bias-variance-aware benchmarking protocol comparing raw measurements against ZNE and adaptive shot allocation schemes.",
+  "model_or_system": "The experiments were conducted on a superconducting quantum processor (IBM Quantum Heron) using circuits like GHZ states and repeated-layer circuits to test error scaling.",
+  "key_observables": "Expectation-value error, Mean-Squared Error (MSE), bias, variance, and mitigation gain.",
+  "important_parameters": "Fixed total measurement-shot budget, circuit depth ($L$), effective noise scale, and qubit connectivity.",
+  "main_assumptions": "The analysis relies on the bias-variance decomposition of the MSE, and the adaptive allocation rule is seeded using pilot runs.",
+  "figures_summary": "Figures are mentioned to show empirical estimator variance tracking $1/N$ shot-noise prediction and depth scaling trends for repeated-layer circuits.",
+  "paper_structure": "The paper is structured around a hardware-validated benchmarking protocol, comparing raw estimation against various mitigation techniques (ZNE, adaptive allocation) across different circuit depths and noise regimes.",
+  "why_interesting": "It provides crucial, practical guidelines for quantum algorithm developers, showing that theoretical error mitigation gains can be nullified or outweighed by finite-shot noise costs on real hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.28535_figures/2608.28535_fig1.jpg",
+      "caption": "Figure 1: Empirical estimator variance versus 1/N for simulated shot counts N ∈{100, . . . , 20000}, compared against the theoretical shot-noise prediction of Eq. 1.",
+      "page": 7
+    },
+    {
+      "image": "2608.28535_figures/2608.28535_fig2.jpg",
+      "caption": "Figure 2: Simulated ideal and noisy expectation values and absolute error as a function of layer count L and cumu- lative two-qubit gate exposure.",
+      "page": 8
+    },
+    {
+      "image": "2608.28535_figures/2608.28535_fig3.jpg",
+      "caption": "Figure 3: Hardware-measured ⟨Z0⟩versus layer count L, raw versus dynamical decoupling.",
+      "page": 8
+    },
+    {
+      "image": "2608.28535_figures/2608.28535_fig4.jpg",
+      "caption": "Figure 4: Measured ⟨Z0Z1⟩on a low-error qubit pair versus a deliberately high-error qubit pair from the same calibration snapshot.",
+      "page": 9
+    },
+    {
+      "image": "2608.28535_figures/2608.28535_fig5.jpg",
+      "caption": "Figure 5: Simulated mitigation hierarchy: expectation-value estimate and absolute bias for raw, readout-mitigated, ZNE, and combined readout-mitigation-plus-ZNE conditions.",
+      "page": 10
+    }
+  ],
+  "figure": "2608.28535_figures/2608.28535_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

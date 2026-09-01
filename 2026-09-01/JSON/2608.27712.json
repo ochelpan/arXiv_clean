@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.27712",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.NA"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Quantum Simulation of Variable-Coefficient Transport with Continuous Source Injection",
+  "authors": "Mohammad Mehedi Hasan Akash, Turag Dev, Nhat-Quang Nguyen, Yanzhu Chen, Huixuan Wu, Kourosh Shoele",
+  "abstract": "Quantum time-marching algorithms for transport PDEs often represent variable coefficients and forcing through register-expanding dilations, block-encoding oracles, or repeated postselection. We present an alternative algorithm for a forced variable-coefficient advection-diffusion equation in flow-inspired skew-symmetric form that incorporates spatially varying velocity, viscous dissipation, and persistent source injection with a peak logical requirement of $n_q+1$ qubits. A centered skew-symmetric discretization makes the advection operator strictly skew-Hermitian for arbitrary velocity profiles, enabling an ancilla-free unitary realization using a Gray-code Trotter sequence of controlled-$R_y$ rotations. Diffusion is applied in the Fourier basis through a uniformly controlled rotation on one postselected ancilla, which is measured, reset, and reused between the two diffusion half-steps, while the source is incorporated classically through second-order Strang splitting. Statevector simulations for $N=16$ and $32$ recover second-order temporal convergence against high-accuracy classical solutions, while Richardson extrapolation gives fourth-order accuracy and reduces kernel calls by factors of four to fourteen. Independent tests through $N=256$ confirm second-order spatial consistency. We further show that the per-step ancilla failure probability is proportional to the instantaneous viscous dissipation rate, making postselection cost self-regulating over a fifty-fold viscosity range. Stable evolution is demonstrated for $5\\times10^4$ time steps without observable secular error growth, while Gray-code advection accounts for $71$--$95\\%$ of transpiled controlled-NOT gates. The fixed-width kernel provides a qubit-efficient building block for near-term hardware studies, although classical readout and state re-preparation remain the main obstacles to coherent multistep evolution.",
+  "url": "http://arxiv.org/abs/2608.27712v1",
+  "pdf": "https://arxiv.org/pdf/2608.27712v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, qubit-efficient quantum algorithm to simulate variable-coefficient advection-diffusion equations with continuous sources. It achieves this by unitarily implementing the advection term using a Gray-code Trotter sequence and handling diffusion and sources classically. The work demonstrates high accuracy and stability while keeping the required qubit count fixed, making it valuable for near-term quantum hardware.",
+  "main_problem": "Developing an efficient quantum algorithm to solve a variable-coefficient advection-diffusion equation that includes continuous source injection while maintaining a fixed qubit budget.",
+  "main_result": "The proposed method successfully incorporates spatially varying velocity, viscous diffusion, and persistent source injection within a fixed-register qubit architecture, achieving high temporal accuracy.",
+  "method": "A hybrid quantum-classical time-marching algorithm is used, implementing advection via an ancilla-free Gray-code Trotter sequence and handling diffusion/source terms separately.",
+  "model_or_system": "The system is governed by a forced, variable-coefficient advection-diffusion equation in skew-symmetric form on a periodic domain.",
+  "key_observables": "Second-order temporal convergence (fourth-order via Richardson extrapolation), stable evolution over $5 \times 10^4$ time steps, and the ancillary failure probability.",
+  "important_parameters": "Peak logical requirement of $n_q+1$ qubits; viscosity range (fifty-fold); time steps ($5 \times 10^4$).",
+  "main_assumptions": "Classical readout and state re-preparation remain the main obstacles to coherent multistep evolution; the method assumes a fixed-width kernel structure.",
+  "figures_summary": "Figure 9 shows energy growth over $T=50$ steps, confirming agreement between quantum and classical fields to a relative $L_2$ error of $1.8 \times 10^{-5}$.",
+  "paper_structure": "The paper details the governing equation, the quantum circuit architecture, validation against classical integrators, comparison with existing solvers, and a summary.",
+  "why_interesting": "It presents a highly optimized quantum circuit structure for simulating complex PDEs, which is a major goal in quantum simulation for condensed matter physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.27712_figures/2608.27712_fig1.jpg",
+      "caption": "FIG. 1: Quantum circuit for one D–A–D time step with nq = 4 (N = 16 Fourier modes). (a) Circuit overview. Sparse binary-tree state preparation, SP(btree), loads the source-corrected state | ˆS⟩directly in the Fourier basis, eliminating a QFT before the first diffusion half-step D(∆t/2). Each diffusion block applies a uniformly controlled Ry (UCRY) operation to the data register and a single ancilla, followed by an IQFT and post-selective ancilla measurement (⊗). The ancilla is reset and reused for the second diffusion half-step, which is preceded by a QFT because the advection step returns the register to the position basis. The advection circuit is detailed in Fig. 2. (b) UCRY...",
+      "page": 3
+    },
+    {
+      "image": "2608.27712_figures/2608.27712_fig2.jpg",
+      "caption": "FIG. 2: Quantum circuit for the advection substep Uadv(∆t) via the Gray-code Trotter decomposition (Eq. 14). The green background identifies this circuit as the detailed contents of the green Adv(∆t) box in Fig. 1. The circuit is shown in a two-row layout with vertical tick marks marking the row break. Read left to right, top row: Bin→Gray, a classically precomputed permutation converting the register sys0–sys3 to Gray- code order so that adjacent grid indices m, m + 1 differ in exactly one qubit; even layer, ∆t/2, (nq −1)-controlled Ry(θ) gates on the even edges (m, m + 1), m = 0, 2, 4, . . ., each targeting the single qubit that differs between the two coupled Gray-code labels...",
+      "page": 6
+    },
+    {
+      "image": "2608.27712_figures/2608.27712_fig3.jpg",
+      "caption": "FIG. 5: Post-selection statistics across viscosity and hori- zon length. (a) Per-step success probability at the canon- ical viscosity ν = 0.008, recovering toward unity as dis- sipation empties the high-wavenumber modes. (b) Cu- mulative success probability across the viscosity sweep of Table IV. (c) Long-horizon integration to T = 50: relative distance to the exact steady state us = −A−1f, where A is the discrete steady-state advection-diffusion operator and f the discrete forcing vector, along the classical tra- jectory, decaying on the slow-mode timescale τ = 257; the quantum solution at T = 50 (symbol) lies on the classical curve. (d) Cumulative log10 P of the post-selection record...",
+      "page": 11
+    },
+    {
+      "image": "2608.27712_figures/2608.27712_fig4.jpg",
+      "caption": "FIG. 6: Transpiled diagnostic of the homogeneous D-A-D quantum kernel for nq = 3–6. (a) Depth and CX count per kernel. (b) Stacked CX contribution by circuit block; the Gray-code advection circuit, which encodes the N values of U(x), dominates at all sizes.",
+      "page": 12
+    },
+    {
+      "image": "2608.27712_figures/2608.27712_fig5.jpg",
+      "caption": "FIG. 7: Validation at nq = 5: companion to Fig. 3. (a) Solution field at T = 1.0, ∆t = 10−3, against the DOP853 and matched split-step references. (b) Pointwise error on a logarithmic scale (nq = 5).",
+      "page": 15
+    }
+  ],
+  "figure": "2608.27712_figures/2608.27712_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}
