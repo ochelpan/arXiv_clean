@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.30860",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.NA"
+  ],
+  "is_primary_archive": true,
+  "title": "Well-conditioned iterative methods for large open quantum systems",
+  "authors": "Gaspard Beugnot, Paul Gregory, Rémi Robin, Antoine Tilloy",
+  "abstract": "Markovian open quantum systems are well modeled by the Lindblad Master Equation (ME) $\\frac{\\mathrm{d}}{\\mathrm{d} t} ρ_t = \\mathcal{L} ρ_t$, where $\\mathcal{L}$ is a linear (super-)operator and $ρ_t$ is the system state, a positive matrix. When designing or characterizing a quantum system, one is usually interested in the steady state $ρ_\\infty$ (such that $\\mathcal{L} ρ_\\infty = 0$), the first few excited states, and trajectories $t\\mapsto ρ_t$. In finite dimension, $ρ_t$ is an $n\\times n$ matrix, $\\mathcal{L}$ thus typically costs $n^4$ to store explicitly as a dense matrix, and $O(n^6)$ to diagonalize or invert exactly, making standard linear algebraic techniques expensive for large systems. However, $\\mathcal{L}$ usually costs only $O(n^3)$ to apply. This makes iterative methods appealing, but they do not work without a good preconditioner. In this article, our main observation is that a part of the Lindblad equation, corresponding to the so-called no-jump evolution $\\mathcal{S}$, can be inverted efficiently. Using this inverse map, we introduce an auxiliary completely positive trace-preserving (CPTP) map $Φ$ whose fixed point is directly related to $ρ_\\infty$, all the other eigenvalues having smaller magnitude. The map $Φ$ is thus well suited to iterative methods, and $ρ_\\infty$ can be found in a few Arnoldi iterations. Using the same inverse map $\\mathcal{S}^{-1}$ as preconditioner, we compute the low-lying spectrum efficiently via shift-invert Arnoldi, and, as a proof of concept, build an implicit time integrator that is competitive on stiff systems in the low-precision regime. For the steady-state and low excited states problems, our methods scale like $O(n^3)$ per iteration and offer state-of-the-art performance on CPU and GPU.",
+  "url": "http://arxiv.org/abs/2608.30860v1",
+  "pdf": "https://arxiv.org/pdf/2608.30860v1",
+  "type": "theory",
+  "summary": "This paper tackles the computational challenge of simulating large open quantum systems governed by the Lindblad Master Equation. It introduces a novel numerical approach by decomposing the Liouvillian operator and constructing an auxiliary map $\\Phi$ whose fixed point yields the steady state. By leveraging the efficient invertibility of the no-jump evolution part, the authors achieve state-of-the-art, scalable iterative solvers for finding steady states and low-lying spectra.",
+  "main_problem": "Developing efficient, well-conditioned iterative methods to solve for the steady state, low-lying spectrum, and time evolution of large open quantum systems.",
+  "main_result": "The authors propose using an auxiliary CPTP map $\\Phi$ derived from the no-jump evolution part of the Lindbladian, allowing the steady state to be found efficiently via Arnoldi iterations.",
+  "method": "The core method involves decomposing the Lindblad operator $\\mathcal{L} = S + K$ and utilizing the efficient inversion of the no-jump part $S$ to construct a suitable iterative map $\\Phi$. This map is then used with Krylov subspace methods (Arnoldi/GMRES) for convergence.",
+  "model_or_system": "The system is modeled by Markovian open quantum systems governed by the Lindblad Master Equation ($\\dot{\rho}_t = \\mathcal{L} \rho_t$). The analysis focuses on the superoperator $\\mathcal{L}$ acting on the density matrix $\rho_t$.",
+  "key_observables": "Steady state $\rho_\\infty$, low-lying excited states (eigenvectors/eigenvalues of $\\mathcal{L}$), and time evolution $\rho(t)$.",
+  "important_parameters": "System dimension $n$ (large, $n \\ge 10^3$), time step $\\Delta t$, and the spectral gap of $\\mathcal{L}$.",
+  "main_assumptions": "The primary assumption is that the no-jump part $S$ is invertible, which allows the construction of the auxiliary map $\\Phi$. The methods are benchmarked assuming a unique steady state exists.",
+  "figures_summary": "Figures compare spectra of $\\mathcal{L}$ and the auxiliary map $\\Phi$, showing the latter has eigenvalues confined within the unit circle, which is ideal for iterative solvers.",
+  "paper_structure": "The paper first establishes the computational bottleneck of the Lindblad equation ($\\mathcal{L}$), then introduces the decomposition $\\mathcal{L} = S + K$. It then details the use of the inverse map $S^{-1}$ to define $\\Phi$, showing how $\rho_\\infty$ relates to the fixed point of $\\Phi$, and finally applies this framework to compute the spectrum and time evolution using specialized Krylov solvers.",
+  "why_interesting": "This work provides state-of-the-art numerical techniques for simulating complex open quantum dynamics, moving beyond the prohibitive $O(n^6)$ scaling of direct methods to an efficient $O(n^3)$ scaling per iteration.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.30860_figures/2608.30860_fig1.jpg",
+      "caption": "Figure 1: Spectra of a random dense Lindbladian (see section 2.3.1) for a Hilbert space of dimension n = 6. (a) Spectrum of L; even for low-dimensional systems, the large spread of eigenvalues reflects the poor conditioning of L. (b) Spectrum of Φ = −KS−1; all eigenvalues lie within the unit circle (dashed). In both panels, the red star marks the eigenvalue corresponding to the steady state.",
+      "page": 6
+    },
+    {
+      "image": "2608.30860_figures/2608.30860_fig2.jpg",
+      "caption": "Figure 2: Runtime of steady-state solvers versus Hilbert-space dimension n, for the dense random Lindbladian (left) and the memory–buffer cat qubit (right). Our two methods (Arnoldi on Φ and preconditioned GMRES) beat all competitors on CPU, and further gain a ×50 speedup on the H100 GPU; the competitors (QuTiP SVD and ILU-GMRES, MUMPS, Krylov.jl GMRES) run on the Xeon CPU, and the time-evolution baseline on GPU for the cat family. See section B in the Appendix for the exact configurations.",
+      "page": 7
+    },
+    {
+      "image": "2608.30860_figures/2608.30860_fig3.jpg",
+      "caption": "Figure 3: Runtime of resolvent solvers for (λ −L)(ρ) = Id/n versus Hilbert-space dimension n, at the three shifts λ = λmax, λmax/10, λmax/100 (columns), for the dense random Lindbladian (top) and the memory–buffer cat qubit (bottom). Our preconditioned GMRES is shown on CPU (dashed) and on the H100 GPU (solid); the competitors (dense LU, MUMPS, GMRES, GMRES + ILU) run on the Xeon CPU. The gain over the competitors is small at λ = λmax and grows as λ →0, and is largest for the dense family and on GPU. See section B for the exact configurations.",
+      "page": 11
+    },
+    {
+      "image": "2608.30860_figures/2608.30860_fig4.jpg",
+      "caption": "Figure 4: Random dense Lindbladian (section B.1) spectra for a Hilbert space of size n = 6. (a) Full spectrum of L. (b) Spectrum of eLη = L + η Tr (·) Id with η = 10/n, which shifts the steady-state eigenvalue to ηn = 10 (orange star) while leaving all nonzero modes unchanged. (c) Spectrum of eL−1 η : the low-lying modes of eLη (small |λ|) become its dominant eigenvalues (large |1/λ|). The operator actually iterated in the text is (µ −eLη)−1, which at µ = 0 differs from eL−1 η by an overall sign. In all panels, the red star marks the steady state, the green star the slowest-decaying nonzero mode, and the purple stars the next conjugate pair. The orange star in the second and third panels...",
+      "page": 13
+    },
+    {
+      "image": "2608.30860_figures/2608.30860_fig5.jpg",
+      "caption": "Figure 5: Wall-clock time to compute the low-lying spectrum as a function of the Hilbert-space dimension n (log–log), for the dense random Lindbladian (left, section B.1) and the memory– buffer cat qubit (right, section B.1). Our shift-invert Arnoldi solver (SI Arnoldi, ours) is compared against the dense eigenvalues solver of NumPy and the ARPACK shift-invert solver of SciPy, both applied to the n2 × n2 Liouvillian. See section B for the exact configurations.",
+      "page": 14
+    }
+  ],
+  "figure": "2608.30860_figures/2608.30860_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

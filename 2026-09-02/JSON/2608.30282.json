@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.30282",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Best Annealing Path of Quantum Annealing via Efficient Adiabatic Phase Transition",
+  "authors": "Kiyotaka Murashima",
+  "abstract": "Quantum Annealing (QA) has already put into practical use and considered useful for solving many social issues, such as reduction of traffic congestion and delivery optimization. But in QA, when the energy difference between the ground state and the first excited state is small, the transition probability between them increases. Therefore, in order to decrease the transition, QA has to be performed at extremely low temperatures. To simulate the situation, it has the problem in that it takes much time. Many studies are underway to accelerate QA theoretically, one of which is to incorporate non-stoquastic Hamiltonian. On the other hand, I proposed Nested Simulated Annealing (NSA) inspired by Quantum Monte Carlo (QMC). I showed the computational speedup could be achieved dramatically, by considering the idea that the effect of flipping a spin preferentially influenced the spins directly interacting with it. Although NSA was based on such classical concept of causality, the hybrid computation both quantum and classical approach worked well. In this paper, in order to discuss the relationship between NSA and non-stoquastic Hamiltonian like XX-interaction, the spins are treated as continuous variables. I derive the formula to calculate the total energy in both with a problem Hamiltonian and the perturbation Hamiltonian induced by a transverse electromagnetic field. And I will show a clear relationship between local-maxima and the convergence speed when calculating it with the binary spin. More precisely, the annealing path with the smallest local-maxima converges fast, even though it consumes fewer computational resources. Therefore, it is possible to induce an optimal adiabatic phase transition by selecting NSA parameters appropriately. This paper shows an effective method to choose the parameters when simulating QMC on a classical computer.",
+  "url": "http://arxiv.org/abs/2608.30282v1",
+  "pdf": "https://arxiv.org/pdf/2608.30282v1",
+  "type": "theory",
+  "summary": "This paper proposes Nested Simulated Annealing (NSA) as an efficient method to optimize the annealing path in Quantum Annealing simulations. By treating spins as continuous variables, the authors relate convergence speed directly to the minimization of local-maxima in the energy landscape. This allows for the selection of optimal parameters to achieve faster, resource-efficient adiabatic phase transitions on classical computers.",
+  "main_problem": "The primary goal is to improve Quantum Annealing (QA) by finding the optimal annealing path to accelerate convergence and reduce computational resources.",
+  "main_result": "The paper shows that selecting parameters appropriately in Nested Simulated Annealing (NSA) can induce an optimal adiabatic phase transition, leading to faster convergence by minimizing local-maxima in the energy landscape.",
+  "method": "The authors employ Nested Simulated Annealing (NSA), inspired by Quantum Monte Carlo (QMC), and treat spin variables as continuous to derive energy formulas for both the problem and perturbation Hamiltonians.",
+  "model_or_system": "The system is modeled using the Ising spin model Hamiltonian, $H = -(\\sum_{i<j} J_{ij}\\hat{\\sigma}_i^z\\hat{\\sigma}_j^z - \\sum_i \\Gamma \\hat{\\sigma}_i^x)$, and the simulation involves calculating the partition function $Z$ via Trotter expansion.",
+  "key_observables": "Convergence speed, total energy ($E_z + E_x$), and the location/magnitude of local-maxima in the energy landscape.",
+  "important_parameters": "The number of nested loops ($N$) in the NSA process, which dictates the annealing path parameters.",
+  "main_assumptions": "The continuous variable derivation relies on approximations for the wavefunction evolution, and the binary spin algorithm skips steps from rigorous quantum mechanics.",
+  "figures_summary": "Figures illustrate the NSA flowcharts, compare convergence curves of the new algorithm against standard SA, and show the dependency of the energy landscape on the nested loop parameter $N$.",
+  "paper_structure": "The paper first establishes the QA problem and the limitations of current methods. It then develops the mathematical framework using continuous spin variables and Trotter layer parallelization. The core contribution is the proposal and analysis of NSA, demonstrating how parameter selection minimizes local-maxima to achieve optimal adiabatic transitions.",
+  "why_interesting": "The work provides a sophisticated classical simulation technique (NSA) to navigate complex quantum energy landscapes, which is highly relevant for understanding the dynamics of open quantum systems and optimizing quantum computation protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.30282_figures/2608.30282_fig1.jpg",
+      "caption": "Fig. 2. A flowchart of the trotter layer parallelization algorithm is shown. The conventional SQA has to sum up all energies over the trotter layer, so that it prevents quick convergence. The new algorithm skips it, and all trotter layers will mimic the spin configuration that has the temporal minimum energy. Sharing such information of the energy, each of the P trotter layers keeps searching for its global energy minimum state. The quantum effect like the tunneling are maintained and it causes quick convergence.",
+      "page": 2
+    },
+    {
+      "image": "2608.30282_figures/2608.30282_fig2.jpg",
+      "caption": "Fig. 1. Schematic picture is shown how to search for minimum energy. All P trotter layers update their spin configuration independently, although the conventional SQA has to satisfy a periodic boundary condition. The transition probability is tuned by Metropolis rules, and the second term of the equation (6) works as a penalty term when the i-th spin is not in the same direction as the temporal energy minimum state. Once a new energy minimum state is found, the target state will be changed quickly.",
+      "page": 2
+    },
+    {
+      "image": "2608.30282_figures/2608.30282_fig3.jpg",
+      "caption": "Fig. 4. The graph proves that the trotter layer parallelization inspired by Quantum Monte Carlo (QMC) can work well. The trotter layer settles into the global-minima, while mimicking the temporal energy minimum state. The convergence curve is averaged over 50 times runs. Hereinafter, only the averaged results are shown.",
+      "page": 4
+    },
+    {
+      "image": "2608.30282_figures/2608.30282_fig4.jpg",
+      "caption": "Fig. 3. A flowchart of NSA is shown. Spins are selected among the group determined by the adjacency matrix of the system and the spin is flipped one by one on each trotter layer. Compared to the algorithm in Fig.2, the green and the yellow loops are added. By repeating such nested loops per MCS, the neighboring spin group reaches its local-minima.",
+      "page": 4
+    },
+    {
+      "image": "2608.30282_figures/2608.30282_fig5.jpg",
+      "caption": "Fig. 5. The graphs prove that the partial optimization inspired by causality can accelerate SQA without any additional hardware. As N×P was kept the same value, the smaller MCS was needed, the larger computational speedup was achieved. And because G34 is a sparse graph, the dependency on the trotter number N is monotonic.",
+      "page": 5
+    }
+  ],
+  "figure": "2608.30282_figures/2608.30282_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

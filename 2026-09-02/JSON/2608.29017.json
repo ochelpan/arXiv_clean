@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.29017",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hardware-Efficient Exchange-Only QML: Singlet-Triplet Spin Chains via Inter-pair Coupling without Magnetic Gradients",
+  "authors": "Yuichiro Minato",
+  "abstract": "Standard universal quantum computing using exchange-only qubits typically requires three physical spins per logical qubit, leading to significant hardware overhead. Conversely, two-spin units offer higher density but rely on local magnetic field gradients for control, increasing integration complexity. In this paper, we propose a resource-efficient quantum machine learning (QML) architecture that achieves high expressibility using minimal two-spin units and Heisenberg exchange interactions alone, without any magnetic gradients. We shift the paradigm from universal gate-based control to utilizing the intrinsic, time-domain dynamics of a spin chain as a learning resource. Numerical simulations on MNIST digit classification demonstrate that the symmetry-protected constraints of isolated spin pairs are bypassed by leveraging inter-pair exchange coupling. This interference-mediated state mixing significantly enhances the expressibility of the Hilbert space. The model reaches a test-set accuracy of 90.9% +/- 0.2% over five independent seeds on the full 10,000-image MNIST test set. Under an identical linear readout, the trained quantum feature map (88.1%) clearly outperforms a classical linear baseline on the same PCA inputs (83.2%) as well as an untrained (reservoir-style) version of the same dynamics (53.0%), demonstrating that the learned, input-dependent exchange pulses implement a genuinely non-linear and trainable feature map. The protocol is also robust to experimentally relevant imperfections: accuracy remains at 89.9% under 10% quasi-static pulse-area noise and at 89.8% when every observable is estimated from 10^3 measurement shots. These findings suggest that competitive QML can be executed on the simplest possible semiconductor spin-chain hardware, bypassing the need for leakage-prone encodings or complex micro-magnet integration.",
+  "url": "http://arxiv.org/abs/2608.29017v1",
+  "pdf": "https://arxiv.org/pdf/2608.29017v1",
+  "type": "theory",
+  "summary": "The authors propose a novel, hardware-efficient QML protocol for spin chains that uses only controllable exchange interactions, eliminating the need for complex magnetic field gradients. By exploiting the non-commutativity of sequential exchange pulses, they encode classical data into the time-domain dynamics of the spin system. This method achieves high classification accuracy on MNIST, proving that intrinsic spin-spin interactions can power complex quantum computation.",
+  "main_problem": "Developing a resource-efficient Quantum Machine Learning (QML) architecture for spin chains that achieves high expressibility without relying on local magnetic field gradients or complex hardware.",
+  "main_result": "The model achieved a test-set accuracy of 90.9% on MNIST classification, demonstrating that intrinsic, time-domain dynamics can implement a genuinely non-linear and trainable feature map.",
+  "method": "The Time-Encoded Exchange (TE-EX) protocol utilizes the non-commutativity of overlapping inter-pair Heisenberg exchange pulses to induce complex state mixing, bypassing the need for external magnetic gradients.",
+  "model_or_system": "The system is a linear chain of six semiconductor spin qubits governed by an isotropic Heisenberg exchange interaction. The dynamics are controlled by time-dependent, non-commuting exchange pulses within the $M_z=0$ sector.",
+  "key_observables": "Test-set accuracy (90.9%), quantum feature map performance (88.1% vs 83.2% classical baseline), local magnetizations ($\\langle S_{z,i} \rangle$), and nearest-neighbor exchange correlations ($\\langle h_{i,i+1} \rangle$).",
+  "important_parameters": "The protocol relies on the non-commutativity of sequential pulses, and the training uses a variational mapping $\theta^{(l)}_i (\\mathbf{x}) = \\gamma \\cdot \tanh(\\dots)$ to modulate pulse areas.",
+  "main_assumptions": "The approach assumes the use of only the isotropic Heisenberg exchange interaction and relies on the ability to train data-dependent pulse areas.",
+  "figures_summary": "Figures illustrate the test accuracy degradation under noise, the evolution of local magnetizations during the pulse sequence, and heatmaps showing how learned weights selectively couple PCA features to specific quantum links.",
+  "paper_structure": "The paper introduces the hardware limitation (need for gradients), proposes the TE-EX protocol leveraging non-commuting dynamics, details the QML implementation using PCA input encoding and a variational pulse sequence, and validates the method via MNIST classification and noise robustness testing.",
+  "why_interesting": "This work directly addresses the hardware bottleneck in quantum computation by showing that complex quantum processing can be achieved using only the inherent, controllable exchange interactions present in solid-state spin systems, which is highly relevant to AMO physics and quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.29017_figures/2608.29017_fig1.jpg",
+      "caption": "FIG. 1. Top 5 PCA components (eigen-digits) extracted from the MNIST dataset. These components represent the pri- mary geometric structures—such as loops, strokes, and ori- entations—that are mapped onto the quantum exchange pa- rameters x.",
+      "page": 3
+    },
+    {
+      "image": "2608.29017_figures/2608.29017_fig2.jpg",
+      "caption": "FIG. 2. Training loss (grey) and smoothed mini-batch accu- racy (navy) over 1000 steps. The use of a large batch size (128) and Cosine Annealing scheduler ensures robust conver- gence; the final full-test-set accuracy is 90.89%.",
+      "page": 4
+    },
+    {
+      "image": "2608.29017_figures/2608.29017_fig3.jpg",
+      "caption": "FIG. 3. Training stability over five independent random seeds (paper configuration). Shown is the smoothed mini-batch ac- curacy (mean ± one standard deviation); the resulting full- test-set accuracy is 90.99% ± 0.24%.",
+      "page": 5
+    },
+    {
+      "image": "2608.29017_figures/2608.29017_fig4.jpg",
+      "caption": "FIG. 5. Robustness of the trained TE-EX model (full test set; mean ± one standard deviation over five noise realizations). (a) Test accuracy under quasi-static multiplicative pulse-area noise of relative strength σJ. (b) Test accuracy when every observable is estimated from a finite number of measurement shots. Dashed lines mark the noiseless accuracy (90.9%).",
+      "page": 6
+    },
+    {
+      "image": "2608.29017_figures/2608.29017_fig5.jpg",
+      "caption": "FIG. 6. Evolution of the local magnetization ⟨Sz,i⟩of each spin during the 30-pulse TE-EX sequence for a representative test sample. Starting from the N´eel state |010101⟩, the inter- leaved non-commuting exchange pulses progressively mix the spin populations, driving the state through a data-dependent trajectory in the Mz = 0 subspace.",
+      "page": 6
+    }
+  ],
+  "figure": "2608.29017_figures/2608.29017_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

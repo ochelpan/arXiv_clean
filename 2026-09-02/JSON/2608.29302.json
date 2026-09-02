@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2608.29302",
+  "category": "other",
+  "arxiv_categories": [
+    "cs.LG",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Spectral Identifiability Threshold for Dissipative Rate Recovery from Truncated Liouvillian Spectra",
+  "authors": "Yujun Ji, Somyajit Chakraborty",
+  "abstract": "Open quantum systems lose energy and phase coherence through different dissipative processes, but these processes can produce overlapping dynamical signatures. The Liouvillian spectrum summarizes how such a system relaxes, yet it is not obvious how much of that spectrum is needed to distinguish the underlying dissipation rates. We study this question for amplitude damping and dephasing in a six-qubit Lindblad model whose spectrum can be derived analytically. We retain only the slowest non-steady spectral modes and ask how many are required before each dissipative rate becomes recoverable. We show that population modes contain no dephasing information, which creates a lower bound of D = 2^n retained modes for uniform dephasing identifiability in the relevant rate regime. The measured recovery threshold reaches this bound at n = 4,5,6, while n = 3 remains above it. At n = 6, least squares achieves a mean joint absolute error of order 10^-9, compared with 4.355 x 10^-4 for four tabular learning methods. Robustness tests show that this advantage weakens when the spectra are perturbed and when a transverse field breaks the commuting structure. These results show that the amount and structure of retained spectral information can determine whether dissipative parameters are recoverable, independently of the estimator used. The present conclusions apply to noise-free simulator spectra rather than measurement-derived spectra.",
+  "url": "http://arxiv.org/abs/2608.29302v1",
+  "pdf": "https://arxiv.org/pdf/2608.29302v1",
+  "type": "theory",
+  "summary": "This paper determines the minimum number of spectral modes needed from a truncated Liouvillian spectrum to accurately recover the underlying energy and dephasing rates of an open quantum system. By establishing a spectral identifiability threshold, it shows that the amount and structure of retained spectral information dictates parameter recoverability, independent of the estimator used.",
+  "main_problem": "The paper addresses the fundamental question of determining the minimum amount of spectral information (spectral depth) required to uniquely recover underlying dissipative rates from a truncated Liouvillian spectrum.",
+  "main_result": "A quantifiable spectral identifiability threshold ($k^\\star$) is established, showing that for a six-qubit system, the recovery of dephasing rates saturates a theoretical lower bound derived from the population sector.",
+  "method": "The study uses a supervised inverse benchmark, fitting the dissipative rates ($\\gamma_1, \\gamma_\\phi$) by regressing against the sorted real parts of the slowest non-steady Liouvillian eigenvalues, comparing linear regression to various machine learning models.",
+  "model_or_system": "The model is a synthetic six-qubit open quantum system governed by a Lindblad master equation, analyzed in the Markovian regime. The Liouvillian spectrum eigenvalues are analytically related to the dissipative rates.",
+  "key_observables": "Dissipative rates ($\\gamma_1$ for amplitude damping and $\\gamma_\\phi$ for dephasing), and the Mean Absolute Error (MAE) of the recovered rates.",
+  "important_parameters": "The spectral depth ($k$, number of retained slow modes) and the system size ($n$, number of qubits).",
+  "main_assumptions": "The conclusions are strictly limited to noise-free simulator spectra, not spectra derived from actual quantum measurements.",
+  "figures_summary": "Figures schematically illustrate the model, the Liouvillian spectrum, the sorted spectral features, and the recovery error as a function of the retained spectral depth $k$.",
+  "paper_structure": "The paper establishes the physical model, derives the analytical form of the eigenvalues, defines the inverse problem (rate recovery from truncated spectrum), performs quantitative benchmarking across various spectral depths, and compares the results against theoretical lower bounds.",
+  "why_interesting": "This work provides rigorous, quantitative bounds on the information content required to characterize open quantum dynamics, which is crucial for designing optimal quantum measurement protocols or tomography schemes.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.29302_figures/2608.29302_fig1.jpg",
+      "caption": "FIG. 1. Workflow of the direct-spectrum identifiability benchmark. (a) Six-qubit Lindblad model with local amplitude damping γ1 and dephasing γϕ. (b) Non-steady Liouvillian eigenvalues after removal of the steady mode. (c) Eigenvalues are ordered by decreasing real part to form truncated spectral inputs. In the populations-first regime, the first D −1 non-steady population modes are independent of γϕ, and the first dephasing-sensitive coherence appears at m = D, yielding the identifiability requirement k ≥D. (d) Linear and tabular estimators map the retained spectral features to (γ1, γϕ). (e) The measured recovery thresholds occur at k⋆= 13 for γ1 and k⋆= 64 = D for γϕ at n = 6. (f) The...",
+      "page": 3
+    },
+    {
+      "image": "2608.29302_figures/2608.29302_fig2.jpg",
+      "caption": "FIG. 2. Matched comparison curves over k = 80, . . . , 400. (a) Joint MAE, (b) γ1 MAE, and (c) γϕ MAE. Markers show the mean over three trials and error bars one standard deviation across them. The three trials are overlapping partitions of the same 1000 rate pairs, not independent datasets, so the bars are descriptive spread rather than sampling error",
+      "page": 7
+    },
+    {
+      "image": "2608.29302_figures/2608.29302_fig3.jpg",
+      "caption": "FIG. 3. Low-lying Liouvillian coordinate diagnostics from the k = 80 dataset. (a,b) Selected sorted real coordinates along narrow rate slices; (c) the fraction of samples with nearly degenerate adjacent sorted real coordinates. The degeneracy pattern is a rank-stability warning: sorted coordinates are useful predictive features, but should not be interpreted as globally tracked physical eigenmode identities without additional eigenvector tracking",
+      "page": 7
+    },
+    {
+      "image": "2608.29302_figures/2608.29302_fig4.jpg",
+      "caption": "FIG. 4. Analytical and simple-baseline diagnostics. (a) Joint MAE for ordinary least squares, ridge regression, and random forests fit on the same nested spectral CSVs used by the main benchmark, with the saved AutoGluon curve overlaid from the AutoGluon resolution summary. (b) Target-wise MAE for the saved AutoGluon runs, the ridge γϕ baseline, and the one- coordinate slowest-gap γ1 estimator −eig_real_000. The near-exact least-squares performance at larger k confirms the affine structure of equation (1) for this fixed, computational-basis-diagonal generator. Thus the AutoGluon point should be read as the lowest-error point within the saved four-family boosted-tree/AutoML benchmark, not as...",
+      "page": 8
+    },
+    {
+      "image": "2608.29302_figures/2608.29302_fig5.jpg",
+      "caption": "FIG. 5. Real/imaginary feature ablation (a, ridge) and clean-train/noisy-test spectral robustness (b) for simple baselines at k = 80. Real parts carry nearly all of the target information for this fixed Hamiltonian family, while imaginary parts alone are weak — as expected, since Im λij = −(Ei −Ej) in equation (1) is independent of both rates. The noise panel (b) perturbs test spectral coordinates after fitting clean models; it is a diagnostic of feature sensitivity, not a retraining of the saved AutoGluon benchmark",
+      "page": 8
+    }
+  ],
+  "figure": "2608.29302_figures/2608.29302_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

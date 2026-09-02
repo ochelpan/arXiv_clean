@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.28811",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "BAHAMAS: A Control Plane for Optimization and Execution of Variational Quantum Circuits",
+  "authors": "Amit Samanta, Mohammad Abrarul Hasanat, Jason Ludmir, Ryan Stutsman, Tirthak Patel, Rohan Basu Roy",
+  "abstract": "Variational quantum algorithms (VQAs) suffer from unstable optimization due to temporal noise drift and static qubit mappings that distort gradient signals across iterations. We present BAHAMAS, an online control framework that stabilizes noise exposure by adaptively selecting physical mappings via consensus-based fidelity estimation, without requiring simulators, offline training, or prior executions. Across real quantum devices, BAHAMAS improves optimization reliability and supports inference-time retargeting under drift through robust, per-iteration control.",
+  "url": "http://arxiv.org/abs/2608.28811v1",
+  "pdf": "https://arxiv.org/pdf/2608.28811v1",
+  "type": "both",
+  "summary": "This paper introduces BAHAMAS, an online control plane designed to stabilize Variational Quantum Algorithms (VQAs) running on noisy quantum hardware. It solves the problem of optimization instability caused by time-varying noise and fixed qubit mappings by adaptively selecting the best physical qubit mapping at every iteration. This results in more reliable and robust quantum computation performance on real devices.",
+  "main_problem": "Variational Quantum Algorithms (VQAs) suffer from unstable optimization because hardware noise and static qubit mappings distort gradient signals across optimization iterations.",
+  "main_result": "The proposed framework, BAHAMAS, significantly improves VQA optimization reliability by adaptively controlling noise exposure and maintaining consistent performance across different hardware runs and drift conditions.",
+  "method": "BAHAMAS is an online control plane that stabilizes noise by adaptively selecting physical qubit mappings using consensus-based fidelity estimation, without needing simulators or offline training.",
+  "model_or_system": "The work operates on hybrid classical-quantum systems using VQAs on real quantum processors (e.g., IBM quantum processors) that exhibit time-varying noise and qubit drift.",
+  "key_observables": "Total Variation Distance (TVD), normalized loss, and gradient magnitude are key diagnostics used to measure noise stability and optimization progress.",
+  "important_parameters": "The optimization parameters ($\theta$) of the parameterized quantum circuit (ansatz) are the primary variables being optimized.",
+  "main_assumptions": "The core assumption addressed is that optimization quality depends on *consistent* noise exposure across iterations, not just low noise at any single point.",
+  "figures_summary": "Figures illustrate the optimization loop, showing how TVD fluctuates due to drift, how the best circuit mapping changes over time, and comparing ideal simulation convergence versus noisy hardware plateaus.",
+  "paper_structure": "The paper introduces the problem of VQA instability due to noise, details the BAHAMAS control plane components (stable TVD selector, trust-state updater), presents results showing performance gains, and concludes by discussing the framework's robustness.",
+  "why_interesting": "It provides a practical, hardware-aware control layer for VQAs, directly addressing the critical challenge of noise-induced instability in near-term quantum computation, which is highly relevant to experimental quantum information science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.28811_figures/2608.28811_fig1.jpg",
+      "caption": "Fig. 1: Hybrid classical-quantum optimization loop. The pa- rameterized circuit (ansatz) maps onto the processor via different physical mappings, each with a different fidelity. Cost and gradients are computed classically via parameter-shift, and the parameters are updated for the next iteration.",
+      "page": 1
+    },
+    {
+      "image": "2608.28811_figures/2608.28811_fig2.jpg",
+      "caption": "Fig. 2: TVD (lower is better) fluctuates when the same circuit is initiated at different times on quantum hardware. Relative rankings of the performance metric for parameter configu- rations shift over time on real hardware. Stars mark the best configuration at each time instant on quantum hardware (h/w).",
+      "page": 2
+    },
+    {
+      "image": "2608.28811_figures/2608.28811_fig3.jpg",
+      "caption": "Fig. 3: Ideal simulation loss converges to near zero and gradients decay. On noisy quantum hardware (h/w), loss plateaus and gradients remain elevated and erratic.",
+      "page": 3
+    },
+    {
+      "image": "2608.28811_figures/2608.28811_fig4.jpg",
+      "caption": "Fig. 5: BAHAMAS’ control plane spans transpilation, execu- tion, and parameter update. The TVD estimator shortlists K low-TVD maps at transpile time. Co-located execution probes them under shared noise, and the stable TVD selector picks the best match to the target. The trust-state updater gates gradient updates on classical resources. In inference, map selection is retargeted for drifted noise or new topology.",
+      "page": 4
+    },
+    {
+      "image": "2608.28811_figures/2608.28811_fig5.jpg",
+      "caption": "Fig. 5 shows BAHAMAS’ architecture. The control plane spans three stages and operates in two modes: an optimization- time control loop and an inference-time retargeting mode.",
+      "page": 4
+    }
+  ],
+  "figure": "2608.28811_figures/2608.28811_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

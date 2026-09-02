@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.31114",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "stat.ML"
+  ],
+  "is_primary_archive": true,
+  "title": "Overcoming critical slowing down in frustrated spin systems by learned multiscale sampling",
+  "authors": "Gabriele Bandini, Giulio Biroli, Patrick Charbonneau, Andrea Gambassi",
+  "abstract": "Cluster algorithms, such as the Swendsen--Wang and Wolff methods, are among the most successful MCMC methods for mitigating critical slowing down in statistical systems. These constructive cluster algorithms, however, fail in the presence of even extremely weak frustration. Here, we sidestep this fundamental limitation by learning rather than constructing the relevant clusters. Specifically, we use the wavelet conditional renormalization group (WCRG) sampling method to learn the probability distribution of collective fluctuations of a frustrated two-dimensional soft-spin model. Configurations are then generated recursively from coarse to fine scales by sampling conditional wavelet distributions. The WCRG method reproduces the main statistical properties of the system across different phases, including the local-field distribution and the structure factor. At an Ising-like critical point, the conditional dynamics remains decorrelated within $\\mathcal{O}(1)$ sweeps at each scale, yielding an overall sampling complexity of $\\mathcal{O}(\\log_2 L)$, thus making WCRG much more efficient than standard local MCMC methods. These results show that learned multiscale sampling can overcome critical slowing down in frustrated systems for which conventional cluster algorithms fail. By assessing the sampling accuracy of different observables, we also clarify the main tradeoff of the WCRG method: the accuracy of the fast sampling scheme depends on the expressiveness of the energy-based model used to estimate the wavelet conditional distributions.",
+  "url": "http://arxiv.org/abs/2608.31114v1",
+  "pdf": "https://arxiv.org/pdf/2608.31114v1",
+  "type": "theory",
+  "summary": "This work introduces the Wavelet Conditional Renormalization Group (WCRG) method to simulate frustrated spin systems that are intractable for standard cluster algorithms. By learning the conditional probability distributions across multiple coarse-graining scales, WCRG achieves highly efficient sampling, bypassing critical slowing down. This demonstrates that learned multiscale sampling is a robust technique for complex statistical physics problems.",
+  "main_problem": "The paper addresses the challenge of critical slowing down in simulating frustrated spin systems, a problem where conventional cluster Monte Carlo algorithms fail.",
+  "main_result": "The proposed Wavelet Conditional Renormalization Group (WCRG) method successfully overcomes this limitation, achieving an overall sampling complexity of O(log^2 L) at an Ising-like critical point.",
+  "method": "WCRG samples the system distribution recursively by learning and sampling conditional probability distributions of wavelet coefficients across multiple coarse-graining scales.",
+  "model_or_system": "The study uses a frustrated two-dimensional soft-spin model, specifically the soft-spin BNNNI (sBNNNI) model, characterized by competing interactions.",
+  "key_observables": "Local-field distribution, structure factor S(qx, qy), and the autocorrelation time ($\tau$) of the dynamics.",
+  "important_parameters": "The system is analyzed across a phase diagram defined by parameters like $\\lambda$, $\\kappa_x$, and $\\kappa_y$.",
+  "main_assumptions": "The accuracy of the fast sampling scheme relies on the expressiveness of the energy-based model (finite ansatz) used to estimate the wavelet conditional distributions, leading to a potential mismatch with the true microscopic energy.",
+  "figures_summary": "Figure 1 illustrates the phase diagram of the sBNNNI model and shows representative configurations, averaged structure factors, and diagonal cuts for various points in the phase diagram.",
+  "paper_structure": "The paper first introduces the failure of conventional cluster algorithms in frustrated systems. It then details the WCRG method, which decomposes the distribution using wavelets and learns conditional distributions via score matching. Finally, it demonstrates the method's efficiency by comparing the scaling of decorrelation time against standard local MCMC methods.",
+  "why_interesting": "The development of learned multiscale sampling techniques provides a powerful, generalizable tool for simulating complex, frustrated many-body systems where standard simulation methods break down due to critical slowing down.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.31114_figures/2608.31114_fig1.jpg",
+      "caption": "FIG. 1. Phase diagram of the sBNNNI model with λ = 1 and representative behaviors in the various phases. Top: Phase diagram in the (κ, T) plane obtained from Monte Carlo simulations. The five phases (different colored zones) are identified from the behavior and finite-size scaling of the structure factor S(qx, qy) (see Sec. II), sampled at the points indicated by symbols in the phase diagram. While the faint boundaries between the various phases are approximate guides to the eyes, the Ising-like ferromagnetic-to-paramagnetic phase transition was quantitatively determined via finite-size scaling of the magnetic susceptibility using Ising critical exponents (black crosses, see App. B). Note...",
+      "page": 3
+    },
+    {
+      "image": "2608.31114_figures/2608.31114_fig2.jpg",
+      "caption": "FIG. 2. Comparison between Monte Carlo configurations and samples generated through WCRG for representative points of the sBNNNI phase diagram (A–F in Fig. 1). Subsequent rows correspond to a point—from top to bottom: (A) in the PM phase, (B) along the Ising critical line, (C) in the FM phase, (D) in the MPM phase, (E) in the IC phase, and (F) in the AF phase. For each point, the panels display: (1st column) an original Monte Carlo configuration, (2nd column) a synthetic configuration reconstructed through recursive conditional sampling, the comparison between the original (blue) and the reconstructed (yellow) distributions of (3rd column) P(ϕ0(i)) and (4th column) the diagonal structure...",
+      "page": 7
+    },
+    {
+      "image": "2608.31114_figures/2608.31114_fig3.jpg",
+      "caption": "FIG. 4. Autocorrelation times at the Ising-like critical point of the sBNNNI model with κ = 0.2 and T = Tpc(L). For local Monte Carlo dynamics, the autocorrelation times of the magnetization m0 and of the second moment ⟨ϕ2 0⟩grow al- gebraically with system size. The dashed line shows a power- law fit, yielding zloc = 2.11(4). By contrast, the conditional autocorrelation times ¯τj(L), measured for the second moment of the reconstructed field during conditional wavelet sampling at scale j, remain of order unity. No systematic growth is ob- served either with the final microscopic size L or with the scale-dependent size Lj = L/2j.",
+      "page": 9
+    },
+    {
+      "image": "2608.31114_figures/2608.31114_fig4.jpg",
+      "caption": "FIG. 5. Comparison between the statistics of configuration-wide observables for original and synthetic con- figurations along the Ising-like critical point of the sBNNNI model, with κ = 0.2, T = 1.0, and L = 64. Distribution of (a) the absolute magnetization |m| and (b) the intensive micro- scopic energy e. While the former shows excellent agreement between original and synthetic samples the latter presents a visible mismatch. This discrepancy reflects the truncation of the exact multiscale effective energies entering the hierarchi- cal probability distribution of the WCRG.",
+      "page": 10
+    },
+    {
+      "image": "2608.31114_figures/2608.31114_fig5.jpg",
+      "caption": "FIG. 6. Reduced functional density F/N of the FM state (solid line), period-four antiphase (dashed line), and multihar- monic IC profile (dash-dotted line). The IC branch is shown for κ ≥1/4, where q⋆in Eq. (A10) is real. Within the vari- ational families considered, it has the lowest leading energy approximately for 0.393 ≲κ ≲0.869. Since F is indepen- dent of T and λ, the profiles and crossing points are universal within the leading low-temperature scaling problem.",
+      "page": 13
+    }
+  ],
+  "figure": "2608.31114_figures/2608.31114_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

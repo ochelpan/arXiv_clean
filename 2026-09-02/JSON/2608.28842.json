@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2608.28842",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Preconditioning For Constrained Optimization Problems",
+  "authors": "Anurag Ramesh, Bhuvanesh Sundar, Maxime Dupont, David E. Bernal Neira",
+  "abstract": "We study the effect of quantum preconditioning on constrained combinatorial optimization problems, focusing on balanced graph bi-partitioning. The proposed approach uses two-point correlations between decision variables derived from the Quantum Approximate Optimization Algorithm (QAOA) to construct a modified objective function that is subsequently provided to mixed-integer programming (MIP) solvers. The preconditioned MIP formulation retains the original hard constraint, and all incumbent solutions are evaluated under the original objective. Computational experiments on dense, weighted complete-graph instances show that the preconditioned problem instances reach near-optimal solutions faster, with most of the benefit already realized at the shallowest QAOA depth tested. Solver callback trajectories show this arises from earlier discovery of high-quality incumbents during the solution search. These results support a hybrid optimization framework in which quantum algorithms provide problem-specific information to guide classical exact MIP solvers.",
+  "url": "http://arxiv.org/abs/2608.28842v1",
+  "pdf": "https://arxiv.org/pdf/2608.28842v1",
+  "type": "both",
+  "summary": "This work proposes using quantum preconditioning, derived from the QAOA algorithm, to enhance classical solvers for hard constrained optimization problems like graph bi-partitioning. By injecting problem-specific correlation information into the objective function, the method significantly speeds up the search for near-optimal solutions. This validates a powerful hybrid framework where quantum algorithms guide classical exact solvers.",
+  "main_problem": "The paper addresses constrained combinatorial optimization problems, such as balanced graph bi-partitioning, which are NP-hard.",
+  "main_result": "Quantum preconditioning, derived from QAOA correlations, significantly accelerates the discovery of high-quality incumbent solutions when guiding classical Mixed-Integer Programming (MIP) solvers.",
+  "method": "A hybrid approach is used where two-point correlations from the QAOA algorithm are used to construct a modified objective function that is passed to a classical MIP solver, while the original hard constraints are maintained.",
+  "model_or_system": "The problem is modeled on a weighted graph G=(V, E), aiming to partition vertices into two equal sets. The quantum component uses the QAOA ansatz to generate correlation information about the solution space.",
+  "key_observables": "Speed and quality of finding near-optimal incumbent solutions; the correlation matrix Z; the time to reach an epsilon-optimal threshold.",
+  "important_parameters": "QAOA depth (p), the penalty parameter (rho), and the graph size (n).",
+  "main_assumptions": "The core assumption is that the correlation matrix Z derived from QAOA encodes meaningful structural information that guides the classical solver effectively.",
+  "figures_summary": "Figures illustrate the workflow showing QAOA generating Z to modify the MIP objective, and later figures compare the scaling of time to optimality using different rho selection strategies.",
+  "paper_structure": "The paper first introduces the concept of quantum preconditioning for constrained optimization, then details its application to balanced graph bi-partitioning using QAOA, and finally analyzes the performance scaling and parameter selection strategies.",
+  "why_interesting": "It demonstrates a concrete, actionable hybrid quantum-classical workflow, showing how quantum information (correlations) can be used to enhance the performance of established classical solvers for hard optimization problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.28842_figures/2608.28842_fig1.jpg",
+      "caption": "Fig. 1: Overview of the quantum preconditioning workflow for constrained optimiza- tion problems using exact MIP solvers. A QAOA circuit of depth p is optimized on the original weighted graph G (with the balance constraint enforced as a soft penalty within the ansatz, Section 3.2) to produce a correlation matrix Z. This matrix replaces the original weight matrix W in the objective, and the resulting preconditioned prob- lem is solved by exact MIP solvers such as Gurobi with the hard balance constraint retained. Every incumbent solution is re-evaluated under the original objective (3.1).",
+      "page": 2
+    },
+    {
+      "image": "2608.28842_figures/2608.28842_fig2.jpg",
+      "caption": "Fig. 2: Empirical distribution of the per-instance critical penalty ρ⋆for complete graphs with i.i.d. U[0, 2] weights, as a function of n, over the 50 instances",
+      "page": 8
+    },
+    {
+      "image": "2608.28842_figures/2608.28842_fig3.jpg",
+      "caption": "Fig. 3: Incumbent solution trajectory for a single illustrative instance at n = 40 and QAOA depth p = 1 at select values of the penalty parameter ρ. Each callback solution found while solving the preconditioned problem is re-evaluated using the original objective (3.1).",
+      "page": 10
+    },
+    {
+      "image": "2608.28842_figures/2608.28842_fig4.jpg",
+      "caption": "Fig. 4: Time to the ϵ-optimal threshold for n = 40 and QAOA depth p = 1, as a function of penalty ρ ∈[0.3, 2.0], over 50 independent instances, with presolve enabled (left) and disabled (right). Solid markers show the mean time to the ϵ-optimal threshold over successful instances, at ϵ = 0 and ϵ = 0.01, and dashed horizontal bands show the corresponding classical baseline mean ± standard error. Dashed lines with lighter markers show the penalized average time (3.16), which, for instances that never reach the threshold, adds the baseline runtime to the instance’s own runtime. Annotations give the number of such instances at each ρ. All instances reach the ϵ = 0.01 threshold.",
+      "page": 12
+    },
+    {
+      "image": "2608.28842_figures/2608.28842_fig5.jpg",
+      "caption": "Fig. 5: Scaling of the time to the ϵ-optimal threshold at ϵ = 0.01 as a function of n, with presolve enabled (left) and disabled (right). The original problem is compared with preconditioned problems at p = 1, 2, 3 and at the p →∞limit. Each finite- depth curve uses a per-instance oracle penalty, the value of ρ (among those tested) that minimizes the threshold time for that instance. Solid lines are exponential fits ¯t(n) = san. Error bars show the standard error of the mean over 50 instances.",
+      "page": 13
+    }
+  ],
+  "figure": "2608.28842_figures/2608.28842_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

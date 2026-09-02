@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2608.28742",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "cond-mat.stat-mech",
+    "hep-lat",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Determinant Quantum-Quantum Monte Carlo: Coherent Auxiliary-Field Sampling",
+  "authors": "Xuepeng Wang, Sagnik Banerjee, Debanjan Chowdhury",
+  "abstract": "We introduce determinant quantum-quantum Monte Carlo (DQ$^2$MC), a quantum algorithm that lifts the auxiliary-field sampling and averaging at the operational core of determinant quantum Monte Carlo onto a quantum computer. A determinant oracle synthesizes the DQMC amplitudes directly from a block encoding of the single-particle action matrix via quantum singular value transformations, so that the exponentially many Hubbard-Stratonovich weights are never enumerated, precomputed, or stored. Since the fermions are free for fixed auxiliary fields, the construction operates entirely at the single-particle level, requiring $O(\\log N_{\\mathrm{st}})$ system qubits and no Jordan-Wigner or Bravyi-Kitaev encoding, where $N_{\\mathrm{st}}$ is the space-time volume. A full-quantum protocol makes observables interference amplitudes, eliminating the Markov chain and its autocorrelation time altogether; a hybrid quantum-classical protocol retains a constant-size active block of qubits and replaces the Metropolis-Hastings acceptance step with an exact heat-bath draw, so that cluster updates of any size are rejection-free, and passes only classical information between updates, admitting parallel tempering and distributed execution across quantum processors. The circuit-depth scales more favorably with spatial volume than classical DQMC, at the price of a post-selection overhead determined exactly by the largest target probability --- polynomial for smooth distributions, exponential for sharply peaked ones. Finally, the reweighting estimator underlying the fermion sign problem maps exactly onto a quantum weak value, placing the exponential cost of sign-problematic DQMC in precise correspondence with the post-selection overhead of weak-value extraction.",
+  "url": "http://arxiv.org/abs/2608.28742v1",
+  "pdf": "https://arxiv.org/pdf/2608.28742v1",
+  "type": "theory",
+  "summary": "This paper presents DQ2MC, a quantum algorithm designed to simulate strongly correlated electron systems by quantum mechanically implementing the sampling core of classical DQMC. It achieves this by synthesizing amplitudes directly from the action matrix, thus bypassing the exponential storage and sampling bottlenecks. The resulting hybrid protocol offers a path to quantum simulation that retains classical acceleration techniques while improving scaling over classical methods.",
+  "main_problem": "The paper addresses the computational bottleneck in simulating strongly correlated lattice fermions, such as those found in the Hubbard model, where interactions are comparable to kinetic energy.",
+  "main_result": "They introduce Determinant Quantum-Quantum Monte Carlo (DQ2MC), a quantum algorithm that lifts the auxiliary-field sampling onto a quantum computer, avoiding the enumeration of exponentially many weights.",
+  "method": "The approach involves adapting the classical Determinant Quantum-Monte Carlo (DQMC) method by implementing its core sampling and averaging steps using quantum circuits, leading to both fully-quantum and hybrid quantum-classical protocols.",
+  "model_or_system": "The focus is on strongly correlated lattice fermions, exemplified by the Hubbard model, relevant to high-temperature superconductivity and Mott insulators. The simulation relies on rewriting the partition function via the Hubbard-Stratonovich transformation.",
+  "key_observables": "Thermal expectation values of operators, such as the imaginary-time susceptibility $\\chi_O(q, i\\Omega_n)$.",
+  "important_parameters": "The scaling is analyzed concerning the spatial volume ($N_{st}$), the imaginary time ($\beta$), and the overhead associated with the fermion sign problem.",
+  "main_assumptions": "The hybrid protocol assumes that only classical information passes between quantum updates, and the full-quantum protocol assumes the one-body vertices can be implemented as controlled unitaries.",
+  "figures_summary": "Figure 1 schematically compares classical DQMC (Markov chain) with DQ2MC (coherent superposition) and illustrates the measurement process using a Hadamard test estimator.",
+  "paper_structure": "The paper reviews classical DQMC, then details the fully-quantum protocol (III), develops the hybrid quantum-classical protocol (IV), and discusses extensions.",
+  "why_interesting": "The development of quantum algorithms for simulating interacting fermions directly impacts the field of quantum simulation, offering a potential quantum advantage over classical Monte Carlo methods for materials science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.28742_figures/2608.28742_fig1.jpg",
+      "caption": "FIG. 1. Schematic representation of the key ideas. (a) Classical DQMC generates a Markov chain of Hub- bard–Stratonovich configurations through local single-field updates (in red); after equilibration, the histogram of re- tained configurations approaches the target distribution. (b) DQ2MC prepares a coherent superposition of all configura- tions. Computational-basis measurements directly sample configurations from the superposition. (c) A Hadamard test coherently evaluates the ensemble-averaged observable. In (b) and (c), part of the auxiliary-field control qubits can be downgraded to classical control bits optionally; see the hybrid protocol of Sec. IV and its schematic representation in...",
+      "page": 2
+    },
+    {
+      "image": "2608.28742_figures/2608.28742_fig2.jpg",
+      "caption": "FIG. 2. Overview of the full quantum protocol. (a) State-preparation circuit: the determinant oracle Odet (boxed gate det MΦ) is applied to the Hadamard-prepared auxiliary-field register aux; postselecting all work registers (drawn separately as sys and anc) on |0⟩leaves | DQ2MC ⟩of Eq. (12) on aux. (b) Gate realization of cQFT-PREP defined in Eq. (19), where QFT stands for quantum Fourier transform. The registers sysr and sysτ denote the qubits for spatial and temporal action-matrix entries, respectively. The register sys′ is a copy of sys. (c) Observable-measurement circuit: a Hadamard test on ancH controls two Green’s-function block encodings BEG acting on a system-copy pair sys, sys′....",
+      "page": 6
+    },
+    {
+      "image": "2608.28742_figures/2608.28742_fig3.jpg",
+      "caption": "FIG. 3. Schematic of Preconditioning (a) Schematic of the rescaling: the bare weight distribution pΦ (top) is rescaled by αrescale so that the largest weight saturates the block-encoding bound (bottom). (b) Schematics of clipped target function in Exp-QSVT, tuned by αrescale. Since the signal domain for QSVT is the unit interval, regions where the function value > 1 are clipped to 1. To maintain intact probability weight, αrescale should be chosen such that the clipping is inactive for the max log pΦ, denoted by red dashed line.",
+      "page": 8
+    },
+    {
+      "image": "2608.28742_figures/2608.28742_fig4.jpg",
+      "caption": "FIG. 4. Hybrid quantum-classical protocol. (a) Block sweep on the space-time auxiliary field: at Monte-Carlo step n the active block (orange crosses) is kept quantum, while the remaining fields (blue dots) are fixed as classical controls on the action-matrix oracle UM; the active block is updated by measurement and the resulting bits replace the corresponding entries of the classical configuration. When the step is retained as a bin, the full classical configuration Φc is passed to the observable circuit. (b) Hybrid update circuit: Odet (boxed gate det MΦ) is applied to the Hadamard-prepared active register auxq while the complementary register auxc carries the classical Φc; measurement of...",
+      "page": 10
+    },
+    {
+      "image": "2608.28742_figures/2608.28742_fig5.jpg",
+      "caption": "FIG. 5. Gate-level construction of the determinant oracle. (a) Action-matrix oracle UM, block-encoding MΦ/αM: a single-qubit LCU (PREP, PREP†) selects between the cyclic shift U † shift on the time-slice register sysτ (where circle denotes select-gate) and the kinetic-propagator block encoding UT dressed by the HS-controlled one-body vertices Uγ,i on the spatial register sysr, with the aux register selecting the HS configuration. The red box encloses the preconditioned action matrix MΦ in Eq. (A4). (b) QSVT-log sequence Ulog: an even-parity QSVT polynomial approximating log |x| is realized by interleaving phases ϕ0, . . . , ϕd with ⌊d/2⌋alternating calls to MΦ and M † Φ (with ancBE,LCU...",
+      "page": 17
+    }
+  ],
+  "figure": "2608.28742_figures/2608.28742_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

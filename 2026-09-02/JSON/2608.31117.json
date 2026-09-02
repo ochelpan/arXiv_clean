@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2608.31117",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "\"Train classical, deploy quantum\" requires rethinking generalization",
+  "authors": "Snehal Raj, Natansh Mathur, Alejandro Perdomo-Ortiz",
+  "abstract": "Generative models have become central across science and industry, from image and text synthesis to the design of molecules and materials. Quantum generative models are considered one of the most promising applications for quantum computers, since a quantum circuit naturally produces samples from the distribution it encodes, and for suitable circuits that distribution is believed to be hard for any classical computer to reproduce. A leading strategy trains these models on a classical computer and reserves the quantum device for generating samples at deployment. This is possible when the training loss can be evaluated on a classical computer. A prime example is the maximum mean discrepancy (MMD$^2$), a moment-matching loss that compares the model and the data through their Pauli-$Z$ correlations. Research so far has asked whether such models can be trained and whether their sampling is hard; whether minimizing such an objective yields a model that generalizes, rather than one that merely reproduces the training statistics, remains poorly understood. We benchmark a broad set of quantum and classical generative models by direct sampling and show that models trained with a moment-matching loss generally show worse generalization than the likelihood-trained models. We show this on two application-inspired datasets: first a cardinality-constrained dataset at up to $30$ qubits and second a dataset of genomic single-nucleotide variants, whose valid set is the observed data. These results indicate that a converged moment-matching loss is not a reliable measure of generalization, and that train-classical, deploy-quantum workflows will need approaches that target generalization directly, leaving open whether better training objectives suffice or whether the model architectures themselves must change.",
+  "url": "http://arxiv.org/abs/2608.31117v1",
+  "pdf": "https://arxiv.org/pdf/2608.31117v1",
+  "type": "theory",
+  "summary": "This work investigates the generalization gap in quantum generative models trained classically but deployed quantumly. The authors demonstrate that relying on moment-matching losses, while computationally convenient, fails to guarantee that the model will produce novel, valid samples. They argue that future TCDQ workflows must adopt objectives that target generalization directly, rather than just matching low-order training statistics.",
+  "main_problem": "The paper addresses the critical issue of generalization in 'train classical, deploy quantum' (TCDQ) workflows for quantum generative models.",
+  "main_result": "Moment-matching losses, while classically tractable, are shown to be unreliable indicators of generalization, often yielding models with poor sample coverage compared to likelihood-trained counterparts.",
+  "method": "The authors benchmark various quantum and classical generative models using direct sampling and comparing different loss functions (moment-matching vs. likelihood-based).",
+  "model_or_system": "The focus is on Quantum Circuit Born Machines (QCBMs) used as quantum generative models, trained classically but deployed quantumly for sample generation.",
+  "key_observables": "Forward Kullback-Leibler (KL) divergence, sample coverage, fidelity, and various correlators (e.g., Pauli-Z correlations).",
+  "important_parameters": "Dataset size (up to 30 qubits), loss order (capacity $d$), and the separation between training loss metrics and deployment generalization metrics.",
+  "main_assumptions": "The core assumption tested is that minimizing a classically computable loss (like MMD2) is sufficient to guarantee good generalization in the quantum sampling regime.",
+  "figures_summary": "Figures compare training losses (L1, L2, L3) against deployment generalization (low forward KL), showing moment-matching loss does not correlate well with generalization. Other figures show the decoupling between MMD2 convergence and coverage separation across different model types.",
+  "paper_structure": "The paper establishes the TCDQ paradigm, contrasts moment-matching losses with likelihood losses, and then presents empirical benchmarks on complex datasets (cardinality-constrained and genomic) demonstrating the failure of moment matching to guarantee generalization.",
+  "why_interesting": "It directly addresses the practical limitations of using quantum machine learning models, providing crucial theoretical and empirical warnings about relying solely on classical loss minimization for quantum device performance.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.31117_figures/2608.31117_fig1.jpg",
+      "caption": "FIG. 1. Training losses versus deployment generalization. An optimizer fits a generative model qθ (a tensor network, a neural network, or a quantum circuit) using quantities that can be evaluated without sampling the deployed model. The benchmark tests whether small empirical values of the negative log-likelihood (L1), the fixed-order correlator (L2), and the full-kernel MMD2 (L3) objectives correspond to better generalization (low forward KL; green).",
+      "page": 2
+    },
+    {
+      "image": "2608.31117_figures/2608.31117_fig2.jpg",
+      "caption": "FIG. 2. A truncated moment loss admits exact minimizers with different support coverage. The distributions pgood and pbad match every correlator through order L (Corollary 1), yet their support coverages are 1 and 0.07. Statements in Section IV, proofs in Appendix A.",
+      "page": 5
+    },
+    {
+      "image": "2608.31117_figures/2608.31117_fig3.jpg",
+      "caption": "FIG. 3. The low-coverage minimizer of Corollary 1 is explicit. For N = 8 to 16 at L = 2, a linear program con- structs a distribution matching every order-≤L correlator of the uniform target. Realized coverage of the constructed minimizer (red) and the bound DL/|S| of Corollary 1 (gray) versus N, on a logarithmic scale; the truncated loss is numer- ically zero at every point.",
+      "page": 5
+    },
+    {
+      "image": "2608.31117_figures/2608.31117_fig4.jpg",
+      "caption": "FIG. 4. Rank correlations among MMD2, coverage, and forward KL. Each panel ranks the same thirteen models by two scores, best in the top-right corner, for the cardinality data (top) and the genomic data (bottom), both at N = 16; each score is a median over seeds, and r is Spearman’s rank correlation between the two scores. The left column pairs the two generalization measures (coverage and the forward KL); the middle and right columns pair each against the moment-matching loss MMD2. In the labels, TF is the transformer and S/M/L are the small, medium, and large variants.",
+      "page": 8
+    },
+    {
+      "image": "2608.31117_figures/2608.31117_fig5.jpg",
+      "caption": "Figure 5 shows the decoupling directly. During train- ing the IQP Born machine drives its MMD2 down by an order of magnitude while its coverage stays near Crand (a), whereas a likelihood-trained transformer lowers its loss and raises its coverage together, toward the ideal finite-sample ceiling C∗(b). Capacity does not close the gap: enlarging the IQP circuit 18× in gate count leaves its coverage flat, while the tensor-network and classical models improve with size (c; Table II). The gap widens with qubit count, out to N = 30 (d). The decoupling is not an artifact of the kernel bandwidth: sweeping σ from sharp to broad leaves IQP near Crand (Appendix E).",
+      "page": 8
+    }
+  ],
+  "figure": "2608.31117_figures/2608.31117_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

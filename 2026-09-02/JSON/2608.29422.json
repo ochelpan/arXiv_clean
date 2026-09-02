@@ -1,0 +1,66 @@
+{
+  "arxiv_id": "2608.29422",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "The ZZ feature map induces a signless Laplacian metric: a closed-form classical surrogate for quantum kernel regression",
+  "authors": "Erkut Tekeli",
+  "abstract": "Quantum kernel methods lose their advantage over classical kernels once the encoding bandwidth is tuned, and bandwidth-tuned quantum kernels have been shown to resemble radial basis function kernels closely. The analytical support for that observation rests on separable encoding circuits and captures entangling circuits only qualitatively. We close this gap for the ZZ feature map. We prove that in the small-bandwidth regime the induced kernel is, to leading order, an anisotropic Gaussian kernel with metric M = I + pi^2 Q, where Q is the signless Laplacian of the entanglement graph, and that the quadratic structure persists at every circuit depth as a pullback of the Fubini-Study metric. The anisotropy depends entirely on a phase convention: under the unshifted convention the metric is the identity irrespective of entanglement, which explains the isotropic resemblance previously reported. The derivation is verified against direct simulation for path, cycle and complete entanglement graphs, with relative error below 10^-3. The corresponding classical kernel requires no fitted parameters and no quantum simulation. Compared with the quantum kernel across two near-infrared spectroscopic benchmarks, four targets, five preprocessing pipelines and 100 resampled splits per cell, the paired 95% bootstrap interval contains zero in 18 of 20 cells, the typical relative difference in test error is 2.7%, and the two families select the same preprocessing pipeline in 96% of splits. The regime in which the reduction fails begins at the same bandwidth on both datasets and adds no robust predictive value: restricting the grid to the classical regime improves mean test error by 3.8%, a gain that an equally large random restriction does not reproduce. The quantum circuit can thus be removed without detectable predictive loss, and we can state precisely which classical kernel it was computing.",
+  "url": "http://arxiv.org/abs/2608.29422v1",
+  "pdf": "https://arxiv.org/pdf/2608.29422v1",
+  "type": "theory",
+  "summary": "This paper derives a closed-form classical surrogate for the kernel induced by the ZZ feature map in quantum kernel regression. It proves that in the small-bandwidth limit, the quantum kernel behaves like an anisotropic Gaussian kernel whose metric depends on the graph's Laplacian. This finding allows the quantum circuit to be removed from the pipeline without losing predictive accuracy, offering significant computational simplification.",
+  "main_problem": "The paper addresses the theoretical gap in understanding quantum kernel methods, specifically deriving a closed-form classical surrogate for the kernel induced by the ZZ feature map.",
+  "main_result": "The induced kernel is shown to be, to leading order, an anisotropic Gaussian kernel whose metric is determined by the signless Laplacian of the entanglement graph ($M = I + \\pi^2 Q$).",
+  "method": "The analysis uses small-bandwidth Taylor expansion of the kernel overlap function and relates the resulting quadratic form to the graph's Laplacian structure.",
+  "model_or_system": "The model is quantum kernel regression utilizing a data-encoding circuit, specifically focusing on the ZZ feature map applied to an entanglement graph $G$.",
+  "key_observables": "The induced metric $M = I + \\pi^2 Q$, the test error comparison against classical methods, and the persistence of the quadratic structure.",
+  "important_parameters": "The bandwidth ($s$), the entanglement graph structure ($G$), and the phase convention used in the feature map.",
+  "main_assumptions": "The derivation relies on the small-bandwidth expansion, and the authors note that the resulting metric should be treated as a pseudometric for deeper circuits.",
+  "figures_summary": "Figures illustrate the induced metric $M=I+\\pi^2 Q$ and its spectrum for various entanglement graphs (Path, Cycle, Complete) confirming the derived mathematical structure.",
+  "paper_structure": "The paper progresses by deriving the kernel overlap using Taylor expansion, establishing the quadratic form in the small-bandwidth limit, deriving the explicit classical surrogate metric based on the graph Laplacian, and finally validating this surrogate against empirical spectroscopic benchmarks.",
+  "why_interesting": "It provides a concrete, analytically tractable classical approximation for a quantum feature map kernel, allowing researchers to bypass computationally expensive quantum simulations for kernel-based ML tasks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2608.29422_figures/2608.29422_fig1.jpg",
+      "caption": "Figure 1. The metric induced by the ZZ feature map, 𝑀= 𝐼+ 𝜋2𝑄, for three entanglement topologies at 𝑘= 6. (a) Matrix entries on a common colour scale: diagonal entries are 1 + 𝜋2deg(𝑖) , and off-diagonal entries are 𝜋2 on the edges of 𝐺 and zero otherwise. (b) Sorted eigenvalues 𝜆𝑖= 1 + 𝜋2𝜇𝑖, with 𝜇𝑖 the signless Laplacian spectrum of 𝐺. The figure presents the content of Proposition 1 rather than data, and two consequences are visible directly. The path and the cycle are bipartite, so 𝜇1 = 0 and each admits a direction along which the kernel reduces to the plain Euclidean metric (𝜆1 = 1, dotted line; Corollary 2). The complete graph has only two distinct eigenvalues, 1 + 𝜋2(𝑘−2) with...",
+      "page": 7
+    },
+    {
+      "image": "2608.29422_figures/2608.29422_fig2.jpg",
+      "caption": "Figure 2. Direct verification of Proposition 1. Each point is one training pair (𝐱, 𝐱′): the horizontal axis is the closed-form prediction 𝑠2𝐮⊤𝑀𝐮, with 𝑀 read off the entanglement graph and no quantity fitted to the simulation, and the vertical axis is 1 −𝐾 obtained from exact state-vector simulation. Both axes are logarithmic, and the dashed line is the identity. At 𝑠= 0.002, inside the classical regime, the points follow the identity over more than two decades for all three topologies. At 𝑠= 0.2, beyond the boundary located in Section 3.3, the simulated values saturate and depart from the prediction. Here 𝑘= 6 with 70 points, giving 2415 pairs per cloud.",
+      "page": 13
+    },
+    {
+      "image": "2608.29422_figures/2608.29422_fig3.jpg",
+      "caption": "Figure 3. Boundary of the classical regime and its consequences, as a function of the bandwidth 𝑠 (logarithmic axis; dashed vertical line at 𝑠∗= 0.072). (a) Median 𝑅2 of the full quadratic fit to 1 −𝐾; the dotted line marks 𝑅2 = 0.99. (b) Median |log(MSE𝑄/MSEtwin)| evaluated at the same bandwidths, with interquartile bands. (c) Distribution of the bandwidth selected by cross-validation, shown separately for each target. Panels (a) and (b) rise together: the twin and the quantum kernel begin to disagree exactly where the quadratic reduction ceases to be exact.",
+      "page": 15
+    }
+  ],
+  "figure": "2608.29422_figures/2608.29422_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
