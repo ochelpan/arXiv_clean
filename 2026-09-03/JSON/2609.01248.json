@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.01248",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET",
+    "math.OC"
+  ],
+  "is_primary_archive": true,
+  "title": "A Backend-Agnostic MWIS Kernel for Stochastic Unit Commitment with Neutral-Atom Hardware Validation",
+  "authors": "Jiying Chen, Min Lin, Jingwei Wen, Zhihong Zhang, Chuixiong Wu",
+  "abstract": "Quantum hardware is beginning to address structured combinatorial optimisation, but two steps still block practical use: mapping real operational models onto hardware-compatible instances, and converting noisy hardware output back into feasible decisions. Here we introduce a backend-agnostic computational interface that compiles the discrete decision layer of stochastic unit commitment into a move-based maximum-weight independent set (MWIS) problem, while retaining continuous dispatch and feasibility recovery in the classical computational layer. We validate the approach in a green hydrogen scheduling setting and deploy it on the QuEra Aquila neutral-atom quantum processor. This is the first end-to-end industrial scheduling workflow that connects real operational decisions to programmable neutral-atom hardware through a solver-agnostic MWIS representation. Across a 15-day hardware campaign on 50-node instances, hardware-generated solutions after classical refinement match or exceed the dispatch margins obtained from exact MWIS on every day. When scaling to 144 nodes, encoding quality remains stable, while the probability that the full atom array survives, rather than graph embedding, emerges as the dominant bottleneck to further scaling. Together, these results establish a hardware-compatible computational pathway toward larger problem scales, and lay the groundwork for exploring regimes in which exact classical optimisation may no longer scale efficiently.",
+  "url": "http://arxiv.org/abs/2609.01248v1",
+  "pdf": "https://arxiv.org/pdf/2609.01248v1",
+  "type": "both",
+  "summary": "This paper presents a novel, hardware-agnostic framework to solve Stochastic Unit Commitment by translating it into a Maximum-Weight Independent Set (MWIS) problem. The authors validate this workflow end-to-end on a neutral-atom quantum processor, showing that the quantum-enhanced approach yields results matching or exceeding classical benchmarks. It highlights the current physical limitations of scaling on these quantum hardware platforms.",
+  "main_problem": "The paper addresses the challenge of integrating structured combinatorial optimization problems, like Stochastic Unit Commitment (UC), onto near-term quantum hardware.",
+  "main_result": "The proposed end-to-end workflow successfully demonstrates that hardware-generated solutions match or exceed exact classical solutions on a 15-day campaign, establishing a viable computational pathway.",
+  "method": "It compiles the discrete decision layer of UC into a move-based Maximum-Weight Independent Set (MWIS) problem, which is then mapped onto a neutral-atom quantum processor using the Rydberg blockade mechanism.",
+  "model_or_system": "The physical platform is the QuEra Aquila neutral-atom quantum processor. The problem is modeled as finding an independent set in a weighted conflict graph derived from scheduling moves in a green hydrogen electrolyser park.",
+  "key_observables": "Hardware-generated dispatch margins, AHS-post ratio (quality of quantum result vs. exact MWIS), and the valid-shot rate for scaling analysis.",
+  "important_parameters": "The primary bottleneck for scaling is identified as the probability that the full atom array survives, rather than the graph embedding itself.",
+  "main_assumptions": "The approach assumes that the MWIS representation is backend-agnostic, and that classical post-processing (LP repair, SA) can compensate for hardware imperfections.",
+  "figures_summary": "Figures illustrate the six defined move types and summarize the trend showing the collapse of the valid-shot rate as the problem size increases, while other metrics remain stable.",
+  "paper_structure": "The paper details a hybrid pipeline: classical move generation $\\rightarrow$ graph encoding/folding $\\rightarrow$ quantum solving (AHS) $\\rightarrow$ classical post-processing (SA/LP repair) $\\rightarrow$ final validation against the original stochastic LP.",
+  "why_interesting": "This work provides a concrete, industrial-scale demonstration of mapping a complex, real-world optimization problem onto a specific quantum hardware modality (neutral atoms), directly addressing the gap between theoretical quantum algorithms and practical application.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.01248_figures/2609.01248_fig1.jpg",
+      "caption": "Figure 1: Move vocabulary—six move types populating the excitation active space, covering single-slot, block, cross-module, exchange, delete/insert, and clustered-integer perturbations.",
+      "page": 4
+    },
+    {
+      "image": "2609.01248_figures/2609.01248_fig2.jpg",
+      "caption": "Figure 2: Hybrid pipeline architecture—reference schedule, move generation, LP-dual scoring, diversity top-k pruning, an exact-solver/neutral-atom-hardware branch point (exact MILP via HiGHS, or AHS hardware with 2-row FOV embedding and 4-phase post-processing, Section 2.3), converging into a common SA local refinement stage, dispatch application, and 100-scenario stochastic LP repair validation.",
+      "page": 6
+    },
+    {
+      "image": "2609.01248_figures/2609.01248_fig3.jpg",
+      "caption": "Figure 3: 2-row folded King-graph layout for the N = 50 instance on Day 1. The temporal axis is compressed into two stacked rows. Atoms are coloured by row assignment (sky blue for Row 0, blue for Row 1). The orange dashed rectangle marks Aquila’s 75 × 76 µm hardware FOV limit; the grey dotted rectangle marks this instance’s occupied extent (35 × 64 µm)—the layout uses well under half of the available FOV. This day’s span-minimising split lands on a natural gap in the occupied-hour distribution, so no inter-row edges are broken. The two atoms isolated at x ≈35 µm (bottom right) are an artefact of top-k diversity pruning (Section 2.1): hour 11 survives pruning for two modules while hour 10...",
+      "page": 9
+    },
+    {
+      "image": "2609.01248_figures/2609.01248_fig4.jpg",
+      "caption": "Figure 4: AHS pulse schedule for the winning narrow-zero-cross recipe (T = 4 µs)—Rabi frequency Ω(t), global detuning ∆global(t), and local detuning envelope ∆local(t) over normalised time t/T, annotated with the three physical phases and the narrow encoding window.",
+      "page": 10
+    },
+    {
+      "image": "2609.01248_figures/2609.01248_fig5.jpg",
+      "caption": "Figure 5: Per-atom effective detuning δk(t) = ∆global(t) + hk ∆local(t) for four representative weight classes (hk = 0, 0.33, 0.67, 1—highest to lowest conflict-graph weight), illustrating the local-detuning bias mechanism of Eq. (7) under the narrow-zero-cross schedule. High-weight atoms (hk →0) track ∆global(t) alone and cross into positive (excitation-favouring) detuning early in Phase 2; low-weight atoms (hk →1) retain a strong negative offset that delays their crossing, creating the weight-dependent separation that the freeze at t/T = 0.9 reads out.",
+      "page": 11
+    }
+  ],
+  "figure": "2609.01248_figures/2609.01248_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 3,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2609.00725",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "q-bio.QM",
+    "cond-mat.dis-nn",
+    "nlin.AO",
+    "physics.soc-ph",
+    "q-bio.MN"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficiently classifying shocks in complex systems requires dormant reporters",
+  "authors": "David A. Brewster, Philippe Cluzel",
+  "abstract": "Many natural and engineered systems are large complex networks of interacting components, and external perturbations drive them along different dynamical paths. Identifying which perturbation occurred matters for diagnosis, control, and prediction. Yet often times only a few components can be jointly monitored. Which components should be monitored? Experimental practice usually favors placing reporters at the most sensitive sites, where perturbations produce the largest effects. Using a simple dynamical model for complex systems with heterogeneous connectivity, we ask how sparse reporter panels should be chosen to classify shocks from partial trajectories when repeated trials only approximately reproduce an ideal initial condition. Once that reproduction is imperfect, sensitivity ranked panels fall far short of optimal, and the shortfall grows with the noise. We find that the best panels mix two kinds of reporters. A promiscuous reporter responds to most shocks, so it separates them mainly by degree, and degree fluctuates from trial to trial. A dormant reporter responds to only a few shocks but strongly, and its answers do not scatter as much between trials. As noise grows, the cost of losing a dormant reporter rises to meet the cost of losing a promiscuous one. Panels of either kind alone classify worse than the mixture, and no property of the members collected individually explains the ordering. Most of all, we find that only a minuscule number of reporters are needed on a panel to accurately identify which shock hit the system. We implement an efficient algorithm to assemble such a panel. Together these results provide a low cost practical design principle for monitoring large complex dynamical systems.",
+  "url": "http://arxiv.org/abs/2609.00725v1",
+  "pdf": "https://arxiv.org/pdf/2609.00725v1",
+  "type": "theory",
+  "summary": "This paper addresses the critical problem of efficiently monitoring complex dynamical systems to diagnose external perturbations ('shocks'). It finds that the best monitoring strategy requires combining two distinct types of sensors: those sensitive to many events and those stable across trials. This provides a low-cost, practical design principle for monitoring large, noisy systems.",
+  "main_problem": "Determining the optimal, sparse set of components (reporters) to monitor in a large complex system to accurately classify the type of external perturbation ('shock') that occurred, especially when initial conditions are noisy.",
+  "main_result": "The optimal monitoring panel must mix two types of reporters: promiscuous reporters (responsive to many shocks) and dormant reporters (responsive strongly to few shocks), achieving high accuracy with very few sensors.",
+  "method": "The authors developed an efficient algorithm to select the optimal panel composition by analyzing the information content and stability of reporter responses under noise.",
+  "model_or_system": "The system is modeled as a Boolean threshold network with heterogeneous connectivity, subjected to external 'shocks' (perturbations) and measurement noise ($\\epsilon$).",
+  "key_observables": "Classification accuracy of the shock type, reporter states $r(t)$, and the sensitivity of individual nodes to different shocks.",
+  "important_parameters": "Noise parameter $\\epsilon \\in [0, 1]$, the number of reporters ($m$), and the connectivity structure (power law out-degree).",
+  "main_assumptions": "The system dynamics can be captured by a Boolean threshold network, and the optimal monitoring strategy involves a specific mixture of reporter types.",
+  "figures_summary": "Figures illustrate the dynamics, the shock effect, the noise model, and the final inference task using reporter states, comparing performance of different panel selection strategies.",
+  "paper_structure": "The paper establishes the problem of shock classification in complex systems, models the dynamics using Boolean networks, analyzes the failure of simple heuristics under noise, and finally proposes and validates the optimal mixed-reporter panel selection principle.",
+  "why_interesting": "While not quantum, the study deals with complex, non-linear dynamics and information extraction from noisy, high-dimensional state spaces, which shares conceptual parallels with characterizing quantum states or diagnosing open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.00725_figures/2609.00725_fig1.jpg",
+      "caption": "Figure 1: Shock classification from partially observed dynamics in a Boolean threshold network. a, Several examples of domains where complex systems can be modeled as a Boolean network. Created in BioRender https://BioRender.com/46jpe5e. b, Our Boolean networks use threshold updating. Input nodes can either be active or inactive. Connections can be enabling (positive weight, pointed arrowhead) or repressing (negative weight, flat arrowhead), each with varying strengths. The active input nodes are weighed by their connections and summed. If the sum is positive (negative), the output of the threshold gate becomes active (inactive, respectively). At each time step, each node in the network...",
+      "page": 14
+    },
+    {
+      "image": "2609.00725_figures/2609.00725_fig2.jpg",
+      "caption": "Figure 2: Phase transitions between order and chaos. a, Steady state Hamming distance between trajectories started from imperfect copies of the same initial condition at noise ε = 0.02, as a function of the degree exponent γ for 4 different network sizes. Each network contributes every pair of its 10 replicates. Curves show the mean over 100 networks per point with 95% confidence bands. White stars on the horizontal axis mark the critical exponent γc(N) predicted by the annealed calculation in the SI, where criticality occurs when the mean connectivity crosses Kc ≈4π/3. In the inset panel, the phase diagram is in the (γ, N) plane. The boundary curve γc(N) separates the chaotic and frozen...",
+      "page": 15
+    },
+    {
+      "image": "2609.00725_figures/2609.00725_fig3.jpg",
+      "caption": "Figure 3: The elbow of the accuracy curve sits at 8 reporters, and evolved panels mix 3 classes of them. a, Classification accuracy versus panel size m for panels selected by the genetic algorithm and for random panels, at noise ε = 0, 0.5, and 1. The elbow of the evolved curve sits at m = 8 at every noise level, and a random panel needs more than 10 times as many reporters to match an evolved panel of 8. b, The effective number of shocks each member responds to, by member rank, across all 50 networks. It falls from about 9 for the most sensitive member to between 3 and 5 for the least, with darker shades lower noise as in a. c, The highly sensitive fraction of the panel versus m, against...",
+      "page": 16
+    },
+    {
+      "image": "2609.00725_figures/2609.00725_fig4.jpg",
+      "caption": "Figure 4: Nearly every evolved panel mixes promiscuous reporters with dormant reporters. Each of the 50 rays is one network’s evolved panel of 8 reporters at high noise (ε = 1). Each small disk shows one member’s sensitivity to the 10 shocks, as in Figure 3f. Each wedge is one shock, and wedge length and color depth both give the sensitivity of that member to that shock, on the shared scale below. The classes are those defined in Figure 3e from a node’s response across shocks. Promiscuous members respond to nearly every shock and are drawn with orange wedges on white. Dormant members concentrate their response in only a few shocks and are drawn with black wedges on a translucent orange...",
+      "page": 18
+    },
+    {
+      "image": "2609.00725_figures/2609.00725_fig5.jpg",
+      "caption": "Figure 5: Evolved panels nearly always mix sensitive and insensitive reporters, and the balance of their importance shifts with noise. a, Classification accuracy of evolved and random panels of 8 reporters as a function of the initial condition noise ε. b, Number of sensitive nodes per evolved panel against the random expectation. c, Accuracy drop after removing one sensitive or one insensitive member from an evolved panel. Both penalties climb as noise grows, and losing a sensitive member costs more at every level. d, The low sensitivity share of the total removal penalty slightly rises with noise, suggesting that the curves from c are getting slightly closer to each other. e, The extra...",
+      "page": 19
+    }
+  ],
+  "figure": "2609.00725_figures/2609.00725_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.00881",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Towards Natural Gas Contract Selection via Quantum-Guided Independent Set Reduction",
+  "authors": "Vivek Dixit, Vaibhaw Kumar, Kentaro Ohno, Alberto Maldonado Romo, Larry Bowden",
+  "abstract": "Selecting mutually compatible natural gas transportation contracts is a practically important optimization task in which operators must choose from many candidate agreements subject to temporal, infrastructural, and flow-related constraints. As the number of candidates grows, the resulting search space becomes difficult to explore exhaustively. We study a pairwise abstraction of this task, formulated as a Maximum Clique problem on a contract-compatibility graph, or equivalently as a Maximum Independent Set (MIS) problem on the complement graph.   Building on recent work, this paper studies a quantum-classical framework for solving large-scale MIS instances within the limitations of noisy quantum hardware. The approach combines iterative classical graph reduction with quantum-guided optimization to progressively simplify the search space while maintaining high solution quality. This enables large candidate spaces to be reduced to smaller subproblems that are more suitable for execution on current quantum computers.   We evaluate the approach on fifteen benchmark instances from the Quantum Optimization Benchmarking Library (QOBLIB), obtaining an average approximation ratio of 0.996 and recovering optimal solutions for fourteen instances, including graphs with up to 186 vertices. We further evaluate the algorithm on six synthetic pairwise contract-compatibility graphs containing up to 900 contracts, where the proposed method achieves an average approximation ratio of 0.989 and obtains optimal solutions in four cases. These experiments demonstrate the ability of the hybrid MIS solver to reduce industrially motivated graphs. The pairwise abstraction serves as the first step of a two-stage screening procedure that narrows the candidate contracts to a smaller set of mutually compatible ones, which can then be verified against pipeline-capacity constraints.",
+  "url": "http://arxiv.org/abs/2609.00881v1",
+  "pdf": "https://arxiv.org/pdf/2609.00881v1",
+  "type": "both",
+  "summary": "This work proposes a quantum-classical hybrid solver to tackle the computationally hard Maximum Independent Set (MIS) problem, using natural gas contract selection as an industrial motivation. The method iteratively simplifies the problem using classical graph theory before applying QAOA on the remaining kernel using current quantum hardware. It demonstrates that this hybrid approach effectively handles large, real-world graph structures.",
+  "main_problem": "The paper addresses the NP-complete problem of finding the Maximum Independent Set (MIS) on a graph, framed initially by selecting compatible natural gas transportation contracts.",
+  "main_result": "The developed quantum-classical hybrid solver achieved strong performance on benchmark instances, reporting an average approximation ratio of 0.996 on QOBLIB and successfully reducing industrially motivated graphs.",
+  "method": "It employs a hybrid quantum-classical framework that combines iterative classical graph reduction techniques with quantum optimization using the Quantum Approximate Optimization Algorithm (QAOA).",
+  "model_or_system": "The problem is formulated as an MIS problem, which is mapped to a Quadratic Unconstrained Binary Optimization (QUBO) model and subsequently to an Ising Hamiltonian for execution on NISQ quantum hardware.",
+  "key_observables": "Average approximation ratio (e.g., 0.996), ability to recover optimal solutions, and circuit metrics like two-qubit depth and CZ count.",
+  "important_parameters": "NISQ hardware constraints, graph sizes up to 900 contracts, and QAOA parameters ($p$, $k_{swap}$).",
+  "main_assumptions": "The quantum workload is assumed to scale with qubit count rather than problem size, and the classical reduction process is guaranteed to preserve at least one maximum independent set.",
+  "figures_summary": "Figure 1 illustrates the overall hybrid quantum-classical workflow, showing the alternation between classical reduction and hardware-aware QAOA execution.",
+  "paper_structure": "The paper details the formulation of the MIS problem as a QUBO, describes the hybrid solver pipeline involving classical reduction rules and quantum optimization via QAOA, presents results on standard benchmarks (QOBLIB), and discusses hardware-aware circuit synthesis for superconducting processors.",
+  "why_interesting": "The methodology of combining deterministic classical graph reduction with quantum optimization (QAOA) to tackle large, structured optimization problems is highly relevant for developing scalable quantum algorithms for complex physical constraints.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.00881_figures/2609.00881_fig1.jpg",
+      "caption": "FIG. 1. Overview of the proposed hybrid quantum–classical workflow. Transportation contracts form a compatibility graph G, whose complement ¯G is solved as a Maximum Independent Set (MIS) instance. The hybrid solver then alternates between deterministic classical reduction, which fixes provably-optimal vertices, and hardware-aware QAOA, whose measured marginal probabilities pi rank the remaining vertices; the highest-scoring vertex is added to the independent set and its closed neigh- borhood N[v] is removed. The reduced graph re-enters the loop until no vertices remain, at which point the accumulated set Stotal, i.e., the constructed set of mutually compatible contracts, is returned.",
+      "page": 4
+    },
+    {
+      "image": "2609.00881_figures/2609.00881_fig2.jpg",
+      "caption": "FIG. 2. Hardware-aware embedding of the problem interaction graph onto a linear qubit topology. The problem interaction graph (left) is mapped by a simulated-annealing heuristic onto a linear hardware-compatibility graph, in which two qubits interact only if they lie within the SWAP budget kswap. At a small budget (center) some interactions exceed the budget and the represented graph is disconnected; increasing kswap (right) yields a single connected component, and the smallest such budget is retained. Solid arcs denote interactions realizable within the budget; dashed arcs denote interactions beyond it. Among the seeds that achieve connectivity, the embedding with the smallest two-qubit...",
+      "page": 6
+    },
+    {
+      "image": "2609.00881_figures/2609.00881_fig3.jpg",
+      "caption": "FIG. 3. QAOA marginal inclusion probabilities pi for the first reduction round of es60fst02 (124-vertex kernel), sorted in decreasing order. The dashed horizontal line marks the value pi = 0.5 expected from uniform random sampling; the 30 ver- tices lying above this baseline (blue) carry the selection sig- nal, with the largest marginal reaching pmax = 0.816. The non-uniform distribution of marginals provides the vertex- selection information exploited by the proposed reduction strategy.",
+      "page": 8
+    },
+    {
+      "image": "2609.00881_figures/2609.00881_fig4.jpg",
+      "caption": "FIG. 4. Comparison of the uniform-random baseline (Baseline) and the hybrid quantum–classical (Q–C) solver on the distri- bution of maximum independent set (MIS) sizes for C125-9. (a) Histograms of the MIS sizes returned by the two methods over repeated runs; dashed vertical lines mark the respective mean MIS sizes. (b) Tail probability P(MIS ≥k)—the fraction of runs attaining an MIS of size at least k—as a function of the threshold k.",
+      "page": 14
+    },
+    {
+      "image": "2609.00881_figures/2609.00881_fig5.jpg",
+      "caption": "FIG. 5. Distribution of independent set (MIS) sizes found on instance es60fst02 by the QAOA-based solver at circuit depths p = 3 and p = 5 (N = 20 runs each). Frequencies are normalized within each configuration. The p = 3 distribution peaks at 87 (40% of runs) and the p = 5 distribution at 86 (40%), and both reach the CPLEX optimum of 88 in 25% of runs; neither places any mass below 85 (p = 3) or 83 (p = 5). The uniform-random baseline over the same instance, which never exceeds size 87, is tabulated in Table II.",
+      "page": 15
+    }
+  ],
+  "figure": "2609.00881_figures/2609.00881_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2609.01204",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Unbiased sampling from Boltzmann distributions with noisy energies",
+  "authors": "Iwo Sanderski, Gian Gentinetta, Giuseppe Carleo",
+  "abstract": "Sampling from the Boltzmann distribution is central to computational physics, yet hard when the energy is known only through a stochastic estimate, such as with machine-learned molecular potentials, in variational Monte Carlo, or on quantum computers, because a noisy energy biases the sampled distribution. The penalty method of Ceperley and Dewing corrects this but requires the noise variance and becomes intractable when it is large. We introduce the Poisson product estimator, an unbiased, non-negative estimator of the Boltzmann weight that only needs an upper bound on the energy estimator and remains efficient at high noise. Using it to optimize a variational quantum circuit gradient-free, we recover the $H_3^+$ ground-state energy in a minimal basis and, by sampling rather than following a single trajectory, also map the variational energy landscape.",
+  "url": "http://arxiv.org/abs/2609.01204v1",
+  "pdf": "https://arxiv.org/pdf/2609.01204v1",
+  "type": "theory",
+  "summary": "This paper addresses the difficulty of sampling from Boltzmann distributions when energy measurements are noisy. The authors introduce the Poisson product estimator, an unbiased technique that outperforms existing methods under high noise. They demonstrate its utility by successfully finding the ground state energy of the H3+ ion using a gradient-free, simulated annealing approach.",
+  "main_problem": "The core challenge is accurately sampling from the Boltzmann distribution when the energy expectation value is only available through a stochastic, noisy estimator.",
+  "main_result": "The authors introduce the Poisson product estimator, an unbiased method that maintains accurate sampling even when noise levels are high, successfully recovering the ground-state energy of H3+.",
+  "method": "They propose the Poisson product estimator, which is used within a simulated annealing framework to progressively sample the system from high to low temperatures.",
+  "model_or_system": "The methods are tested on the double-well potential benchmark and applied to finding the ground state of the H3+ ion using a variational quantum circuit.",
+  "key_observables": "Energy convergence to the FCI ground-state energy, and the shape of the sampled parameter distribution mapping the variational energy landscape.",
+  "important_parameters": "Inverse temperature ($\beta$), noise variance ($\\sigma^2$), and the estimator's required upper bound ($E_{\\max}$).",
+  "main_assumptions": "The estimator must be unbiased and non-negative; the method relies on the existence of an upper bound on the energy estimator.",
+  "figures_summary": "Figure 1 compares sampling accuracy across different noise levels for the double-well potential, showing the PPE's robustness. Figure 2 tracks the energy convergence of the H3+ circuit during simulated annealing.",
+  "paper_structure": "The paper first establishes the problem of noisy energy sampling, introduces the Poisson product estimator as a superior alternative to the penalty method, and then demonstrates its application via simulated annealing to solve the H3+ ground state problem.",
+  "why_interesting": "This work provides a crucial, general-purpose numerical tool for quantum simulation, allowing accurate thermal sampling and optimization in settings (like ML potentials or quantum hardware) where energy measurements are inherently noisy.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.01204_figures/2609.01204_fig1.jpg",
+      "caption": "FIG. 1: Sampling the Boltzmann distribution of the double-well potential with noisy energies. We compare the PPE (purple) with the penalty method using the exact noise variance (“Penalty, known variance”; yellow) and its variant that estimates the variance stochastically through the Bessel correction (“Penalty, estimated variance”; red). Top row: histograms of the sampled distributions overlaid on the exact Boltzmann density, for energy-estimate variances σ2 = 2.0, 12.0, 24.0 (left to right; inset zooms the σ2 = 24.0 peaks). Bottom row: the corresponding quantile-quantile plots against the exact distribution. While at σ2 = 2.0 all three estimators are accurate, the penalty methods deviate...",
+      "page": 2
+    },
+    {
+      "image": "2609.01204_figures/2609.01204_fig2.jpg",
+      "caption": "FIG. 2: Optimization of a variational quantum circuit through simulated annealing with the PPE. We approach the ground state of the H+ 3 molecule in a minimal basis set by sampling variational parameters θ from the Boltzmann distribution e−βE(θ)",
+      "page": 3
+    },
+    {
+      "image": "2609.01204_figures/2609.01204_fig3.jpg",
+      "caption": "FIG. 3: Parameter-space points sampled from the Boltzmann distribution with the PPE coupled to an annealing schedule, for three values of the inverse temperature β. The panels at β = 117.2 and β = 1000 are zoomed relative to the one at β = 1. The red circle marks the region in which the variational energy lies within 1.59×10−3 Ha of the FCI minimum. As the system cools, the Boltzmann distribution concentrates in the low-energy region, so that at β = 1000 the sampled parameters fall within this tolerance of the minimum with high probability.",
+      "page": 4
+    },
+    {
+      "image": "2609.01204_figures/2609.01204_fig4.jpg",
+      "caption": "Figure 1 compares the sampled distributions to the exact Boltzmann density at three noise levels, σ2 ∈ {2.0, 12.0, 24.0}. At low noise all three estimators are ac- curate, but as the variance grows both penalty variants develop a pronounced bias, evident as systematic devia- tions in the quantile-quantile plots, while the PPE stays faithful to the target throughout. The Bessel variant, which does not presume the variance to be known and is therefore the relevant comparison in practice, degrades the fastest. This contrast originates in the acceptance rate (right panel of Figure 1). The penalty enters the acceptance probability as e−β2σ2 [Equation (3)] and is thus expo- nentially suppressed...",
+      "page": 4
+    }
+  ],
+  "figure": "2609.01204_figures/2609.01204_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

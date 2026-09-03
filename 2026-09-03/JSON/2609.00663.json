@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2609.00663",
+  "category": "other",
+  "arxiv_categories": [
+    "cs.CV",
+    "cond-mat.mtrl-sci",
+    "physics.chem-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Separating perception from reasoning in vision-language models: a model-free render ceiling for crystal structures",
+  "authors": "Can Polat, Mustafa Kurban, Erchin Serpedin, Hasan Kurban",
+  "abstract": "Multimodal evaluations cannot say whether a vision-language model misread an image or misreasoned about it, because every existing method for separating the two places a second model in the loop. We introduce the render ceiling, a model-free reference for benchmarks built by rendering known objects: inverting the frozen cameras and re-solving cross-view correspondence recovers exactly the answer the images support. We prove the ceiling fails only through an enumerable set of projection coincidences and certify that set empty on 2,160 rendered crystal structures, so every point of a model's deficit belongs to the model. Across fourteen vision-language models, supplying exact geometry as text lifts every model yet closes under half the gap for thirteen, while a supervised vision model with no language component reads the same images at 0.8952, above every vision-language model. The instrument exposes extraction-stage fabrication that downstream accuracy would misattribute to reasoning, yields camera-placement rules for benchmark builders, and transfers to any benchmark with an invertible forward rendering.",
+  "url": "http://arxiv.org/abs/2609.00663v1",
+  "pdf": "https://arxiv.org/pdf/2609.00663v1",
+  "type": "theory",
+  "summary": "This paper introduces the 'render ceiling,' a novel, model-free benchmark designed to rigorously separate perception failures from reasoning failures in vision-language models. By using rendered crystal structures, the authors demonstrate that a purely vision-based model can outperform complex VLMs, exposing that much of the apparent reasoning ability in current models is merely sophisticated pattern matching based on image extraction.",
+  "main_problem": "The core challenge is developing a model-free method to separate whether a vision-language model fails due to poor image perception or flawed reasoning about the image content.",
+  "main_result": "The authors introduce the 'render ceiling,' a model-free benchmark that certifies model deficits, showing that a purely vision-based model outperforms most vision-language models on crystal structure tasks.",
+  "method": "They construct the render ceiling by inverting frozen camera views and re-solving cross-view geometric correspondences, bypassing the need for a secondary, potentially flawed, model.",
+  "model_or_system": "The study uses crystal structures as the physical system, testing vision-language models (VLMs) and supervised vision models on tasks like crystal system prediction from multiple rendered views.",
+  "key_observables": "Accuracy scores against the model-free render ceiling ($R_1$), and the decomposition of error into 'perception share' and 'residual' components.",
+  "important_parameters": "The analysis is performed on 2,160 rendered crystal structures, and the performance is compared across fourteen different VLMs.",
+  "main_assumptions": "The render ceiling is only guaranteed to fail through an enumerable set of projection coincidences, which was confirmed to be empty for the tested structures.",
+  "figures_summary": "Figure 1 illustrates the model-free attribution instrument across different data 'rungs' (e.g., true positions vs. rendered geometry vs. text geometry); Figure 2 shows how the ceiling drops when camera views are withheld.",
+  "paper_structure": "The paper establishes the problem of separating perception from reasoning, introduces the model-free render ceiling using crystal structures, presents quantitative comparisons across various models, and analyzes the resulting error decomposition.",
+  "why_interesting": "While the subject is AI/ML, the rigorous, model-free benchmarking methodology and the use of deterministic geometric reconstruction to test model boundaries are highly relevant to developing robust simulation tools in physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.00663_figures/2609.00663_fig1.jpg",
+      "caption": "Figure 2 The instrument returns a ceiling genuinely below 1 once cameras are withheld. (a), Mean render ceiling 𝑅1 under two-, three-, four- and five-camera subsets of the frozen protocol, at the certified tolerance 𝛿= 𝜏= 0.01 Å and at the released tolerance 𝛿= 15𝜏; error bars span the minimum and maximum over camera subsets of that size. Mean 𝑅1 at the certified tolerance is 0.9214 at two views and 0.9967 at three; at the released tolerance it is 0.7481 at two views and 0.9152 at three. (b), The phantom-nonempty rate (𝜏near zero) at each view count on the original sample: 14.5% at two views and 1.9% at three, falling to exactly 0.0% at four and five views.",
+      "page": 7
+    },
+    {
+      "image": "2609.00663_figures/2609.00663_fig2.jpg",
+      "caption": "Figure 3 The two model rungs and the decomposition they imply, across the whole roster. Marker shape and colour identify the model in both panels. (a), Per-model 𝑅4 (pixels, open marker) and 𝑅3 (exact geometry as text, filled marker), rungs as defined in Methods, with the 𝑅1 oracle at 1.0000 and seven-way chance drawn; 𝑅2 is omitted as unscored under its pre-registered gate, its diagnostic value being 0.0762 and 0.0857 on the two samples. One row per model, ordered upward by 𝑅4 and identified by marker; the two markers below the axis are the unscored 𝑅2 diagnostic and the supervised pixel baseline, neither of which is a row of the roster. (b), Perception share of the deficit against 𝑅4; the...",
+      "page": 8
+    },
+    {
+      "image": "2609.00663_figures/2609.00663_fig3.jpg",
+      "caption": "Figure 4 No vision–language model reaches the certified ceiling, and the supervised pixel baseline outscores all of them. Zero-shot crystal-system accuracy: seventeen vision–language model arms across ten vendors, together with the supervised pixel baseline, which is not a vision–language model. Four arms clear the shape-free baseline (solid line, 0.5286) and the best reaches 0.7333 against the oracle ceiling of 1.0000; dashed line: seven-way chance, 0.1429. Error bars are 95% confidence intervals. Run-to-run spread of majority voting is a mean of 5.0 of 210 structures across two sweep runs.",
+      "page": 9
+    },
+    {
+      "image": "2609.00663_figures/2609.00663_fig4.jpg",
+      "caption": "Figure 5 Removing informative occlusion from the oracle’s input changes no classification. Expansion sample, four views. (a), Symmetry recovery under the four occlusion conditions: O0 unconditioned, O1 informative occluders removed, O2 all occluders removed, O3 the pre-registered random-removal control; the dashed line is O0. (b), Exact atom-count match under the same conditions, which does move across them.",
+      "page": 10
+    },
+    {
+      "image": "2609.00663_figures/2609.00663_fig5.jpg",
+      "caption": "Figure 6 Removing the image collapses every model toward chance. Each model answered the identical prompt with the five renders and with the chemical formula alone, paired per structure; model identifiers are drawn at the end of each bar pair. Stars mark models whose paired difference is significant; the dashed line is seven-way chance.",
+      "page": 11
+    }
+  ],
+  "figure": "2609.00663_figures/2609.00663_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

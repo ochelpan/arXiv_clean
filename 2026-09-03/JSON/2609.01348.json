@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.01348",
+  "category": "other",
+  "arxiv_categories": [
+    "cs.ET",
+    "nlin.CG",
+    "nlin.PS"
+  ],
+  "is_primary_archive": false,
+  "title": "Collision-based logic in Lenia and its composition boundary",
+  "authors": "Chakshu Gupta",
+  "abstract": "Continuous cellular automata such as Lenia spontaneously produce lifelike, self-propelling patterns, including the Orbium glider, which travels in a straight line while pulsing through a fixed breathing cycle. Collision-based logic, where moving patterns compute by colliding, is established in discrete cellular automata and continuous physical media. Within continuous cellular automata, computation has so far been trained into the rule rather than emerging from collisions, and whether a fixed-rule automaton like Lenia can support general collision-based computation remains open. This paper constructs an INHIBIT gate from collisions of the Orbium glider. Of the patterns searched across four continuous-CA rule types, the Orbium glider is the only one shown to survive a collision with both copies intact. A control glider deflects a signal glider off its output line, so the output carries a signal only when no control is present. The gate blocks across all twenty-four phases of the breathing cycle and nine integer offsets of the control. Two such gates in series, with one signal line and two controls, compose into an AND-NOT chain, correct on all eight input combinations. By contrast, routing a signal beyond that single chain is undemonstrated. A deflected signal is not restored to a fixed landing position, and no reusable absorber for the surviving gliders was found. The immediate open question for collision-based computation in Lenia therefore narrows from whether a gate exists to whether a deflected signal can be delivered to a downstream gate, the next requirement for composing the gate beyond a single straight chain.",
+  "url": "http://arxiv.org/abs/2609.01348v1",
+  "pdf": "https://arxiv.org/pdf/2609.01348v1",
+  "type": "theory",
+  "summary": "This work demonstrates the construction of basic logic gates, such as INHIBIT, within the continuous cellular automaton Lenia using pattern collisions. While simple chains of gates were successfully built, the authors identify that general computation is blocked by the inability to reliably route a signal after a turn or to absorb residual energy from collisions. This highlights the gap between local logic implementation and global circuit integration.",
+  "main_problem": "The paper investigates whether collision-based computation, established in discrete automata and physical media, can be realized in continuous cellular automata like Lenia.",
+  "main_result": "An INHIBIT logic gate was successfully constructed and demonstrated in series, forming an AND-NOT chain; however, the ability to route a deflected signal or absorb surviving gliders for general circuit composition remains unproven.",
+  "method": "The authors constructed logic gates by simulating the collision dynamics of self-propelling patterns (gliders) within the continuous Lenia update rule.",
+  "model_or_system": "The system is Lenia, a continuous cellular automaton where cell values evolve smoothly via a growth rule involving convolution. Computation relies on the interaction and collision outcomes of localized, self-sustaining patterns called 'gliders' (e.g., the Orbium glider).",
+  "key_observables": "Collision outcomes (annihilate, explode, merge, survive/miss), gate output states (e.g., INHIBIT function), and signal persistence/deflection.",
+  "important_parameters": "Breathing phases ($\\phi$), impact parameters ($b$), and the specific Lenia update rule parameters ($dt$, kernel $K$).",
+  "main_assumptions": "The primary limitation is the inability to demonstrate signal delivery to a downstream gate or find a reusable absorber for surviving gliders.",
+  "figures_summary": "Figures illustrate the Lenia update rule, the collision setup involving signal and control gliders, and maps showing collision outcomes across varying impact parameters and breathing phases.",
+  "paper_structure": "The paper progresses from establishing the feasibility of basic logic gates (INHIBIT) using single collisions, to demonstrating simple sequential composition (AND-NOT chain), and finally identifying the critical physical gaps (signal delivery and absorption) preventing universal computation.",
+  "why_interesting": "It explores computation in a continuous, non-linear physical system, drawing parallels to quantum field theories or non-equilibrium dynamics where pattern formation and interaction govern information processing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.01348_figures/2609.01348_fig1.jpg",
+      "caption": "Figure 1: One update step of the Lenia rule. The field A (here the Orbium glider; brightness is the cell value, dark 0 to bright 1; the arrow marks the travel direction) is convolved with the ring kernel K (zero at the centre, peaking at half the kernel radius) to give the potential U = K ∗A, a local ring-average. The growth G(U) (red = +1, grow; blue = −1, decay) is then scaled by the time step dt and added to the field. The sum is clipped to [0, 1]. The growth is positive at the leading edge and negative at the trailing edge, together advancing the glider.",
+      "page": 2
+    },
+    {
+      "image": "2609.01348_figures/2609.01348_fig2.jpg",
+      "caption": "Figure 2: The collision setup, here with a head-on control. The signal S and control C are gliders on straight tracks through the uniform field; the control is a D4 image of the signal, offset by the impact parameter b and carrying the relative breathing phase ϕ. The output bit is read at the window on the signal’s outgoing track.",
+      "page": 4
+    },
+    {
+      "image": "2609.01348_figures/2609.01348_fig3.jpg",
+      "caption": "Figure 3: The four collision outcomes as max-over-time projections of the field. Head-on Orbium collisions give survival at b = 0, annihilation at b = 7, and a miss at b = 22; the fourth outcome, a merger, appears at b = 0 in the perpendicular geometry used in the gate (Section 3.2), and also head-on (Figure 4). Each panel is one simulator run at ϕ = 0.",
+      "page": 5
+    },
+    {
+      "image": "2609.01348_figures/2609.01348_fig4.jpg",
+      "caption": "Figure 4: Head-on Orbium collision outcome, plotted horizontally over the impact parameter b and vertically over eight relative breathing phases ϕ spanning the cycle. The miss region beyond b = 20 is uniform across phases, and survival is the most common outcome. Within b ≤20, only two of the twenty-one columns hold one outcome across all eight phases; in the rest, survival, annihilation and merger interleave. Here b alone therefore does not fix the head-on outcome.",
+      "page": 6
+    },
+    {
+      "image": "2609.01348_figures/2609.01348_fig5.jpg",
+      "caption": "Figure 5: The INHIBIT gate, shown as the max-over-time projection of the field so that each bright streak is a glider’s whole path. The signal enters from the top toward the dashed output window. With the control absent, the signal reaches the window, giving out = 1 (left); with the control present, the collision blocks the signal, giving out = 0 (right).",
+      "page": 6
+    }
+  ],
+  "figure": "2609.01348_figures/2609.01348_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 1,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

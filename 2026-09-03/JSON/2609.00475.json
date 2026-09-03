@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.00475",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Fractal dimension predicts quantum kernel collapse in angle-encoded data",
+  "authors": "Ana Paula Appel",
+  "abstract": "Angle-encoded quantum kernels on tabular data collapse when the feature map is wider than the intrinsic dimension of the data. We propose the correlation fractal dimension D2 as an a priori qubit budget: encode D2 coordinates chosen by FD-ASE instead of the PCA-95% width or all E attributes. On nine data sets and a statevector simulator (n= 32), a one-layer ZZ fidelity kernel at q=D2 stays geometrically alive while the same kernel at the PCA-95% width has already collapsed. The budget is map-dependent: product-state and IQP maps overshoot it; a second ZZ layer undershoots it. Packed dense-angle and re-uploading encodings still live at the fractal q, but not when PCA-95% features are stacked onto those qubits. Shrinking the angle bandwidth moves the ZZ knee later; stretching it kills the kernel earlier. On IBM Quantum (ibm_fez, 256 shots, n=8) the one-layer ZZ kernel at the fractal width matches the exact kernel (MAE 0.021); past that width both hardware and simulator have collapsed. The ceiling is a property of the map-data pair at a stated bandwidth, not of the classical table alone.",
+  "url": "http://arxiv.org/abs/2609.00475v1",
+  "pdf": "https://arxiv.org/pdf/2609.00475v1",
+  "type": "both",
+  "summary": "This paper addresses kernel collapse in quantum machine learning by proposing that the correlation fractal dimension ($D_2$) dictates the maximum usable number of qubits. The authors demonstrate that using $D_2$ as a budget keeps the quantum kernel functional on both simulators and hardware, whereas over-encoding using methods like PCA causes the kernel to collapse.",
+  "main_problem": "Quantum kernel methods applied to tabular data suffer from 'kernel collapse' when the feature map width exceeds the data's true intrinsic dimension.",
+  "main_result": "The correlation fractal dimension ($D_2$) provides a superior, data-driven estimate for the optimal qubit budget, keeping the quantum kernel 'geometrically alive' where standard methods like PCA fail.",
+  "method": "The authors use the correlation fractal dimension ($D_2$) derived from the data to set an a priori qubit budget, comparing the resulting quantum kernel fidelity against those derived from PCA or all attributes.",
+  "model_or_system": "The model involves constructing quantum feature maps ($\\vert\\psi(x)\rangle$) using rotations on qubits (e.g., ZZ map) to define a quantum kernel $K_{ij} = \\langle\\psi(x_i) | \\psi(x_j)\rangle$ for classification on tabular data.",
+  "key_observables": "Kernel fidelity, the 'knee' width (last usable qubit count), and the ratio of nearest-neighbor to farthest-pair kernel similarities ($\text{near}/\text{far}$).",
+  "important_parameters": "The correlation fractal dimension ($D_2$), the bandwidth ($c$), and the specific feature map used (e.g., ZZ layer depth).",
+  "main_assumptions": "The optimal qubit budget is determined by the fractal dimension, and the kernel's usability is defined by maintaining specific structural inequalities (the 'alive' criterion).",
+  "figures_summary": "Figures compare the measured kernel fidelity (MAE) and the mean off-diagonal elements of the kernel matrix across various feature map widths, showing a clear collapse past the fractal dimension limit.",
+  "paper_structure": "The paper establishes the problem of kernel collapse, proposes $D_2$ as the solution, validates this budget using multiple datasets and map types (ZZ, IQP), and confirms the findings using both quantum simulators and actual quantum hardware measurements.",
+  "why_interesting": "The work provides a rigorous, information-theoretic measure ($D_2$) to guide the design of quantum circuits for data encoding, directly addressing the resource scaling problem in QML.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.00475_figures/2609.00475_fig1.jpg",
+      "caption": "Figure 1: A point on the dotted y = x line means the proposed ceiling equals the knee of the fidelity kernel (PCA view, one-layer ZZ, n = 32; knee = last alive q, Section 2.5). Left: ⌈D2⌉sits next to that knee (breast on the line at 3; pendigits 6 vs. 5). Centre: TwoNN [Facco et al., 2017] overshoots moons/intrinsic2 (≈13) because it treats embedding noise as extra dimension. Right: PCA-95% asks for 10–40 qubits while the kernel has already died at q ≤5—that panel has its own x-axis so the live knees (2–7) remain visible. Outliers we report as failures: onebig (kernel lives past the ceiling), wine/diabetes (high ID, n = 32 dies early), digits (unreliable box-count).",
+      "page": 9
+    },
+    {
+      "image": "2609.00475_figures/2609.00475_fig2.jpg",
+      "caption": "Figure 2: Breast cancer (E = 30, D2 ≈2.49). Dotted vertical: fractal budget q = 3. Grey dashed: PCA-95% (q = 10). Solid lines: fidelity kernel (the QML object). Dashed lines: classical RBF on the same coordinates (control). Mean off-diagonal (top centre): every fidelity curve falls toward 0 as q grows—states become orthogonal; RBF does not, so this is the feature map, not classical high dimension. near/far, kNN, SVM F1: on the PCA view of the fidelity kernel the usable geometry and the QML scores peak at the knee q = 3 and degrade past it. Alignment falls with q. KRR is noisy at n = 32; we do not hang the claim on it. The practical reading: encoding 3 PCs (the fractal width) keeps a live...",
+      "page": 10
+    },
+    {
+      "image": "2609.00475_figures/2609.00475_fig3.jpg",
+      "caption": "Figure 3: Mean off-diagonal of K versus q at four bandwidths. Dotted vertical: ⌈D2⌉. Dashed horizontal: the 0.03 alive floor. Open markers fail the alive rule. Smaller c (angles in [0, cπ]) delays collapse; c = 1 is the default ZZ scale.",
+      "page": 12
+    },
+    {
+      "image": "2609.00475_figures/2609.00475_fig4.jpg",
+      "caption": "Figure 4: Last alive q over ten kernel samples (n = 32, PCA, one-layer ZZ, c = 1). Median 3 on both breast and moons.",
+      "page": 13
+    },
+    {
+      "image": "2609.00475_figures/2609.00475_fig5.jpg",
+      "caption": "Figure 5: Packed encodings, simulator, n = 32. Y : mean off-diagonal of the fidelity kernel (higher = less collapsed). Teal: alive. Grey: dead. Dotted: 0.03 threshold. Left to right in each panel: ZZ at ⌈D2⌉; ZZ beyond it; dense-angle / re-upload of a few extra PCs on the fractal q; re-upload of a PCA-95%-scale feature count on that q. The last of those is grey: stacking extra coordinates onto fewer qubits is not a workaround.",
+      "page": 14
+    }
+  ],
+  "figure": "2609.00475_figures/2609.00475_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

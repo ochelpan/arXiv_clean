@@ -1,0 +1,66 @@
+{
+  "arxiv_id": "2609.00169",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Exact learning of quantum noise with tensor networks",
+  "authors": "Nicola Pancotti, Vedika Saravanan, Krysta Svore",
+  "abstract": "Accurate noise models are essential for high-performance quantum error correction, yet characterizing the noise of a quantum device typically requires dedicated experiments. We present a variational framework that learns the noise model directly from quantum-error-correction syndrome and logical-observable data collected during error-corrected memory experiments. The fault-event probabilities are treated as variational parameters and optimized via gradient descent to minimize the binary cross-entropy between the decoder's predictions and experimental logical-observable outcomes. We prove that this objective is principled rather than ad hoc: a sufficiently expressive noise ansatz attains the information-theoretic minimum logical error rate. We instantiate this framework using a tensor-network decoder, which provides exact maximum-likelihood decoding and analytically differentiable gradients with respect to all noise parameters. Using circuit-level data from Google's Sycamore processor, and starting from an uninformed prior, the optimization recovers noise models whose logical error rates agree to within $2\\%$ with those of Google's independently characterized detector error model. The mean squared error between the learned and reference noise parameters shows a clear overall decrease throughout training, confirming that the method recovers physically meaningful noise structure, not merely parameters that happen to decode well. We further demonstrate that the optimization can track device drifts in real time via warm-started updates, maintaining near-optimal decoding performance under synthetically evolving noise without the need for re-characterization. The approach is decoder-agnostic in its formulation and naturally extends to correlated noise models.",
+  "url": "http://arxiv.org/abs/2609.00169v1",
+  "pdf": "https://arxiv.org/pdf/2609.00169v1",
+  "type": "both",
+  "summary": "This paper introduces a variational framework to learn quantum noise models directly from syndrome and logical observable data collected during quantum error correction experiments. By minimizing the binary cross-entropy loss, the method achieves an information-theoretically optimal noise estimate. This approach is highly valuable because it allows for continuous, real-time tracking of device noise drifts without requiring dedicated offline characterization.",
+  "main_problem": "The core challenge is accurately characterizing quantum noise models for high-performance quantum error correction (QEC) without relying on dedicated, separate characterization experiments.",
+  "main_result": "The proposed variational framework successfully recovers noise models whose logical error rates match independently characterized results, and it can track device drifts in real time.",
+  "method": "The noise model is learned by formulating the problem as a variational optimization, minimizing the binary cross-entropy between the decoder's predictions and measured logical outcomes.",
+  "model_or_system": "The work applies to quantum error-correcting codes, using circuit-level data from hardware like Google's Sycamore processor, and is mathematically formalized using tensor networks for decoding.",
+  "key_observables": "Logical Error Rate (LER), syndrome data, and logical observable outcomes.",
+  "important_parameters": "Variational noise parameters ($\theta$), device drift amplitude ($\\sigma$), and the code distance.",
+  "main_assumptions": "The objective function is proven to be principled, minimizing the cross-entropy achieves the information-theoretic minimum LER, and the method is generally applicable to any stabilizer code.",
+  "figures_summary": "Figure 3 shows the convergence of LER and MSE during training on a distance-3 surface code. Figure 4 demonstrates the online tracking of noise drift over time steps.",
+  "paper_structure": "The paper introduces the variational framework, proves its information-theoretic optimality, instantiates it using tensor networks for exact gradient calculation, validates it on hardware data, and demonstrates real-time tracking of device drift.",
+  "why_interesting": "It provides a powerful, data-driven methodology to characterize complex noise processes in quantum hardware directly from operational measurements, bypassing the need for idealized, separate characterization protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.00169_figures/2609.00169_fig1.jpg",
+      "caption": "Figure 1: Mapping from the Tanner graph to a tensor-network decoder. a) The Tanner graph with syndrome nodes s1, s2, s3 (orange squares) and error nodes e1, . . . , e5 (green circles). b) Each error node becomes a |GHZ0/1⟩copy tensor (green) and each syndrome node a |GHZ±⟩copy tensor (orange). c) Inserting Hadamard matrices H on the bonds between syndrome and error tensors con- verts all copy tensors to the same (|0/1⟩) basis, as explained in e). d) A noise model PN(e) is attached to the error legs, adding a new tensor that encodes the fault-event probabilities. e) Identity: a |GHZ±⟩copy tensor equals a |GHZ0/1⟩ copy tensor dressed with Hadamard matrices on each leg. f) Full decoder net-...",
+      "page": 9
+    },
+    {
+      "image": "2609.00169_figures/2609.00169_fig2.jpg",
+      "caption": "Figure 3: Learning progress for a distance-3 surface code with 3 rounds of syndrome extraction. Top row: X logical observable. Bottom row: Z logical observable. Each panel corresponds to a different center qubit position on the device. The logical error rate (LER, left axis) decreases as a function of the optimization iteration, converging towards the baseline set by Google’s detector error model (DEM). The mean squared error (MSE, right axis, green) between the learned noise parameters θ and the DEM parameters is shown on a logarith- mic scale. The MSE follows a clear downward trend throughout the training, indicating that the optimization not only improves decoding performance but also...",
+      "page": 13
+    },
+    {
+      "image": "2609.00169_figures/2609.00169_fig3.jpg",
+      "caption": "Figure 4: Online noise-model tracking under synthetic device drift for a distance- 3 surface code with 3 rounds. The noise model evolves over 20 time steps along a Brownian motion in logit space (Eq. (25)) with drift amplitude σ = 0.2 (left) and σ = 0.3 (right). Five independent random seeds are shown, each as a different color. For each seed, solid lines with circles (“Brownian LER”) show the LER of a decoder with perfect knowledge of the true drifted noise model, while dashed lines with squares (“Learned LER”) show the LER of the online- learned model, which is warm-started from the previous time step. The learned model tracks the true baseline closely across all seeds, even under the...",
+      "page": 14
+    }
+  ],
+  "figure": "2609.00169_figures/2609.00169_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}
