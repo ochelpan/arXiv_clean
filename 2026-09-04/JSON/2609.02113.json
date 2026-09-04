@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.02113",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Logarithmic-scale variational quantum eigensolver for off-lattice protein structure prediction in continuous torsional angle space",
+  "authors": "Fabio Cumbo, Bryan Raubenolt, Varun Puram, Natalie Katzenmeyer, Jayadev Joshi, Daniel Blankenberg",
+  "abstract": "Classical and current quantum approaches to protein structure prediction (QPSP) face limitations, notably massive qubit requirements restricting near-term models to simplistic on-lattice simulations. We propose a logarithmic-scale variational quantum eigensolver (VQE) that reduces qubit requirements for N torsional degrees of freedom to O(log2N), enabling off-lattice, all-atom simulations. Our architecture extracts molecular torsions from relative phases in statevector simulations. On quantum hardware, a decoder maps the empirical cumulative distribution function (CDF) from basis-state probabilities to bounded torsional variables. These feed a classical algorithm to build heavy-atom coordinates. We use an EfficientSU2 ansatz and multi-stage relaxation to mitigate barren plateaus. Structures are evaluated via a custom hybrid quantum-classical Hamiltonian, alongside Rosetta and OpenMM benchmarks.   Evaluation on chignolin and Trp-cage yielded native-like conformations. Chignolin reached a 0.623 Å Cα RMSD in retained snapshots and 1.199 Å in final models; Trp-cage achieved a 2.501 Å RMSD among snapshots (3.512 Å in final models). Execution on IBM processors (ibm_cleveland, ibm_miami) successfully recovered native-like structures with a best RMSD of 1.758 Å. The custom energy function performed best overall, though energy-ranking imbalances persisted across sampled landscapes for all functions.   This introduces the first all-atom, continuous-space quantum algorithm for QPSP. By converting physical qubit constraints into circuit depth constraints, it proves high-resolution prediction is feasible with exponentially fewer qubits. Despite current limits like computational overhead and energy function sensitivity, it establishes a scalable foundation for hybrid quantum biophysics.",
+  "url": "http://arxiv.org/abs/2609.02113v1",
+  "pdf": "https://arxiv.org/pdf/2609.02113v1",
+  "type": "both",
+  "summary": "This paper introduces a groundbreaking quantum algorithm for protein structure prediction that moves beyond restrictive lattice models into continuous, all-atom space. It achieves this by encoding the exponentially large conformational space into a quantum statevector, requiring only logarithmic qubits relative to the number of torsional angles. The success on benchmark proteins proves the feasibility of this scalable, hybrid quantum-classical approach for biophysics.",
+  "main_problem": "Protein structure prediction (PSP) is computationally challenging due to the vast conformational space, and current quantum methods are limited to simplistic lattice models.",
+  "main_result": "The authors demonstrated a novel, scalable quantum algorithm capable of performing all-atom, continuous-space PSP using only O(log N) qubits for N torsional degrees of freedom.",
+  "method": "They propose a logarithmic-scale Variational Quantum Eigensolver (VQE) where molecular torsions are encoded into the relative phases of a quantum statevector, which are then decoded to reconstruct 3D coordinates.",
+  "model_or_system": "The system is the protein structure, modeled by its backbone and sidechain torsional angles. The approach uses a hybrid quantum-classical pipeline, employing a custom Hamiltonian derived from molecular mechanics terms to evaluate the energy.",
+  "key_observables": "RMSD (Root Mean Square Deviation) for structural comparison, and the total scalar energy calculated by the hybrid Hamiltonian.",
+  "important_parameters": "The qubit scaling is $\\mathcal{O}(\\log_2 N)$ for $N$ torsional degrees of freedom. The method uses a multi-stage relaxation curriculum to mitigate barren plateaus.",
+  "main_assumptions": "The primary assumptions involve the feasibility of mapping continuous physical constraints into circuit depth constraints and the reliance on a probability-CDF decoder due to the non-observability of relative phases on NISQ hardware.",
+  "figures_summary": "The figures schematically illustrate the four-stage hybrid quantum-classical pipeline: quantum state generation from parameters, differentiable coordinate reconstruction from phases, physical energy evaluation, and variational optimization.",
+  "paper_structure": "The paper introduces the limitations of existing PSP methods, details the novel logarithmic-scale VQE architecture (QTF), outlines the hybrid quantum-classical pipeline, presents benchmarks on specific proteins (chignolin, Trp-cage), and discusses hardware implementation and future scalability.",
+  "why_interesting": "This work directly tackles the mapping of continuous physical degrees of freedom (torsions) onto discrete quantum computational resources (qubits/phases), which is a major theoretical challenge in quantum simulation for molecular physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.02113_figures/2609.02113_fig1.jpg",
+      "caption": "Figure 1: Schematic overview of the hybrid quantum-classical continuous-space protein structure prediction pipeline. The closed-loop VQE architecture consists of four interconnected phases. (I) Quantum State Generation: an n-qubit parameterized quantum circuit, scaled logarithmically relative to the torsional degrees of freedom, generates a complex statevector. The gauge-fixed relative phases of the resulting amplitudes are extracted to directly represent continuous molecular torsion angles in the",
+      "page": 5
+    },
+    {
+      "image": "2609.02113_figures/2609.02113_fig2.jpg",
+      "caption": "Figure 2: Structural overlays of the 10 lowest RMSD snapshots and 10 final models for each protein, model class, and energy function. Rows correspond to energy functions: custom (A-D), Rosetta (E-H), and OpenMM (I-L). Columns show 5AWL snapshots, 5AWL final models, 2JOF snapshots, and 2JOF final models, respectively. Each panel reports the RMSD range for the 10 displayed structures. Predicted structures are colored by energy function, with experimental reference structures shown in cyan.",
+      "page": 19
+    },
+    {
+      "image": "2609.02113_figures/2609.02113_fig3.jpg",
+      "caption": "Figure 3: Comparison final replica models with the best retained snapshot from the same replica. Panels A and B plot final-model RMSD versus best-snapshot RMSD for 5AWL and 2JOF, respectively; points below the diagonal indicate replicas where snapshot mining recovered a lower-RMSD structure than the final selected model. Panels C and D summarize the corresponding RMSD distributions for final models and per-replica best snapshots across each energy function, with the 2.0 Å horizontal line marking the native-like threshold. Panels E and F show the per-replica RMSD improvement, defined as final-model RMSD minus best-snapshot RMSD, for 5AWL and 2JOF. In all snapshot panels, the snapshot value...",
+      "page": 22
+    },
+    {
+      "image": "2609.02113_figures/2609.02113_fig4.jpg",
+      "caption": "Figure 4: Raw-energy folding-funnel landscapes. The raw energy units are kcal/mol for the custom energy function, Rosetta energy units (REU) for Rosetta, and kJ/mol for OpenMM. These panels test whether each backend’s own scoring objective produces an internal funnel toward lower RMSD, but raw y-values should not be compared quantitatively across energy functions because the scales and definitions differ.",
+      "page": 24
+    },
+    {
+      "image": "2609.02113_figures/2609.02113_fig5.jpg",
+      "caption": "Figure 5: Final-mode energy-term correlations. The strongest final-model energy-term Spearman correlations with RMSD for each protein and energy function. Panels follow the same row-major layout as",
+      "page": 25
+    }
+  ],
+  "figure": "2609.02113_figures/2609.02113_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

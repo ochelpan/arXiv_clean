@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.01719",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Numerical simulation of D-Wave's quantum advantage experiment with time-dependent variational Monte Carlo",
+  "authors": "Roeland Wiersema",
+  "abstract": "Programmable quantum annealers can realize real-time dynamics of frustrated transverse-field Ising models on large, nontrivial graphs. Recent work by King et al. argued that the classical simulation of such experiments would require exponential computational resources for classical methods such as tensor networks and neural quantum states. Here, we numerically simulate the D-Wave spin-glass annealing protocol with time-dependent variational Monte Carlo (t-VMC) using a correlator state tailored to spin-glass dynamics. For the two-dimensional cylinder, three-dimensional dimer, diamond, and biclique instances considered, at annealing times of 7 and 20 ns, we show that systematically increasing the variational ansatz size enables t-VMC to approximate the final two-spin correlation errors of the quantum processing unit (QPU). We also perform an accurate large-scale simulation of a challenging biclique instance for which no other variational method is known to work, and we find close agreement with the quantum annealer. Through ablation studies, we identify poor Markov-chain mixing, high-variance local-energy estimators, and stochastic Runge-Kutta error estimates as the principal numerical failure modes. We address these numerical issues by using parallel tempering, blurred sampling and an importance-weighted differential equation solver, thereby clarifying the numerical requirements for stable, large-scale t-VMC simulations. Our results extend the frontier of classical simulation while providing a realistic assessment of the computational costs of simulating quantum dynamics at this scale.",
+  "url": "http://arxiv.org/abs/2609.01719v1",
+  "pdf": "https://arxiv.org/pdf/2609.01719v1",
+  "type": "theory",
+  "summary": "This paper presents a sophisticated numerical simulation of quantum annealing dynamics using time-dependent variational Monte Carlo (t-VMC). By employing advanced sampling techniques like Parallel Tempering and Blurred Sampling, the authors successfully simulate spin-glass models on complex graphs. The results establish a rigorous classical benchmark for assessing the computational feasibility and accuracy of simulating quantum hardware performance.",
+  "main_problem": "The paper addresses the computational challenge of accurately simulating the non-equilibrium dynamics of frustrated quantum spin systems, specifically those relevant to quantum annealing experiments.",
+  "main_result": "The authors successfully simulate the D-Wave annealing protocol on complex topologies, achieving correlation errors comparable to the quantum annealer results, even for challenging instances where other methods fail.",
+  "method": "They employ Time-Dependent Variational Monte Carlo (t-VMC) using a structured correlator state ansatz, stabilized by advanced sampling techniques like Parallel Tempering and Blurred Sampling.",
+  "model_or_system": "The system is a transverse-field Ising model defined on various spin-glass topologies (e.g., 2D cylinder, biclique). The dynamics are simulated by evolving the variational state according to the time-dependent variational principle.",
+  "key_observables": "Two-spin Ising correlations ($C_{ij}$), relative correlation error ($\\epsilon_c$), and numerical diagnostics like MCMC acceptance rates and TDVP residuals ($R_2$).",
+  "important_parameters": "Annealing times ($t_a = 7, 20$ ns), variational ansatz rank ($R$), and regularization parameters ($\text{rcond}$).",
+  "main_assumptions": "The primary approximation is projecting the full quantum dynamics onto a variational manifold defined by the correlator product state ansatz. Numerical stability requires advanced sampling and ODE solvers.",
+  "figures_summary": "Figures illustrate the simulation setup, the annealing schedule, the ansatz structure, and diagnostic plots comparing correlation errors ($\\epsilon_c$) across different topologies and the impact of advanced sampling techniques.",
+  "paper_structure": "The paper details the theoretical framework (t-VMC, ansatz construction), presents the numerical implementation challenges (sampling difficulties, stiffness), and validates the method by simulating dynamics on increasingly complex and challenging spin-glass graph structures.",
+  "why_interesting": "The work provides a highly detailed, state-of-the-art classical benchmark for simulating quantum annealing dynamics, offering crucial insights into the numerical limitations and required resources for simulating quantum advantage experiments.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.01719_figures/2609.01719_fig1.jpg",
+      "caption": "FIG. 1. Overview of the quantum-annealing simulation. (a) Representative 2D cylinder, 3D dimer, diamond, and biclique problem graphs. (b) Annealing schedule interpolating between the transverse-field paramagnet and the spin-glass Hamiltonian. (c) Path-factorized k-body correlator ansatz with channel rank R and O(RN 2) complex parameters. We omit the global phase and odd terms due to symmetry considerations.",
+      "page": 3
+    },
+    {
+      "image": "2609.01719_figures/2609.01719_fig2.jpg",
+      "caption": "FIG. 2. Correlation error of the t-VMC ansatz at the end of the anneal. Final-time (s = 1) ZZ-correlation error ϵc relative to the MPS reference, for every simulated topology. Within each topology, we show the two anneal times ta = 7 ns and ta = 20 ns. The markers are colored by ansatz rank R ∈{1, 2, 3, 4} and horizontally offset by rank. The correlation error ϵc is estimated using 221 = 2097152 samples. To assess stability across disorder realizations, we repeat the optimization for five instances at selected ranks that reach approximately 5% error (dashed line); error bars indicate the minimum and maximum, and the marker indicates the median.",
+      "page": 4
+    },
+    {
+      "image": "2609.01719_figures/2609.01719_fig3.jpg",
+      "caption": "FIG. 3. Ablation study of methodological components of t-VMC simulation. (a) Local MCMC dynamics versus replica exchange Monte Carlo. At low temperatures, acceptance rates freeze within each chain, while at high temperatures, acceptance rates remain reasonable. The adjacent-replica exchange rate fluctuates between 0.239 and 0.288, enabling configurations to diffuse along the temperature ladder and reach the physical β0 replica. The dashed line shows the freezing of the local MCMC dynamics. The final error is ϵc = 0.4096 ± 0.0027 for local sampling, whereas for replica exchange we recover the < 5% error ϵc = 0.0331 ± 0.0003. (b) Standard sampling versus blurred sampling. With the standard...",
+      "page": 5
+    },
+    {
+      "image": "2609.01719_figures/2609.01719_fig4.jpg",
+      "caption": "Fig. 2 were obtained with the same hyperparameters, so a more fine-tuned choice of the regularization and sam- pling settings could potentially drive down the errors. We conclude from these experiments that the diamond topol- ogy is the easiest for t-VMC simulate, and the observed difficulty increases in the order diamond, 2D cylinder, biclique, and 3D dimer. a. Sampler comparison. To assess the quality of the sampler, we can monitor three complementary diagnos- tics. First, we can track the acceptance rate within each replica. High-temperature replicas must maintain suffi- ciently high local acceptance rates throughout the an- neal to explore the state space effectively. Second, we can...",
+      "page": 5
+    },
+    {
+      "image": "2609.01719_figures/2609.01719_fig5.jpg",
+      "caption": "FIG. 4. Scaling analysis of the t-VMC simulation (a) Inverting the QGT of the correlator state with K = (2, 4) and R = 1 for system sizes N = {16, 32, . . . , 320}. Error bars show the standard deviation over 10 random initializations. The vertical dashed line indicates the number of parameters at which a single NVIDIA H200 would run out of memory. (b) Squared TDVP residual ε2 TDVP(s) along the anneal for the 8 × 8 2D cylinder. Curves are smoothed using a rolling window of 100 steps. The inset shows the integrated TDVP error R2 = R 1 0 ε2 TDVP(s)ds as a function of rank; the error decreases approximately as R−0.50. (c) Correlation error compared to the QPU as a function of anneal time for a...",
+      "page": 6
+    }
+  ],
+  "figure": "2609.01719_figures/2609.01719_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

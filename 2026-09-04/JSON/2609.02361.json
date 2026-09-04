@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.02361",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "DMRG using Belief Propagation",
+  "authors": "Hendrik Kühne, Christian B. Mendl",
+  "abstract": "Tensor networks have attracted much attention as a powerful tool for modeling quantum many-body systems. Their contraction is a significant challenge, however, especially in highly connected networks, as memory requirements become prohibitive and the optimal contraction order is increasingly hard to find. The belief propagation (BP) algorithm has emerged as an alternative to exact contraction. Being formulated in a graph-agnostic way, it offers great flexibility, but its accuracy suffers in the presence of loops. In this work, we combine BP with the DMRG algorithm to solve ground-state problems, thereby extending DMRG to higher dimensions and arbitrary lattices. We demonstrate the viability of BP-DMRG on the transverse-field Ising model on a $2\\times 2$ hexagonal lattice, finding that it produces states with a fidelity between $0.9$ and $0.99$ to the true ground state, and energy estimates with a relative error between $10^{-2}$ and $10^{-3}$. Additionally, BP-DMRG can find ground states on randomly generated lattices, with fidelity improving as the transverse field increases. We conclude with a discussion of the limitations we encounter when using belief propagation, highlighting that the TFI tensor network operators lead to larger errors during BP iterations in BP-DMRG.",
+  "url": "http://arxiv.org/abs/2609.02361v1",
+  "pdf": "https://arxiv.org/pdf/2609.02361v1",
+  "type": "theory",
+  "summary": "This paper introduces BP-DMRG, a novel method that merges Belief Propagation with the DMRG algorithm to calculate ground states of quantum many-body systems. It overcomes the limitations of standard DMRG by allowing calculations on arbitrary lattices, demonstrated successfully on the TFI model. While highly accurate, the authors caution that the method's reliability degrades significantly when the underlying graph contains loops or when operators are non-definite.",
+  "main_problem": "The primary challenge is efficiently calculating the contraction of large Tensor Networks (TNs) for ground-state problems in quantum many-body systems, especially on higher-dimensional or arbitrary lattices.",
+  "main_result": "The combination of Belief Propagation (BP) with DMRG (BP-DMRG) successfully extends DMRG to arbitrary lattices, achieving high fidelity (0.9-0.99) for the transverse-field Ising model on a $2\times 2$ hexagonal lattice.",
+  "method": "The authors combine the DMRG optimization framework with the Belief Propagation algorithm to approximate the difficult TN contractions required for calculating state norms and energy expectation values.",
+  "model_or_system": "The work is benchmarked on the transverse-field Ising model (TFI) and is designed for general quantum many-body systems whose ground states are represented by Tensor Networks (TNS).",
+  "key_observables": "Fidelity (to the true ground state) and the relative error of energy estimates.",
+  "important_parameters": "The lattice structure (e.g., $2\times 2$ hexagonal lattice) and the transverse field strength.",
+  "main_assumptions": "The accuracy of BP suffers significantly in the presence of loops in the TN graph, and convergence is not guaranteed for non-definite operators.",
+  "figures_summary": "Figures illustrate the message update process for TN contraction, the calculation of the approximate contraction value $Z_{BP}$, and the construction of TNOs for the TFI model on hexagonal lattices.",
+  "paper_structure": "The paper first introduces the challenge of TN contraction, then details the use of BP as an alternative to exact contraction. It formalizes the combination into BP-DMRG, demonstrates its application to the TFI model on specific lattices, and concludes by discussing the inherent limitations related to graph topology and operator definiteness.",
+  "why_interesting": "This work provides a powerful, scalable numerical technique (BP-DMRG) to tackle quantum many-body problems on complex geometries where traditional DMRG methods fail due to dimensionality or lattice structure.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.02361_figures/2609.02361_fig1.jpg",
+      "caption": "FIG. 1. The message update – Eq. (2) – contracts all but one incoming message into the respective tensor. Let ∂a = {x, y, b}. Then the message m(t+1) a→b is obtained by evaluating",
+      "page": 2
+    },
+    {
+      "image": "2609.02361_figures/2609.02361_fig2.jpg",
+      "caption": "FIG. 2. The contraction value Z of a TN can be obtained using BP by absorbing the messages into the tensors, and dividing by the message normalizations. This example depicts ZBP (Eq. (4)) for a TN consisting of three hexagonal cells.",
+      "page": 3
+    },
+    {
+      "image": "2609.02361_figures/2609.02361_fig3.jpg",
+      "caption": "FIG. 3. The norm ⟨ψ|ψ⟩can be expressed as a tensor network, given a TNS representation of |ψ⟩. The conjugated state ⟨ψ|, in TNS format, is represented by complex conjugates T † of all TNS-tensors T of the state |ψ⟩. Mathematically, the inner product ⟨ψ|ψ⟩is a TN that is obtained by connecting the physical legs of Ta and T † a for all nodes a ∈V .",
+      "page": 4
+    },
+    {
+      "image": "2609.02361_figures/2609.02361_fig4.jpg",
+      "caption": "FIG. 4. A local Hamiltonian is the result of contracting all of ⟨ψ|H|ψ⟩except the respective site tensors, yielding ⟨Ta|Ha|Ta⟩at site a. This is the graphical depiction of Eq. (10), with TTNS tensors drawn in blue and TTNO ten- sors drawn in yellow.",
+      "page": 6
+    },
+    {
+      "image": "2609.02361_figures/2609.02361_fig5.jpg",
+      "caption": "FIG. 8. Eq. (13) describes the calculation of local Hamilto- nians at sites with an arbitrary number of neighbors. This figure shows Ha, where |∂a| = 3. The expression is symboli- cally similar to C(E1E2E3Wa) from Fig. 4, hinting at the fact that Eq. (13) is equivalent to Eq. (10) on trees.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.02361_figures/2609.02361_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

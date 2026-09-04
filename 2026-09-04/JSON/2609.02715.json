@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2609.02715",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum amplitude estimation beyond power-of-two schedules",
+  "authors": "Farrokh Labib",
+  "abstract": "Non-adaptive quantum amplitude estimation (QAE) fixes its Grover depths in advance, so every circuit can run in parallel, but it has so far needed more queries than the best adaptive methods. We show that most of this gap comes from two conventional choices: subspace-based post-processing and power-of-two depth ladders. We replace the first by the exact maximum-likelihood estimate, one matrix multiplication per batch of estimates, and the second by a geometric ladder with ratio $r \\approx 1.45$. The result is a fully parallel, deterministic-schedule estimator with total query complexity $2.8$-$3.1/\\varepsilon$ at 95% confidence for target errors from $3.5\\times 10^{-3}$ to $10^{-6}$. This matches the average-case complexity of chebAE, the best benchmarked adaptive method, within statistical uncertainty (with the lower point estimate at every scale tested), beats its maximum-observed complexity by $1.6\\times$, and needs a maximum sequential depth of only $0.21/\\varepsilon$ against chebAE's $2.9/\\varepsilon$. Relative to csAE, the best non-adaptive benchmark, the constants improve by 30-35% at 95% and $1.5$-$1.7\\times$ at 99% confidence. The optimal ratio has a simple origin. Doubling is the fastest depth growth at which the data can still tell neighboring candidate values apart, so power-of-two ladders sit at the edge of confusion and must buy reliability with extra shots; a slightly denser ladder checks every scale redundantly. An error-probability analysis reproduces the measured failure rates and locates the optimum. The likelihood formulation extends directly to noise-aware estimation, and uniformly scaling the capped ladder covers the depth-limited regime, realizing the optimal trade-off $M N_{\\mathrm{tot}} \\approx (0.4$-$0.6)/\\varepsilon^2$ within $\\sim 1.1\\times$ of the schedule's Cramér-Rao limit.",
+  "url": "http://arxiv.org/abs/2609.02715v1",
+  "pdf": "https://arxiv.org/pdf/2609.02715v1",
+  "type": "theory",
+  "summary": "This paper presents a significant algorithmic improvement for Quantum Amplitude Estimation (QAE) by optimizing both the measurement schedule and the data processing step. By replacing power-of-two ladders with a geometrically spaced ladder ($r \\approx 1.45$) and using an exact maximum-likelihood estimator, the authors achieve state-of-the-art query complexity. This advancement makes quantum estimation more efficient and practically viable for quantum computing applications.",
+  "main_problem": "The paper aims to improve Quantum Amplitude Estimation (QAE) by overcoming limitations in conventional non-adaptive estimation schedules and post-processing techniques.",
+  "main_result": "The authors propose a fully parallel, deterministic-schedule estimator using an exact maximum-likelihood estimate and a geometric ladder with ratio $r \\approx 1.45$, achieving query complexities matching the best adaptive methods.",
+  "method": "The methodology involves replacing subspace-based post-processing with an exact maximum-likelihood estimate and optimizing the measurement schedule from power-of-two steps to a geometrically spaced ladder.",
+  "model_or_system": "The underlying model is quantum state estimation for the amplitude $a$ of a marked component, utilizing the Grover iterator $G$ applied $n$ times.",
+  "key_observables": "Total query complexity ($C_\\delta$), maximum sequential depth ($n_L$), and the achievable error percentile ($\\epsilon_{95}$).",
+  "important_parameters": "The optimal geometric ladder ratio $r \\approx 1.45$, and the target error $\\varepsilon$ (ranging from $3.5\times 10^{-3}$ to $10^{-6}$).",
+  "main_assumptions": "The analysis assumes the standard shot-noise model, and the derived bounds are compared against the Cramér-Rao Lower Bound (CRLB).",
+  "figures_summary": "Figures compare total-query constants and basin-flip rates against the ladder ratio $r$, showing the optimal balance near $r \\approx 1.45$.",
+  "paper_structure": "The paper first identifies the limitations of existing QAE methods, then introduces the improved ML estimator and geometric ladder, deriving the optimal ratio by balancing aliasing and redundancy costs, and finally confirming the performance against state-of-the-art benchmarks.",
+  "why_interesting": "The work provides concrete, improved algorithmic tools for quantum estimation, which is a fundamental building block for quantum simulation and sensing protocols relevant to AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.02715_figures/2609.02715_fig1.jpg",
+      "caption": "FIG. 1. Total-query constants (top) and basin-flip rate (bot- tom) versus the ladder ratio r, for geometric ladders nj = round(rj) capped at nmax ∈{128, 256} with the canonical shot profile (one shot at the deepest level, one more per shal- lower level), 2×104 trials per point. Both scales collapse onto the same curves. C95 is minimized at r ≈1.45–1.5 and C99 at r ≈1.35; at r = 2 (powers of two, dotted line) one trial in six lands in a wrong basin under this profile. Bootstrap 95% confidence intervals are smaller than the markers for C95 and up to ∼15% for C99 at large r; flip rates below 10−3 rest on single-digit event counts and indicate ≈0 rather than precise values.",
+      "page": 4
+    },
+    {
+      "image": "2609.02715_figures/2609.02715_fig2.jpg",
+      "caption": "FIG. 2. Worst-case (over θ) rejection exponent E of Eq. (4) against rival offsets d, in units of deepest-level basins, for four ladders at nmax ≈128 with the canonical shot profile. Pow- ers of two (r = 2) and r = 1.8 leave near-zero exponents— unrejected rivals—out to tens of basins; r = 1.45 and 1.25 reject all far rivals strongly. These profiles reproduce the measured ordering of catastrophic-failure rates: for far rivals (> 10 basins) at matched profiles, 2.7% (r=2), 0.7% (r=1.8), 0.005% (r=1.45), ∼0 (r=1.25); the last two rest on one and zero events in 2 × 104 trials.",
+      "page": 5
+    },
+    {
+      "image": "2609.02715_figures/2609.02715_fig3.jpg",
+      "caption": "FIG. 3. Estimation error at 95% confidence versus total oracle queries, down to ε95 ≈10−6. Circles (blue): this work (r = 1.45 ladders, canonical shots, 104–5 × 104 trials per point). Squares/triangles: chebAE average and maximum-observed queries at matched achieved error (2000 trials per point, using the implementation of Ref. [11]). Gray line: the published csAE constant [14].",
+      "page": 6
+    },
+    {
+      "image": "2609.02715_figures/2609.02715_fig4.jpg",
+      "caption": "FIG. 4. The depth–query trade-off as a family of power laws. Each fixed depth cap M (uniform scaling, s = 1–256) follows",
+      "page": 7
+    }
+  ],
+  "figure": "2609.02715_figures/2609.02715_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "2609.02139",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.OC"
+  ],
+  "is_primary_archive": true,
+  "title": "A variational quantum eigensolver-based cutting plane framework for semidefinite programming problems",
+  "authors": "Gizem Ozbaygin, Burak Kocuk, Diego A. Moran R",
+  "abstract": "Semidefinite programming plays a key role in optimization, with broad impact across control theory, machine learning, and combinatorial optimization. Although semidefinite programs are polynomially solvable, several commonly used algorithms rest on a linear-algebraic step whose running time grows cubically with the matrix dimension and which requires the matrix itself to be held in memory, at quadratic cost. In this study, we propose replacing it with a variational quantum eigensolver, whose qubit requirement is logarithmic in the matrix dimension, and present the first end-to-end implementation of such an approach within a cutting-plane framework, together with an operator-derived ansatz whose entanglement structure is read directly from the Pauli support of the candidate matrix. Evaluated on the control family of SDPLIB against an identical scheme driven by an exact eigendecomposition, the variational oracle produces valid cuts throughout, closing 32 to 82% of the initial optimality gap against a near-constant 75 to 82% for the exact oracle. Implementing and measuring the method end to end surfaces several effects not visible from theoretical analyses alone: where memory is actually consumed, how the padding required to fit a matrix onto a quantum register can mislead the variational optimizer, and why the candidate matrices prove dense in the Pauli basis, reducing the operator-derived ansatz to full entanglement. We report these findings and discuss their implications for near-term hybrid quantum-classical approaches.",
+  "url": "http://arxiv.org/abs/2609.02139v1",
+  "pdf": "https://arxiv.org/pdf/2609.02139v1",
+  "type": "theory",
+  "summary": "This work proposes using a Variational Quantum Eigensolver (VQE) as a quantum oracle within a cutting-plane method to solve Semidefinite Programming (SDP) problems. While the quantum approach offers logarithmic qubit scaling, the study reveals that classical memory constraints and the need for full state tomography limit its practical advantage over classical solvers. It serves as a key case study for hybrid quantum-classical optimization algorithms.",
+  "main_problem": "The paper addresses the computational bottleneck in solving Semidefinite Programming (SDP) problems, which are crucial in optimization theory.",
+  "main_result": "The authors propose a VQE-based cutting-plane framework, showing that while the VQE oracle generates valid cuts, the overall advantage over classical methods is limited by classical memory bottlenecks and the need for state tomography.",
+  "method": "They integrate a Variational Quantum Eigensolver (VQE) into a polyhedral outer-approximation cutting-plane algorithm to replace the computationally expensive linear-algebraic step of checking positive semidefiniteness.",
+  "model_or_system": "The model is the abstract mathematical problem of solving an SDP, $\text{SDP (1.1)}$, constrained by the positive semidefinite cone ($\text{S}_n^+$). The quantum component uses VQE to estimate the minimum eigenvalue of the candidate matrix.",
+  "key_observables": "The minimum eigenvalue ($\\lambda_{\\min}(X^*)$) of the candidate matrix $X^*$, and the resulting fraction of the initial optimality gap closed.",
+  "important_parameters": "The qubit requirement scales logarithmically ($\\lceil\\log_2 N\rceil$) with the matrix dimension $N$, contrasting with the classical $O(N^2)$ storage.",
+  "main_assumptions": "The primary assumptions involve the feasibility of realizing the VQE oracle and the use of a polyhedral outer-approximation scheme, which does not guarantee finite convergence.",
+  "figures_summary": "Not specified.",
+  "paper_structure": "The paper details the construction of the end-to-end cutting-plane loop, where the separation oracle is realized by the VQE, followed by comparative analysis against exact methods and discussion of practical hardware limitations.",
+  "why_interesting": "It provides a concrete, albeit limited, blueprint for integrating quantum computation (VQE) into a well-established classical optimization framework (cutting planes), which is highly relevant for near-term quantum algorithm development.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.02139_figures/2609.02139_fig1.jpg",
+      "caption": "Fig. 1: Scaling of the two oracles across the instance family. (a) Separation time per cutting-plane iteration, on a logarithmic vertical axis; the plateaus correspond to the qubit count q = ⌈log2 n⌉of the larger block, which takes the values 4, 5, 6, 7 across the family. (b) Peak memory use, from the first repeat; the dotted line marks the effective limit at which runs were terminated. The vertical dashed line marks the change in iteration budget, 250 on control1–control5 and 100 thereafter; peak memory is driven by the accumulated cut pool and is therefore not comparable across it.",
+      "page": 16
+    },
+    {
+      "image": "2609.02139_figures/2609.02139_fig2.jpg",
+      "caption": "Fig. 2: Quality of the VQE eigenvalue estimates. (a) Relative error against cutting- plane iteration. (b) Physical mass ϵ = 1 −ℓ, on a logarithmic scale. On control10 the smaller block descends to a floor near 10−9 and does not recover; on control5 it floors four orders of magnitude higher and escapes at iteration 23. Curves are from the first repeat.",
+      "page": 17
+    }
+  ],
+  "figure": "2609.02139_figures/2609.02139_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.02633",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Heuristically optimizing, synthesizing, and prioritizing measurement settings for quantum state tomography",
+  "authors": "Sumukh S. Moudghalya, Anton Frisk Kockum, Akshay Gaikwad",
+  "abstract": "A key task in many quantum-computing applications, e.g., quantum simulation and quantum state tomography (QST), is to partition an arbitrary set of operators into mutually commuting subsets for efficient measurements. However, brute-force approaches to this task quickly become intractable as the number and dimensionality of operators grow. Here, we reformulate operator partitioning as a graph-coloring (GC) problem and develop an efficient computational framework to solve it, balancing accuracy and efficiency. Our framework enables leveraging a range of GC algorithms, which we benchmark for operator partitioning. Then, we demonstrate their utility in optimizing QST experiments, where determining non-overlapping data acquisition settings for QST is a major challenge, and prioritizing among these settings, i.e., selecting the experiments that provide the most information. We further show how to perform these experiments by synthesizing Clifford circuits for joint measurement of commuting Pauli operators in multi-qubit systems. We validate our framework across multi-qubit (up to five qubits), multi-qutrit (up to three qutrits), and hybrid qubit-qutrit systems. Our results show that heuristic GC methods substantially reduce the number of required measurement settings for QST and enable priority-based scheduling that maximizes the information gain per experiment. The optimization converges within minutes on a student-grade laptop, providing speedups of several orders of magnitude over brute-force methods already for these relatively small quantum systems. This demonstrates the potential of GC heuristics as a scalable and practical tool for characterization of noisy intermediate-scale quantum devices. We have made the Python implementation of our GC framework to optimize and schedule QST experiments publicly available at https://github.com/ssm8015/QST_GT.git.",
+  "url": "http://arxiv.org/abs/2609.02633v1",
+  "pdf": "https://arxiv.org/pdf/2609.02633v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, efficient computational framework to optimize Quantum State Tomography (QST) by reformulating the measurement setting selection as a Graph Coloring problem. By applying heuristic graph coloring algorithms, the authors drastically reduce the number of required measurements compared to exhaustive methods. This enables practical, priority-based scheduling for characterizing complex quantum systems on NISQ devices.",
+  "main_problem": "The core problem is efficiently determining the minimal and prioritized set of measurement settings required for Quantum State Tomography (QST) for an arbitrary set of operators.",
+  "main_result": "The framework successfully uses Graph Coloring heuristics to substantially reduce the number of required measurement settings compared to brute-force methods, enabling priority-based scheduling that maximizes information gain.",
+  "method": "The problem is reformulated as a Graph Coloring (GC) problem, solved using efficient heuristic algorithms like DSATUR and RLF, followed by synthesizing Clifford circuits for joint measurements.",
+  "model_or_system": "The work is validated on multi-qubit (up to five qubits), multi-qutrit (up to three qutrits), and hybrid qubit-qutrit systems, focusing on reconstructing the density matrix $\\rho$.",
+  "key_observables": "The estimated density matrix ($\\rho_{est}$), the number of required measurement settings (color classes), and the information gain per experiment.",
+  "important_parameters": "The dimensionality of the Hilbert space (up to 5 qubits/3 qutrits) and the number of operators to be measured.",
+  "main_assumptions": "The primary assumption is that the problem can be effectively modeled and solved using graph coloring heuristics, bypassing the intractable nature of brute-force search.",
+  "figures_summary": "Figure 1 illustrates the workflow: partitioning observables via GC, compiling quantum circuits, and using scheduling to reconstruct the density matrix, showing fidelity improvement with more settings.",
+  "paper_structure": "The paper reviews standard QST, introduces the GC formulation for measurement setting optimization, and details the measurement-scheduling strategy for maximizing information gain.",
+  "why_interesting": "It provides a scalable, computational framework for optimizing the data acquisition stage of quantum characterization, which is crucial for experimental quantum computing platforms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.02633_figures/2609.02633_fig1.jpg",
+      "caption": "Figure 1. Schematic workflow of measurement scheduling for quantum state tomography using graph coloring. First, an informationally complete set of quantum observables {P1, P2, P3, . . . , Pn} is partitioned, using heuristic GC algorithms, into K commuting subsets C1, C2, . . . , CK, which correspond to measurement settings. For each such subset (color class), corresponding quantum circuits with unitaries {U1, U2, U3, . . . , UK} are compiled. The resulting measurement data are acquired and processed using a scheduling strategy, illustrated as the fidelity improving with the number of executed settings K, to reconstruct an estimate ϱest of the density matrix describing the system state.",
+      "page": 2
+    },
+    {
+      "image": "2609.02633_figures/2609.02633_fig2.jpg",
+      "caption": "Figure 2. Pictorial representation of the graph coloring pro- cess using (a) DSATUR (upper panel) and (b) RLF (bot- tom panel) applied to the two-qubit Pauli-operator subset P = {XI, Y I, ZI, XX, Y Y, ZZ} as an example.",
+      "page": 5
+    },
+    {
+      "image": "2609.02633_figures/2609.02633_fig3.jpg",
+      "caption": "Figure 3. Illustration of the minimum-clique-cover (MCC) formulation of operator partitioning using an approach based on integer linear programming (ILP), demonstrated for the operator set P = {XI, Y I, ZI, XX, Y Y, ZZ} (the same as in Fig. 2). The procedure begins by constructing the cor- responding commutation graph, followed by identification of maximal cliques. The MCC is then formulated as an ILP optimization task using Algorithm 3 in Appendix A, and the final partitions are obtained by solving the resulting ILP.",
+      "page": 6
+    },
+    {
+      "image": "2609.02633_figures/2609.02633_fig4.jpg",
+      "caption": "Figure 4. Graphical overview of the GNN-based GC frame- work. (a) Initial graph representation and node-feature em- bedding. (b) Internal GNN processing pipeline consisting of message passing, neighborhood aggregation, and linear clas- sification. (c) Final GC solution, where nodes are assigned to color classes corresponding to mutually commuting operator partitions.",
+      "page": 7
+    },
+    {
+      "image": "2609.02633_figures/2609.02633_fig5.jpg",
+      "caption": "Figure 5. Benchmarking of graph-coloring (GC) algorithms for operator partitioning. (a)–(c) The number of partitions obtained and (d)–(f) the corresponding computational runtime for five different GC algorithms (shown in different colors) across multi- qubit systems [first column, i.e., (a) and (d)], multi-qutrit systems [second column, i.e., (b) and (e)], and hybrid systems with both qubits and qutrits [third column, i.e., (c) and (f)]. In all panels, the x axis shows the system size (number of qubits and qutrits), with the total number of operators indicated in parentheses below each case. In panel (a), the dotted black line indicates the optimal reference value, 2N + 1 partitions, for...",
+      "page": 9
+    }
+  ],
+  "figure": "2609.02633_figures/2609.02633_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

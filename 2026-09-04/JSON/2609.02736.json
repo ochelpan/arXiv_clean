@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.02736",
+  "category": "other",
+  "arxiv_categories": [
+    "cond-mat.mes-hall",
+    "cs.DC",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QArray+: A physics-informed GPU-accelerated simulator for quantum dot arrays",
+  "authors": "Pranav Vaidhyanathan, Barnaby van Straaten, Alice Petrillo, Rahul Marchand, Edwin De Nicolo, Menno Veldhorst, Brucek Khailany, Taylor L. Patti, Natalia Ares",
+  "abstract": "Semiconductor quantum-dot arrays are a compelling platform for scalable quantum technologies, yet their practical operation is hindered by the complexity of tuning large-scale devices. Existing automation tools rely on simplified physical models---such as constant-capacitance approximations and equilibrium Hubbard models---which assume instantaneous relaxation to a steady state. These frameworks fail in experimentally critical regimes where measurement rates exceed tunneling dynamics, necessitating more sophisticated non-equilibrium control strategies. To bridge this gap, we introduce QArray+, an extension of the QArray framework that incorporates gate-dependent tunnel coupling and a quantum open-system description of dissipative processes. This approach enables the unified simulation of coherent interdot charge-state hybridization and the non-equilibrium latching dynamics essential for training robust machine-learning models for automated device operation. Implemented in JAX with GPU acceleration, QArray+ scales across GPUs and multi-node systems. For example, a charge stability diagram for a 100X100 grid of gate voltages over 64 dots can be computed in $\\sim0.17\\,\\mathrm{s}$ on multiple GPUs. Since interdot interactions are short-ranged and the corresponding tuning corrections are local, simulations at these scales capture the physics relevant to even larger devices. These capabilities support high-throughput dataset generation for automated device tuning.",
+  "url": "http://arxiv.org/abs/2609.02736v1",
+  "pdf": "https://arxiv.org/pdf/2609.02736v1",
+  "type": "theory",
+  "summary": "This paper introduces QArray+, an advanced simulator for quantum dot arrays designed to overcome limitations in current models that assume steady-state physics. By incorporating gate-dependent tunnel coupling and a full quantum open-system description, it can accurately model non-equilibrium dynamics crucial for quantum device operation. The implementation leverages GPU acceleration to achieve high-throughput simulation of complex charge stability diagrams.",
+  "main_problem": "Existing simulators for quantum dot arrays fail in non-equilibrium regimes because they rely on simplified models assuming instantaneous steady-state relaxation.",
+  "main_result": "QArray+ successfully unifies the simulation of coherent interdot hybridization and non-equilibrium latching dynamics, achieving high computational efficiency on GPU hardware.",
+  "method": "The authors developed QArray+, which extends the QArray framework by incorporating gate-dependent tunnel coupling and a quantum open-system description using a Lindblad master equation.",
+  "model_or_system": "The system is semiconductor quantum-dot arrays, simulated using models ranging from stochastic Markov jump processes to the Lindblad master equation, allowing for the calculation of Charge Stability Diagrams (CSDs).",
+  "key_observables": "Charge Stability Diagrams (CSDs), coherent interdot charge-state hybridization, and non-equilibrium latching dynamics.",
+  "important_parameters": "Gate voltages ($\\vec{V}_g$), tunnel coupling strengths ($t_{ij}$), and the ratio of measurement rates to tunneling dynamics.",
+  "main_assumptions": "The stochastic model assumes a single charge transition per time step, and the original models assume relaxation to a steady state much faster than the measurement timescale.",
+  "figures_summary": "Figures show comparisons of CSDs computed using various models (QArray, Lindblad, Hubbard), demonstrating the different physical regimes captured, and Figure 9 shows the scaling of computation time with tunnel-coupling density.",
+  "paper_structure": "The paper introduces QArray+ to address limitations in existing simulators, details the incorporation of open-system dynamics and gate-dependent coupling, presents the computational implementation in JAX/GPU, and validates the method by comparing results across different physical regimes.",
+  "why_interesting": "This work is highly relevant as it provides a sophisticated, scalable tool for simulating open quantum systems in solid-state architectures, bridging the gap between idealized equilibrium models and realistic, time-dependent quantum dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.02736_figures/2609.02736_fig1.jpg",
+      "caption": "FIG. 1. Double dot charge stability diagram com- puted using four different models. a) The steady state charge stability diagram computed using QArray. b-d) The latched charge stability diagram computed using the QArray+ stochastic, spinless Hubbard and open quantum system mod- els, respectively. The stochastic CSD shows latching but not hybridization of charge states. The spinless Hubbard model shows just hybridization of charge states. The open quantum system model shows both effects. The CPU compute time for each 200 × 200 CSD is indicated in the top-right corner.",
+      "page": 2
+    },
+    {
+      "image": "2609.02736_figures/2609.02736_fig2.jpg",
+      "caption": "FIG. 2. Schematic of a quantum dot device with tun- nel and capacitive couplings. Each quantum dot carries charge ni and is tunnel-coupled to the source and drain leads with rates Γlead,i. The dots are mutually coupled through the inter-dot capacitance Cdd,12 = Cdd,21, the coherent inter-dot tunnel coupling t12, and the incoherent inter-dot transition rate Γinterdot,12. Gate electrodes at voltages Vgi are capaci- tively coupled to the dots; for clarity, any cross-capacitances are omitted. The legend indicates the symbols used to repre- sent tunnel, capacitive, and combined tunnel-capacitive cou- plings. Figure adapted from Fig. 1 of [26].",
+      "page": 3
+    },
+    {
+      "image": "2609.02736_figures/2609.02736_fig3.jpg",
+      "caption": "FIG. 3. Overview of QArray+ relative to QArray: shared electrostatic core with four interchangeable simulation heads (stochastic latching, tunnel-coupled ground state, Lindblad open-system evolution, and integer ground-state via continuous relaxation + candidate enumeration + energy selection), plus shared gate-voltage dependence, readout/noise, and JAX GPU acceleration.",
+      "page": 4
+    },
+    {
+      "image": "2609.02736_figures/2609.02736_fig4.jpg",
+      "caption": "FIG. 4. Hole-based double-dot charge stability diagrams, each computed on a 200 × 200 gate-voltage grid, with the compute time indicated in the top-right corner and the charge state overlaid. (a) Steady-state solution obtained using the original QArray algorithm. (b) Charge stability diagram computed with the QArray+ stochastic solver in the limit of infinite tunnel rates and zero lead temperature, such that the system deterministically adopts the lowest-energy charge configuration. (c–g) Latched charge stability diagrams for finite tunnel rates. It is assumed that sufficient time elapses between the end of one row and the start of the next for the system to relax to the ground charge state...",
+      "page": 11
+    },
+    {
+      "image": "2609.02736_figures/2609.02736_fig5.jpg",
+      "caption": "FIG. 6. Tunnel-coupled ground-state (spinless Hub- bard) charge stability diagrams for increasing inter- dot tunnel coupling t12. Coherent tunneling hybridizes near-degenerate interdot charge configurations, producing avoided crossings and fractional charge expectation values that broaden the interdot transition lines as t12 increases. Each panel shows a 200 × 200 gate-voltage scan; compute times on CPU are indicated in the top-right corners. The larger compute time for the t12 = 0 panel reflects one-time just-in-time compilation included in its timing; the remaining panels reuse the compiled kernel.",
+      "page": 12
+    }
+  ],
+  "figure": "2609.02736_figures/2609.02736_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 3,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

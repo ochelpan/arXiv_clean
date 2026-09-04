@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2609.02195",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.NE",
+    "cond-mat.dis-nn",
+    "nlin.AO",
+    "physics.bio-ph",
+    "q-bio.NC"
+  ],
+  "is_primary_archive": true,
+  "title": "Memory as an Energy Landscape---Hopfield",
+  "authors": "Nima Dehghani",
+  "abstract": "This chapter reconstructs the Hopfield network as a physical theory of memory rather than merely an early neural-network algorithm. It begins with the problem as it stood before 1982-threshold logic, Hebbian association, correlation memories, and recurrent binary networks-and isolates what Hopfield's synthesis added: a dynamical definition of content-addressable memory, a symmetric recurrent architecture with a Lyapunov function, a Hebbian embedding of patterns in its couplings, and a physical account of basins, robustness, and graceful degradation. The binary and graded-response energy functions are derived in full, together with the signal-crosstalk decomposition governing pattern stability, the mean-field theory of retrieval at extensive load, and the zero-temperature retrieval spinodal at (alpha 0.138) established by Amit, Gutfreund, and Sompolinsky. The energy-based program is then followed through analog optimization networks, polynomial dense associative memories, exponential interactions, and modern continuous Hopfield updates, including the precise conditions under which the update becomes scaled dot-product attention. Throughout, capacity claims are tied to their disorder ensemble, scaling limit, and success criterion, showing why numerically different storage limits need not conflict. A closing assessment distinguishes established results from surviving principles, assumption-bound limitations, and open problems, treating the Hopfield network as an effective theory whose symmetry, locality, and point-neuron assumptions delimit its biological reach. Fixed-seed numerical experiments expose the mechanisms discussed but do not substitute for analytical results.",
+  "url": "http://arxiv.org/abs/2609.02195v1",
+  "pdf": "https://arxiv.org/pdf/2609.02195v1",
+  "type": "theory",
+  "summary": "This chapter treats the Hopfield network as a rigorous physical theory of memory, deriving its energy function and proving that its dynamics converge to stable memory states. It meticulously analyzes the theoretical limits of this energy-based approach using mean-field theory, while critically assessing its assumptions regarding symmetry and locality compared to complex biological systems.",
+  "main_problem": "The paper reconstructs the Hopfield network as a physical theory of memory, aiming to understand how stable collective states emerge from recurrent dynamics.",
+  "main_result": "It establishes that the energy function provides a global statement guaranteeing convergence to a fixed point, while also detailing the theoretical limits (e.g., $\\alpha_c \\simeq 0.138$) of this energy-based approach.",
+  "method": "The analysis uses statistical mechanics, deriving Lyapunov functions for energy decrease in the binary case, and employing mean-field theory (replica method) for analyzing retrieval at extensive load.",
+  "model_or_system": "The primary model is the Hopfield network, characterized by a symmetric coupling matrix $J_{ij}$ and an associated energy function $E(\\mathbf{s})$. Dynamics are governed by asynchronous updates, which ensure energy non-increase.",
+  "key_observables": "Memory (stable attractors), retrieval overlap ($m$), energy function $E(\\mathbf{s})$, and the critical storage capacity ($\\alpha_c$).",
+  "important_parameters": "The load parameter $\\alpha = p/N$, the temperature $\beta$ (for stochastic updates), and the critical capacity $\\alpha_c \\simeq 0.138$.",
+  "main_assumptions": "Critical assumptions include the symmetry of couplings ($J_{ij} = J_{ji}$), the absence of self-coupling ($J_{ii} = 0$), and the point-neuron approximation, which limit its biological scope.",
+  "figures_summary": "Figure 1 illustrates the selective lineage of associative-memory theory, showing Hopfield's synthesis of prior concepts.",
+  "paper_structure": "The paper proceeds by first establishing the historical context and the energy-based framework for the binary Hopfield network, deriving the Lyapunov function. It then extends this analysis through mean-field theory to calculate capacity limits, concluding with a critical assessment of the model's assumptions and open problems.",
+  "why_interesting": "The analysis of energy landscapes, stability, and phase transitions in the Hopfield model shares deep mathematical parallels with understanding ground states and collective behavior in quantum spin glasses or disordered quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.02195_figures/2609.02195_fig1.jpg",
+      "caption": "FIG. 1. A selective lineage of associative-memory theory. Hopfield did not invent threshold neurons, Hebbian association, correlation memories, or the first recurrent binary network. The 1982 synthesis made content-addressable recall the descent dynamics of a symmetric many-body system and presented its collective computational consequences in a form that physicists could generalize. The later high-capacity models change the interaction function and sometimes the state space, while retaining the idea that memories organize a dynamical landscape. This is an original schematic, not data reproduced from the cited literature.",
+      "page": 2
+    },
+    {
+      "image": "2609.02195_figures/2609.02195_fig2.jpg",
+      "caption": "FIG. 2. Seeded replication of classical content-addressable recall. Eighteen random patterns are embedded in N = 400 spins. A cue obtained by flipping 28% of one memory begins with overlap m1 = 0.44 and converges to the stored target under random sequential updates. The energy decreases at every sampled interval while the overlap grows; in this run the final overlap is 1. A single successful cue demonstrates a basin, not a storage-capacity theorem. Source: code/hopfield replication.py.",
+      "page": 5
+    },
+    {
+      "image": "2609.02195_figures/2609.02195_fig3.jpg",
+      "caption": "FIG. 3. Two complementary replications of capacity. Left: numerical continuation of Eqs. (30)–(32); the nonzero retrieval branch terminates at α ≈0.1376 at the plotted resolution. Right: finite-N synchronous simulations from cues with 10% flipped bits. The finite network rounds and shifts the transition, and the mean-overlap and m > 0.9 criteria do not coincide. The dashed line is a thermodynamic reference, not a fit to finite-N points. Source: code/hopfield replication.py.",
+      "page": 7
+    },
+    {
+      "image": "2609.02195_figures/2609.02195_fig4.jpg",
+      "caption": "FIG. 4. Replication of the graded-response Lyapunov mechanism. Four random patterns are embedded in N = 120 units with g(u) = tanh(2.2u). From a corrupted continuous cue, the energy in Eq. (36) decreases to numerical precision and the target overlap approaches 0.966. The units remain continuous even though the attractor lies close to saturated values. This figure tests the 1984 structural claim, not a biological fit. Source: code/hopfield replication.py.",
+      "page": 9
+    },
+    {
+      "image": "2609.02195_figures/2609.02195_fig5.jpg",
+      "caption": "FIG. 5. Polynomial dense-memory capacity. Left: the no-error scale in Eq. (49) for interaction orders n = 2, 3, 4. Right: direct finite-N tests of whether every bit of a designated random target is stable under the exact energy-difference rule Eq. (43), with K set to the asymptotic no-error scale. The finite-size probabilities are noisy and the asymptotic coefficient is conservative at these sizes; the robust claim is the changed power of N. Source: code/hopfield replication.py.",
+      "page": 10
+    }
+  ],
+  "figure": "2609.02195_figures/2609.02195_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.02394",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Recursive Module-Coupling Algorithm for Computing Low-Energy Eigenstates",
+  "authors": "Dihang Sun, Nannan Ma, Ching Hua Lee, Tianqi Chen, Jiangbin Gong",
+  "abstract": "Finding the eigenstates of a many-body Hamiltonian is a fundamental challenge in physics and computational science. Since the search space grows exponentially with system size, numerous classical and quantum algorithms have been developed to address this problem. A practical strategy is to identify a physics-informed low-dimensional subspace that effectively accommodates the low-lying eigenstates, thereby reducing the computational complexity. In this paper, we propose a recursive module-coupling algorithm, which iteratively treats a system as a composition of locally-coupled smaller modules, with low-energy subspace estimated successively according to the same recursive structure. Unlike the density matrix renormalization group (DMRG) approach that optimizes a global matrix product state through repeated local sweeps and obtains excited states sequentially, our algorithm constructs a physically tailored variational basis from module eigenstates and obtains several low-energy states on an equal footing, leading to substantial speedups if targeting moderate accuracy. Our proposed method further leads naturally to a recursive quantum variational algorithm, providing a systematic and modular circuit-construction framework compatible with contemporary gate-based quantum architectures. At each recursive level, block encoders are trained to map logical basis states onto the retained physical subspace, within which a variational circuit is subsequently optimized.Such a quantum-circuit implementation provides not only a quantum multistate eigensolver, but also a systematic prescription for hierarchically constructing quantum state-preparation circuits. Classical simulations demonstrate the accuracy and efficiency of the proposed method, whereas experiments on IBM quantum processors show that eigenstate preparation with reasonable fidelities is achievable even in the current NISQ era.",
+  "url": "http://arxiv.org/abs/2609.02394v1",
+  "pdf": "https://arxiv.org/pdf/2609.02394v1",
+  "type": "both",
+  "summary": "This paper introduces a recursive module-coupling algorithm to tackle the exponential complexity of finding many-body eigenstates. It works by iteratively building the low-energy subspace from smaller, coupled modules, offering a speedup over standard methods like DMRG. The approach is validated both through classical error analysis and demonstrated feasibility on current quantum processors.",
+  "main_problem": "The core challenge is efficiently finding the low-lying eigenstates of large, many-body Hamiltonians, which suffers from exponential computational scaling.",
+  "main_result": "The proposed recursive module-coupling algorithm offers a computationally advantageous alternative to methods like DMRG, achieving state preparation in a modular, scalable manner.",
+  "method": "The method recursively decomposes the system into smaller, locally-coupled modules, constructing the low-energy variational basis from the module eigenstates at each merge step.",
+  "model_or_system": "The work applies to general many-body systems modeled by local lattice Hamiltonians, often analyzed using a Hamiltonian partitioned into coupled modules (H = H_A + H_B + V).",
+  "key_observables": "Low-lying eigenstates, energy gap, and state preparation fidelity.",
+  "important_parameters": "System size (L), truncation level (k), and the size of the elementary module (L_0).",
+  "main_assumptions": "The low-energy eigenstates are assumed to have dominant support within the product space formed by the low-energy subspaces of the subsystems.",
+  "figures_summary": "Figures illustrate the schematic recursive projection process, the required minimum subspace dimension (k_min) for target fidelity, and the reduction of error density when increasing the initial block size (L_0).",
+  "paper_structure": "The paper introduces the modular projected eigensolver and its recursive construction, followed by classical numerical demonstrations, and concludes with detailed error scaling analysis and hardware-compatible quantum circuit formulations.",
+  "why_interesting": "It provides a systematic, hardware-compatible framework for approximating ground and low-lying excited states, which is crucial for simulating complex quantum materials or quantum dynamics on near-term quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.02394_figures/2609.02394_fig1.jpg",
+      "caption": "FIG. 1. Schematic representation of the recursive projec- tion. Two n-site blocks A and B are first coupled through the inter-block interaction J′ zz, giving the projected tensor- product subspace V(2n) k = span{|α⟩A⊗|β⟩B}. Diagonalization of the effective Hamiltonian H(2n) eff and retention of the low- est k states define the renormalized 2n-site block. The same merging rule is then applied recursively to construct the 4n- and 8n-site block bases from V(4n) k and V(8n) k , respectively.",
+      "page": 4
+    },
+    {
+      "image": "2609.02394_figures/2609.02394_fig2.jpg",
+      "caption": "FIG. 2. Lowest four energy levels for different subspace dimensions k, obtained at J = 1.0 and h = 0.7. In each panel, the solid curves denote the variational energies obtained in the truncated subspace, while the dotted curves denote the exact energies of the full system. The vertical dashed line marks the boundary of the fidelity criterion F > 0.99; namely, the region to the left of the dashed line corresponds to the parameter range in which the variational low-energy states have fidelity greater than 0.99. The variational energies form upper bounds to the exact levels and converge toward the exact spectrum as k increases.",
+      "page": 6
+    },
+    {
+      "image": "2609.02394_figures/2609.02394_fig3.jpg",
+      "caption": "FIG. 3. Low-energy spectra for longer transverse-field Ising chains obtained at J = 1.0 and h = 0.7. The four panels correspond to L = 10, 20, 40, 80, respectively. Solid curves denote the low-energy levels obtained from the recursive truncated-subspace construction, while dotted horizontal lines denote the corresponding DMRG reference energies. The results show that increasing the subspace dimension k improves the low-energy spectrum, with the convergence being more rapid for shorter chains and gradually more demanding as the system size increases.",
+      "page": 7
+    },
+    {
+      "image": "2609.02394_figures/2609.02394_fig4.jpg",
+      "caption": "FIG. 4. Ground-state fidelity as a function of the subspace dimension k for longer transverse-field Ising chains, obtained at J = 1.0 and h = 0.7. The three curves correspond to system sizes L = 10, L = 20, and L = 40, respectively. The horizontal dashed line marks the reference value F = 0.99.",
+      "page": 7
+    },
+    {
+      "image": "2609.02394_figures/2609.02394_fig5.jpg",
+      "caption": "FIG. 5. Energy gap ∆= E1 −E0 as a function of the transverse-field ratio g, obtained at J = 1.0. The four panels correspond to L = 10, 20, 40, 80, respectively. For each system size, the solid curves show the results obtained from the recursive truncated- subspace construction with k = 4, 8, 16, 32, while the black dashed curve denotes the DMRG reference result. The vertical dashed line marks the critical point g = 1.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.02394_figures/2609.02394_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}
