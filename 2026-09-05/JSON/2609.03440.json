@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.03440",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Convolution absorbing boundaries for explicit-circuit quantum simulation of the wave equation",
+  "authors": "Hoang Anh Nguyen, Ali Tura",
+  "abstract": "Explicit quantum circuits for the wave equation, built by Hamiltonian simulation, are restricted to closed domains, in which outgoing waves reflect off the edge of the computational region and return. We lift that restriction with absorbing boundaries of the convolution type - a complex-frequency-shifted perfectly matched layer realised through exponential-kernel memory variables - and make the resulting non-unitary dynamics quantum-implementable by Schrodingerisation. We obtain three results. First, explicit gate-level circuits for the absorbing evolution, obtained by extending a Bell- basis term-evolution circuit to projector-valued operator strings and Trotterising to second order; these run end to end on seventeen to twenty-one qubits and agree with exact references to within a tenth of a percent to a percent. Second, a structural obstruction: the memory form of the absorbing generator carries an irreducibly indefinite Hermitian part, whose largest eigenvalue grows as the square root of the absorption strength divided by the grid spacing and survives any diagonal rescaling of the memory fields. The known recovery threshold for Schrodingerisation then makes the post-selection cost grow exponentially in the simulated time. Third, a remedy: a Lyapunov symmetrizer, precomputed classically, renders the transformed generator dissipative and replaces that time-dependent penalty with a time-independent conditioning factor of several hundred, measured on grids of up to four thousand unknowns and saturating under mesh refinement. The crossover is early: past it the symmetrized recovery is cheaper by four to twenty-six orders of magnitude in post-selection cost, and at the longest horizons tested it is the only recovery that works.",
+  "url": "http://arxiv.org/abs/2609.03440v1",
+  "pdf": "https://arxiv.org/pdf/2609.03440v1",
+  "type": "theory",
+  "summary": "This paper presents a quantum simulation technique for the wave equation on open domains by implementing Convolution Absorbing Boundaries (CPML). It overcomes the inherent exponential cost barrier associated with simulating non-unitary dynamics by introducing a classically precomputed Lyapunov symmetrizer. This remedy stabilizes the quantum circuit evolution, making long-time, high-fidelity simulations feasible.",
+  "main_problem": "The primary challenge addressed is simulating the wave equation on open domains using quantum circuits, which typically suffer from wave reflection at boundaries.",
+  "main_result": "The authors successfully developed a remedy using a Lyapunov symmetrizer that transforms the simulation into a stable, time-independent conditioning factor, vastly improving the feasibility over standard methods.",
+  "method": "The approach combines Convolution Absorbing Boundaries (CPML) to handle open domains, Schrödingerisation to make the non-unitary dynamics quantum-implementable, and a Lyapunov symmetrizer to stabilize the resulting quantum circuit evolution.",
+  "model_or_system": "The system is the wave equation ($\\partial^2_t u = c^2 \\Delta u$), which is reduced to a non-Hermitian evolution $\\dot{\\psi} = (-iH - \\Lambda)\\psi$. This is then mapped to a unitary evolution on an extended quantum register.",
+  "key_observables": "Reflection coefficients, post-selection cost (exponentially growing penalty), and the conditioning factor $\\kappa_2(S)$ derived from the symmetrizer.",
+  "important_parameters": "Absorption strength, grid spacing ($\\Delta x$), simulated time ($T$), and the shift parameter ($\\epsilon$).",
+  "main_assumptions": "The initial approach faces an exponential cost barrier due to the indefinite Hermitian part of the absorbing generator, necessitating the use of the Lyapunov symmetrizer for practical simulation times.",
+  "figures_summary": "Figures illustrate the four-step quantum process (acoustic physics $\to$ quantum encoding $\to$ absorbing layer $\to$ Schrödingerisation) and compare the performance of different absorbing boundary techniques.",
+  "paper_structure": "The paper first establishes the need for absorbing boundaries, details the CPML implementation, identifies the structural obstruction leading to exponential cost, and finally presents the Lyapunov symmetrizer as a remedy, followed by detailed analysis of its performance and limitations.",
+  "why_interesting": "This work directly tackles the practical limitations of simulating open quantum systems on quantum hardware by providing a robust, scalable method to manage boundary reflections and computational cost.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.03440_figures/2609.03440_fig1.jpg",
+      "caption": "FIG. 1. The four-step structure: second-order acoustic physics, first-order quantum encoding, convolution absorbing layer applied in that first-order form, and Schr¨odingerisation restoring unitarity. The cost of step three—the indefiniteness quantified by Lemma 1—and its remedy (the Lyapunov sym- metrizer) are the subject of Sec. III D.",
+      "page": 2
+    },
+    {
+      "image": "2609.03440_figures/2609.03440_fig2.jpg",
+      "caption": "FIG. 2. Classical and Schr¨odingerisation convergence. (a) Gold-standard reflection (truncated domain versus 4× reference) versus layer width npml at design reflection R0 = 10−3. The curve is non-monotonic: the transition error falls with layer width while the wall return rises toward the design R0 from below, because node sampling of the polynomial profile over-damps thin layers (dashed curve: the predicted discrete wall-return Reff = R Σσh/ R σ 0 , which the measurement tracks within 5–20% for npml ≥8). Red squares: the discretely calibrated profile pair (Appendix D), for which the realised reflection is flat at the design value. (b) Reflection versus R0 at npml = 12: the measured...",
+      "page": 5
+    },
+    {
+      "image": "2609.03440_figures/2609.03440_fig3.jpg",
+      "caption": "FIG. 3. The recovery threshold in action (2D CPML, 8 × 8 grid, σmax = 0.5, T = 10). Relative recovery error versus the slice position p∗: below the threshold p∗= λ+T (dashed line, λ+ = 0.683) the recovered state is O(1) wrong; just above it the error drops by four orders of magnitude, then grows slowly as ep∗amplifies the p-grid discretisation floor.",
+      "page": 6
+    },
+    {
+      "image": "2609.03440_figures/2609.03440_fig4.jpg",
+      "caption": "FIG. 4. The Lyapunov symmetrizer. (a) Relative recovery error versus evolution time T for the 2D CPML system (8 × 8 grid, σmax = 0.5): untransformed recovery at the default small p∗(squares) is O(1) garbage; untransformed recovery above the threshold p∗≥λ+T (diamonds) degrades with T as ep∗amplifies the p-grid floor and leaves the admissible p-domain entirely by T = 40; the Lyapunov-symmetrized recovery at the same small p∗(circles, ϵ = 10−3, shifted transform) stays at the 10−6 level, essentially flat in T. (b) Post-selection cost on the 16 × 16 grid: the direct e2λ+T penalty (solid) against the T-independent symmetrizer penalty κ2 2(S) at ϵ = 10−2 (dashed) and 10−3 (dotted); the...",
+      "page": 8
+    },
+    {
+      "image": "2609.03440_figures/2609.03440_fig5.jpg",
+      "caption": "FIG. 5. Explicit circuits. (a) Bell-basis evolution e−i δt (cP +h.c.) of the projector-containing term P = σ01 ⊗ σ00 ⊗I ⊗I ⊗σ01 ⊗σ10 of the separated 2D wave Hamilto- nian (string mzIImp, qubit qk carrying string character 5 −k; λ = arg c, γ = |c|; λ = 0 for the real wave-equation coef- ficients): cnots rotate the ladder qubits to the Bell basis, and the single multi-controlled Rz carries the block projector σ00 (q4) as an open-circle 0-control—the entire compilation rule of Sec. IV A. The gate sequence is unitarily identical to the library-compiled circuit (verified to machine precision). (b) The Schr¨odingerised pipeline (Sec. IV B) on bundled reg- isters: product-state preparation...",
+      "page": 8
+    }
+  ],
+  "figure": "2609.03440_figures/2609.03440_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

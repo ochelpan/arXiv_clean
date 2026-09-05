@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.03014",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Shuttling-aware dynamical decoupling for quantum charge-coupled devices",
+  "authors": "Linus Schulte, Aaron Sander, Robert Wille",
+  "abstract": "Dynamical decoupling (DD) helps maintain high-fidelity quantum computations by suppressing dephasing noise through carefully timed refocusing pulses. In quantum charge-coupled device (QCCD) architectures, however, where ions are shuttled throughout the device, transport constrains when pulses can be applied and affects the phase accumulated by an ion. Conventional DD methods do not account for shuttling and may therefore schedule pulses that must be omitted or shifted after transport scheduling, weakening the protection from dephasing. We therefore introduce shuttling-aware dynamical decoupling (SADD), an offline compiler pass that jointly selects refocusing pulses and local ion rerouting while preserving logical-gate timings and the total schedule length. In benchmark simulations, SADD improves average final-state fidelity over both the original schedules and a simple nearest-feasible Hahn-echo baseline when dephasing dominates control and transport errors and varies slowly enough for DD. Rerouting enables otherwise infeasible pulse timings, while spatial information about the noise can provide further gains. These benefits disappear, however, when the added transport introduces too much error. Overall, our results show that coordinating DD with ion transport is an effective compiler strategy for reducing dephasing in QCCD processors.",
+  "url": "http://arxiv.org/abs/2609.03014v1",
+  "pdf": "https://arxiv.org/pdf/2609.03014v1",
+  "type": "theory",
+  "summary": "This paper introduces Shuttling-aware Dynamical Decoupling (SADD), a novel compiler technique for trapped-ion quantum processors. SADD overcomes the limitation of standard decoupling methods by jointly optimizing refocusing pulses and ion movement paths. By integrating transport constraints into the error mitigation objective, the authors demonstrate a significant boost in quantum gate fidelity for QCCD architectures.",
+  "main_problem": "Conventional dynamical decoupling methods fail in Quantum Charge-Coupled Device (QCCD) architectures because they ignore the constraints imposed by ion shuttling during quantum operations.",
+  "main_result": "The proposed Shuttling-aware Dynamical Decoupling (SADD) compiler pass significantly improves final-state fidelity by jointly optimizing pulse placement and ion rerouting.",
+  "method": "SADD is an offline compiler pass that minimizes a derived phase objective function by jointly selecting refocusing pulses and local ion rerouting paths.",
+  "model_or_system": "The system involves trapped ions in a QCCD architecture, where noise is modeled by a position-dependent detuning Hamiltonian, and the process is constrained by physical ion transport trajectories.",
+  "key_observables": "Average final-state fidelity, the dephasing exponent ($\\chi(T)$), and the derived phase objective function ($J_\\Phi$).",
+  "important_parameters": "The degree of dephasing noise relative to control/transport errors, and the total schedule length.",
+  "main_assumptions": "The methods assume a rank-one model for detuning fluctuations and that the optimization can be performed by minimizing a compile-time phase proxy objective function.",
+  "figures_summary": "Figures illustrate the coupled effects of ion transport on pulse availability and noise sampling, showing how rerouting can cancel phase accumulation.",
+  "paper_structure": "The paper first establishes the failure of conventional DD in shuttling environments, derives a joint objective function ($J_\\Phi$) that incorporates trajectory-aware phase accumulation, and then details the greedy, local optimization process using a CP-SAT solver to minimize this objective.",
+  "why_interesting": "This work directly addresses the practical limitations of applying quantum error correction techniques (like DD) to solid-state or ion-trap quantum hardware that requires physical movement of qubits, providing a crucial compiler-level optimization strategy.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.03014_figures/2609.03014_fig1.jpg",
+      "caption": "FIG. 1. Ion trajectories determine decoupling pulse availability and noise exposure. (a) Ion transport subject to a quadratic susceptibility profile b(r), facilitating shared lo- calized control access between the ions. (b) Ion trajectories with rectangular markers indicating logical gates. A decou- pling pulse (round marker) at the window midpoint is optimal for the stationary ion 2 but suboptimal and infeasible for the moving ion 1 due to processing zone access. Rerouting it along the dashed SADD trajectory symmetrizes the susceptibility it samples and admits the two shown pulses. (c) Accumu- lated quasistatic phase Φi(t) for δω(r) = δω0b(r) without DD (solid), under a midpoint pulse...",
+      "page": 4
+    },
+    {
+      "image": "2609.03014_figures/2609.03014_fig2.jpg",
+      "caption": "FIG. 2. SADD improves fidelity in the dephasing- dominated regime and outperforms Nearest Hahn. (a) Mean Full-SADD/no-DD infidelity log ratio RI over the detuning scale δω0 and the pulse-error scale sctrl, with blue favoring SADD. The two domains meet along the diagonal. Bracketed ticks locate published device measurements on each axis [3–6, 39–41], and hatched settings contain circuits at the resolvable infidelity floor or at saturation and should not be read quantitatively. The dashed lines mark the two cross- sections below. (b) Geometric-mean absolute infidelity along the sctrl = 1 row, placing Full SADD between the realizable and the idealized Hahn baseline. (c) The same quantity along...",
+      "page": 9
+    },
+    {
+      "image": "2609.03014_figures/2609.03014_fig3.jpg",
+      "caption": "FIG. 3. Ion rerouting is beneficial while transport is cheap. State-infidelity log ratios RI against a common no-DD reference over the motional-error scale sheat of Eq. (25), under a uniform susceptibility profile at sctrl = 1 and three detunings: (a) δω0 = 10, (b) 1, and (c) 0.1 rad s−1. Negative values improve on No DD. Each panel is scaled to its own data, since the benefit spans decades across the three settings.",
+      "page": 10
+    },
+    {
+      "image": "2609.03014_figures/2609.03014_fig4.jpg",
+      "caption": "FIG. 4. Profile-aware compilation is beneficial while transport is cheap. Profile-aware against profile-agnostic Full SADD under the heterogeneous susceptibility profile of Eq. (27), otherwise as in Fig. 3: (a) δω0 = 10, (b) 1, and (c) 0.1 rad s−1. All three detunings share one compiled schedule set.",
+      "page": 11
+    },
+    {
+      "image": "2609.03014_figures/2609.03014_fig5.jpg",
+      "caption": "FIG. 5. The phase objective requires slow noise rela- tive to critical-window length but is robust to short- ranged spatial variation. Mean dephasing-exponent log ratio Rχ of Full SADD relative to No DD, shown against (a) the temporal correlation time τc and (b) the spatial cor- relation length ℓc. Negative values indicate better protec- tion against dephasing. The objective’s predictiveness breaks down for correlation times τc that are of the same order as or smaller than the critical-window durations, while it remains robust to correlation lengths even below the site spacing.",
+      "page": 12
+    }
+  ],
+  "figure": "2609.03014_figures/2609.03014_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

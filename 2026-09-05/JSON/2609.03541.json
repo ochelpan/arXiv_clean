@@ -1,0 +1,69 @@
+{
+  "arxiv_id": "2609.03541",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "physics.comp-ph",
+    "cond-mat.soft",
+    "cond-mat.stat-mech",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "BU-MBAR: A hybrid solution strategy for the MBAR equations",
+  "authors": "Fabio Müller, Francesco Alesiani, Henrik Christiansen",
+  "abstract": "The multi-state Bennett acceptance ratio (MBAR) equations combine the data collected under different thermodynamic conditions in a statistically optimal way. Due to their practical importance, several solution strategies have been devised to optimize the convergence of the resulting set of coupled equations. However, even with graphics processing unit (GPU) acceleration, the convergence of these methods can still be either unstable or slow. We propose a new approach where the equations are interpreted as the limit of infinitesimal bin width of the respective weighted histogram analysis method (WHAM). In the proposed binned-to-unbinned MBAR (BU-MBAR) method, the bin width is adapted dynamically to ensure a stable and efficient convergence to the asymptotic solution.",
+  "url": "http://arxiv.org/abs/2609.03541v1",
+  "pdf": "https://arxiv.org/pdf/2609.03541v1",
+  "type": "theory",
+  "summary": "This paper introduces BU-MBAR, a novel, highly efficient algorithm for solving the Multi-state Bennett Acceptance Ratio (MBAR) equations used in enhanced sampling simulations. It achieves this by treating the problem as a limit of the Weighted Histogram Analysis Method (WHAM) with dynamically adjusted binning. The method is shown to be significantly faster and more robust than existing solvers, making it a powerful tool for analyzing complex molecular simulation data.",
+  "main_problem": "Developing a robust and fast solution strategy for the Multi-state Bennett Acceptance Ratio (MBAR) equations, which are used for statistically optimal weighted analysis of simulation data from multiple thermodynamic conditions.",
+  "main_result": "The proposed BU-MBAR method significantly outperforms existing solvers like PYMBAR in terms of wall-clock time and scaling, while maintaining convergence to the true unbinned limit.",
+  "method": "The BU-MBAR method interprets the MBAR equations as the limit of the Weighted Histogram Analysis Method (WHAM) with dynamically adapted bin width, iteratively refining the solution from a binned approximation to the unbinned limit.",
+  "model_or_system": "The method is generally applicable to enhanced sampling data analysis involving multiple trajectories at different thermodynamic conditions ($\beta_i$). A specific test case used is the alanine dipeptide simulated using the amber14SB force field.",
+  "key_observables": "Free-energy estimates ($f_i$), Mean-Absolute Error (MAE) of relative free energies, and wall-clock time scaling ($\tau$) vs. number of replicas ($M$).",
+  "important_parameters": "The algorithm uses fixed hyperparameters like initial bin count ($n_0=100$), convergence tolerance ($\\epsilon=10^{-3}$), and an adaptive heuristic criterion.",
+  "main_assumptions": "The core assumption is that the MBAR equations can be accurately approached by taking the limit of the WHAM equations as the bin width approaches zero, guided by a dynamic bin adaptation heuristic.",
+  "figures_summary": "Figures show the estimated free-energy profile of the alanine dipeptide, the convergence comparison (MAE vs. iterations/time) between BU-MBAR and PYMBAR, and the superior scaling of BU-MBAR versus PYMBAR as the number of replicas increases.",
+  "paper_structure": "The paper first introduces the scientific problem (MBAR solution) and the limitations of current methods. It then details the BU-MBAR approach, which involves iteratively refining the solution by adapting the bin width based on a heuristic criterion. Finally, it validates the method by applying it to a physical system (alanine dipeptide) and comparing its performance and scaling against established solvers.",
+  "why_interesting": "While focused on classical simulation statistics, the core concept of adaptive resolution and convergence acceleration through systematic approximation (binned-to-unbinned) has parallels in developing scalable quantum simulation techniques or analyzing complex quantum data sets.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.03541_figures/2609.03541_fig1.jpg",
+      "caption": "FIG. 1. MBAR estimator of the free-energy profile of the ala- nine dipeptide projected onto the torsion angles ϕ and ψ at 298 K. The data was generated in a parallel tempering simula- tion with 50 replicas in the temperature range 298 K to 600 K.",
+      "page": 3
+    },
+    {
+      "image": "2609.03541_figures/2609.03541_fig2.jpg",
+      "caption": "FIG. 2. Evolution of the mean-absolute error (MAE) of the relative free energies for the full dataset generated from the PT simulations for BU-MBAR and PYMBAR. Evolu- tion shown in dependence of (a) iteration steps (b) wall-clock time. Color encodes the number of histogram bins used by BU-MBAR at iteration step k.",
+      "page": 4
+    },
+    {
+      "image": "2609.03541_figures/2609.03541_fig3.jpg",
+      "caption": "FIG. 3. Wall-clock time scaling for (a) BU-MBAR in compar- ison to (b) PYMBAR in dependence of the number of replicas M. For both methods exactly the same energy histograms are generated and both methods are run on the same GPU. The three different colors correspond to three different scaling of the number of measurements per replica. The lines are in- tended as a guide to the eye.",
+      "page": 5
+    }
+  ],
+  "figure": "2609.03541_figures/2609.03541_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.03048",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Resource-adaptive distributed fault tolerance with very noisy Bell pairs",
+  "authors": "Moritz Schmidt, Martin Moureau, Benjamin Rodatz, Boldizsár Poór, Elie Mounzer, Linnea Grans-Samuelsson",
+  "abstract": "Distributed architectures have been proposed as a pathway to large-scale quantum computers. Combined with the need for fault-tolerance, such architectures require distributed quantum error correction (DQEC) and distributed logical gates. An important challenge is how to realize DQEC primitives in the setting where interaction between modules is restricted to shared Bell pairs that are significantly noisier than on-chip operations. We extend the framework known as fault tolerance by construction to this setting, deriving different strategies for handling the additional noise. Through fault-improvement we recover conventional entanglement distillation, and also find more dynamical protocols that enable space-time trade-offs. We show that integrated decoding halves the required distillation code distance compared to entanglement distillation implemented using separate decoding, thus requiring significantly fewer Bell pairs. As a main focus of the work, we synthesize efficient circuits for an important primitive in distributed fault tolerance: distributed stabilizer measurements. These circuits can be adapted to resource constraints, e.g. on the Bell pair generation rate or the space available for on-chip auxiliary qubits. Noting that full local fault-tolerance is not always needed to preserve the correct scaling of logical error rates, we further optimize the circuits depending on the surrounding context. We consider in particular the surface code and the color code, both as distributed memories and in the case of lattice surgery across separate modules. Here, robustness to certain hook and readout errors reduces the number of required Bell pairs even further, compared to the context-free setting. We numerically benchmark the resulting implementations under circuit level noise with additional interconnect noise.",
+  "url": "http://arxiv.org/abs/2609.03048v1",
+  "pdf": "https://arxiv.org/pdf/2609.03048v1",
+  "type": "theory",
+  "summary": "This paper tackles the critical challenge of fault-tolerant quantum computation in distributed systems where communication links are noisy. The authors develop advanced protocols that adapt error correction to resource constraints, notably showing significant reductions in required quantum resources by integrating decoding steps. This work provides a pathway toward realizing large-scale quantum computers by optimizing error handling across physically separated modules.",
+  "main_problem": "The core challenge is developing distributed quantum error correction (DQEC) and logical gates for large-scale quantum computers where module interaction is limited to significantly noisy shared Bell pairs.",
+  "main_result": "The authors derive resource-adaptive strategies, showing that integrating decoding halves the required distillation code distance and significantly reducing the required number of Bell pairs compared to context-free methods.",
+  "method": "The work extends fault tolerance by construction to noisy distributed settings, synthesizing efficient circuits for distributed stabilizer measurements using techniques like ZX-calculus and analyzing resource trade-offs.",
+  "model_or_system": "The model involves distributed quantum computing architectures composed of multiple QPU modules connected by long-range interconnects that introduce high noise into shared Bell pairs. The analysis focuses on surface and color codes for memory and lattice surgery.",
+  "key_observables": "Logical error rates, required distillation code distance, and the number of necessary Bell pairs.",
+  "important_parameters": "Interconnect noise strength ($p_{\text{Bell}}$) relative to on-chip gate noise ($p$), and resource constraints like Bell pair generation rate.",
+  "main_assumptions": "The analysis assumes that the process of Bell pair generation and transduction is a black box with a higher error rate than on-chip operations, and it focuses on modifying on-chip circuits given pre-distilled pairs.",
+  "figures_summary": "Figures illustrate the general noise model showing QPU modules and interconnects, and one figure depicts logical state teleportation using lattice surgery.",
+  "paper_structure": "The paper progresses by first establishing the general framework for handling noisy interconnects, then developing synthesis techniques for distributed stabilizer measurements, and finally benchmarking these circuits on specific codes like the surface code to quantify resource savings.",
+  "why_interesting": "This work directly addresses the engineering bottleneck of scaling quantum computation by providing concrete, resource-aware protocols for error correction in physically realistic, distributed hardware architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.03048_figures/2609.03048_fig1.jpg",
+      "caption": "Figure 1: Illustration of the setting and noise model considered. Multiple QPU modules are connected via interconnects. Each module contains dedicated compute qubits and communication qubits, with the latter used for sharing Bell pairs between QPUs. Following Bell pair generation and transduction, two-qubit Pauli errors {I, X, Y, Z}⊗2 \\ {I ⊗I} on the on-chip qubits occur with probability 1 15p1/m each, while on-chip gates are subjected to circuit level noise with probability p. We consider different integer values m > 1, so that Bell pairs experience noise at a higher rate than on-chip operations. The example setup for eight boundary-connected modules is taken from [5], where it was shown...",
+      "page": 5
+    },
+    {
+      "image": "2609.03048_figures/2609.03048_fig2.jpg",
+      "caption": "Figure 3: Bell state preparation under different edge-flip noise models: (a) Symmetric and asymmetric noise: For edges with asymmetric noise, fault-weights are annotated as tuples (wx, wy, wz). Edges with symmetric noise wx = wy = wz = w are simply labeled with w. (b) Noise-free components: Edges idealized as fault-free are drawn in purple. (c) Default noise: Edges with symmetric noise w = 1 are left unlabelled.",
+      "page": 10
+    },
+    {
+      "image": "2609.03048_figures/2609.03048_fig3.jpg",
+      "caption": "Figure 5: Rotated surface code. (a) A distance d = 5 surface code patch, hosting one logical qubit. The red and blue plaquettes are the X and Z stabilizers, respectively. The black dots represent the data qubits, while the colored dots represent auxiliary qubits used for the stabilizer measurements. Logical X forms a vertical line and logical Z forms a horizontal line. (b) Surface code lattice surgery. Two patches with independent logical operators XL and ZL for the left patch and XR and ZR for the right patch are merged into a single patch. The added X plaquettes (shaded) measure the joint XLXR operator, classically correlating the individual logicals. By adding XLXR to the stabilizer...",
+      "page": 32
+    },
+    {
+      "image": "2609.03048_figures/2609.03048_fig4.jpg",
+      "caption": "Figure 6: Distributed surface code memory, color conventions as in Figure 5. The choice of how to split weight-4 plaquettes determines the distribution seam. (a) The 2-2 split introduces distributed hook errors but aligns well with the chessboard pattern of the code, requiring only a single column of plaquettes to be distributed. (b) The 3-1 split introduces only local hook errors but requires two plaquette columns to be distributed. The dashed line indicates the distribution seam. All shaded plaquettes operate between QPUs and must be distributed, possibly requiring multiple auxiliary and communication qubits.",
+      "page": 32
+    },
+    {
+      "image": "2609.03048_figures/2609.03048_fig5.jpg",
+      "caption": "Figure 8: (a) A surface code patch hosting one logical qubit is distributed along a vertical seam illustrated by the dashed line. The red vertical line represents a logical X operation, while the blue horizontal line represents a logical Z operation. (b) The monolithic hook errors can be orthogonally aligned with the corresponding logical operators. The distributed plaquettes always produce hook errors parallel to the distribution seam. With the seam shown in the figure, Z hook errors can be neglected but X hook errors reduce the circuit distance, allowing a logical X operation to be realized from fewer atomic faults.",
+      "page": 34
+    }
+  ],
+  "figure": "2609.03048_figures/2609.03048_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.03928",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Approximate maximum-likelihood decoding via truncated free energies",
+  "authors": "Yuanqi Liu, Weilei Zeng, Junjie Wu, Lingling Lao",
+  "abstract": "Maximum-likelihood decoding (MLD) achieves the minimum logical error rate of stabilizer codes under known i.i.d. Pauli noise, but its exact evaluation is \\#P-hard. Practical pipelines therefore approximate MLD by minimum-weight decoding (MWD), retaining only the lowest-weight recovery per syndrome and discarding the coset degeneracy. The minimum-weight search is in turn implemented by stochastic solvers. We introduce approximate maximum-likelihood decoding (AMLD), a black-box framework that recycles the candidate samples discarded by stochastic inner decoders into a per-class truncated free-energy estimator. For every logical class represented in the candidate pool, the estimator is provably bounded below by the exact free energy and above by the empirical minimum weight. AMLD returns the logical class minimizing the estimated free energy with linear classical overhead. In SA-based Ising-decoder benchmarks, AMLD closes up to $83\\%$ of the MWD--MLD threshold gap across the toric and color codes under bit-flip and depolarizing noise. The largest threshold improvement, from $17.28\\%$ to $18.62\\%$, occurs on the $6.6.6$ color code under depolarizing noise. We further demonstrate AMLD on the $[[144,12,12]]$ bivariate-bicycle code, whose bit-flip decoding problem has a hypergraph structure. This application requires neither matching-based enumeration nor code-specific tensor-network contraction. At $p=0.05$, AMLD reduces the logical error rate by $13\\%$ relative to MWD evaluated on the same BP-OSD candidate pool.",
+  "url": "http://arxiv.org/abs/2609.03928v1",
+  "pdf": "https://arxiv.org/pdf/2609.03928v1",
+  "type": "theory",
+  "summary": "This paper introduces Approximate Maximum-Likelihood Decoding (AMLD), a novel, efficient framework for decoding quantum error-correcting codes. AMLD estimates the true likelihood by using truncated free energies derived from candidate samples, overcoming the computational barrier of exact Maximum-Likelihood Decoding. Benchmarks show that AMLD significantly improves the error threshold compared to standard Minimum-Weight Decoding across various quantum codes.",
+  "main_problem": "The paper addresses the computational hardness of Maximum-Likelihood Decoding (MLD) for quantum error-correcting codes, which is necessary for determining the minimum logical error rate.",
+  "main_result": "The proposed Approximate Maximum-Likelihood Decoding (AMLD) framework significantly closes the performance gap between the standard Minimum-Weight Decoding (MWD) and the optimal MLD, showing up to an 83% improvement on benchmark codes.",
+  "method": "AMLD is a black-box framework that estimates the free energy for each logical class by recycling candidate samples discarded by stochastic inner decoders, providing a provable bound between the exact free energy and the empirical minimum weight.",
+  "model_or_system": "The study focuses on quantum error-correcting codes, specifically stabilizer codes like the Toric and color codes, which are analyzed under i.i.d. Pauli noise (bit-flip or depolarizing). The problem is mapped to finding the ground state of a disordered Ising model.",
+  "key_observables": "Logical error rate ($P_L$), threshold gap closure percentage, and the ratio $\\lambda = p_L(\text{AMLD}) / p_L(\text{MWD})$.",
+  "important_parameters": "Noise type (bit-flip, depolarizing), code structure (e.g., $6.6.6$ color code), and the number of decoding trials ($N_{\text{total}}$).",
+  "main_assumptions": "The framework assumes that the free energy estimation is bounded by the empirical minimum weight and the exact free energy, and that the stochastic solvers provide a sufficiently diverse pool of candidate samples.",
+  "figures_summary": "Figures compare the logical error rate ratio ($\\lambda$) across different codes and noise models, and show $P_{\text{fail}}$ vs. $p$ curves demonstrating AMLD's superior performance relative to MWD.",
+  "paper_structure": "The paper first establishes the theoretical gap between MLD and MWD. It then introduces the AMLD framework using truncated free-energy estimators. Finally, it benchmarks AMLD against MWD on various codes (Toric, color, etc.) under different noise models to quantify the performance improvement.",
+  "why_interesting": "This work provides a powerful, computationally tractable method to estimate the true performance limits of quantum error correction codes by leveraging statistical physics tools (free energy estimation) to overcome NP-hard decoding problems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.03928_figures/2609.03928_fig1.jpg",
+      "caption": "FIG. 2. Decoding success probabilities for the syndrome con- figuration in Fig. 1 as a function of trials N per class. The true physical noise is fixed at p0 = 0.01, while the Ising solver operates at two effective noise levels: p′ = 0.01 (exact Nishi- mori temperature) and p′ = 0.1 (mismatched prior). For both Pmax and Pγ, AMLD converges to the MLD limit by N = 3. The performance under the mismatched prior p′ = 0.1 (stars) remains marginally below that under the matched prior p′ = 0.01, demonstrating robustness to thermal miscalibration.",
+      "page": 6
+    },
+    {
+      "image": "2609.03928_figures/2609.03928_fig2.jpg",
+      "caption": "FIG. 1. Two logical classes associated with a degenerate syndrome on the 6×6 toric code. This syndrome is compatible with minimum-weight error chains belonging to two distinct logical classes. The blue class ℓχ has a ground-state degeneracy of χ = 4 minimum-weight configurations (generated from the displayed chain by the independent face stabilizers marked with dashed blue edges), while the red class ℓ1 has a unique minimum-weight configuration.",
+      "page": 6
+    },
+    {
+      "image": "2609.03928_figures/2609.03928_fig3.jpg",
+      "caption": "FIG. 3. Logical error rate versus physical error rate for Ising decoding based on an SA solver, comparing AMLD[N], MWD[N], and MWPM, with N = 20 runs per logical class. Threshold crossings are indicated by the vertical bands.",
+      "page": 8
+    },
+    {
+      "image": "2609.03928_figures/2609.03928_fig4.jpg",
+      "caption": "FIG. 5. Logical-error-rate ratio λ ≡pL(AMLD)/pL(MWD) versus the number N of SA runs per logical class at p = 0.10 and d = 7, grouped by |L|. The dashed line marks the MWD baseline (λ = 1); values below one indicate a lower logical error rate for AMLD.",
+      "page": 8
+    },
+    {
+      "image": "2609.03928_figures/2609.03928_fig5.jpg",
+      "caption": "FIG. 4. Fraction of the MWD–MLD threshold gap closed by AMLD versus the maximum interaction order R for the four code–noise settings considered.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.03928_figures/2609.03928_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

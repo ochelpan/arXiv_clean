@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.03625",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Quasi-Monte Carlo: a window for pre-asymptotic quantum advantage",
+  "authors": "Paolo Recchia, Zhan Yu, Kelvin Koor, Patrick Rebentrost",
+  "abstract": "Numerical integration with Monte Carlo methods is a central computational task in many scientific and industrial applications, including financial derivative pricing and risk management. Classical Monte Carlo algorithms are computationally demanding: achieving an accuracy $ε$ typically requires a number of function evaluations scaling as $O(1/ε^2)$. Quantum-accelerated Monte Carlo methods based on quantum amplitude estimation can in principle quadratically improve this dependence. However, \\textit{quasi}-Monte Carlo methods have not been explored in the quantum context. In this work, we introduce a quantum quasi-Monte Carlo algorithm that combines low-discrepancy nets with quantum amplitude estimation. The proposed method prepares the quasi-random point set coherently in superposition. The method does not yield an asymptotic improvement over classical quasi-Monte Carlo, since the total error separates into a discretization error, determined by the finite net, and a quantum estimation error. Instead, we explore a pre-asymptotic advantage window: for a target accuracy that would classically require $2^q$ low discrepancy points, one can prepare a higher-resolution net of size $2^Q$, with $Q>q$, in superposition and reach the same accuracy using significantly fewer function queries. This window can be controlled by tuning the circuit resolution and amplitude-estimation parameters, making the approach relevant for practical regimes where the number of queries is finite rather than asymptotically large.",
+  "url": "http://arxiv.org/abs/2609.03625v1",
+  "pdf": "https://arxiv.org/pdf/2609.03625v1",
+  "type": "theory",
+  "summary": "This paper introduces Quantum Quasi-Monte Carlo (QqMC), a method that merges low-discrepancy point sets with quantum amplitude estimation for numerical integration. It proves that while no asymptotic speedup over classical qMC is achieved, a measurable 'pre-asymptotic advantage' exists in finite query regimes. This makes the technique relevant for near-term quantum hardware where the number of available queries is limited.",
+  "main_problem": "The paper addresses the computational bottleneck of numerical integration using Monte Carlo methods, specifically aiming to improve upon classical Quasi-Monte Carlo (qMC) techniques.",
+  "main_result": "It demonstrates a 'pre-asymptotic quantum advantage' for Quantum Quasi-Monte Carlo (QqMC) by showing that significantly fewer quantum queries can achieve the same accuracy as classical methods in finite regimes.",
+  "method": "The approach combines low-discrepancy nets (Sobol' sequences) with Quantum Amplitude Estimation (QAE) to estimate high-dimensional integrals.",
+  "model_or_system": "The model is the numerical integration of a function $f$ over the unit hypercube $[0,1)^d$. The quantum computation utilizes the coherent preparation of a superposition over Sobol' points.",
+  "key_observables": "The primary observables are the error bounds ($\\epsilon_{qMC}$ vs $\\epsilon_{QqMC}$) and the required number of function queries ($T$).",
+  "important_parameters": "Key parameters include the dimension $d$, the resolution parameters $q$ and $Q$, and the query budget $T$. The advantage window is controlled by these parameters.",
+  "main_assumptions": "The advantage is strictly pre-asymptotic, not asymptotic. The analysis relies on the error separating into a discretization error (from the finite net) and a quantum estimation error.",
+  "figures_summary": "Figure 1 provides an overview contrasting classical qMC vs QqMC error bounds, while later figures compare the quality parameter $\tilde{t}(q)$ against the true finite-resolution value $t_{\text{finite}}$ across various dimensions.",
+  "paper_structure": "The paper builds from classical limitations (MC/qMC) to the novel QqMC algorithm, deriving the error decomposition, establishing the pre-asymptotic advantage window, and concluding with asymptotic analysis of the required query threshold.",
+  "why_interesting": "While focused on numerical integration, the core concept of achieving computational speedups by exploiting finite-size quantum resources (the pre-asymptotic regime) is highly relevant to quantum algorithms for physical simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.03625_figures/2609.03625_fig1.jpg",
+      "caption": "Figure 1: Panel (a). Overview of the key idea of the paper. Here, ˆµqMC is the estimate with error ≤qd−1/2q",
+      "page": 4
+    },
+    {
+      "image": "2609.03625_figures/2609.03625_fig2.jpg",
+      "caption": "Figure 2: Gap G(q) = 2q −Tmin as a function of q, for dimensions d = 4 and d = 10. The left panel corresponds to l = 1, while the right panel corresponds to l = 2. Infeasible points, namely values of q for which ∆= 0, are highlighted in red. In the feasible regime, the gap grows rapidly with q, reflecting the exponential increase of the classical qMC query budget 2q relative to the minimum number of quantum queries required by QqMC. This widening occurs already for a small number of additional Sobol qubits, l = 1 or l = 2. On the plotted scale, the exponential dependence on q dominates the dimension-dependent corrections, so the curves for d = 4 and d = 10 become nearly indistinguishable...",
+      "page": 17
+    },
+    {
+      "image": "2609.03625_figures/2609.03625_fig3.jpg",
+      "caption": "Figure 3: Gap G(l) = 2q −Tmin(l) as a function of the number of additional qubits l, for fixed dimension d = 10 and q = qmin = 21. This value of q corresponds to the first strict-feasibility level when l = 1. The plot shows that increasing l initially enlarges the gap, thereby reducing the minimum number of quantum queries required to enter the advantageous regime. After a certain value of l, the curve reaches a clear plateau: adding more qubits further reduces the discretization contribution only marginally and no longer produces a significant increase in the query gap.",
+      "page": 17
+    },
+    {
+      "image": "2609.03625_figures/2609.03625_fig4.jpg",
+      "caption": "Figure 4: Gap G(V ) = 2q −Tmin(V ) as a function of the Hardy-Krause variation V (f), for fixed l = 5 and q = 5. The left panel corresponds to d = 1, while the right panel corresponds to d = 4. In both cases, the gap increases with V (f), showing that larger variation enlarges the range of query counts for which the QqMC upper bound can remain below the classical qMC upper bound. The larger gap observed in the higher-dimensional case (right panel) suggests that, within this pre-asymptotic upper-bound comparison, achieving a quantum query advantage becomes easier as the dimension increases.",
+      "page": 18
+    },
+    {
+      "image": "2609.03625_figures/2609.03625_fig5.jpg",
+      "caption": "Figure 5: The gap G(d) = 2q −Tmin(d) is plotted as a function of the dimension d for fixed l = 5 and V (f) = 1, with q = 5 shown in the left panel and q = 15 in the right. In both cases, the gap exhibits a bell-shaped trend. However, because the classical query count remains independent of d, increasing q makes the advantage of Quantum QqMC over classical qMC significantly visible across all dimensions d within the feasible window.",
+      "page": 19
+    }
+  ],
+  "figure": "2609.03625_figures/2609.03625_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

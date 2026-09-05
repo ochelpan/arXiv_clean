@@ -1,0 +1,61 @@
+{
+  "arxiv_id": "2609.03220",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Discretization-Aware Fine-Tuning for Quantum Machine Learning with Chemical Foundation Models",
+  "authors": "Shunji Matsuura, Sonika Johri",
+  "abstract": "A key challenge in practical quantum machine learning (QML), particularly for discriminative tasks such as classification, is the limited capacity of near-term quantum devices to encode high-dimensional classical data into small quantum registers. In optimized basis-encoded (bit-bit) settings, this constraint leads to cross-class collisions, where samples with different labels are mapped to the same discrete bit-string and thus become indistinguishable to any downstream model. In this work, we investigate how data representation affects QML performance under such severe information bottlenecks. We introduce discretization-aware fine-tuning (DAFT), a method that adapts a pre-trained chemical foundation model to produce representations that remain informative after quantization. DAFT reduces collision probability through a differentiable soft collision loss. We evaluate both quantum and classical models under a controlled setting in which they receive identical discretized bit-string inputs, isolating the effect of representation from model architecture. On the blood-brain barrier penetration (BBBP) molecular property prediction benchmark using ChemBERTa-77M, DAFT reduces collision counts by several orders of magnitude and improves quantum classification accuracy by more than 12 percentage points compared to a frozen backbone. Importantly, without DAFT, classical models outperform QML under the same input constraints. With DAFT, however, this comparison reverses at higher qubit counts. At 10 qubits, the quantum model surpasses a matched classical baseline trained on identical bit-strings (0.883 vs. 0.855, $p = 0.026$). These results show that, in information-constrained regimes, achieving a quantum advantage critically depends on aligning continuous representations with discrete quantum encodings.",
+  "url": "http://arxiv.org/abs/2609.03220v1",
+  "pdf": "https://arxiv.org/pdf/2609.03220v1",
+  "type": "theory",
+  "summary": "This work addresses the information bottleneck in QML by introducing Discretization-Aware Fine-Tuning (DAFT). DAFT modifies the representation learning process to minimize data collisions during quantization, which is crucial for near-term quantum devices. The results prove that achieving quantum advantage requires explicitly aligning continuous chemical embeddings with the discrete constraints of quantum encoding.",
+  "main_problem": "The primary challenge in Quantum Machine Learning (QML) is the information bottleneck where high-dimensional classical data must be compressed into limited quantum registers, leading to cross-class collisions.",
+  "main_result": "The proposed Discretization-Aware Fine-Tuning (DAFT) method significantly reduces these collisions, enabling the quantum model to surpass a matched classical baseline at higher qubit counts.",
+  "method": "DAFT adapts a pre-trained chemical foundation model using a differentiable soft collision loss to ensure that the resulting quantized representations remain highly informative.",
+  "model_or_system": "The system uses near-term quantum devices processing molecular representations derived from chemical foundation models (like ChemBERTa-77M) via bit-string encoding.",
+  "key_observables": "Collision count, quantum classification accuracy, and the performance gap compared to a matched classical baseline.",
+  "important_parameters": "Qubit count (tested up to 10 qubits), and the degree of information compression imposed by the bit-string encoding.",
+  "main_assumptions": "The comparison isolates the effect of representation by ensuring both quantum and classical models receive identical discretized bit-string inputs.",
+  "figures_summary": "Figures illustrate the pipeline comparing baseline vs. DAFT, and tables summarize the reversal of performance advantage from classical-wins to quantum-wins as qubit count increases.",
+  "paper_structure": "The paper introduces the problem of data compression in QML, details the DAFT methodology (including soft collision loss), evaluates it on a molecular property prediction benchmark, and concludes by demonstrating the conditions necessary for quantum advantage.",
+  "why_interesting": "While focused on ML, the core concept of information compression and the necessity of preserving continuous information structure when mapping to discrete quantum states is highly relevant to understanding quantum channel capacity and encoding schemes in quantum information theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.03220_figures/2609.03220_fig1.jpg",
+      "caption": "Fig. 1. Pipeline overview. SMILES strings are mapped to embeddings by ChemBERTa-77M. The baseline (blue) uses frozen embeddings, while the proposed method (purple) applies discretization-aware fine-tuning (DAFT). Both paths share the same preprocessing pipeline (standardization, PCA, mutual information selection, and quantization) to produce bit-string inputs for the quantum circuit. All classical baselines are evaluated on identical inputs for fair comparison.",
+      "page": 2
+    },
+    {
+      "image": "2609.03220_figures/2609.03220_fig2.jpg",
+      "caption": "Figure 1 provides an overview of the complete pipeline. We describe the components in turn.",
+      "page": 2
+    }
+  ],
+  "figure": "2609.03220_figures/2609.03220_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.04132",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Characterizing Large Scale Quantum Systems with Error Per Circuit Layer",
+  "authors": "Travis Hurant, Arian Vezvaee, Swarnadeep Majumder, Aniket Dalvi, Jude Alnas, Kenneth R. Brown",
+  "abstract": "Quantum benchmarks provide compact measures of performance that are important for evaluating and comparing quantum systems. Circuit-level benchmarks are particularly valuable because they capture the accumulated effects of noise across interacting operations, but existing approaches may require structured gate sets and costly compilation, classical simulation of reference outputs, or subsystem decompositions that do not capture full-register behavior. We introduce Error Per Circuit Layer (EPCL), an overlap-based circuit-level benchmark that estimates an effective layer polarization by applying identical random circuits to two disjoint quantum registers and measuring the overlap between their output states as a function of circuit depth. EPCL avoids classical simulation of ideal output distributions and recovery to a known reference state, and is compatible with arbitrary gate sets, including non-Clifford gates.   We derive the expected overlap decay under an ensemble-averaged depolarizing model and identify the assumptions under which the fitted decay parameter represents an effective layer polarization. Numerical simulations show that EPCL recovers the predicted polarization under weak local stochastic noise and remains well described by a single-exponential decay at stronger stochastic noise levels. The simulations further show that coherent errors associated with fixed entangling layers may require Pauli twirling or randomized compiling to produce the expected decay, while inter-register correlations contribute an additional covariance term to the measured overlap. Finally, experiments on IBM quantum hardware demonstrate clear EPCL decay in 8- and 16-qubit implementations. These results support EPCL as a method for measuring aggregate register performance without requiring classical simulation of ideal circuit outputs or restriction to structured gate sets.",
+  "url": "http://arxiv.org/abs/2609.04132v1",
+  "pdf": "https://arxiv.org/pdf/2609.04132v1",
+  "type": "both",
+  "summary": "This paper introduces Error Per Circuit Layer (EPCL), a novel overlap-based benchmark for characterizing noise in large quantum systems. EPCL measures the overlap between two independently evolved quantum registers, circumventing the need for computationally expensive classical simulations of ideal states. The method is validated on quantum hardware, providing a scalable metric for assessing aggregate register performance.",
+  "main_problem": "Developing a robust, scalable circuit-level benchmark to characterize noise accumulation in large quantum systems without relying on classical simulation of ideal outputs.",
+  "main_result": "The proposed Error Per Circuit Layer (EPCL) benchmark successfully measures aggregate register performance via output state overlap, showing clear decay on IBM hardware and remaining compatible with arbitrary gate sets.",
+  "method": "EPCL estimates effective layer polarization by measuring the overlap between the output states of two disjoint quantum registers after applying identical random circuits.",
+  "model_or_system": "The study analyzes quantum processors, using two copies of an $n$-qubit register to measure the overlap $\text{Tr}(\rho_A \rho_B)$ as a function of circuit depth. The analysis is grounded in depolarizing channel models.",
+  "key_observables": "Overlap between output states ($\text{Tr}(\rho_A \rho_B)$), effective layer polarization ($p_{\text{eff}}$), and the decay rate of this overlap with circuit depth.",
+  "important_parameters": "Circuit depth ($d$), number of qubits ($n$), and the effective layer polarization parameter ($p$).",
+  "main_assumptions": "The method assumes an ensemble-averaged depolarizing model for deriving the expected overlap decay, and it is designed to overcome the classical simulation bottleneck of prior methods.",
+  "figures_summary": "Figures illustrate the overlap measurement using techniques like the Swap Test or Pairwise Bell Measurements, and show the resulting decay curve as a function of circuit depth.",
+  "paper_structure": "The paper introduces EPCL as an overlap-based primitive, compares it to existing benchmarks (like XEB and EPLG), derives the expected decay under a depolarizing model, and validates the method through numerical simulations and experiments on quantum hardware.",
+  "why_interesting": "This work provides a crucial, hardware-agnostic diagnostic tool for assessing noise in large quantum circuits, which is vital for developing fault-tolerant quantum computation protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.04132_figures/2609.04132_fig1.jpg",
+      "caption": "Fig. 1: Overlap measurement and random circuit construction used in EPCL. (a) The swap test estimates the overlap Tr(ρAρB) using an ancilla and a controlled-SWAP operation between the two registers. (b) The pairwise Bell-basis measurement replaces the controlled-SWAP with local Bell-basis measurements between corresponding qubits; classical post-processing of the measurement outcomes recovers the state overlap. (c) EPCL applies the same random circuit instance to two disjoint n- qubit registers and estimates the overlap between their noisy output states. The illustrative circuit uses T = 2 for compactness; the numerical and experimental studies in this work use T = 4. Independently sampled...",
+      "page": 4
+    },
+    {
+      "image": "2609.04132_figures/2609.04132_fig2.jpg",
+      "caption": "Fig. 2: EPCL under local depolarizing noise, demonstrating agreement with the first-order baseline model in the weak-noise regime and stable decay behavior beyond the validity of that approximation. (a) For ε1 = 10−4 and ε2 = 10−3, the EPCL fit closely agrees with the simulated overlap decay and yields bpeff = 0.99601, compared with the first-order prediction pFO eff = 0.99599. (b) Sweeping the two-qubit depolarizing strength while maintaining ε1 = 0.1ε2 produces close agreement at low noise strengths, with systematic deviation emerging near ε2 ≈6 × 10−3 as higher-order Pauli fault contributions become significant and the first-order approximation breaks down. (c) At the intentionally large...",
+      "page": 8
+    },
+    {
+      "image": "2609.04132_figures/2609.04132_fig3.jpg",
+      "caption": "Fig. 3: Effect of Pauli twirling on EPCL sensitivity to a fixed coherent error in the entangling layer. A coherent over-rotation of θ = π/40 is applied to the target qubit of each CX gate. Without Pauli twirling, the overlap exhibits essentially no depth-dependent decay, indicating that the unmodified EPCL protocol is insensitive to this coherent error structure. With Pauli twirling, the coherent error is randomized into an effective stochastic channel, restoring the exponential decay used by EPCL to estimate effective polarization. The extracted polarization, bpeff = 0.9955, closely agrees with the first-order prediction pFO eff = 0.9954.",
+      "page": 9
+    },
+    {
+      "image": "2609.04132_figures/2609.04132_fig4.jpg",
+      "caption": "Fig. 4: Effect of coherent ZZ crosstalk on EPCL. (a) Ensemble-averaged overlap as a function of circuit depth for inter-register crosstalk at representative weak (θ = 0.01) and strong (θ = 0.06) interaction strengths. In both cases, the overlap retains a clear exponential depth dependence, allowing an effective polarization to be extracted despite correlations between the two registers. (b) Extracted effective polarization as a function of ZZ interaction strength for intra- and inter-register crosstalk. Inter-register coupling produces a systematically lower effective polarization and stronger dependence on interaction strength than intra-register coupling, consistent with contributions...",
+      "page": 10
+    },
+    {
+      "image": "2609.04132_figures/2609.04132_fig5.jpg",
+      "caption": "Fig. 5: Comparison of the two overlap measurement implementations considered for EPCL under depolarizing gate noise and readout error. The simulations use physical systems of 5 and 11 qubits, corresponding to N = 4 and N = 10 benchmark qubits, respectively. The swap-test implementation uses the remaining qubit as an ancilla, while the Bell-basis implementation does not require the additional qubit. Each point shows log(RMSEswap/RMSEBell) for the extracted effective polarization relative to a high-shot ideal reference computed using an error-free measurement circuit; positive values indicate lower estimation error for the Bell-basis implementation. (a) For N = 4, the Bell-basis measurement...",
+      "page": 11
+    }
+  ],
+  "figure": "2609.04132_figures/2609.04132_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

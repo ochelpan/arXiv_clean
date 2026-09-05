@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.04169",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.soft",
+    "cond-mat.dis-nn",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": true,
+  "title": "Reciprocity can halve what a mechanical network can learn",
+  "authors": "Thai-Son Vu, Hoang-Giang Nguyen, Quoc-Bao Nguyen, Sengaloun Keoalounxay, Bao-Viet Tran",
+  "abstract": "Tunable mechanical networks are being developed as materials that learn in place. Capacity is estimated by counting tunable parameters against target constraints, ignoring Maxwell-Betti reciprocity, the symmetry every passive, linear elastic network obeys by construction. When p degrees of freedom are both driven and read out, every reachable response block lies in a subspace of codimension p(p-1)/2, whatever the size, topology and stiffnesses; at full overlap nearly half the target space is unreachable. The consequence for training is a number: any learning rule leaves an error at least the norm of the target's antisymmetric part on the shared degrees of freedom, computable before training, and positive definiteness adds an orthogonal second term. A second-order optimiser with the exact Jacobian reaches that floor within 1% in 143 of 144 runs, a bond-local contrastive rule within 0.1% in 22 of 24, and odd couplings restore the lost directions at the price of an external torque source: the network becomes active. Prescribed-displacement drives obey a companion law we prove. The symmetry is classical; its consequence on a fixed graph with finitely many tunable stiffnesses at partial overlap is new. For a published robotic metamaterial it shows that no symmetric positive-definite stiffness matrix meets both targets in the linear model their deposited data integrate.",
+  "url": "http://arxiv.org/abs/2609.04169v1",
+  "pdf": "https://arxiv.org/pdf/2609.04169v1",
+  "type": "both",
+  "summary": "This work analyzes the fundamental limits of learning in tunable mechanical networks by incorporating Maxwell-Betti reciprocity. It proves that this physical symmetry restricts the network's reachable response space, creating a quantifiable error floor that no passive training rule can overcome. The findings are crucial for designing physical machine learning hardware by setting realistic performance expectations.",
+  "main_problem": "The paper determines the true capacity of tunable mechanical networks by accounting for physical symmetries, specifically Maxwell-Betti reciprocity, which constrains the reachable response space.",
+  "main_result": "Reciprocity forces the reachable set into a subspace of codimension $p(p-1)/2$, establishing a computable error floor that limits the learning capability of passive networks.",
+  "method": "The authors derive theoretical bounds using linear algebra and analyze the system's response block using the Jacobian, comparing theoretical constraints with numerical simulation results.",
+  "model_or_system": "The system is a passive, linear elastic mechanical network with tunable stiffnesses, modeled by a bond force law. The analysis focuses on the response block $R(\theta)$ derived from the compliance matrix.",
+  "key_observables": "The codimension of the reachable set, the error floor (related to the antisymmetric part of the target), and the rank of the Jacobian matrix.",
+  "important_parameters": "The overlap $p$ (degrees of freedom both driven and read out), the number of bonds, and the stiffness parameters $\theta$.",
+  "main_assumptions": "The analysis assumes a fixed graph with a finite set of tunable stiffnesses, and the core results rely on the validity of Maxwell-Betti reciprocity for passive systems.",
+  "figures_summary": "Figures illustrate the mechanical setup, showing how reciprocity constrains the response block to a lower-dimensional subspace, quantified by $p(p-1)/2$ lost dimensions.",
+  "paper_structure": "The paper establishes the physical model, derives the theoretical constraint imposed by reciprocity, calculates the resulting error floor, and then tests these theoretical limits using numerical simulations and optimization routines.",
+  "why_interesting": "The concept of an inherent, physically imposed error floor in a learning system, derived from fundamental symmetries like reciprocity, provides a powerful theoretical constraint applicable to any physical realization of a neural network.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.04169_figures/2609.04169_fig1.jpg",
+      "caption": "Figure 1: Setup and the origin of the constraint. (a) A central-force network. Forces are applied on a set S of degrees of freedom and displacements read on a set T; p = |T ∩S| of them are both driven and read out. (b) The bond force law. A passive bond pushes along its own axis and makes K symmetric; an odd bond adds a transverse component abˆtb and makes it asymmetric. (c) The response block C[T,S]. Maxwell–Betti forces its p× p sub-block on the shared degrees of freedom to be symmetric, which is p(p−1)/2 independent equalities and, by Theorem 1, p(p−1)/2 lost dimensions.",
+      "page": 5
+    },
+    {
+      "image": "2609.04169_figures/2609.04169_fig2.jpg",
+      "caption": "Figure 2: Spectra, ranks and the column mechanism. (a) Singular-value spectrum of the exact Jacobian for one network at full overlap, m = 6. The passive spectrum falls by thirteen orders of magnitude after index m2 −p(p −1)/2 = 21; with odd couplings it continues to m2 = 36. (b) Measured against predicted rank over all 2418 rank cases. All points lie on or below the diagonal, and inside criterion (15) every case lies on it. Points outside the criterion are jittered to show density. (c) Attainment degrades smoothly once the target dimension approaches the size of the network. Counts above each bar, over all 2418 cases. (d) The mechanism, measured per Jacobian column (6579 passive, 13158...",
+      "page": 17
+    },
+    {
+      "image": "2609.04169_figures/2609.04169_fig3.jpg",
+      "caption": "Figure 3: The overlap law. (a) Lost response dimensions against the input/output overlap p, for m = 4,5,6 (points dodged horizontally; their collapse onto the dashed p(p−1)/2 curve is the result). Networks with odd couplings lose nothing at any overlap. (b) At full overlap the fraction of the response space out of reach follows (m−1)/2m and approaches one half; odd couplings recover all of it.",
+      "page": 18
+    },
+    {
+      "image": "2609.04169_figures/2609.04169_fig4.jpg",
+      "caption": "Figure 4: The error floor, seen by a learning rule. (a) Training curves for one network and one target, all arms started from the same independent random stiffnesses. Each curve is drawn only for as many iterations as it actually ran, with a dot at its last; the passive network on the forbidden target descends to within numerical tolerance of the predicted floor and stops there, while the same optimiser on an allowed perturbation of the same size, and the odd network on the forbidden one, continue to numerical zero. (b) Error reached against the floor Theorem 2 predicts, over 144 runs and three decades of perturbation size. The prediction contains no fitted quantity, and no run falls below...",
+      "page": 23
+    },
+    {
+      "image": "2609.04169_figures/2609.04169_fig5.jpg",
+      "caption": "Figure 5: The floor found by a local learning rule. (a) Coupled learning on one network: the 30-node network at m = 5, geometry seed 1, the pair whose trajectories the script deposits, fixed before the runs. Its ratio, 1.0000003, is close to but not equal to the median over the 24 runs, 1.0000012. As in Fig. 6a the curves are the best error reached so far, and so monotone by construction. On a forbidden target the rule flattens onto the floor of Theorem 2 and stops; on an allowed perturbation of the same size, from the same start, it descends 6.2 decades in all, 5.0 of them below the floor. (b) Error reached against the floor predicted, all 24 runs and both arms. The forbidden arm sits on...",
+      "page": 24
+    }
+  ],
+  "figure": "2609.04169_figures/2609.04169_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
