@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "2609.05060",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET",
+    "cs.LG",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Impact of Data Loss in Postprocessing on Training and Inference of Quantum Neural Networks",
+  "authors": "Soraya V. Panambalom, Edoardo Altamura, Nick Chancellor, Jonte R. Hance",
+  "abstract": "As quantum hardware scales to larger devices, the classical software layers that interface with it must evolve in step. Postprocessing routines developed and tested primarily in simulator settings can encode assumptions that no longer hold on utility-scale devices, leading to data loss that can be difficult to detect from high-level model outputs alone. We present a case study of \\texttt{SamplerQNN}, the sampling-based quantum neural network class in the Qiskit Machine Learning library. Here, the postprocessing method applies a filter that assumes measurement bit-strings are in virtual qubit space. On our quantum hardware runs, where bit-strings span over 100 physical qubits, this filter led to the loss of 85 to 99.6\\% of valid measurement shots, depending on the transpiler's qubit placement. The resulting probability vector is unnormalised, allowing distorted prediction and loss values to propagate through the model without an API-level warning. We demonstrate the impact across five experiments on two IBM backends: for inference, accuracy drops from 0.94 to 0.39 on the same raw measurements; for training, the loss signal is compressed by 22 to 27$\\times$, substantially reducing the sensitivity of the optimiser to the objective landscape. The behaviour arises in all released versions of the library (0.8.4 to 0.9.0). We implemented a layout-based marginalisation fix, merged into the GitHub codebase as Pull Request \\#1041, that makes \\texttt{SamplerQNN} postprocessing forward-compatible with current and upcoming hardware.",
+  "url": "http://arxiv.org/abs/2609.05060v1",
+  "pdf": "https://arxiv.org/pdf/2609.05060v1",
+  "type": "both",
+  "summary": "This paper reveals a critical flaw in the postprocessing step of QNNs when running on real quantum hardware. A filtering mechanism, designed for simulators, incorrectly discards a vast majority of valid measurement shots. This data loss corrupts both the model's predictive accuracy and the optimization process during training, necessitating a structural fix based on layout-aware marginalization.",
+  "main_problem": "The postprocessing routines in Quantum Neural Networks (QNNs) suffer from data loss when running on utility-scale quantum hardware compared to simulators.",
+  "main_result": "This data loss causes the probability vector to be unnormalized, leading to significant drops in inference accuracy (e.g., 0.94 to 0.39) and compressing the loss signal during training (22-27x).",
+  "method": "The authors conducted a case study comparing different postprocessing methods (including the flawed filter) on real IBM quantum backends and proposing a layout-based marginalization fix.",
+  "model_or_system": "The study focuses on the Qiskit Machine Learning library, specifically the SamplerQNN class, applied to variational quantum classifiers (VQC) on large-scale quantum hardware (e.g., 156 qubits).",
+  "key_observables": "Inference accuracy, training loss signal magnitude, and the percentage of surviving measurement shots.",
+  "important_parameters": "Number of virtual qubits ($n$), number of physical qubits ($N$), and the threshold $2^n$.",
+  "main_assumptions": "The original postprocessing logic incorrectly assumes measurement bit-strings are confined to the virtual qubit space, which fails on physical hardware.",
+  "figures_summary": "Figures compare the loss values received by the optimizer using the flawed method versus the correct method, and show weight drift confirming optimization probing rather than true learning.",
+  "paper_structure": "The paper establishes the problem by detailing the data loss mechanism, quantifies the impact on inference and training, compares different postprocessing methods, and concludes by presenting the necessary layout-aware fix.",
+  "why_interesting": "It highlights a critical, non-physical software artifact that severely degrades the performance metrics of quantum machine learning models, which is crucial knowledge for anyone building quantum algorithms for physical platforms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.05060_figures/2609.05060_fig1.jpg",
+      "caption": "Fig. 1. Loss for 5 on-device fine-tuning iterations, recomputed from raw measurements. Method B (correct marginalisation) reveals the actual loss landscape; Method C (original filter) shows what COBYLA received. The star marks iteration 1 (clean simulator-trained weights); the shaded region marks iterations where the weights had already been affected by prior uncorrected updates.",
+      "page": 6
+    }
+  ],
+  "figure": "2609.05060_figures/2609.05060_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.05238",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "q-bio.MN"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Optimisation for Protein-Protein Interaction Network Alignment",
+  "authors": "Merle Stahl, Robert J. Banks, Matthias Traube, Josua Unger, Wolfgang Lechner, Jan Baumbach, Mhaned Oubounyt",
+  "abstract": "Protein-protein interaction (PPI) network alignment combines topological and sequence information to identify conserved modules across species, but global alignment remains challenging: heuristics sacrifice optimality, while exact methods lack scalability. We model the alignment as a weighted maximum common induced subgraph problem and reformulate it through the modular product graph to a minimum-weight vertex cover on the complement, with node weights carrying sequence similarity. To solve this problem, we develop a hybrid framework combining kernelisation, branch-and-bound, and seven Quantum Approximate Optimisation Algorithm (QAOA) formulations. These formulations differ in how the cover constraints are enforced, from penalty terms in the cost Hamiltonian to mixers confined to the feasible subspace. For single round QAOA, we derive closed-form expressions for the expected cost of four circulant mixer variants, enabling performance characterisation without circuit simulation. Applied to synthetic and real-world networks reduced to KEGG pathways, the QAOA formulations achieve high topological conservation on the aligned core while at least maintaining biological conservation comparable to leading classical aligners, at the cost of reduced node coverage. Across selected KEGG pathways, the aligned subnetworks retain disease-associated proteins, preserving biologically relevant information. Cheaper formulations leave more edges uncovered, while enforcing feasibility in the mixer raises circuit depth by one to two orders of magnitude. Together, these results highlight the potential of quantum optimisation for PPI network alignment and the resource trade-offs that will shape its scalability as quantum hardware matures.",
+  "url": "http://arxiv.org/abs/2609.05238v1",
+  "pdf": "https://arxiv.org/pdf/2609.05238v1",
+  "type": "theory",
+  "summary": "This paper proposes using quantum optimization, specifically multiple QAOA formulations, to solve the NP-hard problem of aligning PPI networks across species. By mapping the alignment to a minimum vertex cover problem, the authors demonstrate a hybrid quantum-classical solver. The results confirm the potential of quantum methods for this biological problem while clearly outlining the current resource limitations regarding circuit depth and qubit count.",
+  "main_problem": "The paper addresses the challenge of optimally aligning Protein-Protein Interaction (PPI) networks across different species, which is modeled as a weighted maximum common induced subgraph problem.",
+  "main_result": "The developed hybrid quantum-classical framework using QAOA variants achieves high topological conservation comparable to classical methods, though this comes at the cost of reduced node coverage.",
+  "method": "The problem is reformulated as a minimum-weight vertex cover problem, which is then solved using a hybrid approach combining classical branch-and-bound decomposition with multiple Quantum Approximate Optimization Algorithm (QAOA) formulations.",
+  "model_or_system": "The system involves PPI networks, which are modeled using a modular product graph. The optimization is framed by mapping the problem to a QUBO/Ising Hamiltonian, suitable for QAOA execution.",
+  "key_observables": "Topological conservation, biological conservation, and node coverage of the aligned subnetwork.",
+  "important_parameters": "QAOA depth (p), penalty parameter (lambda), and the number of qubits (limited to $\\le 33$ by the branch-and-bound decomposition).",
+  "main_assumptions": "The primary limitation is the resource requirement, suggesting that quantum advantage might require fault-tolerant hardware beyond current capabilities.",
+  "figures_summary": "Figure 1 illustrates the entire QAOA-based pipeline: combining networks into a weighted graph, reformulating it as a vertex cover, and solving it via QAOA within a branch-and-bound structure.",
+  "paper_structure": "The paper first defines the PPI alignment problem and its mathematical formulation (MCIS $\rightarrow$ Min-Weight Vertex Cover). It then details the quantum approach using multiple QAOA variants, comparing constraint enforcement methods. Finally, it applies this framework to synthetic and real-world KEGG pathway benchmarks.",
+  "why_interesting": "It provides a concrete, complex application of quantum optimization algorithms (QAOA) to a highly structured problem in computational biology, demonstrating the necessary trade-offs between circuit depth and solution quality.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.05238_figures/2609.05238_fig1.jpg",
+      "caption": "Figure 1. Overview of the QAOA-based pipeline for PPI network alignment. (A) The two PPI networks to be aligned, together with a sequence-based node-similarity matrix between their proteins, are combined into a weighted modular product graph. Its nodes are candidate protein pairs, weighted by sequence similarity, and two nodes are adjacent if the pairs they represent are compatible, i.e. if the corresponding proteins are connected in both networks or in neither. (B) The maximum-weight clique problem on the modular product graph is reformulated as a minimum-weight vertex cover problem on the complement graph and reduced to a QUBO. Branch-and-bound with kernelisation shrinks each instance to...",
+      "page": 3
+    },
+    {
+      "image": "2609.05238_figures/2609.05238_fig2.jpg",
+      "caption": "Figure 2. Node coverage of the QAOA variants on the small NAPAbench2 instances. Solid boxes are closely related pairs, hatched boxes distantly related ones. Colours run from blue to red as feasibility moves from the penalty term (Basic) into the mixer (Constrained).",
+      "page": 7
+    },
+    {
+      "image": "2609.05238_figures/2609.05238_fig3.jpg",
+      "caption": "Figure 3. Hardware cost and sampler behaviour of the QAOA variants on closely related synthetic pairs. Qubit count, circuit depth (decomposed to a {u, cx} basis), and ground-state probability, the fraction of samples that hit the exact optimum with increasing problem size. Colours run from blue to red as feasibility moves from the penalty term (Basic) into the mixer (Constrained).",
+      "page": 8
+    },
+    {
+      "image": "2609.05238_figures/2609.05238_fig4.jpg",
+      "caption": "Figure 4. Alignment quality of the branch-and-bound decomposition combined with the QAOA variants com- pared against the classical aligners. Each panel shows the distribution of alignment quality over network pairs for one metric: biological conservation (node correctness for synthetic data, Lin best-match-average GO semantic similarity for real- world data), topological conservation (S3 score), and node coverage. Rows correspond to (A) closely related and (B) distantly related synthetic NAPAbench2 pairs, and (C) real human–mouse KEGG pathway pairs. Colours run from blue to red as feasibility moves from the penalty term (Basic) into the mixer (Constrained).",
+      "page": 10
+    },
+    {
+      "image": "2609.05238_figures/2609.05238_fig5.jpg",
+      "caption": "Figure 5. Cross-species alignment of disease-protein neighbourhoods in three neurodegeneration-associated pathways. Human and mouse STRING networks for (A) Mitophagy (KEGG hsa04137), (B) Lysosome biogenesis (hsa04142) and (C) Cholesterol metabolism (hsa04979). Proteins whose genes are associated with Alzheimer’s disease (AD) in Open Targets are shown in green, those associated with Parkinson’s disease (PD) in yellow. Proteins aligned to a counterpart by the Matching Ring QAOA variant are drawn at matching positions in the two species’ layouts.",
+      "page": 11
+    }
+  ],
+  "figure": "2609.05238_figures/2609.05238_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

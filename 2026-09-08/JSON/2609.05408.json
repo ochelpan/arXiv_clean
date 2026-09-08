@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.05408",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Towards Scaling Quantum Fine-Tuning of Foundational Time Series Models for Classification",
+  "authors": "Sang Hyub Kim, Julien Baglio, Rajiv Krishnakumar, Chi Chen, Oliver Knitter, Jonathan Mei, Claudio Girotto, Masako Yamada, Frederik F. Flöther, Martin Roetteler",
+  "abstract": "Time-series foundation models produce rich embeddings, but whether quantum models can exploit them, and how far hybrid classical-quantum architectures scale, remains unclear. We address this by fine-tuning Chronos for power-grid event classification (PSML-5) with a quantum head on the model's embeddings. Grouping embeddings by physical sensor type before summarization already surpasses the best published baseline built for this benchmark, and with finer-grained features the quantum head outperforms a larger classical multilayer perceptron on identical inputs by 1.7-2.0 percentage points of balanced accuracy. Yet the gains saturate: past a point, feeding more information to the same fixed-width register yields no improvement. We show the bottleneck is neither the supply of information nor circuit expressiveness, but the bandwidth of the data intake. To overcome this limitation, we introduce the wing module, a self-contained few-qubit circuit that feeds additional information into the core circuit through a sparse, one-way coupling. Under a preregistered four-seed protocol, we attach wings to a fixed 12-qubit core with fixed features. Balanced accuracy increases with each added wing, from 83.6% with no wings (13 qubits, including a post-selection qubit) to 85.2% with two (19 qubits). Ablations establish that a circuit enlarged without new information gains nothing, while a wing fed information from the wrong sample harms accuracy. These results reframe scaling for quantum fine-tuning: added qubits help when they carry added inputs, not merely more parameters. Wings offer a modular and stable route to widening that bandwidth.",
+  "url": "http://arxiv.org/abs/2609.05408v1",
+  "pdf": "https://arxiv.org/pdf/2609.05408v1",
+  "type": "theory",
+  "summary": "This work addresses the scalability limits of quantum models applied to time-series classification by introducing the 'wing module.' The authors prove that performance gains are limited by the data intake bandwidth, not circuit size, and demonstrate that adding these modular wings successfully expands the model's capacity for complex, high-dimensional inputs.",
+  "main_problem": "The paper investigates the scalability of quantum fine-tuning when applying quantum models to complex, high-dimensional time-series classification tasks.",
+  "main_result": "The authors demonstrate that the performance bottleneck is not circuit expressiveness but the data intake bandwidth, which can be overcome by introducing a modular 'wing module' to expand the quantum circuit's input capacity.",
+  "method": "They fine-tuned a hybrid classical-quantum model (Chronos + quantum head) on power-grid event classification data, systematically scaling the quantum circuit's input width using the novel wing architecture.",
+  "model_or_system": "The system uses a hybrid architecture combining a classical time-series foundation model (Chronos) with a quantum head. The quantum head's input bandwidth is expanded via 'wing modules,' which are self-contained few-qubit circuits coupled sparsely to the core.",
+  "key_observables": "Balanced accuracy, which increases systematically with the addition of wings, and the comparison of performance gains versus simply increasing the number of qubits without new inputs.",
+  "important_parameters": "The core quantum circuit size (e.g., 12 qubits) and the number of added wings (e.g., 2 wings increasing qubits to 19).",
+  "main_assumptions": "The quantum circuit is simulated in a noiseless environment, and the analysis relies on the assumption that added qubits must carry added, independent information to improve performance.",
+  "figures_summary": "Figures illustrate the wing architecture flow, and tables report the balanced accuracy gains across different qubit counts achieved by adding wings.",
+  "paper_structure": "The paper first establishes the problem of scaling quantum fine-tuning for time series, then introduces the wing module to address bandwidth limitations, and finally presents ablation studies and results showing performance gains correlated with added input bandwidth.",
+  "why_interesting": "It provides a concrete, application-driven framework for understanding how to scale quantum circuits in the NISQ era by decoupling parameter scaling from input bandwidth scaling, which is highly relevant for quantum machine learning.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.05408_figures/2609.05408_fig1.jpg",
+      "caption": "Fig. 1: The wing architecture. Classical encoders (shaded; sPQC = simulated parameterized quantum circuit) are separate per module, while the second module is a single quantum circuit whose register is partitioned into a core, the wing registers, and one accept qubit. The core (n qubits, E encoders, R data re-uploading blocks, fixed depth) carries all readout: Pauli-Z on k qubits feeds a k × C linear head. Each wing (one register and Ew encoders per wing, ×W) adds m qubits and couples to the core only through a few one-way entangling gates (fixed CNOTs in this work) at staggered points; wings never couple to each other. The accept qubit, coupled late to the core, is measured and only...",
+      "page": 4
+    },
+    {
+      "image": "2609.05408_figures/2609.05408_fig2.jpg",
+      "caption": "Fig. 2: Balanced accuracy of the sPQC quantum head and the classical MLP head vs. sketch-fingerprint budget (best configuration per budget; error bars: fold standard deviation). The dotted divider marks the family switch: budgets up to 16 use the base sketch only, 96 and 160 use the base+raw family. Values are five-fold cross-validation means (Table V).",
+      "page": 6
+    },
+    {
+      "image": "2609.05408_figures/2609.05408_fig3.jpg",
+      "caption": "Fig. 3: Balanced accuracy vs. number of wings. Points: mean over seeds 42–45 at each rung’s peak learning rate (selected on the seed-42 sweep); error bars: standard deviation across the four seed fold-means. Dashed line: the 12-qubit reference (different apparatus, bit-identical core features). Ladder and reference are internal five-fold cross-validation on the training split. The dotted green line is the published PSML-5 baseline (best reported result) of 74.2% [21], the mean over ten random initializations of the model weights on the designated train/test split.",
+      "page": 6
+    },
+    {
+      "image": "2609.05408_figures/2609.05408_fig4.jpg",
+      "caption": "Fig. 4: Six PSML generator trip instances overlaid on the dataset’s highest-variance channel (#66, reactive power). De- spite the shared event label, they vary widely in baseline, onset timing, and amplitude.",
+      "page": 9
+    },
+    {
+      "image": "2609.05408_figures/2609.05408_fig5.jpg",
+      "caption": "Fig. 5: PCA projection (2 components) of flattened, standard- ized PSML instances, colored by class. PC1 predominantly separates fault-type from trip-type events; classes within each group overlap substantially.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.05408_figures/2609.05408_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

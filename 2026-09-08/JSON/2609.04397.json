@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2609.04397",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cs.DC",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Accelerating Atom Simulations with Variable-Block Sparse Matrix Library",
+  "authors": "Zhanghao Zhouyin, Hong Guo",
+  "abstract": "Modern atomistic simulations increasingly employ localized orbitals to represent quantum operators, yielding sparse block matrices whose block shapes vary with chemical species and basis choice. Conventional scalar sparse formats store the entries of each block individually, obscuring this local structure and limiting the use of efficient block algorithms. We present VBCSR, a distributed sparse matrix library that preserves variable-size atomic blocks and accelerates the core linear algebra of large-scale atomistic simulations. A unified interface automatically maps scalar, uniform-basis, and multispecies operators to compressed sparse row (CSR), block sparse row (BSR), or variable-block compressed sparse row (VBCSR). Our advanced acceleration method groups blocks of equal shape and dispatches them to optimized dense kernels. In the reported benchmarks, VBCSR outperforms the tested Python-accessible reference implementations for several block-sparse benchmarks. We further demonstrate VBCSR in an InP nanoparticle application containing more than \\(10^6\\) atoms.",
+  "url": "http://arxiv.org/abs/2609.04397v1",
+  "pdf": "https://arxiv.org/pdf/2609.04397v1",
+  "type": "theory",
+  "summary": "This paper introduces VBCSR, a novel distributed sparse matrix library designed to efficiently handle the block-sparse matrices arising from localized orbital representations in atomistic simulations. By automatically adapting to variable block sizes and optimizing kernel execution, VBCSR significantly accelerates linear algebra operations. It successfully demonstrates its scalability and accuracy by simulating the electronic structure of large InP nanoparticles.",
+  "main_problem": "The core challenge is accelerating large-scale atomistic simulations that generate sparse block matrices with variable block shapes due to localized orbital representations.",
+  "main_result": "The proposed VBCSR library significantly outperforms existing reference implementations for block-sparse benchmarks, achieving speedups up to 8.4x for SpGEMM.",
+  "method": "VBCSR is a distributed sparse matrix library that automatically selects between CSR, BSR, or VBCSR formats, grouping blocks of equal shape for optimized dense kernel execution.",
+  "model_or_system": "The library is applied to atomistic systems, specifically simulating InP nanoparticles using a tight-binding Hamiltonian with localized $sp^3$ orbitals.",
+  "key_observables": "Performance benchmarks (speedup), density of states (DOS), and size-dependent band gap shifts ($\\Delta E_g$).",
+  "important_parameters": "System size up to $10^6$ atoms, various block-size regimes, and parallelization levels (up to 16 threads/128 MPI ranks).",
+  "main_assumptions": "The speedups are specific to tested operators and hardware; the method assumes the ability to map physical atomic structure onto a block-graph model.",
+  "figures_summary": "Figure 1 illustrates the unified interface mapping physical structure to CSR/BSR/VBCSR backends. Figure 2 compares kernel times and speedups across different domains. Figure 3 shows strong/weak scaling. Figure 4 displays DOS and band-gap shifts for varying nanoparticle sizes.",
+  "paper_structure": "The paper introduces VBCSR to solve the block-sparse matrix problem, details its automatic backend selection and acceleration mechanisms (grouping/kernels), benchmarks its performance against references, and finally demonstrates its application to calculating electronic properties (DOS, band gap) of large InP nanoparticles.",
+  "why_interesting": "While focused on numerical acceleration, the ability to efficiently handle complex, spatially varying Hamiltonians derived from localized orbitals is crucial for simulating open quantum systems and material properties in AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.04397_figures/2609.04397_fig1.jpg",
+      "caption": "FIG. 1. VBCSR uses a shared distributed graph and a unified Python-facing matrix interface across automatically selected CSR, BSR, and VBCSR backends. The backends support common sparse operations through MPI communication, thread-level parallelism, and dense numerical kernels.",
+      "page": 3
+    },
+    {
+      "image": "2609.04397_figures/2609.04397_fig2.jpg",
+      "caption": "FIG. 2. Kernel-efficiency benchmarks for sparse matrix-vector multiplication (SpMV), sparse matrix-dense matrix multiplica- tion (SpMM), and sparse general matrix-matrix multiplication (SpGEMM). Each structural domain targets a matrix storage budget of approximately 500 MiB; graph block counts therefore differ by domain. CSR uses scalar blocks, BSR uses block size 8, and VBCSR uses variable block sizes from 9 to 20. SpMM uses 16 right-hand sides, and the reported SpGEMM case uses zero threshold. Bars report the median kernel time over seven timed repetitions following three warm-up iterations. Speedup labels report VBCSR performance relative to the fastest reference implementation; values...",
+      "page": 5
+    },
+    {
+      "image": "2609.04397_figures/2609.04397_fig3.jpg",
+      "caption": "FIG. 3. Distributed scaling benchmarks. Strong scaling uses a fixed global matrix storage target of approximately 500 MiB per structural domain. Weak scaling keeps the local matrix size approximately fixed at 32 MiB per rank and per domain, and increases the global problem size in proportion to the MPI rank count. Strong-scaling speedup is measured as S(p) = T(1)/T(p), and weak-scaling efficiency is defined as Ew(p) = T(32)/T(p), where T denotes the execution time. Dashed curves mark ideal strong scaling and ideal weak-scaling efficiency.",
+      "page": 6
+    },
+    {
+      "image": "2609.04397_figures/2609.04397_fig4.jpg",
+      "caption": "FIG. 4. Atomistic density-of-states and band-gap calculation for hydrogen-passivated zinc-blende InP nanoparticles. (a) Visualization of the largest completed particle, containing 1,063,609 atoms including surface H passivation, with an effective diameter of 36.44 nm. (b) Normalized DOS for the three particle sizes studied here: 12,083 atoms (D = 7.71 nm), 120,250 atoms (D = 17.28 nm), and 1,063,609 atoms (D = 36.44 nm). The DOS is computed from the In(sp3)–P(sp3d5)–H(s) tight-binding Hamiltonian with interactions through second-nearest neighbours, using the parameterization of Sapra et al. [11]. The spectra are aligned to a common mid-gap reference energy and shown as normalized DOS per...",
+      "page": 7
+    }
+  ],
+  "figure": "2609.04397_figures/2609.04397_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

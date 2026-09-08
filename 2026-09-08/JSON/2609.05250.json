@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.05250",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Memory-Optimal Sequential Synthesis of Multimode Gaussian Transformations",
+  "authors": "Fucheng Guo, Frank Mueller, Yuan Liu",
+  "abstract": "In modular quantum computing architectures, communication between hardware modules is mediated by traveling qumodes sent through transmission lines. Each output qumode interacts with the emitting module only once through a beam-splitter-type interaction and becomes inaccessible to that module after emission. Information required for subsequent outputs must therefore remain in long-lived memory qumodes. For a prescribed multimode Gaussian transformation on $N$ qumodes, this work determines the minimum memory cost for any given emission order, constructs an explicit sequential protocol attaining this minimum, and develops a greedy method for identifying memory-efficient emission orders. The transformation is represented by a symplectic matrix $S$, specified either directly or through a Gaussian gate sequence. The exact minimum memory cost is obtained from the ranks of submatrices of $S$ and further reduces to a support-based counting rule whose computational cost is linear in the size of the support data. When $S$ is specified directly, a matrix-based protocol attains the minimum memory cost. If instead $S$ is specified through a gate sequence, the original gates can be reused without additional synthesis, although the resulting memory usage need not be minimal. Gaussian transformations with local support on a $D$-dimensional cubic lattice can be realized sequentially with $O(N^{(D-1)/D})$ memory qumodes. The protocols also apply to non-Gaussian inputs, including GKP and cat states, and thereby provide an explicit, resource-efficient scheme for intermodule communication in modular architectures for universal continuous-variable quantum computation.",
+  "url": "http://arxiv.org/abs/2609.05250v1",
+  "pdf": "https://arxiv.org/pdf/2609.05250v1",
+  "type": "theory",
+  "summary": "This work tackles the resource challenge in modular quantum computing by finding the minimum memory required to execute a desired Gaussian transformation. It derives this minimum memory cost from the rank of submatrices of the transformation matrix and proposes a concrete, memory-optimal sequential protocol to achieve it. This offers a resource-efficient blueprint for intermodule communication in continuous-variable quantum computation.",
+  "main_problem": "The paper determines the minimum memory cost and constructs an explicit sequential protocol for realizing a prescribed multimode Gaussian transformation on $N$ qumodes.",
+  "main_result": "The minimum memory cost is determined by a rank-based counting rule, $n_{\text{mem}}(S) = \\max_{1 \\le k \\le N} \\{|P_k| - k + 1\\}$, and an efficient algorithm achieves this minimum.",
+  "method": "The authors derive the minimum memory requirement using symplectic rank analysis and develop an iterative, memory-optimal synthesis algorithm based on matrix updates.",
+  "model_or_system": "The system models modular quantum computing architectures where Gaussian transformations are implemented by sequentially emitting output qumodes ($o_k$) from a reusable set of stationary memory qumodes via beam-splitter interactions.",
+  "key_observables": "Minimum memory cost ($n_{\text{mem}}(S)$), which is the maximum rank of specific submatrices of the symplectic transformation matrix $S$.",
+  "important_parameters": "The symplectic matrix $S \\in Sp(2N, \\mathbb{R})$, the number of qumodes $N$, and the dimensionality $D$ for lattice support.",
+  "main_assumptions": "The beam-splitter interaction is assumed to completely transfer the state and leave the memory qumode in the vacuum state; the analysis focuses on exact implementations.",
+  "figures_summary": "Figure 1 illustrates the sequential implementation process: input loading, in-register operation mapping, BS full swap to vacuum, and memory qumode reset/reuse.",
+  "paper_structure": "The paper establishes the physical model, derives the theoretical lower bound for memory cost using rank analysis, and then presents an explicit, memory-optimal synthesis algorithm (Algorithm 3) compared against heuristic methods.",
+  "why_interesting": "It provides a rigorous, resource-efficient framework for understanding and implementing complex quantum operations (Gaussian transformations) in physically constrained, modular quantum computing hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.05250_figures/2609.05250_fig1.jpg",
+      "caption": "FIG. 1. Sequential implementation of a multimode Gaussian transformation S using a reusable memory register. The memory register consists of stationary qumodes on which Gaussian operations can be performed. Time proceeds from left to right. The initial input qumodes are first loaded into the register. At each step, an in-register Gaussian operation maps the next output qumode ok onto one memory qumode while retaining the information required for later outputs in the remaining memory qumodes. The state of ok is then transferred to a vacuum traveling qumode through a beam-splitter full swap (θ = π, labeled “SWAP”) and released into a transmission line. The swap leaves the corresponding memory...",
+      "page": 3
+    },
+    {
+      "image": "2609.05250_figures/2609.05250_fig2.jpg",
+      "caption": "FIG. 2. Five-qumode chain encoder. The input qumode a1 carries the data state |ψ⟩, while a2, . . . , a5 are GKP an- cilla qumodes. Consecutive qumodes are coupled by nearest- neighbor TMS gates with squeezing parameter r. The corre- sponding output qumodes are labeled o1, . . . , o5.",
+      "page": 9
+    },
+    {
+      "image": "2609.05250_figures/2609.05250_fig3.jpg",
+      "caption": "FIG. 3. Sequential emission of the N = 5 chain code in two different orders, generated by Algorithm 1. Horizontal lines denote memory qumodes M1, M2, . . . , vertical arrows denote input injections, and the orange blocks denote π full swaps to traveling qumodes. (a) Forward order. Two memory qumodes are sufficient, giving nmem = 2. The first step injects a1 and a2; each subsequent step injects the next input into the memory qumode freed by the previous emission, applies one TMS gate, and emits the next output. The final step emits o5 without an additional gate. (b) Reverse order. Since o5 depends on all inputs, all five inputs and all four TMS gates are required before the first emission....",
+      "page": 9
+    },
+    {
+      "image": "2609.05250_figures/2609.05250_fig4.jpg",
+      "caption": "FIG. 4. Encoding circuit of the nine-qumode analog Shor code. The input qumode a1 carries the data state |ψ⟩, while a2, . . . , a9 are initialized in the position eigenstate |x = 0⟩. The circuit consists of Fourier gates F and SUM gates, and the corresponding output qumodes are labeled o1, . . . , o9.",
+      "page": 11
+    },
+    {
+      "image": "2609.05250_figures/2609.05250_fig5.jpg",
+      "caption": "FIG. 5. Emission circuit for the analog Shor code in the greedy emission order of Eq. (23), generated by Algorithm 1. The circuit proceeds from left to right. The horizontal lines represent the three memory qumodes M1, M2, M3, and the vertical arrows labeled a1, . . . , a9 indicate input injections. A SUM gate is represented by a control dot and a target ⊕, while F denotes the Fourier gate. Each orange block represents a π full swap between a memory qumode and a vacuum traveling qumode. The traveling qumode is then emitted as the corresponding output ok, indicated by a downward arrow. In the circuit shown, the emission operations are distributed among different memory qumodes. Nevertheless,...",
+      "page": 12
+    }
+  ],
+  "figure": "2609.05250_figures/2609.05250_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

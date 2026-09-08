@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2609.05313",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "SAR and InSAR Change Detection with Quantum Generative Models",
+  "authors": "Samwel K. Sekwao, Shaunak De, Alexis Hocken, Scott Staniewicz, Evgeny Epifanovsky, Craig Stringham, Gordon Farquharson, Martin Roetteler, Panagiotis Kl. Barkoutsos, Jason Iaconis",
+  "abstract": "Change detection in synthetic aperture radar (SAR) and interferometric synthetic aperture radar (InSAR) underpins disaster response, infrastructure monitoring and land-use enforcement. Detection is limited by the background estimator, which conventionally forms a conditional expectation directly from observed pixel statistics and degrades where those statistics are sparse, including the regime produced by the heavy-tailed marginals of sub-meter-resolution radars. In this work, we integrate state-of-the-art satellite imagery with quantum machine learning on IonQ trapped-ion-based quantum processors. By replacing the empirical conditional with a quantum circuit Born machine (QCBM)-sampled generative model in Copula space, we substantially improve change detection on sparse real-world images. On Capella Space satellite image acquisitions, the generative estimator matches conventional methods when the observed statistics are adequate, and substantially outperforms them when they are not. Executing the trained model on IonQ trapped-ion based hardware reproduces the results of the ideal and noisy simulations and demonstrates up to par, or even better, performance with the classical state-of-the-art methods. For a SAR dataset of an airport, QPU circuit evaluations for both training and inference achieved a maximized filtered F1 score of 0.32, compared with 0.16 and 0.24 for the two classical baselines. For an InSAR dataset of a volcanic lava flow, all three methods reached a maximum filtered F1 of approximately 0.66. These experiments demonstrate the feasibility of executing a QCBM-based background estimator on trapped-ion hardware. We further demonstrate that the QCBM method successfully extends to interferometric coherence data, achieving performance comparable to classical approaches.",
+  "url": "http://arxiv.org/abs/2609.05313v1",
+  "pdf": "https://arxiv.org/pdf/2609.05313v1",
+  "type": "both",
+  "summary": "This paper applies quantum machine learning to enhance change detection in satellite radar imagery (SAR/InSAR). It replaces traditional, statistically limited background estimators with a Quantum Circuit Born Machine (QCBM) trained on the joint distribution in Copula space. The results show that this quantum approach substantially improves detection accuracy, particularly for noisy or sparse real-world data, demonstrating practical feasibility on trapped-ion quantum hardware.",
+  "main_problem": "The core problem is improving change detection in SAR/InSAR imagery, which is limited by background estimators that fail when observed pixel statistics are sparse.",
+  "main_result": "The Quantum Circuit Born Machine (QCBM) significantly outperforms classical baselines, especially when image statistics are sparse, demonstrating feasibility on trapped-ion hardware.",
+  "method": "The authors replace empirical conditional expectation estimators with a generative model sampled from a QCBM trained in Copula space.",
+  "model_or_system": "The system involves processing SAR/InSAR image pairs (before/after) using quantum circuits implemented on IonQ trapped-ion processors. The QCBM learns the joint distribution of pixel intensities in Copula space.",
+  "key_observables": "Filtered F1 score (for change detection masks), and the performance comparison between QCBM, classical estimators (NLCD, Copula), and hardware execution fidelity.",
+  "important_parameters": "Sub-meter resolution, heavy-tailed marginals, $n$-qubit registers, and the number of measurement shots (e.g., 100,000 for inference).",
+  "main_assumptions": "The approach assumes modeling the joint distribution via its copula, and performance comparisons are made against classical methods under various preprocessing assumptions.",
+  "figures_summary": "Figures compare qualitative change-detection masks for non-Gaussian data and illustrate the performance drop when moving from ideal quantum simulation to actual QPU execution.",
+  "paper_structure": "The paper introduces the problem, proposes the QCBM replacement for background estimation, details the quantum circuit training/inference process, and validates the method using multiple real-world SAR/InSAR datasets.",
+  "why_interesting": "While the application is remote sensing, the core methodology involves using parameterized quantum circuits (QCBMs) to model complex, high-dimensional, correlated probability distributions (Copulas), which is a key area in quantum machine learning.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.05313_figures/2609.05313_fig1.jpg",
+      "caption": "Figure 1: Overview schematic of classical and quantum pipelines for processing a given before and after SAR image stack acquired from Capella Space Satellite. Pixel-value distributions of the before and after images for the different preprocessing configurations of the Miramar1 dataset. The original Miramar1 and median-filtered (Med)/non-Gaussian (NG)transformed datasets exhibit strongly non-Gaussian distributions, whereas the Yeo–Johnson (YJ) transformed datasets exhibit more Gaussian-like distributions. The histograms and heatmaps illustrate the effect of preprocessing on the statistical characteristics of the before and after image pixels. The quantum circuits used in the QCBM method are...",
+      "page": 4
+    },
+    {
+      "image": "2609.05313_figures/2609.05313_fig2.jpg",
+      "caption": "Figure 2: Qualitative comparison of change-detection re- sults for the non-Gaussian Miramar1-Med3 dataset. The top row shows the a) before image, b) after image, and c) ground-truth change mask, while the middle row shows the masks generated by d) QCBM, e) NLCD, and f) Cop- ula. The QCBM training and inference were both per- formed on IonQ’s Forte-Enterprise QPU. g) Filtered F1 scores for QCBM (training and inference performed with an ideal simulator), Copula, and NLCD at varying num- ber of bits vs qubits for the Miramar1-Med3 dataset. h) Comparison of the best F1 scores for models trained with 20 bits/qubits.",
+      "page": 5
+    },
+    {
+      "image": "2609.05313_figures/2609.05313_fig3.jpg",
+      "caption": "Figure 3: Effect of QPU execution on QCBM training and inference for image change detection on Miramar1-Med3 dataset. The change masks and corresponding filtered F1 scores compare four combinations of ideal-simulator and QPU training and inference (a-d). For QPU execution, training was performed on IonQ’s Forte QPU, whereas in- ference was performed on IonQ’s Forte-Enterprise QPU. e) The KL-loss curves compare the convergence behavior of ideal-simulator and QPU training, while f) the heatmap summarizes the filtered F1 scores across the four configu- rations.",
+      "page": 5
+    },
+    {
+      "image": "2609.05313_figures/2609.05313_fig4.jpg",
+      "caption": "Figure 4: InSAR volcano lava flow change detection with QCBM and classical baselines. a) Before and b) after In- SAR images are shown with the c) ground-truth change mask and the masks generated by d) QCBM, e) NLCD and f) Copula. The QCBM was trained on an ideal quan- tum simulator with inference performed on IonQ’s Forte- Enterprise QPU. g) Threshold dependence of InSAR lava- flow change-detection performance. F1 score after uni- form filtering as a function of the detection threshold for QCBM, NLCD and Copula on the InSAR lava-flow dataset. The ideal-simulator QCBM curve shows the mean over 10 independent training runs, with the shaded band indicating one standard deviation.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.05313_figures/2609.05313_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

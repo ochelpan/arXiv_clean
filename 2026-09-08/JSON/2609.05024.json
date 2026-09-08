@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.05024",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Lindblad Multiproduct Formulas",
+  "authors": "Niall F. Robertson, Andrea D'Urbano, Anton Dekusar, Max Rossmannek, Eric D. Switzer, James R. Garrison, Nicolas Lorente, Igor Pasichnyk, Paolo D'Alberto, Muhammad Osama, Zachary Streeter, Yasuko Eckert, Constantinos Evangelinos, Sergiy Zhuk",
+  "abstract": "We introduce Lindblad Multiproduct Formulas: a quantum error mitigation technique that uses two-dimensional tensor networks contracted with loop-corrected belief propagation. The quantities required to implement the error mitigation scheme that are evaluated with tensor networks can be less computationally expensive to calculate than the expectation values themselves, thus allowing for the possibility of applying our method to certain systems for which tensor network methods may struggle to calculate the observable quantities of interest. The workflow incorporates Clifford rescaling techniques and outputs an estimated error bar. We apply our method to a model of two-dimensional discrete time crystals studied previously and implement it on $65$ qubits arranged in a $3\\!\\times\\!3$ heavy-hexagonal topology on the quantum computer ibm_basquecountry. We show that a GPU implementation of the classical part of our workflow achieves a speedup of up to $5.6\\times$.",
+  "url": "http://arxiv.org/abs/2609.05024v1",
+  "pdf": "https://arxiv.org/pdf/2609.05024v1",
+  "type": "both",
+  "summary": "This paper introduces Lindblad Multiproduct Formulas (L-MPF), a novel quantum error mitigation technique that combines tensor network contractions with belief propagation. It allows for the estimation of noise-free quantum expectation values by calculating optimal linear combinations of noisy measurements. The method is demonstrated on a 2D discrete time crystal model, showing its utility in analyzing complex quantum dynamics on near-term quantum hardware.",
+  "main_problem": "The paper addresses the challenge of accurately estimating expectation values of observables in noisy quantum circuits governed by Lindblad dynamics.",
+  "main_result": "The proposed Lindblad Multiproduct Formulas (L-MPF) technique successfully mitigates noise by combining tensor network calculations with quantum measurements, showing potential advantages over existing methods.",
+  "method": "L-MPF uses two-dimensional tensor networks contracted with loop-corrected belief propagation to classically determine optimal linear combinations of noisy measurements, which are then used to estimate the noise-free expectation value.",
+  "model_or_system": "The method is applied to a model of two-dimensional discrete time crystals (DTCs) and is tested on a quantum computer (ibm_basquecountry) with 65 qubits in a heavy-hexagonal topology.",
+  "key_observables": "Noiseless expectation value $\\langle O(t) \rangle_{\\lambda 0}$, order parameter $\\Delta(t)$, and the estimated error bar.",
+  "important_parameters": "Noise rates ($\\lambda_i$), Floquet cycles, and the tensor network truncation error ($\\epsilon_\\chi$).",
+  "main_assumptions": "The workflow assumes that the required coefficients can be calculated efficiently using tensor networks, and it compares the performance of different noise amplification schemes (Ergodic vs. PEA).",
+  "figures_summary": "Figures compare raw hardware expectation values using ergodic vs. PEA amplification; they also show convergence analysis of L-MPF results against various extrapolation methods as a function of truncation error ($\\epsilon_\\chi$).",
+  "paper_structure": "The paper introduces the L-MPF technique, details its workflow involving QPU measurement and CPU/GPU tensor network computation, applies it to DTC models, and compares the performance and convergence of different noise amplification strategies.",
+  "why_interesting": "It provides a powerful, computationally structured framework (tensor networks) to tackle the notoriously difficult problem of noise mitigation in open quantum systems simulations, which is highly relevant to modern quantum hardware characterization.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.05024_figures/2609.05024_fig1.jpg",
+      "caption": "FIG. 1. Schematic of the Lindblad multiproduct formula ( L- MPF ) workflow. The workflow proceeds in three stages. (1) QPU: A noise model is first learned from the quantum device (ibm_basquecountry) following the procedure of [10], yield- ing the Pauli-Lindblad noise rates λi. The device is then used to measure noisy expectation values ⟨O⟩λi with either PEA or ergodic amplification. (2) CPU/GPU: Next, the coef- ficients ci are computed classically by minimizing the cost function Fχ(c) in equation (17). The overlaps entering the cost function are evaluated using two-dimensional tensor net- works contracted via loop-corrected belief propagation, with bond dimension extrapolation used to...",
+      "page": 2
+    },
+    {
+      "image": "2609.05024_figures/2609.05024_fig2.jpg",
+      "caption": "FIG. 2. Topology of the ibm_basquecountry quantum com- puter. We implement our experiments on the 65 colored qubits arranged on a 3×3 heavy hexagonal lattice. The qubit highlighted in orange is the one on which the single site Z expectation value is measured.",
+      "page": 6
+    },
+    {
+      "image": "2609.05024_figures/2609.05024_fig3.jpg",
+      "caption": "FIG. 3. Comparison of dimensionless expectation values ob- tained with three methods: (i) purely classical high bond dimension simulations, (ii) purely classical low bond dimen- sion simulations that have been extrapolated to the zero truncation error limit, and (iii) quantum hardware results on ibm_basquecountry that have been mitigated with the L-MPF method, where the expectation values in the sum ci⟨O⟩λi have been obtained with ergodic amplification. a) Expectation values of the target observable, with correspond- ing 1σ error bars, shown as a function of the Floquet cy- cles. The reference expectation values (black) are obtained from Schr¨odinger-picture tensor network simulations with...",
+      "page": 8
+    },
+    {
+      "image": "2609.05024_figures/2609.05024_fig4.jpg",
+      "caption": "FIG. 4. Convergence analysis at Floquet cycle 5 as a function of the tensor network truncation error ϵχ which is given by the sum of the square of the discarded singular values at each step. Horizontal dotted lines indicate the raw hardware ex- pectation values at three values of the parameter ϵ defined in the model in (15) and used in the framework of ergodic ampli- fication. The line labeled as “Rescaled Hardware” represents the expectation value with ϵ = 0.1 obtained using Clifford rescaling - see main text. The blue and red markers respec- tively represent purely classical low bond dimension simula- tion and quantum hardware results mitigated with L-MPF.",
+      "page": 9
+    },
+    {
+      "image": "2609.05024_figures/2609.05024_fig5.jpg",
+      "caption": "FIG. 5. Extrapolation of L-MPF in the ergodic amplification framework. Black line denotes the high bond dimension sim- ulation, blue circles denote low bond dimension simulations, and red circles denote L-MPF mitigated quantum hardware expectation values. The dash-dotted red line shows a linear fit to the mitigated data.",
+      "page": 12
+    }
+  ],
+  "figure": "2609.05024_figures/2609.05024_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 5
+  },
+  "citation_potential": {}
+}

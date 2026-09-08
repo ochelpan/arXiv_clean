@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.05316",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Compiling the 2D Fermi-Hubbard ground-state energy estimation algorithm for active volume quantum architectures",
+  "authors": "Harriet Apel, Athena Caesura, Carys Harvey, Sam Heavey, Angus Kan, Jessica Lemieux, Ryan Levy, Sam Pallister, Joseph Peetz, William Pol, Sukin Sim, William A. Simon, Mark Steudtner, Gideon Uchehara",
+  "abstract": "As quantum computing enters the early fault-tolerant era, circuit compilation choices will increasingly depend on details of the underlying architecture rather than solely optimizing for generic proxies such as non-Clifford count. We present an active-volume-aware compilation of the ground-state energy estimation algorithm for the two-dimensional Fermi-Hubbard model using quantum phase estimation and Trotterized time evolution. The proposed compilation reduces the active volume across $L\\times L$ square lattices with $L=4$ to $20$, achieving up to a $3.9\\times$ reduction over prior work optimized for non-Clifford cost. As a by-product of these compilation improvements, the resulting circuits also achieve state-of-the-art Toffoli counts, with a ~$2\\times$ reduction for the $L=20$ case. Lastly, the active volume architecture and recent execution scheduling advances provide a means of translating these reduction trends into runtime. This demonstrates the increasing importance of architecture-aware compilation for practical early fault-tolerant quantum computing.",
+  "url": "http://arxiv.org/abs/2609.05316v1",
+  "pdf": "https://arxiv.org/pdf/2609.05316v1",
+  "type": "theory",
+  "summary": "This work develops an advanced, architecture-aware compilation strategy for estimating the ground-state energy of the 2D Fermi-Hubbard model. By optimizing for 'active volume' rather than generic gate counts, the authors achieve significant reductions in required quantum resources. This demonstrates the critical need for hardware-specific compilation techniques as quantum computing moves toward fault tolerance.",
+  "main_problem": "The paper addresses the challenge of compiling the ground-state energy estimation algorithm for the 2D Fermi-Hubbard model specifically for active volume quantum architectures.",
+  "main_result": "The proposed compilation method achieves up to a 3.9x reduction in active volume compared to prior work, and also yields state-of-the-art Toffoli count reductions.",
+  "method": "The approach uses Quantum Phase Estimation (QPE) combined with Trotterized time evolution, optimizing the circuit compilation based on the active volume resource metric.",
+  "model_or_system": "The system is the two-dimensional Fermi-Hubbard model defined on an L x L square lattice, characterized by hopping and onsite interaction terms. The analysis is situated in the early fault-tolerant quantum computing regime.",
+  "key_observables": "Active Volume, Toffoli Count, Ground-state energy, and various error bounds (e.g., $\\epsilon$).",
+  "important_parameters": "Lattice sizes up to L=20; Hamiltonian parameters like t=1 and u=8; error budget of $0.0051tL_xL_y$.",
+  "main_assumptions": "The primary assumption is that an active volume architecture dictates the true resource cost, making it superior to metrics like non-Clifford count.",
+  "figures_summary": "Figure 2 compares Circuit Volume (CV) and Active Volume (AV) for the Fermi-Hubbard ground-state energy estimation across different lattice sizes, showing AV's advantage. Table 6 presents optimized resource estimates for different batching strategies.",
+  "paper_structure": "The paper details the Hamiltonian decomposition, applies QPE with Trotterization, develops error bounding techniques for the Suzuki expansion, and finally presents resource estimates and runtime calculations tailored for active volume architectures.",
+  "why_interesting": "It provides a concrete, resource-aware roadmap for simulating strongly correlated electron models (like the Fermi-Hubbard model) on near-term, architecture-specific quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.05316_figures/2609.05316_fig1.jpg",
+      "caption": "Figure 1: The Fermi-Hubbard lattice Hamiltonian. The model Hamiltonian considered is given in Eq. (1) where i indexes lattice sites on a L × L square lattice with two spin sectors σ ∈{↑, ↓}. ⟨i, j⟩ denotes nearest neighbors on the lattice drawn as edges. For the product formula the Hamiltonian is split into three components. The interaction term Eq. (4) is shown in green and is between fermions on the same site across the two spin sectors. The kinetic term is split into two disjoint sets of plaquettes shown in pink Eq. (5) and gold Eq. (6) where the shaded plaquette indicates a grouping of four edges.",
+      "page": 5
+    },
+    {
+      "image": "2609.05316_figures/2609.05316_fig2.jpg",
+      "caption": "Figure 2: Comparison of computational volume of 2D square Fermi-Hubbard ground-state energy estimation for the baseline and improved implementations against the logical qubit count. The logical qubit count includes both the system qubits and the auxiliary qubits required to implement a single batch of Hamming-weight phasing. The numbers above the baseline active volume data points indicate the lattice size. Top: Absolute circuit volume (as defined in Ref. [22]) and active volume resource estimates for the total cost of QPE algorithm achieving a 0.0051tL2 error. Bottom: Relative speedups obtained by first replacing circuit volume with active volume as the resource metric (orange), and then...",
+      "page": 7
+    },
+    {
+      "image": "2609.05316_figures/2609.05316_fig3.jpg",
+      "caption": "Figure 3: Active volume (AV) breakdown. Top row: Breakdown of the active volume into Clifford and non-Clifford contributions. The proposed compilation techniques reduce both components, result- ing in a substantially more balanced distribution of execution cost. Note that plots on the left column are active volume breakdowns of the baseline circuits while the plots of the right column are those of the improved circuits. Bottom row: Active volume breakdown of the baseline and improved circuits by major subroutine. The dominant contributions are grouped according to fermionic-mode routing (“FermionicSwap”), implementing towers of rotations (“ComputeHammingWeight” and “PhasingCir- cuit”), and...",
+      "page": 8
+    },
+    {
+      "image": "2609.05316_figures/2609.05316_fig4.jpg",
+      "caption": "Figure 4: Runtime analyses using the block scheduler from Ref. [29]. (a) Comparison of estimated runtimes for the baseline and improved Fermi–Hubbard simulations for square lattice sizes L = 6 to 10, each using single batched Hamming weight phasing. (b) Estimated runtimes for the improved 20 × 20 Fermi–Hubbard circuit as a function of logical qubit capacity. Increasing the available qubits enables greater parallelization until the reaction-limited regime is reached, revealing an approximately order-of-magnitude space-time trade-off between qubit count and runtime.",
+      "page": 10
+    },
+    {
+      "image": "2609.05316_figures/2609.05316_fig5.jpg",
+      "caption": "Figure 5: Comparison of the total Toffoli counts between this work and those reported by Campbell [11, Table II] and Kan et al. [12, Supplementary Table 5]. All T states are assumed to be catalyzed using CCZ states for consistency. All three works assume u = 8 and t = 1 Hamiltonian parameters, and these works assume Hamming weight phasing is applied to batches of L2/2 equiangular rotations. We additionally note that Ref. [11] rounded to two significant figures for the Toffoli counts.",
+      "page": 11
+    }
+  ],
+  "figure": "2609.05316_figures/2609.05316_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
