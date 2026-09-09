@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.08932",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Real-time Dyson expansion for the nonequilibrium $GW$ approximation: Correlated spectra and dependence on the reference propagator",
+  "authors": "Erik Schroedter, Jan-Philip Joost, Michael Bonitz, Vojtech Vlcek",
+  "abstract": "Electronic spectra provide direct insight into the excitations and correlations of condensed matter systems. Their description requires electron correlations beyond mean field. In equilibrium, the $GW$ approximation has become the method of choice for many materials. Extending this approximation to nonequilibrium, however, is challenging. Full two-time $GW$ simulations within the nonequilibrium Green's functions approach scale at least cubically with propagation time, whereas improved scaling schemes such as time-local (adiabatic) approximations or the generalized Kadanoff--Baym ansatz usually retain only mean-field character in the spectra. The recently introduced real-time Dyson expansion recovers dynamical correlations in the spectrum at time-linear cost, but has so far been restricted to the second-order Born approximation with mean-field reference propagators. Here we formulate and implement the RT-DE for the nonequilibrium $GW$ self-energy with reference propagators of general form whose off-diagonal evolution is time local. In particular, we assess Hartree--Fock propagators, propagators with statically screened exchange with nonequilibrium screening, and a correlated propagator based on the Hartree--Fock GKBA. Benchmarks against exact diagonalization for a driven two-band lattice model with long-range interactions show that the mean-field and statically screened references yield the most accurate spectra, including satellite structures absent at mean-field level, whereas the GKBA-based approach best captures scattering-induced occupation dynamics, but artificially broadens and splits spectral peaks. When applied to large systems that are beyond the reach of exact methods, the scheme resolves the excitonic replica of the valence band and satellites identified as exciton shake-up, as well as their reshaping with increasing excitation density.",
+  "url": "http://arxiv.org/abs/2609.08932v1",
+  "pdf": "https://arxiv.org/pdf/2609.08932v1",
+  "type": "theory",
+  "summary": "This paper tackles the computational bottleneck of simulating electron correlations in driven quantum materials by developing a Real-time Dyson expansion (RT-DE). This method allows for the calculation of the GW self-energy with dynamical correlations at a time-linear cost. By testing various reference propagators, the authors show that the RT-DE provides accurate spectral features, including excitonic replicas, crucial for understanding photoexcited states.",
+  "main_problem": "The primary challenge is extending the accurate GW approximation, which describes electron correlations, to non-equilibrium (time-dependent) conditions while maintaining computational tractability.",
+  "main_result": "The authors formulate and implement a Real-time Dyson expansion (RT-DE) that recovers dynamical correlations in the spectrum at a time-linear cost, outperforming previous mean-field or highly scaling methods.",
+  "method": "The core method is the Real-time Dyson expansion applied to the GW self-energy within the Nonequilibrium Green's Functions (NEGF) formalism, utilizing general time-local reference propagators.",
+  "model_or_system": "The theory is applied to general correlated electron systems, benchmarked using a driven two-band lattice model with long-range interactions, relevant for photoexcited semiconductors.",
+  "key_observables": "Time-resolved spectral function, quasiparticle renormalization, and satellite structures (e.g., exciton shake-up).",
+  "important_parameters": "The reference propagator choice (e.g., Hartree-Fock, statically screened, GKBA) significantly influences the accuracy of the resulting spectra.",
+  "main_assumptions": "The RT-DE formulation assumes that the off-diagonal evolution of the reference propagator can be treated as time-local, allowing for time-linear scaling.",
+  "figures_summary": "Benchmarks against exact diagonalization show that mean-field and statically screened references yield the most accurate spectra, while the GKBA-based approach captures dynamics but artificially broadens peaks.",
+  "paper_structure": "The paper first reviews the NEGF/GW framework, then details the RT-DE equations of motion, presents the implementation using various reference propagators, and concludes with numerical results demonstrating spectral accuracy.",
+  "why_interesting": "The development of time-linear scaling methods for non-equilibrium correlation functions is crucial for simulating ultrafast dynamics in quantum materials, bridging the gap between theory and time-resolved ARPES experiments.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.08932_figures/2609.08932_fig1.jpg",
+      "caption": "Figure 1. Keldysh time contour C = C+ ⊕C−used for the real-time propagation. The system is prepared at the switch- on time ts. The upper (forward) branch C+ runs from ts toward t →∞and the lower (backward) branch C−returns. The two-time Green’s function G(t, t′) is evaluated with both arguments on this contour.",
+      "page": 3
+    },
+    {
+      "image": "2609.08932_figures/2609.08932_fig2.jpg",
+      "caption": "Figure 2. Schematic of the off-diagonal reconstruction of the two-time Green’s functions in the (t, t′) plane. Propagation is first performed along the time diagonal t′ = t, yielding the local (time-diagonal) components Gloc(t) and Gloc(t). Within a probe window (dashed circle) of radius Tδ centered on the probe time (tp, tp), the off-diagonal components G(t, t′) and G(t, t′) are then reconstructed by time stepping in t-direction, at fixed t′ (red arrows, t′ ≤t ≤Tmax). Because only the off- diagonal elements inside this window are required, the overall cost is set by the time-diagonal propagation, while Tδ controls the spectral resolution of the probe at tp. Gloc(t) only appears within the...",
+      "page": 9
+    },
+    {
+      "image": "2609.08932_figures/2609.08932_fig3.jpg",
+      "caption": "Figure 3. Exact quasiparticle band structure of the two- band chain with four sites at U = 2.5 and γ = 0.5, given by the position of the dominant pole of the exact removal spectrum (of the addition spectrum for empty states), for the undoped system (blue) with fully filled valence band and the hole-doped system (orange) with partially filled valence band (no particles at k = Γ). For the undoped system these energies coincide with the Hartree–Fock eigenvalues, whereas for the doped system the approximate schemes yield band structures that differ from the exact one, cf. Fig. 5. Gray dashed lines are the shared noninteracting bands. Filled/open circles mark occupied/empty single-particle...",
+      "page": 13
+    },
+    {
+      "image": "2609.08932_figures/2609.08932_fig4.jpg",
+      "caption": "Figure 4. Relative error ϵrel, Eq. (37), of the ground-state spectral function for the doped system with four sites for varying on-site interaction U compared to the exact result, for (a) the occupied part A< and (b) the unoccupied part A>, as U is scanned from 0 to 4 (probe time tp = 15, δ = 3). The dashed vertical line marks the U = 2.5 working point used in the nonequilibrium applications. The long-range interaction parameter is fixed γ = 0.5.",
+      "page": 14
+    },
+    {
+      "image": "2609.08932_figures/2609.08932_fig5.jpg",
+      "caption": "Figure 5. Doped ground-state spectral function A of the four- site chain at U = 2.5. The exact result is drawn behind every trace: gray fill for the occupied A< and hatched fill for the unoccupied A>. All spectra satisfy R A< = Nocc = 6, R A> = Nunocc = 10, R A = 16 (in units of √π/δ). Spectra are displayed at δ = 5.",
+      "page": 15
+    }
+  ],
+  "figure": "2609.08932_figures/2609.08932_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 4,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

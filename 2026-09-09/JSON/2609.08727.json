@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.08727",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Adaptive AI for Pulse-Level Quantum Control",
+  "authors": "Sanjeev Shapkota, Yayu Mo, Sanjaya Lohani",
+  "abstract": "The Control Variational Quantum Eigensolver (ctrl-VQE) directly optimizes microwave pulses to enable faster and lower-error quantum-state preparation, but its continuous control landscape re- quires efficient search strategies. We demonstrate that a reinforcement-learning agent based on a deep Q learning network can autonomously discover high-performance pulse sequences using only system parameters and a reward function. The approach is fully general for superconducting qubit platforms, requires no ansatz, and operates at nanosecond resolution compatible with hardware con- straints. As a proof of concept, we apply the method to ground-state preparation of the Hydrogen molecule on a simulated superconducting device. The agent consistently identifies optimized control sequences that achieve high fidelity and outperform random-search baselines. These results highlight adaptive learning as a promising hardware-ready framework for pulse-level quantum control.",
+  "url": "http://arxiv.org/abs/2609.08727v1",
+  "pdf": "https://arxiv.org/pdf/2609.08727v1",
+  "type": "theory",
+  "summary": "This paper introduces an adaptive AI framework using Deep Q-Learning to optimize microwave control pulses for quantum state preparation on superconducting qubits. By treating pulse design as a sequential decision-making problem, the DQN agent autonomously discovers high-fidelity control sequences. This demonstrates a powerful, hardware-ready method for quantum control that significantly surpasses traditional search techniques.",
+  "main_problem": "The core problem is finding high-fidelity, optimal microwave control pulses to prepare specific quantum states, which is challenging due to the complex, continuous nature of the control landscape.",
+  "main_result": "The proposed Reinforcement Learning agent successfully discovers optimized pulse sequences that significantly outperform random search baselines, achieving high fidelity for ground-state preparation.",
+  "method": "The authors employ a Deep Q-Network (DQN) agent, trained using a reward function derived from the energy reduction, to autonomously search the continuous control space.",
+  "model_or_system": "The work is applied to superconducting qubit platforms, simulating the ground-state preparation of the Hydrogen molecule using a defined device Hamiltonian and microwave control Hamiltonian.",
+  "key_observables": "Peak state fidelity, molecular energy (relative to FCI), and the success rate of finding low-energy states.",
+  "important_parameters": "Nanosecond resolution for pulse application; training parameters include discount factor (gamma=0.99) and exploration decay ($\\epsilon$).",
+  "main_assumptions": "The control landscape is discretized into a 'bang-bang' form for the DQN action space, and the state evolution is calculated using a first-order Trotter split.",
+  "figures_summary": "Figures illustrate the RL workflow (state $\rightarrow$ action $\rightarrow$ reward), compare DQN vs. random search success rates and peak fidelities across different scan times (10 ns to 100 ns), and show the learned pulse patterns.",
+  "paper_structure": "The paper introduces the problem of pulse-level control, details the DQN framework (state representation via Pauli expectation values, action space, reward function), presents the results comparing DQN to random search on the H2 molecule, and concludes with implications for hardware-ready quantum control.",
+  "why_interesting": "This work directly addresses the practical challenge of quantum control, moving beyond model-based optimization by using adaptive AI to navigate complex, high-dimensional control landscapes relevant to superconducting qubits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.08727_figures/2609.08727_fig1.jpg",
+      "caption": "FIG. 1. Overview of the method. A reinforcement-learning- agent learns to generate a sequence of control pulses for quan- tum device. (a) The complete workflow. The policy net- work reads the current state and picks a one nanosecond drive pulse, shown as the red action arrow. This pulse is applied to the two coupled transmon qubits. The qubits are then measured, and from these measurements the agent receives the new state and a reward based on how much the energy dropped. The optimizer uses this reward, together with a tar- get network and a replay memory, to update the policy net- work. Both networks have the same shape: an input layer, two hidden layers of 64 units, and 9 action outputs....",
+      "page": 2
+    },
+    {
+      "image": "2609.08727_figures/2609.08727_fig2.jpg",
+      "caption": "FIG. 2. Cumulative number of sub-Hartree–Fock steps (E < EHF) versus training episode for the DQN policy (blue) and the random-search baseline (red), at representative scanning times of 10 ns (left) and 100 ns (right). The DQN curve accelerates with training while random search remains slow and nearly linear.",
+      "page": 5
+    },
+    {
+      "image": "2609.08727_figures/2609.08727_fig3.jpg",
+      "caption": "FIG. 4. Peak state fidelity achieved by the DQN policy (blue) and random search (red) at the total scanning times of 10, 40, and 100 ns. Annotations give the fidelity and the pulse duration at which it is reached. The DQN policy attains higher peak fidelity at every scanning time and is the only method to enter the high-fidelity region above 0.995.",
+      "page": 5
+    },
+    {
+      "image": "2609.08727_figures/2609.08727_fig4.jpg",
+      "caption": "FIG. 3. Success rate (fraction of episodes with E < EHF, 200-episode moving average) versus training episode for the Hydrogen dimer at 0.75 ˚A (STO-3G), at representative scan- ning times of (a) 10 ns and (b) 100 ns. The DQN policy (solid blue) improves steadily with training while the random-search baseline (dashed red) stays flat.",
+      "page": 5
+    },
+    {
+      "image": "2609.08727_figures/2609.08727_fig5.jpg",
+      "caption": "FIG. 5. Absolute energy gap from the FCI reference for the Hydrogen dimer at 0.75 ˚A (STO-3G). (a) Gap at each scan- ning time for the DQN policy (blue) and random search (red); the dashed line and shaded region mark the 5 mHa accuracy reference. (b) Energy-gap trend versus scanning time, with the shaded region indicating the DQN advantage. The DQN policy is consistently closer to FCI and the advantage widens with scanning time.",
+      "page": 6
+    }
+  ],
+  "figure": "2609.08727_figures/2609.08727_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

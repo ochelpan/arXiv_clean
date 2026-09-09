@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.08908",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Platform-aware Compilation Framework for Fault-tolerant Quantum Computation",
+  "authors": "Srushti Patil, Susan X. Chen, Andreas Juul Bay-Smidt, Stefan Alaric Schäffer, Peter Krogstrup, Stefano Paesani, Gemma C. Solomon",
+  "abstract": "The compilation of an algorithm can vary significantly with the choice of physical hardware platform and error correction model. Yet, current compilation frameworks typically commit to a single architecture-hardware configuration, making it difficult to assess resource estimates across platforms. We present a platform-aware compilation framework that re-compiles a quantum circuit into a hardware-compatible instruction set as well as fault-tolerant operations and provides end-to-end resource estimates in terms of physical-qubit count, time-to-solution, and classical processing time. We benchmark the framework by obtaining end-to-end resource estimates for different compilers, each tailored to the functionalities of specific hardware modalities: connectivity, clock speed, and noise model. As part of this framework, we introduce a transversal active volume (t-AV) compilation architecture designed for the efficient execution of fault-tolerant operations in platforms supporting long-range logical connectivity. We benchmark the framework for Hamiltonian simulation of the 2D Fermi Hubbard model as well as for eigenenergy estimation of a small molecule (trimethylenemethane) as a candidate for early fault-tolerant demonstration of quantum chemistry. For the latter, we show that end-to-end quantum simulations can be achieved with $\\sim10^4$ physical qubits and runtimes ranging from $10^2$ ms (photonics, superconducting) to $10^5$ ms (neutral atoms).",
+  "url": "http://arxiv.org/abs/2609.08908v1",
+  "pdf": "https://arxiv.org/pdf/2609.08908v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, platform-aware compilation framework designed to overcome the limitation of existing quantum compilers that are locked to a single hardware architecture. By re-compiling circuits for various connectivity types, it provides comprehensive, end-to-end resource estimates for quantum simulations. This is vital for guiding the development roadmap across diverse quantum hardware modalities.",
+  "main_problem": "Current quantum compilation frameworks fail to account for the variability in physical hardware platforms and error correction models, hindering cross-platform resource assessment.",
+  "main_result": "The authors present a platform-aware compilation framework that provides end-to-end resource estimates (qubits, time) for quantum simulations on diverse hardware modalities.",
+  "method": "The framework re-compiles quantum circuits into hardware-compatible instruction sets by bridging Algorithm, Quantum Error Correction (QEC), and Hardware stacks based on connectivity.",
+  "model_or_system": "The framework is benchmarked using Hamiltonian simulation of the 2D Fermi Hubbard model and eigenenergy estimation for trimethylenemethane (TMM). It analyzes three connectivity classes: nearest-neighbor, log N, and effectively all-to-all.",
+  "key_observables": "Physical-qubit count, time-to-solution, classical processing time, and required code distance (d).",
+  "important_parameters": "Connectivity type (local, log N, all-to-all), error rate (e.g., $10^{-3}$), and target logical error ($\\le 0.01$).",
+  "main_assumptions": "The analysis simplifies by focusing on rotated surface codes and assumes certain scaling behaviors for transversal gates and distillation processes.",
+  "figures_summary": "Figures illustrate the full FTQC pipeline, circuit compilation for different connectivity classes, and runtime scaling comparisons for TMM and Fermi-Hubbard across various architectures.",
+  "paper_structure": "The paper introduces the platform-aware framework, details the compilation strategies for different connectivity classes (PPR, t-AV), and benchmarks the framework on two key quantum simulation problems (TMM and Fermi-Hubbard).",
+  "why_interesting": "It provides a crucial, unified theoretical tool for comparing the resource costs of quantum algorithms across fundamentally different physical hardware architectures (superconducting, photonic, neutral atoms).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.08908_figures/2609.08908_fig1.jpg",
+      "caption": "FIG. 1. Overview of the platform-aware compilation framework. (a) The full FTQC pipeline is divided into an Algorithm, a QEC, and a Hardware stack. The algorithm is expressed as a logical circuit in a universal gate set (here, Clifford+T), which the QEC code must support (surface code in this case). The hardware-informed compiler then bridges the QEC and Hardware stacks, selecting a compilation strategy from the logical operations available in the code and the platform’s connectivity, speed, and noise. (b) Circuit compilation for the three connectivity classes we consider. Local (nearest-neighbor) connectivity: the PPR compiler rewrites the circuit as Pauli product rotations, which are...",
+      "page": 2
+    },
+    {
+      "image": "2609.08908_figures/2609.08908_fig2.jpg",
+      "caption": "FIG. 2. Overview of compilation architectures. A logical qubit is a rotated surface-code patch (red/blue = X/Z boundaries). (a) Superconducting platform with nearest-neighbor connectivity. (left) Surface code patches sit on a static 2D grid with nearest-neighbour links (inset: transmon qubits and tunable couplers; the space-time diagram shows an idle logical qubit as a (dX, dZ, dm) cube). (right) A joint PPM is routed through an ancillary bus via lattice surgery [15], with a corresponding space-time picture. (b) Photonics platform with limited non-local connectivity using active volume architecture [16]. Each patch carries k = log N long-range links realized by fiber interconnects (inset:...",
+      "page": 7
+    },
+    {
+      "image": "2609.08908_figures/2609.08908_fig3.jpg",
+      "caption": "FIG. 3. Parallelizing two operations via Bell-state teleporta- tion and bridge qubits",
+      "page": 9
+    },
+    {
+      "image": "2609.08908_figures/2609.08908_fig4.jpg",
+      "caption": "FIG. 4. Runtime vs. physical-qubit count for the Stat-QPE-gap TMM use benchmark, with rmax = 20 and p = 10−3 (left) and p = 10−4 (right). Each curve represents runtime-resource tradeoffs within one architecture-hardware configuration and is generated by sweeping the scheduling parameter specific to the architecture: workspace capacity for AV, T-per-cycle for t- AV/cult-t-AV, and factory count for Baseline/Compact. We specify the considered architecture-hardware configurations in the legend to the right of the plots. For the t-AV architecture, we also specify different magic state factories that are compatible with those architecture-hardware configurations. For readability, the plot is...",
+      "page": 13
+    },
+    {
+      "image": "2609.08908_figures/2609.08908_fig5.jpg",
+      "caption": "FIG. 5. Runtime vs. physical-qubit count for the Fermi-Hubbard benchmark at p = 10−3 (left) and p = 10−4 (right). See the caption of Fig. 4 for further details. Photonic t-AV reaches the lowest runtimes, while neutral-atom t-AV (cult) achieves the lowest physical qubit count, at the cost of a significantly slower code cycle.",
+      "page": 15
+    }
+  ],
+  "figure": "2609.08908_figures/2609.08908_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

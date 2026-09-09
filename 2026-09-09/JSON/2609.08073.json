@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.08073",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Bottom-Up Design of Quantum Optical Experiments Using Discrete Generative Models",
+  "authors": "Isaac L. Huidobro-Meezs, Simón Paiva-Ortega, Rodrigo A. Vargas-Hernández",
+  "abstract": "Designing quantum optical experiments requires searching over discrete circuit topologies and continuous parameters, often with multiple realizations of the same target state. Graph-based methods commonly address this problem by optimizing a dense graph and pruning it toward a single circuit. We introduce \\texttt{Grinch}, a bottom-up reward-driven generative framework that learns to sample optical graphs directly from fidelity-based rewards without relying on a pre-existing training dataset. We demonstrate the framework on multipartite entangled states, graph and cluster states, and nonlocal photonic-gate targets, obtaining multiple high-fidelity optical graphs. We identify asymptotic solutions for states that cannot be generated exactly by graphs, as well as nonlocal Toffoli gate constructions requiring two ancillas. Our work presents hardware-constraint objectives, which lead to alternative constructions of CNOT and Toffoli gates when connections between ancilla nodes are restricted. These findings illustrate a reward-driven approach to quantum optical inverse design, exploring alternative circuit topologies while directly incorporating connectivity constraints into the search process.",
+  "url": "http://arxiv.org/abs/2609.08073v1",
+  "pdf": "https://arxiv.org/pdf/2609.08073v1",
+  "type": "theory",
+  "summary": "This paper presents Grinch, a novel, bottom-up generative framework that uses Generative Flow Networks to design quantum optical circuits. Instead of optimizing existing dense graphs, Grinch learns to sample optimal circuit topologies directly based on the fidelity reward. This allows for the efficient discovery of multiple, high-fidelity circuit realizations for complex entangled states and quantum gates.",
+  "main_problem": "The core problem is the inverse design of quantum optical experiments, which requires searching over vast spaces of discrete circuit topologies and continuous parameters to generate a target quantum state.",
+  "main_result": "The proposed framework successfully generates multiple high-fidelity optical graphs for complex entangled states and quantum gates, while also identifying asymptotic solutions for states that cannot be perfectly realized by simple graph structures.",
+  "method": "The authors introduce Grinch, a bottom-up, reward-driven generative framework based on Generative Flow Networks (GFlowNets) that samples circuit graphs directly from a reward proportional to the state fidelity.",
+  "model_or_system": "The physical system is quantum optical experiments modeled by weighted colored graphs $G(V, E)$. The state generated is a superposition of perfect matchings of this graph, and the process involves optimizing both discrete topology (edges) and continuous edge weights.",
+  "key_observables": "Fidelity ($F$) between the generated and target state is the primary reward function; edge count ($|E|$) measures circuit complexity.",
+  "important_parameters": "The search space involves optimizing continuous edge weights (e.g., using L-BFGS-B) and discrete graph structure.",
+  "main_assumptions": "The approach assumes that the target state can be represented by an optical graph structure, though it also handles cases where this is not strictly true. It contrasts with top-down methods that prune dense graphs.",
+  "figures_summary": "Figures illustrate the bottom-up construction of specific entangled states (like $|GHZ(3, 2)\rangle$) using Grinch, show the convergence of the generative model over sampling steps, and compare performance across different edge budget constraints.",
+  "paper_structure": "The paper introduces the problem of quantum inverse design, details the limitations of existing top-down methods, proposes the bottom-up Grinch framework using GFlowNets, demonstrates its application to various entangled states and gates, and concludes with comparisons to other solvers.",
+  "why_interesting": "This work directly addresses the computational challenge of quantum circuit synthesis, providing a powerful, data-free generative AI tool for quantum optics that can explore alternative, hardware-constrained circuit topologies.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.08073_figures/2609.08073_fig1.jpg",
+      "caption": "FIG. 1. Bottom-up construction of |GHZ(3, 2)⟩⊗|0⟩with Grinch. The node is the ancilla. The mask filters out invalid photonic states and avoids perfect matchings that are not present in the target state.",
+      "page": 2
+    },
+    {
+      "image": "2609.08073_figures/2609.08073_fig2.jpg",
+      "caption": "FIG. 2. Best found graph for the |SRV (5, 4, 4)⟩⊗|0⟩state with its decomposition into perfect matchings. The 3 corresponds to the ancilla photon detector.",
+      "page": 3
+    },
+    {
+      "image": "2609.08073_figures/2609.08073_fig3.jpg",
+      "caption": "FIG. 3. Sample ranking over the number of iterations for (a) the |D(3, (1, 1, 1))⟩⊗|0⟩, (b) |SRV (5, 4, 4)⟩⊗|0⟩, (c) |GHZ(6, 3)⟩, and (d) |GHZ(8, 2)⟩states colored by the first sampled iteration. The algorithm reaches optimal solutions within the first quarter of the sampling process. The graphs of the best 4 solutions are shown as insets for each plot.",
+      "page": 4
+    },
+    {
+      "image": "2609.08073_figures/2609.08073_fig4.jpg",
+      "caption": "FIG. 4. Graphs found for the |SRV (5, 4, 4)∗⟩⊗|000⟩and |SRV (6, 4, 4)∗⟩⊗|000⟩SRV states. The greyed-out node cor- responds to the ancilla photon detector. Edges with negative amplitudes are signaled with a white diamond. Intruder states are reduced in magnitude through the weight optimization.",
+      "page": 4
+    },
+    {
+      "image": "2609.08073_figures/2609.08073_fig5.jpg",
+      "caption": "FIG. 5. Principal component analysis of the sampled graphs for (a) the |GHZ(6, 3)⟩and (b) the |SRV (5, 4, 4)⟩⊗|0⟩states. |GHZ(6, 2)⟩sampling allowed up to 8 edges in the trajectory while for |SRV (5, 4, 4)⟩⊗|0⟩a max number of edges of 14 was used.",
+      "page": 5
+    }
+  ],
+  "figure": "2609.08073_figures/2609.08073_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

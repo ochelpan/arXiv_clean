@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.08925",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Resilience Beyond the Light Cone: Error-Detected Primitives for Practical Dynamic Circuits",
+  "authors": "Kevin C. Smith, Bibek Pokharel, Satvik Maurya, Maika Takita",
+  "abstract": "Dynamic circuits, which augment unitary operations with mid-circuit measurements and classical feedforward, can generate long-range entanglement in constant depth, enabling low-depth primitives ranging from nontrivial state preparation to many-qubit entangling gates. Escaping the light-cone constraints of unitary circuits, however, comes at a cost: these primitives typically require a number of mid-circuit measurements that scales with system size and that, together with feedforward latency, can introduce errors that degrade the long-range entanglement they rely on. Here, we alleviate this tension by showing that many such primitives, when cast into a common framework, admit an error-detection scheme that trades infidelity for postselection overhead with no additional ancillas. Our framework thus unifies and upgrades a broad class of primitives including fan-out gates, multi-qubit Pauli rotations, the preparation of W and higher-weight Dicke states, and certain non-normal matrix product states. We also introduce a reduced-depth, error-detected implementation of the Hadamard test, extending the use cases of dynamic circuits to a key algorithmic primitive. Finally, we establish the practical utility of our scheme through experiments on a superconducting quantum processor. We demonstrate the error-detected preparation of a long-range entangled Bell pair spanning a 100-qubit chain with fidelity $F=0.59\\pm0.02$, surpassing the entanglement-certification threshold $F>0.5$ that the baseline dynamic-circuit implementation fails to reach ($0.39\\pm0.01$). Separately, we demonstrate constant-depth preparation of W states of up to 20 qubits by consuming GHZ states of up to 40 qubits, finding absolute fidelity improvements of $ΔF\\approx 0.2$ across the largest sizes studied. Altogether, these results bring low-depth dynamic-circuit primitives within practical reach on present-day hardware.",
+  "url": "http://arxiv.org/abs/2609.08925v1",
+  "pdf": "https://arxiv.org/pdf/2609.08925v1",
+  "type": "experiment",
+  "summary": "This paper introduces an error-detection scheme for dynamic quantum circuits, enabling the reliable generation of long-range entanglement and complex quantum states in constant depth. By implementing error checks via postselection, the authors overcome fidelity degradation caused by mid-circuit measurements. The results demonstrate that these robust protocols are practically viable on current superconducting quantum hardware.",
+  "main_problem": "The primary challenge is overcoming error accumulation in dynamic quantum circuits, which are necessary to achieve constant-depth, long-range entanglement, due to mid-circuit measurements and classical feedforward latency.",
+  "main_result": "The authors developed an error-detection scheme that allows for the preparation of long-range entangled states (e.g., 100-qubit Bell pairs) with fidelity exceeding the baseline dynamic circuit performance, and demonstrated constant-depth W state preparation.",
+  "method": "They propose a general error-detection framework utilizing postselection overhead, which is applied to primitives like controlled global operations ($cU$) via 'distribute' and 'collapse' routines.",
+  "model_or_system": "The work focuses on dynamic quantum circuits, which augment unitary operations with mid-circuit measurements and classical feedforward. Experiments were performed on a superconducting quantum processor.",
+  "key_observables": "Fidelity ($F$), entanglement-certification threshold ($F>0.5$), and circuit depth (aiming for constant depth).",
+  "important_parameters": "System size (up to 100 qubits), error detection parameter ($n$), and depth scaling ($O(k)$ vs. linear depth).",
+  "main_assumptions": "The scheme trades infidelity for postselection overhead and assumes the ability to implement the necessary error checks without adding ancillas.",
+  "figures_summary": "Figures illustrate the framework, showing the GHZ preparation, the 'distribute' and 'collapse(n)' primitives, and the full $cU$ implementation, detailing the explicit and implicit error checks.",
+  "paper_structure": "The paper introduces the error detection framework, provides a unified mathematical framework for various quantum primitives, and concludes with experimental validation on superconducting hardware.",
+  "why_interesting": "It directly addresses the practical limitations of implementing complex, low-depth quantum algorithms by providing a concrete, hardware-tested error mitigation strategy for dynamic circuits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.08925_figures/2609.08925_fig1.jpg",
+      "caption": "FIG. 1. The error-detected distribute–collapse framework. (a) Ancilla qubits are prepared in a GHZ state and distributed throughout the device, forming a distributed control. (b) The distribute primitive, which carries out the constant-depth preparation of the distributed control using dynamic circuits. (c) The collapse(n) primitive, which carries out the constant- depth reduction of the distributed control onto a single ancilla. By leveraging the underlying repetition-code-like structure of the distributed control, the baseline implementation (n = 1) can be upgraded to provide error detection (n ≥2) at the cost of a layer of local check gadgets Vn; larger n improves code distance at the...",
+      "page": 4
+    },
+    {
+      "image": "2609.08925_figures/2609.08925_fig2.jpg",
+      "caption": "FIG. 2. Demonstrating the impact of error detection (ED) through noisy simulation. (a) Circuit diagram for the sensing-like experiment described in Sec. II B, involving the preparation (distribute) and consumption (collapse(2)∗) of a GHZ state to estimate the phase accumulated under an external field through estimation of ⟨OΠX ⟩. We carry out noisy simulations for N = 52 qubits using Qiskit’s matrix product state backend [53] with T1 = T2 = 250 µs and ϵ2qb = 1.5 × 10−3, chosen to model ibm boston. (b) For each value of mid-circuit measurement and feedforward duration relative to the two-qubit gate duration (τmcm+ff/τ2qb) and readout error (ϵreadout), we determine the distribute mid-circuit...",
+      "page": 6
+    },
+    {
+      "image": "2609.08925_figures/2609.08925_fig3.jpg",
+      "caption": "FIG. 3. Examples of constant-depth, long-range and multi-qubit primitives augmented with error-detection using the dis- tribute-collapse framework. distribute∗denotes a variant of distribute that defers feedforward corrections to the col- lapse stage of the circuit, while collapse(n)∗indicates the feedforward corrections can be carried out in post-processing. (a) A long-range two-qubit controlled-unitary. (b) An error-detected, constant-depth fan-out gate. (c) An error-detected, constant-depth multi-qubit Pauli rotation. (d) An error-detected, depth O(k) implementation of the Hadamard test for an arbitrary unitary U of depth k, requiring a single round of mid-circuit measurements and...",
+      "page": 9
+    },
+    {
+      "image": "2609.08925_figures/2609.08925_fig4.jpg",
+      "caption": "FIG. 4. Error-detected preparation of Dicke states. (a) A sim- plified variant of the protocol of Ref. [16] for approximately preparing the N-qubit Dicke state of weight k, |DN k ⟩. Single- qubit RY (θ) rotations first prepare a binomially-weighted product state, which is then projected onto the target sec- tor k via r = O(log k) rounds of bit extraction, each a layer of controlled-phase gates followed by an ancilla measurement postselected on 0. Each round can be realized by a single round of distribute–collapse and augmented with error detection, in analogy to the Hadamard test of Fig. 3(d). (b) Constant-depth, error-detected preparation of the W state |DN 1 ⟩, requiring one round of...",
+      "page": 10
+    },
+    {
+      "image": "2609.08925_figures/2609.08925_fig5.jpg",
+      "caption": "FIG. 5. Experimental demonstration of our error detection framework on ibm boston. Left: error-detected preparation of a long-range entangled Bell state |Φ+⟩= (|00⟩+ |11⟩)/ √",
+      "page": 12
+    }
+  ],
+  "figure": "2609.08925_figures/2609.08925_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

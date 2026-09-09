@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2609.08170",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Classical Active-Space Hybrid Quantum Subspace Expansion (CASH-QSE): Quantum Corrections without Remeasuring the Classically Calculable Energy",
+  "authors": "Artur F. Izmaylov",
+  "abstract": "The wave function prepared by a variational quantum eigensolver (VQE) can contain a substantial classically tractable component, yet its energy contribution is sampled on the quantum device. Representing the wave function as a combination of a classical reference and separately prepared quantum states allows the reference energy to be evaluated without quantum sampling. However, near-linear dependence among these components can amplify measurement errors and destabilize the resulting energy estimate. We introduce Classical Active-Space Hybrid Quantum Subspace Expansion (CASH-QSE), which retains a complete-active-space self-consistent field (CASSCF) reference classically and uses occupation structure to construct quantum states exactly orthogonal to the reference and to one another. The energy follows from an ordinary Hermitian eigenvalue problem without overlap measurements, while the same occupation constraints simplify the measured operators. Using full configuration interaction to guide component selection, we test CASH-QSE along H$_2$O and N$_2$ bond-stretching coordinates spanning weakly to strongly correlated regimes. The benchmarks use STO--3G for both molecules and a restricted cc-pVDZ orbital space for H$_2$O. CASH-QSE reaches chemical accuracy while limiting the largest complete measurement circuits to a few hundred all-to-all logical controlled-NOT gates. In favorable cases, it also reduces the idealized final-energy sampling cost by several orders of magnitude relative to VQE with an adaptive derivative-assembled pseudo-Trotter ansatz (ADAPT-VQE).",
+  "url": "http://arxiv.org/abs/2609.08170v1",
+  "pdf": "https://arxiv.org/pdf/2609.08170v1",
+  "type": "theory",
+  "summary": "This paper introduces CASH-QSE, a novel quantum algorithm for electronic structure calculations that separates the energy calculation into a classically solvable active-space component and a quantum-corrected component. By enforcing orthogonality and solving the problem via a generalized eigenvalue problem, it achieves chemical accuracy with significantly reduced quantum circuit depth and sampling requirements compared to existing VQE methods.",
+  "main_problem": "The paper addresses the bottleneck in Variational Quantum Eigensolver (VQE) methods by developing a way to calculate quantum corrections to electronic energies without re-measuring the energy contribution already determined by a classical reference state.",
+  "main_result": "The proposed CASH-QSE method achieves chemical accuracy while keeping the largest required quantum circuits manageable (a few hundred CNOT gates) and significantly reducing the required sampling cost compared to standard VQE approaches.",
+  "method": "CASH-QSE expands the wave function as a combination of a classically calculated Active-Space (CAS) reference state and orthogonal quantum states constructed in the remaining correlation subspace. The energy is then solved via a generalized, non-overlapping Hermitian eigenvalue problem.",
+  "model_or_system": "The method is applied to electronic structure calculations for small molecules, specifically $\text{H}_2\text{O}$ and $\text{N}_2$, across bond-stretching coordinates. The formalism relies on partitioning the Hilbert space into a classically tractable CAS subspace and orthogonal quantum subspaces.",
+  "key_observables": "Energy ($E$), CAS coefficients, circuit depth (measured in CNOT gates), and the ratio of required quantum sampling shots (compared to ADAPT-VQE).",
+  "important_parameters": "Chemical accuracy, bond-stretching distances (e.g., 0.96 Å to 3.0 Å for $\text{H}_2\text{O}$), and the size of the required quantum circuit (e.g., 70-CNOT network for $\text{H}_2\text{O}$).",
+  "main_assumptions": "The method assumes the remaining correlation can be exactly decomposed into a set of mutually orthogonal, structurally constrained quantum subspaces, allowing the global energy minimization to be treated as a linear Ritz problem.",
+  "figures_summary": "Table VIII compares the required quantum sampling resources (shots) for $\text{H}_2\text{O}/\text{cc-pVDZ}$ at various bond lengths, showing the significant reduction in shots achieved by CASH-QSE relative to ADAPT-VQE.",
+  "paper_structure": "The paper introduces the core problem, details the mathematical formalism involving the first-defect decomposition to create an orthogonal basis, describes the iterative optimization procedure involving orbital relaxation and CAS coefficient updates, and concludes with benchmark results on molecular systems.",
+  "why_interesting": "This work provides a sophisticated, resource-aware quantum algorithm for quantum chemistry, directly addressing the resource scaling and measurement overhead that limits the application of VQE to strongly correlated systems, which is a major focus in AMO physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.08170_figures/2609.08170_fig1.jpg",
+      "caption": "FIG. 1. Two-register extended-swap circuit for off-diagonal CASH-QSE matrix elements. The ancilla selects the seed/occupation preparation on register A or B. The ansatz circuits need not be controlled because the logical idle state |0n⟩is verified to be invariant under the executed tapered ansatz circuits up to phase. The ancilla gate Pa(−δ) compensates any difference between the two idle-state phases and is omitted when that difference is zero modulo 2π. The CSWAP network maps both branches onto register A, where ancilla X/Y and system-Pauli measurements recover the real and imaginary transition components.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.08170_figures/2609.08170_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

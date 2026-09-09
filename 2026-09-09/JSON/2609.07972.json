@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.07972",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Wavefunction Augmentation via Variational Autoencoders",
+  "authors": "Sonaldeep Halder, Chayan Patra, Rahul Maitra",
+  "abstract": "Sample-based quantum diagonalization (SQD) has emerged as a promising route for quantum-centric supercomputing, relying on classical diagonalization of the molecular Hamiltonian within a hardware-sampled determinant subspace. However, its accuracy degrades in strongly correlated regimes where the relevant determinant space exceeds what finite-shot sampling can capture. In this work, we introduce Quantum Wavefunction Augmentation via Variational Autoencoders (Q-WAVE), a hybrid method that combines determinants sampled via SqDRIFT Krylov circuits and configuration interaction singles and doubles (CISD) determinants with generative machine learning. Using a custom $β$-annealed variational autoencoder (VAE) model, Q-WAVE iteratively expands this basis toward the variational ground state. The VAE learns the wavefunction's primary support structure from the combined hardware and CISD seed in a continuous latent space, generating new dominant determinants beyond any fixed excitation hierarchy. The resulting compact wavefunction exceeds what can be extracted from raw hardware samples alone. We demonstrate sub-millihartree accuracy compared to full configuration interaction for $\\text{H}_2\\text{O}$ and $\\text{N}_2$ dissociation. Finally, we establish Q-WAVE's scalability on a 52-qubit ethylene system (achieving sub-millihartree accuracy versus CCSD(T)) and a highly correlated 60-qubit $\\text{Cr}_2$ stress test that attains chemical accuracy upon a final perturbative correction.",
+  "url": "http://arxiv.org/abs/2609.07972v1",
+  "pdf": "https://arxiv.org/pdf/2609.07972v1",
+  "type": "theory",
+  "summary": "This paper introduces Q-WAVE, a novel hybrid quantum-machine learning method designed to calculate accurate ground-state wavefunctions for strongly correlated molecules. It combines limited quantum circuit sampling with CISD information, using a Variational Autoencoder to intelligently augment the basis set. The approach demonstrates state-of-the-art accuracy and scalability on challenging systems like $\text{Cr}_2$.",
+  "main_problem": "Accurately computing the ground-state wavefunction for many-body systems, particularly in strongly correlated regimes where the required determinant space exceeds the capacity of finite quantum sampling.",
+  "main_result": "The proposed Q-WAVE method achieves sub-millihartree accuracy for $\text{H}_2\text{O}$ and $\text{N}_2$ dissociation and demonstrates chemical accuracy for a 60-qubit $\text{Cr}_2$ system, surpassing standard quantum sampling techniques.",
+  "method": "It introduces Q-WAVE, a hybrid approach combining determinants sampled via SqDRIFT Krylov circuits and CISD determinants, which are then used to train a $\beta$-annealed Variational Autoencoder (VAE) to generate the full wavefunction support structure in a continuous latent space.",
+  "model_or_system": "The work applies to molecular Hamiltonians (e.g., $\text{H}_2\text{O}$, $\text{N}_2$, ethylene, $\text{Cr}_2$) by representing the electronic state via Slater determinants. The core computational challenge is managing the exponentially large Hilbert space in strongly correlated regimes.",
+  "key_observables": "Ground-state energies, wavefunction support structure, and comparison against full CI and $\text{CCSD}(\text{T})$ benchmarks.",
+  "important_parameters": "The method relies on the VAE's latent space exploration, the initial seed from CISD, and the quantum sampling fidelity from SqDRIFT circuits.",
+  "main_assumptions": "The method assumes that the wavefunction's structure can be effectively learned and augmented by mapping sampled determinants into a continuous latent space via the VAE.",
+  "figures_summary": "Table V summarizes final energies and subspace sizes for representative systems ($\text{H}_2\text{O}$, $\text{N}_2$, $\text{C}_2\text{H}_4$, $\text{Cr}_2$), comparing Q-WAVE results against other established methods.",
+  "paper_structure": "The paper first identifies the limitations of existing quantum and classical methods for strongly correlated systems. It then details the Q-WAVE framework, combining hardware sampling (SqDRIFT) with deterministic seeds (CISD) and using a $\beta$-annealed VAE for iterative, generative expansion of the variational basis. Finally, it presents benchmark results on various molecules.",
+  "why_interesting": "This work is highly relevant as it proposes a machine learning-driven pathway to overcome the exponential scaling bottleneck in quantum chemistry, offering a scalable alternative to pure quantum simulation for complex molecular systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.07972_figures/2609.07972_fig1.jpg",
+      "caption": "FIG. 1. Architecture of the VAE used to propose new Slater determinants. Each Linear(A →B) block is a fully-connected neural network layer, y = Wx + b for a trainable weight matrix W and bias b, mapping an A-dimensional input to a B- dimensional output; Linear layers are followed by a ReLU (rectified linear unit) nonlinearity, f(x) = max(0, x). The encoder qϕ(z | x) passes x ∈{0, 1}M (M = qubit count of the target system, Table I) through two Linear+ReLU layers to a hidden representation of width h, then splits into two parallel Linear heads producing the mean µ and log-variance log σ2 of the approximate posterior. A latent sample is drawn via the reparameterization trick, z = µ + σ ⊙ϵ with...",
+      "page": 4
+    },
+    {
+      "image": "2609.07972_figures/2609.07972_fig2.jpg",
+      "caption": "FIG. 2. (a) Ground-state energy of H2O (6-31G, equilibrium) versus iteration for the five selection strategies. Iteration 0 denotes the initial basis D(0), prior to any generative expansion. The shaded band marks chemical accuracy (±1.6 mHa) around FCI (dashed line); the black-edged symbols beyond the final iteration show each method’s energy after the semistochastic PT2 correction, drawn as one additional step on its own trajectory. SQD does not receive a PT2 step. (b) Subspace sizes: filled symbols with solid lines show the diagonalization dimension; open symbols with dashed lines show the number of determinants above the selection threshold ϵthresh = 10−10.",
+      "page": 11
+    },
+    {
+      "image": "2609.07972_figures/2609.07972_fig3.jpg",
+      "caption": "FIG. 3. Potential energy surface of H2O (6-31G, symmetric O–H stretch), compared across all five selection strategies (color/marker key in panel (b), shared with panel (a)). Bond-length scale factor of 1.00 represents the equilibrium geometry and the other scales are factors by which both O–H bonds are stretched. (a) Absolute energy error |E −EFCI| (log scale) at each geometry, using each method’s final reported energy (Evar + EP T 2). SQD has no PT2 correction. The chemical-accuracy threshold (1.6 mHa) is marked by the dashed line, with the region below it shaded. (b) Maximal diagonalization dimension reached by each method at each geometry, shown as grouped bars on a log scale.",
+      "page": 11
+    },
+    {
+      "image": "2609.07972_figures/2609.07972_fig4.jpg",
+      "caption": "FIG. 4. Potential energy surface for N2 (6-31G), compared across all five selection strategies (color/marker key in panel (b), shared with panel (a)). Bond-length scale factor of 1.00 represents the equilibrium geometry and the other scales are factors by which N–N bond is stretched. (a) Absolute energy error |E −EFCI|(log scale) at each geometry, using each method’s final reported energy (Evar + EP T 2). SQD has no PT2 correction. The chemical-accuracy threshold (1.6 mHa) is marked by the dashed line, with the region below it shaded; the three Q-WAVE variants remain within or close to this band at every geometry, while random proposals and SQD grow substantially worse as the bond is...",
+      "page": 12
+    },
+    {
+      "image": "2609.07972_figures/2609.07972_fig5.jpg",
+      "caption": "FIG. 5. (a) Ground-state energy of all-electron C2H4 (6-31G; rC=C = 1.339 Å, rC–H = 1.086 Å, ∠HCH = 117.6◦, ∠HCC = 121.2◦) versus iteration for the five selection strategies, referenced to CCSD(T). The shaded band marks chemical accuracy (±1.6 mHa) around CCSD(T) (dashed line); black-edged symbols beyond the final iteration show each method’s energy after the semistochastic PT2 correction, drawn as one additional step on its own trajectory. SQD does not receive a PT2 step: its configuration-recovery iterations saturate the 4×106-determinant cap while stalling 17 mHa above CCSD(T), whereas all three Q-WAVE variants converge into the CCSD(T) band with a roughly five-fold smaller basis. (b)...",
+      "page": 12
+    }
+  ],
+  "figure": "2609.07972_figures/2609.07972_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
