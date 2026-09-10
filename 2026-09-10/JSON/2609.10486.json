@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2609.10486",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el",
+    "hep-lat"
+  ],
+  "is_primary_archive": true,
+  "title": "Faster Quantum Monte Carlo Simulation by Random Compilation",
+  "authors": "John M. Martyn, Joshua Lin, Neill C. Warrington, Isaac L. Chuang, Andrew J. Daley",
+  "abstract": "Quantum Monte Carlo (QMC) algorithms are among the most powerful classical methods for simulating quantum systems, yet their accuracy is often limited by the systematic errors in the approximations used, such as Trotterization. Here we introduce randomly compiled quantum Monte Carlo (RC-QMC) as a general framework that suppresses these systematic errors by averaging over a family of approximations rather than relying on a single fixed one. This strategy is grounded in the concept of randomized compiling from quantum computing, which suppresses errors by sampling over quantum gates, at essentially no additional computational cost. Consequently, our framework achieves a computational advantage over standard QMC methods when estimating a target state to a desired level of accuracy. We illustrate this advantage on two key Monte Carlo algorithms: (1) path integral quantum Monte Carlo for estimating thermal states, and (2) the quantum trajectories method for simulating open system dynamics. In aggregate, these results represent a cross-fertilization of quantum and classical algorithms, are readily generalizable to other QMC methods, and suggest wider applications in classical simulation.",
+  "url": "http://arxiv.org/abs/2609.10486v1",
+  "pdf": "https://arxiv.org/pdf/2609.10486v1",
+  "type": "theory",
+  "summary": "This paper introduces Randomly Compiled Quantum Monte Carlo (RC-QMC), a general framework designed to suppress systematic errors in QMC simulations by averaging over multiple approximations. By leveraging principles from randomized compiling, the method achieves a significant accuracy boost (e.g., from $O(\\epsilon)$ to $O(\\epsilon^2)$) for calculating thermal and time-dependent quantum expectation values with minimal added computational cost.",
+  "main_problem": "The primary goal is to improve the accuracy and efficiency of Quantum Monte Carlo (QMC) simulations by mitigating systematic errors inherent in fixed approximations.",
+  "main_result": "The proposed Randomly Compiled QMC (RC-QMC) framework suppresses systematic errors from $O(\\epsilon)$ to $O(\\epsilon^2)$ while maintaining computational costs comparable to standard QMC methods.",
+  "method": "The authors introduce RC-QMC, which averages over a family of approximations derived from randomized compiling principles, applying this to standard QMC techniques like Path Integral QMC and quantum trajectory simulations.",
+  "model_or_system": "The methods are applied to general quantum systems, including estimating thermal states ($\rho = e^{-\beta H}/Z$) and simulating open system dynamics governed by the Lindblad master equation.",
+  "key_observables": "Expectation values $\\langle \\hat{O} \rangle = \text{tr}(\\hat{O}\rho)$, thermal expectation values, and time-dependent observables for open systems.",
+  "important_parameters": "Systematic error scaling ($\\epsilon$ vs $\\epsilon^2$), computational cost ($C$), inverse temperature ($\beta$), and time step ($\\Delta t$).",
+  "main_assumptions": "RC-QMC only mitigates systematic error, not statistical sampling errors or the sign problem. The analysis relies on bounding errors in the 1-norm.",
+  "figures_summary": "Figures compare standard QMC (Systematic error $O(\\epsilon)$, Cost $C$) against RC-QMC (Systematic error $O(\\epsilon^2)$, Cost $\\approx C$). Other figures illustrate the error reduction in Trotterization and the interpolating sequence used in the error proof.",
+  "paper_structure": "The paper establishes the general QMC framework, identifies the sources of systematic error, introduces RC-QMC via randomized compiling, and then applies and proves the advantage of this framework for specific physical problems like PIMC and open system dynamics.",
+  "why_interesting": "This work provides a general, systematic algorithmic improvement for simulating complex quantum dynamics, which is highly relevant for researchers working on open quantum systems or many-body physics where systematic errors from time-stepping or approximation schemes are major bottlenecks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.10486_figures/2609.10486_fig1.jpg",
+      "caption": "FIG. 1. Overview of the randomly compiled QMC (RC-QMC) framework. Standard QMC algorithms estimate an observable ⟨ˆO⟩by averaging an estimator function F( ˆO, X) over a random variable X sampled from a fixed approximate distribution eP (see Eq. (4)), incurring systematic error O(ϵ). RC-QMC instead averages over a collection of approximate distributions { ePj} weighted by probabilities pj (see Eq. (17)), which suppresses the systematic error to O(ϵ2) at essentially the same computational cost. This improvement is demonstrated in two settings: Randomly Compiled Path Integral Monte Carlo for thermal state estimation, where QDrift replaces the standard Trotter decomposition and eliminates the...",
+      "page": 2
+    },
+    {
+      "image": "2609.10486_figures/2609.10486_fig2.jpg",
+      "caption": "FIG. 2. (Left) Standard path integral Monte Carlo on 3 sites: Trotterization is used to decompose e−βH into a product of evolution under the potential (V ) and kinetic (T) energies, and particle positions take values ±1 in the σz basis at each time step k. The particle paths are then aggregated into an array X, indexed by site i and time step k. The dashed orange line depicts the mapping of a single time step to a particle configuration in X. (Right) Randomly compiled path integral Monte Carlo on 3 sites: individual potential (V) and kinetic (T ) energy terms are sampled according to QDrift, and a particle’s position can change only when its corresponding kinetic term is sampled. The paths...",
+      "page": 9
+    },
+    {
+      "image": "2609.10486_figures/2609.10486_fig3.jpg",
+      "caption": "FIG. 3. Comparison of error in the observable ⟨ˆV ⟩between standard path integral Monte Carlo (using 2nd-order Trotterization) and randomly compiled path integral Monte Carlo (using symmetric and asymmetric approaches), where the error has been defined relative to the continuum limit of the standard algorithm (denoted ⟨ˆV ⟩cont). Inner error bars for the randomly compiled methods denote the MCMC sampling errors within QDrift sequences, and outer error bars are the total error estimate including the variance due to averaging over different QDrift sequences (as described in Appendix I). Continuum limit extrapolated values are shown at slightly negative offset values for clarity. a): Here the...",
+      "page": 11
+    },
+    {
+      "image": "2609.10486_figures/2609.10486_fig4.jpg",
+      "caption": "FIG. 4. An illustration of the quantum trajectories method (left), and the randomly compiled quantum trajectories method (right). Here, pure state trajectories are simulated by time-evolving an initial state |ψ⟩using Trotterization (denoted by blue rectangles), with intermediate quantum jumps applied randomly (denoted by red crosses). In the standard algorithm, each Trotter step is taken to be the same approximation. In the randomly compiled algorithm, each Trotter step is randomly sampled from a set of approximations. At the end of evolution, the trajectories are aggregated together to estimate an observable ⟨ˆO⟩(t) according to Eqs. (13) and (38).",
+      "page": 13
+    },
+    {
+      "image": "2609.10486_figures/2609.10486_fig5.jpg",
+      "caption": "FIG. 5. Comparison between the standard (deterministic) and randomly compiled quantum trajectories methods applied to the dissipative Bose-Hubbard model. a): Simulations conducted on N = 10 spins with dissipation rate γ = 0.05, using Trotterization of various orders. We illustrate the time series for energy and the correlation function ⟨a† N/2aN/2+1⟩+ h.c. at a fixed number of Trotter steps (r = 40) (top), and the corresponding RMS error as a function of computational cost (bottom). b): Simulations conducted on N = 30 spins with dissipation rates γ = 0.04 (top) and γ = 0.08 (bottom), using 2nd-order Trotterization. Here we illustrate the time series for energy at a fixed number of Trotter...",
+      "page": 14
+    }
+  ],
+  "figure": "2609.10486_figures/2609.10486_fig1.jpg",
+  "highlighted": [
+    "Andrew J. Daley"
+  ],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 3,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

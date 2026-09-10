@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.09280",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Multipole splats for optimized and inverted effective potentials",
+  "authors": "Matija Medvidović, Angel Rubio, Juan Carrasquilla",
+  "abstract": "Approximate single-particle descriptions of correlated matter remain the principal source of actionable predictions in quantum science. In modern density functional theory (DFT), hybrid effective Hamiltonians are constructed to reproduce equilibrium densities and forces. However, their nonlocal and orbital-dependent potentials leave systematic errors in response properties and real-time dynamics. Local optimized effective potentials (OEP) or inverted Kohn-Sham (IKS) potentials would remove this limitation, but the numerical fragility in finite orbital bases has long prevented their wide adoption. We introduce multipole splats, a class of trial potentials that carry the correct asymptotic decay by construction. By showing that OEP and IKS map to variational and supervised variants of Hamiltonian learning, we recast both problems as stable nonlinear optimization formulated directly in standard orbital basis sets and applicable to any hybrid functional approximation. We show improvements to three canonical DFT failure modes. Firstly, by comparing approximate and near-exact inverted effective correlation potentials, we isolate the spatial signatures of self-interaction, delocalization, and static correlation errors. Secondly, we recover the Rydberg series without empirical asymptotic corrections, demonstrating access to precise spectral properties. Finally, we compute exact-exchange potentials for larger $π$-conjugated systems, establishing scaling capacity. Multipole splats extract new first-principles insights from established approximations and provide capacity for robust dataset generation for downstream processing and learning.",
+  "url": "http://arxiv.org/abs/2609.09280v1",
+  "pdf": "https://arxiv.org/pdf/2609.09280v1",
+  "type": "theory",
+  "summary": "This paper introduces 'multipole splats,' a novel mathematical technique to overcome the numerical instability plaguing the calculation of optimized effective potentials (OEP) and inverted Kohn-Sham (IKS) potentials in DFT. By reformulating these problems as stable nonlinear optimizations, the authors provide a robust method to derive highly accurate, physically meaningful effective potentials for correlated electron systems.",
+  "main_problem": "Modern DFT methods using hybrid functionals generate nonlocal and orbital-dependent effective potentials that introduce systematic errors in response properties and real-time dynamics.",
+  "main_result": "The authors introduce 'multipole splats,' a novel potential parametrization that recasts the difficult OEP and IKS problems into stable, nonlinear optimization tasks, yielding improved potentials for various DFT failure modes.",
+  "method": "The method uses multipole splats—a trial potential built from Gaussian monopoles and dipoles—to stabilize the optimization of effective potentials, bypassing the numerical fragility associated with inverting the KS response function.",
+  "model_or_system": "The work is situated within Kohn-Sham Density Functional Theory (DFT) applied to many-electron systems. It focuses on constructing optimized effective potentials (OEP) and inverted Kohn-Sham (IKS) potentials to accurately represent the exchange-correlation potential.",
+  "key_observables": "Effective potentials ($v_{xc}$), HOMO eigenvalues ($\\epsilon_{\text{HOMO}}$), localization energy ($E_{loc}$), and the asymptotic decay of the potential ($v_{xc} \\sim -1/r$).",
+  "important_parameters": "The number of splats ($N_1, N_2$), regularization strength ($\\lambda$), and the choice of hybrid functional (e.g., B3LYP, PBE0).",
+  "main_assumptions": "The approach assumes that OEP and IKS can be formulated as stable, supervised nonlinear optimization problems directly solvable in standard orbital basis sets.",
+  "figures_summary": "Figures show converged $v_{xc}$ potentials for various molecules (e.g., CO, SiO) along the internuclear axis, demonstrating the potential's structure and asymptotic decay. Tables compare calculated HOMO eigenvalues across different potential construction methods.",
+  "paper_structure": "The paper first establishes the limitations of current DFT potentials, then introduces the multipole splats as a stable variational/supervised learning framework. It details the application to OEP and IKS, benchmarks the method against established potentials (TG, KLI), and finally demonstrates its capability by calculating potentials for larger systems and recovering spectral properties like the Rydberg series.",
+  "why_interesting": "This work provides a robust, mathematically stable framework for calculating highly accurate, non-local effective potentials, which is crucial for simulating real-time dynamics and response properties in quantum materials.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.09280_figures/2609.09280_fig1.jpg",
+      "caption": "FIG. 1. A schematic of the variational potential optimization enabled by multipole splat potentials. We use floating Gaussian monopoles and dipoles to exactly control the asymptotic decay and generate the optimized effective potential as an electrostatic potential of a fictitious charge distribution. Both optimized effective potentials and inverted exact Kohn-Sham potentials can then be recovered by direct optimization.",
+      "page": 2
+    },
+    {
+      "image": "2609.09280_figures/2609.09280_fig2.jpg",
+      "caption": "FIG. 2. Left: The OEP and IKS potentials and their XC source densities for the silicon monoxide (SiO) molecule using the EXX, B3LYP and PBE0 functionals as well as the IKS with respect to the independently computed CCSD(T) reference density. The orbitals were represented using the aug-cc-pVQZ (quadruple-zeta) basis. In the bottom panel, we show the density TV contributions along the axis of the molecule, demonstrating density matching between OEP (IKS) and GKS (CCSD(T)). Center: Similar to the left panel, computed on the carbon monoxide (CO) molecule. Right: The radial dependence and the asymptotic decay of neon (Ne) atom effective potentials. We observe the expected asymptotic decay from...",
+      "page": 7
+    },
+    {
+      "image": "2609.09280_figures/2609.09280_fig3.jpg",
+      "caption": "FIG. 3. Effective correlation potentials vc = vxc −vEXX, defined in Eq. 34, plotted along the molecular axis for H+ 2 (left), HeH+ (center), and H2 (right). Internuclear separation increases downward and is labeled in each panel. Hybrid OEP results (B3LYP, PBE0) are contrasted with the inverted (INV) potential obtained from a CCSD(T) reference density, serving as a high-level finite-basis reference. Dashed lines mark the (1−γ)/r asymptote inherited from the missing fraction of exact exchange. For H+ 2 , the exact vc vanishes identically. Vertical scales are independent across panels.",
+      "page": 8
+    },
+    {
+      "image": "2609.09280_figures/2609.09280_fig4.jpg",
+      "caption": "FIG. 4. Left: Neon atom Rydberg ns (l = 0) and nd (l = 2) series εn, plotted against 1/2n2. Reference experimental values and quantum-defect fits ˆµs ≈1.351 and ˆµd ≈0.006 from Eq. 35 are highlighted. OEP eigenvalues and their GKS or HF counterparts are plotted as well. Center: Converged OEP potentials on a logarithmic radial scale, sharing the energy axis with the left panel. Horizontal lines mark the ns and nd eigenvalues, with classical turning points marked. Upper right: HOMO eigenvalues against CCSD(T) ionization potentials IP for the selected 60 GW100 systems with N ≤40 electrons. Mean absolute errors |εHOMO +IP | for EXX (≈17 mHa) and HF (≈27 mHa) are shown, averaged over these...",
+      "page": 10
+    },
+    {
+      "image": "2609.09280_figures/2609.09280_fig5.jpg",
+      "caption": "FIG. 5. Exact exchange OEP results for benzene (top) and naphthalene (bottom), evaluated on a plane 1 Bohr above the molecular plane. Left: The exchange source density, read directly off the converged multipole splat parameters, resolv- ing the delocalized π system of benzene and the inequivalent bonding regions of naphthalene. Right: The pointwise den- sity variation |n −n0| against the GKS reference n0.",
+      "page": 11
+    }
+  ],
+  "figure": "2609.09280_figures/2609.09280_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

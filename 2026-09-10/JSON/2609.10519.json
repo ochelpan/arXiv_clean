@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.10519",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cond-mat.soft"
+  ],
+  "is_primary_archive": true,
+  "title": "Optimal Intermediate Hamiltonians for Non-Equilibrium Free Energy Calculations: A Numerical Study of Markov Models",
+  "authors": "David Beyer, Helmut Grubmüller",
+  "abstract": "The Jarzynski relation enables the estimation of equilibrium free energy differences from non-equilibrium, finite-time switching simulations. These estimates usually converge poorly because rare trajectories dominate the exponential work average. Here, we numerically determined and explored the sequence of intermediate Hamiltonians connecting initial and final states that minimize the mean squared error (MSE) of the Jarzynski estimator and thereby enhance convergence. For discrete-time Markov models, an exact tilted-master-equation representation of the MSE in the large-sample limit, combined with automatic differentiation, enables efficient gradient-based minimization over all intermediate energies. We applied our approach to three model systems of increasing complexity: a two-state model, a double-well potential, and a shifted potential well. In all three systems, the optimal intermediate Hamiltonians jump at the initial and final times. Extensive Monte Carlo simulations show that optimal intermediates can reduce the MSE by more than an order of magnitude compared with linear and logarithmic interpolation, most strongly for large changes in the energy landscape. Remarkably, they need not dissipate less work than intermediates yielding larger errors. Our results suggest heuristics for more efficient non-equilibrium free energy calculations of realistic molecular systems: optimal intermediate Hamiltonians jump at the initial and final times; for barrier-crossing problems, the barrier should be lowered rapidly and raised again later; and minimizing dissipation does not guarantee faster convergence.",
+  "url": "http://arxiv.org/abs/2609.10519v1",
+  "pdf": "https://arxiv.org/pdf/2609.10519v1",
+  "type": "theory",
+  "summary": "This paper develops a method to find optimal time-dependent Hamiltonians that significantly improve the convergence of free energy estimates derived from non-equilibrium simulations. By minimizing the Mean Squared Error (MSE) of the Jarzynski estimator for Markov models, the authors show that these optimal Hamiltonians can drastically outperform simple linear or logarithmic interpolations. This offers a powerful new tool for calculating free energy barriers in complex physical systems.",
+  "main_problem": "The paper addresses the poor convergence of free energy estimates derived from non-equilibrium, finite-time switching simulations using the Jarzynski relation.",
+  "main_result": "Optimal intermediate Hamiltonians, determined by minimizing the Mean Squared Error (MSE), can reduce the MSE by over an order of magnitude compared to simple interpolations.",
+  "method": "The authors use gradient-based minimization techniques applied to an exact tilted-master-equation representation of the MSE for discrete-time Markov models.",
+  "model_or_system": "The study uses discrete-time Markov models defined on a line of $m$ states, whose evolution is governed by a time-dependent Hamiltonian $H(x, \tau)$ within a master equation framework.",
+  "key_observables": "Mean Squared Error (MSE) of the Jarzynski estimator, mean work ($\\langle W \rangle$), and mean position ($\\langle x \rangle$).",
+  "important_parameters": "The complexity is varied by changing the number of states ($m$), the depth ($\\delta$) of the potential well, and the number of intermediate steps ($N$).",
+  "main_assumptions": "The analysis is restricted to discrete-time Markov models, and the optimization relies on the large-sample limit ($n \\gg 1$) for the MSE calculation.",
+  "figures_summary": "Figures systematically compare the calculated mean position ($\\langle x \rangle$) and the MSE for various intermediate Hamiltonians (optimal vs. linear/logarithmic) across different model parameters ($\\delta, m, N$).",
+  "paper_structure": "The paper first establishes the problem using the Jarzynski relation for Markov models. It then develops the mathematical framework to minimize the MSE using tilted-master-equations. Finally, it applies this method to complex model systems like the shifted potential well, comparing optimal results against standard interpolation schemes.",
+  "why_interesting": "This work provides concrete, computationally derived heuristics for improving non-equilibrium free energy calculations, which is crucial for simulating processes in molecular dynamics and condensed matter systems where rare events dominate.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.10519_figures/2609.10519_fig1.jpg",
+      "caption": "FIG. 1. Schematic representation of the discrete-time Markov models studied in this work. The discrete states are arranged on a line, and transitions are allowed only between neighboring states. Transition probabilities are given by the Glauber transition matrix elements π(x →y;τ) (Equation 6), which depend on the time-dependent Hamiltonian H(x,τ +1).",
+      "page": 3
+    },
+    {
+      "image": "2609.10519_figures/2609.10519_fig2.jpg",
+      "caption": "FIG. 2. Optimal intermediate Hamiltonians H(2,τ) for the two-state system with an initial energy of Ei = −8. (a): H(2,τ) for N = 10 intermediates and different final energies Ef. (b): H(2,τ) for a final energy of Ef = 8 and different numbers of intermediates N. The MC time was normalized by the total number of steps N +1. The inset magnifies the initial jump.",
+      "page": 6
+    },
+    {
+      "image": "2609.10519_figures/2609.10519_fig3.jpg",
+      "caption": "FIG. 3. Performance of optimal intermediates for a two-state sys- tem. (a): Dependence of the MSE for linear, logarithmic, and opti- mal intermediates on the number n of trajectories per replica. The initial energy is set to Ei = −6, the final energy is set to Ef = 2, and the number of intermediate steps is N = 10. The black dashed line shows the expected power-law decay MSE ∝1/n for n →∞. (b): Correlation plot of the MSE for linear and optimal intermediates. (c): Correlation plot of the mean work performed on the system for linear and optimal intermediates. In all subfigures (a)–(c), error bars corresponding to the standard error of the mean of the shown quanti- ties are included, but...",
+      "page": 7
+    },
+    {
+      "image": "2609.10519_figures/2609.10519_fig4.jpg",
+      "caption": "FIG. 4. Optimal intermediates and their performance for the double-well potential. (a): Toy model for a double-well potential with barrier heights ∆1 and ∆2. (b): Optimal intermediate Hamiltonian for a double-well potential with ∆1 = 6, ∆2 = 3, and N = 100 intermediate MC steps. (c): Correlation plot of the MSE for linear and optimal intermediates. (d): Correlation plot of the mean work performed on the system for linear and optimal intermediates. For subfigures (c) and (d), error bars corresponding to the standard error of the mean of the shown quantities are included, but smaller than the symbol size.",
+      "page": 9
+    },
+    {
+      "image": "2609.10519_figures/2609.10519_fig5.jpg",
+      "caption": "FIG. 5. Optimal intermediates and their performance for the shifted potential well. (a): Toy model for a potential well of depth δ that is shifted from x = 1 at time τ = 0 to x = m at time τ = N +1. (b): Optimal intermediate Hamiltonian for a shifted potential well of depth δ = 5, with m = 10 states and N = 100 intermediate MC steps. The insets show magnified views of the initial and final jumps. (c): Mean position ⟨x⟩as a function of τ for δ = 5, m = 10 states, and N = 100, shown for optimal, linear, and logarithmic (α = 1 and α = 2) intermediates. (d): Correlation plot of the time-dependent mean position ⟨x⟩obtained for optimal and linear intermediates. The curves are colored according to...",
+      "page": 10
+    }
+  ],
+  "figure": "2609.10519_figures/2609.10519_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

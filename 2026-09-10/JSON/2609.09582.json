@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.09582",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR"
+  ],
+  "is_primary_archive": true,
+  "title": "ECDSA.Fail: Open Autoresearch for Optimizing Elliptic-Curve Point Addition in Shor's Algorithm",
+  "authors": "Jieyi Long, Theodore Pender, Zhao Huang, Manuel B. Santos, Samrendra Kumar Singh, Bartosz Naskręcki, Bit Wonka, Joe Doyle, Pierre-Luc Dallaire-Demers, Francesco Giannicola, Ruben M. L. Paschoarelli, Oli Freuler, Jackie Chia-Hsun Lee, Vasily Gnuchev, Gopi Kannappan, John Boyer, Xavier Butler, Akash Balasubramani, Jordan Newman, Bereket Dereje, Alexander Hertlein, Robert Kodra, Lucas Levy, Shaan Patel, JT Rose, Matt Zweil, Okechukwu Wisdom, Tarek El-Eter, Edison Lee, Michael Dong, Alan Li, Anto Joseph, Gajesh Naik, Gautham Anant, Soubhik Deb, Justin Drake",
+  "abstract": "We propose Open Autoresearch, a paradigm in which humans and AI agents publish evaluator-verified improvements to a public leaderboard. We instantiate it in ECDSA.Fail, optimizing reversible secp256k1 point-addition circuits, a bottleneck in Shor's algorithm for elliptic-curve cryptography. The benchmark minimizes the spacetime-inspired score $S=Q\\times T$, where $Q$ is peak logical qubit width and $T$ is average executed Toffoli count. Participants reduced $S$ by 86.1%. At the data cutoff (26 July 2026), the best-scoring circuit uses 1,151 qubits and 1,299,453 average executed Toffoli gates, giving $Q\\times T\\approx1.496$ billion. This is more than 50% below Google's published point-addition score thresholds (arXiv:2603.28846), under different accounting conventions. Because the benchmark supplies one addend classically, we construct a coherent windowed-addition-compatible variant implementing the single-call interface required by windowed Shor. It uses 1,162 qubits and 1,684,161 average executed Toffoli gates. On 100,000 random inputs, its empirical success probability is $\\hat{p}=0.99809$, giving $Q\\times T/\\hat{p}\\approx1.961$ billion under an independently rerunnable per-call sensitivity model, not a full-Shor success estimate. Its qubit and Toffoli counts lie below Google's published thresholds and Schrottenloher's reported operating points (arXiv:2606.02235), although differing interfaces, accounting conventions, and validation scope preclude formal dominance. After the cutoff, the score was further reduced to 1.259 billion, while a separate low-width circuit reached 813 qubits. The public record shows AI agents complementing human judgment, providing evidence for open autoresearch on efficiently evaluable, machine-checkable objectives.",
+  "url": "http://arxiv.org/abs/2609.09582v1",
+  "pdf": "https://arxiv.org/pdf/2609.09582v1",
+  "type": "theory",
+  "summary": "This paper introduces 'Open Autoresearch,' a novel paradigm for quantum circuit optimization, applied to the bottleneck of elliptic-curve point addition required for Shor's algorithm. By leveraging AI agents and human collaboration on a public leaderboard, participants achieved massive reductions in resource estimates ($Q \times T$), pushing the state-of-the-art for quantum cryptanalysis.",
+  "main_problem": "The paper focuses on optimizing the reversible secp256k1 point-addition circuit, which represents a critical computational bottleneck in implementing Shor's algorithm for breaking elliptic-curve cryptography.",
+  "main_result": "Participants in the Open Autoresearch benchmark reduced the spacetime-inspired score $S=Q\times T$ by 86.1% compared to the baseline, achieving scores significantly lower than previously published thresholds.",
+  "method": "The authors propose and utilize 'Open Autoresearch,' a paradigm where human and AI agents iteratively improve solutions on a public, machine-checkable leaderboard to optimize quantum circuits.",
+  "model_or_system": "The model is a quantum circuit designed to perform elliptic-curve point addition on the secp256k1 curve. Optimization targets the minimization of the product of peak logical qubit width ($Q$) and average executed Toffoli count ($T$).",
+  "key_observables": "The primary observable is the score $S = Q \times T$. Other key metrics include the peak logical qubit width ($Q$), the average executed Toffoli count ($T$), and the empirical success probability ($\\hat{p}$).",
+  "important_parameters": "The optimization is benchmarked against specific cryptographic standards (secp256k1) and compares results against published thresholds from Google and Schrottenloher.",
+  "main_assumptions": "Comparisons to external benchmarks are noted to be contextual due to differing interfaces, accounting conventions, and validation scopes. The benchmark supplies one addend classically, requiring a specific circuit variant.",
+  "figures_summary": "Figure 1 illustrates the dramatic reduction in the best ECDSA.Fail $Q \times T$ score over time, showing a reduction from a 10.75B baseline to 1.496B at the data cutoff.",
+  "paper_structure": "The paper introduces the Open Autoresearch framework, details the ECDSA.Fail benchmark for point addition optimization, presents the iterative results showing performance improvements, and discusses the implications of these resource reductions for quantum cryptanalysis.",
+  "why_interesting": "While focused on cryptography, the methodology—using AI agents in a public, verifiable autoresearch loop to optimize complex quantum circuits—is highly relevant to developing efficient quantum algorithms for general quantum information processing tasks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.09582_figures/2609.09582_fig1.jpg",
+      "caption": "Fig. 1: Evolution of the best ECDSA.Fail Q × T score, from the 10.75B baseline to 1.496B at the data cutoff, an 86.1% reduction. The dashed line marks the re- ported Google/Babbush et al. [3] operating point of 2.993B. The challenge score is more than 50% lower, although differing interfaces and accounting conventions make the comparison contextual.",
+      "page": 4
+    },
+    {
+      "image": "2609.09582_figures/2609.09582_fig2.jpg",
+      "caption": "Fig. 2: ECDSA.Fail qubit–Toffoli Pareto frontier. White points are challenge sub- missions; orange and purple circles are promoted and non-promoted admitted Pareto points; the cyan dotted curve marks the best observed Q × T; and dia- monds mark the Google/Babbush [3] (blue) and Schrottenloher [59] (pink) op- erating points. External points are contextual because interfaces and accounting conventions differ; see Tables 2 and 3.",
+      "page": 5
+    },
+    {
+      "image": "2609.09582_figures/2609.09582_fig3.jpg",
+      "caption": "Fig. 3: Placement of the point-addition kernel within a power-of-two implemen- tation of windowed Shor ECDLP. The coherent exponent registers are pre- pared over Z2256 and split into 16-bit windows. Each window coherently selects a precomputed multiple of G or P and adds it to the accumulator, yielding R = [u]G + [v]P before inverse power-of-two Fourier transforms and measure- ment. Unlike the idealized formulation over Z2 r, the measured Fourier samples need not satisfy the annihilator relation exactly; they concentrate near it and re- quire classical postprocessing followed by verification of the recovered candidate k. The figure shows the coherent-register formulation; an iterative...",
+      "page": 12
+    },
+    {
+      "image": "2609.09582_figures/2609.09582_fig4.jpg",
+      "caption": "Fig. 4: The two point-addition interfaces used to compute one scalar multipli- cation [s]B, where (s, B) denotes either (u, G) or (v, P). (a) In the double- and-add approach, each scalar bit si controls a mixed addition of the fixed, classically known point [2i]B to the accumulator |R⟩; this addend is fixed at circuit-construction time and does not occupy a quantum register. (b) In the windowed approach, the scalar is divided into 16-bit words ji = s16i:16i+16. Each |ji⟩indexes a QROM lookup into the precomputed table T (i) B , and the selected point T (i) B [ji] is added coherently to |R⟩. The selected addend is therefore quan- tum data entangled with the window register.",
+      "page": 13
+    },
+    {
+      "image": "2609.09582_figures/2609.09582_fig5.jpg",
+      "caption": "Fig. 5: The generic open autoresearch discovery loop. Independent human–agent teams select a current-best, Pareto, or deliberately off-frontier base from the shared repository, propose a change, and submit it to a machine-checkable evalu- ator. Verified improvements become shared bases; rejected candidates are logged with their diagnoses and revised. This makes the search cumulative without re- quiring prior coordination beyond the shared objective, evaluator, and public artifacts.",
+      "page": 21
+    }
+  ],
+  "figure": "2609.09582_figures/2609.09582_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

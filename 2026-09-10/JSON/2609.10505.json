@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2609.10505",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.LG",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Feature Engineering for Credit Default Prediction: When and Why IQP Circuits Help Linear Classifiers",
+  "authors": "Menachem Finkelstein, Diana Legziel Levy, Zohar Yakhini, Sarel Cohen",
+  "abstract": "Credit default prediction is a tabular classification problem in which modest gains in F1 translate directly into reduced financial exposure. We ask whether Instantaneous Quantum Polynomial-time (IQP) circuits can produce features that improve a classifier over both its raw classical baseline and Kernel PCA - the strongest unsupervised classical non-linear alternative - at an equal feature budget. The dataset provides 23 financial attributes per client; for an n-qubit circuit we select n of them, encode each as a rotation angle, and read 2n expectation values back out as new features. The motivation for using a quantum circuit is computational: an n-qubit IQP circuit runs in constant depth and encodes feature correlations in a 2^n-dimensional Hilbert space, whereas classical simulation of its exact output statistics scales exponentially in n. Using the UCI Default of Credit Card Clients dataset and five-fold cross-validation, we find that appending 16 IQP features (n = 8 qubits) to a Logistic Regression model raises F1 from 0.462 to 0.517 (+0.055, p < 0.0001). Kernel PCA, the next-best method, reaches only 0.493 at the same feature count; the gap survives Benjamini-Hochberg correction across 12 tests (p = 0.00007). No other classifier - Random Forest, SVM, XGBoost, or k-NN - benefits, which points to a linear-expressivity mechanism rather than a generic improvement. We also show that how the 8 input features are chosen matters: Random Forest importance-guided selection reaches F1 = 0.523, while encoding maximally uncorrelated features drops it to 0.496, demonstrating that the circuit amplifies informative structure rather than creating it from scratch.",
+  "url": "http://arxiv.org/abs/2609.10505v1",
+  "pdf": "https://arxiv.org/pdf/2609.10505v1",
+  "type": "theory",
+  "summary": "This work explores using quantum circuits to generate enhanced features for credit default prediction. By mapping classical data through an 8-qubit IQP circuit, the authors generated 16 features that significantly boosted a linear classifier's performance over the best classical alternatives. This suggests that quantum feature mapping can provide a measurable advantage in structured data classification tasks.",
+  "main_problem": "The paper investigates whether quantum feature engineering using IQP circuits can significantly improve the performance of linear classifiers for credit default prediction compared to classical methods.",
+  "main_result": "Appending 16 quantum features derived from an 8-qubit IQP circuit raised the F1 score of a Logistic Regression model from 0.462 to 0.517, outperforming Kernel PCA and surviving rigorous statistical correction.",
+  "method": "The authors encode classical financial attributes as rotation angles and map them through an $n$-qubit IQP circuit to generate $2n$ expectation value features, which are then used as input to a linear classifier.",
+  "model_or_system": "The model utilizes an $n$-qubit IQP circuit (Hadamard $\rightarrow R_Z(\theta_i) \rightarrow ZZ$ ring entanglement) to map classical data into a high-dimensional quantum feature space. The output features are the expectation values of Pauli X and Y observables.",
+  "key_observables": "F1 score, expectation values $\\langle X_i \rangle$ and $\\langle Y_i \rangle$, and the statistical significance (p-values) of the performance gains.",
+  "important_parameters": "Number of qubits ($n=8$), number of features ($2n=16$), and the feature budget constraint used for comparison.",
+  "main_assumptions": "The comparison is performed on a classical simulator, and the quantum advantage is argued to be specific to the linear-expressivity mechanism of the classifier.",
+  "figures_summary": "Figure 1 illustrates the 8-qubit IQP feature extractor sequence: Hadamard superposition, $R_Z(\theta_i)$ data-encoding, and $ZZ$ ring entanglement layer, followed by measurement in X and Y bases.",
+  "paper_structure": "The paper establishes the problem (credit default prediction), details the quantum feature extraction method using IQP circuits, compares the resulting features against classical alternatives (KPCA, PCA), and analyzes the statistical significance of the performance gains using multiple testing corrections.",
+  "why_interesting": "It demonstrates a concrete, application-driven use case for quantum feature mapping, showing how quantum circuits can potentially enhance classical machine learning models by accessing complex correlations inaccessible to standard classical feature engineering.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.10505_figures/2609.10505_fig1.jpg",
+      "caption": "Fig. 1. The 8-qubit IQP feature extractor (five of the eight wires shown; qubits 4–6 and the couplings (3, 4) . . . (6, 7) are elided). Left to right: a Hadamard superposition layer, an RZ(θi) data-encoding layer, and an ISINGZZ entanglement layer. Each qubit is then measured in the Pauli X and Y bases, producing 2n = 16 output features; that transverse read-out plays the role of the canonical IQP form’s closing basis change, and is why ⟨Z⟩is identically zero and excluded. Topology: the ZZ couplings form a ring on the 8 qubits—exactly the 8 edges (1, 2), (2, 3), . . . , (7, 8), (8, 1), each applied at its own time step. The dashed line is the wrap-around edge (8, 1) that closes the ring; it...",
+      "page": 3
+    }
+  ],
+  "figure": "2609.10505_figures/2609.10505_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

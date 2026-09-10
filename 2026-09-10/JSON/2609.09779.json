@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.09779",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Split-Step Dirac Cellular Automata for Continuous-Time Dirac Dynamics on Finite Spatial Lattices",
+  "authors": "Wei-Ting Wang, Pei-Ming Ho, Ching-Ray Chang",
+  "abstract": "Dirac Cellular Automata (DCA) provide a framework for simulating Dirac dynamics, yet the rigid coupling between spatial and temporal resolutions can introduce artificial phase-matching symmetries on finite grids that suppress interference phenomena such as Zitterbewegung. In this work, we propose a Split-Step Dirac Cellular Automaton (SDCA) that enables continuous-time Dirac evolution at fixed spatial discretization. By employing a Trotterized fractional-step scheme in the momentum representation, SDCA breaks the phase-matching cancellation present in the standard DCA and recovers the interference dynamics of the continuous-time limit. We benchmark the SDCA through analytical and numerical studies and demonstrate its implementation on IBM Quantum processors. Despite the increased circuit depth required for finer temporal resolution, the NISQ implementation reproduces the characteristic velocity oscillations and entanglement-entropy dynamics of the continuous-time model. We further investigate hardware-topology trade-offs and dynamic circuit implementations of the Quantum Fourier Transform (QFT), highlighting the competing effects of gate errors, measurement, and feed-forward latency. These results demonstrate that SDCA provides a practical framework for improving temporal resolution while maintaining a fixed spatial quantum register, enabling the exploration of relativistic quantum dynamics on near-term quantum devices.",
+  "url": "http://arxiv.org/abs/2609.09779v1",
+  "pdf": "https://arxiv.org/pdf/2609.09779v1",
+  "type": "both",
+  "summary": "This paper introduces the Split-Step Dirac Cellular Automaton (SDCA) to overcome a fundamental limitation of standard DCA: artificial phase-matching symmetries that suppress key quantum interference effects. By employing a fractional-step evolution scheme, SDCA enables accurate simulation of continuous-time Dirac dynamics at fixed spatial resolution. The authors demonstrate this capability both analytically and experimentally on quantum processors, providing a practical tool for studying relativistic quantum physics on near-term quantum hardware.",
+  "main_problem": "Standard Dirac Cellular Automata (DCA) suffer from artificial phase-matching symmetries on finite grids, suppressing key interference phenomena like Zitterbewegung.",
+  "main_result": "The proposed Split-Step DCA (SDCA) breaks this symmetry, successfully recovering continuous-time interference dynamics and allowing for improved temporal resolution on near-term quantum devices.",
+  "method": "The authors use a Trotterized fractional-step scheme in the momentum representation to implement SDCA, which is then benchmarked on actual IBM Quantum processors.",
+  "model_or_system": "The system models Dirac dynamics for a spin-1/2 particle on a finite spatial lattice. The Hamiltonian is related to the continuous Dirac equation, and the dynamics are approximated using both standard DCA and the novel SDCA.",
+  "key_observables": "Zitterbewegung oscillations, entanglement entropy ($S$), and the expectation value of velocity ($\\langle V \rangle$).",
+  "important_parameters": "Fixed spatial discretization ($\\delta x$) while improving temporal resolution ($\\delta t$), and the number of fractional steps ($M$).",
+  "main_assumptions": "The standard DCA requires $\\delta t = \\delta x$, limiting temporal resolution; the SDCA implementation on NISQ devices requires managing trade-offs between circuit depth and error rates.",
+  "figures_summary": "Figures compare spacetime diagrams and velocity expectation values for DCA vs. SDCA, showing SDCA recovers dynamics. Other figures detail quantum circuit implementations for QFT and show time evolution of observables on quantum hardware.",
+  "paper_structure": "The paper first identifies the limitations of DCA due to phase-matching symmetries. It then introduces and details the SDCA formulation using fractional steps. The core of the work involves benchmarking SDCA by simulating observables (like entanglement entropy and velocity) on quantum hardware, comparing results against the continuous limit.",
+  "why_interesting": "The work directly addresses the practical limitations of simulating relativistic quantum dynamics on current quantum hardware by proposing a method (SDCA) that enhances temporal resolution while keeping the spatial register fixed, which is crucial for many quantum simulation tasks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.09779_figures/2609.09779_fig1.jpg",
+      "caption": "FIG. 1. (a) Comparison of DCA and SDCA through spacetime diagrams and velocity expectation values. The initial state of the particle is |Ψ(t = 0)⟩= 1 √",
+      "page": 3
+    },
+    {
+      "image": "2609.09779_figures/2609.09779_fig2.jpg",
+      "caption": "FIG. 2. Comparison of Dirac dynamics simulated using the DCA and the SDCA (M = 2) against the exact continuous-time limit of a highly localized state |Ψ(0)⟩= (cos(θ/2)|0⟩c +eiϕ sin(θ/2)|1⟩c)⊗|x = 0⟩with mass m = π/8 on a finite spatial lattice. Top panels: Time evolution of the Pauli matrix expectation values (⟨σx⟩, ⟨σy⟩, ⟨σz⟩) and the entanglement entropy S with (a) θ = π/2, ϕ = 0, and (b) θ = π/2, ϕ = π/2. Bottom panels: Heatmaps displaying ⟨σz⟩and S at time step t = 5 as a function of the initial state angles θ and ϕ for the (c) exact continuous limit, (d) DCA, and (e) SDCA.",
+      "page": 5
+    },
+    {
+      "image": "2609.09779_figures/2609.09779_fig3.jpg",
+      "caption": "FIG. 3. Experimental results of the DCA for a highly localized initial state. Top Panel: Comparison of results executed on heavy hexagon (ibm kingston) and square (ibm miami) lattice backends. (a) Two-qubit gate depth scaling for single-step DCA circuits as a function of the external space size n. Insets illustrate the physical connectivity graphs of the respective hardware topologies. (b) Time evolution of the three Pauli expectation values (⟨σx⟩, ⟨σy⟩, ⟨σz⟩) and the entanglement entropy (S) for the particle state |Ψ(0)⟩= |0⟩c ⊗|x = 0⟩with mass m = π/2. The insets show the specific physical qubit mappings on the devices. Bottom Panel: Performance comparison of standard unitary and dynamic...",
+      "page": 7
+    },
+    {
+      "image": "2609.09779_figures/2609.09779_fig4.jpg",
+      "caption": "FIG. 4. Experimental results of the SDCA for a highly localized initial state executed on the ibm aachen quantum processor. (a) Time evolution of the internal space Pauli expectation values (⟨σx⟩, ⟨σy⟩, ⟨σz⟩) and the corresponding entanglement entropy (S) for the initial state |Ψ(0)⟩= |0⟩c ⊗|x = 0⟩with mass m = π/2. (b) and (c) Experimental spacetime probability diagrams, P(x, t) of the initial state |Ψ(0)⟩c = 1 √",
+      "page": 8
+    },
+    {
+      "image": "2609.09779_figures/2609.09779_fig5.jpg",
+      "caption": "FIG. 5. The time-dependent functions (a) Fm(k, t) and (b) Gm(k, t) plotted over the Brillouin zone with t = 2. Both functions exhibit anti-symmetry under a k →k + π momen- tum shift.",
+      "page": 10
+    }
+  ],
+  "figure": "2609.09779_figures/2609.09779_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 1,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

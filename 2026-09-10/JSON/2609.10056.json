@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.10056",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "eess.SP"
+  ],
+  "is_primary_archive": true,
+  "title": "Accelerating A*-Based Algorithms for Decoding Quantum Low-Density Parity-Check Codes",
+  "authors": "Lamia Yous, Francisco Garcia Herrero, Mark F. Flanagan",
+  "abstract": "Quantum low-density parity-check (QLDPC) codes represent a promising approach for error correction in quantum computing. The recently proposed Tesseract decoder uses the A* search algorithm that guarantees finding the most likely error pattern. However, practical implementations of Tesseract often involve an extremely large graph, and the inherently sequential nature of the search results in high computational overhead and long runtime. To improve decoding efficiency, we propose a two-stage decoding framework. First, a belief propagation (BP) decoder efficiently processes the syndrome. This step generates hard decisions (a binary error vector) and soft information (per-qubit confidence levels). In non-convergent BP cases, a gating mechanism examines the BP decoder's output to identify and filter out qubits with oscillating confidence values. In these cases, the refined output serves as input to Tesseract, which then attempts to identify and correct any residual errors. This hybrid approach leverages the high speed of BP decoding and delegates the more challenging decoding instances to Tesseract. Numerical results demonstrate a substantial reduction in overall decoding complexity while maintaining the logical error rate (LER) of the stand-alone Tesseract. Across all tested physical error rates, the proposed method achieves at least 5x reduction in the number of expanded nodes in the Tesseract, with a peak reduction of nearly 15x at a physical error rate of p = 0.05 for the [[126, 12, d < 11]] T1 code, and approximately 8.8x at p = 0.05 for the [[72, 12, 6]] bicycle bivariate (BB) code.",
+  "url": "http://arxiv.org/abs/2609.10056v1",
+  "pdf": "https://arxiv.org/pdf/2609.10056v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel, hybrid decoding framework for Quantum Low-Density Parity-Check (QLDPC) codes by combining Belief Propagation (BP) with the A*-based Tesseract decoder. A reliability-based gating mechanism filters the output of the fast BP stage to guide the Tesseract search on a reduced problem. This significantly accelerates decoding complexity (up to 15x reduction) while preserving the high performance of the full Tesseract decoder.",
+  "main_problem": "The core problem is developing an efficient decoding algorithm for Quantum Low-Density Parity-Check (QLDPC) codes to enable reliable, large-scale quantum computation.",
+  "main_result": "The proposed hybrid BP-Tesseract decoder significantly reduces the computational complexity of decoding by at least 5x, while successfully maintaining the logical error rate of the standalone Tesseract decoder.",
+  "method": "A two-stage decoding framework is proposed: Belief Propagation (BP) acts as a fast preprocessing step to generate initial estimates, and a reliability-based gating mechanism filters uncertain results before passing the residual problem to the A*-based Tesseract decoder.",
+  "model_or_system": "The work focuses on QLDPC codes, which are quantum error correction codes often constructed using the CSS framework. The decoding process is modeled using the Tanner graph structure inherent to these codes.",
+  "key_observables": "Decoding complexity (measured by expanded nodes in the Tesseract search graph) and the Logical Error Rate (LER).",
+  "important_parameters": "Physical error rate ($p$), the gating threshold ($\tau$), and the fixed prior probability ($p_{\text{gated}}$).",
+  "main_assumptions": "The primary assumption is that the high speed of BP decoding can effectively preprocess the syndrome, allowing the computationally intensive Tesseract search to operate on a much smaller, refined problem.",
+  "figures_summary": "Figures compare the mean number of node expansions and the LER for stand-alone Tesseract, BP-Tesseract, and the proposed gated BP-Tesseract decoder across various physical error rates.",
+  "paper_structure": "The paper first establishes the limitations of stand-alone Tesseract (high overhead) and BP (convergence issues). It then introduces the hybrid BP-Tesseract framework, detailing the reliability gating mechanism using metrics like $p_{\text{flip}}$ and $\\Delta_{\text{mean}}$, and finally presents numerical results demonstrating the performance gains.",
+  "why_interesting": "This work directly addresses the computational bottleneck in quantum error correction, which is crucial for scaling up quantum computation. The hybrid approach suggests a general methodology for combining fast, approximate methods with rigorous, but slow, exact solvers.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.10056_figures/2609.10056_fig1.jpg",
+      "caption": "Fig. 1. Evolution of the estimated error probability from BP for a set of three sample qubits. The horizontal axis shows the BP iteration number, while the vertical axis shows the estimated probability of error. Each colored curve represents a different qubit in the Tanner graph. The curves are shown for qubits 32, 33 and 34 as these are representative of general qubit behavior.",
+      "page": 4
+    },
+    {
+      "image": "2609.10056_figures/2609.10056_fig2.jpg",
+      "caption": "Fig. 2. Mean pflip values for correct and incorrect qubits versus physical error rate, p than transient fluctuations, which commonly occur in the early stages of BP decoding. As evidenced by the behavior of qubit 33 in Figure 1a, such early oscillations often stabilize as the decoder converges and should therefore not be penalized. The average step change is calculated as",
+      "page": 4
+    },
+    {
+      "image": "2609.10056_figures/2609.10056_fig3.jpg",
+      "caption": "Fig. 3. Node expansion reduction factor versus pgated values for varying τ at a fixed physical error rate of p = 0.05. The node expansion reduction factor is defined as the ratio of the number of nodes expanded by the stand-alone Tesseract to those expanded by the BP-Tesseract hybrid decoder. is too high, too many qubits are not gated, which degrades the information given to Tesseract. If τ is too low, too many qubits are gated, reducing the amount of useful information available and thus increasing the number of node expansions. If pgated is too low, gated qubits are only slightly penalized, and their cost is not much higher than the reliable qubits, while if the value for pgated is too...",
+      "page": 5
+    },
+    {
+      "image": "2609.10056_figures/2609.10056_fig4.jpg",
+      "caption": "Fig. 4. Mean number of node expansions versus physical error rate for the stand-alone Tesseract decoder, the BP-Tesseract decoder, and the gated BP- Tesseract decoder.",
+      "page": 6
+    },
+    {
+      "image": "2609.10056_figures/2609.10056_fig5.jpg",
+      "caption": "Fig. 5. LER performance versus physical error rate for the stand-alone Tesseract decoder, the BP-Tesseract decoder, and the gated BP-Tesseract decoder, for the T1 and BB codes. directly to Tesseract without any filtering is not optimal in non-convergent cases. While the reduction in node expansions is substantial, it is also important to assess the impact on the logical error rate (LER) performance. Figure 5 presents the LER results for all three decoders for the T1 and bicycle bivariate codes. In both cases, the LER for the proposed decoder is extremely close to that of the original Tesseract. These results indicate that the proposed decoder achieves an effective balance be- tween...",
+      "page": 6
+    }
+  ],
+  "figure": "2609.10056_figures/2609.10056_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
