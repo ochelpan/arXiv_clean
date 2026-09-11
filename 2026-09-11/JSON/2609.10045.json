@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.10045",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.quant-gas"
+  ],
+  "is_primary_archive": true,
+  "title": "A machine-learned dynamical phase diagram of the one-dimensional nonlinear Schrödinger equation with quasiperiodic disorder and a static field",
+  "authors": "Marcos Pérez",
+  "abstract": "We map the transport regimes of a wave packet evolving under the one-dimensional discrete nonlinear Schrödinger (Gross-Pitaevskii) equation with a quasiperiodic Aubry-André potential and a static (Stark) field, as a function of self-interaction $g$, field $F$, and quasiperiodic strength $λ$, for two initial states (delta and Gaussian). Instead of one expensive long-time simulation per grid point, we run 3600 short simulations, reduce each to eight dynamical features, and cluster parameter space with a Gaussian mixture model. Clustering finds the boundaries between regimes unsupervised; each cluster's name is then assigned by a hand-calibrated rule, and an ablation shows clustering measurably smooths those boundaries rather than merely relabeling them. The five resulting regimes (ballistic, localized, oscillatory-localized, subdiffusive, and self-trapped) are validated against 100 long runs on a lattice eight times larger than the short sweep, so the validation window is longer than the training window even for the fastest-spreading regime. The short-time clusters predict the long-time asymptotic spreading exponent ($α_\\infty = 2.01\\pm0.07$ ballistic, $0.28\\pm0.16$ subdiffusive, consistent with the weak-chaos prediction $α=1/3$) and, independently, a long-time retention $Π_0=0.72\\pm0.32$ for the self-trapped cluster, whose exponent alone is not diagnostic. The initial-state contrast is striking: the delta state develops a broad self-trapping wedge (onset at $g=3.907\\pm0.017$ at $λ=0$) that invades the ballistic and localized regions as $g$ grows, while the Gaussian state shows no self-trapping, instead opening a subdiffusive corridor along the Aubry-André critical line that widens with $g$. The scheme yields a full $15\\times15$ phase map in minutes per slice, where direct asymptotic simulation ($t\\gtrsim10^6$ per point) is prohibitive.",
+  "url": "http://arxiv.org/abs/2609.10045v1",
+  "pdf": "https://arxiv.org/pdf/2609.10045v1",
+  "type": "theory",
+  "summary": "This work maps the dynamical phase diagram of a nonlinear Schrödinger equation with quasiperiodic disorder using machine learning to overcome the computational bottleneck of long-time simulations. By clustering features from short runs, the authors identify five distinct transport regimes, demonstrating that the initial state significantly alters the resulting dynamics. This provides a powerful, efficient tool for characterizing complex quantum many-body systems.",
+  "main_problem": "The paper aims to map the complex dynamical phase diagram of a nonlinear wave equation subjected to both quasiperiodic disorder and a static field.",
+  "main_result": "Five distinct dynamical regimes (ballistic, localized, subdiffusive, etc.) are identified, and the study highlights the crucial role of initial state (delta vs. Gaussian) in determining the long-time dynamics.",
+  "method": "It employs a machine-learning approach using Gaussian Mixture Models (GMM) on features extracted from numerous short-time simulations to rapidly partition the high-dimensional parameter space.",
+  "model_or_system": "The system is governed by the one-dimensional discrete nonlinear Schrödinger (Gross-Pitaevskii) equation, incorporating a quasiperiodic Aubry-André potential and a static (Stark) field.",
+  "key_observables": "Spreading exponent ($\\alpha_\\infty$), long-time residual peak norm ($\\Pi_0$), second moment ($m_2$), and various cluster-derived dynamical features.",
+  "important_parameters": "Self-interaction strength ($g$), static field ($F$), and quasiperiodic strength ($\\lambda$).",
+  "main_assumptions": "The physical regimes are assigned labels based on hand-calibrated rules applied to the unsupervised clustering results, and the method relies on short-time simulations predicting long-time asymptotics.",
+  "figures_summary": "Figures illustrate space-time density portraits and corresponding $m_2(t)$ curves for representative dynamics across the identified regimes, validating the short-time predictions against long-time behavior.",
+  "paper_structure": "The paper introduces the physical model and the computational challenge, details the ML-assisted feature extraction and clustering methodology, presents the resulting phase maps for different initial states, and validates the identified regimes against long-time simulations.",
+  "why_interesting": "The combination of nonlinear wave dynamics, quasiperiodic disorder (a hallmark of localization studies), and the use of ML for phase diagram construction is highly relevant to modern research in non-equilibrium quantum dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.10045_figures/2609.10045_fig1.jpg",
+      "caption": "Figure 1: Solver validation: (a) norm and energy conservation; (b) the linear Aubry–Andr´e metal–insulator transition at λ = 2; (c) Bloch oscillations with center-of-mass amplitude 4/F; (d) interaction-induced destruction of quasiperiodic localization; (e) self-trapping of a delta state at strong interaction; (f) the delta-vs-Gaussian self-trapping contrast of Larcher, Dalfovo and Mod- ugno [6].",
+      "page": 4
+    },
+    {
+      "image": "2609.10045_figures/2609.10045_fig2.jpg",
+      "caption": "Figure 2: Machine-learned dynamical phase diagrams. Rows: slices A (F = 0, g vs. λ) and B (λ = 1, g vs. F). Columns: delta and Gaussian initial states. White dots mark crossover cells, where the per-point threshold rule disagrees with its cluster’s majority-vote name (Sec. 4.4).",
+      "page": 7
+    },
+    {
+      "image": "2609.10045_figures/2609.10045_fig3.jpg",
+      "caption": "Figure 3: Validation against long-time ground truth. Left: asymptotic exponent α∞by short-time cluster (dashed lines mark the weak- and strong-chaos values 1/3 and 1/2; tv annotations give the median achieved tvalid per phase). Center: long-time (log10 m2, α∞) colored by short-time phase. Right: long-time residual peak norm Π0 by short-time cluster, the direct self-trapping check that does not rely on α∞.",
+      "page": 8
+    },
+    {
+      "image": "2609.10045_figures/2609.10045_fig4.jpg",
+      "caption": "Figure 4: PCA of the standardized short-time feature matrix, by initial state (rows), with cluster identity colored (left) and PCA loadings (right).",
+      "page": 9
+    },
+    {
+      "image": "2609.10045_figures/2609.10045_fig5.jpg",
+      "caption": "Figure 4 shows the first two principal components of the standardized feature matrix, which together capture most of its variance (66%+19% delta, 80%+12% gaussian). PC1 is dominated by the delocalization block (αm2, log m2, log P, growth) and PC2 by the retention/oscillation block (peak- drop, Bloch score, center-of-mass). The two physically independent axes, “how far/fast” and “what stayed behind”, emerge from the clustering without being hand-specified, even though the cluster names are (Sec. 4.4). The self-trapped cluster in the delta panel visibly splits into two PC1- separated clouds, the geometric signature of the α∞bimodality quantified in Sec. 5.3.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.10045_figures/2609.10045_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 1,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 2,
+    "scars & prethermalization": 1,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

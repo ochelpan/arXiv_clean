@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.10079",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Loss-correcting fault-tolerant quantum computing architecture for neutral atoms",
+  "authors": "Sanaa Sharma, Yutaka Hirano, Akihisa Goban, Hayata Yamasaki, Shinichi Sunami, Prakash Murali",
+  "abstract": "Neutral-atom arrays are a leading qubit technology for large-scale, fault-tolerant quantum computing (FTQC). A dominant error source on this platform is qubit loss, which accrues with every operation and movement. The presence of loss undermines the promises of existing architectural work. Standard error correction targets stochastic Pauli errors and cannot correct loss, so most FTQC performance analyses are not directly compatible with it. Moreover, compilation and routing decisions, which strongly affect overall loss, are typically optimized against Pauli-error cost models and often remain loss-agnostic, potentially increasing exposure to the loss channel.   In this work, we comprehensively model the effect of qubit loss on neutral-atom FTQC and develop a loss-tolerant transversal-gate architecture. We treat loss not as a predetermined error parameter but as a dynamic budget spent across a whole program, allowing us to control it by co-designing layout, compilation, and decoding. We target a physical implementation with no separate storage and entangling zones, eliminating the repeated SLM-AOD handoffs and long-distance shuttling that dominate loss in other layouts. We develop compiler optimizations that maximize gate parallelism while respecting the RF tone budget and AOD bandwidth constraints. Our work couples these with a loss-aware, delayed-erasure decoder and an end-to-end loss-aware magic state cultivation protocol. Overall, we improve accumulated loss per syndrome-extraction round by up to 2.15X against a zoned baseline and reduce logical error rates by over two orders of magnitude versus current architectures. Our framework also informs concrete device targets such as continuous reloading rates, AOD counts, and shuttling trajectory choices. We expect these insights to matter for system architects as neutral-atom hardware scales.",
+  "url": "http://arxiv.org/abs/2609.10079v1",
+  "pdf": "https://arxiv.org/pdf/2609.10079v1",
+  "type": "theory",
+  "summary": "This paper presents a novel, loss-aware framework for fault-tolerant quantum computing using neutral atoms. It addresses the critical failure point of qubit loss by co-designing the quantum circuit compilation, physical layout, and error decoding. The resulting architecture significantly boosts performance by minimizing costly atom shuttling and controlling the total loss budget across the computation.",
+  "main_problem": "The primary challenge is developing a fault-tolerant quantum computing architecture for neutral atoms that can effectively model and mitigate qubit loss, which is a dominant error source ignored by standard error correction and compilation methods.",
+  "main_result": "The proposed loss-aware framework improves accumulated loss per syndrome-extraction round by up to 2.15X and reduces logical error rates by over two orders of magnitude compared to existing zoned architectures.",
+  "method": "The authors developed a comprehensive, end-to-end loss-aware pipeline that jointly optimizes the physical layout, the compiler's routing decisions, and the decoding process to account for dynamic loss budgets.",
+  "model_or_system": "The work focuses on neutral-atom arrays used for quantum computation, employing the surface code for error correction. The architecture is designed to operate within a compact 'compute zone' to minimize loss associated with long-distance shuttling between separate storage and entangling zones.",
+  "key_observables": "Accumulated loss per syndrome-extraction round, logical error rates (LER), CX routing time, and required atom reloading rates.",
+  "important_parameters": "Loss budget, code distance ($d$), AOD bandwidth constraints, and the motional excitation budget ($\\Delta n$).",
+  "main_assumptions": "The framework assumes that loss can be treated as a dynamic, controllable budget rather than a fixed error parameter, and it provides concrete device targets for hardware scaling.",
+  "figures_summary": "Figures illustrate the loss-aware layout, comparing it to zoned architectures, and show the trade-off between transport speed and accumulated loss per syndrome-extraction round.",
+  "paper_structure": "The paper first establishes the limitations of existing loss-agnostic FTQC models, then proposes the loss-aware transversal-gate architecture, details the loss-aware compiler optimizations, and finally validates the approach by showing significant improvements in loss and logical error rates.",
+  "why_interesting": "This work is highly relevant as it bridges the gap between theoretical quantum error correction codes and the practical, loss-dominated physical realities of neutral-atom hardware, providing actionable architectural guidelines.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.10079_figures/2609.10079_fig1.jpg",
+      "caption": "Fig. 1: a) Loss-aware layout: all logical operations happen inside the compute zone, where logical qubits are shuttled across other qubits for transversal CXs/ T-state routing. Ancilla qubits are measured in readout zone, and reused following a reinitialization in storage zone. b) Loss-aware layout modeling and compilation framework. Starred boxes: this work’s contribution.",
+      "page": 2
+    },
+    {
+      "image": "2609.10079_figures/2609.10079_fig2.jpg",
+      "caption": "Fig. 2: Atom loss mechanisms and state-selective readout.",
+      "page": 3
+    },
+    {
+      "image": "2609.10079_figures/2609.10079_fig3.jpg",
+      "caption": "Fig. 4: a) Transfer loss is a major source of loss because of recurrent movement between AOD-SLM traps. b) In zoned layout, transfer loss for each qubit is counted 4× per gate.",
+      "page": 4
+    },
+    {
+      "image": "2609.10079_figures/2609.10079_fig4.jpg",
+      "caption": "Fig. 3: a) Current zoned architecture layout: entangling op- erations take place in a separate zone, increasing the routing overhead. b) Shuttling time scales with circuit depth.",
+      "page": 4
+    },
+    {
+      "image": "2609.10079_figures/2609.10079_fig5.jpg",
+      "caption": "Fig. 5: a) Transversal gate implementation in compute zone. b) Two movements facilitated by AODs in compute zone: Transversal gates (green crossed AODs) and T-state routing to buffer zone (red crossed AODs). c) S and T Gate teleportation takes place in buffer zone. d) Maximum number of RF tones enable parallel gate movements by an AOD.",
+      "page": 6
+    }
+  ],
+  "figure": "2609.10079_figures/2609.10079_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 1,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

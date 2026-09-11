@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2609.10250",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math.NA"
+  ],
+  "is_primary_archive": true,
+  "title": "An analysis of iterative refinement for quantum linear system solvers",
+  "authors": "Adrian Harkness, Mohammadhossein Mohammadisiahroudi, Brandon Augustino, Giacomo Nannicini, Tamás Terlaky",
+  "abstract": "We present and analyze an iterative refinement (IR) framework for improving the precision dependence of algorithms that combine a quantum linear system algorithm (QLSA) with quantum state tomography. Existing QLSAs achieve polylogarithmic dependence on the inverse error tolerance to prepare a quantum state encoding the solution, but extracting a classical description of such a state via tomography typically introduces a polynomial dependence on the target precision. To retain polylogarithmic dependence in the inverse error tolerance throughout the entire process, we develop an IR scheme that solves a sequence of related linear systems to progressively refine the solution while requiring only fixed-precision quantum subroutines, finally obtaining a classical description of a high-precision solution. We analyze the proposed framework under three input models: quantum-read/classical-write RAM (QRAM), linear combinations of unitaries (LCU), and sparse-access oracles. We evaluate the proposed scheme through numerical experiments on both quantum simulators and real quantum hardware. The results demonstrate that iterative refinement efficiently improves the precision of the solution and exhibits robustness to hardware noise.",
+  "url": "http://arxiv.org/abs/2609.10250v1",
+  "pdf": "https://arxiv.org/pdf/2609.10250v1",
+  "type": "both",
+  "summary": "This paper introduces an Iterative Refinement (IR) framework to overcome a major hurdle in quantum linear system solving: the polynomial resource scaling when high precision is required via tomography. By structuring the computation as a sequence of low-precision steps, the authors achieve polylogarithmic scaling in the inverse error tolerance, making high-accuracy quantum computation more feasible.",
+  "main_problem": "The paper addresses the limitation in quantum algorithms that combine Quantum Linear System Algorithms (QLSA) with quantum state tomography (QTA), where the required precision introduces a polynomial dependence on the inverse error tolerance.",
+  "main_result": "An Iterative Refinement (IR) framework is proposed that reduces the overall dependence on the target precision from polynomial to polylogarithmic, allowing high-precision solutions using only fixed-precision quantum subroutines.",
+  "method": "The core method is applying classical iterative refinement techniques to the quantum computation process, solving a sequence of related, low-precision linear systems to progressively refine the solution.",
+  "model_or_system": "The analysis focuses on solving the linear system problem (LSP): Ax = b, within the framework of quantum computation. It analyzes performance across three input models: QRAM, LCU, and sparse-access oracles.",
+  "key_observables": "Residual error ($\\|Ax' - b\\|^2$), cumulative circuit depth, and the dependence of complexity on the inverse error tolerance ($\\epsilon^{-1}$).",
+  "important_parameters": "Condition number ($\\kappa_A$), target precision ($\\epsilon$), and the number of required iterations ($O(\\log(1/\\epsilon))$).",
+  "main_assumptions": "The analysis assumes the ability to perform fixed-precision quantum solves and tomography steps, and that the residual reduction is geometric at each step.",
+  "figures_summary": "Figures compare the cumulative circuit depth of direct HHL vs. HHL+IR, showing IR maintains a much lower, stable depth, and heatmaps illustrate the resource trade-off between IR iterations and QPE qubits/shots.",
+  "paper_structure": "The paper reviews QLSA advancements, details the IR algorithm, provides a complexity analysis under various input models, and validates the framework using numerical experiments on both simulators and hardware.",
+  "why_interesting": "It provides a crucial algorithmic tool for achieving high-accuracy quantum simulations by decoupling the resource scaling of precision from the circuit depth, which is vital for practical quantum simulation of physical systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.10250_figures/2609.10250_fig1.jpg",
+      "caption": "Figure 1. Residual norm convergence for an 8-variable linear system with q P t3, 4, 5u QPE qubits over 12 iterative refinement iterations. (a) Noise-free simulation, in which each ad- ditional QPE qubit accelerates convergence. (b) The same three configurations executed on the IBM Pittsburgh quantum computer.",
+      "page": 18
+    },
+    {
+      "image": "2609.10250_figures/2609.10250_fig2.jpg",
+      "caption": "Figure 1 shows the residual norm log10 }Axpkq´b}2 as a function of the IR iteration index k. In noise-free simulation (panel (a)) the convergence rate is ordered by the precision of the quantum oracle as expected. Initializing the algorithm with a 10´9",
+      "page": 18
+    },
+    {
+      "image": "2609.10250_figures/2609.10250_fig3.jpg",
+      "caption": "Figure 2. Cumulative circuit depth required to reach the residual threshold }Ax´b}2 ď ε, with and without iterative refinement. Solid curves with filled markers are measured transpiled depths: HHL + IR at the target ε “ 10´6, and direct HHL at the relaxed threshold ε “ 10´2, for which the required QPE register sizes are directly compilable. The dashed curve with hollow markers is the extrapolated direct-HHL depth at ε “ 10´6, obtained from a fitted depth model; the shaded band is the fit’s 95% prediction interval. Boxed labels indicate the required QPE register size q on each plateau.",
+      "page": 20
+    },
+    {
+      "image": "2609.10250_figures/2609.10250_fig4.jpg",
+      "caption": "Figure 3. Trade-offs between iterative refinement iterations and quantum resources for solving a 64-variable linear system to a desired residual using HHL. Color encodes the resulting residual at each parameter combination as log10p}Ax ´ b}2q, and contour lines show cumulative quantum resources across all IR iterations. In the left plot, 6 QPE qubits are used for the HHL circuit, and in the right plot, 106 shots are used to readout x from |xy at each iteration of iterative refinement.",
+      "page": 21
+    }
+  ],
+  "figure": "2609.10250_figures/2609.10250_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

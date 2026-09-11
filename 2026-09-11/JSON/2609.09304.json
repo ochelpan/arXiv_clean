@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.09304",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Multivariate quantum state preparation with optimized tensor networks",
+  "authors": "Matthew L. Sims-Goh, Lukasz Cincio, Annina Z. Lieberherr, Mekena McGrew, Thomas R. Bromley",
+  "abstract": "Quantics tensor trains are attracting intense interest for quantum-inspired computing and quantum state preparation. These methods, which approximate continuum functions by representing their amplitude encoding as a matrix product state (MPS), are exceedingly powerful for univariate functions but rapidly become challenging when handling multivariate functions, since the linear chain topology leads to a large distance between highly-entangled qubits. We overcome this limitation by introducing SCENT (Spectral Clustering for Entanglement miNimizing Trees). SCENT is a protocol that utilizes efficiently-computable pairwise entanglement metrics to determine a suitable tree tensor network (TTN) structure, which can then be efficiently approximated using tensor cross-interpolation (TCI); we find that it substantially outperforms MPS methods and improves upon previous TTN methods. We then apply these optimized TTNs to state preparation, introducing an approximate circuit compilation method based on environment-tensor methods without significantly conceding overall accuracy. Importantly, the inherent gauge freedom of TTNs can be directly exploited in this method, resulting in higher fidelity at a given circuit depth. We demonstrate this quantum state-preparation pipeline on archetypal state-preparation problems in quantum chemistry and financial portfolio optimization. In our flagship demonstration, we encode a 20-variable probability distribution with long-ranged, non-nearest neighbor inter-variable correlations in a 200-qubit state-preparation circuit with infidelity $7.44\\times 10^{-9}$ using only 43284 CNOTs; depth and fidelity can be traded, allowing the same distribution to be prepared to infidelity $10^{-3}$ with as few as 5584 CNOTs.",
+  "url": "http://arxiv.org/abs/2609.09304v1",
+  "pdf": "https://arxiv.org/pdf/2609.09304v1",
+  "type": "theory",
+  "summary": "This paper presents SCENT, a novel protocol to optimize the structure of Tree Tensor Networks (TTNs) for representing complex, multivariate quantum states. By determining the optimal tree topology using entanglement metrics, the authors enable an efficient, high-fidelity quantum state preparation pipeline. This method significantly improves resource scaling compared to traditional Matrix Product State approaches for challenging quantum simulations.",
+  "main_problem": "The core challenge is efficiently preparing general quantum states, especially those derived from multivariate functions, which is exponentially hard using standard methods.",
+  "main_result": "The authors introduce SCENT, a protocol that optimizes the Tree Tensor Network (TTN) structure, leading to a quantum state preparation pipeline that substantially outperforms MPS and previous TTN methods.",
+  "method": "The approach involves using SCENT to determine an optimal TTN structure based on pairwise entanglement metrics, followed by Tensor Cross-Interpolation (TCI) and an environment-tensor based circuit compilation method.",
+  "model_or_system": "The model is quantum state preparation for amplitude-encoded functions, represented by tensor networks (MPS and TTNs). The system is generalized to handle complex, multivariate correlations beyond the limitations of linear chain topologies.",
+  "key_observables": "Fidelity (e.g., $7.44\times 10^{-9}$ infidelity), CNOT gate count (e.g., 43284 CNOTs), and circuit depth.",
+  "important_parameters": "Bond dimension ($\\chi$), target decomposition error ($\\epsilon$), and the choice of entanglement metric (e.g., Boolean Fourier entropy $\\kappa(i, j)$).",
+  "main_assumptions": "The method assumes that the underlying function correlations can be effectively mapped onto a tree-like structure (TTN) rather than a linear chain (MPS).",
+  "figures_summary": "Figures illustrate the structural discovery process using affinity matrices, the comparison of different entanglement metrics, and the multi-step process of compiling isometries into quantum circuits.",
+  "paper_structure": "The paper progresses from identifying the limitations of MPS for multivariate functions to introducing SCENT for optimal TTN structure discovery, detailing the TCI approximation, and finally presenting a multi-stage algorithm for compiling the resulting TTN into a minimal-gate quantum circuit.",
+  "why_interesting": "The ability to efficiently encode complex, high-dimensional correlations (like those in quantum chemistry or finance) into quantum circuits using optimized tensor network structures is crucial for simulating many-body quantum systems beyond current computational limits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.09304_figures/2609.09304_fig1.jpg",
+      "caption": "FIG. 1. Summary of our approach. (a) Our approach to tensor network structure discovery (Section III) begins with the calculation of affinity matrices (left), which quantify the correlation between qubits for the desired state. These are used to recursively partition qubits (middle), assigning qubit indices to branches in a way that seeks to minimize graph distance between highly entangled qubits. This tree structure is then employed in tensor cross-interpolation (right), yielding an interpolative tensor network approximation of the desired function. (b) We demonstrate how to synthesize a quantum circuit from this tensor network (Section IV). Our approach adaptively modifies circuit...",
+      "page": 2
+    },
+    {
+      "image": "2609.09304_figures/2609.09304_fig2.jpg",
+      "caption": "FIG. 2. Tensor networks for function encoding. (a) The interleaved (top) and serial (bottom) representations, de- picted for D = 2 dimensions. (b) Distance between closely correlated bits of the same variable. We depict how sequen- tial bits of the same variable are separated by D bonds in the interleaved representation, while the serial representation will separate the highest-significance bits of two adjacent vari- ables by B bonds. In both cases, this leads to many bond crossings that may be avoided by more problem-tailored net- work topologies. (c) Examples of the diverse range of tensor network structures common in the literature. Pictured are MPS (linear chain structure), TTN (acyclic...",
+      "page": 4
+    },
+    {
+      "image": "2609.09304_figures/2609.09304_fig3.jpg",
+      "caption": "FIG. 3. Comparison of tensor network structures on an example problem. We demonstrate the approximation of a 40-qubit quantum state encoding a strongly correlated (η = 1) quadrivariate normal distribution N(⃗µ,Σ)(a, b, c, d), for a single realization of Σ ∼LKJD=4(η = 1) at B = 10 bits of precision per variable. TCI is performed with an MPS (blue), comb TTN (orange), and scent-optimized TTN (green) at tolerance ϵid = 10−8. (a) Convergence of the ten- sor network size in TCI — all three topologies converge within 5 sweeps, their sizes plateauing. Relative to MPS, the comb TTN compresses the function by a factor of 23, whereas the scent-optimized TTN compresses it by a factor of 58. (b)...",
+      "page": 10
+    },
+    {
+      "image": "2609.09304_figures/2609.09304_fig4.jpg",
+      "caption": "FIG. 5. Convergence of Monte Carlo sampling to con- struct the affinity matrix. Here, we study the approxima- tion of a 40-qubit quantum state encoding a strongly corre- lated quadrivariate normal distribution N(⃗µ,Σ)(a, b, c, d), for a single realization of Σ ∼LKJD=4(η = 1) (as in Figure 3) using both Monte Carlo and exact methods for scent. (a) Single-variable submatrices of affinity matrices constructed with Monte Carlo for Ns = 5 × 102 samples (left), Ns = 104 samples (middle), and noiseless tensor network methods (right). (b) Convergence traces for TCI using network struc- tures determined with scent for varying Monte Carlo sample counts Ns. As a point of comparison, we also plot the...",
+      "page": 11
+    },
+    {
+      "image": "2609.09304_figures/2609.09304_fig5.jpg",
+      "caption": "FIG. 4. Effect of variable count and correlation strength on tensor network function construction. We study systematically the effect of the number of variables D and inverse correlation strength η on multivariate normal dis- tributions N(⃗µ,Σ)(⃗x). For each data point, 20 random covari- ance matrices are sampled from Σ ∼LKJD(η), and 10 sweeps of TCI (sufficient for convergence, see e.g. Figure 3(c)) are performed to tolerance ϵid = 10−8 with B = 10 bits of pre- cision per variable. Error bars represent bootstrapped 95% confidence intervals in the logarithmic mean. (a) The effect of variable count D on tensor network size at moderate corre- lation η = 50. (b) The effect of correlation...",
+      "page": 11
+    }
+  ],
+  "figure": "2609.09304_figures/2609.09304_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

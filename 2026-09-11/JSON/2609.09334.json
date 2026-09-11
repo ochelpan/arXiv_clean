@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.09334",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR"
+  ],
+  "is_primary_archive": true,
+  "title": "Execution-transcript privacy for fault-tolerant surface-code memories",
+  "authors": "Jiachen Shen, Hui Zhong",
+  "abstract": "A fault-tolerant quantum computer runs behind a telemetry stream logging syndromes, decoder actions, resets and timing separately from the answer. Can it reveal the logical input? For a distance-$d$ rotated surface-code memory on a fixed schedule of $T=Θ(d)$ rounds, under three stated hypotheses (sector-scalar honest backbone, transcript locality, Kotecky-Preiss smallness), the channel from logical qubit to transcript is $e^{-Θ(d)}$-close in diamond norm to one that ignores the input. A statement of this kind follows generically from correctability-privacy duality. Anisotropy does not. Each logical axis pays the distance of its own coset, so under amplitude damping the computational-basis label is governed by the code's $Z$-distance $d_Z\\ge d_{\\min}$ and not by the code distance. Two codes of quantum distance $1$ make the gap concrete. A phase-flip code's $X$-syndrome transcript is exactly input-independent under unobserved damping, while a repetition code leaks at first order. A matched converse identifies the records that do expose it, among them a lattice-surgery parity readout. On a 156-qubit superconducting processor our sufficient certificate misses by $21.5\\times$, so the theorem cannot be invoked there. Measured directly, a $d_Z=1$ memory's record identifies its input with total variation $\\ge 0.927$ under randomised, label-balanced acquisition. Holding the code fixed and varying the damping exposure reproduces the parameter-free law, with exponent $0.85\\pm0.03$ against a predicted $0.86$. Randomized encoding returns the statistic to the floor at no two-qubit-gate cost. Fault tolerance does not grant transcript privacy. It relocates it, and only to the logical state, not to the circuit's identity.",
+  "url": "http://arxiv.org/abs/2609.09334v1",
+  "pdf": "https://arxiv.org/pdf/2609.09334v1",
+  "type": "theory",
+  "summary": "This work rigorously analyzes the privacy leakage from the classical execution records of fault-tolerant quantum memories. It proves that while fault tolerance protects the logical state, the syndrome transcript itself can leak input information, with the leakage rate determined by the code's Z-distance. This has significant implications for the security assessment of quantum hardware.",
+  "main_problem": "The paper investigates whether the classical telemetry stream generated during fault-tolerant quantum computation can leak information about the initial logical input state.",
+  "main_result": "Fault tolerance does not guarantee transcript privacy; the leakage is quantified and shown to be governed by the code's Z-distance ($d_Z$) under amplitude damping noise.",
+  "method": "The analysis uses information-theoretic tools, including the diamond norm and total variation distance, drawing on concepts like correctability-privacy duality and homology.",
+  "model_or_system": "The model is a fault-tolerant quantum memory implemented using a distance-$d$ rotated surface code, operating over $\\Theta(d)$ rounds.",
+  "key_observables": "Total Variation Distance ($\text{TV}$), diamond norm distance, and the leakage rate quantified by $d_Z$.",
+  "important_parameters": "Code distance ($d$), Z-distance ($d_Z$), amplitude damping rate ($\\gamma$), and the number of rounds ($T$).",
+  "main_assumptions": "The results are conditional on specific hypotheses (e.g., transcript locality) and the analysis distinguishes between idealized theoretical bounds and practical measurement limitations.",
+  "figures_summary": "Figures illustrate the transcript privacy channel, showing the separation between the ordinary transcript and a calibrated witness that leaks the input.",
+  "paper_structure": "The paper develops theoretical bounds on leakage, analyzes specific code types (repetition, phase-flip), and discusses the implications of different noise models and measurement techniques.",
+  "why_interesting": "It provides rigorous theoretical bounds on the security of quantum computation against side-channel attacks based on measurement leakage, which is crucial for building trustworthy quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.09334_figures/2609.09334_fig1.jpg",
+      "caption": "Figure 1: The transcript privacy channel and the two regimes. A logical input enters a surface-code memory that emits the non-output transcript U while the output Y stays hidden. The two input-conditioned laws of ordinary U nearly coincide (private), while a calibrated witness W separates them (leaks).",
+      "page": 4
+    },
+    {
+      "image": "2609.09334_figures/2609.09334_fig2.jpg",
+      "caption": "Figure 2: The mechanism. (a) By Knill–Laflamme, a bra–ket fault pair K† bKa with homo- logically trivial support multiplies the code space by a scalar within its syndrome sector and cancels in the two transcript laws. The condition is trivial homology, not weight below d (Remark 5). (b) An input-sensitive contribution must therefore carry a homologically nontrivial cycle, whose support is ≥d, so logical information enters only through a charged region of size ≥d/ℓ∗. The schematic is spatial only, and the expansion runs over spacetime detector regions.",
+      "page": 6
+    },
+    {
+      "image": "2609.09334_figures/2609.09334_fig3.jpg",
+      "caption": "Figure 3: An adversarial null for the honest transcript (bootstrap 95% CIs; circuit-level depolarizing noise at p = 0.005, minimum-weight perfect-matching decoder, logistic adversary on the full detector record, held-out split). (a) An adversary given the full detector record stays at chance for honest U across d = 3, 5, 7 and reaches near one with a charged witness W. (b) The same adversary stays at chance under coherent and leakage noise in an exact statevector simulation at d = 3 (five noise models).",
+      "page": 16
+    },
+    {
+      "image": "2609.09334_figures/2609.09334_fig4.jpg",
+      "caption": "Figure 4: The converse and the locality indicator (bootstrap 95% CIs). (a) The lattice-surgery merged-parity error pLS decays exponentially in d (MWPM decoder), so the converse bound 1 −2pLS rises toward one. (b) The empirical cluster-tail rate µfreq, fitted to the sizes of the observed fired-detector components Robs, which are not the fault-support regions Rlat the theorem is stated for. This rate also differs from the polymer activity. The Kotecký–Preiss condition ea < 1 requires Krod¯η < 1/(e3 deg) ≈4.1 × 10−3 at detector degree 12, a threshold drawn as the dashed line, while the measured indicator sits about 190× above it. A geometric tail with µfreq < 1 supports the form PWTS assumes....",
+      "page": 17
+    },
+    {
+      "image": "2609.09334_figures/2609.09334_fig5.jpg",
+      "caption": "Figure 5: Measured transcript privacy on ibm_cleveland. Filled circles are the original grouped acquisition. The filled diamonds are the randomised, label-balanced re- acquisition at n = 3, 7, 21, which is the acquisition used for the headline number. (a) Total- variation lower bound against code repetition length for the honest transcript, randomized encoding, and a deliberately planted charged record. The shaded band is the finite-sample null floor, and open markers repeat the whole sweep on a disjoint qubit set. Randomisation moves n = 21 from 0.949 to 0.927 and n = 7 from 0.880 to 0.660, and the second change provides the control that detects acquisition-order contamination without...",
+      "page": 21
+    }
+  ],
+  "figure": "2609.09334_figures/2609.09334_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

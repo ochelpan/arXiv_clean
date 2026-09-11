@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.09980",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Fidelity-Aware Scheduling of Quantum Circuits on Multi-QPU Systems",
+  "authors": "Innocenzo Fulginiti, Antonio Tudisco, Salvatore Zammuto, Patrick Hopf, Deborah Volpe, Helmut Seidl, Giovanna Turvani, Robert Wille, Christian B. Mendl, Martin Schulz",
+  "abstract": "High Performance Computing-Quantum Computing (HPCQC) platforms expose multiple Quantum Processing Units (QPUs) that may differ in size, topology, native gates, and noise characteristics. For current noisy devices, errors compound along the compiled circuits quickly, and minimizing them, that is, maximizing the circuits' execution fidelity, is essential for reliable results. Fidelity depends on the compilation to a specific target device: the same high-level circuit may produce different executables and, therefore, different expected fidelities across QPUs. We present a low-overhead fidelity-aware scheduling framework for multi-QPU systems based on a Graph Neural Network (GNN) that estimates, before compilation, the expected fidelity of each circuit on each available QPU. Then, a tunable scheduler uses these estimates to control the trade-off between execution fidelity and parallelism. Results show that this framework allows for approximating an exhaustive fidelity-based assignment, saving computational resources compared to a brute-force approach that compiles each circuit on every device.",
+  "url": "http://arxiv.org/abs/2609.09980v1",
+  "pdf": "https://arxiv.org/pdf/2609.09980v1",
+  "type": "both",
+  "summary": "This paper introduces a fidelity-aware scheduling framework for quantum circuits running on multi-QPU systems. It uses a Graph Neural Network (GNN) to predict the expected fidelity on various hardware devices before compilation. By introducing a tunable weight $w$, the scheduler effectively balances the trade-off between achieving the highest possible fidelity and maximizing the utilization of all available quantum processing units.",
+  "main_problem": "The paper addresses the challenge of scheduling quantum circuits on heterogeneous multi-QPU systems to maximize execution fidelity while maintaining high device utilization.",
+  "main_result": "The proposed framework achieves near ground-truth fidelity while significantly reducing the computational overhead associated with brute-force, exhaustive device selection.",
+  "method": "It employs a Graph Neural Network (GNN) to predict the expected fidelity of a circuit on every available QPU before compilation, which informs a tunable scheduler.",
+  "model_or_system": "The system involves multi-QPU platforms with varying topologies and noise characteristics. Circuits are modeled as graphs (DAGs) for GNN input, and fidelity is calculated based on accumulated gate error probabilities.",
+  "key_observables": "Mean ground-truth fidelity, scheduling overhead (wall-clock time), and fidelity regret.",
+  "important_parameters": "The tunable scheduling weight $w \\in [0, 1]$, which balances the trade-off between fidelity maximization and parallelism/utilization.",
+  "main_assumptions": "The core assumption is that the GNN can accurately predict the circuit fidelity without incurring the massive computational cost of full, device-specific compilation for every possibility.",
+  "figures_summary": "Figures illustrate the end-to-end pipeline, the conversion of circuits to graphs, and show how mean fidelity increases with $w$ (Fig. 8) while the scheduling overhead remains low compared to exhaustive methods (Fig. 9).",
+  "paper_structure": "The paper details an end-to-end pipeline: 1) Graph construction from quantum circuits, 2) Using a GNN (with SAGE layers) to estimate fidelity on multiple QPUs, and 3) A tunable scheduler that uses these estimates based on the weight $w$ to assign circuits.",
+  "why_interesting": "This work directly tackles the practical challenge of compiling algorithms for real, noisy, and heterogeneous quantum hardware, which is a major bottleneck in applying quantum computation to physical systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.09980_figures/2609.09980_fig1.jpg",
+      "caption": "Fig. 1: End-to-end pipeline of the proposed framework. A user-submitted batch of k high-level quantum circuits is converted into Directed Acyclic Graphs with per-node feature vectors and fed to the GNN fidelity predictor, which produces an estimated fidelity matrix ˆF over all k × D circuit-device pairs. The tunable scheduler, parameterized by the fidelity weight w, routes each circuit to one of the available QPU backends; each assigned circuit is then transpiled against the target device’s native gate set and connectivity, and then executed on the corresponding backend.",
+      "page": 5
+    },
+    {
+      "image": "2609.09980_figures/2609.09980_fig2.jpg",
+      "caption": "Fig. 2: Conversion from circuit to DAG. A quantum circuit (a) is translated into a DAG (b), whose nodes are gates and measurements and whose edges encode data dependencies; each node is then mapped to the feature vector of (c), shown for a CX gate.",
+      "page": 5
+    },
+    {
+      "image": "2609.09980_figures/2609.09980_fig3.jpg",
+      "caption": "Fig. 3: Logic of a single dispatch tick within the QMS. The broker constructs an immutable snapshot of the queue and per-device state, invokes the scheduling policy to produce a device-to-circuit mapping, and dispatches each circuit to its assigned backend for transpilation and execution. The dashed arrow indicates the tick-based cycle.",
+      "page": 6
+    },
+    {
+      "image": "2609.09980_figures/2609.09980_fig4.jpg",
+      "caption": "Fig. 5: RMSE of the model on the test set, grouped by target fidelity.",
+      "page": 7
+    },
+    {
+      "image": "2609.09980_figures/2609.09980_fig5.jpg",
+      "caption": "Fig. 4: Coupling maps of the target devices.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.09980_figures/2609.09980_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

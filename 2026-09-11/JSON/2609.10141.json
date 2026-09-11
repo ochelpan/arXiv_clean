@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.10141",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "The Sample Complexity of Quantum Entanglement Allocation",
+  "authors": "Nathan Roll",
+  "abstract": "How many past requests are needed to decide which qubits should share entanglement? We show that the answer depends on the allocation choices created by the queries: a larger memory can require no more data. The memory stores a classical bit and answers requests through a fixed detector that preserves coherence within each measured sector. For independent commuting $X$- and $Z$-type Pauli queries, we characterize the full attainable prediction-contrast region and construct encodings that preserve the bit at every nonzero vertex. With sharp reports, a $d$-qubit path and groups of at most $k$ qubits have minimax excess error after $m$ requests proportional to $k^{-1}\\min\\{1,\\sqrt{d\\log(k+1)/m}\\}$, uniformly for $2\\leq k<d$. Connected biclique regions can grow without increasing sample demand when depth, region count and connections per region stay bounded. Preparation noise introduces a separate calibration requirement. We derive an exact tradeoff with extra fresh detector calls and transfer the learning law to structured transaction co-location. Population-risk experiments test the statistical predictions. We also compare encodings on a native 15-qubit device and learned partitions on public purchase baskets. The full chain wins on the device; frequency grouping outperforms basket search in the largest-capacity retail setting.",
+  "url": "http://arxiv.org/abs/2609.10141v1",
+  "pdf": "https://arxiv.org/pdf/2609.10141v1",
+  "type": "both",
+  "summary": "This paper analyzes the theoretical limits on how much past data is needed to optimally allocate quantum entanglement resources for future queries. It derives sharp bounds on the sample complexity and excess error for various graph structures, combining theoretical analysis with hardware benchmarking. The findings are critical for designing robust quantum protocols that rely on sequential resource management.",
+  "main_problem": "The paper investigates the sample complexity required to optimally allocate quantum entanglement resources among qubits based on sequential query observations.",
+  "main_result": "The required sample complexity depends on the specific allocation choices, and error bounds for path queries scale inversely with the number of requests ($m$) and related to the connectivity ($k$).",
+  "method": "The authors use information-theoretic bounds, characterizing attainable prediction-contrast regions for Pauli queries and deriving minimax excess error bounds for learning optimal resource allocation.",
+  "model_or_system": "The system involves a quantum memory storing a classical bit and answering requests using a fixed detector, modeled using $d$-qubit states and graph-state queries on bipartite graphs.",
+  "key_observables": "Minimax excess error, attainable prediction-contrast region, signed coherence measurements, and locality scores.",
+  "important_parameters": "Number of requests ($m$), number of qubits ($d$), path depth ($k$), and calibration trials ($B$).",
+  "main_assumptions": "The analysis assumes the detector preserves coherence within measured sectors, and initial learning bounds assume exact empirical optimization.",
+  "figures_summary": "Figures illustrate error scaling vs. requests ($m$) and calibration trials ($B$), and show coherence diagnostics for native 15-qubit paths comparing different encoding types.",
+  "paper_structure": "The paper progresses from characterizing the theoretical sample complexity for Pauli queries to deriving explicit error bounds for paths and general graphs, concluding with experimental comparisons on hardware and classical data locality studies.",
+  "why_interesting": "The work provides rigorous bounds on how much data (requests) is needed to reliably manage and allocate fragile quantum resources like entanglement, which is crucial for fault-tolerant quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.10141_figures/2609.10141_fig1.jpg",
+      "caption": "Figure 1: (a) Three-qubit encodings at request probabilities (1/4, 1/2, 1/4). Groups share en- tanglement; filled squares recover the bit, empty squares are uninformative. All four codes pre- serve the stored bit. (b) Ideal prediction error when π(XXX) = 1/2, π(ZZI) = pL and π(IZZ) = 1/2 −pL; black selects the better pair. (c) Native 15-qubit commissioning on ibm_marrakesh favors the full chain. Even/odd are fixed product allocations. Each mean uses 1,920 shots over all 15 queries and both bits; bars are simultaneous 95% Hoeffding bounds for four means, conditional on independent shots in this one job. The allocations in (c) are fixed before ac- quisition.",
+      "page": 2
+    },
+    {
+      "image": "2609.10141_figures/2609.10141_fig2.jpg",
+      "caption": "Figure 2: Depth changes the error scale as well as the request requirement. (a) On the budget- indexed hard family, both empirical and data-free periodic allocations follow a square-root rate. The task probabilities change with the budget. (b) On fixed Dirichlet workloads, only the empirical learner improves. Solid lines show empirical optima; dotted lines show uniform periodic allocations. Each line averages four dimension means, each based on 64 independent seeds; shading spans those dimension means, not confidence intervals. The dashed line is 0.025x−1/2, an unfitted slope guide, not a theorem constant. Every risk uses the exact same-depth physical optimum as comparator.",
+      "page": 6
+    },
+    {
+      "image": "2609.10141_figures/2609.10141_fig3.jpg",
+      "caption": "Figure 3: More requests cannot remove a calibration floor. (a) Request learning at three fixed calibration budgets; the dashed curve supplies the true channel. (b) Calibration learning at three fixed request budgets; the dashed curve supplies the true workload. Both panels use 63-qubit heterogeneous-noise instances and the smoothed Joint estimator. Excess is relative to the true- workload, true-channel oracle in the same circuit family. Bands are pointwise 95% bootstrap inter- vals over 32 independent instances, after averaging four request streams and four calibration panels. Calibration costs 125B observations, separately from m.",
+      "page": 7
+    },
+    {
+      "image": "2609.10141_figures/2609.10141_fig4.jpg",
+      "caption": "Figure 4: (a) Fresh random requests and chosen repair queries have different call costs. Points reproduce Bell coverage q = .8 from a product probe. (b) Cost comparison at 80% power and 5% false alarms for known (e0, e1) = (.02, .164). GHZ uses 18 calls and 111.6 logical CNOTs; a product-initialized repeated-query policy uses 19.6 expected calls and 75.6 CNOTs. The boundary includes extra GHZ startup cost per episode. These are two attaining policies, not the full adaptive frontier.",
+      "page": 8
+    },
+    {
+      "image": "2609.10141_figures/2609.10141_fig5.jpg",
+      "caption": "Figure 5: (a) Exact empirical co-location on structured tables, with requests scaled by rk. Curves average r ∈{1, 4} and k ∈{1, 2, 3}, with 32 instances per cell; bands bootstrap training instances. (b) Complete-basket locality on the public Online Retail trace, with 3,922 records and eight shards of capacity 512. Learned methods share a training prefix; fixed key range uses none. Bands bootstrap 16 request streams conditional on the fixed catalogue and test trace. All three capacities and the exact small-schema study appear in Appendix Q.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.10141_figures/2609.10141_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

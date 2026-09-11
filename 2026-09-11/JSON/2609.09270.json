@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.09270",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.DC",
+    "cs.PL"
+  ],
+  "is_primary_archive": true,
+  "title": "Python in the front, party in the Backline: compiling quantum workloads across CPUs, GPUs, and FPGAs",
+  "authors": "Joseph K. L. Lee, Mehrdad Malekmohammadi, Hong-Sheng Zheng, Shuli Shu, Cheick Doumbia, Kalman Szenes, Mehran Zamani Abnili, Thomas Ainsworth, Matthew Seymour, Thomas Germain, Leonhard Neuhaus, Josh Izaac, Lee J. O'Riordan",
+  "abstract": "Moving from quantum research and development to production-grade, fault-tolerant quantum workload execution remains one of the most significant challenges facing quantum platform builders. While Python frameworks have enabled an easy entry point for quantum algorithm design, the low-latency requirements for real-time quantum error correction (QEC) demand performance that traditional interpreted environments cannot provide. FPGAs and ASICs play a central role at these layers, but their specialized programming models make development rigid and time-consuming. CPUs, GPUs, and other accelerators introduce a different challenge: as infrastructure becomes increasingly heterogeneous, programming across different devices and their associated abstractions becomes more complex. Allowing researchers to write workloads in high-level languages that map to low-latency execution across diverse distributed target platforms will enable the development of key infrastructure for utility-scale quantum systems. For this, we introduce $\\textit{Backline}$, a heterogeneous compilation and runtime framework built within PennyLane and Catalyst. Backline allows us to design and build quantum-classical workloads for high-performance and low-latency devices, with compilation directly from a Python interface through MLIR. We demonstrate the compilation and execution of several quantum workloads with low-latency data movement across a mix of CPUs, GPUs, and FPGAs, for both local and distributed remote hardware targets, all from a vendor-agnostic Python frontend. With an AMD VPK120 FPGA board as the controller, issuing each round from its hardware-handshake engine, we measured median steady-state round-trip latencies over RoCE v2 of $2.305~μ$s to an AMD Ryzen Threadripper PRO CPU and $4.5~μ$s to an AMD Instinct MI210 GPU across $10^6-1$ rounds per path, demonstrating microsecond-scale synchronous co-processing.",
+  "url": "http://arxiv.org/abs/2609.09270v1",
+  "pdf": "https://arxiv.org/pdf/2609.09270v1",
+  "type": "both",
+  "summary": "This paper presents Backline, a novel compilation framework that bridges the gap between high-level quantum algorithm design in Python and the low-latency demands of fault-tolerant quantum computing. By compiling workloads through MLIR, it enables efficient, vendor-agnostic execution across heterogeneous hardware like CPUs, GPUs, and FPGAs. The results demonstrate microsecond-scale synchronous co-processing, critical for next-generation quantum systems.",
+  "main_problem": "The primary challenge is moving quantum workloads from research prototypes to production-grade, fault-tolerant systems that require ultra-low latency.",
+  "main_result": "The authors demonstrated a heterogeneous compilation framework, Backline, achieving microsecond-scale synchronous co-processing latencies across CPUs, GPUs, and FPGAs.",
+  "method": "They introduced Backline, a framework that compiles quantum-classical workloads from a high-level Python interface down through MLIR to target diverse, low-latency hardware accelerators.",
+  "model_or_system": "The system involves quantum workloads requiring real-time Quantum Error Correction (QEC) running on heterogeneous hardware, including CPUs, GPUs, and FPGAs, orchestrated via an FPGA-based controller.",
+  "key_observables": "Median steady-state round-trip latencies (e.g., 2.305 $\\mu$s to CPU, 4.5 $\\mu$s to GPU) and the full distribution of RTT under varying message-issuing cadences.",
+  "important_parameters": "Latency Tiers (1 ns–1 $\\mu$s for real-time control; 1 $\\mu$s–100 $\\mu$s for co-processing); $10^{6-1}$ rounds for steady-state measurements.",
+  "main_assumptions": "The design assumes the ability to use dedicated dual-ported UltraRAMs for efficient reply buffering and that the system can manage highly non-uniform timing deadlines.",
+  "figures_summary": "Figures illustrate the high-level program lowering process, the FSM transition diagram for the hardware orchestrator, and comparative traces showing RTT distributions under back-to-back versus random-delayed message pacing.",
+  "paper_structure": "The paper progresses from defining the need for production-grade QEC execution, detailing the architecture of Backline within PennyLane/Catalyst, demonstrating the hardware-accelerated data movement, and finally benchmarking the resulting low-latency performance.",
+  "why_interesting": "The focus on low-latency, hardware-accelerated control loops (like QEC) is directly relevant to building scalable quantum processors, which is a core area of quantum information science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.09270_figures/2609.09270_fig1.jpg",
+      "caption": "Fig. 1: High-level overview of the PennyLane program lowering process.",
+      "page": 4
+    },
+    {
+      "image": "2609.09270_figures/2609.09270_fig2.jpg",
+      "caption": "Fig. 2: The Backline abstractions and how they compose.",
+      "page": 5
+    },
+    {
+      "image": "2609.09270_figures/2609.09270_fig3.jpg",
+      "caption": "Fig. 4: Life cycle of a heterogeneous workload in Backline across a host, FPGA controller, and GPU coprocessor. Numbers indicate execution order. Steps 0-2 occur once per session. Steps 3-11 are one correction round and repeat for every decode. Steps 12-14 return results and tear down.",
+      "page": 10
+    },
+    {
+      "image": "2609.09270_figures/2609.09270_fig4.jpg",
+      "caption": "Fig. 5: Architecture of the VPK120 hardware-handshake engine, which connects the APU control plane, ERNIC, local request/reply storage, and hardware orchestrator.",
+      "page": 11
+    },
+    {
+      "image": "2609.09270_figures/2609.09270_fig5.jpg",
+      "caption": "Fig. 6: Baseline steady-state round-trip latency over 106 −1 rounds from FPGA controller to and from CPU or GPU copro- cessor. Timing is measured by the FPGA clock domain, with the first warm-up sample excluded from all plots. Statistical quantities are given in the legend of each distribution plot, with the excluded warm-up value given by t0.",
+      "page": 13
+    }
+  ],
+  "figure": "2609.09270_figures/2609.09270_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

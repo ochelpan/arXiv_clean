@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.10282",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Solving wave propagation problems via geometric quantum state preparation on dispersion manifolds",
+  "authors": "Yakov Solomons, Lee Peleg, Netanel Barel, Jonathan Nemirovsky, Amit Ben-Kish, Yotam Shapira",
+  "abstract": "We present a quantum algorithm for solving partial differential equations through a linear-system formulation, focusing on wave propagation problems described by the discretized Helmholtz equation in frequency domain. Although quantum linear-system solvers offer exponential compression of the system degrees of freedom, their runtime complexity is generally governed by the condition number of the discretized operator. Exploiting the analytic structure of the differential operator can provide an alternative to explicit matrix inversion, as illustrated for the screened Poisson equation through an explicit quantum circuit. For the Helmholtz equation, however, the inverse operator becomes singular on the dispersion surface $k^2=ω^2/c^2$, rendering direct Fourier-space state-preparation methods exponentially inefficient. We address this challenge by directly preparing quantum states supported on the resonant manifold and encoding source locations through Fourier phases. The resulting algorithm eliminates the exponentially large overhead associated with post-selection on the resonant manifold, yielding a success probability that depends linearly on the number of sources and is independent of the computational domain size. More generally, our approach applies to hyperbolic differential equations whose Fourier-space solutions possess singular support on dispersion manifolds, recasting their solution as a problem of geometric quantum state preparation.",
+  "url": "http://arxiv.org/abs/2609.10282v1",
+  "pdf": "https://arxiv.org/pdf/2609.10282v1",
+  "type": "theory",
+  "summary": "This paper presents a quantum algorithm to solve wave propagation PDEs by reformulating the problem as geometric quantum state preparation. It overcomes the exponential inefficiency of standard Fourier-space methods, which fail due to singularities on the resonant manifold. The resulting technique allows for efficient computation whose success probability scales favorably with the number of sources but remains independent of the system size.",
+  "main_problem": "The paper addresses the challenge of using quantum algorithms to solve wave propagation partial differential equations (PDEs), particularly the Helmholtz equation, which suffer from singularities in the frequency domain.",
+  "main_result": "The authors propose a novel method that bypasses the exponential overhead of standard Fourier-space solvers by directly preparing quantum states supported on the resonant manifold, yielding a success probability independent of the domain size.",
+  "method": "The core method involves recasting the PDE solution as a geometric quantum state preparation problem, utilizing quantum circuits to construct superpositions over the resonant manifold rather than inverting the full discretized operator.",
+  "model_or_system": "The model is wave propagation governed by PDEs like the Helmholtz equation. The problem is discretized and analyzed in the frequency domain, leading to a linear system whose inverse is singular on the dispersion surface $k^2 = \\omega^2/c^2$.",
+  "key_observables": "Success probability of state preparation ($P_{\text{res}}$), which is shown to be independent of the computational domain size.",
+  "important_parameters": "The condition number of the discretized operator ($\\kappa(A)$), the resonant manifold ($k^2 = \\omega^2/c^2$), and the number of sources.",
+  "main_assumptions": "The method relies on approximating the inverse operator structure and assumes the ability to perform complex arithmetic evaluation and post-selection on amplitude coefficients.",
+  "figures_summary": "Figures illustrate the quantum circuits for preparing a resonant state, including implementing a quantum analogue of the Midpoint circle algorithm and extending this to construct a finite-width resonant ring.",
+  "paper_structure": "The paper first contrasts standard Quantum Linear System Solvers (QLSS) with the limitations imposed by the condition number. It then details the failure of direct Fourier-space methods due to singularities, culminating in the proposal and derivation of the geometric quantum state preparation technique.",
+  "why_interesting": "This work provides a concrete quantum algorithmic approach to solving fundamental physics problems (wave propagation) where standard quantum simulation techniques fail due to inherent mathematical singularities, offering a path toward practical quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.10282_figures/2609.10282_fig1.jpg",
+      "caption": "FIG. 1. Quantum implementation of the inverse operator for the screened Poisson equation in Fourier space. The Quantum Fourier Transform (QFT) maps the state to the momentum basis, where the differential operator becomes diagonal, this corresponds to the U operation in the main text . In this basis, inversion reduces to evaluating the scalar function q(k) = 1/(k2 +C), (16). This value is computed by quantum arithmetic and then encoded into an auxiliary qubit amplitude through a controlled rotation, (17), producing the state q(k) |0⟩+ p",
+      "page": 4
+    },
+    {
+      "image": "2609.10282_figures/2609.10282_fig2.jpg",
+      "caption": "FIG. 2. Illustration of the (a) real and (b) imaginary parts of Eq. (20), corresponding to the principal-value and delta- function contributions, respectively. The computation is per- formed on a discretized 64 × 64 grid over a square domain of side length L = 16λ, where λ denotes the wavelength. As seen, both terms are concentrated around the dispersion sur- face k2 = ω2/c2 = 2π/λ. Here, ϵ = 3∆kω/c",
+      "page": 5
+    },
+    {
+      "image": "2609.10282_figures/2609.10282_fig3.jpg",
+      "caption": "FIG. 3. Quantum circuit for the geometric quantum state preparation algorithm. The momentum registers are first initialized in the resonant state by the state-preparation procedure described in Appendix A. The source-dependent phase encoding, highlighted by the dashed box, is then implemented by controlled phase gates that apply the phases ei(kxxj+kyyj). Finally, after unpreparing the source register and post-selecting it onto |0⟩⊗m, inverse quantum Fourier transform (iQFT) is applied to the momentum registers, yielding the solution state |u(x, y)⟩.",
+      "page": 6
+    },
+    {
+      "image": "2609.10282_figures/2609.10282_fig4.jpg",
+      "caption": "FIG. 4. Accuracy of the resonant-ring approximation. (a) Total overlap error, 1 −|⟨uC|uQ⟩|, between the normalized classical solution |uC⟩and the state |uQ⟩obtained from the resonant-ring approximation, as a function of the ring width, computed on a 64 × 64 spatial grid. The highlighted point corresponds to the simulation of Fig. 6. (b) Error in the real and imaginary parts of the solution, corresponding to the real (principal-value) and imaginary (delta-function) parts of q(k), respectively.",
+      "page": 7
+    },
+    {
+      "image": "2609.10282_figures/2609.10282_fig5.jpg",
+      "caption": "FIG. 5. Minimum resonant-ring width required to achieve target approximation errors of 0.05 and 0.01 as a function of the computational domain size. The slight increase for the smallest domains is due to the coarse Fourier discretization. At higher resolution, the required ring width approaches a constant value, indicating independence from the domain size.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.10282_figures/2609.10282_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

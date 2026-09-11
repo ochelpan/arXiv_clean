@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.09977",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "From Block-encoding to Generalized Quantum Signal Processing: Principles, Algorithms and Applications",
+  "authors": "Tal Gurfinkel, Kaushika De Silva, Anuradha Mahasinghe, Jens Renders, Jack Blyth, James Greenwell, Archie Butterworth, Yusen Wu, Lyle Noakes, Miloud Bessafi, Frederic Cadet, Jingbo Wang",
+  "abstract": "Modern quantum algorithms are increasingly formulated as coherent procedures for implementing polynomial transformations of operators and singular values. This perspective provides a powerful and unifying language for quantum algorithm design, connecting a wide range of distinct problems through five closely related key tools: block-encoding, qubitization, QSP, QSVT and GQSP. Block-encoding embeds non-unitary matrices into larger unitaries; qubitization converts block-encodings into structured operators; QSP, QSVT and GQSP enable polynomial transformations with near-optimal query complexity. Together, these techniques form a general toolkit for transforming matrix functions into implementable quantum circuits. This paper develops these techniques from first principles as a unified framework for constructing quantum algorithms. We apply this framework to representative applications to highlight design principles and demonstrate how distinct algorithms can be constructed from a unified sequence of operator transformations.   A central contribution is a systematic decision workflow for selecting the appropriate approach according to the operator structure and the desired transformation polynomial. This perspective clarifies when direct GQSP or through qubitization, or Laurent expansion, or QSVT is most appropriate. We organize algorithmic design into an end-to-end pipeline: identifying the target matrix function, constructing an appropriate block-encoding, determining the relevant spectral domain, designing a polynomial or Laurent-polynomial approximation, synthesizing the phase factors, and translating the transformation into an executable quantum circuit. By applying this unified framework to example applications, we showcase a practical methodology for reasoning, designing, and implementing quantum algorithms based on polynomial transformations.",
+  "url": "http://arxiv.org/abs/2609.09977v1",
+  "pdf": "https://arxiv.org/pdf/2609.09977v1",
+  "type": "theory",
+  "summary": "This paper unifies the design of quantum algorithms for computing functions of matrices by introducing a comprehensive toolkit comprising block-encoding, Qubitization, QSP, QSVT, and GQSP. It provides a systematic workflow for choosing the right technique based on the operator structure. This framework is vital for advancing quantum linear algebra and designing practical quantum simulations.",
+  "main_problem": "The core challenge is implementing non-unitary matrix functions (like inverses or matrix exponentials) using quantum circuits, which are fundamentally unitary.",
+  "main_result": "The paper establishes a unified, systematic framework using block-encoding, qubitization, QSP, QSVT, and GQSP to construct quantum algorithms for matrix function evaluation with near-optimal query complexity.",
+  "method": "The authors develop an end-to-end pipeline: identifying the target function, constructing a block-encoding, selecting the spectral domain, approximating the function with a polynomial, and synthesizing the final quantum circuit.",
+  "model_or_system": "The focus is on abstract quantum operators and matrices, treating the problem as a general quantum linear algebra task rather than a specific physical Hamiltonian simulation.",
+  "key_observables": "Spectral information, eigenvalues, singular values, and the required polynomial or rational function $f(A)$.",
+  "important_parameters": "Query complexity, normalization factor ($\\alpha$) in block-encoding, and the structure of the target matrix function.",
+  "main_assumptions": "The primary assumption is that the required matrix function can be accurately approximated by a polynomial or Laurent polynomial, and that the necessary block-encoding can be constructed efficiently.",
+  "figures_summary": "Figures compare polynomial approximations (Chebyshev vs. power-basis) to exact functions and compare quantum simulation results against classical solvers like Crank–Nicolson.",
+  "paper_structure": "The paper builds from first principles, introducing the key tools (block-encoding, Qubitization, QSP, QSVT, GQSP) and culminates in a systematic decision workflow (flowchart) for applying these techniques to various matrix function problems.",
+  "why_interesting": "This work provides a powerful, general algorithmic toolkit for quantum computation, directly impacting how one designs algorithms for simulating quantum dynamics or solving linear systems, which is crucial for AMO and open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.09977_figures/2609.09977_fig1.jpg",
+      "caption": "Figure 1: Sparse-access block-encoding circuit for an s-sparse matrix, where m = ⌈log2 s⌉. The upper two registers form the signal register, and compression onto |0⟩|0m⟩yields the unnormalized post- selected branch corresponding to A |ψ⟩, with normalization factor 2m.",
+      "page": 7
+    },
+    {
+      "image": "2609.09977_figures/2609.09977_fig2.jpg",
+      "caption": "Figure 7: Degree-d QSP circuit in the W(x) convention. The circuit contains d applications of the signal unitary W(x) interleaved with d+1 phase rotations, and the |0⟩-signal amplitude of the output is P(x).",
+      "page": 15
+    },
+    {
+      "image": "2609.09977_figures/2609.09977_fig3.jpg",
+      "caption": "Figure 8: Ancilla-mediated phase-kickback implementation of the QET sequence UeΦ(WH) from The- orem 2.15 [3]. The implemented angles satisfy bϕk = eϕk + π/2 for 0 ≤k < d and bϕd = eϕd. Each non- terminal phase operation followed by UH realizes i eieϕkRWH. Hence, the complete circuit implements idUeΦ(WH), differing from the desired sequence only by the known global phase id. The open controls jointly condition on the block-encoding ancillae being in |0a⟩and represent signal-controlled NOT C(q) Π defined in Eq. (59), where Π = |0a⟩⟨0a|⊗I. Each pair of C(q) Π , combined with e−iϕjZ, implements the projected phase eiϕj(2Π−I), while returning the kickback qubit q coherently to |0⟩....",
+      "page": 16
+    },
+    {
+      "image": "2609.09977_figures/2609.09977_fig4.jpg",
+      "caption": "Figure 9: Explicit phase-kickback implementation of the odd- and even-degree QSVT sequences [1]. Each pair of open-controlled NOT gates is conditioned on the block-encoding ancillae being in |0⟩⊗a. Together with e−iϕjZ, the pair implements the projected phase eiϕj(2Π−I), where Π = |0a⟩⟨0a| ⊗I, while returning the kickback qubit q coherently to |0⟩. The gates U and U† act jointly on the block- encoding ancillae and the system register. Post-selecting the block-encoding ancillae on |0a⟩outputs P(H/α)|ψ⟩ ∥P(H/α)|ψ⟩∥with probability psucc = ∥P(H/α) |ψ⟩∥2 on the system register.",
+      "page": 19
+    },
+    {
+      "image": "2609.09977_figures/2609.09977_fig5.jpg",
+      "caption": "Figure 10: GQSP circuit with a zero-controlled signal unitary U [5]. The upper qubit is the signal ancilla, and each open control applies U when this ancilla is in |0⟩. Post-selection on |0⟩a outputs P(U)|ψ⟩ ∥P(U)|ψ⟩∥with psucc = ∥P(U) |ψ⟩∥2 on the system register.",
+      "page": 21
+    }
+  ],
+  "figure": "2609.09977_figures/2609.09977_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,83 @@
+{
+  "arxiv_id": "2609.10411",
+  "category": "other",
+  "arxiv_categories": [
+    "cond-mat.mes-hall",
+    "cond-mat.mtrl-sci"
+  ],
+  "is_primary_archive": false,
+  "title": "WannierNLQG: A Julia package for nonlinear optical responses and quantum geometry from Wannier tight-binding models",
+  "authors": "Zhuocheng Lu, Zhichao Guo, Yuanyuan Xua, Jiacheng Yao, Hua Wang",
+  "abstract": "Nonlinear optical responses and quantum geometry are central to modern condensed matter physics and are deeply intertwined. We introduce WannierNLQG, an extensible Julia framework for computing nonlinear optical responses and quantum geometric quantities from Wannier tight-binding models. Its gauge-consistent, degeneracy-aware architecture accommodates perturbative responses at arbitrary order and additional quantum geometric quantities. The current release evaluates ordinary, spin, and photon-drag injection and shift currents, as Brillouin-zone integrals and on k slices. For shift current, a unified interface exposes four complementary formulations: the conventional method, projector trace, generalized Wilson loop, and a finite-momentum geometric loop, with the last three explicitly accommodating degenerate subspaces. The framework also provides k-resolved Berry curvature, quantum metric, their multipoles, and additional quantum geometric and mixed momentum-spin quantities. Experimental symmetry workflows additionally support symmetry-adapted Wannier construction, symmetrization of tight-binding models and real-space operators, and reduction of spatially uniform response integrals to irreducible k-point orbits and invariant tensor components. The documentation covers formula conventions, the TaskConfig interface, and auditable output formats, with GeS and bilayer MoS2 case studies illustrating method comparison, degeneracy handling, quantum geometric analysis, and photon-drag responses. Together, these capabilities enable first-principles calculations of nonlinear response and quantum geometry in realistic multiband materials, connecting quantum geometry with quantitative materials modeling for optoelectronic, spintronic, and photovoltaic applications.",
+  "url": "http://arxiv.org/abs/2609.10411v1",
+  "pdf": "https://arxiv.org/pdf/2609.10411v1",
+  "type": "theory",
+  "summary": "This paper presents WannierNLQG, a new Julia package designed to compute nonlinear optical responses and quantum geometric quantities from Wannier tight-binding models. It provides a unified, gauge-consistent framework that handles complex issues like degeneracy and finite momentum transfer. This tool enables first-principles calculations crucial for designing next-generation optoelectronic and spintronic materials.",
+  "main_problem": "The central problem is the theoretical and computational challenge of understanding the deep interplay between nonlinear optical responses and quantum geometry in modern condensed matter systems.",
+  "main_result": "The authors introduce WannierNLQG, a Julia framework capable of calculating these quantities from Wannier tight-binding models with high accuracy and efficiency.",
+  "method": "The framework uses Wannier interpolation from first-principles structures, implementing gauge-consistent and degeneracy-aware methods for calculating various currents and geometric tensors.",
+  "model_or_system": "The calculations are performed on electronic systems modeled by Wannier tight-binding Hamiltonians, applicable to materials like GeS and bilayer MoS2.",
+  "key_observables": "Ordinary, spin, and photon-drag injection and shift currents; k-resolved Berry curvature, quantum metric, and higher-order quantum geometric tensors.",
+  "important_parameters": "Finite momentum transfer (q), arbitrary perturbative order, and symmetry-adapted k-point meshes.",
+  "main_assumptions": "The framework assumes the applicability of Wannier interpolation and aims to overcome limitations in handling gauge-invariance and degenerate subspaces inherent in older methods.",
+  "figures_summary": "Figure 1 illustrates the computational workflow, showing the progression from model preparation through response setup to final Brillouin-Zone calculations, including symmetry reduction.",
+  "paper_structure": "The paper introduces the WannierNLQG framework, details its capabilities for calculating nonlinear responses (shift/injection currents) and quantum geometry (Berry curvature, metric), and validates its performance through case studies comparing it to existing methods.",
+  "why_interesting": "The focus on nonlinear optical responses and quantum geometry connects directly to advanced topics in quantum optics and open quantum systems, particularly in understanding light-matter interactions in solid-state materials.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.10411_figures/2609.10411_fig1.jpg",
+      "caption": "Figure 1: Symmetry-aware computational workflow of WannierNLQG. Model Preparation produces a Wannier model and operator bundle through either representation-constrained SAWF construction from first-principles inputs or post-hoc symmetrization of an existing WIN and tight-binding model with optional operators. In Response Setup, TaskConfig selects the response formulation and the required optical vertices, projectors, or loop quantities. The Brillouin-zone stage uses the full k mesh by default. When a matching symmetry artifact is supplied, supported q = 0 Integral tasks may instead use the symmetry-reduced k mesh, implemented using representatives of irreducible k-point orbits, orbit...",
+      "page": 4
+    },
+    {
+      "image": "2609.10411_figures/2609.10411_fig2.jpg",
+      "caption": "Figure 2: GeS electronic structure, shift current comparison, and Wilson loop k-space quantities, arranged as (a, c, e) in the upper row and (b, d, f) in the lower row. (a) POSCAR-derived lattice schematic. (b) DFT and Wannier-TB band structures along Γ–X–S–Y–Γ, referenced to the valence-band maximum. (c) Integrated Re σyyy spectra from the conventional, projector, and Wilson loop formulations, denoted by σC, σP, and σW, respectively. The spectra are calculated under matched numerical settings using Wannier-center Convention II, on a 200 × 200 × 1 mesh and a 200-point 0–4 eV frequency grid, and are displayed as effective-bulk conductivities in µA V−2 using the thickness factor Lz/deff =...",
+      "page": 13
+    },
+    {
+      "image": "2609.10411_figures/2609.10411_fig3.jpg",
+      "caption": "Figure 3: GeS k-slice maps recomputed from one symmetrized SAWF-gauge model using direct Fourier interpolation on a 400×400×1 mesh, with EF = −2.5 eV, Wannier-center Convention II, and q = 0. The same model bundle supplies the Hamiltonian, position, spin, and derivative operators in a common gauge. The centered fractional coordinates satisfy k = k1b1 + k2b2, with k1, k2 ∈[−0.5, 0.5], and the subspaces are V = [19, 20], C1 = [21, 22], and C2 = [23, 24]. The left column contains (a) gyy C1,V, (b) gyy V , and (c) ∂kygyy V . The middle column contains (d) Ωxy C1,V, (e) Ωxy V , and (f)",
+      "page": 14
+    },
+    {
+      "image": "2609.10411_figures/2609.10411_fig4.jpg",
+      "caption": "Figure 4: 2H-bilayer MoS2 photon drag responses. (a) VESTA-rendered lattice structure and (b) DFT/SAWF band comparison. Panels (b)–(h) use the same SAWF model, with panels (c)–(h) calculated from its complete 11-operator bundle. (c) Im σyyx PDSC and (d) Re σxxx PDIC spectra for representative qx values, both displayed as effective-bulk conductivities using Lz/deff with deff = 0.950047554 nm; the PDIC spectra additionally use τ = 10−13 s. (e) 400 × 400 × 1 reciprocal-space map of Im σyyx PDSC(k), projected with the MoS2 reciprocal lattice vectors, at qx = 0.01 ˚A−1 and ℏω = 2.84 eV. (f) 400×400×1 reciprocal-space map of Re σxxx PDIC(k), projected with the same reciprocal basis, at qx = 0.01...",
+      "page": 16
+    },
+    {
+      "image": "2609.10411_figures/2609.10411_fig5.jpg",
+      "caption": "Figure 5: Warm complete-task timing comparison for the full conventional shift current tensor of (a) and (d) GeS, (b) and (e) Nb3I8, and (c) and (f) GaAs. Panels (a)–(c) show the median wall time from 16 samples, with min–max ranges, for WannierBerri 26.7.0 using Ray workers and the frozen WannierNLQG snapshot using MPI ranks. The time axes use logarithmic spacing and are labeled in seconds. Panels (d)–(f) show the median paired block ratio TWB/TWNLQG, with order-stratified bootstrap 90% confidence intervals. Nunit denotes the number of Ray workers or MPI ranks. No samples or ratios are pooled across materials.",
+      "page": 17
+    }
+  ],
+  "figure": "2609.10411_figures/2609.10411_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {
+    "Spintronics": {
+      "score": 4,
+      "note": "The calculation of spin currents (ordinary, spin, and photon-drag injection and shift currents) using Wannier models provides a direct, first-principles computational framework for spintronic transport phenomena.",
+      "grading_reason": ""
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.10190",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "pyeCE: A Python Implementation of the Embedded Cluster Expansion",
+  "authors": "Yann L. Müller, Claire A. Paetsch, Anirudh Raju Natarajan",
+  "abstract": "The cluster expansion is a widely used approach for predicting the finite-temperature thermodynamics of alloys from zero-kelvin first-principles calculations, but its conventional formulation becomes intractable for materials with more than three or four chemical species. High-entropy alloys have therefore remained largely out of reach. We present pyeCE, an open-source Python library that implements the embedded cluster expansion (eCE), in which machine learning maps many chemical species onto a smaller set of effective species and thereby limits the growth in the number of cluster functions. pyeCE provides the complete modeling workflow, including the construction of symmetry-adapted descriptors with a learnable per-sublattice chemical embedding, a neural-network energy model, ladder-based training, uncertainty quantification, and finite-temperature simulations through Monte Carlo sampling. Built on the PyTorch and pymatgen libraries, it supports systems with multiple species on multiple sublattices and runs on graphics processing units. We demonstrate the package on two material systems. In the first, a single model spanning the full composition space of a 9-component refractory alloy resolves short-range order and order--disorder behavior. This model enables rapid screening for compositions with strong Cr clustering, a feature linked to the formation of a continuous, corrosion-resistant oxide scale. In the second, a model of hydrogen dissolution in a Mo--Nb--W alloy reproduces the composition dependence of hydrogen uptake and resolves the interstitial environments that hydrogen occupies. The modular design of pyeCE allows it to be extended to problems beyond alloy thermodynamics, including kinetics, defect energetics, and the coupling of chemical order to magnetic and vibrational degrees of freedom.",
+  "url": "http://arxiv.org/abs/2609.10190v1",
+  "pdf": "https://arxiv.org/pdf/2609.10190v1",
+  "type": "theory",
+  "summary": "This paper presents pyeCE, an open-source Python library implementing the embedded Cluster Expansion (eCE) method to overcome the computational intractability of modeling high-entropy alloys. By using machine learning embeddings, it efficiently predicts finite-temperature thermodynamic properties, demonstrating its success in modeling both chemical clustering and hydrogen solubility in complex metal alloys.",
+  "main_problem": "Predicting the finite-temperature thermodynamics of complex alloys, especially high-entropy alloys, which are intractable using conventional cluster expansion methods.",
+  "main_result": "The authors introduce pyeCE, a library that successfully models the short-range order and composition dependence of hydrogen solubility in complex refractory alloys.",
+  "method": "The paper implements the embedded cluster expansion (eCE) formalism, which uses machine learning to map many chemical species onto a smaller set of effective species, allowing for the calculation of thermodynamic properties via Monte Carlo sampling.",
+  "model_or_system": "The model is applied to multicomponent alloys (e.g., 9-component refractory alloys, Mo–Nb–W systems) where the total energy is modeled by a neural network fed by symmetry-adapted descriptors derived from an embedded chemical basis.",
+  "key_observables": "Short-range order, hydrogen uptake ($\\langle H/M \rangle$), and the composition dependence of these properties.",
+  "important_parameters": "Temperature (T), chemical potential ($\\mu_H$), and the dimensionality reduction parameter ($k$) in the embedding.",
+  "main_assumptions": "The total property is assumed to be a sum of site contributions ($\\sum \\xi_i$), and the metal sublattice is fixed based on a high-temperature snapshot during hydrogen dissolution simulations.",
+  "figures_summary": "Figures illustrate the general workflow of pyeCE (Embedding $\rightarrow$ Descriptors $\rightarrow$ NN $\rightarrow$ MC Simulation), and specific results show hydrogen solubility dependence on alloy chemistry and coordination preferences.",
+  "paper_structure": "The paper introduces the limitations of conventional CE, details the eCE formalism (embedding, descriptor construction, NN input), describes the modular pyeCE implementation, and validates the method on two distinct material systems (refractory alloys and H-dissolution).",
+  "why_interesting": "While focused on condensed matter thermodynamics, the use of ML to manage high-dimensional chemical space and predict complex phase behavior is relevant to understanding many-body interactions in quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.10190_figures/2609.10190_fig1.jpg",
+      "caption": "FIG. 2. Schematic of the embedded cluster expansion formalism. Given the neighborhood configuration ⃗σi of site i, the site-basis functions φ are projected onto the embedded site-basis functions ˜φ through the learned transformation T . Symmetry-invariant site descriptors ⃗Θ are then computed as in a conventional cluster expan- sion. These descriptors serve as input to a feedforward neural net- work that evaluates the site property xi. The dependence of these quantities on the configuration is suppressed for clarity.",
+      "page": 3
+    },
+    {
+      "image": "2609.10190_figures/2609.10190_fig2.jpg",
+      "caption": "FIG. 1. General workflow of pyeCE. (1) The eCE model is con- structed from the site-basis embedding, the site descriptors, and the site energy model. (2) A training set of symmetrically distinct or- derings is enumerated, evaluated with first-principles calculations, and mapped onto the parent lattice. (3) The model is trained using PyTorch by simultaneously optimizing the transformation matrix T and the site energy model. (4) Finite-temperature properties are predicted by Monte Carlo simulations.",
+      "page": 3
+    },
+    {
+      "image": "2609.10190_figures/2609.10190_fig3.jpg",
+      "caption": "FIG. 3. Illustration of the embedded site-basis functions that map c = 4 species onto k = 3. The four chemical species are represented by four colors (yellow, blue, red, and green). Each species maps to one of four linearly dependent vectors (1, ˜φ1, ˜φ2)T in R3.",
+      "page": 4
+    },
+    {
+      "image": "2609.10190_figures/2609.10190_fig4.jpg",
+      "caption": "FIG. 4. Illustration of the construction of the input matrix η. The example configuration contains 4 atomic sites (1, 2, 3, and 4). The neighborhood of each site consists of the site itself (A) and its 4 near- est neighbors (B, C, D, and E). Element ηij of the input matrix holds the chemical species at neighborhood position j of the ith atomic site.",
+      "page": 4
+    },
+    {
+      "image": "2609.10190_figures/2609.10190_fig5.jpg",
+      "caption": "FIG. 6. Illustration of a site property feedforward neural network. The input layer corresponds to the site descriptors ⃗Θ. The neural network is composed of 2 hidden layers. The final hidden layer pro- duces the latent features ⃗f. The final neuron outputs the site prop- erty xi. The weights w = {w1, w2, w3} and biases in each layer are the trainable parameters.",
+      "page": 5
+    }
+  ],
+  "figure": "2609.10190_figures/2609.10190_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}
