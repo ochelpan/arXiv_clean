@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.11898",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Taking Advantage of Noise in Distributed Random Quantum Circuits",
+  "authors": "J. Montes, F. Borondo, Gabriel G. Carlo",
+  "abstract": "Adding noise can make a random quantum circuit look faster without making its unitary dynamics more random. This distinction is especially relevant in modular processors, where local gates randomize each core and scarce inter-core communication must spread that randomness across the full device. In this paper, we study this problem with a reduced second-moment transfer-matrix theory for Pauli second moments in distributed random circuits affected by the amplitude-damping, depolarizing, and dephasing noise channels. The key step is to resolve the noisy spectrum into two branches: a radial branch, describing dissipative loss of non-identity Pauli weight, and an angular branch, describing Haar-like mixing within the surviving nontrivial sector. This separation gives a simple weak-noise criterion: noise is useful for angular randomization only when it suppresses the longitudinal Bloch component more strongly than the transverse plane. Among the three channels considered, this selects amplitude damping as the only locally favorable case, while depolarizing noise is neutral and dephasing is dominated by radial loss. For multicore architectures, we derive a universal first-order law for radial leakage and track the angular branch numerically across different channels, topologies, and core partitions. The results reveal narrow windows of genuine noise-assisted Haar mixing, most clearly for amplitude damping, but rule out a generic speed-up by noise. The framework therefore distinguishes useful noisy randomization from mere dissipation.",
+  "url": "http://arxiv.org/abs/2609.11898v1",
+  "pdf": "https://arxiv.org/pdf/2609.11898v1",
+  "type": "theory",
+  "summary": "This paper develops a theoretical framework to determine if noise can enhance quantum computation in distributed circuits. By analyzing the second-moment dynamics, the authors separate the noise effects into dissipative (radial) and mixing (angular) components. They conclude that only amplitude damping provides a genuine, measurable advantage for mixing, while other noise types are dominated by simple information loss.",
+  "main_problem": "The paper investigates the fundamental question of whether adding noise to a random quantum circuit provides genuine computational advantage (useful randomization) or merely causes information loss (dissipation).",
+  "main_result": "The analysis shows that useful noise-assisted randomization is highly conditional, identifying amplitude damping (AD) as the only locally favorable noise channel for angular mixing, while distinguishing this genuine effect from simple dissipation.",
+  "method": "The authors employ a reduced second-moment transfer-matrix theory, separating the noisy dynamics into a dissipative radial branch and a mixing angular branch to analyze the decay rates.",
+  "model_or_system": "The study models distributed random quantum circuits, relevant for modular quantum processors, subjected to local noise channels: amplitude damping (AD), depolarizing (DEP), and dephasing (DPH).",
+  "key_observables": "Second moments of Pauli operators, the radial leakage coefficient, and the ratio ($\rho$) comparing radial decay to angular mixing rates.",
+  "important_parameters": "Weak-noise regime, noise strength ($\\gamma$), and the specific noise channel (AD, DEP, DPH).",
+  "main_assumptions": "The analysis assumes vanishing cross-correlations and transverse symmetry for the local mixing blocks, and it relies on separating the noisy spectrum into distinct radial and angular modes.",
+  "figures_summary": "Figures illustrate the comparison of raw vs. normalized angular gaps ($\\Delta_A$ vs. $\rho$) across different noise types, showing that the radial-normalized improvement ($\\Delta^*_A|R$) is the key diagnostic for genuine noise assistance.",
+  "paper_structure": "The paper develops the theoretical framework by analyzing the second-moment evolution, derives a weak-noise criterion based on noise channel properties, and then applies this to multicore architectures to distinguish useful randomization from dissipation.",
+  "why_interesting": "It provides a rigorous, quantitative framework for diagnosing the utility of noise in quantum hardware, which is crucial for designing fault-tolerant or noise-resilient quantum computation protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.11898_figures/2609.11898_fig1.jpg",
+      "caption": "Figure 1. Validation of the analytical predictions in the weak-noise regime. The left column tests the universal radial law, Eq. (51), by comparing the numerical coefficient ∆R/γ with the analytical prediction aR at γ = 10−4 for the available topology, partition, c, and k grid. The right column tests the branch-resolved angular susceptibility by comparing bnum A = [∆A(10−4) −∆A(0)]/10−4 with the perturbative prediction bpert A obtained from the full derivative M ′ ch(0) on a sample of 324 points. Panels (a,c,e) correspond to the radial test for AD, DEP, and DPH, respectively; panels (b,d,f) show the corresponding angular-susceptibility test. Dashed lines denote perfect agreement.",
+      "page": 7
+    },
+    {
+      "image": "2609.11898_figures/2609.11898_fig2.jpg",
+      "caption": "Figure 2. Representative angular gap curves as a function of the number of intra-core iterations for a linear 2 × 3 architecture. For each k the gap is optimized over the grid of c. The upper row shows the branch-resolved angular gap ∆A for the three channels. The lower row shows the dissipative ratio ρ = ∆R/∆A for the same configurations. Horizontal lines mark ρ = 0.1 and ρ = 0.3.",
+      "page": 8
+    },
+    {
+      "image": "2609.11898_figures/2609.11898_fig3.jpg",
+      "caption": "Figure 4 shows that noise also renormalizes the opti- mal architecture parameters. As γ increases to 0.020, the conditional optimum k∗(c) generally shifts toward more intra-core iterations. The shift is topology and partition dependent. For AD, the linear/star 3×2 architectures in- crease the average ⟨k∗⟩c by approximately 1.36, whereas the 2 × 2 architectures change by only about 0.27. In terms of Eq. (2), this corresponds to a reduction of the average communication ratio: as radial cost grows, the",
+      "page": 8
+    },
+    {
+      "image": "2609.11898_figures/2609.11898_fig4.jpg",
+      "caption": "Figure 3. Statistical summary over the 36 refined tensors. (a) Median and interquartile range of the optimized angular improvement ∆∗ A(γ)/∆∗ A(0). (b) Median dissipative ratio ρ∗at the angular optimum. (c) Radial-normalized angular gap ∆∗ A|R(γ)/∆∗ A|R(0). (d) Fraction of (c, k) grid points with positive radial-normalized improvement. The superscript ∗denotes optimization over the scanned (c, k) grid, except for ρ∗, which is evaluated at the angular-gap optimum.",
+      "page": 9
+    },
+    {
+      "image": "2609.11898_figures/2609.11898_fig5.jpg",
+      "caption": "Figure 4. Change in the optimal configuration between γ = 0 and γ = 0.020. For each architecture and channel, the local depth k is optimized for each value of c and then averaged over c. (a) Shift of the mean optimal number of intra-core iterations. (b) Change in the inter-core communication ratio r = EG/(Ck). (c) Dissipative ratio at the global angular optimum for γ = 0.020.",
+      "page": 10
+    }
+  ],
+  "figure": "2609.11898_figures/2609.11898_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

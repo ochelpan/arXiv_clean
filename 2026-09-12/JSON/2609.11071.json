@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.11071",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Coherent Floquet quantum reservoirs for molecular property prediction",
+  "authors": "Luofei Wang, Da Zhang, Congren Wang, Yiming Li, Yuxiao Yang, Xuan Zhang, Xuefeng Cui, Zhang-Qi Yin",
+  "abstract": "Quantum reservoir computing (QRC) uses quantum dynamics to represent input histories for prediction through a trained classical readout. Discrete time crystals (DTCs) exhibit robust subharmonic responses under periodic driving, and previous work has used their dynamics to construct DTC-QRC. Here we construct a DTC-based reservoir architecture to predict molecular properties from structural and dynamical observations. Coherent Floquet evolution processes local molecular graph events and surface-hopping frames, while controlled reset regulates the contribution of earlier inputs. Measurements at the end of each input sequence yield a feature vector of fixed dimension. Trained classical decoders use this vector for inhibitor-activity and blood--brain-barrier permeability classification and electronic-gap forecasting, while the reservoir parameters remain fixed during training. With matched input lengths and output widths, DTC-QRC outperforms echo-state networks on long-prefix graph classification and the studied ethene gap forecasting tasks. Dephasing lowers performance in both applications, consistent with a role for coherent propagation. Experiments on the Quafu superconducting quantum cloud platform show that pair observables retain task information under device noise. The architecture provides a common framework for molecular screening and time-resolved property prediction using quantum reservoir computing.",
+  "url": "http://arxiv.org/abs/2609.11071v1",
+  "pdf": "https://arxiv.org/pdf/2609.11071v1",
+  "type": "both",
+  "summary": "This paper introduces a novel Quantum Reservoir Computing (DTC-QRC) architecture for predicting molecular properties from structural and dynamical data. It uses coherent Floquet evolution on quantum circuits to process sequential molecular information, outperforming classical benchmarks like ESNs. The framework establishes a unified platform for quantum-enhanced molecular screening.",
+  "main_problem": "The paper aims to predict complex molecular properties, such as inhibitor-activity or electronic gaps, using quantum machine learning techniques.",
+  "main_result": "The proposed DTC-QRC architecture outperforms traditional Echo State Networks (ESN) on challenging graph classification and molecular forecasting tasks.",
+  "method": "It employs a Discrete Time Crystal (DTC)-based Quantum Reservoir Computing (DTC-QRC) framework, using Floquet evolution to process sequential structural or dynamical molecular data.",
+  "model_or_system": "The model uses a DTC-QRC architecture where the quantum state evolves via Floquet cycles governed by local Hamiltonians. Inputs can be structural (SMILES via BFS) or dynamical (surface-hopping trajectories), and the process includes a controlled reset mechanism.",
+  "key_observables": "Feature vectors derived from end-point measurements (e.g., $Z+ZZ$ observables) are used as inputs for classical decoders to predict properties.",
+  "important_parameters": "Key parameters include the number of qubits ($Q=12$ or $Q=15$), the reset probability ($p$), and the Floquet cycle length ($L$).",
+  "main_assumptions": "The reservoir parameters are fixed during the training of the classical readout decoder, and the process assumes that the history can be compressed into a fixed-dimension feature vector.",
+  "figures_summary": "Figure 1 illustrates the two main interfaces: graph event processing via BFS and dynamical trajectory processing, both involving Floquet evolution and state sampling.",
+  "paper_structure": "The paper introduces the DTC-QRC framework, details its application to molecular property prediction using both graph and time-resolved data, compares its performance against ESNs, and validates its robustness on superconducting quantum hardware.",
+  "why_interesting": "This work directly bridges quantum dynamics (Floquet evolution, DTCs) with machine learning for chemistry, providing a quantum-enhanced framework for molecular property prediction, which is highly relevant to AMO physics applications.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.11071_figures/2609.11071_fig1.jpg",
+      "caption": "FIG. 1. Molecular graph classification and electronic-gap forecasting with a fixed DTC-QRC. (a) BFS graph events describe local atoms, bonds, rings, and traversal depth for BACE inhibitor-activity and BBBP permeability classification (Q = 12). Ethene surface-hopping frames supply interatomic distances and radial velocities for future-gap prediction (Q = 15). (b) One input rotation precedes three Floquet cycles, each ordered as UX(g) followed by UJ,h(W). The global channel Rp(ρ) = (1 −p)ρ + p|0Q⟩⟨0Q| resets all qubits together with probability p. Graph processing includes reset after the last token (t ≤T); trajectory processing resets only between frames (t < T). (c) Final-state sampling...",
+      "page": 3
+    },
+    {
+      "image": "2609.11071_figures/2609.11071_fig2.jpg",
+      "caption": "FIG. 2. Same-T graph-stream application test. (a) BACE and (b) BBBP at Q = 12 under the local chemical-prior to- ken protocol and RBF-SVR decoding. Lines and bands show six paired-seed means and sample standard deviations. The orange background marks the long-prefix region T > 20.",
+      "page": 5
+    },
+    {
+      "image": "2609.11071_figures/2609.11071_fig3.jpg",
+      "caption": "FIG. 3. Validation-selected SHNITSEL A01 application test at the common Q = 15, T = 20 interface. Bars report test MAE for dissipative DTC-QRC, closed DTC-QRC, and the matched ESN using final-state Z + ZZ sampling and RBF- SVR. Error bars show six-seed sample standard deviations.",
+      "page": 6
+    },
+    {
+      "image": "2609.11071_figures/2609.11071_fig4.jpg",
+      "caption": "FIG. 4. Reset-probability response across both molecular interfaces. (a,d) BACE and BBBP test AUC at Q = 12 for four fixed event lengths on the original measured 0 ≤p ≤0.8 axis; lines and bands show six-seed means and sample standard deviations, and the vertical dashed line marks the prespecified graph value p = 0.10. (b,c) SHNITSEL A01 with RBF-SVR and final-state or TM3 sampling. (e,f) The same targets with linear decoding. Hopping curves use the uniform p = 0, 0.05, . . . , 1 scan and report held-out trajectory MAE at p minus paired closed-DTC-QRC MAE at p = 0; shading gives crossed seed-by-trajectory 95% intervals.",
+      "page": 7
+    },
+    {
+      "image": "2609.11071_figures/2609.11071_fig5.jpg",
+      "caption": "FIG. 5. Floquet-drive dependence of ethene gap prediction with RBF-SVR and final-state readout. (a)–(d) The 1-, 5-, and 10-fs gaps and the minimum gap in the next 5 fs. Each panel shows p = 0, 0.2, . . . , 1 at Q = 15, T = 20, L = 3, and W = 0.50. Lines and bands give means and sample standard deviations across six reservoir seeds on one fixed whole-trajectory split. The background labels mark literature reference regions: nontime-crystalline (NTC), thermal, and DTC, with divisions at g = 0.22 and 0.84 [25, 37].",
+      "page": 8
+    }
+  ],
+  "figure": "2609.11071_figures/2609.11071_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

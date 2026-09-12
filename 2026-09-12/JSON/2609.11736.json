@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2609.11736",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn",
+    "cs.LG",
+    "cs.SI"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning structural balance of graphs from quantum spectral features",
+  "authors": "Stefano Scali, Oleksandr Kyriienko",
+  "abstract": "We develop a quantum approach to spectral feature extraction from the density of states (DOS) of a problem-dependent Hamiltonian, and apply it to machine learning on signed graphs. We propose to embed a signed graph as an Ising model instance with positive and negative interactions, and use the standardized moments of the Ising DOS as features for learning. We show that these moments count signed closed walks, are switching-invariant, and are size-free by construction. As a benchmark, we target learning the frustration index, an NP-hard measure of structural balance that can be labeled exactly at moderate size. At zero field, the models can be sampled classically, allowing the quantum extraction procedure to be certified against exact ground truth. We propose DOS-QPE, a phase estimation on a purified maximally mixed probe, which samples the spectral density with orders of magnitude fewer shots than Hadamard test-based trace sampling and feeds the resulting features directly into classically trained models. On $1.4\\times10^5$ labeled graphs the exact DOS determines the frustration index, and five moments recover it with a mean error of 0.4, well below one sign flip. Beyond zero field, the underlying trace-estimation problem is DQC1-complete, providing access to spectral features for which no efficient classical sampling method is known. Our work opens routes towards quantum applications in social network balance analysis, spin-glass studies, correlation clustering, and protein-interaction networks.",
+  "url": "http://arxiv.org/abs/2609.11736v1",
+  "pdf": "https://arxiv.org/pdf/2609.11736v1",
+  "type": "theory",
+  "summary": "This work proposes using the spectral features, specifically the standardized moments of the Density of States (DOS), of an Ising Hamiltonian derived from a signed graph to solve the NP-hard problem of structural balance. By employing a quantum spectral estimation technique (DOS-QPE), the authors demonstrate that these spectral moments can accurately predict the graph's frustration index, opening avenues for quantum machine learning on complex networks.",
+  "main_problem": "The paper addresses the challenge of learning the structural balance (frustration index) of signed graphs, which is an NP-hard problem.",
+  "main_result": "The standardized moments derived from the Density of States (DOS) of the associated Ising Hamiltonian successfully recover the frustration index for large datasets, suggesting a quantum spectral feature approach for graph analysis.",
+  "method": "The authors map the signed graph problem onto an Ising model and use quantum spectral feature extraction (DOS moments) as machine learning inputs. They propose DOS-QPE for efficient quantum sampling.",
+  "model_or_system": "The system is a signed graph embedded as an Ising model instance, $H = \\sum J_{ij} Z_i Z_j$. The features are derived from the standardized moments of the Hamiltonian's Density of States (DOS).",
+  "key_observables": "Standardized moments of the DOS ($\\phi(G)$), the frustration index $L(G)$, and the ground-state energy $E_0$.",
+  "important_parameters": "Graph size ($n=12$ vertices benchmarked), the number of standardized moments used (five), and the field strength (zero field vs. general dynamics).",
+  "main_assumptions": "The core assumption is that the spectral statistics (DOS) contain sufficient, invariant information to determine the graph's structural balance, and that quantum methods are necessary for general dynamics.",
+  "figures_summary": "Figure 1 illustrates the entire pipeline: Signed Graph $\rightarrow$ Ising Hamiltonian $\rightarrow$ DOS Sampling (Quantum/Classical) $\rightarrow$ Five Moments $\\phi(G) \rightarrow$ Linear Model $\rightarrow$ Prediction of $L(G)$. Figure 2 shows how the DOS spectrum changes for graphs with different frustration levels.",
+  "paper_structure": "The paper introduces the problem (structural balance), develops the physical encoding (Ising Hamiltonian), proposes the quantum feature extraction method (DOS-QPE), validates it against the known ground truth (zero field), and discusses its applicability to hard problems (general dynamics).",
+  "why_interesting": "It bridges quantum many-body physics (Hamiltonian spectra) with complex combinatorial optimization problems (graph balance), suggesting spectral methods can extract hard-to-find structural invariants.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.11736_figures/2609.11736_fig1.jpg",
+      "caption": "Figure 1. The DOS feature pipeline for signed graphs. A signed graph G (positive edges solid, negative edges dashed) is encoded in its native Ising Hamiltonian, Eq. (6). The density of states of H is sampled by either arm of the pipeline: classically, by exact enumeration or Monte Carlo over uniform vertex 2-colorings (Proposition 1), or on quantum hardware, by trace sampling or by the DOS-QPE circuit of Fig. 5. Five spectral moments of the sampled density form the feature vector ϕ(G) of Eq. (3), which is switching-invariant and size-free by construction and feeds a classically trained model; we benchmark on the frustration index L(G), for which exact labels are available.",
+      "page": 2
+    },
+    {
+      "image": "2609.11736_figures/2609.11736_fig2.jpg",
+      "caption": "Figure 2. (a) Exact DOS of three signed graphs with n = 10 vertices and |E| = 39 edges, with frustration index L = 0, 5, 10. Frustration drives the spectrum toward symmetry: the skewness rises from γ3 = −1.90 to −0.64 to −0.15 and the kurtosis falls from γ4 = 8.42 to 4.16 to 2.74, moving towards the Gaussian value of 3. The lower edge sits at E0 = −39, −29, −19, which is 2L−|E| in each case, as Eq. (7) requires. (b) DOS skewness γ3 against the frustration index across the n = 10 ensemble (2 × 104 graphs; gray: individual graphs, markers: median and interquartile range). The trend reflects Eq. (11), while the spread shows why a single moment is insufficient, motivating the combined features...",
+      "page": 4
+    },
+    {
+      "image": "2609.11736_figures/2609.11736_fig3.jpg",
+      "caption": "Figure 3. Estimation quality against graph size for the feature sets of Sec. VI, on the deduplicated evaluation sets. Markers and error bars are the mean and standard deviation over five stratified 70/30 splits. (a) Multiclass accuracy of the multi- nomial logistic regression; the number of classes grows from 4 at n = 6 to 17 at n = 12. The dotted line is the exact-DOS ceiling: every group of graphs sharing a density of states also shares a single L, so a predictor with access to the full density would be exactly right, and the gap below it is the cost of com- pressing that density into five numbers. (b) Mean absolute error (MAE) of the rounded random-forest regression. Exact- class...",
+      "page": 5
+    },
+    {
+      "image": "2609.11736_figures/2609.11736_fig4.jpg",
+      "caption": "Figure 4. The Gahuku-Gama alliance network [11] visualized as a signed graph of n = 16 tribes with 29 positive (rova, solid) and 29 negative (hina, dashed) edges corresponding to alliances and antagonistic relations, respectively. Node color marks the two alliance blocs, and the frustration index is L(G) = 7.",
+      "page": 6
+    },
+    {
+      "image": "2609.11736_figures/2609.11736_fig5.jpg",
+      "caption": "Figure 5. The DOS-QPE circuit. The lower two registers hold |V| qubits each. A layer of Hadamards followed by a transversal cnot prepares one Bell pair per system qubit, so that discarding the purifying register, which takes no further gates and is never measured, leaves the system in ρ = 1/2|V|. Phase estimation then proceeds as usual: the M-qubit register controls the powers U 2k of U = e−iHτ with τ = 2π/(2|E|+2), and an inverse quantum Fourier transform is followed by mea- surement. Because the probe weighs every eigenstate equally, each outcome y is one flat-weight draw from the spectral den- sity, and the empirical moments of the sampled phases are the features of Eq. (3). The register...",
+      "page": 7
+    }
+  ],
+  "figure": "2609.11736_figures/2609.11736_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

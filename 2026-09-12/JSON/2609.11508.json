@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2609.11508",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Joint Mitigation of Algorithmic and Physical Errors in Noisy Hamiltonian Simulation",
+  "authors": "Shuo Zhou, Xinzhao Wang, Ruiqi Zhang, Xiaoyang Wang, Yi-Cong Zheng, Tongang Li, Shengyu Zhang",
+  "abstract": "Product-formula Hamiltonian simulation is naturally suited to near-term quantum processors, but its accuracy is set by two competing errors: finite-step Trotter bias and physical hardware noise. We introduce a joint extrapolation strategy that ties the tunable per-layer noise strength to the Trotter step size, $λ(s)=c(sT)^{p+1}$ for a $p$-th order product formula. Along this one-dimensional path, the leading physical-noise and Trotter corrections over the full evolution both enter at order $s^p$ and can be canceled by a single Richardson extrapolation. Building on a previously established finite-order Baker--Campbell--Hausdorff truncation bound, we derive a provably commutator-scaling resource guarantee for the joint extrapolation. For local Hamiltonians with local Lindbladian noise, the protocol mitigates physical noise together with Trotter error with only a constant asymptotic overhead relative to noiseless Trotter extrapolation, provided the required noise strengths lie above the intrinsic device-noise floor. We experimentally demonstrate the protocol for Ising dynamics on a superconducting quantum computer using learned noise amplification. Complementary 100-qubit Sparse Pauli Dynamics (SPD) simulations achieve comparable accuracy to two-dimensional Richardson extrapolation with fewer circuit settings.",
+  "url": "http://arxiv.org/abs/2609.11508v1",
+  "pdf": "https://arxiv.org/pdf/2609.11508v1",
+  "type": "both",
+  "summary": "This paper introduces a joint extrapolation strategy to overcome the limitations of noisy Hamiltonian simulation by simultaneously mitigating Trotterization error and physical hardware noise. By coupling the noise strength to the Trotter step size along a specific path, the authors enable error cancellation using a single Richardson extrapolation. This method achieves high accuracy with minimal overhead, validated on superconducting hardware and large-scale simulations.",
+  "main_problem": "The paper addresses the challenge of accurately simulating quantum dynamics using product-formula Hamiltonian simulation on near-term quantum hardware, where two competing errors—Trotterization bias and physical hardware noise—limit accuracy.",
+  "main_result": "The authors propose a novel one-dimensional joint extrapolation strategy that couples the noise strength to the Trotter step size, allowing both leading error terms to be canceled simultaneously with a single Richardson extrapolation.",
+  "method": "The core method involves defining a calibrated path $\\lambda(s) = c(sT)^{p+1}$ and applying Richardson extrapolation along this path to estimate the true zero-noise, zero-step-size limit.",
+  "model_or_system": "The simulation focuses on Hamiltonian dynamics, specifically using the transverse-field Ising Hamiltonian, implemented on superconducting quantum computers and simulated for 100-qubit Sparse Pauli Dynamics (SPD). Noise is modeled by local Lindbladian noise.",
+  "key_observables": "Average longitudinal magnetization ($\\langle M_Z \rangle$) and the extrapolated value at the joint zero-noise, zero-step-size limit.",
+  "important_parameters": "Trotter step size ($s$), total evolution time ($T$), tunable noise strength ($\\lambda$), and the order of the product formula ($p$).",
+  "main_assumptions": "The protocol assumes that the required noise strengths for the optimal path lie above the intrinsic device-noise floor, and theoretical guarantees rely on finite-order Baker–Campbell–Hausdorff bounds.",
+  "figures_summary": "Figures illustrate the comparison between conventional 2D extrapolation grids and the proposed 1D coupled path, showing error reduction towards the exact noiseless reference.",
+  "paper_structure": "The paper introduces the joint error mitigation problem, develops the coupled 1D extrapolation path theory, provides a provable resource guarantee, and validates the protocol through both superconducting quantum hardware experiments and large-scale 100-qubit classical simulations using SPD.",
+  "why_interesting": "This work provides a concrete, resource-efficient protocol for error mitigation that directly tackles the interplay between algorithmic limitations (Trotter error) and hardware imperfections (noise) in open quantum system simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.11508_figures/2609.11508_fig1.jpg",
+      "caption": "FIG. 1. Coupled extrapolation path as a one-dimensional replacement for a two-dimensional Richardson grid. The hor- izontal coordinate s is the Trotter step size, the vertical co- ordinate λ is a tunable physical-noise strength, and the black star marks the ideal target limit (s, λ) = (0, 0). (a) A conven- tional two-axis construction samples an m × m′ rectangular grid, where m and m′ denote the Richardson node counts along the step-size and noise-strength axes: one first extrap- olates each fixed-s column to zero noise, shown by the cyan diamonds, and then extrapolates those zero-noise estimates toward s = 0. (b) The coupled construction instead sam- ples only m paired Richardson nodes on...",
+      "page": 2
+    },
+    {
+      "image": "2609.11508_figures/2609.11508_fig2.jpg",
+      "caption": "FIG. 2. Hardware implementation of Trotterized Ising dy- namics. (a) A second-order symmetric (p = 2) Trotter step al- ternates transverse-field rotations and Ising interactions. (b) The interaction layer is scheduled in three parallel RZZ pat- terns containing non-overlapping qubit pairs. (c) Colored edges identify these patterns on the connected 9-qubit sub- graph. (d) The logical rotations are compiled into the device gate set {H, RZ, CZ}: RX(θ) = HRZ(θ)H, whereas RZZ uses fixed Clifford basis changes, controlled-Z entanglers and an angle-dependent RZ rotation.",
+      "page": 3
+    },
+    {
+      "image": "2609.11508_figures/2609.11508_fig3.jpg",
+      "caption": "FIG. 3. Coupled one-dimensional extrapolation on quantum hardware. Hardware expectation values are shown at the paired nodes r = {4, 3, 2} and G = {1, 64/27, 8}, with colors distinguishing the observables. Solid curves show the quadratic least- squares model Q2, dashed curves show the quartic three-node Richardson interpolant Q4, and diamonds mark the noiseless references obtained by direct evolution of the same 9-qubit Hamiltonian and initial state. Panels (a)–(d) show (θh, θJ) = (−2, −2), (−1, −2), (−3, −4), (−2, −4), respectively. Main-panel points are averages of 12 measurement-batch means, and error bars denote their standard errors. Panel (e) shows the absolute relative intercept...",
+      "page": 4
+    },
+    {
+      "image": "2609.11508_figures/2609.11508_fig4.jpg",
+      "caption": "FIG. 4. Richardson extrapolation landscape obtained from sparse Pauli dynamics for the simulated 100-qubit open Ising chain. The observable is the average longitudinal mag- netization MZ = N −1 P",
+      "page": 5
+    }
+  ],
+  "figure": "2609.11508_figures/2609.11508_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

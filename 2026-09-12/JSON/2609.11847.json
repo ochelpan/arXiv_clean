@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.11847",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "The cost of simulating classically tractable quantum circuits and dynamics",
+  "authors": "Su Yeon Chang, Supanut Thanasilp, Zoë Holmes, M. Cerezo",
+  "abstract": "Determining whether a quantum evolution can be efficiently simulated classically is central to understanding the boundary between classical and quantum computation. However, polynomial-time simulability is an asymptotic statement, and does not by itself determine whether the (quantum-inspired) classical simulation is actually practical. Indeed, different polynomial scalings can lead to vastly different computational costs, particularly when expensive preprocessing or quantum data acquisition is required. In this work, we ask whether classically simulable quantum dynamics are in practice more resource-efficient to simulate classically than to execute directly on quantum hardware. We analyze this question using three resource metrics, quantum sample, quantum time, and classical time complexity, for several widely studied classically simulable circuit families. Using representative hardware-level estimates, we identify regimes in which quantum simulation can be faster despite the existence of a polynomial-time classical algorithm, as well as regimes in which classical simulation remains more efficient. At the same time, the large quantum sampling cost needed to characterize unknown input states can make this polynomial-time classical simulation prohibitively expensive with current cloud-based hardware access prices. Ultimately, our work indicates that guarantees of classical simulability with polynomial resources alone are insufficient to determine the preferred implementation.",
+  "url": "http://arxiv.org/abs/2609.11847v1",
+  "pdf": "https://arxiv.org/pdf/2609.11847v1",
+  "type": "theory",
+  "summary": "This work rigorously compares the resource costs of simulating quantum dynamics classically versus running them on quantum hardware. By analyzing multiple metrics—sample, time, and monetary cost—the authors demonstrate that classical simulability alone is insufficient to determine the best implementation strategy. This has major implications for designing near-term quantum algorithms.",
+  "main_problem": "The paper investigates whether quantum dynamics are more resource-efficient to simulate classically or to execute directly on quantum hardware, moving beyond simple asymptotic polynomial-time guarantees.",
+  "main_result": "The preferred implementation (classical vs. quantum) depends critically on the specific resource metric (sample, time, cost) and the number of circuit instances evaluated, showing no universal advantage.",
+  "method": "The authors analyze resource scaling by comparing the complexity of quantum simulation (QS) against various structured classical simulation techniques (CS) for different circuit families.",
+  "model_or_system": "The focus is on general quantum circuits and dynamics, analyzed through expectation value estimation of observables $f_U(\rho, O) = \text{Tr}(U\rho U^\\dagger O)$. Specific models include Clifford circuits, free-fermionic dynamics, and QCNN/ADAPT-VQE architectures.",
+  "key_observables": "Expectation values $\text{Tr}(U\rho U^\\dagger O)$, Quantum Sample complexity ($N_{Q.S.}$), Quantum Time complexity ($N_{Q.T.}$), and Classical Time complexity ($N_{C.T.}$)",
+  "important_parameters": "Number of circuit instances ($T$), number of qubits ($n$), circuit depth ($L$), and approximation thresholds ($\tau$).",
+  "main_assumptions": "The analysis assumes repeated access to independently prepared copies of the input state $\rho$ and that the classical simulation relies on structured decompositions (e.g., Pauli strings, Majorana subspaces).",
+  "figures_summary": "Figure 1 schematically compares QS vs. CS. Figure 6 estimates the monetary cost for various hardware platforms for specific circuit families.",
+  "paper_structure": "The paper establishes the core problem by noting the limitations of asymptotic complexity, then analyzes specific, well-studied classically simulable circuit families (Clifford, free-fermionic, etc.) using multiple resource metrics, and concludes by comparing costs for modern variational algorithms like QCNN and ADAPT-VQE.",
+  "why_interesting": "It provides a crucial, practical framework for quantum algorithm assessment, warning that theoretical polynomial-time simulation guarantees do not translate to practical hardware or resource efficiency.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.11847_figures/2609.11847_fig1.jpg",
+      "caption": "Figure 1. Schematic description of Quantum and Classical Simulations. a) In Quantum Simulation, each circuit instance is executed directly on the quantum hardware and the corresponding expectation value is estimated from quantum measurements. When required, a classical computer updates the circuit parameters between evaluations. b) In CS, the quantum evolution is replaced by a classical surrogate. If the required information about the initial state is not known classically, it is obtained during an initial quantum data-acquisition stage and subsequently reused by the Classical Simulation for different circuit instances (e.g. for different simulation times or parameter values).",
+      "page": 2
+    },
+    {
+      "image": "2609.11847_figures/2609.11847_fig2.jpg",
+      "caption": "Figure 2. Estimated wall-clock time for QS and CS on IonQ Forte, Google Sycamore, and IBM Heron. Here, the runtime corresponds to the total runtime t(X) sim given by Eq. (104), which sums both the runtime on the quantum and classical hardware. Rows correspond to the three quantum hardware platforms, while all classical operations are assumed to run on the same classical hardware. The horizontal axis denotes the total number of circuit instances T. Columns correspond to ADAPT-VQE, Sn-equivariant circuits, and Matchgate circuits with κ = 4 and 6, while rows correspond to the three hardware models. Solid lines denote CS and dotted lines QS. Marker shapes indicate the system sizes n = 20, 40,...",
+      "page": 18
+    },
+    {
+      "image": "2609.11847_figures/2609.11847_fig3.jpg",
+      "caption": "Figure 2 shows the resulting estimates for IonQ Forte, Google Sycamore, and IBM Heron, with ϵ = 0.001 and δ = 0.001. For the classical computation, we assume an elementary operation time of tC = 0.25 ns. Here we can see that classical simulability does not imply that CS is faster at finite system size. For ADAPT-VQE, the CS is faster throughout the parameter range considered here. In this case, the Hartree–Fock input state is known classically, so the surrogate incurs neither quantum data acquisition nor quantum circuit execution. Therefore, the runtime only consists of the runtime on the classical hardware. The Sn-equivariant example similarly benefits from the reduced Schur-block...",
+      "page": 18
+    },
+    {
+      "image": "2609.11847_figures/2609.11847_fig4.jpg",
+      "caption": "Figure 3. Estimated quantum hardware access cost of QS and CS over T = 50 and T = 2000 circuit instances for IonQ Forte and IBM Heron. We consider the Sn-equivariant and Matchgate examples with κ = 4 and κ = 6 described above, using the publicly available pricing data summarized in Table III. The plotted values account for quantum hardware access and do not include the monetary cost of the classical computation. Gray dashed lines indicate the crossover points between QS and CS. Results exceeding the available device size, namely n > 36 for IonQ Forte and n > 156 for IBM Heron, extrapolate the reported hardware pricing and should therefore be interpreted only as scaling estimates.",
+      "page": 20
+    },
+    {
+      "image": "2609.11847_figures/2609.11847_fig5.jpg",
+      "caption": "Figure 4. Schematic illustration of Pauli Propagation with weight truncation. The observable is evolved in the Heisenberg picture and propagation paths are discarded whenever the generated Pauli string exceeds the weight threshold τ (here, τ = 4).",
+      "page": 31
+    }
+  ],
+  "figure": "2609.11847_figures/2609.11847_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

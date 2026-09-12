@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.11336",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Universal sampling of spin systems across quenched disorder",
+  "authors": "Jing Liu, Yeyuan Wu, Ying Tang, Pan Zhang",
+  "abstract": "Statistical physics extracts macroscopic laws by averaging over the many microscopic degrees of freedom of a system. Disordered systems demand a second and far harder average, one over the quenched randomness itself. The classic analytical routes, the replica and cavity methods, become uncontrolled outside mean-field or tree-like limits, and conventional numerical algorithms like parallel tempering require expensive, independent equilibration for every disorder realization. In this work, we introduce a universal neural variational framework that amortizes inference across the disorder ensemble, eliminating both the need for per-instance Markov chain equilibration and the cost of retraining instance-specific variational ansatzes. Built on an encoder-decoder Transformer architecture, after training once, it produces an explicit approximation to the Boltzmann distribution given previously unseen disorder realizations without further optimization. We validate this framework on 2D Edwards-Anderson models, and apply it to the random-bond Ising model, successfully capturing the Binder cumulant crossings near the Nishimori multicritical point. These results shift the object of variational inference from the single instance to the disorder ensemble, opening a route to frustrated many-body systems where instance-by-instance computation is prohibitive.",
+  "url": "http://arxiv.org/abs/2609.11336v1",
+  "pdf": "https://arxiv.org/pdf/2609.11336v1",
+  "type": "theory",
+  "summary": "This paper presents a novel, amortized neural variational framework using Transformers to calculate thermodynamic properties of disordered spin systems. By training once on the disorder ensemble rather than per realization, it overcomes the prohibitive computational cost of traditional methods. This breakthrough enables accurate, scalable simulations of complex, frustrated many-body systems previously inaccessible to variational inference.",
+  "main_problem": "The primary challenge is evaluating quenched thermodynamic observables in disordered spin systems, which requires averaging over the disorder realization itself, a task difficult for standard variational methods.",
+  "main_result": "The authors introduce a universal neural variational framework that amortizes inference across the entire disorder ensemble, allowing for zero-shot sampling on unseen disorder realizations.",
+  "method": "They employ an encoder-decoder Transformer architecture where the encoder processes the disorder couplings $\\{J\\}$ to generate site embeddings, which condition a causal Transformer decoder to sample the spin configuration $s$.",
+  "model_or_system": "The work focuses on disordered spin systems, specifically the 2D Edwards-Anderson model and the random-bond Ising model, governed by a Hamiltonian involving quenched random couplings $J_{ij}$.",
+  "key_observables": "Variational free energy, Binder cumulant crossings, and ground-state energies.",
+  "important_parameters": "Inverse temperature ($\beta$), system size ($L$), and the nature of the disorder (bimodal vs. Gaussian couplings).",
+  "main_assumptions": "The framework assumes that the disorder couplings can be processed by the encoder to create a universal representation $\\{h_i\\}$ that governs the sampling process.",
+  "figures_summary": "Figures illustrate the conceptual flow of the disorder-conditioned neural Boltzmann sampling framework, showing training dynamics, thermal generalization, and extrapolation across system sizes.",
+  "paper_structure": "The paper first establishes the computational bottleneck of per-instance training for disordered systems. It then introduces the amortized Transformer architecture, details its training on various disorder types and temperatures, and validates its performance by calculating key physical observables like the Binder cumulant.",
+  "why_interesting": "While focused on classical spin systems, the methodology of using deep generative models (Transformers) to efficiently sample complex, high-dimensional probability distributions conditioned on system parameters (disorder) is highly relevant for simulating quantum many-body states or quantum field theories where disorder is present.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.11336_figures/2609.11336_fig1.jpg",
+      "caption": "FIG. 1. Conceptual overview of the disorder-conditioned neural Boltzmann sampling framework. Left: The encoder maps the coupling matrix {J} to per-site embeddings {hi} through N axial transformer blocks, executing once per dis- order realization. Right: The autoregressive decoder gener- ates spin configurations patch by patch. Each patch token concatenates the spin embedding and local coupling features, then is updated via causal masked self-attention and cross- attention with {hi} to parameterize the conditional distribu- tion qθ(s|J).",
+      "page": 2
+    },
+    {
+      "image": "2609.11336_figures/2609.11336_fig2.jpg",
+      "caption": "FIG. 2. Performance on the 2D Edwards-Anderson model with open boundary conditions (L = 12). (a) Training dynamics. The normalized effective sample size (ESS) is evaluated on a fixed validation set (20 realizations) during training for bimodal couplings. (b) Thermal generalization. By conditioning the encoder on Kij = βJij, a model trained on discrete β values seamlessly interpolates and extrapolates to unseen continuous thermal regimes for Gaussian couplings without retraining. (c) Extrapolation over system size. The model is trained on L = 12 and evaluated on L = {12, 14, 16, 18, 20} (gray shading marks the extrapolation regime L > 12), compared with naive mean-field (NMF) and a randomly...",
+      "page": 3
+    },
+    {
+      "image": "2609.11336_figures/2609.11336_fig3.jpg",
+      "caption": "FIG. 3. Results obtained via curriculum training, where the model is trained sequentially on system sizes L ∈ {8, 12, 16, 24, 32, 40, 48}, each stage warm-started from the converged weights of the previous size. (a) Variational free en- ergies benchmarked against exact Kac-Ward solutions across an independent test set (200 realizations) for Gaussian dis- order at L = 48, β = 1.0. (b) Ground-state search for bi- modal couplings at L = 32 via variational annealing from the curriculum-trained model, showing the minimum energy found versus the exact ground-state energy obtained by [43].",
+      "page": 4
+    },
+    {
+      "image": "2609.11336_figures/2609.11336_fig4.jpg",
+      "caption": "FIG. 4. Quenched-averaged Binder cumulant U = [⟨m4⟩]/[⟨m2⟩]2 in the 2D random-bond Ising model as a func- tion of the antiferromagnetic bond probability p for various system sizes L. Periodic boundary conditions are adopted to suppress finite-size effects. The curves cross near the expected multicritical Nishimori point p ≈0.1092. For each point, ob- servables are computed via importance sampling across 106",
+      "page": 4
+    },
+    {
+      "image": "2609.11336_figures/2609.11336_fig5.jpg",
+      "caption": "Fig. 3(b), this annealed network rapidly generates high- quality ground-state candidates for novel instances, of-",
+      "page": 4
+    }
+  ],
+  "figure": "2609.11336_figures/2609.11336_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

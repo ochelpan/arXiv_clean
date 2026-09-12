@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.10965",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Low-cost algorithm-to-execution framework for surface-code quantum computing",
+  "authors": "Yunxin Tang, Zixuan Huo, Junxiang Huang, Zhou You, Zhirao Wang, Zhenai Ding, Yumeng Zeng, Yangyu Lu, Yiming Huang, Zongkang Zhang, Haipeng Xie, Ying Li, Jinzhao Sun, Xiao Yuan, Yuan Yao",
+  "abstract": "The execution of useful quantum algorithms on fault-tolerant processors requires more than a mapping from logical gates to encoded operations: the spatial organization, non-Clifford resource supply, and execution schedule must also be determined while keeping physical overhead within practical limits. Although the theoretical hierarchy from logical circuits to fault-tolerant operations is well established, these implementation choices are often specified and optimized separately. Here we develop a low-cost algorithm-to-execution framework for surface-code quantum computing. From hierarchical algorithm descriptions, it constructs dependency-preserving logical schedules and an executable workload capturing logical interactions, operation parallelism, and time-resolved non-Clifford demand, thereby linking logical computation to surface-code organization, resource-state preparation, and fault-tolerant execution in a traceable workflow. We apply the framework to twenty benchmark circuits across seven algorithm families and a hierarchically composed application-scale elliptic-curve discrete-logarithm workload. Physical costs vary substantially even for circuits with similar logical resource counts. Under our direct-rotation calibration, non-Clifford implementation selection reduces space-time volume by up to 241.5 times versus an all-synthesis baseline for the QAOA amplitude-amplification workload. Circuit-specific surface-code layouts reduce routed-latency estimates for all twenty benchmarks; thirteen also reduce space-time volume because communication savings outweigh added spatial overhead. These results show that low-cost fault-tolerant execution depends on computation scheduling and organization, not aggregate logical resource counts alone.",
+  "url": "http://arxiv.org/abs/2609.10965v1",
+  "pdf": "https://arxiv.org/pdf/2609.10965v1",
+  "type": "theory",
+  "summary": "This paper presents a novel, low-cost framework that bridges the gap between abstract quantum algorithms and physical execution on surface-code quantum computers. By creating an 'executable workload' representation, it accounts for scheduling, resource supply, and spatial organization simultaneously. The results prove that optimizing the execution structure, rather than just the logical gate count, is key to achieving practical, low-overhead quantum computation.",
+  "main_problem": "The core problem is developing a low-cost, end-to-end framework to translate high-level quantum algorithms into concrete, physically constrained execution schedules for fault-tolerant quantum computing.",
+  "main_result": "The framework demonstrates that low-cost execution depends critically on computation scheduling and organization, achieving significant reductions in space-time volume (up to 241.5 times) compared to baseline methods.",
+  "method": "The authors introduce an 'executable workload' intermediate representation that captures logical interactions, parallelism, and time-resolved non-Clifford demand, linking the algorithm to physical resource requirements.",
+  "model_or_system": "The work is specifically tailored for surface-code quantum computing, requiring the determination of spatial organization and resource supply alongside the logical circuit execution.",
+  "key_observables": "Physical overhead, routed-latency estimates, space-time volume, logical interaction structure, and time-resolved non-Clifford demand.",
+  "important_parameters": "The comparison between circuit-specific layouts versus standardized baselines, and the scale of the benchmark circuits (twenty benchmarks across seven families).",
+  "main_assumptions": "The primary assumption is that the execution cost is determined by the scheduling and organization of operations, not just the aggregate count of logical resources.",
+  "figures_summary": "Figures illustrate the workflow from high-level algorithms through the executable workload representation to the final physical surface-code layout, comparing optimized vs. standardized approaches.",
+  "paper_structure": "The paper progresses by first establishing the limitations of current separate optimization stages, then introducing the executable workload as a unifying intermediate representation, and finally applying this framework to benchmark circuits to quantify cost savings.",
+  "why_interesting": "This work provides a crucial algorithmic tool for quantum hardware engineers and theorists, moving beyond abstract circuit depth to address the practical, resource-constrained scheduling necessary for near-term fault-tolerant devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.10965_figures/2609.10965_fig1.jpg",
+      "caption": "FIG. 1. From quantum algorithms to executable surface-code requirements. The workflow maps representative quantum algorithms to executable surface-code implementations through four connected stages. Algorithm-level descriptions are decomposed into dependency-preserving logical schedules and summarized as an executable workload W, which connects logical computation to physical implementation. The workload retains a weighted logical interaction graph, logical operation parallelism P(ℓ), and layer-resolved non-Clifford demand rNC(ℓ). These descriptors expose circuit-specific interaction, concur- rency, and resource-supply requirements that are hidden by aggregate logical gate counts. The...",
+      "page": 4
+    },
+    {
+      "image": "2609.10965_figures/2609.10965_fig2.jpg",
+      "caption": "FIG. 2. Circuit-specific surface-code architecture synthesis from execution requirements. (a) Interaction graph and scheduled rotation trace extracted from the concrete QAOA–MaxCut logical representation. Each displayed edge denotes a direct two-qubit interaction occurring four times in this instance; absent edges indicate no direct two-qubit operation, and node area encodes the per-qubit Rz count. The interaction structure guides layout optimization, while layer-resolved Rz demand is retained for subsequent non-Clifford resource planning. (b) Corresponding circuit-specific grid selected by placement-and- orientation search, favoring shorter lattice-surgery distances between frequently...",
+      "page": 5
+    },
+    {
+      "image": "2609.10965_figures/2609.10965_fig3.jpg",
+      "caption": "FIG. 3. Pre-patch parallel cultivation as a non-Clifford resource-supply option. (a) A processor-wide seeding farm before the final logical patch boundary is assigned. Blue cells represent the physical-qubit substrate; each purple circle marks the coordinate origin of one cultivation seed, while orange dots mark seeds that survive postselection. Arrows indicate possible grow-and-graft directions. The growth direction and extent are selected after the surviving seeds are known, using locally available idle qubits rather than a boundary fixed in advance. (b) Ideal bulk packing of spatially separated d = 3 color-code seeds, each containing seven physical qubits, in an effectively unbounded...",
+      "page": 8
+    },
+    {
+      "image": "2609.10965_figures/2609.10965_fig4.jpg",
+      "caption": "FIG. 4. Three sources of physical-resource variation across twenty benchmark circuits. Panels (a) and (b) use the compact-block reporting baseline of the ordinary end-to-end resource estimator; panel (c) uses a matched comparison with a standardized fast-block layout to isolate spatial-organization effects. (a) Fraction of the total modeled physical-qubit footprint assigned to data blocks, T-state factories, and direct-Rz rotation patches. Each stacked bar is normalized to the circuit’s total footprint, so the panel shows which resource component occupies the processor. Data blocks are the largest component for 17 of the 20 circuits, whereas T-state factories dominate the other three; no...",
+      "page": 9
+    },
+    {
+      "image": "2609.10965_figures/2609.10965_fig5.jpg",
+      "caption": "FIG. 5. Hierarchical decomposition and bottom-up resource aggregation for the secp256k1 ECDLP computa- tion. Each of the 28 signed windows contains five table lookups and one controlled affine point addition, with a cost of 216 Toffoli gates per lookup. The final measurement outcomes are converted into the discrete logarithm by classical post-processing. The point-addition and arithmetic decomposition below the dashed line is reconstructed from the released implementation, whereas the signed-window multiplicities above it are paper-derived. Upward arrows in the right column show the bottom-up aggre- gation of circuit-primitive resources into point-addition, algorithm-level Toffoli, and...",
+      "page": 12
+    }
+  ],
+  "figure": "2609.10965_figures/2609.10965_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
