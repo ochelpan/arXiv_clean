@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.15738",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Disentangling QAOA: From Weakly Entangled Circuits to a Classical QUBO Solver",
+  "authors": "Boris I. Bantysh, Andrey Yu. Chernyavskiy, Denis A. Kulikov, Maksim A. Gavreev, Evgeniy O. Kiktenko",
+  "abstract": "The role of entanglement in quantum optimization remains actively debated. To address this question, we focus on the fixed-parameter expanding-depth regime of the quantum approximate optimization algorithm (QAOA), where a compact two-parameter schedule is trained once on small instances and then applied as the problem size and circuit depth increase. To probe this regime beyond full state-vector simulation, we perform approximate matrix product state simulations for up to 50 qubits and 100 layers and quantify entanglement by the bond dimension. We observe an entangle--disentangle profile, with the peak bond dimension decreasing with depth and eventually saturating. This observation motivates an extreme approximation: projecting the state onto the product-state manifold (bond dimension one) after every two-qubit interaction. Based on this approximation, we introduce BOND-1, a quantum-inspired classical solver. Despite the drastic simplification, BOND-1 achieves cut ratios above 0.95 relative to the best known values on standard GSet MaxCut benchmarks with up to 20000 variables, and in some cases it matches those values. It achieves these results without per-instance optimization and has linear memory cost, while per-instance tuning can provide further improvement. These results show that, in this regime, a substantial fraction of the optimization power of QAOA survives even in the complete absence of entanglement. Our conclusions, however, are specific to this setting and do not imply that entanglement is unnecessary for quantum optimization in general.",
+  "url": "http://arxiv.org/abs/2609.15738v1",
+  "pdf": "https://arxiv.org/pdf/2609.15738v1",
+  "type": "theory",
+  "summary": "This work examines how much of QAOA's optimization power remains when entanglement is artificially suppressed by projecting the quantum state onto a product basis. By developing the classical solver BOND-1, the authors show that even in the absence of entanglement, the algorithm maintains high performance on complex optimization problems, provided the circuit depth is large enough.",
+  "main_problem": "The paper investigates the role of entanglement in the Quantum Approximate Optimization Algorithm (QAOA) by analyzing its dynamics in the fixed-parameter expanding-depth regime.",
+  "main_result": "A classical solver, BOND-1, derived by projecting the quantum state onto the product-state manifold (zero entanglement), achieves high cut ratios (>0.95) on large MaxCut benchmarks, suggesting optimization power survives without entanglement in this regime.",
+  "method": "The authors use approximate Matrix Product State (MPS) simulations to track entanglement dynamics and then introduce a quantum-inspired classical solver (BOND-1) based on projecting the state evolution onto the product-state manifold.",
+  "model_or_system": "The model is QAOA applied to QUBO optimization problems, encoded via an Ising Hamiltonian. The simulation tracks the state evolution $|\beta, \\gamma\rangle$ using MPS formalism.",
+  "key_observables": "Bond dimension ($\\chi$), entanglement entropy, and the resulting cut ratio on GSet MaxCut benchmarks.",
+  "important_parameters": "Fixed-parameter schedule parameters $(v, u)$, circuit depth ($p$), and problem size ($n$).",
+  "main_assumptions": "The results are specific to the fixed-parameter expanding-depth regime, and the core approximation is projecting the state onto the product-state manifold ($\\chi=1$) after every two-qubit interaction.",
+  "figures_summary": "Figures illustrate the QAOA layer structure, the entanglement dynamics showing an 'entangle–disentangle' profile, and the maximum bond dimension ($\\chi_{\text{max}}$) as a function of depth, which saturates.",
+  "paper_structure": "The paper first establishes the QAOA framework and the need for simulation methods (MPS). It then analyzes the entanglement profile, leading to the proposal of the extreme approximation (BOND-1). Finally, it demonstrates BOND-1's performance on large-scale benchmarks.",
+  "why_interesting": "It provides a concrete, computationally tractable method (BOND-1) to estimate QAOA performance by drastically simplifying the quantum state, which is highly relevant for near-term quantum hardware limitations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.15738_figures/2609.15738_fig1.jpg",
+      "caption": "Figure 1: Entanglement analysis of expanding-depth QAOA. (a) Schematic structure of a single QAOA layer for an example graph. The layer consists of single-qubit mixer rotations X(βℓ), single-qubit phase rotations Z(γℓsii), and two-qubit phase rotations ZZ(γℓsij) applied according to the vertices and edges of the graph. (b) Sin–cos QAOA angle schedules and the corresponding entanglement dynamics for a random QUBO instance with n = 12, shown for depths p = 5 and p = 100. The upper panels show the layer-dependent angles βℓ and γℓ, while the lower panels show the entanglement generated during the circuit. Entanglement is quantified by the maximum bipartite entanglement entropy over all...",
+      "page": 3
+    },
+    {
+      "image": "2609.15738_figures/2609.15738_fig2.jpg",
+      "caption": "Figure 2: MPS bond-dimension dynamics for the fixed-parameter QAOA evolution. (a) Bond dimension χ after each QAOA layer for a random QUBO instance with n = 20, shown as a function of the normalized layer index ℓ/p for depths p = 5 and p = 100. The quantity χmax denotes the maximum bond dimension reached during the circuit. For the shallow circuit, the bond dimension grows throughout the evolution, whereas for the larger depth it first increases and then decreases toward the end of the circuit. (b) Mean maximum bond dimension χmax as a function of QAOA depth p for various problem sizes n, averaged over 20 random QUBO instances for each n. The curves show that χmax initially grows with...",
+      "page": 4
+    },
+    {
+      "image": "2609.15738_figures/2609.15738_fig3.jpg",
+      "caption": "Figure 3: Evolution of the optimization variables in the Bloch-vector representation for the GSet instance G1. The plot shows the positions of all 800 variables on the Bloch sphere at several layers ℓof the BOND-1 projected dynamics with depth p = 1600. For this instance, we used optimized schedule parameters, v = −0.268 and u = 1.814, which produce the best known cut value 11624. For most of the evolution, the configuration changes only weakly and remains close to the initial region, although small perturbations are gradually amplified and affect the final solution. Blue and red points denote variables that are assigned to the final values +1 and −1, respectively.",
+      "page": 7
+    },
+    {
+      "image": "2609.15738_figures/2609.15738_fig4.jpg",
+      "caption": "Figure 4: MPS representation and update rules used in the tensor-network simulation. (a) Canonical MPS representation with bond singular-value vectors λ[i] between neighboring site tensors A[i]. For simplicity, the trivial boundary bonds are omitted. (b) Single-qubit gate update: the gate W is contracted only with the physical index of the corresponding site tensor and does not change the bond vectors. (c) Two-qubit nearest- neighbor update. The two local tensors are first contracted with the adjacent bond vectors and the gate W, forming the tensor T. The result is then split using SVD, T = UΣV †, with singular-value truncation controlled by the threshold τ. The retained singular values...",
+      "page": 12
+    },
+    {
+      "image": "2609.15738_figures/2609.15738_fig5.jpg",
+      "caption": "Figure 5: Selection of a GSet-specific fixed parameter point. Each panel shows the most-probable cut value normalized by its maximum value on the (u, v) grid. Contour levels indicate different normalized approximation levels, and the black star marks the selected point (u∗, v∗) = (3.384, −0.071). The point is chosen from the common region where the normalized most-probable score is at least 0.99 for G1, G23, and G81, using the maximin criterion over the three instances.",
+      "page": 15
+    }
+  ],
+  "figure": "2609.15738_figures/2609.15738_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

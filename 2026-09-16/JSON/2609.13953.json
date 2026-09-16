@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.13953",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Digital quantum lattice Boltzmann evolution by reversible compute and open-system reset",
+  "authors": "Muhammad Idrees Khan",
+  "abstract": "Turbulent fluid simulation is computationally demanding because nonlinear interactions couple a wide range of scales. Quantum computing offers another computational model, but fluid evolution is nonlinear and dissipative whereas closed gate-based dynamics is linear and reversible. The lattice Boltzmann method (LBM) is an attractive discrete target because streaming is a local permutation, yet conventional collision reconstructs a nonlinear equilibrium and applies dissipative relaxation. We present a digital quantum lattice Boltzmann (QLBM) algorithm that keeps that nonlinear timestep in computational-basis registers. Each step writes the updated populations into a clean destination bank, uncomputes the workspace, and resets the obsolete source. The resulting channel is completely positive and trace preserving (CPTP), composes without intermediate measurement, and applies to any lattice Boltzmann stencil that can be evaluated reversibly into a clean bank. Forced D3Q19 homogeneous isotropic turbulence, in direct numerical simulation (DNS) and Smagorinsky large-eddy simulation (LES) at Reynolds number 15000 over one million lattice steps, shows statistical agreement in mass, energy budgets, spectra, and intermittency. The three-dimensional calculations use a digital-register emulator of the circuit. A separate D2Q9 implementation compiles the same contract to reversible gates and agrees bit-exactly with its integer twin. Two-bank storage and serial lattice depth limit near-term feasibility.",
+  "url": "http://arxiv.org/abs/2609.13953v1",
+  "pdf": "https://arxiv.org/pdf/2609.13953v1",
+  "type": "both",
+  "summary": "This paper introduces a Digital Quantum Lattice Boltzmann (QLBM) algorithm to simulate turbulent fluid flow using quantum computation principles. It overcomes the challenge of modeling nonlinear dissipation by employing a reversible 'compute-reset' quantum channel. The method is rigorously tested against classical DNS/LES simulations, demonstrating quantitative agreement in key physical observables.",
+  "main_problem": "The paper addresses the challenge of simulating nonlinear and dissipative fluid dynamics, like turbulence, using quantum computation models that are inherently linear and reversible.",
+  "main_result": "They successfully propose and validate a digital quantum lattice Boltzmann (QLBM) algorithm using a compute-reset mechanism that achieves statistical agreement with classical simulations across various turbulence metrics.",
+  "method": "The core method is a digital quantum simulation of the Lattice Boltzmann Method (LBM) time evolution, implemented as a reversible, Completely Positive and Trace Preserving (CPTP) quantum channel.",
+  "model_or_system": "The physical system is fluid dynamics, modeled by the LBM, applied to forced homogeneous isotropic turbulence (HIT) in 2D (D2Q9) and 3D (D3Q19) lattices. The simulation compares Direct Numerical Simulation (DNS) and Large Eddy Simulation (LES) regimes.",
+  "key_observables": "Mass, energy budgets, spectra, intermittency, and population differences ($\\|f_{QLBM}^i - f_{cl}^i\\|^2 / \\|f_{cl}^i\\|^2$).",
+  "important_parameters": "Reynolds number (15000), lattice structure (D2Q9, D3Q19), and fixed-point bit width ($b$).",
+  "main_assumptions": "The method relies on two-bank storage and serial lattice depth, limiting near-term feasibility; the reset operation models dissipation into the environment.",
+  "figures_summary": "Figures compare Pope-normalized spectra and extended self-similarity between classical and digital QLBM simulations, while tables quantify error bounds across different bit widths and confirm bit-exactness in gate-level D2Q9 validation.",
+  "paper_structure": "The paper first identifies the theoretical mismatch between LBM and quantum reversibility, proposes the compute-reset QLBM contract, and then validates this contract by applying it to complex, realistic turbulence simulations (DNS/LES) across multiple dimensions and lattice types.",
+  "why_interesting": "While the primary focus is on numerical simulation techniques for fluid dynamics, the development of a reversible, CPTP quantum channel to model a dissipative, nonlinear process is highly relevant to open quantum systems theory and quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.13953_figures/2609.13953_fig1.jpg",
+      "caption": "FIG. 1. Digital-register forced D3Q19 QLBM timestep and DNS/LES control registers. (a) Register pipeline from source bank 𝐴= |𝐹𝑡⟩to destination bank 𝐵= |𝐹𝑡+1⟩. The stages are macroscopic recovery, moment transform, equilibrium arithmetic, nonequilibrium moments, signed fixed-point collision 𝛿𝑚↦→𝜆⊙𝛿𝑚, reconstruction and body forcing Δ𝑡(𝐼−S/2)𝑀𝚽, inverse transform, streaming into bank 𝐵, then Reset(𝐴). Bank 𝐵supplies the source state for the next timestep (cf. Table III and Algorithm 1). Dashed cyan lines carry the MRT rate and multiplier registers |S⟩and |𝚲⟩. (b) DNS loads fixed |Sbase⟩. LES overwrites shear words 9, 11, 13, 14, 15 from local strain. Fifteen nonconserved multipliers |𝚲⟩= |1...",
+      "page": 10
+    },
+    {
+      "image": "2609.13953_figures/2609.13953_fig2.jpg",
+      "caption": "FIG. 2. Volume-averaged turbulent kinetic energy 𝐾. (a) DNS. (b) LES.",
+      "page": 13
+    },
+    {
+      "image": "2609.13953_figures/2609.13953_fig3.jpg",
+      "caption": "FIG. 3. Spectral dissipation 𝜀mol. (a) DNS. (b) LES (molecular 𝜈0 only, with 𝜀SGS entering Fig. 4).",
+      "page": 14
+    },
+    {
+      "image": "2609.13953_figures/2609.13953_fig4.jpg",
+      "caption": "FIG. 4. Energy-budget residual 𝑅𝜀= |𝜀tot/(−𝑑𝐾/𝑑𝑡+ 𝑃𝐹) −1|, with 𝑃𝐹= ⟨(F /𝜌) · u⟩. Strain-based 𝜀𝜈= 2𝜈0⟨𝑆𝛼𝛽𝑆𝛼𝛽⟩differs from the spectral 𝜀mol of Fig. 3. (a) DNS (𝜀tot = 𝜀𝜈). (b) LES (𝜀tot = 𝜀𝜈+ 𝜀SGS).",
+      "page": 15
+    },
+    {
+      "image": "2609.13953_figures/2609.13953_fig5.jpg",
+      "caption": "FIG. 5. Mass conservation. Left, signed density deviation ⟨𝜌⟩−1. Right, relative mass drift |𝑚(𝑡)/𝑚(0) −1| (log scale). Classical float64 mass drift remains ∼10−10. Digital QLBM at production width 𝑏= 24 reaches 6.72 × 10−4",
+      "page": 16
+    }
+  ],
+  "figure": "2609.13953_figures/2609.13953_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

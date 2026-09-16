@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2609.15139",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A train--prune--readout--rewrite workflow for interpretable quantum learning",
+  "authors": "Siran Zhang, Shuming Cheng, Xiang Li, Jinyi Liu",
+  "abstract": "AI for Science aims not only to predict complex physical systems from data, but also to extract mathematical structure and physically testable representations from learned models. Here, a train--prune--readout--rewrite workflow is developed that separates physical-domain grounding from three increasingly stringent analysis claims: algebraically equivalent readout of a trained predictor, compact teacher-faithful symbolic rewriting on the sampled physical domain, and transformation-based tests of learned internal representations. The workflow is implemented with complex-valued Kolmogorov--Arnold networks, whose explicit edge functions enable post-pruning analytic readout of the retained computation. In analytically controlled single-qubit tasks, rewriting recovered the quadratic structure of purity, whereas von Neumann entropy yielded only a domain-bounded symbolic surrogate; physics-aligned variable grouping preserved symbolic fidelity. For two-qubit entanglement-related tasks, shared learning exposed a common internal representation whose physical content was interrogated directly. Local-unitary transformations rejected a direct invariant-coordinate interpretation, while fixed-decoder transfer showed that the shared activation carries Pauli-correlation information in a transformation-consistent form. Task-related invariant spectral features were subsequently recovered through low-order nonlinear readouts. Separate predictive tests retained high accuracy for three-qubit classification and controlled ten-qubit purity regression with over one million complex inputs. These results establish an evidence-resolved framework for distinguishing physical grounding, readable computation, faithful symbolic compression and transformation-tested physical structure in constrained complex-valued scientific learning.",
+  "url": "http://arxiv.org/abs/2609.15139v1",
+  "pdf": "https://arxiv.org/pdf/2609.15139v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel 'train--prune--readout--rewrite' workflow to make quantum machine learning models interpretable. By combining complex-valued neural networks with symbolic regression, the authors test if the learned representations genuinely encode underlying physical laws, rather than just fitting data points. This establishes a rigorous framework for validating the physical content of deep quantum models.",
+  "main_problem": "To develop an interpretable framework for quantum learning that moves beyond mere predictive accuracy by extracting underlying mathematical structure and physically testable representations from learned models.",
+  "main_result": "The proposed 'train--prune--readout--rewrite' workflow successfully distinguishes between mere computational agreement and the recovery of true physical relations, showing fidelity in rewriting structures like purity.",
+  "method": "The authors employ a complex-valued Kolmogorov–Arnold network (CVKAN) trained on quantum state data, followed by a four-step process: pruning, analytic readout, symbolic regression rewriting, and transformation-based testing.",
+  "model_or_system": "The system involves quantum states represented by density matrices $\\rho \\in \\mathbb{C}^{d \\times d}$ for $n$ qubits. The model is a CVKAN whose edge functions are parameterized by Gaussian-RBF expansions.",
+  "key_observables": "Purity ($P(\\rho)$), von Neumann entropy ($S(\\rho)$), CHSH test values, and general Pauli-correlation information.",
+  "important_parameters": "The number of qubits ($n$), the size of the network (number of layers/nodes), and the RBF parameters (e.g., $\\rho_{RBF}$).",
+  "main_assumptions": "The framework assumes that physical structure can be recovered by separating the learning process into distinct, verifiable stages (pruning, readout, rewriting).",
+  "figures_summary": "Figures illustrate the four levels of the interpretability workflow and show analytic readouts on the single-qubit physical state manifold, comparing analytical targets against extracted RBF-only readouts.",
+  "paper_structure": "The paper details the CVKAN architecture and the multi-task learning setup, then systematically introduces the four-stage workflow (train, prune, readout, rewrite) by testing it on single-qubit and two-qubit observables, culminating in a discussion of the framework's general applicability.",
+  "why_interesting": "It provides a rigorous, mathematically structured methodology for interpreting complex quantum machine learning models, which is crucial for building trustworthy AI tools for quantum physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.15139_figures/2609.15139_fig1.jpg",
+      "caption": "Fig. 1: Problem formulation and train–prune–readout–rewrite workflow. The five stages comprise physical-state and target preparation, CVKAN training, channel and node pruning, exact RBF readout and symbolic-regression rewriting. The four levels at right form an evidence ladder. L1, physical-domain interpretability, grounds learning in the admissible state space, whereas L2, structural interpretabil- ity, exposes the retained computational structure. L3, symbolic interpretability, makes this computation explicit and seeks shorter teacher-faithful rewrites. L4, mechanism- level interpretability, tests the physical organization of learned representations through transformations and decoding,...",
+      "page": 6
+    },
+    {
+      "image": "2609.15139_figures/2609.15139_fig2.jpg",
+      "caption": "Fig. 2: Analytic readout on the single-qubit physical state manifold. a, Analytical purity surface and extracted RBF-only readout over (x1, |x2|). b, Corre- sponding purity slices along x1 at |x2| = 0.25 and along |x2| at x1 = 0.5. c, Analytical entropy surface and extracted RBF-only readout over the same variables. d, Corre- sponding entropy slices under the same fixed-variable conditions. Blue solid surfaces and curves denote the analytical targets, whereas orange dashed curves and markers denote the extracted RBF-only readouts. Green shading marks the physically admis- sible domain used for training and evaluation. Regions outside this domain are shown only to visualize out-of-domain...",
+      "page": 8
+    },
+    {
+      "image": "2609.15139_figures/2609.15139_fig3.jpg",
+      "caption": "Fig. 3: Shared multi-task learning yields a non-dominated accuracy– implementation-size trade-off and task-dependent auxiliary-task effects. a, Mean core-task R2 versus stored tensor entries for T1–T6. T1 combines two indepen- dently trained single-task models, whereas T2 uses a shared trunk. The x-axis label “Total parameters” denotes stored tensor entries, including fixed RBF-grid tensors. The labels MTL-2–MTL-6 correspond to T2–T6, and the orange line connects the recomputed non-dominated Pareto frontier. b, PPT-related, signed concurrence and mean core-task R2 across all six configurations. Blue circles and green squares show the two task-specific scores, respectively, while open orange...",
+      "page": 10
+    },
+    {
+      "image": "2609.15139_figures/2609.15139_fig4.jpg",
+      "caption": "Fig. 4: Physical analysis of the width-nine complex representation. (a) Two- task pruning trajectories for Models A and B, with topologies [16, 32, 16 × 2, 1 × 2] and [16, 32, 16, 1 × 2], respectively. Here, ×2 denotes task-specific branches and the shared complex width is 32 −iteration. Points and error bars show the mean and s.d. across three pruning runs. (b) Mean within-orbit standard deviations under ran- dom local-unitary (LU) transformations. Here, z9 is the retained activation, T is the Pauli correlation tensor, canonical9 denotes a gauge-fixed candidate LU-coordinate block, and criterion poly7 denotes a task-related invariant spectral-feature block. The candidate chart can be...",
+      "page": 12
+    }
+  ],
+  "figure": "2609.15139_figures/2609.15139_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

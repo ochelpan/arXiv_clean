@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.14529",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CL"
+  ],
+  "is_primary_archive": true,
+  "title": "Parameter-Efficient Quantum NLP for Paraphrase Detection: Performance, Robustness, and Entanglement",
+  "authors": "Farha Nausheen, Khandakar Ahmed, Farina Riaz",
+  "abstract": "Rigorous empirical validation of quantum machine learning on natural language tasks remains scarce. We evaluate a 10-qubit hybrid quantum-classical variational circuit (2,148 parameters) for paraphrase detection across three benchmarks: MRPC, Quora Question Pairs (QQP), and adversarial PAWS. On QQP (n = 10 seeds), the circuit achieves 75.53% +/- 0.75%. accuracy, statistically outperforming parameter-matched classical baselines (DeepMLP: p = 0.015, Cohen's d = 1.20; F1: p < 0.001, d = 2.32) and surpassing DistilBERT-4bit with 31,191 fewer parameters. On MRPC the optimal 2-layer variant reaches 92% of BERT-base accuracy at 54,000 lower parameter cost. Circuit depth analysis reveals a dataset-depth scaling effect; entanglement analysis via the Meyer-Wallach measure identifies multi-qubit entanglement as the primary performance driver (r = 0.85 across four variants). Adversarial evaluation on PAWS reveals emergent robustness: 98.2% recall versus 81.6% classical (+16.6 pp, d = 1.24, p < 0.001), without adversarial training. These results constitute the first systematic parameter-matched multi-benchmark empirical validation of hybrid variational circuits for NLP. All results are from classical simulation; hardware validation is future work.",
+  "url": "http://arxiv.org/abs/2609.14529v1",
+  "pdf": "https://arxiv.org/pdf/2609.14529v1",
+  "type": "both",
+  "summary": "This work provides the first systematic, multi-benchmark empirical validation of hybrid quantum-classical circuits for NLP tasks like paraphrase detection. By showing statistically significant performance gains and enhanced robustness over classical models, the authors argue that quantum entanglement is the key resource driving this advantage. The research establishes a strong case for the potential of QML in complex data analysis, despite current reliance on classical simulation.",
+  "main_problem": "The paper rigorously evaluates the performance, robustness, and entanglement characteristics of Quantum Machine Learning (QML) applied to Natural Language Processing (NLP) tasks, specifically paraphrase detection.",
+  "main_result": "The quantum variational circuits statistically outperform parameter-matched classical baselines on multiple benchmarks (MRPC, QQP, PAWS), with entanglement identified as the primary driver of this advantage.",
+  "method": "The authors employed a hybrid quantum-classical approach, comparing 10-qubit variational circuits against state-of-the-art classical NLP models using statistical tests (e.g., Cohen's d) and entanglement measures.",
+  "model_or_system": "The core model is a 10-qubit hybrid quantum-classical variational circuit. It uses SBERT embeddings, maps them through a classical pre-processor, feeds the result into the quantum circuit (using AngleEmbedding and StronglyEntanglingLayers), and outputs a classification via a classical post-processor.",
+  "key_observables": "Accuracy, F1 score, Recall, Cohen's d effect size, Meyer-Wallach entanglement measure, and parameter count.",
+  "important_parameters": "10 qubits, 2,148 parameters (for one variant), 10 seeds (for statistical averaging).",
+  "main_assumptions": "All reported results are derived from classical simulation, and hardware validation is explicitly noted as future work.",
+  "figures_summary": "Figures summarize performance comparisons (e.g., radar charts showing quantum advantage across metrics) and stability analyses across multiple seeds.",
+  "paper_structure": "The paper systematically validates the QML approach by testing performance across multiple NLP benchmarks (MRPC, QQP, PAWS), analyzing the role of entanglement, and demonstrating superior robustness compared to classical counterparts.",
+  "why_interesting": "While focused on NLP, the methodology—using entanglement measures (Meyer-Wallach) to quantify the advantage of a quantum circuit over classical feature representations—provides a general framework for understanding when quantum correlations provide computational power beyond classical feature engineering.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.14529_figures/2609.14529_fig1.jpg",
+      "caption": "Figure 1: QQP-10K accuracy comparison (n = 10 seeds). Bar chart showing mean accuracy ± 1 SD for the quantum model (teal) and six parameter-matched classical baselines (grey). Quantum v2 achieves 75.53% — highest among all sub-3K parameter models. Welch p = 0.015, Cohen’s d = 1.20 vs DeepMLP (accuracy); p < 0.001, d = 2.32 on F1.",
+      "page": 3
+    },
+    {
+      "image": "2609.14529_figures/2609.14529_fig2.jpg",
+      "caption": "Figure 2: Cohen’s d effect size: Quantum v2 vs. all classical baselines (QQP-10K, n = 10 seeds). Top: horizontal bar chart of Cohen’s d for each pairwise comparison; dashed vertical lines mark the small (d = 0.2), medium (d = 0.5), large (d = 0.8) and very-large (d = 2.0) thresholds. All comparisons exceed the large threshold; Quantum vs. CNN-1D reaches d = 4.50. Bottom: placement of each comparison on the Cohen’s d magnitude interpretation scale (negligible →very large). The quantum model occupies the large-to-very-large region for every baseline, indicating robustly practical significance beyond mere statistical significance.",
+      "page": 5
+    },
+    {
+      "image": "2609.14529_figures/2609.14529_fig3.jpg",
+      "caption": "Fig. 3 visualises the 95% confidence intervals for all models. A key diagnostic of reproducible advantage is non-overlapping confidence intervals: the quantum model’s lower bound (75.07%)",
+      "page": 5
+    },
+    {
+      "image": "2609.14529_figures/2609.14529_fig4.jpg",
+      "caption": "Figure 3: 95% confidence intervals for QQP-10K accuracy (n = 10 seeds). Diamond markers show mean accuracy; horizontal bars span the 95% CI (mean ± 1.96 σ/√n). The dashed line marks the quantum lower bound (75.07%), which lies above the upper bound of every classical baseline, confirming non-overlapping intervals.",
+      "page": 6
+    },
+    {
+      "image": "2609.14529_figures/2609.14529_fig5.jpg",
+      "caption": "Fig. 4 presents the pairwise statistical significance landscape across all models. The left panel encodes −log10(p) from two-sample Welch t-tests: darker red corresponds to higher significance, with the quantum model row/ column forming the most deeply coloured band in the matrix. The right panel applies Bonferroni correction for multiple comparisons (k = 6 pairwise tests, adjusted α = 0.0083): the quantum model achieves ∗∗∗(p < 0.001) against all six classical baselines on F1, and ∗or ∗∗on accuracy depending on baseline. Notably, the Ensemble vs. Quantum accuracy comparison is the sole not significant cell (p = 0.482), consistent with the confidence-interval analysis above and confirming...",
+      "page": 6
+    }
+  ],
+  "figure": "2609.14529_figures/2609.14529_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

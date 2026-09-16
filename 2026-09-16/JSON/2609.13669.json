@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.13669",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Batched pattern search for QAOA parameter optimization on cloud-accessed quantum hardware",
+  "authors": "Muhammad Faryad",
+  "abstract": "On a cloud-accessed quantum processor the classical optimizer of a variational algorithm communicates with the device through submitted jobs, and each job carries a queueing and turnaround overhead that does not depend on how many circuits it contains. We study a simple consequence of this for the quantum approximate optimization algorithm (QAOA). An optimizer whose next set of trial parameters is known before any result returns can evaluate the whole set in one job, whereas a sequential optimizer such as COBYLA spends one job per function evaluation. We compare a batched pattern search with COBYLA on IBM's \\ibmfez\\ processor for cardinality-constrained portfolio selection with six to twelve assets, giving both optimizers the same number of jobs and the same number of shots. At every size the batched search reaches, after its first job, a parameter quality that the serial optimizer takes several jobs to match, and the two methods converge to comparable final values; repeating the eight-asset comparison from four starting points gives the same ordering each time. The instances are small enough to be solved exactly, which lets us check that the device's output distribution is correlated with the true ranking of portfolios and is clearly separated from a control circuit of the same depth with the cost layer removed. A short scan over circuit depth at classically optimal parameters shows that on this device the measured solution quality peaks at two or three QAOA layers. The protocol is described in enough detail to be reproduced, and the notebooks and raw counts are released.",
+  "url": "http://arxiv.org/abs/2609.13669v1",
+  "pdf": "https://arxiv.org/pdf/2609.13669v1",
+  "type": "experiment",
+  "summary": "This paper investigates optimizing QAOA parameters on real quantum hardware by comparing batched versus sequential optimization strategies. It demonstrates that grouping multiple parameter evaluations into a single job (batching) drastically reduces the impact of job submission overhead compared to running evaluations one by one. This highlights that optimizing the classical optimization loop is as critical as optimizing the quantum circuit itself.",
+  "main_problem": "The paper compares the efficiency of batched versus sequential optimization strategies for finding optimal parameters in the Quantum Approximate Optimization Algorithm (QAOA). The core challenge addressed is minimizing the overhead associated with submitting jobs to cloud-accessed quantum hardware.",
+  "main_result": "The batched pattern search method significantly outperforms sequential optimizers like COBYLA by amortizing the constant job submission overhead across multiple parameter evaluations, reaching comparable parameter quality in fewer total jobs.",
+  "method": "The authors implemented and compared two optimization routines: a batched pattern search that submits multiple parameter sets in one job, and COBYLA, which requires a separate job for each function evaluation.",
+  "model_or_system": "The problem solved is the cardinality-constrained portfolio selection, formulated as a QUBO solvable via QAOA. The experiments are conducted on IBM's ibmfez quantum processor, utilizing a custom odd–even transposition network to realize the required couplings deterministically.",
+  "key_observables": "Parameter quality (e.g., approximation ratio, CVaR), number of submitted jobs, and total shots.",
+  "important_parameters": "QAOA depth ($p$), number of assets ($n=6, 8, 10, 12$), and the optimization cost function ($\text{CVaR}_\\alpha$ with $\\alpha=0.5$).",
+  "main_assumptions": "The comparison is limited by the job submission overhead, which is assumed to be constant regardless of the number of circuits in the job. The small instance sizes allow for exact classical verification of the optimum.",
+  "figures_summary": "Figures compare resource usage (gate count, depth, time) between custom synthesis and preset pass managers, and show convergence curves comparing the two optimization methods.",
+  "paper_structure": "The paper first establishes the problem context (QAOA optimization on noisy hardware) and the overhead challenge. It then details the comparison between batched and serial optimization methods using portfolio selection as a benchmark. Results show performance gains for batching, followed by a depth scan confirming optimal QAOA layers.",
+  "why_interesting": "This work is highly relevant as it addresses the practical, non-algorithmic overheads (job scheduling, communication latency) that dominate near-term quantum computation, which is crucial for any physicist designing quantum algorithms for real hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.13669_figures/2609.13669_fig1.jpg",
+      "caption": "FIG. 1. Two-qubit gate count and two-qubit depth of the swap-network synthesis compared with Qiskit’s preset pass manager at optimization level 3, for the four circuits actually submitted. Labels give the ratio.",
+      "page": 3
+    },
+    {
+      "image": "2609.13669_figures/2609.13669_fig2.jpg",
+      "caption": "FIG. 2. The cost of a job on ibm fez, from the 193 jobs of this study. Left: measured wall-clock time from submission to result against the number of shots the job carried. The dashed line marks the shortest round trip observed. Right: the distribution of the same times, by instance size. Both panels are measured; the estimated metered time of Eq. (7) is shown for scale only.",
+      "page": 5
+    },
+    {
+      "image": "2609.13669_figures/2609.13669_fig3.jpg",
+      "caption": "FIG. 3. How the two arms spend the shot budget of one job, drawn for the 6-asset settings. The batched arm divides the job’s shots among 4p + 2 parameter vectors; the serial arm spends all of them on one.",
+      "page": 5
+    },
+    {
+      "image": "2609.13669_figures/2609.13669_fig4.jpg",
+      "caption": "FIG. 4. Optimization on ibm fez under a matched budget of jobs and shots. Upper: running maximum of the exact noiseless approximation ratio of the incumbent parameters, recomputed classically after every job; this is the quality of the point the optimizer has found, independent of how well the device can realize it. Lower: the best CVaR0.5 measured on the device so far. Both arms receive the same number of jobs and the same shots per job; the batched arm spends a job on 4p + 2 parameter vectors, the serial arm on one.",
+      "page": 7
+    },
+    {
+      "image": "2609.13669_figures/2609.13669_fig5.jpg",
+      "caption": "FIG. 5. Final read-out quality against instance size, at 8192 shots. The γ = 0 control runs a circuit of identical gate count and depth whose ideal output is |+⟩⊗n; it tracks the uniform baseline at every size, which is what allows the separation between the measured curves and that baseline to be read as signal. The right panel is on a logarithmic scale; the downward arrow on the γ = 0 control at n = 12 marks an upper bound, that circuit having never sampled the optimum in 8192 shots.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.13669_figures/2609.13669_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

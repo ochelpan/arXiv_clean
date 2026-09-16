@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.15728",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Modular, Topology-Aware Software Stack for Entanglement-Based Distributed Quantum Computing",
+  "authors": "Luke Andreesen, Shobhit Gupta, Sean Sullivan, Manish Kumar Singh",
+  "abstract": "Distributed quantum computing (DQC) seeks to scale beyond the limits of monolithic processors by interconnecting multiple quantum processing units (QPUs) through entanglement-based links. Realizing this vision requires the co-design of hardware and software across the domains of quantum networking, compilation, and scheduling, yet existing tools remain fragmented between monolithic circuit compilers and long-distance quantum network simulators. We present an open-source, topology-informed framework for the compilation and scheduling of distributed quantum programs. Given an input circuit and a description of the target network, the framework partitions and reconstructs the circuit into a distributed program that respects the specified inter- and intra-QPU topology, covers cross-QPU operations through gate and state teleportation, and schedules the result under either deterministic or stochastic entanglement-generation models. By accepting and emitting standard OpenQASM, the framework interoperates with existing monolithic toolchains, and its standardized module interfaces allow partitioning and scheduling strategies to be interchanged and benchmarked. Using this framework, we show that the best-performing compilation strategy varies across the tested circuits and network configurations, and that both network topology and intra-QPU connectivity substantially affect the entanglement cost of execution. These findings underscore the need for a co-design approach to distributed quantum computing, which our framework is designed to support.",
+  "url": "http://arxiv.org/abs/2609.15728v1",
+  "pdf": "https://arxiv.org/pdf/2609.15728v1",
+  "type": "theory",
+  "summary": "This work presents a modular, topology-aware software stack designed to compile and schedule quantum circuits for distributed quantum computing across multiple interconnected QPUs. The framework explicitly accounts for the physical network topology, using teleportation primitives to manage cross-QPU operations. It is significant because it quantifies how network structure and compilation strategy critically impact the resource cost (entanglement) of running quantum algorithms.",
+  "main_problem": "The paper addresses the challenge of scaling quantum computation beyond single monolithic processors by interconnecting multiple Quantum Processing Units (QPUs) using entanglement-based links.",
+  "main_result": "The authors demonstrate that the optimal compilation strategy for distributed quantum programs is highly dependent on the specific quantum circuit, the underlying network topology, and the intra-QPU connectivity.",
+  "method": "They introduce an open-source, topology-aware framework that compiles and schedules quantum circuits by partitioning them across a specified network topology, utilizing state and gate teleportation for cross-QPU operations.",
+  "model_or_system": "The system modeled is a distributed quantum computer composed of multiple interconnected QPUs linked by entanglement-based quantum channels. The framework handles the mapping of abstract quantum circuits onto this physical, constrained network structure.",
+  "key_observables": "EPR pairs consumed (entanglement cost), execution time, and the resulting time-resolved operation schedule.",
+  "important_parameters": "Network topology (e.g., ring, grid, all-to-all), intra-QPU connectivity, and the choice between deterministic or stochastic entanglement generation models.",
+  "main_assumptions": "The framework targets the NISQ era and does not currently model quantum error correction, fidelity, or decoherence effects.",
+  "figures_summary": "Figures illustrate the teleportation protocols (State/Gate), the overall compiler workflow (Preprocessing $\rightarrow$ Partitioning $\rightarrow$ Scheduling), and the final output as a time-resolved Gantt chart schedule.",
+  "paper_structure": "The paper introduces the problem, details the modular framework (Compiler $\rightarrow$ QNC $\rightarrow$ Scheduler), provides examples of teleportation primitives, and concludes with performance comparisons across various benchmark circuits and topologies.",
+  "why_interesting": "While focused on computation, the explicit modeling of resource constraints (EPR pairs) and topology-dependent scheduling provides insights into resource management and connectivity limitations relevant to physical quantum hardware implementations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.15728_figures/2609.15728_fig1.jpg",
+      "caption": "Fig. 1. State Teleportation (left) and Gate Teleportation (right) circuits. The state teleportation circuit transfers an arbitrary qubit state from one QPU to another QPU using an EPR pair. The gate teleportation circuit allows a two-qubit gate to be executed between two qubits sitting on distinct, interconnected processors.",
+      "page": 3
+    },
+    {
+      "image": "2609.15728_figures/2609.15728_fig2.jpg",
+      "caption": "Fig. 2. Circuit-level implementation of the Cat-Entangler and Cat- Disentangler protocols. The Cat-Entangler consumes a single shared EPR pair to distribute the state of a control qubit onto a communication qubit on a remote QPU, allowing one or more gates controlled by that qubit to be executed remotely.",
+      "page": 3
+    },
+    {
+      "image": "2609.15728_figures/2609.15728_fig3.jpg",
+      "caption": "Fig. 4. A sample network configuration generated via Quantum Network Constructor. This illustrative system shows four QPUs, with varying inter- connect fidelities (dotted lines). Solid lines indicate intra-QPU connections. Circles with ‘q’ labels, e.g. ‘q0’, represent computation qubits, while circles with ‘c’ labels, e.g. ‘c0’, represent communication qubits.",
+      "page": 4
+    },
+    {
+      "image": "2609.15728_figures/2609.15728_fig4.jpg",
+      "caption": "Fig. 3. Overview of the key steps in the compiler workflow. The compiler takes two inputs: (i) a quantum circuit to be executed and (ii) a quantum network topology describing the cluster of interconnected QPUs. In the pre- processing stage (1), the circuit is converted into a graph-based representation that captures both circuit dynamics and network topology. The resulting interaction graph is then partitioned (2) across the available QPUs, with cut edges (dashed) denoting interactions that span partition boundaries and therefore require inter-QPU communication. During circuit reconstruction (3), the partitioned assignment is mapped back onto circuit form, inserting the operations needed to...",
+      "page": 4
+    },
+    {
+      "image": "2609.15728_figures/2609.15728_fig5.jpg",
+      "caption": "Fig. 5. Interaction graph representation of a quantum circuit. Each node represents a qubit, and edge weights represent the number of two-qubit interactions between each pair of qubits.",
+      "page": 6
+    }
+  ],
+  "figure": "2609.15728_figures/2609.15728_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

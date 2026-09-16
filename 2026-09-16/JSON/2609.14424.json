@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.14424",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Certification cost of quantum models: measurement correlation, not parameter count",
+  "authors": "Pavel Sulimov, Claude Lehmann",
+  "abstract": "Reporting the Fisher geometry of a trained variational quantum model is routine; quoting the shot budget that would establish it is not. Certifying an empirical Fisher matrix to relative Frobenius error $\\varepsilon$ under coordinate-wise parameter shift costs $Θ(B p^{2} V/(\\varepsilon^{2} G))$ circuit executions, where $V$ is the measured readout variance and $G$ the measured squared gradient norm, with uniform allocation optimal in that class. One constant reproduces the cost of two circuit families whose exponents differ by a full power of $p$. The exponent is an identity in how $nV$ and $nG$ scale with the register, holding family by family to $0.001$ across 624 matrix-product-state cells once the finite-$p$ prefactor is removed. The cubic cost is therefore a finite-size window, set by whether the readout light cone grows with the register. A product family to 256 qubits gives $1.966$ (95% CI $1.934$--$1.997$); a brickwork entangler falls from $2.853$ below ten qubits to $1.715$ beyond sixty-four; a blocked entangler gives $1.984$ at a fixed cone width against $3.034$ at a proportional one. Fixed device connectivity fixes the cone, so a cubic budget from a small simulation overestimates a large machine, on top of hardware multipliers $2.07\\times$ ($1.41$--$3.02$), $2.38\\times$ and $1.91\\times$ on ibm_marrakesh, ibm_fez and ibm_kingston. Cost-optimal readout weights cut the measured shot budget by $2.67\\times$ ($1.33$--$4.00$) on hardware, flat from four to twelve qubits. A discrepancy model fitted on cheap circuits transfers its mean inside the calibration grid and, at six larger sizes named before the data, does not: nominal 90% intervals cover 36%, and split conformal is the only rung that stays near nominal.",
+  "url": "http://arxiv.org/abs/2609.14424v1",
+  "pdf": "https://arxiv.org/pdf/2609.14424v1",
+  "type": "both",
+  "summary": "This paper develops a rigorous framework to calculate the true experimental cost required to certify the performance of variational quantum models. It shows that this cost depends on measurable quantities like readout variance and gradient norm, rather than just the number of parameters. This shifts the focus of quantum algorithm assessment from simple accuracy claims to verifiable resource estimation.",
+  "main_problem": "The paper addresses the critical issue of determining the true computational cost (shot budget) required to certify the empirical Fisher matrix of a trained variational quantum model, arguing that measurement correlation, not just parameter count, dictates this cost.",
+  "main_result": "The certification cost scales according to a closed-form law dependent on the measured readout variance ($V$) and squared gradient norm ($G$), showing that commonly assumed cubic scaling is merely a finite-size artifact.",
+  "method": "The authors derive and test a scaling law for the required shot budget, $S \\propto pV/(\\varepsilon^2G)$, by analyzing how measured quantities scale across different quantum circuit families.",
+  "model_or_system": "The study focuses on variational quantum models implemented on quantum circuits, comparing different entanglement structures like product families and brickwork entanglers. The analysis is benchmarked against both theoretical scaling laws and measurements on specific quantum hardware (e.g., IBM devices).",
+  "key_observables": "Certification cost ($S$), readout variance ($V$), squared gradient norm ($G$), and scaling exponents for various circuit families.",
+  "important_parameters": "Target relative Frobenius error ($\\varepsilon$), scaling parameter ($p$), and the system size (number of qubits, $n$).",
+  "main_assumptions": "The cost law derived is optimal only within the coordinate-wise parameter-shift measurement class, and the analysis is limited to specific low-depth, one-dimensional coupling topologies.",
+  "figures_summary": "Figures illustrate the cost derivation using $V$ and $G$, demonstrate that a single constant reproduces the cost for different circuit families, and show the failure of the cubic cost scaling at larger system sizes.",
+  "paper_structure": "The paper establishes the theoretical cost law (Theorem 1), analyzes the scaling behavior of this cost across various quantum circuit topologies, compares these findings to hardware measurements, and concludes by contrasting measurement cost against simple accuracy metrics.",
+  "why_interesting": "It provides rigorous, quantitative guidelines for benchmarking quantum machine learning models, shifting the focus from simply achieving a low error rate to proving that the required experimental resources (shot budget) are feasible.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.14424_figures/2609.14424_fig1.jpg",
+      "caption": "Figure 1. Certification cost, and what sets its exponent. a A layered RX plus entangler circuit is measured in the computational basis to give the uniform mean f = 1 n P",
+      "page": 3
+    },
+    {
+      "image": "2609.14424_figures/2609.14424_fig2.jpg",
+      "caption": "Figure 2. One constant reproduces the cost of both families. a Measured shots against the predicted pV/(ε2G) on logarithmic axes for 84 cells at ε = 0.15, product family as blue circles and entangling family as orange squares; the grey dashed line is the pooled constant 0.344 fitted across both families and not per family. b The 84 per-cell values before dividing by pV/(ε2G) (blue, left) and after (orange, right), each cell drawn as an individual point and each column normalised to its own mean, on a logarithmic axis; the grey horizontal bar is the column median and the annotation is the pooled coefficient of variation over all 84 cells. No error bars are shown because each annotation is a...",
+      "page": 4
+    },
+    {
+      "image": "2609.14424_figures/2609.14424_fig3.jpg",
+      "caption": "Figure 3. The cubic exponent is a cone window. a Product-family executions with the fitted ε dependence divided out: BQε−b against parameter count p on logarithmic axes, n = 16 to 256, where b = −1.92 is the fitted ε exponent. Blue points are 120 cells at four ε values; collapsing ε puts them on one cloud. The orange line is the two-variable fit in p; the grey dotted line is a p3",
+      "page": 5
+    },
+    {
+      "image": "2609.14424_figures/2609.14424_fig4.jpg",
+      "caption": "Figure 4. The fitted exponent is an accounting identity. a Measured BQ exponent against the identity prediction 2 + d log(nV )/d log n −d log(nG)/d log n for eleven blocked-entangler fam- ilies. Blue circles: cone width fixed; orange squares: cone width proportional to the register. The grey dashed line is equality. Family names are on the axis of panel b. b The residual of panel a for each family (open circles, coloured as in a) against the finite-p (1 + 2p) prefactor contribution computed independently for that family’s own p grid (grey crosses). The two agree to within 0.0008 for every family, which is why the residual is a prefactor effect and not a failure of the identity.",
+      "page": 7
+    },
+    {
+      "image": "2609.14424_figures/2609.14424_fig5.jpg",
+      "caption": "Figure 5. The hardware multiplier, and why the clustering unit matters. a Cost multiplier 1/α2 for all 54 mirror cells on ibm_marrakesh, on a logarithmic axis, grouped by the nine (qubits, depth) design points; pale blue circles are individual cells and the larger dark blue circle is the design-point median. The grey dotted line marks no inflation; every one of the 54 cells lies above it, from 1.10 to 7.92. The orange line is the reported estimand 1/α2 = 2.07 and the orange band its cluster-robust two-sided 95% interval, obtained by resampling design points. b The same estimand under three interval constructions on a shared logarithmic axis: resampling the 54 rows, resampling the nine...",
+      "page": 8
+    }
+  ],
+  "figure": "2609.14424_figures/2609.14424_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

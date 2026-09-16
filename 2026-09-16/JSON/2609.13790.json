@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.13790",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Binary Optimization with Complex Constraints via Quantum Approximate Multi-Objective Optimization",
+  "authors": "Andres Ruiz, Soumyadip Ghosh, Stefan Woerner",
+  "abstract": "We show that a class of binary optimization problems with complex non-quadratic objectives or constraints can be reformulated as multi-objective quadratic unconstrained binary optimization problems. When the objective and constraints depend on a small number of quadratic features and are monotone with respect to their preferred directions, at least one globally optimal solution lies in the Pareto set of the associated MO-QUBO. This enables the constraints to be evaluated classically on Pareto-optimal candidates rather than encoded as penalties. We demonstrate the approach for binary portfolio optimization under a Conditional Value-at-Risk constraint. Using Quantum Approximate Multi-Objective Optimization on an illustrative 100-asset instance, we approximate the mean-variance Pareto front using an IBM Quantum computer and derive mean-CVaR fronts through classical post-processing. The hardware results recover the overall structure of the classical front and yield near-optimal feasible portfolios for different risk bounds.",
+  "url": "http://arxiv.org/abs/2609.13790v1",
+  "pdf": "https://arxiv.org/pdf/2609.13790v1",
+  "type": "both",
+  "summary": "This work reformulates complex, constrained binary optimization problems into Multi-Objective QUBOs solvable via quantum computation. By applying Quantum Approximate Multi-Objective Optimization (QAMOO) to portfolio selection, the authors successfully approximate the mean-variance and mean-CVaR Pareto fronts. The results show that the quantum approach yields near-optimal portfolios that closely match established classical benchmarks.",
+  "main_problem": "The paper addresses the challenge of optimizing binary problems with complex, non-quadratic constraints by reformulating them into Multi-Objective Quadratic Unconstrained Binary Optimization (MO-QUBO) problems.",
+  "main_result": "The proposed quantum approach, using QAMOO, successfully approximates the Pareto front for portfolio optimization (mean-variance and mean-CVaR) and yields near-optimal feasible portfolios when compared against classical benchmarks.",
+  "method": "The methodology involves transforming constrained optimization into an MO-QUBO, solving for the Pareto set using QAMOO on a quantum computer, and then classically evaluating the original non-quadratic constraints on the resulting candidates.",
+  "model_or_system": "The model is binary portfolio selection ($x \\in \\{0, 1\\}^n$) aiming to optimize expected return ($\\mu^T x$) subject to a Conditional Value-at-Risk (CVaR) constraint, which is non-quadratic.",
+  "key_observables": "Pareto front structure, Hypervolume (HV) indicator, Expected Return, CVaR values for $\\alpha = 90\\%, 95\\%, 99\\%$.",
+  "important_parameters": "Number of assets ($n$), risk aversion level ($\\alpha$), and QAOA circuit parameters ($\beta_l, \\gamma_l$).",
+  "main_assumptions": "The reduction relies on the objective and constraints being monotone with respect to the induced dominance order; global optimality is not guaranteed if only an approximation of the Pareto set is found.",
+  "figures_summary": "Figures compare the sampled Pareto fronts (mean-variance and mean-CVaR) from QAMOO against classical references ($\\epsilon$-CM, WSM), showing close recovery of the front structure. Figure 2 specifically plots the expected-return gap between the two methods.",
+  "paper_structure": "The paper first introduces the theoretical framework for reformulating constrained optimization into MO-QUBOs. It then applies this to portfolio optimization, detailing the use of QAMOO on quantum hardware, followed by extensive comparison with classical methods and robustness checks.",
+  "why_interesting": "It demonstrates a concrete application of quantum optimization algorithms (QAMOO) to a highly relevant financial problem (portfolio optimization) involving complex, non-quadratic constraints, bridging quantum computation with quantitative finance.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.13790_figures/2609.13790_fig1.jpg",
+      "caption": "Figure 1. Results for the 100-asset portfolio instance. (a) Scalarized objective values for 100 equidistant weights w ∈[0, 1], showing the WSM reference, Pauli-propagation values, QPU mean, QPU-CVaR, QPU best shot, and random baselines. The QPU-CVaR curve averages the objective over the best 0.329% of the 100,000 shots. (b) Mean-variance values of all measured samples, together with the QPU, ϵ-CM, and random non-dominated fronts. (c) Mean-CVaR fronts of the ϵ-CM, QPU, and random solutions for confidence levels α = 90%, 95%, and 99%. All ϵ-CM curves and fronts are derived from the same 1,000 ϵ-CM solutions obtained by CPLEX; weighted-sum results are reported separately in Tab. I and Appendix...",
+      "page": 5
+    },
+    {
+      "image": "2609.13790_figures/2609.13790_fig2.jpg",
+      "caption": "Fig. 1(a) shows that the measured expectation values follow the trend of the CPLEX and Pauli-propagation references, although hardware noise increases the ex- pected scalarized objective. We additionally compute the lower-tail CVaR of the sampled scalarized objective dis- tribution, setting its tail fraction to the estimated circuit fidelity of 0.329%. This shot tail fraction is unrelated to the portfolio-CVaR confidence levels α = 90%, 95%, 99% of Fig. 1(c), which refer to the portfolio’s loss distribution and not to shots. As shown by Barron et al. [20], under the corresponding noise-model assumptions, this CVaR estimated using noisy samples provides a provable lower bound on the...",
+      "page": 5
+    },
+    {
+      "image": "2609.13790_figures/2609.13790_fig3.jpg",
+      "caption": "Figure 2. Expected-return gap between the QAMOO and ϵ-CM mean-CVaR fronts as a function of the CVaR bud- get c, for p = 3 and k = 4 on ibm boston. For each budget c, the return R(c) is the maximum expected return among portfolios satisfying CVaRα(L(x)) ≤c, evaluated in the Gaussian form CVaRα(L(x)) = −µTx + κα √",
+      "page": 6
+    },
+    {
+      "image": "2609.13790_figures/2609.13790_fig4.jpg",
+      "caption": "Figure 3. The trained ramp quantities at p = 3, k = 4, against the return weight w, over the 100 weights submitted to hardware. (a) the mixer slope ∆β; the dotted line marks 3π, the upper limit of the training range. (b) the cost slope ∆γ, in units of the divisor. (c) the divisor κLR, the largest absolute Ising coefficient of the problem at that weight; κLR depends on the problem and the weight only, not on the circuit depth. (d) the ratio ∆γ/κLR, in radians. Over the 100 weights, ∆β runs from 8.535 to 8.854 rad, a factor 1.04, with median 8.698 rad; ∆γ runs from 1.699 to 20.987 divisor units, a factor 12.35; κLR runs from 0.01523 to 0.03588, a factor 2.36, smallest at w = 0.495 and largest...",
+      "page": 9
+    },
+    {
+      "image": "2609.13790_figures/2609.13790_fig5.jpg",
+      "caption": "Figure 4. Robustness analysis at p = 3 and k = 4 on ibm boston. The 100 circuits used in Sec. V were executed ten times, with 100,000 shots per weight in each repetition. QPU curves show the median across repetitions; the ϵ-CM reference and random baseline are identical for all runs. The number of non-dominated portfolios ranged from 538 to 621 for the mean-variance front, and from 415 to 455, 429 to 478, and 443 to 494 for the mean-CVaR fronts at α = 90%, 95%, and 99%, respectively. The QPU-CVaR tail fraction was set to the estimated circuit fidelity of the corresponding hardware session, 0.162%, compared with 0.329% for the run reported in the main text. Overall, the repeated runs closely...",
+      "page": 9
+    }
+  ],
+  "figure": "2609.13790_figures/2609.13790_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

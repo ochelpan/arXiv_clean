@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.15272",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Variational Real-Time Dynamics on Reduced Operator Manifolds",
+  "authors": "Aeishah Ameera Anuar, PV Sriluckshmy, Riccardo Rossi, Fedor Simkovic",
+  "abstract": "Accurate real-time simulation of correlated quantum systems remains challenging for both classical methods and near-term quantum hardware. We introduce operator-projected variational quantum real-time evolution (OVQRTE), which updates a parameterized circuit by enforcing the Ehrenfest equations for a selected set of observables. OVQRTE requires only expectation-value measurements, while the choice of operator set enables a systematic trade-off between accuracy and measurement cost, substantially reducing quantum-resource requirements relative to existing variational real-time-evolution algorithms. After implementing OVQRTE dynamics of Heisenberg model on a simulator, we benchmark the algorithm for the Anderson impurity models on the IQM Emerald superconducting processor using up to 24 qubits. We further use OVQRTE to sample computational-basis states for quantum-selected configuration interaction (QSCI), enabling the calculation of the ground-state energy and density of states within a self-consistent ghost-Gutzwiller Ansatz (gGut) embedding loop. Our results establish OVQRTE as a promising approach for investigating correlated condensed-matter systems on near-term quantum hardware.",
+  "url": "http://arxiv.org/abs/2609.15272v1",
+  "pdf": "https://arxiv.org/pdf/2609.15272v1",
+  "type": "theory",
+  "summary": "This paper introduces Operator-Projected Variational Quantum Real-Time Evolution (OVQRTE) to overcome the computational bottleneck of simulating correlated quantum systems. By projecting the dynamics onto a small, measurable set of operators, it significantly reduces quantum resource requirements compared to existing variational methods. The approach is demonstrated to be effective for simulating models relevant to condensed matter physics on near-term quantum hardware.",
+  "main_problem": "Accurately simulating the real-time dynamics of correlated quantum many-body systems remains challenging due to the exponential growth of the full operator basis.",
+  "main_result": "The proposed OVQRTE method successfully simulates dynamics for models like the Heisenberg and Anderson impurity models on near-term quantum hardware, showing convergence comparable to exact methods.",
+  "method": "The method projects the full dynamics onto a polynomially sized set of observables $S$ by enforcing the Ehrenfest equations, thus avoiding the need to track the exponentially large operator basis.",
+  "model_or_system": "The work applies to correlated quantum systems, specifically benchmarking on the 1D Heisenberg model and the Anderson impurity model, utilizing parameterized quantum circuits for state representation.",
+  "key_observables": "Expectation values of selected observables $\\langle\\hat{O}_\\alpha\rangle_t$, ground-state energy, and density of states.",
+  "important_parameters": "The choice of the observable set $S$ allows a systematic trade-off between simulation accuracy and measurement cost. The simulation uses up to 24 qubits.",
+  "main_assumptions": "The dynamics are restricted (projected) onto the span of a polynomially chosen set of operators $S$, and the method avoids estimating the quantum geometric tensor required by some variational approaches.",
+  "figures_summary": "Figures compare energy errors for the Anderson impurity model, showing that SPSA-driven OVQRTE evolution converges toward the accuracy of exact matrix exponentiation as the number of iterations increases.",
+  "paper_structure": "The paper introduces OVQRTE to address real-time simulation challenges, details the mechanism of projecting dynamics onto a small operator set $S$ by solving a linear system derived from Ehrenfest equations, and validates the approach on specific models like the Heisenberg and Anderson impurity models.",
+  "why_interesting": "This work provides a resource-efficient pathway to simulate complex, strongly correlated quantum dynamics on NISQ devices by intelligently restricting the necessary measurements, which is crucial for studying materials physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.15272_figures/2609.15272_fig1.jpg",
+      "caption": "FIG. 1. Measurement circuits per time step versus system size (16, 32, 50 qubits; log scale). VQRTE and OVQRTE using finite-difference (FD) and SPSA to compute gradients, for the Heisenberg model, using the HEA ansatz with L = 1 and S2NN operator set, and the Anderson impu- rity model (AIM), using the LUCJ ansatz with L = 1 ansatz layers, and S1+ZZ operator set.",
+      "page": 6
+    },
+    {
+      "image": "2609.15272_figures/2609.15272_fig2.jpg",
+      "caption": "FIG. 2. Real-time dynamics of a 12-qubit Heisen- berg chain. OVQRTE projecting onto the two-local nearest- neighbor Pauli set S2NN versus McLachlan VQRTE, in the statevector (SV) limit and at Nsh = 104, 105. (a) state infi- delity 1−F; (b) transverse magnetization MX = 1/n P",
+      "page": 7
+    },
+    {
+      "image": "2609.15272_figures/2609.15272_fig3.jpg",
+      "caption": "FIG. 3. Simulated real-time dynamics of a 12- qubit Anderson impurity model. (a) Return fidelity F(ψ(t), ψ0) = |⟨ψ0|ψ(t)⟩|2; (b) fidelity to the exact state |⟨ψexact(t)|ψ(t)⟩|2. Different operator pools and their QEB variants are considered for OVQRTE, as described in the main text. VQRTE results are shown for reference. LUCJ is used as the underlying ansatz circuit for both VQRTE and OVQRTE.",
+      "page": 8
+    },
+    {
+      "image": "2609.15272_figures/2609.15272_fig4.jpg",
+      "caption": "FIG. 4. Mapping of an LUCJ ansatz circuit onto the IQM Emerald topology. A 24-qubit LUCJ ansatz circuit is mapped onto a linear chain embedded in the device’s native connectivity graph without the requirement for any routing via SWAP gates. The average calibrated CZ fidelity across the 23 used edges is 99.71%.",
+      "page": 9
+    },
+    {
+      "image": "2609.15272_figures/2609.15272_fig5.jpg",
+      "caption": "FIG. 5. OVQRTE real-time evolution under an An- derson Impurity model defined on n = 20 qubits and with a LUCJ ansatz circuit state, executed on IQM Emerald, and followed by QSCI with a configuration recovery step. The energy error |E −EGS| us shown as a function of the fractional subspace size R, color indicating the evolution time t used. OVQRTE is run on hardware for 10 time steps.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.15272_figures/2609.15272_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

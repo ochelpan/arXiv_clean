@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2609.13379",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Handling Imperfections in Subcircuit Compilation for Linear Optical Quantum Computing",
+  "authors": "Tobias Forster, Yannick Stade, Andreas Fyrillas, Jean Senellart, Lukas Burgholzer, Robert Wille",
+  "abstract": "Linear Optical Quantum Computing (LOQC) is emerging as a promising technology in large-scale quantum computing. Corresponding devices, including linear optical circuits, are rapidly growing in size and fabrication precision. However, even with improved quality, the circuits still exhibit imperfections leading to photon loss or phase noise that vary across the circuit. Already small deficiencies can have a vast impact on both accuracy and efficiency. For computations that do not require the entire linear optical circuit, so-called subcircuits, one can choose where to perform the computation, opening optimization opportunities that are addressed by subcircuit compilation. Current compilers spread the subcircuit's computation across the entire circuit, connecting the same input and output ports, thereby failing to fully exploit the optimization opportunities. However, given the subcircuit's reduced size compared to the entire circuit, one can keep its implementation localized and intentionally route photons to connect good input and output ports. This, however, is a highly non-trivial task, as numerous options must be weighed against one another, and the quality of the solution is influenced by a wide range of hardware parameters. In particular, the reflectivities of imperfect beam splitters can lead to photon losses during routing, which must be traded off against losses at the input and output ports due to imperfect transmission rates. Since current compilers do not account for these effects, we propose the first efficient subcircuit compilation method that optimizes for the coincidence rate, the probability of successfully measuring all desired photons, by handling hardware imperfections. Our evaluations demonstrate significant improvement over existing methods in robustness against phase noise and significantly increased coincidence rates across all benchmarks of up to plus 33.2%.",
+  "url": "http://arxiv.org/abs/2609.13379v1",
+  "pdf": "https://arxiv.org/pdf/2609.13379v1",
+  "type": "theory",
+  "summary": "This paper presents the first automated compiler for subcircuits in Linear Optical Quantum Computing (LOQC) that explicitly models hardware imperfections. By optimizing photon routing and placement within a localized 'computation zone,' the method maximizes the coincidence rate. The results show significant performance gains, demonstrating a path toward more robust and scalable photonic quantum processors.",
+  "main_problem": "The paper addresses the challenge of compiling quantum subcircuits for Linear Optical Quantum Computing (LOQC) while accurately accounting for hardware imperfections like photon loss and phase noise.",
+  "main_result": "The proposed compilation method significantly improves the coincidence rate—the probability of successfully measuring all desired photons—by up to 33.2% compared to existing methods.",
+  "method": "It introduces a novel compilation strategy that localizes the computation to a 'computation zone' and uses dynamic programming on a layered Directed Acyclic Graph (DAG) to optimize photon routing while balancing input/output port losses against internal beam splitter losses.",
+  "model_or_system": "The system is LOQC implemented using linear optical circuits, which are modeled using interferometers (like Mach-Zehnder Interferometers) and are described by unitary transformations on Fock states.",
+  "key_observables": "Coincidence Rate (probability of successful photon measurement), Fidelity (Total Variation Distance), and overall circuit robustness against phase noise.",
+  "important_parameters": "Beam splitter reflectivities, input/output port transmission rates, and the degree of phase noise (e.g., 15 or 30 mrad).",
+  "main_assumptions": "The problem is mapped onto a layered DAG structure, allowing for efficient dynamic programming; current evaluations are based on simulations.",
+  "figures_summary": "Figures illustrate the building blocks of LOQC circuits, the embedding of a subcircuit onto a larger architecture (Bell-Walmsley), and the 'Problem Graph' used for the optimization algorithm.",
+  "paper_structure": "The paper first establishes the physical problem (LOQC imperfections), then details the limitations of current compilers, proposes the localized subcircuit compilation method using graph theory and dynamic programming, and finally validates the approach by comparing coincidence rates against baseline methods under varying noise conditions.",
+  "why_interesting": "This work directly tackles the engineering bottleneck of scaling photonic quantum computation by providing a rigorous, optimized compilation framework that accounts for realistic hardware losses, which is crucial for any physical realization of quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.13379_figures/2609.13379_fig1.jpg",
+      "caption": "Fig. 1: Building blocks and interferometers for linear optics. Dark blue lines correspond to waveguides. Light travels from left to right.",
+      "page": 2
+    },
+    {
+      "image": "2609.13379_figures/2609.13379_fig2.jpg",
+      "caption": "Fig. 2: Illustration of different methods to implement a 4-by-4 subcircuit on a 16-waveguide Bell-Walmsley circuit. Orange boxes indicate the placed subcircuit, orange lines the photon routing. Blue bars at the side of the circuits indicate the transmission rates of the respective input and output ports.",
+      "page": 3
+    },
+    {
+      "image": "2609.13379_figures/2609.13379_fig3.jpg",
+      "caption": "Fig. 3: Problem Graph. The depicted graph corresponds to a 4-waveguide Bell-Walmsley circuit and a 2-by-2 target unitary.",
+      "page": 4
+    }
+  ],
+  "figure": "2609.13379_figures/2609.13379_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 2,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

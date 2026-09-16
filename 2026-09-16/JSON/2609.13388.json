@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.13388",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "CUDA-Q Logical: Retargetable Compilation for Fault-Tolerant Quantum Computing",
+  "authors": "Alexander McCaskey, Justin Lietz, Adam Holmes, Kohei Nakaji, Vadym Kliuchnikov, Yifan Hong, Amalee Wilson, Andres Paz, Bettina Heim, Bruno Schmitt, Krysta M. Svore",
+  "abstract": "Realizing fault-tolerant quantum computing requires mapping logical programs to heterogeneous quantum error correction (QEC) codes and diverse fault-tolerant execution models, scheduling physical resources, and coupling to real-time classical control and feedback. Specialized tools exist for each step but rely on manual composition and translation that discard assumptions and provenance, separating resource estimates from the compiler artifacts they describe, and making it difficult to validate correctness, compare architectures, or attribute costs to specific design choices. We present CUDA-Q Logical, an extensible compiler infrastructure for retargetable fault-tolerant compilation, analysis, and execution. Interoperable with CUDA-Q and other mainstream front-ends, CUDA-Q Logical progressively lowers target-independent logical programs through a constrained logical virtual machine, QEC microcode, physical gate schedules, and real-time control plans, with each layer preserving semantics and provenance, while verifying composition and resource constraints. By deriving every resource estimate directly from compiler artifacts, the framework unifies compilation and resource analysis, enabling successively refined estimates and principled cross-architecture comparison while permitting QEC codes, execution models, decoders, and hardware architectures to be introduced as modular extensions. Across workloads ranging from application-architecture studies to qLDPC surgery and detector-error-model composition, we show that schedule-derived estimates reconcile with established independent models. Crucially, this compiler-visible structure exposes cost drivers hidden by aggregate analytical formulas, carries QEC artifacts intact into simulation, and demonstrates a complete compilation pipeline for fault-tolerant quantum computing.",
+  "url": "http://arxiv.org/abs/2609.13388v1",
+  "pdf": "https://arxiv.org/pdf/2609.13388v1",
+  "type": "theory",
+  "summary": "This paper presents CUDA-Q Logical, a novel, extensible compiler infrastructure designed to manage the complexity of fault-tolerant quantum computing. It unifies the process of compilation and resource analysis by progressively lowering logical programs through distinct, verifiable abstraction layers. This approach allows for principled, cross-architecture comparison and exposes cost drivers previously hidden by manual analysis.",
+  "main_problem": "Existing tools for fault-tolerant quantum computing lack a unified framework, forcing manual composition that loses provenance and makes resource cost attribution difficult.",
+  "main_result": "The authors introduce CUDA-Q Logical, an extensible compiler infrastructure that unifies compilation and resource analysis by tracking provenance across all abstraction levels.",
+  "method": "The framework uses progressive lowering through a constrained logical virtual machine, moving from high-level logical intent (P0) down to physical control plans (P4).",
+  "model_or_system": "The system models fault-tolerant quantum computation, requiring mapping logical programs onto heterogeneous Quantum Error Correction (QEC) codes and diverse execution models.",
+  "key_observables": "Resource estimates (qubits, time, failure budget), provenance records, and semantic preservation across compilation stages.",
+  "important_parameters": "QEC parameters (e.g., code size, distance), timing parameters (latency, initiation interval), and error probabilities.",
+  "main_assumptions": "The framework assumes that components entering the compiler are verified and typed data, and it distinguishes between local simulation and real-time hardware constraints.",
+  "figures_summary": "Figure 1 illustrates the progressive refinement path from logical intent (P0) through the four main profiles (P0-P4), showing the verifiable refinement pipeline.",
+  "paper_structure": "The paper details the progressive lowering pipeline (P0 to P4), describes the modular physical materialization models (FactoryModel, SpacetimePlanModel, TransportModel), and demonstrates how resource estimates are derived at each stage.",
+  "why_interesting": "While focused on compilation, the rigorous handling of resource constraints, state provenance, and the explicit modeling of physical resource requirements (like timing and connectivity) are highly relevant for designing and simulating complex quantum hardware architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.13388_figures/2609.13388_fig1.jpg",
+      "caption": "Fig. 1. CUDA-Q Logical progressively refines one logical program from target-independent intent to real-time control. Each profile adds a new class of target commitment, while research components attach at typed boundaries and analyses observe the same evolving build. Compilation may stop at any verified profile accepted by the selected target.",
+      "page": 4
+    },
+    {
+      "image": "2609.13388_figures/2609.13388_fig2.jpg",
+      "caption": "Fig. 2. The logical virtual machine for CUDA-Q. Regions expose code-independent logical capacity and capabilities, streams ex- pose resource-state supply, and channels constrain admissible flow. Encodings and physical routes are deliberately absent.",
+      "page": 7
+    },
+    {
+      "image": "2609.13388_figures/2609.13388_fig3.jpg",
+      "caption": "Fig. 4. P3 schedule-derived RSA-2048 tradeoffs across AutoCCZ lane counts and carry-runway separations. From left to right: single-run wall-clock time and physical-qubit footprint. Each point is obtained by compiling and scheduling the corresponding architecture configuration at P3.",
+      "page": 17
+    },
+    {
+      "image": "2609.13388_figures/2609.13388_fig4.jpg",
+      "caption": "Fig. 6. Layered device construction in CUDA-Q Logical. (a) The immutable Device composes a contiguous prefix of P1–P4 virtual machines and explicit adjacent-stage bindings. P0 workloads, P2 architecture bundles, the mutable builder, and targets remain separate inputs. (b) Authoring adds P1 logical facts, P2 QEC binding, and P3 physical materialization before validation freezes the device. Only then does compilation combine the unchanged P0 workload, device, and target into a witnessed build.",
+      "page": 41
+    },
+    {
+      "image": "2609.13388_figures/2609.13388_fig5.jpg",
+      "caption": "Fig. 7. The connected P2 object model in CUDA-Q Logical. (a) A code supplies verified algebra, a code presentation supplies a syndrome-boundary interpretation, and an encoding exposes the reusable typed interface. A device’s QECRegion provides capacity for that encoding; compilation allocates linear patch values from the pool. (b) A gadget specification relates an ideal logical action to an executable realization. Typed patch endpoints and stable record families expose its boundary, a detached detector contract supplies the syndrome and detector interpretation used by analysis, and a protocol composes invocations and owns control policy.",
+      "page": 43
+    }
+  ],
+  "figure": "2609.13388_figures/2609.13388_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

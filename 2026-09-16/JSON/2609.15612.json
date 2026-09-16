@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.15612",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Reducing Decoding Latency in Quantum Error Correction by Early Starting Clustering",
+  "authors": "Tommaso Peduzzi, Lukas Bödeker, Markus Müller, Luis Colmenarez",
+  "abstract": "In quantum error correction, fast low-latency decoding is essential for fault-tolerant quantum computation, as delays in processing syndrome data can lead to the backlog problem. Existing decoders, including parallelizable approaches such as Union-Find, begin decoding only after all stabilizer measurement outcomes from an error-correction cycle have been received, inherently introducing a delay before decoding begins. We introduce Cluster-As-You-Go (CAYG), a modification of the Union-Find decoder that processes syndrome information during stabilizer measurements by clustering and correcting errors as they appear. This approach reduces the size of the remaining decoding problem at the end of the quantum error correction cycle and, consequently, the time required to complete the decoding process. While this early start of clustering incurs a modest reduction in decoding accuracy, it preserves the decoder's scalability. Surface-code simulations show that the resulting reduction in post-measurement idling can outweigh the accuracy loss, yielding an improved speed-accuracy trade-off. These results demonstrate that real-time, early-starting decoding during QEC cycles is both feasible and can be advantageous for quantum error correction. Demonstrated here for the surface code, CAYG is broadly applicable to other quantum error-correcting codes, which allow for clustering-based decoding approaches, and is extensible to dedicated real-time decoding hardware.",
+  "url": "http://arxiv.org/abs/2609.15612v1",
+  "pdf": "https://arxiv.org/pdf/2609.15612v1",
+  "type": "theory",
+  "summary": "This paper introduces Cluster-As-You-Go (CAYG), a novel decoding algorithm for Quantum Error Correction that processes syndrome data incrementally as measurements occur. By enabling early, real-time decoding, CAYG significantly reduces latency compared to methods that wait for all measurements. This demonstrates a feasible path toward faster, more practical fault-tolerant quantum computation.",
+  "main_problem": "The primary challenge is reducing the decoding latency in Quantum Error Correction (QEC) to enable fault-tolerant quantum computation and avoid the syndrome data backlog problem.",
+  "main_result": "The proposed Cluster-As-You-Go (CAYG) decoder enables real-time, early-starting decoding by processing syndrome information concurrently with measurements, achieving an improved speed-accuracy trade-off.",
+  "method": "CAYG modifies the Union-Find decoder by allowing cluster formation and error correction to begin incrementally as syndrome measurements arrive, rather than waiting for the entire set of measurements to complete.",
+  "model_or_system": "The work is primarily demonstrated on the surface code, a topological stabilizer code implemented on a 2D lattice. Decoding involves finding a minimum-weight perfect matching on a graph representing syndrome defects.",
+  "key_observables": "Decoding latency, decoding accuracy, logical error probability (p_L), and the effective distance of the code.",
+  "important_parameters": "The cluster lifetime parameter ($l$), which controls the temporal buffer for merging defects, and the error rates ($p_{\text{data}}, p_{\text{meas}}$).",
+  "main_assumptions": "The standard Union-Find decoder assumes access to the complete syndrome history; CAYG introduces a trade-off by committing corrections based on partial information.",
+  "figures_summary": "Figures illustrate the comparison between standard sequential decoding (UF) and pipelined CAYG decoding, showing how CAYG processes data streams in real-time, and detail the failure mechanisms in staircase chains when the temporal buffer ($l$) is set to zero.",
+  "paper_structure": "The paper first identifies the latency bottleneck in QEC decoding. It then introduces CAYG as a temporal parallelization technique extending the Union-Find decoder. Subsequent analysis focuses on the role of the cluster lifetime parameter ($l$) to balance speed against the risk of premature, inaccurate error correction.",
+  "why_interesting": "While focused on QEC, the concept of pipelining computation with data acquisition—processing results immediately rather than batching them—is highly relevant to designing real-time control systems for quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.15612_figures/2609.15612_fig1.jpg",
+      "caption": "Figure 1: Illustration of a series of low distance rotated surface codes (distances d = 3, 5, 7, 9), where X (Z) stabilizer generators are indicated by red (blue) color. A representation of the logical operator XL (ZL) is shown as, respectively, a red (blue) colored line along the boundary.",
+      "page": 3
+    },
+    {
+      "image": "2609.15612_figures/2609.15612_fig2.jpg",
+      "caption": "Figure 2: Measurement process and corresponding decoding graph for a distance-5 rotated surface code over T = 4 rounds of syndrome extraction, with time running from bottom to top. Left: the code patch in each round, with the faults occurring in different rounds and marked on the affected qubits. Right: the corresponding X- and Z-type spacetime decoding graphs, drawn superimposed. A data-qubit error (green) flips a pair of neighboring stabilizers within a round and thus corresponds to a spacelike edge, while a measurement error (red) flips the same stabilizer in two consecutive rounds and corresponds to a timelike edge. Nodes carrying a detection event are filled black; nodes without one...",
+      "page": 4
+    },
+    {
+      "image": "2609.15612_figures/2609.15612_fig3.jpg",
+      "caption": "Figure 3: Comparison of standard UF and CAYG. In both panels, the subfigures show snapshots of the decoding process as clusters grow and merge, with space along the x-axis and time along the y-axis. Within each decoding graph, red edges represent errors, red nodes the corresponding measured syndrome s, and green edges the committed corrections; filled nodes on a gray background mark the section of the decoding graph that has already been measured, and different shades of blue distinguish different clusters. Arrows between subfigures indicate incoming syndrome information (blue), growth (solid black) and merge (dotted black) operations, neutral clusters passed from the clustering to the...",
+      "page": 6
+    },
+    {
+      "image": "2609.15612_figures/2609.15612_fig4.jpg",
+      "caption": "Figure 4: Threshold plots comparing the Union Find (UF) and Cluster-As-You-Go (CAYG) decoding algo- rithms under phenomenological noise models with dif- ferent ratios of measurement to data-qubit error rates on the rotated surface code, with 106 Monte Carlo tri- als per data point. Logical error rates pL are shown vs. physical error rate p for each code distance and different noise parameters. Error bars show 95% Wilson confi- dence intervals. Effective distances are listed in Table 1.",
+      "page": 8
+    },
+    {
+      "image": "2609.15612_figures/2609.15612_fig5.jpg",
+      "caption": "Figure 5: Illustration of the CAYG decoding procedure and the protocol used to assess real-time decoding performance. CAYG performs clustering in parallel with syndrome extraction. After the final round of stabilizer measurements, the remaining clusters continue to grow until they become neutral, after which the peeling decoder determines the corresponding corrections. The number of cluster-growth steps required after the final stabilizer measurement is shown in Fig. 6. During this post-measurement stage, the data qubits are subject to idling errors. Once decoding is complete, the computed correction is applied, and the logical state is measured to determine whether a logical error has...",
+      "page": 9
+    }
+  ],
+  "figure": "2609.15612_figures/2609.15612_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

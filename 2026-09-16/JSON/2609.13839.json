@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2609.13839",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.SE"
+  ],
+  "is_primary_archive": true,
+  "title": "What Output-Equivalence Oracles Miss: An Empirical Study of Equivalence-Invisible Bug Fixes in Quantum Transpilers (Qiskit, tket, Cirq)",
+  "authors": "Furqan Nasir, Arif Shah, Iftikhar Alam",
+  "abstract": "Quantum compilers are judged correct by an output-equivalence oracle: the compiled circuit must compute the same unitary as the original, modulo global phase and a qubit-layout permutation. This oracle, by construction, checks only that semantic map, not the circuit's own layout, permutation, or phase records: a defect there, or in a fixed-seed run's determinism, can pass unseen though the record is public. We measure how often this happens in real merged compiler fixes: a systematically identified corpus of Qiskit transpiler bug-fixes, classified by an independently dual-coded, source-validated manifestation taxonomy. Nineteen of 68 fixes (28%, 95% Wilson CI 19-40%) repair faults that this equivalence screen does not catch, even one augmented with compilation-validity, circuit-quality, and performance checks. A secondary wider-window robustness sample produced a nearly identical fraction (29/104, 27.9%, CI 20-37%). A conservative floor remains even restricted to the one unconditionally equivalence-invisible channel (a corrupted layout or permutation record): 10 of 68 fixes (15%, CI 8-25%) beneath the 28% headline. The gap is not Qiskit-specific: it replicates in tket (7 of 21, 33%), with Cirq smaller but consistent. We detected no systematic differences on five inexpensive PR-level characteristics (19 vs 49, underpowered to rule out a modest true difference). This class dominates the invisible set, concentrating at representation-boundary crossings. We release the corpus, codebook, and coding artifacts. Here we only measure it.",
+  "url": "http://arxiv.org/abs/2609.13839v1",
+  "pdf": "https://arxiv.org/pdf/2609.13839v1",
+  "type": "experiment",
+  "summary": "This paper empirically demonstrates that relying solely on output-equivalence to validate quantum compilers is insufficient, as a measurable fraction of real bugs reside in metadata (like layout or phase) that do not alter the final computed unitary. The authors quantify this gap across major quantum SDKs, arguing that validation must move beyond simple output checking to include internal contract assertions.",
+  "main_problem": "Standard quantum compiler correctness checks rely only on output-equivalence, which fails to detect bugs in auxiliary metadata like circuit layout, permutation records, or global phase.",
+  "main_result": "A significant fraction (up to 28%) of real transpiler bug-fixes repair faults that are invisible to the standard output-equivalence oracle, even when augmented with other checks.",
+  "method": "The authors conducted an empirical study by analyzing a corpus of real bug-fixes across multiple quantum SDKs (Qiskit, tket, Cirq) and classifying the failure modes.",
+  "model_or_system": "The system under study is the quantum transpiler process, which converts high-level quantum circuits into hardware-specific gate sequences. The analysis focuses on the comparison between the intended unitary operation and the compiled output.",
+  "key_observables": "The primary observable is the failure rate of the output-equivalence oracle to detect known bugs, with specific focus on corrupted contract or permutation metadata.",
+  "important_parameters": "The measured rates (e.g., 19/68 fixes, 28%) and the comparison across different compiler backends (Qiskit, tket, Cirq).",
+  "main_assumptions": "The study assumes that the output-equivalence oracle is the standard benchmark for correctness, and it is limited by the specific, finite corpus of observed bug-fixes.",
+  "figures_summary": "The notes reference Table 1, which details a fault-manifestation taxonomy classifying various fault types (e.g., output_semantic, transpiler_contract_or_metadata) and whether the augmented oracle can detect them.",
+  "paper_structure": "The paper establishes the limitations of the output-equivalence oracle, presents the empirical measurement of invisible bugs using a taxonomy, quantifies the failure rate across multiple compilers, and concludes by suggesting the need for contract-level validation.",
+  "why_interesting": "While the focus is on software tools, the underlying concept of validating complex physical transformations (like quantum state evolution) against multiple, potentially conflicting, internal representations is relevant to understanding robustness in quantum simulation algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.13839_figures/2609.13839_fig1.jpg",
+      "caption": "Figure 1. Screening flow from the nominal 70-candidate corpus to the 68-fix analytic corpus, with exact stage counts and exclusion reasons. Source data: data/mining_validation/screening_log_70.csv, candidate_queue_70.csv, included_candidate_audit_70.csv, labels_final_68.csv.",
+      "page": 8
+    },
+    {
+      "image": "2609.13839_figures/2609.13839_fig2.jpg",
+      "caption": "Figure 2. Manifestation-channel distribution of the 68-fix Qiskit corpus (Table 3), coloured by reference-screen visibility. Source data: data/mining_validation/labels_final_68.csv.",
+      "page": 11
+    },
+    {
+      "image": "2609.13839_figures/2609.13839_fig3.jpg",
+      "caption": "Figure 3. Cross-SDK replication of the equivalence-invisible rate (Table 4), with 95% Wilson confidence intervals. Qiskit and tket (navy) are replication evidence; Cirq (grey) is an exploratory consistency check.",
+      "page": 13
+    },
+    {
+      "image": "2609.13839_figures/2609.13839_fig4.jpg",
+      "caption": "Figure 4. Effect sizes (Cliff's δ) and bootstrap 95% confidence intervals for the five RQ1.3 surface-characteristic comparisons in Table 5. All intervals bracket zero.",
+      "page": 14
+    }
+  ],
+  "figure": "2609.13839_figures/2609.13839_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

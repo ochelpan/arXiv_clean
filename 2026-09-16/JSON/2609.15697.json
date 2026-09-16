@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2609.15697",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.MS"
+  ],
+  "is_primary_archive": true,
+  "title": "OpenQARP: a modular framework for quantum application research",
+  "authors": "Stefano Scali, Vicente P. Soloviev, Antonio Márquez Romero, Brian Coyle, Giuseppe Buonaiuto, Annie Paine, Jonathan H. Fetherolf, Marcos Diez García, Michal Krompiec, Josh Kirsopp",
+  "abstract": "We introduce OpenQARP, the Open Quantum Application Research Package: an open-source Python framework for quantum application research, built on a compiled C++ core. In OpenQARP, an application is assembled from an algorithm library that orchestrates three interchangeable layers: blocks describe circuits, primitives describe what to extract from them, and engines describe how they run. The release spans near-term through fault-tolerant methods, targeting problems from electronic structure to combinatorial optimization, with device-aware compilation, circuit cutting, and resource estimation over a single set of numerical conventions that the code must follow. Every numerical feature is checked against an independent oracle, and every published timing carries a correctness check. Against OpenFermion, Qiskit/Aer, PennyLane/Lightning, Qulacs, qsim, and pytket, OpenQARP is one to two orders of magnitude faster on operator algebra and among the fastest on simulation. It matches mature compilers on two-qubit gate count, and expresses a complete algorithm in the lines a framework needs rather than the plumbing a primitive stack demands.",
+  "url": "http://arxiv.org/abs/2609.15697v1",
+  "pdf": "https://arxiv.org/pdf/2609.15697v1",
+  "type": "theory",
+  "summary": "This paper introduces OpenQARP, a novel, modular, open-source Python framework built on a C++ core for quantum application research. It streamlines the entire quantum workflow by separating circuit definition, measurement, and execution into interchangeable layers. The framework claims significant performance gains and enforces rigorous numerical consistency across diverse quantum computing tasks.",
+  "main_problem": "The quantum application research workflow is complex, requiring reliable integration of circuit definition, measurement, simulation, and compilation across multiple, often incompatible, software tools.",
+  "main_result": "OpenQARP is presented as a modular, high-performance framework that significantly speeds up operator algebra and simulation compared to existing tools while enforcing strict numerical conventions.",
+  "method": "The framework uses a modular design separating concerns into Blocks (circuits), Primitives (measurements/extractions), and Engines (execution/compilation), built on a fast C++ core.",
+  "model_or_system": "It targets general quantum computation, applicable to problems ranging from electronic structure calculations to combinatorial optimization, supporting both near-term and fault-tolerant methods.",
+  "key_observables": "Performance metrics (speedup factors of 1-2 orders of magnitude), resource estimation (qubit count, gate set), and numerical correctness checks via independent oracles.",
+  "important_parameters": "Device constraints (gate set, connectivity, noise model), computational regimes (ideal vs. sampled), and circuit parameters (angles in radians).",
+  "main_assumptions": "The framework assumes that separating concerns into Blocks, Primitives, and Engines is the key to flexibility, and that strict adherence to shared conventions (e.g., qubit indexing) prevents subtle errors.",
+  "figures_summary": "Figures illustrate the three-layer architecture (Block $\rightarrow$ Circuit; Primitive $\rightarrow$ Quantity; Engine $\rightarrow$ Run) and demonstrate the robustness of the separation by showing how changing one component fails gracefully.",
+  "paper_structure": "The paper introduces the OpenQARP architecture, details the modular separation of concerns (Blocks, Primitives, Engines), benchmarks its performance against competitors across various workloads (operator algebra, simulation), and discusses its extensibility and conventions.",
+  "why_interesting": "For AMO physicists, this framework provides a standardized, high-performance platform to implement and benchmark quantum algorithms for molecular Hamiltonians (like VQE or QPE) without getting bogged down in the plumbing of disparate SDKs.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.15697_figures/2609.15697_fig1.jpg",
+      "caption": "FIG. 1. Architecture. A block says what the circuit does, a primitive says what to extract from it, and an engine says how it runs; composite algorithms are orchestrations of primitives and classical optimizers. Devices are plain data consumed by the engine’s compilation pipeline, which also produces the resource counts, and interop adapters convert blocks at the boundary. Lists are indicative, not exhaustive.",
+      "page": 2
+    },
+    {
+      "image": "2609.15697_figures/2609.15697_fig2.jpg",
+      "caption": "FIG. 2. The three layers in one example: a block defines the circuit, primitives declare what to extract from it, and the engine runs both against the same state.",
+      "page": 3
+    },
+    {
+      "image": "2609.15697_figures/2609.15697_fig3.jpg",
+      "caption": "FIG. 3. Changing one thing at a time. The block and operator of Figure 2 are reused unchanged. Swapping the primitive moves from exact to sampled estimation, swapping the engine’s device moves to noisy simulation, and asking a noisy engine for exact amplitudes fails with a typed error at build time rather than returning a plausible number.",
+      "page": 3
+    },
+    {
+      "image": "2609.15697_figures/2609.15697_fig4.jpg",
+      "caption": "FIG. 4. Run-phase time for the brickwork family against register size, from the rows of Table III. The vertical axis is logarithmic, so the common slope is the shared cost per two added qubits and the vertical offsets are the constant factors between stacks. The ordering is set by 12 qubits and holds to 20; the 8-qubit points are dispatch-dominated on every stack, and qsim is single-precision, so its offset is not like-for-like.",
+      "page": 10
+    }
+  ],
+  "figure": "2609.15697_figures/2609.15697_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

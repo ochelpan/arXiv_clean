@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.13546",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AR"
+  ],
+  "is_primary_archive": true,
+  "title": "WISER: Systematic Design-Space Exploration of Fault-Tolerant Global Control Trapped-Ions",
+  "authors": "Scott Jones, Song-qing-hao Yang, Prakash Murali",
+  "abstract": "Trapped-ion quantum computers are a leading candidate for scalable fault-tolerant quantum computing, but conventional Quantum Charge-Coupled Device (QCCD) architectures face severe wiring and power constraints as systems scale. The recently proposed WISE promise orders-of-magnitude reductions in wiring complexity but fundamentally alter the hardware--software interface, making it unclear whether such restrictive architectures can feasibly execute quantum error correction (QEC) and eventually support fault-tolerant workloads. We present WISER, a cross-layer architectural design-space exploration framework for globally controlled trapped-ion systems, to determine whether WISE can support early FTQC, and what hardware/compiler/QEC choices are needed. WISER combines novel WISE-specific compilation, noise modelling, and simulation and integrated them into a unified framework. WISER provides comparative lower-bound estimates of logical clock speed and logical error rate, rather than absolute hardware prediction, enabling us to identify viable operating regions while ruling out infeasible ones. To our knowledge, it is the first systematic design space exploration study targeted at WISE and scalable architectures beyond QCCD. Using WISER, we identify a narrow feasible design space requiring two-ion traps, moderate control multiplexing, aggressive recooling, and high-rate bivariate-bicycle codes. Even under $\\sim 10\\times$ improvements in physical errors, the lower-bound cycle time to achieve $< 10^{-8}$ logical error is $\\approx 100\\,ms$, which is $3\\times$ slower than local control. These results expose a fundamental trade-off between wiring scalability and logical throughput, suggesting that practical early fault-tolerant operation requires complementary $> 10\\times$ physical error rate reductions along with substantial $> 100\\times$ reduction in fault-tolerant circuit-depth.",
+  "url": "http://arxiv.org/abs/2609.13546v1",
+  "pdf": "https://arxiv.org/pdf/2609.13546v1",
+  "type": "theory",
+  "summary": "This paper introduces WISER, a comprehensive framework to systematically explore the design space for fault-tolerant trapped-ion quantum computing using the advanced WISE architecture. By integrating compilation, noise modeling, and simulation, the authors determine that while WISE offers wiring advantages, achieving high logical throughput requires substantial, complementary improvements in both physical error rates and circuit depth. This work highlights a critical trade-off between hardware scalability and computational performance.",
+  "main_problem": "The paper addresses the feasibility of implementing fault-tolerant quantum computation (FTQC) on trapped-ion systems using the novel, wiring-constrained WISE architecture.",
+  "main_result": "The study identifies a narrow feasible design space requiring specific hardware choices (two-ion traps, moderate multiplexing) and warns of a fundamental trade-off between wiring scalability and logical throughput.",
+  "method": "A cross-layer architectural design-space exploration framework (WISER) was developed, combining novel compilation, detailed noise modeling, and simulation to estimate logical performance metrics.",
+  "model_or_system": "The system is trapped-ion quantum computing, comparing the conventional QCCD architecture against the highly scalable, but restrictive, WISE architecture. The analysis incorporates detailed noise models for electric field fluctuations, heating, and crosstalk.",
+  "key_observables": "Logical clock speed, logical error rate ($p_L$), and the required cycle time to achieve target error thresholds (e.g., $< 10^{-8}$).",
+  "important_parameters": "Multiplexing order ($M$), trap capacity ($k$), physical error rates, and the required reduction factors for circuit depth and physical errors ($> 10\times$ and $> 100\times$, respectively).",
+  "main_assumptions": "The analysis assumes that the QEC specification can be mapped to a noiseless circuit before being lowered to the WISE gate set, and it models noise sources like phonon accumulation and correlated crosstalk.",
+  "figures_summary": "Figures illustrate the WISER workflow (QEC Spec $\rightarrow$ Compilation $\rightarrow$ Simulation), show convergence traces for SAT-based optimization (e.g., Steane code), and detail the physical layout and noise sources.",
+  "paper_structure": "The paper is structured around the WISER framework, detailing the compilation process, the integration of noise models (including electric field noise and crosstalk), and finally, using SAT solvers to systematically explore the design space and determine performance bounds.",
+  "why_interesting": "It provides a rigorous, systematic, and hardware-aware methodology for assessing the scalability limits of next-generation quantum hardware, which is crucial for theoretical work aiming to bridge abstract quantum codes to physical implementation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.13546_figures/2609.13546_fig1.jpg",
+      "caption": "Figure 2. WISE chip layout [71] . Each small square is one zone. All zones follow an odd ( ) / even ( ) checkerboard with odd zones hav- ing even zones as neighbors. Four global reconfiguration primitives exist: parallel-odd-H, parallel-even-H, parallel-odd-V and parallel- even-V. parallel-odd-H swaps the marked red adjancent ions within every trap (shown here) and swaps edge ions between traps using the segments and junctions. Similarly, parallel-odd-V swaps ions between at odd junction positions through the vertical columns.",
+      "page": 3
+    },
+    {
+      "image": "2609.13546_figures/2609.13546_fig2.jpg",
+      "caption": "Figure 1. Overview of WISER (★= new tool contributions). A QEC code and a WISE configuration are fed as inputs. Output includes logical error rate 𝑝𝐿and QEC cycle time. The QEC spec is first converted to an architecture-agnostic, noiseless Stim circuit. Then it is lowered to the gate set supported by WISE and mapped and scheduled on the architecture. Following this, a WISE noise model-specific Stim simulation is run to determine QEC parameters. Changing chip parameters requires recompilation through the red dashed box; changing control parameters requires re-simulation through the dotted box, bypassing the SAT solver.",
+      "page": 3
+    },
+    {
+      "image": "2609.13546_figures/2609.13546_fig3.jpg",
+      "caption": "Figure 3. Compiled schedule for the [[4, 1, 2]] rotated surface code (𝑘=2, ¯𝑛th=1.5), two syndrome-extraction rounds. The 7 qubits occupy 8 zones in a 2 × 2 grid of traps (trap coordinates given on y-axis); 8 MS gates per syndrome-extraction round must be scheduled across global odd-even reconfiguration passes. Per-trap Gantt chart with horizontal-swap (red) and vertical-swap (blue) passes from SAT-compiled reconfiguration (§3.2) interleaving with type-homogeneous gate blocks. Light-blue cooling bars appear when ¯𝑛exceeds ¯𝑛th; grey bars show idle dephasing windows.",
+      "page": 7
+    },
+    {
+      "image": "2609.13546_figures/2609.13546_fig4.jpg",
+      "caption": "Figure 4. Top: SAT vs. greedy routing across 6–161-qubit QEC workloads: routing time (bars, left axis) and logical cycle time (lines, right axis). Blue labels show SAT speedup; green ticks mark proven optima and red crosses 12-hour timeouts. Shading marks designs below 10 Hz logical clock speed. Bottom: contribution of SAT portfolio worker classes (Appendix B); lighter cells indicate larger routing improvements, white cells no contribution. SAT improves routing by 2−12× across the architecturally relevant WISE design space. Results use 𝑘= 2, 𝑀= 4, optimistic hardware tier, a near-optimal operating point that makes these gains conservative.",
+      "page": 10
+    },
+    {
+      "image": "2609.13546_figures/2609.13546_fig5.jpg",
+      "caption": "Figure 5. Left: Architecture-level decision maps over (𝑘, 𝑀) under the Optimistic technology tier, 10−8 logical error rate target. 1: maximum logical clock speed achievable for each (𝑘, 𝑀) pair after selecting the feasible (code,𝑛𝑡) combination. 2: minimum power per logical qubit under the same feasibility criterion. Cell annotations report the numerical values used for ranking. Configurations with 𝑘= 16 are omitted because no feasible operating point satisfies the logical error-rate target. Right: sensitivity sweep of the best 𝑘, 𝑀, ¯𝑛, code, distance choices across target logical error rates and hardware tiers. 1. ≈1W per logical qubit is achieved only up to 10−6 error-rates with BB codes...",
+      "page": 12
+    }
+  ],
+  "figure": "2609.13546_figures/2609.13546_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

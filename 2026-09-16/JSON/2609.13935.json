@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.13935",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "SUTURE: Syndrome-Guided Repair for Segmented Feasibility-Preserving VQAs on Noisy Hardware",
+  "authors": "Sokea Sang, Leanghok Hour, Sanghyeon Lee, Youngsun Han",
+  "abstract": "Constrained binary optimization is a representative class of NP-hard problems in scheduling, resource allocation, and finance. Segmented feasibility-preserving variational quantum algorithms (VQAs) are a promising approach that restricts ideal circuit evolution to feasible assignments and executes short measure-and-reseed segments. The existing boundary runtime enforces feasibility through purification, which discards measurements that violate the constraints. As problem size and noise increase, feasible measurements become rare; if no shot survives, the execution chain terminates. In our 72-qubit graph-coloring experiment on a real-device IBM Heron, 11 of 12 purification chains terminate before completing all segments. We propose SUTURE: syndrome-guided repair, a runtime that repairs infeasible measurements instead of discarding them and is deployable on current quantum devices. SUTURE exploits a parity-check-like structure induced by the problem constraints: violated constraints form a syndrome that detects and localizes corruption and, under suitable structural conditions, often identifies a correction. SUTURE combines three stages: (1) a compile-time profiler that uses the compiled constraints and feasible initialization samples to predict single-flip recovery, with a maximum error of 0.011 across four constraint families; (2) a bounded runtime decoder that replaces purification inside the segmented execution loop; and (3) a regime analysis that identifies when repair is preferable to purification. In simulation up to 120 qubits, SUTURE continues the execution chain far beyond the noise level at which purification collapses. In the same 72-qubit experiment on IBM Heron hardware, SUTURE completes all segments in all 12 runs, and hardware timing experiment, decoding adds 1.6% to execution-path latency and less than 1% to total pipeline latency.",
+  "url": "http://arxiv.org/abs/2609.13935v1",
+  "pdf": "https://arxiv.org/pdf/2609.13935v1",
+  "type": "both",
+  "summary": "This paper introduces SUTURE, a novel runtime for VQAs designed to run on noisy quantum hardware by repairing measurements that violate problem constraints. Instead of discarding these measurements (as purification does), SUTURE uses the constraint violations themselves as a syndrome to guide a localized repair process. This allows quantum computations to sustain execution across noisy boundaries, significantly improving reliability for hard optimization problems.",
+  "main_problem": "The paper addresses the failure mode of feasibility-preserving Variational Quantum Algorithms (VQAs) when noise causes intermediate measurements to violate problem constraints, leading to execution chain termination.",
+  "main_result": "The proposed SUTURE runtime successfully repairs infeasible measurements using constraint-derived syndromes, allowing quantum computation chains to complete segments on real hardware where purification methods fail.",
+  "method": "SUTURE implements syndrome-guided repair by exploiting the parity-check structure of problem constraints to detect and localize errors, replacing the standard purification step in the VQA execution loop.",
+  "model_or_system": "The work focuses on solving constrained binary optimization problems using segmented VQAs, tested on a real-device IBM Heron quantum computer and simulated up to 120 qubits.",
+  "key_observables": "Execution chain liveness (completion of all segments), measured solution quality, and hardware timing overhead (e.g., 1.6% increase in path latency).",
+  "important_parameters": "Noise level ($\\lambda$), qubit count (up to 120 simulated, 72 hardware), and the structural properties of the constraint matrix $C$.",
+  "main_assumptions": "The repair mechanism relies on the problem constraints forming a parity-check-like structure, and the analysis assumes local noise models (though it is not full Quantum Error Correction).",
+  "figures_summary": "Figures illustrate the SUTURE pipeline stages (static profiler, runtime decoder) and compare the failure rates of purification versus SUTURE on hardware, showing successful completion for SUTURE in 72-qubit runs.",
+  "paper_structure": "The paper introduces the problem (NP-hard optimization via VQAs), details the failure of purification, proposes SUTURE with its three stages (profiler, decoder, analysis), validates it on hardware (IBM Heron), and compares its performance against existing methods.",
+  "why_interesting": "While focused on optimization, the core concept of using structural redundancy (constraints) to guide error correction/recovery at runtime is highly relevant to developing fault-tolerant quantum algorithms for complex physical simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.13935_figures/2609.13935_fig1.jpg",
+      "caption": "Figure 1. Overview of the SUTURE pipeline. Stage 1 profiles repairability from the compiled constraints before execution; Stage 2 localizes and repairs infeasible measurements inside the segmented execution loop.",
+      "page": 2
+    },
+    {
+      "image": "2609.13935_figures/2609.13935_fig2.jpg",
+      "caption": "Figure 2. Rasengan segmented execution, adapted from [20]. A vector 𝑢satisfying 𝐶𝑢= 0 defines a transition circuit whose active set contains the qubits at the nonzero positions of 𝑢. Measurement between segments enables purification or SUTURE to act at each boundary.",
+      "page": 3
+    },
+    {
+      "image": "2609.13935_figures/2609.13935_fig3.jpg",
+      "caption": "Figure 3. Generalization across four constraint families. (a) Predicted versus measured single-flip repairability. (b) Purification survival cliffs versus problem size. (c) Peak paired survival discordance in the post-cliff region. Positive counts are seeds where SUTURE survives and purification terminates; negative counts would indicate the reverse. No selected peak cell contains a SUTURE loss.",
+      "page": 7
+    },
+    {
+      "image": "2609.13935_figures/2609.13935_fig4.jpg",
+      "caption": "Figure 4. Go/no-go attribution test on 24-qubit GCP (𝑆= 64). Proper-coloring measurement rate across SUTURE𝐺, purification, fallback, ablation, oracle, and A0 control arms.",
+      "page": 8
+    },
+    {
+      "image": "2609.13935_figures/2609.13935_fig5.jpg",
+      "caption": "Figure 5. Objective-blind hard-edge ladder (54–90q). (a) Proper-coloring performance; shaded sizes fail the A0 con- tamination screen. (b) At contamination-screened 78–90q, SUTURE𝐶separates from purification and its fallbacks in Holm-corrected post-cliff cells; the coset-uniform ablation separates only at the highest noise.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.13935_figures/2609.13935_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
