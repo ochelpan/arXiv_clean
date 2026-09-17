@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.17465",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Compiler Design for Fault-Tolerant Quantum Computing",
+  "authors": "Chenghong Zhu, Jiahan Chen, Keming He, Hongshun Yao, Zhaohui Yang, Jin-Guo Liu, Anbang Wu, Xiaotong Ni, Xingsheng Luan, Zhuo Fu, Shenggen Zheng, Xin Wang",
+  "abstract": "Scalable quantum computation is expected to rely on fault-tolerant quantum computation (FTQC), in which quantum error correction (QEC) suppresses physical errors sufficiently to support reliable logical operations. This requires quantum compilation to move beyond general-purpose circuit optimization toward encoding-aware and protocol-structured compilation across the full stack of fault-tolerant quantum computers. Beyond circuit synthesis and hardware mapping, an FTQC compiler must lower algorithm-level operations into the logical gate set supported by the chosen code, coordinate encoded data and ancilla resources, realize logical operations together with repeated syndrome extraction under hardware constraints, and provide the resulting measurement stream to real-time decoding.   This survey presents a full-stack view of compiler design for QEC-protected quantum computation. We organize existing work into three interacting layers: logical-level QEC compilation, physical-level QEC realization, and decoder runtime integration. At the logical level, we review surface-code lattice-surgery compilers, beyond-surface-code code-surgery frameworks including emerging qLDPC approaches, and compilation support for non-Clifford operations such as magic-state distillation and code switching. At the physical level, we survey hardware-aware QEC realization on superconducting, trapped-ion, and neutral-atom platforms. We further examine decoder models, real-time decoding systems, and frame-management mechanisms that close the feedback loop during fault-tolerant execution. Finally, we identify open challenges in cross-layer optimization, qLDPC compilation, compiler-decoder co-design, runtime adaptivity, and the development of integrated and benchmarkable FTQC compilation stacks. An actively maintained paper list is available at: github.com/chenghongz/QEC-compiler-design.",
+  "url": "http://arxiv.org/abs/2609.17465v1",
+  "pdf": "https://arxiv.org/pdf/2609.17465v1",
+  "type": "theory",
+  "summary": "This survey details the necessary evolution of quantum compilers for Fault-Tolerant Quantum Computing (FTQC). It proposes a full-stack framework connecting logical circuit synthesis, physical hardware mapping, and real-time error decoding. The paper is crucial for understanding the resource overhead and architectural challenges required to move quantum computation beyond current NISQ limitations.",
+  "main_problem": "Quantum compilation must evolve beyond general-purpose circuit optimization to support Fault-Tolerant Quantum Computing (FTQC).",
+  "main_result": "The paper presents a full-stack view of compiler design for QEC-protected computation, detailing the necessary interactions between logical, physical, and runtime layers.",
+  "method": "The authors survey the field by organizing compiler design into three interacting layers: logical-level QEC compilation, physical-level QEC realization, and decoder runtime integration.",
+  "model_or_system": "The work addresses various quantum error-correcting codes, including surface codes and qLDPC codes, and is applicable across multiple hardware platforms like superconducting circuits, trapped ions, and neutral atoms.",
+  "key_observables": "Circuit depth, scheduling efficiency, logical operator overhead, and decoding accuracy.",
+  "important_parameters": "Code parameters like $[[n, k, d]]$, and resource costs measured by $T$-count or $T$-depth.",
+  "main_assumptions": "The effective performance relies on the joint consideration of algorithmic lowering, hardware mapping, and real-time decoding feedback.",
+  "figures_summary": "Figure 2 summarizes the full-stack view of QEC-aware compilation, showing the flow from logical circuit to syndrome stream and decoder.",
+  "paper_structure": "The survey is structured around three interacting layers: logical-level QEC compilation (e.g., lattice-surgery, qLDPC), physical-level QEC realization (hardware-aware mapping), and decoder runtime integration (real-time feedback loop).",
+  "why_interesting": "It provides a comprehensive roadmap for the computational challenges in scaling quantum computation, directly impacting how theoretical quantum algorithms must be implemented on near-term and fault-tolerant hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.17465_figures/2609.17465_fig1.jpg",
+      "caption": "Fig. 1. Trends in QEC related publications at premier computer architecture conferences (ISCA, ASPLOS, HPCA, and MICRO) from 2021 to 2025.",
+      "page": 3
+    },
+    {
+      "image": "2609.17465_figures/2609.17465_fig2.jpg",
+      "caption": "Fig. 2. Overall picture of the QEC-protected quantum computing stack: logical-level compilation transpiles and lowers a logical circuit into fault-tolerant primitives and an optimized instruction stream; physical- level optimization compiles it to native operations across superconducting, trapped-ion, and neutral-atom platforms; and the decoder stack processes the resulting syndrome stream to feed corrections back via the Pauli frame.",
+      "page": 5
+    },
+    {
+      "image": "2609.17465_figures/2609.17465_fig3.jpg",
+      "caption": "Fig. 3. Three representative families of quantum error-correcting codes. (a) A distance-5 rotated surface code: data qubits (dots) on a 2D lattice with weight-4 𝑋(red) and 𝑍(blue) plaquette stabilizers and weight-2 boundary stabilizers. (b) A patch of the 6.6.6 (hexagonal) color code: a data qubit sits on every vertex of a trivalent lattice whose faces carry the standard red/green/blue three-coloring, with each face hosting one 𝑋- and one 𝑍-type stabilizer. (c) A qLDPC code shown as a Tanner graph: data qubits (circles) connected to sparse 𝑋- (red) and 𝑍-type (blue) checks (squares), generally with non-local connectivity.",
+      "page": 7
+    },
+    {
+      "image": "2609.17465_figures/2609.17465_fig4.jpg",
+      "caption": "Fig. 4. Lattice surgery: merging and then splitting two logical qubits. Two distance-3 rotated surface-code patches encode logical qubits whose logical-𝑍operators ¯𝑍1 and ¯𝑍2 (purple) run horizontally. Merging the patches along those boundaries fuses them into a single patch (middle), whose seam reads out the joint logical measurement 𝑍𝐿𝑍𝐿; a subsequent split restores the two qubits. 𝑋-type stabilizers are red and 𝑍-type blue, following Fig. 3.",
+      "page": 15
+    },
+    {
+      "image": "2609.17465_figures/2609.17465_fig5.jpg",
+      "caption": "Fig. 5. A taxonomy of surface-code lattice-surgery compilers.",
+      "page": 16
+    }
+  ],
+  "figure": "2609.17465_figures/2609.17465_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

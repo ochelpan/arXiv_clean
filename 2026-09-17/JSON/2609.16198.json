@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.16198",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.NI"
+  ],
+  "is_primary_archive": true,
+  "title": "Utility-Based Path Selection and Configuration in Quantum Networks via Layered Shortest Paths",
+  "authors": "Leonardo Bacciottini, Subhransu Maji, Don Towsley, Gayane Vardoyan",
+  "abstract": "A path in a quantum network is a chain of repeaters that distributes entanglement between two users. Selecting a path requires balancing the rate and quality (e.g., fidelity) of the delivered entanglement, but these quantities, unlike standard routing metrics, compose non-additively. The problem is compounded by link-level configuration choices (e.g., distillation rounds or emitter brightness tuning), each trading rate against fidelity, so that a path's performance depends jointly on its route and its per-link settings. We cast this joint path selection and configuration problem as a shortest path computation on a layered graph whose layers track discretized end-to-end fidelity. A single run returns the full rate fidelity Pareto frontier, from which the path maximizing any nondecreasing utility function of rate and fidelity can be selected. We prove that for certain utility functions (including the secret key rate of BB84), the method is a fully polynomial time approximation scheme, returning a near-optimal path within a specified tolerance. We further characterize exactly when cheaper scalarization-based routing suffices: it is optimal for utility functions with convex fidelity profiles, but can be arbitrarily suboptimal otherwise (e.g., for step-like, sigmoidal utilities), whereas the layered method remains reliable in all cases.",
+  "url": "http://arxiv.org/abs/2609.16198v1",
+  "pdf": "https://arxiv.org/pdf/2609.16198v1",
+  "type": "theory",
+  "summary": "This work tackles the complex optimization of quantum network routing by jointly selecting paths and tuning link parameters to maximize a utility function of rate and fidelity. It introduces a layered graph shortest-path algorithm that accurately maps the achievable rate-fidelity frontier. This method is crucial because it handles non-additive resource composition, outperforming simpler linear optimization techniques.",
+  "main_problem": "The paper addresses the joint optimization problem of selecting a path and configuring link-level settings in quantum networks to maximize a utility function of end-to-end entanglement rate and fidelity.",
+  "main_result": "A layered graph approach (QLSP) is developed that computes the full rate-fidelity Pareto frontier, providing an FPTAS for certain utility functions, unlike simpler scalarization methods.",
+  "method": "The problem is mapped onto a shortest path computation on a layered graph, where layers discretize the fidelity, and edge costs track the rate, allowing for the recovery of non-linearly combined performance metrics.",
+  "model_or_system": "The model is a quantum network distributing entanglement via repeaters, where link performance is characterized by a rate and a Werner state fidelity, which compose non-additively across the path.",
+  "key_observables": "End-to-end entanglement rate ($R$), Fidelity ($F$), and the Werner parameter ($W$).",
+  "important_parameters": "Discretization width ($\\Delta$) for fidelity, and the number of hops/layers ($L$).",
+  "main_assumptions": "The analysis assumes Werner states at the elementary link level and relies on fidelity discretization, which introduces approximation guarantees.",
+  "figures_summary": "Figures illustrate the comparison between the QLSP optimum, the best surrogate solution, and the lower convex envelope in the rate-fidelity plane, demonstrating the non-convexity of the global achievable set.",
+  "paper_structure": "The paper first establishes the joint optimization problem, then introduces the layered graph formulation (QLSP) to compute the Pareto frontier. It contrasts this with scalarization methods, and finally analyzes the limitations regarding time multiplexing and continuous operating points.",
+  "why_interesting": "It provides a rigorous algorithmic framework for optimizing complex, non-additive resource trade-offs (rate vs. fidelity) in quantum communication, which is central to quantum networking research.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.16198_figures/2609.16198_fig1.jpg",
+      "caption": "Fig. 1. Example of a physical and its associated layered graph. In the example, the edge e1 has three operating points a1, a2, a3. In the layered graph, these correspond to three edges from (s, 0) to (u, k1), (u, k2), (u, k3), where ki = ⌈−ln Wi/∆⌉with edge cost 1/Ri respectively. The edge e2 between u–v has instead two operating points, and thus each (u, k) vertices in the layered graph have two outgoing edges corresponding to the offsets k′ = ⌈k −ln Wi/∆⌉and weights 1/Ri. This construction applies to all edges and operating points of the physical graph. QLSP finds the shortest path from (s, 0) to all (t, k) nodes, with 0 ≤k ≤K. In so doing, it finds the highest-rate path for all feasible...",
+      "page": 5
+    },
+    {
+      "image": "2609.16198_figures/2609.16198_fig2.jpg",
+      "caption": "Fig. 2. Illustration of our framework on a small network with route and operating-point choices. (a) The source s and destination t are connected by a rate-seeking path (top), a fidelity-seeking path (bottom), and an adaptive path (middle) whose links have two operating points (the two circles above each edge). (b) The operating points on the adaptive path are drawn from linear tradeoff curves, compatible with the single-click scheme. Points 1, 2 are rate-seeking points, while points 3, 4 are fidelity-seeking points; filled markers denote the best points with respect to BB84 utility. (c) End-to-end SKR utility for five candidate solutions. Rate-seeking choices lose too much fidelity, while...",
+      "page": 8
+    },
+    {
+      "image": "2609.16198_figures/2609.16198_fig3.jpg",
+      "caption": "Fig. 3. Limits of scalarized routing under non-convex utilities. The panels show the attainable end-to-end configurations in inverse-rate/fidelity- loss space; the black dashed line is the lower convex hull reachable through surrogate scalarization. (a) For BB84 SKR, the optimum is supported, and the surrogate baseline matches QLSP. (b) Imposing the non-convex fidelity requirement W > .94 moves the optimum to an unsupported Pareto point. QLSP selects this configuration, whereas the surrogate is restricted to a sub- optimal, hull-supported solution.",
+      "page": 8
+    },
+    {
+      "image": "2609.16198_figures/2609.16198_fig4.jpg",
+      "caption": "Fig. 4. (a) Three topologies used in the evaluation. (b,c,d) The rate–fidelity frontier returned by QLSP on the three topologies. In all cases, there are frontier points (green circles) that are inside the lower convex hull and cannot thus be found by the surrogate sweep. For single click operating points, we use A = 21.",
+      "page": 9
+    },
+    {
+      "image": "2609.16198_figures/2609.16198_fig5.jpg",
+      "caption": "Fig. 5. Operating-point resolution and runtime benchmarks. (a) Expected BB84 secret key rate returned by QLSP as the number of single-click operating points A increases; BBPSSW menus remain fixed. Results average 50 sampled pairs for the banded grid and 48 for SURFnet. Runtime is measured on square grids as a function of (b) grid side s, with A = 25 and ε = 10−3; (c) A, with s = 16 and ε = 10−3; and (d) ε, with s = 8 and A = 25. Runtime experiments use negativity utility. Error bars are 95% confidence intervals, with 32 timed runs per runtime point. Red curves evaluate the worst-case complexity as in § IV-B0b and are scaled as upper envelopes of the QLSP measurements. The surrogate is...",
+      "page": 9
+    }
+  ],
+  "figure": "2609.16198_figures/2609.16198_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

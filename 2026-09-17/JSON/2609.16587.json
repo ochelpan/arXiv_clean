@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2609.16587",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "physics.atom-ph",
+    "physics.chem-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Hartree-Fock Density-Matrix Renormalization Group for Very Long Chains",
+  "authors": "Steven R. White",
+  "abstract": "We formulate Hartree--Fock as a density-matrix renormalization group (DMRG) sweep of a single Slater determinant, assuming a density--density electron--electron interaction. We compress the occupied state and long-range interaction separately, reducing each sweep step to a small local Fock problem. Exchange is retained throughout. Uniform antiferromagnetic hydrogen chains provide an almost ideal setting for this approach, while retaining the Coulomb interaction and its $1/r$ tail. We initialize and converge a chain of 100,000 electrons in 1.8 million spatial basis functions in about two hours on a 64-GB Mac mini, using less than a third of its memory. The work per sweep is nearly proportional to chain length, and the number of sweeps needed for convergence changes little from 1000 to 100,000 atoms. DMRG's compression of states and environments thus makes large HF calculations with long-range Hartree and exchange practical on an ordinary desktop computer.",
+  "url": "http://arxiv.org/abs/2609.16587v1",
+  "pdf": "https://arxiv.org/pdf/2609.16587v1",
+  "type": "theory",
+  "summary": "This paper adapts the Density-Matrix Renormalization Group (DMRG) algorithm to solve the computationally demanding Hartree-Fock equations for very long chains. By compressing both the electronic state and the long-range interactions, the authors achieve near-linear scaling, making large-scale electronic structure calculations feasible on standard desktop hardware.",
+  "main_problem": "The paper addresses the computational challenge of applying Hartree-Fock (HF) theory to very large electronic systems, which typically suffers from high polynomial scaling due to long-range interactions.",
+  "main_result": "The authors successfully formulated HF as a Density-Matrix Renormalization Group (DMRG) sweep, achieving near-linear scaling for chains up to 100,000 atoms in a feasible time frame.",
+  "method": "They adapt the DMRG framework by compressing the occupied state and the long-range electron-electron interaction separately, reducing the complex HF calculation into a sequence of small, local Fock problems.",
+  "model_or_system": "The method is tested on uniform antiferromagnetic hydrogen chains, retaining the physical Coulomb interaction and its $1/r$ tail, using a basis set of Gaussian-type orbitals.",
+  "key_observables": "Convergence time (hours for $10^5$ atoms), memory usage ($\\approx 21$ GB), and the linear scaling of computation time with chain length.",
+  "important_parameters": "Chain length up to 100,000 atoms; one-body tolerance of $10^{-8}$ Ha; local Fock matrix size remaining small ($\\approx 45$ rows).",
+  "main_assumptions": "The use of the density-density electron-electron interaction approximation and the assumption that state compression (one-particle and MPO compression) is sufficient for accuracy.",
+  "figures_summary": "Figures illustrate the DMRG sweep process, showing the partitioning of the basis into blocks and the storage/retrieval of environments. Other figures detail time/memory scaling and energy convergence plots.",
+  "paper_structure": "The paper details the formulation of HF as a DMRG sweep, describes the specific compression techniques (one-particle, MPO, density-space), presents computational results on scaling, and concludes with analysis of energy convergence and implementation details.",
+  "why_interesting": "This work demonstrates a powerful algorithmic adaptation of DMRG, extending its utility beyond standard correlated wavefunctions to tackle mean-field theories like HF for extended solids, which is crucial for simulating large-scale material properties.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.16587_figures/2609.16587_fig1.jpg",
+      "caption": "FIG. 1. An HF-DMRG sweep. The ordered basis is parti- tioned into blocks Ba. At a given sweep position, the blocks preceding and following the two-block center are compressed into the stored environments La−1 and Ra+2, with spin labels suppressed. Advancing the sweep absorbs Ba into La−1 to form La and retains Ba+1 in the center; the already stored Ra+3 is recalled for the next local problem. Earlier stored environments are drawn faintly. The upper inset shows how one block groups an interval of the ordered basis.",
+      "page": 3
+    },
+    {
+      "image": "2609.16587_figures/2609.16587_fig2.jpg",
+      "caption": "FIG. 2. Compression of the long-range interaction. (a) Trun- cating the singular-value decomposition of the cross-cut block gives VLR ≃LaXa with χa retained channels; the cut index a is suppressed in the drawing. (b) Two drawings of the same direct-sum network. The left diagram uses the usual MPO layout; the right shows the corresponding product of matrices over the whole space. Thin wires carry physical-block coordi- nates and thick links carry retained channels; parallel space dimensions add rather than multiply. The outlined slice is G2: the local matrix M2 together with identity actions on the other three blocks. Reading left to right in a row-vector convention gives V△≃G1G2G3G4, where...",
+      "page": 5
+    },
+    {
+      "image": "2609.16587_figures/2609.16587_fig3.jpg",
+      "caption": "FIG. 3. At a central cut of UHF H100 (R = 3.6 bohr), the restricted occupations ⟨n⟩rapidly approach zero or one, leaving only a few active modes per spin. The six largest distances from zero or one are shown in descending order.",
+      "page": 8
+    },
+    {
+      "image": "2609.16587_figures/2609.16587_fig4.jpg",
+      "caption": "FIG. 5. Time and stored memory per atom change little with chain length. UHF chains at R = 3.6 bohr retain at most five active modes per spin. (a) Half-sweep time divided by NH, taking the median over late optimization half-sweeps in each direction. Each bulk block contains 18 spatial basis functions spanning one atomic interval. Each step advances the two-block center by one block, with NH steps per half- sweep in these chains. (b) Stored-block memory per atom in the converged states. Peak process memory is listed in Table V.",
+      "page": 9
+    },
+    {
+      "image": "2609.16587_figures/2609.16587_fig5.jpg",
+      "caption": "FIG. 4. UHF convergence from atomic N´eel product states at R = 3.6 bohr. Convergence changes little over two orders of magnitude in chain length. Solid curves (left axis): energy change per atom over one full sweep, |∆Eℓ|/NH = |Eℓ− Eℓ−2|/NH, measured at the end of half-sweep ℓ. Dashed curves (right axis): largest Frobenius norm of the change in a local spin density matrix from an orbital update, before truncation, maximized over positions and spins in that half-sweep. For H1000, only the final density-matrix change was recorded, so that series contains a single point.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.16587_figures/2609.16587_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

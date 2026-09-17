@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.16506",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.stat-mech",
+    "physics.data-an"
+  ],
+  "is_primary_archive": true,
+  "title": "Unsupervised Machine Learning of the Contact Process",
+  "authors": "L. T. Brito, G. A. Alves, F. W. S. Lima, A. Macedo-Filho, R. S. Ferreira, T. F. A. Alves",
+  "abstract": "We investigate how unsupervised machine-learning methods can characterize the active-absorbing phase transition in the contact process in one and two spatial dimensions. Our analysis focuses on principal component analysis (PCA) and variational autoencoders (VAEs), and we show that direct applications of these methods encounter a central difficulty: contact process configurations are intrinsically positive-definite. In the PCA case, standard centering procedures fail to isolate the order parameter in the leading component. To address this, we augment the data with sign-reversed configurations, creating a balanced dataset with zero mean while preserving the density information required to describe the transition. This preprocessing allows the dominant principal component to recover the order parameter and reproduce the expected finite-size scaling near criticality. For VAEs, we find a related limitation: a fixed Gaussian prior does not provide sufficient latent regularization across the full range of control parameters and system sizes for positive-definite data. We overcome this by adopting a heteroscedastic Gaussian prior that adapts to the control parameter, leading to a substantial improvement in the finite-size scaling of reconstruction-based observables near the critical threshold. Taken together, these results highlight a key lesson: the success of machine learning in phase-transition problems does not rely on algorithmic complexity alone, but on tailoring the representation to respect the physical structure of the system, including its intrinsic constraints and symmetries.",
+  "url": "http://arxiv.org/abs/2609.16506v1",
+  "pdf": "https://arxiv.org/pdf/2609.16506v1",
+  "type": "theory",
+  "summary": "This work applies unsupervised machine learning (PCA and VAE) to analyze the active-absorbing phase transition of the Contact Process. The authors overcome technical hurdles—such as the positive-definite nature of the data—by modifying the ML inputs (e.g., sign-reversing data augmentation or using adaptive priors). This demonstrates that successful ML analysis of complex physical transitions requires deep incorporation of the system's underlying physical symmetries and constraints.",
+  "main_problem": "Characterizing the active-absorbing phase transition in the Contact Process using unsupervised machine learning methods.",
+  "main_result": "The success of ML methods in phase transitions critically depends on tailoring the representation to respect the system's physical constraints, such as data augmentation for PCA or using parameter-dependent priors for VAEs.",
+  "method": "The study employs Principal Component Analysis (PCA) and Variational Autoencoders (VAEs) to analyze the system's configuration space.",
+  "model_or_system": "The Contact Process (CP) is studied on lattices (1D, 2D, triangular), which exhibits a continuous active-absorbing phase transition belonging to the Directed Percolation universality class.",
+  "key_observables": "Order parameter ($\rho$), finite-size scaling ratios (e.g., $\\Lambda_2/\\Lambda_1$), and reconstruction errors ($\\mathcal{L}_{\text{MSE}}$, $\\mathcal{L}_{\text{BCE}}$).",
+  "important_parameters": "The control parameter $\\lambda$ (infection rate relative to recovery rate) and system size $L$.",
+  "main_assumptions": "Standard ML techniques fail due to the positive-definite nature of CP configurations, necessitating data augmentation (sign-reversal) or specialized priors (heteroscedastic Gaussian prior).",
+  "figures_summary": "Figures demonstrate the finite-size scaling collapse of various observables (eigenvalue ratios, order parameter estimates, reconstruction errors) for both PCA and VAE analyses across the critical point.",
+  "paper_structure": "The paper first establishes the physical problem (CP transition) and the failure modes of standard ML techniques. It then details the necessary methodological fixes (data augmentation for PCA, heteroscedastic prior for VAE) and demonstrates their success by showing the recovery of known critical scaling laws.",
+  "why_interesting": "It provides a blueprint for applying advanced ML techniques to non-equilibrium statistical physics problems where standard equilibrium assumptions break down, offering insights into characterizing critical phenomena.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.16506_figures/2609.16506_fig1.jpg",
+      "caption": "Figure 1: Scatter plot of the two leading principal components, 𝑝1 and 𝑝2, for the contact process on the square lattice with 𝐿= 64. The color scale represents the rescaled control parameter ̂𝜆∈[0, 1], corresponding to 𝜆∈[0.5𝜆𝑐, 1.5𝜆𝑐]. The compact cloud around the origin corresponds to configurations close to the absorbing state, whereas the two extended sign-related branches are associated predominantly with the active phase and the two-branch structure are due to the sign-reversed data augmentation used in the PCA analysis.",
+      "page": 4
+    },
+    {
+      "image": "2609.16506_figures/2609.16506_fig2.jpg",
+      "caption": "Fig. 1 shows the projections onto the two leading principal components, 𝑝1 and 𝑝2, for 𝐿= 64. Each point represents a microscopic configuration, colored according to the rescaled parameter ̂𝜆, which maps 𝜆∈[0.5𝜆𝑐, 1.5𝜆𝑐] onto [0, 1]. At small ̂𝜆, configurations form a narrow cluster near the origin, reflecting the low activity of the absorbing regime. As 𝜆approaches and exceeds the critical region, the distribution broadens and develops two approximately sign-related branches along 𝑝1. These outer clouds, mainly associated with the active phase, possess a two-branch structure resulting from the sign-reversed data augmentation. Although this two-branch structure is artificial, the transition...",
+      "page": 4
+    },
+    {
+      "image": "2609.16506_figures/2609.16506_fig3.jpg",
+      "caption": "Figure 2: Principal component analysis of the contact process on the square lattice for different linear system sizes 𝐿. (a) Ratio between the two largest eigenvalues, Λ2∕Λ1, as a function of 𝜆. The dashed vertical line indicates 𝜆𝑐= 1.64877. (b) Finite-size collapse of Λ2∕Λ1 as a function of 𝐿1∕𝜈⟂(𝜆−𝜆𝑐). (c) PCA-based order parameter 𝑃1∕𝐿. The PCA-based order parameter coincides with the density of active sites. (d) Corresponding finite-size collapse, 𝐿𝛽∕𝜈⟂−1𝑃1. (e) PCA fluctuation Λ1 −𝑃2 1 . (f) Corresponding finite-size collapse, 𝐿−𝛾′∕𝜈⟂(Λ1 −𝑃2 1 ). The numerical values of critical exponents are 𝜈⟂= 0.7333, 𝛽= 0.5834, and 𝛾′ = 0.2998[3].",
+      "page": 6
+    },
+    {
+      "image": "2609.16506_figures/2609.16506_fig4.jpg",
+      "caption": "Figure 3: Training history of the heteroscedastic VAE for the contact process on the square lattice with 𝐿= 64. Panels (a)–(c) show the reconstruction loss 𝓁RECON, the Kullback–Leibler divergence 𝓁KL, and the total loss 𝓁VAE = 𝓁RECON + 𝓁KL, respectively. The reconstruction loss decreases rapidly before reaching a slowly varying regime, while the Kullback–Leibler contribution remains finite. Small periodic variations arise from training 20 non-overlapping dataset chunks sequentially for 50 epochs each.",
+      "page": 8
+    },
+    {
+      "image": "2609.16506_figures/2609.16506_fig5.jpg",
+      "caption": "Figure 4: Heteroscedastic variational autoencoder results for the contact process on the square lattice for different linear system sizes 𝐿. (a) Excess normalized correlation 𝐶(𝜼real ∣𝜼recon) −1 between the input and reconstructed configurations as a function of 𝜆. The dashed vertical line marks 𝜆𝑐= 1.64877. (b) Finite-size collapse of the correlation as a function of 𝐿1∕𝜈⟂(𝜆−𝜆𝑐). (c) Normalized mean-squared reconstruction error 𝓁MSE. (d) Corresponding finite-size scaling, 𝐿𝛽∕𝜈⟂(4𝓁MSE). (e) Normalized binary-cross-entropy reconstruction error 𝓁BCE∕ln 2. (f) Corresponding collapse including the logarithmic finite-size correction, (𝐿∕ln 𝐿)𝛽∕𝜈⟂𝓁BCE∕ln 2. The collapses use 𝜈⟂= 0.7333 and 𝛽=...",
+      "page": 10
+    }
+  ],
+  "figure": "2609.16506_figures/2609.16506_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 3,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

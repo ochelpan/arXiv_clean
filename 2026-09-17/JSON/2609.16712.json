@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.16712",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.IT"
+  ],
+  "is_primary_archive": true,
+  "title": "Phase Transition in Binary Compressed Sensing via Annealing with Adaptive Regularization",
+  "authors": "Xiaoxin Huang, Masayuki Ohzeki",
+  "abstract": "Regularization choice changes the recovery phase diagrams of annealing-based binary compressed sensing. We develop a regularization-selection method that combines systematic parameter search with random forest regression. Under noiseless Gaussian measurements with known sparsity, reference parameters are selected from a candidate grid by minimizing mean squared reconstruction error over repeated simulated annealing (SA) trials. The fitted model predicts these reference values from signal dimension, sampling ratio, and sparsity. With predicted regularization, the SA recovery transition broadly follows the asymptotic reference boundary for box-constrained $\\ell_1$ recovery at the larger signal dimensions examined. Without retraining, the same predictor supplies identical regularization values to SA and a quantum--classical hybrid solver. On matched problem instances, the hybrid solver yields smaller mean squared reconstruction errors than SA in parts of the evaluated parameter space. The resulting rule reuses the searched information for subsequent reconstruction without repeating candidate searches at each setting. The results quantify empirical performance under the stated finite candidate grid and solver settings; they do not constitute a solver-independent recovery guarantee or a time-to-solution comparison.",
+  "url": "http://arxiv.org/abs/2609.16712v1",
+  "pdf": "https://arxiv.org/pdf/2609.16712v1",
+  "type": "both",
+  "summary": "This work tackles the parameter selection problem in Binary Compressed Sensing by developing a machine learning predictor to estimate the optimal regularization strength ($\\lambda$). By training a Random Forest on systematic search results, the authors enable annealing-based solvers to achieve reconstructions that closely follow established theoretical recovery boundaries.",
+  "main_problem": "The paper addresses the challenge of determining the optimal regularization parameter ($\\lambda$) required for successful signal reconstruction in Binary Compressed Sensing (BCS).",
+  "main_result": "A data-driven prediction method, trained on systematic searches, successfully estimates the optimal $\\lambda$, allowing reconstruction algorithms (SA and hybrid QA) to follow theoretical recovery boundaries.",
+  "method": "The authors combine systematic parameter searching (using Simulated Annealing) to map out optimal $\\lambda$ values ($\\lambda^*$) and then train a Random Forest regression model to predict these values for new regimes.",
+  "model_or_system": "The core problem is recovering a sparse binary signal $\\mathbf{x} \\in \\{0, 1\\}^N$ from measurements $\\mathbf{y} = A\\mathbf{x}$, formulated as minimizing a QUBO objective function. This is solved using annealing techniques (SA, QA) and classical solvers.",
+  "key_observables": "Mean Squared Reconstruction Error (MSE) per component, and the predicted regularization parameter $\\hat{\\lambda}$.",
+  "important_parameters": "Signal dimension ($N$), sampling ratio ($\\alpha$), sparsity ($\beta$), and the regularization parameter ($\\lambda$).",
+  "main_assumptions": "The results are empirical, based on a finite candidate grid for $\\lambda$, and do not constitute a solver-independent recovery guarantee; the measurements are assumed noiseless Gaussian.",
+  "figures_summary": "Figures show phase diagrams mapping MSE across $(\\alpha, \beta)$ space, comparing results from fixed $\\lambda$ versus predicted $\\hat{\\lambda}$ using SA and hybrid QA, relative to a theoretical recovery boundary.",
+  "paper_structure": "The paper first establishes the BCS problem and its QUBO formulation. It then details the two-stage process: (1) Empirical search to find $\\lambda^*$, and (2) Training a predictor (RF) on these results. Finally, it compares reconstruction performance using the predicted $\\hat{\\lambda}$ against theoretical bounds and other solvers.",
+  "why_interesting": "The integration of machine learning (Random Forest) to guide the parameter selection for quantum/optimization solvers is a powerful methodology for making quantum computation results more practical and transferable.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.16712_figures/2609.16712_fig1.jpg",
+      "caption": "Fig. 1. SA reconstruction phase diagrams with fixed regularization at N = 100. Panels (a–f) use λ =",
+      "page": 11
+    },
+    {
+      "image": "2609.16712_figures/2609.16712_fig2.jpg",
+      "caption": "Figure 4 shows SA recovery phase diagrams obtained with RF-predicted regularization",
+      "page": 11
+    },
+    {
+      "image": "2609.16712_figures/2609.16712_fig3.jpg",
+      "caption": "Fig. 2. Empirical reference regularization maps and parameter correlations. Panels (a,b) show λ∗for N =",
+      "page": 12
+    },
+    {
+      "image": "2609.16712_figures/2609.16712_fig4.jpg",
+      "caption": "Figure 5 compares SA, hybrid QA, and box-constrained BP on matched problem in-",
+      "page": 12
+    },
+    {
+      "image": "2609.16712_figures/2609.16712_fig5.jpg",
+      "caption": "Fig. 3. Residual histograms for RF (light blue) and NN (orange), illustrated using a subset of the held-out",
+      "page": 13
+    }
+  ],
+  "figure": "2609.16712_figures/2609.16712_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

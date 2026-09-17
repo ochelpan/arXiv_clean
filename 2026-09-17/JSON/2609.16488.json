@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.16488",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Error-Bounded Fixed-Point Design of Super-Sample-Rate IIR Filters for Real-Time Superconducting Qubit Flux Predistortion",
+  "authors": "Matt Huszabianlou, Angelos Ioannou, Nirmalendu Bikash Patra, Anastasiia Butko, Gang Huang, Irfan Siddiqi",
+  "abstract": "Flux-activated two-qubit gates in superconducting processors require correction of line distortion, which otherwise produces residual detuning, conditional-phase error, and leakage. Prior demonstrations of cryoscope-based distortion calibration have generally used commercial solutions that specify the filter models but not their FPGA implementation. These details matter for custom and open-source systems, where the fixed-point coefficient and datapath formats set how accurately the correction is realized, and the IIR feedback loop in its standard form does not meet timing at the required clock rate. We derive the coefficient formats of the correction filters from a step response error tolerance, using bounds on the quantization-induced displacement of the poles and zeros over the physical parameter range of each distortion, and the accumulator format from the smallest input change that must remain resolvable at the output. The same analysis gives the conditions under which quantization preserves filter stability. We implement the resulting FIR/IIR cascade on the QubiC platform at a fabric clock rate of \\SI{500}{MHz}, using a super-sample-rate structure with scattered look-ahead pipelining, which removes the feedback recursion from the critical path without changing the target transfer function. A representative cascade for our \\SI{1}{GS/s} flux lines, comprising an integrator, a second-order section, and a 20-tap FIR, consumes 88 DSP slices and adds \\SI{162}{ns} of latency. We confirm the hardware implementation by correcting characteristic bias-tee distortion, an intermediate step toward full cryoscope-based calibration.",
+  "url": "http://arxiv.org/abs/2609.16488v1",
+  "pdf": "https://arxiv.org/pdf/2609.16488v1",
+  "type": "theory",
+  "summary": "This paper details the design and hardware implementation of digital filters necessary to correct signal distortion in superconducting qubit flux control lines. By performing rigorous error-bounded fixed-point analysis, the authors ensure that quantization noise does not destabilize the compensation filters. The resulting super-sample-rate architecture allows for high-fidelity, real-time operation at speeds required for advanced quantum gate operations.",
+  "main_problem": "The paper addresses the need to correct line distortion in flux-activated two-qubit gates within superconducting quantum processors to mitigate errors like detuning and leakage.",
+  "main_result": "The authors derive error-bounded fixed-point designs and successfully implement the required IIR/FIR filter cascade on a high-speed FPGA platform using a super-sample-rate structure.",
+  "method": "The methodology involves deriving coefficient formats based on step response error tolerance and performing a detailed analysis of quantization effects on filter stability and pole/zero locations.",
+  "model_or_system": "The system is a superconducting quantum processor utilizing transmon qubits whose flux tunability is controlled via bias tees. The signal processing is modeled using linear time-invariant (LTI) systems requiring digital IIR/FIR compensation filters.",
+  "key_observables": "Residual detuning, conditional-phase error, leakage, and the maximum frequency error bound ($\\lVert E \rVert_\\infty$).",
+  "important_parameters": "Clock rate of 500 MHz, super-sample rate structure, DSP slice consumption (88 DSP slices for a representative cascade).",
+  "main_assumptions": "The analysis relies on bounding quantization-induced displacement of poles and zeros, and assumes the flux tuning line can be modeled as an LTI system.",
+  "figures_summary": "Figures illustrate typical qubit flux tuning line configurations and the detailed cascade structure of the required digital filter (Integrator $\rightarrow$ FOS/SOS $\rightarrow$ FIR).",
+  "paper_structure": "The paper systematically moves from identifying the physical distortion problem to deriving the required digital filter structure, analyzing stability and quantization error bounds for specific filter types (Droop, Oscillation), and finally detailing the high-speed hardware implementation.",
+  "why_interesting": "This work provides crucial, hardware-aware engineering details for implementing quantum control pulses, directly impacting the fidelity and scalability of superconducting quantum computation platforms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.16488_figures/2609.16488_fig1.jpg",
+      "caption": "Fig. 1: Typical configurations of qubit and coupler flux tuning lines. Two common variants include (left) an inductive bias tee in the mixing chamber [7] and (right) a resistive bias tee at room temperature [5].",
+      "page": 2
+    },
+    {
+      "image": "2609.16488_figures/2609.16488_fig2.jpg",
+      "caption": "Fig. 2: Filter cascade comprising an integrator, one or more first- or second-order sections, and an FIR of Nb taps.",
+      "page": 4
+    },
+    {
+      "image": "2609.16488_figures/2609.16488_fig3.jpg",
+      "caption": "Fig. 3: Realization of the M-parallel FIR. sr[k] indicates position k of the portion of the shift register seen by the dot product. The boundary boxes indicate DSP48E2 elements. The external registers are inferred by Vivado as Shift Register Logic (SRL) to save FPGA area.",
+      "page": 5
+    },
+    {
+      "image": "2609.16488_figures/2609.16488_fig4.jpg",
+      "caption": "Fig. 5: Simulated peak step response error of the damped oscillation correction at the formats of Table I, for a step of 0.5 of full scale, worst case over ϕ at αr = ±0.05, on a logarithmic color scale. Hatching marks the region excluded by Q ≥3 and the 1.0 MHz guard bands on either side of θp = mπ/J and (θ + θp)/2 = mπ/J. θp depends on the residue, which is not represented, so the bands are drawn at θp = θ; the exclusion must be tested against the fit’s θp. Outside the hatched region and below the dashed Q = 10 contour, the whole of |αr| ≤0.05 is correctable at every ϕ; above the contour the least favorable ϕ permits |αr| ≈1/(2Q).",
+      "page": 8
+    },
+    {
+      "image": "2609.16488_figures/2609.16488_fig5.jpg",
+      "caption": "Fig. 6: Oscilloscope captures of an 8 µs Gaussian-edged pulse through a YQ-CBT12-1G bias tee at room temperature, uncorrected (dotted) and corrected (solid) by the FPGA filters. (a) shows the full record and (b) the rising edge, with a corrected 10% to 90% rise time of 4.2 ns. The filters were calibrated on a square step and evaluated on the filtered edge. Relative to the mean corrected pulse top, the RMS (peak) deviation over 3 ns to 30 ns after the edge (50% crossing) is 13.8% (27%) uncorrected and 0.31% (1.7%) corrected, and over 30 ns to 7.9 µs it is 26% (42%) and 0.09% (1.7%).",
+      "page": 10
+    }
+  ],
+  "figure": "2609.16488_figures/2609.16488_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
