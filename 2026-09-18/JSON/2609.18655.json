@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2609.18655",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.LG",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning to Program Adaptive Non-Local Observables for Machine Learning",
+  "authors": "Yu-Ting Lee, Samuel Yen-Chi Chen, Huan-Hsin Tseng",
+  "abstract": "Quantum neural networks (QNNs) are typically built from variational quantum circuits (VQCs), which are limited by local measurements. Adaptive non-local observables (ANO) address this by jointly optimizing circuit parameters and multi-qubit measurements. However, existing ANO-based VQCs learn only a single static observable that remains invariant across all inputs. We propose QFWP-ANO, a novel architecture which employs a classical hypernetwork to dynamically program VQC parameters and/or non-local observables conditioned on each input. On multivariate time-series forecasting across four ETT datasets, QFWP-ANO achieves the lowest MSE in 16 of 20 settings and second-lowest in the remaining four, surpassing ANO-based and other strong baselines. On reinforcement learning tasks, QFWP-ANO consistently surpasses ANO-VQCs. Our results establish input-conditioned ANO as an effective approach for enhancing QNNs.",
+  "url": "http://arxiv.org/abs/2609.18655v1",
+  "pdf": "https://arxiv.org/pdf/2609.18655v1",
+  "type": "both",
+  "summary": "This paper introduces QFWP-ANO, a novel quantum neural network architecture that uses a classical hypernetwork to dynamically program both the circuit parameters and the non-local measurement observable based on the input data. By enabling input-conditioned adaptive non-local observables, the model significantly enhances QNN performance, achieving state-of-the-art results on both time-series forecasting and reinforcement learning benchmarks.",
+  "main_problem": "Variational Quantum Circuits (VQCs) used in Quantum Neural Networks (QNNs) are inherently limited by local measurements, and existing adaptive methods only use static observables.",
+  "main_result": "The proposed QFWP-ANO architecture, which dynamically conditions both VQC parameters and non-local observables on the input, significantly outperforms existing baselines in both multivariate time-series forecasting and reinforcement learning tasks.",
+  "method": "The authors introduce QFWP-ANO, utilizing a classical hypernetwork to generate input-dependent parameters ($\theta$ and $\\phi$) for the VQC and the non-local observable, respectively.",
+  "model_or_system": "The model is a QNN built upon VQCs. It processes classical input $x$ through an encoding, a parameterized unitary circuit $V(\theta)$, and a measurement using a trainable, input-conditioned non-local observable $H(\\phi)$.",
+  "key_observables": "Mean Squared Error (MSE) and Mean Absolute Error (MAE) for time-series forecasting; final return and sample efficiency for RL tasks.",
+  "important_parameters": "VQC depth ($D \\in \\{1, 3\\}$), non-locality of the observable ($k \\in \\{1, \\dots, 7\\}$), and the specific hypernetwork conditioning mechanism.",
+  "main_assumptions": "The primary assumption is that input-conditioning the non-local observable and circuit parameters via a hypernetwork can overcome the limitations of static, local measurements in QNNs.",
+  "figures_summary": "Figure 1 illustrates the QFWP-ANO VQC architecture. Figure 2 shows learning curves for RL tasks comparing QFWP-ANO variants to baselines. Table 2 summarizes MTSF performance (MSE) across various settings, and Table 3 analyzes performance based on VQC depth and observable non-locality.",
+  "paper_structure": "The paper first establishes the limitations of standard QNNs. It then proposes the QFWP-ANO architecture using a hypernetwork. The methodology is validated through extensive experiments on two distinct tasks: multivariate time-series forecasting (MTSF) and reinforcement learning (RL), comparing performance against multiple state-of-the-art baselines.",
+  "why_interesting": "This work directly addresses the hardware-efficient computation bottleneck in quantum machine learning by proposing a structured way to incorporate input-dependent, multi-qubit measurements, which is crucial for realizing quantum advantage in complex data tasks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.18655_figures/2609.18655_fig1.jpg",
+      "caption": "Fig. 1: VQC architecture of QFWP-ANO. Each layer con- sists parameterized Rz, Ry rotations, circular CNOT gates, and encoding U(x). Trainable k-local observables H(ϕ) are employed for measurement.",
+      "page": 2
+    },
+    {
+      "image": "2609.18655_figures/2609.18655_fig2.jpg",
+      "caption": "Fig. 2: Reward over episodes. Band is ± standard deviation.",
+      "page": 3
+    },
+    {
+      "image": "2609.18655_figures/2609.18655_fig3.jpg",
+      "caption": "Fig. 2 shows the learning curves, with (dark) and without (light) the trainable input scaling w. In Acrobot, all three QFWP-ANO variants substantially outperform the ANO-VQC baseline from episode 1000 to 4000. Although the models ultimately converge to similar final returns, QFWP-ANO-O and QFWP-ANO-RO reach their peak performance as early as around episode 1000. This early convergence demonstrates that programming the observable effectively improves sample efficiency. In SimpleCrossingS9N1, QFWP-ANO-RO reaches",
+      "page": 3
+    }
+  ],
+  "figure": "2609.18655_figures/2609.18655_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

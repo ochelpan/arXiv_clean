@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.18806",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Fast Evaluation of the Sixth-Order Time-Convolutionless Master-Equation Generator and Beyond",
+  "authors": "Jiahao Chen, Sirui Chen, Dragomir Davidovic",
+  "abstract": "Direct quadrature of the Hadamard-reduced sixth-order time-convolutionless (TCL6) generator at all $N_t$ sampled times requires $O(N_t^3)$ operations at fixed system dimension. We derive an exact reduction for a finite-dimensional system coupled through one Hermitian operator to a stationary centered Gaussian bath. By separating fixed operator coefficients from scalar bath kernels, the complete TCL6 time series is reduced to cumulative sums and first-order recurrences, one-dimensional causal convolutions, and an exact dyadic recursion for interlocked histories. With the algorithm, evaluating the complete TCL6 time series requires $O(N_t\\log^2 N_t)$ operations at fixed system dimension. In addition, we show that TCL$2n$ can be evaluated with $O(N_t\\log^{n-1} N_t)$ complexity. A fixed finite Matsubara expansion of the bath correlation function permits $O(N_t\\log N_t)$ evaluation at any fixed TCL order. These reductions enable fast long-time simulations of non-Markovian open quantum systems within the regime of validity of the TCL expansion.",
+  "url": "http://arxiv.org/abs/2609.18806v1",
+  "pdf": "https://arxiv.org/pdf/2609.18806v1",
+  "type": "theory",
+  "summary": "This paper presents an advanced mathematical technique to drastically speed up the calculation of the sixth-order time-convolutionless master-equation generator. By decomposing complex time integrals into simpler components solvable by convolutions and recurrences, the computational scaling is improved from cubic to near-linear in the number of time steps. This enables long-time simulations of complex, non-Markovian quantum dynamics.",
+  "main_problem": "The paper addresses the computational bottleneck associated with directly evaluating the high-order (sixth-order) time-convolutionless (TCL6) master-equation generator for open quantum systems.",
+  "main_result": "A novel algorithmic reduction is derived that lowers the computational complexity from $O(N_t^3)$ to $O(N_t \\log^2 N_t)$ for the TCL6 time series evaluation.",
+  "method": "The core method involves mathematically separating the time-dependent bath correlation functions into independent, joined, and interlocked history components, allowing for evaluation via cumulative sums, convolutions, and specialized recurrences.",
+  "model_or_system": "The system is a fixed finite-dimensional quantum system coupled to a stationary centered Gaussian bath via a single Hermitian operator. The dynamics are governed by the time-local generator derived from the TCL expansion.",
+  "key_observables": "The complete TCL6 time series, $K_I(t)$, and its matrix elements $S_{6,k}$.",
+  "important_parameters": "The time step count ($N_t$), the order of the expansion (e.g., TCL6, $\text{TCL}_{2n}$), and the history-coupling depth ($\\ell_H$).",
+  "main_assumptions": "The reduction relies on the system coupling through a single Hermitian operator to a Gaussian bath, and the complexity analysis assumes the availability of specific reduction identities.",
+  "figures_summary": "Figure 1 illustrates the overall reduction process from commutators to evaluating scalar sums. Figure 2 details the recursive structure used for the interlocked-history contraction.",
+  "paper_structure": "The paper systematically moves from the general definition of the TCL6 generator to deriving an exact reduction by separating fixed operator coefficients from scalar bath kernels, which are then evaluated using cumulative sums, FFT convolutions, and specialized dyadic recursions for interlocked histories.",
+  "why_interesting": "This work provides a significant algorithmic breakthrough for simulating non-Markovian dynamics, which is crucial for understanding open quantum systems where memory effects are dominant.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.18806_figures/2609.18806_fig1.jpg",
+      "caption": "FIG. 1. Reduction of TCL6 operator terms to temporal contractions. (a) Starting from an HR operator group, expand the commutators and kernel differences, separate the fixed system coefficients, and evaluate the scalar sums. Their assembly gives S6,k; restoring the outer commutator and Hermitian-conjugate partner gives the complete generator. (b) Representative affine factor graphs at history-coupling depths ℓH = 0, 1, 2. The first row uses the nested coordinates 0 ≤b ≤a ≤k of the HR065 example. (c) The corresponding reductions are two serial geometric scans followed by an output-only product, a binary causal- convolution tree, and the interlocked contraction Wk. TCL4 uses the first two...",
+      "page": 5
+    },
+    {
+      "image": "2609.18806_figures/2609.18806_fig2.jpg",
+      "caption": "FIG. 2. Dyadic recursion for input length N = 64. Panels (a) and (b) show the output component k = 48 and the five regions obtained by splitting the affine indices a, b, c at m = 32; the numbers are lattice-point counts. Panel (c) shows one application of Eq. (34). The two uniform regions (dashed boxes) retain the interlocked form at half the input length, while the three mixed regions (green boxes) reduce to ordinary convolutions; ⋆denotes suffix correlation and ∗causal convolution. Panel (d) shows the full recursion, and panel (e) gives the terminal joined-history contractions and scalar base contributions at each block length. Blue and orange mark the unshifted and shifted recursive...",
+      "page": 7
+    },
+    {
+      "image": "2609.18806_figures/2609.18806_fig3.jpg",
+      "caption": "FIG. 3. Direct and reduced evaluations of six Hadamard-reduced TCL6 contributions. Panel (a) shows the Frobenius norms of the completed 4 × 4 Liouville-space maps λ6K(ν) 6,I(t) at λ2 = 0.1. Lines are reduced results on all Nt = 1024 grid points; open",
+      "page": 11
+    },
+    {
+      "image": "2609.18806_figures/2609.18806_fig4.jpg",
+      "caption": "FIG. 4. Runtime scaling of isolated history kernels and the complete sixth-order generator K6 on one CPU core. Kernel markers show medians of five measurements. Isolated-kernel timings cover the specified scalar sums. Full-generator timings include preparation of Γ and evaluation of the complete sixth-order coefficient, excluding compilation and subsequent validation. Dashed guides are proportional to Nt for H0, Nt(1+log2 Nt) for H1, and Nt(1+log2 Nt)2 for H2 and K6. The H0 benchmark uses scalar recurrence loops, whereas H1 uses an FFT convolution. The isolated kernels and full generator use different workloads, so their timings are not additive.",
+      "page": 12
+    },
+    {
+      "image": "2609.18806_figures/2609.18806_fig5.jpg",
+      "caption": "FIG. 5. Spin–boson density evolution at successive TCL truncation orders compared with finite-resolution TEMPO trajectories (black lines with filled circles; markers are shown at selected times). The upper row uses the unbiased Hamiltonian HS = σx/2 and the lower row uses the biased Hamiltonian HS = 0.4σx + 0.3σz; both have gap Ω= 1, A = σz/2, ρS(0) = |0⟩⟨0|, T = 0, λ2 = 0.2, and ωc = 10. Panels (a) and (d) show the laboratory-basis population ρ00, while panels (b) and (e) show Re ρ01. Panels (c) and (f) show the Frobenius differences between each TCL trajectory and TEMPO (dashed lines), together with ∥ρTCL6 −ρTCL4∥F (green dotted line). The zero-time point is omitted from logarithmic...",
+      "page": 13
+    }
+  ],
+  "figure": "2609.18806_figures/2609.18806_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 3,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

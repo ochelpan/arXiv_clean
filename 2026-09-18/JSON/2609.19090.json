@@ -1,0 +1,74 @@
+{
+  "arxiv_id": "2609.19090",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.CR",
+    "eess.SY"
+  ],
+  "is_primary_archive": true,
+  "title": "Securing quantum error correction against misleading advice from AI agents",
+  "authors": "A. Barış Özgüler",
+  "abstract": "Can an attacker turn influence over an artificial intelligence (AI) adviser into a harmful quantum error-correction update? We identify an ambiguity in passive syndrome records that obstructs recovery selection, then show how additional calibration measurements support certified recovery updates under uncertainty and drift. In an odd-distance square toric code with error-free preparation, syndrome measurements, and recovery operations, opposite coherent $X$ rotations produce identical passive syndrome-history distributions. Yet a fixed phase correction can help at one sign and harm at the other. A terminal logical measurement on known encoded calibration states supplies the missing sign information. A separate evaluator accepts an update only when calibration uncertainty and a justified drift bound certify improvement over the current recovery, without assuming that the adviser recommends correctly. In simulated advice attacks, calibration-confidence checks reject harmful proposals while retaining beneficial updates under honest advice. We derive sufficient limits on calibration age that require improvement through deployment. In matched simulations, a validated channel-specific bound retains more beneficial updates than the general bound after accounting for evaluation time, while preventing the tested harmful activations under the stated drift assumption. A separate surface-code experiment includes stochastic circuit faults and noise changing during acquisition. Deterministic controllers achieve at least as many beneficial updates with the same observations. Violating the drift assumption permits harmful acceptance in the toric experiment. The results identify information required for recovery selection, establish conditional guarantees against harmful updates, and quantify the recovery improvements forgone through conservative acceptance.",
+  "url": "http://arxiv.org/abs/2609.19090v1",
+  "pdf": "https://arxiv.org/pdf/2609.19090v1",
+  "type": "theory",
+  "summary": "This work develops a security protocol for Quantum Error Correction against malicious or flawed advice from AI agents. By introducing a trusted calibration step, the authors resolve ambiguities in syndrome measurements that otherwise allow harmful updates. The framework establishes conditional guarantees, ensuring that recovery updates are only accepted if they can be mathematically certified to improve the system's state beyond known error bounds.",
+  "main_problem": "The paper addresses the security of Quantum Error Correction (QEC) protocols when the advice or syndrome history is potentially misleading or manipulated by an external AI agent.",
+  "main_result": "Security is maintained by implementing a separate, trusted evaluator that requires certified improvement based on calibration uncertainty and drift bounds, effectively separating the 'advice' from the 'authority' of the recovery decision.",
+  "method": "The authors analyze the joint distribution of passive syndrome histories, using signed calibration measurements to resolve sign ambiguities inherent in the syndrome records, and deriving rigorous bounds on accumulated risk (infidelity).",
+  "model_or_system": "The primary model is the odd-distance square toric code, used to encode logical qubits. The analysis involves syndrome measurements, recovery operations, and the incorporation of calibration measurements to test the integrity of the advice.",
+  "key_observables": "Passive syndrome-history distributions, terminal logical measurement outcomes ($q_Y(\theta)$), and the excess infidelity ($D_u(\theta)$).",
+  "important_parameters": "The required improvement threshold ($\\delta$), the calibration uncertainty, and the drift bound ($L_D v A$) are critical parameters for certification.",
+  "main_assumptions": "The security guarantees rely on the assumption that the drift rate is bounded and that the calibration measurements provide accurate, sign-sensitive information.",
+  "figures_summary": "Figure 1 illustrates how trusted calibration separates advice from authority by resolving sign ambiguities in passive history distributions. Figure 2 shows the quantitative chain involving syndrome history, calibration, and the decision process using uncertainty and drift bounds.",
+  "paper_structure": "The paper first establishes the ambiguity in passive syndrome records (sign symmetry) and then introduces the role of signed calibration to resolve this. It develops a formal risk assessment framework using drift bounds and finally applies this framework to show that only certified improvements are accepted, while also analyzing the robustness of these bounds.",
+  "why_interesting": "It provides a rigorous, information-theoretic framework for assessing trust in complex, adaptive quantum control loops, which is crucial for deploying quantum computation in noisy, real-world environments.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.19090_figures/2609.19090_fig1.jpg",
+      "caption": "FIG. 1. Trusted calibration separates advice from authority over recovery. (a) Opposite rotation signs give identical passive syndrome-history distributions in the odd-distance square toric instrument defined in Sec. II, although one fixed correction table can help at one sign and harm at the other. (b) Known encoded calibration states undergo 100 rounds of the same toric instrument and a terminal logical Y03 measurement. Their sign-sensitive response supplies the missing observation; finite counts constrain the calibration angle. (c) The evaluator admits a proposed update only when sampling uncertainty and a justified drift bound certify recovery improvement at deployment; otherwise, the...",
+      "page": 3
+    },
+    {
+      "image": "2609.19090_figures/2609.19090_fig2.jpg",
+      "caption": "FIG. 2. The same passive record can conceal opposite recovery consequences. (a) All 256 one-round syndrome probabilities evaluated from the exact instrument for the encoded calibration state coincide at θ = ±0.10 rad, displayed in one common ordering. The passive-history theorem extends the sign blindness to every history length. (b) Terminal logical measurements distinguish the signs: each circle or square is one of two independently simulated 8192-memory acquisitions at each angle, with a 99% binomial interval. (c–e) Independent estimates of excess recovery infidelity for every Qwen proposal under honest advice, misleading advice, and a sign flip that violates the drift bound. The same 12...",
+      "page": 6
+    },
+    {
+      "image": "2609.19090_figures/2609.19090_fig3.jpg",
+      "caption": "FIG. 3. Timing prevents harmful reuse under a valid drift premise, with conservative expiry. (a) Exact-channel excess recovery risk for the initially preferred correction after a continuous rate-limited ramp from three positive initial angles; negative-angle counterparts obey the same symmetry. Each point gives the recovery risk when the angle is held fixed during deployment at the value reached after the preceding drift. Positive excess risk denotes harm. The rate is 10−6 rad/T0; the ramp stops at the opposite initial angle. Acquisition precedes the ramp and deployment follows it. (b) Each row is one of the 16 independently sampled acquisitions initially admitted by confidence. Circles...",
+      "page": 8
+    },
+    {
+      "image": "2609.19090_figures/2609.19090_fig4.jpg",
+      "caption": "FIG. 4. Protection, retained recovery benefit and the cost of stricter timing. (a) All observed outcomes under the stated premises: 20 independent workloads at 3 nested budgets for each controller and rule. Benefit/harm require independent paired deployment intervals below −0.001/above +0.001; other accepted-update outcomes remain unresolved. All rules check workload identity. (b) All 12 honest-advice Qwen instances (4 workloads, 3 budgets). Filled/open squares denote acceptance/rejection by the end-timestamp and whole-acquisition rules. Shaded rows identify 2 distance-5 updates additionally rejected when acquisition time is included. Their independent deployment intervals still establish...",
+      "page": 10
+    }
+  ],
+  "figure": "2609.19090_figures/2609.19090_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

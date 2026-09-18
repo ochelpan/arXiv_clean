@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.17896",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "QEMScore: How Much Does the Measurement Add to Learned Quantum Error Mitigation?",
+  "authors": "Yue Zhao, Huayue Gu, Yushun Dong, Xiyang Hu",
+  "abstract": "How much does the noisy measurement add to learned quantum error mitigation? An accuracy table cannot say, because a model handed circuit structure can score well without reading the measurement at all. QEMScore adds the comparison that can. Each simulated circuit carries an exact ideal answer. The learned mitigator is scored beside a capacity-matched control, a model just as flexible that reads the same circuit description but never the measurement. Each method's measurement spend is accounted and not equalized. We run a controlled campaign on simulated circuits and reanalyze two published learned mitigators, Q-LEAR and QRAFT, from their released hardware data. Three findings stand out. First, under familiar within-family conditions (S0) evaluated across two spin-chain families and three seeds, continuous couplings identify the target, and the control that never reads the measurement matches 87.7 to 100.5 percent of the mitigator's gain over an affine fit to the circuit description. A plain polynomial in the coupling parameters, fitted after the campaign, beats the mitigator on all six evaluations, reflecting the selected learners' capacity. Second, for these selected learners, matching most of the gain is not matching the accuracy: on five of six evaluations the mitigator removes 19.5 to 74.5 percent of the error the capacity-matched control leaves, a learner-specific gap rather than a measurement requirement. Third, on released hardware data where descriptors only partially identify queries, the findings differ: flexible models of the descriptors show negligible mean gain over affine fits in Q-LEAR, and measurement inputs carry predictive gains in both Q-LEAR and QRAFT. These comparisons reflect representation- and protocol-specific behavior rather than an isolated cross-regime difference. A learned mitigator's accuracy should therefore be reported beside such controls.",
+  "url": "http://arxiv.org/abs/2609.17896v1",
+  "pdf": "https://arxiv.org/pdf/2609.17896v1",
+  "type": "theory",
+  "summary": "This paper introduces QEMScore, a diagnostic framework to quantify the specific contribution of noisy measurement outcomes to the performance of learned quantum error mitigation techniques. By comparing full models against controls that ignore measurement data, the authors show that while measurement matters, the mitigation gain can stem from other sources, necessitating more nuanced reporting standards in the field.",
+  "main_problem": "The paper addresses the fundamental question of how much of the performance gain in learned quantum error mitigation (QEM) techniques is attributable to the noisy measurement input versus the circuit structure itself.",
+  "main_result": "The measurement-only control can account for a significant portion of the mitigator's gain under controlled conditions, and on actual hardware data, measurement inputs do carry predictive gains.",
+  "method": "A novel framework, QEMScore, is introduced to compare learned mitigators against capacity-matched controls that are explicitly prevented from reading the measurement outcome, allowing for the quantification of the measurement's contribution.",
+  "model_or_system": "The study uses simulated quantum circuits, including spin-chain families (e.g., transverse-field Ising), and evaluates observables $\\langle O \rangle$ under various noise models and measurement protocols.",
+  "key_observables": "Error reduction quantified by the measurement-associated gap ($D = C - F$), and the share ($S$) of error reduction attributed to the measurement input.",
+  "important_parameters": "The analysis is highly dependent on the specific simulated circuit regimes, the noise configuration, and the computational budget used for the learned models.",
+  "main_assumptions": "The conclusions are strictly conditional on the tested simulator regimes and the specific comparison controls implemented; the measurement contribution is not always the sole source of mitigation gain.",
+  "figures_summary": "Figure 1 illustrates the comparison framework, showing how the full model's performance is decomposed into components related to circuit features and measurement readings. Other figures detail the comparison across various evaluation settings (S0-S6).",
+  "paper_structure": "The paper establishes the scientific problem by noting the ambiguity in current error mitigation reporting. It then introduces the QEMScore framework, details controlled simulations on spin-chain families, presents quantitative results comparing different control models, and concludes with guidelines for reporting learned mitigator accuracy.",
+  "why_interesting": "It provides rigorous diagnostic tools for assessing the true physical utility of complex machine learning models applied to quantum computation, helping researchers distinguish between genuine physical insight and mere correlation with measurement noise.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.17896_figures/2609.17896_fig1.jpg",
+      "caption": "Figure 1: One circuit, one exact target, one input withheld: the two models differ only in whether they read the measurement. (a) A circuit and observable O yield descriptors x, a noisy estimate r, and the exact ideal expectation y from noiseless simulation. (b) The learned QEM model reads (x, r); a capacity-matched control reads x alone. Both are fitted from the same candidate family under the same selection rule and scored against y by held-out macro mean absolute error, F and C; the diagram shows evaluation after fitting. (c) The measurement-associated gap is D = C −F. Against the affine feature-only control with error A, the share reproduced without measurement is S = (A −C)/(A −F); a...",
+      "page": 2
+    },
+    {
+      "image": "2609.17896_figures/2609.17896_fig2.jpg",
+      "caption": "Figure 2: Both nonlinear arms sharply reduce error relative to the affine control on all six primary evaluations. Each bar is a macro mean absolute error against the exact label on untouched test rows, equally weighted over four strength-by-observable cells, on a logarithmic axis. R: unmitigated noisy reference. A: affine feature-only control. C: capacity-matched feature-only control, fitted from the ablation’s own candidate family. F: the full nonlinear method, this campaign’s restricted-feature ablation (features and measurement). Both feature-only arms read no measurement. Bars are point estimates with no interval; two arms differ by their paired gap, not by whether bars overlap....",
+      "page": 7
+    },
+    {
+      "image": "2609.17896_figures/2609.17896_fig3.jpg",
+      "caption": "Figure 4: The base-statistics step carries 89.87 percent of the total gap on hardware and 97.81 percent on the simulator. Endpoints are nested: C−F = (C−O) + (O−F). C: nonlinear descriptor control (five inputs). O: adds base execution statistics (seven inputs). F: full ten-input released method. Positive gap means the fuller set has lower error. (a, b) Ten-fit macro mean C−F split into its two additive pieces, hardware and simulator. (c, d) O−F ten-fit mean per application and macro row; whiskers show the range over ten refits, not a confidence interval. The lower-left block counts fits with positive point estimates and fits whose 95 percent intervals lie wholly above zero. Both panels...",
+      "page": 10
+    },
+    {
+      "image": "2609.17896_figures/2609.17896_fig4.jpg",
+      "caption": "Figure 5: The near-zero macro mean (+0.000055 hardware, +0.000091 simulator) is partly cancel- lation: two pricing applications favor the network and the other four favor the affine control on all ten refits of both panels. K=A−C per application. A: affine control on four circuit descriptors and the state weight. C: published network on the same five inputs; the two arms differ only in learner capacity. Positive K means the network has lower error. Bars: ten-fit means in Hellinger score. Whiskers with square ends: minimum and maximum over ten refits, a range and not a confidence interval. Per-application rows carry no interval because one application leaves no resample unit. K is a...",
+      "page": 11
+    },
+    {
+      "image": "2609.17896_figures/2609.17896_fig5.jpg",
+      "caption": "Figure 6: Sorted by the share it reproduces, the six primary evaluations come out in increasing order of remaining-error reduction. Rows run by share, descending, which is not the fixed evaluation order of Figure 3; each row names its seed and family. The share S = (A −C)/(A −F) divides the part the capacity-matched control reproduces by the ablation’s improvement over the affine control. The remaining- error reduction D/C = (C −F)/C divides the gap D = C −F by the control’s own error. Numerator and denominator both differ, so the second does not follow from the first. Whiskers are pointwise 95 percent circuit-bootstrap intervals of the reduction, conditional on the fitted and selected...",
+      "page": 44
+    }
+  ],
+  "figure": "2609.17896_figures/2609.17896_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

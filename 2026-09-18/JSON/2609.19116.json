@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.19116",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Comparing magic state cultivation methods using matrix product states",
+  "authors": "Tom Hartweg, Asier Piñeiro Orioli",
+  "abstract": "Magic state cultivation prepares high-fidelity magic states at low expected space-time costs; however, the exact performance of some schemes is unsettled due to the difficulty in simulating non-Clifford circuits. Here, we use matrix-product states (MPS) based methods to compute the exact performance of two types of fold-transversal cultivation schemes: (i) the Sahay et al method based on the regular surface code S gate, and (ii) a method we propose based on a partially fault-tolerant fold-transversal S gate. We show that for the former protocol at $d=5$, the $|T\\rangle$ output reaches similar logical error rates to the $|S\\rangle$ output, traditionally used as a cheap full Clifford proxy. This contrasts with the $\\sim10\\times$ discrepancy reported for the $d=5$ colour-code scheme of Gidney et al. We also find that our new $d=5$ scheme has $\\sim1.3\\times$ lower expected space-time cost while still reaching $10^{-9}$ logical error rate. We show that MPS and Clifford-augmented MPS (CAMPS) perform on par with or even better than the recently introduced near-Clifford simulator Clifft on the hardest $d=5$ regular surface code scheme. Additionally, to speed up simulation, we propose a new pre-screening method based on simple Pauli propagation, lowering by up to three orders of magnitude the required number of exact simulations, and use several simulator-agnostic sampling methods such as subset sampling.",
+  "url": "http://arxiv.org/abs/2609.19116v1",
+  "pdf": "https://arxiv.org/pdf/2609.19116v1",
+  "type": "theory",
+  "summary": "This work compares multiple methods for preparing essential magic states for fault-tolerant quantum computation using surface codes. By employing advanced simulation techniques like MPS, the authors demonstrate a new cultivation scheme that significantly reduces resource overhead while maintaining high fidelity. The findings provide crucial benchmarks for optimizing quantum error correction protocols against physical noise and resource constraints.",
+  "main_problem": "The paper compares various methods for cultivating high-fidelity magic states required for fault-tolerant quantum computation, specifically addressing the performance limitations of non-Clifford circuits.",
+  "main_result": "The proposed new cultivation scheme achieves a significantly lower expected space-time cost ($\\sim 1.3\times$) compared to existing protocols while maintaining a target logical error rate of $10^{-9}$.",
+  "method": "The authors use Matrix Product States (MPS) and Clifford-augmented MPS (CAMPS) to perform exact simulations of different fold-transversal cultivation schemes on surface codes.",
+  "model_or_system": "The study focuses on quantum error correction (QEC) using surface codes (regular and rotated) at distances $d=3$ and $d=5$. The process involves state preparation and subsequent cultivation stages.",
+  "key_observables": "Logical error rate, expected space-time cost, and the multiplicative factor increase in expected attempts due to physical losses.",
+  "important_parameters": "Code distance ($d=5$), target error rate ($10^{-9}$), and physical loss probabilities ($p_{\text{loss}}$).",
+  "main_assumptions": "The analysis assumes losses are modeled by independent loss channels uncorrelated with depolarizing noise, and that MPS/CAMPS can accurately capture the required entanglement structure.",
+  "figures_summary": "Figures compare the performance (error rate vs. attempts) of various schemes for $|S\rangle$ and $|T\rangle$ states at $d=3$ and $d=5$. Other figures detail gadget-level structures and space-time overhead breakdowns for different code types.",
+  "paper_structure": "The paper systematically compares multiple cultivation schemes ($\text{Sahay et al.}$ vs. proposed) across different code types ($\text{Reg}$ vs. $\text{Rot}$) and distances ($d=3, 5$), analyzing performance metrics like error rate and space-time cost, and finally quantifying the impact of physical losses.",
+  "why_interesting": "The rigorous comparison of simulation techniques (MPS vs. CAMPS vs. Cliﬀt) to determine the most efficient path for resource estimation in fault-tolerant quantum computation is highly relevant for theoretical quantum information scientists.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.19116_figures/2609.19116_fig1.jpg",
+      "caption": "Figure 1: Performance of cultivation schemes under uniform depolarising noise for |S⟩and |T⟩, at output code distance d = 3 and 5. Reg3/5 are based on Sahay et al. [1] circuits, which make use of the regular surface code fold-transversal S gate. Rot3/5 and Rot3×4 are circuits proposed in this work, based on the partially fault-tolerant fold-transversal S gate of the rotated surface code. The |S⟩results are obtained with Stim, the |T⟩results with CAMPS simulations. These results are obtained with the addition of the ﬁnal noiseless syndrome extraction in the post-selection. Except for the |S⟩results, the three points from each curve are obtained with the same samples through subset sampling...",
+      "page": 2
+    },
+    {
+      "image": "2609.19116_figures/2609.19116_fig2.jpg",
+      "caption": "Figure 2: Gadget-level structure of the two d = 5 |T⟩cultivation Reg5 and Rot5, both built on the same d=3 rotated surface-code patch (17 physical qubits) grown to distance 5 (49 physical qubits). The label between each pair of stages gives the code carried on that step – RSC = rotated surface code, SC = unrotated surface code, subscript the code distance. A schematic representation of each code is given at the bottom of the ﬁgure. The dotted grey box, labelled Reg3/ Rot3, marks the corresponding d = 3 circuit preﬁx. Each cultivation check is a control-HXY gadget driven by a separate GHZ ancilla register – 3 qubits at d = 3, 5 qubits + 1 ﬂag qubit at d = 5 – prepared and measured for each...",
+      "page": 3
+    },
+    {
+      "image": "2609.19116_figures/2609.19116_fig3.jpg",
+      "caption": "Figure 3: Qubit layout for the Reg5 cultivation MPS sim- ulation. The distance 3 rotated surface code (RSC3) is used at the injection stage, the distance 3 regular surface code (SC3) is used during the d=3 HXY operator checks, the distance 5 rotated surface code (RSC5) is used for the in- termediate syndrome extraction, and the distance 5 regular surface code (SC5) is used to do the d=5 HXY operator checks. The ancillas of the SC3 are only used to perform the rotation to the RSC5 code.",
+      "page": 5
+    },
+    {
+      "image": "2609.19116_figures/2609.19116_fig4.jpg",
+      "caption": "Figure 4: Logical HXY check for Rot3. The ancilla GHZ(3) state is supported on the bottom wires. The check is decomposed into controlled-S gates involving the diagonal qubits, controlled-X gates on the ﬁrst row of qubits, and CCZ gates involving pairs of twisted oﬀ-diagonal qubits.",
+      "page": 13
+    },
+    {
+      "image": "2609.19116_figures/2609.19116_fig5.jpg",
+      "caption": "Figure 5: Logical HXY check for Rot5. The ancilla GHZ(5) state is supported on the bottom wires, with a 6th qubit serving as a ﬂag for the state preparation. The check is decomposed into controlled-S gates involving the diagonal qubits, controlled-X gates on the ﬁrst row of qubits, and CCZ gates involving pairs of twisted oﬀ-diagonal qubits.",
+      "page": 13
+    }
+  ],
+  "figure": "2609.19116_figures/2609.19116_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
