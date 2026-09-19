@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.20802",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Locally optimized variational evolution for quantum many-body systems",
+  "authors": "Carolin Wille, Max Marvell, Lauren Stewart, Max Murphy, Vinul Wimalaweera, Lesley Gover, Andrew G. Green",
+  "abstract": "Conventional quantum advantage in many-body dynamics is based on avoiding the simulation cost on a classical computer that arises from the extensive exponential complexity of the global wavefunction. Local observables, however, do not inherit this extensive complexity and may instead be governed by an intrinsic local complexity that is independent of the total system size. This distinction is particularly relevant in thermalising systems, where local observables lose memory of microscopic details and relax towards equilibrium values determined by only a few parameters. Here we introduce a variational time-evolution principle that exploits this distinction by replacing global-state fidelity with a cost function defined on local reduced density matrices. The resulting evolution retains coherent short-time dynamics while exploiting the simplification produced by thermalisation at later times. The concrete algorithm we propose is based on locally optimising matrix-product states and admits closed-form equations of motion analogous to the time-dependent variational principle. We show that the same variational principle has a quantum-classical counterpart, combining quantum evaluation of the local cost with an optimisation strategy robust to both shot and hardware noise. Proof-of-principle implementations on Quantinuum H2 and IBM Heron processors recover the characteristic local dynamics.",
+  "url": "http://arxiv.org/abs/2609.20802v1",
+  "pdf": "https://arxiv.org/pdf/2609.20802v1",
+  "type": "both",
+  "summary": "This paper presents a novel variational time-evolution method, LOMPS, designed to simulate quantum many-body dynamics by optimizing local observables rather than the entire global wavefunction. By exploiting the fact that local physics can be simpler than global physics, the method achieves accurate results for both short-time coherence and long-time thermalization. The approach is demonstrated both theoretically and on superconducting quantum hardware.",
+  "main_problem": "Simulating the time evolution of quantum many-body systems, which is classically intractable due to the exponential complexity of the global wavefunction.",
+  "main_result": "The proposed Locally Optimized Matrix Product States (LOMPS) algorithm successfully captures both the coherent early-time dynamics and the late-time thermalization of local observables.",
+  "method": "It introduces a variational time-evolution principle that replaces global fidelity with a cost function defined on local reduced density matrices, optimized using MPS techniques.",
+  "model_or_system": "The study uses the transverse-field Ising model quench as a testbed, analyzing dynamics in both integrable and strongly thermalizing regimes.",
+  "key_observables": "Local Loschmidt rate ($\\lambda_L(t)$), local reduced density matrices ($\rho_L(t)$), and entanglement entropy.",
+  "important_parameters": "Patch size ($L$), bond dimension ($D$), and time step ($\\Delta t$).",
+  "main_assumptions": "The core assumption is that local observables' complexity is governed by an intrinsic local complexity independent of the total system size.",
+  "figures_summary": "Figures illustrate the comparison between global and local complexity evolution, the thermalization of local observables, and the implementation details of the quantum-classical hybrid algorithm on specific hardware.",
+  "paper_structure": "The paper develops the LOMPS variational principle, details the classical and quantum-classical optimization procedures, and validates the method by simulating quenches on both theoretical models and actual quantum hardware.",
+  "why_interesting": "This work provides a powerful, resource-aware numerical technique for simulating open quantum systems and thermalization dynamics by focusing computational effort only on locally accessible information.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.20802_figures/2609.20802_fig1.jpg",
+      "caption": "FIG. 1. (a) Evolution of local vs global description complexity. The curves presented here are symbolic. For a concrete example of local description complexity dynamics see App. A 1. (b) Variational time evolution based on global versus local optimization. The Hamiltonian dynamics takes the system off the variational manifold. Cost-function optimization projects the state back onto the variational manifold. Iterating this procedure defines a trajectory that depends on the chosen cost function. (c) Early-time coherence as demonstrated by the agreement of the four-site local Loschmidt rate λ4(t) (cf. Eq. (2)) obtained by our local variational evolution algorithm (LOMPS) compared to a...",
+      "page": 2
+    },
+    {
+      "image": "2609.20802_figures/2609.20802_fig2.jpg",
+      "caption": "FIG. 2. Thermalization of a local observable. Single-site ⟨σx⟩dynamics in the tilted-field Ising quench. Increasing the patch sizes reduces artificial late-time oscillations.",
+      "page": 3
+    },
+    {
+      "image": "2609.20802_figures/2609.20802_fig3.jpg",
+      "caption": "FIG. 3. Quantum algorithm. (a) Three-site local Loschmidt rate, (b) global Loschmidt rate and (c) cost function obtained by running the variational algorithm on IBM Boston Heron r3 with 5000 shots and on Quantinuum H2-2 with 500 shots per circuit evaluation, compared to the noiseless classical algorithm with the same MPS bond dimension. The first three states, at t = 0, 0.2, 0.4, were supplied by a warm start. Diamonds show the expected improvement of the Quantinuum optimization protocol performed with a higher shot budget (for details see App. B 3 a).",
+      "page": 4
+    },
+    {
+      "image": "2609.20802_figures/2609.20802_fig4.jpg",
+      "caption": "FIG. 4. Time evolution. The classical algorithm time evolves the state |Ψ(A)⟩by a short Trotter circuit and con- structs its local reduced density matrix on L sites ρevol L (t+∆t) (green) by tracing out the environment (purple).",
+      "page": 4
+    },
+    {
+      "image": "2609.20802_figures/2609.20802_fig5.jpg",
+      "caption": "FIG. 5. Local reduced density matrix of a uniform MPS. The left and right environments of an infinite uniform (i.e., translation-invariant) MPS reduce to the left and right fixed point of the transfer matrix (see App. C 1) for details. Using the left-canonical gauge, the left-fix point is the identity and the right fixed point Renv is computed explicitly.",
+      "page": 5
+    }
+  ],
+  "figure": "2609.20802_figures/2609.20802_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 1,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

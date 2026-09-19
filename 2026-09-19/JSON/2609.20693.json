@@ -1,0 +1,80 @@
+{
+  "arxiv_id": "2609.20693",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.dis-nn",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "TetrisCNN for interpretable detection of phases of matter from experimental quantum simulator data",
+  "authors": "Kacper Cybiński, Björn van Zwol, James Enouen, Guillaume Bornet, Thierry Lahaye, Antoine Browaeys, Antoine Georges, Anna Dawid",
+  "abstract": "Detecting phases of matter in general relies on identifying the correct order parameter - a task that remains notoriously difficult for unknown transitions and traditionally is guided by physical intuition and educated guess. Neural networks have recently offered an alternative route by locating phase transitions in known models without any a priori physical knowledge. Yet these approaches remain black boxes and only identify phases without elucidating their properties. Moreover, they often struggle when confronted with realistic, noisy experimental data, which constitute the ultimate testbed for automated methods in physics. Here, we bridge these perspectives by introducing TetrisCNN, a convolutional architecture with parallel branches of differently shaped filters, reminiscent of Tetris blocks, that learns sparse, interpretable latent representations directly in terms of spin correlators. Applied to experimental snapshots of two-dimensional Ising and XY quantum simulators measured in multiple bases, the network not only detects phase transitions and crossovers but also expresses its latent representation and decision boundaries as symbolic formulas built from experimentally measurable spin correlators. This framework opens the way to integrating interpretable neural networks with quantum simulators to uncover and understand new phases of matter.",
+  "url": "http://arxiv.org/abs/2609.20693v1",
+  "pdf": "https://arxiv.org/pdf/2609.20693v1",
+  "type": "both",
+  "summary": "This paper introduces TetrisCNN, an interpretable neural network designed to detect quantum phase transitions from experimental simulator data. By learning representations directly from measurable spin correlators, it overcomes the 'black box' problem of standard NNs. The key achievement is deriving the phase boundaries as explicit, symbolic formulas based on experimentally accessible quantities.",
+  "main_problem": "Detecting quantum phases of matter is difficult, as traditional methods rely on physical intuition, while black-box neural networks fail to provide physical understanding or generalize to noisy experimental data.",
+  "main_result": "The proposed TetrisCNN framework successfully detects phase transitions and crossovers and, crucially, expresses the decision boundaries as symbolic formulas built directly from measurable spin correlators.",
+  "method": "The authors introduce TetrisCNN, a convolutional architecture using parallel branches with varied filters to learn sparse, interpretable latent representations based on spin correlators.",
+  "model_or_system": "The method is applied to experimental snapshots from 2D quantum simulators, specifically modeling the Ising and XY Hamiltonians using Rydberg-atom arrays in optical tweezer lattices.",
+  "key_observables": "Spin correlators (e.g., $\text{mstag}$, $\text{CNN}$), magnetization, and the classification/regression output defining the phase boundary.",
+  "important_parameters": "Lattice spacing ($a=10 \\mu\text{m}$), interaction strength ($U/h \\approx 1.95 \text{ MHz}$), and varying external fields ($\\delta, \\Omega$).",
+  "main_assumptions": "The analysis relies on fitting a surrogate model (like logistic regression) to approximate the complex decision boundary learned by the deep network.",
+  "figures_summary": "Figures illustrate the CNN architecture mapping filters to correlators, the comparison of linear vs. quadratic approximations of the phase boundary, and the stability of the learned representations.",
+  "paper_structure": "The paper first establishes the limitations of current phase detection methods, introduces TetrisCNN, demonstrates its application to 2D Ising/XY models, and concludes by showing how the learned decision boundaries can be analytically approximated using measurable correlators.",
+  "why_interesting": "It provides a concrete, interpretable bridge between advanced machine learning techniques and fundamental condensed matter physics problems, offering a pathway to extract physical laws from complex quantum simulation data.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.20693_figures/2609.20693_fig1.jpg",
+      "caption": "FIG. 1: TetrisCNN processes snapshots through parallel branches with differently shaped filters that map to spin correlators. Sparsity suppresses redundant or task-irrelevant branches, yielding a low-dimensional interpretable bottleneck from which the decision boundary can be expressed symbolically in terms of spin correlators.",
+      "page": 2
+    },
+    {
+      "image": "2609.20693_figures/2609.20693_fig2.jpg",
+      "caption": "FIG. 2: Experimental quantum data. (a),(c) Experimental protocols for the Ising and XY datasets, including control parameters, measurement points, and representative snapshots from the 8 × 8 Ising [64] and 6 × 7 XY [65] Rydberg-atom quantum simulators. (b),(d) Selected snapshot-averaged spin correlators, cf. Eq. (3), with shaded regions indicating their standard deviation across the sweeps: mstag = CA[■] −CB[■], with A, B being the two sublattices, CNN = Crot[■■] = 1",
+      "page": 3
+    },
+    {
+      "image": "2609.20693_figures/2609.20693_fig3.jpg",
+      "caption": "FIG. 3: Example of convolution with a 2 × 2 filter, followed by global average pooling (GAP). The filter is applied across the input to produce a feature map, which GAP reduces to a scalar.",
+      "page": 6
+    },
+    {
+      "image": "2609.20693_figures/2609.20693_fig4.jpg",
+      "caption": "FIG. 4: Data-driven transition detection and interpretable classification from experimental snapshots for (a)–(c) Ising and (d)–(f) XY. (a,d) Transition locations estimated with established unsupervised methods (App. E). Red dashed lines mark the location used to define supervised labels. For Ising, the detected change is the polarization crossover rather than the later antiferromagnetic phase transition. (b,e) Evolution of rotationally invariant TetrisCNN branch activations during training, showing sparsity-induced suppression of task-irrelevant branches. (c,f) Activations of the surviving branches across the experimental sweeps. Unfilled squares denote masked-out sites.",
+      "page": 8
+    },
+    {
+      "image": "2609.20693_figures/2609.20693_fig5.jpg",
+      "caption": "FIG. 5: Mapping from branch activations to correlators via multilinear regression for three active branches in TetrisCNN trained on the XY dataset as in Fig. 4(e)-(f), enabled by the Boolean Fourier expansion, Eq. (7). We need only to consider correlators C[P ′], P ′ ⊆P defined by patterns P ′ that are contained in the filter pattern P (see Tab. I). Note that with all C[P ′], P ′ ⊆P, the fit is perfect (R2 = 1). Small positive (negative) contributions are summed into “other+(–)”. The complete decomposition is shown in Fig. 21.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.20693_figures/2609.20693_fig1.jpg",
+  "highlighted": [
+    "Antoine Browaeys"
+  ],
+  "topic_scores": {
+    "analog quantum simulation": 4,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 3,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

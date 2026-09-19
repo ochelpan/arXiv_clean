@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.20573",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "FT-Weave: Real-Time Compilation Framework for Reconfigurable Fault-Tolerant Quantum Architectures",
+  "authors": "Wan-Hsuan Lin, Milan Kornjača, Chen Zhao, Sheng-Tao Wang, Jason Cong",
+  "abstract": "Fault-tolerant quantum computing (FTQC) is essential for large-scale quantum computation, but realizing useful application throughput requires coordinating resource preparation, assignment, routing, and logical execution under strict hardware and timing constraints. Many FTQC compilation approaches construct offline schedules using nominal or fixed magic-state factory throughput. Such schedules cannot respond to stochastic resource-preparation and teleportation outcomes, leading to execution stalls and hardware underutilization. In this work, we introduce FT-Weave, a stage-aware real-time FTQC compilation framework that jointly coordinates resource preparation, resource assignment, teleportation routing, and correction handling. By adapting to runtime resource availability and hardware constraints, FT-Weave allows preparation, communication, and logical execution to overlap. We instantiate FT-Weave on two representative neutral-atom, early FTQC architectures: transversal STAR and a T-state cultivation architecture. Under the evaluated hardware and latency model, FT-Weave achieves a speedup of up to 3X over a baseline compilation flow for simulations of the two-dimensional transverse-field Ising model. In the case study, we further find that maximizing exposed concurrency does not necessarily minimize execution time. Although fine-grained asynchronous execution can reduce local idle time, its smaller optimization windows and increased routing contention can outweigh these gains. Together, these results show that effective runtime coordination, rather then exposed parallelism alone, determines how efficiently FTQC resources translate into application throughput:FT-Weave provides a blueprint for solving this real-time orchestration problem across resource protocols and architectures.",
+  "url": "http://arxiv.org/abs/2609.20573v1",
+  "pdf": "https://arxiv.org/pdf/2609.20573v1",
+  "type": "theory",
+  "summary": "This paper presents FT-Weave, a novel, real-time compilation framework designed to manage the complex resource dependencies in Fault-Tolerant Quantum Computing. By jointly coordinating resource preparation, assignment, routing, and error correction dynamically, it overcomes the limitations of static scheduling. The framework demonstrates significant speedups on neutral-atom architectures, proving that effective runtime coordination, rather than just maximizing parallelism, dictates overall computational throughput.",
+  "main_problem": "Efficient Fault-Tolerant Quantum Computing (FTQC) requires coordinating resource preparation, assignment, routing, and logical execution in real-time, which is difficult with static, offline scheduling methods.",
+  "main_result": "The proposed framework, FT-Weave, achieves up to a 3X speedup over baseline methods for simulating the 2D transverse-field Ising model by optimizing runtime coordination.",
+  "method": "The authors introduce FT-Weave, a stage-aware, real-time compilation framework that jointly coordinates four stages: resource preparation, assignment, routing, and correction handling.",
+  "model_or_system": "The framework is tested on two representative neutral-atom Early FTQC (EFTQC) architectures: the transversal STAR and a T-state cultivation architecture.",
+  "key_observables": "Application throughput, execution time, and speedup factor (up to 3X).",
+  "important_parameters": "Hardware and latency model constraints; the trade-off between exposed parallelism and effective runtime coordination.",
+  "main_assumptions": "The performance evaluation is based on an evaluated hardware and latency model; the framework provides a blueprint adaptable to specific resource protocols.",
+  "figures_summary": "Figure 1 motivates the framework by showing the three interdependent capabilities (Parallelism, Reconfigurability, Real-Time Control). Figure 2 details the four recurring stages (preparation, assignment, routing, correction) partitioned into static and dynamic compilation phases.",
+  "paper_structure": "The paper introduces the problem of real-time FTQC orchestration, details the FT-Weave framework by partitioning compilation into static and dynamic phases, and validates its performance on specific neutral-atom architectures using the 2D TFIM simulation.",
+  "why_interesting": "It provides a concrete, actionable blueprint for solving the complex, real-time resource orchestration problem inherent in scaling up quantum computation on physical platforms like neutral atoms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.20573_figures/2609.20573_fig1.jpg",
+      "caption": "FIG. 1. Three interdependent capabilities for efficient fault-tolerant quantum computing (FTQC) execution. (Top) High parallelism overlaps resource preparation, routing, and logical execution, whereas stage serialization leaves hard- ware underutilized. (Bottom left) Reconfigurability adapts qubit layouts and control regions to changing computation and communication demands. (Bottom right) Real-time control responds to stochastic preparation and teleportation outcomes by updating resource assignment, routing, and correction handling. Because a bottleneck in any one capability can limit the others, reconfigurability, real-time control, and high parallelism must be optimized jointly,...",
+      "page": 2
+    },
+    {
+      "image": "2609.20573_figures/2609.20573_fig2.jpg",
+      "caption": "FIG. 2. Overview of the FT-Weave compilation frame- work. FT-Weave partitions compilation into four static and three dynamic steps. The static phase performs (1) logical cir- cuit scheduling, which groups logical operations into Clifford and non-Clifford layers; (2) microarchitecture design, which determines the organization of data blocks, routing space, and factory resources; (3) static routing, which determines communication paths known before execution; and (4) initial factory assignment, which associates upcoming non-Clifford operations with candidate factory outputs. In the running example, the scheduled circuit contains both Clifford and non- Clifford layers, and the high resource...",
+      "page": 3
+    },
+    {
+      "image": "2609.20573_figures/2609.20573_fig3.jpg",
+      "caption": "FIG. 3. Execution abstraction for EFTQC ar- chitectures. Both the STAR and T-state cultivation ar- chitectures use probabilistic resource preparation followed by teleportation-based consumption. In STAR (top), the transversal multi-rotation (TMR) protocol prepares an angle- dependent resource state on a logical patch. In the execution model used here, each TMR attempt takes six QEC cycles. After preparation, RUS teleportation consumes the resource state, and an unsuccessful teleportation requires the prepa- ration of a corrective state with a different angle, creating runtime-dependent resource demand. In T-state cultivation (bottom), the check stage uses a small footprint and takes 12.5...",
+      "page": 5
+    },
+    {
+      "image": "2609.20573_figures/2609.20573_fig4.jpg",
+      "caption": "FIG. 4. Overview of the compilation techniques. From left to right, the figure summarizes techniques for resource preparation and correction handling, resource assignment, routing, and execution policy. Dynamic angle collection distributes the available factory budget across current rotation requests and speculative RUS correction angles. Check-stage factory re- distribution reassigns successful intermediate patches to available escape factories, improving resource utilization and reducing the effective discard rate. Routing-aware assignment matches angle-demand slots to factories before preparation and prepared resource states to compatible logical-qubit requests after preparation while...",
+      "page": 7
+    },
+    {
+      "image": "2609.20573_figures/2609.20573_fig5.jpg",
+      "caption": "FIG. 5. Example of FT-Weave timeline output for three compilation strategies applied on STAR benchmark The same workload—a layer of identical-angle RZ rotations on 25 logical qubits executed using 25 factories and one AOD—is compiled using three strategies: an unoptimized baseline (top), routing-aware assignment and movement optimization (middle), and the same optimizations with resource rematerialization (bottom). Each row tracks the activity of one factory over QEC cycles; colors denote TMR preparation, CNOT gates, forward movement, and return movement, as indicated in the legend. The shaded regions identify the first and fifth RUS rounds and a resource-rematerialization decision examined...",
+      "page": 10
+    }
+  ],
+  "figure": "2609.20573_figures/2609.20573_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 3,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

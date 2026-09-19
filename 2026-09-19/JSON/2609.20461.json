@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2609.20461",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "physics.comp-ph",
+    "cond-mat.stat-mech",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Correlation-Free Transition Path Sampling through Shooting Point Generation Guided by Committor Learning",
+  "authors": "Maximilian Negedly, Sebastian Falkner, Alessandro Coretti, Christoph Dellago",
+  "abstract": "Studying the dynamical behavior of a system often depends on characterizing how it transitions between long-lived states. Because such transitions are rare, observing them usually requires specialized enhanced sampling techniques. Transition Path Sampling (TPS) is a well-established method for generating reactive trajectories, which is simple to implement and does not require the definition of a preconceived reaction coordinate. However, its efficiency is limited by its sequential nature and the resulting correlations between sampled paths. Previous work addressed this limitation by combining TPS with a sampling scheme based on conditioned Boltzmann Generators, a generative machine learning model capable of sampling a given target probability distribution. This approach produces uncorrelated transition paths but relies on an accurate reaction coordinate, which is rarely known in advance. Building on recent advances in committor learning, specifically on the Artificial Intelligence for Molecular Mechanism Discovery (AIMMD) method, in this work we introduce GenAIMMD, an iterative algorithm that actively and self-consistently learns the ideal reaction coordinate (the committor) and trains a conditioned Boltzmann Generator to sample from arbitrary bias windows along it. GenAIMMD thereby provides a correlation-free and fully parallelizable path sampling scheme that does not require prior knowledge of the system's transition mechanism. We apply GenAIMMD to a two-dimensional toy model and a higher-dimensional polymer system. In both cases, GenAIMMD succeeds in training the Boltzmann Generator and learning the committor. Benchmark results show a substantial increase in performance compared to standard TPS.",
+  "url": "http://arxiv.org/abs/2609.20461v1",
+  "pdf": "https://arxiv.org/pdf/2609.20461v1",
+  "type": "theory",
+  "summary": "This paper introduces GenAIMMD, an advanced machine learning framework for path sampling that overcomes the limitations of traditional methods like TPS. By iteratively learning the system's committor and using conditioned Boltzmann Generators, it generates uncorrelated transition paths without requiring prior knowledge of the reaction coordinate. This offers a powerful, parallelizable tool for studying rare events in condensed matter and chemical physics.",
+  "main_problem": "The core problem is efficiently characterizing rare transitions between long-lived metastable states in complex physical systems.",
+  "main_result": "The proposed GenAIMMD algorithm provides a correlation-free and fully parallelizable path sampling scheme that significantly outperforms standard Transition Path Sampling (TPS) by eliminating the need for a predefined reaction coordinate.",
+  "method": "It integrates Committor Learning (using ML models like MLPs) with Conditioned Boltzmann Generators (Normalizing Flows) in an active, self-consistent loop to learn the transition mechanism and sample paths independently.",
+  "model_or_system": "The methods are tested on a two-dimensional toy model governed by a quartic potential and a higher-dimensional polymer system modeled with standard molecular force fields (Lennard-Jones, harmonic bonds, angle potentials).",
+  "key_observables": "Reactive trajectories, the committor probability $p_B(x)$, and the path distribution $p(x|TP)$ are key observables used for benchmarking.",
+  "important_parameters": "The simulation involves various hyperparameters for the Boltzmann Generator (learning rates, batch sizes) and the physical systems include specific potential parameters and state definitions (e.g., Radius of Gyration thresholds for the polymer).",
+  "main_assumptions": "The primary assumption overcome is the need for prior knowledge of a reaction coordinate, which is a major limitation of previous path sampling techniques.",
+  "figures_summary": "Figures illustrate the 2D potential energy surface, the learned committor, and the comparison of path distributions ($p(x|TP)$) between GenAIMMD and standard TPS for both the 2D and polymer systems.",
+  "paper_structure": "The paper first introduces the limitations of TPS, then details the AIMMD framework for committor estimation, progresses to using Boltzmann Generators for sampling, and finally presents the integrated, iterative GenAIMMD algorithm, concluding with extensive benchmarks on two distinct physical models.",
+  "why_interesting": "This work directly addresses the computational bottleneck in studying non-equilibrium dynamics and rare events, which is crucial for understanding phase transitions and chemical reaction mechanisms in complex systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.20461_figures/2609.20461_fig1.jpg",
+      "caption": "Figure 1. Overview of the steps involved in the GenAIMMD al- gorithm. Flowchart elements connected by solid arrows make up the self-consistency loop, while dashed arrows connect steps outside of the loop. The in-loop steps are assigned one of three categories: Dynamics (blue), where the main focus lies on propagating training samples, AIMMD (orange), where the committor model and sam- ple labels are updated, and Generator (green), where the Boltzmann Generator is trained and used to generate new training samples.",
+      "page": 4
+    },
+    {
+      "image": "2609.20461_figures/2609.20461_fig2.jpg",
+      "caption": "Figure 2. Training results for the two-dimensional Wolfe-Quapp po- tential. (A) shows the iso-lines of the potential energy in solid black with labels in units of kBT, as well as the committor pB(x,y) corre- sponding to the states defined by the white circles, learned using the GenAIMMD algorithm. The two black dashed lines connecting the states illustrate transition paths using the upper (long dashes) and the lower (short dashes) reaction channel, respectively. (B) depicts sam- ples generated by the Boltzmann Generator in different committor bias windows and re-sampled into the corresponding biased Boltz- mann distribution (see Eq. (10)). (C) plots the mean relative effective sample size...",
+      "page": 6
+    },
+    {
+      "image": "2609.20461_figures/2609.20461_fig3.jpg",
+      "caption": "Figure 3. Training results for the polymer model. (A) and (B) depict the stable conformations of the polymer, i.e., state A and state B, respectively. (C) shows the relative effective sample size as a function of GenAIMMD cycles, averaged over multiple committor bias windows within each cycle. (D) displays the predicted committor against the numerically estimated (reference) committor for a set of test samples, where each black dot corresponds to a single system configuration and the straight red line corresponds to perfect agreement between the reference and the prediction. The blue line marks the average reference committor binned by the predicted committor, and the orange area indicates...",
+      "page": 7
+    },
+    {
+      "image": "2609.20461_figures/2609.20461_fig4.jpg",
+      "caption": "Figure 4. Performance comparison between standard TPS (blue) and shooting points generation using the GenAIMMD-trained Boltzmann Generator conditioned on the learned committor (orange) in (A) the two-dimensional model and (B) the polymer model. The colored lines are 30 independent runs (TPS simulations in case of standard TPS, blocks of generated shooting points in case of the sampled shooting points). The solid black lines are averages over the colored lines at the respective step. First row: Absolute error of the distribution of points along transition paths p(x|TP) as a function of two-way shooting trials, measured as the L1 distance between a reference histogram obtained via a...",
+      "page": 8
+    }
+  ],
+  "figure": "2609.20461_figures/2609.20461_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

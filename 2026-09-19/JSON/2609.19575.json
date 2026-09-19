@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2609.19575",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Vehicle-Routing Clustering by Sparse Quantum Relaxation",
+  "authors": "Farzan Moosavi, Bilal Farooq",
+  "abstract": "This paper studies the cluster-assignment layer of a cluster-first-route-second decomposition for the capacitated pickup-and-delivery problem with time windows (CPDPTW), instead of a direct route-ordering quadratic unconstrained binary optimization (QUBO). Sample-based subspace diagonalization (SQD) degenerates to best-of-shots for any diagonal optimization Hamiltonian, so a useful transfer to routing requires non-diagonal relaxation. Quantum random access optimization (QRAO) provides this non-diagonality by encoding binary variables through non-commuting quantum random access code (QRAC) observables. CPDPTW-derived conflict graphs expose a routing-specific obstruction because dense objectives and penalty-encoded constraints destroy QRAO compression. We keep the Hamiltonian sparse by encoding only the sparsified objective and enforcing one-hot, capacity, and cluster time-budget feasibility by repair after rounding. We make no quantum-advantage claim. Under strong repair the classical pass alone reaches near-optimal cost at the tested sizes. The result is a regime map linking sparsification, achieved compression, linear-combination-of-unitaries (LCU) 1-norm, heavy-hex two-qubit depth, sampling drift, and final routing quality on Qiskit Aer, calibrated FakeTorino, and IBM Heron ibm_quebec. Across a 108-row ideal-calibrated-hardware evaluation grid spanning four to twelve pickup-delivery request pairs, the hardware slice has mean gap 0.0016 and mean device-vs-ideal total variation distance (TVD) 0.279; a decoder ablation at sizes six through twelve isolates the non-diagonal signal.",
+  "url": "http://arxiv.org/abs/2609.19575v1",
+  "pdf": "https://arxiv.org/pdf/2609.19575v1",
+  "type": "both",
+  "summary": "This paper applies quantum optimization (QRAO) to the complex Vehicle-Routing Clustering problem, decomposing it into a cluster-assignment layer. It analyzes the trade-off between graph sparsity and quantum compression, showing that while quantum methods are employed, the final success hinges on a robust classical repair mechanism, leading to near-optimal results on current hardware.",
+  "main_problem": "The paper tackles the cluster-assignment layer of the Capacitated Pickup-and-Delivery Problem with Time Windows (CPDPTW), aiming to solve it using quantum optimization techniques.",
+  "main_result": "The authors demonstrate that while QRAO provides necessary non-diagonality, the dense nature of the conflict graph poses a major obstruction, and the classical repair mechanism is crucial for achieving near-optimal solutions.",
+  "method": "The approach uses a cluster-first-route-second decomposition, employing Quantum Random Access Optimization (QRAO) on a sparsified objective Hamiltonian, followed by a two-phase classical repair procedure.",
+  "model_or_system": "The problem is modeled via a weighted conflict graph derived from time-window incompatibilities. The quantum computation is implemented using QRAO encoding binary variables via non-commuting QRAC observables on quantum hardware simulators (Qiskit Aer, calibrated FakeTorino, IBM Heron).",
+  "key_observables": "Mean gap (0.0016), mean device-vs-ideal Total Variation Distance (TVD) (0.279), compression ratio (rho_comp), LCU 1-norm, and final routing quality.",
+  "important_parameters": "Sparsification level (q), number of request pairs (4 to 12), Krylov dimension (r), and noise scale (s).",
+  "main_assumptions": "The authors explicitly state they make no quantum-advantage claim, relying heavily on a classical 'repair after rounding' step to enforce feasibility.",
+  "figures_summary": "The notes reference a regime map linking various quantum parameters to routing quality, and show hardware performance metrics (Table I) and the efficacy of the repair step (Figure 3, Figure 4).",
+  "paper_structure": "The paper first establishes the necessity of decomposition and the failure of diagonal methods (SQD). It then introduces QRAO for non-diagonality, details the sparsification/compression trade-off, and finally presents the full pipeline including two-phase repair and hardware benchmarking.",
+  "why_interesting": "The work provides a detailed, practical study of applying quantum optimization techniques to complex combinatorial problems, offering empirical benchmarks on near-term quantum hardware regarding resource scaling and error mitigation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.19575_figures/2609.19575_fig1.jpg",
+      "caption": "Fig. 1. Sparse QRAO pipeline with two-phase repair.",
+      "page": 4
+    },
+    {
+      "image": "2609.19575_figures/2609.19575_fig2.jpg",
+      "caption": "Fig. 2. Encoding resources versus sparsification level. Left: binary/HOBO compression recovers as the objective graph is sparsified, while full penalty encoding keeps interaction density pinned. Middle/right: Pauli-term count L and LCU norm λ both drop with the quantile q. Statistics use N ∈ {6, 8, 10, 12} and eight seeds.",
+      "page": 5
+    },
+    {
+      "image": "2609.19575_figures/2609.19575_fig3.jpg",
+      "caption": "Fig. 3. Method comparison under full two-phase repair, N ∈{6, 8, 10}, mean ± SE over eight seeds with brute-force oracle gaps. Random-labels and diagonal best-of-shots overlap at gap ≈0. QRAO+SQD+repair can sit slightly above them because Pauli rounding often starts from a collapsed assignment and deterministic local repair can settle in a worse basin than repair from random labels. This near-zero collapse is expected, so the non-diagonal contribution is measured in the feasibility-only decoder ablation. N = 12 is omitted from the panel for space; the decoder ablation in the text covers it.",
+      "page": 6
+    },
+    {
+      "image": "2609.19575_figures/2609.19575_fig4.jpg",
+      "caption": "Fig. 4. Noise disambiguation at N = 8, K = 3, 8 seeds. (a) Rounded gap stays near 0.88 because Pauli rounding collapses to one cluster, while repaired gap is near zero. (b) SQD ground energy varies by less than 0.03 (−5.28→−5.31) across s∈{0, . . . , 5}; the small visual changes are within seed-level variation.",
+      "page": 6
+    }
+  ],
+  "figure": "2609.19575_figures/2609.19575_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
