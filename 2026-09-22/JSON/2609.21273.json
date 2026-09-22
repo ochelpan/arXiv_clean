@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.21273",
+  "category": "other",
+  "arxiv_categories": [
+    "cs.CR",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Transcript-Bound Combiners for Downgrade-Resilient Hybrid Post-Quantum Key Establishment: Definition, Proof, and Embedded-Device Cost",
+  "authors": "Bhanwar Gupta, Sanjeev Rana",
+  "abstract": "Hybrid key establishment runs a post-quantum key-encapsulation mechanism (KEM) alongside a classical Diffie-Hellman primitive, so that the session key stays secure while either component resists attack. This design is now standardized in the Transport Layer Security protocol, Secure Shell, and the Internet Key Exchange, with the standardized module-lattice KEM (ML-KEM) as the post-quantum component. A hybrid KEM secures the derived key, but not the integrity of the negotiation that selects which primitives are used. Full protocols authenticate that negotiation through a handshake transcript; a hybrid KEM deployed as a standalone drop-in primitive, or inside a minimal handshake without transcript authentication, inherits no such guarantee, and an active attacker can strip the post-quantum option. We ask what the key schedule alone must contain to make downgrade resilience a local property of the combiner. We give a game-based definition at the combiner layer and prove a two-sided separation: a combiner that ignores the transcript is downgraded with certainty, whereas one that binds the session key and the confirmation tag to a hash of the transcript blocks every such attempt, up to a term negligible for a 256-bit transcript hash. We also give an explicit strongest-link security bound. Using a calibrated cost model composed from published Cortex-M4 measurements, transcript binding adds one hash per party - about 11.8% of handshake computation but only 1.5% of radio-inclusive energy - and adds no messages or bytes on the wire. Every reported number is produced by a released harness that passes a 30-check validation gate.",
+  "url": "http://arxiv.org/abs/2609.21273v1",
+  "pdf": "https://arxiv.org/pdf/2609.21273v1",
+  "type": "theory",
+  "summary": "This paper develops a cryptographic primitive, the Transcript-Bound Combiner, to secure hybrid Post-Quantum Key Establishment protocols. It solves the critical issue of downgrade attacks by cryptographically binding the session key to the entire handshake transcript. The solution is shown to be highly efficient for embedded devices while providing strong, provable security guarantees.",
+  "main_problem": "The paper addresses the vulnerability of standalone hybrid Post-Quantum Key Establishment (PQC) combiners to downgrade attacks because they fail to authenticate the negotiation transcript.",
+  "main_result": "By modifying the key schedule to bind the derived session key to a hash of the entire handshake transcript, the combiner achieves local downgrade resilience, resisting active attackers who attempt to strip the post-quantum component.",
+  "method": "The authors propose a game-based definition of downgrade resilience and provide a two-sided separation proof showing that transcript binding prevents downgrade attacks with negligible probability.",
+  "model_or_system": "The model is a cryptographic key schedule combiner that merges a post-quantum KEM (like ML-KEM) with a classical Diffie-Hellman primitive within a hybrid key establishment framework.",
+  "key_observables": "The derived session key ($K$) and the integrity of the negotiation transcript ($\tau$).",
+  "important_parameters": "The computational overhead of transcript binding is quantified as adding about 11.8% to handshake computation but only 1.5% to radio-inclusive energy on Cortex-M4 devices.",
+  "main_assumptions": "The security analysis relies on the random-oracle model, and the cost model is calibrated using specific Cortex-M4 measurements.",
+  "figures_summary": "Figure D1 shows that the overhead of transcript-binding remains stable (near 12%) regardless of the number of advertised cryptographic suites.",
+  "paper_structure": "The paper defines the problem, proposes the transcript-bound key schedule (Equation 2), proves the two-sided separation theorem, and analyzes the concrete implementation cost using a calibrated model.",
+  "why_interesting": "not directly relevant",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.21273_figures/2609.21273_fig1.jpg",
+      "caption": "Fig. 1 Transcript-bound hybrid key establishment. The combiner mixes both component secrets and the transcript hash; an active man-in-the-middle who strips the post-quantum suite changes τ, causing KI ̸= KR and forcing an abort",
+      "page": 12
+    },
+    {
+      "image": "2609.21273_figures/2609.21273_fig2.jpg",
+      "caption": "Figure 4 reports handshake computation from the cost model of Section 7.3. The bound hybrid totals 4.43 M cycles across both parties, against 3.96 M for the plain hybrid; transcript binding adds 0.47 M cycles, or 11.8%. The hybrid handshake places 2,386 bytes on the wire (Figure 5); binding adds none. Peak stack is 6,468 bytes, dominated by ML-KEM-768 and within the Class-2 constrained-node memory budget (Table 4). The model is internally consistent: the plain-hybrid cycle count is exactly the sum of the ML-KEM-only and X25519-only handshakes, since the hybrid performs the union of their operations.",
+      "page": 12
+    },
+    {
+      "image": "2609.21273_figures/2609.21273_fig3.jpg",
+      "caption": "Fig. 2 Downgrade outcome across 2,000 trials. The plain combiner is silently degraded to the classical suite in every trial; the transcript-bound combiner aborts every attempt",
+      "page": 13
+    },
+    {
+      "image": "2609.21273_figures/2609.21273_fig4.jpg",
+      "caption": "Figure 6 separates compute from radio energy. For the bound hybrid, compute accounts for 1.83 mJ and radio for 11.45 mJ, making radio 86% of the 13.28 mJ total. Transcript binding is 11.8% of compute energy but only 1.5% of the total handshake budget. The dominant post-quantum cost on a constrained radio link is transmitting the larger ML-KEM-768 key material and ciphertext, not the binding hash. On a five-year CR2032 budget, the radio-inclusive energy supports about 80 bound-hybrid",
+      "page": 13
+    },
+    {
+      "image": "2609.21273_figures/2609.21273_fig5.jpg",
+      "caption": "Fig. 3 Exposed-component distinguisher with 95% confidence intervals. With one component fully broken, key-recovery success grows as q/2γ; the fitted slope tracks the analytic line (R2 = 0.98) and extrapolates below 2−190 at full parameters",
+      "page": 14
+    }
+  ],
+  "figure": "2609.21273_figures/2609.21273_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

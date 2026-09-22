@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.21115",
+  "category": "other",
+  "arxiv_categories": [
+    "quant-ph",
+    "q-bio.GN"
+  ],
+  "is_primary_archive": true,
+  "title": "Hybrid quantum-classical attention for histopathology-based molecular profiling in data-limited cancers",
+  "authors": "Kahn Rhrissorrakrai, Aritra Bose, Aldo Guzman-Saenz, Filippo Utro, Laxmi Pardia",
+  "abstract": "Molecular profiling from routine histopathology could expand access to precision oncology when sequencing is unavailable, tissue is limited, or training cohorts are small. We developed a hybrid quantum-classical strategy that replaces softmax attention in a transformer for histopathology-based gene expression prediction with a quantum-derived doubly stochastic matrix (QDSM). Across 29 cancer cohorts from The Cancer Genome Atlas and an independent pancreatic cancer cohort from the Clinical Proteomic Tumor Analysis Consortium, QDSM attention produced selective gains, with the largest relative improvements in smaller, data-limited cohorts, including adrenocortical carcinoma and uveal melanoma. Rather than improving transcriptome-wide performance uniformly, QDSM redistributed predictive accuracy across genes and pathways, improving biologically relevant targets in some tumor contexts while worsening others. In adrenocortical carcinoma, preferentially improved genes were enriched for adverse overall-survival associations, linking enhanced molecular inference to prognostically relevant biology. In pancreatic cancer transfer experiments, QDSM improved selected metabolic and lineage-associated genes but did not consistently improve performance under cross-cohort shift. Leave-one-cancer-out mixed-effects analysis showed that baseline molecular features predicted part of the gene-level benefit, while residuals identified cancer-specific programs that improved more or less than expected. Separate experiments on IBM quantum processors recovered the doubly stochastic matrix primitive underlying the attention mechanism. These findings position QDSM attention as a context- and target-dependent strategy for image-based molecular profiling and molecular triage when direct testing is unavailable, incomplete, or impractical.",
+  "url": "http://arxiv.org/abs/2609.21115v1",
+  "pdf": "https://arxiv.org/pdf/2609.21115v1",
+  "type": "theory",
+  "summary": "This work proposes a novel hybrid quantum-classical attention mechanism (QDSM) to enhance molecular profiling in cancer using routine histopathology images. By replacing standard attention with a quantum-derived doubly stochastic matrix, the model achieves selective improvements in predicting gene expression, especially in rare or data-limited cancers. This positions QDSM as a context-aware tool for molecular triage when direct genomic testing is impractical.",
+  "main_problem": "The paper addresses the challenge of performing molecular profiling in cancer when traditional sequencing methods are limited by data scarcity, tissue availability, or cost.",
+  "main_result": "A hybrid quantum-classical attention mechanism (QDSM) showed selective, context-dependent gains in predicting gene expression from histopathology images, particularly benefiting smaller, data-limited cancer cohorts.",
+  "method": "The authors developed and tested a transformer model that replaces standard softmax attention with a Quantum-Derived Doubly Stochastic Matrix (QDSM) attention module.",
+  "model_or_system": "The system uses Whole-Slide Images (WSIs) from histopathology as input to predict gene expression. The core model is a transformer architecture augmented with the QDSM attention mechanism, which constrains attention weights to be doubly stochastic.",
+  "key_observables": "Selective gains in predictive accuracy at the gene and pathway level, and the correlation between improved molecular inference and adverse overall survival.",
+  "important_parameters": "The performance gain ($\\Delta r_{g,s,c}$) relative to standard softmax attention, and the size of the attention matrix (restricted to $8 \times 8$ for main TCGA experiments).",
+  "main_assumptions": "The primary assumption is that imposing a doubly stochastic constraint on the attention mechanism provides a beneficial, structured alternative to the standard softmax normalization in molecular prediction.",
+  "figures_summary": "Figure 1 schematically compares standard transformer attention (right-stochastic) versus the proposed QDSM attention within the SEQUOIA workflow.",
+  "paper_structure": "The paper introduces the problem of data-limited molecular profiling, details the hybrid QDSM attention mechanism replacing softmax in a transformer, presents results across multiple cancer cohorts showing selective gains, and discusses the implications for molecular triage.",
+  "why_interesting": "While the application is in bioinformatics, the core novelty lies in replacing a standard mathematical function (softmax) with a quantum-derived constraint (doubly stochastic matrix) within a deep learning attention layer, which touches upon quantum information theory applied to classical ML.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.21115_figures/2609.21115_fig1.jpg",
+      "caption": "Figure 1: Quantum-derived doubly stochastic attention integrated into the SEQUOIA histopathology-to-transcriptome workflow. a, Schematic comparison of standard transformer attention and QDSM attention. In a conventional transformer attention head, query and key matrices are used to compute scaled attention scores, which are normalized by a row-wise softmax operation before multiplication with the value matrix. This produces a right-stochastic attention matrix in which each row sums to one. In the QDSM attention head (right), the softmax normalization is replaced by a quantum-derived doubly stochastic matrix generated using the QDSFormer procedure. The resulting attention matrix constrains...",
+      "page": 4
+    },
+    {
+      "image": "2609.21115_figures/2609.21115_fig2.jpg",
+      "caption": "Figure 2: Number of whole-slide images with matched gene-expression data per cancer type. Shown are the numbers of TCGA samples, defined here as whole-slide histopathology images (WSIs) with matched RNA-seq expression profiles, for cancer types with at least 50 matched WSI– expression pairs. Cancers include: Adrenocortical carcinoma (ACC), Bladder Urothelial Carcinoma (BLCA), Breast invasive carcinoma (BRCA), Cervical squamous cell carcinoma and endocervical adenocarcinoma (CESC), Colon adenocarcinoma (COAD), Esophageal carcinoma (ESCA), Glioblas- toma multiforme (GBM), Head and Neck squamous cell carcinoma (HNSC), Kidney Chromophobe (KICH), Kidney renal clear cell carcinoma (KIRC), Low...",
+      "page": 12
+    },
+    {
+      "image": "2609.21115_figures/2609.21115_fig3.jpg",
+      "caption": "Figure 3: QDSM attention alters molecular profiling across TCGA cancer types. SEQUOIA ViT models were trained for 200 epochs with either standard softmax attention or QDSM attention in each cancer type with at least 50 samples. Prediction performance was assessed by Pearson correlation between predicted and measured expression across 10 train-test splits. a, Number of genes with significantly improved and significantly worsened prediction under QDSM attention relative to softmax attention. Cancer types with the largest net differences are labeled. b, log2 ratio of genes with significantly improved to significantly worsened prediction. c, Number of enriched gene sets among genes with...",
+      "page": 14
+    },
+    {
+      "image": "2609.21115_figures/2609.21115_fig4.jpg",
+      "caption": "Figure 4: QDSM attention improves prediction for a subset of genes in ACC. a, Boxplots showing the distribution of gene-level Pearson correlations between predicted and measured expression across 10 train-test splits for baseline SEQUOIA with softmax attention and SEQUOIA with QDSM attention. Higher Pearson correlation values indicate better gene expression prediction. b, Heatmap of Pearson correlation values across train-test splits for genes with significantly altered predictive performance under QDSM attention relative to softmax attention, based on a two-sided t-test with nominal p < 0.05. c, Forest plot of the top survival-associated genes in ACC among genes with improved prediction...",
+      "page": 16
+    },
+    {
+      "image": "2609.21115_figures/2609.21115_fig5.jpg",
+      "caption": "Figure 5: Performance of mixed QDSM and softmax training. a, Difference in the log2 ratio of genes with significantly improved to significantly worsened prediction between full-QDSM training (200 epochs) and QDSM warm-starting (5 epochs). b, Cohort sample size versus the log2 ratio of significantly improved to significantly worsened genes after 5-epoch QDSM warm-starting, with Pearson correlation and p value reported. c, Cohort sample size versus the log2 ratio of significantly improved to significantly worsened genes across both 5-epoch warm-start and 200-epoch full-QDSM training, with Pearson correlation and p value reported. d, QDSM warm-start duration versus the log2 ratio of...",
+      "page": 19
+    }
+  ],
+  "figure": "2609.21115_figures/2609.21115_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

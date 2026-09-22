@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2609.21536",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "From sparse quantum-computing data to atomistic simulation with universal machine-learning interatomic potentials",
+  "authors": "Tuan Minh Do, Yuichiro Yoshida, Kenji Ishihara, Wataru Mizukami",
+  "abstract": "We propose a framework for incorporating quantum-computing-based electronic-structure calculations into universal machine-learning interatomic potentials (uMLIPs). Rather than constructing an interatomic potential from scratch, we refine a pretrained DFT-based uMLIP using a small set of accurate reference energies obtained from quantum computing. We demonstrate the approach for three chemically distinct applications: the Menshutkin reaction, water adsorption in the metal-organic framework HKUST-1, and CO hopping on a high-entropy-alloy nanoparticle. For the Menshutkin reaction, fine-tuning on gas-phase configurations improves the transition-state energy inside a carbon nanotube but not the product energy. For water adsorption in HKUST-1, fine-tuning with only 14 reference configurations brings adsorption thermodynamics obtained from millions of configurations sampled by Widom insertion into closer agreement with reference values. For CO hopping on an IrPdPtRhRu nanoparticle, the preference for on-top over bridge adsorption is recovered in the finite-temperature free-energy profile obtained from enhanced-sampling molecular dynamics, even though the reference data contain only energies. These results demonstrate that the proposed framework provides a practical route for incorporating quantum-computing calculations into realistic atomistic simulations and that quantum-computing reference data can improve pretrained uMLIPs.",
+  "url": "http://arxiv.org/abs/2609.21536v1",
+  "pdf": "https://arxiv.org/pdf/2609.21536v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel methodology to enhance machine-learning interatomic potentials (uMLIPs) by fine-tuning them with sparse, high-accuracy energy data obtained from quantum computing. The framework is successfully demonstrated across three chemically diverse systems, showing that quantum data can significantly improve the prediction of complex, finite-temperature properties like reaction barriers and adsorption thermodynamics.",
+  "main_problem": "The core problem is developing a practical framework to incorporate sparse, high-accuracy electronic structure data from quantum computing into large-scale, finite-temperature atomistic simulations.",
+  "main_result": "The proposed fine-tuning framework successfully transfers quantum-level accuracy to improve predictions of complex, finite-temperature properties for diverse chemical systems.",
+  "method": "The authors fine-tune a pretrained universal Machine-Learning Interatomic Potential (uMLIP) using limited reference energies derived from quantum-computing-based electronic structure calculations.",
+  "model_or_system": "The framework is tested on three systems: the Menshutkin reaction, water adsorption in the HKUST-1 MOF, and CO hopping on an IrPdPtRhRu high-entropy-alloy nanoparticle.",
+  "key_observables": "Transition-state energies, adsorption thermodynamics ($\\Delta H_s$, $\\Delta G$), and free-energy profiles (PMF) for chemical reactions and adsorption processes.",
+  "important_parameters": "Finite temperature (e.g., 295 K, 300 K), small number of reference configurations (e.g., 14 for HKUST-1), and the use of enhanced-sampling molecular dynamics.",
+  "main_assumptions": "The primary assumption is that refining a pretrained uMLIP with sparse, high-fidelity quantum data is sufficient to accurately model complex, thermally sampled configurations.",
+  "figures_summary": "Figure 1 illustrates the workflow: quantum-classical calculations provide sparse reference energies to fine-tune a uMLIP, which is then used for finite-temperature sampling. Other figures compare calculated relative energies against high-level reference data.",
+  "paper_structure": "The paper introduces the workflow, applies it to three distinct chemical problems (Menshutkin, HKUST-1, HEA), details the fine-tuning process, and presents quantitative results demonstrating improved accuracy in predicting finite-temperature observables.",
+  "why_interesting": "This work directly addresses the computational bottleneck of simulating complex quantum phenomena by creating a robust bridge between highly accurate but sparse quantum calculations and computationally feasible, large-scale molecular dynamics simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.21536_figures/2609.21536_fig1.jpg",
+      "caption": "FIG. 1. Computational workflow for transferring quantum-computing reference energies to finite-temperature atomistic simulations. a, Quantum–classical electronic-structure calculations provide reference energies (blue points) for a small number of configurations along a reaction coordinate ξ. b, These reference energies are used to fine-tune a pretrained universal machine-learning interatomic potential (uMLIP). The energy profile along ξ (black line) illustrates how the potential-energy surface (PES) changes after fine-tuning around the reference configurations. c, The fine-tuned uMLIP is subsequently used to sample an ensemble of configurations (gray points) at finite temperature. The...",
+      "page": 3
+    },
+    {
+      "image": "2609.21536_figures/2609.21536_fig2.jpg",
+      "caption": "FIG. 2. Transfer of gas-phase fine-tuning to the confined Men- shutkin reaction. a, Reactant, transition-state, and product struc- tures of the Menshutkin reaction inside a carbon nanotube (CNT), with enlarged views of the reacting species. b, Relative energies of the reactant, transition state (TS), and product obtained with the pretrained and fine-tuned uMLIPs, together with THC-CASPT2 ref- erence values from Ref. [47]. Energies are reported relative to the corresponding reactant. The uMLIP was fine-tuned on quantum- computing-based reference data for the gas-phase Menshutkin reac- tion and evaluated under confinement.",
+      "page": 5
+    },
+    {
+      "image": "2609.21536_figures/2609.21536_fig3.jpg",
+      "caption": "FIG. 4. Transfer of quantum-computing reference data from a static hopping pathway to a finite-temperature free-energy pro- file on a high-entropy-alloy nanoparticle. a, CO hopping from a bridge adsorption site (ξ = 0) to an on-top adsorption site (ξ = 1) on an IrPdPtRhRu high-entropy-alloy nanoparticle. b, Potential of mean force (PMF) at 300 K obtained from umbrella-sampling simulations using the pretrained uMLIP. c, Corresponding PMF obtained using the uMLIP fine-tuned on the static QSCI-based hopping-energy pro- file. Fine-tuning reverses the relative stability of the two adsorption sites and changes the forward and reverse free-energy barriers. Solid lines show the mean PMFs over five...",
+      "page": 6
+    },
+    {
+      "image": "2609.21536_figures/2609.21536_fig4.jpg",
+      "caption": "FIG. 3. Transfer of quantum-computing-based adsorption en- ergetics to adsorption thermodynamics in HKUST-1. a, Widom insertion of water in HKUST-1, highlighting adsorption Sites I and I′. The uMLIP is fine-tuned using quantum-computing-based ref- erence energies along a water–Cu adsorption profile that covers the local environment of Site I and also includes configurations associ- ated with Site I′. b, Site I adsorption enthalpy at 295 K obtained with the pretrained and fine-tuned uMLIPs, compared with the reference value reported in Ref. [49]. c, Free-energy difference between Sites I and I′ at 295 K obtained with the pretrained and fine-tuned uMLIPs and compared with the corresponding...",
+      "page": 6
+    }
+  ],
+  "figure": "2609.21536_figures/2609.21536_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

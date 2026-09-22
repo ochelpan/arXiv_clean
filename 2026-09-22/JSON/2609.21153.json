@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.21153",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Shock-Capturing Quantum Algorithm for the Linear Advection Operator",
+  "authors": "Samuel Hagele, William Gregory, Yuan Shi",
+  "abstract": "The linear advection operator is an ubiquitous building block in fluid and plasma problems. We develop a quantum algorithm for enacting the operator. When the advection velocity is constant in space, our algorithm is exponentially more efficient per time step than classical and avoids spurious oscillations near steep gradients. The algorithm is most cleanly illustrated using the one-dimensional advection equation on a uniform spatial grid with periodic boundary conditions, which can be extended to higher dimensions. The algorithm uses a first-order upwind scheme, which captures discontinuities in the wave envelope but is not unitary. We embed the non-unitary upwind scheme using Linear Combinations of Unitaries (LCUs), and develop an efficient quantum gate decomposition of the upwind unitary, which performs one step of advection using $O(n^2)$ two-qubit gates, where $N=2^n$ is the number of spatial grid points, as opposed to a classical computer which costs $O(N)$. Although LCUs introduces a small bounded probability of failure per time step, we show that the accumulation of failures does not lead to exponential-in-time complexity as one would naively expect. Moreover, when LCUs fails, we develop a probabilistic scheme to recover from the failure state, which avoids a full restart of the simulation. The failure recovery scheme uses quantum Fourier transform (QFT) and effectively achieves quantum indefinite integration of an unknown quantum state. The recovery, which can itself fail, is more efficient than a full restart if the wave envelop is well-resolved to include only low Fourier modes. We emulate our scheme classically and demonstrate small problems on Quantinuum's trapped-ion qubits. Our quantum algorithm provides a subroutine for physics simulations that involve linear advection.",
+  "url": "http://arxiv.org/abs/2609.21153v1",
+  "pdf": "https://arxiv.org/pdf/2609.21153v1",
+  "type": "both",
+  "summary": "This paper presents a quantum algorithm for simulating the linear advection operator, a fundamental tool in fluid dynamics. It overcomes the non-unitary nature of the required numerical scheme by using Linear Combinations of Unitaries (LCUs) and introduces a novel failure recovery protocol based on the Quantum Fourier Transform. The result demonstrates an exponential speedup per time step while maintaining stability and providing rigorous analysis of the failure probability.",
+  "main_problem": "The paper develops a quantum algorithm to simulate the linear advection operator, which is crucial for fluid and plasma physics, while ensuring stability near sharp gradients.",
+  "main_result": "The quantum algorithm achieves an exponential speedup per time step over classical methods by implementing the non-unitary upwind scheme via Linear Combinations of Unitaries (LCUs) and incorporating a QFT-based failure recovery mechanism.",
+  "method": "The core methodology involves embedding the non-unitary advection operator into a unitary framework using LCUs, and developing a probabilistic failure recovery scheme based on quantum indefinite integration using the Quantum Fourier Transform (QFT).",
+  "model_or_system": "The model is the one-dimensional linear advection equation ($\\partial_t A + c \\cdot \nabla A = 0$) solved on a uniform spatial grid with periodic boundary conditions. The simulation is implemented on quantum hardware, demonstrated on trapped-ion qubits.",
+  "key_observables": "Waveform propagation (sine/square), failure probability ($P_{\text{fail}}$), and computational gate complexity ($O(n^2)$ per step).",
+  "important_parameters": "CFL number ($f = |c|\\Delta t / \\Delta x$), system size ($N=2^n$), and the decay exponent $\\alpha$ governing convergence.",
+  "main_assumptions": "The primary assumptions include the applicability of LCUs to approximate the non-unitary operator and the assumption that the failure state is proportional to the derivative of the true state, enabling recovery.",
+  "figures_summary": "Figures demonstrate the quantum algorithm matching classical upwind results for both sine and square waveforms under advection, illustrating the stability and accuracy of the scheme.",
+  "paper_structure": "The paper introduces the physical problem and the need for a quantum approach. It details the use of LCUs to implement the non-unitary upwind scheme, followed by the development and analysis of a probabilistic failure recovery algorithm using QFT. Finally, it analyzes the convergence of the failure probability in the large $N$ limit.",
+  "why_interesting": "This work directly addresses the simulation of non-unitary, dissipative physical processes (like advection) on quantum computers, which is a major challenge beyond simple Hamiltonian evolution. The integration of failure recovery mechanisms makes it highly relevant for near-term quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.21153_figures/2609.21153_fig1.jpg",
+      "caption": "Figure 1: Using Qiskit’s state vector simulator, the upwind quantum advection operator is repeatedly applied to a sine (a)-(b) and a square (c)-(d) waveform on 8 data qubits with a positive speed. In each figure, lines are separated by 15 time steps, and later time steps are represented by darker lines. When f = 1 (left), the algorithm is exact. When 0 < f < 1, the algorithm introduces numerical diffusion, whose worst case (f = 1/2) is shown on the right. The advection algorithm preserves the norm of waveforms and their spatial integrals.",
+      "page": 7
+    },
+    {
+      "image": "2609.21153_figures/2609.21153_fig2.jpg",
+      "caption": "Figure 2: Failure recovery is performed in the momentum space after quantum Fourier transform, whose natural order- ing of k is unshifted (upper). The failure recovery scheme requires 1/k, which goes to zero towards the middle of the box (lower). The index starts from zero and the example uses N = 64 grid points.",
+      "page": 8
+    },
+    {
+      "image": "2609.21153_figures/2609.21153_fig3.jpg",
+      "caption": "Figure 3: Quantum circuit for the failure recovery operator ˆK in the case of three data qubits and one ancilla qubit |a⟩. X (NOT) gates are initially applied to all qubits, setting the bit string to all 0’s. The X gate on the ancilla creates a tem- plate that resembles ˆK. We then count up in binary using X gates, applying appropriate multi-controlled RX rotations in between. At the halfway point, the single X gate on the last data qubit switches to the end of the ˆK matrix, from which the matrix is edited by the remaining gates in reverse order. The final X gates reset the bit string to its original values.",
+      "page": 11
+    },
+    {
+      "image": "2609.21153_figures/2609.21153_fig4.jpg",
+      "caption": "Figure 4: (a) The failure probability decreases exponentially with increasing resolution for all waveforms after transient be- haviors at small numbers of qubits. (b) At a given resolution (8 qubits), the failure probability decreases with time due to numerical diffusion that smooths the waveforms as the simulations progress. The failure probability is calculated classically according to Eq. (21) with the worst-case f = 1/2.",
+      "page": 13
+    },
+    {
+      "image": "2609.21153_figures/2609.21153_fig5.jpg",
+      "caption": "Figure 5: The expected number of operations per time step for the classical algorithm (green) and the quantum algorithm. In the absence of failure, the complexity of the ideal quantum algorithm (dashed gray line) attains an exponential speedup over the classical algorithm. In the presence of failure, whose probability depends on the initial waveforms, the non-ideal complexity for the sine (blue) and the square (orange) waveform is higher [Eq. (20)]. Nevertheless, the non-ideal complex- ity converges to the ideal case when the number of qubits increases. The non-ideal complexity is evaluated for propagation across one box length and for the worst-case f = 1/2.",
+      "page": 14
+    }
+  ],
+  "figure": "2609.21153_figures/2609.21153_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 3,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

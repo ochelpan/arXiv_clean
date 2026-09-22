@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.21204",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cond-mat.soft",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Simulation and Network Assembly Pipelines for Dynamically Bonded Soft Materials",
+  "authors": "Tanner A. Wilcoxson, Tianhao Li, Tyla R. Holoman, Gaurav Mitra, Thomas M. Truskett, Glen M. Hocky",
+  "abstract": "Soft materials linked by reversible covalent or supramolecular bonds form a diverse class of assemblies with promising applications from nanoscience to medicine. Experiments typically probe bulk phase behavior and rheology, but it remains difficult to measure how microscopic bonding kinetics and the mechanics of the constituent elements give rise to bulk properties. Coarse-grained molecular dynamics (MD) simulations can bridge these scales, but most simulation approaches do not control individual bond kinetics, and those that do were mostly developed for bespoke applications that do not readily generalize. Here we present pySNAP (Simulation and Network Assembly Pipelines), a modular open source Python platform that integrates tunable dynamic bonding with a workflow, template, and analysis setup, so that users can study a wide range of systems with only small changes to input files. The platform is built on the GPU-accelerated HOOMD-blue MD engine and integrates DyBond, a GPU-accelerated plugin that forms and breaks bonds consistent with an equilibrium distribution and supports bonding between multiple types of partner species. Around this core, the snap_simulate package compiles a directory of parameter files into a HOOMD-blue simulation, and the snap_workflow package orchestrates the resulting parameter sweeps across workstations and high-performance computing schedulers. We describe the theory behind simulated dynamic bonding and how to use the package, from setting up a parameter sweep to analyzing its results, and demonstrate the framework on a diverse range of dynamically bonded systems, showing that it accommodates distinct interaction mechanisms, geometries, and physical scenarios within a unified workflow, while enabling both reproduction of existing models and rapid construction of more complex composite systems.",
+  "url": "http://arxiv.org/abs/2609.21204v1",
+  "pdf": "https://arxiv.org/pdf/2609.21204v1",
+  "type": "theory",
+  "summary": "This paper presents pySNAP, an open-source computational platform designed to simulate soft materials held together by dynamic, reversible bonds. It integrates GPU-accelerated molecular dynamics with a specialized plugin that accurately models bond formation and breaking kinetics. This allows researchers to systematically study how microscopic bond chemistry dictates macroscopic material properties in a high-throughput manner.",
+  "main_problem": "The primary challenge is bridging the gap between the microscopic kinetics of reversible bonds and the resulting macroscopic, bulk properties of soft materials.",
+  "main_result": "The authors introduce pySNAP, a comprehensive, modular platform that enables systematic, high-throughput simulation studies of soft materials governed by dynamic bonding kinetics.",
+  "method": "The platform integrates GPU-accelerated molecular dynamics (HOOMD-blue) with a specialized plugin (DyBond) that handles dynamic bond formation and breaking based on equilibrium distributions.",
+  "model_or_system": "The system involves soft materials linked by reversible covalent or supramolecular bonds, modeled using dynamic bonding reactions treated as two-state systems with defined on-rates and off-rates.",
+  "key_observables": "Elastic moduli, stress relaxation time, gelation state, and the kinetics of bond formation/dissociation.",
+  "important_parameters": "Bonding/dissociation rate constants ($k_{on}, k_{off}$), temperature ($T$), and the timescale separation between bond kinetics and network rearrangement.",
+  "main_assumptions": "The method assumes that the bonding sweep process maintains detailed balance and that the rate constants can be modified by external factors like temperature or mechanical load.",
+  "figures_summary": "Figure 1 illustrates the four sequential phases (Proposal, Matching, Acceptance, Breaking) of a single dynamic bonding sweep. Figure 12 compares the throughput of a rigid-core droplet model versus a standard model as a function of the number of tether beads ($n$).",
+  "paper_structure": "The paper first identifies the scientific gap, then details the pySNAP platform architecture (integrating HOOMD-blue and DyBond). It mathematically describes the dynamic bonding mechanism (two-state reactions, Metropolis acceptance), discusses advanced rate modifiers (load-dependent unbinding), and concludes with demonstrations on various complex systems.",
+  "why_interesting": "The focus on controlling bond kinetics and simulating phase behavior in soft matter falls directly under non-equilibrium statistical mechanics, making it highly relevant for understanding complex many-body dynamics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.21204_figures/2609.21204_fig1.jpg",
+      "caption": "FIG. 1. One bonding sweep, drawn for a single reaction pair set at frozen particle positions; the coordinates are identical in all four panels because a sweep is evaluated between integration steps. Circles are reactive sites, colored by particle type, and heavy lines are dynamic bonds. (a) Every unoccupied site scans the neighbor list and keeps the one free, type-compatible partner lying in [rmin, rmax] whose separation is closest to the bond rest length; site 1 accordingly proposes 2 (dashed) rather than the more distant 3 (dotted), and sites 7 and 8, which already carry a bond, are invisible to the search. (b) Claims are resolved so that no site appears in more than one proposal: sites 1...",
+      "page": 4
+    },
+    {
+      "image": "2609.21204_figures/2609.21204_fig2.jpg",
+      "caption": "FIG. 2. Example of registering two competing reactions with the DyBond plugin. Sites of type A may bond to either B or C, but hold at most one dynamic bond at a time, so the two reactions compete through the shared occupancy record of Sec. II C. Here the fourfold difference in koff makes the A–B product the more stable of the two by kBT ln 4. Each reaction takes its rest length r0 from the bond potential it names and must state, through selfAvoidFlag, whether sites of the same molecule may bond to each other. The neighbor list cutoff for each reacting type pair is raised to rmax, if it is smaller, when the updater attaches, and the trigger period supplies the n of Eq. (2).",
+      "page": 6
+    },
+    {
+      "image": "2609.21204_figures/2609.21204_fig3.jpg",
+      "caption": "FIG. 3. Architecture of pySNAP’s declarative workflow en- gine. Pipelines are defined by typed Variables and discrete pa- rameter Sweeps, whose Cartesian product produces the para- metric space. Simulation Stages are user-defined tasks topo- logically sorted by execution dependencies. The engine maps parameter combinations into discrete SPoints (state points) and automatically links upstream stage artifacts to down- stream stages for unified access across SPoints.",
+      "page": 6
+    },
+    {
+      "image": "2609.21204_figures/2609.21204_fig4.jpg",
+      "caption": "FIG. 4. Example parameter declarations within the params/ directory. The specified SPoint values of each variable are injected in-place at variable directives (denoted by !v_variable) before the SPoint is executed. Nested dictio- naries and lists are allowed.",
+      "page": 7
+    },
+    {
+      "image": "2609.21204_figures/2609.21204_fig5.jpg",
+      "caption": "FIG. 5. Example stage simulation script demonstrating SPoint_Manager use, simulation checkpointing, parameter and variable fetching, and dependency access. The stage sim- ulation script is run from within each specific SPoint direc- tory, allowing direct access to dependency links created during SPoint generation.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.21204_figures/2609.21204_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}
