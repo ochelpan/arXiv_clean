@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.23334",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Stochastic Reconfiguration as Statistical Filtering for Overparameterized Neural Quantum States",
+  "authors": "Tak Hur",
+  "abstract": "Stochastic reconfiguration (SR) is the standard optimizer for neural quantum states (NQS), but modern NQS often have far more parameters than Monte Carlo samples. We show that in this regime the diagonal shift is more than a numerical stabilizer. It acts as a statistical filter for finite-sample generalization. At a fixed wave function, SR is ridge regression from tangent features to the centered local energy. Its residual is the expressivity gap, the part of imaginary-time evolution outside the current tangent space. This gap is orthogonal to the tangent space in population, but finite batches make it act as noise that SR can overfit. The shift therefore balances shrinkage of useful update directions against variance from fitting sampled residuals. Exact diagnostics on a $4\\times4$ Heisenberg graph separate two effects of overparameterization. Larger tangent spaces help when they reduce the expressivity gap, but they can hurt when they overfit a fixed gap. In a $100$-site transverse-field Ising family trained with a foundation NQS, validation risk is U-shaped in the shift while variance decreases, matching the noisy-ridge model. This view leads to multi-shift SR (MS-SR), which averages independent ridge solves at data-adaptive shifts to form a richer, lower-variance spectral filter. Checkpoint-local experiments show that MS-SR lowers validation risk and update variance relative to the fixed-shift SR baseline. We further compare MS-SR and SR in paired online training continuations, with independent endpoint energy evaluations and a separate update-cost benchmark.",
+  "url": "http://arxiv.org/abs/2609.23334v1",
+  "pdf": "https://arxiv.org/pdf/2609.23334v1",
+  "type": "theory",
+  "summary": "This paper analyzes the role of the regularization shift in Stochastic Reconfiguration (SR) for Neural Quantum States (NQS), treating it as a statistical filter rather than just a numerical fix. The authors introduce Multi-Shift SR (MS-SR), which averages multiple independent optimization steps to significantly reduce update variance and improve generalization performance on models like the TFIM.",
+  "main_problem": "The paper investigates whether the diagonal shift parameter in Stochastic Reconfiguration (SR) for Neural Quantum States (NQS) acts as a mere numerical stabilizer or a genuine statistical filter for generalization in overparameterized regimes.",
+  "main_result": "The authors propose Multi-Shift SR (MS-SR), which averages independent ridge solves at multiple data-adaptive shifts, demonstrating that this technique lowers validation risk and update variance compared to fixed-shift SR.",
+  "method": "The core method involves reformulating SR as a ridge regression problem and developing diagnostics (Validation Residual, Multi-batch Variance) to analyze the bias-variance trade-off introduced by the shift parameter.",
+  "model_or_system": "The analysis uses NQS to approximate quantum wavefunctions, tested on a $4\times4$ Heisenberg graph and a 100-site transverse-field Ising model (TFIM).",
+  "key_observables": "Validation risk, update variance ($V_{\text{mb}}$), and the regression excess risk ($\\mathbb{E}_\\lambda$).",
+  "important_parameters": "The regularization shift $\\lambda$, the ratio of parameters to samples ($P/N_s$), and the number of independent batches ($K$).",
+  "main_assumptions": "The analysis assumes that the complex case can be obtained by replacing transposes with Hermitian conjugates, and the MS-SR improvement relies on averaging independent ridge solves.",
+  "figures_summary": "Figures illustrate the U-shaped validation risk dependence on $\\lambda$ and the monotonic decrease of variance with $\\lambda$, while tables compare MS-SR against single-shift and bagged SR baselines on the TFIM.",
+  "paper_structure": "The paper first establishes the statistical role of the shift parameter, then presents small-scale diagnostics on the Heisenberg graph, moves to large-scale testing on the TFIM showing the noisy-ridge behavior, and finally introduces and validates the MS-SR technique through multiple comparisons.",
+  "why_interesting": "For AMO physicists using NQS to simulate quantum systems, this work provides a rigorous statistical framework for optimizing the variational parameters, offering a superior, lower-variance update rule (MS-SR) over standard SR.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.23334_figures/2609.23334_fig1.jpg",
+      "caption": "Figure 1: Historical shift in the parameter-to-sample ratio used by VMC/NQS calculations. The dashed line marks P = Ns. Marker shape denotes domain: circles are spin/lattice NQS and diamonds are electronic-structure NQS. Sources: [2, 20, 21, 4, 32, 10, 17, 8, 30, 19, 3, 26].",
+      "page": 2
+    },
+    {
+      "image": "2609.23334_figures/2609.23334_fig2.jpg",
+      "caption": "Figure 2: Exact regression diagnostics on the 4 × 4 Heisenberg graph specified in Appendix B, at Ns = 4096 and λ = 10−9. Panels compare empirical and population-optimal amplitude tangent predictions. Gap variance and excess risk refer to this regression. Matched noise exposes ViT overfitting at comparable residual variance; matched state shows lower gap variance and excess risk for the ViT.",
+      "page": 5
+    },
+    {
+      "image": "2609.23334_figures/2609.23334_fig3.jpg",
+      "caption": "Figure 3: Large-scale shared-checkpoint test of the noisy-ridge mechanism on the periodic L = 100 transverse-field Ising model with h ranging from 0.8 to 1.2 with foundational NQS. A fixed set of late-training checkpoints is reused while only the solve-time shift λ is varied. bEval is U-shaped, while Vmb decreases monotonically with λ, matching the two predictions of Section 2.",
+      "page": 6
+    },
+    {
+      "image": "2609.23334_figures/2609.23334_fig4.jpg",
+      "caption": "Figure 3 shows the fixed-checkpoint signature predicted by the noisy-ridge view. The ˆEval curve is U-shaped in λ, while Vmb decreases as λ increases. Since all shifts are evaluated on the same checkpoints, this trend reflects the solve-time ridge filter rather than different training trajectories. Small shifts leave useful directions nearly undamped but fit more batch-dependent noise. Large shifts reduce this variance but also shrink useful population directions.",
+      "page": 6
+    },
+    {
+      "image": "2609.23334_figures/2609.23334_fig5.jpg",
+      "caption": "Figure 4: Checkpoint-local ablations for the ingredients of MS-SR at K = 4. Paired bars show raw ˆEval and Vmb averaged over fixed source checkpoints with one standard error. Standard SR uses λtrain = 10−4. Both systems show bagged SR at λtrain and at λtuned, selected per checkpoint by an eight-point bagged-SR residual sweep using the evaluation data. All multi-shift variants use the same NTK quantile grid.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.23334_figures/2609.23334_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

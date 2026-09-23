@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.24266",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A QSVT-Based Quantum Jacobi Algorithm for Linear Systems with Application to the Poisson Equation",
+  "authors": "Louisa M. Piskol, Thorsten Grahs, Stefan Langer, Oleksandr Kyriienko",
+  "abstract": "Many computational fluid dynamics (CFD) algorithms solve partial differential equations by discretization, resulting in large and sparse systems of linear equations. While iterative methods are widely used to solve these systems classically, most existing quantum linear system solvers target the solution through matrix inversion rather than approximating it using an iterative procedure. In this work, we develop a quantum implementation of the Jacobi method based on quantum singular value transformation (QSVT). By reformulating the Jacobi iteration as a polynomial transformation of a block-encoded operator, the algorithm requires only a constant ancilla overhead with respect to the number of iterations while maintaining a circuit depth that scales linearly with the iteration number. We demonstrate the algorithm for one- and two-dimensional Poisson problems, including the pressure Poisson equation arising in Chorin's projection method for the lid-driven cavity flow. The proposed algorithm provides a promising building block for future quantum implementations of multigrid methods and preconditioning techniques, bringing quantum algorithms closer to established CFD solution strategies.",
+  "url": "http://arxiv.org/abs/2609.24266v1",
+  "pdf": "https://arxiv.org/pdf/2609.24266v1",
+  "type": "theory",
+  "summary": "This paper presents a novel quantum algorithm to solve linear systems arising from PDEs, specifically targeting the Jacobi iteration used in CFD. By employing Quantum Singular Value Transformation (QSVT), the authors overcome previous limitations regarding ancilla qubit overhead, creating a promising quantum subroutine for future quantum solvers for fluid dynamics.",
+  "main_problem": "The core problem is efficiently solving large, sparse systems of linear equations ($Ax=b$) arising from the discretization of Partial Differential Equations (PDEs) in Computational Fluid Dynamics (CFD).",
+  "main_result": "The authors developed a quantum Jacobi algorithm utilizing Quantum Singular Value Transformation (QSVT) that achieves constant ancilla overhead relative to the number of iterations.",
+  "method": "The Jacobi iteration is reformulated as a polynomial transformation of a block-encoded operator, which is then implemented using QSVT subroutines combined via a Linear Combination of Unitaries (LCU).",
+  "model_or_system": "The model involves solving linear systems derived from PDEs, specifically demonstrated using the 1D and 2D Poisson equation relevant to fluid flow simulations (e.g., Chorin's projection method).",
+  "key_observables": "The quantum state $|\\mathbf{x}\rangle$ proportional to the solution vector $\\mathbf{x}$ of the linear system.",
+  "important_parameters": "The number of Jacobi iterations ($k$) and the required circuit depth, which scales linearly with $k$.",
+  "main_assumptions": "The method assumes the matrix $M$ (derived from the Jacobi splitting) is Hermitian or satisfies structural conditions allowing for QSVT application; it also relies on efficient block encoding techniques.",
+  "figures_summary": "Figure 1 illustrates the circuit representation of QSVT for constructing a block encoding of a polynomial transformation. Figure 2 shows the overall circuit structure combining three QSVT subroutines via LCU for the enhanced Jacobi algorithm.",
+  "paper_structure": "The paper first establishes the context of solving PDEs via linear systems. It then details the quantum reformulation of the Jacobi iteration, replacing matrix powers with QSVT subroutines, and finally demonstrates the algorithm's application to the Poisson equation.",
+  "why_interesting": "While the application is in CFD, the core technique—using QSVT to efficiently implement iterative matrix functions—is a fundamental quantum algorithm building block applicable to simulating quantum Hamiltonians or solving other linear systems in quantum physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.24266_figures/2609.24266_fig1.jpg",
+      "caption": "FIG. 2: Circuit representation of the QSVT-enhanced Jacobi algorithm, where three QSVT subroutines are combined via LCU. The ancilla qubits a1 and a2 encode the LCU coefficients, as denotes the signal qubit on which the phase rotations of the QSVT sequence are performed, and abe represents the ancilla register used for the block encoding of M.",
+      "page": 5
+    },
+    {
+      "image": "2609.24266_figures/2609.24266_fig2.jpg",
+      "caption": "FIG. 3: Comparison of qubit requirements and circuit depth for different quantum implementations of the Jacobi method. The number of ancillary qubits is shown in (a), comparing the QSVT-enhanced implementation [Eq. (12)] with the simplified implementation based on naive block-encoding multiplications [Eq. (17)] and the original implementation [Eq. (9)] from Ref. [37]. The curves correspond to the illustrative minimal case with a single ancilla qubit per block encoding (m = 1). The circuit depth, given by the number of calls to the block encoding, is shown in (b).",
+      "page": 6
+    },
+    {
+      "image": "2609.24266_figures/2609.24266_fig3.jpg",
+      "caption": "FIG. 4: Solutions of the one-dimensional Poisson equation d2u",
+      "page": 7
+    },
+    {
+      "image": "2609.24266_figures/2609.24266_fig4.jpg",
+      "caption": "FIG. 5: A schematic of the lid-driven cavity flow is shown in (a). The corresponding staggered grid used for the finite-difference discretization is shown in (b), where pressure values are located at the cell centers and the velocity components at the cell faces.",
+      "page": 9
+    },
+    {
+      "image": "2609.24266_figures/2609.24266_fig5.jpg",
+      "caption": "FIG. 6: Comparison of solving the symmetrized linear system from Eq. (31) using the proposed quantum Jacobi algorithm with the classical solution of the original linear system. The convergence of Chorin’s projection method is shown in (a). Subfigure (b) shows the absolute difference between the pressure field obtained with the quantum Jacobi algorithm and the pressure field obtained by solving the original linear system exactly at pseudo time step nt = 600.",
+      "page": 10
+    }
+  ],
+  "figure": "2609.24266_figures/2609.24266_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

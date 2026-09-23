@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.24657",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CL"
+  ],
+  "is_primary_archive": true,
+  "title": "Circuit Hypernetworks for Quantum-Augmented Diffusion Language Models",
+  "authors": "Xiaoqiang Wang, Mengyang Xiong, Jun Dai, Bang Liu",
+  "abstract": "Language models can be adapted by changing the computations applied to individual tokens. Quantum circuits offer one such approach, but evaluating wider circuits inside a large model can be computationally demanding. Here we introduce HyperQ, which adds token-conditioned quantum residual branches to a frozen masked-diffusion language model. A quantum residual branch is a module in each transformer block that reads a token's hidden state, emits the coordinates of that token's circuit, executes it, and adds the measured values back through a residual connection. The backbone remains frozen, and only the added branches are trained. Within each branch, a lightweight circuit hypernetwork emits token-specific rotation angles, coupling strengths, and measurement axes in a shared sparse circuit structure. The required expectation values have an exact classical expression whose evaluation cost grows linearly with the qubit count, enabling circuits from 16 to 64 qubits to be trained within a 1.1-billion-parameter backbone. Across downstream benchmarks, increasing circuit width raises the average score from 47.65 to 54.30. At 64 qubits, HyperQ exceeds the backbone and its low-rank-adapted counterpart by 4.71 and 3.67 points, respectively. HyperQ is fine-tuned on 20,000 prompt-response pairs, compared with 200,000 for the classical baselines. These findings support token-conditioned circuit emission as a tractable architectural approach to quantum-augmented language modelling.",
+  "url": "http://arxiv.org/abs/2609.24657v1",
+  "pdf": "https://arxiv.org/pdf/2609.24657v1",
+  "type": "theory",
+  "summary": "This paper introduces HyperQ, a novel quantum-augmented architecture for diffusion language models. It solves the computational bottleneck of large quantum circuits by restricting the circuit structure to the IQP family, allowing for efficient, classical readout calculation. The resulting model significantly boosts language understanding performance across multiple benchmarks by incorporating token-specific quantum information processing.",
+  "main_problem": "The paper addresses the computational challenge of integrating quantum circuits into large language models while maintaining tractability as the circuit width increases.",
+  "main_result": "The proposed HyperQ architecture successfully integrates quantum residual branches, achieving state-of-the-art performance on multiple benchmarks by scaling circuit width up to 64 qubits.",
+  "method": "It uses a hypernetwork to emit token-conditioned parameters for a quantum residual branch, which is structured using the two-body instantaneous-quantum-polynomial (IQP) family.",
+  "model_or_system": "The system is a frozen masked-diffusion language model backbone augmented by trainable quantum residual branches. The quantum computation is restricted to an IQP structure defined on a fixed sparse skeleton (ring + chord layers).",
+  "key_observables": "Average benchmark scores (e.g., 54.30 at 64 qubits), and the expectation values $\\langle Z_q \rangle$ measured for each qubit.",
+  "important_parameters": "Circuit width (number of qubits, $n$), tested at 16, 32, and 64 qubits; the coupling strengths ($\\omega_E$) are restricted to remain below $\\pi/2$.",
+  "main_assumptions": "The method relies on restricting the circuit to the IQP family to ensure the readout cost scales only linearly ($\\Theta(n)$) with qubit count, and that the backbone remains frozen during training.",
+  "figures_summary": "Figures illustrate the HyperQ pipeline, showing the insertion of the quantum residual branch into the transformer block and the emission of circuit coordinates. One figure compares the constant readout cost ($\\Theta(n)$) of the fixed skeleton versus the quadratic cost ($\\Theta(n^2)$) of an all-to-all skeleton.",
+  "paper_structure": "The paper introduces HyperQ, details the quantum residual branch structure using a hypernetwork, explains the mathematically tractable IQP readout mechanism, and validates the approach by showing performance gains across multiple downstream language model benchmarks.",
+  "why_interesting": "The work provides a concrete, computationally efficient architectural blueprint for integrating quantum circuits into deep learning models, specifically by controlling the complexity of the quantum readout to remain polynomial in the number of qubits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.24657_figures/2609.24657_fig1.jpg",
+      "caption": "Fig. 1: Token-conditioned quantum circuit emission in HyperQ. a, In each of the 22 frozen blocks of the masked-diffusion backbone [13], a trainable quantum branch reads a token’s hidden state, emits and executes that token’s circuit, and adds the projected readout to Q, K and V . Right, six-benchmark average against register width; dashed line, frozen backbone (49.59). b, One hypernetwork per block maps each token to its own coordinates (α, ωE, ψ) on a shared skeleton E; a zero coordinate removes its gate. c, One emitted IQP circuit [41], represented by its interaction graph. Qubits are arranged on a ring, with vertices encoding single-qubit rotations Rz(αq) and ring-plus-chord edges...",
+      "page": 5
+    },
+    {
+      "image": "2609.24657_figures/2609.24657_fig2.jpg",
+      "caption": "Fig. 2: The HyperQ pipeline at three scales, each panel read from bottom to top. a, Masked-diffusion generation. A fully masked sequence x1 is denoised over T rounds until the clean sequence x0 remains, each round committing the most confident pre- dictions and re-masking the rest. b, One round, expanded from the highlighted state xt, returning the token distribution pθ(· | xt) of equation (1). Inside each block the fused query-key-value projection is the only modified point, where a quantum branch runs in parallel with the classical weight Wqkv and is added into q, k, v as a residual. c, How that branch emits its circuit. From the hidden state h of one token the branch emits the rotation...",
+      "page": 7
+    },
+    {
+      "image": "2609.24657_figures/2609.24657_fig3.jpg",
+      "caption": "Fig. 3: Statistics of emitted per-token circuits. a, Motif-selection probability p against training step in the L = 4 slots of the 3-motif IQP search. The motifs are generator classes, single-qubit Zq and two-body ZiZj on ring and chord layers, all diagonal and inside the IQP family. The emitted circuit selects none, instead carrying every generator with a per-token angle. b, Emitted coupling angle |ωe| against edge in fixed E at 16 qubits, with the median and 10 to 90 per cent range across tokens and fixed-ansatz angle dashed. Edges are ordered ring then chord. c, 240 tokens by mean coupling angle over E (horizontal) and mean angle between emitted readout axis ψq and the nearest of Rx, Ry...",
+      "page": 11
+    },
+    {
+      "image": "2609.24657_figures/2609.24657_fig4.jpg",
+      "caption": "Fig. 4: Emitted circuits choose their own support. (a), The strict-IQP block emitted for each entangling arrangement, drawn on eight wires. Eight is the smallest register that admits the ring-plus-one-chord edge set at all, since the chord stride must be coprime with n and differ from 1 and n −1, which no stride satisfies at four or six qubits. Columns are the Hadamard layer, the Rz rotations, the Rzz couplings in the five parallel layers a degree-four graph edge-colours into, the second Hadamard layer, the readout rotation U(ψ) and the Z measurement. The Rz and Rzz columns sit between the two Hadamard layers, so the register sees them as Rx and Rxx, and the free single-qubit axis is U(ψ)....",
+      "page": 13
+    },
+    {
+      "image": "2609.24657_figures/2609.24657_fig5.jpg",
+      "caption": "Fig. 5: Widening the emitted circuit. (a), Six-benchmark zero-shot average A against width n for the two searched circuits and the hypernetwork, and for the four fixed hand-designed ans¨atze drawn as one family, with the grey band their minimum-to- maximum range at each width and the dotted line with crosses their median. Filled markers are means over three runs and the small open circles the individual runs. The two size-matched classical baselines are horizontal references labelled on their own line. The families separate rather than run parallel, since past 32 qubits the fixed band flattens while the emitted circuit holds its rate, so the margin over the best fixed ansatz widens from...",
+      "page": 14
+    }
+  ],
+  "figure": "2609.24657_figures/2609.24657_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

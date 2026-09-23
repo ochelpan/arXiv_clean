@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.24282",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "hep-ph",
+    "hep-th"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Computing Solution of the Bethe-Salpeter Equation for Relativistic Scalar Bound States via Tensor-Network VQE",
+  "authors": "Gerhard Hellstern",
+  "abstract": "We present a gate-based quantum computing solution of the homogeneous Bethe-Salpeter equation (hBSE) for the bound state of two massive relativistic scalar particles interacting via ladder-approximation scalar exchange. After Wick rotation to Euclidean space and O(4) S-wave partial-wave projection, the hBSE is reduced to a symmetric matrix eigenvalue problem of dimension N = 2^n. We decompose the resulting Hamiltonian into a sum of n-qubit Pauli operators and solve it with the Variational Quantum Eigensolver (VQE) using a Matrix Product State (MPS) tensor-network ansatz. For N=16 (n=4 qubits), the VQE recovers the maximum eigenvalue - which encodes the minimum coupling constant for binding - to better than 1 % mean relative error compared to classical diagonalization. Entanglement analysis of the BSE amplitude shows low, area-law-like entanglement over the tested sizes, which motivates the MPS ansatz. A critical analysis of three independent barriers - exponential Pauli overhead, approximately size-independent low entanglement, and decreasing VQE gradient scales for the tested ansatz, consistent with generic barren-plateau concerns at larger n - reveals that the specific problem studied here lies in a classically tractable regime: over the tested range it is well described by low-bond-dimension tensor networks and efficiently handled by MPS/Lanczos methods. This negative result provides, to our knowledge, the first entanglement quantification of the BSE amplitude in qubit encoding, establishes the Pauli Hamiltonian framework for future BSE variants, and identifies 2D Minkowski-space BSE, N-body bound states, and non-ladder kernels as physically motivated extensions where genuine quantum advantage may become plausible.",
+  "url": "http://arxiv.org/abs/2609.24282v1",
+  "pdf": "https://arxiv.org/pdf/2609.24282v1",
+  "type": "theory",
+  "summary": "This work applies quantum computing techniques, specifically VQE with MPS, to solve the Bethe-Salpeter Equation for relativistic bound states. While demonstrating successful numerical recovery of physical constants, the analysis concludes that the specific Euclidean formulation is efficiently solvable by classical tensor network methods, pointing toward more complex Minkowski or N-body systems for future quantum advantage.",
+  "main_problem": "The paper addresses the challenge of solving the homogeneous Bethe-Salpeter Equation (hBSE) for relativistic scalar bound states, which reduces to a large matrix eigenvalue problem.",
+  "main_result": "The VQE approach successfully recovers the minimum coupling constant ($\\alpha_{min}$) to high accuracy for small systems, but the analysis reveals the problem is in a classically tractable regime, suggesting limited immediate quantum advantage.",
+  "method": "It employs a Variational Quantum Eigensolver (VQE) utilizing a Matrix Product State (MPS) ansatz to find the maximum eigenvalue of the discretized Hamiltonian, comparing results against classical diagonalization and tensor network methods.",
+  "model_or_system": "The system models two massive relativistic scalar particles interacting via scalar exchange, governed by the hBSE. The equation is simplified via Wick rotation and $O(4)$ S-wave projection into a symmetric matrix eigenvalue problem.",
+  "key_observables": "The minimum coupling constant ($\\alpha_{min}$), the maximum eigenvalue ($\\lambda_{\\max}$), and the entanglement entropy ($S_{max}^{vN}$) of the BSE amplitude.",
+  "important_parameters": "The binding energy ratio ($\\eta = M/(2m)$), the exchange mass ratio ($\\mu/m$), and the system size ($N=2^n$ qubits).",
+  "main_assumptions": "The primary approximations include the Wick rotation to Euclidean space, the $O(4)$ S-wave partial-wave projection, and the use of the MPS ansatz for the quantum simulation.",
+  "figures_summary": "Figures compare $\\alpha_{min}$ vs. binding fraction for different exchange masses, and show the decay of the mean squared gradient $\\langle(\\partial E/\\partial\theta)^2\rangle$ versus qubit number $n$.",
+  "paper_structure": "The paper first derives the $O(4)$ S-wave projected hBSE kernel, then details the mapping to a Pauli Hamiltonian, and finally applies VQE with an MPS ansatz while analyzing entanglement and gradient scaling to assess quantum advantage.",
+  "why_interesting": "The rigorous analysis of entanglement entropy and gradient scaling provides a quantitative diagnostic tool to classify quantum problems, suggesting when quantum algorithms are likely to fail or offer no advantage over classical tensor network methods.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.24282_figures/2609.24282_fig1.jpg",
+      "caption": "Fig. 1 Wick-Cutkosky comparison (N = 64, pmax = 25 m). (Left) Minimum coupling αmin vs binding fraction (2m −M)/(2m) for µ/m = 0, 0.15, 0.50. More deeply bound states require less coupling — a hallmark of the 4D relativistic BSE in the ladder approximation. (Right) Coupling ratio g2(µ=0)/g2(µ) < 1 plotted as a function of the binding fraction: values below unity confirm that a massive exchange boson requires 3.8–5.6% more coupling than the massless case (i.e. the inverse ratio αmin(µ)/αmin(µ=0) ≈1.038–1.056 > 1, as listed in Table 1).",
+      "page": 6
+    },
+    {
+      "image": "2609.24282_figures/2609.24282_fig2.jpg",
+      "caption": "Fig. 2 (Left) Minimum coupling g2 min(M) versus the trial bound-state mass M/m, for µ/m = 0.15 (solid). The horizontal dashed line shows the reference coupling g2 ≃480 corresponding to the benchmark point M/m = 1.6; its intersection with the curve marks that mass. The single-channel result saturates toward threshold, whereas the exact angle-resolved Wick-Cutkosky coupling α1 = 2/(1 −η2) (gray dashed) diverges as M →2m. (Right) Euclidean BS amplitude |ϕ(p)| at M/m = 1.6.",
+      "page": 14
+    },
+    {
+      "image": "2609.24282_figures/2609.24282_fig3.jpg",
+      "caption": "Fig. 3 Rayleigh-quotient optimization (L-BFGS-B) on Hsym for n = 4 qubits (N = 16), M/m = 1.6, µ/m = 0.15, illustrating the cost-function landscape. The horizontal dashed line is the classical eigenvalue −λmax = −2.0835 × 10−3. The ADAM-based VQE (Table 3) converges in ≲300 steps to the same target.",
+      "page": 14
+    },
+    {
+      "image": "2609.24282_figures/2609.24282_fig4.jpg",
+      "caption": "Fig. 4 VQE ansatz depth scan for N = 16 (n = 4 qubits). (Left) λVQE max as a function of circuit depth L; the horizontal dashed line marks the classical exact value. (Right) Relative error on a logarithmic scale. The dominant improvement occurs from L = 1 to L = 2; deeper circuits yield only marginal gains.",
+      "page": 15
+    },
+    {
+      "image": "2609.24282_figures/2609.24282_fig5.jpg",
+      "caption": "Fig. 5 (Left) Von Neumann entanglement entropy SvN for all bipartitions of the 4-qubit BSE ground state, far below the area-law maximum (dashed). (Right) Schmidt weights s2 k and cumulative fidelity at the central bipartition [2|2]: bond dimension χ = 2 suffices for 99.9998% fidelity, confirming the MPS ansatz is optimal.",
+      "page": 17
+    }
+  ],
+  "figure": "2609.24282_figures/2609.24282_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

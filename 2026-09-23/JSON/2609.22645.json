@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.22645",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cs.DC",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Extreme-Scale Ising Machines with Cluster Mean-Field Theory",
+  "authors": "Xiuqi Zhang, Shuvro Chowdhury, Shaila Niazi, Christian Z. Pratt, Navid Anjum Aadit, Kerem Y. Camsari",
+  "abstract": "Scaling analog and digital Ising machines to larger problems requires overcoming finite device capacity and the cost of communication between devices. We present cluster mean-field theory (CMFT), a framework that partitions a large interaction graph into clusters sized to fit available hardware. Each cluster performs local updates independently, while interactions across cluster boundaries enter through periodically updated effective biases computed from boundary-spin averages. To reduce the error introduced by fixed cluster boundaries, we introduce dynamic partitioning, which cycles through multiple partitions so that interactions approximated by mean fields at one stage can act through instantaneous spins at another. On three-dimensional spin glasses and planted Pegasus instances, dynamic CMFT exhibits power-law decay of residual energy over sweep budgets. This shows that solution quality continues to improve with computational effort despite the mean-field approximation. An automated graph partitioner combined with a weighted recovery ratio provides a practical heuristic for selecting partition combinations on graphs without natural cut directions. We demonstrate CMFT on four GPUs with approximately four million p-bits, reaching comparable energy densities up to 15 times faster than a single-GPU implementation of the full graph. By coupling locally evolving clusters through programmable effective biases, CMFT provides a route to extreme-scale Ising machines on both analog and digital hardware.",
+  "url": "http://arxiv.org/abs/2609.22645v1",
+  "pdf": "https://arxiv.org/pdf/2609.22645v1",
+  "type": "theory",
+  "summary": "This paper introduces Cluster Mean-Field Theory (CMFT) to simulate massive Ising models that exceed available hardware capacity. By dynamically partitioning the graph and updating local clusters using effective biases, the method achieves significant computational speedups. It demonstrates that this approach provides a viable pathway for building extreme-scale Ising machines for optimization problems.",
+  "main_problem": "The primary challenge addressed is scaling Ising machine simulations to large problems by overcoming finite device capacity and communication bottlenecks.",
+  "main_result": "Dynamic Cluster Mean-Field Theory (CMFT) provides a scalable route to extreme-scale Ising machines, achieving significant speedups (up to 15x) on multi-GPU setups compared to full graph simulations.",
+  "method": "The authors propose CMFT, which partitions the large interaction graph into smaller, hardware-sized clusters. They enhance this with dynamic partitioning, cycling through multiple partitions to reduce mean-field approximation errors.",
+  "model_or_system": "The model is an Ising system described by an energy Hamiltonian $E(\\mathbf{m}) = -\\sum_{i<j} J_{ij}m_i m_j - \\sum_i h_i m_i$. The simulations are tested on 3D spin glasses and planted Pegasus instances.",
+  "key_observables": "Residual energy decay ($\rho_E$), energy density, and the weighted recovery ratio ($r$).",
+  "important_parameters": "The size of the graph (up to four million p-bits), the sweep budget, and the approximation error introduced by the mean-field assumption.",
+  "main_assumptions": "The core assumption is that local updates using effective biases derived from boundary-spin averages are sufficient, and dynamic cycling helps mitigate the error from fixed mean-field approximations.",
+  "figures_summary": "Figures illustrate the scaling process (partitioning), compare sampling distributions (static vs. dynamic CMFT vs. Boltzmann), and show the power-law decay of residual energy ($\rho_E$) over computational effort.",
+  "paper_structure": "The paper introduces CMFT to handle large graphs by localizing computation. It details the dynamic partitioning scheme, analyzes its performance on spin glasses and Pegasus graphs by measuring energy decay, and concludes with a demonstration of multi-GPU scaling.",
+  "why_interesting": "While focused on classical optimization, the techniques for handling large, complex interactions via localized approximations (like CMFT) and the analysis of error decay are highly relevant to simulating quantum many-body systems on limited hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.22645_figures/2609.22645_fig1.jpg",
+      "caption": "Fig. 1 | Scaling Ising machines with cluster mean-field theory. (a) Original interaction graph whose size exceeds the capacity of a single device, or whose interaction matrix outgrows on-chip memory. (b) Balanced partitioning divides the graph into clusters that fit individual devices. (c) Parallel MCMC implementation, showing the exchange for one cluster. Each cluster runs locally on a probabilistic computer. A classical computer collects boundary samples from the clusters and combines their averages with the cross-cluster couplings to compute effective biases. These biases remain fixed during the next block of local updates.",
+      "page": 2
+    },
+    {
+      "image": "2609.22645_figures/2609.22645_fig2.jpg",
+      "caption": "Fig. 2 | Static and dynamic partitioning in a 5 p-bit full adder. (a) Static partitioning of the original graph into 2 fixed clusters of sizes 2 and 3 (dashed cut), which remain unchanged during Monte Carlo updates. (b) Dynamic partitioning into 2 balanced clusters of sizes 2 and 3. The update cycles through all \u00005 2 \u0001 = 10 distinct partitions (only a subset is shown). (c, d) Distributions sampled by CMFT (blue) at β = 1 under static and dynamic partitioning, respectively. Boltzmann reference distributions (red) use the KL-minimizing inverse temperatures β∗= 0.645 in (c) and β∗= 0.357 in (d). Peaks are labeled correct when they belong to the 8 valid full-adder states. Results are obtained...",
+      "page": 4
+    },
+    {
+      "image": "2609.22645_figures/2609.22645_fig3.jpg",
+      "caption": "Fig. 3 | Dynamic partitioning on 3D spin-glass lattices. (a) Each partition cuts the lattice with planes normal to one axis: a single plane gives 2 balanced clusters, and additional equally spaced planes give more. The switching sequence (bottom) cycles through the x, y, and z partitions, each held fixed for Nsample sweeps. (b) Final residual energy density ρE versus the total number of Monte Carlo sweeps in each anneal for L3 = 83 (512 p-bits) under different cluster counts and partitioning schemes. Fitted decay exponents in ρE ∝t−κ are κ = 0.36 (exact graph), 0.32 and 0.27 (dynamic and static 2 clusters), 0.20 and 0.14 (dynamic and static 4 clusters), and 0.02 (naive mean field, each spin...",
+      "page": 5
+    },
+    {
+      "image": "2609.22645_figures/2609.22645_fig4.jpg",
+      "caption": "Fig. 4 | Weighted recovery ratio and CMFT performance on Pegasus graphs. (a) Partition-aware planted instance generation on Pegasus, shown for a single target partition. The dashed line marks a cluster boundary of the target partition. Red shows an accepted walk crossing the boundary, orange shows a rejected walk contained in one cluster. (b) Weighted recovery ratio r for a 680 p-bit Pegasus graph in 3 clusters. Purple marks the dynamic partitioning combinations built from the 10 KaHIP partitions, ordered by increasing r. Green marks static partitioning on partition 0. Bars show the mean r over the ten instances. (c) Residual energy density ρE versus Monte Carlo sweeps for the exact graph,...",
+      "page": 6
+    },
+    {
+      "image": "2609.22645_figures/2609.22645_fig5.jpg",
+      "caption": "Fig. 5 | Acceleration of large-scale Ising simulations using CMFT on multiple GPUs. (a) GPU runtime for 104 Monte Carlo sweeps versus problem size L3 for exact-graph updates on a single GPU, averaged over all instances and runs. The curve separates into three regions. Runtime grows near-linearly in region 1 with slope 0.87 (L = 100 to 120) and in region 3 with slope 0.99 (L = 130 to 200), and rises with slope 8.17 in region 2 (L = 120 to 130). The steep rise in region 2 is consistent with the interaction matrix exceeding on-chip memory [44]. (b) Schematic of the multi-GPU implementation. Each GPU stores only the interaction matrix of its own cluster, which moves the single-GPU problem from...",
+      "page": 7
+    }
+  ],
+  "figure": "2609.22645_figures/2609.22645_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

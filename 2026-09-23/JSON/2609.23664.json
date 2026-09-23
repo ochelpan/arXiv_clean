@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2609.23664",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QuWARP: A Workload-Aware Reuse Planner for simulating Quantum Circuits",
+  "authors": "Tim Littau, Rihan Hai",
+  "abstract": "Quantum circuit simulation often appears as repeated-run workloads rather than isolated circuits: variational quantum eigensolver (VQE) sweeps, noisy multishot studies, and quantum error correction (QEC) cycles revisit closely related structure across many runs. Existing simulators optimise individual executions well, but they largely ignore cross-task shared state and therefore repeat work that could be reused safely. We propose QuWARP, a planner-based workload optimiser for a bounded state of the art simulator execution surface: it performs workload-level planning over related tasks, identifies shared prefixes, and chooses when to materialize exact typed boundary artifacts for later reuse across the evaluated statevector mode, and stabilizer-hybrid mode. Its planner treats continuation legality as a narrow correctness guardrail, abstains when reuse is unprofitable, and keeps each reuse, abstention, or refusal decision auditable through EXPLAIN-style traces, meaning inspectable planner reports with provenance and realized-cost summaries. Across real world quantum application workloads QuWARP delivers 2.95x-32.84x speedups over this work's main direct per-task Qrack denominator on reuse-positive workloads. These results show workload-level reuse planning improves repeated-run simulation while keeping unsupported handoffs auditable and out of the execution path.",
+  "url": "http://arxiv.org/abs/2609.23664v1",
+  "pdf": "https://arxiv.org/pdf/2609.23664v1",
+  "type": "theory",
+  "summary": "This paper introduces QuWARP, a novel workload-aware planner designed to optimize quantum circuit simulations by identifying and safely reusing shared computational prefixes across related tasks. By treating simulation as a planning problem rather than isolated runs, QuWARP achieves substantial speedups while maintaining rigorous correctness guarantees through auditable legality checks.",
+  "main_problem": "The primary problem is the inefficiency of quantum circuit simulation when running many related tasks, as existing simulators fail to reuse shared computational state across these tasks.",
+  "main_result": "QuWARP achieves significant speedups (up to 32.84x) on reuse-positive workloads by implementing a workload-level planning layer that safely identifies and materializes shared computational prefixes.",
+  "method": "The authors propose QuWARP, a planner that analyzes a sequence of related quantum tasks, identifies shared prefixes, and uses a cost-benefit analysis to decide whether to reuse a materialized boundary state or recompute the work.",
+  "model_or_system": "The system simulates quantum circuits using an existing framework (Qrack) and operates on both statevector and stabilizer-hybrid representations. It plans over a sequence of related tasks (e.g., VQE sweeps, QEC cycles) rather than isolated circuits.",
+  "key_observables": "Speedups (2.95x–32.84x), auditable EXPLAIN-style traces detailing reuse decisions (reuse, abstain, refuse), and cost records.",
+  "important_parameters": "The profitability of reuse is governed by a cost model comparing saved prefix work against materialization and reload overheads.",
+  "main_assumptions": "The validated reuse surface is intentionally narrow, limited to specific continuation types within the Qrack framework, and the planner is designed to be conservatively correct.",
+  "figures_summary": "Figure 1 illustrates the core concept of prefix reuse in VQE sweeps. Other figures detail the planning flow, legality checks, and ablation studies demonstrating the necessity of the planner's components.",
+  "paper_structure": "The paper introduces the problem of redundant computation in quantum simulation, proposes the QuWARP planner, details its workload-level planning mechanism (including legality checks and cost modeling), presents empirical results showing speedups, and concludes by discussing the scope and limitations of the approach.",
+  "why_interesting": "This work directly addresses the computational bottleneck in running quantum algorithms by treating the simulation as a resource management problem, which is highly relevant for developing scalable quantum software stacks.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.23664_figures/2609.23664_fig1.jpg",
+      "caption": "Fig. 1. Example workload-level reuse pattern. Four related VQE evaluations share the same ansatz prefix but differ only in short parameter-specific suffixes. QuWARP executes the shared prefix once, materializes the boundary state |ψB⟩, and reloads or injects it before each suffix so only the short task-specific suffixes are re-executed.",
+      "page": 2
+    },
+    {
+      "image": "2609.23664_figures/2609.23664_fig2.jpg",
+      "caption": "Fig. 2. QuWARP architecture for workload-level simulation reuse. Inputs from circuits or workload specifications are normalized into a workload representation, pre-processed into planner metadata, planned for reuse, executed on the bounded Qrack surface, and emitted together with result, EXPLAIN, and realized-cost artifacts.",
+      "page": 4
+    },
+    {
+      "image": "2609.23664_figures/2609.23664_fig3.jpg",
+      "caption": "Fig. 3. Estimated-versus-realized workload speedup for all evaluated workloads. Each point is one workload; the x-axis is estimated speedup and the y-axis is realized speedup against direct per-task Qrack. The diagonal denotes perfect calibration and the shaded band marks close agreement. All points lie above the diagonal, so the current gate-count proxy underestimates gains while still placing workloads on the correct side of the reuse boundary.",
+      "page": 9
+    },
+    {
+      "image": "2609.23664_figures/2609.23664_fig4.jpg",
+      "caption": "Fig. 4. Targeted planner-component ablation on the cases where each mechanism matters. Removing reuse collapses the reuse-positive workload to the direct baseline; removing the abstention gate admits a marginal near- break-even plan; removing legality on the illegal-continuation case permits an unsafe unsupported handoff instead of QuWARP’s refusal and fallback. Error bars show five reruns.",
+      "page": 10
+    }
+  ],
+  "figure": "2609.23664_figures/2609.23664_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.24666",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "q-bio.QM"
+  ],
+  "is_primary_archive": true,
+  "title": "Experimental evidence of generalization in quantum machine learning in small-data regime",
+  "authors": "Leena Anthony, Artemiy Burov, Nicolas Piro, Matteo Dal Peraro, Clément Javerzac",
+  "abstract": "Quantum machine learning is a promising paradigm for learning from limited data, a central bottleneck in domains such as medical imaging, clinical trials, and rare diseases. Quantum convolutional neural networks (QCNNs) are particularly attractive in this setting, combining a hierarchical architecture with strong inductive bias and a parameter count that grows only logarithmically with system size. Their appeal rests on the generalization bounds of Caro et al. (2022), which show that the generalization error of a quantum model scales with the number of trainable parameters rather than with the Hilbert-space dimension, placing QCNNs in a potentially sample-efficient regime. We develop a hardware-compatible QCNN with mid-circuit measurement and classical feed-forward, and show on a binary handwritten-digit task that strong test performance is achievable from as few as 10 training samples, with the generalization error decreasing as the training set grows. At a matched 45-parameter budget the QCNN learns where an equally small classical convolutional network stays at chance, although an unconstrained classical baseline with roughly 25,000 parameters remains strongest when data are plentiful. Transpiling amplitude and angle encoded circuits across image resolutions from 2x2 to 512x512 pixels then exposes the dominant scaling bottleneck: amplitude encoding stays qubit-efficient but grows extremely deep, whereas angle encoding stays shallow but becomes qubit-prohibitive. On the medically motivated BreastMNIST benchmark the QCNN does not surpass the unconstrained classical network, yet it learns consistently above chance using orders of magnitude fewer parameters. Our results indicate that for QCNNs, learning from few samples is attainable in practice, whereas scaling to realistic image data is constrained less by optimization than by data encoding and hardware execution.",
+  "url": "http://arxiv.org/abs/2609.24666v1",
+  "pdf": "https://arxiv.org/pdf/2609.24666v1",
+  "type": "both",
+  "summary": "This paper investigates the practical feasibility of using Quantum Convolutional Neural Networks (QCNNs) for machine learning when data is limited. The authors demonstrate that QCNNs can achieve strong performance with very few training samples by leveraging parameter efficiency. However, they conclude that scaling these models to complex, high-resolution images is currently constrained by the physical process of encoding the data onto qubits, rather than by the theoretical optimization capabilities of the quantum circuit.",
+  "main_problem": "The core challenge addressed is achieving reliable machine learning performance using quantum models when training data is scarce (the small-data regime), which is critical for fields like medical diagnostics.",
+  "main_result": "While QCNNs show promise for few-shot learning with significantly fewer parameters than classical baselines, the primary bottleneck for scaling to realistic image data is identified as the data encoding and hardware execution, not the optimization process itself.",
+  "method": "The authors developed and tested hardware-compatible Quantum Convolutional Neural Networks (QCNNs) by comparing their generalization error bounds against classical CNNs on image classification tasks.",
+  "model_or_system": "The model is a QCNN architecture utilizing quantum circuits, tested with two encoding schemes: amplitude encoding and angle encoding. The system is simulated across varying image resolutions (2x2 to 512x512) and compared against classical convolutional networks.",
+  "key_observables": "Generalization error, number of trainable parameters, class separation in t-SNE embeddings, and circuit depth/qubit count.",
+  "important_parameters": "Small sample sizes (e.g., 10 training samples), the number of trainable parameters (e.g., 45 parameters), and image resolution (P).",
+  "main_assumptions": "The analysis relies on generalization bounds from Caro et al. (2022) and assumes the feasibility of hardware-compatible circuits with mid-circuit measurement.",
+  "figures_summary": "Figures illustrate learning regimes showing QCNNs succeeding where classical models fail with few samples, and compare the scaling trade-offs between amplitude and angle encoding across resolutions.",
+  "paper_structure": "The paper establishes the need for few-shot learning in quantum ML, details the QCNN methodology and its comparison to classical models, presents results on digit and medical image datasets, and concludes by identifying the encoding bottleneck as the limiting factor for scaling.",
+  "why_interesting": "It provides a concrete, applied study on the practical limitations of mapping classical data structures (images) onto quantum hardware, highlighting the critical role of data encoding schemes (amplitude vs. angle) in determining feasibility.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.24666_figures/2609.24666_fig1.jpg",
+      "caption": "Figure 1: Learning regimes and data efficiency. Top (blue): with a large training set, a deep network with O(105) parameters generalizes well, but at high data and resource cost (water, energy, money). Middle (red): given only a small dataset, the same large model overfits and generalizes poorly, and a smaller classical network (still thousands of parameters) fares no better. Bottom (green): a quantum convolutional network with only e.g. 45-100 parameters learns from the same small dataset and small resource cost (water, energy, money) while generalizing well, illustrating the data-efficient regime studied in this work.",
+      "page": 2
+    },
+    {
+      "image": "2609.24666_figures/2609.24666_fig2.jpg",
+      "caption": "Figure 2: Dataset composition and structure. Top: class distributions. The digit task (0 vs. 1) is balanced (178 and 182 samples), whereas BreastMNIST is class-imbalanced in both its training (147 malignant, 399 normal/benign) and test (42 malignant, 114 normal/benign) splits, motivating the fixed class-balanced test set and the balanced-accuracy metric used for that task. Bottom: two-dimensional t-SNE embeddings of the flattened images at their native resolution (digits 8 × 8; BreastMNIST 28 × 28), coloured by class. The digit classes form two well-separated clusters, whereas the BreastMNIST classes overlap substantially in pixel space.",
+      "page": 4
+    },
+    {
+      "image": "2609.24666_figures/2609.24666_fig3.jpg",
+      "caption": "Figure 3: Visualization of QPIE encoding fidelity across representative samples from the sklearn digits dataset and BreastMNIST. Each panel shows the original image (left), the image reconstructed after QPIE-based encoding and measurement (center), and the corresponding reconstruction quality as a function of the number of shots (right), quantified using mean squared error (MSE) and structural similarity index measure (SSIM). For both low-resolution digit images and higher-resolution BreastMNIST samples, increasing the number of shots improves reconstruction fidelity, with MSE decreasing and SSIM increasing consistently. These results illustrate both the robustness of QPIE under finite...",
+      "page": 5
+    },
+    {
+      "image": "2609.24666_figures/2609.24666_fig4.jpg",
+      "caption": "Figure 4: QCNN architecture implemented in Qiskit for 8 × 8 grayscale inputs. An 8 × 8 input image (grey) is amplitude-embedded into 6 qubits, then processed by a brick-wall convolution layer (blue), measurement-based pooling (green), a second convolution and pooling stage, a dense SU(4) block (yellow), and a final readout of q0 into a classical register encoding the outcome class. Double lines denote classical control; identical gate labels denote shared parameters. The model has 15 + 3 + 9 + 3 + 15 = 45 trainable parameters.",
+      "page": 7
+    },
+    {
+      "image": "2609.24666_figures/2609.24666_fig5.jpg",
+      "caption": "Figure 5: Classical CNN baseline (8×8 input). Architecture matched to an 8 × 8 image, for visual comparison with the QCNN of Fig. 4. Box dimensions are height × width × channels; each 3 × 3 convolution (blue) preserves the spatial size while increasing depth (1→16→32→64), each 2 × 2 max-pool (green) halves the spatial size (8→4→2), and the global-average-pool collapses the final 2 × 2 map to a 64-vector. A dense head (yellow) maps 64→32→2 for the benign/malignant decision. The spatial reduction 8→4→2→1 and weight-shared local filters mirror the QCNN’s qubit reduction 6→3→2 and its parameter-shared two-qubit convolutions; max-pooling plays the role of the QCNN’s measurement-based pooling and...",
+      "page": 7
+    }
+  ],
+  "figure": "2609.24666_figures/2609.24666_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

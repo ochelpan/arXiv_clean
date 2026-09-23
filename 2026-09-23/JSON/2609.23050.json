@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.23050",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Coherent Memory Register for Sequential Quantum Generative Modeling, with Application to Calorimeter Showers",
+  "authors": "Jamal Slim. Saverio Monaco, Ran Xue, Dirk Kruecker, Kerstin Borras",
+  "abstract": "Simulating the showers that particles deposit in a calorimeter, the detector that records their energy across many cells, is one of the largest computing costs in high-energy physics, and fast generative surrogates are needed. Quantum circuits have been proposed as such surrogates, but demonstrations on calorimeter data have either required a register that grows with the image, roughly one qubit per cell, or have passed the information between parts of the image through a classical channel. We remove both constraints for this problem, using a construction drawn from the sequential-generation and hidden-quantum-Markov-model literature. A shower image is generated block by block on a fixed register of six qubits. Three of them, the memory, are never measured. They hold what the circuit knows about the blocks already generated as a quantum state, so the correlations between distant parts of the image cross each block boundary as unmeasured amplitudes. The other three are measured and reset once per block, and each outcome selects the energy pattern of one block. The register size is set by the block, so adding cells to the image adds steps to the sequence, not qubits. We call the model a coherent-memory Born machine (CoMB), a Born machine being a circuit whose measurement statistics are the generated distribution. Its training loss grows only linearly with the number of blocks and never requires enumerating the image distribution, and a depth-two instance runs on an IBM superconducting processor. On a twelve-cell benchmark the model reproduces the energy distribution of every cell, the correlation matrix between cells, and the total-energy spectrum. Removing the three memory qubits, with everything else unchanged, produces independent blocks. Every correlation between blocks is carried by the unmeasured qubits and by nothing else.",
+  "url": "http://arxiv.org/abs/2609.23050v1",
+  "pdf": "https://arxiv.org/pdf/2609.23050v1",
+  "type": "both",
+  "summary": "This paper introduces the Coherent-Memory Born Machine (CoMB), a quantum generative model designed to simulate complex particle shower data in calorimeters. By using a fixed, coherent quantum memory register, CoMB overcomes the scaling limitations of previous quantum approaches. It successfully reproduces crucial physical observables, such as inter-block correlations, demonstrating the necessity of quantum coherence for accurate simulation.",
+  "main_problem": "The primary challenge is developing fast, quantum-enhanced generative surrogates to simulate the computationally expensive process of particle showers in calorimeters.",
+  "main_result": "The proposed Coherent-Memory Born Machine (CoMB) successfully reproduces complex correlation structures in calorimeter data by utilizing a fixed-size quantum memory register to carry inter-block correlations.",
+  "method": "The model employs a sequential Born machine structure, generating data block-by-block using a fixed quantum register split into a memory and a work register, avoiding scaling the register size with the image dimension.",
+  "model_or_system": "The system is the simulation of particle showers in calorimeters, modeled by the CoMB, which is a quantum circuit whose measurement statistics define the generated probability distribution. It uses a fixed 6-qubit register to maintain quantum correlations across sequential blocks.",
+  "key_observables": "Energy distribution, correlation matrix between cells, total-energy spectrum, and per-cell Wasserstein distance ($W_1$).",
+  "important_parameters": "Fixed register size ($n_q=6$ qubits), block size, and the memory coherence ($\\chi$).",
+  "main_assumptions": "The model assumes that inter-block correlations can be faithfully encoded and maintained by the unmeasured quantum memory qubits throughout the sequential generation process.",
+  "figures_summary": "Figures illustrate the CoMB dataflow, showing the memory register running unbroken across block boundaries, while the work register is measured and reset per step. Correlation matrices compare MC data against the model's predictions.",
+  "paper_structure": "The paper introduces the computational bottleneck (calorimeter simulation), proposes the CoMB architecture (memory/work registers), details the training loss and quantum process, and validates the model by comparing its predictions against key observables like correlation matrices and total energy spectra.",
+  "why_interesting": "The concept of using a fixed-size quantum memory to encode long-range correlations, independent of the system size, is highly relevant to simulating complex, large-scale quantum many-body dynamics or open quantum systems where state space grows exponentially.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.23050_figures/2609.23050_fig1.jpg",
+      "caption": "FIG. 1: CoMB as a sequential Born machine. A coherent memory register (χ=2nm=8, blue) persists across blocks and is never measured mid-chain, carrying the inter-block correlation, the block unitary U(θβ, aβ) (light blue) acts jointly on the memory and work registers, and the work register is then measured, emitting the token xβ (red), and reset. A causal emission (green) renders tokens to pixels and stitches the block boundary (dashed). The register size is fixed by the block, nq = nm+nw = 6, independent of d. Adding pixels adds blocks (B = ⌈d/b⌉), not qubits.",
+      "page": 2
+    },
+    {
+      "image": "2609.23050_figures/2609.23050_fig2.jpg",
+      "caption": "FIG. 2: Dataflow of one autoregressive step. The memory register (blue) enters block β carrying the quantum summary of the prefix as 2nm amplitudes, the block unitary (light blue) entangles it with the freshly reset work register under fixed positional encoding angles (yellow); measuring the work register (red) emits the token xβ, which the causal emission (green) expands to pixels (Sec. III D), while its back-action conditions the memory, which proceeds unmeasured to block β+1 (dashed loop). The memory is the only inter-block channel. Every cross-block correlation is transported by unmeasured qubits. The register is reused each block, so nq = nm+nw = 6 regardless of d.",
+      "page": 4
+    },
+    {
+      "image": "2609.23050_figures/2609.23050_fig3.jpg",
+      "caption": "FIG. 3: Wire-level rollout (B=3 blocks shown, interleaved order [m0, w0, m1, w1, m2, w2]). Color encodes the two registers throughout the paper. The memory register (blue) runs unbroken through every block boundary, no meter ever touches it, so the χ=2nm-dimensional conditional state crosses coherently, while the work register (orange) is interrupted at every boundary by a measurement (red) whose outcome is the block token xβ, followed by a reset (gray) to |0⟩. Each block unitary (light blue) reuses the same circuit shape with its own parameters θβ and positional angles aβ. At the end of the chain the memory is discarded, not read out (Trm). Once the last token is recorded, tracing the...",
+      "page": 4
+    },
+    {
+      "image": "2609.23050_figures/2609.23050_fig4.jpg",
+      "caption": "FIG. 4: Anatomy of one block unitary U(θβ, aβ) (nm=nw=3, hardware-native entangler), i.e. the interior of one light-blue box of Fig. 3. Per layer: encoding gates (yellow) RY (πak) upload the fixed per-block positional biases aβ = σ(posβ) onto the work qubits (no event data is uploaded); variational gates (light blue) RZ(θ)RY (θ) act on all six qubits and carry the entire learned distribution, the CZ line over the interleaved order couples the registers. Every CZ is nearest-neighbor and memory↔work, partitioning into two parallel sub-layers (depth 2) with zero routing SWAPs on heavy-hex. After L layers the work register is measured (red), emitting the token xβ, and reset (gray), the memory...",
+      "page": 5
+    },
+    {
+      "image": "2609.23050_figures/2609.23050_fig5.jpg",
+      "caption": "FIG. 5: Per-cell intensity marginals (cells 0–11): MC data (black points), simulator CoMB (red), and ibm kingston CoMB (blue) on common axes, with model/data ratio panels for both paths (red squares for the simulator, blue triangles for the device). Peak position and width shift systematically through the four blocks, both paths track them, with the device visibly broader in the later blocks, consistent with the accumulating decoherence quantified in Table III.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.23050_figures/2609.23050_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

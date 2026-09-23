@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.24915",
+  "category": "other",
+  "arxiv_categories": [
+    "physics.optics",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Fisher-information training of optical sensing front ends from natural fluctuations",
+  "authors": "Abhinav Sinha, Kai Wang",
+  "abstract": "Fisher-information-based optimization of programmable optical front ends in situ generally requires a response model or parameter-labeled measurements. We show that natural parameter fluctuations can instead provide the training signal. We construct proxies for the Fisher information (FI) of one parameter and the prior-weighted FI spectrum of multiple parameters from measured covariances after subtracting conditional detection noise, assuming locally affine responses. We use simulated photon counts from two incoherent point sources to train a mode sorter that approaches the quantum limit for separation and the Nagaoka--Hayashi single-copy bound for joint centroid--separation estimation. We demonstrate count-only updates that require no instrument response model and achieve performance comparable to model-based gradients. Our results provide a route to adaptive optical measurements without controlled parameter scans.",
+  "url": "http://arxiv.org/abs/2609.24915v1",
+  "pdf": "https://arxiv.org/pdf/2609.24915v1",
+  "type": "theory",
+  "summary": "This paper presents a novel method to train optical sensing front ends adaptively by using natural parameter fluctuations instead of requiring a known instrument response model. By constructing a Fisher Information proxy from measured covariances, the authors show that the training objective can be computed directly from count statistics. This breakthrough enables robust, model-free optimization for advanced quantum optical measurements.",
+  "main_problem": "The paper addresses the challenge of training programmable optical sensing front ends adaptively, without needing a known instrument response model or controlled parameter scans.",
+  "main_result": "They demonstrate that training objectives, derived from Fisher Information proxies using natural parameter fluctuations, can achieve performance comparable to model-based gradients, approaching quantum limits.",
+  "method": "The core method involves constructing a Fisher Information (FI) proxy by decomposing the measured covariance into noise and parameter-induced components, allowing for 'count-only updates'.",
+  "model_or_system": "The system involves programmable optical front ends, such as mode sorters, used for optical sensing of parameters encoded in an optical field. The analysis uses simulated photon counts from two incoherent point sources as a testbed.",
+  "key_observables": "Fisher Information (FI) proxy (eF), parameter-induced covariance ($C_{\text{param}}$), and the A-optimal cost ($C$).",
+  "important_parameters": "The number of parameters ($M$), the separation between sources ($\theta$), and the signal-to-shot-noise ratio ($r$).",
+  "main_assumptions": "The method assumes a locally affine response for the parameter-induced covariance and relies on decomposing the observed covariance into noise and parameter-induced parts.",
+  "figures_summary": "Figures illustrate the concept of using natural fluctuations to compute the FI proxy and compare the derived FI proxy against the Quantum Fisher Information (QFI) benchmark.",
+  "paper_structure": "The paper develops the FI proxy from measured covariances, extends this to multi-parameter estimation, and finally analyzes the required photon budget and bias reduction techniques using reference batch subtraction.",
+  "why_interesting": "This work provides a powerful, model-free framework for optimizing quantum measurements in optical systems by leveraging inherent system fluctuations, which is highly relevant for quantum optics and sensing.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.24915_figures/2609.24915_fig1.jpg",
+      "caption": "FIG. 1. Concept of training with an FI proxy. A param- eter Θ with natural, uncontrolled fluctuation illuminates a programmable front end U(φ), with settings φ, which routes each detection event to one of K detectors. Because Θ fluctu- ates about its operating point, the resulting outcome counts inherit an excess covariance beyond the conditional counting covariance present at fixed Θ; after this background is mod- eled or independently calibrated, the FI proxy is computed directly from the observed covariance without any labeled re- alization of Θ for each copy or active modulation of the pa- rameter, and used to update the front-end settings φ.",
+      "page": 2
+    },
+    {
+      "image": "2609.24915_figures/2609.24915_fig2.jpg",
+      "caption": "FIG. 2. FI proxy for two-point separation estimation with bi- nary SPADE, drawing θ from a Gaussian prior of fixed width σpr = 0.1 σ and forming the proxy from B = 4000 shots of N = 2×104 photons each. The fluctuation width is held fixed in units of the PSF width throughout the separation sweep. (a) Per-photon Fisher information, normalized to FQ, versus separation: analytic F(θ0) (solid), the QFI bound (dotted),",
+      "page": 4
+    },
+    {
+      "image": "2609.24915_figures/2609.24915_fig3.jpg",
+      "caption": "FIG. 3. Proxy for the prior-weighted FI spectrum and the training cost built from it, at M = 2, against direct imaging of the two-source problem at c0 = 0, pixel width 0.5 σ (K = 50), N = 104 photons per shot, with the correlated fluctuation of Eq. (17) at σs = 3σc = 0.15 σ and γ = 0.6, for which [Σpr, F] ̸= 0. (a) The two prior-weighted FI eigenvalues and their proxies, ordered from largest (blue) to smallest (orange): the exact eigenvalues of Σ1/2 pr FΣ1/2 pr (bands), the population proxy eigenvalues µi obtained by integrating over the prior (dashed), and their finite-batch estimates from B = 4 × 103 simulated shots (circles; mean ± std over 32 repetitions). (b) The A cost C = P",
+      "page": 5
+    },
+    {
+      "image": "2609.24915_figures/2609.24915_fig4.jpg",
+      "caption": "FIG. 4. Training with an FI proxy for separation estimation with a rank-two detector and an unsorted remainder (K = 2). (a) Gradient-free training at s0 = 0.5 σ: measured FI proxy (orange), exact FI withheld from training (blue), and QFI (dotted). Each orange value is the average of the two proxy measurements at the positive and negative SPSA perturbations; the blue value is evaluated at their common unperturbed setting before the update. Each of 2.4 × 104 updates uses two batches of B = 103 shots with N = 103 photons per shot. (b) Fractions of FI and photons carried by each outcome for the trained model of (a). (c) Parity-resolved profiles of the trained detector on the Fisher-relevant...",
+      "page": 7
+    },
+    {
+      "image": "2609.24915_figures/2609.24915_fig5.jpg",
+      "caption": "FIG. 5. Joint centroid–separation estimation with K = 9 outcomes: eight rank-two detectors and the unsorted remain- der. Costs are plotted as CSLD/C, so larger is better. Solid: NH bound; dotted: explicitly optimized POVM with detec- tors of the same rank, whose relative gap to NH is shown in the inset, gaps below the solver precision being drawn at 10−12. Circles: training with model-based gradients; trian- gles: count-only updates. Whiskers span random restarts. The NH and SLD bounds coincide at s0 = 2 σ. See Sec. S3.6 for the benchmark construction.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.24915_figures/2609.24915_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 1,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 1,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

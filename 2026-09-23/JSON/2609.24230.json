@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "2609.24230",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.SE",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Fault-Class-Matched Test Oracles for Output-Invisible Quantum Transpiler Regressions",
+  "authors": "Furqan Nasir, Arif Shah, Iftikhar Alam",
+  "abstract": "Test oracles for quantum transpilers typically judge correctness by comparing compiled output against a reference: a statevector, a sampled distribution, or a unitary compared modulo global phase. A companion empirical study measures how often that choice fails. Roughly 28% of merged Qiskit transpiler bug-fixes (95% Wilson CI 19-40%) repair a fault that corrupts layout metadata, global phase, or run-to-run reproducibility while output stays correct: invisible to a black-box output-equivalence oracle by construction. This paper closes that gap with a fault-class-matched, layout-aware, width-tiered oracle family: a layout/permutation contract checker and a contract-level metamorphic relation (MR-1) for the metadata channel, a global-phase tracker for the phase channel, and a determinism runner for reproducibility. Verified from source on nine real, merged Qiskit transpiler regressions (three per channel), the output-equivalence oracle is blind throughout and the matched mechanism fires on every case. A 675-configuration sweep of the contract/metadata invariant finds no false positive. Synthetic mutant families confirm reliability at scale: 1.00 sensitivity and specificity across 36 mutants apiece for the contract/metadata and global-phase channels, and 1.00 sensitivity (95% CI 0.44-1.00) for reproducibility on the three circuits where the mutation is constructible. The contract checker costs two to six orders of magnitude less than a plain output check, the global-phase tracker is comparably cheap within its exact tier, and only the metamorphic relation carries a bounded cost. Ported natively to pytket/tket, the global-phase mechanism transfers cleanly, an identical 1.00/1.00 result with phases recovered to double-precision accuracy, evidence against a Qiskit-specific artifact.",
+  "url": "http://arxiv.org/abs/2609.24230v1",
+  "pdf": "https://arxiv.org/pdf/2609.24230v1",
+  "type": "theory",
+  "summary": "This paper introduces a novel family of test oracles designed to test quantum transpilers for faults that do not alter the final observable output. By checking internal metadata, global phase, and determinism separately, the authors create a much more comprehensive and computationally cheap testing suite. This work significantly improves the reliability guarantees for quantum compilation toolchains.",
+  "main_problem": "Developing robust test oracles for quantum transpilers that can detect faults invisible to standard black-box output-equivalence checks.",
+  "main_result": "The proposed family of fault-class-matched oracles successfully detects internal metadata, global phase, and reproducibility faults that standard output checks miss on real-world transpiler regressions.",
+  "method": "The authors developed targeted oracles—including a contract checker, a metamorphic relation for metadata, and a global-phase tracker—to inspect internal compiler bookkeeping rather than just the final output.",
+  "model_or_system": "The system involves quantum circuits that undergo transpilation (optimization and mapping) by quantum compilers like Qiskit or pytket for execution on quantum hardware.",
+  "key_observables": "Fault detection status (pass/fail) for metadata (layout/permutation), global phase accumulation, and run-to-run determinism.",
+  "important_parameters": "The cost of the new oracles relative to plain output checks (orders of magnitude cheaper); sensitivity and specificity (reported as 1.00).",
+  "main_assumptions": "The standard output-equivalence oracle is inherently blind to faults corrupting internal, non-observable metadata channels.",
+  "figures_summary": "not specified",
+  "paper_structure": "The paper first identifies the limitation of output-equivalence testing, then introduces and details the three fault-class-matched oracles (contract/metadata, global-phase, determinism), validates them against real transpiler regressions, and finally analyzes their computational cost and portability.",
+  "why_interesting": "While focused on software testing, the rigorous analysis of internal state consistency (metadata, phase) mirrors the need for robust error detection in complex quantum hardware control and simulation pipelines.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.24230_figures/2609.24230_fig1.jpg",
+      "caption": "Figure 1. Overview of the from-source evaluation pipeline: a static manifest and instrumented transpilation, change-event construction under non-pooled cohorts, width- tiered oracle application, and metric computation under six validity gates, resting throughout on a shared reproducibility substrate (a two-layer execution environment, write-once artifacts, calibrated CPU-time costing, a frozen change-stage map, group-level temporal splitting, and a strict claim-scope rule).",
+      "page": 7
+    },
+    {
+      "image": "2609.24230_figures/2609.24230_fig2.jpg",
+      "caption": "Figure 2. The three change-event cohorts (forward regression, fix-boundary differential, mutation) and how each pairs a baseline revision with a candidate.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.24230_figures/2609.24230_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

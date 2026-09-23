@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.23059",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "clifford qc: A Python Toolkit for Quantum Simulation",
+  "authors": "Ginanjar Utama, Hermawan Kresno Dipojono",
+  "abstract": "clifford_qc is a Python research toolkit for constructing quantum models, comparing variational and subspace eigensolvers, and estimating measurement resources. A common sparse Pauli algebra connects Hamiltonians, density operators, gates, and candidate-selection observables, while dedicated interfaces handle circuit programs, execution, and statistical estimates. We introduce the representation with a worked gradient example and trace a molecular calculation through reusable model preparation, an independent solve, and optional reference validation. Shared measurement caches reuse outcomes across observables on the same reference state; packed coefficient storage and streaming expose a memory-recomputation tradeoff. Committed small-system benchmarks show how these interfaces support comparisons with explicit accuracy and cost assumptions. Fully commuting measurement reduces the shots needed to certify a fixed first-order energy functional, but entangling-gate time and connectivity can offset the saving or make the protocol inadmissible under illustrative device models. Other studies identify a subspace bias floor that more shots cannot remove, an indeterminate comparison of fermionic encodings across instances, and an approximate-restriction screen whose required comparison fails before sampling. Generated tables, provenance records, and manuscript checks connect the reported claims to their inputs, although evidence labels are not yet validated uniformly. The package supports reproducible method development; these results establish neither hardware performance nor a general simulation speedup.",
+  "url": "http://arxiv.org/abs/2609.23059v1",
+  "pdf": "https://arxiv.org/pdf/2609.23059v1",
+  "type": "theory",
+  "summary": "This paper introduces 'clifford_qc,' a Python toolkit designed to standardize and streamline quantum simulation research. It provides a unified framework for constructing quantum models using a sparse Pauli algebra and comparing different eigensolving techniques. The toolkit's value lies in its modularity and ability to ensure reproducible comparisons across various quantum physics problems.",
+  "main_problem": "The primary goal is to develop a comprehensive, consistent, and reusable Python toolkit for performing various steps of quantum simulation, from model construction to measurement analysis.",
+  "main_result": "The toolkit successfully integrates operator algebra, variational/subspace eigensolvers, and shared measurement caching, enabling reproducible comparison of quantum simulation methods.",
+  "method": "The approach is operator-centric, utilizing a sparse Pauli algebra representation for Hamiltonians and observables, and implementing a modular pipeline involving model preparation, independent solving (e.g., A-CASE), and optional reference validation.",
+  "model_or_system": "The toolkit is general, applicable to small-system research on quantum algorithms for spin, lattice, and molecular models, using Pauli words to represent operators.",
+  "key_observables": "Energy eigenvalues, overlap matrices ($S_{ij}$), Hamiltonian matrices ($H_{ij}$), and various basis diagnostics (e.g., conditioning, measurement support).",
+  "important_parameters": "The results are based on small active spaces (e.g., eight-qubit banks); the package does not claim general speedup or hardware performance.",
+  "main_assumptions": "The package is an alpha research tool; results are limited to small systems, and the comparison of methods relies on structured bookkeeping rather than guaranteed physical scaling.",
+  "figures_summary": "Notes mention Tables I, II, and III detailing implemented features, the molecular command-line pipeline stages, and the architectural layers of the package, respectively.",
+  "paper_structure": "The paper details the modular architecture, covering the sparse Pauli algebra kernel, the subspace solvers (A-CASE), the workflow pipeline (prepare $\rightarrow$ solve $\rightarrow$ validate), and the methodology for ensuring reproducibility through committed records.",
+  "why_interesting": "It provides a robust software framework for comparing different theoretical approaches to quantum simulation, which is crucial for researchers modeling complex quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.23059_figures/2609.23059_fig1.jpg",
+      "caption": "FIG. 1. The end-to-end architecture, separating a scientific result from a publishable claim. The scientific path constructs a model, applies only explicit reductions, selects a solver policy, and evaluates an exact or measured estimator. The claim path attaches evidence, writes provenance, and lets a declared gate admit, refuse, or leave the result indeterminate. The band at the foot names the typed contracts shared across both paths. Generator filtering changes the candidate pool; it is not shown as a Hilbert-space reduction.",
+      "page": 6
+    },
+    {
+      "image": "2609.23059_figures/2609.23059_fig2.jpg",
+      "caption": "Figure 3 shows one pass. A word universe is grouped, either qubit-wise or under dyadic block commutativity; the grouping is frozen into a compiled plan with signed parity readouts, a matched resource ledger, and Clifford settings synthesized through a stabilizer tableau [14, 30– 32]; shots are allocated; the sampling backend returns joint outcome histograms per setting; a cumulative cache reuses outcomes across observables on the same reference; a linear functional reads the cache; and a confidence bound turns the read into an interval with a stated family and failure probability [33, 34]. The main evidence categories are exact, asymptotic, finite-sample, heuristic, and none. Here “exact”...",
+      "page": 6
+    },
+    {
+      "image": "2609.23059_figures/2609.23059_fig3.jpg",
+      "caption": "FIG. 2. The package as measured. (a) Physical lines per declared layer, annotated with lines and module count; the census is recomputed from the source tree whenever this manuscript is rebuilt. (b) A partial dependency view whose box titles come from the declared layer map; algorithms and subspace solvers are grouped, while the package surface and cross-layer orchestration are omitted from this selected-edge view. Solid arrows are selected import-time dependencies. Most point downward; the horizontal problem-to-solver arrow records the module-scope chemistry-to-pool exception. Red dashed arrows are genuine upward runtime edges deferred to call time; the blue dashed arrow is a downward call...",
+      "page": 7
+    },
+    {
+      "image": "2609.23059_figures/2609.23059_fig4.jpg",
+      "caption": "FIG. 3. One pass from a word universe to a labelled interval. The label is decided in the measurement layer, not at the solver: an oracle-evaluated expectation and a sampled one traverse different boxes and arrive carrying different evidence, which is what allows the benchmark gates of Sec. VI to compare like with like.",
+      "page": 8
+    },
+    {
+      "image": "2609.23059_figures/2609.23059_fig5.jpg",
+      "caption": "FIG. 4. Compiled settings (left axis, blue) and maximum logical entangling depth per setting (right axis, red) along the block-size axis, for the two committed banks. Annotations give the added entangling cost over the avoided preparation cost against k = 1; the verdict in each title is that ratio against unity. The protocol is identical on both panels, and the trade changes sign between them.",
+      "page": 10
+    }
+  ],
+  "figure": "2609.23059_figures/2609.23059_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
