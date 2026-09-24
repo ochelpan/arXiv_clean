@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.25208",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Adaptive thresholding for scalable measurement-based qubit reset",
+  "authors": "Qian Cao, Unnati Akhouri, Samuel Vizvary, Nissim Ofek, Wei Dai, Kater W. Murch",
+  "abstract": "Fast, high-fidelity qubit initialization is a key primitive for scalable quantum information processing, but conventional reset protocols either require long relaxation times or discard information contained in continuous measurement records. We demonstrate an adaptive measurement-based reset protocol for superconducting qubits that uses Bayesian inference to update the qubit-state estimate after each readout and dynamically adjust the feedback threshold. Unlike fixed-threshold or repeat-until-success (RUS) protocols, the method utilizes the full analog measurement history, enabling the reset decision to become progressively more conservative as confidence in ground-state preparation increases. Implemented with real-time FPGA-based feedback on a dispersively readout transmon qubit, the protocol achieves a ground-state initialization fidelity of $99.44\\pm0.04\\%$ after a small number of reset rounds. We further compare adaptive reset with RUS strategies in multi-qubit experiments and show that adaptive thresholding provides deterministic reset duration while maintaining a five-qubit simultaneous-reset fidelity of $98.78 \\pm 0.19\\%$. These results establish Bayesian adaptive thresholding as a practical and scalable route to fast qubit reset in superconducting quantum processors.",
+  "url": "http://arxiv.org/abs/2609.25208v1",
+  "pdf": "https://arxiv.org/pdf/2609.25208v1",
+  "type": "experiment",
+  "summary": "This paper introduces an adaptive measurement-based protocol for resetting superconducting qubits, moving beyond fixed-threshold or iterative methods. By using Bayesian inference on the entire measurement history, it dynamically adjusts the feedback threshold to maintain high fidelity. This approach provides a practical and scalable route for fast qubit initialization necessary for large quantum processors.",
+  "main_problem": "Developing a fast, high-fidelity qubit initialization (reset) protocol that overcomes the limitations of conventional methods which are either slow or discard crucial measurement information.",
+  "main_result": "The proposed Bayesian adaptive thresholding protocol achieves a high ground-state initialization fidelity (99.44%) with a deterministic and fast reset duration, enabling scalable multi-qubit operations.",
+  "method": "The protocol uses Bayesian inference to continuously update the qubit-state estimate based on the full analog measurement history, dynamically adjusting the feedback threshold at each step.",
+  "model_or_system": "The work is implemented on superconducting transmon qubits coupled to a microwave resonator, utilizing dispersive readout to measure the qubit state via continuous measurement outcomes.",
+  "key_observables": "Ground-state initialization fidelity, five-qubit simultaneous-reset fidelity, prior/posterior probability ($\\pi_i$), and the dynamically adjusted feedback threshold ($t_i$).",
+  "important_parameters": "Signal-to-Noise Ratio (SNR), reset fidelity ($99.44\\%$), and the scaling of expected exit time ($E[T_N] \\propto \\ln N$).",
+  "main_assumptions": "The readout outcomes are approximated by Gaussian distributions, and the analysis often assumes equal measurement variances ($\\sigma_g = \\sigma_e$) for simplification.",
+  "figures_summary": "Figures illustrate the adaptive protocol sequence, the evolution of the threshold relative to confidence, and the convergence of infidelity versus the number of reset rounds.",
+  "paper_structure": "The paper first establishes the limitations of fixed-threshold and Repeat-Until-Success (RUS) protocols. It then details the Bayesian adaptive thresholding method, showing how the threshold updates based on accumulated measurement history. Finally, it presents experimental results demonstrating high fidelity and scalability.",
+  "why_interesting": "This work directly addresses a critical hardware bottleneck in quantum computing—fast, reliable state preparation—by merging advanced statistical inference (Bayesian methods) with superconducting circuit implementation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.25208_figures/2609.25208_fig1.jpg",
+      "caption": "FIG. 1. Measurement-based active reset using dis- persive qubit readout. (a) Standard dispersive measure- ment of a transmon qubit coupled to a microwave resonator. The qubit-state-dependent frequency shift of the resonator maps the qubit state onto the phase of a transmitted coher- ent probe field. (b) Histograms of the integrated measurement outcome I obtained following preparation of |g⟩and |e⟩. The distributions are approximately Gaussian with means µg and µe and variances σ2 g and σ2 e, and the outcomes are scaled such that µg = −1 and µe = +1. The separation and overlap de- termine the measurement strength and readout fidelity. (c) Conventional measurement-based active reset. For an...",
+      "page": 2
+    },
+    {
+      "image": "2609.25208_figures/2609.25208_fig2.jpg",
+      "caption": "FIG. 2. Adaptive-threshold reset protocol based on Bayesian updating of the qubit state estimate. (a) Se- quence of repeated measurements and conditional feedback operations. At round i, the prior probability πi−1 = P(g) is used to determine the measurement threshold ti. Follow- ing acquisition of measurement outcome ri (denoted by × symbols), the posterior probability πi is updated and used to compute the threshold for the subsequent round. Conditional reset operations are applied according to the updated state estimate. (b) Reset threshold ti+1 as a function of the prior probability πi for the cases σg > σe and σe > σg, illustrating how the adaptive decision boundary is updated during the...",
+      "page": 3
+    },
+    {
+      "image": "2609.25208_figures/2609.25208_fig3.jpg",
+      "caption": "FIG. 3. Performance of adaptive threshold reset on a single superconducting qubit. (a) Distributions of mea- surement outcomes ri following successive rounds of adap- tive reset, beginning from |e⟩. After the first round, condi- tional feedback suppresses the population in |e⟩, producing progressively stronger weighting of the measurement distri- bution toward outcomes associated with |g⟩. As the posterior probability πi approaches unity, the reset thresholds (verti- cal dashed lines) shift toward more conservative values, re- flecting increasing confidence that the qubit occupies |g⟩. (b) Distributions of the measurement outcomes ri obtained from Monte Carlo simulations of the...",
+      "page": 4
+    },
+    {
+      "image": "2609.25208_figures/2609.25208_fig4.jpg",
+      "caption": "FIG. 4. Prior probability distribution. (a) Comparison between the estimated prior πi of the first round and P(g) inferred from fitting following measurement distribution (in- set). The measurement results r are binned according to πi for fitting (blue points). The dashed line indicates unit slope. (b) The distribution of πi after each reset cycle.",
+      "page": 5
+    },
+    {
+      "image": "2609.25208_figures/2609.25208_fig5.jpg",
+      "caption": "FIG. 5. Scaling of reset protocols for multi-qubit state preparation. (a)–(d) Repeat-until-success reset applied to a five qubit array. (a) Each qubit undergoes measurement and conditional reset operations until a successful initialization event is heralded (check marks). (b) Reset infidelity as a function of the maximum allowed number of reset cycles, Max[N], in the high-SNR regime. The inset illustrates the two readout thresholds, chosen such that the |g⟩and |e⟩state outcomes each have a state purity of 99%. (c) Reset infidelity as a function of Max[N] in the low-SNR regime, obtained using half the readout amplitude. (d) Mean reset duration and spread in reset times for increasing qubit...",
+      "page": 7
+    }
+  ],
+  "figure": "2609.25208_figures/2609.25208_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 4,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

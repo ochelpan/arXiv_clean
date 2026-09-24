@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2609.25634",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "An Exploratory Replica-Overlap Probe of the Grokking Transition",
+  "authors": "A. C. Opus, J. Q. Lu",
+  "abstract": "We trained 64 independently seeded networks in four configurations, continuing each to sustained convergence or a 40,000-epoch ceiling. We then asked whether an RSB-inspired distribution of pairwise weight overlaps changes across the grokking transition. It is the alignment step, not the overlap statistic, that determines what this registered probe can report. The registered implementation permutes hidden units without the corresponding bias and head-internal permutations and therefore does not preserve the network function. Every q_wt value computed through this alignment inherits the defect; q_fn does not, because it is computed from predictions of the unpermuted models. The numerical-precision requirement also failed, and an audit found protocol deviations. Consequently, the pre-registered rule gives no verdict: registered outcome UNDETERMINED (reason code C0_INSTRUMENT_INVALID). These data provide neither a confirmatory null nor a validated reading of the Parisi order parameter. Only frac40 cleared the 12/16 checkpoint-completeness requirement. For this configuration, a post-hoc criterion applied to the same data gave a Hartigan-dip interval containing zero (95% CI for Delta dip = [-0.017, 0.034]), whereas the overlap standard deviation increased by a factor of about 5.6. A post-hoc calibration assigns the dip test zero power at the simulated separations; the interval is therefore uninformative, not evidence of no change. The standard-deviation ratio is the only statistic here with power at the observed effect. Ensemble loss was near-flat only under the pre-specified 1% threshold. Finally, grokking rates of 0/16, 11/16 and 16/16 remain descriptive because train fraction is confounded with split identity.",
+  "url": "http://arxiv.org/abs/2609.25634v1",
+  "pdf": "https://arxiv.org/pdf/2609.25634v1",
+  "type": "theory",
+  "summary": "This paper applies concepts from spin-glass theory, specifically replica overlap analysis, to study the 'grokking transition' in neural networks. Despite rigorous testing, the primary statistical claims are invalidated by technical defects in the measurement protocol. The work remains an exploratory investigation into the deep connection between glassy physics and deep learning generalization.",
+  "main_problem": "The paper investigates whether the pairwise weight overlap distribution, inspired by Replica-Symmetry-Breaking (RSB) theory, changes across the 'grokking transition' in neural networks.",
+  "main_result": "The pre-registered statistical test failed due to instrument invalidity, and exploratory analyses found no definitive evidence of an RSB-consistent change in the overlap distribution.",
+  "method": "The authors trained multiple independently seeded neural networks and analyzed the pairwise weight overlap distribution using replica methods, comparing states before and after the memorization plateau.",
+  "model_or_system": "The system is a neural network trained on the modular-arithmetic addition task (modulus p=113). The analysis uses concepts from spin-glass theory, specifically replica overlap statistics.",
+  "key_observables": "Pairwise weight overlap distribution P(q), overlap standard deviation, Hartigan's dip statistic (Delta dip), and ensemble loss (O2).",
+  "important_parameters": "The analysis is sensitive to the training fraction (e.g., frac40) and the number of independent replicas (64 or 16).",
+  "main_assumptions": "The primary limitations stem from the weight alignment procedure, which is noted to be non-function-preserving, invalidating the main registered test.",
+  "figures_summary": "Figures likely show Kernel Density Estimates (KDEs) of the overlap distribution and bootstrap intervals for the dip statistic, illustrating the lack of clear change.",
+  "paper_structure": "The paper follows a structure of defining the problem (grokking transition/RSB), detailing the complex, multi-stage methodology (replica training, overlap calculation, statistical testing), presenting the null findings due to technical failures, and concluding with exploratory observations.",
+  "why_interesting": "The application of concepts from spin-glass theory (RSB, overlap distributions) to the dynamics of overparameterized neural networks provides a theoretical bridge between statistical physics and modern AI, which is highly relevant to understanding complex, non-equilibrium optimization landscapes.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.25634_figures/2609.25634_fig1.jpg",
+      "caption": "Figure 1: Left: fraction of 16 replicas that reach post-grokking in each realised train frac×split configuration. Train fraction is confounded with split identity (one split seed per fraction); the horizontal axis therefore indexes three realised configurations rather than a fraction effect. Of the three train-fraction configurations, only frac40 clears the registered checkpoint-completeness gate. Right: transition-epoch distributions for the two configurations in which at least some replicas grok. The 11 grokked frac30 replicas transition at epochs 28,861–37,838, a span of about 9,000 epochs; even the latest transition leaves 2,161 epochs in the budget.",
+      "page": 6
+    },
+    {
+      "image": "2609.25634_figures/2609.25634_fig2.jpg",
+      "caption": "Figure 2: Held-out test accuracy for the two configurations that never grok within the budget. Both follow the 1/113 chance floor. Two frac25 outliers (4.6% and 5.8%, compared with a median of 0.87% across the 16 replicas) are reported only descriptively (n = 2), not as evidence of partial generalization.",
+      "page": 7
+    },
+    {
+      "image": "2609.25634_figures/2609.25634_fig3.jpg",
+      "caption": "Figure 3: Results for frac40, the only configuration that clears the checkpoint-completeness gate. Left: KDEs of pairwise weight-space overlap qwt at the memorization plateau (unimodal, dip = 0.0201) and after grokking (3 KDE modes, dip = 0.0316); these are descriptive only. Right: bootstrap ∆dip intervals. Only the 95% interval is interpreted, and it includes zero. The 99.73% interval is shown for reference but is not used as a decision rule (Section 5.2). Registered outcome (§7 of the pre-registration): UNDETERMINED (reason code: C0 INSTRUMENT INVALID). Under the supplementary same-data criterion (§13 of the pre-registration, evaluated on all 120 observed pairs), no change in the dip was...",
+      "page": 9
+    },
+    {
+      "image": "2609.25634_figures/2609.25634_fig4.jpg",
+      "caption": "Figure 4: Group-B ensemble cross-entropy loss against ensemble size k, exhaustively enumerated over all subsets. The curve is not flat: mean loss at each k decreases monotonically from 9.6839 × 10−5 at k = 1 to 9.6746 × 10−5 at k = 8. This 0.0969% decrease lies within the pre-specified 1% threshold, giving k∗ B = 1. We therefore describe the curve as empirically near-flat in this sample and infer no mechanism from it; Section 5.3 retracts the earlier interpretation as a forced floor effect.",
+      "page": 10
+    }
+  ],
+  "figure": "2609.25634_figures/2609.25634_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

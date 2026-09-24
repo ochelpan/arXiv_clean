@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.25947",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Bridge of $Ψ$'s: Quantum Circuit Optimization with Schrödinger Bridges",
+  "authors": "Lino S. Hofstetter, Lia Yeh, Prakash Murali",
+  "abstract": "Quantum circuit optimization replaces a circuit with an equivalent one of fewer gates and lower depth, reducing execution cost and error rate. We ask whether a generative model can learn this transformation directly from examples, rather than selecting from a fixed rewrite library or rigid algebraic routines. We present Bridge of $Ψ$'s (BOPS), a generative model based on Schrödinger bridges, using a custom denoiser architecture, that learns a transformation from a source circuit into an equivalent optimized circuit. We train it on data constructed to be hard for existing optimizers, by applying rewrite rules backwards so that each input has a known lower-cost target. On held-out 8 qubits $\\times$ 64 depth Clifford+$T$ circuits, BOPS reduces gate count by $2.46\\times$ and depth by $2.45\\times$ in geometric mean, outperforming all nine baseline optimizers. This constitutes the first generative model bridging quantum circuits and frontier machine learning methods, opening up the quantum compilation stack to learned optimization along multiple axes.",
+  "url": "http://arxiv.org/abs/2609.25947v1",
+  "pdf": "https://arxiv.org/pdf/2609.25947v1",
+  "type": "theory",
+  "summary": "This paper introduces BOPS, a novel generative model utilizing Schrödinger bridges, to perform quantum circuit optimization. It frames the task as learning a continuous transformation from a complex source circuit to a minimal equivalent circuit. By outperforming established optimizers, it advances the field by integrating deep generative ML methods into quantum compilation.",
+  "main_problem": "The core problem is quantum circuit optimization: finding an equivalent quantum circuit that has fewer gates and lower depth to reduce computational cost and error rates.",
+  "main_result": "The proposed generative model, BOPS, significantly outperforms nine baseline optimizers, achieving reductions of 2.46x in gate count and 2.45x in depth on tested circuits.",
+  "method": "The authors propose using a generative model based on Schrödinger bridges to learn the transformation from a source circuit to an optimized equivalent circuit directly from examples.",
+  "model_or_system": "The system under study is quantum circuits, represented by sequences of gates using the Clifford+T gate set. The optimization is framed as a continuous transport problem between the source and target circuit distributions.",
+  "key_observables": "Gate count, circuit depth, and the exact equivalence of the resulting unitaries.",
+  "important_parameters": "The circuit size is tested on held-out 8 qubits $\times$ 64 depth Clifford+T circuits.",
+  "main_assumptions": "The method assumes that circuit optimization can be modeled as a continuous process bridged by a generative model, and it relies on constructing a paired training dataset by applying rewrite rules backward.",
+  "figures_summary": "Figures illustrate the BOPS architecture and training pipeline, while other figures detail the structure of the circuit representation tensor and the systematic application of SAT-mined rewrite rules for simplification.",
+  "paper_structure": "The paper introduces the problem, details the theoretical framework using Schrödinger bridges for circuit-to-circuit transport, presents the BOPS model architecture, trains it on synthetic data, and validates its performance against state-of-the-art hard-coded and search-based optimizers.",
+  "why_interesting": "This work bridges advanced machine learning techniques (diffusion models, generative modeling) directly into the quantum compilation stack, offering a data-driven approach to quantum circuit optimization that moves beyond fixed algebraic rules.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.25947_figures/2609.25947_fig1.jpg",
+      "caption": "Figure 1. BOPS architecture and training pipeline; new components are shown in lavender.",
+      "page": 2
+    },
+    {
+      "image": "2609.25947_figures/2609.25947_fig2.jpg",
+      "caption": "Figure 2. Circuit representation, after Fürrutter et al. [11, 12]. Tokens 1–6 are the gates of (1), 0 an empty cell, and −6/6 the control/target of a CX (shaded).",
+      "page": 5
+    },
+    {
+      "image": "2609.25947_figures/2609.25947_fig3.jpg",
+      "caption": "Figure 3. The denoiser, drawn as the tensor shape 𝑄× 𝐷× 𝑐at each stage. The tensor of §4.1 enters as 𝑥𝑡, with the source 𝑥1 concatenated along the channel axis. Four downsamplings merge neighboring columns and widen the channels (192, 256, 384, 512, 768 over five levels), four mirror levels undo them, and the qubit axis is never reduced. The output is the predicted noise 𝜖𝜃(𝑥𝑡,𝑡,𝑥1), from which (9) gives ˆ𝑥0.",
+      "page": 6
+    },
+    {
+      "image": "2609.25947_figures/2609.25947_fig4.jpg",
+      "caption": "Figure 4. Reverse rule application. The SAT-mined rule S3-08 (Fig. 10) read right to left: its boxed two-gate right-hand side, matched on 𝑞0,𝑞1,𝑞2 of a four-qubit circuit, is replaced by its five-gate left-hand side.",
+      "page": 8
+    },
+    {
+      "image": "2609.25947_figures/2609.25947_fig5.jpg",
+      "caption": "Figure 5. Motif library (8 entries). Building blocks the circuit sampler draws from, all expressed in the Clifford+𝑇gate set {𝐻,𝑆,𝑆†,𝑇,𝑇†, cx}; no parameterized rotations occur. The dashed Toffoli in the second circuit is a macro for the 15-gate circuit directly above it. The third through fifth circuits form the ladder family: their width 𝑘is sampled uniformly from [𝑘min,𝑄] and is shown here at 𝑘= 4.",
+      "page": 21
+    }
+  ],
+  "figure": "2609.25947_figures/2609.25947_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

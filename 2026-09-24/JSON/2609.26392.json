@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.26392",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Double Descent and Malign Overfitting in Diffusion Models",
+  "authors": "Raphaël Urfin, Tony Bonnaire, Giulio Biroli, Marc Mézard",
+  "abstract": "Conventional wisdom in deep learning holds that overparameterization---having more parameters $p$ than training samples $n$---is benign: larger models generalize better and, even without regularization, interpolating models generalize well, the test error following a double-descent curve. One might expect the same benign overfitting for diffusion models, whose training reduces to regression, i.e. to minimizing a quadratic score-matching loss. Yet the opposite is observed: overfitting here is catastrophic, driving the model into a memorization regime. We resolve this paradox by combining experiments on U-Nets trained on CelebA with a random-features model for which we derive closed-form learning curves. We show that with a fixed number $m$ of noise realizations per training sample, an interpolation peak does occur, but at $p\\sim nm$ rather than at $p\\sim n$ as in standard regression. The rise of the test loss, however, sets in much earlier, at $p\\sim n$, independently of $m$. This overfitting is malign because, although the implicit regularization of training is fully at work, it drives the model toward the empirical score, which memorizes the training set, rather than toward the true score. A bias-variance decomposition pinpoints the mechanism: the bias of the score estimator starts to grow at $p\\sim n$; past the peak the variance decays, as in regression, whereas the bias keeps growing and both saturate at a large value. Since diffusion models are trained with $m\\gg1$, the peak is pushed to very large model sizes, and therefore sit on the rising branch that precedes it, where malign overfitting is already in play. Nevertheless, overparameterization remains beneficial when paired with regularization: in the random-features theory and in U-Net experiments, optimally regularized large models---via a ridge penalty or early stopping, respectively---outperform any unregularized models.",
+  "url": "http://arxiv.org/abs/2609.26392v1",
+  "pdf": "https://arxiv.org/pdf/2609.26392v1",
+  "type": "theory",
+  "summary": "This paper investigates why diffusion models exhibit 'malign overfitting'—a failure mode worse than expected—despite being fundamentally regression-like. By analyzing the bias and variance of the score estimator, the authors show that the model memorizes training data rather than learning the true underlying distribution. They conclude that while overparameterization is powerful, it requires explicit regularization to prevent catastrophic generalization failure.",
+  "main_problem": "The paper addresses the paradox of 'malign overfitting' observed in diffusion models, contrasting it with the expected 'benign overfitting' from standard deep learning regression.",
+  "main_result": "Overfitting in diffusion models is malignant because the implicit regularization drives the model to memorize the empirical score rather than the true underlying score, which is mitigated only by explicit regularization.",
+  "method": "The analysis combines theoretical derivations using random-features models (Gaussian Equivalence Principle) with empirical studies on U-Nets, employing bias-variance decomposition to pinpoint the failure mechanism.",
+  "model_or_system": "The system studied is the training of diffusion models (like DDPM-style U-Nets) to estimate the score function of an Ornstein-Uhlenbeck process. The theory is rigorously tested using Random Feature Neural Networks (RFNNs).",
+  "key_observables": "Test loss ($L_{\text{test}}$), Empirical test loss ($L_{\text{emp}}^{\text{test}}$), Training loss ($L_{n,m}^{\text{train}}$), Bias, and Variance.",
+  "important_parameters": "Model size ($p$), sample size ($n$), noise realizations ($m$), and regularization strength ($\\lambda$).",
+  "main_assumptions": "The theoretical analysis often relies on the high-dimensional limit ($p, n, d \\gg 1$) and specific asymptotic approximations.",
+  "figures_summary": "Figures illustrate the double descent curve, showing the divergence between $L_{\text{test}}$ and $L_{\text{emp}}^{\text{test}}$ in the overparameterized regime, and demonstrating that regularization restores optimal performance.",
+  "paper_structure": "The paper establishes the paradox, develops theoretical tools (RFNN analysis), diagnoses the mechanism via bias/variance decomposition, and concludes by showing that regularization is necessary to restore beneficial overparameterization.",
+  "why_interesting": "The work provides a deep theoretical understanding of generalization failure in complex generative models, drawing parallels between statistical physics concepts (like phase transitions or critical points) and machine learning generalization boundaries.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.26392_figures/2609.26392_fig1.jpg",
+      "caption": "Figure 1: Qualitative summary of our results. Sketch of the standard test loss Ltest (solid), the empirical test loss Lemp test (dashed), and the training loss Ln,m train (dotted) versus the number of parameters p, for a diffusion model trained on n samples with m > 1 noise realizations each. Ltest reaches its minimum before p ∼n, where the model can generalize, then rises to a peak at the interpolation threshold p ∼nm, where Ln,m train reaches 0 (shifted from p ∼n, its value in the regression setting m = 1). For p ≫nm, the test loss decreases a second time (double descent) but settles on a plateau that lies above its earlier minimum, whereas Lemp test decreases toward zero, more so the...",
+      "page": 2
+    },
+    {
+      "image": "2609.26392_figures/2609.26392_fig2.jpg",
+      "caption": "Figure 2: Double descent in Diffusion Models. (Left) Losses vs. ψp = p/d for an RFNN with Gaussian data at ψn = n/d = 16, m = 16, t = 0.1, λ = 10−3; black curves are the predictions of Theorem 2.1, markers the RFNN trained with Adam on Eq. 2 with ridge penalty λ∆t∥A∥2 F /(dp), averaged over 10 runs. (Middle) Losses vs. p for U-Nets trained on CelebA at n = 2048, m = 8, evaluated at t ≈0.01; error bars are ±3SE over 6 initial seeds. (Right) Large p plateau value of the test loss vs. t for the RFNN (top) and the U-Net (bottom), W = 128, p ≈106M.",
+      "page": 6
+    },
+    {
+      "image": "2609.26392_figures/2609.26392_fig3.jpg",
+      "caption": "Figure 3: Effects of n and m on the double descent. (Left) RFNN test loss vs. ψp for several ψn and m, at t = 0.1, λ = 10−3, σ = tanh. (Middle) Same, with the x-axis rescaled by ψn (top) and ψnm (bottom). (Right) U-Net test loss vs. p for several m at t ≈0.1; error bars are ±3SE of one seed over test sets.",
+      "page": 7
+    },
+    {
+      "image": "2609.26392_figures/2609.26392_fig4.jpg",
+      "caption": "Figure 4: Bias and variance of the score estimator. (Left) Bias and variance for the RFNN model vs. ψp for ψn = 8, t = 0.1, m = 4, λ = 10−3, σ = tanh and several values of d. Solid curves are the analytical predictions from Theorem 2.1; markers are numerical estimates from 10 independent runs. (Right) Bias and variance for U-Net models as a function of p (n = 2048, m = 4, evaluated at t ≈0.01). Error bars correspond to ±3SE over 10 models trained on disjoint datasets.",
+      "page": 7
+    },
+    {
+      "image": "2609.26392_figures/2609.26392_fig5.jpg",
+      "caption": "Figure 5: Effect of m on the double descent. (Left) Empirical test loss Lemp test and (Middle) test loss Ltest vs ψp for an RFNN at several m, with ψn = n/d = 8, t = 0.1, λ = 10−3, σ = tanh; inset: training loss. (Right) FID vs m for early-stopped U-Nets trained on CelebA at n = 16384, W = 32; error bars are ±3SE over 5 seeds.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.26392_figures/2609.26392_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

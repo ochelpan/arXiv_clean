@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.25641",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "When Quantum Meets AI: Quantum Methods for Machine Learning and Machine Learning Methods for Quantum Systems",
+  "authors": "Tak Hur",
+  "abstract": "This thesis studies the intersection of quantum computing and artificial intelligence in two directions: quantum methods for machine learning and machine learning methods for quantum systems. For quantum machine learning, Neural Quantum Embedding learns data representations that increase the trace distance between embedded class ensembles, lowering an embedding-dependent bound on empirical risk and improving classification on noisy quantum hardware. A training objective based on the Hilbert-Schmidt inner product extends this approach to deterministic quantum computation with one qubit (DQC1) and is demonstrated on an NMR quantum processor. A margin-based generalization analysis then connects quantum neural network performance to quantum state discrimination. In the studied benchmarks, margin distributions predict generalization more reliably than parameter-count metrics. For quantum systems, a Mamba-based neural decoder for surface codes matches a reproduced Transformer baseline in memory experiments while reducing inference-cost scaling from quartic to quadratic in code distance. Under an explicit decoder-induced-noise model, it achieves lower logical error rates and a higher effective threshold. For neural quantum states, stochastic reconfiguration is interpreted as tangent-space ridge regression, with its diagonal shift controlling the bias-variance trade-off under finite Monte Carlo sampling. Multi-shift stochastic reconfiguration reduces checkpoint-local validation residuals and update variance relative to fixed-shift SR, at additional computational cost. Together, these contributions show how learned representations, statistical control, and hardware constraints shape the exchange between quantum computing and machine learning.",
+  "url": "http://arxiv.org/abs/2609.25641v1",
+  "pdf": "https://arxiv.org/pdf/2609.25641v1",
+  "type": "both",
+  "summary": "This work explores the synergy between Quantum Machine Learning and AI for quantum systems. It introduces Neural Quantum Embedding (NQE) to enhance quantum classification by improving class separation in the embedding space. Additionally, it applies advanced ML models like Mamba to improve the decoding efficiency of quantum error correction codes.",
+  "main_problem": "The paper investigates the bidirectional intersection between quantum computing and artificial intelligence, developing quantum methods for machine learning and applying ML techniques to quantum systems.",
+  "main_result": "The proposed Neural Quantum Embedding (NQE) framework improves quantum classification performance and provides tighter generalization bounds compared to conventional quantum feature maps. Furthermore, Mamba decoders show promise for improving error correction decoding efficiency.",
+  "method": "The work employs NQE, which trains quantum embeddings by optimizing an implicit fidelity loss, and applies advanced ML architectures like Mamba for quantum error correction decoding.",
+  "model_or_system": "The study utilizes parameterized quantum circuits (QNNs), Quantum Error Correction (QEC) codes like Surface Codes, and various quantum feature maps (e.g., ZZ, XYZ). The work is demonstrated on platforms like NMR quantum processors.",
+  "key_observables": "Trace distance between class ensembles, classification accuracy, effective model complexity (ef-dimension), and logical error rates (LER) in QEC.",
+  "important_parameters": "Noise levels, code distance, learning rates (e.g., Adam LR 0.001), and the structure of the quantum Hamiltonian.",
+  "main_assumptions": "The analysis relies on generalization bounds derived from Rademacher complexity and assumes the applicability of specific noise models for QEC decoding.",
+  "figures_summary": "Figures compare QNNs vs. Quantum Kernels, show NQE improving class separation (trace distance) on MNIST, and illustrate the Mamba decoder's performance relative to Transformers in QEC.",
+  "paper_structure": "The paper is structured around developing NQE for quantum classification, analyzing its generalization bounds using complexity theory, applying it to various feature maps, and separately addressing ML for QEC decoding and state estimation via Stochastic Reconfiguration.",
+  "why_interesting": "The deep integration of ML theory (generalization bounds, representation learning) with fundamental quantum information tasks (classification, error correction) provides a powerful new toolkit for analyzing quantum hardware limitations and potential.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.25641_figures/2609.25641_fig1.jpg",
+      "caption": "Figure 1.1: Schematics of the two dominant paradigms in near-term quantum machine learning. (a) A quantum neural network uses a parameterized quantum circuit 𝑈(𝜃) trained via a classical optimizer. (b) A quantum kernel method uses a fixed quantum feature map to compute kernel entries, which are then processed by a classical algorithm such as an SVM.",
+      "page": 29
+    },
+    {
+      "image": "2609.25641_figures/2609.25641_fig2.jpg",
+      "caption": "Figure 1.2: Schematic of a quantum convolutional neural network (QCNN). The circuit alter- nates between convolutional layers (two-qubit unitaries with shared parameters across neighbor- ing pairs) and pooling layers, until a small number of qubits remain for the final measurement.",
+      "page": 31
+    },
+    {
+      "image": "2609.25641_figures/2609.25641_fig3.jpg",
+      "caption": "Figure 2.1: Trace distance between class-averaged data ensembles 𝐷tr(𝜌−, 𝜌+) for the conven- tional ZZ feature map and Neural Quantum Embedding on the balanced MNIST binary classifi- cation task (digits 0 vs. 1, 4 qubits). The blue dashed reference line indicates the trace distance obtained by the conventional ZZ feature map without NQE. Results obtained on IBM quantum hardware (ibmq_toronto).",
+      "page": 47
+    },
+    {
+      "image": "2609.25641_figures/2609.25641_fig4.jpg",
+      "caption": "Figure 2.2: Overview of the NQE training procedure. A classical neural network 𝑔(x, w) trans- forms input data into rotation angles for the quantum embedding circuit 𝑉. The resulting quan- tum state |x⟩= 𝑉(𝑔(x, w)) |0⟩⊗𝑛is used to compute the implicit fidelity loss via an overlap circuit 𝑉†(𝑔(x𝑗, w)) 𝑉(𝑔(x𝑖, w)) |0⟩⊗𝑛by measuring the probability of the all-zero outcome. The clas- sical parameters w are updated to maximize the distinguishability between classes.",
+      "page": 49
+    },
+    {
+      "image": "2609.25641_figures/2609.25641_fig5.jpg",
+      "caption": "Figure 2.3: QCNN training loss histories for balanced 4-qubit MNIST binary classification (dig- its 0 vs. 1). Blue solid, red dashed, and green dash-dotted lines represent the conventional ZZ fea- ture map, PCA-NQE, and NQE, respectively. Thick lines indicate the theoretical lower bounds from Equation (2.11). Shaded regions represent one standard deviation over five (noiseless) or three (noisy) independent trials. Left: noiseless simulation. Right: IBM quantum hardware (ibmq_jakarta, ibmq_toronto, ibmq_perth).",
+      "page": 52
+    }
+  ],
+  "figure": "2609.25641_figures/2609.25641_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

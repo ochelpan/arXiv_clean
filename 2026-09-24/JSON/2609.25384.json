@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.25384",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el"
+  ],
+  "is_primary_archive": true,
+  "title": "Lattice in Line: Optimized DMRG ordering for complex lattice geometries",
+  "authors": "Roman Rausch",
+  "abstract": "The density-matrix renormalization group (DMRG) is a one-dimensional tensor-network technique, but it is not limited to one-dimensional systems: it can be applied to periodic 2D and 3D clusters and molecules, provided their sites are first enumerated along a line; a step one may call \"lattice compilation\".   This paper discusses three proxy loss functions for finding this optimal enumeration: the graph bandwidth $B$ (maximum interaction range), the cutwidth $C$ (maximum number of bonds crossing a cut), and the average interaction range $R$. Constructing the Hamiltonian MPO (matrix-product operator) for a large set of clusters that are of interest in frustrated magnetism, I find that $C$ determines the peak SU(2) Heisenberg MPO bond dimension and $R$ the average one. Targeting $(C,R)$ lexicographically yields the best energies. Targeting $B$ indirectly reduces $C$, but not as efficiently as targeting $C$ directly. Otherwise, the value of $B$ itself is largely irrelevant in the sense that good DMRG energies can have large $B$.   To perform the optimization, classic heuristics (e.g. reverse Cuthill--McKee) prove unreliable even for small clusters, and I find that a QUBO formulation improves them only marginally. Instead I propose a staged optimization built on Boolean satisfiability (SAT) and constraint-programming (CP) solvers, chiefly CP-SAT of Google's OR-Tools, a hybrid of CP propagation and SAT clause learning. This approach yields significantly better orderings together with rigorous bounds.   The corresponding Lattice in Line code is available at https://github.com/spinflip/lattice_in_line and was designed with extensive use of the Fable 5 large language model.",
+  "url": "http://arxiv.org/abs/2609.25384v1",
+  "pdf": "https://arxiv.org/pdf/2609.25384v1",
+  "type": "theory",
+  "summary": "This paper tackles the critical preprocessing step for applying DMRG to 2D/3D lattices: finding the optimal site ordering. The authors demonstrate that using advanced SAT/CP solvers to optimize for cutwidth ($C$) and interaction range ($R$) is superior to minimizing graph bandwidth ($B$). This methodology provides a powerful, systematic tool for simulating complex magnetic materials.",
+  "main_problem": "The paper addresses the challenge of finding an optimal linear ordering of sites on complex 2D or 3D lattices to efficiently apply the Density-Matrix Renormalization Group (DMRG) algorithm.",
+  "main_result": "Optimizing the ordering by targeting the cutwidth ($C$) and then the average interaction range ($R$) lexicographically yields the best ground-state energies, significantly outperforming bandwidth-only optimizations.",
+  "method": "The authors propose a systematic, staged optimization approach utilizing Boolean Satisfiability (SAT) and Constraint-Programming (CP) solvers (specifically CP-SAT) to solve the NP-hard lattice compilation problem.",
+  "model_or_system": "The work applies to lattice geometries (e.g., pyrochlore, fullerene, kagome) relevant to frustrated magnetism, modeled using Hamiltonians like the SU(2) Heisenberg model.",
+  "key_observables": "Graph Bandwidth ($B$), Cutwidth ($C$), Average Interaction Range ($R$), and the resulting ground-state energy.",
+  "important_parameters": "The optimal ordering is determined by minimizing $(C, R)$ lexicographically, with $B$ being less critical.",
+  "main_assumptions": "Heuristic algorithms (like RCM) are unreliable for achieving true optimal orderings; the SAT/CP approach provides rigorous bounds.",
+  "figures_summary": "Figures compare optimal vs. heuristic orderings for rings, showing $C$ vs. $B$ planes, and comparing $R$ values derived from cutwidth-optimal versus bandwidth-optimal orderings.",
+  "paper_structure": "The paper introduces the problem, analyzes proxy loss functions ($B, C, R$), compares optimization techniques (heuristics vs. QUBO vs. SAT/CP), and systematically presents results for various complex lattice geometries.",
+  "why_interesting": "While focused on lattice ordering, the underlying techniques—using advanced constraint solvers (SAT/CP) to solve hard combinatorial optimization problems—are highly relevant for mapping complex quantum Hamiltonians onto tractable computational structures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.25384_figures/2609.25384_fig1.jpg",
+      "caption": "FIG. 1: Three different mappings of the periodic ring to a 1D chain. B is the maximum interaction range (“bandwidth”, the corresponding longest bond is indicated by a fatter line), C is maximum number of cut bonds (“cutwidth”, the corresponding thickest cut is indicated by the vertical dashed line), R is the average interaction range (“mean edge length”).",
+      "page": 1
+    },
+    {
+      "image": "2609.25384_figures/2609.25384_fig2.jpg",
+      "caption": "FIG. 2: Shortcoming of the Reverse Cuthill-McKee (RCM) algorithm for a ring with L = 10 and J = J′ = 1: (a) The solution, optimal in both bandwidth B and cutwidth C; (b) the RCM solution. The resulting chain is bent to a horseshoe for better visibility and the numbers indicate the sites in the original enumeration to verify connectivity. The orange bonds indicate the position with the largest number of cuts; the red arrow indicates the longest hopping in the resulting chain.",
+      "page": 3
+    },
+    {
+      "image": "2609.25384_figures/2609.25384_fig3.jpg",
+      "caption": "FIG. 3: Scatterplot of the obtained campaign solutions (Tabs. I and II) in the cutwidth C vs. bandwidth B plane. When the B and C campaigns led to the same C, the points are joined by a grey line, differences of 1 (2) are marked by a yellow (orange) line; and larger differences are marked by a red line.",
+      "page": 6
+    },
+    {
+      "image": "2609.25384_figures/2609.25384_fig4.jpg",
+      "caption": "FIG. 4: Scatterplot of the obtained average interaction range R of the obtained campaign solutions (Tabs. I and II). The x-axis is the R = Rbw optimized in the campaign for the primary objective of the bandwidth B, the y-axis is the R = Rcw optimized in the campaign for the cutwidth C. All points like below the line Rbw = Rcw, indicating that the C campaign was more effective at lowering R.",
+      "page": 7
+    },
+    {
+      "image": "2609.25384_figures/2609.25384_fig5.jpg",
+      "caption": "FIG. 5: Left: Peak MPO bond dimension χ = χmax as a function of the cutwidth C fitted by a linear law. Right: Average MPO bond dimension χavg as a function of the average interaction range R is fitted by a linear law.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.25384_figures/2609.25384_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

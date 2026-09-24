@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.26372",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.other"
+  ],
+  "is_primary_archive": true,
+  "title": "Lattice Lindbladian simulation by patching and merging",
+  "authors": "Kaoru Mizuta",
+  "abstract": "Simulating the dynamics of dissipative quantum many-body systems governed by local Lindbladians is a fundamental task in quantum computation. While the near-optimal gate count has been achieved for Hamiltonian simulation, comparable results for Lindbladian simulation remain elusive. In this work, we develop quantum algorithms for lattice Lindbladians by exploiting their locality. First, we consider sparsely dissipative systems, in which the dissipation is sparsely located, including boundary-driven systems. We establish a near-optimal quantum algorithm for their dynamics with gate count $O(Nt \\, \\mathrm{polylog}(Nt/\\varepsilon))$, where $N$ is the system size, $t$ is the evolution time, and $\\varepsilon$ is the allowable error. We then consider generic lattice Lindbladians with finite-range interactions and dissipation, and develop an algorithm for simulating time-evolved observables with gate count $O((Nt)^{4/3} \\, \\mathrm{polylog}(Nt/\\varepsilon))$ per sample with the sampling complexity $Θ(\\varepsilon^{-2})$. The gate count has the smallest known dependence on the system size among algorithms retaining polylogarithmic dependence on $1/\\varepsilon$. Our algorithms are based on two techniques that exploit locality: patching and merging. Patching decomposes dissipative dynamics into dynamics on subsystems with exponentially small error, generalizing a key idea underlying the Haah-Hastings-Kothari-Low algorithm for near-optimal Hamiltonian simulation. Merging absorbs reversed dissipative dynamics into other parts of the evolution, substantially reducing the overhead associated with quasi-probabilistic sampling. These results demonstrate that locality can be fully exploited to achieve fast quantum simulation of dissipative many-body dynamics, opening the way to applications such as predicting nonequilibrium phenomena and preparing desirable quantum states.",
+  "url": "http://arxiv.org/abs/2609.26372v1",
+  "pdf": "https://arxiv.org/pdf/2609.26372v1",
+  "type": "theory",
+  "summary": "This paper presents quantum algorithms to simulate the dynamics of dissipative quantum many-body systems described by Lindbladians. By exploiting the locality of the dissipation using novel 'patching' and 'merging' techniques, the authors achieve near-optimal gate counts for sparsely dissipative systems. This advances the field by providing scalable quantum tools for simulating open quantum dynamics.",
+  "main_problem": "The core problem is developing quantum algorithms to simulate the time evolution of dissipative quantum many-body systems governed by local Lindbladians.",
+  "main_result": "The authors establish near-optimal quantum algorithms for sparsely dissipative systems, achieving a gate count of O(Nt polylog(Nt/epsilon)), and present an algorithm for generic systems with a scaling of O((Nt)^(4/3) polylog(Nt/epsilon)).",
+  "method": "The algorithms exploit locality using two key techniques: 'patching' to decompose dynamics into subsystems and 'merging' to absorb reversed dissipative dynamics, generalizing ideas from Hamiltonian simulation.",
+  "model_or_system": "The system is a lattice ($\\Lambda$) described by the Gorini-Kossakowski-Sudarshan-Lindblad (GKSL) master equation, $\frac{d}{dt}\rho(t) = L\rho(t)$, where $L$ is the local Lindbladian.",
+  "key_observables": "Gate Count (primary efficiency metric), time-evolved state $\rho(t)$, and time-evolved observables $\\langle O\rangle\rho(t)$.",
+  "important_parameters": "System size ($N$), evolution time ($t$), and allowable error ($\\epsilon$).",
+  "main_assumptions": "The analysis relies heavily on the locality of the Lindbladians and the ability to decompose the evolution using patching and merging techniques.",
+  "figures_summary": "Figures illustrate the decomposition of the lattice into internal and external boundaries for high-dimensional systems, detailing the iterative steps of the patching and merging protocol.",
+  "paper_structure": "The paper progresses by first establishing the problem (Lindbladian simulation), then introducing the locality-exploiting techniques (patching/merging), and finally presenting the main theorems for sparsely dissipative and generic lattice Lindbladians, culminating in complexity analysis.",
+  "why_interesting": "This work directly addresses the simulation of open quantum systems, which is crucial for understanding decoherence and non-equilibrium dynamics in quantum computation and quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.26372_figures/2609.26372_fig1.jpg",
+      "caption": "Figure 1 (b) shows the schematic picture of sparsely dissipative systems satisfying the above definition. Im- portantly, they include boundary-driven systems, where the dissipation is located around the left and right bound- aries like Fig. 1 (c). Boundary-driven systems are typical targets in open quantum many-body systems [43], and hence the first algorithm has broad utility in nonequi- librium physics. We develop a near-optimal quantum algorithm for sparsely dissipative systems, whose cost is given by the following theorem.",
+      "page": 6
+    },
+    {
+      "image": "2609.26372_figures/2609.26372_fig2.jpg",
+      "caption": "FIG. 1. Schematic picture of the system. (a) Generic sys- tems addressed by Algorithm 2. (b) Sparsely dissipative sys- tems satisfying Definition 1, and addressed by Algorithm 1. (c) Boundary-driven systems as a typical example of sparsely dissipative systems. We consider high-dimensional systems in Appendix C.",
+      "page": 6
+    },
+    {
+      "image": "2609.26372_figures/2609.26372_fig3.jpg",
+      "caption": "FIG. 2. (a) Patching lemma for the Lindbladian system. (b) The decomposition used in the HHKL algorithm.",
+      "page": 7
+    },
+    {
+      "image": "2609.26372_figures/2609.26372_fig4.jpg",
+      "caption": "FIG. 3. (a) The patching lemma with the flexible block sizes, given by Corollary 7. (b) The patching strategy for the sparsely dissipative systems. We set the domains A2, A4, · · · so that they can avoid the sites subject to the dissipation.",
+      "page": 10
+    },
+    {
+      "image": "2609.26372_figures/2609.26372_fig5.jpg",
+      "caption": "FIG. 4. (a) The patching strategy for generic local Lindbladians, giving UPatch(τ) by Eq. (97). We optimize the block size Rp to minimize the gate count while we set R ∈Θ(log(Nt/ε)). (b) The merging strategy based on Eqs. (103) and (104). The internal layers are merged and regarded as a set of disjoint green blocks with the size O(R). (c) The outline of Algorithm 2. We repeat the operation with the time τ = t/rt. The orange blocks with the size O(Rp) are reproduced by the LCU based approach for Lindbladian dynamics, while we use quasi-probabilistic sampling for the merged green blocks. The repetition number rt is determined so that the sampling overhead can be suppressed.",
+      "page": 14
+    }
+  ],
+  "figure": "2609.26372_figures/2609.26372_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 3,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}
