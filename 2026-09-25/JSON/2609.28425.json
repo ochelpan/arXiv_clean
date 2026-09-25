@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.28425",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Repairability of Inexact Solvers in Recursive State Estimation with Machine Learning",
+  "authors": "Yanjun Ji, Dennis Willsch, Orkun Şensebat, Priyanka Arkalgud Ganeshamurthy, Zhi Pei, M. Sahnawaz Alam, Ivelina Stoyanova, Frank K. Wilhelm, Bo Zhao, Chao Wang, Kristel Michielsen",
+  "abstract": "Recursive state estimation often executes approximate numerical solutions inside a feedback loop, where highly accurate local steps do not guarantee better overall results. For a fixed linear Kalman model, we characterize when a correction within a prescribed subspace and norm budget can meet a local admissibility tolerance, and how the defects actually executed affect the finite-horizon covariance response. Centering each defect on the exact gain for the implemented covariance separates current solve error from inherited gain drift. Expanding the exact residual-drift identity reveals opposing quartic contributions beyond the quadratic response: innovation-covariance inflation enters positively, while local-gain reoptimization enters subtractively. Under matched initialization, an absolute sixth-order remainder bound, uniform over bounded defect sequences at fixed horizon, gives sufficient conditions for quadratic under- or overprediction. Machine learning proposes bounded corrections, while a learner-independent residual certificate and verified fallback govern execution of classical and quantum candidates without changing the reference estimator. In a power-grid tolerance study, learned correction lowers the minimum conjugate-gradient iteration count for deployment without fallback relative to uncorrected solves under the same residual certificate. Gains reconstructed from a variational quantum linear solver and from an annealing-based binary encoding, with small-scale terminal measurements on superconducting hardware and sampling on a quantum annealer, are executed through the same interface. By linking local repairability to nonlinear error propagation, the framework evaluates approximate solvers and learned corrections through independent certification and finite-horizon response, providing a practical basis for studying hybrid quantum--classical computation.",
+  "url": "http://arxiv.org/abs/2609.28425v1",
+  "pdf": "https://arxiv.org/pdf/2609.28425v1",
+  "type": "both",
+  "summary": "This work develops a rigorous theory to assess how errors from inexact numerical solvers accumulate in recursive state estimation processes. It introduces a framework that certifies the repairability of these solvers, allowing for the practical integration of machine learning and quantum-derived gains into classical control loops. This provides a vital tool for analyzing hybrid quantum-classical computation in physical systems.",
+  "main_problem": "The paper analyzes the repairability of inexact numerical solvers used within recursive state estimation loops, addressing how local approximation errors affect the overall finite-horizon system performance.",
+  "main_result": "It establishes an exact one-step repairability boundary and provides a framework to evaluate approximate solvers and ML-proposed corrections through independent residual certification, even when integrating quantum solvers.",
+  "method": "The authors derive an exact residual-drift identity for the covariance response and compare classical iterative solvers (like CG) against quantum-inspired solvers (VQLS) within a state-space estimation framework.",
+  "model_or_system": "The core model is a fixed linear Kalman model used for recursive state estimation, applicable to systems like power grids or adaptive optics. The analysis uses a finite-horizon linear-Gaussian state-space model.",
+  "key_observables": "Local defect ($E_k$), inherited gain drift ($\\Gamma_k$), finite-horizon covariance response (showing quartic contributions), and the minimum conjugate-gradient iteration count.",
+  "important_parameters": "The analysis depends on the prescribed subspace, the Frobenius-norm budget for corrections, and the tolerance levels ($\\eta$) used in the solvers.",
+  "main_assumptions": "The initial analysis assumes a fixed linear model and matched initialization, though the framework is designed to evaluate extensions to more complex dynamics.",
+  "figures_summary": "Figures illustrate the separation of current solve error from inherited drift, the opposing quartic contributions to the covariance response, and deployment trajectories comparing different solver policies across various IEEE test systems.",
+  "paper_structure": "The paper builds from characterizing the error propagation via an exact identity, defining the local repairability boundary, integrating ML-proposed corrections via a residual certificate, and finally validating the framework by applying it to power-grid state estimation using quantum and classical solvers.",
+  "why_interesting": "While the application is classical state estimation, the rigorous mathematical framework for error bounding, certification, and hybrid quantum-classical integration is highly relevant for controlling open quantum systems where measurement and feedback are inherently noisy and approximate.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.28425_figures/2609.28425_fig1.jpg",
+      "caption": "Figure 1. Schematic of local repairability, certified execution, and recursive response. (a) Gain coordinates separate the executed defect Ek = e Kk −Kloc k from inherited drift Γk = Kloc k −K⋆ k. The inset shows a one-dimensional bounded correction class Ck = {∆∈Vcorr : ∥∆∥F ≤δc}. The reachable segment Kalg k + Ck intersects the admissible ball of radius δadm centered on Kloc k . The intersection contains admissible gains, while the learned candidate Kcand k = Kalg k + ∆ml k (diamond) lies outside: correction existence does not guarantee learned attainment. Independent residual checking determines whether the candidate or a verified fallback is executed. (b) Executed defects inject EkSkET...",
+      "page": 2
+    },
+    {
+      "image": "2609.28425_figures/2609.28425_fig2.jpg",
+      "caption": "Figure 2. Signed-quartic response and sixth-order remainder for one synthetic linear-Gaussian instance constructed from the network geometry of the pandapower IEEE 14-bus case [40] (IEEE 14; Sec. V A) with n = 27, m = 64, T = 100, and Mk = I. The reference and implemented recursions are initialized identically, and a single prescribed defect-direction sequence is used to construct gains at eight amplitudes from 2−10 to 2−3, where δexec := maxk ∥Ek∥F is the represented executed-defect amplitude and corresponds to δ in Eq. (22). In the figure, R, B, Qres, Qdrift, Cinfl, Creopt denote RM T , BM T , Qres T , Qdrift T , CM,infl T , CM,reopt T , respectively. (a) Quadratic effect. (b) Quartic...",
+      "page": 7
+    },
+    {
+      "image": "2609.28425_figures/2609.28425_fig3.jpg",
+      "caption": "Figure 2 displays the asymptotic hierarchy predicted by Theorem 1. In Fig. 2(a), the normalized finite-horizon response approaches the fixed-reference quadratic con- tribution as the executed defect decreases. Figure 2(b) isolates the leading recursive-feedback correction: along this prescribed defect direction, the quartic contribu- tion is negative, with local-gain reoptimization exceeding innovation-covariance inflation. After both quartic terms are retained, the residual in Fig. 2(c) is consistent with the sixth-order remainder in Eq. (31).",
+      "page": 7
+    },
+    {
+      "image": "2609.28425_figures/2609.28425_fig4.jpg",
+      "caption": "Figure 3. Repairability boundary for finite conjugate gradi- ent (CG) gain defects. The stacked bands show the fractions of 4096 held-out evaluation instances classified as harmless (green), repairable (blue), budget-obstructed (purple), and subspace-obstructed (orange) by Theorem 2 as a function of the normalized correction-subspace fraction d/(nm), where d = dim(Vcorr). Here n = 27, m = 16, and nm = 432. For each independently generated local estimation instance, the approximate gain is obtained after three zero-start, unprecon- ditioned CG iterations. The correction subspaces are nested prefixes of a single principal component analysis (PCA) basis fitted on an independent acquisition...",
+      "page": 9
+    },
+    {
+      "image": "2609.28425_figures/2609.28425_fig5.jpg",
+      "caption": "Figure 4. Monitored conjugate gradient (M-CG) and learned-corrected conjugate gradient (LC-CG) on one IEEE 14 re- alization with n = 27, m = 64, and correction dimension cap dcap = 64. Both policies use the same residual cer- tificate, admissibility tolerance, and verified fallback at each η. Evaluation covers 600 deployment steps following 400 commissioning steps. (a) Reduction in fallback fraction, f M fb −f LC fb , from Eq. (46), versus admissibility parameter η ∈ {0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.15, 0.2} and CG iteration t. Curves mark each policy’s smallest evaluated CG iteration with zero deployment fallbacks; blank cells were not evaluated. (b) Normalized root mean...",
+      "page": 12
+    }
+  ],
+  "figure": "2609.28425_figures/2609.28425_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.28391",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum score matching with applications to learning thermal states",
+  "authors": "Yulong Dong, Jiaqi Leng",
+  "abstract": "Score matching has driven major advances in classical generative learning by enabling models to learn from data without evaluating intractable normalization constants, or partition functions. Yet, extending this principle to quantum learning requires rethinking its foundations, as quantum states are described by noncommuting density operators rather than scalar probabilities. The noncommutativity creates fundamental challenges not only in defining quantum scores, but also in developing a training framework with efficient circuit implementations and rigorous theoretical guarantees. In this work, we bridge this gap by establishing a general quantum score-matching framework with end-to-end theoretical guarantees. Applied to Gibbs-state learning, our approach avoids additional thermal-state preparation and achieves information-theoretically optimal sample complexity in the high-temperature regime for Hamiltonians with bounded locality and interaction degree. This positions score matching as a new route to state-of-the-art performance in learning quantum Gibbs states.   Beyond these theoretical results, numerical simulations show that our method remains effective even when gradients are estimated inaccurately under limited measurement budgets. Experiments on IBM quantum hardware further demonstrate that quantum score matching is NISQ-friendly: without any error mitigation or correction, it reduces the relative Hamiltonian-parameter error from 64% to approximately 10%. Together, these results extend score matching into an experimentally realizable paradigm for quantum-state learning.",
+  "url": "http://arxiv.org/abs/2609.28391v1",
+  "pdf": "https://arxiv.org/pdf/2609.28391v1",
+  "type": "both",
+  "summary": "This paper introduces quantum score matching, adapting a powerful classical generative model technique to learn unknown quantum thermal states (Gibbs states). By establishing a theoretically sound framework and demonstrating its effectiveness on real quantum hardware, it offers a new, experimentally realizable route for quantum state tomography and characterization.",
+  "main_problem": "The core challenge is extending classical score matching, a generative learning technique, to the quantum domain where states are governed by noncommuting density operators.",
+  "main_result": "The authors establish a theoretically guaranteed quantum score-matching framework that achieves information-theoretic optimal sample complexity for learning high-temperature Gibbs states.",
+  "method": "They define a symmetric quantum score and formulate an objective function (squared score discrepancy) that can be evaluated using Monte Carlo sampling from the unknown target state.",
+  "model_or_system": "The focus is on learning quantum Gibbs states, $\\sigma \\propto e^{-\beta H(\theta^*)} / \text{Tr}(e^{-\beta H(\theta^*)})$, parameterized by a Hamiltonian $H(\theta)$. The method is tested on IBM quantum hardware.",
+  "key_observables": "The primary observables are the quantum scores ($S_a$), the objective function $J_Q(\theta)$, and the relative Hamiltonian-parameter error.",
+  "important_parameters": "Key parameters include the inverse temperature ($\beta$), the measurement budget (limited shots), and the locality/interaction degree of the Hamiltonian.",
+  "main_assumptions": "The framework assumes the existence of a 'sufficiently rich' derivation frame for global identifiability, and the theoretical guarantees are strongest in the high-temperature regime.",
+  "figures_summary": "The notes describe a table (Table 3) tracking the mean and relative parameter errors of observables ($\bar{J}, \bar{h}$) over 46 epochs of optimization on IBM hardware for two different temperatures ($\beta=0.2$ and $\beta=0.4$).",
+  "paper_structure": "The paper introduces the quantum score-matching framework, derives the objective function and gradient estimators, proves theoretical guarantees (including sample complexity bounds), and validates the method through numerical simulations and hardware experiments.",
+  "why_interesting": "This work provides a concrete, experimentally viable machine learning paradigm for characterizing thermal quantum states, which is crucial for simulating and understanding complex many-body physics beyond simple mean-field approximations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.28391_figures/2609.28391_fig1.jpg",
+      "caption": "Figure 1: Finite-shot QSM learning for the inhomogeneous TFIM in Eq. (35). The top row shows the mean relative parameter error at N = 106 from far and local initializations. The bottom row shows the error of the Polyak–Ruppert averaged output as a function of the total measurement budget per iteration. Solid curves and shaded regions show the mean and one standard deviation over 100 independent trajectories. The short dashed segment indicates the N−1/2 sampling rate. Optimization details are given in Section E.",
+      "page": 14
+    },
+    {
+      "image": "2609.28391_figures/2609.28391_fig2.jpg",
+      "caption": "Figure 2: Temperature-dependent population landscape and finite-shot learning dynamics from far initialization. The color map shows JQ(θ) −JQ(θ∗) in the (J1, hx 1) plane with the remaining coefficients fixed at their target values. Orange and black curves are the mean trajectories for N = 103 and 105, respectively. Dashed ellipses show one standard deviation of the trajectory endpoints over 100 independent trajectories, and the white circle has radius 0.05∥(J∗ 1, (hx 1)∗)∥2. The trajectories are projected onto the displayed coordinate plane.",
+      "page": 15
+    },
+    {
+      "image": "2609.28391_figures/2609.28391_fig3.jpg",
+      "caption": "Figure 3: Gradient accuracy and learning from far initialization with N = 105. The first three panels show the absolute gradient error ∥[ ∇JQ −∇JQ∥2, its value relative to ∥∇JQ∥2, and the cosine similarity between the estimated and exact gradients. The final panel shows the relative parameter error. Curves and shaded regions show the pointwise mean and one standard deviation over 100 independent trajectories.",
+      "page": 16
+    },
+    {
+      "image": "2609.28391_figures/2609.28391_fig4.jpg",
+      "caption": "Figure 4: Learning a four-qubit TFIM on IBM quantum hardware. Curves and shaded regions show the mean and one sample standard deviation of the errors over five independent runs from a common initialization.",
+      "page": 16
+    },
+    {
+      "image": "2609.28391_figures/2609.28391_fig5.jpg",
+      "caption": "Figure 5: Mean hardware learning trajectories over 45 updates on the population loss landscape. Each curve averages the parameters of five independent runs. The black point and white star mark the initialization and target.",
+      "page": 17
+    }
+  ],
+  "figure": "2609.28391_figures/2609.28391_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

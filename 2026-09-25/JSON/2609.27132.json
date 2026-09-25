@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.27132",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "cond-mat.str-el",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Exact Equivariance from Ordinary Neural Networks for Lattice Many-Body Dynamics",
+  "authors": "Ho Jang, Sankha Subhra Bakshi, Gia-Wei Chern",
+  "abstract": "Large-scale simulations of correlated electron systems require repeated evaluations of the electronic forces and transition energies driving collective dynamics. Machine-learning surrogates alleviate this bottleneck, but incorporating symmetry often involves carefully designed descriptors or specialized network architectures. We show that ordinary multilayer perceptrons equipped with finite-group averaging provide exactly equivariant surrogates directly from microscopic configurations. The construction separates symmetry enforcement from the internal network architecture and applies to both discrete and continuous lattice degrees of freedom. In the Falicov--Kimball model, it predicts directional hopping free-energy differences; in the Holstein model, its invariant limit generates conservative lattice forces. Benchmarks against exact diagonalization establish microscopic accuracy and agreement of dynamical correlations, while large-scale simulations recover multiscale charge ordering and charge-density-wave coarsening. These results demonstrate an accessible, reusable route to symmetry-preserving many-body dynamics for systems with finite lattice point groups.",
+  "url": "http://arxiv.org/abs/2609.27132v1",
+  "pdf": "https://arxiv.org/pdf/2609.27132v1",
+  "type": "theory",
+  "summary": "This paper introduces an Equivariant Projection Network (EPN) that allows ordinary neural networks to generate predictions that inherently respect the underlying physical symmetries of lattice Hamiltonians. By averaging predictions across symmetry transformations, the method bypasses the need for specialized equivariant network architectures. This provides an accessible and accurate tool for simulating complex, symmetry-governed dynamics in correlated electron systems.",
+  "main_problem": "Developing efficient, symmetry-preserving machine learning surrogates to replace computationally expensive electronic structure calculations for large-scale simulations of correlated electron systems.",
+  "main_result": "The proposed Equivariant Projection Network (EPN) framework successfully generates exactly equivariant surrogates for electronic forces and transition energies directly from ordinary MLPs.",
+  "method": "The EPN enforces symmetry by evaluating an ordinary MLP on all symmetry-related configurations and averaging the results according to the finite-group averaging formula.",
+  "model_or_system": "The work applies to correlated electron systems, specifically demonstrating success with the Falicov–Kimball model and the Holstein model, which involve lattice dynamics and charge ordering.",
+  "key_observables": "Directional hopping free-energy differences ($\\Delta E_{i,\\alpha}$), conservative lattice forces ($\\mathbf{F}_{\text{ML}}$), and charge-density-wave coarsening.",
+  "important_parameters": "The method is applicable to systems with known, finite lattice point groups ($G$).",
+  "main_assumptions": "The approximation relies on the assumption of electronic nearsightedness and that the local environment contains sufficient information to predict local dynamics.",
+  "figures_summary": "Figure 1 illustrates the EPN for Falicov–Kimball dynamics using $D_4$ symmetry. Figure 2 compares predicted hopping free-energy differences ($\\Delta E_{ML}$) against Exact Diagonalization (ED) values and shows agreement in kMC simulations.",
+  "paper_structure": "The paper introduces the EPN framework, demonstrates its application to calculate directional hopping free-energy differences in the Falicov-Kimball model, and then applies it to generate conservative lattice forces for the Holstein model, validating results against ED benchmarks and large-scale simulations.",
+  "why_interesting": "The development of symmetry-preserving ML surrogates is crucial for simulating complex quantum materials dynamics, providing a computationally tractable route to study phenomena like charge ordering and phase transitions in systems where traditional methods are too slow.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.27132_figures/2609.27132_fig1.jpg",
+      "caption": "FIG. 1. Equivariant projection network (EPN) for Falicov–Kimball dynamics. Each D4 operation transforms the local f- electron configuration before it enters a shared MLP. The four predicted hopping free-energy differences are transformed back and averaged, yielding an exactly equivariant output.",
+      "page": 3
+    },
+    {
+      "image": "2609.27132_figures/2609.27132_fig2.jpg",
+      "caption": "FIG. 2. Microscopic and dynamical benchmarks of the EPN for the Falicov–Kimball model. (a) Predicted hopping energy changes ∆EML versus exact-diagonalization values ∆EED. The dashed line denotes perfect agreement; the inset shows the distribution of prediction errors δ = ∆EML−∆EED. (b,c) f-electron density correlation function Cf(r) = ⟨nf i nf j ⟩−ρ2 f, with r = |ri−rj|, obtained from ED-kMC and EPN-kMC sim- ulations after a thermal quench at (b) t = 20 and (c) t = 100 sweeps.",
+      "page": 4
+    },
+    {
+      "image": "2609.27132_figures/2609.27132_fig3.jpg",
+      "caption": "FIG. 3. Large-scale FK phase ordering with EPN-kMC. (a– c) Effective Ising configurations at t = 100, 1000, and 5000 sweeps show coarsening of superclusters. Red and blue dis- tinguish opposite sublattice polarities. (d) Microscopic f- electron configuration in the green square in (c), resolving the disconnected checkerboard clusters underlying the larger domains.",
+      "page": 4
+    },
+    {
+      "image": "2609.27132_figures/2609.27132_fig4.jpg",
+      "caption": "FIG. 4. Invariant projection network (IPN) for Holstein dynamics. For each lattice site i, the local distortion environment Xi is transformed by all g ∈D4 and evaluated by a shared MLP; averaging the scalar outputs gives an invariant local energy ϵi. Applying the same IPN to overlapping local environments throughout the lattice forms the standard Behler–Parrinello construction, EML = P",
+      "page": 5
+    },
+    {
+      "image": "2609.27132_figures/2609.27132_fig5.jpg",
+      "caption": "FIG. 5. Microscopic and dynamical benchmarks of the IPN for the Holstein model. (a) IPN-predicted forces FML ver- sus exact-diagonalization values FED. The dashed line de- notes perfect agreement; the inset shows the distribution of prediction errors δ = FML −FED. (b,c) Equal-time lattice- distortion correlation function CQ(r) obtained from ED and IPN Langevin dynamics after a thermal quench at (b) t = 40 and (c) t = 160.",
+      "page": 6
+    }
+  ],
+  "figure": "2609.27132_figures/2609.27132_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

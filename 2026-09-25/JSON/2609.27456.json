@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.27456",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AR"
+  ],
+  "is_primary_archive": true,
+  "title": "Precision and resource scaling of real-time flux distortion compensation for superconducting quantum control",
+  "authors": "Qi Zhou, Zi-Hao Mei, Peng Duan, Peng Wang, Liang-Liang Guo, Hao-Ran Tao, Wei-Cheng Kong, Hui Yang, Guo-Ping Guo, Zhao-Yun Chen",
+  "abstract": "Real-time waveform generation supports dynamic quantum circuits without pre-storing complete waveforms for every execution path. However, long-lived distortions in flux-control lines degrade gate fidelity, requiring compensation to account for the actual pulse history. A frequency-domain inversion and time-domain fitting method is proposed for resource-efficient real-time flux distortion compensation. The method fits the reconstructed compensation impulse response with a compact hybrid infinite impulse response (IIR) and finite impulse response (FIR) filter. Look-ahead parallelization enables this filter to process synthesized waveforms at 1.2GSa/s on a field-programmable gate array (FPGA). Two-qubit cross-entropy benchmarking shows that real-time IIR filtering achieves a median controlled-Z Pauli fidelity close to the software-reference value of 99.57%. Numerical analysis and FPGA synthesis indicate approximately logarithmic growth in hardware resource use with compensation timescale. Extending compensation from microsecond to hundred-microsecond timescales increases look-up table (LUT) and digital signal processing (DSP) resource use by only about 14% and 4%, respectively, while maintaining a relative arithmetic error below $10^{-4}$. This work provides a scalable hardware foundation for high-fidelity flux control in dynamic superconducting quantum circuits.",
+  "url": "http://arxiv.org/abs/2609.27456v1",
+  "pdf": "https://arxiv.org/pdf/2609.27456v1",
+  "type": "experiment",
+  "summary": "This paper presents a novel, resource-efficient hardware method for compensating flux distortions in superconducting quantum processors. By using a Frequency-Domain Inversion and Time-Domain Fitting approach, the authors implement a hybrid IIR/FIR filter on an FPGA. This technique maintains high gate fidelity (near 99.57%) while showing only logarithmic growth in hardware resource use as the required compensation timescale increases.",
+  "main_problem": "The paper addresses the critical challenge of maintaining high gate fidelity in superconducting quantum processors by compensating for long-lived distortions in the flux-control lines during dynamic quantum circuits.",
+  "main_result": "The proposed real-time IIR filtering technique successfully achieved a median controlled-Z Pauli fidelity close to the software-reference value of 99.57%, demonstrating a scalable hardware foundation for high-fidelity flux control.",
+  "method": "A Frequency-Domain Inversion and Time-Domain Fitting (FDI-TDF) method is used to reconstruct the compensation filter, which is then implemented using a compact hybrid Infinite Impulse Response (IIR) and Finite Impulse Response (FIR) structure.",
+  "model_or_system": "The system is a superconducting quantum processor controlled via flux-control lines, modeled as a Linear Time-Invariant (LTI) system. The compensation is implemented on an FPGA, operating at 1.2 GSa/s.",
+  "key_observables": "Two-qubit cross-entropy benchmarking (XEB) controlled-Z Pauli fidelity; hardware resource use (LUT and DSP) vs. compensation timescale.",
+  "important_parameters": "Sampling rates up to 1.2 GSa/s; resource scaling showing only ~14% increase in LUT use when extending compensation from microsecond to hundred-microsecond timescales.",
+  "main_assumptions": "The method assumes the flux-line response can be accurately modeled and inverted using the FDI-TDF approach, avoiding the limitations of pre-determined pulse sequences.",
+  "figures_summary": "Figures compare different compensation architectures (offline vs. real-time inverse filtering) and show the step responses achieved by the FPGA compensation method relative to software pre-distortion.",
+  "paper_structure": "The paper details the physical problem (flux distortion), introduces the FDI-TDF algorithm (involving frequency-domain inversion and time-domain fitting to a hybrid IIR/FIR model), presents the hardware implementation details (parallelization on FPGA), and validates the results using fidelity benchmarking and resource scaling analysis.",
+  "why_interesting": "This work directly tackles a major experimental bottleneck in superconducting quantum computing—control fidelity—by providing a resource-efficient, scalable hardware solution for real-time pulse shaping.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.27456_figures/2609.27456_fig1.jpg",
+      "caption": "FIG. 1. Schematic comparison of distortion-compensation architectures. (a) Offline pre-distortion of complete waveforms before storage and playback. (b) Real-time inverse filtering after gate-level waveform synthesis. (c) Representative flux-line distortion sources in room-temperature electronics (top), the cryogenic transmission chain (middle), and processor interconnects (bottom).",
+      "page": 2
+    },
+    {
+      "image": "2609.27456_figures/2609.27456_fig2.jpg",
+      "caption": "FIG. 2. Inverse-filter reconstruction and parallel filtering scheme. (a) FDI-TDF workflow from the measured step response s[n] to the reconstructed compensation impulse response g[n] and compact IIR/FIR model. (b) Three parallel second-order IIR sections (SOS) and a 44-tap FIR branch represent the long- and short-time components of the compensation response. (c) Logical structure of block look-ahead IIR filtering and (d) sliding-window FIR filtering, each producing six consecutive samples per FPGA clock within one channel. In (c), αij and βij denote the entries of A and B in equation (9), and D denotes a delay of one FPGA clock cycle.",
+      "page": 4
+    },
+    {
+      "image": "2609.27456_figures/2609.27456_fig3.jpg",
+      "caption": "FIG. 3. Room-temperature step responses for a 500 µs-period square wave: uncompensated (gray dash-dotted), software pre-distorted (orange dashed), and FPGA compensated (blue solid). Each trace averages 1000 waveforms. (a) Microsecond- scale settling and (b) a nanosecond-scale view of the same rising edge. The FPGA configuration uses a fourth-order IIR branch and an FIR branch with 14 effective taps.",
+      "page": 6
+    },
+    {
+      "image": "2609.27456_figures/2609.27456_fig4.jpg",
+      "caption": "FIG. 4. Cryogenic flux-line step responses measured with the qubit. Blue points are measurements and orange curves are fits; gray traces beneath each response show the fit residuals, with dashed reference lines at ±10−3. (a) Uncompensated; (b) software pre-distorted; (c), (d) FPGA compensated using fourth-order IIR filters at 35 and 44 bits, respectively. The 44-tap FIR branch uses 44-bit arithmetic.",
+      "page": 8
+    },
+    {
+      "image": "2609.27456_figures/2609.27456_fig5.jpg",
+      "caption": "FIG. 5. Benchmarking results in the cycle Pauli fidelity convention. (a) XEB distributions for the software reference (40 rounds) and four IIR configurations (10 rounds each), labeled by order and word length. Boxes span the interquartile range; black lines mark medians. (b) Mean XEB fidelity (blue circles) and SPB-derived cycle metric (orange open squares) for the software reference and fourth-order configurations. Error bars are one sample standard deviation.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.27456_figures/2609.27456_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

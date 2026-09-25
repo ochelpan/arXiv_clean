@@ -1,0 +1,61 @@
+{
+  "arxiv_id": "2609.28229",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Distilling Datasets into Shallow Circuits for Quantum Machine Learning",
+  "authors": "Guang Lin, Qibin Zhao",
+  "abstract": "In quantum machine learning, training a quantum model requires each sample to be prepared as a quantum state by a loading circuit that must be re-executed for every shot at every training step. The total burden therefore scales with both the number of samples and the cost of preparation. Existing approaches reduce the loading cost of individual inputs or distill data and compress their representations before applying a separate quantum encoding. This separation can leave resulting samples costly to prepare or cause additional loss of the information during subsequent compilation into shallow circuits. We propose quantum dataset distillation (QDD), which distills the full dataset directly into a small set of shallow circuits. Each synthetic sample is parameterized as a staircase circuit corresponding to a low-rank tensor network, making the sample and its loading circuit the same object. The circuit parameters are optimized classically with exact gradients using distribution matching under an explicit loading budget, without post-hoc state-preparation synthesis. On MNIST and Fashion-MNIST, only 10 circuits per class ($0.0017\\times$ the full dataset size) achieve accuracy comparable to full-data training and outperform selection baselines under matched sample and loading budgets. In finite-shot training, QDD reaches 95\\% of the full-data accuracy with more than $100\\times$ fewer cumulative shots. Additionally, we validate QDD on real quantum hardware, demonstrating its practical deployment potential.",
+  "url": "http://arxiv.org/abs/2609.28229v1",
+  "pdf": "https://arxiv.org/pdf/2609.28229v1",
+  "type": "both",
+  "summary": "This paper introduces Quantum Dataset Distillation (QDD) to solve the high computational cost of training quantum models on large datasets. QDD synthesizes the entire dataset into a small set of shallow, executable quantum circuits. This approach drastically reduces the required quantum shots while maintaining high classification accuracy, making QML more practical for real quantum hardware.",
+  "main_problem": "Training quantum machine learning models is computationally expensive because the loading circuit must be re-executed for every data sample at every training step.",
+  "main_result": "The proposed Quantum Dataset Distillation (QDD) achieves accuracy comparable to full-data training using only a tiny fraction (e.g., 10 circuits) of the original dataset size.",
+  "method": "QDD directly distills the entire dataset into a small set of shallow, executable quantum circuits by optimizing circuit parameters using a joint objective function that matches both mean features and density matrices.",
+  "model_or_system": "The system involves Quantum Machine Learning (QML) applied to classical data (like MNIST images), where data states are represented by low-rank tensor network states realized by shallow, parameterized quantum circuits.",
+  "key_observables": "Test accuracy on MNIST/Fashion-MNIST, cumulative shot count reduction (up to $100\times$), and loading circuit cost (number of two-qubit gates).",
+  "important_parameters": "The number of distilled circuits per class (IPC), the loading budget, and the weight $\\alpha$ balancing distribution matching vs. density-matrix matching.",
+  "main_assumptions": "The key assumption is that the synthetic samples must be parameterized *as* executable circuits, avoiding the information loss associated with post-hoc state-preparation synthesis.",
+  "figures_summary": "Figures illustrate the comparison between different data preparation methods (per-sample vs. QDD) and show performance metrics like shot savings and accuracy vs. sample budget.",
+  "paper_structure": "The paper introduces the computational bottleneck, proposes QDD as a solution, details the joint optimization objective (distribution and density matrix matching), presents results on MNIST/Fashion-MNIST showing massive shot savings, and validates the method on real quantum hardware.",
+  "why_interesting": "The work directly addresses the practical resource constraints of running QML algorithms on near-term quantum hardware by creating data representations that are inherently compatible with shallow circuit execution.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.28229_figures/2609.28229_fig1.jpg",
+      "caption": "Figure 1: Three approaches to quantum training data. (a) Per-sample preparation. (b) Hybrid distil- lation with a separate encoding. (c) Quantum dataset distillation (QDD).",
+      "page": 2
+    },
+    {
+      "image": "2609.28229_figures/2609.28229_fig2.jpg",
+      "caption": "Figure 2: Finite-shot parameter-shift training on MNIST: test accuracy vs. cumulative shots.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.28229_figures/2609.28229_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
