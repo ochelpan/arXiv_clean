@@ -1,0 +1,61 @@
+{
+  "arxiv_id": "2609.28882",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Efficient Record-and-Replay Arithmetic for Quantum Elliptic-Curve Point Addition",
+  "authors": "Jieyi Long, Theodore Pender, Zhao Huang, Manuel B. Santos, Samrendra Kumar Singh, Bartosz Naskręcki, BitWonka, Pierre-Luc Dallaire-Demers, Francesco Giannicola, Ruben M. L. Paschoarelli, Oli Freuler, Jackie Chia-Hsun Lee, Vasily Gnuchev, Gopi Kannappan, John Boyer, Xavier Butler, Akash Balasubramani, Jordan Newman, Bereket Dereje, Alexander Hertlein, Robert Kodra, Lucas Levy, Shaan Patel, JT Rose, Matt Zweil, Okechukwu Wisdom, Tarek El-Eter, Edison Lee, Michael Dong, Alan Li, Anto Joseph, Duy Nguyen, Gajesh Naik, Gautham Anant, Soubhik Deb, Justin Drake",
+  "abstract": "We study reversible secp256k1 point-addition circuits developed through ECDSA.Fail for Shor's elliptic-curve discrete-logarithm algorithm. Two complementary constructions improve record-and-replay GCD arithmetic: Jump-2 groups binary-GCD steps and compresses their decisions using base-5 encoding, while ping-pong uses fixed register alternation and one-bit decisions to avoid full-width comparisons and data-dependent swaps. Fused replay combines doubling and signed addition into one modular correction. Both constructions support quantum-addressed window selection with measurement-based lookup cleanup. We compare three circuits on 100,000 fresh inputs across nine lookup-table configurations. A separately tested repair uses 1,419 qubits and 1.356 million mean executed Toffolis, with no detected failures on another 100,000 inputs. Structured supported-input counterexamples remain, so these tests do not establish all-input correctness. We also provide conditional coherent-error analysis and reversible safegcd comparisons. Under the stated window allowance, repaired-circuit resources lie below Google's low-gate caps and Schrottenloher's low-gate estimates, but differing accounting and correctness evidence preclude formal dominance. The results concern individual window-selected additions, not complete Shor computations.",
+  "url": "http://arxiv.org/abs/2609.28882v1",
+  "pdf": "https://arxiv.org/pdf/2609.28882v1",
+  "type": "theory",
+  "summary": "This paper details the design and optimization of reversible quantum circuits for elliptic-curve point addition, a key component of quantum factoring algorithms. By employing advanced record-and-replay techniques, the authors significantly reduce the required quantum resources compared to existing methods. The work provides valuable insights into implementing complex, large-scale arithmetic operations on quantum hardware.",
+  "main_problem": "The paper focuses on developing highly efficient, reversible quantum circuits for performing elliptic-curve point addition, a critical subroutine for Shor's algorithm.",
+  "main_result": "The authors present and compare three optimized record-and-replay constructions (Jump-2, ping-pong, fused replay) that achieve resource savings for windowed point addition compared to baseline methods.",
+  "method": "The core method involves adapting record-and-replay quantum arithmetic techniques, utilizing specialized encoding (base-5) and fixed-schedule register alternation to minimize quantum resources.",
+  "model_or_system": "The model is quantum computation implemented using reversible gates, specifically targeting arithmetic on the secp256k1 elliptic curve over a finite field. The circuits are designed to perform point addition in an 'in-place' manner to conserve quantum workspace.",
+  "key_observables": "Resource costs measured in qubits (e.g., 1,151 logical qubits) and mean executed Toffolis (e.g., 1.356 million). Diagnostics include failure counts, phase flag counts, and trace distance bounds.",
+  "important_parameters": "The analysis is constrained by the window size allowance and compares resource usage against established low-gate caps from prior literature.",
+  "main_assumptions": "The results are limited to individual window-selected additions, not complete Shor computations, and formal dominance over prior work is not established due to differing accounting methods.",
+  "figures_summary": "Figures illustrate the multi-stage pipelines of the Jump-2 mixed-addition circuit, while algorithms detail the record phase for modular inverse calculation using Dialog-GCD.",
+  "paper_structure": "The paper progresses by first establishing the need for efficient in-place arithmetic, detailing the record-and-replay framework, presenting and optimizing three distinct constructions (Jump-2, ping-pong, fused replay), and concluding with rigorous resource comparisons and error analysis.",
+  "why_interesting": "While focused on number theory algorithms, the techniques developed for minimizing quantum gate counts and managing reversible state evolution (record-and-replay) are highly relevant to optimizing any complex quantum circuit implementation, including those for simulating quantum many-body systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.28882_figures/2609.28882_fig1.jpg",
+      "caption": "Fig. 1: Six-stage pipeline of the Jump-2 mixed-addition circuit 8e9c9a2. The two wires are the recycled coordinate registers. Classical addend data is materialized only where needed. The two shaded stages share dialog-GCD machinery but use different denominators. The same point-addition identities underlie ping-pong. Arithmetic is modulo p on the generic domain R, A ̸= O, R /∈{A, −A, −2A}.",
+      "page": 8
+    },
+    {
+      "image": "2609.28882_figures/2609.28882_fig2.jpg",
+      "caption": "Figure 1 describes the in-place computation of point addition R′ = R + A fol- lowing the procedure described in Algorithm 1. After forming dx = xR −xA and dy = yR −yA, the circuit replaces Y = dy by the slope λ = dyd−1 x . The next two updates give X = dx + 3xA −λ2 = xA −xR′. Multiplication then produces Y = λ(xA−xR′) = yR′ +yA, allowing both output coordinates to be recovered in place. The addend A is supplied classically in the benchmark and is materialized only during the coordinate updates that require it. Among these steps, the slope calculation λ = dyd−1 x requires the modular inverse of dx. This inverse can be computed using the extended Euclidean al- gorithm applied to p and the...",
+      "page": 8
+    }
+  ],
+  "figure": "2609.28882_figures/2609.28882_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

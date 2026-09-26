@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.29752",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "One-shot Routing in Quantum Networks",
+  "authors": "Nadav Lavi, Nir Gutman, Ido Kaminer, Ariel Orda",
+  "abstract": "Distributed quantum computation requires many entangled pairs to be available simultaneously, so routing must optimize fidelity from a fixed, short-lived set of network resources rather than the rate of pairs accumulated over time. We formulate this one-shot routing problem for heterogeneous Werner-state links and jointly optimize path selection and the schedule of entanglement swapping and distillation. We show that the common purify-then-swap ordering is not optimal network-wide and that exact schedule enumeration requires $m^{Θ(m)}$ time. We introduce Fidelity-Optimizing Local Detours (FOLD), a heuristic that starts from the highest-fidelity path and merges a detour only when distillation improves on both routes and raises end-to-end fidelity. FOLD runs in polynomial time, recovers almost all of the optimal fidelity on tractable instances, and is four orders of magnitude faster than exact optimization at circuit rank $5$. On the Internet topologies where any strategy improves on shortest-path routing, FOLD achieves the highest mean end-to-end fidelity among the polynomial baselines. We further extend the formulation to links whose fidelities are known only as distributions, where uncertainty, rather than the effort spent routing, limits the fidelity delivered. Through an example of requests competing for the same links, we show that coordination becomes a condition for feasibility, and that a shared path budget controls the fidelity trade-off between them.",
+  "url": "http://arxiv.org/abs/2609.29752v1",
+  "pdf": "https://arxiv.org/pdf/2609.29752v1",
+  "type": "theory",
+  "summary": "This paper tackles the challenging one-shot routing problem in quantum networks, where the goal is maximizing connection fidelity from finite resources. The authors develop the FOLD heuristic, a polynomial-time algorithm that efficiently finds near-optimal routing schedules by intelligently interleaving entanglement swapping and distillation. This work is vital for designing scalable quantum communication protocols.",
+  "main_problem": "The paper addresses the complex 'one-shot routing' problem in quantum networks, which requires optimizing end-to-end fidelity from a fixed, limited set of entangled resources rather than maximizing the rate of resource generation.",
+  "main_result": "The proposed heuristic, FOLD, runs in polynomial time and achieves near-optimal end-to-end fidelity, significantly outperforming exact scheduling methods whose complexity is super-exponential.",
+  "method": "The authors introduce the Fidelity-Optimizing Local Detours (FOLD) heuristic, which iteratively improves paths by merging detours only when distillation boosts the overall fidelity on both branches.",
+  "model_or_system": "The model is a quantum network connecting nodes via links characterized by Werner-state entangled pairs. The process involves jointly optimizing path selection, entanglement swapping, and distillation schedules.",
+  "key_observables": "End-to-end fidelity ($F = \\langle\\Psi^-|\rho|\\Psi^-\rangle$), which quantifies the quality of the quantum connection.",
+  "important_parameters": "The size of the network (number of nodes $n$ and edges $m$), the circuit rank $r(G)$, and the path budget $k$.",
+  "main_assumptions": "The analysis assumes the ability to evaluate fidelity for swapping and distillation operations, and the heuristic relies on bounding the number of successful merges by the graph's cycle rank.",
+  "figures_summary": "Figures compare fidelity achieved by various scheduling strategies (e.g., purify-then-swap vs. optimal interleaving) and demonstrate the polynomial scaling of the FOLD heuristic compared to exponential exact solvers.",
+  "paper_structure": "The paper first establishes the one-shot routing formulation, contrasts it with rate-based models, develops the mathematical framework for fidelity calculation, introduces the intractable exact solution, and finally proposes and analyzes the polynomial-time FOLD heuristic.",
+  "why_interesting": "It provides a concrete, computationally tractable algorithm (FOLD) for optimizing resource utilization in quantum communication networks, which is crucial for scaling up quantum internet infrastructure.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.29752_figures/2609.29752_fig1.jpg",
+      "caption": "Figure 1: Two resource regimes of a quantum network, and the one we solve. Each panel draws the same five-node network, with one of its links magnified below. (a) Under continuous entanglement generation, a link is a repeater channel that keeps distributing pairs. A pair separates inside the channel and one half travels to each node. The pair at the bottom has already arrived. Fresh pairs keep coming, so one is as good as another and routing maximizes the rate delivered. The channel is the resource, which is why a link is drawn as a single edge. (b) One-shot operation is the regime we study. The links hold whatever they have produced by now, and nothing follows. Nothing travels in the...",
+      "page": 3
+    },
+    {
+      "image": "2609.29752_figures/2609.29752_fig2.jpg",
+      "caption": "Figure 2: Scheduling of swapping and distillation operations in quantum networks. (a) Distillation consumes two parallel edges between the same pair of nodes to produce a single higher-fidelity edge, while swap- ping consumes two edges meeting at an intermediate node to produce a direct edge between their outer endpoints. (b) Two users share a direct edge of fidelity 0.745 and a two-hop route through a repeater, each hop a link of two edges of fidelity 0.83. Every branch reduces this graph to a single end-to-end connection through four operations, swapping (red, solid) and distillation (blue, dashed), and every branch spends all five edges. The schedules still deliver different fidelities....",
+      "page": 6
+    },
+    {
+      "image": "2609.29752_figures/2609.29752_fig3.jpg",
+      "caption": "Figure 3: Every schedule connecting two nodes, enumerated: the optimum interleaves swapping and distillation rather than follow- ing either canonical ordering, and FOLD nearly reaches it. Fidelity of all 2,885 operation sequences connecting A and B on the graph shown. Each marked strategy below is drawn as purify (P) and swap (S) operations, the edges an operation consumes colored and any unspent edge left pale. The strategies are purify-then-swap (PtS), swap-then-purify (StP), the recursive purify-and-swap reduction (Recursive, Section 3.4) [36] and FOLD, which leads all three. PtS, the ordering most schedulers assume, is the weakest here.",
+      "page": 10
+    },
+    {
+      "image": "2609.29752_figures/2609.29752_fig4.jpg",
+      "caption": "Figure 4: Optimal solutions include the highest-fidelity route, and additional routes help only when their fidelities are close. Across the three panels a warm hue marks an optimum that uses a single route on its own and blue one that combines routes by distillation. Each topology is sketched above the panel it belongs to. (a) Three parallel edges standing for candidate routes between the same pair of nodes – a better route e1 of fidelity f1 = 0.7 and two weaker ones e2, e3. Over (f2, f3) the optimum is either e1 alone or all three distilled together, so distilling only the two weaker routes claims no region of the plane at all. The dotted line marks f2 = f3. (b) The triangle of Di Franco...",
+      "page": 13
+    },
+    {
+      "image": "2609.29752_figures/2609.29752_fig5.jpg",
+      "caption": "Figure 5: Distillation improves only inside the purifiable region: a single edge is optimal about half the time, and the shortest path stays optimal until fidelities cross a threshold. The same restriction, seen at three scales. (a) The distillation function: output fidelity Fpur(f1, f2) of Eq. (4), with the red dashed curve bounding the region where distillation strictly improves upon both inputs and the dotted line marking f1 = f2. The region requires both inputs above f = 0.5 and, above that, excludes pairs whose fidelities are too dissimilar. (b) A pair of nodes: two nodes joined by five parallel edges of independently randomized Werner-state fidelity, over 5,000 draws, with the optimal...",
+      "page": 17
+    }
+  ],
+  "figure": "2609.29752_figures/2609.29752_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

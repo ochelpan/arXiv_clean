@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.30256",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Feature Selection for Biomedical Data Analysis",
+  "authors": "Hongbin Liu, Robert Lahmann, Benjamin Campbell, Zhemin Zhang, Zhiding Liang, Siona Bapat, Juergen Hahn",
+  "abstract": "Feature selection is an essential step for reducing complexity of high dimensional data, usually in preparation for developing machine learning models such as computational biomarkers. However, there are limitations associated with feature selection such as for metabolomic data where there are hundreds or even thousands of features per study participant, while the available number of participants in a clinical trials is limited. Classical methods such as exhaustive search require evaluation of all possible feature combinations, making them costly in terms of computation and runtime, or even infeasible, as feature dimensionality increases. In this study, we propose a novel Quadratic Unconstrained Binary Optimization (QUBO) coefficient formulation and pose metabolomic feature selection as a QUBO problem that selects a specified number of features by balancing their relevance against redundancy among the selected variables. To evaluate our proposed QUBO objective function, we conducted a series of experiments using Bias-Field Digitized Counterdiabatic Quantum Optimization (BF-DCQO) and Quantum Approximate Optimization Algorithm (QAOA) on a quantum gate based computer. We also compared the method to several classical methods on three metabolomic datasets associated with Autism Spectrum Disorder (ASD) on a classical computer. Our method reduces runtime compared with exhaustive search and Iterative Tabu Search (ITS) and achieves competitive performance across classifiers compared to classical filter, wrapper, and embedded methods. These results do not claim quantum advantage; rather, they establish hardware feasibility and demonstrate the current capabilities of Noisy Intermediate-Scale Quantum (NISQ) devices.",
+  "url": "http://arxiv.org/abs/2609.30256v1",
+  "pdf": "https://arxiv.org/pdf/2609.30256v1",
+  "type": "both",
+  "summary": "This work proposes using quantum optimization techniques to solve feature selection for complex biomedical data. It formulates the problem as minimizing a QUBO objective that balances feature importance and redundancy. The authors test this on quantum simulators and hardware, demonstrating feasibility while comparing performance against state-of-the-art classical methods.",
+  "main_problem": "The paper addresses the challenge of feature selection in high-dimensional biomedical data, specifically metabolomics, where the number of features vastly exceeds the number of samples.",
+  "main_result": "The proposed QUBO formulation achieves competitive classification performance compared to classical methods and demonstrates hardware feasibility on NISQ devices, although it does not claim quantum advantage.",
+  "method": "The problem is formulated as minimizing a QUBO objective function that balances feature relevance (using Fisher score) against feature redundancy (using covariance). This optimization is solved using quantum algorithms like QAOA and BF-DCQO.",
+  "model_or_system": "The core model is the QUBO formulation, which is mapped onto an Ising cost Hamiltonian ($H_C$). This Hamiltonian is then solved using quantum optimization algorithms (QAOA, BF-DCQO) on a quantum gate-based computer.",
+  "key_observables": "LOOCV accuracy across multiple classifiers (LDA, SVM, RF, etc.), circuit gate counts, and the convergence behavior of the quantum sampling distribution.",
+  "important_parameters": "The balancing parameter $\\alpha \\in [0, 1]$, which weights the trade-off between feature relevance and redundancy.",
+  "main_assumptions": "The results are limited by current NISQ hardware constraints and do not claim a quantum advantage; the QUBO formulation only accounts for quadratic interactions.",
+  "figures_summary": "Figure 1 illustrates the entire quantum feature selection pipeline from data input to quantum solver output. Figure 2 compares the gate counts required by BF-DCQO and QAOA for a 24-feature instance. Figure 7 shows the convergence of BF-DCQO sampling distribution over iterations.",
+  "paper_structure": "The paper first establishes the need for feature selection in metabolomics. It then details the novel QUBO formulation using Fisher scores and covariance. The methodology section describes mapping this to an Ising Hamiltonian and applying quantum solvers (QAOA, BF-DCQO) alongside classical baselines (ITS, filter/wrapper methods). Finally, results are presented comparing performance and feasibility.",
+  "why_interesting": "While the application is in biomedicine, the core methodology involves mapping a complex combinatorial optimization problem (feature selection) onto quantum hardware models (QUBO/Ising), which is a direct application of quantum computation theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.30256_figures/2609.30256_fig1.jpg",
+      "caption": "Fig. 1 The quantum feature selection pipeline. From a given dataset, the Fisher scores Fi and pairwise covariances Cij are calculated to obtain the importance vector I and redundancy matrix R. These terms are combined with a parameter α to construct the QUBO objective Q(x, α) in Eq. 2. The QUBO is mapped to the corresponding Ising optimization problem in Eq. 5 and solved using either BF-DCQO or QAOA. The resulting binary vector x∗indicates the selected features.",
+      "page": 6
+    },
+    {
+      "image": "2609.30256_figures/2609.30256_fig2.jpg",
+      "caption": "Fig. 2 Transpiled circuit gate counts for (a) BF-DCQO and (b) QAOA. For a 24 input features, BF-DCQO required 4,675 gates with a circuit depth of 777, and QAOA required 8,731 gates with a circuit depth of 2,011. Both circuits were mapped to 120 physical qubits with a circuit width of 144.",
+      "page": 7
+    },
+    {
+      "image": "2609.30256_figures/2609.30256_fig3.jpg",
+      "caption": "Fig. 3 Coupling map of ibm rensselaer. Nodes and their color represent physical qubits and their readout errors. Edges and their color represent available two qubit couplings and the corresponding controlled-Z (CZ) gate errors.",
+      "page": 12
+    },
+    {
+      "image": "2609.30256_figures/2609.30256_fig4.jpg",
+      "caption": "Fig. 4 LOOCV accuracy of LDA, linear SVM, LR, RF, and PLS-DA on Datasets 1, 2, and 3. The classifiers are trained on (1) 5 features selected by our proposed QUBO (Fisher-Covariance QUBO), and (2) 5 features selected by MIQUBO, both using BF-DCQO.",
+      "page": 13
+    },
+    {
+      "image": "2609.30256_figures/2609.30256_fig5.jpg",
+      "caption": "Fig. 5 LOOCV accuracy of LDA, linear SVM, LR, RF, and PLS-DA on Dataset 1 using 5 feature subsets selected by the proposed QUBO and MIQUBO with QAOA. Results are averaged over 10 independent QAOA runs for each QUBO formulation, with error bars representing one standard deviation.",
+      "page": 14
+    }
+  ],
+  "figure": "2609.30256_figures/2609.30256_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

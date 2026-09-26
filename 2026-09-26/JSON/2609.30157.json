@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.30157",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning and interpreting policies for simultaneous entanglement requests in quantum networks",
+  "authors": "Leon Rode, Sumeet Khatri, Supartha Podder",
+  "abstract": "Future quantum networks will make use of entanglement to perform numerous tasks, such as sending quantum information over long distances, distributed quantum computing, and quantum sensing. In general, these tasks will need to be performed simultaneously in various regions of a network, while minimizing resources and latency. We will thus require policies for scheduling link-level entanglement resources, and using the link-level entanglement to create various forms of multipartite entanglement required for every task. In this work, we address this problem using reinforcement learning. We formulate a Markov Decision Process for the problem and use double deep Q-networks (DQN) with Message Passing Neural Networks (MPNNs), experience replay buffers, and curriculum training to obtain policies. The key physical parameter is the probability of link-level entanglement generation, i.e., the link activation probability. We show that our policies maintain 100% success for up to 71% lower link activation probability than the baseline heuristics for a set of physically relevant network topologies. We then examine an additional constraint where experiment (task) placements are restricted to specific hardware types and demonstrate a similar advantage in performance over heuristics, with our policy maintaining at least an 80% success rate for up to a 59% lower link activation probability. Finally, we explore methods to interpret the learned policy by defining metrics enabling conclusions to be drawn about the model's behavior and by tasking a large language model (LLM) to derive a novel heuristic given example actions taken by the DQN-trained policy. We find that the LLM heuristic performs similarly to the DQN-trained policy in performance, indicating a promising method for interpretable policy extraction for large quantum networks, where direct training becomes computationally expensive.",
+  "url": "http://arxiv.org/abs/2609.30157v1",
+  "pdf": "https://arxiv.org/pdf/2609.30157v1",
+  "type": "both",
+  "summary": "This work develops and tests reinforcement learning policies to optimally schedule simultaneous entanglement requests in quantum networks. By framing the problem as an MDP solved with DQN and MPNNs, the authors demonstrate that their learned policies robustly manage resource constraints better than existing heuristics. The paper also introduces a novel method using LLMs to extract interpretable policies from the trained model.",
+  "main_problem": "The paper addresses the challenge of finding an optimal policy to schedule multiple, simultaneous entanglement requests (experiments) in a quantum network while minimizing resource usage and latency.",
+  "main_result": "The learned reinforcement learning policies significantly outperform baseline heuristics, maintaining high success rates even when the physical link activation probability is substantially lower than the baseline.",
+  "method": "The problem is modeled as a Markov Decision Process (MDP) and solved using Double Deep Q-Networks (DQN) combined with Message Passing Neural Networks (MPNNs).",
+  "model_or_system": "The system is a quantum network modeled as a multi-graph where tasks require generating virtual links via entanglement swapping over physical links with age and decoherence constraints.",
+  "key_observables": "Success rate (%), Mean Step Count, and the ability to maintain performance under varying link activation probabilities.",
+  "important_parameters": "Link activation probability ($p_l$), experiment duration ($d_k$), and the network topology (e.g., starlink, grid).",
+  "main_assumptions": "Assumes entanglement swapping succeeds deterministically, and the LLM heuristic extraction is a promising method for interpreting complex learned policies.",
+  "figures_summary": "Figures compare the success rate and mean step count of various heuristics against the learned policy across different network topologies and noise levels.",
+  "paper_structure": "The paper first formulates the scheduling problem as an MDP, then applies DQN/MPNNs with curriculum training. It details performance comparisons against heuristics, and finally explores methods for policy interpretation using LLMs.",
+  "why_interesting": "The focus on optimizing resource scheduling and managing complex, time-dependent quantum resources (entanglement) is highly relevant to the practical implementation of quantum networking protocols.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.30157_figures/2609.30157_fig1.jpg",
+      "caption": "Figure 1: (a) A quantum network composed of N = 4 quantum memories organized as a ring, with µ = 5 parallel sublinks between neighboring nodes. Links move from an inactive state to an active state with probability pl = e−γ after which their age increments from zero to m⋆. (b) Entanglement swapping is performed across link N0-N1 and link N1-N2 with ages 1 and 2 respectively, estab- lishing a virtual link between N0-N2 with age 3. This enables experiment Xk to be placed on host nodes N0, N1, N2. The links are consumed for dk steps before being released.",
+      "page": 3
+    },
+    {
+      "image": "2609.30157_figures/2609.30157_fig2.jpg",
+      "caption": "Figure 2: The starlink (left), dumbbell (center), and grid (right) topologies.",
+      "page": 5
+    },
+    {
+      "image": "2609.30157_figures/2609.30157_fig3.jpg",
+      "caption": "Figure 3: The coloring of the starlink network topology and experiment set. The red nodes of the red experiment must be mapped to the red nodes on the starlink, and similarly for the green nodes on the green experiment. In each experiment, the uncolored nodes can be mapped to any node on the topology, including the colored ones.",
+      "page": 6
+    },
+    {
+      "image": "2609.30157_figures/2609.30157_fig4.jpg",
+      "caption": "Figure 4: Comparison of success rate and mean step count between the starlink topology for P = 9 of the model, AGECRITICALFIRST, SHORTESTHOPFIRST, and DCTR.",
+      "page": 7
+    },
+    {
+      "image": "2609.30157_figures/2609.30157_fig5.jpg",
+      "caption": "Figure 5: Success rate and mean step count as a function of γ, corresponding to link activation probability, on the dumbbell and grid topologies for P = 8 for both models, AGECRITICALFIRST, SHORTESTHOPFIRST, and DCTR.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.30157_figures/2609.30157_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

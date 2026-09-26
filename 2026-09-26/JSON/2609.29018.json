@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.29018",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Decoder Model Compatibility Provides Information beyond the Logical Gap under Drifting and Correlated Quantum Noise",
+  "authors": "Aaron C. Hoyt, Chunshu Wu, Shuwen Kan, Sean Garner, Avimita Chatterjee, Drew Rebar, Norman M. Tubman, Katherine Klymko, Chenxu Liu, Ang Li, Samuel Stein",
+  "abstract": "Quantum error-correcting decoders provide both corrections and confidence estimates for the logical-error risk of individual measurement records. Such confidence can guide postselection, but it depends on the accuracy of the decoder noise model. When the physical device drifts away from that model, confidence measures such as the logical gap can become miscalibrated. We show that this mismatch can itself provide useful information. On IBM quantum hardware, syndrome statistics drift across consecutive acquisition windows, and the resulting detector histories differ substantially from those predicted by the stationary detector error model used for decoding. We observe a similar hardware-model mismatch in independent Google surface-code memory data. We exploit this effect by assigning additional rejection weight to detector histories that are unlikely under the assumed model. For minimum-weight perfect matching (MWPM), the minimum weight $W$ provides an inexpensive proxy for syndrome surprisal. On held-out IBM repetition-code memories, likelihood-aware postselection reduces the retained logical-error probability (LEP) by $10.6\\%$ at $d=7$ and $28.8\\%$ at $d=9$, both at $15\\%$ rejection. On Google ten-round $d=5$ XZZX surface-code memory data, it reduces retained LEP by $75.4\\%$ at $90\\%$ rejection. Applied to Google's magic-state cultivation experiment with the Tesseract decoder, it reduces tomography infidelity by $34.7\\%$ with $30\\%$ additional grafting-stage rejection, or increases accepted yield by $30.4\\%$ at a target fidelity of $97.0\\%$. Burst-noise simulations show that the advantage persists as code distance and syndrome-extraction volume increase. The method reuses quantities already produced during logical-gap decoding and requires only an additional fitting step.",
+  "url": "http://arxiv.org/abs/2609.29018v1",
+  "pdf": "https://arxiv.org/pdf/2609.29018v1",
+  "type": "experiment",
+  "summary": "This paper shows that when quantum hardware noise drifts or is correlated, standard error-correction confidence metrics (like the logical gap) become inaccurate. The authors propose using the degree of incompatibility between the observed syndrome and the assumed noise model to perform 'likelihood-aware postselection.' This technique significantly boosts the fidelity and reliability of quantum memory operations on state-of-the-art quantum processors.",
+  "main_problem": "The confidence estimates from quantum error-correcting decoders can be misleading when the physical noise deviates from the assumed noise model, a phenomenon known as model mismatch.",
+  "main_result": "By incorporating information about model incompatibility (syndrome surprisal) via likelihood-aware postselection, the retained logical-error probability (LEP) is significantly reduced across multiple quantum hardware platforms.",
+  "method": "The authors exploit the mismatch by assigning additional rejection weight to detector histories that are unlikely under the assumed stationary noise model, using minimum-weight perfect matching (MWPM) as a proxy for syndrome surprisal.",
+  "model_or_system": "The work analyzes quantum error correction (QEC) on physical quantum hardware, including IBM repetition-code memories and Google surface-code memory data. The analysis compares the standard 'logical gap' confidence measure against a more robust measure incorporating model compatibility.",
+  "key_observables": "Logical-Error Probability (LEP), Tomography Infidelity, Minimum Weight (W), and the Logical Gap.",
+  "important_parameters": "Code distance ($d=5, 7, 9$), rejection rate (e.g., 15% or 90%), and the degree of noise drift/correlation.",
+  "main_assumptions": "The standard decoder confidence assumes perfect agreement between the physical noise and the decoder's assumed noise model; the method is designed to work with existing, potentially imperfect decoders.",
+  "figures_summary": "Figures compare the performance improvement of likelihood-aware postselection against gap-only selection, showing significant gains in reducing LEP and infidelity across different code distances and tasks.",
+  "paper_structure": "The paper establishes the limitations of the standard logical gap under noise drift, develops the framework for quantifying model mismatch via syndrome surprisal, and then applies this method to experimental data from IBM and Google quantum processors, demonstrating quantitative improvements.",
+  "why_interesting": "It provides a concrete, experimentally validated technique for improving the reliability of quantum computation by diagnosing and correcting for systematic errors arising from hardware imperfections and noise non-stationarity.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.29018_figures/2609.29018_fig1.jpg",
+      "caption": "FIG. 1. Controlled shot-to-shot variation in the d = 5, r = 5 circuit-level model. (a) Higher-order residual THO and its stationary null. (b) Conditional mutual information I(Y ; W | ∆) for the reference and fitted decoders, together with the oracle information I(Y ; Z | ∆) carried by the latent noise state. (c) Relative LEP improvement of gap+W over gap-only postselection at matched coverage. (d) High-W tail ratio relative to stationary samples from the corresponding decoder model. Vertical lines mark the detector-only boundaries ξ1 and ξ2; panel (a) shows the stationary-null 5th–95th percentile range and 95th-percentile threshold, while pointwise 95% bands in panels (b), (c), and (d) use...",
+      "page": 7
+    },
+    {
+      "image": "2609.29018_figures/2609.29018_fig2.jpg",
+      "caption": "FIG. 2. Exact d = 5, r = 1 response to increasing hot- shot fraction θ. (a) Confidence residual between the exact physical log-odds hθ of the quiet–hot mixture and approxi- mations obtained by expanding about the exact quiet-model confidence h0. The uncorrected curve therefore measures the miscalibration of the exact frozen-model gap itself as the phys- ical distribution departs from the reference model; the first-, second-, and third-order curves successively incorporate the response to this mismatch. Residuals are reference-model- probability-weighted RMS values. (b) The mean risk response ∂rθ(d)/∂θ|θ=0. Records are grouped into 20 within-gap W percentile bins for each of the three lowest...",
+      "page": 9
+    },
+    {
+      "image": "2609.29018_figures/2609.29018_fig3.jpg",
+      "caption": "FIG. 3. Circuit-level burst postselection with fixed α = 0.05, r = d, ρ = 0.1, pquiet = 0.005, and pburst = 0.010 (ξ = 2). (a) Retained LEP for gap-only and gap+W selection at d = 7, 11, and 15. Curves connect the one-percentage-point estimates; shaded regions are pointwise 95% Wilson intervals. (b) Paired LEP improvement at matched rejection, with pointwise 95% paired-bootstrap bands. (c) Fraction of the original burst-state population retained after gap-only (dotted) and gap+W (dash- dotted) selection. Colors identify code distance throughout. The CDF transforms are fixed from independent stationary p0 reference samples. The d = 7, 11, and 15 curves use 8, 16, and 80 million shots,...",
+      "page": 10
+    },
+    {
+      "image": "2609.29018_figures/2609.29018_fig4.jpg",
+      "caption": "Figure 3 shows that likelihood-aware postselection con- tinues to exploit bursts of noise as the code distance and spacetime volume increase. At matched rejection, gap+W removes a larger fraction of burst-state shots than gap-only selection at every distance, with the sepa- ration becoming increasingly pronounced at larger d, as shown in Fig. 3(c). The burst-state shots therefore be- come easier to preferentially reject as the code distance increases, producing the sharper intermediate-rejection improvement seen at larger distances. Once most burst- state shots have been removed, both selectors increas- ingly act on the quiet-state population and their perfor- mance converges. The...",
+      "page": 10
+    },
+    {
+      "image": "2609.29018_figures/2609.29018_fig5.jpg",
+      "caption": "FIG. 4. Two representative IBM repetition-code samples illustrating minimum and maximum detector-rate drift. (a) Distance- 5 realization with the smallest detector-rate drift; (b) distance-9 realization with the largest drift. Blue shows the windowed detector-event rate and orange the hardware LEP obtained with the frozen calibration decoder. Each point represents a nonoverlapping 10,000-shot window. The examples are selected using detector statistics alone, without reference to logical outcomes; no confidence intervals are shown.",
+      "page": 11
+    }
+  ],
+  "figure": "2609.29018_figures/2609.29018_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

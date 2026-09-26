@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.30195",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Loan Portfolio Optimization with Variational Quantum Algorithms",
+  "authors": "Balaganchi A. Bhargava, Kamlesh Kumar, Gouranga Dinda, Aniruddha Biswas, Vijay S. Rao, Debarag Banerjee, Arun Sehrawat",
+  "abstract": "Loan portfolio optimization (LPO) seeks portfolios that minimize credit risk while satisfying practical selection constraints. Accounting for portfolio-level risk requires modeling not only expected losses but also loss variability and borrower-default correlations, leading to a large-scale combinatorial optimization problem whose complexity grows rapidly with portfolio size. In this work, we formulate LPO as a Quadratic Constrained Binary Optimization (QCBO) problem that jointly captures expected and unexpected losses and transform the resulting formulation into a Quadratic Unconstrained Binary Optimization (QUBO) model suitable for variational quantum optimization. To address the limited qubit resources of current quantum hardware, we employ Pauli Correlation Encoding (PCE), which enables a large number of portfolio-selection variables to be represented using comparatively few qubits. The proposed framework is evaluated on a real-world microfinance dataset comprising 2012 borrowers. For problem instances with up to 1000 portfolio-selection variables, we benchmark classical simulations of a variational quantum algorithm (VQA) against Google OR-Tools under matched time budgets, obtaining feasible portfolios with an objective-value gap of about 40% across all sizes. We further implement the framework on superconducting quantum hardware for instances containing up to 1500 variables. Across these instances, the experimentally obtained objective values are within 10% of the corresponding simulation results. These findings demonstrate the feasibility of applying PCE-based variational quantum optimization to large-scale loan portfolio optimization under current quantum hardware limitations.",
+  "url": "http://arxiv.org/abs/2609.30195v1",
+  "pdf": "https://arxiv.org/pdf/2609.30195v1",
+  "type": "both",
+  "summary": "This work applies variational quantum algorithms to solve large-scale Loan Portfolio Optimization problems, which are formulated as QUBOs. To handle the massive number of variables, the authors use Pauli Correlation Encoding (PCE) to map the problem onto limited qubits. The results confirm the feasibility of this quantum approach on current hardware, demonstrating performance within 10% of classical simulations for large instances.",
+  "main_problem": "The paper addresses Loan Portfolio Optimization (LPO), a large-scale combinatorial problem aimed at minimizing credit risk by selecting optimal borrower portfolios.",
+  "main_result": "The framework demonstrates the feasibility of using Pauli Correlation Encoding (PCE) with Variational Quantum Algorithms (VQA) to tackle large-scale LPO problems, achieving results within 10% of simulation benchmarks on superconducting hardware.",
+  "method": "The complex LPO problem is formulated as a Quadratic Constrained Binary Optimization (QCBO) and transformed into a QUBO model suitable for VQA solvers. PCE is employed to encode variables efficiently onto limited qubits.",
+  "model_or_system": "The model uses real-world microfinance data to calculate expected and unexpected losses, forming a quadratic objective function. This is mapped onto a QUBO Hamiltonian solvable by VQA on superconducting quantum hardware.",
+  "key_observables": "Objective value (portfolio risk), objective-value gap (comparing VQA to classical solvers), and the relative difference between experimental and simulated objective values.",
+  "important_parameters": "Weighting parameters ($\\alpha, \beta$) balancing expected vs. unexpected loss; problem size up to 1500 variables; qubit count limitations.",
+  "main_assumptions": "Assumptions include zero accrued interest for EAD and a Recovery Rate of 0, leading to Loss Given Default (LGD) = 1. The study also notes that the computational advantage over classical methods is not established.",
+  "figures_summary": "Figures illustrate the loss time series, the expected loss vector and covariance matrix for a small instance, and portfolio-level comparisons (efficient-frontier-like plots).",
+  "paper_structure": "The paper first formulates LPO as a QCBO, transforms it to QUBO, and introduces PCE for qubit efficiency. It then details the loss calculations using credit scores and finally benchmarks the VQA approach against classical solvers on both simulation and superconducting hardware.",
+  "why_interesting": "While the application is in finance, the core methodology involves mapping a complex combinatorial optimization problem onto a QUBO Hamiltonian and utilizing advanced encoding techniques (PCE) to manage resource constraints on near-term quantum hardware, which is relevant to quantum algorithm development.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.30195_figures/2609.30195_fig1.jpg",
+      "caption": "FIG. 1. Loss time series (Lit) for 20 randomly selected bor- rowers in different colors. Each series contains 26 monthly observations from October 2023 to December 2025, excluding November 2024. For borrower i at time t, the loss is propor- tional to the product of PD and EAD, where EAD is taken as the outstanding principal. As loans amortize, the outstand- ing principal decreases, reducing loss; however, rising PD can offset this effect. The observed loss trajectories reflect the combined influence of these two factors over time.",
+      "page": 3
+    },
+    {
+      "image": "2609.30195_figures/2609.30195_fig2.jpg",
+      "caption": "FIG. 2. For the same set of 20 borrowers as Fig. 1, the top plot shows the expected losses µ, while the bottom heatmap presents the covariance matrix Σ of borrower losses. The expected losses capture the portfolio’s expected risk, whereas the covariance matrix reflects the unexpected risk due to loss correlations across borrowers. Since the expected losses are point estimators, uncertainty intervals can be obtained from the diagonal entries of the covariance matrix; the square root of each diagonal element gives the corresponding standard deviation.",
+      "page": 4
+    },
+    {
+      "image": "2609.30195_figures/2609.30195_fig3.jpg",
+      "caption": "FIG. 3. Growth of the LPO solution space with the number of borrowers, N, for K = N/2 (50% selection) and K = N/5 (20% selection).",
+      "page": 5
+    },
+    {
+      "image": "2609.30195_figures/2609.30195_fig4.jpg",
+      "caption": "FIG. 4. The PQC corresponding to the EfficientSU2 ansatz available in Qiskit [41, 42] and defined in Eq.(19). Here, the number of qubits is n = 3, and the number of layers is L = 3. Each layer consists of parameterized single-qubit rotation gates Ry and Rz, represented by red and blue rectan- gular blocks, respectively, followed by entangling controlled- NOT (CX) gates acting between qubits a and a + 1, repre- sented by a control dot connected to a target ⊕symbol. The qubits, labeled q0, · · · , qa, · · · , qn−1, are represented by hori- zontal wires. Here, each variational parameter is denoted by θ with a single index, rather than the two-index notation used in Eq. (20).",
+      "page": 6
+    },
+    {
+      "image": "2609.30195_figures/2609.30195_fig5.jpg",
+      "caption": "FIG. 5. Scaling behavior for K = N/2 using the full PCE described in (23). The top, middle, and bottom panels show the portfolio loss, relative gap, and runtime as functions of the problem size N. For each value of N, the marker de- notes the mean over five random instances sampled from the dataset of 2012 borrowers, while the error bars represent the corresponding 95% confidence intervals. The top panel com- pares the portfolio total loss obtained by VQA simulation in Qiskit and OR-Tools applied to the LCBO model described in Sec. III. The middle panel shows the relative gap (%) be- tween the solution qualities of VQA and OR-Tools, as defined in Eq. (28). The bottom panel shows the VQA...",
+      "page": 8
+    }
+  ],
+  "figure": "2609.30195_figures/2609.30195_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

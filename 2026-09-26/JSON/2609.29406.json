@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.29406",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET",
+    "cs.PF"
+  ],
+  "is_primary_archive": true,
+  "title": "Evaluating the Effect of the Order of Optimization Passes in Quantum Circuit Optimization",
+  "authors": "Xiao-Ting Michelle To, Nils Quetschlich, Amr Elsharkawy, Martin Schulz, Robert Wille, Dieter Kranzlmüller",
+  "abstract": "Quantum circuit optimization is critical for mitigating the noise inherent in current quantum hardware. Quantum compilers typically sequentially apply multiple optimizations (also called ``optimization passes'') to improve the circuit. The impact of the order in which these passes are executed has yet been largely unexplored. This paper investigates the significance of the order of optimization passes within quantum circuit compilation, specifically analyzing interactions between different optimization methods and quantifying their mutual influences. Using Qiskit's compiler, we systematically evaluate pairwise combinations of 16 selected optimization passes, measuring circuit depth and gate count across various benchmark circuits. Our findings indicate dependencies between certain optimization passes, demonstrating that the order of the passes affects the optimization quality. In some cases, the worse performing sequence can be corrected through repeated pass application. %such that they are as good as the best performing one by extending the sequence. Experiments on multi-pass sequences show that more than two optimization passes may have an impact on each other but that this always links to the previously found pairwise effects. We observe that it is important to initially choose the best order of optimization passes to get the best possible optimization for the given circuit. The experiments reveal some factors which are important to choose the best, or at least a good, order; among those, the resulting optimization sequence depends the most on the native gate set.",
+  "url": "http://arxiv.org/abs/2609.29406v1",
+  "pdf": "https://arxiv.org/pdf/2609.29406v1",
+  "type": "both",
+  "summary": "This paper rigorously tests how the sequence in which quantum circuit optimization passes are applied affects the final circuit quality. By systematically testing permutations, the authors prove that the order matters, leading to the proposal of a recommended, optimized sequence. This work is vital for compiler developers aiming to minimize noise and resource usage on real quantum hardware.",
+  "main_problem": "The paper investigates the critical, yet largely unexplored, issue of how the order of optimization passes affects the final quality of quantum circuit compilation.",
+  "main_result": "The order of optimization passes significantly impacts circuit quality, demonstrating clear dependencies between passes, although the best order depends heavily on the native gate set and surrounding compiler passes.",
+  "method": "The authors systematically evaluated pairwise and multi-pass combinations of 16 optimization passes using Qiskit, measuring circuit depth and gate count across various benchmark circuits.",
+  "model_or_system": "The study focuses on optimizing abstract quantum circuits intended for execution on near-term quantum hardware, using established quantum compilation toolchains.",
+  "key_observables": "Circuit depth and gate count (measured via metrics like R_m(p)).",
+  "important_parameters": "The set of 16 optimization passes, the target native gate set (e.g., IBM Falcon, IonQ Forte), and the specific benchmark circuit used.",
+  "main_assumptions": "The analysis initially focuses on passes before hardware mapping, and the results are derived from testing specific, limited combinations of passes.",
+  "figures_summary": "Figure 1 illustrates the sequential phases of quantum circuit compilation. Figure 6 compares performance metrics (Depth, Gate Count) between Qiskit's default order and the paper's recommended order.",
+  "paper_structure": "The paper progresses from identifying the problem (order dependence) to systematic testing of pairwise combinations, analyzing correction mechanisms via repetition, and finally proposing a recommended, structured sequence based on pass classes.",
+  "why_interesting": "While focused on compilation rather than physical dynamics, understanding the systematic limitations and dependencies within quantum hardware toolchains is crucial for designing algorithms that are robust to compiler choices, which is a key concern in quantum information theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.29406_figures/2609.29406_fig1.jpg",
+      "caption": "Fig. 2: Optimization results when using the pass pair {Com- mutativeCancellation, Optimize1qGatesSimpleCommutation} compared to the non-optimized circuit. The used metric here is the gate count and the results are separated by benchmarks.",
+      "page": 5
+    },
+    {
+      "image": "2609.29406_figures/2609.29406_fig2.jpg",
+      "caption": "Fig. 3: Optimization results when using the pass pair {Opti- mize1qGatesDecomposition, Optimize1qGatesSimpleCommu- tation} compared to the non-optimized circuit. Here, the gate count is the used metric and the results are separated by native gate set on the x-axis.",
+      "page": 6
+    },
+    {
+      "image": "2609.29406_figures/2609.29406_fig3.jpg",
+      "caption": "Fig. 4: Results of conducting correction experiments for the pass pair {Optimize1qGatesSimpleCommutation, TemplateOp- timization}, separated by the benchmark on the x-axis. The circuit depth is used as metric.",
+      "page": 7
+    },
+    {
+      "image": "2609.29406_figures/2609.29406_fig4.jpg",
+      "caption": "Fig. 5: Results of conducting correction experiments for the pass pair {Optimize1qGatesSimpleCommutation, TemplateOp- timization}, separated by the native gate set on the x-axis. The circuit depth is used as metric.",
+      "page": 7
+    },
+    {
+      "image": "2609.29406_figures/2609.29406_fig5.jpg",
+      "caption": "Fig. 6: Box plots illustrating Rm(pi) for Qiskit’s order pqiskit and this work’s recommended order prec, subdivided by the used metrics in the x-axis.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.29406_figures/2609.29406_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

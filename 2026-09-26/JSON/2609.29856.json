@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "2609.29856",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.DC",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "A Block Decomposed QUBO Workflow for Chromosome-Y Phylogeny Reconstruction",
+  "authors": "Giuliana Siddi Moreau, Riccardo Berutti, Manuela Profir, Lorenzo Pisani, Maria Laura Clemente, Lidia Leoni",
+  "abstract": "This paper sets out a computational workflow that reconstructs the phylogeny of human Y-chromosome populations from a Variant Call Format (VCF) file of biallelic Single Nucleotide Polymorphisms (SNP). The two classical phylogenetic decisions - topology selection and root placement - are cast as Quadratic Unconstrained Binary Optimisation (QUBO) problems. The workflow combines two QUBO formulations with an Alternating Direction Method of Multipliers (ADMM) decomposition strategy and a plug-in Digitized Counter-Diabatic Quantum Optimization (DCQO) solver, enabling large phylogenetic optimization problems to be executed across multiple classical or quantum computing resources. The DCQO gate-based optimizer drives each ADMM-block QUBO with short-depth counter-diabatic circuits in the impulse regime, without the necessity for an outer variational loop. The combination of ADMM decomposition and the DCQO block solver facilitates problem sizes that surpass the qubit budget of any individual digital quantum processing unit call, while maintaining the integrity of the original objective. The workflow extracts genotype information from VCF files, reconstructs topology and rooting through two QUBO formulations, and annotates the resulting tree using PhyloTree. The resultant data set comprises a Nexus-annotated rooted tree, in addition to diagnostic figures. The workflow demonstrates the potential of modest-scale QUBO formulations combined with ADMM decomposition to serve as a scalable alternative to greedy heuristics in the domain of population genomics.",
+  "url": "http://arxiv.org/abs/2609.29856v1",
+  "pdf": "https://arxiv.org/pdf/2609.29856v1",
+  "type": "theory",
+  "summary": "This work presents a novel computational workflow to reconstruct Y-chromosome phylogenies by formulating the problem as two QUBOs. It overcomes the limitations of single quantum processors by employing an Alternating Direction Method of Multipliers (ADMM) decomposition. The blocks are solved using a Digitized Counter-Diabatic Quantum Optimization (DCQO) solver, proving a scalable quantum approach for population genomics.",
+  "main_problem": "The paper addresses the computational challenge of reconstructing the phylogeny of human Y-chromosome populations from genetic data.",
+  "main_result": "The authors developed a scalable workflow that successfully applies QUBO optimization, decomposed via ADMM and solved using a DCQO quantum solver, to solve large-scale phylogenetic problems.",
+  "method": "The core method involves casting the topology and root placement decisions into two QUBO formulations, which are then solved using an ADMM decomposition strategy combined with a DCQO gate-based quantum optimizer.",
+  "model_or_system": "The problem is modeled using biallelic SNP data from VCF files, leading to QUBOs whose variables encode candidate splits and edges in the phylogenetic tree.",
+  "key_observables": "Support Score ($\\sigma(S)$), Rooting Cost ($\\hat{c}_e$), and the final reconstructed Nexus-annotated rooted tree.",
+  "important_parameters": "Penalty parameters $\\lambda=5$, $\\mu=2.5$, and $\\eta=10$; the ADMM decomposition allows solving problems exceeding single QPU qubit budgets.",
+  "main_assumptions": "The workflow assumes that the complex optimization problem can be accurately decomposed into smaller, manageable blocks solvable by current quantum hardware capabilities.",
+  "figures_summary": "Figure 1 details the eight functional stages of the workflow, showing data flow from VCF input through classical processing to the final QUBO optimization blocks and output tree.",
+  "paper_structure": "The paper outlines a multi-stage workflow: 1) VCF ingestion and distance matrix calculation; 2) Formulation of two QUBOs for topology and rooting; 3) Decomposition using ADMM; 4) Solving the blocks using DCQO; and 5) Final tree annotation.",
+  "why_interesting": "The paper demonstrates a sophisticated hybrid quantum-classical approach (ADMM + DCQO) to tackle a large-scale combinatorial optimization problem, showing how quantum techniques can scale beyond current hardware limitations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.29856_figures/2609.29856_fig1.jpg",
+      "caption": "Figure 1: Data-flow of the workflow. Blue = input and preprocessing (the VCF read via FORMAT/GT columns), or- ange = classical processing (genotype dosage matrix, sample-to-sample distance, NJ baseline, bootstrap, PhyloTree- Y clade annotation), red = QUBO optimization blocks (topology optimization, rooting optimization, and the shared ADMM/DCQO solver), green = output artefacts (rooted NEXUS plus the clade-coloured tree plots).",
+      "page": 3
+    },
+    {
+      "image": "2609.29856_figures/2609.29856_fig2.jpg",
+      "caption": "Figure 2: Rectangular phylogram of 78 male chromosome-Y samples reconstructed from a 150-sample gnomAD GRCh38 callset (chrY VCF), after removing 72 uninformative samples with no ALT call across the retained variants. The tree topology is obtained from the QUBO topology solve (QUBO-1), with branches placed on the rooting edge selected by the QUBO rooting solve (QUBO-2); both QUBOs are dispatched to the ADMM service with DCQO block solvers running on noise-free Cirq simulator.",
+      "page": 6
+    }
+  ],
+  "figure": "2609.29856_figures/2609.29856_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

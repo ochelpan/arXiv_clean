@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.29210",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Representation-Dependent Recoverability in Quantum Compilation",
+  "authors": "Jinze Yang, Yangyang Li, Xiu-Hao Deng",
+  "abstract": "Fault-tolerant compilation can disperse high-level structure: schedules split an accumulated phase across rounds, gate synthesis replaces an angle by a Clifford+$T$ word, and randomized compiling spreads rotations over sign-randomized fragments. They preserve the computation but change how cheaply a downstream compiler can recover the aggregate phase data. We formalize this representation-dependent recoverability by charging two channels: output committed before the suffix arrives, and a serialized restart state crossing the cut. For an $r$-round accumulation of a commuting layer with $m$ generators at accuracy $ε$ ($K_ε=Θ(1/ε)$), any $p$-pass compiler correct on every valid stream with failure probability at most $δ$ obeys $\\overline{A}_p+(2p-1)S\\geq(1-δ)m\\log_2 K_ε-h_2(δ)$, where $\\overline{A}_p$ is committed output and $S$ is the crossing-state cap. The bound covers compile-time randomized compiling; a memory-capped block compiler attains it within a constant factor, and direct semantic aggregation reaches compact output with logarithmic state.   The two channels are not always interchangeable. A compiler whose committed prefix is executed at the cut pays a toll the state channel never pays: the entropy $\\log_2\\binom{m}{k}$ of the mask naming which $k$ coordinates it commits early. Compilers that defer or buffer pay none of it. We prove both directions and, with instrumented compilers under a preregistered protocol, measure a per-generator toll matching $\\log_2\\binom{m}{k}/k$ that vanishes for a public mask and a buffered control.   Under a disclosed fixed-total-error Clifford+$T$ and surface-code model, a materialize-first pipeline costs orders of magnitude more logical $T$ states and spacetime volume than a semantic-first one. Phase semantics should therefore be preserved until aggregation whenever the interface permits.",
+  "url": "http://arxiv.org/abs/2609.29210v1",
+  "pdf": "https://arxiv.org/pdf/2609.29210v1",
+  "type": "theory",
+  "summary": "This paper rigorously analyzes how quantum information, particularly aggregate phases, degrades or becomes 'less recoverable' as it passes through multiple stages of quantum compilation. By formalizing this loss using information-theoretic channels, the authors prove that the compiler's strategy—whether to commit results early or buffer state—imposes a quantifiable resource toll. The key takeaway is the necessity of preserving high-level phase semantics until the final aggregation step to minimize computational overhead.",
+  "main_problem": "The paper quantifies the information-theoretic cost associated with compiling high-level quantum structures into low-level gate sequences, specifically focusing on how the choice of compilation representation affects the recoverability of aggregate quantum phases.",
+  "main_result": "The authors establish a formal trade-off showing that early commitment of output information incurs a measurable 'toll' compared to methods that buffer or defer state information, suggesting that preserving phase semantics until the final aggregation step is crucial for efficiency.",
+  "method": "The work develops a budget-explicit compiler model that charges information-theoretic costs (in bits) for different compilation passes, analyzing the trade-off between committed output ($\\overline{A}_p$) and serialized state capacity ($S$).",
+  "model_or_system": "The model is applied to quantum compilation, analyzing the process of lowering a high-level structure, such as a commuting layer of phase gates, into a sequence of elementary gates (e.g., Clifford+$T$ words).",
+  "key_observables": "Committed output information ($\\overline{A}_p$), serialized crossing-state capacity ($S$), and the specific information toll ($\\log_2 \binom{m}{k}$) paid by early commitment.",
+  "important_parameters": "Number of generators ($m$), approximation tolerance ($\\epsilon$), and the number of compilation rounds ($r$).",
+  "main_assumptions": "The analysis relies on formalizing the problem via information-theoretic channels and assumes that the physical cost can be mapped to these information-theoretic bounds.",
+  "figures_summary": "Figures illustrate the dispersal process of quantum information across compilation rounds and detail the mathematical relationship between the two information currencies ($\text{S}$ and $\text{Ap}$) that must be accounted for.",
+  "paper_structure": "The paper first introduces the problem of representation-dependent recoverability, formalizes the two information channels ($\text{Ap}$ and $\text{S}$), derives the core information bound, and then demonstrates this bound using measured tolls from instrumented compilers, concluding with a design rule for optimal compilation pipelines.",
+  "why_interesting": "This work provides fundamental, quantitative guidelines for quantum algorithm implementation, directly impacting the resource estimation and feasibility assessment for complex quantum computations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.29210_figures/2609.29210_fig1.jpg",
+      "caption": "Figure 1: Dispersal, and the two currencies that undo it. (a) A QAOA cost layer e−iγC on m edges is one commuting object carrying m records. Lowered under a digitized schedule it reaches a downstream compiler as r contiguous rounds of grid residues, optionally sign-randomized and separated by Clifford records; the edge total xj is then a sum that no single record and no proper prefix reveals. The mixer layers bound the block rather than sitting inside it: at generic angles they are non-Clifford RX rotations (remark 10). The controlled-power ladder beneath is the complementary case— its rounds are contiguous, but round one already fixes the aggregate θj(2r−1), so it supplies contiguity...",
+      "page": 2
+    },
+    {
+      "image": "2609.29210_figures/2609.29210_fig2.jpg",
+      "caption": "Figure 2: Measured dispersal–memory tradeoff on the executable two-round masked-share device (Q = 3, binary aggregates, tracked signs; every point restart-verified: the serialized snapshot alone plus the round-two suffix reproduces the exact output). Left: a deferred compact-output compiler pays the dispersal in crossing state; measured slopes 10.3/21.1/43.3 bytes per unit η at m = 32/64/128 sit on the zero-error floor ηm(log2 3 + 1)/8 bytes (dashed; ratios 0.99–1.05), the residue-plus-frame cost of theorem 4 and proposition 5. Right: a streaming compiler pays the same dispersal in committed prefix output (Apre slopes 60/129/260 bytes per unit η, larger by the public addresses) while its...",
+      "page": 14
+    },
+    {
+      "image": "2609.29210_figures/2609.29210_fig3.jpg",
+      "caption": "Figure 3: The commitment toll, preregistered and measured on the two-round masked-share device; every cell restart-verified. Left: bits per committed generator paid by an executed committed prefix in excess of the deferred snapshot, against the predicted mask entropy log2 \u0000m k \u0001 /k (dashed). The toll is flat in m and vanishes at η = 1; for the buffered mask-deferred control of proposition 7(ii) it is zero at every η. Right: the per-generator exchange rate between the committed and state channels. Solid: irreducible, under an identity-optimal serializer—at most 2.64, and exactly 1 when the dispersal mask is public. Dotted: the same rate as actually serialized by the address-per-record codec...",
+      "page": 16
+    },
+    {
+      "image": "2609.29210_figures/2609.29210_fig4.jpg",
+      "caption": "Figure 4: Complete matched-representation interaction summary. Panel (a) reports certified completion probability for every representation–compiler pair; panel (b) reports serialized output size only among completed cells. Predicate errors remain status observations and never become numerical wins.",
+      "page": 24
+    },
+    {
+      "image": "2609.29210_figures/2609.29210_fig5.jpg",
+      "caption": "Figure 5: Trace-derived commitment–crossing-state–IR surface. The black edge marks measured Pareto points and the theoretical lower envelope is evaluated in the same serialized-bit coordinates. Marker area in the raw slice reflects IR share; RSS is recorded separately.",
+      "page": 27
+    }
+  ],
+  "figure": "2609.29210_figures/2609.29210_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

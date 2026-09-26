@@ -1,0 +1,66 @@
+{
+  "arxiv_id": "2609.29305",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "QaiJi IR: An Eight-Layer Intermediate Representation Family for Hybrid Quantum-Classical Compilation",
+  "authors": "Jun Ye",
+  "abstract": "Hybrid quantum-classical compilers exchange programs among circuit, control-flow, pulse, device, and physical representations. Existing formats make different abstraction choices, so the properties that must survive a lowering step are often enforced by tool-specific code rather than stated in a common intermediate representation (IR). We present QaiJi IR, an eight-layer family organized by a \\emph{five-axis semantic contract} for data, semantics, lowering, runtime, and verification. Its L4 SemanticIR records the operation class, declared equivalence level, optimization role, and classical-feedback model as attributes, and maps operation classes to ISA-neutral hardware actions.   The prototype provides typed quantum and classical circuit nodes, OpenQASM~2 compatibility input, canonical OpenQASM~3 output, explicit rejection of unsupported constructs, and executable gate-convention checks. A representative measurement-conditioned program reaches a canonical QASM fixed point, acquires a measurement-to-condition edge, passes an exact aggregate consistency check, and produces a symbolic pulse template. For a one-bit active-reset case, device lowering materializes ALU/FPROC records and a conditional branch. Running the resulting virtual pulse processing unit (VPPU) program with externally supplied outcomes 0 and 1 respectively skips and executes the conditional drive. These tests validate the represented compiler path and binary branch behavior. They do not establish a physical feedback loop, because the simulator cannot yet apply mid-circuit measurement collapse and continue the same dynamical trajectory.",
+  "url": "http://arxiv.org/abs/2609.29305v1",
+  "pdf": "https://arxiv.org/pdf/2609.29305v1",
+  "type": "theory",
+  "summary": "This paper presents QaiJi IR, a novel eight-layer intermediate representation designed to standardize the compilation process for hybrid quantum-classical algorithms. It enforces semantic correctness across multiple abstraction levels using a five-axis contract. The framework successfully validates the compilation path for measurement-based control flow, providing a structured tool for quantum compiler design.",
+  "main_problem": "Existing hybrid quantum-classical compilers lack a common intermediate representation (IR) to enforce properties that must survive the lowering from high-level abstractions to physical hardware.",
+  "main_result": "The authors introduce QaiJi IR, an eight-layer family governed by a five-axis semantic contract, which successfully models and tests the compilation path for measurement-conditioned quantum programs.",
+  "method": "They propose QaiJi IR, which uses a five-axis semantic contract (Data, Semantics, Lowering, Runtime, Verification) and an L4 SemanticIR to map abstract operations to ISA-neutral hardware actions.",
+  "model_or_system": "The model is the compilation pipeline for hybrid quantum-classical computation, involving quantum circuits, classical control flow, and pulse/device representations.",
+  "key_observables": "The successful materialization of ALU/FPROC records and the execution of a conditional branch (skip/execute) on a virtual pulse processing unit (VPPU) for an active-reset case.",
+  "important_parameters": "The five axes of the semantic contract; the eight-layer structure of the IR.",
+  "main_assumptions": "The current simulator cannot apply mid-circuit measurement collapse and continue the full dynamical trajectory, limiting validation to consistency checks rather than full physical fidelity.",
+  "figures_summary": "Figure 2 illustrates the eight-layer QaiJi IR structure with side connections for dynamics and traces; Figure 3 summarizes the six-stage lowering pipeline and its interface invariants.",
+  "paper_structure": "The paper introduces the problem of compiler abstraction gaps, details the QaiJi IR structure (eight layers, five-axis contract), describes the six-stage lowering pipeline, and validates the framework using measurement-conditioned and active-reset examples.",
+  "why_interesting": "It provides a rigorous, structured framework for managing the complex compilation stack required for near-term quantum hardware, which is crucial for any physicist working on implementing quantum algorithms on real devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.29305_figures/2609.29305_fig1.jpg",
+      "caption": "Fig. 1. The five-axis semantic contract. Each axis fixes one class of obligation and the question it answers; together they connect the four logical semantics in §2.1.",
+      "page": 4
+    },
+    {
+      "image": "2609.29305_figures/2609.29305_fig2.jpg",
+      "caption": "Fig. 2. QaiJi IR’s eight-layer family. Solid arrows show the main lowering path L5 →L0, associated with the pipeline in §3.3. Dashed connections link the main layers to dynamics in P and trace collection in T. L4 defines the semantic contract (§3.2).",
+      "page": 6
+    },
+    {
+      "image": "2609.29305_figures/2609.29305_fig3.jpg",
+      "caption": "Fig. 3. The six-stage lowering pipeline and its interface invariants. The default facade builds context-free artifacts; explicit APIs perform pulse and ISA materialization when binding contexts are supplied.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.29305_figures/2609.29305_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

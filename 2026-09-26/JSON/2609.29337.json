@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.29337",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Nonorthogonal variational quantum simulation for quantum chemistry",
+  "authors": "Zongkang Zhang, Jiajun Ren, Xiao Yuan",
+  "abstract": "Dynamical simulation of quantum many-body systems is a central task in quantum chemistry and requires efficient wavefunction representations. Although tensor-network and neural-network quantum states have achieved considerable success in ground-state calculations, entanglement growth hinders their application to quantum dynamics. Quantum computing may offer a route to quantum advantage, but algorithms such as Trotterization generally require fault-tolerant quantum computers, whereas near-term hardware supports only limited circuit sizes. Variational quantum simulation (VQS) instead represents the evolving state with a single shallow, fixed-size parameterized quantum circuit (PQC). Here, we introduce nonorthogonal variational quantum simulation (NOVQS), which applies linear combinations of parameterized quantum states to real- and imaginary-time evolutions. We design a shallow, hardware-friendly ansatz tailored to second-quantized electronic-structure Hamiltonians, together with resource-efficient protocols for measuring the matrices and vectors in the parameter equations of motion. Error analysis and resource estimation are also provided. Numerical simulations of hydrogen chains and the nitrogen molecule demonstrate that a collection of shallow, or even single-layer, PQCs can match or outperform a much deeper PQC in VQS. In particular, we identify a trade-off between circuit number and depth. NOVQS therefore provides a flexible route to enhancing wavefunction expressivity under circuit-depth constraints, making it a promising framework for quantum dynamics simulations on near-term quantum processors.",
+  "url": "http://arxiv.org/abs/2609.29337v1",
+  "pdf": "https://arxiv.org/pdf/2609.29337v1",
+  "type": "theory",
+  "summary": "This paper introduces Nonorthogonal Variational Quantum Simulation (NOVQS) to tackle the challenge of simulating quantum dynamics on near-term quantum computers. NOVQS represents the state as a linear combination of shallow parameterized quantum circuits, allowing the time evolution to be governed by parameter dynamics. The method proves that this approach can maintain high expressivity while respecting strict circuit-depth constraints.",
+  "main_problem": "Dynamically simulating quantum many-body systems is challenging due to wavefunction complexity and entanglement growth, limiting standard quantum simulation techniques.",
+  "main_result": "The proposed Nonorthogonal Variational Quantum Simulation (NOVQS) method shows that using a collection of shallow PQCs can match or outperform much deeper PQCs in simulating quantum dynamics.",
+  "method": "NOVQS represents the evolving state as a linear combination of parameterized quantum states, allowing time evolution to be mapped onto the time evolution of the parameters using equations of motion derived from McLachlan's variational principle.",
+  "model_or_system": "The method is applied to quantum chemistry, simulating the time evolution governed by a second-quantized electronic-structure Hamiltonian, which is represented in Pauli form.",
+  "key_observables": "The Quantum Fisher Information Matrix (M) and the force vector (V) are key observables used to derive the equations of motion for the parameters.",
+  "important_parameters": "Circuit depth and the number of parameterized quantum circuits (PQCs) are critical resources, with a trade-off identified between these two.",
+  "main_assumptions": "The primary approximation is using a nonorthogonal multistate ansatz $|\\Phi(\\vec{\theta}(t))\rangle = \\sum_{j=1}^{n} c_j(t) |\\varphi_j(\\vec{\theta}_j(t))\rangle$ to represent the state during time evolution.",
+  "figures_summary": "Figure 1 schematically illustrates the NOVQS process, showing the definition of the variational wavefunction, the evaluation of M and V on quantum computers, and the subsequent parameter update for time evolution.",
+  "paper_structure": "The paper introduces NOVQS as an extension of NOVQE to dynamics, details the mathematical framework involving the linear combination ansatz and the derivation of the parameter equations of motion (EOMs) using McLachlan's principle, and validates the method via numerical simulations on molecular systems.",
+  "why_interesting": "This work directly addresses the resource limitations (circuit depth) of VQS for dynamics, offering a hardware-efficient alternative for simulating complex quantum dynamics on near-term quantum processors.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.29337_figures/2609.29337_fig1.jpg",
+      "caption": "FIG. 1. Schematic of nonorthogonal variational quantum simulation (NOVQS). The algorithm proceeds as follows: First, the variational wavefunction is represented by a set of parameterized quantum circuits constructed from fermionic simulation (fSim) gates. Second, the quantum Fisher information matrix M and the force vector V are evaluated on quantum computers. Subsequently, the parameters at time t+δt are updated from their values at time t using M and V , applicable to both real and imaginary time evolution (τ ←t). This iterative process is repeated for Nt = T/δt steps, where T denotes the total evolution duration.",
+      "page": 3
+    },
+    {
+      "image": "2609.29337_figures/2609.29337_fig2.jpg",
+      "caption": "FIG. 2. Quantum circuit decomposition of the fSim gate de- fined in Eq. (25). The circuit implements the gate up to an irrelevant global phase e−iφ/4, where RZ(α) = e−iαZ/2 and RY(α) = e−iαY/2.",
+      "page": 6
+    },
+    {
+      "image": "2609.29337_figures/2609.29337_fig3.jpg",
+      "caption": "FIG. 3. Structure of a single layer in the parameterized quan- tum circuit, taking M = 3 spatial orbitals as an example. The fSim gates are arranged in a ’brickwork’ pattern across 2M sublayers, followed by a final sublayer of RZ rotation gates. Upon completion of one block, every pair of qubits has interacted exactly once, and the qubit ordering is re- versed. The fSim gate is defined in Eq. (25), and rotation gate RZ(λ) = e−iλZ/2.",
+      "page": 6
+    },
+    {
+      "image": "2609.29337_figures/2609.29337_fig4.jpg",
+      "caption": "FIG. 5. Ancilla-free Hadamard test quantum circuit for the estimation of expressions in M and V . UGHZ = QNe−2 i=0 CNOTi,i+1H0, which prepares the Greenberger- Horne-Zeilinger (GHZ) state |GHZ⟩= 1 √",
+      "page": 7
+    },
+    {
+      "image": "2609.29337_figures/2609.29337_fig5.jpg",
+      "caption": "FIG. 6. The quantum circuit used to extract the interfer- ometric classical shadow of nonorthogonal states (Uc = Uj) and tangent states (Uc = Rj,k,i). Combined with the classi- cal shadow of nonorthogonal states, we can predict M and V . The phase gate S = |0⟩⟨0| + i|1⟩⟨1|. Nearest-neighbor CNOT gates are implemented across the first Ne qubits. The unitary Urand is selected randomly from a fixed ensemble U, which is a Clifford group.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.29337_figures/2609.29337_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

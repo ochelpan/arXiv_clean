@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.29267",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AR",
+    "cs.DC"
+  ],
+  "is_primary_archive": true,
+  "title": "MagiCFirm: A Runtime for Magic-State Cultivation with Algorithm-Hardware Co-Design",
+  "authors": "Jubo Xu, Abbas B. Ziad, Prakash Murali, Hongxiang Fan",
+  "abstract": "Magic-state cultivation offers a promising alternative for lowering the cost of non-Clifford operations in fault-tolerant quantum computing (FTQC). However, realizing cultivation in practice exposes two challenges: (i) the lack of an open-source classical runtime layer between logical software and physical control, and (ii) the latency constraints on protocol-specific decisions that determine magic-state readiness. To address these challenges, we adopt an algorithm--hardware co-design approach. At the algorithm level, we develop a two-stage early-escape scheme that identifies an informative subset of detectors offline, constructs a compact decoding problem, and performs partial decoding in parallel with complete decoding at runtime, allowing high-confidence attempts to advance before full decoding completes. At the hardware level, we present MagiCFirm, a configurable runtime that combines offline-compiled microprograms with dedicated datapaths for detector construction, event processing, and protocol control, enabling end-to-end execution of magic-state cultivation. Across evaluated configurations, MagiCFirm reduces wall-clock magic-state preparation time by up to 39.3% at matched logical error rate. For a representative magic-state-bound workload, this translates to an estimated 11% reduction in overall application runtime.",
+  "url": "http://arxiv.org/abs/2609.29267v1",
+  "pdf": "https://arxiv.org/pdf/2609.29267v1",
+  "type": "both",
+  "summary": "This paper introduces MagiCFirm, a novel hardware runtime designed to solve the latency and integration challenges in fault-tolerant quantum computing's magic-state cultivation process. By combining an advanced two-stage early-escape decoding algorithm with a configurable, event-driven hardware architecture, the authors significantly accelerate the preparation of magic states. This work moves the process from a theoretical abstraction to a concrete, high-performance, and resource-aware physical implementation.",
+  "main_problem": "The practical realization of magic-state cultivation for fault-tolerant quantum computing (FTQC) is hindered by the lack of an open-source classical runtime layer and latency constraints on protocol-specific decisions.",
+  "main_result": "The proposed runtime, MagiCFirm, reduces wall-clock magic-state preparation time by up to 39.3% and estimates an 11% reduction in overall application runtime for representative workloads.",
+  "method": "The approach combines an algorithm-hardware co-design: developing a two-stage early-escape scheme for partial decoding and implementing MagiCFirm, a configurable runtime using offline-compiled microprograms and dedicated datapaths.",
+  "model_or_system": "The system is based on FTQC using magic-state cultivation, which involves an Injection $\rightarrow$ Cultivation $\rightarrow$ Escape process. The physical implementation utilizes a fold-based measurement technique on a color-code layout.",
+  "key_observables": "Wall-clock magic-state preparation time, overall application runtime, decoding confidence gap ($g_c(s)$), and Logical Error Rate (LER).",
+  "important_parameters": "Logical error rate, detector firing outcomes, and the complementary-gap threshold ($t_c$).",
+  "main_assumptions": "Existing high-level FTQC tools treat cultivation as a coarse-grained logical operation, leaving the online realization unspecified.",
+  "figures_summary": "Figure 1 illustrates the magic-state cultivation workflow (Injection $\rightarrow$ Cultivation $\rightarrow$ Escape). Figure 2 details the detector-conditioned gap shift and latency breakdown. Figure 3 shows the MagiCFirm control-system architecture.",
+  "paper_structure": "The paper addresses the challenges in magic-state cultivation by proposing a co-design. It details the algorithm-level early-escape scheme and presents MagiCFirm, a hardware runtime, which enables end-to-end, detector-driven execution.",
+  "why_interesting": "While focused on quantum computing hardware, the emphasis on low-latency, resource-accountable, and event-driven classical control (the runtime layer) is highly relevant to any physical realization of quantum computation, including those using AMO platforms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.29267_figures/2609.29267_fig1.jpg",
+      "caption": "Figure 1. Overview of magic-state cultivation. (a) Cul- tivation workflow, where red paths indicate post-selection and restart. (b) Two-data-qubit phase-kickback example. Red dashed lines mark state snapshots for the accepted outcome 𝑀𝑋(𝑎1) = +1, with 𝐷= (𝑑1,𝑑2) and 𝐴= (𝑎1,𝑎2).",
+      "page": 2
+    },
+    {
+      "image": "2609.29267_figures/2609.29267_fig2.jpg",
+      "caption": "Figure 2. (a) Spatiotemporal detector-conditioned gap shift, Δ𝑔(𝑑) = E[𝑔𝑐| 𝑠𝑑= 1] −E[𝑔𝑐], where 𝑠𝑑= 1 denotes detector firing. (b) Wall-clock average preparation-latency (including accumulated latencies for all retries until first success) breakdown across complementary-gap thresholds 𝑡𝑐for 𝑑cultiv = 3, 𝑑escape = 15, and 𝑝= 10−3; labels report the accepted-state LER; gate time from [19]; control latency assumed to be 3.1𝜇𝑠[9]. (c) Logical magic-state consump- tion pipeline, showing how an earlier gap decision overlaps downstream operations with the remaining decoding.",
+      "page": 3
+    },
+    {
+      "image": "2609.29267_figures/2609.29267_fig3.jpg",
+      "caption": "Figure 3. MagiCFirm control-system architecture. The left panels show offline compilation and hierarchical runtime deployment over an existing physical-control substrate, where PCore denotes the physical control core that directly controls the underlying qubits; the center panels detail the LCore and L2P architectures; and the right panel expands the configurable detector-construction datapath. Gray components denote the existing physical-control system, while colored blocks and black interconnects denote MagiCFirm extensions.",
+      "page": 5
+    },
+    {
+      "image": "2609.29267_figures/2609.29267_fig4.jpg",
+      "caption": "Figure 4. Partial mask geometric visualization. A rep- resentative time slice of the partial mask for 𝑑cultiv = 3, 𝑑escape = 15, 𝑝= 10−3, and 𝐾𝑄= 200. Red and gray cells denote retained and excluded detectors. (a) The LAP-selected base mask. (b) Structural closure augmented mask.",
+      "page": 6
+    },
+    {
+      "image": "2609.29267_figures/2609.29267_fig5.jpg",
+      "caption": "Figure 5. Graph-based DEM contraction. Red, gray ver- tices denote retained, masked-out detectors. The red block is the boundary. Each colored solid edge denotes an effective fault, with the same-colored dashed edges showing original hidden-space path. Panels (a)–(d) correspond to 4 phases.",
+      "page": 7
+    }
+  ],
+  "figure": "2609.29267_figures/2609.29267_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
