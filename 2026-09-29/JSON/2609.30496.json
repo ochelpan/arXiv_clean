@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.30496",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Disentangling Expressibility, Symmetry Protection, and Hardware Noise in Variational Quantum Simulation of the Two-Flavor Schwinger Model",
+  "authors": "Karthikeya Machiraju, Krishna Sujith, Kaustav Bhowmick",
+  "abstract": "Existing quantum simulations of the two-flavor Schwinger model have run at a single lattice size, and it is not known how far the variational approach can be pushed or which weakness stops it first. Following the model from N = 2 to 6 staggered lattice sites, we find that the binding constraint at reachable sizes is hardware noise rather than circuit expressibility or trainability, and identify N = 3 as the immediately viable extension of existing trapped-ion experiments. The energy error of a charge-conserving ansatz collapses onto one function of p/d, the ratio of variational parameters to physical-sector dimension, and falls by more than two orders of magnitude as p/d rises through order unity, giving the expressibility condition L(4N - 1) >= binom(2N,N) for L circuit layers. The condition is local in chemical potential: at N = 3 the layer count sufficient at zero chemical potential leaves a 74.38% error near the first-order boundary, while one further layer reaches 0.08%. Charge conservation also protects trainability and prevents charge-sector leakage: as the qubit count doubles from 4 to 8, the normalized gradient variance falls to 1/3.56 of its starting value for the constrained ansatz, versus 1/13.57 for an unconstrained circuit. Comparing a global contraction with per-gate local noise, a fixed-parameter control shows that the noise model, not whether the optimizer runs inside the noisy loop, sets how strongly noise degrades the first-order transition. At N = 4, a noiseless control reaches 0.12% mean error, whereas the same circuit at 1.00% depolarizing noise reaches 25.69 to 52.81%.",
+  "url": "http://arxiv.org/abs/2609.30496v1",
+  "pdf": "https://arxiv.org/pdf/2609.30496v1",
+  "type": "theory",
+  "summary": "This work investigates the scalability of quantum simulation for the two-flavor Schwinger model using VQE. By analyzing the interplay between circuit expressibility, symmetry constraints, and hardware noise across increasing lattice sizes, the authors conclude that hardware noise is the primary bottleneck. They establish N=3 as a near-term, achievable target for trapped-ion quantum computers.",
+  "main_problem": "To determine the limiting factor—expressibility, symmetry protection, or hardware noise—when using Variational Quantum Eigensolver (VQE) to simulate the two-flavor Schwinger model.",
+  "main_result": "The binding constraint limiting simulation size at reachable lattice sites is identified as hardware noise, not circuit expressibility or trainability. The study pinpoints N=3 as the immediately viable extension for current trapped-ion quantum hardware.",
+  "method": "The authors employ VQE on a mapped Hamiltonian, systematically varying the lattice size (N) and comparing the energy error under different noise models and ansatz constraints.",
+  "model_or_system": "The physical system is the two-flavor Schwinger model (QED in 1+1 dimensions), mapped to a qubit Hamiltonian using the Kogut–Susskind staggered formulation. The simulation is performed on a lattice of size N, restricted to the charge-neutral physical subspace.",
+  "key_observables": "Energy error, ratio of variational parameters to physical sector dimension (p/d), normalized gradient variance, and entanglement entropy.",
+  "important_parameters": "Lattice size N (tested up to 6), circuit depth L, and the degree of hardware noise (e.g., 1.00% depolarizing noise).",
+  "main_assumptions": "The analysis assumes a consistent framework to compare the three failure mechanisms (expressibility, symmetry protection, noise) across varying lattice sizes.",
+  "figures_summary": "Figures compare the combinatorial growth of the physical sector dimension against the linear growth of the parameter budget, and show the collapse of the energy error onto a function of p/d.",
+  "paper_structure": "The paper systematically analyzes the scaling of VQE for the Schwinger model, first establishing the theoretical limits set by expressibility, then quantifying the protection afforded by charge conservation, and finally demonstrating that hardware noise dominates the error budget at larger lattice sizes.",
+  "why_interesting": "It provides a concrete, quantitative benchmark for assessing the feasibility of simulating complex lattice gauge theories on near-term quantum hardware, directly addressing the interplay between algorithmic design and physical hardware limitations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.30496_figures/2609.30496_fig1.jpg",
+      "caption": "FIG. 1. Exact-diagonalization baseline (K = 0, x = 16, F = 2), computed in this work. (a) Physical-sector dimension d = \u00002N N \u0001",
+      "page": 5
+    },
+    {
+      "image": "2609.30496_figures/2609.30496_fig2.jpg",
+      "caption": "FIG. 2. Expressibility. (a) Relative energy error versus ansatz layers L; dotted verticals mark Lmin. The crossings for N = 5 and N = 6 lie at L = 14 and L = 41 and are outside the plotted range. (b) The same data collapse onto a single function of p/d, with the error transition at p/d ≈1. (c) Minimum-layer two-qubit depth 4Lmin + 4N −6 for N = 2 to 5, color-coded by trapped-ion feasibility (green: feasible; orange: marginal; red: infeasible). The dashed horizontal line in panels (a) and (b) marks 1% relative error. Symbol and color coding in panel (a) is shared with panel (b).",
+      "page": 8
+    },
+    {
+      "image": "2609.30496_figures/2609.30496_fig3.jpg",
+      "caption": "FIG. 3. Gauge-invariant (GI) vs. hardware-efficient (HW) ansatz across the chemical potential at N = 2, L = 2 (33-point sweep). (a) Ground-state energy: the HW result drops below the physical ground state outside the window K ∈[−2, 1] (charge- sector leakage), while GI tracks it, and the global minimum over all charge sectors is shown for reference. (b) Global-charge violation ⟨Q2 tot⟩: identically zero for GI, and unity for HW outside the window K ∈[−2, 1]. (c) Fidelity with the physical ground state: unity for GI, collapsing to zero for HW. (d) Flavor-0 particle number, integer-valued and stepping down from 2 to 0 as K increases for GI, displaced for HW. (e) Flavor-1 particle number,...",
+      "page": 10
+    },
+    {
+      "image": "2609.30496_figures/2609.30496_fig4.jpg",
+      "caption": "FIG. 4. Penalty-term sweep for the hardware-efficient ansatz at K = −14, N = 2, L = 2. (a) Recovered energy versus λ: it can reach the physical ground state only for λ ≳16.5, the charge-sector gap of Eq. (8) (dash-dotted), and sits at the global minimum below that. (b) Charge-sector leakage ⟨Q2 tot⟩versus λ, falling from unity to zero across the same crossover, against the identically zero GI reference. (c) Fidelity with the physical ground state versus λ, rising from zero to unity at the crossover, against the GI reference.",
+      "page": 11
+    },
+    {
+      "image": "2609.30496_figures/2609.30496_fig5.jpg",
+      "caption": "FIG. 5. Optimization stability and convergence (K = 0, N = 2, L = 2). Across 20 random restarts the gauge-invariant ansatz is deterministic (σE = 1.0 × 10−4, mean fidelity 0.99) while the hardware-efficient ansatz scatters (σE = 5.38, mean fidelity 0.84): the (a) final-energy spread and (b) fidelity spread collapse to a line at the exact value for the gauge-invariant ansatz but spread widely for the hardware-efficient one. (c) Representative convergence traces: the gauge-invariant optimizer reaches the ground state in ∼10 iterations, whereas the hardware-efficient optimizer plateaus in nonphysical regions before descending to the physical ground state.",
+      "page": 12
+    }
+  ],
+  "figure": "2609.30496_figures/2609.30496_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

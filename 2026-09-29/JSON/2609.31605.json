@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.31605",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Measurement-Based Uncomputation from an Error Correction Perspective",
+  "authors": "Minjun Jeon, Po-Wei Huang, Zhenyu Cai",
+  "abstract": "Coherent uncomputation can be as costly as the computation itself, creating substantial spacetime overheads that can be prohibitive on early fault-tolerant quantum computers. We develop an algebraic framework for measurement-based uncomputation (MBU) through a quantum error-correction picture: measurements of the garbage register induce relative phases analogous to errors causing non-trivial syndromes. Accepting only zero-syndrome outcomes achieves post-selected MBU, removing the need for an uncomputation oracle at the cost of a probabilistic success rate determined by the affine rank of the populated garbage support. This rank can be much smaller than the number of garbage qubits, as illustrated through an example of the HHL algorithm. We then derive a structural condition under which the original uncomputation oracle can be reused to correct the phase for all measurement outcomes. No correction is required for the zero syndrome, while corrections for non-zero syndromes can be further adapted to individual measurement outcomes for simpler circuits, as illustrated by existing modular-arithmetic, QROM, and QRAM MBU constructions. Phase-correction circuits can be further simplified by co-optimising their implementation with the representation of the measurement-induced phases. Selecting which syndrome classes to correct interpolates between post-selected, partially corrected, and deterministic MBU, enabling trade-offs among correction cost, workspace, and repetitions.",
+  "url": "http://arxiv.org/abs/2609.31605v1",
+  "pdf": "https://arxiv.org/pdf/2609.31605v1",
+  "type": "theory",
+  "summary": "This paper proposes Measurement-Based Uncomputation (MBU) as an efficient alternative to complex inverse quantum circuits. By interpreting the measurement process through a Quantum Error Correction lens, the authors show that post-selection on zero-syndrome outcomes yields the desired uncomputation state. This approach significantly reduces overhead by linking success probability to the low-dimensional affine rank of the system's support.",
+  "main_problem": "Developing an efficient method for Measurement-Based Uncomputation (MBU) to replace the costly coherent inverse circuits required in fault-tolerant quantum computation.",
+  "main_result": "Post-selected MBU achieves the necessary uncomputation by accepting only zero-syndrome measurement outcomes, with a success probability determined by the low-dimensional affine rank of the garbage support.",
+  "method": "The authors recast MBU into a Quantum Error Correction (QEC) framework, analyzing measurement outcomes as syndrome measurements that induce relative phases.",
+  "model_or_system": "The model involves a quantum computation with a main register and a garbage register ($G$). The process is analyzed by measuring $G$ in the X basis, relating the outcome to error syndromes.",
+  "key_observables": "Success probability ($P_{\text{succ}}$), relative phases induced by measurement outcomes, and the affine rank ($r_\\Lambda$) of the populated garbage support.",
+  "important_parameters": "The affine rank $r_\\Lambda$ dictates the success probability ($P_{\text{succ}} \\propto 2^{-r_\\Lambda}$), which is much smaller than the number of garbage qubits.",
+  "main_assumptions": "The analysis relies on post-selecting on outcomes that yield zero relative phase, and later extends to bounding deviations from the ideal orthogonal case using coherence measures.",
+  "figures_summary": "Figure 1 conceptually maps the process from standard computation to MBU and its QEC interpretation. Other figures detail the comparison between standard and MBU implementations in algorithms like HHL.",
+  "paper_structure": "The paper builds from the conceptual problem of uncomputation to the algebraic framework of MBU via QEC, deriving the success probability based on the affine rank, and finally detailing structural conditions for deterministic correction.",
+  "why_interesting": "While focused on computation, the rigorous mathematical framework connecting measurement outcomes to error syndromes and the use of algebraic rank to bound resource requirements is highly relevant to understanding noise and error mitigation in any physical quantum system.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.31605_figures/2609.31605_fig1.jpg",
+      "caption": "FIG. 1. Conceptual overview of measurement-based uncomputation (MBU) as quantum error correction (QEC). (a) Standard reversible computation generates a useful result together with a garbage register. (b) Conventional uncomputation restores the garbage register by coherently applying the inverse circuit U †, requiring the garbage qubits to remain coherent until the end of the computation. Before the uncomputation, the result (usually) is copied or encoded into a separate register. (c) In MBU, the garbage register is measured in the X basis instead of being coherently uncomputed. The measurement outcome is accepted only if it satisfies the required acceptance condition (pure post-selection in...",
+      "page": 2
+    },
+    {
+      "image": "2609.31605_figures/2609.31605_fig2.jpg",
+      "caption": "FIG. 2. Comparison between coherent and post-selected uncomputation in HHL. (a) Standard coherent HHL implementation. After QPE computes the eigenvalue estimate into the phase register and the controlled rotation implements the factor proportional to 1/λ, the eigenvalue register is disentangled by applying inverse QPE. This requires the phase-estimation workspace to remain coherent until the end of the inverse block. (b) Post-selected measurement-based replacement. A preliminary sampling stage estimates the populated eigenvalue support Λ and hence the affine support span SΛ. In the state-preparation run, the controlled rotation is followed by an X-basis measurement of the eigenvalue...",
+      "page": 5
+    },
+    {
+      "image": "2609.31605_figures/2609.31605_fig3.jpg",
+      "caption": "Fig. 2 illustrates the replacement of the coherent inverse- QPE block in standard HHL with post-selected MBU, i.e., an X-basis measurement of the eigenvalue register fol- lowed by a post-selection on the syndrome-zero subspace, i.e., on the outcomes k ∈S⊥ Λ .",
+      "page": 5
+    },
+    {
+      "image": "2609.31605_figures/2609.31605_fig4.jpg",
+      "caption": "FIG. 3. Numerical validation of MBU for structured graph Laplacians. Affine rank rΛ as a function of system size n for a smooth physical signal (exponential spatial decay). For the structured hypercube graph, the affine rank remains func- tionally decoupled from the exponentially growing system volume over the simulated range. In contrast, eigenvalues of an unstructured random regular graph (RRG) lack algebraic correlation, causing the discretised labels to behave as inde- pendent bitstrings and rΛ to rapidly saturate the precision ceiling Ng = 10. For the random regular graph, the affine rank is averaged over 10 independent graph instances with error bars denoting one standard deviation....",
+      "page": 6
+    },
+    {
+      "image": "2609.31605_figures/2609.31605_fig5.jpg",
+      "caption": "FIG. 4. Phase-corrected MBU. X-basis measurement of G yields outcome k and syndrome q(k). The induced phase can be corrected at the implementation cost c(q). Zero syndromes require no correction; accepted nonzero syndromes use oracle reuse under Theorem 2, outcome-adapted compilation, or optimised phase coordinates. Other outcomes are rejected. Choosing the accepted syndrome set A interpolates between pure post-selection, partial correction and deterministic MBU. All accepted outputs recover the target state up to a global phase.",
+      "page": 10
+    }
+  ],
+  "figure": "2609.31605_figures/2609.31605_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

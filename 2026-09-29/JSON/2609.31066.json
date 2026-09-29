@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2609.31066",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET",
+    "cs.NE"
+  ],
+  "is_primary_archive": true,
+  "title": "Modeling quantum neural network gradient with reinforcement learning",
+  "authors": "Nhan Trong Luu, Duong Trung Luu, Nam Ngoc Pham, Thang Cong Truong",
+  "abstract": "Training quantum neural networks (QNNs) on near-term hardware remains hampered by two compounding difficulties: the exponential vanishing of gradient variance known as the barren plateau, and the $\\mathcal{O}(L \\cdot 2^n)$ time and memory cost of differentiating through an $n$-qubit, $L$-layer circuit. We propose RLQ-Grad, a reinforcement-learning-based optimizer in which a classical policy $π_φ$ (a spectrally-normalized PPO agent) learns to propose parameter updates directly, conditioned on the QNN's current parameters, loss, accuracy, and previous update. Because the surrogate gradient is emitted by a classical network rather than obtained by differentiating through the unitary $U(θ)$, its variance is not constrained by the barren plateau concentration bound, and its cost scales with the number of trainable parameters rather than the Hilbert-space dimension. We prove these properties formally and verify them on a hardware-efficient ansatz across four supervised benchmarks with up to $n=20$ qubits. RLQ-Grad preserves a near-flat gradient-variance curve where backpropagation, parameter-shift, and adjoint differentiation decay by 1 to 2 orders of magnitude. Accounting for the full training pipeline (PPO rollouts, actor-critic updates, and optimizer states), RLQ-Grad needs under 2 MB of memory and runs $2490\\times$, $7876\\times$, and $673\\times$ faster per iteration than these three methods at $n=20$. It improves top-1 accuracy by up to $+10\\%$ over gradient-based baselines on circuits of up to 12 qubits, and matches dedicated barren plateau mitigation methods on CIFAR-10 at 14 to 20 qubits, where evolutionary and gradient-free optimizers collapse to chance.",
+  "url": "http://arxiv.org/abs/2609.31066v1",
+  "pdf": "https://arxiv.org/pdf/2609.31066v1",
+  "type": "theory",
+  "summary": "This paper introduces RLQ-Grad, a novel reinforcement learning optimizer designed to train Quantum Neural Networks (QNNs). It overcomes the critical challenges of barren plateaus and exponential computational cost associated with calculating quantum gradients. By using a classical policy to propose updates, RLQ-Grad achieves massive speedups and maintains robust gradient variance across large qubit systems.",
+  "main_problem": "Training Quantum Neural Networks (QNNs) is severely limited by the barren plateau phenomenon (vanishing gradient variance) and the exponential computational cost of calculating quantum gradients.",
+  "main_result": "The proposed RLQ-Grad optimizer bypasses explicit gradient computation by using a classical RL policy, achieving massive speedups and preserving gradient variance where traditional methods fail.",
+  "method": "The authors formulate QNN training as an RL problem, training a PPO agent to propose parameter updates directly, conditioned on the current state (parameters, loss, accuracy).",
+  "model_or_system": "The model involves QNNs built on hardware-efficient ansatz circuits using $n$ qubits and $L$ layers, trained for supervised quantum machine learning tasks.",
+  "key_observables": "Gradient variance (showing decay for standard methods vs. flatness for RLQ-Grad), Top-1 validation accuracy, and computational time/memory complexity.",
+  "important_parameters": "Number of qubits ($n$), number of layers ($L$), and the complexity scaling (linear in parameters vs. exponential in $n$).",
+  "main_assumptions": "The RL agent operates entirely in the classical domain, decoupling the optimization signal from the quantum circuit's intrinsic geometry.",
+  "figures_summary": "Figures compare gradient variance across methods, and tables compare end-to-end memory and CPU time, demonstrating RLQ-Grad's superior resource efficiency.",
+  "paper_structure": "The paper first identifies the limitations of QNN training (barren plateaus, high cost). It then introduces RLQ-Grad, detailing the RL formulation, proving its theoretical advantages (gradient variance preservation, polynomial scaling), and finally benchmarking its performance against state-of-the-art gradient estimation techniques.",
+  "why_interesting": "It provides a novel, computationally tractable optimization framework for QML models, directly addressing the primary bottleneck (gradient calculation) that limits the practical application of variational quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.31066_figures/2609.31066_fig1.jpg",
+      "caption": "Figure 3: End-to-end memory (a, CPU RAM) and per-iteration CPU wall-clock time (b) of QNN gradient computation methods from 2 to 20 qubits (log scale, mean over 12 trials after 4 warm-up iterations). RLQ-Grad costs cover the full training pipeline: PPO rollout, actor and critic updates, gradient buffers, and Adam optimizer states. Hollow markers denote measurements below the 0.1 MB resolution. Exact values are listed in Appendix D.6.",
+      "page": 6
+    },
+    {
+      "image": "2609.31066_figures/2609.31066_fig2.jpg",
+      "caption": "Figure 4: Accuracy convergence of RLQ-Grad (with PPO) variants (with (a) both last layer of policy and value function SN, (b) only last layer of value function SN [25] and (c) no SN applied) on BC dataset (denoted blue with fluctuation region) when compare with maximum achievable accuracy of other gradient calculating methods on 2-qubits HEA.",
+      "page": 18
+    },
+    {
+      "image": "2609.31066_figures/2609.31066_fig3.jpg",
+      "caption": "Figure 5: Accuracy convergence of RLQ-Grad (denoted blue with fluctuation region) when compare with maximum achievable accuracy of other gradient calculating methods on 2-qubits HEA.",
+      "page": 19
+    },
+    {
+      "image": "2609.31066_figures/2609.31066_fig4.jpg",
+      "caption": "Figure 6: Loss landscape visualization across benchmarked gradient computation methods over HEA- 2b1q on BC and F-MNIST. Loss landscape change from smooth on BC dataset (overparameterized) to becomes more noisy (underparameterized) with sharp local minima in F-MNIST.",
+      "page": 23
+    }
+  ],
+  "figure": "2609.31066_figures/2609.31066_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

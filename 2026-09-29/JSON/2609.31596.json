@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2609.31596",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Oracle Distillation",
+  "authors": "Ruohan Shen, Soonwon Choi",
+  "abstract": "Learning and sensing are among the most promising applications of quantum technology, often with provable quantum advantages. In any realistic experiment, however, noise threatens to erase these advantages as the problem size grows. We introduce oracle distillation, a procedure that distills many queries to a noisy oracle into a single high-fidelity oracle. Here the oracle, an unknown unitary from a known family, models the interface through which a quantum device learns about an unknown system. We construct an explicit protocol that distills any Boolean oracle, both under adversarial noise that corrupts a constant fraction of the input qubits and under i.i.d. depolarizing noise at a constant rate on every qubit. At the heart of the protocol is the weak query, in which the device deliberately queries the oracle only weakly, trading response strength for the ability to correct errors. Our protocol is near-optimal among all protocols that distill the oracle while keeping its errors correctable, revealing a fundamental tension between these two requirements. An important implication of the protocol is a threshold theorem: every Boolean oracle problem whose quantum advantage is polynomial in the domain size, including Grover search, $k$-forrelation, and Simon's problem, retains a quantum advantage whenever the per-qubit depolarizing rate is below a constant threshold. In particular, the quadratic quantum advantage of Grover search, long believed fragile under noise, survives nearly intact at low error rates even when almost every query involves errors on one or more qubits. We further extend the protocol to fractional and continuous-time Boolean oracles. Quantum error correction can thus protect not only prescribed operations but also unknown dynamics. Our results make a large family of quantum advantages in learning robust against noise and open a path toward robust computational sensing.",
+  "url": "http://arxiv.org/abs/2609.31596v1",
+  "pdf": "https://arxiv.org/pdf/2609.31596v1",
+  "type": "theory",
+  "summary": "This paper introduces Oracle Distillation, a protocol designed to purify an unknown, noisy quantum oracle by querying it many times. It proves that this distillation process can successfully protect quantum advantages for key algorithms, such as Grover search, even when the error rate is non-zero but below a critical threshold. This opens a path for robust quantum sensing and computation.",
+  "main_problem": "The central challenge is developing a method to preserve quantum computational advantages in learning and sensing tasks when the underlying system interaction (the oracle) is unknown and corrupted by noise.",
+  "main_result": "The authors introduce Oracle Distillation, proving that quantum advantage for problems like Grover search is retained at low error rates, provided the noise is below a specific constant threshold.",
+  "method": "The core technique is Oracle Distillation (OD), which consumes many noisy queries to synthesize a single, high-fidelity oracle. This relies on using 'weak queries' to facilitate error correction while preserving necessary information.",
+  "model_or_system": "The system is modeled by an unknown unitary 'oracle' acting as the interface between the quantum device and the external system. Noise is modeled using both adversarial corruption and i.i.d. depolarizing noise.",
+  "key_observables": "Fidelity of the distilled oracle ($\\epsilon$-closeness), quantum advantage over classical methods, and the threshold error rate ($p^*$).",
+  "important_parameters": "The per-qubit depolarizing rate ($p$), the required fidelity ($\\epsilon$), and the query complexity ($TOD$).",
+  "main_assumptions": "The protocol assumes a universal quantum computer with ideal gates, focusing noise only on the oracle itself.",
+  "figures_summary": "Figure 1 illustrates the OD process, showing noisy queries distilling to a high-fidelity oracle, and Figure 1b plots the advantage threshold versus noise parameters.",
+  "paper_structure": "The paper first introduces the problem of noise in unknown-oracle tasks, then constructs the OD protocol for adversarial noise, establishes its near-optimality, and finally proves a threshold theorem for i.i.d. depolarizing noise, extending the concept to continuous time.",
+  "why_interesting": "The work provides a robust theoretical framework for quantum sensing and machine learning by showing how quantum advantages can be maintained against realistic noise models, which is crucial for experimental quantum information science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.31596_figures/2609.31596_fig1.jpg",
+      "caption": "FIG. 1. (a) The quantum device interacts with an unknown external system only through queries to an oracle. The oracle is promised to be a member Oi of the known family OI = {Oj}j∈I, marked by the lock. The device does not know the index i, but i remains fixed throughout, so every query calls the same oracle Oi. Due to noise, each query applies a noisy version ˜Oi. Oracle distillation (OD) consumes TOD noisy queries and outputs a distilled oracle b Oi that is ϵ-close to the ideal oracle Oi in diamond norm. Each oracle call in the downstream quantum algorithm (bottom circuit) uses a freshly distilled oracle, and each distillation consumes a new batch of noisy queries. (b) Advantage threshold...",
+      "page": 2
+    },
+    {
+      "image": "2609.31596_figures/2609.31596_fig2.jpg",
+      "caption": "FIG. 2. The two-stage protocol for distilling noisy Boolean oracles. a The noise model. The noisy Boolean oracle ˜Oadv f is the ideal oracle Of followed by an adver- sarial noise channel Ef on the index register. b The stage 1 gadget, which converts adversarial noise into phase noise with no query overhead. Each of the n index qubits is encoded into a length-3 repetition code, and the noisy oracle ˜Oadv f acts on the third qubit of each code block together with the response qubit. Recovery on each code block corrects all X-type errors, while Z-type errors re- main unaffected and are corrected in stage 2. c The stage 2 circuit, which distills phase-noisy Boolean oracles into ideal Boolean...",
+      "page": 7
+    },
+    {
+      "image": "2609.31596_figures/2609.31596_fig3.jpg",
+      "caption": "FIG. 3. a The seed state |Θs⟩, which generates all query states via Eq. (19), shown here for n = 6 and r = 1. The seed state must generate query states that are indistin- guishable to local Z noise, so the probability distribution p(z) := | ⟨z|Θs⟩|2 has uniform marginals on every sub- set of at most 2r bits (top). It must also retain a large matched query power η = p(0n), which sets the strength of the response each query extracts (bottom). b Illus- tration of response aggregation. When f(x) = 1, every query block responds with population η, so the popu- lation on the eigenspaces of the response count W, the number of responding query blocks, follows a binomial distribution peaked at ηL....",
+      "page": 10
+    },
+    {
+      "image": "2609.31596_figures/2609.31596_fig4.jpg",
+      "caption": "FIG. 4. Matched query power of Construction 4, ob- tained by solving the LP (31) in exact rational arithmetic for n = 20, 30, 40, 50 and 1 ≤r ≤n/2, plotted against H(α) with α = r/n. (a) The LP optimum η (dots), to- gether with the optimal value η∗= M −1 r (dashed, one curve per n). (b) The ratio η/η∗, which stays above 0.55 for every (n, r) computed.",
+      "page": 12
+    }
+  ],
+  "figure": "2609.31596_figures/2609.31596_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

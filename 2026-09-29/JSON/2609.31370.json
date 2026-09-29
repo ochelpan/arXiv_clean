@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.31370",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Adaptive Dissipative State Preparation through Reinforcement Learning",
+  "authors": "Nathan M. Myers, Chenxu Liu, Yulong Dong, Nicholas P. Bauman, Karol Kowalski",
+  "abstract": "Dissipative algorithms approach the problem of ground state preparation by mimicking the natural thermalization of a quantum system in contact with a large, low-temperature thermal environment. The environment can be efficiently simulated by a single ancilla qubit with a variable energy gap that is repeatedly coupled to the system qubits to generate a dissipative channel, and then reset after each interaction. Here we present an adaptive implementation of the dissipative algorithm, RL-Adapt, that uses single-shot reinforcement learning to optimize the selection of ancilla frequency and system-bath interaction operator to maximize energy dissipation without relying on a priori knowledge of the system spectrum. The adaptive implementation results in significantly reduced convergence times and can successfully find the ground state even for non-ideal operator pools that fail to converge using non-adaptive, uniform random operator and ancilla frequency selection.",
+  "url": "http://arxiv.org/abs/2609.31370v1",
+  "pdf": "https://arxiv.org/pdf/2609.31370v1",
+  "type": "theory",
+  "summary": "This paper introduces RL-Adapt, an adaptive algorithm that uses reinforcement learning to optimize the parameters of a dissipative quantum simulation for ground state preparation. By learning which system-bath interactions are most effective at driving energy dissipation, RL-Adapt achieves significantly faster and more robust convergence compared to random or non-adaptive methods. This represents a powerful ML-driven tool for simulating open quantum systems.",
+  "main_problem": "The primary goal is the efficient preparation of the ground state of many-body quantum systems using dissipative dynamics.",
+  "main_result": "The proposed RL-Adapt algorithm significantly reduces convergence times and successfully finds the ground state even when non-adaptive methods fail due to suboptimal operator selection.",
+  "method": "The authors employ single-shot reinforcement learning (RL) to adaptively optimize the selection of the ancilla frequency and system-bath interaction operator during the dissipative evolution.",
+  "model_or_system": "The system is an open quantum system undergoing thermalization, modeled by coupling the system to a simulated low-temperature environment via a single ancilla qubit. The dynamics are governed by a collisional model.",
+  "key_observables": "Energy decrease expectation value (used for the RL reward function), convergence time, and the correlation between learned weights and spectral gaps.",
+  "important_parameters": "The system Hamiltonian (e.g., 1D XY-model), the RL learning rate parameters (fast/slow residuals), and the energy gap tolerance ($\\delta$).",
+  "main_assumptions": "The success of the algorithm relies on the ability of the operator pool to connect all occupied initial energy eigenstates to the ground state, and the RL framework assumes that optimizing energy dissipation leads to ground state convergence.",
+  "figures_summary": "Figures illustrate the collisional model, the quantum circuit for one time step, and the schematic of the RL-based adaptive algorithm. Later figures compare convergence rates and show correlation analyses between learned weights and spectral gaps.",
+  "paper_structure": "The paper introduces the dissipative algorithm, details the limitations of non-adaptive approaches, proposes the RL-Adapt framework using two-timescale RL, and validates its performance by showing faster convergence and analyzing the learned spectral information via correlation and enrichment diagnostics.",
+  "why_interesting": "This work directly addresses the practical implementation challenges of simulating open quantum dynamics, providing a machine learning-driven optimization layer to enhance convergence for state preparation protocols relevant to quantum hardware.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.31370_figures/2609.31370_fig1.jpg",
+      "caption": "FIG. 1. (a) Illustration of the collisional model of thermalization. (b) Quantum circuit for one collisional model time step of the dissipative algorithm, corresponding to step (3) of the schematic flowchart. (c) Schematic illustration of the RL-based, adaptive dissipative algorithm.",
+      "page": 2
+    },
+    {
+      "image": "2609.31370_figures/2609.31370_fig2.jpg",
+      "caption": "FIG. 2. Energy as a function of time for the two-timescale re- inforcement learning dissipative algorithm applied to the 1D XY model with (a) 4 sites and (b) 6 sites. Plotted curves are averages over 50 realizations of the algorithm, with the shaded regions corresponding to one standard deviation. Hamilto- nian parameters are J = 1, h = −0.7. RL parameters are nω = 40, η = 2.0, γfast = 40/n and γslow = 2/n.",
+      "page": 5
+    },
+    {
+      "image": "2609.31370_figures/2609.31370_fig3.jpg",
+      "caption": "FIG. 3. Average steps to ground state convergence as a func- tion of system size for the 1D XY-model. Solid and dashed lines are linear best fits for the RL-Adapt and non-adaptive implementations respectively. The color scale gives the mean error in the converged ground state energy. Hamiltonian pa- rameters are J = 1, h = −0.7. RL parameters are nω = 40, η = 2.0, γfast = 40/ntot and γslow = 2/ntot.",
+      "page": 5
+    },
+    {
+      "image": "2609.31370_figures/2609.31370_fig4.jpg",
+      "caption": "FIG. 5. Average enrichment (defined as the factor by which the probability mass assigned to aligned pairs exceeds the uniform distribution) over 50 shots of the RL-Adapt dissi- pative algorithm for the 4-site XY model with an operator pool, A, consisting of each single-qubit Pauli operator. The color scale indicates the number of eigenstate transitions in- duced by each operator. The dashed red line indicates the baseline enrichment expected from a uniform assignment of probability mass. The error bars indicate one standard devi- ation. The inset plot provides the enrichment normalized by the enrichment ceiling Nω/Ntarget. Hamiltonian parameters are J = 1, h = −0.7. RL parameters are nω =...",
+      "page": 6
+    },
+    {
+      "image": "2609.31370_figures/2609.31370_fig5.jpg",
+      "caption": "FIG. 4. (a) Average final ω distribution weights for the slow baseline marginal overlaid with the spectral gaps of HS for the XY-model with N = 4. The blue dots show the weights from the learned, slow-timescale RL baseline (b in Eq. (11)) for choosing the corresponding ω, while the dashed lines show energy gaps of the problem Hamiltonian, ∆u,v for all energy eigenstates |ψu⟩and |ψv⟩. (b) Average correlation between ω values with above-baseline weight and gaps corresponding to feasible “live” (blue) or infeasible “dead” (gray) transitions in ρS as a function of time step. The shaded region corresponds to one standard deviation. In both panels, averages are taken over 50 shots of the...",
+      "page": 6
+    }
+  ],
+  "figure": "2609.31370_figures/2609.31370_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

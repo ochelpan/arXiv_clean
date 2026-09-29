@@ -1,0 +1,66 @@
+{
+  "arxiv_id": "2609.31077",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Approximate Optimisation Algorithm for Protein Sidechain Packing",
+  "authors": "Sebastian O. M. Stewart, Nick Chancellor, Jonte R Hance, Ittoop Vergheese Puthoor",
+  "abstract": "Sidechain packing is a critical stage in protein folding, with direct implications for structure-based drug discovery. Google DeepMind's tool, AlphaFold2, predicts protein backbone reliably but sidechain positioning less accurately. Recovering the lowest-energy rotamer assignment over a fixed backbone is NP-hard. We present a hybrid quantum-classical pipeline that repacks sidechains on the AlphaFold backbone using the Quantum Approximate Optimisation Algorithm (QAOA), encoding the one- and two-body energies as a quadratic unconstrained binary optimisation (QUBO) problem. We introduce a constraint-preserving ansatz, pairing a W-state initialisation with a cyclic XY ring mixer, that enforces one-hot rotamer validity without penalty terms while keeping two-qubit gate scaling linear in the rotamer count. We also define an asymptotic shot-scaling metric, measured against the experimentally resolved conformation, that fixes optimiser quality independently of the baseline; its fitted growth stays below the classical exhaustive-search rate at moderate rotamer flexibility. Evaluated on bovine pancreatic trypsin inhibitor (5PTI) across high- and moderate AlphaFold-confidence regions, the pipeline lowers conformational energy against the AlphaFold baseline.",
+  "url": "http://arxiv.org/abs/2609.31077v1",
+  "pdf": "https://arxiv.org/pdf/2609.31077v1",
+  "type": "theory",
+  "summary": "This paper presents a quantum-classical pipeline using QAOA to solve the NP-hard sidechain packing problem in protein folding, utilizing the backbone predicted by AlphaFold2. By developing a constraint-preserving ansatz with a ring mixer, the authors efficiently encode the energy minimization as a QUBO problem on qubits. The method successfully lowers the calculated conformational energy compared to the established AlphaFold baseline.",
+  "main_problem": "The paper addresses the NP-hard problem of sidechain packing in protein folding, which involves finding the lowest-energy rotamer assignment for sidechains attached to a fixed protein backbone.",
+  "main_result": "The proposed hybrid quantum-classical pipeline successfully lowers the conformational energy compared to the AlphaFold baseline when tested on the 5PTI protein.",
+  "method": "It employs the Quantum Approximate Optimisation Algorithm (QAOA) to map the energy minimization problem onto a Quadratic Unconstrained Binary Optimisation (QUBO) formulation.",
+  "model_or_system": "The system models protein sidechains, where rotamer assignments are encoded onto qubits using one-hot encoding. The optimization is performed on a Hamiltonian derived from the one- and two-body interaction energies.",
+  "key_observables": "Conformational energy ($\\Delta E$), the asymptotic shot-scaling metric ($S(N)$), and the cumulative success probability ($P_c(N)$).",
+  "important_parameters": "Qubit count ($N$), rotamer count ($R$), and the confidence level of the AlphaFold prediction ($\text{pLDDT}$).",
+  "main_assumptions": "The method assumes the backbone structure provided by AlphaFold2 is reliable enough to serve as a fixed scaffold, and it relies on a constraint-preserving ansatz to enforce one-hot validity.",
+  "figures_summary": "Figures illustrate the reduction in gate scaling from $O(MN^2)$ to $O(MN)$ by using a cyclic ring mixer, and show the trend of the shot-scaling metric $S(N)$ versus qubit count for the 5PTI protein.",
+  "paper_structure": "The paper details a multi-step pipeline: preprocessing with PyRosetta to define flexible regions, followed by QAOA optimization using a specialized constraint-preserving ansatz, and concluding with performance evaluation using specialized metrics against the AlphaFold baseline.",
+  "why_interesting": "The work demonstrates a sophisticated application of QAOA to a complex, classically hard problem in structural biology, specifically by engineering a novel, efficient ansatz (ring mixer) to manage qubit scaling.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.31077_figures/2609.31077_fig1.jpg",
+      "caption": "Fig. 1. Transition from the complete-graph mixer to the cyclic-ring mixer within a residue sub-register, reducing the two-qubit gate count from O(MN2) to O(MN) while preserving full reachability of the valid one-hot subspace across QAOA layers.",
+      "page": 3
+    },
+    {
+      "image": "2609.31077_figures/2609.31077_fig2.jpg",
+      "caption": "Fig. 2. Asymptotic shot scaling S(N) at circuit depth p = 12 on the 5PTI protein, for a 99.99% recovery probability, pooled across all evaluated residue subsections and their 30 seeds at each qubit count. The shaded area is a bootstrapped 95% CI over this distribution. Shot count appears to grow exponentially in qubit count; the fitted model stays below 500 shots through N = 22. N = 7 is an outlier; the bands widen at the sparsely sampled large-N points.",
+      "page": 4
+    },
+    {
+      "image": "2609.31077_figures/2609.31077_fig3.jpg",
+      "caption": "Fig. 3. Classification outcomes by qubit category, high AlphaFold-confidence regions (pLDDT > 90), ∆E against the AlphaFold baseline. Wins decline from 15.6% (≤14 qubits) to zero at 22. Losses peak in frequency at 18 qubits (30.0%, penalties up to +3.973 kcal/mol) but in magnitude at 22 (12.7% of runs, up to +4.393 kcal/mol), where outcomes are otherwise 87.3% ties.",
+      "page": 5
+    }
+  ],
+  "figure": "2609.31077_figures/2609.31077_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

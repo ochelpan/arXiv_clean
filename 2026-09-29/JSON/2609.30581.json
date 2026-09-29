@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2609.30581",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CR",
+    "cs.DC",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Encryptability As a Coordinate Choice: Depth-One Homomorphic Federated Learning of Quantum Neural Networks",
+  "authors": "Marcel Mordarski, Nathan Mani, Arshad Patel, William Knottenbelt, Roberto Bondesan",
+  "abstract": "Encrypted training relies on keeping server-side updates low-degree. This constraint traditionally excludes models whose weights inhabit a compact Lie group (notably variational quantum circuits, where every trainable weight is an $\\mathrm{SU(2)}$ rotation). Expressed in Euler angles or discrete alphabets, these updates appear transcendental, historically demanding prohibitive costs: one client--server round per gate, or upwards of $25{,}000$ operations per weight. This penalty is strictly an artefact of coordinates. In the unit-quaternion (spin) chart, group composition is exactly bilinear (degree two, with coefficients in $\\{-1,0,+1\\}$). Consequently, encrypted rotation updates cost one multiplicative level and federated averaging costs zero in any levelled homomorphic scheme, completely eliminating bootstrapping. This implementation-independent algebraic property is confirmed across two cryptographic backends, introducing only $0.0$ and $-2.0\\times10^{-12}$ rad of aggregation error. Leveraging this reduction yields a non-interactive protocol for encrypted federated training of hybrid quantum--classical networks. It includes correctness proofs for aggregation and sign handling, plus a compilation lemma proving parameterised entanglers add only constant-factor overhead without altering the depth class. Empirically, a paired five-seed study confirms zero measurable utility tax ($Δ=+9\\times10^{-6}$ MSE, $p=0.92$), and a noise-budget ablation falsifies the hypothesis that encryption noise regularises. These convergence trends replicate across datasets and scale to $20$ clients. Finally, hardware validation on a $156$-qubit processor achieves $0.9918$ fidelity against a $0.99957$ unencrypted control.",
+  "url": "http://arxiv.org/abs/2609.30581v1",
+  "pdf": "https://arxiv.org/pdf/2609.30581v1",
+  "type": "both",
+  "summary": "This paper solves the computational bottleneck in training quantum neural networks using federated learning under encryption. By reformulating the rotation parameters using unit quaternions, the authors reduce the required multiplicative depth in homomorphic encryption from prohibitive levels to just one. This enables a practical, non-interactive protocol validated across multiple cryptographic and hardware platforms.",
+  "main_problem": "Developing an efficient, non-interactive protocol for encrypted federated training of quantum neural networks (QNNs) while preserving privacy.",
+  "main_result": "By using the unit-quaternion (spin) chart, the rotation update cost drops to one multiplicative level, eliminating the need for computationally expensive bootstrapping in homomorphic encryption.",
+  "method": "The authors leverage the bilinear nature of quaternion group composition to fit the entire federated averaging and update process within a single multiplicative depth of the homomorphic scheme.",
+  "model_or_system": "The system involves hybrid quantum-classical models where trainable parameters are continuous rotations in SU(2), represented by unit quaternions. The protocol combines lattice-based homomorphic encryption (for classical aggregation) with information-theoretic security for the quantum layer.",
+  "key_observables": "Mean Squared Error (MSE), state fidelity (e.g., 0.9918), and the required multiplicative depth (shown to be $\\le 1$).",
+  "important_parameters": "The core parameters are the choice of coordinate system (quaternions vs. Euler angles) and the multiplicative depth of the HE scheme.",
+  "main_assumptions": "The security relies on the hardness of (Ring-)LWE for classical layers, while the quantum layer's security is information-theoretic. The protocol assumes an honest-but-curious server and peers.",
+  "figures_summary": "Figures illustrate the hybrid encryption scheme, contrasting Pauli-OTP and Quaternion-OTP, and showing the end-to-end flow of a federated round through the encrypted stack.",
+  "paper_structure": "The paper first identifies the computational bottleneck of QNN training under HE due to transcendental coordinates. It then introduces the quaternion chart solution, demonstrating how this algebraic property enables a depth-one, non-interactive federated protocol. Finally, it validates this protocol through extensive empirical and hardware testing.",
+  "why_interesting": "This work directly addresses the practical implementation gap in quantum machine learning by providing a concrete, resource-efficient cryptographic protocol for training quantum models in a decentralized, privacy-preserving manner.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.30581_figures/2609.30581_fig1.jpg",
+      "caption": "Figure 2: One federated round. Clients train in the clear, encode each trainable angle as a unit quaternion (Eq. 2) and encrypt its four components under keys shared among clients. The server applies plaintext rotations at one multiplicative level and the weighted FedAvg sum at zero, never decrypting; clients decrypt, renormalise and recover angles by atan2. The Pauli-OTP detour is entered only on the delegated execution track (Lemma 2).",
+      "page": 5
+    },
+    {
+      "image": "2609.30581_figures/2609.30581_fig2.jpg",
+      "caption": "Figure 3: The three load-bearing measurements. (a) With initialisation and batch order held identical, encrypted and plaintext arms are indistinguishable. (b) Weighted FedAvg adds no error beyond per-client encoding on either backend. (c) The realised aggregation bias is predicted by Eq. 3 and sits below the encryption noise floor throughout.",
+      "page": 19
+    },
+    {
+      "image": "2609.30581_figures/2609.30581_fig3.jpg",
+      "caption": "Figure 4: E4: recovered versus true θ for RZZ(θ) through the encrypted pipeline, with the shot-noise band. The encrypted entangler adds no angle error resolvable at 4096 shots.",
+      "page": 21
+    },
+    {
+      "image": "2609.30581_figures/2609.30581_fig4.jpg",
+      "caption": "Figure 5: E5: 8-bit versus 12-bit encrypted arms, paired by seed. A 16× increase in quantisation noise produces no detectable change in final loss.",
+      "page": 21
+    },
+    {
+      "image": "2609.30581_figures/2609.30581_fig5.jpg",
+      "caption": "Figure 6: E6: client scaling replicates on an unrelated dataset, with no aggregation blow-up at 20 clients.",
+      "page": 22
+    }
+  ],
+  "figure": "2609.30581_figures/2609.30581_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
