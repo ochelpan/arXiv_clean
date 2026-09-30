@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.32116",
+  "category": "statistical mechanics",
+  "arxiv_categories": [
+    "cs.AI",
+    "cond-mat.stat-mech"
+  ],
+  "is_primary_archive": true,
+  "title": "Escaping Alignment: A Physical Trap Model of Best-of-N Jailbreaking",
+  "authors": "Marco Biroli",
+  "abstract": "Best-of-$N$ jailbreaking (BoN) bypasses safeguards of aligned models by drawing $N$ independent augmentations of an unsafe prompt and sampling $M$ completions of each. Previous works have shown that the attack success rate (ASR) seems to follow a power-law in $N$, which we challenge. The exponent drifts with $N$, with an exponential crossover which is a finite-size artifact of the adversarial dataset. Little work has been done to explore the entire two-budget ($N, M$) attack surface as well as its dependence on the generation temperature $T$. We introduce a simple barrier model where each prompt has a baseline safety level and each augmentation a random thermally activated barrier. Then four numbers, each backed by an interpretable safety mechanism, determine the entire ($N, M$) attack surface. They extrapolate predictions from $N \\leq 100$ to $N = 10^4$, collapse five distinct models on the same scaling function and predict ASR at different temperatures from the one they were fitted at.",
+  "url": "http://arxiv.org/abs/2609.32116v1",
+  "pdf": "https://arxiv.org/pdf/2609.32116v1",
+  "type": "theory",
+  "summary": "This paper models LLM jailbreaking as a physical process of escaping a safety barrier using a 'barrier model' derived from statistical physics. It predicts that the attack success rate deviates from simple power-law scaling, suggesting that the observed scaling in prior work is an artifact of limited data. The framework provides a universal, physics-based tool to map the entire attack surface based on fundamental safety parameters.",
+  "main_problem": "The paper analyzes Best-of-N jailbreaking (BoN) attacks on LLMs, challenging the established power-law scaling of the Attack Success Rate (ASR) with the number of augmentations ($N$).",
+  "main_result": "The ASR does not follow a clean power-law, and the previously observed exponential crossover is predicted to be a finite-size artifact of the adversarial dataset.",
+  "method": "The authors introduce a physical 'barrier model' inspired by glassy dynamics, treating jailbreaking as escaping a 'Safe Basin' through an 'Entropic Bottleneck' governed by thermally activated processes.",
+  "model_or_system": "The model uses a barrier analogy where safety is separated by a hyperplane, and the probability of unsafe completion is governed by an Arrhenius-like factor involving prompt-specific barriers ($\\alpha_b$) and augmentation-specific saddles ($\\eta_{b,a}$).",
+  "key_observables": "Attack Success Rate (ASR) as a function of the two budgets ($N, M$), and the effective barrier parameters ($\\mu_E, \\sigma_E$).",
+  "important_parameters": "The model is parameterized by four core numbers ($\\mu_\\alpha, \\sigma_\\alpha, \\mu_\beta, \\sigma_\beta$) describing the distributions of the entropic and energetic barriers.",
+  "main_assumptions": "The model assumes LLM residuals behave linearly in a high-dimensional space and that the energy landscape within the hyperplane is rugged with exponentially distributed minima.",
+  "figures_summary": "Figures illustrate the physical mechanism (Safe Basin $\to$ Entropic Bottleneck $\to$ Unsafe Basin) and show how the model collapses multiple distinct empirical datasets onto a single scaling function.",
+  "paper_structure": "The paper develops the mathematical framework by defining the probability of unsafe completion (Eq. 1) and the overall ASR (Eq. 2). It then derives approximations for the large-$N$ and low-budget limits, fitting the model parameters to empirical data across various augmentation scales ($\\sigma$).",
+  "why_interesting": "The use of concepts like entropic barriers, thermal activation, and glassy dynamics to model information security vulnerabilities provides a novel, physics-grounded framework for understanding complex, non-equilibrium failure modes in AI systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.32116_figures/2609.32116_fig1.jpg",
+      "caption": "Figure 2: Universal laws. Across prompts, αb is Gaussian and βb log-normal. Panel (c) shows how standardized per-prompt parameters collapse onto N(0, 1).",
+      "page": 6
+    },
+    {
+      "image": "2609.32116_figures/2609.32116_fig2.jpg",
+      "caption": "Figure 3: Geometry of the residual stream. (a) Effective free energy along a supervised safety readout after balancing each population. Average projection along a single direction separates completions into two safe/unsafe regions. (b) The saddle ηb,a predicted from the augmented prompt alone against the measured per-augmentation rate. (c) The distribution of the recovered ηb,a, against the exponential assumption pushed through the same estimator.",
+      "page": 6
+    },
+    {
+      "image": "2609.32116_figures/2609.32116_fig3.jpg",
+      "caption": "Figure 4: Extrapolation (closer to the diagonal = better). We fit (αb, βb) on a small N ≤100, M ≤30 grid. Extrapolate its predictions and compare with two baselines: a power-law and Feng et al. (2026) Beta fit. In panel (a) we extrapolate to large N ∼104. Feng et al. (2026) and our predictions are identical for the 3B model but we are considerably more accurate on Qwen7B. In panel (b), we extrapolate to large M ∼300. In panel (c), the effective barrier −log⟨pb,a⟩a is measured two independent ways, on the 100 × 300 grid versus on the 104 × 1 grid. Both agree at r = 0.85 (3B) and 0.96 (7B).",
+      "page": 7
+    },
+    {
+      "image": "2609.32116_figures/2609.32116_fig4.jpg",
+      "caption": "Figure 5: Temperature dependence. (a-b) Predicting a new decoding temperature from T = 1 data alone. Pure Arrhenius p(T) = p(1)1/T (dashed) overstates the effect of temperature in both directions. Our model keeps the entropic barrier outside the 1/T (Eq. (21)) with αb fitted on the T = 1 data (blue) which reduces the error fourfold. (c) The barrier is entropic (constant in T), the saddles are energetic (∝1/T).",
+      "page": 7
+    },
+    {
+      "image": "2609.32116_figures/2609.32116_fig5.jpg",
+      "caption": "Figure 6: Scaling collapse of the AFR. In panel (a) we show the small-M closed-form leading order which although mostly accurate starts to deviate at large-z for larger values of M. In panel (b) we use the M-agnostic form which remains accurate at large-z for all M. Finally in panel (c) we show a few examples of the scaling function fγ(z) for varying values of the shape parameter γ.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.32116_figures/2609.32116_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 1,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

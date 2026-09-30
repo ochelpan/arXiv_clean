@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.34995",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Simulation-Based Quantum System Inference with Neural Posterior Estimation",
+  "authors": "Hang Zou, Anton Frisk Kockum, Martin Rahm, Simon Olsson",
+  "abstract": "Models of quantum systems faithfully map system parameters to observations, but the inverse problem of parameter inference from measurement data presents a fundamental challenge: computationally intractable likelihoods due to an exponentially large Hilbert space. Here, we introduce simulation-based quantum system inference, a unified, likelihood-free framework that learns parameter posteriors directly from classical simulation data. The central idea is to pair polynomial-cost classical simulators, such as Pauli propagation and tensor networks, with normalizing flows or other neural density estimators for accurate, reusable inference. A single model, trained once, maps any new measurement record to its posterior in one forward pass---turning per-experiment inference into a fixed, up-front cost. We numerically demonstrate the framework's versatility across Pauli noise learning, quantum error mitigation, quantum state tomography, and Hamiltonian learning, with examples involving 81-qubit shallow circuits and 735-parameter inference. In each case, the approach yields accurate estimates of identifiable parameters, while posterior uncertainty provides additional diagnostics of non-identifiability and indicates where further characterization is needed. Our framework reduces data-acquisition requirements in quantum experiments and accelerates parameter inference, providing a practical route to characterizing and improving large-scale quantum systems.",
+  "url": "http://arxiv.org/abs/2609.34995v1",
+  "pdf": "https://arxiv.org/pdf/2609.34995v1",
+  "type": "theory",
+  "summary": "This paper presents a novel, likelihood-free framework for quantum system inference called Simulation-Based Inference (SBI). It uses neural normalizing flows to learn the posterior distribution of system parameters directly from classical simulation data. This approach significantly accelerates characterization efforts, enabling accurate parameter estimation for large-scale quantum devices by treating the inference problem as a fixed, upfront computational cost.",
+  "main_problem": "The core challenge is performing quantum system parameter inference (the inverse problem) when the likelihood function is computationally intractable due to the exponentially large Hilbert space.",
+  "main_result": "The proposed framework successfully characterizes and improves large-scale quantum systems by accurately estimating parameters from measurement data, even for complex noise models and large qubit counts.",
+  "method": "It introduces Simulation-Based Inference (SBI), a likelihood-free framework that pairs polynomial-cost classical simulators with Neural Posterior Estimation (NPE) using normalizing flows.",
+  "model_or_system": "The framework applies to general quantum systems, including circuits up to 81 qubits, Rydberg atom arrays, and processes characterized by a Hamiltonian, where parameters define the system's dynamics.",
+  "key_observables": "Expectation values of observables (e.g., Pauli observables) collected from measurement ensembles.",
+  "important_parameters": "System parameters ($\theta$) such as noise probabilities, Hamiltonian coefficients, or state parameters; the approach scales to 81 qubits and 735 latent parameters.",
+  "main_assumptions": "The method assumes the availability of polynomial-cost classical simulators that can accurately approximate the quantum forward map, and the posterior estimation relies on the accuracy of the learned normalizing flow.",
+  "figures_summary": "Figures illustrate the schematic of the SBI framework, showing the training phase (sampling $\theta \to x$) and the rapid inference phase using the learned posterior $q_\\phi(\theta|x)$.",
+  "paper_structure": "The paper introduces the SBI framework, details the use of NPE with normalizing flows, and then demonstrates its versatility across multiple applications: Pauli noise learning, Quantum Error Mitigation, Quantum State Tomography, and Hamiltonian learning.",
+  "why_interesting": "This work provides a powerful, general methodology for characterizing complex quantum hardware and processes by bypassing the need to compute intractable likelihoods, which is crucial for experimental quantum information science.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.34995_figures/2609.34995_fig1.jpg",
+      "caption": "FIG. 1. Simulation-based quantum system inference. Top, schematic of the framework. Training phase (solid black arrows): parameters θ1:N sampled from a prior π(θ) are passed through a forward simulator to produce synthetic observations x1:N, on which a neural density estimator qϕ(θ|x) learns to approximate the posterior. Inference phase (red arrows): given a target observation x0 from a quantum processing unit (QPU), the trained estimator efficiently evaluates the posterior qϕ(θ|x0) without further simulation. Sequential training (dashed black arrow): an optional sequential refinement round that reuses the posterior as a new proposal. Bottom, the representative applications demonstrated in...",
+      "page": 3
+    },
+    {
+      "image": "2609.34995_figures/2609.34995_fig2.jpg",
+      "caption": "FIG. 2. Brickwall circuit template used in this study, shown for n = 4. Each qubit q is initialized by a single-qubit rotation Uq, and each gate CNOTk,k+1 is followed by a 2-local Pauli noise channel Λk.",
+      "page": 4
+    },
+    {
+      "image": "2609.34995_figures/2609.34995_fig3.jpg",
+      "caption": "FIG. 3. Scalable Pauli noise learning with NPE. (a) Posterior distributions of Pauli error coefficients for four representative CNOT gates within a 50-qubit brickwall circuit, shown as box plots over 2,000 posterior samples. Gates are ordered by brickwall layer, with odd-control gates first, rather than by qubit index. The inference is performed using an amortized NPE model trained on 30,000 simulations. Red crosses denote ground-truth values. Broad posteriors on specific parameters reflect gauge ambiguity (see main text and Appendix D). (b) Convergence of nMAE and R2 as a function of cumulative training data across SNPE rounds for the 50-qubit model, starting from 10,000 simulations and...",
+      "page": 5
+    },
+    {
+      "image": "2609.34995_figures/2609.34995_fig4.jpg",
+      "caption": "FIG. 4. ZNE and PEC based on the SBI noise posterior. All protocols are parameterized by the ground-truth noise (red), the SBI posterior median (green), and the posterior mean (blue). (a) Zero-noise extrapolation (ZNE) of the expectation value ⟨Z5Z6Z7Z8⟩for a 15-qubit probe state. Mitigated estimates at the zero-noise limit (G = 0, star) are obtained via linear (left), quadratic (middle), and exponential (right) extrapolation from unmitigated (G = 1) and probabilistic-error-amplified (G ∈{1.6, 2.2, 2.8}) results, with each expectation value estimated using 2,000 random circuit samples per gain level. (b) Convergence of the PEC estimate for the same observable as a function of the total...",
+      "page": 6
+    },
+    {
+      "image": "2609.34995_figures/2609.34995_fig5.jpg",
+      "caption": "FIG. 5. Digital-twin ML-QEM with the SBI noise posterior. (a) Workflow. Training phase: the noise posterior drives a classical simulator to produce paired data {(xdt i , xexact i )} for training a denoising network (black arrows), with optional fine-tuning on real data (gray arrows). Deployment phase: the pre-trained network maps noisy outputs xnoisy to mitigated estimates xmit (red arrows). (b, c) Application to Trotterized dynamics of 12-qubit Ising chains, comparing ideal, raw noisy, linear and quadratic ZNE (gate folding at noise gains G ∈{1, 3, 5}; see Appendix F 2), and SBI-DT. (b) Time-evolved transverse magnetization Mx (left) and nearest-neighbor correlations CZZ (right), averaged...",
+      "page": 7
+    }
+  ],
+  "figure": "2609.34995_figures/2609.34995_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 2,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 2,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2609.35722",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "hep-lat",
+    "hep-th",
+    "math-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Multilevel Plaquette-Space Sampling for Lattice Gauge Theories with Local Constraint Solves",
+  "authors": "Ankur Singha, Jacob Finkenrath, Karl Jansen, Vipul Arora, Shinichi Nakajima",
+  "abstract": "Lattice gauge theories are an important class of physical models with high-dimensional structured distributions that underpin first-principles calculations in particle, nuclear, and condensed-matter physics. Recent advances in generative modeling have opened new avenues for sampling Boltzmann distributions in lattice gauge theories, offering the potential to alleviate limitations of traditional Monte Carlo methods, including critical slowing down and topological freezing. However, generative samplers for lattice gauge theories are typically constructed in link space, where correlations become increasingly long-ranged toward weak coupling, posing a challenge for learning. Plaquettes provide a more natural representation, as the action is local in these variables. However, exact Bianchi constraints restrict them to a lower-dimensional manifold, complicating direct generative modeling. We introduce a multilevel normalizing-flow construction that samples directly in plaquette space while satisfying these constraints exactly. The key idea is a coarse-to fine factorization that transforms a globally coupled constraint problem into a sequence of local solves: at each refinement, every determined plaquette depends on at most four newly generated variables, while the size of the constraint problem remains independent of the lattice size. We validate the construction for $U(1)$ in two and four dimensions and for $SU(2)$ in two dimensions. Our multilevel Plaquette-Space Sampler (PSS) substantially outperforms link-space baselines, with the advantage increasing toward weak coupling, where the gauge coupling becomes small. This regime is particularly challenging for generative sampling and, in asymptotically free gauge theories, is relevant to continuum studies.",
+  "url": "http://arxiv.org/abs/2609.35722v1",
+  "pdf": "https://arxiv.org/pdf/2609.35722v1",
+  "type": "theory",
+  "summary": "This paper presents a novel Multilevel Plaquette-Space Sampler (PSS) designed to efficiently sample the complex distributions of lattice gauge theories. By reformulating the sampling problem using a coarse-to-fine factorization, it overcomes the limitations of traditional link-space samplers, particularly in the weak coupling regime. The method is validated by showing superior performance in calculating key physical observables like topological susceptibility.",
+  "main_problem": "The core challenge is developing an efficient sampling method for the high-dimensional probability distribution of lattice gauge theories while exactly satisfying the geometric Bianchi constraints.",
+  "main_result": "The proposed Multilevel Plaquette-Space Sampler (PSS) substantially outperforms link-space generative samplers, especially in the challenging weak coupling regime.",
+  "method": "The authors introduce a multilevel normalizing-flow construction that factors the global constraint problem into a sequence of local, coarse-to-fine solves, allowing exact sampling in plaquette space.",
+  "model_or_system": "The study focuses on Lattice Gauge Theories (e.g., U(1) and SU(2)) defined on a hypercubic lattice, governed by the Wilson action, which dictates the target Boltzmann distribution.",
+  "key_observables": "Effective Sample Size (ESS), Topological Susceptibility ($\\chi_{\text{top}}$), Wilson Loops ($\\langle W \rangle$), and the KL divergence ($\text{KL}(q\\|p)$).",
+  "important_parameters": "The gauge coupling ($\beta$) and lattice size ($L$) are key parameters, with special interest in the weak coupling limit.",
+  "main_assumptions": "The method assumes that the constraint completion maps ($R_i$) are fixed, bijective, and volume-preserving, and that coarse-to-fine satisfaction implies global satisfaction.",
+  "figures_summary": "Figures illustrate the lattice structure, gauge symmetry, and the global closure constraint in 2D. Other figures compare the performance of different samplers on observables like $\\chi_{\text{top}}$ and $\text{KL}$ divergence.",
+  "paper_structure": "The paper introduces the physical problem and limitations of existing samplers, details the multilevel PSS construction using coarse-to-fine factorization, validates the method on $U(1)$ and $SU(2)$ in various dimensions, and concludes with quantitative comparisons against link-space baselines using diagnostics like $\text{ESS}$ and $\\chi_{\text{top}}$.",
+  "why_interesting": "While focused on gauge theory, the methodology—using multilevel normalizing flows to solve highly constrained, high-dimensional sampling problems—is a powerful general technique applicable to other complex many-body systems where constraints are present.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.35722_figures/2609.35722_fig1.jpg",
+      "caption": "Figure 1: Links, gauge symmetry and the plaquette constraints. (a) Oriented links and the plaquette Pµν(x) they form. (b) Independent gauge transformations at neighbouring sites, and the parallel transport of W from x + ˆµ to the frame at x. (c) In d = 2 the only constraint is the global closure through the holonomies Ωµ and Ων.",
+      "page": 3
+    },
+    {
+      "image": "2609.35722_figures/2609.35722_fig2.jpg",
+      "caption": "Figure 2: One refinement in plaquette space, for d = 2. Left: the coarse lattice; three plaquettes are free and P c 2 (orange) is fixed by the global closure. Centre: its top-right block, refined with P1, P2, P4 (blue) generated and P3 determined by P3 = P † 4 P c 2(P2P1)†. Right: the refined lattice; the orange outline marks the fine Wilson loop whose value is P c 2.",
+      "page": 6
+    },
+    {
+      "image": "2609.35722_figures/2609.35722_fig3.jpg",
+      "caption": "Figure 3: Two-dimensional U(1) along the line of constant physics β = 0.188L2. (a) KL(q∥p). (b) RA of the importance-weighted plaquette estimate against the exact finite-volume value. (c) ESS. Panels (a) and (c) use logarithmic axes with one break; points across a break are not directly comparable.",
+      "page": 8
+    },
+    {
+      "image": "2609.35722_figures/2609.35722_fig4.jpg",
+      "caption": "Figure 4: Four-dimensional U(1). (a) KL(q∥p) as a function of β. (b) RA of the importance- weighted estimate of ⟨cos φ⟩against the heatbath reference, with the grey band indicating the reference’s own uncertainty; points outside the plotted range are depicted as triangles at the panel edge, labeled with their values. (c) ESS, shown on a linear scale with two axis breaks. Background shading denotes the confined and Coulomb phases, separated at βc ≃1.011.",
+      "page": 8
+    },
+    {
+      "image": "2609.35722_figures/2609.35722_fig5.jpg",
+      "caption": "Figure 5: Two-dimensional SU(2), L = 16. (a) KL(q∥p). (b) RA of the importance-weighted estiamte of ⟨1",
+      "page": 9
+    }
+  ],
+  "figure": "2609.35722_figures/2609.35722_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

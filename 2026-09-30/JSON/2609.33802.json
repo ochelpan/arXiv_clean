@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.33802",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph",
+    "cond-mat.str-el",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Autonomous phase discovery",
+  "authors": "Shiyu Zhou, Yuxuan Zhang, Sebastian Wetzel, Roger Melko, Xiu-Zhe Luo",
+  "abstract": "Understanding quantum phases of matter has long relied on physicists' intuition and mathematical tools such as symmetry and topology. Remarkably successful as these approaches have been, they provide no universal way to explore a Hamiltonian space whose organizing principle is not known in advance. In this work, we introduce a fully autonomous system combining differentiable programming and unsupervised learning for quantum phase discovery. The search evaluates ground-state data along an adaptive trajectory rather than on a predetermined parameter grid. We demonstrate the system with three different solvers and benchmark it against random sampling at equal ground-state-evaluation budgets. On a generalized cluster chain hosting up to $200$ distinct phases, the search finds up to $25$ more phases at the same budget, and matches random sampling given thirty times its budget. On a $50$-parameter Chern insulator, it reaches sectors not obtained by the simple harmonic constructions considered here, in a family whose inverse problem remains open, while recovering all sectors found by sampling. Our results establish autonomous, gradient-driven exploration of Hamiltonian space as a practical route to discovering quantum phases without phase labels or a prescribed target phase.",
+  "url": "http://arxiv.org/abs/2609.33802v1",
+  "pdf": "https://arxiv.org/pdf/2609.33802v1",
+  "type": "theory",
+  "summary": "The authors introduce an autonomous, gradient-driven machine learning framework to discover quantum phases of matter. This system uses an autoencoder to map ground-state data into a latent space, guiding the search toward novel, unexplored regions of the Hamiltonian parameter space. It establishes a practical, label-free route for mapping complex quantum phase diagrams.",
+  "main_problem": "To develop a fully autonomous system for discovering unknown quantum phases of matter without relying on prior physical intuition or knowing the target phase.",
+  "main_result": "The proposed autonomous, gradient-driven search method significantly outperforms random sampling in finding novel quantum phases in complex Hamiltonian spaces.",
+  "method": "The system combines differentiable programming, unsupervised learning (Autoencoder), and a phase pathfinder loss function within a closed feedback loop to guide the search.",
+  "model_or_system": "The work is demonstrated on generalized cluster chains and 50-parameter Chern insulators, using a generic quantum Hamiltonian $H(\theta)$ parameterized by coupling constants $\theta$.",
+  "key_observables": "Ground-state data, latent space embeddings $z(\theta)$, and the spectral gap ($\\Delta E$).",
+  "important_parameters": "The coupling parameters $\theta$ defining the Hamiltonian, and the latent space dimension $d_z$.",
+  "main_assumptions": "The method assumes the existence of a differentiable path through the Hamiltonian space and that the latent space captures the essential physics of the phases.",
+  "figures_summary": "Figure 1 compares ML paradigms for phase diagrams (Supervised, Unsupervised, Autonomous). Figure 2 details the autonomous feedback loop: solver $\to$ AE $\to$ Pathfinder loss guiding gradient descent on $\theta$. Figure 3 shows the system traversing multiple phases in parameter space for models like TFIM and XXZ.",
+  "paper_structure": "The paper introduces the autonomous framework, details the components (AE, pathfinder loss), demonstrates its superior performance on benchmark models (cluster chain, Chern insulator), and discusses the implications for general phase discovery.",
+  "why_interesting": "This work provides a powerful, data-driven methodology to explore the vast parameter space of quantum Hamiltonians, potentially revealing exotic phases that are inaccessible through traditional symmetry-based arguments.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.33802_figures/2609.33802_fig1.jpg",
+      "caption": "FIG. 1. Three machine-learning paradigms for mapping quantum phase diagrams with increasing levels of automation. Supervised methods require both phase labels and data from a predetermined sweep of Hamiltonian parameters, whereas unsupervised methods remove the need for phase labels but still rely on such a sweep. In contrast, our autonomous frame- work requires no prior knowledge of the phases and initial- izes from data sampled locally around an arbitrary point in Hamiltonian parameter space. The algorithm actively guides the search for new and unknown phases performing measure- ments or simulations only on the discovery trajectory.",
+      "page": 1
+    },
+    {
+      "image": "2609.33802_figures/2609.33802_fig2.jpg",
+      "caption": "FIG. 2. Autonomous phase discovery system. A differentiable Hamiltonian solver (ED, ITE or DMRG here; a closed-form free- fermion backend in Sec. IV) produces ground-state data at the current parameters θ, which the encoder (E) of the autoencoder (AE) compresses into a latent representation z(θ). The pathfinder loss L = −∥z(θ) −µ∥2/√dz, the negative ℓ2 distance to the centroid µ of the visited-phase cluster, is minimized by gradient descent on the Hamiltonian parameters. A diverging gradient, ∇L →nan, signals a gap closing at a phase boundary and triggers a jump with a boosted learning rate (η ←10 × η). On the other hand, a vanishing gradient, ∇L →0, triggers the AE bootstrap, retraining...",
+      "page": 2
+    },
+    {
+      "image": "2609.33802_figures/2609.33802_fig3.jpg",
+      "caption": "FIG. 3. Autonomous phase discovery for TFIM, Z2 lattice gauge theory, and the transverse-field XXZ model. Top row: discovery trajectories in the Hamiltonian parameter space; bottom row: the corresponding trajectories projected onto the first two principal components of the autoencoder latent space. TFIM: chain of L = 10 solved by ED. The latent dimension is dz = 10. Three trajectories are shown: g from −0.3 to −2.25 (orange), from −0.5 to −1.75 (blue), and from −1.5 to −0.74 (green), demonstrating crossings of the phase boundary (solid black horizontal line) from either phase to the other. AE bootstrapping is indicated by the star. Z2: 2 × 3 lattice solved by ITE. The latent dimension is dz...",
+      "page": 5
+    },
+    {
+      "image": "2609.33802_figures/2609.33802_fig4.jpg",
+      "caption": "FIG. 4. Phases discovered by the autonomous search versus random sampling at equal numbers of ground-state evalua- tions. (a) Generalized cluster chain, Eq. (9), at L = 500: phases found across d ∈[20, 200], at budgets of 104, 3 × 104, 105, and 3 × 105 evaluations (light to dark). In 36 of the 40 (d, budget) cells the search’s worst seed exceeds the baseline’s best realization. (b) Chern insulator, Eq. (12): distinct Chern sectors against budget; every budget shown is a nested prefix of the same runs, and the median margin grows from +21 at 3×104 to +68 at 3×105, increasing end to end in every seed. Medians over five fresh seeds throughout; bands are min–max over seeds or realizations.",
+      "page": 8
+    },
+    {
+      "image": "2609.33802_figures/2609.33802_fig5.jpg",
+      "caption": "FIG. 5. The comparison of Fig. 4(b) at 3×105 evaluations, re- solved by the probability mass occupied by each Chern sector under the Gaussian sampling measure (mean over five seeds). The four decades resolved by the 106-sample reference are saturated by both methods, while the advantage of the au- tonomous search is concentrated in the two rarest bins.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.33802_figures/2609.33802_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

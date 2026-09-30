@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.35377",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "First Learn, Then Memorize: The Spectral Bias of Diffusion Models",
+  "authors": "Raphaël Urfin, Tony Bonnaire, Giulio Biroli, Marc Mézard",
+  "abstract": "Diffusion models trained on a finite dataset first learn to generate novel, high-quality samples and only much later collapse onto their training set. We identify the mechanism behind this separation of timescales and the object that probes it. The training dynamics of the score function are governed---exactly, and at any width---by the Gram matrix of the Neural Tangent Kernel (NTK) evaluated on the noisy training data, so the timescales of generalization and of memorization must be encoded in its spectrum. We show that they are, and that the structure responsible has no analogue in standard kernel settings. The use of multiple noise realizations per sample ($m$ noised copies at a fixed noise level) in the score-matching loss is what restructures the Gram matrix spectrum into two distinct parts. The first, of large eigenvalues, carries the global features of the target distribution and is present already for $m=1$. The second, which the repeated noising creates, consists of the smallest eigenvalues and is supported on eigenvectors aligned with the sample-specific noise directions; it sets a memorization timescale parametrically larger in the training set size $n$. We establish this picture on two fronts. Analytically, we solve the spectrum in the lazy high-dimensional limit for both linear ($n \\asymp d$) and polynomial ($n \\asymp d^k$) sample complexities, and prove through a bias--variance decomposition that the first bulk minimizes the approximation error while the second drives the error associated with memorization. Empirically, we show the same two-bulk structure in Convolutional NTKs on CelebA and in finite-width U-Nets trained well beyond the lazy regime, and we make the link causal: truncating the Gram matrix at rank $r$ tunes the generalization--memorization transition, and an $L_2$ penalty targeting the second bulk suppresses memorization in feature-learning U-Nets.",
+  "url": "http://arxiv.org/abs/2609.35377v1",
+  "pdf": "https://arxiv.org/pdf/2609.35377v1",
+  "type": "theory",
+  "summary": "This work reveals that the training dynamics of diffusion models exhibit a clear separation between learning general data features and memorizing training examples. This separation is mathematically encoded in the spectrum of the Neural Tangent Kernel, which splits into two distinct spectral bulks corresponding to generalization and memorization timescales.",
+  "main_problem": "The paper investigates the separation of timescales between generalization (learning global features) and memorization (overfitting to training data) in diffusion models.",
+  "main_result": "This separation is encoded in the spectrum of the Neural Tangent Kernel (NTK) Gram matrix, which splits into two distinct spectral bulks corresponding to generalization and memorization modes.",
+  "method": "The analysis uses spectral analysis of the NTK Gram matrix, deriving closed-form expressions for bias and variance in the high-dimensional limit, and relating spectral truncation to training time.",
+  "model_or_system": "The model is a generative diffusion model trained via score matching, whose dynamics are analyzed through the NTK of the score function estimator. The analysis extends to the multi-noise realization setting ($m>1$).",
+  "key_observables": "The spectrum of the Gram matrix (NTK spectrum), the bias-variance decomposition of the test loss, and the generalization-memorization transition controlled by spectral truncation rank $r$.",
+  "important_parameters": "Number of samples ($n$), model dimension ($d$), number of noise realizations ($m$), and the truncation rank ($r$) which controls the effective training time $\tau$.",
+  "main_assumptions": "The analysis relies on the lazy high-dimensional limit ($d \\gg 1$) and the use of multiple correlated noise realizations ($m>1$) per sample to induce spectral separation.",
+  "figures_summary": "Figures illustrate the two-bulk structure of the NTK spectrum for varying $m$, and show that regularization targeting the memorization bulk stabilizes the test loss during training.",
+  "paper_structure": "The paper develops the theory by identifying the NTK spectrum as the diagnostic tool, analytically solving the spectrum in various limits, and then demonstrating the physical consequence by showing how spectral control (truncation/regularization) tunes the generalization-memorization trade-off.",
+  "why_interesting": "The explicit mathematical link between the spectral properties of the kernel (a concept used in many statistical physics models) and the fundamental learning dynamics (generalization vs. memorization) provides a powerful, quantitative framework for understanding deep generative models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.35377_figures/2609.35377_fig1.jpg",
+      "caption": "Figure 1: Gram matrix spectrum. Eigenvalues λr in decreasing order against their rank. (Left) Sketch of the spectrum predicted by Theorem 2.3 for the Gram matrix Gνα,µβ = f(Yνα⊤Yµβ/d). (Middle) Spectrum of G with isotropic Σ = σ2Id, t = 0.1, m = 4, ψn = 4 and f the NTK of a two-layer ReLU network (Appendix A.8) in the linear regime at several values of d; the dashed black curve is the linear equivalent Glin of (6) at d = 512. (Right) Quadratic regime n = 2d2 at d = 64; the dashed black curve is the polynomial equivalent of Theorem 2.3. Details in Appendix D.7.",
+      "page": 5
+    },
+    {
+      "image": "2609.35377_figures/2609.35377_fig2.jpg",
+      "caption": "Figure 2: Bias–variance decomposition. B2, V and B2 + V for the kernel f(u) = E[tanh(z1) tanh(z2)], with (z1, z2) unit-variance Gaussians of correlation u (Appendix A.8), at σ2 = 1, m = 4 and t = 0.1. (Left) Vs. the rescaled ridge ˜γ at ψn = 8, axis reversed to show the correspondence with training time; the inset shows the same vs. the training time τ of (5). Solid lines: Theorem 2.2; markers: experiments at d = 256; in the inset, markers and dotted line are the finite-d gradient flow. (Middle) B2 (top) and V (bottom) vs. ψn, for the optimal ridge ˜γ∗= arg min˜γ Ltest (solid) and the ridgeless limit ˜γ →0+ (dashed). (Right) B2 vs. ˜γ for several ψn, dots marking ˜γ∗; the inset shows the...",
+      "page": 6
+    },
+    {
+      "image": "2609.35377_figures/2609.35377_fig3.jpg",
+      "caption": "Figure 3: Structure of the generalization and memorization bulks in the CNTK spectrum on CelebA. (Left) Ordered eigenvalues for several n at m = 4. The dotted lines indicate r = n. Inset: Same, rescaled by n. (Right) Eigenvalue histogram with counts rescaled by n. Inset: collapse of the top eigenvalues under rescaling by n. s = 0.05, averaged over 10 training sets.",
+      "page": 7
+    },
+    {
+      "image": "2609.35377_figures/2609.35377_fig4.jpg",
+      "caption": "Figure 4: Spectrally truncated kernel regression and generalization–memorization transition. (Left) FID (solid) and fmem (dashed) vs. truncation rank r for several n. Inset: fmem vs. r/n. (Middle) Time-averaged L2 training (solid) and test (dashed) losses; the inset shows the same curves against r/n. (Right) Top row: training images. Rows 2–6: generated samples (n = 3072) starting from a fixed training noise associated with the top-row clean image at r ∈{2048, 4096, 8192, 16384, N =nm}.",
+      "page": 8
+    },
+    {
+      "image": "2609.35377_figures/2609.35377_fig5.jpg",
+      "caption": "Figure 5: Training-time-dependent empirical Gram eigenspectrum of a U-Net. Eigenvalues of the empirical Gram matrix computed for several training times τ at s = 0.23 for (Left) the unregularized dynamics, and (Right) the L2-regularized dynamics.",
+      "page": 8
+    }
+  ],
+  "figure": "2609.35377_figures/2609.35377_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

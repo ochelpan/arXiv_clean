@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.35535",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Analysis of asymmetric errors in NISQ experiments",
+  "authors": "Gil Kalai, Tomer Shoham, Carsten Voelkmann",
+  "abstract": "This paper continues our analysis of NISQ experiments and especially the Google 2019 ``quantum supremacy\" experiment. In arXiv:2008.05177 we proposed statistical tools to analyze symmetric and asymmetric readout errors, and the symmetric case was extensively developed and studied in arXiv:2404.00935, where we used Fourier methods combined with statistical tools.   Here we extend and complement our earlier study and analyze asymmetric readout errors for data from experiments and simulations.   Our study was further motivated by a paper by Fefferman et al. arXiv:2306.16659, who showed that the effect of amplitude damping gate errors is to have larger fractions of zeroes in the samples produced by the quantum computer. We show that this effect of gate errors is not observed in the Google experimental data, where, for the entire range of the number of qubits, $12 \\le n \\le 53$, the fraction of zeroes and ones reflects only the asymmetry of reported readout errors, and report on simulations with $n=12,14$ using IBM's and Google's simulators.",
+  "url": "http://arxiv.org/abs/2609.35535v1",
+  "pdf": "https://arxiv.org/pdf/2609.35535v1",
+  "type": "both",
+  "summary": "This paper rigorously analyzes asymmetric readout errors in NISQ quantum computing experiments, building on previous work. By applying advanced statistical tools, the authors tested hypotheses regarding gate error contamination using data from Google's 2019 experiment. The key finding is that while some simulations show evidence of gate error effects, the primary experimental data suggests readout asymmetry is the dominant source of error, though temporal instability remains a concern.",
+  "main_problem": "The paper analyzes asymmetric readout errors in Noisy Intermediate-Scale Quantum (NISQ) experiments, extending previous work that focused on symmetric errors.",
+  "main_result": "The effect of amplitude damping gate errors, predicted by some models, was not observed in the Google 2019 experimental data for $12 \\le n \\le 53$ qubits, although discrepancies were found in certain simulators.",
+  "method": "The authors use Maximum Likelihood Estimation (MLE) and Fourier methods to model and quantify the asymmetric readout error probabilities ($q_{1\to 0}$ and $q_{0\to 1}$).",
+  "model_or_system": "The study focuses on NISQ devices, referencing the Google 2019 'quantum supremacy' experiment and using quantum simulators (IBM's and Google's). The noise is modeled using a 3-parameter readout error model.",
+  "key_observables": "Readout error probabilities ($q_{1\to 0}, q_{0\to 1}$), the fraction of zeroes and ones in measurement samples, and the anticoncentration measure ($c$).",
+  "important_parameters": "Number of qubits ($n=12$ to $n=53$), and the error parameters derived from MLE.",
+  "main_assumptions": "The analysis assumes that the observed variation in measured proportions is primarily due to readout errors, though later sections suggest temporal instability might stem from gate errors rather than readout drift.",
+  "figures_summary": "Figures compare measured proportions of 1's from Sycamore/Zuchongzhi against stable simulations, showing that measured variation exceeds expected binomial distributions, suggesting instability.",
+  "paper_structure": "The paper progresses from analyzing the theoretical framework for asymmetric errors using Fourier tools, to applying this to Google's 2019 data (showing no gate error signature), and finally comparing results across multiple simulators and experimental runs to pinpoint the source of observed instability.",
+  "why_interesting": "The detailed analysis of readout error characterization is crucial for understanding the limitations of current quantum hardware, directly impacting the feasibility of running complex quantum algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.35535_figures/2609.35535_fig1.jpg",
+      "caption": "Figure 1: Asymmetric qubit readout error rates from Sycamore vs. Google’s QVM Weber calibration data. a, Dependency between the asymmetric readout error rates re- ported in Google’s published file som params by qubit.csv (columns sq readout error |0〉and sq readout error |1〉) and the readout er- ror rates from Google’s QVM Weber calibration data both obtained from isolated operation on qubits. The source of the calibration data for Google’s QVM Weber simulator is the Python command cirq google.engine.load median device calibration(\"weber\") re- trieved on 21 Oct 2024. b, Same as panel a, but with both Sycamore’s and QVM Weber’s error rates determined by parallel (not isolated) qubit...",
+      "page": 13
+    },
+    {
+      "image": "2609.35535_figures/2609.35535_fig2.jpg",
+      "caption": "Figure 2: Single-qubit gate error rates from Sycamore-53 vs. Google’s QVM Weber calibration data. The source of the Sycamore-53 single-qubit gate errors is Google’s published file som params by qubit.csv, column sq errors isolated. The source QVM Weber’s single-qubit gate errors is its calibration data (Python com- mand cirq google.engine.load median device calibration(\"weber\") retrieved on 21 Oct 2024). Obviously the QVM Weber single-qubit cali- bration parameters do not correspond to Sycamore’s parameters.",
+      "page": 14
+    },
+    {
+      "image": "2609.35535_figures/2609.35535_fig3.jpg",
+      "caption": "Figure 3: Temporal instability in the proportion of measured 1’s during the measurement of bitstrings for three Sycamore circuits. The left panel shows the proportion of 1’s for number of qubits n = 53 [2], the right panel for number of qubits n = 67 and n = 69 (both published in 2023). The hundredth i on the horizontal axis means that the corresponding proportion of 1’s is for those of the N measured bitstrings with index from ((i −1) × N/100 + 1) to i × N/100, where the bitstrings are indexed in temporal order of their measurement. So i = 1 contains the first hundredth of the measured bitstrings, whereas i = 100 con- tains the last hundredth of the measured bitstrings. For each of the...",
+      "page": 25
+    },
+    {
+      "image": "2609.35535_figures/2609.35535_fig4.jpg",
+      "caption": "Figure 4: Temporal instability in the proportion of measured 1’s dur- ing the measurement of bitstrings for two of USTC’s Zuchongzhi-56 circuits. In contrast to Google’s Sycamore, most of Zuchongzhi’s propor- tion of 1’s are greater than 0.5. The other characteristics of Zuchongzhi’s temporal behavior of its proportion of 1’s are similar to Sycamore: A ”local” agreement of variation with a binomial distribution, but a ”global” unstable behavior with shifts over many theoretical standard deviations. This leads to a large positive autocorrelation, also similar to Sycamore.",
+      "page": 26
+    },
+    {
+      "image": "2609.35535_figures/2609.35535_fig5.jpg",
+      "caption": "Figure 5: Proportion of 1’s in simulation of bitstrings by Kalachev et al.’s (”Classical sampling ...”) and Pan et al.’s (”Solving the sampling problem ...”) tensor network contraction for n = 53 qubits. a, Proportion of 1’s for hundredths of all simulated bitstrings by Kalachev et al. in temporal order of simulation. As expected, the simulated proportion of 1’s shows no temporal instability and thus a vanishing autocorrelation, contrasting the experimental Sycamore and Zuchongzhi data. The variation is in agreement with a binomial distribution of the number of measured 1’s. b, Distribution of the number of 1’s in the bitstrings simulated by Kalachev et al. (m = 20 cycles) and Pan et al....",
+      "page": 27
+    }
+  ],
+  "figure": "2609.35535_figures/2609.35535_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 4,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

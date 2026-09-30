@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.32025",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Nonstabilizerness of the entangling layer in quantum circuit Born machines",
+  "authors": "Marcin Płodzień",
+  "abstract": "The entangling layer of a quantum circuit Born machine can supply both entanglement and nonstabilizerness. In this work we show that the entangling layer can be a Clifford circuit, which supplies no nonstabilizerness. We use an architecture in which a fixed, non-trainable entangler is reused in every layer and only single-qubit rotations are optimized. There, a Clifford entangler reaches the same Kullback--Leibler divergence as a near-Haar one at sufficient circuit depth, and entanglers spanning zero to Haar-typical nonstabilizerness reach the same loss, up to a small offset for a free-fermion matchgate entangler. A doping control that raises the entangler's nonstabilizerness while leaving the entangling power of every gate unchanged leaves the loss flat. With a Clifford entangler the nonstabilizerness of the trained state comes entirely from the rotations, which take the trained circuit outside the stabilizer formalism. We also show that, among all pure states whose Born distribution is a given target, the one whose amplitudes are the positive square roots of the probabilities has the smallest stabilizer Rényi entropy, so this minimum can be computed without training.",
+  "url": "http://arxiv.org/abs/2609.32025v1",
+  "pdf": "https://arxiv.org/pdf/2609.32025v1",
+  "type": "theory",
+  "summary": "This work analyzes quantum circuit Born machines to determine if the entangling layer must introduce nonstabilizerness to generate complex probability distributions. The authors demonstrate that simple Clifford entanglers can achieve the same simulation accuracy as complex Haar-random ones. This suggests that the ability to generate entanglement is more critical than the explicit introduction of nonstabilizerness.",
+  "main_problem": "The paper investigates whether the entangling layer in a quantum circuit Born machine must inherently supply nonstabilizerness, independent of its ability to generate entanglement.",
+  "main_result": "A Clifford entangler can achieve the same generative loss (KLD) as a near-Haar entangler, suggesting that nonstabilizerness is not strictly necessary for good state preparation.",
+  "method": "The authors analyze the circuit using the Kullback-Leibler divergence (KLD) as a loss function and the Stabilizer Rényi entropy (SRE) as a diagnostic for nonstabilizerness.",
+  "model_or_system": "The model is a quantum circuit Born machine, which approximates a target probability distribution $q_\theta(x)$ by interleaving trainable single-qubit rotations with a fixed, reusable entangling layer $\\hat{U}_S$.",
+  "key_observables": "Kullback-Leibler divergence (KLD), Stabilizer Rényi entropy (SRE), and the minimum nonstabilizerness $M_{2, \\min}(p)$.",
+  "important_parameters": "Circuit depth ($L$), doping parameter ($n_t$), and the structure of the target distribution (e.g., Gaussian mixtures, SK model).",
+  "main_assumptions": "The analysis assumes the fixed entangler is reused across all layers, and the minimum nonstabilizerness is achieved by the state whose amplitudes are the positive square roots of the probabilities.",
+  "figures_summary": "Figure 1 illustrates the circuit structure with trainable rotations and the fixed entangler. Other figures compare KLD convergence across different entangler families (Clifford vs. Haar) and show the correlation between doping and loss.",
+  "paper_structure": "The paper first defines the Born machine setup and compares different entangler families (Clifford, Local-Haar, etc.). It then analyzes the loss convergence, showing that Clifford entanglers suffice. Finally, it derives that the minimum nonstabilizerness is achieved by the positive square-root state, a result computable without training.",
+  "why_interesting": "It provides a theoretical understanding of the necessary complexity (nonstabilizerness) required in quantum circuits to simulate complex probability distributions, offering insights into the resource requirements for quantum machine learning.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.32025_figures/2609.32025_fig1.jpg",
+      "caption": "FIG. 1. The circuit of Eq. (1). Each of the L layers applies trainable rotations ˆRx and ˆRz to every qubit, the fixed entan- gler ˆUS of Eq. (2), and a trainable ˆRy. The same ˆUS enters every layer, and the register is measured in the computational basis to give qθ(x).",
+      "page": 2
+    },
+    {
+      "image": "2609.32025_figures/2609.32025_fig2.jpg",
+      "caption": "FIG. 3. Converged KLD against the probe-state SRE M2( ˆUS|+⟩⊗N) of a T-doped Clifford entangler on the five- peak Gaussian mixture, tuned by the number nt of doped gates at fixed entangling power (N = 10, K = 2N, L = 10; mean and standard deviation over 20 runs; dashed, overall mean).",
+      "page": 5
+    },
+    {
+      "image": "2609.32025_figures/2609.32025_fig3.jpg",
+      "caption": "FIG. 2. Panel (a) shows the five-peak Gaussian-mixture tar- get (shaded) together with the trained Born output at L = 26 and N = 10 for each of the four entanglers, coarse-grained to 256 bins (mean over 20 runs; band, one standard deviation). The four outputs lie on top of one another and on the target. Panel (b) shows the converged KLD(p∥qθ) against depth L at N = 10, K = 2N (mean and standard deviation over 20 runs; doped-Clifford at nt = 4), where the four curves overlap within the run-to-run spread for L ≥4.",
+      "page": 5
+    },
+    {
+      "image": "2609.32025_figures/2609.32025_fig4.jpg",
+      "caption": "FIG. 5. Panels (a)–(c) show the target probability p(x) for three of the nine targets, at achieved intrinsic nonstabilizer- ness M2,min(p) = 0, 4.00 and 7.40, with participation ratios 1024, 321 and 44. Panel (d) shows the converged KLD against the achieved floor for the four entangler families on the left axis (N = 10, K = 2N, L = 26; median over 20 runs, bands, the interquartile range), and the participation ratio of the same targets on the right axis (dashed). The four families lie on top of one another, while the two axes move in opposite directions.",
+      "page": 6
+    },
+    {
+      "image": "2609.32025_figures/2609.32025_fig5.jpg",
+      "caption": "FIG. 4. All three panels follow the entangler families on the SK Gibbs target against inverse temperature β (N = 10, K = 2N, L = 12, 10 disorder realizations, the median over the 10 runs of a disorder realization taken first in panels (a) and (c); bands, one standard deviation in panel (a)). Panel (a) shows the converged KLD of each family; the curves coincide to within the line width; panel (c) resolves the matchgate offset. Panel (b) shows the SRE of the trained state (lowest- loss run) against the target floor M2,min and two random- phase references, obtained by assigning independent uniform phases to √qθ and to √pβ for the Clifford entangler (averaged over disorder and three phase...",
+      "page": 6
+    }
+  ],
+  "figure": "2609.32025_figures/2609.32025_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

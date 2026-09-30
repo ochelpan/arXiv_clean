@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.33192",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.LG",
+    "cs.CL",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "AG-CoT: Verified Algorithmic Traces for LLM Program Synthesis on Clifford Circuits",
+  "authors": "Lu Wei, Yufeng Wang, Chenfeng Cao, Lu Pang, Haibin Ling",
+  "abstract": "Scientific code generation can produce executable programs that fail to compute the intended scientific object. We study this problem in language-model synthesis of Clifford circuits, which prepare the stabilizer states used in quantum error correction and admit exact classical verification. In our target-conditioned framework, each target is given as compact signed stabilizer generators, and an exact verifier checks the generated OpenQASM circuits. We supervise models with Aaronson-Gottesman chain-of-thought (AG-CoT) traces checked by the verifier, and continue training on model generations that the verifier accepts. Across two independently trained model families (3B and 7B), AG-CoT supervision multiplies greedy-decode state-equivalence accuracy by four to six times over circuit-only baselines, and verifier-filtered continuation training adds a further consistent gain atop both. A complementary 32B study shows that supervised models achieve near-perfect syntax and Clifford validity while the strongest direct model reaches 6.14% state equivalence per target, rising to over 10% under verifier-guided selection with multiple candidates. These results show that algorithmic trace supervision gives a large, statistically significant gain in both model families and that verifier-filtered continuation adds a further repeated gain. The persistent gap between Clifford validity and state equivalence confirms that exact verification is necessary: a circuit can be syntactically and physically valid yet prepare the wrong quantum state.",
+  "url": "http://arxiv.org/abs/2609.33192v1",
+  "pdf": "https://arxiv.org/pdf/2609.33192v1",
+  "type": "theory",
+  "summary": "This paper tackles the unreliability of LLMs generating quantum circuits by focusing on Clifford circuits used in quantum error correction. The authors introduce an AG-CoT supervision technique, guided by an exact verifier, which forces the model to learn the underlying algorithmic structure. This results in substantial, statistically significant improvements in the ability of LLMs to synthesize circuits that correctly prepare the target quantum state.",
+  "main_problem": "LLM program synthesis often generates executable quantum circuits that fail to compute the intended scientific state, especially when dealing with complex quantum error correction circuits.",
+  "main_result": "Supervising LLMs with Aaronson-Gottesman chain-of-thought (AG-CoT) traces and using verifier-filtered continuation training significantly boosts state-equivalence accuracy compared to circuit-only baselines.",
+  "method": "The authors use an exact verifier to check OpenQASM circuits against a target state defined by signed stabilizer generators, supervising the LLM on the verifiable algorithmic trace (AG-CoT) steps.",
+  "model_or_system": "The system involves synthesizing Clifford circuits, which prepare stabilizer states crucial for quantum error correction. The target state is compactly represented by signed Pauli generators forming a tableau.",
+  "key_observables": "State equivalence (matching the prepared state to the target state), Clifford validity, and syntax validity are the key observables, with the gap between validity and equivalence being a major diagnostic.",
+  "important_parameters": "The performance is measured across different model sizes (3B, 7B, 32B) and depends on the complexity of the target state and the search budget (e.g., Pass@N).",
+  "main_assumptions": "The analysis relies on the fact that Clifford state preparation admits an exact, finite stabilizer representation, allowing for rigorous verification.",
+  "figures_summary": "Figures illustrate the pipeline involving AG-CoT supervision and verifier checks, while tables summarize quantitative performance gains across various training and testing regimes.",
+  "paper_structure": "The paper introduces the problem, details the structured representation (stabilizer tableaux), presents the AG-CoT and verifier-filtered training methodology, and concludes with extensive quantitative comparisons showing the necessity of exact verification.",
+  "why_interesting": "This work directly addresses the reliability of using large language models for generating quantum code, providing rigorous benchmarks for verifiable quantum circuit synthesis.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.33192_figures/2609.33192_fig1.jpg",
+      "caption": "Figure 1: Running verifier example. Both candidates parse and remain Clifford-valid, but Candidate B is rejected because it prepares +Z rather than the requested +X target.",
+      "page": 2
+    },
+    {
+      "image": "2609.33192_figures/2609.33192_fig2.jpg",
+      "caption": "Figure 2: Target-conditioned circuit synthesis with algorithmic trace supervision and verifier-filtered continuation. Panel a constructs a verified teacher circuit from signed target generators; b pairs circuit-only and AG-CoT supervision with the same prompt and final circuit. The two-qubit example is schematic, with the blue reduction operations inverted to obtain the preparation circuit. Panel c forms a fixed dataset of accepted AG-CoT responses for supervised continuation (RFT). Acceptance checks the emitted circuit and task requirements. Panel d shows correct single outputs on the same 3,661 test targets for each trained system in Table 1. The three Qwen RFT versions remain separate.",
+      "page": 5
+    },
+    {
+      "image": "2609.33192_figures/2609.33192_fig3.jpg",
+      "caption": "Figure 3: A target-conditioned AG-CoT training example. The reformatted input and trace excerpt retain all four reduction operations and the corresponding auxiliary and stabilizer rows for qubit 0. Inverting the reduction gives the complete program shown on the right. Circuit labels identify the reduction steps in reverse order. The adjacent final Hadamard gates remain as emitted by the teacher.",
+      "page": 5
+    },
+    {
+      "image": "2609.33192_figures/2609.33192_fig4.jpg",
+      "caption": "Figure 5: Target representation shift. Signed stabilizer generators replace long numeric state vectors with a compact target interface that still supports exact Clifford-state verification. Here n is the qubit count, Mx stores binary X/Z support, and rx stores generator signs.",
+      "page": 15
+    },
+    {
+      "image": "2609.33192_figures/2609.33192_fig5.jpg",
+      "caption": "Figure 6: Overview of the 32B construction and verification. The target Tx = (Mx, rx) stores binary Pauli support Mx and generator signs rx. The trace ρx records m reduction steps through full reference Clifford tableaus T0, . . . , Tm to the identity I, and yx is the emitted OpenQASM program. For a generated program y, P(y) and K(y) indicate parsing and Clifford validity, Ty is its prepared state tableau, and L extracts saved stabilizer labels. The rightmost panel reports 32B direct results and basic AG-CoT search with 64 candidates per target.",
+      "page": 17
+    }
+  ],
+  "figure": "2609.33192_figures/2609.33192_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

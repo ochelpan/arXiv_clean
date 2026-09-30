@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.32627",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.ET"
+  ],
+  "is_primary_archive": true,
+  "title": "Fewer Qubits, Better Choices: Coupling-Aware Sub-QUBO Selection for Quantum-Assisted Traffic Zone Partitioning",
+  "authors": "Qianwen Guo, Ruimin Ke",
+  "abstract": "Near-term quantum optimizers accommodate roughly a hundred binary variables, requiring large Quadratic Unconstrained Binary Optimization problems to be decomposed into hardware-sized subproblems while other variables remain fixed. Variables are typically selected by ranking the objective changes from individual flips. We show that this rule is uninformative once the incumbent is optimal under single-variable flips: every score represents a cost, while remaining improvements depend on overlooked pairwise interactions. A second-order expansion instead yields a prize-collecting densest-subgraph selection problem, solvable greedily in time linear in the number of variables, and two solver-free bounds bracketing the improvement achievable within a selected subset. On transportation networks from Chicago and Philadelphia, our rule with 16-variable subproblems outperforms random selection with 64, demonstrating that quadrupling device capacity cannot compensate for weaker selection. Replacing geometric adjacency with road-network connectivity widens the margin by a factor of 1.6-1.9. With the selection trace fixed, varying the fraction of subproblems solved on a 120-qubit device from zero to one leaves the final objective unchanged to six significant figures. At tested hardware-accessible sizes, gains therefore arise from selection rather than the backend. Hardware feasibility is limited by coupling terms: 120-variable problems fail to compile with 7,260 terms but succeed with 5,118. Compilation scales almost quadratically with term count and dominates execution cost, reaching 1,752 seconds versus 469 seconds of quantum processing.",
+  "url": "http://arxiv.org/abs/2609.32627v1",
+  "pdf": "https://arxiv.org/pdf/2609.32627v1",
+  "type": "theory",
+  "summary": "This paper introduces a coupling-aware method for selecting optimal variable subsets to solve large QUBO problems on limited quantum hardware. By analyzing the second-order expansion of the objective function, the authors create a greedy selection rule that significantly boosts performance on traffic network partitioning tasks. The key finding is that the improvement comes from the classical selection strategy, not the quantum processor itself, highlighting the need for smarter problem decomposition.",
+  "main_problem": "The paper addresses the challenge of solving large Quadratic Unconstrained Binary Optimization (QUBO) problems, derived from NP-hard traffic network partitioning, on near-term quantum hardware with limited connectivity.",
+  "main_result": "The authors demonstrate that a coupling-aware variable selection rule, derived from a second-order QUBO expansion, significantly outperforms random selection, proving that selection quality is more critical than raw device qubit capacity.",
+  "method": "They propose a greedy, linear-time algorithm to select the optimal subset of variables (sub-QUBO) to solve on the quantum device, based on a prize-collecting densest-subgraph formulation.",
+  "model_or_system": "The problem is modeled as a QUBO, mapping to the Ising model, applied to partitioning real-world transportation networks (e.g., Chicago, Philadelphia). The hardware constraint is defined not by qubit count, but by the number of pairwise coupling terms that can be compiled.",
+  "key_observables": "Performance improvement factor (1.6–1.9) when using actual road connectivity versus geometric adjacency; the final objective function value when varying the quantum solver's contribution (found to be constant).",
+  "important_parameters": "The binding hardware limit is the number of coupling terms (e.g., 7,260 terms failing vs. 5,118 succeeding for a 120-qubit device); the size of the selected sub-problem ($q=16$ vs. $q=64$).",
+  "main_assumptions": "The core assumption is that the problem can be decomposed into smaller, manageable sub-QUBOs, and that the selection strategy itself is the primary source of performance gain, not the quantum backend.",
+  "figures_summary": "Not specified, but the notes imply comparisons showing performance gains based on selection strategy and connectivity type.",
+  "paper_structure": "The paper first establishes the NP-hard nature of the problem and the necessity of sub-QUBO decomposition. It then introduces the coupling-aware selection rule derived from a second-order expansion, compares it against existing selection heuristics, and validates its effectiveness using real-world network data, concluding that the gain is classical.",
+  "why_interesting": "This work is highly relevant as it tackles the crucial 'software' bottleneck in near-term quantum optimization: how to efficiently map large, complex problems onto limited, noisy hardware. The focus on classical pre-processing (selection) to enhance quantum performance is a key theme in quantum algorithm design.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.32627_figures/2609.32627_fig1.jpg",
+      "caption": "Figure 1. The sub-QUBO outer loop. One round of the loop. Steps 1 and 3-6 are determined by the formulation; Step 2: choosing which q of the 𝑁𝑁 variables to release, is the subject of this paper and must be decided from the incumbent and the coupling structure alone, before any sub-problem is solved.",
+      "page": 8
+    },
+    {
+      "image": "2609.32627_figures/2609.32627_fig2.jpg",
+      "caption": "Figure 2. What each selection rule can see. A four-variable instance at a 1-opt optimum with 𝑞𝑞= 2 . Left: the linear costs 𝑎𝑎𝑖𝑖, which are all that impact indexing reads. Middle: the coupling matrix 𝐾𝐾 ; the negative entry 𝐾𝐾12 = −4 means 𝑥𝑥1 and 𝑥𝑥2 pay off only together. Right: the improvement actually obtained.",
+      "page": 9
+    },
+    {
+      "image": "2609.32627_figures/2609.32627_fig3.jpg",
+      "caption": "Figure 3. Better selection substitutes for qubits. Final objective against sub-problem size on Philadelphia, at a fixed budget of 60 sub-QUBO calls. Lines are means over 8 random starts and bands are ±1 standard deviation. The dashed reference line is DkS at 𝑞𝑞 = 16. Random selection at 𝑞𝑞 = 64 stays well above that line, and the DkS band overlaps it at every size, so the rule is flat in 𝑞𝑞 rather than best at 𝑞𝑞 = 16.",
+      "page": 14
+    },
+    {
+      "image": "2609.32627_figures/2609.32627_fig4.jpg",
+      "caption": "Figure 4. The ranking is stable across the spatial-coherence weight. Final objective against γ on both instances, at Delaunay adjacency, 𝑞𝑞 = 32, 60 rounds and 5 random starts.",
+      "page": 14
+    },
+    {
+      "image": "2609.32627_figures/2609.32627_fig5.jpg",
+      "caption": "Figure 5. Convergence and selection-quality certificate. Left: best objective so far against sub-QUBO solver calls, Chicago-Sketch, γ = 1.0, 𝑞𝑞 = 32. Right: the certified band L(S) ≤ F(S) ≤ U(S) for the DkS selector. L and U cost O(q²)",
+      "page": 15
+    }
+  ],
+  "figure": "2609.32627_figures/2609.32627_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

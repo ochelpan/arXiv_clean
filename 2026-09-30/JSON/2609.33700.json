@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.33700",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "On Embedding Design in Quantum Physics-Informed Neural Networks",
+  "authors": "Ban Q. Tran, Nahid Binandeh Dehaghani, Susan Mengel, Rafal Wisniewski, A. Pedro Aguiar",
+  "abstract": "Quantum physics-informed neural networks (QPINNs) solve partial differential equations (PDEs) by training parameterized quantum circuits against physics-based residuals, yet the role of the embedding that maps coordinates into quantum states remains insufficiently understood. In this research, we introduce a unified embedding framework that formulates embedding as a functional transformation shaping the feature representation available to the variational circuit, and we propose two embeddings within it. The Linear Quantum Neural Network Trainable Embedding QPINN (LQNN-TE-QPINN) generates data-dependent features with an auxiliary quantum circuit and adds them to the input coordinates, instead of multiplying them as in our previous formulation. The adaptive-frequency QPINN (AdaFreq-QPINN) promotes the frequency-scaling factors of an arccos-Chebyshev encoding to trainable parameters. We evaluate both against direct and fixed analytical frequency encodings and alternative hybrid architectures on one- and two-dimensional Burgers equations. In one dimension, LQNN-TE-QPINN achieves a relative $L_2$ error of 0.0916 with 720 trainable parameters, compared with 0.4501 for direct-encoding QPINN and 0.1233 for a locally adaptive classical physics-informed neural network with approximately eleven times more parameters, while AdaFreq-QPINN attains the lowest error among the analytical embeddings with only four additional parameters. In two dimensions, LQNN-TE-QPINN attains the lowest training objective, although its solution error is not clearly separated from that of a data re-uploading QPINN. Under simulated hardware noise, LQNN-TE-QPINN retains the lowest absolute derivative error while degrading most relative to its noiseless baseline. These results demonstrate that embedding design substantially influences the approximation and optimization behavior of QPINNs.",
+  "url": "http://arxiv.org/abs/2609.33700v1",
+  "pdf": "https://arxiv.org/pdf/2609.33700v1",
+  "type": "theory",
+  "summary": "This paper investigates how the input embedding mechanism affects the performance of Quantum Physics-Informed Neural Networks (QPINNs) for solving PDEs. The authors propose and test two advanced embedding designs, demonstrating that these architectural choices significantly impact the network's approximation accuracy and robustness, especially when simulating quantum noise.",
+  "main_problem": "The research addresses the poorly understood role of the embedding mechanism within Quantum Physics-Informed Neural Networks (QPINNs) used to solve Partial Differential Equations (PDEs).",
+  "main_result": "The proposed trainable embedding designs, particularly LQNN-TE-QPINN, significantly improve the approximation accuracy of QPINNs compared to direct encoding, especially in 1D and under simulated noise.",
+  "method": "The authors introduce and compare novel embedding frameworks—LQNN-TE-QPINN and AdaFreq-QPINN—by modifying how input coordinates are mapped into the quantum state used for PDE residual calculation.",
+  "model_or_system": "The model is a QPINN framework applied to solving PDEs (e.g., Burgers equation). The core structure involves mapping classical coordinates $\\xi$ through an embedding $E$ to generate a quantum state $|\\psi\rangle = U_{var} U_{enc} |0\rangle$, whose expectation value approximates the PDE solution.",
+  "key_observables": "Relative $L_2$ error, training objective value, and absolute derivative error, particularly when subjected to various simulated quantum noise channels.",
+  "important_parameters": "Trainable parameters associated with the embedding (e.g., frequency-scaling factors) and the strength ($\\epsilon$) of the simulated quantum noise.",
+  "main_assumptions": "The primary assumption is that modifying the embedding design can substantially influence the approximation and optimization behavior of the QPINN, though the optimal choice depends on the specific problem.",
+  "figures_summary": "The notes mention figures comparing the RMS error of the second derivative ($\\partial^2 u / \\partial x^2$) across different models under varying quantum noise strengths and measurement shot counts.",
+  "paper_structure": "The paper first establishes the QPINN framework for solving PDEs. It then details the unified embedding formulation, proposing and evaluating specific trainable embeddings (LQNN-TE-QPINN and AdaFreq-QPINN) against baselines. Finally, it rigorously tests these designs using 1D and 2D Burgers equations, including extensive analysis under simulated hardware noise.",
+  "why_interesting": "This work is highly relevant as it pushes the boundary of applying quantum computation to classical scientific modeling problems, directly impacting how quantum information theory informs the numerical solution of physical laws.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.33700_figures/2609.33700_fig1.jpg",
+      "caption": "Fig. 1. Reference solution of the 1D Burgers equation computed with the RK45 method-of-lines scheme.",
+      "page": 7
+    },
+    {
+      "image": "2609.33700_figures/2609.33700_fig2.jpg",
+      "caption": "Fig. 2. The LQNN-TE-QPINN embedding circuit generates trainable quantum features that are supplied to the main variational quantum circuit.",
+      "page": 8
+    },
+    {
+      "image": "2609.33700_figures/2609.33700_fig3.jpg",
+      "caption": "Fig. 3. Performance exploration of the main VQC in QPINN for solving the 1D Burgers equation. (a) and (c) VQC sweep with 10 layers across varying qubit counts from 2 to 8. (b) and (d) VQC sweep with 6 qubits across varying layer counts from 5 to 25. The top row shows the solver performance in terms of PDE loss. The bottom row presents the relative L2 error of the predicted solution with respect to the RK45 reference solution. The two sweeps pin different embedding circuits, 6 qubits by 5 layers for the left column and 4 qubits by 20 layers for the right column, so points in the two columns are not directly comparable and the LQNN-TE-QPINN values of the two columns must not be pooled.",
+      "page": 10
+    },
+    {
+      "image": "2609.33700_figures/2609.33700_fig4.jpg",
+      "caption": "Fig. 4. Performance exploration of quantum solvers across training budgets ranging from 100 to 500 epochs.",
+      "page": 10
+    },
+    {
+      "image": "2609.33700_figures/2609.33700_fig5.jpg",
+      "caption": "Fig. 5. Performance evaluation of the LQNN-TE-QPINN solver across various qubit and layer configurations, using a fixed main VQC setup of 6 qubits and 10 layers, trained for 100 epochs. (a) and (c) QNN architecture with a fixed depth of 5 layers and varying qubit counts from 2 to 8. (b) and (d) QNN architecture with a fixed width of 6 qubits and varying layer counts from 5 to 40.",
+      "page": 11
+    }
+  ],
+  "figure": "2609.33700_figures/2609.33700_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

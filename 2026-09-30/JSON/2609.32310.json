@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.32310",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Conserved and relaxing modes enable polynomial-success coherent Carleman lattice Boltzmann evolution",
+  "authors": "Hua-Dong Yao, Sauro Succi",
+  "abstract": "Carleman linearization represents nonlinear lattice Boltzmann collision dynamics in a form amenable to quantum block encoding, but low postselection probabilities in existing population-space encodings make coherent multi-step evolution exponentially unlikely to succeed. We present a quantum Carleman lattice Boltzmann scheme based on the multi-relaxation-time collision operator in a weighted Hermite moment basis. In this basis, the lifted collision operator separates into small coupled blocks whose norm exceeds unity because of the coupling between conserved and relaxing modes. This block structure enables a norm-attaining block encoding with a single-step success probability close to unity. Crucially, scaling the pair sector for a prescribed evolution horizon makes the combined encoding and sector-selection overhead grow polynomially rather than exponentially with the number of steps. For a hundred-step evolution, the resulting complete-run success probability exceeds that of population-space encodings by orders of magnitude. Over horizons of several tens of steps, the truncated dynamics reproduces the nonlinearly generated modes of a benchmark flow to within a few percent. We verify the combined preparation, evolution and readout protocol as a single unitary circuit and give a complete gate-level resource estimate for extracting a nonlinear observable of the benchmark flow from a coherent Carleman evolution. The block structure of conserved and relaxing modes holds equally on three-dimensional lattices and provides a constructive route to norm-attaining encodings for lattice Boltzmann models with quadratic equilibria.",
+  "url": "http://arxiv.org/abs/2609.32310v1",
+  "pdf": "https://arxiv.org/pdf/2609.32310v1",
+  "type": "theory",
+  "summary": "This paper presents a novel quantum approach to simulate nonlinear Lattice Boltzmann dynamics by encoding the collision operator using a weighted Hermite moment basis. By exploiting the inherent block structure between conserved and relaxing modes, the authors overcome the exponential failure rate typical in quantum simulation, achieving polynomial scaling for multi-step evolution. This provides a resource-efficient pathway to simulating complex fluid dynamics on quantum hardware.",
+  "main_problem": "The primary challenge is overcoming the exponential decay of success probability when performing coherent, multi-step quantum evolution for nonlinear lattice Boltzmann (LB) dynamics.",
+  "main_result": "The authors developed a quantum encoding scheme that exploits the block structure arising from conserved and relaxing modes, achieving a polynomial scaling of the success probability with the number of steps.",
+  "method": "The method involves using Carleman linearization in a weighted Hermite moment basis to encode the LB collision dynamics, which is then implemented as a single unitary circuit.",
+  "model_or_system": "The system modeled is the Lattice Boltzmann equation, specifically using the Multi-Relaxation-Time (MRT) collision operator on a D2Q9 lattice. The dynamics are linearized and lifted to a tensor power space for quantum encoding.",
+  "key_observables": "Success Probability, relative error of observables (e.g., acoustic/vortical modes), and resource estimates (qubits, T gates) for extracting nonlinear observables.",
+  "important_parameters": "Number of steps (T), Mach number (Ma), Reynolds number (Re), and the structure of the collision operator's blocks.",
+  "main_assumptions": "The core assumption is that the collision operator's structure, when viewed in the weighted Hermite basis, allows for a block encoding that attains the operator norm, thus avoiding exponential decay.",
+  "figures_summary": "The notes reference detailed tables (S4, S5, S6) showing statevector verifications, error recurrence along two-mode runs, and resource sweeps for observable tasks, confirming the protocol's performance.",
+  "paper_structure": "The paper first identifies the exponential decay problem, then proposes the weighted Hermite basis exploiting mode structure to achieve a block encoding. It details the structure theorem for the collision stage, proves polynomial scaling of the success probability, and concludes with a resource estimate for extracting nonlinear observables.",
+  "why_interesting": "This work directly tackles the resource scaling problem in quantum simulation of complex, nonlinear classical physics models (like fluid dynamics), providing a concrete, resource-aware quantum algorithm blueprint.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.32310_figures/2609.32310_fig1.jpg",
+      "caption": "FIG. 1. The algorithm and the structure of its collision stage. (a) The five stages of the protocol, from the preparation of the scaled state through one step on the level-2 register in relative coordinates to the streaming, with the output recovery and the amplitude that is estimated. (b) One-site level-2 collision stage of the Hermite MRT scheme on the nine moments and the four same-site conserved-pair slots at λ = 1 and ω = 1.5; in the product slots (m1m1, m2m2, m1m2, m2m1) the coupling fills a 3 × 4 block. (c) After the rotation to (ue, udev, ush, ua) the stage is a diagonal plus three 2 × 2 blocks on {e, ue}, {pxx, udev} and {pxy, ush} (frames), and the antisymmetric slot decouples....",
+      "page": 6
+    },
+    {
+      "image": "2609.32310_figures/2609.32310_fig2.jpg",
+      "caption": "FIG. 2. Single-step success probability p of the collision stage by representation and block-encoding construction, on the 32×32 Taylor-Green state at Ma = 0.087 and ω = 1.5 (bars, whose values are printed at the right); the horizontal line through each bar spans the range of p over ω = 1.0 to 1.95. The fill of each bar darkens with p on the same scale in every row, reaching full opacity at p = 1. The dotted vertical lines are the D2Q9 baseline 6 × 10−5 of Sanavio et al. [16] and the value of order 10−2 reported by Bastida Zamora et al. [17] at N = 16, whose construction is modeled as the optimal subnormalization of the population-space stage. The last two rows are the coupled-block...",
+      "page": 7
+    },
+    {
+      "image": "2609.32310_figures/2609.32310_fig3.jpg",
+      "caption": "FIG. 3. Normalization cost of the scaled collision stage. (a) α −1 against the pair-sector scale λ for the two-term LCU of Eq. (14) (solid lines, crosses at the recorded values) and for the operator norm of Theorem 1 (dashed lines, plus signs), at three BGK rates. (b) The coefficients a of 1/λ and c of 1/λ2 against the rate, with the recorded ∥Kλ∥2 −1 at λ = 10 and its product with λ2, which follows c up to ω = 1.9 and falls below it as ω →2.",
+      "page": 8
+    },
+    {
+      "image": "2609.32310_figures/2609.32310_fig4.jpg",
+      "caption": "FIG. 4. Success of a complete run with output selection. (a) P of Eq. (21) against the number of steps on the 32 × 32 Taylor-Green trajectory at Ma = 0.087 and ω = 1.5 for the population constructions with sparse access (α = 171) and with the two-term SVD (α = 9.39), unscaled as published, and for the two structured encodings of the weighted Hermite stage at the scale optimal for each horizon; the shaded bands are the near-rest model of the two structured encodings between N = 16 and 4096. (b) Finite-T optimum P ∗of the near-rest model for the two encodings at ω = 1.5 and N = 1024, with the large-T forms (dashed); the values of Eq. (21) along the Taylor-Green trajectory at the optimal scale...",
+      "page": 10
+    },
+    {
+      "image": "2609.32310_figures/2609.32310_fig5.jpg",
+      "caption": "FIG. 5. Verification of the quantum construction. (a) Success probability p of one collision stage of the coupled-block circuit on the 4 × 4 Taylor-Green state at Ma = 0.17 (23 qubits), measured as the postselected norm fraction against rλ/α2 B from the classical state, and the value the same state gives with the two-term LCU. (b) Weight of the survival subspace after the exact amplification of the 2 × 2 preparation, after U |0⟩and after one amplification round of the one- and two-step protocols on the 2 × 2 lattice at λ = 3 and ω = 1.5, and the readout amplitudes |A| of the two momentum components, each against its prediction.",
+      "page": 11
+    }
+  ],
+  "figure": "2609.32310_figures/2609.32310_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

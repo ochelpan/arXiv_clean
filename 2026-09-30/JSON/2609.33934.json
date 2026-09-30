@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2609.33934",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "physics.chem-ph",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum-Computing Self-Consistent Kohn-Sham DFT: Plane-Wave-Orthonormalized Orbitals with a Dual-Basis Quantum Eigensolver",
+  "authors": "Lazaro Calderin",
+  "abstract": "We present a first-quantization, all-electron, full-potential Kohn-Sham density functional theory method for quantum computers, based on a classically optimized quantum-circuit eigensolver for the self-consistent field (SCF) eigenproblems in any orthonormal basis. The plane-wave-orthonormalized-orbital (PWOO) basis combines plane waves with atomic orbitals (AOs) orthonormalized against them and one another. The eigensolver has a dual-basis form: after full-basis bootstrap steps, it solves each SCF step in a contracted basis of $K$ functions ($\\lceil\\log_2 K\\rceil$ qubits), updated in the full basis when the residual outside it exceeds a threshold. For an H$_8$ chain (SVWN, $K=8$), the state-vector-emulated SCF agrees with classical calculations within 0.02 mHa for 32768 plane waves and PWOO bases up to cc-pVTZ; contraction changes these PWOO energies by at most 5.7 $μ$Ha. With emulated shot noise, the STO-3G PWOO SCF converges near the noise-free fixed point. On IonQ Forte-1, three-qubit-register readout reproduces the noise-free PWOO-AO energy difference within one standard deviation.",
+  "url": "http://arxiv.org/abs/2609.33934v1",
+  "pdf": "https://arxiv.org/pdf/2609.33934v1",
+  "type": "both",
+  "summary": "This paper presents a novel quantum computing approach to solve the Kohn-Sham DFT equations for electronic structure. It uses a mixed basis set (PWOO) and a dual-basis contraction technique to map the complex problem onto quantum circuits. The results validate the method's accuracy against classical benchmarks, showing its potential for quantum simulation in quantum chemistry.",
+  "main_problem": "Developing a first-quantization, all-electron Kohn-Sham DFT method that can be executed on quantum computers for electronic structure calculations.",
+  "main_result": "The quantum-circuit-based SCF calculation for an H8 chain agreed with classical results within 0.02 mHa, demonstrating feasibility on near-term quantum hardware.",
+  "method": "The method employs a quantum eigensolver within a self-consistent field (SCF) loop, utilizing a specialized Plane-Wave-Orthonormalized-Orbital (PWOO) basis and a dual-basis contraction technique to manage qubit requirements.",
+  "model_or_system": "The model is electronic structure simulation using Kohn-Sham DFT for systems like the H8 chain. The Hamiltonian is solved iteratively using a mixed PWOO basis combining plane waves and atomic orbitals.",
+  "key_observables": "Total energy (E_KS), orbital eigenvalues, and the residual norm outside the contracted subspace.",
+  "important_parameters": "Basis size (up to 32,768 plane waves), contraction size (K=8), and convergence tolerances (e.g., 0.02 mHa).",
+  "main_assumptions": "The method relies on a dual-basis contraction to reduce the required qubit count, and it does not claim a wall-time advantage over classical DFT.",
+  "figures_summary": "not specified",
+  "paper_structure": "The paper details the method (Section II), covering qubit encoding, the eigensolver implementation, the SCF loop structure, and the dual-basis contraction technique, followed by computational results (Section III).",
+  "why_interesting": "It directly applies quantum computing principles (quantum eigensolvers, qubit encoding) to a cornerstone problem in quantum chemistry and condensed matter physics (DFT), bridging quantum computation with many-body physics.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.33934_figures/2609.33934_fig1.jpg",
+      "caption": "FIG. 1. H8/SVWN energy versus basis-set size. Dashed lines: free-space Gaussian-basis references computed with PySCF; dotted lines: AO-only references in the same cell. Circles: classical PW reference, enlarged with the single cutoff parameter; crosses: K = 8 dual-basis QC energies (Table I; the nq = 6 and 9 points lie above the plotted range, and the circles at N = 2.6 × 105 and 2.1 × 106 are classical calculations only). Squares: STO-3G PWOO energies; every PWOO point lies below its AO-only reference, as the nested-basis variational bound requires. cc-pVDZ and cc-pVTZ PWOO points are shown for ng = 65 (filled symbols) and ng = 129 (open symbols, shifted right for visibility); shaded: ±1.6...",
+      "page": 6
+    },
+    {
+      "image": "2609.33934_figures/2609.33934_fig2.jpg",
+      "caption": "FIG. 2. Convergence of the shot-based STO-3G PWOO SCF. (a) Projector change versus SCF step at Ns = 1013 shots per batch: with the mixing of the noise-free runs (α = 0.5) the loop stalls on its noise floor above the convergence threshold (∥∆Pocc∥F = 3 × 10−4, dashed), while a reduced mixing parameter (α = 0.2) brings ∥∆Pocc∥F down to the threshold for all four random seeds (squares mark the first steps at which it is below the threshold with |δE| < 10−5 Ha, i.e., at which the criterion is met; Table III). (b) The α = 0.5 floor of the projector change (median of ∥∆Pocc∥F over the last eight SCF steps) across five decades of shot budget, with the 1/√Ns guide. The converged α = 0.2 endpoints...",
+      "page": 8
+    },
+    {
+      "image": "2609.33934_figures/2609.33934_fig3.jpg",
+      "caption": "FIG. 3. Trapped-ion readout of the converged PWOO KS states (IonQ Forte-1, debiased, two repetitions). (a) Contracted three- qubit registers: per-state hardware bias for the PWOO and AO-only states (offset horizontally from integer m for visibility; error bars: standard deviation over the two repetitions). (b) Full registers (11 vs 4 two-qubit gates): per-set deviation of the measured ⟨Og⟩from the exact values. Lines: fitted one-parameter depolarizing model (λ = 0.993 for AO-only, 0.925 for PWOO).",
+      "page": 11
+    }
+  ],
+  "figure": "2609.33934_figures/2609.33934_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

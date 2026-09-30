@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.33193",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cs.LG",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Apparent Compression, Real Stability: The Intrinsic Dimension of Learning a Quantum Wavefunction",
+  "authors": "Lu Wei, Yufeng Wang, Chenfeng Cao, Haibin Ling",
+  "abstract": "How many directions in weight space does training need? The intrinsic dimension answers this with the smallest number of random directions in which training still reaches a target accuracy, and small values have motivated parameter-efficient methods such as LoRA. We measure it for variational Monte Carlo (VMC), which trains a neural network to represent the ground state of a quantum many-body system. VMC is a demanding test, because the network generates its own training samples and every gradient is noisy, and a revealing one, because the exact answer is known and every run can be scored. We train only a small latent vector that a frozen random map turns into the network's weights, with no change to the standard natural-gradient optimizer. We find that a small dimension can be misleading, while the stability it brings is real. On a magnet with a hard sign pattern, a network that cannot represent signs reaches its best energy in 8 of 28,642 directions, but only because no such network can go lower; once signs are learnable, neither the signs nor the magnitudes are cheap. The dimension rises across a quantum phase transition, so it tracks how difficult a state is at far less compute than fitting a scaling law, yet it never falls below a floor set by the random subspace itself, even where the ground state is nearly trivial. Training in the subspace, in contrast, never diverged in our experiments, whereas full-parameter training with the same settings did, and a control with matched solvers attributes the difference to the reduced dimension.",
+  "url": "http://arxiv.org/abs/2609.33193v1",
+  "pdf": "https://arxiv.org/pdf/2609.33193v1",
+  "type": "theory",
+  "summary": "This work develops a metric, the intrinsic dimension ($d^*$), to quantify the minimum necessary parameter space for training Neural Quantum States (NQS) in Variational Monte Carlo simulations. By testing this on frustrated quantum magnets, the authors show that while low dimensions suggest efficiency, the true difficulty lies in learning the wavefunction's sign structure, which can significantly increase the required computational complexity.",
+  "main_problem": "The paper investigates the intrinsic dimension of the weight space required for training Neural Quantum States (NQS) to accurately represent the ground state of a quantum many-body system.",
+  "main_result": "The required intrinsic dimension ($d^*$) tracks the difficulty of the quantum state across phase transitions, but the apparent compression suggested by small $d^*$ can be misleading, especially concerning the cost of learning wavefunction signs.",
+  "method": "The authors measure $d^*$ by restricting the NQS training to a random, low-dimensional latent subspace ($z \\in \\mathbb{R}^d$) while optimizing the latent vector using the natural-gradient method within a Variational Monte Carlo (VMC) framework.",
+  "model_or_system": "The study applies to various quantum many-body systems, including the $J_1-J_2$ Heisenberg model and the Transverse-Field Ising Model (TFIM) on lattices, using NQS parameterized by neural networks.",
+  "key_observables": "Intrinsic dimension ($d^*$), relative energy error ($\\epsilon_{rel}$), and the ability to learn the sign structure of the wavefunction.",
+  "important_parameters": "The ratio $J_2/J_1$ (for the Heisenberg model), the target relative error threshold ($\tau$), and the training budget (number of Monte Carlo steps).",
+  "main_assumptions": "The measurement assumes the natural-gradient metric for the latent vector $z$ correctly captures the optimization landscape, and comparisons are made against specific training configurations (e.g., linear vs. nonlinear mappings).",
+  "figures_summary": "Figures illustrate the dependence of the relative error on the trainable dimension $d$ for various network configurations, showing how $d^*$ tracks phase transitions and how the sign structure contributes to the overall energy error.",
+  "paper_structure": "The paper establishes the measurement of intrinsic dimension for VMC, tests this metric on frustrated magnets, compares linear vs. nonlinear subspace training methods, and analyzes how the required dimension changes across quantum phase transitions.",
+  "why_interesting": "It provides a rigorous, data-driven metric ($d^*$) to quantify the complexity of representing quantum ground states using machine learning, which is crucial for developing efficient and stable quantum simulation algorithms.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.33193_figures/2609.33193_fig1.jpg",
+      "caption": "Figure 1: Method overview. (a) The measurement. Training is confined to a random d-dimensional slice of weight space through the initialization θ0: the map g and θ0 are frozen, so only the latent z ∈Rd moves and the slice is fixed before the first step. Its orientation is drawn at random, and a different seed draws a different slice, which is why the seed selects the basin a run ends in (Sec. 4.1). (b) What a measured dimension has to be read against, on the 4 × 4 frustrated magnet. A network with non-negative amplitudes reaches εrel = 0.5313 in 8 of its 28,642 directions and 0.5271 with every direction trainable, so 3,500× the directions buy 0.8% of the error: both sit at the positive-cone...",
+      "page": 2
+    },
+    {
+      "image": "2609.33193_figures/2609.33193_fig2.jpg",
+      "caption": "Figure 2: Sign/amplitude dissection in one sign-capable model (4 × 4, J2/J1 = 0.5; best εrel within 1,500 steps; lines are medians of 3 seeds, small dots are seeds). (a) Amplitude swept with the sign block complete (orange), beside the exact-sign control (blue; the star is the full network, which completed 1,380–1,460 steps) and the positive-cone bound, below which no sign-free configuration of Table 2 can go (dotted). (b) Sign swept with the amplitude fixed at 1,024 dimensions; dashed: the complete sign block.",
+      "page": 8
+    },
+    {
+      "image": "2609.33193_figures/2609.33193_fig3.jpg",
+      "caption": "Figure 3: d∗(h) at τ = 10−2 for TFIM chains at L = 16 and L = 24 (deep protocol, Table 6). The demand for trainable dimensions rises ∼4× across the quantum phase transition at both sizes. Deep in the paramagnet (L = 16, broken axis) it relaxes only to 64 dimensions, although at h/J = 10 a product state without parameters is within εrel = 2.5 × 10−3 of the ground-state energy.",
+      "page": 8
+    },
+    {
+      "image": "2609.33193_figures/2609.33193_fig4.jpg",
+      "caption": "Figure 4: Every seed of the 6 × 6 sign scan. Best relative error per seed against J2/J1 for the full-parameter reference TC1c (5 seeds per coupling) and the saturated subspace TC2c at d = 3072 (2 seeds), scored against the exact energies of Appendix C. At four couplings the median TC1c seed sits in the bad basin (shaded), and its seeds spread over more than an order of magnitude; the two subspace seeds stay within 3.3× of each other. The subspace runs logged no divergence event, the reference 41 events and 3 aborts (Sec. 4.4).",
+      "page": 13
+    },
+    {
+      "image": "2609.33193_figures/2609.33193_fig5.jpg",
+      "caption": "Figure 5: The plot shows best εrel within the first 880 steps against trainable dimension d for the four configurations of Table 2, at 4 × 4 and J2/J1 = 0.5. Small dots are single seeds, and the lines are medians over 3 seeds. The linear subspace (TC2) reaches the positive-cone bound shared by every sign-free configuration already at d = 8. The nonlinear map (TC3) lies above the linear curve at every matched d and is slowest at d = 8.",
+      "page": 14
+    }
+  ],
+  "figure": "2609.33193_figures/2609.33193_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 2
+  },
+  "citation_potential": {}
+}

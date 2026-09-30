@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2609.33255",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.SE"
+  ],
+  "is_primary_archive": true,
+  "title": "NxM-Version Programming for Quantum Software: High-Level Components across Frameworks and Engines",
+  "authors": "Neilson Carlos Leite Ramalho, Higor Amario de Souza, Anthony Accioly, Valter Vieira de Camargo, Marcos Lordello Chaim",
+  "abstract": "Quantum computing has in recent years evolved from a purely theoretical field to an active area in both academia and industry. As a result, Quantum Software Engineering has emerged as an area that aims to organize the process of building, testing, and running quantum software. However, writing quantum software still requires programming with quantum gates and qubits, as well as knowledge specific to quantum software frameworks such as Qiskit, Cirq, Qrisp, pyQuil and PennyLane, each of which reaches quantum hardware through its own toolchain. We present Quanifi, which packages the high-level routines of these frameworks as components on the Apache NiFi dataflow canvas. The components exchange circuits as OpenQASM 2.0, so a circuit built by one framework can be executed by another. This allows for two types of redundancy: several frameworks implement the same algorithm, and several engines (simulators or real hardware) execute the same circuit. We describe N$\\times$M program execution, which crosses the two: a single NiFi flow runs each of the $N$ implementations on each of the $M$ engines, and because every result is labelled with its implementation and its engine, a disagreement can be linked to an implementation, to an engine, or to a single implementation-engine pair. We ran Grover's algorithm built by three frameworks on three quantum computers from IBM, IQM and Quantum Inspire, and a matrix of three adder builders on one IQM device reached through two routes. N$\\times$M execution helped us discover three real defects: an incorrect gate-set declaration in the Quantum Inspire adapter, execution consistent with negated $R_x$ angles on Tuna-17, and circuit modification through Open Quantum. The latter two returned wrong answers without reporting an error. We reported all three defects and Open Quantum's provider confirmed and fixed its QASM parsing defect.",
+  "url": "http://arxiv.org/abs/2609.33255v1",
+  "pdf": "https://arxiv.org/pdf/2609.33255v1",
+  "type": "both",
+  "summary": "This paper introduces Quanifi, a novel software engineering platform built on Apache NiFi to unify disparate quantum programming frameworks. It enables N x M execution, allowing researchers to systematically test the same quantum circuit across multiple software implementations and hardware backends. This methodology proved vital for debugging subtle, hard-to-find defects in current quantum toolchains.",
+  "main_problem": "Quantum software engineering is hampered by the need to learn multiple, disparate frameworks (like Qiskit, Cirq, PennyLane), each with its own toolchain for building and running quantum circuits.",
+  "main_result": "The authors developed Quanifi, a dataflow tool using Apache NiFi, which enables N x M program execution to systematically test quantum algorithms across multiple frameworks and hardware engines, successfully uncovering several real-world defects.",
+  "method": "They designed Quanifi to package high-level routines as components exchanging circuits via the standardized OpenQASM 2.0 format, allowing for systematic cross-platform testing.",
+  "model_or_system": "The system models quantum computation by abstracting the circuit construction and execution process into a dataflow graph on NiFi. The physical system involves qubits and quantum circuits executed on various simulators or quantum hardware.",
+  "key_observables": "Disagreements in measurement results, which can be traced to a specific framework implementation, an execution engine, or the pair combination.",
+  "important_parameters": "The number of frameworks (N) and the number of execution engines (M) used in the N x M testing matrix.",
+  "main_assumptions": "The primary assumption is that using a standardized intermediate representation (OpenQASM 2.0) can bridge the gap between proprietary framework toolchains.",
+  "figures_summary": "Figure 1 illustrates a Grover pipeline built on the NiFi canvas, showing the sequential flow through various processors representing different framework operations.",
+  "paper_structure": "The paper introduces the problem of quantum software fragmentation, presents Quanifi as the solution using NiFi and OpenQASM 2.0, details the N x M execution methodology, and validates the approach by reporting defects found on real quantum hardware.",
+  "why_interesting": "This work addresses the crucial engineering challenge of quantum software reliability, providing a systematic, verifiable testing framework that is essential before quantum algorithms can be trusted for physical simulations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.33255_figures/2609.33255_fig1.jpg",
+      "caption": "Fig. 1. The Grover pipeline on the NiFi canvas, numbered in execution order.",
+      "page": 4
+    },
+    {
+      "image": "2609.33255_figures/2609.33255_fig2.jpg",
+      "caption": "Fig. 2. Properties of the QiskitGroverCircuit processor. The marked state and iteration count are Expression Language references, so each input case sets them through its FlowFile attributes.",
+      "page": 5
+    },
+    {
+      "image": "2609.33255_figures/2609.33255_fig3.jpg",
+      "caption": "Fig. 3. The version matrix as it runs on quantum computers: one case, three Grover builders, three devices, and the nine resulting paths meeting at one oracle.",
+      "page": 6
+    }
+  ],
+  "figure": "2609.33255_figures/2609.33255_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

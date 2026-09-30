@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.35114",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Accurate and bounded approximation of quantum correlation functions",
+  "authors": "Alexander van Lomwel, Florian Mintert",
+  "abstract": "The exact classical simulation of non-integrable quantum systems rapidly becomes intractable beyond small system sizes, yet its role is central to predicting many-body dynamics. Approximate methods alleviate this cost but typically lack rigorous guarantees on their deviation from the exact result. For the infinite-temperature correlation function, we derive a rigorous error bound for approximating the full dynamics within a computable finite-sized region. Applied to autocorrelations, this finite-region approach is especially accurate across one-dimensional systems and beyond, and can further provide rigorous error bounds for other approximate methods, demonstrated here for matrix-product-operator simulations.",
+  "url": "http://arxiv.org/abs/2609.35114v1",
+  "pdf": "https://arxiv.org/pdf/2609.35114v1",
+  "type": "theory",
+  "summary": "This paper develops a rigorous mathematical framework to bound the error when approximating quantum correlation functions using finite-window methods. By deriving a tight error bound, the authors provide a powerful tool to validate and improve numerical simulations of complex, non-integrable quantum many-body systems in 1D and 2D geometries.",
+  "main_problem": "The exact simulation of non-integrable quantum systems is computationally intractable, and existing approximate methods lack rigorous guarantees on their error.",
+  "main_result": "The authors derive a rigorous, computable error bound for approximating quantum correlation functions using finite-window methods, showing this bound is tighter than simpler estimates.",
+  "method": "The core method involves the window approximation, which decomposes the full system into a finite window and its environment, and then deriving error bounds for correlation functions using techniques involving operator deviations and the Hilbert-Schmidt norm.",
+  "model_or_system": "The analysis is applied to non-integrable quantum spin systems, specifically using the mixed-field Ising and isotropic Heisenberg models on 1D and 2D lattices.",
+  "key_observables": "Quantum correlation functions, particularly the infinite-temperature autocorrelation function $C_j(t) = 2^{-n} \text{tr}(A_j(t)B)$.",
+  "important_parameters": "System size (1D, 2D), time $t$, window radius $R$, and simulation parameters like bond dimension ($\\chi$) and time step ($dt$).",
+  "main_assumptions": "The derivation relies on setting up and solving equations of motion for observable deviations ($\\Delta A, \\Delta B$) and assumes specific properties like $\text{tr}([V, A_W]B_W) = 0$ under standard couplings.",
+  "figures_summary": "Figures illustrate the window approximation concept (Fig. 1), compare the true error against derived bounds ($B_O(t)$ vs $B_C(t)$) for 1D systems (Fig. 2), show the accuracy dependence on window size $R$ (Fig. 3), and compare MPO vs. window approximations in 2D (Fig. 5).",
+  "paper_structure": "The paper first establishes the necessity of approximation methods, derives the rigorous error bound $B_C(t)$ for the window approximation, applies this bound to 1D and 2D spin models, and finally compares the resulting error bounds against established MPO simulation results.",
+  "why_interesting": "This work provides a crucial theoretical tool for analyzing non-equilibrium quantum dynamics in complex systems where exact simulation is impossible, offering quantifiable error control for numerical techniques like MPS/MPO.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.35114_figures/2609.35114_fig1.jpg",
+      "caption": "FIG. 1. A schematic sketch of the window approximation, ex- emplified for a one-dimensional system. The local observable X is initially confined to the central site of a finite-window of spins (shown by the blue region) within the larger system. As this observable evolves with the system’s interactions, shown by the black connecting lines, the observable expands to op- erators with support growing from the initial site (shown by the growing orange region). After a finite time, the operator growth reaches the window boundary couplings V , shown in red, where the evolution of X within the window can deviate from the full-system evolution.",
+      "page": 2
+    },
+    {
+      "image": "2609.35114_figures/2609.35114_fig2.jpg",
+      "caption": "FIG. 3. The window approximated autocorrelation function CW (t) (Eq. (18)) for window radii R ∈[1, 6], as a function of time gt, in terms of the interaction strengths g of the Hamiltonians HI and HH. The data is for the non-integrable Hamiltonian HI (mixed-field Ising model, Eq. (19)) and HH (Heisenberg model, Eq. (20)), as well as the single-site observ- able O = Zj0 and two-site observable O = Zj0Zj0+1, with j0 as the central window site. The full-system function CF (t) is guaranteed to be within the shaded regions CW (t) ± BC(t), with the correlation bound BC(t) (Eq. (17)). For early times, the function CW (t) coincides for all values of R, until functions with smaller R begin to...",
+      "page": 4
+    },
+    {
+      "image": "2609.35114_figures/2609.35114_fig3.jpg",
+      "caption": "FIG. 2. Example for the integrable transverse-field Ising model (i.e. hz = 0 in Eq. (19)). The autocorrelation function CF (t) (Eq. (18)) corresponds to a chain of n = 50 spins, and is approximated by the finite-window autocorrelation func- tion CW (t) (Eq. (18)) for a 13-spin window centered at site j0 = 25. Plotted are bounds to the autocorrelation error in terms of the observable bound BO(t) (Eq. (13)) in red, and the correlation bound BC(t) (Eq. (17)) in blue, as well as the true error computed via the Lie algebra of the integrable transverse-field Ising model, as functions of time gt, where g is the Hamiltonian’s interaction strength. Panel A corre- sponds to observable O = Xj0 and...",
+      "page": 4
+    },
+    {
+      "image": "2609.35114_figures/2609.35114_fig4.jpg",
+      "caption": "FIG. 4. Window configurations for the honeycomb model, with the red spin denoting the initial observable location j0. Configuration A extends one spin outward from the center, while configuration B extends two spins outward. Configura- tion C is obtained by adding three spins to configuration B, completing three full hexagons.",
+      "page": 5
+    },
+    {
+      "image": "2609.35114_figures/2609.35114_fig5.jpg",
+      "caption": "FIG. 5. MPO simulation of the autocorrelation function CA(t) to approximate the full-system function CF (t) (Eq. (18)) for a chain of n = 51 spins with bond dimension χ, using TeNPy fourth order TEBD with time-step dt = 0.02. Shown are four pairs of plots A–D, where A and B correspond to Hamiltonian HI (Eq. (19)), and C and D correspond to Hamiltonian HH (Eq. (20)), while A and C correspond to single-site observable O = Zj0, and B and D correspond to two-site observable O = Zj0Zj0+1. In each pair, the left plot shows the difference |CA(t) −CW (t)| as a function of time gt, where CW (t) is the autocorrelation function evaluated on the finite-window, with one-dimensional radial distance R =...",
+      "page": 6
+    }
+  ],
+  "figure": "2609.35114_figures/2609.35114_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

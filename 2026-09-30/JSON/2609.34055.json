@@ -1,0 +1,65 @@
+{
+  "arxiv_id": "2609.34055",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.dis-nn",
+    "physics.chem-ph",
+    "physics.comp-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Native implementation of the machine-learned Skala exchange-correlation functional in CP2K: Unified one-centre reconstruction for molecular and condensed-phase calculations",
+  "authors": "Johann Pototschnig, Franz Pöschel, Jürg Hutter, Thomas D. Kühne",
+  "abstract": "We implement the machine-learned Skala exchange-correlation (XC) functional natively in CP2K using its Gaussian and plane-wave (GPW) and Gaussian and augmented-plane-wave (GAPW) methods. A joint one-centre reconstruction of density, density gradients, and kinetic-energy density before functional evaluation preserves mixed gradient terms and nonlocal couplings between smooth and atom-local contributions in all-electron and pseudopotential calculations. An XC-specific GAPW representation resolves rapidly varying local contributions on atom-centred grids, reducing plane-wave requirements for pseudopotential calculations. The implementation includes Brillouin-zone sampling and point-group symmetry reduction. With sufficiently flexible orbital bases, it retains the molecular benchmark accuracy of our earlier GauXC formulation. All-electron Skala-D3(BJ) calculations yield a mean absolute error (MAE) of 1.54 kJ mol$^{-1}$ against diffusion Monte Carlo for crystalline CO$_2$, NH$_3$, and urea, spanning dispersion, quadrupolar electrostatics, and hydrogen bonding. For all thirteen DMC-ICE13 phases, the MAEs are 1.16 kJ mol$^{-1}$ for absolute lattice energies and 0.82 kJ mol$^{-1}$ for the twelve relative energies to ice Ih. At fixed experimental geometries, all-electron/mixed-core calculations give a band-gap MAE of 0.43 eV on a 15-material set, substantially below commonly used semilocal functionals and comparable to widely used hybrid functionals. The LC10 benchmark nevertheless reveals systematically underestimated equilibrium lattice constants, indicating structural overbinding. This framework connects molecular Skala to condensed-phase electronic structure and enables future development using periodic many-body reference data.",
+  "url": "http://arxiv.org/abs/2609.34055v1",
+  "pdf": "https://arxiv.org/pdf/2609.34055v1",
+  "type": "theory",
+  "summary": "This work details the native implementation of the machine-learned Skala exchange-correlation functional in the CP2K code for solid-state physics. The authors introduce a joint one-centre reconstruction technique to ensure accuracy across different basis sets and calculation types. The results demonstrate high accuracy for lattice energies and band gaps, advancing the capability of DFT codes to incorporate complex, data-driven XC functionals.",
+  "main_problem": "The paper addresses the challenge of natively implementing the machine-learned Skala exchange-correlation (XC) functional within the CP2K code for both molecular and condensed-phase electronic structure calculations.",
+  "main_result": "The implementation successfully achieves low mean absolute errors (MAE) for lattice energies (e.g., 1.16 kJ mol-1 for ice phases) and band gaps (0.43 eV) compared to high-level benchmarks like DMC, while also identifying systematic structural overbinding issues.",
+  "method": "The core methodological contribution is a joint one-centre reconstruction of the density, density gradients, and kinetic-energy density before functional evaluation, which is necessary to correctly handle the nonlocal and mixed gradient terms of the Skala functional in both Gaussian and plane-wave basis sets.",
+  "model_or_system": "The calculations are performed on various molecular crystals and the thirteen crystalline ice phases (DMC-ICE13). The underlying theory is Density Functional Theory (DFT) utilizing the machine-learned Skala XC functional.",
+  "key_observables": "Mean Absolute Error (MAE) for lattice energies (e.g., 1.16 kJ mol-1), MAE for band gaps (0.43 eV), and the resulting equilibrium lattice constants.",
+  "important_parameters": "The calculation methods include Gaussian and plane-wave (GPW) and Gaussian and augmented-plane-wave (GAPW) approaches, alongside Brillouin-zone sampling and point-group symmetry reduction.",
+  "main_assumptions": "The primary assumption is that the joint one-centre reconstruction correctly preserves the necessary mixed gradient terms and nonlocal couplings required by the Skala functional in the periodic limit, although systematic overbinding was noted.",
+  "figures_summary": "The notes describe comparisons of band gaps across various functionals (PBE, SCAN, HSE, etc.) and methods (AE vs. GTH vs. Mixed 1C), showing performance metrics like MAE and ME.",
+  "paper_structure": "The paper details the necessity of the joint one-centre reconstruction for Skala in CP2K's native machinery (GPW/GAPW). It then presents quantitative results comparing the accuracy of the implemented functional against DMC and benchmark sets for both molecular and solid-state properties, concluding with a discussion of structural limitations.",
+  "why_interesting": "While focused on solid-state DFT, the rigorous development of a machine-learned functional and its integration into a complex, multi-basis-set framework (GPW/GAPW) showcases advanced computational physics techniques relevant to developing next-generation quantum simulation tools.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.34055_figures/2609.34055_fig1.jpg",
+      "caption": "Figure 1: The native implementation reconstructs the primi- tive fields before descriptor formation and Skala evaluation. The reverse operation follows the adjoint of the same re- construction, preserving the hard-minus-soft signs. The atom-centred quadrature resolves local structure without re- quiring a uniformly fine regular grid.",
+      "page": 4
+    },
+    {
+      "image": "2609.34055_figures/2609.34055_fig2.jpg",
+      "caption": "Figure 2: Deviations of Ih-relative native Skala–D3(BJ) GAPW-AE energies from DMC-ICE13 references13 for the TZVPP-ae and QZVPP-ae bases. The bars show Δ𝐸𝑝−Δ𝐸DMC 𝑝 for the twelve phases other than Ih, where Δ𝐸𝑝= 𝐸latt,𝑝−𝐸latt,Ih is the lattice-energy difference per water molecule between phase 𝑝and Ih. Negative deviations indicate underestimated energy differences. Full energies and DMC statistical uncertainties are given in ESI Tables S15 and S16.",
+      "page": 10
+    }
+  ],
+  "figure": "2609.34055_figures/2609.34055_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

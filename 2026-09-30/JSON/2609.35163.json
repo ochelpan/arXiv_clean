@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2609.35163",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Deployment of Large IQP Circuit Born Machines on Qubit-Limited Hardware Using Noise Injection",
+  "authors": "Ju-Young Ryu, Wooyeong Song, Kwangil Bae, Wonhyuk Lee, Ilkwon Sohn",
+  "abstract": "Quantum circuit Born machines (QCBMs) built with instantaneous quantum polynomial (IQP) circuits have loss functions that can be efficiently estimated classically, but require quantum computers during inference. Thus, classical computers can train large IQP QCBMs that exceed the qubit numbers of available quantum hardware. This motivates research into how qubit-limited quantum computers can be used to sample from larger IQP QCBMs. Leveraging insights from classical simulation of noisy IQP circuits, we propose a deployment protocol for IQP QCBMs that injects noise at the logical level to probabilistically decompose the original circuit into smaller clusters that can be sampled on qubit-limited quantum processors. We also apply lightweight resampling of known noisy qubits to mitigate the impact of the introduced error. Numerical simulations of our protocol applied to shallow IQP QCBMs and IBM Heron experiments deploying a 316-qubit IQP circuit onto 156-qubit hardware show that mitigation improves the similarity of the empirical distribution to the target distribution. The proposed deployment protocol also crucially preserves correlation structures more accurately than a classical baseline that has accurate single-qubit marginals.",
+  "url": "http://arxiv.org/abs/2609.35163v1",
+  "pdf": "https://arxiv.org/pdf/2609.35163v1",
+  "type": "both",
+  "summary": "This paper presents a novel deployment protocol to run large Quantum Circuit Born Machines (QCBMs) on qubit-limited quantum hardware by injecting controlled noise. This noise probabilistically breaks the large circuit into smaller, executable clusters. By combining this decomposition with advanced error mitigation techniques, the authors demonstrate a method to maintain high fidelity in quantum generative modeling despite hardware constraints.",
+  "main_problem": "The core challenge is deploying large Quantum Circuit Born Machines (QCBMs) built with IQP circuits onto quantum hardware that has a limited number of qubits.",
+  "main_result": "The proposed noise injection protocol successfully decomposes the large circuit into smaller, manageable clusters, and error mitigation techniques improve the fidelity of the sampled distribution compared to classical baselines.",
+  "method": "The authors propose a noise injection protocol that probabilistically decomposes the large circuit by modeling node percolation, followed by error mitigation using local marginal or conditional distributions.",
+  "model_or_system": "The system involves IQP QCBMs, which are generative quantum models. The deployment is simulated on hardware-limited platforms (e.g., 156-qubit hardware for a 316-qubit circuit) using noise injection to induce simulability.",
+  "key_observables": "Maximum Mean Discrepancy (MMD) squared, similarity of the empirical distribution to the target distribution, and correlation structures (especially local correlators).",
+  "important_parameters": "The total node removal probability ($p_p$), the target success probability ($p_{succ}$), and the size of the largest connected cluster ($L_{max}$).",
+  "main_assumptions": "The protocol assumes that the resulting separable circuits are of a tractable size for classical simulation, and error mitigation relies on approximating intractable conditional sampling.",
+  "figures_summary": "Figures illustrate the IQP circuit structure, the overall deployment protocol (noise injection $\rightarrow$ small circuits $\rightarrow$ resampling), and results comparing error metrics ($\\Delta$) across different mitigation techniques.",
+  "paper_structure": "The paper introduces the problem of scaling QCBMs, details the noise injection/percolation protocol for decomposition, presents error mitigation strategies (ProdEM, LocalCondEM), and validates the approach through numerical simulations and hardware deployment tests.",
+  "why_interesting": "This work directly addresses the critical gap between the theoretical scale of quantum machine learning models and the physical constraints of near-term quantum hardware, providing a concrete pathway for utilizing large quantum models.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.35163_figures/2609.35163_fig1.jpg",
+      "caption": "Fig. 2: Overview of the proposed noise injection-based deployment of IQP QCBMs. (a) A trained IQP QCBM is represented using an interaction graph. (b) Logical noise is injected into the circuit, which can be represented as probabilistically removing nodes from the interaction graph and creating smaller IQP circuits. (c) These smaller IQP circuits are run on qubit-limited quantum computers. (d) The outputs from each computer are concatenated along with the bits corresponding to the removed nodes. (e) If error mitigation is used, the removed node bits are resampled from classically calculated marginal distributions.",
+      "page": 5
+    },
+    {
+      "image": "2609.35163_figures/2609.35163_fig2.jpg",
+      "caption": "Fig. 3: Sample quality metrics. Sample-quality errors averaged over six circuits and 50 repetitions per circuit. Error bars and the product baseline band show 95% percentile bootstrap intervals for the mean, obtained from 5,000 resamples stratified by circuit. The dashed line denotes the product baseline mean. The deployment protocol without error mitigation has substantially larger errors across all metrics, although the error decreases with capacity. Both error mitigation methods reduce the errors close to the product baseline scale.",
+      "page": 11
+    },
+    {
+      "image": "2609.35163_figures/2609.35163_fig3.jpg",
+      "caption": "Fig. 4: Graph-informed Pauli Z word expectation value errors. Markers and the dashed lines are calculated by averaging over six circuits and 50 repetitions per cir- cuit. Error bars and the product band show 95% percentile bootstrap intervals from 5,000 resamples stratified by circuit. The protocol with error mitigation yields lower mean errors compared to the baseline on local graph-structured observables, including edge-supported pairs, distance-2 pairs, and connected three- and four-body supports, while remaining approximately equal on nonlocal pairs. LocalCondEM shows a small improvement on higher-weight correlators compared to ProdEM.",
+      "page": 12
+    },
+    {
+      "image": "2609.35163_figures/2609.35163_fig4.jpg",
+      "caption": "Fig. 5: IBM experiment Pauli Z word expectation value error differences relative to the product baseline. We report observed differences ∆for various observable groups with weight w =1 or 2. Error bars indicate the recentered 95% bootstrap percentile intervals from 5,000 independent bit-string resamples of each method and the baseline. (a) The unmitigated protocol yields less accurate expectation values than the product baseline, except for distance-2 pairs, for which the errors are similar. (b) The protocol with error mitigation improves over the baseline on local graph-structured observables such as edge-supported pairs and distance-2 pairs.",
+      "page": 14
+    }
+  ],
+  "figure": "2609.35163_figures/2609.35163_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 1,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

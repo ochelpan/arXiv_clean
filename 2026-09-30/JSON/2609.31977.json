@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.31977",
+  "category": "strongly correlated electrons",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Learning Trotter Orderings for Heisenberg Hamiltonians with a Ranking Transformer",
+  "authors": "Shamminuj Aktar, Reuben Tate, Stephan Eidenbenz",
+  "abstract": "Trotterization approximates quantum time evolution by sequentially applying Hamiltonian terms. Because noncommuting terms introduce ordering-dependent errors, selecting an optimal term ordering is a combinatorial problem over a factorial search space. Prior approaches rely on fixed heuristics or on selection among predefined structured orderings, both of which require simulating candidates before choosing among them. For 1D and 2D Heisenberg-style Hamiltonians, we instead learn the ordering directly with a physics-aware ranking transformer that assigns a scalar score to each Hamiltonian term and predicts an ordering by sorting these scores. Physical structure enters through commutator-biased attention and an anticommutation-weighted ranking loss, and the models are trained on simulated-annealing (SA) reference orderings. We train separate models for first- and second-order Trotterization, each jointly on chains up to 14 qubits and lattices up to 12 qubits, and evaluate them on unseen chains with 16-20 qubits and lattices with 16 and 20 qubits. Predicted orderings are evaluated by the median gap in simulation fidelity to the SA reference. At first order, the model reaches a pooled gap below 10^-4 on chains, 0.0144 and 0.0088 on triangular lattices, and 0.0948 and 0.0823 on rectangular lattices at 16 and 20 qubits; at second order, the gaps are 0.0114, 0.0364 and 0.0244, and 0.1348 and 0.1239. The prediction exceeds the SA reference on 34% of first-order and 8% of second-order chain instances and can match its fidelity even when the two sequences differ because commuting terms may be rearranged without changing the Trotter unitary. The learned models generalize to larger systems across all three geometries, performing best on chains and triangular lattices, and produce an ordering in one forward pass without candidate enumeration, simulated annealing, or fidelity evaluation.",
+  "url": "http://arxiv.org/abs/2609.31977v1",
+  "pdf": "https://arxiv.org/pdf/2609.31977v1",
+  "type": "theory",
+  "summary": "This paper introduces a physics-aware ranking transformer to solve the computationally intractable problem of finding the optimal term ordering for Trotterization of Heisenberg Hamiltonians. By learning the ordering directly from physical principles and simulated annealing data, the model achieves high simulation fidelity on large, complex quantum systems. This offers a significant computational advantage for simulating quantum magnets.",
+  "main_problem": "The core problem is minimizing the error introduced when approximating quantum time evolution using Trotterization, which is highly dependent on the ordering of non-commuting Hamiltonian terms.",
+  "main_result": "The learned transformer model successfully predicts near-optimal Trotter orderings for Heisenberg Hamiltonians on various lattices, often matching or exceeding the fidelity of established Simulated Annealing reference orderings.",
+  "method": "A physics-aware ranking transformer is trained to assign a scalar score to each Hamiltonian term, predicting the optimal ordering by sorting these scores in a single forward pass.",
+  "model_or_system": "The study focuses on 1D and 2D Heisenberg-style Hamiltonians on chains, triangular, and rectangular lattices, using first- and second-order Trotterization formulas.",
+  "key_observables": "Simulation fidelity (squared overlap) and the median gap in simulation fidelity compared to the SA reference.",
+  "important_parameters": "Trotter order (first/second), system size (up to 20 qubits/lattices), and lattice geometry (chain, triangular, rectangular).",
+  "main_assumptions": "The model is trained on SA-derived reference orderings, and its performance is tested on extrapolation ranges beyond the training set sizes.",
+  "figures_summary": "Figures compare the fidelity gap between the learned ordering, the SA reference, and random orderings across different lattice geometries and Trotter orders.",
+  "paper_structure": "The paper introduces the problem of Trotter ordering, details the physics-aware transformer architecture incorporating commutator-biased attention and specialized loss functions, presents results comparing the learned orderings against SA benchmarks across multiple lattice types, and concludes with generalization analysis.",
+  "why_interesting": "This work directly addresses the computational bottleneck in simulating quantum dynamics for magnetic materials (Heisenberg models) by providing a data-driven, scalable method to optimize the Trotter decomposition step.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.31977_figures/2609.31977_fig1.jpg",
+      "caption": "Fig. 1. Overview of the method. Hamiltonian: the 1D XXZ chain and 2D rectangular and triangular lattices. Label Generation: the highest-fidelity structured candidate σbest seeds simulated annealing, ensuring that the SA reference σSA is no worse than the best structured baseline. Input Features: per-term Pauli encodings, global context, and the anticommutation matrix W, all read from the Hamiltonian. Model Learning: W biases attention and weights the pairwise ranking loss. Model Prediction: scalar term scores are sorted to obtain σθ. Red dashed lines indicate training-only paths; at inference, the model produces an ordering in one forward pass without candidate enumeration or fidelity...",
+      "page": 2
+    },
+    {
+      "image": "2609.31977_figures/2609.31977_fig2.jpg",
+      "caption": "Fig. 2. Comparison of the SA reference and the best structured candidate. Solid lines show the SA-reference fidelity, dashed lines the best structured-candidate fidelity, and the shaded region the improvement from SA; faint markers denote individual runs. The top row shows the 1D XXZ chain, and the bottom row the rectangular (left) and triangular (right) lattice families. Columns correspond to Trotter step counts, and each panel is divided into first-order (top) and second-order (bottom) strips. The improvement is small for chains, where structured candidates are strong, and substantially larger for both lattice families.",
+      "page": 3
+    },
+    {
+      "image": "2609.31977_figures/2609.31977_fig3.jpg",
+      "caption": "Fig. 3. Per-Hamiltonian fidelity on systems larger than those used for training. Each marker represents one evaluated instance. Instances are sorted by system size, with vertical rules separating size groups. Lines show the SA reference (solid), the best structured candidate (dashed), and the mean random-ordering fidelity (dotted), while the shaded region spans the range between the random ordering and the SA reference. Rows correspond to Hamiltonian families and columns to Trotter step counts; each panel is divided into first-order (top) and second-order (bottom) strips.",
+      "page": 5
+    },
+    {
+      "image": "2609.31977_figures/2609.31977_fig4.jpg",
+      "caption": "Fig. 4. Fidelity gap to the SA reference as a function of the Hamiltonian parameter on systems larger than those used for training. Rows correspond to Hamiltonian families, with sweeps over g for chains, α = J2/J1 for triangular lattices, and hx for rectangular lattices; columns correspond to Trotter step counts. Each panel is divided into first-order (top) and second-order (bottom) strips. Each marker shows the median gap over instances sharing the same parameter value, with color indicating system size. For chains, circles and triangles distinguish the two anisotropies ∆. Points below the dashed zero line indicate predictions that exceed the SA reference, which is possible because SA does...",
+      "page": 7
+    },
+    {
+      "image": "2609.31977_figures/2609.31977_fig5.jpg",
+      "caption": "Figure 4 shows the fidelity gap against the swept parameter of each family: the transverse field g for chains, the frustration α = J2/J1 for triangular lattices, and the transverse field hx for rectangular lattices. Across all three families, the gap varies little over the parameter range, so the difficulty of a family is largely a property of its geometry rather than of a particular physical regime. For chains, the gap stays near zero across the full field sweep at first order, with a modest rise near g = 1.5– 2.3 at second order for step counts of 5 and 10. For triangular lattices, it remains small across the full frustration range, including the low-α region below α = 0.2. For...",
+      "page": 7
+    }
+  ],
+  "figure": "2609.31977_figures/2609.31977_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

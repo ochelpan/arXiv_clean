@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.32858",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Improved Learning of Molecular Energetics Through an Electron-Wise Joint Charge Density and Energy Objective",
+  "authors": "Vadim Ionas, Jonas Elsborg, Felix Ærtebjerg, Arghya Bhowmik",
+  "abstract": "We present a graph neural network-based learning framework trained to jointly predict electron densities and molecular energies. The model is trained to predict electron densities calculated with a Generalized Gradient Approximation (GGA) functional while simultaneously learning to predict molecular energies obtained with hybrid functional calculations at the B3LYP level of theory. Our results indicate that the rich spatial information in electron density distribution can be used to improve and accelerate the learning of accurate energies. By sharing an equivariant molecular representation across density and energy prediction heads, the model learns complementary molecular quantities within a unified framework. This provides a new promising route for practical use cases of many recent charge density learning frameworks for atomic scale simulations.",
+  "url": "http://arxiv.org/abs/2609.32858v1",
+  "pdf": "https://arxiv.org/pdf/2609.32858v1",
+  "type": "theory",
+  "summary": "This work introduces a multi-task graph neural network framework that jointly learns molecular energies and electron densities. By forcing the model to utilize the spatial information from the electron density during energy prediction training, the authors demonstrate a significant improvement in accuracy and data efficiency. This provides a powerful, physically grounded method for developing next-generation machine learning potentials for molecular simulations.",
+  "main_problem": "The paper aims to improve the accuracy and data efficiency of predicting molecular energetics by jointly training a machine learning model on both the molecular energy and the electron density.",
+  "main_result": "Jointly supervising the model with electron density supervision significantly improves energy prediction accuracy, achieving substantial reductions in Mean Absolute Error compared to energy-only training.",
+  "method": "A multi-task learning framework using a Graph Neural Network (GNN) is employed, where the shared molecular representation is trained to predict both the global energy and the spatially resolved electron density.",
+  "model_or_system": "The system studied is molecules, represented by atomic structures and coordinates. The model uses a GNN architecture that learns a shared, equivariant molecular representation from which task-specific heads predict the energy and density.",
+  "key_observables": "Molecular energy (global scalar label) and electron density (spatially resolved field).",
+  "important_parameters": "Loss weights (alpha, beta), GNN channel widths, and the fraction of density data used for supervision.",
+  "main_assumptions": "The core assumption is that the rich spatial information contained in the electron density distribution can serve as a physically meaningful regularizer to improve the learning of the total molecular energy.",
+  "figures_summary": "The notes refer to tables summarizing model configurations and hyperparameters, comparing energy-only vs. multi-task approaches across varying data fractions.",
+  "paper_structure": "The paper introduces the multi-task GNN framework, details the joint loss function combining energy and density losses, presents comparative results showing the benefit of density supervision, and discusses limitations and future directions.",
+  "why_interesting": "While focused on condensed matter/chemistry, the methodology—using physical constraints (density) to regularize a representation learned for a primary task (energy)—is highly relevant to developing robust ML potentials for complex quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.32858_figures/2609.32858_fig1.jpg",
+      "caption": "Figure 1. Overview of the ELECTRA energy–density model. Em- bedded atomic inputs are processed by a shared HotPP backbone into a shared representation and split into two readout branches: one predicts energy, while the other constructs the charge density from Gaussian ansatz parameters.",
+      "page": 6
+    },
+    {
+      "image": "2609.32858_figures/2609.32858_fig2.jpg",
+      "caption": "Figure 2. Test-set energy MAE as a function of training-set size for the energy-only and multi-task models. The multi-task model maintains lower MAE across all training-set sizes, indicating im- proved data efficiency.",
+      "page": 7
+    },
+    {
+      "image": "2609.32858_figures/2609.32858_fig3.jpg",
+      "caption": "Figure 3. Training energy RMSE over twenty epochs, smoothed using a trailing moving-average window of 1000 steps. The multi- task model converges faster and reaches a lower training error than the energy-only model.",
+      "page": 8
+    },
+    {
+      "image": "2609.32858_figures/2609.32858_fig4.jpg",
+      "caption": "Figure 4. Distribution of per-molecule absolute energy errors on the QM9 test set for the multi-task and energy-only models. The multi-task model exhibits a sharper concentration near zero and a substantially shorter high-error tail, indicating both lower typical prediction error and fewer large-error cases.",
+      "page": 8
+    },
+    {
+      "image": "2609.32858_figures/2609.32858_fig5.jpg",
+      "caption": "Figure 5. Relative MAE improvement of the multi-task model over the energy-only model trained on QM9 molecules when extrapo- lating to Alchemy subsets with different numbers of heavy atoms. Positive values indicate lower calibrated MAE for the multi-task model. The improvement increases for larger molecules, suggest- ing that the multi-task representation transfers more strongly to increasingly out-of-distribution molecular sizes.",
+      "page": 10
+    }
+  ],
+  "figure": "2609.32858_figures/2609.32858_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

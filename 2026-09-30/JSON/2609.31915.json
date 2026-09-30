@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.31915",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "cs.CV",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Facial classification Using Hybrid Quantum Machine Learning",
+  "authors": "Roshan Babu Bandlapalli, Srinivas V Katakam, Jitendra Chougala, Ravi Kumar Kappagantu, Jayasri Dontabhaktuni",
+  "abstract": "Hybrid quantum methods have received limited study for resource-constrained facial biometrics. We present a hybrid quantum-classical facial recognition pipeline designed to run on standard computing hardware. Images undergo gamma correction, contrast enhancement, and principal component analysis before their features are encoded into an eight-qubit variational quantum classifier. Classical image matching then performs recognition. In experiments with 50,000 images, comprising 25,000 faces from CelebA and 25,000 non-face images from CIFAR-10, the method outperformed the reported CPU-trained FaceNet baseline in accuracy and training efficiency. The pipeline was also evaluated on GPU and quantum hardware. In an attendance monitoring deployment at Mahindra University in collaboration with Lloyds Technology Centre, CPU inference took 0.2 to 0.5 seconds per person, and the system remained robust to the use of spectacles. These findings support the feasibility of deploying hybrid quantum methods for facial recognition on existing CPU hardware.",
+  "url": "http://arxiv.org/abs/2609.31915v1",
+  "pdf": "https://arxiv.org/pdf/2609.31915v1",
+  "type": "both",
+  "summary": "This paper presents a hybrid quantum-classical pipeline for facial recognition designed to run on standard CPUs. It combines classical image enhancement and dimensionality reduction with an 8-qubit Variational Quantum Classifier. The method successfully demonstrated high accuracy and fast inference times, proving the feasibility of deploying quantum-enhanced biometrics on existing hardware.",
+  "main_problem": "The paper addresses the computational overhead of classical deep learning for facial biometrics, proposing a hybrid quantum-classical approach for resource-constrained environments.",
+  "main_result": "The hybrid pipeline achieved high accuracy (up to 98%) and demonstrated practical viability, outperforming classical baselines on CPU hardware with fast inference times.",
+  "method": "It uses classical preprocessing (PCA, enhancement) to reduce features, which are then encoded into an 8-qubit Variational Quantum Classifier (VQC) for final classification.",
+  "model_or_system": "The core model is a hybrid quantum-classical pipeline featuring an 8-qubit VQC built with parameterized entangling circuits. The classical side involves image processing steps like gamma correction and PCA.",
+  "key_observables": "Accuracy (up to 98%), inference time (0.2 to 0.5 seconds per person), and comparison against classical baselines like FaceNet.",
+  "important_parameters": "The number of qubits (8), the number of VQC layers (3), and the dimensionality reduction factor (PCA to 8 components).",
+  "main_assumptions": "The classical preprocessing steps (e.g., Haar cascade) are sufficient for controlled settings, and the hybrid approach balances quantum expressivity with NISQ hardware constraints.",
+  "figures_summary": "Figure 1 illustrates the complete pipeline flow (Haar cascade $\rightarrow$ CLAHE $\rightarrow$ PCA $\rightarrow$ VQC). Figure 2 details the structure of a single VQC layer for 8 qubits.",
+  "paper_structure": "The paper follows a structure of identifying the limitations of classical methods, proposing the hybrid quantum-classical architecture, detailing the specific components (preprocessing, encoding, VQC ansatz), and validating the system through extensive experiments on various hardware platforms.",
+  "why_interesting": "The work directly applies quantum machine learning techniques (VQC) to a practical, real-world problem (biometrics), providing concrete performance metrics and feasibility studies relevant to near-term quantum hardware deployment.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.31915_figures/2609.31915_fig1.jpg",
+      "caption": "Figure 1: Hybrid Classical–Quantum Facial Biometrics Architecture illustrating the two-stage pipeline. Stage 1 performs classical preprocessing such as Haar cascade detection, ROI extrac- tion, gamma correction, CLAHE enhancement, and PCA dimensionality reduction. Stage 2 applies quantum processing via angle embedding, multi-layer strong entanglement, and mea- surement for face/non-face classification, followed by database matching for authentication.",
+      "page": 6
+    },
+    {
+      "image": "2609.31915_figures/2609.31915_fig2.jpg",
+      "caption": "Figure 2: Single layer of Variational Quantum Classifier (VQC) anstaz for facial detection im- plemented on 8-qubit register (one of three variational layers illustrated). The circuit comprises three principal components: (i) Angle embedding, (ii) Strongly entangling layers, fol- lowed by nearest-neighbor circular CNOT entanglement to promote feature correlation across the register; and (iii) Measurement stage, where Pauli-Z expectation values are extracted from selected qubits for binary classification. The complete architecture contains 72 trainable parameters (3 × 8 × 3 rotations) and operates within a 28 = 256-dimensional Hilbert space. The overall circuit depth remains approximately 25...",
+      "page": 7
+    },
+    {
+      "image": "2609.31915_figures/2609.31915_fig3.jpg",
+      "caption": "Figure 3: Training and validation dynamics over 100 epochs showing unusual learning behavior. a: Loss curves demonstrate smooth convergence from 0.75 to approximately 0.30 without signs of overfitting—training and validation losses track closely throughout. b: Accuracy evolution reveals interesting pattern shows 97%. This differs markedly from typical classical neural net- work training where accuracy improves gradually from the start. The sudden transition suggests the quantum circuit explores parameter space initially, finds a productive region, then exploits it for rapid learning. Close alignment between training (blue) and validation (orange) curves indicates excellent generalization...",
+      "page": 9
+    },
+    {
+      "image": "2609.31915_figures/2609.31915_fig4.jpg",
+      "caption": "Figure 4: Normalized confusion matrix for VQC validation set with 10,000 test images: 5,000 faces, 5,000 non-faces. The matrix demonstrates strong discrimination capability with minimal confusion between classes.",
+      "page": 10
+    },
+    {
+      "image": "2609.31915_figures/2609.31915_fig5.jpg",
+      "caption": "Figure 5: Comparative performance analysis across three approaches tested on identical hard- ware (Intel i7, 16GB RAM, CPU-only, no GPU). Green bars (left axis): Classification ac- curacy showing VQC achieves 97%, outperforming classical FaceNet-CPU (85.1%) and QSVM (80%). Orange bars (right axis, logarithmic scale): Training time in hours demonstrat- ing dramatic computational advantage—VQC trains in 0.91h compared to 243h for classical FaceNet (267× speedup) and 38h for QSVM (42× speedup).The VQC simultaneously achieves higher accuracy and faster training, suggesting genuine quantum advantage for facial biomet- rics under resource-constrained conditions. Note that GPU-accelerated...",
+      "page": 12
+    }
+  ],
+  "figure": "2609.31915_figures/2609.31915_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 2,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

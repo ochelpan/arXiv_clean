@@ -1,0 +1,72 @@
+{
+  "arxiv_id": "2609.35566",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.mtrl-sci",
+    "cond-mat.mes-hall"
+  ],
+  "is_primary_archive": false,
+  "title": "AI-Assisted Identification of Magnetic Orders and Skyrmions",
+  "authors": "Haowen Yang, Sophia Huerta, Yingying Wu",
+  "abstract": "Exotic magnetic orders in two-dimensional (2D) materials are attracting huge interest for energy-efficient spintronic applications, yet realizing robust high-temperature van der Waals antiferromagnets and topological magnetic states remains challenging. In this work, we develop a machine-learning framework for identifying magnetic orders and predicting magnetization using structural, compositional, and electronic information derived from the Materials Project. Fixed-length descriptors are constructed for two complementary tasks: ferromagnetic (FM) versus antiferromagnetic (AFM) classification and quantitative magnetization prediction. Magnetic order is classified using a LightGBM model trained on structure-derived descriptors without explicitly including magnetic descriptors. Five-fold cross-validation grouped by chemical system is used to reduce chemical leakage, together with hyperparameter and classification-threshold optimization. On an isolated test set, the classifier achieves a balanced accuracy of 93.6% in the testing set. Magnetization is predicted using a residual multilayer perceptron with compositional, structural, electronic, and task-specific initial-state descriptors. A logarithmic target transformation and robust weighted loss are used to account for the broad magnetization distribution, while three independently trained models are combined into a final ensemble. The model achieves a mean absolute error of 0.686 μB/formula unit. For selected magnetic candidates, simulated magnetic imaging and phase-reconstruction analysis are further used to investigate magnetization textures and skyrmion-like features through normalized magnetization profiles and topological charge. This framework provides an efficient approach for screening 2D magnetic materials and prioritizing candidates for antiferromagnetic and topological spintronic applications.",
+  "url": "http://arxiv.org/abs/2609.35566v1",
+  "pdf": "https://arxiv.org/pdf/2609.35566v1",
+  "type": "both",
+  "summary": "This work presents an AI-assisted framework to accelerate the discovery of 2D magnetic materials by classifying magnetic orders (FM/AFM) and predicting magnetization. It combines machine learning models trained on structural and electronic data with physical diagnostics derived from DFT calculations. The framework is highly useful for prioritizing candidates for advanced spintronic applications.",
+  "main_problem": "The paper addresses the challenge of efficiently identifying and characterizing exotic magnetic orders and predicting magnetization in 2D magnetic materials for spintronic applications.",
+  "main_result": "The developed machine-learning framework achieved a high classification accuracy (93.6%) for magnetic order and a low mean absolute error (0.686 μB/formula unit) for magnetization prediction.",
+  "method": "It employs a two-part machine learning approach: a LightGBM model for classifying magnetic order (FM vs. AFM) and a residual MLP for quantitative magnetization prediction, using structural, compositional, and electronic descriptors.",
+  "model_or_system": "The physical system is 2D magnetic materials exhibiting various magnetic orders (FM, AFM). The analysis relies on site-resolved magnetic moments derived from DFT calculations, which are then used to train ML models.",
+  "key_observables": "Magnetic order (FM/AFM), magnetization magnitude ($\\mu_B$/f.u.), normalized alignment parameter ($A$), and cancellation parameter ($C$).",
+  "important_parameters": "The analysis uses descriptors derived from the Materials Project, and simulations involve parameters like exchange anisotropy ($A_{ex}$), DMI, and temperature.",
+  "main_assumptions": "The magnetic labels are reconstructed from final DFT magnetic configurations rather than initial assumptions, and the ML targets are calculated at zero-temperature ground states.",
+  "figures_summary": "The notes mention comparisons of ML model performance (Table 1) and the simulation of magnetic textures (e.g., skyrmions) via micromagnetic images.",
+  "paper_structure": "The paper first establishes diagnostic parameters ($A, C, B$) from local moments to define magnetic order. It then develops and validates ML models for classification (LightGBM) and regression (MLP) using structure-only descriptors. Finally, it applies the framework to simulate and analyze magnetic textures like skyrmions.",
+  "why_interesting": "The integration of advanced ML techniques (LightGBM, MLP) with condensed matter physics problems like magnetic ordering and skyrmion prediction provides a powerful, data-driven tool for materials discovery, which is highly relevant to understanding complex many-body ground states.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.35566_figures/2609.35566_fig1.jpg",
+      "caption": "Figure 1: Dataset curation and pre-processing pipeline and feature-space visualization. (a) Overview of the magnetic-material data acquisition process. Materials are retrieved from the Materials Project, and magnetic configurations are reconstructed from available site-resolved moments. Missing task-level mo- ments are supplemented by targeted material-structure recovery for Materials Project AFM and FiM can- didates. The resulting curated magnetic-material dataset includes compositional, structural, magnetic-state, and magnetization-related information used for subsequent machine-learning tasks. (b) Data-processing and task-specific dataset construction workflow. The curated magnetic...",
+      "page": 6
+    },
+    {
+      "image": "2609.35566_figures/2609.35566_fig2.jpg",
+      "caption": "Figure 2: LightGBM framework and performance for FM/AFM magnetic-order classification. (a) Schematic of the magnetic-order classification pipeline. Structure-derived descriptors are constructed from crystal structure, composition, elemental properties, and geometric information, yielding a 136-dimensional feature vector without explicitly including magnetic descriptors. A LightGBM ensemble is optimized using five-fold cross-validation grouped by chemical system and Optuna hyperparameter search. The selected model and decision threshold are then frozen, retrained on the full development set, and evaluated on an iso- lated test set of 4,357 materials. The model outputs the probability of...",
+      "page": 10
+    },
+    {
+      "image": "2609.35566_figures/2609.35566_fig3.jpg",
+      "caption": "Figure 3: Residual multilayer perceptron framework and performance for magnetization prediction. (a) Schematic of the magnetization-regression pipeline. A 464-dimensional feature vector is constructed from compositional, structural, electronic, and magnetic-task initial-state information. Numerical features are median-imputed with missing-value indicators and standardized, while categorical features are imputed and one-hot encoded. The processed descriptors are passed to a weighted RobustLog residual multilayer perceptron (MLP) consisting of an initial 512-unit linear layer, three residual blocks, and a regression head with dimensions 512 →256 →128 →1. The model is trained to predict the...",
+      "page": 15
+    },
+    {
+      "image": "2609.35566_figures/2609.35566_fig4.jpg",
+      "caption": "Figure 4: Magnetic image processing and phase-reconstruction results for skyrmion-like texture identifica- tion. (a) Simulated magnetic image and enlarged region of interest showing labyrinth-like magnetic con- trast. (b) Intensity line profiles extracted under different cutoff wave-vector values qc, showing how filtering affects image contrast and spatial oscillation. (c) Reconstructed magnetic phase shift before cutoff optimiza- tion, shown as grayscale phase contrast and corresponding color phase map. (d) Crest signal-to-noise ratio (SNR) as a function of cutoff wave vector qc, where the optimal value is identified as qc = 0.016 nm−1. (e) Magnetic phase-shift reconstruction using the...",
+      "page": 17
+    }
+  ],
+  "figure": "2609.35566_figures/2609.35566_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 1,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

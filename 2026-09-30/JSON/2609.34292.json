@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2609.34292",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cond-mat.dis-nn",
+    "cond-mat.mtrl-sci",
+    "cond-mat.other",
+    "cs.LG"
+  ],
+  "is_primary_archive": true,
+  "title": "Pre-registered tests of solid-state-physics-inspired LLM compression: a cluster-level negative result at small-language-model scale",
+  "authors": "Jun-qiang Lu",
+  "abstract": "We report a three-month autonomous research-agent program testing five solid-state-physics-inspired compression mappings on pretrained language models, with predictions committed to git before any pilot data and a 3-sigma gate deciding PASS or SHELVE. The common anchor -- area-law / Kohn-nearsighted decay of the one-particle density matrix -- has a distance face (P001 Wannier, P002 tight-binding) and a rank face (P003 DMRG-truncated MLPs, P005 Wilson-RG, P011 tensor-train embeddings). P005 was pre-empted at Phase 1; three of four Phase-3 pilots were falsified. On the attention face, GPT-2-medium attention-versus-distance is best fit by a stretched exponential in 12 of 16 median-layer heads once probe padding is excluded, and a tight-binding cutoff costs +96% perplexity (P002); on Pythia-160M the Wannier sparsity 0.054 +/- 0.004 is indistinguishable from PCA, random-Haar and identity baselines (P001). On the rank face, per-token tensor-train bond dimension does not track surprisal (r = 0.016 vs a pre-registered 0.65) and the format inflates rather than compresses (P011). P003 is mixed: its scaling claim shelved (r = -0.434), its MPO premise died at stage-0, and its cross-paper check, r = 0.523 as first written, collapses to 0.047 under the same correction, leaving both cross-paper checks null. The results invert the pre-registered prediction that most attention heads behave like Kohn-nearsighted insulators, pointing instead to critical, glassy or heavy-tailed regimes; the inversion is specific to the <= 350M scale tested, while the rank-face no-gain result held to 7-8B. We contribute the pre-registration + 3-sigma + cluster-framing + append-only-catalogue discipline -- including why our own enforcement gate was designed but not deployed -- four pre-registered negative results with full data release, and the inversion. The catalogue holds eighteen concluded studies, seventeen negative.",
+  "url": "http://arxiv.org/abs/2609.34292v1",
+  "pdf": "https://arxiv.org/pdf/2609.34292v1",
+  "type": "theory",
+  "summary": "This work rigorously tests whether solid-state physics principles can predict the structure of LLMs by applying five physics-inspired compression mappings. The authors found that the expected 'insulator-like' behavior in attention heads is false, suggesting the underlying dynamics are more complex, possibly critical or glassy. The paper's main contribution is establishing a new, highly disciplined methodology for such physics-informed AI research.",
+  "main_problem": "The paper investigates whether solid-state physics concepts, such as area-law decay or specific compression mappings, can explain the inherent redundancy and structure within the weight matrices and attention mechanisms of large language models (LLMs).",
+  "main_result": "The pre-registered hypothesis that attention heads behave like 'insulator-like' systems (exhibiting strong locality) is empirically falsified at the small-LM scale, suggesting instead critical or glassy regimes.",
+  "method": "The authors employed a rigorous, pre-registered protocol involving testing five physics-inspired compression mappings (e.g., Wannier, tight-binding, tensor-train) against LLMs using a strict 3-sigma statistical gate.",
+  "model_or_system": "The study analyzes pretrained language models (LLMs) like Pythia-160M and GPT-2-medium, treating their internal representations (attention heads, weights) as complex systems analogous to condensed matter Hamiltonians.",
+  "key_observables": "Perplexity change, Wannier sparsity ($\text{s}\\star$), Pearson correlation ($r$) between bond dimension and surprisal, and attention decay rates.",
+  "important_parameters": "The results are specific to the $\\le 350$M parameter scale tested, while the rank-face findings held up to 7–8B parameters.",
+  "main_assumptions": "The analysis relies on the assumption that the physical analogies (e.g., area-law decay) provide a meaningful structural constraint on the LLM capacity, and the methodology is built on pre-registration to avoid p-hacking.",
+  "figures_summary": "The notes do not detail figure contents, but mention a block diagram illustrating the cluster-meta discipline workflow (Pre-registration $\rightarrow$ Pilot $\rightarrow$ Catalogue $\rightarrow$ Novelty Check).",
+  "paper_structure": "The paper is structured around a rigorous methodological contribution: defining a pre-registration, 3-sigma gate, and cluster-framing discipline. It then systematically tests five physics-inspired mappings across three phases, culminating in the falsification of the initial hypothesis.",
+  "why_interesting": "It directly bridges the language of condensed matter theory (e.g., localization, RG flow) with the empirical analysis of deep learning architectures, providing a quantitative testbed for physical intuition in AI.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.34292_figures/2609.34292_fig1.jpg",
+      "caption": "Figure 1: Block diagram of the cluster-meta discipline. Committing the pre-registration YAML to git fixes an immutable timestamp before the pilot. The pilot uses nseeds ≥3 and a 3σ effect-size gate; its PASS / SHELVE verdict creates an entry in physics_redundancy_catalog.json, either as published/preprint or as abandoned with a lessons field. Before a pre-registration is written, a novelty check queries the catalogue. It reports overlap but prevents nothing. The only tool shown that writes pre-registration files refuses one case—a file with that name already exists—and never consults the catalogue. Thus, the author reading the report, not the software, catches a duplicate (physics,...",
+      "page": 5
+    },
+    {
+      "image": "2609.34292_figures/2609.34292_fig2.jpg",
+      "caption": "Figure 2: Cluster-meta §3 taxonomy of three attention-distance decay regimes for a (layer, head) pair. Each panel gives the canonical decay function (top), physical analog (middle), operational LLM signature and P002 AIC-winner correspondence (bottom), and predicted relative fraction. The cluster-level prediction makes 3a (insulator-like) the majority regime; Section 4 shows the measured inversion.",
+      "page": 7
+    },
+    {
+      "image": "2609.34292_figures/2609.34292_fig3.jpg",
+      "caption": "Figure 3: P002 attention-versus-distance histograms at the median layer (L = 12 of 24) of GPT-2- medium. The 4×4 grid contains all 16 heads, with the three fits overlaid in each panel: H1 exponen- tial (red), H2 power law (blue), and H3 stretched exponential (green). Across the 16 heads, H1 under- shoots at short distances and overshoots in the tail; H2 follows the data across the full 1 ≤τ ≤128 window, and H3 nearly coincides with H2. AIC selects H2 in 15 of the 16 heads at this layer. Source: projects/P002 tightbinding attention/pilot/figure decay layer12.png.",
+      "page": 11
+    },
+    {
+      "image": "2609.34292_figures/2609.34292_fig4.jpg",
+      "caption": "Figure 4: P002 per-layer fit quality R2 for H1 (exponential, red), H2 (power law, blue), and H3 (stretched, green) on GPT-2-medium. H2 and H3 dominate H1 at every depth except the final layer, where all three collapse. Source: projects/P002 tightbinding attention/pilot/figure fit quality per layer.png.",
+      "page": 12
+    },
+    {
+      "image": "2609.34292_figures/2609.34292_fig5.jpg",
+      "caption": "Figure 5: P002 perplexity versus TB cutoff multiplier k (cutoff radius = k · λ), compared with full at- tention and matched uniform-window, BigBird, and top-k controls. TB falls sharply from a catastrophic value at k = 1 but does not reach full attention by k = 5, where it remains approximately +15% above the full-attention baseline and well above the pre-registered 5% shelve threshold. For each k, matched top-k (purple) tracks full attention; the matched uniform window is catastrophic at all k; and BigBird stays near ∼160 ppl. The headline “TB at 3λ costs +96% perplexity” is the k = 3 point. Source: projects/P002 tightbinding attention/pilot/figure cutoff vs baselines.png.",
+      "page": 13
+    }
+  ],
+  "figure": "2609.34292_figures/2609.34292_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 1,
+    "non-equilibrium universality": 1,
+    "scars & prethermalization": 1,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 1
+  },
+  "citation_potential": {}
+}

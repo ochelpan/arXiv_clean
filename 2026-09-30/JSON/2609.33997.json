@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.33997",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AR"
+  ],
+  "is_primary_archive": true,
+  "title": "QBX: A Compiler for 2-local Qubit Hamiltonian Simulation on Quantum Chiplets",
+  "authors": "Zikun Li, Zhuoming Chen, Zhihao Jia",
+  "abstract": "2-local qubit Hamiltonian simulation, a fundamental task in quantum computing, is widely applied in various applications. This paper presents QBX, the first quantum compiler designed for 2-local qubit Hamiltonian simulation on quantum chiplet architectures. Existing general-purpose quantum compilers for chiplet architectures target quantum programs at the gate level and miss optimizations requiring high-level semantics of Hamiltonian simulation. Conversely, existing domain-specific compilers for Hamiltonian simulation are designed for monolithic architectures, and their limited scalability and inability to adapt to the heterogeneity of chiplet architectures lead to sub-optimal circuit outputs. QBX implements a scalable hierarchical approach to reduce both the amount and distance of cross-chiplet communications. It integrates the highway mechanism, a chiplet-oriented solution for efficient long-range qubit communication, to diminish cross-chiplet interaction costs. Furthermore, QBX efficiently aggregates 2-local Pauli strings into multi-target controlled gates, harnessing highways for deep optimization. Our evaluations show that QBX markedly outperforms both general-purpose and domain-specific compilers in circuit depth and operation count, while scaling to much larger 2-local Hamiltonian simulations.",
+  "url": "http://arxiv.org/abs/2609.33997v1",
+  "pdf": "https://arxiv.org/pdf/2609.33997v1",
+  "type": "theory",
+  "summary": "This paper introduces QBX, a novel quantum compiler designed specifically for simulating 2-local qubit Hamiltonians on modular quantum chiplet architectures. QBX overcomes limitations in existing compilers by implementing a hierarchical strategy that efficiently minimizes cross-chiplet communication using a 'highway' mechanism. The compiler demonstrates superior performance in circuit depth and operation count compared to current state-of-the-art tools.",
+  "main_problem": "The paper addresses the challenge of efficiently compiling 2-local qubit Hamiltonian simulations for quantum computing devices built using scalable quantum chiplet architectures.",
+  "main_result": "The proposed compiler, QBX, significantly outperforms existing general-purpose and domain-specific compilers in terms of circuit depth and operation count, especially when scaling to larger simulations.",
+  "method": "QBX employs a static hierarchical compiler approach that optimizes for chiplet topology by aggregating 2-local Pauli strings into multi-target controlled gates, utilizing a specialized 'highway' mechanism for long-range communication.",
+  "model_or_system": "The simulation targets the time evolution governed by a 2-local qubit Hamiltonian, $H = \\sum_j \\lambda_j P_j$, which is decomposed into Pauli strings. The physical platform is explicitly modeled as a quantum chiplet architecture (MCM) to address scalability limitations.",
+  "key_observables": "Circuit depth, operation count, and the amount/distance of cross-chiplet communication.",
+  "important_parameters": "The number of qubits, the number of chiplets (e.g., 3, 6, 12, 16), and the structure of the 2-local Pauli strings.",
+  "main_assumptions": "The primary assumption is that the benefits of using highways for cross-chiplet communication outweigh the cost of constructing them, and that the simulation can be accurately decomposed into 2-local Pauli strings.",
+  "figures_summary": "Figures illustrate the synthesis of exponential terms of 2-local Pauli strings using highway gates, the mechanism for multi-target control, and comparisons showing QBX's superior performance metrics (depth/CNOT count) against competitors.",
+  "paper_structure": "The paper introduces the problem gap (general vs. domain-specific compilers), details the QBX methodology (hierarchical mapping, highway mechanism, Pauli set aggregation), presents extensive comparative evaluations against state-of-the-art compilers, and concludes with performance analysis showing scalability benefits.",
+  "why_interesting": "This work is highly relevant as it tackles the critical hardware-software co-design problem for near-term quantum computation, providing a concrete compiler optimization strategy tailored for modular, scalable quantum hardware architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.33997_figures/2609.33997_fig1.jpg",
+      "caption": "Fig. 2. (a) The mechanism of the cat entangler and cat disentangler. (b) The fast preparation of generalized GHZ states. (c) Multiple target being controlled in parallel by a cat-like state.",
+      "page": 5
+    },
+    {
+      "image": "2609.33997_figures/2609.33997_fig2.jpg",
+      "caption": "Fig. 3. An example of aggregating two Pauli strings, 𝑌0𝑌1𝐼2 and 𝑌0𝐼1𝑌2, into two highway gates with three layers of single-qubit gates. The original circuit contains the two Pauli strings; first, the 𝑌gates in the blue dotted box cancel. Next, the rewrite rule in (a) groups the CNOTs, which are then aggregated into highway gates when they share a control qubit.",
+      "page": 6
+    },
+    {
+      "image": "2609.33997_figures/2609.33997_fig3.jpg",
+      "caption": "Fig. 4. Aggregating two Pauli strings into a Pauli set.",
+      "page": 6
+    },
+    {
+      "image": "2609.33997_figures/2609.33997_fig4.jpg",
+      "caption": "Fig. 5. Different ways to reuse a highway and examples. (a) Control-empty highway reuse. (b) An example of control-empty highway reuse in 𝑍𝑍Pauli sets. (c) Cross-Y highway reuse. (d) An example of cross-Y highway reuse in a Heisenberg model. In both (a) and (c), the two highway gates share the same control qubit (i.e., 𝑞0) and target qubits (i.e., 𝑞1, ...,𝑞𝑛).",
+      "page": 7
+    },
+    {
+      "image": "2609.33997_figures/2609.33997_fig5.jpg",
+      "caption": "Fig. 6. Aggregating three Pauli sets into a Pauli block and synthesizing a circuit by reusing highways. 𝐻1-𝐻4 reuse the same highway, so do 𝐻5-𝐻6.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.33997_figures/2609.33997_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

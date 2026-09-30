@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.34070",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.mes-hall",
+    "cs.AI"
+  ],
+  "is_primary_archive": false,
+  "title": "FLARE: Flow Matching with Local Axis-Angle Representations for Stochastic Micromagnetic Evolution",
+  "authors": "Pengyu Li, Renjie Tong, Xuanlue Jiang, Jianmin Li, Yuanyuan Zhou",
+  "abstract": "Long-horizon micromagnetic simulation remains expensive because conventional and learned solvers typically propagate Landau--Lifshitz--Gilbert (LLG) dynamics step by step. Existing learned approaches generally retain stepwise integration or model deterministic evolution, leaving full-field, direct-horizon stochastic prediction largely unexplored. We propose FLARE, a flow-matching framework that recasts stochastic finite-time magnetization prediction as conditional transport over anchor-relative local axis-angle rotations. This rotation-space formulation respects the intrinsic geometry of magnetization dynamics and preserves pointwise unit norm by construction. By explicitly conditioning on the physical prediction horizon, FLARE directly generates full-field stochastic endpoints across multiple target times without stepwise integration. Against the strongest single-checkpoint external baseline on each metric, FLARE achieves 29.9% lower angular energy distance ($15.30^\\circ$), and a 37.3% lower fair energy score (0.393). On a representative composed 5-ns two-segment protocol, FLARE achieves a $3{,}062\\times$ best-batch speedup over the widely used GPU micromagnetic solver MuMax$^3$ on a single GPU.",
+  "url": "http://arxiv.org/abs/2609.34070v1",
+  "pdf": "https://arxiv.org/pdf/2609.34070v1",
+  "type": "theory",
+  "summary": "This paper introduces FLARE, a novel flow-matching framework designed to predict stochastic magnetization evolution directly over long time horizons without iterative time-stepping. By reformulating the problem in terms of local axis-angle rotations, FLARE achieves superior accuracy and massive computational speedups compared to traditional micromagnetic solvers. It represents a significant advancement in using generative AI models for simulating complex, continuous physical dynamics.",
+  "main_problem": "The primary challenge is the computationally expensive, step-by-step prediction of stochastic, long-horizon magnetization evolution governed by the Landau-Lifshitz-Gilbert (LLG) equation.",
+  "main_result": "FLARE achieves significant improvements in accuracy (e.g., 29.9% lower angular energy distance) and provides a massive speedup ($3,062\times$) over established micromagnetic solvers.",
+  "method": "The authors propose FLARE, a flow-matching framework that reformulates stochastic finite-time prediction as conditional transport over local axis-angle rotations, avoiding explicit time-stepping.",
+  "model_or_system": "The system is magnetization dynamics ($\\mathbf{m}$) on a magnetic film, governed by the LLG equation. The model learns the distribution of the rotation required to map an initial state ($\\mathbf{m}_s$) to a target state ($\\mathbf{m}_t$).",
+  "key_observables": "Angular energy distance, fair energy score, magnetization field ($\\mathbf{m}$), and the local axis-angle rotation field ($\\mathbf{\\Omega}^\\star$).",
+  "important_parameters": "The prediction horizon ($\\Delta t$), the number of segments in a multi-stage protocol, and the underlying magnetic parameters ($\\eta, \\xi_t$).",
+  "main_assumptions": "The method assumes that the dynamics can be accurately modeled by conditioning the flow matching on the physical prediction horizon and that the rotation-space formulation preserves the intrinsic geometry of the magnetization.",
+  "figures_summary": "Figures illustrate the inference process via ODE sampling of rotation fields, the training process using the CFM path, and comparisons of time-resolved autoregressive rollouts across various magnetic transitions.",
+  "paper_structure": "The paper introduces FLARE, details its rotation-space formulation and training via Flow Matching, demonstrates its performance against state-of-the-art solvers across various magnetic transitions, and concludes with a comprehensive comparison of its capabilities and limitations.",
+  "why_interesting": "While the physics is classical magnetism, the core methodology—using flow matching and learned continuous dynamics to bypass explicit time-stepping for complex physical evolution—is highly relevant to modeling non-equilibrium dynamics in quantum systems (e.g., quantum quench dynamics or open quantum system evolution).",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.34070_figures/2609.34070_fig1.jpg",
+      "caption": "FIG. 1. Overview of FLARE. a: During inference, ODE sampling transports an initial Gaussian rotation field Ω0 along the learned velocity field to the terminal rotation prediction bΩ⋆= Ω(1). b: FLARE represents the transition from the anchor magnetization ms to the target mt as a local axis–angle rotation field Ω⋆and trains a conditional U-Net with self-attention using the CFM path Ωτ = (1 −τ)Ω0 + τΩ⋆. Spatial conditions F are concatenated with Ωτ and ms, while the flow time τ, physical horizon ∆t, and global conditions cg are injected through AdaGroupNorm. c: The sampled terminal rotation field is mapped back to magnetization space through Rodrigues rotation. For multi-segment dynamics,...",
+      "page": 3
+    },
+    {
+      "image": "2609.34070_figures/2609.34070_fig2.jpg",
+      "caption": "FIG. 2. Overview of the task, generated dynamics, and empirical performance. a: The multi-outcome effects of our model. b: runtime-only comparison on one H200. c: Pareto-optimal plot of the speeds and distribution scores for different models. d: the corresponding results from the MuMax3 simulation, showing representative multi-segment magnetization outcomes.",
+      "page": 5
+    },
+    {
+      "image": "2609.34070_figures/2609.34070_fig3.jpg",
+      "caption": "FIG. 3. Illustration of the local translation-matching procedure. The 256 × 256 magnetization field is divided into 4 × 4 local patches, and each patch is independently matched within a translation range of ±16 grid cells along each spatial direction.",
+      "page": 5
+    },
+    {
+      "image": "2609.34070_figures/2609.34070_fig4.jpg",
+      "caption": "FIG. 4. Exact-control complete-path distribution diagnostics. (a) Distribution Score at the final post-relaxation endpoint after prediction-only handoff. (b) Repeat-paired angle versus angular energy distance; lower-left is better and the star marks FLARE. The two axes need not rank a stochastic model identically. (c) Paired Distribution-Score ratios for FLARE relative to each 50,000 learned-dynamics baseline with a reported Distribution Score; ratios above one favor FLARE and bars are 95% base-cluster intervals. The plotted comparison uses five outcomes for every method and 33 complete-path conditions from Table I.",
+      "page": 17
+    },
+    {
+      "image": "2609.34070_figures/2609.34070_fig5.jpg",
+      "caption": "FIG. 5. Conditional outcome variability under identical physical inputs. Each row fixes the exact magnetization anchor, physical controls, and target horizon, and compares 30 independent MuMax3 thermal outcomes, 30 fresh Stage 1 FLARE ODE–10 draws, and one deterministic Poseidon-T prediction. Six representative fields from each stochastic ensemble are selected using the same deterministic medoid-based rule, while all 30 outcomes are included in the observable scatter plot. (a) Texture and topological-charge variability. (b) Domain-pattern variability. (c) Topology-count variability. (d) An additional case with texture and topological-charge variability. Across these cases, FLARE generates...",
+      "page": 18
+    }
+  ],
+  "figure": "2609.34070_figures/2609.34070_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 2,
+    "non-equilibrium universality": 2,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 2,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 3
+  },
+  "citation_potential": {}
+}

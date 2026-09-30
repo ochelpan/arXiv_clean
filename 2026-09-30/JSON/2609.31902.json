@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.31902",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Encoding Agents: A Natural Language Interface for Data Embedding Strategy Selection in Quantum Machine Learning",
+  "authors": "Ana Paula Appel",
+  "abstract": "Selecting a data encoding is a central and poorly tooled decision in quantum machine learning. The feature map fixes the geometry of the Hilbert space, the expressibility of quantum kernels, and whether the circuit can run on near-term hardware. This paper presents Quantum Encoding Agents, an open-source system that turns encoding selection into a natural-language interaction. Given a dataset and an optional task description, it profiles the data, applies a hardware-aware policy using the gate-error threshold p* approximately 10^{-3}, returns a copyable Qiskit circuit with a justification in Portuguese or English, and scores the quantum kernel by Kernel-Target Alignment (KTA). When a numerical matrix is available, it estimates the correlation fractal dimension D_2 and selects original columns with FD-ASE, using q* = max(2, ceil(D_2)) as a qubit budget so that angle and IQP maps are not proposed at a width where the fidelity kernel has collapsed. The service implements seven encoding families: amplitude, angle, dense angle, IQP, basis, data re-uploading, and custom feature map. On benchmark datasets, KTA separates these encodings under realistic NISQ constraints.",
+  "url": "http://arxiv.org/abs/2609.31902v1",
+  "pdf": "https://arxiv.org/pdf/2609.31902v1",
+  "type": "theory",
+  "summary": "This paper introduces Quantum Encoding Agents, an open-source tool that automates the complex decision of choosing a data encoding for QML. It profiles input data and recommends the best encoding from seven families by considering hardware limitations and scoring the resulting quantum kernel using KTA. This addresses a major bottleneck in applying quantum algorithms to real-world data.",
+  "main_problem": "Selecting an optimal data encoding strategy is a critical, yet poorly addressed, decision in Quantum Machine Learning (QML) pipelines.",
+  "main_result": "The proposed system, Quantum Encoding Agents, successfully selects among seven encoding families under realistic NISQ hardware constraints, with performance validated by Kernel-Target Alignment (KTA) scoring.",
+  "method": "The system uses a natural language interface to profile data and apply a hardware-aware policy, calculating KTA and estimating the correlation fractal dimension ($D_2$) to guide encoding choice.",
+  "model_or_system": "The work operates within the framework of supervised QML, where classical data is mapped into a quantum feature space via various encoding maps ($\\phi(x)$). The process is evaluated against hardware constraints like gate error rates.",
+  "key_observables": "Kernel-Target Alignment (KTA) score, correlation fractal dimension ($D_2$), SVM accuracy, and circuit depth/qubit count.",
+  "important_parameters": "Critical Gate Error Threshold ($p^*$) $\\approx 10^{-3}$, qubit budget $q^* = \\max(2, \\lceil D_2 \rceil)$, and hardware noise models.",
+  "main_assumptions": "The system assumes that encoding selection can be formalized as a combinatorial optimization problem balancing expressibility, trainability, and hardware feasibility.",
+  "figures_summary": "The notes mention comparisons of encoding performance (Table 3, Table 4) and circuit resource usage (Table 6) across various datasets and noise models.",
+  "paper_structure": "The paper introduces the problem, details the Quantum Encoding Agents system, presents methods involving data profiling and KTA scoring, and validates the selection process across multiple encoding families under simulated NISQ conditions.",
+  "why_interesting": "While focused on ML, the rigorous analysis of feature space geometry and the explicit consideration of hardware limitations (gate errors, depth) provide valuable insights into the practical constraints of implementing quantum circuits, which is relevant to open quantum systems characterization.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.31902_figures/2609.31902_fig1.jpg",
+      "caption": "Figure 1: Supervised QML pipeline. Stage 1 (data encoding) is fixed during training and is the focus of this paper.",
+      "page": 4
+    },
+    {
+      "image": "2609.31902_figures/2609.31902_fig2.jpg",
+      "caption": "Figure 2: Deployment architecture. Agent gateways call the stateless encoding microservice (profile, 𝐷2/FD-ASE, recommend, KTA); OpenShell enforces per-agent sandbox policies on OpenShift.",
+      "page": 6
+    },
+    {
+      "image": "2609.31902_figures/2609.31902_fig3.jpg",
+      "caption": "Figure 3: Fidelity kernels on a class-sorted Iris subset (12 samples per class; Aer statevector). (a) Angle encoding, subset KTA = 0.618. (b) Custom feature map, subset KTA = 0.199. Full- 𝑁KTA values appear in Table 3. Simulator only; not a QPU measurement.",
+      "page": 7
+    },
+    {
+      "image": "2609.31902_figures/2609.31902_fig4.jpg",
+      "caption": "Figure 4: Same Iris sample encoded two ways (Aer statevector). (a) Angle encoding: four independent Bloch vectors (product state). (b) Q-sphere of that product state: amplitudes concentrated, uniform phase. (c) IQP on the same row: phases spread across basis states. Simulator only; not a QPU measurement.",
+      "page": 8
+    },
+    {
+      "image": "2609.31902_figures/2609.31902_fig5.jpg",
+      "caption": "Figure 5: QSVM accuracy versus KTA for the 20 quantum kernels in Table 4 (Aer statevector). Spearman 𝜌= 0.785. Ac- curacy saturates on Iris and the synthetic set; moons sit at low KTA. Simulator only.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.31902_figures/2609.31902_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

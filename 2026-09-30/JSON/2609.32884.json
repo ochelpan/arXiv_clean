@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.32884",
+  "category": "other",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Reduced scaling implementation of the coupled cluster-based static embedding method, MPCC with density fitting",
+  "authors": "Avijit Shee, Fabian M. Faulstich, K. Birgitta Whaley, Lin Lin, Martin Head-Gordon",
+  "abstract": "An improved algorithm to implement our previously proposed static quantum embedding method MPCC (J. Chem. Phys. 161, 164107 (2024)) is presented. It uses the density-fitting (DF) approximation for the electron-repulsion integrals (ERIs) across all layers of the embedding method: the low-level method, the screened interaction, and the high-level method. Additionally, an approximate factorized solution of the Sylvester equation is employed based on the Laplace transformation for the low-level method. To build the screened interaction, we have explored an approximate construction of it based on the distinguishable cluster approximation (DCA) by Kats and Manby (J. Chem. Phys. 141, 061101 (2014)), which amounts to neglecting certain higher-order exchange and ladder diagrams. Combining all these techniques, we have obtained an $\\mathcal{O}(N^4)$ algorithm for the low-level method; a non-iterative $N_{\\rm frag} \\mathcal{O}(N^4)$ algorithm for the screened interaction; and an iterative $\\mathcal{O}(N_{\\rm frag}^6)$ algorithm for the fragment solver, where $N_{\\rm frag}$ is the number of fragment orbitals and $N$ is the total number of orbitals. The resulting low-scaling implementation of the MPCC method is applied to trans polyacetylenes, that is, C$_{2n}$H$_{2n+2}$ molecules for chain lengths $n=1-8$, and the timing and accuracy of the method are compared to the original unfactorized implementation. Moreover, the approximations are further validated by applying the method to the potential energy surface of the \\ce{O3} molecule. Finally, we apply the method to the selected molecules in the S22 dataset for which the performance of the MP2 method is known to be poor. The results demonstrate that the DF-based implementation of the MPCC method provides a significant reduction in computational cost while maintaining accuracy comparable to that of the original implementation.",
+  "url": "http://arxiv.org/abs/2609.32884v1",
+  "pdf": "https://arxiv.org/pdf/2609.32884v1",
+  "type": "theory",
+  "summary": "This paper presents an advanced, computationally efficient implementation of the Coupled Cluster-based Static Embedding method (MPCC). By incorporating Density Fitting and factorized solutions for key equations, the authors drastically reduce the computational scaling while preserving high accuracy. This allows the method to be reliably applied to larger and more complex molecular systems.",
+  "main_problem": "The paper addresses the computational bottleneck of the Coupled Cluster-based Static Embedding method (MPCC) by developing a significantly reduced-scaling implementation.",
+  "main_result": "The new Density Fitting (DF)-based implementation achieves substantial reductions in computational cost (e.g., from $O(N^5)$ to $O(N^4)$) while maintaining accuracy comparable to the original, unfactorized method.",
+  "method": "The authors combine several advanced techniques: applying the Density Fitting approximation to Electron Repulsion Integrals (ERIs), using an approximate factorized solution for the Sylvester equation via Laplace transformation, and employing the Distinguishable Cluster Approximation (DCA) for the screened interaction.",
+  "model_or_system": "The method is applied to quantum chemistry calculations involving partitioning a system into a localized 'fragment' (F) and an 'environment' (E). Benchmarking is done on trans polyacetylenes ($C_{2n}H_{2n+2}$) and the $\text{O}_3$ molecule, and the S22 dataset.",
+  "key_observables": "Interaction energies (compared to CCSD/MP2), Mean Absolute Error (MAE), and the potential energy surface of $\text{O}_3$.",
+  "important_parameters": "The scaling complexity, specifically achieving $O(N^4)$ for the low-level method and $O(N_{\text{frag}}N^4)$ for the screened interaction.",
+  "main_assumptions": "Key approximations include using the Density Fitting approximation for ERIs, employing the DCA for the screened interaction, and using an approximate factorized solution for the low-level projection equations.",
+  "figures_summary": "Figure 6 compares interaction energies at CCSD, MP2, and MPCC levels. Table V summarizes the working equations and scaling for the factorized Laplace low-level method.",
+  "paper_structure": "The paper details the mathematical derivation of the MPCC method, focusing on three bottlenecks: the low-level projection equations (solved via factorized Laplace/Sylvester equation), the screened interaction construction (using DCA), and the high-level CC treatment. The structure builds towards demonstrating the overall reduced scaling and validating the results on benchmark systems.",
+  "why_interesting": "While the core physics is quantum chemistry, the development of highly efficient, low-scaling algorithms for correlated electronic structure calculations is a major theme in computational quantum physics, relevant to simulating complex molecular dynamics or materials.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.32884_figures/2609.32884_fig1.jpg",
+      "caption": "Figure 2. Paired speedup of the factorized MP1 low-level up- date relative to the unfactorized MP1 reference for the same alkene chains and active-space definition.",
+      "page": 10
+    },
+    {
+      "image": "2609.32884_figures/2609.32884_fig2.jpg",
+      "caption": "Figure 1. Low-level update timings for the unfactorized MP1 reference and the factorized MP1 kernel for the large valence AVAS active space. The factorized timing is decomposed into the T1 equation, construction of the Laplace factor tensor Y , and the projected active T2 correction.",
+      "page": 10
+    },
+    {
+      "image": "2609.32884_figures/2609.32884_fig3.jpg",
+      "caption": "Figure 3. Timing for the screened interaction construction for the trans-polyacetylene oligomers. In panel (a), the timings of the most expensive terms, namely PPL, EPV, and DCA are shown. In panel (b), the total timing of constructing the screened interaction with and without the DCA approxima- tion is shown.",
+      "page": 10
+    },
+    {
+      "image": "2609.32884_figures/2609.32884_fig4.jpg",
+      "caption": "Figure 4. Dimerization energy per (CH)2 unit as a function of bond length alternation (BLA) in the theremodynamic limit of the trans-polyacetylene oligomer. In panel (a), the MPCC results are compared with the CCSD benchmark and MP2 results. In panel (a) small active space refers to the STO- 3G basis set and the large active space refers to the cc-pVDZ basis set. In panel (b), the effect of the DCA approximation on the screened interaction is assessed, and also the effect of the factorized low-level treatment is analyzed.",
+      "page": 11
+    },
+    {
+      "image": "2609.32884_figures/2609.32884_fig5.jpg",
+      "caption": "Figure 6. Interaction energies of the selected set of molecules in the S22 dataset were compared at the CCSD, MP2 and MPCC level of theory. For the MPCC calculations, the def2- TZVPD basis set was used for the full system and the def2- SVP basis set was used for the fragment. The DCA approxi- mation was used for the construction of the screened interac- tion, and the factorized MP1 equation described in Sec. III A was used to solve the low-level projection equations.",
+      "page": 12
+    }
+  ],
+  "figure": "2609.32884_figures/2609.32884_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

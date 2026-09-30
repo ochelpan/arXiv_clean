@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.35322",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "cs.LG",
+    "cond-mat.dis-nn"
+  ],
+  "is_primary_archive": true,
+  "title": "Weighting Schedules Govern What and When Score-Based Generative Models Learn from Multimodal Data",
+  "authors": "Jérémie Klinger, Raphaël Urfin, Giulio Biroli, Marylou Gabrié",
+  "abstract": "Score-based generative models generate new samples by integrating a time-dependent drift that carries Gaussian noise onto the target distribution. In practice this drift is modeled by a neural network, trained on a loss integrated over time $t$ with a weighting schedule $w(t)$. Along the backward dynamics, and for multi-modal distributions, trajectories commit to modes of the target within a narrow time window, the \\textit{speciation time}. In this work, focusing on high-dimensional data, we decompose the integrated loss into its single-time contributions and analyze each at fixed signal-to-noise ratio $Λ(t)$: we show that $Λ(t)$ sets the rate at which each feature of a multimodal target - the mode directions and their relative weights - is acquired during training. Crucially, at high $Λ(t)$ all mode directions are acquired together, on a single timescale insensitive to their amplitudes, while the relative weights are not learned at all. Only near the speciation time, where $Λ(t)$ becomes of order one, do all features become learnable, each on its own timescale: the weights are acquired jointly with the directions, and the directions at rates set by their relative amplitudes. For models trained on time-integrated objectives, the learning dynamics is then governed by how much of the weighting effectively sits near the speciation time, which provides insights on $w(t)$ design choices. These results follow from an exact high-dimensional analysis of the training dynamics of unbalanced and hierarchical Gaussian mixtures. Numerical experiments on image and human genome haplotype generation recover the predicted hierarchy of learning timescales in more complex settings.",
+  "url": "http://arxiv.org/abs/2609.35322v1",
+  "pdf": "https://arxiv.org/pdf/2609.35322v1",
+  "type": "theory",
+  "summary": "This work provides a rigorous theoretical analysis of score-based generative models trained on multimodal data. It shows that the learning of different features—such as the relative weights between modes—is critically dependent on the training weighting schedule $w(t)$. Optimal learning of all features only occurs near a specific 'speciation time' where the signal-to-noise ratio is near unity.",
+  "main_problem": "The paper investigates how the weighting schedule $w(t)$ in the training objective of score-based generative models dictates the learning dynamics of different features (mode directions and relative weights) when modeling multimodal data.",
+  "main_result": "Learning is highly dependent on the training regime: at high signal-to-noise ratios, only mode directions are learned together, while relative weights are only acquired near a critical 'speciation time' where $\\Lambda(t) \\sim 1$.",
+  "method": "The authors use an exact high-dimensional analysis of the training dynamics for Gaussian Mixture Models, decomposing the integrated loss into single-time contributions.",
+  "model_or_system": "The model is a score-based generative model trained to map Gaussian noise to a complex, multimodal target distribution, analyzed using the Stochastic Interpolant framework.",
+  "key_observables": "Mode directions, relative weights, and the Signal-to-Noise Ratio $\\Lambda(t)$ across training time $t$.",
+  "important_parameters": "The weighting schedule $w(t)$ and the critical 'speciation time' $t_s$ where $\\Lambda(t) \\sim 1$.",
+  "main_assumptions": "The analysis relies on an exact high-dimensional analysis of unbalanced and hierarchical Gaussian Mixture Models, assuming the score function is known or accurately modeled.",
+  "figures_summary": "Figures illustrate the evolution of learning timescales for different components (e.g., mode directions vs. weights) under varying noise regimes.",
+  "paper_structure": "The paper analyzes the training objective by decomposing the loss, deriving the dynamics for Gaussian Mixtures in different noise regimes ($\\Lambda(t)$), and concluding that the effective weighting near the speciation time governs feature learnability.",
+  "why_interesting": "It provides deep theoretical insights into the training stability and feature acquisition mechanisms of modern generative models, which are increasingly used to model complex physical data distributions.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.35322_figures/2609.35322_fig1.jpg",
+      "caption": "Figure 1: Exact score parametrization for (D1). Overlap m (dashed), skip connection c (solid) and mode weight (dotted), against training steps rescaled by d, for the unbalanced GMM at ω = 0.8, different values of d and two noising times, t = 0.5 (left) and t = ts (middle). Typical bimodal histograms of projected samples are shown on the (right) panel. In Regime II (left) c plateaus on O(1) times and m converges on O(d) times, while the weight stays frozen at its initial value 1/2. At speciation (right), c first reaches its final value and then weight and overlap rise together, on a shared O(d) timescale.",
+      "page": 6
+    },
+    {
+      "image": "2609.35322_figures/2609.35322_fig2.jpg",
+      "caption": "Figure 2: Exact score parametrization for (D2). Block overlaps m1 (dashed) and m2 (solid), against training steps, for the quadrimodal GMM at d = 1024, structure parameter κ ∈{0.1, 0.2, 0.3} and two noising times, t = 0.5 (left) and t = ts (middle and right). In Regime II (left) the two overlaps are learned on the same training timescale, independently of κ. At speciation (middle) they evolve on different timescales with µ1 being learned after µ2. Rescaling each block’s training time by its own closed-form rate λ(γi) of equation 13, with γ2 i = κiΛtΓt and κ1 = κ, κ2 = 1 −κ, collapses the curves (right). The inset shows (D2) samples, projected on (µ1, µ2). The smaller κ, the closer the modes...",
+      "page": 6
+    },
+    {
+      "image": "2609.35322_figures/2609.35322_fig3.jpg",
+      "caption": "Figure 3: ResNet for GMMs at d = 64, under uniform DSM (left) and FM-weighted DSM (right) in each panel, against training steps. (a) (D1) at ω = 0.8: cosine similarity with µ (blue) and positive fraction of p = xT µ/∥µ∥2 (red); insets show the histogram of p at the three marked steps. (b) (D2): cosine similarity with µ1 for κ ∈{0.2, 0.3, 0.4}; the inset replots the FM curves against training steps rescaled by λ(√κ).",
+      "page": 7
+    },
+    {
+      "image": "2609.35322_figures/2609.35322_fig4.jpg",
+      "caption": "Figure 4: Experiments on MNIST. (a) Cosine similarity with the digit direction (blue) and fraction of 6s (orange), against training steps, for MNIST restricted to 3s and 6s, of which a fraction ω = 0.8 are 6s (dotted line), under DSM (left) and FM (right). Both objectives acquire direction and proportion within a single decade of training, MNIST offer- ing too short an SNR range for the two weightings to separate. (b) Overlap with the digit direction (left) and with the color direction (right), against training steps, for tinted MNIST trained with FM at tint intensities α, the dataset being built so that the squared amplitude of the color mode scales as α2. The digit direction is learned at...",
+      "page": 8
+    },
+    {
+      "image": "2609.35322_figures/2609.35322_fig5.jpg",
+      "caption": "Figure 5: Sequential feature learning on HGD. (Left) HGD samples projected onto the first two PCA eigenvectors, showing a complex multimodal structure. (Right) Overlap of the generated samples with the leading PCA components µi, i = 1, . . . , 5, against training steps, under Masked Discrete Diffusion: the directions are recovered one after the other, and rescaling training time by the closed-form rate λ(√vi) of equation 13, with vi the variance explained along the i-th reference PCA direction, collapses the two leading ones (inset).",
+      "page": 9
+    }
+  ],
+  "figure": "2609.35322_figures/2609.35322_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

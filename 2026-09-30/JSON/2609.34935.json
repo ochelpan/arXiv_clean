@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.34935",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Classical simulation of amplitude-damped bucket-brigade quantum random access memories via predictable branch evolution",
+  "authors": "Zhao-Yun Chen, Ming-Yang Tan, Sheng Zhang, Peng Wang, Yun-Jie Wang, Guo-Ping Guo",
+  "abstract": "Classical simulation of quantum random access memory (QRAM) under noise can be accelerated dramatically by branch pruning: noise histories are sampled as trajectory ensembles, and good branches, whose routing paths avoid every sampled fault, need not be evolved because their final states are analytically predictable. Under amplitude damping this predictability is not automatic, because the no-jump operator $K_0$ acts on every branch at every time slice. Here we give a complete account of damping-channel predictability in bucket-brigade QRAM simulation, for both qutrit and qubit encodings. For the qutrit encoding, $K_0$ is diagonal in the node basis, and the wait state $|W\\rangle$ is its fixed point, so a good branch follows the noiseless orbit up to a scalar attenuation. In the qubit encoding, phase-kickback memory fetching between two Hadamard walls makes $K_0$ no longer diagonal, yet the resulting structure is exactly solvable in closed form. Conditional on no jump, the in-branch infidelity of a good branch is second order in the damping rate $γ$, with coherent leakage $\\sim n^2γ^2/4$ per data qubit, and the closed form captures it without approximation. We also revise the pruning criterion for the qubit encoding. The resulting algorithm evolves only the bad branches plus one reference branch and shares every other cost with the full evolution it replaces. It is validated by end-to-end benchmarks with pruned-over-full speedups up to $285\\times$ and by trajectory-level tests confirming every closed form to machine precision.",
+  "url": "http://arxiv.org/abs/2609.34935v1",
+  "pdf": "https://arxiv.org/pdf/2609.34935v1",
+  "type": "theory",
+  "summary": "This work presents a novel, highly efficient classical simulation technique for noisy Quantum Random Access Memory (QRAM) using branch pruning. By analytically predicting the evolution of 'good' quantum branches, the authors achieve substantial speedups over full simulations. This advances the practical simulation capabilities for quantum memory architectures under realistic noise models.",
+  "main_problem": "The paper addresses the challenge of developing a fast and accurate classical simulation for Quantum Random Access Memory (QRAM) operating under noise, specifically amplitude damping.",
+  "main_result": "They achieve significant computational speedups (up to 285x) by developing a branch pruning technique that analytically predicts the final states of 'good' quantum branches.",
+  "method": "The core method is a quantum-trajectory Monte Carlo simulation enhanced by branch pruning, which avoids full evolution for predictable paths.",
+  "model_or_system": "The system modeled is a bucket-brigade QRAM, analyzed using both qubit and qutrit encodings. Noise includes amplitude damping and depolarizing faults.",
+  "key_observables": "End-state fidelities, speedup factors (pruned-over-full), and the in-branch infidelity (second order in the damping rate $\\gamma$).",
+  "important_parameters": "Amplitude damping strength ($\\gamma$), address size ($n$), and noise probability ($\\epsilon$).",
+  "main_assumptions": "The predictability of good branches under amplitude damping was not automatic, requiring novel analytical treatments for both qutrit and qubit cases.",
+  "figures_summary": "Figure 1 conceptually shows the pruned simulation for qubit-encoded QRAM using the XOR mirror. Figure 4 plots the speedup and evolved fraction versus noise level and address size.",
+  "paper_structure": "The paper first establishes the need for efficient simulation under damping, then details the analytical predictability for qutrit and qubit encodings, proposes a revised pruning criterion, and finally validates the entire algorithm using end-to-end benchmarks and cross-checks against density matrix evolution.",
+  "why_interesting": "The techniques developed for analytically predicting quantum evolution along specific, noise-avoiding paths are highly relevant for simulating open quantum systems where full time evolution is intractable.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.34935_figures/2609.34935_fig1.jpg",
+      "caption": "FIG. 1. Concept of the pruned simulation of a qubit-encoded (n, k)-QRAM for one trajectory, with n = 3 shown. Each node carries an address qubit, used for routing, and a data qubit. Idle nodes have a = 0, which is indistinguishable from the pointer value “route left”. At the top, an X-type fault at a left child marks as bad the subtree of its nearest right-child ancestor— the parent in the example drawn. Its stuck excitation climbs up through idle left-pointing ancestors and splits the off-path components into distinct final-configuration families, as captured by Eq. (9). A fault at a right child, in contrast, marks only its own subtree. The first good branch, drawn as a thick line, is...",
+      "page": 2
+    },
+    {
+      "image": "2609.34935_figures/2609.34935_fig2.jpg",
+      "caption": "FIG. 2. Trajectory-averaged fidelity of the qubit encoding versus address size n, for ε = γ from 10−5 to 10−3, with 200 trajectories per point, k = 3, and 500 input branches; error bars show the standard error of the mean over the trajectories.",
+      "page": 5
+    },
+    {
+      "image": "2609.34935_figures/2609.34935_fig3.jpg",
+      "caption": "FIG. 3. Targeted verification of the closed-form predictions under damping. (a) Normalized output-word probabilities of the data register in no-jump trajectories of the qubit encoding, shown as points, against Eq. (13) shown as lines. Words are grouped by the Hamming weight w = Ham(c ⊕bout) of the error pattern, and words of the same w collapse onto one value. All words with theoretical probability down to 10−12 agree to floating-point accuracy. (b) Qutrit encoding. Measured relative branch weights |Ai|2/|Aref|2 versus the analytic exposure counter (1 −γ)∆c of Proposition 1. The measured weights agree with the analytic counter to machine precision, and every good branch ends in the ideal...",
+      "page": 9
+    },
+    {
+      "image": "2609.34935_figures/2609.34935_fig4.jpg",
+      "caption": "FIG. 4. Full versus pruned simulation of the qubit encoding with k = 3 under the data-loading input of one branch per address with zero bus input, so that the full mode evolves exactly D = 2n branches, averaged over 50 trajectories. Error bars show the standard error of the mean over the trajectories. (a) Wall-clock time per query. (b) Pruned-over-full speedup, the ratio of the mean wall-clock times of the two modes. (c) Explicitly simulated branches. All input branches in the full mode, shown solid, are compared with the bad branches plus the single reference branch in the pruned mode, shown dotted; the speedup in panel (b) is the ratio of the two. At zero noise the pruned mode evolves...",
+      "page": 10
+    },
+    {
+      "image": "2609.34935_figures/2609.34935_fig5.jpg",
+      "caption": "Figure 5(a) shows the per-data-qubit output error of no-jump trajectories. It tracks n2γ2/4 with fitted slopes 2.000–2.003 and prefactor ratio 1.0001 at every n, confirming the purely second-order coherent leakage of Sec. IV E. Figure 5(b) then separates trajectory en- sembles with damping only and 500 input branches. The trajectory-averaged query infidelity scales linearly in γ with fitted slopes 0.94–0.99. The same average restricted to fault-free trajectories scales quadratically, with slopes 2.00, and lies orders of magnitude lower. All first-order infidelity is therefore carried by trajectories containing",
+      "page": 10
+    }
+  ],
+  "figure": "2609.34935_figures/2609.34935_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 1,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 3,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}
