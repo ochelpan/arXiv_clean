@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.37629",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Adaptive decoding of quantum LDPC codes through decoder disagreement",
+  "authors": "Maida Wang, Peter V. Coveney",
+  "abstract": "Accurate decoding of quantum low-density parity-check (qLDPC) codes often relies on expensive post-processing search, although decoding difficulty varies strongly between syndromes. We find that the benefit of deeper post-processing search is highly concentrated in a small subset of decoding instances, and that these instances can be identified directly from the decoder itself. To this end, we introduce an adaptive decoder based on belief propagation (BP) and ordered-statistics decoding (OSD), using the disagreement between the BP hard decision and the syndrome-consistent order-zero OSD solution as an internal risk signal to determine where deeper search is required. On a $[[144,12,12]]$ bivariate bicycle code under circuit-level depolarising noise, encoding $12$ logical qubits in $144$ data qubits with distance $12$, escalating only the highest-risk $20\\%$ of instances recovers $85\\%$ to $92\\%$ of the improvement in logical error rate available from a full one-free-variable sweep, while reducing the mean serial decoding cost by a factor of $3.6$ relative to applying the same truncated search to every instance. At matched budget, disagreement-guided routing also outperforms routing based on the BP syndrome residual, syndrome weight and random selection. The same behaviour reappears on a structurally distinct radial qLDPC code obtained from a lifted-product construction, where escalating $20\\%$ of instances recovers $87\\%$ to $94\\%$ of the available gain. A $Z$-memory experiment on the Quantinuum H2 trapped-ion processor, implementing both $X$-type and $Z$-type checks, further shows that the signal remains predictive under device noise. These results show that decoder-internal disagreement can expose where additional decoding effort is valuable, allowing classical computation to be concentrated on the instances most likely to benefit from it.",
+  "url": "http://arxiv.org/abs/2609.37629v1",
+  "pdf": "https://arxiv.org/pdf/2609.37629v1",
+  "type": "both",
+  "summary": "This paper presents an adaptive decoding strategy for quantum LDPC codes that significantly improves resource efficiency. It uses the internal disagreement between two fast decoding methods (BP and OSD-0) as a predictive risk signal. By only applying deep, expensive searches to the most suspicious decoding instances, the method achieves near-optimal error correction performance at a substantially reduced computational cost.",
+  "main_problem": "Efficiently decoding quantum low-density parity-check (qLDPC) codes is challenging because decoding difficulty varies significantly across different syndromes, leading to the need for expensive, uniform post-processing searches.",
+  "main_result": "By using the disagreement between Belief Propagation (BP) and Ordered-Statistics Decoding (OSD-0) as an internal risk signal, the authors can concentrate deep search effort on the highest-risk instances, recovering most of the potential error rate improvement while drastically reducing mean decoding cost.",
+  "method": "The paper introduces an adaptive decoder that uses the Hamming distance disagreement ($d_H$) between the BP hard decision and the OSD-0 solution to route decoding attempts: low-risk shots use a fast path, while high-risk shots are escalated to a deeper, computationally expensive search.",
+  "model_or_system": "The work focuses on decoding qLDPC codes, tested on specific codes like the $[[144, 12, 12]]$ bivariate bicycle code and a radial code. The results are validated both through simulation under circuit-level depolarizing noise and on the Quantinuum H2 trapped-ion processor.",
+  "key_observables": "Logical error rate (LER), mean serial decoding cost, and the disagreement metric ($d_H$) used as the risk signal.",
+  "important_parameters": "Noise probability ($p$), search depth ($K=500$ vs $K=1000$), and the fraction of instances escalated (e.g., top 20%).",
+  "main_assumptions": "The core assumption is that the required additional search effort can be accurately predicted by the internal disagreement signal ($d_H$) derived from the fast decoder outputs.",
+  "figures_summary": "Figures illustrate the comparison between conventional and adaptive decoding pipelines, showing $d_H$ distributions that separate successful from failed OSD-0 attempts, and comparing LER vs. escalation fraction for different routing strategies.",
+  "paper_structure": "The paper establishes the problem of inefficient decoding, introduces the adaptive framework using BP-OSD disagreement as a risk metric, validates this metric against other heuristics (syndrome weight, BP residual), and finally quantifies the performance gains on various codes and hardware platforms.",
+  "why_interesting": "For AMO physicists working on quantum error correction, this provides a concrete, resource-aware protocol for utilizing limited computational resources (like gate time or classical processing power) to maximize the fidelity of quantum computation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.37629_figures/2609.37629_fig1.jpg",
+      "caption": "Figure 1. Adaptive qLDPC decoding by BP-OSD disagreement. (a) Conventional decoding applies the same procedure and the same search budget to every shot, so the classical cost of accurate decoding scales with the entire syndrome stream. (b) In the adaptive pipeline every shot first takes the fast path, BP with at most 20 iterations followed by OSD-0. That pass yields two estimates of the same error: the probabilistic BP hard decision ˆeBP = I[L < 0] and the syndrome-consistent output ˆeOSD0 satisfying HˆeOSD0 = s, which coincides with ˆeBP whenever BP already satisfies the syndrome. Their Hamming disagreement dH = ∥ˆeBP ⊕ˆeOSD0∥0 measures how risky the shot is, at negligible extra cost....",
+      "page": 3
+    },
+    {
+      "image": "2609.37629_figures/2609.37629_fig2.jpg",
+      "caption": "Figure 2. Disagreement tracks decoding risk and enables a targeted improvement in logical error rate, for the [[144, 12, 12]] bivariate bicycle code over 24 syndrome extraction rounds with 20,000 shots per operating point. (a to c) Distributions of the BP-OSD disagreement dH for shots on which OSD-0 succeeds and fails, at p = 0.006, 0.007 and 0.008. Insets report the area under the receiver operating characteristic curve (AUROC) for OSD-0 failure with its bootstrap 95% interval, together with the corresponding value for beneficial escalation (labelled ben. in the panels), the case in which OSD-0 fails while the full 1FV sweep succeeds. (d to f) Logical error rate against escalation fraction...",
+      "page": 5
+    },
+    {
+      "image": "2609.37629_figures/2609.37629_fig3.jpg",
+      "caption": "Figure 2(d to f) shows the resulting logical error rate against fesc. Without escalation the OSD-0 baseline gives logical error rates of 0.00475, 0.01990 and 0.06275 at p = 0.006, 0.007 and 0.008, while the full 1FV reference gives 0.00105, 0.00410 and 0.01865; the strong search is worth a factor of 4.52, 4.85 and 3.36 in logical error rate. Escalating the 20% of shots with the largest dis-",
+      "page": 5
+    },
+    {
+      "image": "2609.37629_figures/2609.37629_fig4.jpg",
+      "caption": "Figure 3. Trade-off between accuracy and computation, and the role of decoder headroom. (a to c) Logical error rate against measured single-threaded serial decoding time per shot at p = 0.006, 0.007 and 0.008, for the OSD-0 fast path, the adaptive policy at escalation fractions of 10%, 20% and 30%, the truncated branch applied to every shot, and the full 1FV reference. The adaptive points sit on a different part of the trade-off from the fixed strong branches, keeping most of the available improvement at a fraction of the serial cost. (d) Ratio of the OSD-0 logical error rate to the full 1FV logical error rate, the decoder headroom, for the [[144, 12, 12]] and [[72, 12, 6]] codes. (e)...",
+      "page": 7
+    },
+    {
+      "image": "2609.37629_figures/2609.37629_fig5.jpg",
+      "caption": "Figure 4. Transfer of disagreement-guided routing to a radial qLDPC code. Logical error rate against escalation fraction for the n = 90, k = 8 radial instance over twelve rounds of syndrome extraction at (a) p = 0.008 and (b) p = 0.009, with 20,000 test shots per operating point. Exact matched-budget routing on dH, on the BP residual rBP and on the syndrome weight ws is compared with random routing, averaged over 200 seeds; every escalated shot goes to the same K = 1000 branch. The OSD-0 baseline, the K = 1000 branch applied to every shot and the full 1FV reference are shown for comparison, the last two differ by a single logical failure at each operating point. Routing on disagreement...",
+      "page": 8
+    }
+  ],
+  "figure": "2609.37629_figures/2609.37629_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 3,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

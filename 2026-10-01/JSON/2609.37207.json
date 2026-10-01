@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.37207",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "math-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Near-Optimal Quantum Algorithm and Complexity Analysis for Riccati Problems",
+  "authors": "Jingyao Wang, Yanqiao Wang, Bowen Li, Jin-Peng Liu, Zhengfeng Ji",
+  "abstract": "We develop quantum algorithms that construct block-encodings of solution matrices for continuous- and discrete-time algebraic Riccati equations (CAREs and DAREs), differential Riccati equations (DREs), and finite Riccati recursions. The Quantum Weighted Riesz Method, unifying four kinds of Riccati problems, constructs projectors onto the solution graphs using weighted Riesz branching operators and recovers the solution matrices. Under the stated access and normalization assumptions, our algorithms for CAREs and DAREs have near-optimal query complexity $Θ(\\mathcal Rα)$ up to logarithmic factors, with the generalized singularity factor $\\mathcal R$ that reflects spectral separation, and the output normalization $α$. For DREs and finite-horizon problems, the query complexity has an additional initialization conditioning factor $κ_{\\rm init}$. We establish product query lower bounds for specified input-oracle families, demonstrating necessary joint dependence on spectral separation and initialization or output scale. We also prove that selected-value promise problems are BQP-complete on explicit circuit-generated families of single-control discrete-time algebraic and zero-terminal differential Riccati equations. Applications include classical feedback evaluation for linear-quadratic control, a query-complexity comparison for stable random-phase approximation Riccati equations in quantum chemistry, and heated boundary control with numerical validation.",
+  "url": "http://arxiv.org/abs/2609.37207v1",
+  "pdf": "https://arxiv.org/pdf/2609.37207v1",
+  "type": "theory",
+  "summary": "This paper presents quantum algorithms to efficiently compute the solution matrices for various Riccati equations, which are crucial in fields like optimal control and quantum chemistry. The authors achieve near-optimal query complexity bounds and rigorously prove that solving certain instances of these equations is BQP-hard. This work bridges advanced mathematical physics problems with the theoretical limits of quantum computation.",
+  "main_problem": "Developing quantum algorithms to construct block-encodings of solution matrices for various Riccati equations (CAREs, DAREs, DREs, and finite recursions).",
+  "main_result": "The algorithms achieve near-optimal query complexity for CAREs and DAREs, and the problem of encoding solutions for certain Riccati equations is proven to be BQP-complete.",
+  "method": "The core method is the Quantum Weighted Riesz Method, which involves embedding the problem, constructing a graph projector via weighted Riesz operators (QET), and recovering the solution matrix.",
+  "model_or_system": "The mathematical model is the set of Riccati equations (CARE, DARE, DRE), which arise in optimal control (LQR) and quantum chemistry (RPA). The quantum computation is framed around constructing the block-encoding of the solution matrix $P$.",
+  "key_observables": "Solution matrices $P$, query complexity $Q$, generalized singularity factor $\\mathcal{R}$, and initialization conditioning factor $\\kappa_{\text{init}}$.",
+  "important_parameters": "Spectral separation ($\\mathcal{R}$), output normalization ($\\alpha$), and initialization/output scales.",
+  "main_assumptions": "The analysis relies on stated access and normalization assumptions, and the lower bounds are established for specific input-oracle families.",
+  "figures_summary": "Figure 1 illustrates the Quantum Weighted Riesz Method pipeline (Embed $\rightarrow$ QET $\rightarrow$ Recover) for various Riccati problems. Other figures detail spectral branches and weights.",
+  "paper_structure": "The paper develops the quantum algorithm framework, analyzes the query complexity bounds by establishing lower bounds, and culminates in proving BQP-completeness for specific Riccati problem instances.",
+  "why_interesting": "While the application is in physics (LQR, RPA), the core contribution is establishing computational complexity (BQP-hardness) for solving fundamental equations arising in quantum dynamics, which is highly relevant to quantum information theory.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.37207_figures/2609.37207_fig1.jpg",
+      "caption": "Figure 1: The Quantum Weighted Riesz Method. The QET stage constructs weighted Riesz branch operators. DREs and ﬁnite recursions combine these operators with initial data to form a decaying graph projector (DGP); CARE and DARE directly construct the limiting Riesz projector. Both routes use the same block-row recovery to return a block-encoding of the Riccati solution, with explicit output normalization and operator-norm error bounds under the stated assumptions.",
+      "page": 5
+    },
+    {
+      "image": "2609.37207_figures/2609.37207_fig2.jpg",
+      "caption": "Figure 2: Spectral branches and weights in the QET stage. The top panels select the blue stable branches for CARE and DARE; gray points are unselected. The bottom panels include both blue and orange branches, with forward weights on the left or inside and inverse weights on the right or outside. Points are schematic spectral locations, and each circle marks |z| = 1; the DRE weights use b HDRE = HDRE/αH.",
+      "page": 6
+    },
+    {
+      "image": "2609.37207_figures/2609.37207_fig3.jpg",
+      "caption": "Figure 3: Classical closed-loop response with n = 64 and 104 nodes per contour under the common settings of Appendix G.5. (a) State norm. (b) Scalar control. Open circles without connecting lines show Our Algorithm; dashed curves show Reference LQR. One circle is displayed every 25 samples. The algorithm uses cubic-spline interpolation of 161 Riccati evaluations; the reference uses the independent closed-form solution. Each trajectory stores all 401 sampled values. Amplitude estimation is not simulated.",
+      "page": 33
+    },
+    {
+      "image": "2609.37207_figures/2609.37207_fig4.jpg",
+      "caption": "Figure 4 compares dimension dependence for the same ﬁxed physical parameters and target accuracy. The executed RK4 arithmetic count grows from 4.95 × 107 to 1.276 × 1010 over n = 64, 128, 256, 512, 1024, while the complete quantum construction uses 82 516 028 logical Hamiltonian- oracle queries at every dimension. The maximum measured spectral errors are 5.18 × 10−11 for RK4 and 1.88 × 10−10 for the quantum success-block simulation, both below 10−8. The distinct units and output representations are speciﬁed in the caption; the counting and numerical-validation details are given in Appendix G.5.",
+      "page": 33
+    },
+    {
+      "image": "2609.37207_figures/2609.37207_fig5.jpg",
+      "caption": "Figure 4: Dimension dependence at ν = 5, T = 1, κ = 1/4, q = 2, r = 0.5, and ε = 10−8, with the unscaled path Laplacian. The blue curve uses the logarithmic left axis and counts RK4 additions, subtractions, multiplications, and divisions, including all ﬁve reﬁnement runs and error- indicator calculations. The red curve uses the linear right axis and counts logical Hamiltonian- oracle queries for one complete P(1) block-encoding, with 104 nodes per contour and frozen QSP degrees (757, 29, 57). It includes the transient term and both recovery inverses; no normalization ampliﬁcation is used. RK4 outputs an explicit matrix, whereas the quantum output is a block- encoding without readout. The...",
+      "page": 34
+    }
+  ],
+  "figure": "2609.37207_figures/2609.37207_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

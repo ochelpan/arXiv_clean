@@ -1,0 +1,79 @@
+{
+  "arxiv_id": "2609.36901",
+  "category": "disordered systems and neural networks",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.AI"
+  ],
+  "is_primary_archive": true,
+  "title": "Digital Twin Modeling of Quantum Dynamical Systems: Dissipative Quantum Reservoir Computing",
+  "authors": "Abhijit Sen, Bikram Keshari Parida, Shital Chauhan, Mahima Arya, Denys I. Bondar",
+  "abstract": "Modeling the response of driven many-body quantum systems from input--output data is difficult: the dynamics are nonlinear, history dependent, and expensive to simulate as system size grows. A paradigmatic case is High-Harmonic Generation~(HHG), where a strong field drives a medium to emit radiation that is highly sensitive to the drive and encodes long-range temporal correlations. We introduce a dissipative quantum reservoir computing~(DQRC) framework that builds a digital twin of such a system, learning its input--output map directly from data while the reservoir---itself a small open quantum system---stays fixed and only a classical readout is trained. We show that a minimal single-qubit reservoir reproduces the HHG response of a substantially larger Ising spin chain, and on a representative benchmark matches and on several metrics surpasses previously reported temporal convolutional and Kolmogorov--Arnold-network models, while using a simpler, physically realizable system. A single fixed reservoir further generalizes across a broad range of drives, indicating that it learns a shared physical response structure rather than memorizing trajectories. These results establish dissipative quantum reservoirs as compact, physically grounded digital twins for nonlinear, memory-dependent quantum dynamics.   Code is available at \\href{https://github.com/AI-and-Quantum-Computing/DQuRC}{https://github.com/AI-and-Quantum-Computing/DQuRC}.",
+  "url": "http://arxiv.org/abs/2609.36901v1",
+  "pdf": "https://arxiv.org/pdf/2609.36901v1",
+  "type": "theory",
+  "summary": "This paper introduces Dissipative Quantum Reservoir Computing (DQRC) as a method to create digital twins for complex quantum systems. By using a small, fixed open quantum system as a reservoir, it learns the input-output map of difficult dynamics, such as High-Harmonic Generation. The results show this approach is highly accurate and generalizes robustly across varying physical driving conditions.",
+  "main_problem": "Modeling the complex, nonlinear, and history-dependent input-output dynamics of driven many-body quantum systems from raw data is computationally prohibitive.",
+  "main_result": "A Dissipative Quantum Reservoir Computing (DQRC) framework successfully acts as a compact, physically grounded digital twin, reproducing complex quantum dynamics like High-Harmonic Generation (HHG) using a minimal, fixed quantum reservoir.",
+  "method": "The authors propose using a DQRC, which trains only a classical readout layer while the reservoir dynamics are governed by a fixed, dissipative quantum evolution (Lindblad master equation).",
+  "model_or_system": "The framework is tested on simulating the input-output mapping of a driven many-body system, exemplified by the High-Harmonic Generation (HHG) process in a medium, and benchmarked against a ten-spin Ising chain.",
+  "key_observables": "Reconstruction accuracy ($\text{R}^2$ score) and amplitude-aware permutation entropy ($\text{H}_{\text{amp}}$).",
+  "important_parameters": "Drive amplitude ($F_0$), driving frequency ($\\omega$), and the reservoir size (minimal single-qubit reservoir).",
+  "main_assumptions": "The study assumes that the essential physics can be captured by mapping the dynamics onto a minimal, fixed, dissipative quantum reservoir, rather than requiring a full simulation of the microscopic Hamiltonian.",
+  "figures_summary": "Figures illustrate the input-output problem ($\\vec{E}(t) \rightarrow \text{Medium} \rightarrow \\vec{Y}(t)$) and show the amplitude dependence of the entropy ($\text{H}_{\text{amp}}$) for the reservoir's generalization capability.",
+  "paper_structure": "The paper first establishes the difficulty of modeling quantum dynamics, introduces the DQRC framework by drawing parallels to classical reservoir computing, details the physical implementation using dissipative quantum dynamics, and finally validates the model's generalization capability across varying drive strengths.",
+  "why_interesting": "This work bridges the gap between complex, non-equilibrium quantum dynamics (like HHG) and modern machine learning techniques, proposing a physically constrained, data-driven modeling tool that respects underlying physical principles.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.36901_figures/2609.36901_fig1.jpg",
+      "caption": "FIG. 1. Optics as an input–output problem. An input field E(t) (red) interacts with a medium (beaker) to produce an output field Y(t) (green). A quantum Reservoir with trainable readout, the readout layer trained on (E(t),Y(t)) pairs, serves as a surrogate model of the medium, enabling prediction of Y(t) for previously unseen inputs E(t).",
+      "page": 2
+    },
+    {
+      "image": "2609.36901_figures/2609.36901_fig2.jpg",
+      "caption": "FIG. 2. Schematic overview of Classical Reservoir Computing (CRC), illustrating the separation between a fixed nonlinear dynamical system (the reservoir) and a trainable linear readout. The input signal u(t) is discretized and injected via the input weight matrixWin. The reservoir state x(k) evolves according to x(k) = f(W x(k −1)+Win u(k)), and the output y(k) is obtained through a trained linear readout y(k) = Wout x(k), where only Wout is optimized during training.",
+      "page": 3
+    },
+    {
+      "image": "2609.36901_figures/2609.36901_fig3.jpg",
+      "caption": "FIG. 3. Schematic illustration of the transition from classical reservoir computing (CRC) to quantum reservoir computing (QRC). (Left) A classical dynamical system with a fixed reservoir and trained readout layer. (Center) Replacement of the classical reservoir with an N-qubit quantum system. (Right) Full QRC architecture: input is encoded at each time step into the first qubit, the reservoir evolves unitarily in the 2N-dimensional Hilbert space, and observables are extracted via a classical readout layer to produce the output vector.",
+      "page": 5
+    },
+    {
+      "image": "2609.36901_figures/2609.36901_fig4.jpg",
+      "caption": "FIG. 4. Dataset construction and feeding strategy for input–output time-series learning with quantum reservoir computing. Continuous-time input stimuli h(t) and output responses Y(t) are first sampled on a uniform grid with time step ∆t, producing fixed-length vectors of length T = 512. Each row of the dataset corresponds to one complete system run, represented as a paired sequence h(i) →Y(i). The full dataset D(F0) is split into training and test subsets. During learning, each input sequence is fed sequentially into the quantum reservoir, whose measured observables generate temporal reservoir features. A trainable readout then maps these features to the predicted output sequence.",
+      "page": 7
+    },
+    {
+      "image": "2609.36901_figures/2609.36901_fig5.jpg",
+      "caption": "FIG. 5. Predictive performance of the QRC across driving frequen- cies ω in the single-amplitude regime (F0 = 20). Each point repre- sents the R2 score computed on the test set at a given frequency ω, with an overall performance of R2 = 0.9997.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.36901_figures/2609.36901_fig1.jpg",
+  "highlighted": [
+    "Denys I. Bondar"
+  ],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 2,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 3,
+    "non-equilibrium universality": 2,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 4
+  },
+  "citation_potential": {}
+}

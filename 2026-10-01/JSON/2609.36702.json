@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.36702",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph",
+    "cs.CV"
+  ],
+  "is_primary_archive": true,
+  "title": "Quantum Fidelity Landscape-Guided Prior Calibration for Single-Circuit QGAN Image Generation",
+  "authors": "Xue Yang, Rigui Zhou, Dax Enshan Koh, Siong Thye Goh, Yitao Tang, ShiZheng Jia, Young-Wook Cho, Hongyu Chen",
+  "abstract": "Quantum Generative Adversarial Networks (QGANs) have emerged as representative generative models in the Noisy Intermediate-Scale Quantum (NISQ) era and have attracted increasing attention in quantum machine learning. However, most existing QGAN methods rely on patch-based decomposition strategies, which weaken the global consistency of generated images and increase quantum resource overhead. In this work, we investigate a simpler approach: pixel-level, end-to-end image generation using a single-quantum-circuit QGAN. By analyzing the structural matching relationship between the quantum prior and the target data distribution in Hilbert space, we provide a new theoretical perspective for understanding the training behavior of naive end-to-end QGANs. Specifically, we introduce the Quantum Fidelity Landscape (QFL), defined as the pairwise-fidelity structure induced by an ensemble of quantum states and preserved under shared unitary transformations of the quantum generation process. We show that, under a fixed Lipschitz readout, this invariant imposes a one-sided bound on decoded sample separation, motivating calibration of the prior-induced QFL before adversarial training. To validate this theoretical insight, we propose BasicQGAN, a QGAN framework incorporating quantum prior calibration. Before adversarial optimization, BasicQGAN aligns the prior-induced QFL with the data-induced QFL. Experimental results on small-scale grayscale image datasets show that BasicQGAN achieves stable and effective end-to-end pixel-level image generation while requiring fewer qubits and trainable parameters than representative patch-based quantum generators. Furthermore, experiments with different initial quantum-state ensembles show that QFL-calibrated ensembles achieve better generative performance.",
+  "url": "http://arxiv.org/abs/2609.36702v1",
+  "pdf": "https://arxiv.org/pdf/2609.36702v1",
+  "type": "both",
+  "summary": "This paper introduces BasicQGAN, a novel QGAN framework for single-circuit image generation that avoids patch-based decomposition. It leverages the Quantum Fidelity Landscape (QFL)—a measure of pairwise quantum fidelity—to theoretically constrain and calibrate the quantum prior before adversarial training. Experiments show this calibration leads to stable, high-quality image synthesis using fewer quantum resources.",
+  "main_problem": "To improve Quantum Generative Adversarial Networks (QGANs) for end-to-end image generation by overcoming the limitations of patch-based methods.",
+  "main_result": "The proposed BasicQGAN framework, which incorporates Quantum Fidelity Landscape (QFL) calibration, achieves stable and effective pixel-level image generation with fewer resources than patch-based alternatives.",
+  "method": "The authors introduce the QFL, a theoretical structure based on pairwise quantum fidelity, and propose an offline calibration step to align the prior-induced QFL with the data-induced QFL before adversarial training.",
+  "model_or_system": "The model is a single-circuit QGAN operating in the NISQ era, utilizing an initial state ensemble $\\{\rho_i\\}$ whose structure is governed by the QFL. The generation process involves a shared unitary transformation and a fixed amplitude readout.",
+  "key_observables": "Quantum Fidelity Landscape (QFL), Squared Uhlmann fidelity, and the resulting bound on decoded sample separation.",
+  "important_parameters": "The required number of qubits and trainable parameters; the learning rate used during QFL calibration (e.g., 0.3).",
+  "main_assumptions": "The approach assumes a fixed Lipschitz readout to derive the output-separation bound, and the core assumption is that the QFL captures the necessary structural information for stable training.",
+  "figures_summary": "Figure 1 compares QFL histograms for initial, generated, and true sample ensembles. Figure 2 illustrates the two-stage BasicQGAN process: offline QFL calibration followed by online adversarial training. Appendix I shows FID curves and sample generations across various datasets.",
+  "paper_structure": "The paper introduces the QFL theory, derives bounds relating fidelity to output separation, proposes the BasicQGAN framework with an offline calibration stage, and validates the method through extensive experiments on multiple grayscale image datasets.",
+  "why_interesting": "The work provides a rigorous geometric constraint (QFL) derived from quantum information theory to stabilize the training of complex quantum machine learning models, which is highly relevant for understanding resource limitations in NISQ devices.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.36702_figures/2609.36702_fig1.jpg",
+      "caption": "Figure 1: The green dots in (a) denote a discrete initial-state ensemble sampled from the quantum prior, and the blue dots in (b) represent the corresponding generated-state ensemble after the generator’s unitary evolution. In (b), we also show a denser ensemble example (red dots), whose QFL histogram exhibits a markedly different distribution from the other two ensembles. In each QFL histogram, the horizontal axis denotes the pairwise fidelity between distinct quantum states, while the vertical axis gives the frequency of state pairs falling into each fidelity bin; each unordered pair is counted once, with self-pairs excluded.",
+      "page": 3
+    },
+    {
+      "image": "2609.36702_figures/2609.36702_fig2.jpg",
+      "caption": "Figure 2: Overall framework of BasicQGAN. (a) During offline QFL calibration, the state-preparation parameters z1, z2, . . . , zn are optimized to transform the initial ensemble ρ1, ρ2, . . . , ρn into a calibrated ensemble ρ′ 1, ρ′ 2, . . . , ρ′ n. (b) During online adversarial training, the calibrated preparation parameters z′ 1, z′ 2, . . . , z′ n initialize the state ensemble used by the single-circuit quantum generator.",
+      "page": 8
+    },
+    {
+      "image": "2609.36702_figures/2609.36702_fig3.jpg",
+      "caption": "Figure 3: Empirical QFL distributions computed from 500, 1000, 1500, and 2000 real samples of MNIST digit 0 at 16 × 16 resolution.",
+      "page": 15
+    },
+    {
+      "image": "2609.36702_figures/2609.36702_fig4.jpg",
+      "caption": "Figure 4: QFL distributions induced by different prior preparations and by real data. Panels (a)–(c) use uncalibrated sampling schemes, whereas panel (d) uses the QFL-calibrated prior.",
+      "page": 15
+    },
+    {
+      "image": "2609.36702_figures/2609.36702_fig5.jpg",
+      "caption": "Figure 6: BasicQGAN obtains lower FID scores than PQWGAN(Global) across MNIST classes at 16 × 16 resolution.",
+      "page": 18
+    }
+  ],
+  "figure": "2609.36702_figures/2609.36702_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 1,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

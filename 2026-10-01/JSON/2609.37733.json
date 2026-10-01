@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2609.37733",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "physics.chem-ph",
+    "cs.LG",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Foundation Neural-Network Quantum States for Molecular Potential Energy Surfaces in Second Quantization",
+  "authors": "Lizhong Fu, Jianan Wei, Wenguan Wang, Honghui Shang",
+  "abstract": "Second-quantized neural-network quantum states have achieved accurate molecular energies, but extending them across molecular geometries requires a shared representation of the geometry-dependent wavefunction coefficients. We introduce geometry-conditioned foundation neural-network quantum states for molecular electronic structure in second quantization. A single autoregressive model learns a family of ground states from sparse anchor geometries and provides wavefunctions at untrained geometries without further optimization. Orbital alignment matches orbital identities and transports their phases, establishing an aligned orbital basis across geometries. Frozen energies reach chemical accuracy at every untrained query geometry for N$_2$, CO, and H$_4$. On additional molecular paths, the energy-trained wavefunctions yield dipoles, quadrupoles, and natural occupations without property labels. Across three paired N$_2$ training seeds, orbital alignment lowers the mean absolute energy error over all untrained query geometries from 34-37 mHa to 0.049-0.085 mHa. At approximately 1 mHa mean absolute error, frozen evaluation reduces the per-geometry cost by $986\\times$ relative to independent optimization, yielding an estimated $25.8\\times$ end-to-end GPU-cost reduction on a 161-point N$_2$ grid.",
+  "url": "http://arxiv.org/abs/2609.37733v1",
+  "pdf": "https://arxiv.org/pdf/2609.37733v1",
+  "type": "theory",
+  "summary": "This paper introduces Foundation Neural-Network Quantum States (FNQSs) to efficiently calculate molecular Potential Energy Surfaces (PESs) in second quantization. By using a single, geometry-conditioned autoregressive model and implementing orbital alignment, the method achieves chemical accuracy at novel geometries without retraining. This approach drastically reduces the computational cost of mapping complex molecular energy landscapes.",
+  "main_problem": "The core challenge is developing a method to construct Molecular Potential Energy Surfaces (PESs) by sharing a single, optimized representation of the electronic wavefunction across different molecular geometries, thereby avoiding repeated, expensive variational optimization at every geometry.",
+  "main_result": "The proposed method achieves chemical accuracy at untrained geometries for small molecules and yields massive computational cost reductions (estimated $25.8\times$ end-to-end GPU-cost reduction) compared to independent optimization.",
+  "method": "The authors introduce geometry-conditioned Foundation Neural-Network Quantum States (FNQSs) using an autoregressive Transformer architecture to parameterize the wavefunction in second quantization. Orbital alignment is crucial for maintaining basis consistency across geometries.",
+  "model_or_system": "The system is molecular electronic structure, treated in second quantization using an occupation-basis model. The Hamiltonian is parameterized, and the state $|\\Psi_\theta(R)\rangle$ is learned by conditioning the autoregressive network on the molecular geometry $R$ and aligned orbital descriptors.",
+  "key_observables": "Electronic energies (PES), dipoles, quadrupoles, and natural occupations.",
+  "important_parameters": "Chemical accuracy threshold (1.6 mHa), Mean Absolute Error (MAE) values (down to 0.049-0.085 mHa), and computational cost reduction factors ($\\sim 25.8\times$).",
+  "main_assumptions": "The method assumes that orbital identities and phases can be consistently aligned and transported across different geometries to ensure a shared, continuous basis representation.",
+  "figures_summary": "Figures illustrate the process of orbital matching and phase alignment; comparisons show energy errors for various molecules ($\text{N}_2$, $\text{CO}$, $\text{H}_4$) across different training/conditioning strategies, highlighting the necessity of alignment and descriptor conditioning.",
+  "paper_structure": "The paper introduces the FNQS architecture, details the necessity of orbital alignment for basis transport, presents results showing high accuracy on PESs at untrained geometries, and quantifies the massive computational savings achieved by this shared representation.",
+  "why_interesting": "This work represents a significant advancement in applying deep learning to quantum chemistry, providing a highly scalable and efficient framework for mapping complex, high-dimensional potential energy surfaces that is directly relevant to molecular dynamics and quantum simulation.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.37733_figures/2609.37733_fig1.jpg",
+      "caption": "Figure 1: Geometry-conditioned FNQSs. (a) Starting from sparse anchor geometries, restricted Hartree–Fock (RHF) orbitals are matched and phase-aligned to construct consistent occupation bases and molecular Hamiltonians. Joint variational Monte Carlo (VMC) training produces a shared wavefunction model. At new geometries, the frozen model yields energies and the one-particle reduced density matrix (1-RDM). (b) Occupation prefixes pass through causal Transformer blocks, with geometry and orbital descriptors supplied through feature-wise linear modulation (FiLM), to produce normalized occupation probabilities and hence the wavefunction amplitude. A separate multilayer perceptron (MLP) maps the...",
+      "page": 4
+    },
+    {
+      "image": "2609.37733_figures/2609.37733_fig2.jpg",
+      "caption": "Figure 2: Potential energy surfaces. (a) N2, (b) CO, and (c) H4. Each panel combines NQS, RHF, and coupled-cluster singles and doubles (CCSD) relative energies (upper) and NQS signed errors against FCI (lower), with the 1.6 mHa band below. Energies are relative to each method’s path origin. CCSD uses a restricted reference. Squares mark anchors, dots queries, and bars one sampling standard error.",
+      "page": 7
+    },
+    {
+      "image": "2609.37733_figures/2609.37733_fig3.jpg",
+      "caption": "Fig. 3 compares the errors with unaligned and aligned orbitals along the N2 scan across three paired training seeds. Within each pair, only the orbital basis changes; the architecture, optimizer, and sampling budget are identical. The aligned models predict every untrained geometry within chemical accuracy (query MAE 0.049–0.085 mHa across seeds). The unaligned models fit most anchors but fail between them, with query MAEs of 34–37 mHa and errors above 100 mHa adjacent to anchors; some unaligned runs also miss chemical accuracy at an anchor. The largest failures occur where canonical orbital ordering changes (upper plot in Fig. 3). Alignment removes these artificial discontinuities in the...",
+      "page": 7
+    },
+    {
+      "image": "2609.37733_figures/2609.37733_fig4.jpg",
+      "caption": "Figure 3: Orbital alignment. Alignment enables transfer between N2 training anchors. The upper plot tracks aligned RHF orbital energies; the degenerate pair 5/6 is drawn as one curve. Arrows label changes in the canonical indices of the indicated continuous branches. Both plots share the N–N distance axis; vertical bands mark the two orbital-ordering exchanges (0.92–0.94 and 1.18–1.20 Å). The lower plot compares absolute energy errors over three paired seeds: lines show means and colored ribbons the minimum–maximum range. Squares mark anchors, dots queries, and the dotted line 1.6 mHa. Architecture, optimization, and sampling budgets are matched within each pair.",
+      "page": 8
+    },
+    {
+      "image": "2609.37733_figures/2609.37733_fig5.jpg",
+      "caption": "Figure 4: Electronic properties. (a) NH3 dipole, (b) CO2 quadrupole, and (c) ethylene natural occupations 6/7. Each panel combines the observable (upper) and its NQS-minus-FCI error (lower). Upper curves show NQS estimates connected by solid lines, RHF (dashed), and CCSD (dash-dotted). Circles mark queries, squares anchors, and bars one sampling standard error.",
+      "page": 9
+    }
+  ],
+  "figure": "2609.37733_figures/2609.37733_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

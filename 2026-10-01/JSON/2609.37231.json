@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.37231",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Ultra-high-distance quantum memories from amplified qLDPC codes",
+  "authors": "Zijian Liang, Boren Gu, Yu-An Chen, Jens Eisert, Zongyuan Wang",
+  "abstract": "A large code distance does not by itself guarantee a well-protected quantum memory, as faults during syndrome extraction can propagate into correlated data errors. Certifying circuit distance becomes demanding as circuits grow. In this work, we introduce distance amplifiers, a modular approach to increasing both code distance and certified circuit-level protection in quantum low-density parity-check codes. The construction tensors a base code with an amplifier, adapting their syndrome-extraction circuits to the amplified code. To certify the resulting memory, we develop a fault-response certificate that yields rigorous lower bounds on circuit distance. Suitable gate ordering and flag qubits control correlated errors, allowing us to establish explicit conditions under which the amplified circuit distance equals the product of the constituent circuit distances. We prove this multiplicative relation for three types of amplifiers: the flagged $[[4,2,2]]$, hypergraph-product, and rotated surface codes. The certificate extends recursively, so the circuit distance multiplies exactly at every amplification step. For example, four successive applications of the flagged $[[4,2,2]]$ amplifier to a $[[18,4,4]]$ seed yield a $[[13320,64,64]]$ code with the circuit distance $d_{\\mathrm{circ}} \\geq 48$ and check weights $w \\leq 14$. We further show how individual logical qubits can be tracked explicitly through amplification. By enabling high-distance quantum memories to be built and certified from smaller building blocks, our framework offers a systematic route toward scalable fault-tolerant quantum computing.",
+  "url": "http://arxiv.org/abs/2609.37231v1",
+  "pdf": "https://arxiv.org/pdf/2609.37231v1",
+  "type": "theory",
+  "summary": "This work presents a novel 'distance amplifier' technique to construct quantum memories with exponentially increasing fault tolerance. By developing a fault-response certificate, the authors prove that the circuit distance of the resulting qLDPC code multiplies at each amplification step. This offers a systematic and scalable route toward fault-tolerant quantum computing.",
+  "main_problem": "The paper addresses the challenge of building quantum memories with sufficiently high fault tolerance, recognizing that simple code distance is insufficient due to error propagation during syndrome extraction.",
+  "main_result": "They introduce 'distance amplifiers' that allow for the modular, recursive construction of qLDPC codes, proving a multiplicative relationship for the certified circuit distance across amplification steps.",
+  "method": "The authors develop a 'fault-response certificate' and use a modular tensor-product approach to combine base codes with amplifiers, rigorously bounding the circuit distance.",
+  "model_or_system": "The system is a quantum memory encoded using quantum Low-Density Parity-Check (qLDPC) codes. The structure is built by tensoring a base code with an amplifier code, forming an amplified code T = Q $\\otimes$ A.",
+  "key_observables": "Certified circuit distance ($d_{\text{circ}}$), code parameters ($e_n, e_k$), and the logical error rate per round ($p_L$).",
+  "important_parameters": "The multiplicative gain factor ($\\alpha_P$) achieved by the amplifier, and the physical error probability ($p$).",
+  "main_assumptions": "The multiplicative property of the circuit distance holds when the seed certificate is attained, and the analysis relies on bounding fault costs by summing local responses.",
+  "figures_summary": "Figures illustrate recursive amplification structures and the staged joint syndrome extraction process, detailing error propagation and logical data responses.",
+  "paper_structure": "The paper progresses by first identifying the limitations of simple distance metrics, then introducing the distance amplifier framework, proving the multiplicative circuit distance bound for specific amplifiers, and finally demonstrating the recursive application to build high-distance codes.",
+  "why_interesting": "The rigorous, systematic framework for building fault-tolerant quantum memories by multiplying protection levels is highly relevant for designing scalable quantum computation architectures.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.37231_figures/2609.37231_fig1.jpg",
+      "caption": "FIG. 1. Recursive amplification and staged joint syndrome extraction. (a) Successive amplification. Starting from Q (0) = Q, each step applies the same amplifier according to Q (𝑡+1) = Q (𝑡) ⊗A. Blue and purple shading denote check connectivity inherited from the base code and amplifier, respectively. White circles are data qubits in the central (data–data) register 𝑄1 ⊗𝐴1. Orange circles are data qubits in the two side (check–check) registers, which complete the inherited and coupling checks while preserving commutation; the three data registers are defined in Eq. (12). (b) One round of staged joint syndrome extraction. Copies of the base-code extraction circuit run in parallel on central...",
+      "page": 2
+    },
+    {
+      "image": "2609.37231_figures/2609.37231_fig2.jpg",
+      "caption": "FIG. 2. Circuit-level memory performance under recur- sive amplification. Effective logical error rate 𝑝𝐿per logical qubit per noisy round versus physical error probability 𝑝for the [[18, 4, 4]] seed and its first three flagged [[4, 2, 2]] ampli- fications. Simulations use noiseless idling and independent BP+LSD decoding of the CSS sectors. Curves show em- pirical binomial maximum-likelihood fits and extrapolations using 𝑝𝐿= 𝑝𝛿/2 exp(𝑐0 + 𝑐1𝑝+ 𝑐2𝑝2) [15], with 𝛿= 4 for the seed and 𝛿= 6, 12, 24 for the three amplification levels, re- spectively, corresponding to the circuit-distance lower bounds shown in the legend.",
+      "page": 4
+    },
+    {
+      "image": "2609.37231_figures/2609.37231_fig3.jpg",
+      "caption": "FIG. 3. Flagged amplifier 𝑋-check core and its 20 single- fault cases. (a) Core circuit and fault positions before the newly appended side data couplings, with 𝑞𝑎= 𝑞⊗𝑒𝑎, 𝑠= 𝑞⊗ 𝑒𝑋, and 𝑓= 𝑓𝑋. Cases 1 and 20 are 𝑋errors immediately after flag preparation and before its 𝑍measurement, respectively. Each pair of orange boxes represents one CNOT fault, with the Pauli factors ordered as control and target. (b) Cases 2– 19 correspond to 𝑋⊗𝐼, 𝐼⊗𝑋, and 𝑋⊗𝑋after each of the six CNOTs. Each numbered case is considered separately, giving 20 cases at eight physical locations. The syndrome- preparation fault is a 𝑍error and is excluded from this pure-𝑋 list.",
+      "page": 17
+    },
+    {
+      "image": "2609.37231_figures/2609.37231_fig4.jpg",
+      "caption": "FIG. 4. A detected single fault with a logical data response. An 𝑋𝑎𝑋fault after the second 𝑋-check CNOT produces 𝑋3𝑋4, noisy outcomes (𝑚𝑋, 𝑚𝑍) = (0, 1), and zero terminal syndrome. Gates within each layer act on disjoint qubits simultaneously.",
+      "page": 26
+    },
+    {
+      "image": "2609.37231_figures/2609.37231_fig5.jpg",
+      "caption": "FIG. 5. Logical responses in an unflagged self-tensor circuit. In one noisy round, an ancilla-𝑋fault after the second central 𝑋-check CNOT in each amplifier row 𝑖= 1, 2 produces 𝑋𝑖,3𝑋𝑖,4𝑋𝑣. The side responses cancel, leaving a logical rectangle and noisy outcomes e𝑚𝐴 𝑍,1 = e𝑚𝐴 𝑍,2 = 1. Two additional readout faults hide these outcomes, giving a four-fault zero-record logical history. Colors distinguish the two hook responses.",
+      "page": 26
+    }
+  ],
+  "figure": "2609.37231_figures/2609.37231_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

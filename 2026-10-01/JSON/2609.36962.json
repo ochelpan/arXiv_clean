@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2609.36962",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cond-mat.mes-hall",
+    "cond-mat.mtrl-sci",
+    "physics.comp-ph"
+  ],
+  "is_primary_archive": false,
+  "title": "Deep Learning GW Quasiparticle Hamiltonians for Many-Body Excited-State Electronic Structure at Scale",
+  "authors": "Xiaoxun Gong, Zechen Tang, Woochang Kim, Yang Li, Wenhui Duan, Yong Xu, Steven G. Louie",
+  "abstract": "Accurate quasiparticle electronic structures are the foundation for understanding excited-state properties of materials and explaining optoelectronic, quantum, and transport phenomena. First-principles GW calculations nevertheless remain computationally intensive for large or configurationally complex systems. Here we introduce DeepH-GW, a deep-learning framework that predicts an effective GW quasiparticle Hamiltonian directly from atomic structure. Building on the local, equivariant message-passing architecture of DeepH, DeepH-GW is trained on high-fidelity plane-wave GW calculations through a real-space Hamiltonian-reconstruction interface. This approach combines the systematic accuracy and broad chemical applicability of plane-wave methods with linear-scaling neural-network inference. Across the systems examined, DeepH-GW reproduces quasiparticle band structures with errors on the order of a few meV. Moreover, we show that, despite the intrinsic nonlocality of many-body interactions, DeepH-GW exhibits strong cross-scale transferability from relatively small training structures to substantially larger supercells. We demonstrate that the framework can accurately capture GW-level electron-phonon band-gap renormalization through predictions in supercells with thermal displacements, illustrating the power of the approach. DeepH-GW therefore provides a practical route toward large-scale many-body simulations and foundation models for excited-state electronic structure.",
+  "url": "http://arxiv.org/abs/2609.36962v1",
+  "pdf": "https://arxiv.org/pdf/2609.36962v1",
+  "type": "theory",
+  "summary": "This paper presents DeepH-GW, a novel deep-learning framework designed to calculate accurate quasiparticle electronic structures by predicting the effective GW Hamiltonian directly from atomic structure. By combining the accuracy of plane-wave GW calculations with the efficiency of neural network inference, it achieves near-DFT accuracy at a much larger scale. This breakthrough provides a practical foundation model for simulating complex, many-body excited-state properties in materials.",
+  "main_problem": "The primary challenge is developing a computationally efficient method to calculate accurate quasiparticle electronic structures, which are foundational for understanding excited-state properties, while overcoming the high computational cost of standard first-principles GW calculations for large systems.",
+  "main_result": "The DeepH-GW framework successfully reproduces GW-level quasiparticle band structures with errors on the order of a few meV and demonstrates strong cross-scale transferability to large supercells.",
+  "method": "The authors introduce DeepH-GW, a deep-learning framework that predicts the effective GW quasiparticle Hamiltonian directly from the atomic structure, trained on high-fidelity plane-wave GW calculations.",
+  "model_or_system": "The method targets the effective GW quasiparticle Hamiltonian, which is constructed in a localized Atomic Orbital (AO) basis set. It bridges the systematic accuracy of plane-wave (PW) methods with the linear-scaling inference speed of neural networks.",
+  "key_observables": "Quasiparticle band structures, band gaps, and temperature-dependent electron-phonon band-gap renormalization.",
+  "important_parameters": "Errors on the order of a few meV; transferability from small training structures to substantially larger supercells.",
+  "main_assumptions": "The framework assumes that the static GW effective self-energy is sufficiently short-ranged (nearsighted) to be captured by local message-passing architectures, though long-range interactions require careful handling.",
+  "figures_summary": "Figures illustrate the workflow, showing the reconstruction of the AO effective GW Hamiltonian from PW data, and comparing predicted band structures and temperature-dependent band gaps against reference calculations and experimental data.",
+  "paper_structure": "The paper outlines the necessity of GW calculations, introduces the DeepH-GW architecture, details the training process using PW GW data to reconstruct the Hamiltonian in an AO basis, validates the accuracy and transferability across different system sizes, and finally demonstrates its application to temperature-dependent phenomena like electron-phonon coupling.",
+  "why_interesting": "While focused on condensed matter electronic structure, the core methodology—using deep learning to create a linear-scaling, highly accurate surrogate model for a complex many-body Hamiltonian (GW)—is a powerful general technique applicable to modeling Hamiltonians in AMO physics or open quantum systems.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.36962_figures/2609.36962_fig1.jpg",
+      "caption": "FIG. 1. Overview of the DeepH-GW method. (a) An effective GW Hamiltonian is constructed in a localized atomic-orbital (AO) basis from a first-principles high-fidelity GW calculation. Diagonalization of this Hamiltonian yields quasiparticle energies and wavefunctions from which excited-state properties can be evaluated. DeepH-GW learns the mapping from atomic structure to this reconstructed AO Hamiltonian. (b) Workflow for constructing the effective AO GW Hamiltonian according to Eq. (4). A plane-wave (PW) self- consistent DFT calculation provides the starting point for the PW GW calculation. In parallel, an AO basis is generated using an AO DFT calculation with the same set of...",
+      "page": 14
+    },
+    {
+      "image": "2609.36962_figures/2609.36962_fig2.jpg",
+      "caption": "FIG. 2. Validation of the reconstructed AO Hamiltonians against PW calculations at the DFT and GW levels. At the DFT level, the band structures obtained from the reconstructed AO Hamiltonians (blue lines) agree closely with the PW DFT results (blue dots) for (a) diamond and (b) GaP. At the GW level, the reconstructed AO effective GW Hamiltonians (red lines) reproduce the overall quasiparticle band structures obtained from PW GW calculations (red dots), with discrepancies for some conduction bands. In each panel, the valence- band maximum is set to zero.",
+      "page": 14
+    },
+    {
+      "image": "2609.36962_figures/2609.36962_fig3.jpg",
+      "caption": "FIG. 3. Accuracy and cross-scale transferability of DeepH-GW. (a) Band structure predicted by a DeepH- GW model trained on randomly displaced 3 × 3 × 3 diamond supercells and evaluated on an unseen supercell of the same size. (b) Corresponding result for GaP. (c) Prediction for a randomly displaced 6 × 6 × 6 diamond supercell using the model trained only on 3 × 3 × 3 structures. The mean absolute error (MAE) over the 20 bands closest to the Fermi level is 5.9 meV. (d) Corresponding cross-scale prediction for GaP. The corresponding MAE over the 40 closest bands is 9.7 meV. In all panels, the DeepH-GW predictions (blue dots) are compared with the eigenvalues of the reference PW-reconstructed...",
+      "page": 15
+    },
+    {
+      "image": "2609.36962_figures/2609.36962_fig4.jpg",
+      "caption": "FIG. 4. Temperature dependence of the fundamental (indirect) band gap of diamond. The temperature- dependent fundamental band gap computed using DeepH-GW is evaluated using the Zacharias-Giustino special-displacement method [56,57] averaged over an ensemble of ten 12 × 12 × 12 supercells. The DFT- level calculations with electron-phonon matrix elements from DFPT (blue line) underestimate the magnitude of the band-gap renormalization, whereas direct DeepH-GW simulations (red dots) yield substantially better agreement with experiment (black triangles). All values are reported relative to the corresponding 𝑇= 0 result. Thermal-expansion effects are included, and the red line serves as a guide...",
+      "page": 15
+    }
+  ],
+  "figure": "2609.36962_figures/2609.36962_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 2,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

@@ -1,0 +1,76 @@
+{
+  "arxiv_id": "2609.36710",
+  "category": "quantum information and computing",
+  "arxiv_categories": [
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Block-Wise Variational Quantum Algorithms for PDEs with Interface Penalty Constraints",
+  "authors": "Hangran Jie, Yuntao Cui, Sunho Kim",
+  "abstract": "Global variational quantum algorithm (VQA) frameworks for solving partial differential equations (PDEs) often rely on a single expressive ansatz over a uniform grid, which becomes structurally inefficient when solutions exhibit spatially heterogeneous complexity such as localized singularities or thin boundary layers. A localized nonsmooth feature can degrade the convergence of the entire global quantum representation, imposing unnecessary circuit depth and amplifying the risk of vanishing gradients in barren plateaus.   To overcome this limitation, we propose a block-wise VQA framework for PDEs characterized by spatially heterogeneous solution complexity. The computational domain is decomposed into locally represented quantum subproblems, where grid budgets and ansatz families are dynamically assigned based on a computable difficulty indicator. Artificial block interfaces are coupled through unified jump penalties for state values, derivatives, and physical fluxes, while adaptive reblocking tracks moving rough regions to maintain local accuracy without excessive global qubit overhead. The error analysis rigorously separates spatial discretization, ansatz expressivity, optimization convergence, finite-shot sampling noise, transfer errors from reblocking, and interface-coupling contributions. Reproducible residual-based simulations on representative elliptic, advection--diffusion, and Burgers problems demonstrate lower approximation errors and reduced peak local circuit width compared to global VQA approaches. These results substantiate block-wise quantum resource localization, confirming that high-fidelity PDE solutions can be achieved on near-term quantum devices without requiring a single globally expressive ansatz.",
+  "url": "http://arxiv.org/abs/2609.36710v1",
+  "pdf": "https://arxiv.org/pdf/2609.36710v1",
+  "type": "both",
+  "summary": "This paper introduces a block-wise Variational Quantum Algorithm framework designed to solve PDEs whose solutions are not uniform across the domain. By decomposing the problem into smaller, locally optimized quantum subproblems coupled by interface penalties, it overcomes the resource limitations of global quantum representations. This approach proves that high-fidelity quantum simulation of complex PDEs is feasible on near-term quantum hardware.",
+  "main_problem": "Developing Variational Quantum Algorithms (VQAs) to solve Partial Differential Equations (PDEs) that exhibit spatially heterogeneous complexity, such as localized singularities or thin boundary layers.",
+  "main_result": "The block-wise VQA framework achieves lower approximation errors and reduced peak local circuit width compared to global VQA approaches, demonstrating that high-fidelity PDE solutions are possible without a single globally expressive ansatz.",
+  "method": "The method decomposes the computational domain into locally represented quantum subproblems (blocks), coupling them via unified jump penalties inspired by Discontinuous Galerkin methods.",
+  "model_or_system": "The model involves solving general PDEs (elliptic, advection-diffusion, Burgers) over a spatial domain $\\Omega$, which is adaptively partitioned into smaller blocks $I_i$. The solution is encoded into a quantum state $|\\psi(\theta)\rangle$.",
+  "key_observables": "Approximation errors, peak local circuit width, residual-based loss function values, and error contributions separated by source (e.g., interface coupling, ansatz expressivity).",
+  "important_parameters": "The computational budget (qubit count/grid size) and the local difficulty indicator $\\eta(x)$ used for adaptive reblocking.",
+  "main_assumptions": "The analysis relies on rigorously separating various error contributions and assumes a PDE-dependent stability condition for the residual-to-solution control.",
+  "figures_summary": "The notes mention comparing results against global VQA approaches, showing error reduction and reduced peak circuit width for the block-wise method in various PDE tests.",
+  "paper_structure": "The paper introduces the problem limitation of global ansatzes, proposes the block-wise decomposition and coupling mechanism, details the adaptive resource allocation and error analysis, and validates the approach through residual-based simulations on multiple PDE types.",
+  "why_interesting": "It provides a concrete, resource-aware quantum algorithm design pattern for simulating complex physical systems governed by PDEs, moving beyond idealized global representations.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.36710_figures/2609.36710_fig1.jpg",
+      "caption": "Fig. 1 Workflow of the proposed block-wise VQA–PDE framework. Stage 1 defines the PDE, initial and physical-boundary data, time horizon, and available resources. Stage 2 evaluates the normalized local- difficulty monitor and identifies rough regions. Stage 3 places block interfaces and assigns power-of-two grid budgets, qubit widths, and block-dependent ansatz families. Stage 4 minimizes local PDE residuals together with the physical-boundary loss and value, derivative, and PDE-dependent flux interface penalties. Stage 5 reconstructs the global field, evaluates accuracy and resource diagnostics, and triggers adaptive reblocking when the current partition becomes inadequate. A reblocking...",
+      "page": 14
+    },
+    {
+      "image": "2609.36710_figures/2609.36710_fig2.jpg",
+      "caption": "Fig. 2 Experiment 1, shown at the fixed panel height used throughout this section. Top left: reference, global, and flux-controlled block profiles at the matched budget; the dashed line is the material interface. Top right: relative error versus total ansatz parameters. Bottom left: closure/grid convergence, with approximately second-order decay. Bottom center: field error versus the common interface weight. Bottom right: RMS value and physical-flux jumps versus that weight. The unstable no-flux profile is omitted from the profile scale but retained in the numerical comparison",
+      "page": 16
+    },
+    {
+      "image": "2609.36710_figures/2609.36710_fig3.jpg",
+      "caption": "Fig. 3 Experiment 2, with every ordinary panel shown at the common fixed height. First row, left: final reference, global, and controlled block profiles; dashed lines delimit the rough block selected from u0. First row, right: relative error versus total ansatz parameters, including the moderate-budget block gain and higher-budget global crossover. Second row: field error and interface jumps versus the common value/flux weight. Third row: the separate five-qubit ULA statevector check; points are medians over ten initializations and the band is the 25–75 percentile range",
+      "page": 17
+    },
+    {
+      "image": "2609.36710_figures/2609.36710_fig4.jpg",
+      "caption": "Fig. 4 Experiment 3, with both rows shown at the common fixed height. Top: nonlinear solution comparison at T = 0.02; the black, blue, and green curves are the reference, global, and value-plus-flux block solutions, and dashed lines mark the rough-block interfaces. Bottom left: directly measured optimizer deviation Eopt versus loss gap ∆opt for ten fixed-budget seeds. Bottom right: median shot-induced deviation versus shots per residual group; faint lines show individual seeds and the central trend follows M −1/2. The divergent no-interface profile is omitted from the plotted range but retained in the error table.",
+      "page": 18
+    },
+    {
+      "image": "2609.36710_figures/2609.36710_fig5.jpg",
+      "caption": "Fig. 5 Experiment 4 results grouped with their governing equations and discussion. Top: relative errors and stepwise interface trajectories; dotted vertical lines mark the three reblocking events. Middle: four field snapshots, with dashed adaptive interfaces. Bottom: event count and cumulative transfer error with and without hysteresis. Panel heights follow the common convention used in the preceding experiments",
+      "page": 20
+    }
+  ],
+  "figure": "2609.36710_figures/2609.36710_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 0,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 1,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}

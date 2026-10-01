@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2609.37193",
+  "category": "numerical methods",
+  "arxiv_categories": [
+    "cs.NE",
+    "quant-ph"
+  ],
+  "is_primary_archive": true,
+  "title": "Adaptive Rotation for iSOMA: Geometry, Benchmarking, and Noise Robustness in Variational Quantum Objectives",
+  "authors": "Vojtěch Novák, Ivan Zelinka",
+  "abstract": "We study whether the coordinate dependence of the improved Self-Organizing Migrating Algorithm (iSOMA) can be reduced while retaining its inexpensive leader-directed migration mechanism. We introduce iSOMA-AR, which learns a basis from successful migration displacements and selectively applies the standard perturbation mask in that basis. On the complete noiseless BBOB suite, iSOMA- AR significantly outperformed baseline iSOMA across matched conditions, with the largest gains on geometrically difficult landscapes. A targeted ablation shows that the learned orientation is beneficial on a rotated ill-conditioned landscape and that moderate changes of the gate threshold and rotation cap preserve the qualitative result. On CEC 2011 Real World Optimization Problems, iSOMA-AR outperformed iL-SHADE on most problems, although its advantage over baseline iSOMA was not statistically significant. A canonical-jSO rerun is reported as a post-hoc sensitivity check alongside the original jSO-derived comparator. On frustrated-spin variational quantum objectives, adaptive rotation improved most transverse-field conditions, while gains on the diagonal and anisotropic models were absent or selective. Under strong effective sampling noise, the SOMA variants were the most robust population-based methods in the comparison, but iSOMA-AR was not significantly better than baseline iSOMA. Repairing all-zero PRT masks greatly reduced repeated-point evaluations without changing endpoint quality significantly, making this implementation detail unlikely to explain the noise result. Overall, adaptive rotation is most useful on coordinate-sensitive deterministic problems, while the observed noise robustness appears to arise mainly from the underlying SOMA migration mechanism.",
+  "url": "http://arxiv.org/abs/2609.37193v1",
+  "pdf": "https://arxiv.org/pdf/2609.37193v1",
+  "type": "both",
+  "summary": "This paper introduces iSOMA-AR, an enhanced optimization algorithm that uses adaptive rotation to learn an optimal basis for guiding search proposals in complex, coordinate-dependent landscapes. It demonstrates that this technique significantly boosts performance on deterministic black-box benchmarks and improves optimization for certain quantum spin models. The work highlights that while adaptive rotation is powerful for geometry, the overall noise robustness of the method relies more on the underlying SOMA migration mechanism.",
+  "main_problem": "The paper addresses the challenge of optimizing Variational Quantum Objectives (VQOs) by improving the search mechanism of the iSOMA algorithm to reduce coordinate dependence.",
+  "main_result": "Adaptive rotation (iSOMA-AR) significantly outperforms baseline iSOMA on noiseless, geometrically difficult black-box optimization benchmarks, suggesting its utility in coordinate-sensitive deterministic problems.",
+  "method": "The core method is iSOMA-AR, which learns an optimal basis from successful migration displacements to selectively apply the perturbation mask, guiding the search along local geometric features.",
+  "model_or_system": "The work benchmarks optimization on general black-box global optimization problems (BBOB, CEC 2011) and specific quantum objectives derived from frustrated-spin models (Hamiltonians $H_{SG}, Q1, Q2, Q3$).",
+  "key_observables": "Performance metrics include success rates, convergence trajectories (mean rank), and the comparison of objective function values ($E_{best} - E_0$) across different noise levels.",
+  "important_parameters": "Key parameters include the learning rate ($\\eta$), the off-axis score threshold ($\rho > 0.18$), and the noise strength applied to the quantum evaluations.",
+  "main_assumptions": "The primary assumption is that the standard PRT mask is suboptimal because it is tied to the global coordinate system, which iSOMA-AR attempts to correct by learning a local basis.",
+  "figures_summary": "Figures illustrate the improved proposal geometry of iSOMA-AR over standard iSOMA on rotated valleys, and tables summarize performance comparisons across BBOB and CEC 2011 benchmarks.",
+  "paper_structure": "The paper introduces iSOMA-AR, details its mechanism using learned bases, benchmarks it extensively on noiseless BBOB and CEC 2011 problems, tests its application on frustrated-spin VQA objectives, and finally analyzes its robustness under increasing noise.",
+  "why_interesting": "While the focus is on optimization algorithms, the application to VQOs and the explicit comparison of search geometry against physical Hamiltonians makes it relevant to understanding the optimization landscape of quantum circuits.",
+  "analysis_basis": "full PDF text, analyzed in chunks",
+  "figures": [
+    {
+      "image": "2609.37193_figures/2609.37193_fig1.jpg",
+      "caption": "Fig. 1 Illustrative proposal geometry on a rotated Rosenbrock valley. With the same partially active perturbation mask, standard iSOMA applies masking in the original coordinate system, whereas iSOMA-AR applies it in the learned basis Qs. The rotated proposals follow the valley geometry more directly and make faster progress toward the leader. Discrete points denote evaluated path locations and diamonds denote accepted replacements.",
+      "page": 4
+    },
+    {
+      "image": "2609.37193_figures/2609.37193_fig2.jpg",
+      "caption": "Fig. 2 COCO-style fixed-target ECDF across all BBOB functions, dimensions, instances, and 51 target precisions at the 2000D budget. The jSO-derived and jSO-canonical implementations are shown as separate curves; canonical jSO is a post-hoc sensitivity comparator and is not included in the primary five-method rank analysis.",
+      "page": 9
+    },
+    {
+      "image": "2609.37193_figures/2609.37193_fig3.jpg",
+      "caption": "Fig. 3 COCO-style fixed-target ECDF split by the five official BBOB function groups.",
+      "page": 10
+    },
+    {
+      "image": "2609.37193_figures/2609.37193_fig4.jpg",
+      "caption": "Fig. 4 Distribution of log10(errorAR/erroriSOMA) by BBOB function. Values below zero favor iSOMA-AR.",
+      "page": 10
+    },
+    {
+      "image": "2609.37193_figures/2609.37193_fig5.jpg",
+      "caption": "Fig. 5 Diagnostic normalized-target ECDF over the 22 CEC 2011 real-world problems. Targets are relative gap reductions reconstructed from saved checkpoints; this diagnostic lies outside the official CEC/COCO metrics.",
+      "page": 12
+    }
+  ],
+  "figure": "2609.37193_figures/2609.37193_fig1.jpg",
+  "highlighted": [],
+  "topic_scores": {
+    "analog quantum simulation": 3,
+    "Full counting statistics": 0,
+    "Rydberg arrays": 0,
+    "QC/QI experiment": 0,
+    "quantum optics experiment": 0,
+    "Tavis-Cummings & cavity-many-emitter": 0,
+    "superradiant laser": 0,
+    "correlated / nonlocal dissipation": 0,
+    "Dicke superradiance": 0,
+    "free-space correlated emission": 0,
+    "Frenkel-Kontorova": 0,
+    "driven-dissipative phase transition": 0,
+    "non-equilibrium universality": 0,
+    "scars & prethermalization": 0,
+    "quantum measurements": 0,
+    "Keldysh / 2PI / non-Gaussian methods": 0,
+    "interference shaping light": 0,
+    "methods for driven-dissipative": 0
+  },
+  "citation_potential": {}
+}
